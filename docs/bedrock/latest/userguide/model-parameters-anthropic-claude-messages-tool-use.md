@@ -367,11 +367,17 @@ Anthropic defined tool in the same API call.
 Automatic tool call clearing is made available as a "Beta Service" as defined in
 the AWS Service Terms.
 
-Claude Sonnet 4.5 supports a new beta feature that automatically clears old tool use
-results as you approach token limits, allowing for more efficient context management in
+###### Note
+
+This feature is currently supported on Claude Sonnet 4.5, Claude Haiku 4.5, and Claude Opus 4.5.
+Support for Claude Opus 4, Claude Opus 4.1, and Claude Sonnet 4 will be added by January 15th 2026.
+
+Automatic tool call clearing is an Anthropic Claude model capability (in beta). With this feature,
+Claude can automatically clear old tool use results as you approach token limits,
+allowing for more efficient context management in
 multi-turn tool use scenarios. To use tool use clearing, you need to add
 `context-management-2025-06-27` to the list of beta headers on the
-anthropic_beta request parameter. You will also need to specify the the use of
+anthropic_beta request parameter. You will also need to specify the use of
 `clear_tool_uses_20250919` and choose from the following configuration
 options.
 
@@ -463,6 +469,15 @@ Response
             }
         }
     ],
+    "context_management": {
+        "applied_edits": [
+            {
+                "type": "clear_tool_uses_20250919",
+                "cleared_tool_uses": 8,  # Number of tool use/result pairs that were cleared
+                "cleared_input_tokens": 50000  # Total number of input tokens removed from the prompt
+            }
+        ]
+    }
     "stop_reason": "tool_use",
     "usage": {
         "input_tokens": 150,
@@ -500,29 +515,6 @@ data: {"type": "message_stop"}
   "context_management": {
     "applied_edits": [...],
   }
-}
-```
-
-When using Claude Sonnet 4.5 with automatic tool call clearing, the response includes
-additional context management information:
-
-```
-{
-    "id": "msg_013Zva2CMHLNnXjNJJKqJ2EF",
-    "type": "message",
-    "role": "assistant",
-    "content": [...],
-    ...
-    "usage": {...},
-    "context_management": {
-        "applied_edits": [
-            {
-                "type": "clear_tool_uses_20250919",
-                "cleared_tool_uses": 8,  # Number of tool use/result pairs that were cleared
-                "cleared_input_tokens": 50000  # Total number of input tokens removed from the prompt
-            }
-        ]
-    }
 }
 ```
 

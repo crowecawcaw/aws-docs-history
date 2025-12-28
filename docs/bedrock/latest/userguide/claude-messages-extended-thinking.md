@@ -34,6 +34,7 @@ across model versions](claude-messages-thinking-differences.md "claude-messages-
   thinking](#claude-messages-use-extended-thinking "#claude-messages-use-extended-thinking")
 - [Extended thinking with
   tool use](#claude-messages-extended-thinking-tool-use "#claude-messages-extended-thinking-tool-use")
+- [Thinking block clearing (beta)](#claude-messages-thinking-block-clearing "#claude-messages-thinking-block-clearing")
 - [Extended thinking
   with prompt caching](#claude-messages-extended-thinking-prompt-caching "#claude-messages-extended-thinking-prompt-caching")
 - [Understanding thinking block caching behavior](#claude-messages-extended-thinking-caching-behavior "#claude-messages-extended-thinking-caching-behavior")
@@ -473,6 +474,143 @@ To enable interleaved thinking, add the beta header
 With interleaved thinking, the `budget_tokens` can exceed the
 `max_tokens` parameter because it represents the total budget
 across all thinking blocks within one assistant turn.
+
+## Thinking block clearing (beta)
+
+###### Warning
+
+Thinking block clearing is made available as a "Beta Service" as defined in
+the AWS Service Terms.
+
+###### Note
+
+This feature is currently supported on Claude Sonnet 4.5, Claude Haiku 4.5, and Claude Opus 4.5.
+Support for Claude Opus 4, Claude Opus 4.1, and Claude Sonnet 4 will be added by January 15th, 2026.
+
+Thinking block clearing is an Anthropic Claude model capability (in beta).
+With this feature, Claude can automatically clear
+older thinking blocks from previous turns. To use Thinking block clearing, you need to add
+`context-management-2025-06-27` to the list of beta headers on the
+anthropic_beta request parameter. You will also need to specify the use of
+`clear_thinking_20251015` and choose from the following configuration
+options.
+
+These are the available controls for the `clear_thinking_20251015` context
+management strategy. All are optional or have defaults:
+
+| **Configuration Option**           | **Description**                                                                                                                                                                                                              |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep`<br>default: 1 thinking turn | Defines how many recent assistant turns with thinking blocks to preserve.<br>Use `{"type": "thinking_turns", "value": N}` where N must be > 0 to<br>keep the last N turns, or `{"type": "all"}` to keep all thinking blocks. |
+
+Request
+
+```
+{
+      "anthropic_version": "bedrock-2023-05-31",
+      "max_tokens": 10000,
+      "anthropic_beta": [
+        "context-management-2025-06-27"
+      ],
+      "thinking": {
+        "type": "enabled",
+        "budget_tokens": 4000
+      },
+      "tools": [
+        {
+          "name": "get_weather",
+          "description": "Get current weather for a location",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        }
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "content": "What's the weather in Paris?"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "thinking",
+              "thinking": "The user is asking for the weather in Paris. I have access to a get_weather function that takes a location as a parameter. I have all the information I need to make this call - the location is \"Paris\".\n\nLet me call the get_weather function with \"Paris\" as the location.",
+              "signature": "ErgDCkgIChABGAIqQC/Ccv8GC+5VfcMEiq78XmpU2Ef2cT+96pHKMedKcRNuPz1x0kFlo5HBpW0r1NcQFVQUPuj6PDmP7jdHY7GsrUwSDKNBMogjaM7wYkwfPhoMswjlmfF09JLjZfFlIjB03NkghGOxLbr3VCQHIY0lMaV9UBvt7ZwTpJKzlz+mulBysfvAmDfcnvdJ/6CZre4qnQJsTZaiXdEgASwPIc5jOExBguerrtYSWVC/oPjSi7KZM8PfhP/SPXupyLi8hwYxeqomqkeG7AQhD+3487ecerZJcpJSOSsf0I1OaMpmQEE/b7ehnvTV/A4nLhxIjP4msyIBW+dVwHNFRFlpJLBHUJvN99b4run6YmqBSf4y9TyNMfOr+FtfxedGE0HfJMBd4FHXmUFyW5y91jAHMWqwNxDgacaKkFCAMaqce5rm0ShOxXn1uwDUAS3jeRP26Pynihq8fw5DQwlqOpo7vvXtqb5jjiCmqfOe6un5xeIdhhbzWddhEk1Vmtg7I817pM4MZjVaeQN02drPs8QgDxihnP6ZooGhd6FCBP2X3Ymdlj5zMlbVHxmSkA4wcNtg4IAYAQ=="
+            },
+            {
+              "type": "tool_use",
+              "id": "toolu_bdrk_01U7emCvL5v5z5GT7PDr2vzc",
+              "name": "get_weather",
+              "input": {
+                "location": "Paris"
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_bdrk_01U7emCvL5v5z5GT7PDr2vzc",
+              "content": "Current temperature: 88°F"
+            }
+          ]
+        }
+      ],
+      "context_management": {
+        "edits": [
+          {
+            "type": "clear_thinking_20251015",
+            "keep": {
+              "type": "thinking_turns",
+              "value": 1
+            }
+          }
+        ]
+      }
+    }
+```
+
+Response
+
+```
+{
+      "model": "claude-haiku-4-5-20251001",
+      "id": "msg_bdrk_01KyTbyFbdG2kzPwWMJY1kum",
+      "type": "message",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "The current weather in Paris is **88°F** (approximately 31°C). It's quite warm! If you need more detailed information like humidity, wind conditions, or a forecast, please let me know."
+        }
+      ],
+      "stop_reason": "end_turn",
+      "stop_sequence": null,
+      "usage": {
+        "input_tokens": 736,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "output_tokens": 47
+      },
+      "context_management": {
+        "applied_edits": [...]
+      }
+    }
+```
 
 ## Extended thinking
 

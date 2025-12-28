@@ -18,8 +18,12 @@ Each line contains a JSON object with a `recordId` field and a `modelInput` fiel
     + The order of records in the output JSONL file is not guaranteed to match the order of records in the input JSONL file.
     + You specify the model that you want to use when you create the [batch inference job](batch-inference-create.md "batch-inference-create.md").
 
-- (If you define input content as an Amazon S3 location) Some models allow you to define the content of the input as an S3 location. If you choose this option, ensure that the S3 location that you'll specify contains both your content and your JSONL files. Your content and JSONL files can be nested in folders at the S3 location that you specify. For an example, see [Example video input for Amazon Nova](#batch-inference-data-ex-s3 "#batch-inference-data-ex-s3").
-  Ensure that your inputs conform to the batch inference quotas. You can search for the following quotas at [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock"):
+- (If your input content contains an Amazon S3 location) Some models allow you to define the content of the input as an S3 location. See [Example video input for Amazon Nova](#batch-inference-data-ex-s3 "#batch-inference-data-ex-s3").
+
+###### Warning
+
+When using S3 URIs in your prompts, all resources must be in the same S3 bucket and folder. The `InputDataConfig` parameter must specify the folder path containing all linked resources (such as videos or images), not just an individual `.jsonl` file. Note that S3 paths are case-sensitive, so ensure your URIs match the exact folder structure.
+Ensure that your inputs conform to the batch inference quotas. You can search for the following quotas at [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock"):
 
 - **Minimum number of records per batch inference job** – The minimum number of records (JSON objects) across JSONL files in the job.
 - **Records per input file per batch inference job** – The maximum number of records (JSON objects) in a single JSONL file in the job.
@@ -59,12 +63,13 @@ to run batch inference using the [Messages API](model-parameters-anthropic-claud
 If you plan to run batch inference on video inputs using the Amazon Nova Lite or Amazon Nova Pro models, you have the option of defining the video in bytes or as an S3 location in the JSONL file. For example, you might have an S3 bucket whose path is `s3://batch-inference-input-bucket` and contains the following files:
 
 ```
-videos/
-    video1.mp4
-    video2.mp4
-    ...
-    video50.mp4
-input.jsonl
+s3://batch-inference-input-bucket/
+├── videos/
+│   ├── video1.mp4
+│   ├── video2.mp4
+│   ├── ...
+│   └── video50.mp4
+└── input.jsonl
 ```
 
 A sample record from the `input.jsonl` file would be the following:
@@ -98,7 +103,7 @@ A sample record from the `input.jsonl` file would be the following:
 }
 ```
 
-When you create the batch inference job, you can specify `s3://batch-inference-input-bucket` as the S3 location. Batch inference will process the `input.jsonl` file in the location, in addition to the video files within the `videos` folder that are referenced in the JSONL file.
+When you create the batch inference job, must specify the folder path `s3://batch-inference-input-bucket` in your `InputDataConfig` parameter. Batch inference will process the `input.jsonl` file at this location, along with any referenced resources (such as the video files in the `videos` subfolder).
 
 The following resources provide more information about submitting video inputs for batch inference:
 
