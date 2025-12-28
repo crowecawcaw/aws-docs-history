@@ -28,8 +28,6 @@ Use these instructions only for migrating gateway appliances running version 1.x
 | **Down time**       | Your gateway will be offline for 1-2 hours during the migration<br>process.                                                                                                                         | File shares are always available, but clients will experience short<br>cutover downtime when switching from one file share to another during<br>the transition to the new instance.<br>NoteWriting to one Amazon S3 bucket from two file shares simultaneously is<br>_not supported_, so all clients must be<br>remapped from one share to the other simultaneously, rather than<br>gradually. |
 | **Gateway ID**      | The new gateway inherits the Gateway ID from the gateway it<br>replaces.                                                                                                                            | The existing gateway and replacement gateway have separate, unique<br>Gateway IDs.                                                                                                                                                                                                                                                                                                             |
 
-\*Method 1 is only supported when migrating between gateways that have the same generation and major version number.
-
 ###### Note
 
 Migration can only be performed between gateways of the same type. For example, you
