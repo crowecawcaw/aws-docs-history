@@ -17,6 +17,7 @@ frequently to address the feedback that you send us.
 
 ###### Topics
 
+- [2025.0-544— December 23, 2025](#sm-2025.0-544 "#sm-2025.0-544")
 - [2025.0-539— November 12, 2025](#sm-2025.0-539-nov "#sm-2025.0-539-nov")
 - [2025.0-539— October 22, 2025](#sm-2025.0-539 "#sm-2025.0-539")
 - [2024.0-531— June 17, 2025](#sm-2024.0-531 "#sm-2024.0-531")
@@ -39,6 +40,12 @@ frequently to address the feedback that you send us.
 - [2021.0-10242— April 12, 2021](#sm-2021.0-10242 "#sm-2021.0-10242")
 - [2020.2-9662— December 04, 2020](#sm-2020.2-9662 "#sm-2020.2-9662")
 - [2020.2-9508— November 11, 2020](#sm-2020.2-9508 "#sm-2020.2-9508")
+
+### 2025.0-544— December 23, 2025
+
+| Build numbers                               | Changes and bug fixes                                                                                                                                           |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Broker: 544<br>• Agent: 893<br>• CLI: 159 | • Increased WebSocket message size limit to resolve screenshot retrieval failures on macOS hosts.<br>• Updated Windows build environment to Visual Studio 2022. |
 
 ### 2025.0-539— November 12, 2025
 
@@ -178,6 +185,7 @@ The following table describes the documentation for this release of Amazon DCV S
 
 | Change                                        | Description                                                                                                                                                                   | Date               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| Amazon DCV Version 2025.0-544                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-544. For more information, see<br>[2025.0-544— December 23, 2025](#sm-2025.0-544 "#sm-2025.0-544").         | December 23, 2025  |
 | Amazon DCV Version 2025.0-539                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-539. For more information, see<br>[2025.0-539— November 12, 2025](#sm-2025.0-539-nov "#sm-2025.0-539-nov"). | November 12, 2025  |
 | Amazon DCV Version 2025.0-539                 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-539. For more information, see<br>[2025.0-539— October 22, 2025](#sm-2025.0-539 "#sm-2025.0-539").          | October 22, 2025   |
 | Amazon DCV Version 2024.0-531                 | Amazon DCV Session Manager has been updated for Amazon DCV 2024.0-531. For more information, see<br>[2024.0-531— June 17, 2025](#sm-2024.0-531 "#sm-2024.0-531").             | June 17, 2025      |
