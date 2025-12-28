@@ -20,7 +20,7 @@ The guidance uses a phase-based deployment approach, allowing organizations to s
 
 The following diagram illustrates the complete Connected Mobility guidance architecture, showing all components and data flows from vehicle ingestion through processing to storage and user interface.
 
-![Connected Mobility Complete Architecture](/images/guidance/latest/connected-mobility-on-aws/images/architecture_final.png)
+![Connected Mobility Complete Architecture](images/architecture_final.png)
 
 **Key Data Flows**:
 
