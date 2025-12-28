@@ -1,14 +1,12 @@
 #
 
-Edit a custom routing accelerator in Global Accelerator
+View custom routing accelerators in Global Accelerator
 
-This section provides steps for how to update a custom accelerator on the console. To work with Global Accelerator
-programmatically, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
+This section provides steps to view information about your custom routing accelerators on the console. To see descriptions of your custom routing accelerators programmatically,
+see [ListCustomRoutingAccelerator](../api/API_ListCustomRoutingAccelerator.md "../api/API_ListCustomRoutingAccelerator.md") and
+[DescribeCustomRoutingAccelerator](../api/API_DescribeCustomRoutingAccelerator.md "../api/API_DescribeCustomRoutingAccelerator.md") in the AWS Global Accelerator API Reference.
 
-# To edit a custom routing accelerator
+# To view information about your custom routing accelerators
 
-1. Open the Global Accelerator console at [https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:](https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome: "https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:").
-2. In the list of custom routing accelerators, choose one, and then choose **Edit**.
-3. On the **Edit accelerator** page, make any changes that you like. For example, you
-   can disable the accelerator so that you can delete it.
-4. Choose **Save**.
+1. Open the Global Accelerator console at [https://console.aws.amazon.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home "https://console.aws.amazon.com/globalaccelerator/home").
+2. To see details about an accelerator, choose an accelerator, and then choose **View**.
