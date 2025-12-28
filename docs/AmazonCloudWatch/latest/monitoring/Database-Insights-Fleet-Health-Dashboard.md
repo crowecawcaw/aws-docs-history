@@ -2,7 +2,7 @@
 
 You can use the Fleet Health Dashboard to view a snapshot of the health of your database fleet.
 
-![Fleet Health Dashboard](images/dbi_fhd.png)
+![Fleet Health Dashboard](/images/AmazonCloudWatch/latest/monitoring/images/dbi_fhd.png)
 
 ## Fleet health views
 
