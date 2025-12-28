@@ -1,57 +1,54 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Correlation
+# Derivatives
 
 functions
 
-Given two similar length time series, correlation functions provide a correlation
-coefficient, which explains how the two time series trend over time. The correlation
-coefficient ranges from `-1.0` to `1.0`. `-1.0`
-indicates that the two time series trend in opposite directions at the same rate.
-whereas `1.0` indicates that the two timeseries trend in the same
-direction at the same rate. A value of `0` indicates no correlation
-between the two time series. For example, if the price of oil increases, and the
-stock price of an oil company increases, the trend of the price increase of oil and
-the price increase of the oil company will have a positive correlation coefficient.
-A high positive correlation coefficient would indicate that the two prices trend at
-a similar rate. Similarly, the correlation coefficient between bond prices and bond
-yields is negative, indicating that these two values trends in the opposite
-direction over time.
+Derivatives are used calculate the rate of change for a given metric and can be
+used to proactively respond to an event. For example, suppose you calculate the
+derivative of the CPU utilization of EC2 instances over the past 5 minutes, and you
+notice a significant positive derivative. This can be indicative of increased demand
+on your workload, so you may decide want to spin up more EC2 instances to better
+handle your workload.
 
-Amazon Timestream supports two variants of correlation functions. This section
-provides usage information for the Timestream for LiveAnalytics correlation functions, as well as sample
+Amazon Timestream supports two variants of derivative functions. This section
+provides usage information for the Timestream for LiveAnalytics derivative functions, as well as sample
 queries.
 
 ## Usage information
 
-| Function                                        | Output data type | Description                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `correlate_pearson(timeseries,<br>timeseries)`  | double           | Calculates [Pearson's correlation coefficient](https://wikipedia.org/wiki/Pearson_correlation_coefficient "https://wikipedia.org/wiki/Pearson_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps.                            |
-| `correlate_spearman(timeseries,<br>timeseries)` | double           | Calculates [Spearman's correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient "https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps. |
+| Function                                                  | Output data type | Description                                                                                                                                                                      |
+| --------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `derivative_linear(timeseries,<br>interval)`              | timeseries       | Calculates the [derivative](https://wikipedia.org/wiki/Derivative "https://wikipedia.org/wiki/Derivative") of each point in the<br>`timeseries` for the specified<br>`interval`. |
+| `non_negative_derivative_linear(timeseries,<br>interval)` | timeseries       | Same as `derivative_linear(timeseries,<br>interval)`, but only returns positive<br>values.                                                                                       |
 
 ## Query examples
 
+Find the rate of change in the CPU utilization every 5 minutes over the
+past 1 hour:
+
 ```
-WITH cte_1 AS (
-    SELECT INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(time, measure_value::double),
-        SEQUENCE(min(time), max(time), 10m)) AS result
-    FROM sample.DevOps
-    WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv' AND time > ago(1h)
-    GROUP BY hostname, measure_name
-),
-cte_2 AS (
-    SELECT INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(time, measure_value::double),
-        SEQUENCE(min(time), max(time), 10m)) AS result
-    FROM sample.DevOps
-    WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv' AND time > ago(1h)
-    GROUP BY hostname, measure_name
+SELECT DERIVATIVE_LINEAR(CREATE_TIME_SERIES(time, measure_value::double), 5m) AS result
+FROM “sampleDB”.DevOps
+WHERE measure_name = 'cpu_utilization'
+AND hostname = 'host-Hovjv' and time > ago(1h)
+GROUP BY hostname, measure_name
+```
+
+Calculate the rate of increase in errors generated by one or more
+microservices:
+
+```
+WITH binned_view as (
+    SELECT bin(time, 5m) as binned_timestamp, ROUND(AVG(measure_value::double), 2) as value
+    FROM “sampleDB”.DevOps
+    WHERE micro_service = 'jwt'
+    AND time > ago(1h)
+    AND measure_name = 'service_error'
+    GROUP BY bin(time, 5m)
 )
-SELECT correlate_pearson(cte_1.result, cte_2.result) AS result
-FROM cte_1, cte_2
+SELECT non_negative_derivative_linear(CREATE_TIME_SERIES(binned_timestamp, value), 1m) as rateOfErrorIncrease
+FROM binned_view
 
 ```

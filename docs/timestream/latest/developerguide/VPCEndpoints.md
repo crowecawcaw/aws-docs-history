@@ -1,36 +1,32 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Creating a VPC endpoint policy for
+# VPC endpoints
 
-Timestream for LiveAnalytics
+(AWS PrivateLink)
 
-You can attach an endpoint policy to your VPC endpoint that controls access to
-Timestream for LiveAnalytics. The policy specifies the following information:
+You can establish a private connection between your VPC and Amazon Timestream for LiveAnalytics by creating an
+_interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
+to privately access Timestream for LiveAnalytics APIs without an internet gateway, NAT device, VPN
+connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP
+addresses to communicate with Timestream for LiveAnalytics APIs. Traffic between your VPC and Timestream for LiveAnalytics
+does not leave the Amazon network.
 
-- The principal that can perform actions.
-- The actions that can be performed.
-- The resources on which actions can be performed.
-  For more information, see [Controlling access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
+Each interface endpoint is represented by one or more [Elastic Network Interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in your
+subnets. For more information on Interface VPC
+endpoints, see [Interface VPC
+endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
+Guide_.
 
-###### Example: VPC endpoint policy for Timestream for LiveAnalytics actions
+To get started with Timestream for LiveAnalytics and VPC endpoints, we've provided information on specific considerations for Timestream for LiveAnalytics with VPC endpoints,
+creating an interface VPC endpoint for Timestream for LiveAnalytics,
+creating a VPC endpoint policy for Timestream for LiveAnalytics,
+and using the Timestream client (for either the Write or Query SDK) with VPC endpoints..
 
-The following is an example of an endpoint policy for Timestream for LiveAnalytics. When attached
-to an endpoint, this policy grants access to the listed Timestream for LiveAnalytics actions (in this case,
-[`ListDatabases`](API_ListDatabases.md "API_ListDatabases.md")) for
-all principals on all resources.
+###### Topics
 
-```
-{
-   "Statement":[
-      {
-         "Principal":"*",
-         "Effect":"Allow",
-         "Action":[
-            "timestream:ListDatabases"
-         ],
-         "Resource":"*"
-      }
-   ]
-}
-```
+- [How VPC endpoints work with Timestream](VPCEndpoints.md "VPCEndpoints.md")
+- [Creating an interface VPC endpoint for
+  Timestream for LiveAnalytics](VPCEndpoints.md "VPCEndpoints.md")
+- [Creating a VPC endpoint policy for
+  Timestream for LiveAnalytics](VPCEndpoints.md "VPCEndpoints.md")
