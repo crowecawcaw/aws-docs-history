@@ -1,81 +1,117 @@
-# Oracle instance parameters and Amazon RDS parameter groups
+# Oracle SGA and PGA memory sizing and PostgreSQL memory buffers
 
-With AWS DMS, you can configure Oracle instance parameters and Amazon RDS parameter groups to optimize database performance, security, and resource utilization. Oracle instance parameters control various aspects of an Oracle database instance, such as memory allocation, logging, and backup settings. Amazon RDS parameter groups act as a container for engine configuration values that can be applied to one or more Amazon RDS database instances.
+With AWS DMS, you can optimize database performance by properly sizing memory components like Oracle’s System Global Area (SGA) and Program Global Area (PGA), as well as PostgreSQL’s memory buffers.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                              |
-| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------- |
-| One star feature compatibility | N/A                                | N/A                       | Use Cluster and Database/Cluster parameters. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                      |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------ |
+| Two star feature compatibility | N/A                                | N/A                       | Different cache names, similar usage |
 
 ## Oracle usage
 
-Oracle instance and database-level parameters can be configured using the `ALTER SYSTEM` command. Certain parameters can be configured dynamically and take immediate effect while other parameters require an instance restart.
+An Oracle instance allocates several individual “pools” of server RAM used as various caches for the database. These include the Buffer Cache, Redo Buffer, Java Pool, Shared Pool, Large Pool, and others. The caches reside in the System Global Area (SGA) and are shared across all Oracle sessions.
 
-- All Oracle instance and database-level parameters are stored in a binary file known as the Server Parameter file (SPFILE).
-- The binary SPFILE can be exported to a text file using the following command:
+In addition to the SGA, each Oracle session is granted an additional area of memory for session-private operations (sorting, private SQL cursors elements, and so on) called the Private Global Area (PGA).
 
-```
-CREATE PFILE = 'my_init.ora' FROM SPFILE = 's_params.ora';
-```
+Cache size can be controlled for individual caches or globally, and automatically, by an Oracle database. Setting a unified “memory size” parameter enables Oracle to automatically manage individual cache sizes.
 
-When modifying parameters, you can choose the persistence of the changed values with one of the three following options:
+- All Oracle memory parameters are set using the `ALTER SYSTEM` command.
+- Some changes to memory parameters require an instance restart.
 
-- Make the change applicable only after a restart by specifying `scope=spfile`.
-- Make the change dynamically, but not persistent, after a restart by specifying `scope=memory`.
-- Make the change both dynamically and persistent by specifying `scope=both`.
+Some of the common Oracle parameters that control memory allocations include:
 
-**Examples**
+- `db_cache_size` — The size of the cache used for database data.
+- `log_buffer` — The cache used to store Oracle redo log buffers until they are written to disk.
+- `shared_pool_size` — The cache used to store shared cursors, stored procedures, control structures, and other structures.
+- `large_pool_size` — The cache used for parallel queries and RMAN backup/restore operations.
+- `Java_pool_size` — The cache used to store Java code and JVM context.
 
-Use the `ALTER SYSTEM SET` command to configure a value for an Oracle parameter.
+While these parameters can be configured individually, most database administrators choose to let Oracle automatically manage RAM. Database administrators configure the overall size of the SGA, and Oracle sizes individual caches based on workload characteristics.
 
-```
-ALTER SYSTEM SET QUERY_REWRITE_ENABLED = TRUE SCOPE=BOTH;
-```
+- `sga_max_size` — Specifies the hard-limit maximum size of the SGA.
+- `sga_target` — Sets the required soft-limit for the SGA and the individual caches within it.
 
-For more information, see [Initialization Parameters](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters-2.html#GUID-FD266F6F-D047-4EBB-8D96-B51B1DCA2D61 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/initialization-parameters-2.html#GUID-FD266F6F-D047-4EBB-8D96-B51B1DCA2D61") and [Changing Parameter Values in a Parameter File](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/changing-parameter-values-in-a-parameter-file.html#GUID-4C578B21-DE2B-4210-8EB7-EF28D36CC1CB") in the _Oracle documentation_.
+Oracle also allows control over how much private memory is dedicated for each session. Database Administrators configure the total size of memory available for all connecting sessions, and Oracle allocates individual dedicated chunks from the total amount of available memory for each session.
+
+- `pga_aggregate_target` — A soft-limit controlling the total amount of memory available for all sessions combined.
+- `pga_aggregate_limit` — A hard-limit for the total amount of memory available for all sessions combined (Oracle 12c only).
+
+In addition, instead of manually configuring the SGA and PGA memory areas, you can also configure one overall memory limit for both the SGA and PGA and let Oracle automatically balance memory between the various memory pools. This behavior is enabled using the `memory_target` and `memory_max_target` parameters.
+
+For more information, see [Memory Architecture](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/memory-architecture.html#GUID-913335DF-050A-479A-A653-68A064DCCA41 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/memory-architecture.html#GUID-913335DF-050A-479A-A653-68A064DCCA41") and [Database Memory Allocation](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/database-memory-allocation.html#GUID-E9265077-B296-485A-BC2C-0AF55762D1EC "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/database-memory-allocation.html#GUID-E9265077-B296-485A-BC2C-0AF55762D1EC") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-When running PostgreSQL databases as Amazon Aurora Clusters, Parameter Groups are used to change to cluster-level and database-level parameters.
+PostgreSQL provides us with control over how server RAM is allocated. The following table includes some of the most important PostgreSQL memory parameters.
 
-Most of the PostgreSQL parameters are configurable in an Amazon Aurora PostgreSQL cluster, but some are disabled and can’t be modified. Since Amazon Aurora clusters restrict access to the underlying operating system, modification to PostgreSQL parameters must be made using Parameter Groups.
+| Memory pool parameter                         | Description                                                                                                                          |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `shared_buffers`                              | Used to cache database data read from disk. Approximate Oracle Database Buffer Cache equivalent.                                     |
+| `wal_buffers`                                 | Used to store WAL (Write-Ahead-Log) records before they are written to disk. Approximate Oracle Redo Log Buffer equivalent.          |
+| `work_mem`                                    | Used for parallel queries and SQL sort operations. Approximate Oracle PGA equivalent and/or the Large Pool (for parallel workloads). |
+| `maintenance_work_mem`                        | Memory used for certain backend database operations such as `VACUUM`, `CREATE INDEX`, `ALTER TABLE ADD FOREIGN KEY`.                 |
+| `temp_buffers`                                | Memory buffers used by each database session for reading data from temporary tables.                                                 |
+| Total memory available for PostgreSQL cluster | Controlled by choosing the \*_DB Instance Class_<br>• during instance creation.<br>Instance creation                                 |
 
-Amazon Aurora is a cluster of database instances and, as a direct result, some of the PostgreSQL parameters apply to the entire cluster while other parameters apply only to a particular database instance.
-
-| Aurora PostgreSQL parameter class                                                                                                              | Controlled by                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Cluster-level parameters**<br>Single cluster parameter group for each Amazon Aurora cluster.                                                 | Managed by cluster parameter groups. For example,<br>• The PostgreSQL `wal_buffers` parameter is controlled by a cluster parameter group.<br>• The PostgreSQL `autovacuum` parameter is controlled by a cluster parameter group.<br>• The `client_encoding` parameter is controlled by a cluster parameter group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Database instance-level parameters**<br>Every instance in an Amazon Aurora cluster can be associated with a unique database parameter group. | Managed by database parameter groups For example,<br>• The PostgreSQL shared_buffers memory cache configuration parameter is controlled by a database parameter group with an AWS-optimized default value based on the configured database class: `{DBInstanceClassMemory/10922}`.<br>• The PostgreSQL `max_connections` parameter which controls maximum number of client connections allowed to the PostgreSQL instance, is controlled by a database parameter group. Default value is optimized by AWS based on the configured database class: `LEAST({DBInstanceClassMemory/9531392},5000)`.<br>• The `authentication_timeout` parameter, which controls the maximum time to complete client authentication, in seconds, is controlled by a database parameter group.<br>• The `superuser_reserved_connections` parameter which determines the number of reserved connection slots for PostgreSQL superusers, is configured by a database parameter group.<br>• The PostgreSQL `effective_cache_size` which informs the query optimizer how much cache is present in the kernel and helps control how expensive large index scans will be, is controlled by a database level parameter group. The default value is optimized by AWS based on database class (RAM): `{DBInstanceClassMemory/10922}`. |
-
-PostgreSQL 10 introduces the following new parameters:
-
-- `enable_gathermerge` — enable run plan gather merge.
-- `max_parallel_workers` — maximum number of parallel workers process.
-- `max_sync_workers_per_subscription` — maximum number of synchronous workers for subscription.
-- `wal_consistency_checking` — check consistency of WAL on the standby instance (can’t be set in Aurora PostgreSQL).
-- `max_logical_replication_workers` — maximum number of logical replication worker process.
-- `max_pred_locks_per_relation` — Maximum number of records that can be predicate-lock before locking the entire relation (signup).
-- `max_pred_locks_per_page` — Maximum number of records that can be predicate-lock before locking the entire page.
-- `min_parallel_table_scan_size` — minimum table size to consider parallel table scan.
-- `min_parallel_index_scan_size` — minimum table size to consider parallel index scan.
+Cluster level parameters, such as `shared_buffers` and `wal_buffers`, are configured using parameter groups in the Amazon RDS Management Console.
 
 **Examples**
 
-Follow the following steps to create and configure Amazon Aurora database and cluster parameter groups.
+View the configured values for database parameters.
 
-1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose **Parameter groups** and choose **Create parameter group**.
+```
+show shared_buffers
 
-You can’t edit the default parameter group. Create a custom parameter group to apply changes to your Amazon Aurora cluster and its database instances.
+show work_mem
 
-1. For **Parameter group family**, choose the database family.
-2. For **Type**, choose **DB Parameter Group**.
-3. Choose **Create**.
+show temp_buffers
+```
 
-Follow the following steps to modify an existing parameter group.
+View the configured values for all database parameters.
 
-1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose **Parameter groups** and choose the name of the parameter to edit.
-3. For **Parameter group actions**, choose **Edit**.
-4. Change parameter values and choose **Save changes**.
+```
+select * from pg_settings;
+```
 
-For more information, see [SET](https://www.postgresql.org/docs/13/sql-set.html "https://www.postgresql.org/docs/13/sql-set.html") in the _PostgreSQL documentation_.
+Use of the `SET SESSION` command to modify the value of parameters that support session-specific settings. Changing the value using the `SET SESSION` command for one session will have no effect on other sessions.
+
+```
+SET SESSION work_mem='100MB';
+```
+
+If a `SET SESSION` command is issued within a transaction that is aborted or rolled back, the effects of the `SET SESSION` command disappear. Once the transaction is committed, the effects will become persistent until the end of the session, unless overridden by another execution of `SET SESSION`.
+
+Use of the `SET LOCAL` command to modify the current value of those parameters that can be set locally to a single transaction. Changing the value using the `SET LOCAL` command for one transaction will have no subsequent effect on other transactions from the same session. After issuing a `COMMIT` or `ROLLBACK`, the session-level settings will take effect.
+
+```
+SET LOCAL work_mem='100MB';
+```
+
+Reset a value of a run-time parameter to its default value.
+
+```
+RESET work_mem;
+```
+
+Changing parameter values can also be done with a direct update to the `pg_settings` table.
+
+```
+UPDATE pg_settings SET setting = '100MB' WHERE name = 'work_mem';
+```
+
+## Summary
+
+Use the following table as a general reference only. Functionality may not be identical across Oracle and PostgreSQL.
+
+| Description                                                  | Oracle                                       | PostgreSQL                                                                                                                   |
+| ------------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Memory for caching table data                                | db_cache_size                                | shared_buffers                                                                                                               |
+| Memory for transaction log records                           | log_buffer                                   | wal_buffers                                                                                                                  |
+| Memory for parallel queries                                  | large_pool_size                              | work_mem                                                                                                                     |
+| Java code and JVM                                            | Java_pool_size                               | N/A                                                                                                                          |
+| Maximum amount of physical memory available for the instance | sga_max_size or memory_max_size              | Configured by the Amazon RDS/Aurora instance class<br>For example:<br>`<br>db.r3.large: 15.25GB<br>db.r3.xlarge: 30.5GB<br>` |
+| Total amount of private memory for all sessions              | pga_aggregate_target and pga_aggregate_limit | temp_buffers (for reading data from temp tables), work_mem (for sorts)                                                       |
+| View values for all database parameters                      | `<br>SELECT<br>• FROM v$parameter;<br>`      | `<br>Select<br>• from pg_settings;<br>`                                                                                      |
+| Configure a session-level parameter                          | `<br>ALTER SESSION SET ...<br>`              | `<br>SET SESSION ...<br>`                                                                                                    |
+| Configure instance-level parameter                           | `<br>ALTER SYSTEM SET ...<br>`               | Configured by parameter groups in the Amazon RDS Management Console.                                                         |
+
+For more information, see [Write Ahead Log](https://www.postgresql.org/docs/13/runtime-config-wal.html "https://www.postgresql.org/docs/13/runtime-config-wal.html") and [Resource Consumption](https://www.postgresql.org/docs/13/runtime-config-resource.html "https://www.postgresql.org/docs/13/runtime-config-resource.html") in the _PostgreSQL documentation_.
