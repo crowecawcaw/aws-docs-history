@@ -68,7 +68,7 @@ For information on setting up multi-account access, see: [Access for an IAM user
 
 **AWS Management Console**
 
-You can manage your IAM Roles Anywhere resources using the browser-based console at [https://console.aws.amazon.com/rolesanywhere/](https://console.aws.amazon.com/rolesanywhere/ "https://console.aws.amazon.com/rolesanywhere/").
+You can manage your IAM Roles Anywhere resources using the [IAM Roles Anywhere console](https://console.aws.amazon.com/rolesanywhere/home "https://console.aws.amazon.com/rolesanywhere/home").
 
 **AWS Command Line Tools**
 
