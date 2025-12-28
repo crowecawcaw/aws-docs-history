@@ -286,7 +286,7 @@ document containing two key-value pairs with the keys `"length"` and `"width"`.
 
 In the **TEST EVENTS** section of the console code editor, choose the run icon next to your test event:
 
-![Run test event button in the Lambda console code editor](images/getting-started-tutorial/run-test-event.png)
+![Run test event button in the Lambda console code editor](/images/lambda/latest/dg/images/getting-started-tutorial/run-test-event.png)
 
 When your function finishes running, the response and function logs are displayed in the **OUTPUT** tab. You should see results similar to the following:
 

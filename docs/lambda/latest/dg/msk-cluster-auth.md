@@ -1,4 +1,4 @@
-# Configuring Amazon MSK ycluster authentication methods in Lambda
+# Configuring Amazon MSK cluster authentication methods in Lambda
 
 Lambda needs permission to access your Amazon MSK cluster, retrieve records, and perform other tasks. Amazon MSK supports
 several ways to authenticate with your MSK cluster.

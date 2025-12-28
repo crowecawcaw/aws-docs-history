@@ -11,7 +11,7 @@ To configure retry behavior for error handling, see [Configuring error handling 
 ###### Topics
 
 - [Using an Amazon MSK cluster as an event source](#msk-esm-overview "#msk-esm-overview")
-- [Configuring Amazon MSK ycluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md")
+- [Configuring Amazon MSK cluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md")
 - [Creating a Lambda event source mapping for an Amazon MSK event source](msk-esm-create.md "msk-esm-create.md")
 - [Creating cross-account event source mappings in Lambda](msk-cross-account.md "msk-cross-account.md")
 - [All Amazon MSK event source configuration parameters in Lambda](msk-esm-parameters.md "msk-esm-parameters.md")

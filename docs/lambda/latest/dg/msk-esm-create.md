@@ -27,7 +27,7 @@ this creates an event source mapping resource.
       to join, if applicable. For more information, see [Customizable consumer group ID in Lambda](kafka-consumer-group-id.md "kafka-consumer-group-id.md").
 
 6. For **Cluster authentication**, make the necessary configurations. For more
-   information about cluster authentication, see [Configuring Amazon MSK ycluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md").
+   information about cluster authentication, see [Configuring Amazon MSK cluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md").
    - Toggle on **Use authentication** if you want Lambda to perform
      authentication with your MSK cluster when establishing a connection. Authentication
      is recommended.
