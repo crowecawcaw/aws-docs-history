@@ -1,17 +1,18 @@
-# Theme in Amazon Connect
+# Apply a theme to your
 
-Agent Workspace
+application in Amazon Connect Agent Workspace
 
-The theme package defines and applies the Amazon Connect theme when developing with
-Cloudscape for Amazon Connect Agent Workspace.
+The theme package defines and applies the Amazon Connect theme when developing with [Cloudscape](https://cloudscape.design "https://cloudscape.design") for the Amazon Connect
+agent workspace.
 
 **Install from NPM**
 
-Install the theme package from NPM by installing **@amazon-connect/theme**.
+Install the theme package and Cloudscape global-styles from NPM by installing **@amazon-connect/theme** and **@cloudscape-design/global-styles**.
 
 ```
 
 % npm install -P @amazon-connect/theme
+% npm install -P @cloudscape-design/global-styles
 
 ```
 
@@ -22,15 +23,18 @@ application.
 
 ```
 
-// src/index.ts
-
 import { applyConnectTheme } from "@amazon-connect/theme";
 
-applyConnectTheme();
+await applyConnectTheme(provider);
 
 ```
 
-From then on cloudscape components and design tokens can be used directly from
+###### Note
+
+You must first instantiate the [AmazonConnectApp](getting-started-initialize-sdk.md "getting-started-initialize-sdk.md") which initializes the default AmazonConnectProvider and
+returns `{ provider }` .
+
+From then on Cloudscape components and design tokens can be used directly from
 Cloudscape.
 
 ```

@@ -2,16 +2,16 @@
 
 loaded in Amazon Connect Agent Workspace
 
-In Amazon Connect Agent Workspace, the agent workspace allows users to handle multiple contacts
+The agent workspace allows users to handle multiple contacts
 concurrently. They will have only one contact selected at a time though, and the
-workspace will update the experience based on the channel (call, chat, or task) of the
+agent workspace will update the experience based on the channel (call, chat, or task) of the
 contact and the applications opened for that contact. When a user switches to another
 contact, the set of application tabs are updated to what the user was doing last when
 they were on the previous contact.
 
 ![Applications that have been onboarded will appear in the Agent applications menu.](images/integrating-with-agent-workspace-how-apps-load.png)
 An application can be opened by the user selecting the app launcher icon in the top
-right hand corner of the main workspace and select an application from the list. This
+right hand corner of the main agent workspace and select an application from the list. This
 will load your app in a new application tab for the contact the user has active at that
 time, or the idle state if the user doesn’t have any active contacts. There will be new
 iframe created for each contact an application is opened with. That iframe will exist

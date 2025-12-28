@@ -2,25 +2,25 @@
 
 Amazon Connect Agent Workspace
 
-Use the following recommendations and best practices to optimize applications in Amazon Connect Agent Workspace.
+Use the following recommendations and best practices to optimize applications in the Amazon Connect agent workspace.
 
 ###### Topics
 
 - [Ensuring that apps can
-  only be embedded in the Connect agent workspace](#recommendations-and-best-practices-embedded "#recommendations-and-best-practices-embedded")
+  only be embedded in the Amazon Connect agent workspace](#recommendations-and-best-practices-embedded "#recommendations-and-best-practices-embedded")
 - [Using multiple
   domains within an app](#recommendations-and-best-practices-multiple-domains "#recommendations-and-best-practices-multiple-domains")
 - [Initializing
-  streams](#recommendations-and-best-practices-streams "#recommendations-and-best-practices-streams")
+  Streams](#recommendations-and-best-practices-streams "#recommendations-and-best-practices-streams")
 - [Accessibility](#recommendations-and-best-practices-accessibility "#recommendations-and-best-practices-accessibility")
 - [Theming and
   styling](#recommendations-and-best-practices-theming-and-styling "#recommendations-and-best-practices-theming-and-styling")
 
 ## Ensuring that apps can
 
-only be embedded in the Connect agent workspace
+only be embedded in the Amazon Connect agent workspace
 
-It is recommended that apps correctly set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy") header with [frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors") to only allow Connect instances.
+It is recommended that apps correctly set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy") header with [frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors") to only allow Amazon Connect instances.
 
 ```
 
@@ -41,9 +41,9 @@ domains.
 
 ## Initializing
 
-streams
+Streams
 
-Initializing the CCP via streams, even if hidden, is not supported in third-party
+Initializing the CCP via Streams, even if hidden, is not supported in third-party
 applications. You must instead use contact and agent events when they are
 available.
 
@@ -54,7 +54,7 @@ The best practice is for your application to meet accessibility guidelines such 
 following are some examples of automated and manual tests that you can conduct to ensure
 that your app meets these guidelines.
 
-###### Automated Accessibility Testing Tools
+###### Automated accessibility testing tools
 
 1. **axe**: an open-source accessibility testing
    engine that can be integrated into your development workflow. It provides
@@ -73,7 +73,7 @@ that your app meets these guidelines.
    It provides a browser extension and an online tool for automated accessibility
    testing.
 
-###### Manual Accessibility Testing Tools
+###### Manual accessibility testing tools
 
 1. **Screen Readers**: Use screen readers such as
    NVDA (NonVisual Desktop Access), JAWS (Job Access With Speech), and VoiceOver to
@@ -99,7 +99,7 @@ that your app meets these guidelines.
 
 styling
 
-Our App [SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") includes a
-standard Connect theme. We recommend that you use the theming package on top of
+The [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK "https://github.com/amazon-connect/AmazonConnectSDK") includes a
+standard Amazon Connect theme. We recommend that you use the theming package on top of
 Cloudscape, such that third-party applications match the overall look and feel of the
 Amazon Connect agent workspace.

@@ -2,10 +2,10 @@
 
 locally
 
-Once you have a minimal version of the app that you want to use in Amazon Connect Agent Workspace
-with the SDK that you want to test in the agent workspace, run your app locally and
-create an application in the AWS console with an _AccessUrl_ using
-the localhost endpoint, like `http://localhost:3000`.
+Once you have a minimal version of the app that you want to use in the Amazon Connect
+agent workspace with the Amazon Connect SDK that you want to test in the agent
+workspace, run your app locally and create an application in the AWS console with an _AccessUrl_ using the localhost endpoint, like `http://localhost:3000`
+.
 
 ## Creating an
 
@@ -14,8 +14,8 @@ application and associating to your instance
 ###### Note
 
 Detailed steps for creating and managing applications can be found in the
-admin guide under [Third-party applications (3p
-apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3p-apps.md "../../../connect/latest/adminguide/3p-apps.md").
+admin guide under [Third-party applications (3P
+apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3P-apps.md "../../../connect/latest/adminguide/3P-apps.md").
 
 1. Open the Amazon Connect
    [console](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/")
@@ -36,15 +36,13 @@ apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3p-ap
    4. **Permissions**: A list of allowed
       functions that grants your application the ability to subscribe to
       agent/contact events that occur in the agent workspace or make
-      requests for agent/contact workspace data.
+      requests for agent/contact data.
 
 5. Select the Amazon Connect instance you are testing with to associate
    the app with that instance.
-6. Choose **Add application** to finish creating your
-   app.
+6. Choose **Add application** to finish creating your app.
 7. Log into your test instance as an admin user.
-8. Navigate to **Security profiles** and select the
-   `Admin` security profile.
+8. Navigate to **Security profiles** and select the `Admin` security profile.
 9. Under **Agent applications** find your application and
    make sure the `View` permission is selected.
    1. Open the agent application `/agent-app-v2`
@@ -80,7 +78,7 @@ you should see the following series of logs entries.
 
 ```
 
-If you see these, then your app correctly integrates with the _Amazon Connect SDK_ and the [The
-create event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-create.md "integrating-with-agent-workspace-lifecycle-events-create.md") /
-[The
-destroy event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-destroy.md "integrating-with-agent-workspace-lifecycle-events-destroy.md")destroy lifecycle events.
+If you see these, then your app correctly integrates with the _Amazon Connect Amazon Connect SDK_ and the [The
+create event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-create.md "integrating-with-agent-workspace-lifecycle-events-create.md") / [The
+destroy event in Amazon Connect Agent Workspace](integrating-with-agent-workspace-lifecycle-events-destroy.md "integrating-with-agent-workspace-lifecycle-events-destroy.md")destroy
+lifecycle events.
