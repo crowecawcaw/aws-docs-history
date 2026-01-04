@@ -11,6 +11,17 @@ Amazon Connect Cases sends the following events directly to EventBridge:
 _Delivery type_:
 [Best effort](event-delivery-level.md "event-delivery-level.md")
 
+### Supported Event Types
+
+Amazon Connect Cases supports filtering by specific event types using the `detail.eventType` field. The following event types are supported:
+
+| Event Type             | Description                                      |
+| ---------------------- | ------------------------------------------------ |
+| `CASE.CREATED`         | Triggered when a new case is created             |
+| `CASE.UPDATED`         | Triggered when an existing case is updated       |
+| `CASE.DELETED`         | Triggered when a case is deleted                 |
+| `RELATED_ITEM.CREATED` | Triggered when a related item is added to a case |
+
 To match against all events from this service, create an event pattern that matches
 against the following event attribute:
 
@@ -29,6 +40,42 @@ specifying an array of event names to match. For example:
 {
   "source": ["aws.cases"],
   "detail-type": ["`Amazon Connect Cases Change`"]
+}
+```
+
+To filter by specific event types, use the `detail.eventType` field. For example, to match only case creation events:
+
+```
+{
+  "source": ["aws.cases"],
+  "detail-type": ["Amazon Connect Cases Change"],
+  "detail": {
+    "eventType": ["CASE.CREATED"]
+  }
+}
+```
+
+To match multiple event types:
+
+```
+{
+  "source": ["aws.cases"],
+  "detail-type": ["Amazon Connect Cases Change"],
+  "detail": {
+    "eventType": ["CASE.CREATED", "CASE.UPDATED", "CASE.DELETED"]
+  }
+}
+```
+
+To match related item events:
+
+```
+{
+  "source": ["aws.cases"],
+  "detail-type": ["Amazon Connect Cases Change"],
+  "detail": {
+    "eventType": ["RELATED_ITEM.CREATED"]
+  }
 }
 ```
 
