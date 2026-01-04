@@ -1,12 +1,12 @@
-# emr-6.2.0-20220802
+# emr-6.2.0-20210802
 
-**Release notes**: `emr-6.2.0-20220802` was
-released on Sep 27, 2022. Compared to the previous version, this version has been refreshed with
-the recently updated Amazon Linux packages.
+**Release notes**: `emr-6.2.0-20210802` was
+released on Aug 2, 2021. Compared to the previous version, this version contains issue fixes and
+security updates.
 
-**Regions**: `emr-6.2.0-20220802` is available in
-all Regions supported by Amazon EMR on EKS. For more information, see [Amazon EMR on EKS
-service endpoints](service-quotas.md#service-endpoints "service-quotas.md#service-endpoints").
+**Regions**: `emr-6.2.0-20210802` is available in
+the following Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), Europe
+(Ireland), South America (Sao Paulo).
 
 **Container image tag**:
-`emr-6.2.0:20220802`
+`emr-6.2.0:20210802`
