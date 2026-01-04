@@ -214,7 +214,7 @@ In **JSONPath** fields that accept intrinsic functions, variables can be used in
 
 The following digram illustrates how the assign step in a **JSONPath** task occurs in at the same time as the ResultSelector:
 
-![Logical diagram of a state that uses JSONPath query language.](images/vars-jsonpath.png)
+![Logical diagram of a state that uses JSONPath query language.](/images/step-functions/latest/dg/images/vars-jsonpath.png)
 
 **Assigning variables in JSONPath**
 
