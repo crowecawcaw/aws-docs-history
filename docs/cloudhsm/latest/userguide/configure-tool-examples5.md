@@ -579,7 +579,7 @@ stderr
 ###### To configure file logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-dyn --log-type `<file name>` --log-file file --log-rotation daily --log-level info`
+  `$` `sudo /opt/cloudhsm/bin/configure-dyn --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
   ```
 
 ````
@@ -613,7 +613,7 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-ksp.log
 ###### To configure file logging options
 
 * ```
-`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type file --log-file `<file name>` --log-rotation daily --log-level info`
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
 ````
 
 ###### To configure terminal logging options
@@ -660,7 +660,7 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-jce.log
 ###### To configure file logging options
 
 - ```
-  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-type file --log-file `<file name>` --log-rotation daily --log-level info`
+  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
   ```
 
 ````
@@ -700,7 +700,7 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-cli.log
 ###### To configure file logging options
 
 * ```
-`$` `sudo /opt/cloudhsm/bin/configure-cli --log-type file --log-file `<file name>` --log-rotation daily --log-level info`
+`$` `sudo /opt/cloudhsm/bin/configure-cli --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
 ````
 
 ###### To configure terminal logging options

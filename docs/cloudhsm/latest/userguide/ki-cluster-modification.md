@@ -11,8 +11,7 @@ The following issues impact customers attempting to use the modify-cluster API t
 
 - **Impact:** Clusters with a large amount of users will experience an extended migration period. This is due to changes in the
   backup restoration process performing PBKDF2 operations per user when restoring an hsm1.medium backup to hsm2m.medium for the first time.
-- **Workaround:** Design your applications to be resilient to an extended migration period.
-- **Resolution status:** No resolution status.
+- **Resolution status:** If you created a new hsm2m.medium instance or migrated to hsm2m.medium from hsm1.medium before December 20th, 2025, you will need to reset your password to take advantage of performance improvements we have implemented for login operations. Refer to the [change-password](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md") for instructions.
 
 ## Issue: Unable to modify HSM type due to token key creation
 
