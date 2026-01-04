@@ -304,7 +304,7 @@ Your certificate is successfully issued and validated, and the redirections are
 successfully configured on your instance if you see a message similar to the following
 example.
 
-![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
+![Actions successfully completed](images/bncert-success-conf.png)
 
 The `bncert` tool will perform an automatic renewal of your certificate
 every 80 days before it expires. Repeat the above steps if you wish to use additional

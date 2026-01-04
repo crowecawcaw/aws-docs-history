@@ -149,7 +149,7 @@ Resource names:
 
    ![A tag with only the tag key specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-only-tags.png) 2. (Optional) For **Value**, enter a tag value.
 
-   ![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](/images/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
+   ![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 9. Choose **Create instance**.
 

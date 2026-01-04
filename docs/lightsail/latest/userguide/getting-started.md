@@ -85,7 +85,7 @@ Alternatively, you can connect from your instance's management page. Select
 your instance's name, choose the **Connect** tab, then choose
 **Connect using SSH**.
 
-![Image showing how to connect to your instance from the instance's management page.](images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png) 2. You can now type commands into the terminal and manage your Lightsail
+![Image showing how to connect to your instance from the instance's management page.](/images/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png) 2. You can now type commands into the terminal and manage your Lightsail
 instance without setting up an SSH client.
 
 ![Browser-based SSH terminal in Amazon Lightsail](images/amazon-lightsail-bitnami-terminal-window.png)
