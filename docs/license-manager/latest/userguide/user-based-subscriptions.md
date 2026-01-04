@@ -422,7 +422,7 @@ _AWS PrivateLink Guide_.
 ###### Security group for Active Directory domain controllers
 
 Ensure that the security group that you use for your AD domain controllers allows
-outbound traffic to each domain controller's network interface IPv4 address. In addition, the domain controller security group should allow communication on all Active Directory related ports including TCP 9389. Port 9389 is required for Active Directory Web Services (ADWS), which is used by the Active Directory PowerShell module and other management tools to communicate with domain controllers.
+outbound traffic to each domain controller's network interface IP address. In addition, the domain controller security group should allow communication on all Active Directory related ports including TCP 9389. Port 9389 is required for Active Directory Web Services (ADWS), which is used by the Active Directory PowerShell module and other management tools to communicate with domain controllers.
 
 ###### Security group requirements for "Register your Active Directory" step
 

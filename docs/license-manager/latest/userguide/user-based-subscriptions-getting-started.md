@@ -139,12 +139,13 @@ follow these steps:
    **Register Active Directory**.
 4. Select the **Self-managed Active Directory**
    option to enter details.
-5. Enter the **Active Directory domain**, along with
-   primary and secondary private IPv4 addresses for your directory.
-6. In the **Networking** section, select the
+5. Enter the **Active Directory domain**.
+6. Select the version for your **Active Directory IP Addresses**,
+   then enter the primary and secondary IP addresses for your directory.
+7. In the **Networking** section, select the
    **VPC** and two **Subnets** where
    your Active Directory resides.
-7. Select the administrative credentials **Secret**
+8. Select the administrative credentials **Secret**
    that you created as part of the prerequisites for your Microsoft RDS
    subscription.
 
