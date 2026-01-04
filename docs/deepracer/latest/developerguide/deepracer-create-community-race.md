@@ -34,7 +34,7 @@ to learn more.
 2. Choose **Community races**.
 3. On the **Community races** page, choose **Create race**.
 
-![Create a AWS DeepRacer community race.](/images/deepracer/latest/developerguide/images/deepracer-community-race-create-fireworks.png) 4. On the **Race details** page, choose a competition format: a **Classic
+![Create a AWS DeepRacer community race.](images/deepracer-community-race-create-fireworks.png) 4. On the **Race details** page, choose a competition format: a **Classic
 race**, which your guests can participate on their own schedule within the time frame you
 set, or a **LIVE race**, which can be broadcast privately or publicly as a real-time
 event.
