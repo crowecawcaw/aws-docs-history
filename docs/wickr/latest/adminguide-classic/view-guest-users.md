@@ -17,4 +17,4 @@ You're redirected to the Wickr Admin Console for a specific network. The
 **Dashboard** page displays a count of guest users in your
 Wickr network as shown in the following example.
 
-![The Dashboard page with a count of guest users in the network.](/images/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png)
+![The Dashboard page with a count of guest users in the network.](images/wickr-network-admin-console-dashboard-page.png)
