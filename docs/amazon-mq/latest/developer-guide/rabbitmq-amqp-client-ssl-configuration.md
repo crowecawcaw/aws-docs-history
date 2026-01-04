@@ -1,16 +1,14 @@
 # AMQP client SSL configuration
 
 Federation and shovel use AMQP for communication between upstream and downstream brokers.
+By default, _TLS peer verification_ is enabled for AMQP clients in Amazon MQ for RabbitMQ 4.
+With this setting, federation and shovel AMQP clients running on Amazon MQ brokers will perform peer verification
+when establishing connections with upstream broker.
 
-By default, _TLS peer verification_ is enabled for Amazon MQ for RabbitMQ 4.
-Amazon MQ for RabbitMQ brokers use the _certfile_ (public key) and _keyfile_
-(private key) configured by Amazon MQ during TLS verification. If your upstream broker is running on-premise,
-it will not be able to validate the certificates and keyfile provided by the Amazon MQ
-for RabbitMQ downstream broker, causing TLS verification to fail.
-
-Amazon MQ currently does not support configuring _certfile_ and _keyfile_ with user-provided certificates.
-However, for use cases that require shoveling or federating messages between Amazon MQ and on-premise brokers,
-you can disable _TLS peer verification_.
+AMQP clients running on Amazon MQ brokers support the same certificate authorities as Mozilla.
+If you don't use [ACM](https://www.amazontrust.com/repository "https://www.amazontrust.com/repository"), use a certificate issued by a CA on the [Mozilla Included CA Certificate List](https://wiki.mozilla.org/CA/Included_Certificates "https://wiki.mozilla.org/CA/Included_Certificates").
+If your on-premises broker uses certificates from other certificate authorities, SSL verification will fail.
+You can disable _TLS peer verification_ for these use cases.
 
 ###### Important
 
