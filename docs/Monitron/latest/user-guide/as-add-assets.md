@@ -62,7 +62,7 @@ select the site you want to the asset to.
 You can also add the asset directly to a project. 3. From the **Assets** page, choose **Add
 asset**.
 
-![Amazon Monitron interface showing Assets page with Add asset button highlighted.](images/add-asset-3.png) 4. On the **Add asset** page, for **Asset
+![Amazon Monitron interface showing Assets page with Add asset button highlighted.](/images/Monitron/latest/user-guide/images/add-asset-3.png) 4. On the **Add asset** page, for **Asset
 name**, add a name for the asset you want to create and then
 select **Add asset**.
 
