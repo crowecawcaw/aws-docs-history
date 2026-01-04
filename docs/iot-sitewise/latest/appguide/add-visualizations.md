@@ -68,4 +68,4 @@ customize details of the visualization, see [Customize visualizations](customize
 add a property that has an alarm, the visualization displays that alarm's threshold. For
 more information, see [Configure thresholds](configure-thresholds.md "configure-thresholds.md").
 
-![A sample visualization with the visualization configuration icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png) 4. To move or resize your visualization, see [Adjust dashboard layout](adjust-layout.md "adjust-layout.md").
+![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 4. To move or resize your visualization, see [Adjust dashboard layout](adjust-layout.md "adjust-layout.md").

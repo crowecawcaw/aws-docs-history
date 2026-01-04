@@ -40,7 +40,7 @@ new project**, then choose **Next**.
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
-![Add assets to project dialog, step 2 of 2.](images/asset-library-create-new-project-console.png) 6. In **Project description**, enter a description of the project and its
+![Add assets to project dialog, step 2 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png) 6. In **Project description**, enter a description of the project and its
 contents.
 
 You can add project owners after you create the project. 7. Choose **Add asset to project**.
@@ -86,4 +86,4 @@ from.
 
 ![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. Choose **Remove all assets from project**.
 
-![The "Projects" page with "Remove all assets from project" button highlighted.](/images/iot-sitewise/latest/appguide/images/project-remove-all-assets-console.png) 4. In the dialog box, confirm that you want to remove the assets.
+![The "Projects" page with "Remove all assets from project" button highlighted.](images/project-remove-all-assets-console.png) 4. In the dialog box, confirm that you want to remove the assets.

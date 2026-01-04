@@ -24,7 +24,7 @@ viewers.
 **Add viewers** if the project has no viewers, or **Edit
 viewers**.
 
-![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
+![The "Project viewers" section of a project page.](/images/iot-sitewise/latest/appguide/images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
 ![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
@@ -48,6 +48,6 @@ viewers.
 the check boxes for the project viewers to receive an email, and then choose **Send
 invitations**.
 
-![The "Project viewers" section of the project details page.](images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project viewers" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project viewers.
