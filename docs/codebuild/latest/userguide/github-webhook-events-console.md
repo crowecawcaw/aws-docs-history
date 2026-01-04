@@ -41,7 +41,7 @@ events.
 In this example, a webhook filter group triggers a build only when files with names
 that match the regular expression `^buildspec.*` change.
 
-![A webhook filter group that triggers a build only when files with names that match the regular expression specified.](images/pull-request-webhook-filter-file-name-regex.png)
+![A webhook filter group that triggers a build only when files with names that match the regular expression specified.](/images/codebuild/latest/userguide/images/pull-request-webhook-filter-file-name-regex.png)
 In this example, a webhook filter group triggers a build only when files are changed
 in `src` or `test` folders.
 

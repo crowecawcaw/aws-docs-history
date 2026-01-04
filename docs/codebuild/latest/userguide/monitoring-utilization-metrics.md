@@ -103,7 +103,7 @@ utilization metrics
 3. On the **All metrics** tab, choose
    **CodeBuild**.
 
-![Console screenshot showing the CodeBuild option located on the All metrics tab.](/images/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png) 4. Choose **By Project**. 5. Choose one or more project and metric combinations to add to the graph.
+![Console screenshot showing the CodeBuild option located on the All metrics tab.](images/codebuild-metrics-in-cw.png) 4. Choose **By Project**. 5. Choose one or more project and metric combinations to add to the graph.
 All selected project and metric combinations are displayed in the graph on
 the page. 6. (Optional) You can customize your metrics and graphs from the
 **Graphed metrics** tab. For example, from the
@@ -128,7 +128,7 @@ utilization metrics
 3. On the **All metrics** tab, choose
    **CodeBuild**.
 
-![Console screenshot showing the CodeBuild option located on the All metrics tab.](/images/codebuild/latest/userguide/images/codebuild-metrics-in-cw.png) 4. Choose **BuildId, BuildNumber, ProjectName**. 5. Choose one or more build and metric combinations to add to the graph. All
+![Console screenshot showing the CodeBuild option located on the All metrics tab.](images/codebuild-metrics-in-cw.png) 4. Choose **BuildId, BuildNumber, ProjectName**. 5. Choose one or more build and metric combinations to add to the graph. All
 selected build and metric combinations are displayed in the graph on the
 page. 6. (Optional) You can customize your metrics and graphs from the
 **Graphed metrics** tab. For example, from the
