@@ -222,8 +222,8 @@ If your Helm chart does not meet these requirements, you may encounter the follo
 | `INVALID_HELM_SENSITIVE_CONFIG`             | The configuration schema cannot contain fields that collect sensitive information. Configuration schemas must not accept passwords, API keys, certificates, or secrets. Instead, provide fields for Kubernetes secret names that customers will create separately.                     |
 | `INVALID_HELM_CHART_IMAGES`                 | All images, including open-source dependencies, must be pushed to AWS Marketplace Amazon ECR repositories created via the \*_[Add Repository](container-add-version.md#add-repositories "container-add-version.md#add-repositories")_<br>• request.                                    |
 | `INVALID_HELM_UNDECLARED_IMAGES`            | All container images references must be explicitly listed in the \*_[Add Version](container-add-version.md#add-new-version "container-add-version.md#add-new-version")_<br>• request.                                                                                                  |
-| `INVALID_HELM_LINT`                         | The Helm chart failed `helm lint` validation. Run `helm lint` locally to identify and fix structural or syntactical issues.                                                                                                                                                            |
-| `INVALID_HELM_TEMPLATE`                     | The Helm chart failed `helm template` validation. The chart cannot be rendered into valid Kubernetes manifests. Test locally with `helm template` to identify template syntax or logic errors.                                                                                         |
+| `INVALID_HELM_LINT`                         | The Helm chart failed `helm lint` validation. Run `helm lint` locally to identify and fix structural or syntactical issues. Use Helm version `3.19.0` or later.                                                                                                                        |
+| `INVALID_HELM_TEMPLATE`                     | The Helm chart failed `helm template` validation. The chart cannot be rendered into valid Kubernetes manifests. Test locally with `helm template` to identify template syntax or logic errors. Use Helm version `3.19.0` or later.                                                     |
 | `MISSING_HELM_DEPLOYMENT_CONFIG`            | The Helm chart for an Amazon EKS add-on must contain a Deployment or DaemonSet resource. Amazon EKS requires at least one of these workload types for add-on lifecycle management. See [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on"). |
 | `INCOMPATIBLE_CONFIGURATION_SCHEMA_VERSION` | The JSON schema version in `aws_mp_configuration_schema.json` is not supported. See [Schema requirements](#schema-requirements "#schema-requirements") for supported schema versions.                                                                                                  |
 | `INVALID_IMAGE_REFERENCE`                   | All images must be defined as variables in `values.yaml` and referenced using Helm template syntax as described in [Helm chart structure requirements](#helm-chart-structure-requirements "#helm-chart-structure-requirements").                                                       |
@@ -294,7 +294,7 @@ BYOL is not supported for Amazon EKS add-on delivery.
   Helm features are not supported within Amazon EKS systems. The
   following list describes the requirements that must be met before
   onboarding your software as an Amazon EKS add-on. In this list, all Helm commands use
-  Helm version 3.8.1:
+  Helm version 3.19.0:
   - All `Capabilities` objects are supported, with an
     exception for `.APIVersions`. `.APIVersions`
     is not supported for non-built-in custom Kubernetes

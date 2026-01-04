@@ -106,27 +106,34 @@ private offers can differ from the one in the public offer or other private offe
 
 Private offers work in one of several ways:
 
-- Hourly – Private offers can be an hourly rate
-  that is different from the publicly displayed hourly rate. This hourly rate is perpetual
-  because private offers for machine learning products don't expire. If a price change is
-  needed in the future, the buyer must switch to the new private offer. Existing running
-  instances or endpoints of the product are automatically billed the hourly rate set in the
-  new accepted offer. Ensure you set it to the hourly rate for your product after any
-  contract component within the private offer expires. Setting this hourly rate to $0 allows
-  the buyer to use the product without your software fee indefinitely.
-- Per inference – Private offers can have an
-  inference rate that is different from the publicly displayed inference rate, if you've
-  configured [inference pricing](machine-learning-pricing.md#ml-pricing-inference "machine-learning-pricing.md#ml-pricing-inference") for when your product is deployed as an endpoint.
+- Usage-based with hourly rates – You can use private offers to provide buyers
+  hourly rates for a custom duration that are different from the publicly available rates. At the
+  end of the offer duration, buyers will automatically be transitioned to the public offer of your
+  product. Existing running instances or endpoints of the products will automatically get billed the
+  rates set in the public offer. If a price change is needed after a private offer has been accepted,
+  you must extend a new private offer and the buyer will need to switch to the new private offer.
+- Usage-based with a per-inference rate – You can use private offers to provide buyers a
+  single per-inference rate for a custom duration that is different from the publicly available rates.
+  To use this option, ensure you've configured [inference pricing](machine-learning-pricing.md#ml-pricing-inference "machine-learning-pricing.md#ml-pricing-inference") for your product. You can provide
+  private offers with per-inference pricing even when your public offers contains hourly rates, and
+  vice versa. At the end of the offer duration, buyers will automatically be transitioned to the public
+  offer of your product. Existing running instances or endpoints of the products will automatically get
+  billed the rates set in the public offer. If a price change is needed after a private offer has been
+  accepted, you must extend a new private offer and the buyer will need to switch to the new private offer.
 - Contract – Private offers can be a contract with
   a fixed upfront fee for a specified number of days. The buyer is allowed to use an
   unlimited number of instances for the entire duration of the contract. At the end of the
-  contract, any instances that continue to run are billed at the hourly rate that you set in
-  the private offer. For example, you can create a contract with a fixed upfront fee for 365
-  days of unlimited use. You also set an hourly rate for the private offer. When the buyer
-  accepts this private offer, they pay that upfront fee. When the contract ends, any
-  instances still running are billed at that hourly rate. If you’re offering a free private
-  trial, ensure you set the correct hourly rate after the free trial period ends to avoid a
-  free perpetual license.
+  contract, any instances that continue to run are billed perpetually at the usage-based rates
+  that you set in the private offer, hourly or per-inference. For example, you can create a contract
+  with a fixed upfront fee for 365 days of unlimited use. You also set hourly rates for the
+  private offer. When the buyer accepts this private offer, they pay that upfront fee. When the
+  contract ends, any instances still running are billed at the provided hourly rates. If you’re
+  offering a free private trial by leveraging a contract, ensure you set the correct usage-based rates
+  in the private offer for when the free trial period ends to avoid a free perpetual license.
+
+###### Note
+
+While contracts provide unlimited usage, you can still view usage data in [Machine Learning seller reports.](ml-reporting.md "ml-reporting.md")
 
 You can create and extend multiple private offers to a single buyer. Buyers that you
 extend the private offers to have the option to choose between the private offers and the
