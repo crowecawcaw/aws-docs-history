@@ -4,7 +4,7 @@ To pin important files and folders, you can add them to Favorites.
 
 1. Select a file or folder.
 
-![File browser](/images/res/latest/ug/images/res-filebrowser.jpg) 2. Choose **Favorite**.
+![File browser](images/res-filebrowser.jpg) 2. Choose **Favorite**.
 Alternatively, you can right-click any file or folder and select **Favorite**.
 
 ###### Note
