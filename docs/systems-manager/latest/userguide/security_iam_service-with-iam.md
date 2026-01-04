@@ -221,6 +221,14 @@ Note the following exceptions to ARN formats.
 | All Systems Manager resources                                                                   | arn:aws:ssm:\*                                                                                                                                                                                                                                                              |
 | All Systems Manager resources owned by the specified<br>AWS account in the specified AWS Region | arn:aws:ssm:`region`:`account-id`:\*                                                                                                                                                                                                                                        |
 
+###### Note
+
+Automation definition resources are being deprecated. Please update your IAM policies
+to include an allow for `ssm:StartAutomationExecution` or `ssm:StartChangeRequestExecution` on
+`document` and `automation-execution` resources. To
+view best practices and examples for setting up IAM permissions, refer to our
+[Setting up identity based policies example](automation-setup-identity-based-policies.md "automation-setup-identity-based-policies.md") user guide.
+
 **1** For
 automation definitions, Systems Manager supports a second-level resource,
 _version ID_. In AWS, these second-level resources

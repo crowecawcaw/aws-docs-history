@@ -16,15 +16,15 @@ Name (ARN) for AWS owned public documents.
 **Examples**
 
 - [Example 1: Allow a user to run an automation document and view the automation execution](#automation-setup-identity-based-policies-example-1 "#automation-setup-identity-based-policies-example-1")
-- [Example 2: Allow a user to execute a specific version of an automation document](#automation-setup-identity-based-policies-example-2 "#automation-setup-identity-based-policies-example-2")
+- [Example 2: Allow a user to run a specific version of an automation document](#automation-setup-identity-based-policies-example-2 "#automation-setup-identity-based-policies-example-2")
 - [Example 3: Allow a user to execute automation documents with a specific tag](#automation-setup-identity-based-policies-example-3 "#automation-setup-identity-based-policies-example-3")
-- [Example 4: Allow a user to execute an automation document when a specific tag parameter is provided for the automation execution](#automation-setup-identity-based-policies-example-4 "#automation-setup-identity-based-policies-example-4")
+- [Example 4: Allow a user to run an automation document when a specific tag parameter is provided for the automation execution](#automation-setup-identity-based-policies-example-4 "#automation-setup-identity-based-policies-example-4")
 
 ## Example 1: Allow a user to run an automation document and view the automation execution
 
 The following example IAM policy allows a user to do the following:
 
-- Execute the automation document specified in the policy. The
+- Run the automation document specified in the policy. The
   name of the document is determined by the following entry.
 
 ```
@@ -66,9 +66,9 @@ JSON
 
 ```
 
-## Example 2: Allow a user to execute a specific version of an automation document
+## Example 2: Allow a user to run a specific version of an automation document
 
-The following example IAM policy grants permissions to a user to run automation execution using a specific version of an automation document:
+The following example IAM policy allows a user to run a specific version of an automation document:
 
 - The name of the automation document is determined by the following entry.
 
@@ -129,7 +129,7 @@ JSON
 
 ## Example 3: Allow a user to execute automation documents with a specific tag
 
-The following example IAM policy allows a user to run automation execution using any automation document that has a specific tag:
+The following example IAM policy allows a user to run any automation document that has a specific tag:
 
 - The name of the automation document is determined by the following entry.
 
@@ -188,11 +188,11 @@ JSON
 
 ```
 
-## Example 4: Allow a user to execute an automation document when a specific tag parameter is provided for the automation execution
+## Example 4: Allow a user to run an automation document when a specific tag parameter is provided for the automation execution
 
-The following example IAM policy grants permissions to a user to run automation execution using automation documents when a specific tag parameter is provided for the automation execution:
+The following example IAM policy grants permissions to a user to run automation documents when a specific tag parameter is provided for the automation execution:
 
-- Execute the automation document specified in the policy. The
+- Run the automation document specified in the policy. The
   name of the document is determined by the following entry.
 
 ```
