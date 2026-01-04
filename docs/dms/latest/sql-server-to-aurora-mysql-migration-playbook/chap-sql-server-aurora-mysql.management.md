@@ -1,144 +1,96 @@
-# Resource governor features
+# SQL Server Agent and MySQL Agent
 
-This topic provides reference information about resource management and workload isolation capabilities in SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in how these database systems handle resource limits and workload management.
+This topic provides reference information about the differences between SQL Server Agent functionality in Microsoft SQL Server 2019 and comparable features in Amazon Aurora MySQL. You can understand the limitations and alternatives available when migrating from SQL Server to Aurora MySQL, particularly regarding scheduling, automation, and alerting capabilities.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                       |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------- |
-| One star feature compatibility | N/A                                | N/A                       | Use the resource limit for each user. |
+| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                 | Key differences                                                                                                                                                                                                                                 |
+| ------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No feature compatibility | No automation                      | [SQL Server Agent](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.agent "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.agent") | For more information, see [Alerting](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md") and [Maintenance Plans](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md"). |
 
 ## SQL Server Usage
 
-SQL Server Resource Governor provides the capability to control and manage resource consumption. Administrators can specify and enforce workload limits on CPU, physical I/O, and Memory. Resource configurations are dynamic and you can change them in real time.
+SQL Server Agent provides two main functions: scheduling automated maintenance and backup jobs, and for alerting.
 
-In SQL Server 2019 configurable value for the `REQUEST_MAX_MEMORY_GRANT_PERCENT` option of `CREATE WORKLOAD GROUP` and `ALTER WORKLOAD GROUP` has been changed from an integer to a float data type to allow more granular control of memory limits. For more information, see [ALTER WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15") and [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+###### Note
 
-### Use Cases
+Other SQL built-in frameworks such as replication, also use SQL Server Agent jobs under the covers.
 
-The following list identifies typical Resource Governor use cases:
+Maintenance plans, backups and alerting are covered in separate sections.
 
-- **Minimize performance bottlenecks and inconsistencies** to better support Service Level Agreements (SLA) for multiple workloads and users.
-- **Protect against runaway queries** that consume a large amount of resources or explicitly throttle I/O intensive operations. For example, consistency checks with DBCC that may bottleneck the I/O subsystem and negatively impact concurrent workloads.
-- **Allow tracking and control for resource-based pricing scenarios** to improve predictability of user charges.
-
-### Concepts
-
-The three basic concepts in Resource Governor are Resource Pools, Workload Groups, and Classification.
-
-- **Resource Pools** represent physical resources. Two built-in resource pools, internal and default, are created when SQL Server is installed. You can create custom user-defined resource pools for specific workload types.
-- **Workload Groups** are logical containers for session requests with similar characteristics. Workload Groups allow aggregate resource monitoring of multiple sessions. Resource limit policies are defined for a Workload Group. Each Workload Group belongs to a Resource Pool.
-- **Classification** is a process that inspects incoming connections and assigns them to a specific Workload Group based on the common attributes. User-defined functions are used to implement Classification. For more information, see [User-Defined Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
-
-### Examples
-
-Turn on the Resource Governor.
-
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-Create a Resource Pool.
-
-```
-CREATE RESOURCE POOL ReportingWorkloadPool
-    WITH (MAX_CPU_PERCENT = 20);
-```
-
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-Create a Workload Group.
-
-```
-CREATE WORKLOAD GROUP ReportingWorkloadGroup USING poolAdhoc;
-```
-
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-Create a classifier function.
-
-```
-CREATE FUNCTION dbo.WorkloadClassifier()
-RETURNS sysname WITH SCHEMABINDING
-AS
-BEGIN
-    RETURN (CASE
-        WHEN HOST_NAME()= 'ReportServer'
-        THEN 'ReportingWorkloadGroup'
-        ELSE 'Default'
-    END)
-END;
-```
-
-Register the classifier function.
-
-```
-ALTER RESOURCE GOVERNOR with (CLASSIFIER_FUNCTION = dbo.WorkloadClassifier);
-```
-
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-For more information, see [Resource Governor](https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SQL Server Agent](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support a server-wide, granular, resource-based, workload resource isolation and management capability similar to SQL Server Resource Governor. However, Aurora MySQL does support the feature User Resource Limit Options that you can use to achieve similar high-level functionality for limiting resource consumption of user connections.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) does provide a native, in-database scheduler. It is limited to the cluster scope and can’t be used to manage multiple clusters. There are no native alerting capabilities in Aurora MySQL similar to SQL Server Agent alerts.
 
-You can specify User Resource Limit Options as part of the `CREATE USER` statement to place the following limits on users:
+Although Amazon Relational Database Service (Amazon RDS) doesn’t currently provide an external scheduling agent like SQL Server Agent, CloudWatch Events provides the ability to specify a cron-like schedule to run Lambda functions. This approach requires writing custom code in C#, NodeJS, Java, or Python. Additionally, any task that runs longer than five minutes will not work due to the AWS Lambda time out limit. For example, this limit may pose a challenge for index rebuild operations. Other options include:
 
-- The number of total queries in hour an account is allowed to issue.
-- The number of updates in hour an account is allowed to issue.
-- The number of times in hour an account can establish a server connection.
-- The total number of concurrent server connections allowed for the account.
+1. Running an SQL Server for the sole purpose of using the Agent.
+2. Using a t2 or container to schedule your code (C#, NodeJS, Java, Python) with Cron. A t2.nano is simple to deploy and can run tasks indefinitely at a very modest cost. For most scheduling applications, the low resources shouldn’t be an issue.
 
-For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
+### Aurora MySQL Database Events
+
+Aurora MySQL also provides a native, in-database scheduling framework that can be used to trigger scheduled operations including maintenance tasks.
+
+Events are running by a dedicated thread, which can be seen in the process list. The global `event_scheduler` must be turned on explicitly from its default state of `OFF` for the event thread to run. Event errors are written to the error log. Event metadata can be viewed using the `INFORMATION_SCHEMA.EVENTS` view.
 
 ### Syntax
 
 ```
-CREATE USER <User Name> ...
-WITH
-MAX_QUERIES_PER_HOUR count |
-MAX_UPDATES_PER_HOUR count |
-MAX_CONNECTIONS_PER_HOUR count |
-MAX_USER_CONNECTIONS count
+CREATE EVENT <Event Name>
+    ON SCHEDULE <Schedule>
+    [ON COMPLETION [NOT] PRESERVE][ENABLE | DISABLE | DISABLE ON SLAVE]
+    [COMMENT 'string']
+    DO <Event Body>;
+
+<Schedule>:
+    AT <Time Stamp> [+ INTERVAL <Interval>] ...
+    | EVERY <Interval>
+    [STARTS <Time Stamp> [+ INTERVAL <Interval>] ...]
+    [ENDS <Time Stamp> [+ INTERVAL <Interval>] ...]
+
+<Interval>:
+    quantity {YEAR | QUARTER | MONTH | DAY | HOUR | MINUTE |
+        WEEK | SECOND | YEAR_MONTH | DAY_HOUR | DAY_MINUTE |
+        DAY_SECOND | HOUR_MINUTE | HOUR_SECOND | MINUTE_SECOND}
 ```
 
-### Migration Considerations
+### Examples
 
-Although both SQL Server Resource Manager and Aurora MySQL User Resource Limit Options provide the same basic function — limiting the amount of resources for distinct types of workloads — they differ significantly in scope and flexibility.
-
-SQL Server Resource Manager is a dynamically configured independent framework based on actual run-time resource consumption. User Resource Limit Options are defined as part of the security objects and requires application connection changes to map to limited users. To modify these limits, you must alter the user object.
-
-User Resource Limit Options don’t allow limiting workload activity based on actual resource consumption, but rather provides a quantitative limit for the number of queries or number of connections. A runaway query that consumes a large amount of resources may slow down the server.
-
-Another important difference is how exceeded resource limits are handled. SQL Server Resource Governor throttles the run; Aurora MySQL raises errors.
-
-### Example
-
-Create a resource-limited user.
+Create an event to collect login data statistics that runs once five hours after creation.
 
 ```
-CREATE USER 'ReportUsers'@'localhost'
-IDENTIFIED BY 'ReportPassword'
-WITH
-MAX_QUERIES_PER_HOUR 60
-MAX_UPDATES_PER_HOUR 0
-MAX_CONNECTIONS_PER_HOUR 5
-MAX_USER_CONNECTIONS 2;
+CREATE EVENT Update_T1_In_5_Hours
+    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 5 HOUR
+    DO
+        INSERT INTO LoginStatistics
+        SELECT UserID,
+            COUNT(*) AS LoginAttempts
+        FROM Logins AS L
+        GROUP BY UserID
+        WHERE LoginData = '20180502';
+```
+
+Create an event to run every hour and delete session information older than four hours.
+
+```
+CREATE EVENT Clear_Old_Sessions
+    ON SCHEDULE
+        EVERY 4 HOUR
+    DO
+        DELETE FROM Sessions
+        WHERE LastCommandTime < CURRENT_TIMESTAMP - INTERVAL 4 HOUR;
+```
+
+Schedule weekly index rebuilds and pass parameters.
+
+```
+CREATE EVENT Rebuild_Indexes
+    ON SCHEDULE
+        EVERY 1 WEEK
+    DO
+        CALL IndexRebuildProcedure(1, 80)
 ```
 
 ## Summary
 
-| Feature                                   | SQL Server Resource Governor                                                 | Aurora MySQL User Resource Limit Options  | Comments                                                           |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
-| Scope                                     | Dynamic workload pools and workload groups, mapped to a classifier function. | For each user.                            | Application connection strings need to use specific limited users. |
-| Limited resources                         | IO, CPU, and memory.                                                         | Number of queries, number of connections. |                                                                    |
-| Modifying limits                          | `ALTER RESOURCE POOL`                                                        | `ALTER USER`                              | Application may use a dynamic connection string.                   |
-| When resource threshold limit is reached. | Throttles and queues runs.                                                   | Raises an error.                          | Application retry logic may need to be added.                      |
-
-For more information, see [CREATE USER Resource-Limit Options](https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits "https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits") and [Setting Account Resource Limits](https://dev.mysql.com/doc/refman/5.7/en/user-resources.html "https://dev.mysql.com/doc/refman/5.7/en/user-resources.html") in the _MySQL documentation_.
+For more information, see [CREATE EVENT Statement](https://dev.mysql.com/doc/refman/5.7/en/create-event.html "https://dev.mysql.com/doc/refman/5.7/en/create-event.html") and [Event Scheduler Configuration](https://dev.mysql.com/doc/refman/5.7/en/events-configuration.html "https://dev.mysql.com/doc/refman/5.7/en/events-configuration.html") in the _MySQL documentation_; [Amazon CloudWatch](https://aws.amazon.com/cloudwatch "https://aws.amazon.com/cloudwatch") and [AWS Lambda](https://aws.amazon.com/lambda "https://aws.amazon.com/lambda").
