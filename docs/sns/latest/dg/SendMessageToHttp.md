@@ -1,10 +1,25 @@
-# Step 4: Optional - Set the delivery policy for the
+# Step 2: Subscribe the HTTP/HTTPS endpoint to the
 
-Amazon SNS subscription
+Amazon SNS topic
 
-By default, if the initial delivery of the message fails, Amazon SNS attempts up to three
-retries with a delay between failed attempts set at 20 seconds. As discussed in [Step 1](SendMessageToHttp.md "SendMessageToHttp.md"), your endpoint should have code that can
-handle retried messages. By setting the delivery policy on a topic or subscription, you can
-control the frequency and interval that Amazon SNS will retry failed messages. You can also specify
-the content type for your HTTP/S notifications in `DeliveryPolicy`. For more
-information, see [Creating an HTTP/S delivery policy](sns-message-delivery-retries.md#creating-delivery-policy "sns-message-delivery-retries.md#creating-delivery-policy").
+To send messages to an HTTP or HTTPS endpoint through a topic, you must subscribe the
+endpoint to the Amazon SNS topic. You specify the endpoint using its URL. To subscribe to a topic,
+you can use the Amazon SNS console, the [sns-subscribe](../../../cli/latest/reference/sns/subscribe.md "../../../cli/latest/reference/sns/subscribe.md") command, or the [Subscribe](../api/API_Subscribe.md "../api/API_Subscribe.md") API action. Before you start, make sure you have the URL for the endpoint
+that you want to subscribe and that your endpoint is prepared to receive the confirmation and
+notification messages as described in Step 1.
+
+###### To subscribe an HTTP or HTTPS endpoint to a topic using the Amazon SNS console
+
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+2. On the navigation panel, choose **Subscriptions**.
+3. Choose the **Create subscription**.
+4. In the **Protocol** drop-down list, select **HTTP**
+   or **HTTPS**.
+5. In the **Endpoint** box, paste in the URL for the endpoint that you
+   want the topic to send messages to and then choose **Create
+   subscription**.
+6. The confirmation message is displayed. Choose **Close**.
+
+Your new subscription's **Subscription ID** displays
+PendingConfirmation. When you confirm the subscription, **Subscription
+ID** will display the subscription ID.
