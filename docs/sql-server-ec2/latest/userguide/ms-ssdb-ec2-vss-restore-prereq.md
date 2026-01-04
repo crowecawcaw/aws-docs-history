@@ -71,13 +71,24 @@ JSON
  "Sid": "CreateVolumeAccessVolume",
  "Effect": "Allow",
  "Action": "ec2:CreateVolume",
- "Resource": "*",
+ "Resource": "arn:aws:ec2:*:*:volume/*",
  "Condition": {
  "StringLike": {
  "aws:RequestTag/AwsVssConfig": "*"
  },
  "ArnLike": {
- "ec2:ParentSnapshot": "arn:aws:ec2:*:*:*"
+ "ec2:ParentSnapshot": "arn:aws:ec2:*:*:snapshot/*"
+ }
+ }
+ },
+ {
+ "Sid": "CreateVolumeAccessSnapshot",
+ "Effect": "Allow",
+ "Action": "ec2:CreateVolume",
+ "Resource": "arn:aws:ec2:*:*:snapshot/*",
+ "Condition": {
+ "StringLike": {
+ "ec2:ResourceTag/AwsVssConfig": "*"
  }
  }
  },
@@ -146,7 +157,6 @@ JSON
  ],
  "Resource": [
  "arn:aws:ec2:*:*:instance/*",
- "arn:aws:ssm:*:*:document/AWSEC2-RestoreSqlServerDatabaseWithVss",
  "arn:aws:ssm:*:*:document/AWS-ConfigureAWSPackage",
  "arn:aws:ssm:*:*:document/AWSEC2-PrepareVssRestore",
  "arn:aws:ssm:*:*:document/AWSEC2-RunVssRestoreForSqlDatabase"
