@@ -102,7 +102,7 @@ that have the same value for a field, choose
 ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
 in the field. Choose
 
-![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
+![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
 to show findings that have other values for the field.
 
 For a sensitive data finding, you can also use the details panel to investigate
