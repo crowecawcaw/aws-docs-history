@@ -1,66 +1,31 @@
-# Amazon DocumentDB event categories and messages
+# Managing Amazon DocumentDB event notification subscriptions
 
-Amazon DocumentDB generates a significant number of events in categories that you can subscribe to
-using the console. Each category applies to a source type, which can be an instance,
-cluster, snapshot, or parameter group.
+If you choose **Event subscriptions** in the navigation pane of the Amazon DocumentDB console, you can view subscription categories and a list of your current subscriptions. You can also modify or delete a specific subscription.
 
-###### Note
+## To modify your current Amazon DocumentDB event notification subscriptions
 
-Amazon DocumentDB uses existing Amazon RDS event definitions and IDs.
+1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Event subscriptions**. The **Event subscriptions** pane shows all your event notification subscriptions.
 
-## Amazon DocumentDB events originating from instances
+![Amazon DocumentDB console navigation pane with Event Subscriptions option highlighted.](images/event-subs/modify-event-subs.png) 3. In the **Event subscriptions** pane, choose the subscription that you want to modify and choose **Edit**.
 
-| Category             | Description                                                                                                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| availability         | The instance restarted.                                                                                                                                                                     |
-| availability         | The instance shutdown.                                                                                                                                                                      |
-| configuration change | Applying modification to an instance class.                                                                                                                                                 |
-| configuration change | Finished applying modification to an instance class.                                                                                                                                        |
-| configuration change | Reset primary credentials.                                                                                                                                                                  |
-| creation             | Instance created.                                                                                                                                                                           |
-| deletion             | Instance deleted                                                                                                                                                                            |
-| failure              | The instance has failed due to an incompatible configuration or an underlying storage issue. Begin a point-in-time-restore for the instance.                                                |
-| notification         | Instance stopped.                                                                                                                                                                           |
-| notification         | Instance started.                                                                                                                                                                           |
-| notification         | Instance is being started due to it exceeding the maximum allowed time being stopped.                                                                                                       |
-| recovery             | Recovery of the instance has started. Recovery time will vary with the amount of data to be recovered.                                                                                      |
-| recovery             | Recovery of the instance is complete.                                                                                                                                                       |
-| security patching    | The operating system update is available for your instance. For information about applying updates, see [Maintaining Amazon DocumentDB](db-instance-maintain.md "db-instance-maintain.md"). |
+![The Event subscriptions pane showing a selected subscription and the Edit button.](images/event-subs/modify-edit.png) 4. Make your changes to the subscription in either the **Target** or **Source** section. You can add or remove source identifiers by selecting or deselecting them in the Source section.
 
-## Amazon DocumentDB events originating from a cluster
+![The Modify event subscription form highlighting the Target section.](images/event-subs/modify-target.png) 5. Choose **Modify**. The Amazon DocumentDB console indicates that the subscription is being modified.
 
-| Category     | Description                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------- |
-| creation     | Cluster created                                                                          |
-| deletion     | Cluster deleted.                                                                         |
-| failover     | Promoting previous primary again.                                                        |
-| failover     | Completed failover to instance.                                                          |
-| failover     | Started failover to DB instance: %s                                                      |
-| failover     | Started same AZ failover to DB instance: %s                                              |
-| failover     | Started cross AZ failover to DB instance: %s                                             |
-| maintenance  | Cluster has been patched.                                                                |
-| maintenance  | Database cluster is in a state that cannot be upgraded: %s                               |
-| notification | The cluster stopped.                                                                     |
-| notification | The cluster started.                                                                     |
-| notification | The cluster stop failed.                                                                 |
-| notification | The cluster is being started due to it exceeding the maximum allowed time being stopped. |
-| notification | Renamed cluster from %s to %s.                                                           |
+![The end of the Modify event subscription form with the Modify button highlighted.](images/event-subs/modify-button.png)
 
-## Amazon DocumentDB events originating from cluster snapshot
+## Deleting an Amazon DocumentDB event notification subscription
 
-The following table shows the event category and a list of events when an Amazon DocumentDB cluster snapshot is the source type.
+You can delete a subscription when you no longer need it. All subscribers to the topic will no longer receive event notifications specified by the subscription.
 
-| Category | Description                          |
-| -------- | ------------------------------------ |
-| backup   | Creating manual cluster snapshot.    |
-| backup   | Manual cluster snapshot created.     |
-| backup   | Creating automated cluster snapshot. |
-| backup   | Automated cluster snapshot created.  |
+1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Event subscriptions**.
 
-## Amazon DocumentDB events originating from parameter group
+![Amazon DocumentDB console navigation pane with Event Subscriptions option highlighted.](images/event-subs/delete-event-subs.png) 3. In the **Event subscriptions** pane, choose the subscription that you want to delete.
 
-The following table shows the event category and a list of events when a parameter group is the source type.
+![The Event subscriptions pane showing a selected subscription.](images/event-subs/delete-select.png) 4. Choose **Delete**.
 
-| Category             | Description                                     |
-| -------------------- | ----------------------------------------------- |
-| configuration change | Updated parameter %s to %s with apply method %s |
+![The Event subscriptions pane highlighting the Delete button.](images/event-subs/delete-delete.png) 5. A pop-up window will appear asking you if you want to permanently delete this notification. Choose **Delete**.
+
+![A dialog box confirming deletion of the event subscription with the Delete button highlighted in the lower-right corner.](images/event-subs/delete-delete-2.png)

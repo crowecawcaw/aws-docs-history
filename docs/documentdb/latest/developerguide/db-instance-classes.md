@@ -36,7 +36,7 @@ in the upper-left corner of the page. 3. In the Clusters navigation box, you’l
 Identifier**. Your instances are listed under clusters, similar to
 the screenshot below.
 
-![Clusters table showing how an instance is nested under a cluster.](images/choose-clusters.png) 4. In the list of instances, expand the cluster to find the instances you are
+![Clusters table showing how an instance is nested under a cluster.](/images/documentdb/latest/developerguide/images/choose-clusters.png) 4. In the list of instances, expand the cluster to find the instances you are
 interested in. Find the instance that you want. Then, look at the
 **Size** column of the instance's row to see its instance
 class.
