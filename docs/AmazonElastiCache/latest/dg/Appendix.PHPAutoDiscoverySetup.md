@@ -1,359 +1,51 @@
-# Installation steps for new users
+# Downloading the installation package
 
-###### Topics
+To ensure that you use the correct version of the ElastiCache Cluster Client for PHP, you will
+need to know what version of PHP is installed on your Amazon EC2 instance. You will also need to know whether your Amazon EC2 instance is running a 64-bit or 32-bit version of Linux.
 
-- [Installing PHP 7.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x "#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x")
-- [Installing PHP 5.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x "#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x")
+###### To determine the PHP version installed on your Amazon EC2 instance
 
-## Installing PHP 7.x for new users
-
-###### Topics
-
-- [To install PHP 7 on a Ubuntu server 14.04 LTS AMI (64-bit and 32-bit)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu "#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.Ubuntu")
-- [To install PHP 7 on an Amazon Linux 201609 AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux "#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.AmznLinux")
-- [To install PHP 7 on an SUSE Linux AMI](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux "#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x.SuseLinux")
-
-### To install PHP 7 on a Ubuntu server 14.04 LTS AMI (64-bit and 32-bit)
-
-1. Launch a new instance from the AMI.
-2. Run the following commands:
+- At the command prompt, run the following command:
 
 ```
-sudo apt-get update
-sudo apt-get install gcc g++
+`php -v`
 ```
 
-3. Install PHP 7.
+The PHP version will be shown in the output, as in this example:
 
 ```
-sudo yum install php70
-```
-
-4. Download the Amazon ElastiCache Cluster Client.
-
-```
-wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.0/latest-64bit
-```
-
-5. Extract `latest-64bit`.
-
-```
-tar -zxvf latest-64bit
-```
-
-6. With root permissions, copy the extracted artifact file `amazon-elasticache-cluster-client.so`
-   into `/usr/lib/php/20151012`.
-
-```
-sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib/php/20151012
-```
-
-7. Insert the line `extension=amazon-elasticache-cluster-client.so` into the file
-   `/etc/php/7.0/cli/php.ini`.
-
-```
-echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php/7.0/cli/php.ini
-```
-
-8. Start or restart your Apache server.
-
-```
-sudo /etc/init.d/httpd start
-```
-
- 
-
-### To install PHP 7 on an Amazon Linux 201609 AMI
-
-1. Launch a new instance from the AMI.
-2. Run the following command:
-
-```
-sudo yum install gcc-c++
-```
-
-3. Install PHP 7.
-
-```
-sudo yum install php70
-```
-
-4. Download the Amazon ElastiCache Cluster Client.
-
-```
-wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.0/latest-64bit
-```
-
-5. Extract `latest-64bit`.
-
-```
-tar -zxvf latest-64bit
-```
-
-6. With root permission,
-   copy the extracted artifact file `amazon-elasticache-cluster-client.so`
-   into `/usr/lib64/php/7.0/modules/`.
-
-```
-sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib64/php/7.0/modules/
-```
-
-7. Create the `50-memcached.ini` file.
-
-```
-echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php-7.0.d/50-memcached.ini
-```
-
-8. Start or restart your Apache server.
-
-```
-sudo /etc/init.d/httpd start
-```
-
- 
-
-### To install PHP 7 on an SUSE Linux AMI
-
-1. Launch a new instance from the AMI.
-2. Run the following command:
-
-```
-sudo zypper install gcc
-```
-
-3. Install PHP 7.
-
-```
-sudo yum install php70
-```
-
-4. Download the Amazon ElastiCache Cluster Client.
-
-```
-wget https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.0/latest-64bit
-```
-
-5. Extract `latest-64bit`.
-
-```
-tar -zxvf latest-64bit
-```
-
-6. With root permission,
-   copy the extracted artifact file `amazon-elasticache-cluster-client.so`
-   into `/usr/lib64/php7/extensions/`.
-
-```
-sudo mv artifact/amazon-elasticache-cluster-client.so /usr/lib64/php7/extensions/
-```
-
-7. Insert the line `extension=amazon-elasticache-cluster-client.so`
-   into the file `/etc/php7/cli/php.ini`.
-
-```
-echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php7/cli/php.ini
-```
-
-8. Start or restart your Apache server.
-
-```
-sudo /etc/init.d/httpd start
-```
-
- 
-
-## Installing PHP 5.x for new users
-
-###### Topics
-
-- [To install PHP 5 on an Amazon Linux AMI 2014.03 (64-bit and 32-bit)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.AmznLinux "#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.AmznLinux")
-- [To install PHP 5 on a Red Hat Enterprise Linux 7.0 AMI (64-bit and 32-bit)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.RHEL "#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.RHEL")
-- [To install PHP 5 on a Ubuntu server 14.04 LTS AMI (64-bit and 32-bit)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Ubuntu "#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Ubuntu")
-- [To install PHP 5 for SUSE Linux enterprise server 11 AMI (64-bit or 32-bit)](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux "#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.SuseLinux")
-- [Other Linux distributions](#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Other "#Appendix.PHPAutoDiscoverySetup.Installing.PHP5x.Other")
-
-### To install PHP 5 on an Amazon Linux AMI 2014.03 (64-bit and 32-bit)
-
-1. Launch an Amazon Linux instance (either 64-bit or 32-bit) and log into it.
-2. Install PHP dependencies:
-
-```
-`sudo yum install gcc-c++ php php-pear`
-```
-
-3. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
-4. Install `php-memcached`. The URI should be the download path for the installation
-   package:
-
-```
-`sudo pecl install `<package download path>``
-```
-
-Here is a sample installation command for PHP 5.4, 64-bit Linux. In this sample, replace
-`X.Y.Z` with the actual version
-number:
-
-```
-`sudo pecl install /home/AmazonElastiCacheClusterClient-`X.Y.Z`-PHP54-64bit.tgz`
+PHP **5.4.10** (cli) (built: Jan 11 2013 14:48:57)
+Copyright (c) 1997-2012 The PHP Group
+Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
 ```
 
 ###### Note
 
-Be sure to use the latest version of the install artifact. 5. With root/sudo permission, add a new file named `memcached.ini` in the
-`/etc/php.d` directory, and insert
-"extension=amazon-elasticache-cluster-client.so" in the file:
+If your PHP and Memcached versions are incompatible, you will get an error message something like the following:
 
 ```
-`echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php.d/memcached.ini`
+PHP Warning: PHP Startup: memcached: Unable to initialize module
+Module compiled with module API=20100525
+PHP compiled with module API=20131226
+These options need to match
+in Unknown on line 0
 ```
 
-6. Start or restart your Apache server.
+If this happens, you need to compile the module from the source code.
+For more information, see [Compiling the source code for the ElastiCache cluster client for PHP](Appendix.md "Appendix.md").
 
-```
-sudo /etc/init.d/httpd start
-```
+###### To determine your Amazon EC2 AMI architecture (64-bit or 32-bit)
 
- 
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the **Instances** list, click your Amazon EC2 instance.
+3. In the **Description** tab, look for the **AMI:** field. A 64-bit instance should have `x86_64` as part of the description; for a 32-bit instance, look for `i386` or `i686` in this field.
+   You are now ready to download the ElastiCache Cluster Client.
 
-### To install PHP 5 on a Red Hat Enterprise Linux 7.0 AMI (64-bit and 32-bit)
+###### To download the ElastiCache cluster client for PHP
 
-1. Launch a Red Hat Enterprise Linux instance (either 64-bit or 32-bit) and log into it.
-2. Install PHP
-   dependencies:
-
-```
-`sudo yum install gcc-c++ php php-pear`
-```
-
-3. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version.
-   For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
-4. Install `php-memcached`. The URI should be the download path for the
-   installation package:
-
-```
-`sudo pecl install `<package download path>``
-```
-
-5. With root/sudo permission, add a new file named `memcached.ini` in the
-   `/etc/php.d` directory, and insert
-   `extension=amazon-elasticache-cluster-client.so` in the file.
-
-```
-`echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php.d/memcached.ini`
-```
-
-6. Start or restart your Apache server.
-
-```
-sudo /etc/init.d/httpd start
-```
-
- 
-
-### To install PHP 5 on a Ubuntu server 14.04 LTS AMI (64-bit and 32-bit)
-
-1. Launch an Ubuntu Linux instance (either 64-bit or 32-bit) and log into it.
-2. Install PHP dependencies:
-
-```
-`sudo apt-get update
-sudo apt-get install gcc g++ php5 php-pear`
-```
-
-3. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP
-   version. For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
-4. Install `php-memcached`.
-   The URI should be the download path for the installation package.
-
-```
-`sudo pecl install `<package download path>``
-```
-
-###### Note
-
-This installation step installs the build artifact
-`amazon-elasticache-cluster-client.so` into the
-`/usr/lib/php5/20121212*` directory. Verify
-the absolute path of the build artifact, because you need it in the next
-step.
-
-If the previous command doesn't work,
-you need to manually extract the PHP client artifact `amazon-elasticache-cluster-client.so`
-from the downloaded `*.tgz` file, and copy it to the `/usr/lib/php5/20121212*` directory.
-
-```
-`tar -xvf `<package download path>`
-cp amazon-elasticache-cluster-client.so /usr/lib/php5/20121212/`
-```
-
-5. With root/sudo permission, add a new file named `memcached.ini` in the
-   `/etc/php5/cli/conf.d` directory, and insert "extension=<absolute path to amazon-elasticache-cluster-client.so>" in the file.
-
-```
-`echo "extension=`<absolute path to amazon-elasticache-cluster-client.so>`" | sudo tee --append /etc/php5/cli/conf.d/memcached.ini`
-```
-
-6. Start or restart your Apache server.
-
-```
-sudo /etc/init.d/httpd start
-```
-
- 
-
-### To install PHP 5 for SUSE Linux enterprise server 11 AMI (64-bit or 32-bit)
-
-1. Launch a SUSE Linux instance (either 64-bit or 32-bit) and log into it.
-2. Install PHP dependencies:
-
-```
-`sudo zypper install gcc php53-devel`
-```
-
-3. Download the correct `php-memcached` package for your Amazon EC2 instance and PHP version.
-   For more information, see [Downloading the installation package](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
-4. Install `php-memcached`.
-   The URI should be the download path for the installation package.
-
-```
-`sudo pecl install `<package download path>``
-```
-
-5. With root/sudo permission, add a new file named `memcached.ini` in the
-   `/etc/php5/conf.d` directory, and insert `extension=`amazon-elasticache-cluster-client.so`` in
-   the file.
-
-```
-`echo "extension=amazon-elasticache-cluster-client.so" | sudo tee --append /etc/php5/conf.d/memcached.ini`
-```
-
-6. Start or restart your Apache server.
-
-```
-sudo /etc/init.d/httpd start
-```
-
-###### Note
-
-If Step 5 doesn't work for any of the previous platforms, verify the install path for
-`amazon-elasticache-cluster-client.so`. Also, specify the full
-path of the binary in the extension. In addition, verify that the PHP in use is a supported
-version. We support versions 5.3 through 5.5.
-
- 
-
-### Other Linux distributions
-
-On some systems, notably CentOS7 and Red Hat Enterprise Linux (RHEL) 7.1,
-`libsasl2.so.3` has replaced `libsasl2.so.2`.
-On those systems, when you load the ElastiCache cluster client,
-it attempts and fails to find and load `libsasl2.so.2`.
-To resolve this issue, create a symbolic link to `libsasl2.so.3`
-so that when the client attempts to load libsasl2.so.2,
-it is redirected to `libsasl2.so.3`.
-The following code creates this symbolic link.
-
-```
-`cd /usr/lib64`
-`sudo ln libsasl2.so.3 libsasl2.so.2`
-```
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. From the ElastiCache console, choose **ElastiCache Cluster Client**.
+3. From the **Download ElastiCache Memcached Cluster Client** list, choose the ElastiCache Cluster Client that matches
+   your PHP version and AMI architecture, then choose the **Download** button.

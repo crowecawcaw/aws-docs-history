@@ -1,50 +1,68 @@
-# Finding replication group endpoints
+# Deleting a replication group
 
-An application can connect to any node in a replication group, provided that it has the DNS
-endpoint and port number for that node. Depending upon whether you are running a Valkey or Redis OSS (cluster mode disabled)
-or a Valkey or Redis OSS (cluster mode enabled) replication group, you will be interested in different endpoints.
+If you no longer need one of your clusters with replicas (called _replication groups_ in the API/CLI), you can delete it.
+When you delete a replication group, ElastiCache deletes all of the nodes in that group.
 
-###### Valkey or Redis OSS (cluster mode disabled)
+After you have begun this operation, it cannot be interrupted or canceled.
 
-Valkey or Redis OSS (cluster mode disabled) clusters with replicas have three types of endpoints; the _primary endpoint_, the _reader endpoint_ and
-the _node endpoints_.
-The primary endpoint is a DNS name that always resolves to the primary node in the cluster.
-The primary endpoint is immune to changes to your cluster, such as promoting a read replica
-to the primary role.
-For write activity, we recommend that your applications connect to the primary
-endpoint.
+###### Warning
 
-A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in an ElastiCache cluster. Additional factors such as when the application creates the connections or how the application (re)-uses the connections will determine the traffic distribution. Reader endpoints keep up with cluster changes in real-time as replicas are added or removed.
-You can place your ElastiCache for Redis OSS cluster’s multiple read replicas in different AWS Availability Zones (AZ) to ensure high availability of reader endpoints.
+- When you delete an ElastiCache for Redis OSS cluster, your manual snapshots are retained.
+  You will also have an option to create a final snapshot before the cluster is deleted.
+  Automatic cache snapshots are not retained.
+- `CreateSnapshot` permission is required to create a final snapshot.
+  Without this permission, the API call will fail with an `Access Denied` exception.
+
+## Deleting a Replication Group (Console)
+
+To delete a cluster that has replicas,
+see [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
+
+## Deleting a Replication Group (AWS CLI)
+
+Use the command delete-replication-group to
+delete a replication group.
+
+```
+aws elasticache delete-replication-group --replication-group-id `my-repgroup`
+```
+
+A prompt asks you to confirm your decision. Enter
+_y_ (yes) to start the operation immediately.
+After the process starts, it is irreversible.
+
+```
+
+   After you begin deleting this replication group, all of its nodes will be deleted as well.
+   Are you sure you want to delete this replication group? [Ny]`y`
+
+REPLICATIONGROUP  my-repgroup  My replication group  deleting
+```
+
+## Deleting a replication group (ElastiCache API)
+
+Call DeleteReplicationGroup with the
+`ReplicationGroup` parameter.
+
+###### Example
+
+```
+https://elasticache.us-west-2.amazonaws.com/
+   ?Action=DeleteReplicationGroup
+   &ReplicationGroupId=my-repgroup
+   &Version=2014-12-01
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &Timestamp=20141201T220302Z
+   &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+   &X-Amz-Date=20141201T220302Z
+   &X-Amz-SignedHeaders=Host
+   &X-Amz-Expires=20141201T220302Z
+   &X-Amz-Credential=<credential>
+   &X-Amz-Signature=<signature>
+```
 
 ###### Note
 
-A reader endpoint is not a load balancer. It is a DNS record that will resolve to an IP address of one of the replica nodes in a round robin fashion.
-
-For read activity, applications can also connect to any node in the cluster.
-Unlike the primary endpoint, node endpoints resolve to specific endpoints.
-If you make a change in your cluster, such as adding or deleting a replica,
-you must update the node endpoints in your application.
-
-###### Valkey or Redis OSS (cluster mode enabled)
-
-Valkey or Redis OSS (cluster mode enabled) clusters with replicas,
-because they have multiple shards (API/CLI: node groups),
-which mean they also have multiple primary nodes, have a different endpoint structure than Valkey or Redis OSS (cluster mode disabled) clusters.
-Valkey or Redis OSS (cluster mode enabled) has a _configuration endpoint_ which "knows" all the primary and
-node endpoints in the cluster.
-Your application connects to the configuration endpoint.
-Whenever your application writes to or reads from the cluster's configuration endpoint,
-Valkey and Redis OSS, behind the scenes, determine which shard the key belongs to and which endpoint in that
-shard to use. It is all quite transparent to your application.
-
-You can find the endpoints for a cluster using the ElastiCache console, the AWS CLI, or the ElastiCache API.
-
-**Finding Replication Group Endpoints**
-
-To find the endpoints for your replication group, see one of the following topics:
-
-- [Finding a Valkey or Redis OSS (Cluster Mode Disabled) Cluster's Endpoints (Console)](Endpoints.md#Endpoints.Find.Redis "Endpoints.md#Endpoints.Find.Redis")
-- [Finding Endpoints for a Valkey or Redis OSS (Cluster Mode Enabled) Cluster (Console)](Endpoints.md#Endpoints.Find.RedisCluster "Endpoints.md#Endpoints.Find.RedisCluster")
-- [Finding the Endpoints for Valkey or Redis OSS Replication Groups (AWS CLI)](Endpoints.md#Endpoints.Find.CLI.ReplGroups "Endpoints.md#Endpoints.Find.CLI.ReplGroups")
-- [Finding Endpoints for Valkey or Redis OSS Replication Groups (ElastiCache API)](Endpoints.md#Endpoints.Find.API.ReplGroups "Endpoints.md#Endpoints.Find.API.ReplGroups")
+If you set the `RetainPrimaryCluster` parameter to `true`,
+all of the read replicas will be deleted, but the primary cluster will be retained.
