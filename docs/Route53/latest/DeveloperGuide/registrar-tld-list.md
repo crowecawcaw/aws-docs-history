@@ -184,13 +184,14 @@ domains
 
 **Americas**
 
-[.ca (Canada)](ca.md "ca.md"), [.cl (Chile)](cl.md "cl.md"), [.co (Colombia)](co.md "co.md"), [.com.ar (Argentina)](com.md "com.md"), [.com.br (Brazil)](com.md "com.md"), [.com.mx (Mexico)](com.md "com.md"), [.mx (Mexico)](mx.md "mx.md"),
+[.ai (Anguilla)](ai.md "ai.md"), [.ca (Canada)](ca.md "ca.md"), [.cl (Chile)](cl.md "cl.md"), [.co (Colombia)](co.md "co.md"), [.com.ar (Argentina)](com.md "com.md"), [.com.br (Brazil)](com.md "com.md"), [.com.mx (Mexico)](com.md "com.md"), [.mx (Mexico)](mx.md "mx.md"),
 [.us (United States)](us.md "us.md"), [.vc (Saint Vincent and the Grenadines)](vc.md "vc.md"), [.vg (British Virgin Islands)](vg.md "vg.md")
 
 **Asia/Oceania**
 
 [.au (Australia)](au.md "au.md"), [.cc (Cocos (Keeling) Islands)](cc.md "cc.md"), [.co.nz (New Zealand)](co.md "co.md"),
-[.com.au (Australia)](com.md "com.md"), [.com.sg (Republic of Singapore)](com.md "com.md"), [.fm (Federated States of Micronesia)](fm.md "fm.md"), [.in (India)](in.md "in.md"), [.jp (Japan)](jp.md "jp.md"), [.io (British Indian Ocean Territory)](io.md "io.md"), [.net.au (Australia)](net.md "net.md"), [.net.nz (New Zealand)](net.md "net.md"), [.org.nz (New Zealand)](org.md "org.md"), [.pw (Palau)](pw.md "pw.md"), [.qa (Qatar)](qa.md "qa.md"), [.ru (Russian Federation)](ru.md "ru.md"), [.sg (Republic of Singapore)](sg.md "sg.md")
+[.com.au (Australia)](com.md "com.md"), [.com.sg (Republic of Singapore)](com.md "com.md"), [.fm (Federated States of Micronesia)](fm.md "fm.md"), [.in (India)](in.md "in.md"), [.jp (Japan)](jp.md "jp.md"), [.io (British Indian Ocean Territory)](io.md "io.md"), [.net.au (Australia)](net.md "net.md"), [.net.nz (New Zealand)](net.md "net.md"), [.nz (New Zealand)](nz.md "nz.md"), [.org.nz (New Zealand)](org.md "org.md"),
+[.pw (Palau)](pw.md "pw.md"), [.qa (Qatar)](qa.md "qa.md"), [.ru (Russian Federation)](ru.md "ru.md"), [.sg (Republic of Singapore)](sg.md "sg.md")
 
 **Europe**
 

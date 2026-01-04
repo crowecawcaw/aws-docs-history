@@ -1,10 +1,10 @@
-# .com.mx (Mexico)
+# .ai (Anguilla)
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
 **Lease period for registration and renewal**
 
-One to ten years.
+Registration: Two to ten years. Renewal: Two to nine years.
 
 **Restrictions**
 
@@ -12,7 +12,7 @@ Open to the public, with no restrictions.
 
 **Privacy protection**
 
-Determined by the registry.
+Not supported.
 
 **Domain locking to prevent unauthorized transfers**
 
@@ -33,7 +33,7 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 **Deadlines for renewing and restoring domains**
 
 - Renewal is possible: Until the expiration date
-- Late renewal with Route 53 is possible: Until 44 days after
+- Late renewal with Route 53 is possible: Until 45 days after
   expiration
 - Domain is deleted from Route 53: 45 days after
   expiration
