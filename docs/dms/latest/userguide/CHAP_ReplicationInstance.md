@@ -1,229 +1,77 @@
-# Choosing the right AWS DMS
+#
 
-replication instance for your migration
+Modifying a replication instance
 
-AWS DMS creates the replication instance on an Amazon EC2 instance. AWS DMS currently supports
-the T3, C5, C6i, R5, and R6i Amazon EC2 instance classes for replication instances:
+You can modify the settings for a replication instance to, for example, change the
+instance class or to increase storage.
 
-- T3 instances are the next-generation burstable general-purpose instance type.
-  This type provides a baseline level of CPU performance with the ability to burst
-  CPU usage at any time for as long as required. T3 instances offer a balance of
-  compute, memory, and network resources and are designed for applications with
-  moderate CPU usage that experience temporary spikes in use. T3 instances
-  accumulate CPU credits when a workload is operating below baseline threshold.
-  Each earned CPU credit provides the T3 instance the opportunity to burst with
-  the performance of a full CPU core for one minute when needed.
+When you modify a replication instance, you can apply the changes immediately. To
+apply changes immediately, choose the **Apply changes immediately**
+option in the AWS Management Console. Or use the `--apply-immediately` parameter when
+calling the AWS CLI, or set the `ApplyImmediately` parameter to
+`true` when using the DMS API.
 
-T3 instances can burst at any time for as long as required in
-`unlimited` mode. For more information on `unlimited`
-mode, see [Working with
-unlimited mode for burstable performance instances](#CHAP_ReplicationInstance.Types.UnlimitedMode "#CHAP_ReplicationInstance.Types.UnlimitedMode").
+If you don't choose to apply changes immediately, the changes are put into the pending
+modifications queue. During the next maintenance window, any pending changes in the
+queue are applied.
 
-- C5 instances are the next-generation instance type to deliver cost-effective
-  high performance at a low price per compute ratio for running advanced
-  compute-intensive workloads. This includes workloads such as high-performance
-  web servers, high-performance computing (HPC), batch processing, ad serving,
-  highly scalable multiplayer gaming, and video encoding. Other workloads C5
-  instances are suited to include scientific modeling, distributed analytics, and
-  machine and deep learning inference. The C5 instances are available with a
-  choice of processors from Intel and AMD.
-- C6i instances offer up to 15% better compute price performance over comparable
-  Gen5 instances for a wide variety of workloads, and always-on memory encryption.
-  C6i instances are an ideal fit for compute-intensive workloads such as batch processing,
-  distributed analytics, high performance computing (HPC), ad serving, highly scalable
-  multiplayer gaming, and video encoding.
-- R5 instances are the next generation of memory-optimized instance types for
-  Amazon EC2. R5 instances are well-suited for memory-intensive applications such as
-  high performance databases, distributed web scale in-memory caches, midsize
-  in-memory databases, real time big data analytics, and other enterprise
-  applications. Ongoing migrations or replications of high-throughput transaction
-  systems using AWS DMS can also consume large amounts of CPU and memory.
-- R6i instances offer up to 15% better compute price performance over
-  comparable Gen5 instances for a wide variety of workloads, and always-on
-  memory encryption. R6i instances are SAP Certified and are ideal for workloads
-  such as SQL and noSQL databases, distributed web scale in-memory caches like
-  Memcached and Redis OSS, in-memory databases like SAP HANA, and real time big data
-  analytics like Hadoop and Spark clusters.
-- C7i instances offer better compute performance over comparable previous
-  generation instances. For AWS DMS workloads, C7i instances excel at accelerating
-  data transformation processes, handling compute-heavy schema conversions, and
-  maintaining consistent throughput during high-volume migration tasks. These
-  instances provide an ideal balance of compute performance that require sustained
-  CPU performance.
-- R7i instances offer better compute performance over comparable previous
-  generation instances, combined with high memory capacity for memory-intensive
-  workloads. For AWS DMS workloads, R7i instances are particularly well-suited for
-  tasks involving large databases that process high volumes of concurrent database
-  transactions, enabling efficient handling of memory-intensive replication
-  scenarios and complex data validation processes that require substantial memory
-  buffers.
-  Each replication instance has a specific configuration of memory and vCPU. The
-  following table shows the configuration for each replication instance type. For pricing
-  information, see the [AWS Database Migration Service
-  service pricing page](https://aws.amazon.com/dms/pricing/ "https://aws.amazon.com/dms/pricing/").
+###### Note
 
-**General Purpose Replication Instance Types**
+If you choose to apply changes immediately, any changes in the pending modifications queue are
+also applied. If any of the pending modifications require downtime, choosing
+**Apply changes immediately** can cause unexpected downtime.
 
-| Type          | vCPU | Memory (GiB) |
-| ------------- | ---- | ------------ |
-| dms.t3.micro  | 2    | 1            |
-| dms.t3.small  | 2    | 2            |
-| dms.t3.medium | 2    | 4            |
-| dms.t3.large  | 2    | 8            |
+###### To modify a replication instance by using the AWS console
 
-**Compute Optimized Replication Instance Types**
+1. Sign in to the AWS Management Console and open the AWS DMS console at
+   [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+2. In the navigation pane, choose **Replication instances**.
+3. Choose
+   the replication instance you want to modify. The following table describes the
+   modifications you can make.
 
-| Type             | vCPU | Memory (GiB) |
-| ---------------- | ---- | ------------ |
-| dms.c5.large     | 2    | 4            |
-| dms.c5.xlarge    | 4    | 8            |
-| dms.c5.2xlarge   | 8    | 16           |
-| dms.c5.4xlarge   | 16   | 32           |
-| dms.c5.9xlarge   | 36   | 72           |
-| dms.c5.12xlarge  | 48   | 96           |
-| dms.c5.18xlarge  | 72   | 144          |
-| dms.c5.24xlarge  | 96   | 192          |
-| dms.c6i.large    | 2    | 4            |
-| dms.c6i.xlarge   | 4    | 8            |
-| dms.c6i.2xlarge  | 8    | 16           |
-| dms.c6i.4xlarge  | 16   | 32           |
-| dms.c6i.8xlarge  | 32   | 64           |
-| dms.c6i.12xlarge | 48   | 96           |
-| dms.c6i.16xlarge | 64   | 128          |
-| dms.c6i.24xlarge | 96   | 192          |
-| dms.c6i.32xlarge | 128  | 256          |
-| dms.c7i.large    | 2    | 4            |
-| dms.c7i.xlarge   | 4    | 8            |
-| dms.x7i.2xlarge  | 8    | 16           |
-| dms.x7i.4xlarge  | 16   | 32           |
-| dms.x7i.8xlarge  | 32   | 64           |
-| dms.x7i.12xlarge | 48   | 96           |
-| dms.x7i.16xlarge | 64   | 128          |
-| dms.x7i.24xlarge | 96   | 192          |
-| dms.x7i.48xlarge | 192  | 384          |
+| Option                                                     | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                                                   | You can change the name of the replication instance. Enter<br>a name for the replication instance that contains from 8 to<br>16 printable ASCII characters (excluding /,", and @).<br>The name should be unique for your account for the AWS<br>Region you selected. You can choose to add some intelligence<br>to the name, such as including the AWS Region and task you<br>are performing, for example<br>`west2-mysql2mysql-instance1`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Description**                                            | Revise or enter a brief description of the replication<br>instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Instance class**                                         | You can change the instance class. Choose an instance<br>class with the configuration you need for your migration.<br>Changing the instance class causes the replication instance<br>to reboot. This reboot occurs during the next maintenance<br>window or can occur immediately if you choose the<br>**Apply changes immediately**<br>option.<br>For more information on how to determine which<br>instance class is best for your migration, see<br>[Working with an AWS DMS replication<br>instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Engine version**                                         | You can upgrade the engine version that is used<br>by the replication instance. Upgrading the replication<br>engine version causes the replication instance to<br>shut down while it is being upgraded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Multi-AZ**                                               | You can change this option to create a standby<br>replica of your replication instance in another<br>Availability Zone for failover support or remove<br>this option. If you<br>intend to use change data capture (CDC),<br>ongoing replication, you should enable<br>this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Allocated storage (GiB)**                                | Storage is primarily consumed by log files and cached<br>transactions. For caches transactions, storage is used only<br>when the cached transactions need to be written to disk.<br>Therefore, AWS DMS doesn't use a significant amount of<br>storage. Some exceptions include the following:<br>• Very large tables that incur a significant<br>transaction load. Loading a large table can take<br>some time, so cached transactions are more likely to<br>be written to disk during a large table load.<br>• Tasks that are configured to pause before loading<br>cached transactions. In this case, all transactions<br>are cached until the full load completes for all<br>tables. With this configuration, a fair amount of<br>storage might be consumed by cached<br>transactions.<br>• Tasks configured with tables being loaded into<br>Amazon Redshift. However, this configuration isn't an<br>issue when Amazon Aurora is the target.<br>In most cases, the default allocation of storage is<br>sufficient. However, it's always a good idea to pay<br>attention to storage related metrics and scale up your<br>storage if you find you are consuming more than the default<br>allocation. |
+| **Network type**                                           | DMS supports the **IPv4\*<br>• addressing<br>protocol network type, and supports both IPv4 and IPv6<br>addressing protocol network types in<br>**Dual-stack*<br>• mode. When you have<br>resources that must communicate to your replication instance<br>using an IPv6 addressing protocol network type, choose<br>\*\*Dual-stack*<br>• mode. For information<br>about limitations in dual-stack mode, see [Limitations for dual-stack network DB instances](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations") in the [Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md") userguide.                                                                                                                                                                                                                                                                                                                                                                                     |
+| **VPC Security Group(s)**                                  | The replication instance is created in a VPC. If your<br>source database is in a VPC, choose the VPC security group<br>that provides access to the DB instance where the database<br>resides.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Automatic version upgrade**                              | AWS DMS doesn't differentiate between major and minor versions.<br>For example, upgrading from version 3.4.x to 3.5.x isn't considered<br>a major upgrade, so all changes should be backward-compatible. When<br>**Automatic version upgrade\*<br>• is enabled, DMS<br>automatically upgrades the replication instance's version during the<br>maintenance window if it is deprecated.<br>When **Automatic version upgrade*<br>• is enabled, DMS uses the current<br>default engine version when you create a replication instance. For example, if you set<br>\*\*Engine version*<br>• to a lower version number than the current default<br>version, DMS uses the default version.<br>If **Automatic version upgrade\*<br>• isn't enabled when you create<br>a replication instance, DMS uses the engine version specified by the<br>**Engine version\*<br>• parameter.                                                                                                                                                                                                                                                                                                                               |
+| **Maintenance window**                                     | Choose a weekly time range during which system maintenance<br>can occur, in Universal Coordinated Time (UTC).<br>Default: A 30-minute window selected at random from an<br>8-hour block of time per AWS Region, occurring on a random<br>day of the week.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Apply changes immediately**                              | Choose this option to apply any modifications<br>you made immediately. Depending on the settings you choose,<br>choosing this option could cause an immediate reboot of the<br>replication instance.<br>If you choose **Test connection\*<br>• while<br>AWS DMS applies changes, then you will see an error message.<br>After AWS DMS applies changes to your replication instance,<br>choose **Test connection\*<br>• again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Apply changes during next scheduled maintenance window** | Choose this option if you want DMS to wait until the next<br>scheduled maintenance window to apply your changes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-**Memory Optimized Replication Instance Types**
+## Best practices
 
-| Type             | vCPU | Memory (GiB) |
-| ---------------- | ---- | ------------ |
-| dms.r5.large     | 2    | 16           |
-| dms.r5.xlarge    | 4    | 32           |
-| dms.r5.2xlarge   | 8    | 64           |
-| dms.r5.4xlarge   | 16   | 128          |
-| dms.r5.8xlarge   | 32   | 256          |
-| dms.r5.12xlarge  | 48   | 384          |
-| dms.r5.16xlarge  | 64   | 512          |
-| dms.r5.24xlarge  | 96   | 768          |
-| dms.r6i.large    | 2    | 16           |
-| dms.r6i.xlarge   | 4    | 32           |
-| dms.r6i.2xlarge  | 8    | 64           |
-| dms.r6i.4xlarge  | 16   | 128          |
-| dms.r6i.8xlarge  | 32   | 256          |
-| dms.r6i.12xlarge | 48   | 384          |
-| dms.r6i.16xlarge | 64   | 512          |
-| dms.r6i.24xlarge | 96   | 768          |
-| dms.r6i.32xlarge | 128  | 1024         |
-| dms.r7i.large    | 2    | 16           |
-| dms.r7i.xlarge   | 4    | 32           |
-| dms.r7i.2xlarge  | 8    | 64           |
-| dms.r7i.4xlarge  | 16   | 128          |
-| dms.r7i.8xlarge  | 32   | 256          |
-| dms.r7i.12xlarge | 48   | 384          |
-| dms.r7i.16xlarge | 64   | 512          |
-| dms.r7i.24xlarge | 96   | 768          |
-| dms.r7i.48xlarge | 192  | 1536         |
+when modifying a replication instance
 
-The tables above list all of the AWS DMS replication instance types, but the types that
-are available in your region might vary. To see the replication instance types available
-in your region, you can run the following
-[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md")
-command:
+When modifying a replication instance, following these best practices helps ensure
+a successful update with minimal impact to your migration workflows. Take the
+following key steps before, during, and after modifications to maintain data
+integrity and operational efficiency throughout the process.
 
-```
-aws dms describe-orderable-replication-instances --region `your_region_name`
-```
+**Plan modification timing:**
 
-###### Topics
+- You can either apply changes immediately or schedule them for
+  the next maintenance window.
+- Schedule during low-traffic periods to minimize impact.
 
-- [Deciding what instance
-  class to use](#CHAP_ReplicationInstance.Types.Deciding "#CHAP_ReplicationInstance.Types.Deciding")
-- [Working with
-  unlimited mode for burstable performance instances](#CHAP_ReplicationInstance.Types.UnlimitedMode "#CHAP_ReplicationInstance.Types.UnlimitedMode")
+**Pre-modification steps:**
 
-## Deciding what instance
+- Stop all active replication tasks.
+- Verify all tasks have successfully stopped.
+- Document current configuration task settings.
 
-class to use
+**During modification:**
 
-To help determine which replication instance class might work best for you,
-let's look at the change data capture (CDC) process that AWS DMS uses.
+- Monitor the modification progress.
+- Wait for "Available" status before proceeding.
 
-Let's assume that you're running a full load plus CDC task (bulk load
-plus ongoing replication). In this case, the task has its own SQLite repository to
-store metadata and other information. Before AWS DMS starts a full load, these steps
-occur:
+**Post-modification steps:**
 
-- AWS DMS starts capturing changes for the tables it's migrating from the
-  source engine's transaction log (we call these _cached
-  changes_). After full load is done, these cached changes are
-  collected and applied on the target. Depending on the volume of cached
-  changes, these changes can directly be applied from memory, where they are
-  collected first, up to a set threshold. Or they can be applied from disk,
-  where changes are written when they can't be held in memory.
-- After cached changes are applied, by default AWS DMS starts a transactional
-  apply process on the target instance.
-
-During the applied cached changes phase and ongoing replications phase, AWS DMS uses
-two stream buffers, one each for incoming and outgoing data. AWS DMS also uses an
-important component called a _sorter,_ which is
-another memory buffer. Following are two important uses of the sorter component
-(which has others):
-
-- It tracks all transactions and makes sure that it forwards only relevant
-  transactions to the outgoing buffer.
-- It makes sure that transactions are forwarded in the same commit order as
-  on the source.
-
-As you can see, we have three important memory buffers in this architecture for
-CDC in AWS DMS. If any of these buffers experience memory pressure, the migration can
-have performance issues that can potentially cause failures.
-
-When you plug heavy workloads with a high number of transactions per second (TPS)
-into this architecture, you can find the extra memory provided by R5 and R6i instances
-useful. You can use R5 and R6i instances to hold a large number of transactions in memory
-and prevent memory-pressure issues during ongoing replications.
-
-## Working with
-
-unlimited mode for burstable performance instances
-
-A burstable performance instance configured as `unlimited`, such as a
-T3 instance, can sustain high CPU utilization for any period of time whenever
-required. The hourly instance price can automatically cover all CPU usage spikes. It
-does so if the average CPU utilization of the instance is at or below the baseline
-over a rolling 24-hour period or the instance lifetime, whichever is shorter.
-
-For the vast majority of general-purpose workloads, instances configured as
-`unlimited` give enough performance without any additional charges.
-If the instance runs at higher CPU utilization for a prolonged period, it can do so
-for a flat additional rate per vCPU-hour. For information about T3 instance pricing,
-see "T3 CPU Credits" in [AWS Database Migration Service](https://aws.amazon.com/dms/pricing/ "https://aws.amazon.com/dms/pricing/").
-
-For more information on `unlimited` mode for T3 instances, see [Unlimited mode for burstable performance instances](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode.md")
-in the _Amazon EC2 User Guide_.
-
-###### Important
-
-If you use a `dms.t3.micro` instance under the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") offer and use it in
-`unlimited` mode, charges might apply. In particular, charges
-might apply if your average utilization over a rolling 24-hour period exceeds
-the baseline utilization of the instance. For more information, see [Baseline utilization](../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md#baseline_performance "../../../AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.md#baseline_performance") in the
-_Amazon EC2 User Guide_.
-
-T3 instances launch as `unlimited` by default. If the average CPU
-usage over a 24-hour period exceeds the baseline, you incur charges for surplus
-credits. In some cases, you might launch T3 Spot Instances as
-`unlimited` and plan to use them immediately and for a short
-duration. If you do so with no idle time for accruing CPU credits, you incur
-charges for surplus credits. We recommend that you launch your T3 Spot Instances
-in standard mode to avoid paying higher costs. For more information, see [Surplus credits can incur charges](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits"), [T3 Spot Instances](../../../AWSEC2/latest/UserGuide/using-spot-limits.md#t3-spot-instances "../../../AWSEC2/latest/UserGuide/using-spot-limits.md#t3-spot-instances"), and [Standard mode for burstable performance
-instances](../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances-standard-mode.md") in the _Amazon EC2 User Guide_.
+- Resume all previously stopped tasks.
+- Confirm tasks are running correctly.

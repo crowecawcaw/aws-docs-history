@@ -1,129 +1,106 @@
-# Oracle diagnostic support scripts
+# PostgreSQL diagnostic support
 
-Following, you can find the diagnostic support scripts available to analyze an on-premises
-or Amazon RDS for Oracle database in your AWS DMS migration configuration. These scripts work with
-either a source or target endpoint. The scripts are all written to run in the SQL\*Plus
-command-line utility. For more information on using this utility, see [A Using SQL Command Line](https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm "https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm") in the Oracle documentation.
+scripts
 
-Before running the script, ensure that the user account that you use has the necessary
-permissions to access your Oracle database. The permissions settings shown assume a user created
-as follows.
+Following, you can find the diagnostic support scripts available to analyze any PostgreSQL
+RDBMS (on-premises, Amazon RDS, or Aurora PostgreSQL) in your AWS DMS migration configuration. These
+scripts work with either a source or target endpoint. The scripts are all written to run in
+the psql command-line utility.
 
-```
-CREATE USER `script_user` IDENTIFIED BY `password`;
-```
+Before running these scripts, ensure that the user account that you use has the following necessary
+permissions to access any PostgreSQL RDBMS:
 
-For an on-premises database, set the minimum permissions as shown following for
-`script_user`.
+- PostgreSQL 10.x or higher – A user account with execute permission on the
+  `pg_catalog.pg_ls_waldir` function.
+- PostgreSQL 9.x or earlier – A user account with default permissions.
+  We recommend using an existing account with the appropriate permissions to run these
+  scripts.
 
-```
-GRANT CREATE SESSION TO `script_user`;
-GRANT SELECT on V$DATABASE to `script_user`;
-GRANT SELECT on V$VERSION to `script_user`;
-GRANT SELECT on GV$SGA to `script_user`;
-GRANT SELECT on GV$INSTANCE to `script_user`;
-GRANT SELECT on GV$DATAGUARD_CONFIG to `script_user`;
-GRANT SELECT on GV$LOG to `script_user`;
-GRANT SELECT on DBA_TABLESPACES to `script_user`;
-GRANT SELECT on DBA_DATA_FILES to `script_user`;
-GRANT SELECT on DBA_SEGMENTS to `script_user`;
-GRANT SELECT on DBA_LOBS to `script_user`;
-GRANT SELECT on V$ARCHIVED_LOG to `script_user`;
-GRANT SELECT on DBA_TAB_MODIFICATIONS to `script_user`;
-GRANT SELECT on DBA_TABLES to `script_user`;
-GRANT SELECT on DBA_TAB_PARTITIONS to `script_user`;
-GRANT SELECT on DBA_MVIEWS to `script_user`;
-GRANT SELECT on DBA_OBJECTS to `script_user`;
-GRANT SELECT on DBA_TAB_COLUMNS to `script_user`;
-GRANT SELECT on DBA_LOG_GROUPS to `script_user`;
-GRANT SELECT on DBA_LOG_GROUP_COLUMNS to `script_user`;
-GRANT SELECT on V$ARCHIVE_DEST to `script_user`;
-GRANT SELECT on DBA_SYS_PRIVS to `script_user`;
-GRANT SELECT on DBA_TAB_PRIVS to `script_user`;
-GRANT SELECT on DBA_TYPES to `script_user`;
-GRANT SELECT on DBA_CONSTRAINTS to `script_user`;
-GRANT SELECT on V$TRANSACTION to `script_user`;
-GRANT SELECT on GV$ASM_DISK_STAT to `script_user`;
-GRANT SELECT on GV$SESSION to `script_user`;
-GRANT SELECT on GV$SQL to `script_user`;
-GRANT SELECT on DBA_ENCRYPTED_COLUMNS to `script_user`;
-GRANT SELECT on DBA_PDBS to `script_user`;
+If you need to create a new user account or grant permissions to an existing account to
+run these scripts, you can execute the following SQL commands for any PostgreSQL RDBMS based
+on the PostgreSQL version.
 
-GRANT EXECUTE on dbms_utility to `script_user`;
-```
+###### To grant account permissions to run these scripts for a PostgreSQL databases version 10.x or higher
 
-For an Amazon RDS database, set the minimum permissions as shown following.
+- Do one of the following:
+  - For a new user account, run the following.
 
-```
-GRANT CREATE SESSION TO `script_user`;
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$DATABASE','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$VERSION','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SGA','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$INSTANCE','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$DATAGUARD_CONFIG','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$LOG','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TABLESPACES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_DATA_FILES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SEGMENTS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOBS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$ARCHIVED_LOG','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_MODIFICATIONS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TABLES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_PARTITIONS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_MVIEWS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_OBJECTS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_COLUMNS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOG_GROUPS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_LOG_GROUP_COLUMNS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$ARCHIVE_DEST','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SYS_PRIVS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_PRIVS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TYPES','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_CONSTRAINTS','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('V_$TRANSACTION','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$ASM_DISK_STAT','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SESSION','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('GV_$SQL','`script_user`','SELECT');
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_ENCRYPTED_COLUMNS','`script_user`','SELECT');
+  ```
+  CREATE USER `script_user` WITH PASSWORD '`password`';
+  GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
+  ```
 
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_PDBS','`script_user`','SELECT');
+  - For an existing user account, run the following.
 
-exec rdsadmin.rdsadmin_util.grant_sys_object('DBMS_UTILITY','`script_user`','EXECUTE');
+  ```
+  GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
+  ```
 
-```
+###### To grant account permissions to run these scripts for a PostgreSQL 9.x or earlier
 
-Following, you can find descriptions how to download, review, and run each SQL\*Plus support
-script available for Oracle. You can also find how to review and upload the output to your AWS
-Support case.
+database
+
+- Do one of the following:
+  - For a new user account, run the following with default permissions.
+
+  ```
+  CREATE USER `script_user` WITH PASSWORD `password`;
+  ```
+
+  - For an existing user account, use the existing permissions.
+
+###### Note
+
+These scripts do not support certain functionality related to finding WAL size for
+PostgreSQL 9.x and earlier databases. For more information, work with AWS Support.
+
+The following topics describe how to download, review, and run each support script
+available for PostgreSQL They also describe how to review and upload the script output to your
+AWS Support case.
 
 ###### Topics
 
-- [awsdms_support_collector_oracle.sql script](#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script "#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script")
+- [awsdms_support_collector_postgres.sql script](#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script "#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script")
 
-## awsdms_support_collector_oracle.sql script
+## awsdms_support_collector_postgres.sql script
 
-Download the [`awsdms_support_collector_oracle.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql") script.
+Download the [`awsdms_support_collector_postgres.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql") script.
 
-This script collects information about your Oracle database configuration. Remember to
-verify the checksum on the script, and if the checksum verifies, review the SQL code in the
+This script collects information about your PostgreSQL database configuration. Remember
+to verify the checksum on the script. If the checksum verifies, review the SQL code in the
 script to comment out any of the code that you are uncomfortable running. After you are
 satisfied with the integrity and content of the script, you can run it.
 
-###### To run the script and upload the results to your support case
+###### Note
 
-1. Run the script from your database environment using the following SQL\*Plus command line.
+You can run this script with psql client version 10 or higher.
 
-```
-SQL> @awsdms_support_collector_oracle.sql
-```
+You can use the following procedures to run this script either from your database
+environment or from the command line. In either case, you can then upload your file to AWS
+Support later.
 
-2. At the following prompt, enter the name of only one of the schemas that you want to
-   migrate.
-3. At the following prompt, enter the name of the user
-   (`script_user`) that you have defined to connect to the
-   database.
-4. At the following prompt, enter the number of days of data you want to examine, or accept
-   the default. The script then collects the specified data from your database.
-5. Review this HTML file and remove any information that you are uncomfortable sharing. When
-   the HTML is acceptable for you to share, upload the file to your AWS Support case. For more
-   information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+###### To run this script and upload the results to your support case
+
+1. Do one of the following:
+   - Run the script from your database environment using the following psql command line.
+
+   ```
+   dbname=# \i awsdms_support_collector_postgres.sql
+   ```
+
+   At the following prompt, enter the name of only one of the schemas that you want
+   to migrate.
+
+   At the following prompt, enter the name of the user
+   (`script_user`) that you have defined to
+   connect to the database.
+   - Run the following script directly from the command line. This
+     option avoids any prompts prior to script execution.
+
+   ```
+   psql -h `database-hostname` -p `port` -U `script_user` -d `database-name` -f awsdms_support_collector_postgres.sql
+   ```
+
+2. Review the output HTML file and remove any information that you are uncomfortable
+   sharing. When the HTML is acceptable for you to share, upload the file to your AWS
+   Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
