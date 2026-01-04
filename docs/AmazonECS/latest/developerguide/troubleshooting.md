@@ -80,8 +80,9 @@ For information about API errors, see one of the following.
 | ------------------- | ------------------------------------------------------------------------------------- |
 | Resolve API errors. | [Amazon ECS API failure reasons](api_failures_messages.md "api_failures_messages.md") |
 
-For information about AI-powered troubleshooting with Amazon Q Developer in the console, see the following:
+For information about AI-powered troubleshooting, see the following:
 
-| Action                                               | Learn more                                                                                       |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Troubleshoot with Amazon Q Developer in the console. | [Troubleshooting with Amazon Q Developer](troubleshooting-with-Q.md "troubleshooting-with-Q.md") |
+| Action                                                           | Learn more                                                                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Troubleshoot with Amazon Q Developer in the console.             | [Troubleshooting with Amazon Q Developer](troubleshooting-with-Q.md "troubleshooting-with-Q.md") |
+| Troubleshoot with AI assistants using the Amazon ECS MCP server. | [Amazon ECS MCP server](ecs-mcp-introduction.md "ecs-mcp-introduction.md")                       |

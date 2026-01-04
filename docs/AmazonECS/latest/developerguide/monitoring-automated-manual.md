@@ -115,3 +115,8 @@ Trusted Advisor has these checks that relate to Amazon ECS:
   performance of your workloads.
 
 For more information, see [AWS Compute Optimizer recommendations for Amazon ECS](ecs-recommendations.md "ecs-recommendations.md").
+
+- Amazon ECS MCP server – Use AI assistants to monitor deployments,
+  troubleshoot container issues, and inspect configurations using natural language. The MCP server provides real-time visibility into service health,
+  analyzes task failures, and accelerates issue resolution. For more information, see
+  [Amazon ECS MCP server](ecs-mcp-introduction.md "ecs-mcp-introduction.md").

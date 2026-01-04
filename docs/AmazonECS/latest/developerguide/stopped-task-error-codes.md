@@ -5,6 +5,11 @@ unexpectedly.
 
 To check your stopped tasks for an error message using the AWS Management Console, see [Viewing Amazon ECS stopped task errors](stopped-task-errors.md "stopped-task-errors.md").
 
+###### Tip
+
+You can use the [Amazon ECS MCP server](ecs-mcp-introduction.md "ecs-mcp-introduction.md")
+with AI assistants to analyze task failures and container logs using natural language.
+
 Stopped task error codes have a category associated with them, for example
 "ResourceInitializationError". To get more information about each category, see the
 following:

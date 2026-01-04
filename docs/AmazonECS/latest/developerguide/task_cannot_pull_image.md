@@ -9,6 +9,11 @@ The 1.4 Fargate platform version truncates long error messages.
 
 To check your stopped tasks for an error message using the AWS Management Console, see [Viewing Amazon ECS stopped task errors](stopped-task-errors.md "stopped-task-errors.md").
 
+###### Tip
+
+You can use the [Amazon ECS MCP server](ecs-mcp-introduction.md "ecs-mcp-introduction.md")
+with AI assistants to investigate image pull errors using natural language.
+
 ###### Errors
 
 - [The task can’t pull the image. Check

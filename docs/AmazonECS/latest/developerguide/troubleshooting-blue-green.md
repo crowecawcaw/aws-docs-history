@@ -10,6 +10,12 @@ phases:
   `statusReason` field of `DescribeServiceDeployments` and cause a
   deployment rollback
 
+###### Tip
+
+You can use the [Amazon ECS MCP server](ecs-mcp-introduction.md "ecs-mcp-introduction.md")
+with AI assistants to monitor deployments and troubleshoot deployment issues using
+natural language.
+
 ## Load balancer configuration issues
 
 Load balancer configuration is a critical component of blue/green deployments in Amazon ECS. Proper configuration of listener rules, target groups, and load balancer types is essential for successful deployments. This section covers common load balancer configuration issues that can cause blue/green deployments to fail.

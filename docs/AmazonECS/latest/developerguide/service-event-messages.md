@@ -14,7 +14,13 @@ console displays service events from the following sources.
   not resolved within six hours, you receive another service event message for that cause.
 - Service Auto Scaling events. These events have a prefix of **Message** and occur only when a service is
   configured with an Application Auto Scaling scaling policy.
-  Use the following steps to view your current service event messages.
+
+###### Tip
+
+You can use the [Amazon ECS MCP server](ecs-mcp-introduction.md "ecs-mcp-introduction.md")
+with AI assistants to analyze service events using natural language.
+
+Use the following steps to view your current service event messages.
 
 Console
 
