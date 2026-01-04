@@ -10,7 +10,7 @@ Shows a list of tables in a schema, along with some table attributes.
 Each output row consists of database name, schema name, table name, table type, table ACL, remarks, table owner, last altered time, last modified time, dist_style, and table sub-type.
 For more information about these attributes, see [SVV_ALL_TABLES](r_SVV_ALL_TABLES.md "r_SVV_ALL_TABLES.md").
 
-The modification and alteration timestamps can lag behind the table updates by approximately 5 minutes.
+The modification and alteration timestamps can lag behind the table updates by approximately 20 minutes.
 
 If more than 10,000 tables would result from the SHOW TABLES command, then an error is returned.
 

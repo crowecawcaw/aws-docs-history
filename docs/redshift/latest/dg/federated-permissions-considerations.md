@@ -16,6 +16,13 @@ This feature is supported only with [cluster versions 197 and onwards](../mgmt/c
 - US West (N. California)
 - Europe (Frankfurt)
 - US East (Ohio)
+- US East (N. Virginia)
+- US West (Oregon)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Europe (Ireland)
+- Europe (Stockholm)
   **Environment Requirements**
 
 Both registered and consumer Redshift instances must meet these requirements:
