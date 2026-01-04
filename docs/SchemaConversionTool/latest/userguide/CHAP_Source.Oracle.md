@@ -1,171 +1,289 @@
-# Migrating from Oracle to Amazon RDS for MySQL or Amazon Aurora MySQL with the AWS Schema Conversion Tool
+# Migrating from Oracle Database to Amazon RDS for Oracle with AWS Schema Conversion Tool
 
-To emulate Oracle database functions in your converted MySQL code, use the Oracle
-to MySQL extension pack in AWS SCT. For more information about extension packs, see
-[Using extension packs with AWS Schema Conversion Tool](CHAP_ExtensionPack.md "CHAP_ExtensionPack.md").
+Some things to consider when migrating Oracle schema and code to Amazon RDS for
+Oracle:
 
-###### Topics
+- AWS SCT can add directory objects to the object tree. _Directory objects_ are logical structures that each represent a
+  physical directory on the server's file system. You can use directory objects
+  with packages such as DBMS_LOB, UTL_FILE, DBMS_FILE_TRANSFER, the DATAPUMP
+  utility, and so on.
+- AWS SCT supports converting Oracle tablespaces to an Amazon RDS for Oracle DB
+  instance. Oracle stores data logically in tablespaces and physically in data
+  files associated with the corresponding tablespace. In Oracle, you can create
+  a tablespace with data file names. Amazon RDS supports Oracle Managed Files (OMF)
+  for data files, log files, and control files only. AWS SCT creates the needed
+  data files during conversion.
+- AWS SCT can convert server-level roles and privileges. The Oracle database
+  engine uses role-based security. A role is a collection of privileges that you
+  can grant to or revoke from a user. A predefined role in Amazon RDS, called DBA,
+  normally allows all administrative privileges on an Oracle database engine. The
+  following privileges are not available for the DBA role on an Amazon RDS DB
+  instance using the Oracle engine:
 
-- [Privileges for MySQL as a target database](#CHAP_Source.Oracle.ToMySQL.ConfigureTarget "#CHAP_Source.Oracle.ToMySQL.ConfigureTarget")
-- [Oracle to MySQL conversion settings](#CHAP_Source.Oracle.ToMySQL.ConversionSettings "#CHAP_Source.Oracle.ToMySQL.ConversionSettings")
-- [Migration considerations](#CHAP_Source.Oracle.ToMySQL.MigrationConsiderations "#CHAP_Source.Oracle.ToMySQL.MigrationConsiderations")
-- [Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL](#CHAP_Source.Oracle.ToMySQL.With "#CHAP_Source.Oracle.ToMySQL.With")
+      + Alter database
+      + Alter system
+      + Create any directory
+      + Grant any privilege
+      + Grant any role
+      + Create external job
 
-## Privileges for MySQL as a target database
+  You can grant all other privileges to an Amazon RDS for Oracle user role,
+  including advanced filtering and column privileges.
 
-The privileges required for MySQL as a target are as follows:
+- AWS SCT supports converting Oracle jobs into jobs that can run on Amazon RDS
+  for Oracle. There are a few limitations to the conversion, including the
+  following:
+  - Executable jobs are not supported.
+  - Schedule jobs that use the ANYDATA data type as an argument are not
+    supported.
 
-- CREATE ON \*.\*
-- ALTER ON \*.\*
-- DROP ON \*.\*
-- INDEX ON \*.\*
-- REFERENCES ON \*.\*
-- SELECT ON \*.\*
-- CREATE VIEW ON \*.\*
-- SHOW VIEW ON \*.\*
-- TRIGGER ON \*.\*
-- CREATE ROUTINE ON \*.\*
-- ALTER ROUTINE ON \*.\*
-- EXECUTE ON \*.\*
-- CREATE TEMPORARY TABLES ON \*.\*
-- AWS_LAMBDA_ACCESS
-- INSERT, UPDATE ON AWS_ORACLE_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.\*
+- Oracle Real Application Clusters (RAC) One Node is an option to the Oracle
+  Database Enterprise Edition that was introduced with Oracle Database 11g Release
 
-If you use a MySQL database version 5.7 or lower as a target, then grant the INVOKE LAMBDA \*.\*
-permission instead of AWS_LAMBDA_ACCESS. For MySQL databases version 8.0 and higher, grant
-the AWS_LAMBDA_ACCESS permission.
+2.  Amazon RDS for Oracle doesn’t support the RAC feature. For high availability,
+    use Amazon RDS Multi-AZ.
 
-You can use the following code example to create a database user and grant the privileges.
+In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a
+synchronous standby replica in a different Availability Zone. The primary DB
+instance is synchronously replicated across Availability Zones to a standby
+replica. This functionality provides data redundancy, eliminates I/O freezes,
+and minimizes latency spikes during system backups.
+
+- Oracle Spatial provides a SQL schema and
+  functions that facilitate the storage, retrieval, update, and query of
+  collections of spatial data in an Oracle database. Oracle Locator provides
+  capabilities that are typically required to support internet and wireless
+  service-based applications and partner-based GIS solutions.
+  Oracle Locator is a limited subset of Oracle
+  Spatial.
+
+To use Oracle Spatial and Oracle Locator features, add the SPATIAL
+option or LOCATOR option (mutually exclusive) to the option group of your DB
+instance.
+
+There are some prerequisites to using Oracle Spatial and Oracle Locator on an
+Amazon RDS for Oracle DB instance:
+
+    + The instance should use Oracle Enterprise Edition version
+     12.1.0.2.v6 or higher, or 11.2.0.4.v10 or higher.
+    + The instance should be inside a virtual private cloud (VPC).
+    + The instance should the DB instance class that can support
+     the Oracle feature. For example, Oracle Spatial is not
+     supported for the db.m1.small, db.t1.micro, db.t2.micro, or db.t2.small
+     DB instance classes. For more information, see [DB instance class support for Oracle](../../../AmazonRDS/latest/UserGuide/CHAP_Oracle.md#Oracle.Concepts.InstanceClasses "../../../AmazonRDS/latest/UserGuide/CHAP_Oracle.md#Oracle.Concepts.InstanceClasses").
+    + The instance must have the Auto Minor Version Upgrade option enabled. Amazon RDS updates your DB instance to the latest Oracle PSU if there are
+     security vulnerabilities with a CVSS score of 9+ or other announced
+     security vulnerabilities. For more information, see
+
+
+    [Settings for Oracle DB instances](../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md#USER_ModifyInstance.Oracle.Settings "../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md#USER_ModifyInstance.Oracle.Settings").
+    + If your DB instance is version 11.2.0.4.v10 or higher, you must
+     install the XMLDB option. For more information, see
+
+
+    [Oracle XML DB](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.md "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.md").
+    + You should have an Oracle Spatial license from Oracle. For more
+     information, see [Oracle Spatial and Graph](https://shop.oracle.com/apex/product?p1=OracleSpatialandGraph "https://shop.oracle.com/apex/product?p1=OracleSpatialandGraph") in the Oracle documentation.
+
+- Data Guard is included with Oracle Database Enterprise Edition. For high
+  availability, use Amazon RDS Multi-AZ feature.
+
+In a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a
+synchronous standby replica in a different Availability Zone. The primary DB
+instance is synchronously replicated across Availability Zones to a standby
+replica. This functionality provides data redundancy, eliminates I/O freezes,
+and minimizes latency spikes during system backups.
+
+- AWS SCT supports converting Oracle DBMS_SCHEDULER objects when migrating to
+  Amazon RDS for Oracle. The AWS SCT assessment report indicates if a schedule
+  object can be converted. For more information on using schedule objects with
+  Amazon RDS, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.ModifyScheduler "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.ModifyScheduler").
+- For Oracle to Amazon RDS for Oracle conversions, DB Links is supported. A database
+  link is a schema object in one database that enables you to access objects on another
+  database. The other database doesn’t need to be an Oracle database. However, to access
+  non-Oracle databases you must use Oracle Heterogeneous Services.
+
+Once you create a database link, you can use the link in SQL statements to refer to
+tables, views, and PL/SQL objects in the other database. To use a database link, append
+`@dblink` to the table, view, or PL/SQL object name. You can
+query a table or view in the other database with the SELECT statement. For more information
+about using Oracle database links, see the
+[Oracle documentation](https://docs.oracle.com/cd/B28359_01/server.111/b28310/ds_concepts002.htm#ADMIN12083 "https://docs.oracle.com/cd/B28359_01/server.111/b28310/ds_concepts002.htm#ADMIN12083").
+
+For more information about using database links with Amazon RDS, see the
+[Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DBLinks "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.DBLinks").
+
+- The AWS SCT assessment report provides server metrics for the
+  conversion. These metrics about your Oracle instance include the
+  following:
+  - Computation and memory capacity of the target DB instance.
+  - Unsupported Oracle features such as Real
+    Application Clusters that Amazon RDS doesn't support.
+  - Disk read-write load
+  - Average total disk throughput
+  - Server information such as server name, OS, host name, and character
+    set.
+
+## Privileges for RDS for Oracle as a target
+
+To migrate to Amazon RDS for Oracle, create a privileged database user. You can use the following code example.
 
 ```
-CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
-GRANT CREATE ON *.* TO '`user_name`';
-GRANT ALTER ON *.* TO '`user_name`';
-GRANT DROP ON *.* TO '`user_name`';
-GRANT INDEX ON *.* TO '`user_name`';
-GRANT REFERENCES ON *.* TO '`user_name`';
-GRANT SELECT ON *.* TO '`user_name`';
-GRANT CREATE VIEW ON *.* TO '`user_name`';
-GRANT SHOW VIEW ON *.* TO '`user_name`';
-GRANT TRIGGER ON *.* TO '`user_name`';
-GRANT CREATE ROUTINE ON *.* TO '`user_name`';
-GRANT ALTER ROUTINE ON *.* TO '`user_name`';
-GRANT EXECUTE ON *.* TO '`user_name`';
-GRANT CREATE TEMPORARY TABLES ON *.* TO '`user_name`';
-GRANT AWS_LAMBDA_ACCESS TO '`user_name`';
-GRANT INSERT, UPDATE ON AWS_ORACLE_EXT.* TO '`user_name`';
-GRANT INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.* TO '`user_name`';
+CREATE USER `user_name` IDENTIFIED BY `your_password`;
+
+-- System privileges
+GRANT DROP ANY CUBE BUILD PROCESS TO `user_name`;
+GRANT ALTER ANY CUBE TO `user_name`;
+GRANT CREATE ANY CUBE DIMENSION TO `user_name`;
+GRANT CREATE ANY ASSEMBLY TO `user_name`;
+GRANT ALTER ANY RULE TO `user_name`;
+GRANT SELECT ANY DICTIONARY TO `user_name`;
+GRANT ALTER ANY DIMENSION TO `user_name`;
+GRANT CREATE ANY DIMENSION TO `user_name`;
+GRANT ALTER ANY TYPE TO `user_name`;
+GRANT DROP ANY TRIGGER TO `user_name`;
+GRANT CREATE ANY VIEW TO `user_name`;
+GRANT ALTER ANY CUBE BUILD PROCESS TO `user_name`;
+GRANT CREATE ANY CREDENTIAL TO `user_name`;
+GRANT DROP ANY CUBE DIMENSION TO `user_name`;
+GRANT DROP ANY ASSEMBLY TO `user_name`;
+GRANT DROP ANY PROCEDURE TO `user_name`;
+GRANT ALTER ANY PROCEDURE TO `user_name`;
+GRANT ALTER ANY SQL TRANSLATION PROFILE TO `user_name`;
+GRANT DROP ANY MEASURE FOLDER TO `user_name`;
+GRANT CREATE ANY MEASURE FOLDER TO `user_name`;
+GRANT DROP ANY CUBE TO `user_name`;
+GRANT DROP ANY MINING MODEL TO `user_name`;
+GRANT CREATE ANY MINING MODEL TO `user_name`;
+GRANT DROP ANY EDITION TO `user_name`;
+GRANT CREATE ANY EVALUATION CONTEXT TO `user_name`;
+GRANT DROP ANY DIMENSION TO `user_name`;
+GRANT ALTER ANY INDEXTYPE TO `user_name`;
+GRANT DROP ANY TYPE TO `user_name`;
+GRANT CREATE ANY PROCEDURE TO `user_name`;
+GRANT CREATE ANY SQL TRANSLATION PROFILE TO `user_name`;
+GRANT CREATE ANY CUBE TO `user_name`;
+GRANT COMMENT ANY MINING MODEL TO `user_name`;
+GRANT ALTER ANY MINING MODEL TO `user_name`;
+GRANT DROP ANY SQL PROFILE TO `user_name`;
+GRANT CREATE ANY JOB TO `user_name`;
+GRANT DROP ANY EVALUATION CONTEXT TO `user_name`;
+GRANT ALTER ANY EVALUATION CONTEXT TO `user_name`;
+GRANT CREATE ANY INDEXTYPE TO `user_name`;
+GRANT CREATE ANY OPERATOR TO `user_name`;
+GRANT CREATE ANY TRIGGER TO `user_name`;
+GRANT DROP ANY ROLE TO `user_name`;
+GRANT DROP ANY SEQUENCE TO `user_name`;
+GRANT DROP ANY CLUSTER TO `user_name`;
+GRANT DROP ANY SQL TRANSLATION PROFILE TO `user_name`;
+GRANT ALTER ANY ASSEMBLY TO `user_name`;
+GRANT CREATE ANY RULE SET TO `user_name`;
+GRANT ALTER ANY OUTLINE TO `user_name`;
+GRANT UNDER ANY TYPE TO `user_name`;
+GRANT CREATE ANY TYPE TO `user_name`;
+GRANT DROP ANY MATERIALIZED VIEW TO `user_name`;
+GRANT ALTER ANY ROLE TO `user_name`;
+GRANT DROP ANY VIEW TO `user_name`;
+GRANT ALTER ANY INDEX TO `user_name`;
+GRANT COMMENT ANY TABLE TO `user_name`;
+GRANT CREATE ANY TABLE TO `user_name`;
+GRANT CREATE USER TO `user_name`;
+GRANT DROP ANY RULE SET TO `user_name`;
+GRANT CREATE ANY CONTEXT TO `user_name`;
+GRANT DROP ANY INDEXTYPE TO `user_name`;
+GRANT ALTER ANY OPERATOR TO `user_name`;
+GRANT CREATE ANY MATERIALIZED VIEW TO `user_name`;
+GRANT ALTER ANY SEQUENCE TO `user_name`;
+GRANT DROP ANY SYNONYM TO `user_name`;
+GRANT CREATE ANY SYNONYM TO `user_name`;
+GRANT DROP USER TO `user_name`;
+GRANT ALTER ANY MEASURE FOLDER TO `user_name`;
+GRANT ALTER ANY EDITION TO `user_name`;
+GRANT DROP ANY RULE TO `user_name`;
+GRANT CREATE ANY RULE TO `user_name`;
+GRANT ALTER ANY RULE SET TO `user_name`;
+GRANT CREATE ANY OUTLINE TO `user_name`;
+GRANT UNDER ANY TABLE TO `user_name`;
+GRANT UNDER ANY VIEW TO `user_name`;
+GRANT DROP ANY DIRECTORY TO `user_name`;
+GRANT ALTER ANY CLUSTER TO `user_name`;
+GRANT CREATE ANY CLUSTER TO `user_name`;
+GRANT ALTER ANY TABLE TO `user_name`;
+GRANT CREATE ANY CUBE BUILD PROCESS TO `user_name`;
+GRANT ALTER ANY CUBE DIMENSION TO `user_name`;
+GRANT CREATE ANY EDITION TO `user_name`;
+GRANT CREATE ANY SQL PROFILE TO `user_name`;
+GRANT ALTER ANY SQL PROFILE TO `user_name`;
+GRANT DROP ANY OUTLINE TO `user_name`;
+GRANT DROP ANY CONTEXT TO `user_name`;
+GRANT DROP ANY OPERATOR TO `user_name`;
+GRANT DROP ANY LIBRARY TO `user_name`;
+GRANT ALTER ANY LIBRARY TO `user_name`;
+GRANT CREATE ANY LIBRARY TO `user_name`;
+GRANT ALTER ANY MATERIALIZED VIEW TO `user_name`;
+GRANT ALTER ANY TRIGGER TO `user_name`;
+GRANT CREATE ANY SEQUENCE TO `user_name`;
+GRANT DROP ANY INDEX TO `user_name`;
+GRANT CREATE ANY INDEX TO `user_name`;
+GRANT DROP ANY TABLE TO `user_name`;
+GRANT SELECT_CATALOG_ROLE TO `user_name`;
+GRANT SELECT ANY SEQUENCE TO `user_name`;
+
+-- Database Links
+GRANT CREATE DATABASE LINK TO `user_name`;
+GRANT CREATE PUBLIC DATABASE LINK TO `user_name`;
+GRANT DROP PUBLIC DATABASE LINK TO `user_name`;
+
+
+-- Server Level Objects (directory)
+GRANT CREATE ANY DIRECTORY TO `user_name`;
+GRANT DROP ANY DIRECTORY TO `user_name`;
+-- (for RDS only)
+GRANT EXECUTE ON RDSADMIN.RDSADMIN_UTIL TO `user_name`;
+
+-- Server Level Objects (tablespace)
+GRANT CREATE TABLESPACE TO `user_name`;
+GRANT DROP TABLESPACE TO `user_name`;
+
+-- Server Level Objects (user roles)
+/* (grant source privileges with admin option or convert roles/privs as DBA) */
+
+-- Queues
+grant execute on DBMS_AQADM to `user_name`;
+grant aq_administrator_role to `user_name`;
+
+-- for Materialized View Logs creation
+GRANT SELECT ANY TABLE TO `user_name`;
+
+-- Roles
+GRANT RESOURCE TO `user_name`;
+GRANT CONNECT TO `user_name`;
 ```
 
 In the preceding example, replace `user_name` with the name of your user.
 Then, replace `your_password` with a secure password.
 
-If you use a MySQL database version 5.7 or lower as a target, then use
-`GRANT INVOKE LAMBDA ON *.* TO '`user_name`'`
-instead of `GRANT AWS_LAMBDA_ACCESS TO '`user_name`'`.
+## Limitations when converting Oracle to Amazon RDS for Oracle
 
-To use Amazon RDS for MySQL or Aurora MySQL as a target, set the `lower_case_table_names` parameter
-to `1`. This value means that the MySQL server handles identifiers of such object names as tables,
-indexes, triggers, and databases as case insensitive.
-If you have turned on binary logging in your target instance, then set the
-`log_bin_trust_function_creators` parameter to `1`.
-In this case, you don't need to use the `DETERMINISTIC`,
-`READS SQL DATA` or `NO SQL` characteristics to create stored functions.
-To configure these parameters, create a new DB parameter group or modify an existing DB parameter group.
+Some limitations you should consider when migrating Oracle
+schema and code to Amazon RDS for
+Oracle:
 
-## Oracle to MySQL conversion settings
+- A predefined role in Amazon RDS, called DBA,
+  normally allows all administrative privileges on an Oracle database engine. The
+  following privileges are not available for the DBA role on an Amazon RDS DB
+  instance using the Oracle engine:
 
-To edit Oracle to MySQL conversion settings, choose
-**Settings** in AWS SCT, and then choose **Conversion
-settings**. From the upper list, choose **Oracle**,
-and then choose **Oracle – MySQL**. AWS SCT displays all
-available settings for Oracle to MySQL conversion.
+      + Alter database
+      + Alter system
+      + Create any directory
+      + Grant any privilege
+      + Grant any role
+      + Create external job
 
-Oracle to MySQL conversion settings in AWS SCT include options for the following:
+  You can grant all other privileges to an Oracle RDS user role.
 
-- To limit the number of comments with action items in the converted code.
-
-For **Add comments in the converted code for the action items of selected severity and higher**,
-choose the severity of action items. AWS SCT adds comments in the converted code
-for action items of the selected severity and higher.
-
-For example, to minimize the number of comments in your converted code, choose
-**Errors only**. To include comments for all action items in your
-converted code, choose **All messages**.
-
-- To address that your source Oracle database can use the
-  `ROWID` pseudocolumn but MySQL doesn't support similar
-  functionality. AWS SCT can emulate the `ROWID` pseudocolumn in
-  the converted code. To do so, choose **Generate as
-  identity** for **Generate row ID?**.
-
-If your source Oracle code doesn't use the `ROWID`
-pseudocolumn, choose **Don't generate** for
-**Generate row ID?** In this case, the converted code
-works faster.
-
-- To work with your source Oracle code when it includes the
-  `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
-  functions with parameters that MySQL doesn't support. By default,
-  AWS SCT emulates the usage of these parameters in the converted code.
-
-When your source Oracle code includes only parameters that PostgreSQL
-supports, you can use native MySQL `TO_CHAR`, `TO_DATE`, and `TO_NUMBER`
-functions. In this case, the converted code works faster. To include only these parameters,
-select the following values:
-
-    + **Function TO\_CHAR() does not use Oracle specific formatting strings**
-    + **Function TO\_DATE() does not use Oracle specific formatting strings**
-    + **Function TO\_NUMBER() does not use Oracle specific formatting strings**
-
-- To addess whether your database and applications run in different time
-  zones. By default, AWS SCT
-  emulates time zones in the converted code. However, you don't need this emulation when your
-  database and applications use the same time zone. In this case, select
-  **Time zone on the client side matches the time zone on server**.
-
-## Migration considerations
-
-When you convert Oracle to RDS for MySQL or Aurora MySQL, to change the order that
-statements run in, you can use a `GOTO` statement and a label. Any PL/SQL
-statements that follow a `GOTO` statement are skipped, and processing
-continues at the label. You can use `GOTO` statements and labels anywhere
-within a procedure, batch, or statement block. You can also next GOTO
-statements.
-
-MySQL doesn't use `GOTO` statements. When AWS SCT converts
-code that contains a `GOTO` statement, it converts the statement to use a
-`BEGIN…END` or `LOOP…END LOOP` statement.
-
-You can find examples of how AWS SCT converts `GOTO` statements in
-the table following.
-
-| Oracle statement                                                                                                                                      | MySQL statement                                                                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>LEAVE label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                               |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>ITERATE label1;<br>LEAVE label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>`                 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>`                                         |
-
-## Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL
-
-You use the WITH clause (subquery_factoring) in Oracle to assign a name
-(query_name) to a subquery block. You can then reference the subquery block multiple
-places in the query by specifying query_name. If a subquery block doesn't contain
-links or parameters (local, procedure, function, package), then AWS SCT converts the
-clause to a view or a temporary table.
-
-The advantage of converting the clause to a temporary table is that repeated
-references to the subquery might be more efficient. The greater efficiency is
-because the data is easily retrieved from the temporary table rather than being
-required by each reference. You can emulate this by using additional views or a
-temporary table. The view name uses the format
-`<procedure_name>$<subselect_alias>`.
-
-You can find examples in the table following.
-
-| Oracle statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | MySQL statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_VARIABLE_01<br>(p_state IN NUMBER)<br>AS<br>l_dept_id NUMBER := 1;<br>BEGIN<br>FOR cur IN<br>(WITH dept_empl(id, name, surname,<br>lastname, state, dept_id)<br>AS<br>(<br>SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = p_state AND<br>dept_id = l_dept_id)<br>SELECT id,state<br>FROM dept_empl<br>ORDER BY id)  LOOP<br>NULL;<br>END LOOP;<br>`                 | `<br>CREATE PROCEDURE test_ora_pg.P_WITH_SELECT_VARIABLE_01(IN par_P_STATE DOUBLE)<br>BEGIN<br>DECLARE var_l_dept_id DOUBLE DEFAULT 1;<br>DECLARE var$id VARCHAR (8000);<br>DECLARE var$state VARCHAR (8000);<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT<br>ID, STATE<br>FROM (SELECT<br>ID, NAME, SURNAME, LASTNAME, STATE, DEPT_ID<br>FROM TEST_ORA_PG.DEPT_EMPLOYEES<br>WHERE STATE = par_p_state AND DEPT_ID = var_l_dept_id) AS dept_empl<br>ORDER BY ID;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$id, var$state;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_REGULAR_MULT_01<br>AS<br>BEGIN<br>FOR cur IN  (<br>WITH dept_empl AS<br>(<br>SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = 1),<br>dept AS<br>(SELECT id deptid, parent_id,<br>name deptname<br>FROM test_ora_pg.department<br>)<br>SELECT dept_empl.*,dept.*<br>FROM dept_empl, dept<br>WHERE dept_empl.dept_id = dept.deptid<br>) LOOP<br>NULL;<br>END LOOP;<br>` | ``<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept_empl<br>`(id, name, surname, lastname, state, dept_id)<br>AS<br>(SELECT id, name, surname, lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE state = 1);<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept<br>`(deptid, parent_id,deptname)<br>AS<br>(SELECT id deptid, parent_id, name deptname<br>FROM test_ora_pg.department);<br>CREATE PROCEDURE test_ora_pg.P_WITH_SELECT_REGULAR_MULT_01()<br>BEGIN<br>DECLARE var$ID DOUBLE;<br>DECLARE var$NAME VARCHAR (30);<br>DECLARE var$SURNAME VARCHAR (30);<br>DECLARE var$LASTNAME VARCHAR (30);<br>DECLARE var$STATE DOUBLE;<br>DECLARE var$DEPT_ID DOUBLE;<br>DECLARE var$deptid DOUBLE;<br>DECLARE var$PARENT_ID DOUBLE;<br>DECLARE var$deptname VARCHAR (200);<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT<br>dept_empl.*, dept.*<br>FROM TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept_empl<br>` AS dept_empl,<br>TEST_ORA_PG.`P_WITH_SELECT_REGULAR_MULT_01$dept<br>` AS dept<br>WHERE dept_empl.DEPT_ID = dept.DEPTID;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$ID, var$NAME, var$SURNAME,<br>var$LASTNAME, var$STATE, var$DEPT_ID, var$deptid,<br>var$PARENT_ID, var$deptname;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>call test_ora_pg.P_WITH_SELECT_REGULAR_MULT_01()<br>`` |
-| `<br>CREATE PROCEDURE<br>TEST_ORA_PG.P_WITH_SELECT_VAR_CROSS_02(p_state IN NUMBER)<br>AS<br>l_dept_id NUMBER := 10;<br>BEGIN<br>FOR cur IN  (<br>WITH emp AS<br>(SELECT id, name, surname,<br>lastname, state, dept_id<br>FROM test_ora_pg.dept_employees<br>WHERE dept_id > 10<br>),<br>active_emp AS<br>(<br>SELECT id<br>FROM emp<br>WHERE emp.state = p_state<br>)<br>SELECT *<br>FROM active_emp<br>) LOOP<br>NULL;<br>END LOOP;<br>END;<br>`                                | ``<br>CREATE VIEW TEST_ORA_PG.`P_WITH_SELECT_VAR_CROSS_01$emp<br>`(id, name, surname, lastname, state, dept_id)<br>AS<br>(SELECT<br>id, name, surname, lastname,<br>state, dept_id<br>FROM TEST_ORA_PG.DEPT_EMPLOYEES<br>WHERE DEPT_ID > 10);<br>CREATE PROCEDURE<br>test_ora_pg.P_WITH_SELECT_VAR_CROSS_02(IN par_P_STATE DOUBLE)<br>BEGIN<br>DECLARE var_l_dept_id DOUBLE DEFAULT 10;<br>DECLARE var$ID DOUBLE;<br>DECLARE done INT DEFAULT FALSE;<br>DECLARE cur CURSOR FOR SELECT *<br>FROM (SELECT<br>ID<br>FROM<br>TEST_ORA_PG.<br>`P_WITH_SELECT_VAR_CROSS_01$emp` AS emp<br>WHERE emp.STATE = par_p_state)<br>AS active_emp;<br>DECLARE CONTINUE HANDLER FOR NOT FOUND<br>SET done := TRUE;<br>OPEN cur;<br>read_label:<br>LOOP<br>FETCH cur INTO var$ID;<br>IF done THEN<br>LEAVE read_label;<br>END IF;<br>BEGIN<br>END;<br>END LOOP;<br>CLOSE cur;<br>END;<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+- Amazon RDS for Oracle supports traditional auditing, fine-grained auditing
+  using the DBMS_FGA package, and Oracle Unified Auditing.
+- Amazon RDS for Oracle doesn’t support change data capture (CDC). To do CDC
+  during and after a database migration, use AWS Database Migration Service.

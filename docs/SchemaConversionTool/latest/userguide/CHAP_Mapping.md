@@ -1,44 +1,32 @@
-# Editing data type mappings in the AWS Schema Conversion Tool
+# Mapping to virtual targets in the AWS Schema Conversion Tool
 
-You can filter or delete existing mapping rules, and add a new mapping rule
-in your AWS Schema Conversion Tool (AWS SCT) project.
+You can see how AWS SCT converts your source database schema to any supported target
+database platform. To do so, you don't need to connect to an existing target database.
+Instead, you can choose a virtual target database platform in the right panel when
+you create a mapping rule. For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). Make sure that you expand the
+**Servers**, **NoSQL clusters**, and
+**ETL** nodes in the right panel to see the list of virtual target
+database platforms.
 
-When you create a mapping rule for the whole source database, AWS SCT creates
-one mapping rule for each source database schema. For projects that involve dozens
-of schemas or even databases, it may be hard to understand, which target is used for
-a certain schema. To quickly find a mapping rule for your schema, use one or several
-of the following filter options in AWS SCT.
+AWS SCT supports the following virtual target database platforms:
 
-###### To filter mapping rules
+- Amazon Aurora MySQL-Compatible Edition
+- Amazon Aurora PostgreSQL-Compatible Edition
+- Amazon DynamoDB
+- Amazon Redshift
+- Amazon Redshift and AWS Glue
+- AWS Glue
+- AWS Glue Studio
+- Babelfish for Aurora PostgreSQL
+- MariaDB
+- Microsoft SQL Server
+- MySQL
+- Oracle
+- PostgreSQL
 
-1. On the **View** menu, choose
-   **Mapping view**.
-2. For **Source servers**, choose the source database.
+If you use Babelfish for Aurora PostgreSQL as a target database platform,
+you can only create a database migration assessment report.
+For more information, see [Using the assessment report in the AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md").
 
-The filter default is **All**, which means that AWS SCT displays
-mapping rules for all source databases. 3. For **Source schema**, enter the source schema name. Use the
-percent (`%`) as a wildcard to replace any number of any symbols in the
-schema name.
-
-The filter default is the **%** wildcard, which means that
-AWS SCT displays mapping rules for all source database schema names. 4. For **Has migration rules**, choose **Yes**
-to display mapping rules for which the data migration rules are created. Choose
-**No** to display mapping rules which don't have data migration
-rules. For more information, see [Creating data migration rules in AWS SCT](agents.md#agents.Filtering "agents.md#agents.Filtering").
-
-The filter default is **All**, which means that AWS SCT displays
-all mapping rules. 5. For **Target servers**, choose the target database.
-
-The filter default is **All**, which means that AWS SCT displays
-mapping rules for all target databases.
-With your project open, use the following procedure to delete a mapping rule.
-For more information on adding mapping rules, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
-
-###### To delete mapping rules
-
-1. On the **View** menu, choose **Mapping
-   view**.
-2. For **Server mappings**, choose the mapping rules to delete.
-3. Choose **Delete selected mappings**.
-
-AWS SCT deletes the selected mapping rules.
+If you use a virtual target database platform, you can save converted code to a file.
+For more information, see [Saving your converted schema to a file](CHAP_Converting.md#CHAP_Converting.Saving "CHAP_Converting.md#CHAP_Converting.Saving").

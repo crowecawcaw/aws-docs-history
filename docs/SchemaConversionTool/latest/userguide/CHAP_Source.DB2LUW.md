@@ -1,97 +1,61 @@
-# Migrating from IBM DB2 for Linux, UNIX, and Windows to Amazon Relational Database Service
+# Migrating from IBM DB2 for Linux, UNIX, and Windows to Amazon RDS
 
-for PostgreSQL or Amazon Aurora PostgreSQL-Compatible Edition
+for MySQL or Amazon Aurora MySQL
 
-When you migrate IBM Db2 LUW to PostgreSQL, AWS SCT can convert various
-trigger statements used with Db2 LUW. These trigger statements include the
-following:
+When you convert an IBM Db2 LUW database to RDS for MySQL or Amazon Aurora MySQL, be aware of the
+following.
 
-- **Trigger events** – INSERT, DELETE, and UPDATE trigger
-  events specify that the triggered action runs whenever the event is
-  applied to the subject table or subject view. You can specify any
-  combination of the INSERT, DELETE, and UPDATE events, but you can
-  specify each event only once. AWS SCT supports single and multiple
-  trigger events. For events, PostgreSQL has practically the same
-  functionality.
-- **Event OF COLUMN** – You
-  can specify a column name from a base table. The trigger is
-  activated only by the update of a column that is identified in the
-  column-name list. PostgreSQL has the same functionality.
-- **Statement triggers** –
-  These specify that the triggered action is applied only once for the
-  whole statement. You can’t specify this type of trigger granularity
-  for a BEFORE trigger or an INSTEAD OF trigger. If specified, an
-  UPDATE or DELETE trigger is activated, even if no rows are affected.
-  PostgreSQL also has this functionality and trigger declaration for
-  statement triggers is identical for PostgreSQL and Db2 LUW.
-- **Referencing clauses** –
-  These specify the correlation names for transition variables and the
-  table names for transition tables. Correlation names identify a
-  specific row in the set of rows affected by the triggering SQL
-  operation. Table names identify the complete set of affected rows.
-  Each row affected by a triggering SQL operation is available to the
-  triggered action by qualifying columns with specified
-  correlation-names. PostgreSQL doesn’t support this functionality,
-  and only uses a NEW or OLD correlation name.
-- **INSTEAD OF triggers** – AWS SCT
-  supports these.
+## Privileges for MySQL as a target
 
-## Converting Db2 LUW partitioned
+The privileges required for MySQL as a target are as follows:
 
-tables to PostgreSQL version 10 partitioned tables
-
-AWS SCT can convert Db2 LUW tables to partitioned tables in PostgreSQL 10.
-There are several restrictions when converting a Db2 LUW partitioned table to
-PostgreSQL:
-
-- You can create a partitioned table with a nullable column in Db2 LUW, and you can specify a
-  partition to store NULL values. However, PostgreSQL doesn’t support NULL
-  values for RANGE partitioning.
-- Db2 LUW can use an INCLUSIVE or EXCLUSIVE clause to set range boundary values. PostgreSQL only
-  supports INCLUSIVE for a starting boundary and EXCLUSIVE for an ending
-  boundary. The converted partition name is in the format
-  <original_table_name>\_<original_partition_name>.
-- You can create primary or unique keys for partitioned tables in Db2 LUW. PostgreSQL requires
-  you to create primary or unique key for each partition directly. Primary
-  or unique key constraints must be removed from the parent table. The
-  converted key name is in the format
-  <original_key_name>\_<original_partition \_name>.
-- You can create a foreign key constraint from and to a partitioned table in Db2 LUW. However,
-  PostgreSQL doesn’t support foreign keys references in partitioned
-  tables. PostgreSQL also doesn’t support foreign key references from a
-  partitioned table to another table.
-- You can create an index on a partitioned table in Db2 LUW. However, PostgreSQL requires you to
-  create an index for each partition directly. Indexes must be removed
-  from the parent table. The converted index name is in the format
-  <original_index_name>\_<original_partition_name>.
-- You must define row triggers on individual partitions, not on the partitioned table. Triggers
-  must be removed from the parent table. The converted trigger name is in
-  the format
-  <original_trigger_name>\_<original_partition_name>.
-
-## Privileges for PostgreSQL as a target
-
-To use PostgreSQL as a target, AWS SCT requires the `CREATE ON DATABASE` privilege.
-Make sure that you grant this privilege for each target PostgreSQL database.
-
-To use the converted public synonyms, change the database default search path to
-`"$user", public_synonyms, public`.
+- CREATE ON \*.\*
+- ALTER ON \*.\*
+- DROP ON \*.\*
+- INDEX ON \*.\*
+- REFERENCES ON \*.\*
+- SELECT ON \*.\*
+- CREATE VIEW ON \*.\*
+- SHOW VIEW ON \*.\*
+- TRIGGER ON \*.\*
+- CREATE ROUTINE ON \*.\*
+- ALTER ROUTINE ON \*.\*
+- EXECUTE ON \*.\*
+- SELECT ON mysql.proc
+- INSERT, UPDATE ON AWS_DB2_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS_DB2_EXT_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS_DB2_EXT_DATA.\*
 
 You can use the following code example to create a database user and grant the privileges.
 
 ```
-CREATE ROLE `user_name` LOGIN PASSWORD '`your_password`';
-GRANT CREATE ON DATABASE `db_name` TO `user_name`;
-ALTER DATABASE `db_name` SET SEARCH_PATH = "$user", public_synonyms, public;
+CREATE USER '`user_name`' IDENTIFIED BY '`your_password`';
+GRANT CREATE ON *.* TO '`user_name`';
+GRANT ALTER ON *.* TO '`user_name`';
+GRANT DROP ON *.* TO '`user_name`';
+GRANT INDEX ON *.* TO '`user_name`';
+GRANT REFERENCES ON *.* TO '`user_name`';
+GRANT SELECT ON *.* TO '`user_name`';
+GRANT CREATE VIEW ON *.* TO '`user_name`';
+GRANT SHOW VIEW ON *.* TO '`user_name`';
+GRANT TRIGGER ON *.* TO '`user_name`';
+GRANT CREATE ROUTINE ON *.* TO '`user_name`';
+GRANT ALTER ROUTINE ON *.* TO '`user_name`';
+GRANT EXECUTE ON *.* TO '`user_name`';
+GRANT SELECT ON mysql.proc TO '`user_name`';
+GRANT INSERT, UPDATE ON AWS_DB2_EXT.* TO '`user_name`';
+GRANT INSERT, UPDATE, DELETE ON AWS_DB2_EXT_DATA.* TO '`user_name`';
+GRANT CREATE TEMPORARY TABLES ON AWS_DB2_EXT_DATA.* TO '`user_name`';
 ```
 
 In the preceding example, replace `user_name` with the name of your user.
-Then, replace `db_name` with the name of your target database.
-Finally, replace `your_password` with a secure password.
+Then, replace `your_password` with a secure password.
 
-In PostgreSQL, only the schema owner or a `superuser` can drop a schema. The owner can drop a schema
-and all objects that this schema includes even if the owner of the schema doesn't own some of its objects.
-
-When you use different users to convert and apply different schemas to your target database,
-you can get an error message when AWS SCT can't drop a schema. To avoid this error message,
-use the `superuser` role.
+To use Amazon RDS for MySQL or Aurora MySQL as a target, set the `lower_case_table_names` parameter
+to `1`. This value means that the MySQL server handles identifiers of such object names as tables,
+indexes, triggers, and databases as case insensitive.
+If you have turned on binary logging in your target instance, then set the
+`log_bin_trust_function_creators` parameter to `1`.
+In this case, you don't need to use the `DETERMINISTIC`,
+`READS SQL DATA` or `NO SQL` characteristics to create stored functions.
+To configure these parameters, create a new DB parameter group or modify an existing DB parameter group.

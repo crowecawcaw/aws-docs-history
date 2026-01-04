@@ -1,20 +1,30 @@
-# Connecting to Apache Cassandra databases with the AWS Schema Conversion Tool
+# Connecting Oracle Data Warehouse with AWS SCT
 
-You can use AWS SCT to convert keyspaces from
-Apache Cassandra to Amazon DynamoDB.
+You can use AWS SCT to convert schemas, code objects, and application code from
+Oracle Data Warehouse to Amazon Redshift or Amazon Redshift and AWS Glue used in combination.
 
-## Connecting to Apache Cassandra
+## Privileges for Oracle Data
 
-as a source
+Warehouse as a source
 
-Use the following procedure to connect to your Apache Cassandra source
-database with the AWS Schema Conversion Tool.
+The following privileges are required for using Oracle Data Warehouse as a source:
 
-###### To connect to an Apache Cassandra source database
+- connect
+- select_catalog_role
+- select any dictionary
 
-1. In the AWS Schema Conversion Tool,
-   choose **Add source**.
-2. Choose **Cassandra**, then choose **Next**.
+## Connecting to Oracle Data
+
+Warehouse as a source
+
+Use the following procedure to connect to your Oracle data warehouse source database
+with the AWS Schema Conversion Tool.
+
+###### To connect to an Oracle Data Warehouse source database
+
+1. In the AWS Schema Conversion Tool, choose **Add source**.
+2. Choose **Oracle**, then choose
+   **Next**.
 
 The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
 AWS SCT displays this name in the tree in the left panel. 4. Use database credentials from AWS Secrets Manager or enter them manually:
@@ -30,7 +40,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     	2. Choose **Populate** to automatically fill in
     	 all values in the database connection dialog box from Secrets Manager.
     For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
-    * To enter the Apache Cassandra source database connection
+    * To enter the Oracle source data warehouse connection
      information manually, use the following instructions:
 
 
@@ -38,12 +48,191 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
 
     | Parameter | Action |
     | --- | --- |
-    | **Server name** | Enter the Domain Name Service (DNS) name or IP address of your source database server. |
-    | **Server port** | Enter the port used to connect to your source database server. |
-    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database<br>only when you choose to connect to your database in a project.<br>To guard against exposing the password for your source database,<br>AWS SCT doesn't store the password by default.<br>If you close your AWS SCT project and reopen it,<br>you are prompted for the password to connect to your source database as needed. |
-    | **Use SSL** | Choose this option if you want to use Secure Sockets Layer (SSL) to connect<br>to your database. Provide the following additional information, as applicable,<br>on the **SSL*<br>• tab:<br>+ **Trust store**:<br>The trust store to use.<br>+ **Key store**:<br>The key store to use. |
-    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>By turning this option on, you can store the database password and connect quickly<br>to the database without having to enter the password. |
+    | **Type** | Choose the connection type to your database. Depending on your<br>type, provide the following additional information:<br>+ **SID**<br>• **Server name**: The Domain Name System (DNS) name or IP address of your<br>source database server.<br>• **Server port**: The port used to connect to your<br>source database server.<br>• **Oracle SID**: The Oracle System ID (SID).<br>To find the Oracle SID, submit the following query to your Oracle database:<br>`SELECT sys_context('userenv','instance_name') AS SID FROM dual;`<br>+ **Service Name**<br>• **Server name**: The DNS name or IP address of your<br>source database server.<br>• **Server port**: The port used to connect to your<br>source database server.<br>• **Service Name**: The name of the Oracle service to connect to.<br>+ **TNS alias**<br>• **TNS file path**: The path to the<br>file that contains the Transparent Network Substrate (TNS) name<br>connection information.<br>• **TNS file path**: The TNS alias<br>from this file to use to connect to the source database.<br>+ **TNS connect identifier**<br>• **TNS connect identifier**: The identifier for the<br>registered TNS connection information. |
+    | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database<br>only when you choose to connect to your database in a project.<br>To guard against exposing the password for your source database,<br>AWS SCT doesn't store the password by default. If you close your<br>AWS SCT project and reopen it, you are prompted for the password<br>to connect to your source database as needed. |
+    | **Use SSL** | Choose this option to use Secure Sockets Layer (SSL) to connect to<br>your database. Provide the following additional information, as<br>applicable, on the **SSL*<br>• tab:<br>+ **SSL authentication**: Select this option<br>to use SSL authentication for the connection.<br>+ **Trust store**: The location of a trust<br>store containing certificates.<br>+ **Key store**: The location of a key store<br>containing a private key and certificates. This value is<br>required if **SSL authentication*<br>• is<br>selected and is otherwise optional. |
+    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and<br>database passwords. By turning this option on, you can store the<br>database password and connect quickly to the database without<br>having to enter the password. |
+    | **Oracle driver path** | Enter the path to the driver to use to connect to the source<br>database. For more information,<br>see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
    that AWS SCT can connect to your source database.
 6. Choose **Connect** to connect to your source database.
+
+## Oracle Data Warehouse to Amazon Redshift conversion
+
+settings
+
+To edit Oracle Data Warehouse to Amazon Redshift conversion settings, choose **Settings**
+in AWS SCT, and then choose **Conversion settings**. From the upper
+list, choose **Oracle**, and then choose **Oracle –
+Amazon Redshift**. AWS SCT displays all available settings for Oracle Data Warehouse to Amazon Redshift
+conversion.
+
+Oracle Data Warehouse to Amazon Redshift conversion settings in AWS SCT include options for the
+following:
+
+- To limit the number of comments with action items in the converted
+  code.
+
+For **Add comments in the converted code for the action items of selected severity and higher**,
+choose the severity of action items. AWS SCT adds comments in the converted code
+for action items of the selected severity and higher.
+
+For example, to minimize the number of comments in your converted code, choose
+**Errors only**. To include comments for all action items in your
+converted code, choose **All messages**.
+
+- To set the maximum number of tables that AWS SCT can apply to your target Amazon Redshift cluster.
+
+For **The maximum number of tables for the target Amazon Redshift cluster**,
+choose the number of tables that AWS SCT can apply to your Amazon Redshift cluster.
+
+Amazon Redshift has quotas that limit the use tables for different cluster node
+types. If you choose **Auto**, AWS SCT determines the
+number of tables to apply to your target Amazon Redshift cluster depending on the
+node type. Optionally, choose the value manually. For more information,
+see [Quotas and
+limits in Amazon Redshift](../../../redshift/latest/mgmt/amazon-redshift-limits.md "../../../redshift/latest/mgmt/amazon-redshift-limits.md") in the
+_Amazon Redshift Management Guide_.
+
+AWS SCT converts all your source tables, even if this is more than your Amazon Redshift cluster can store.
+AWS SCT stores the converted code in your project and doesn't apply it to the target database.
+If you reach the Amazon Redshift cluster quota for the tables when you apply the converted code, then AWS SCT
+displays a warning message. Also, AWS SCT applies tables to your target Amazon Redshift cluster until
+the number of tables reaches the limit.
+
+- To migrate partitions of the source table to separate tables in Amazon Redshift. To do so, select
+  **Use the UNION ALL view** and enter the maximum number of target tables that AWS SCT
+  can create for a single source table.
+
+Amazon Redshift doesn't support table partitioning. To emulate this behavior and make queries run
+faster, AWS SCT can migrate each partition of your source table to a separate table in Amazon Redshift.
+Then, AWS SCT creates a view that includes data from all these tables.
+
+AWS SCT automatically determines the number of partitions in your source table. Depending on
+the type of source table partitioning, this number can exceed the quota for the tables that you
+can apply to your Amazon Redshift cluster. To avoid reaching this quota, enter the maximum number of target
+tables that AWS SCT can create for partitions of a single source table. The default option is
+368 tables, which represents a partition for 366 days of a year and two tables for
+`NO RANGE` and `UNKNOWN` partitions.
+
+- To convert the data type formatting functions such as `TO_CHAR`, `TO_DATE`,
+  and `TO_NUMBER` with datetime format elements that Amazon Redshift doesn't support. By default,
+  AWS SCT uses the extension pack functions to emulate the usage of these unsupported format elements
+  in the converted code.
+
+The datetime format model in Oracle includes more elements compared to datetime format strings
+in Amazon Redshift. When your source code includes only datetime format elements that Amazon Redshift supports, you don't
+need the extension pack functions in the converted code. To avoid using the extension pack functions
+in the converted code, select **Datetype format elements that you use in the Oracle code are
+similar to datetime format strings in Amazon Redshift**. In this case, the converted code works
+faster.
+
+The numeric format model in Oracle includes more elements compared to numeric format strings in Amazon Redshift.
+When your source code includes only numeric format elements that Amazon Redshift supports, you don't need the
+extension pack functions in the converted code. To avoid using the extension pack functions in the
+converted code, select **Numeric format elements that you use in the Oracle code are
+similar to numeric format strings in Amazon Redshift**. In this case, the converted code works
+faster.
+
+- To convert Oracle `LEAD` and `LAG` analytic functions. By default, AWS SCT
+  raises an action item for each `LEAD` and `LAG` function.
+
+When your source code doesn't use the default values for offset in these functions, AWS SCT
+can emulate the usage of these functions with the `NVL` function. To do so, select
+**Use the NVL function to emulate the behavior of Oracle LEAD and LAG functions**.
+
+- To emulate the behavior of primary and unique keys in your Amazon Redshift
+  cluster, select **Emulate the behavior of primary and unique keys**.
+
+Amazon Redshift doesn't enforce unique and primary keys and uses them for informational purposes only.
+If you use these constraints in your code, then make sure that AWS SCT emulates their behavior
+in the converted code.
+
+- To apply compression to Amazon Redshift table columns. To do so, select
+  **Use compression encoding**.
+
+AWS SCT assigns compression encoding to columns automatically using
+the default Amazon Redshift algorithm. For more information, see [Compression
+encodings](../../../redshift/latest/dg/c_Compression_encodings.md "../../../redshift/latest/dg/c_Compression_encodings.md") in the _Amazon Redshift Database Developer Guide_.
+
+By default, Amazon Redshift doesn't apply compression to columns that are defined
+as sort and distribution keys. You can change this behavior and apply
+compression to these columns. To do so, select **Use compression
+encoding for KEY columns**. You can select this option only
+when you select the **Use compression encoding**
+option.
+
+## Oracle Data Warehouse to Amazon Redshift conversion
+
+optimization settings
+
+To edit Oracle Data Warehouse to Amazon Redshift conversion optimization settings, choose **Settings**
+in AWS SCT, and then choose **Conversion settings**. From the upper list, choose
+**Oracle**, and then choose **Oracle – Amazon Redshift**. In the
+left pane, choose **Optimization strategies**. AWS SCT displays conversion
+optimization settings for Oracle Data Warehouse to Amazon Redshift conversion.
+
+Oracle Data Warehouse to Amazon Redshift conversion optimization settings in AWS SCT include options for the
+following:
+
+- To work with automatic table optimization. To do so, select
+  **Use Amazon Redshift automatic table tuning**.
+
+Automatic table optimization is a self-tuning process in Amazon Redshift that automatically
+optimizes the design of tables. For more information, see [Working with automatic table optimization](../../../redshift/latest/dg/t_Creating_tables.md "../../../redshift/latest/dg/t_Creating_tables.md")
+in the _Amazon Redshift Database Developer Guide_.
+
+To rely only on the automatic table optimization, choose
+**None** for **Initial key selection strategy**.
+
+- To choose sort and distribution keys using your strategy.
+
+You can choose sort and distribution keys using Amazon Redshift metadata, statistical information, or both these options.
+For **Initial key selection strategy** on the **Optimization strategies** tab,
+choose one of the following options:
+
+    + Use metadata, ignore statistical information
+    + Ignore metadata, use statistical information
+    + Use metadata and statistical information
+
+Depending on the option that you choose, you can select optimization
+strategies. Then, for each strategy, enter the value (0–100). These
+values define the weight of each strategy. Using these weight values,
+AWS SCT defines how each rule influences on the choice of distribution
+and sort keys. The default values are based on the AWS migration best
+practices.
+
+You can define the size of small tables for the **Find small
+tables** strategy. For **Min table row
+count** and **Max table row count**, enter
+the minimum and maximum number of rows in a table to define it as a
+small table. AWS SCT applies the `ALL` distribution style to
+small tables. In this case, a copy of the entire table is distributed to
+every node.
+
+- To configure strategy details.
+
+In addition to defining the weight for each optimization strategy, you can configure
+the optimization settings. To do so, choose **Conversion optimization**.
+
+    + For **Sort key columns limit**, enter the maximum number
+     of columns in the sort key.
+    + For **Skewed threshold value**, enter the percentage (0–100)
+     of a skewed value for a column. AWS SCT excludes columns with the skew value greater than
+     the threshold from the list of candidates for the distribution key. AWS SCT defines the
+     skewed value for a column as the percentage ratio of the number of occurrences of the most
+     common value to the total number of records.
+    + For **Top N queries from the query history table**, enter
+     the number (1–100) of the most frequently used queries to analyze.
+    + For **Select statistics user**, choose the database user for which you want
+     to analyze the query statistics.
+
+Also, on the **Optimization strategies** tab, you can
+define the size of small tables for the **Find small
+tables** strategy. For **Min table row
+count** and **Max table row count**, enter
+the minimum and maximum number of rows in a table to consider it as a
+small table. AWS SCT applies the `ALL` distribution style to
+small tables. In this case, a copy of the entire table is distributed to
+every node.
