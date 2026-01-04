@@ -1,150 +1,67 @@
-# ETL features
+# Viewing server logs
 
-This topic provides reference information about migrating ETL (Extract, Transform, Load) functionality from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces AWS Glue as an alternative to SQL Server’s native ETL tools, specifically SQL Server Integration Services (SSIS) which replaced the older Data Transformation Services (DTS).
+This topic provides reference information about logging capabilities in SQL Server and Amazon Aurora PostgreSQL. You can use these logging features to monitor database activities, troubleshoot issues, and maintain the health of your database systems. The topic explains how to access and interpret logs in both environments, highlighting key differences and similarities.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                    |
-| ------------------------ | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
-| No feature compatibility | N/A                                | N/A                       | Use [AWS Glue](https://aws.amazon.com/glue "https://aws.amazon.com/glue") for ETL. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                          |
+| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. |
 
 ## SQL Server Usage
 
-SQL Server offers a native extract, transform, and load (ETL) framework of tools and services to support enterprise ETL requirements. The legacy Data Transformation Services (DTS) has been deprecated as of SQL
-Server 2008 and replaced with SQL Server Integration Services (SSIS), which was introduced in SQL Server 2005. For more information, see [Data Transformation Services (DTS)](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/cc707786(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/cc707786(v=sql.105)") in the _SQL Server documentation_.
+SQL Server logs system and user generated events to the _SQL Server Error Log_ and to the _Windows Application Log_. It logs recovery messages, kernel messages, security events, maintenance events, and other general server level error and informational messages. The Windows Application Log contains events from all windows applications including SQL Server and SQL Server agent.
 
-### DTS
+SQL Server Management Studio Log Viewer unifies all logs into a single consolidated view. You can also view the logs with any text editor.
 
-DTS was introduced in SQL Server version 7 in 1998. It was significantly expanded in SQL Server 2000 with features such as FTP, database level operations, and Microsoft Message Queuing (MSMQ) integration. It included a set of objects, utilities, and services that enabled easy, visual construction of complex ETL operations across heterogeneous data sources and targets.
+Administrators typically use the SQL Server Error Log to confirm successful completion of processes, such as backup or batches, and to investigate the cause of run time errors. These logs can help detect current risks or potential future problem areas.
 
-DTS supported OLE DB, ODBC, and text file drivers. It allowed transformations to be scheduled using SQL Server Agent. For more information, see [SQL Server Agent](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md"). DTS also provided version control and backup capabilities with version control systems such as Microsoft Visual SourceSafe.
+To view the log for SQL Server, SQL Server Agent, Database Mail, and Windows applications, open the SQL Server Management Studio Object Explorer pane, navigate to **Management**, **SQL Server Logs**, and choose the current log.
 
-The fundamental entity in DTS was the DTS Package. Packages were the logical containers for DTS objects such as connections, data transfers, transformations, and notifications. The DTS framework also included the following tools:
+The following table identifies some common error codes database administrators typically look for in the error logs:
 
-- DTS Wizards.
-- DTS Package Designers.
-- DTS Query Designer.
-- DTS Run Utility.
-
-### SSIS
-
-The SSIS framework was introduced in SQL Server 2005, but was limited to the top-tier editions only, unlike DTS which was available with all editions.
-
-SSIS has evolved over DTS to offer a true modern, enterprise class, heterogeneous platform for a broad range of data migration and processing tasks. It provides a rich workflow-oriented design with features for all types of enterprise data warehousing. It also supports scheduling capabilities for multi-dimensional cubes management.
-
-SSIS provides the following tools:
-
-- SSIS Import/Export Wizard is an SQL Server Management Studio extension that enables quick creation of packages for moving data between a wide array of sources and destinations. However, it has limited transformation capabilities.
-- SQL Server Business Intelligence Development Studio (BIDS) is a developer tool for creating complex packages and transformations. It provides the ability to integrate procedural code into package transformations and provides a scripting environment. Recently, BIDS has been replaced by SQL Server Data Tools - Business intelligence (SSDT-BI).
-
-SSIS objects include:
-
-- Connections.
-- Event handlers.
-- Workflows.
-- Error handlers.
-- Parameters (starting with SQL Server 2012).
-- Precedence constraints.
-- Tasks.
-- Variables.
-
-SSIS packages are constructed as XML documents and you can save them to the file system or store within a SQL Server instance using a hierarchical name space.
-
-For more information, see [SQL Server Integration Services](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver15") in the _SQL Server documentation_ and [Data Transformation Services](https://en.wikipedia.org/wiki/Data_Transformation_Services "https://en.wikipedia.org/wiki/Data_Transformation_Services") in _Wikipedia_.
-
-## PostgreSQL Usage
-
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides [AWS Glue](https://aws.amazon.com/glue "https://aws.amazon.com/glue") for enterprise class extract, transform, and load (ETL). It is a fully managed service that performs data cataloging, cleansing, enriching, and movement between heterogeneous data sources and destinations. Being a fully managed service, the user doesn’t need to be concerned with infrastructure management.
-
-### AWS Glue Key Features
-
-**Integrated data catalog**
-
-The AWS Glue Data Catalog is a persistent metadata store, that you can use to store all data assets, whether in the cloud or on-premises. It stores table schemas, job steps, and additional meta data information for managing these processes. AWS Glue can automatically calculate statistics and register partitions to make queries more efficient. It maintains a comprehensive schema version history for tracking changes over time.
-
-**Automatic schema discovery**
-
-AWS Glue provides automatic crawlers that can connect to source or target data providers. The crawler uses a prioritized list of classifiers to determine the schema for your data and then generates and stores the metadata in the AWS Glue Data Catalog. You can schedule crawlers or run on-demand. You can also trigger a crawler when an event occurs to keep metadata current.
-
-**Code generation**
-
-AWS Glue automatically generates the code to extract, transform, and load data. All you need to do is point Glue to your data source and target. The ETL scripts to transform, flatten, and enrich data are created automatically. You can generate AWS Glue scripts in Scala or Python and use them in Apache Spark.
-
-**Developer endpoints**
-
-When interactively developing AWS Glue ETL code, AWS Glue provides development endpoints for editing, debugging, and testing. You can use any IDE or text editor for ETL development. You can import custom readers, writers, and transformations into Glue ETL jobs as libraries. You can also use and share code with other developers in the [AWS Glue GitHub repository](https://github.com/awslabs/aws-glue-libs "https://github.com/awslabs/aws-glue-libs").
-
-**Flexible job scheduler**
-
-You can trigger AWS Glue jobs for running either on a pre-defined schedule, on-demand, or as a response to an event.
-
-You can start multiple jobs in parallel and explicitly define dependencies across jobs to build complex ETL pipelines. AWS Glue handles all inter-job dependencies, filters bad data, and retries failed jobs. All logs and notifications are pushed to Amazon CloudWatch; you can monitor and get alerts from a central service.
-
-### Migration Considerations
-
-You can use AWS Schema Conversion Tool (AWS SCT) to convert your Microsoft SSIS ETL scripts to AWS Glue. For more information, see [Converting SSIS](../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue-ssis.md "../../../SchemaConversionTool/latest/userguide/CHAP-converting-aws-glue-ssis.md").
+| Error code | Error message                 |
+| ---------- | ----------------------------- |
+| 1105       | Couldn’t allocate space.      |
+| 3041       | Backup failed.                |
+| 9002       | Transaction log full.         |
+| 14151      | Replication agent failed.     |
+| 17053      | Operating system error.       |
+| 18452      | Login failed.                 |
+| 9003       | Possible database corruption. |
 
 ### Examples
 
-The following walkthrough describes how to create an AWS Glue job to upload a comma-separated values (CSV) file from Amazon S3 to Aurora PostgreSQL.
+The following screenshot shows the typical log file viewer content:
 
-The source file for this walkthrough is a simple Visits table in CSV format. The objective is to upload this file to an Amazon S3 bucket and create an AWS Glue job to discover and copy it into an Aurora PostgreSQL database.
+![Log file viewer](images/pb-sql-server-aurora-pg-log-file-viewer.png)
 
-#### Step 1 — Create a Bucket in Amazon S3 and Upload the CSV File
+For more information, see [Monitoring the Error Logs](https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15") in the _SQL Server documentation_.
 
-1. In the AWS console, choose **S3**, and then choose **Create bucket**.
+## PostgreSQL Usage
 
-###### Note
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides administrators with access to the PostgreSQL error log.
 
-This walkthrough demonstrates how to create the buckets and upload the files manually, which is automated using the Amazon S3 API for production ETLs. Using the console to manually run all the settings will help you get familiar with the terminology, concepts, and workflow. 2. Enter a unique name for the bucket, select a region, and define the level of access. 3. Turn on versioning, add tags, turn on server-side encryption, and choose **Create bucket**. 4. On the Amazon S3 Management Console, choose the newly created bucket. 5. On the bucket page, choose **Upload**. 6. Choose **Add files**, select your CSV file, and choose **Upload**.
+The PostgreSQL error log is generated by default. To generate the slow query and general logs, set the corresponding parameters in the database parameter group. For more information, see [Server Options in SQL Server and Parameter Groups in Amazon Aurora](chap-sql-server-aurora-pg.configuration.md "chap-sql-server-aurora-pg.configuration.md").
 
-#### Step 2 — Add an Amazon Glue Crawler to Discover and Catalog the Visits File
+You can view Aurora PostgreSQL logs directly from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. You can also direct the logs to a database table in the main database and use SQL queries to view the data. To download a binary log, use the AWS Console.
 
-1. In the AWS console, choose **AWS Glue** .
-2. Choose **Tables**, and then choose **Add tables using a crawler**.
-3. Enter the name of the crawler and choose **Next**.
-4. On the **Specify crawler source type** page, leave the default values, and choose **Next**.
-5. On the **Add a data store** page, specify a valid Amazon S3 path, and choose **Next**.
-6. On the **Choose an IAM role** page, choose an existing IAM role, or create a new IAM role. Choose **Next**.
-7. On the **Create a schedule for this crawler** page, choose **Run on demand**, and choose **Next**.
-8. On the **Configure the crawler’s output** page, choose a database for the crawler’s output, enter an optional table prefix for easy reference, and choose **Next**.
-9. Review the information that you provided and choose **Finish** to create the crawler.
+The following table includes the parameters, which control how and where PostgreSQL places log and errors files.
 
-![Crawler](images/pb-sql-server-aurora-pg-crawler.png)
+| Parameter                    | Description                                                                                                                                                                                   |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `log_filename`               | Sets the file name pattern for log files. You can modify this parameter in an Aurora Database Parameter Group.                                                                                |
+| `log_rotation_age`           | (min) Automatic log file rotation will occur after N minutes. You can modify this parameter in an Aurora Database Parameter Group.                                                            |
+| `log_rotation_size`          | (kB) Automatic log file rotation will occur after N kilobytes. You can modify this parameter in an Aurora Database Parameter Group.                                                           |
+| `log_min_messages`           | Sets the message levels that are logged such as `DEBUG`, `ERROR`, `INFO`, and so on. You can modify this parameter in an Aurora Database Parameter Group.                                     |
+| `log_min_error_statement`    | Causes all statements generating errors at or above this level to be logged such as `DEBUG`, `ERROR`, `INFO`, and so on. You can modify this parameter in an Aurora Database Parameter Group. |
+| `log_min_duration_statement` | Sets the minimum run time above which statements will be logged (ms). You can modify this parameter in an Aurora Database Parameter Group.                                                    |
 
-#### Step 3 — Run the Amazon Glue Crawler
+### Examples
 
-1. In the AWS console, choose **AWS Glue** , and then choose **Crawlers**.
-2. Choose the crawler that you created on the previous step, and choose **Run crawler**.
+The following walkthrough demonstrates how to view the Aurora PostgreSQL error logs in the Amazon RDS console.
 
-After the crawler completes, the table should be discovered and recorded in the catalog in the table specified.
+1. In the AWS console, choose **RDS**, and then choose **Databases**.
+2. Choose the instance for which you want to view the error log.
 
-Click the link to get to the table that was just discovered and then click the table name.
+![Log file viewer](images/pb-sql-server-aurora-pg-view-error-log.png) 3. Scroll down to the logs section and choose the log name. The log viewer displays the log content.
 
-Verify the crawler identified the table’s properties and schema correctly.
-
-###### Note
-
-You can manually adjust the properties and schema JSON files using the buttons on the top right.
-
-If you don’t want to add a crawler, you can add tables manually.
-
-1. In the AWS console, choose **AWS Glue** .
-2. Choose **Tables**, and then choose **Add table manually**.
-
-#### Step 4 — Create an ETL Job to Copy the Visits Table to an Aurora PostgreSQL Database
-
-1. In the AWS console, choose **AWS Glue** .
-2. Choose **Jobs (legacy)**, and then choose **Add job**.
-3. Enter a name for the ETL job and pick a role for the security context. For this example, use the same role created for the crawler. The job may consist of a pre-existing ETL script, a manually-authored script, or an automatic script generated by Amazon Glue. For this example, use Amazon Glue. Enter a name for the script file or accept the default, which is also the job’s name. Configure advanced properties and parameters if needed and choose **Next**.
-4. Select the data source for the job and choose **Next**.
-5. On the **Choose a transform type** page, choose **Change schema**.
-6. On the **Choose a data target** page, choose **Create tables in your data target**, use the JDBC Data store, and the `gluerds` connection type. Choose **Add Connection**.
-7. On the **Add connection** page, enter the access details for the Amazon Aurora Instance and choose **Add**.
-8. Choose **Next** to display the column mapping between the source and target. Leave the default mapping and data types, and choose **Next**.
-9. Review the job properties and choose **Save job and edit script**.
-10. Review the generated script and make manual changes if needed. You can use the built-in templates for source, target, target location, transform, and spigot using the buttons at the top right section of the screen.
-11. Choose **Run job**.
-12. In the AWS console, choose **AWS Glue** , and then choose **Jobs (legacy)**.
-13. On the history tab, verify that the job status is set to **Succeeded**.
-14. Open your query IDE, connect to the Aurora PostgreSQL cluster, and query the visits database to make sure the data has been transferred successfully.
-
-For more information, see [AWS Glue Developer Guide](../../../glue/latest/dg/what-is-glue.md "../../../glue/latest/dg/what-is-glue.md") and [AWS Glue resources](https://aws.amazon.com/glue/resources "https://aws.amazon.com/glue/resources").
+For more information, see [PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.

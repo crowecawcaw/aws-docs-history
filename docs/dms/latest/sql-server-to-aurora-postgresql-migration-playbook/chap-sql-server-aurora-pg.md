@@ -1,12 +1,10 @@
-# Migration tools and services overview
+# Migrating security features to Aurora PostgreSQL
 
-This topic provides conceptual content about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces you to the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), explaining how these tools can streamline your database migration process. The content covers various aspects of the migration, including schema conversion, data transfer, and handling different database features. It also touches on related services like Amazon RDS on Outposts, Amazon RDS Proxy, and Amazon Aurora Serverless v1, providing a comprehensive overview of the AWS database ecosystem. By understanding these concepts, you can better plan and execute your database migration strategy, anticipate potential challenges, and leverage AWS tools and services to ensure a smooth transition to Aurora PostgreSQL.
+This topic provides conceptual content comparing the security and encryption features of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain a comprehensive understanding of how encryption, user permissions, access control, and authentication mechanisms differ between these two database systems. The content explores encryption functions, data protection at rest, user management, and role-based access control, highlighting similarities and key differences in implementation. By understanding these concepts, you can make informed decisions about securing your data and implementing robust security measures when migrating from SQL Server to Aurora PostgreSQL. This knowledge is crucial for database administrators and developers to ensure a smooth transition while maintaining data integrity and compliance in the new database environment.
 
 ###### Topics
 
-- [AWS Schema Conversion Tool overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [AWS SCT Action Code Index overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [AWS Database Migration Service overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon RDS on Outposts overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon RDS Proxy overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon Aurora Serverless v1 overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [Column encryption for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
+- [Data control language for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
+- [Transparent data encryption Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
+- [Users and roles for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
