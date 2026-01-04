@@ -13,6 +13,13 @@ issues, which you can review and choose to commit to the pull request. You can u
 code review findings. Automatic code reviews are not triggered by subsequent commits made
 within an existing pull request.
 
+###### Note
+
+The Code reviews feature setting in the Amazon Q Developer console controls
+automated code reviews that run when pull requests are created or reopened.
+Initiating code reviews using the `/q review` slash command in pull request
+comments is not affected by this setting.
+
 You can also initiate code reviews within pull requests with the `/q review`
 slash command. The slash command can be added to a new pull request comment, which initiates a
 new code review of the pull request in its current state, including any comments and new
@@ -91,8 +98,10 @@ diff.
 
 ###### Note
 
-You can only initiate a code review within a pull request with a new comment. The
-`/q review` slash command will not work in an existing comment thread.
+You can only initiate a code review within a pull request with a new comment.
+The `/q review` slash command will not work in an existing comment thread.
+Initiating a code review using the `/q review` slash command is not affected by
+the Code reviews feature setting in the Amazon Q Developer console.
 
 ###### To use initiate code reviews in a pull request
 
