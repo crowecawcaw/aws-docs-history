@@ -17,5 +17,6 @@ roles](user-types.md "user-types.md").
 ###### Topics
 
 - [Managing user access inside Amazon Quick Suite](managing-users.md "managing-users.md")
+- [User-driven license upgrades](user-driven-upgrades.md "user-driven-upgrades.md")
 - [Creating and managing groups in
   Amazon Quick Suite](creating-quicksight-groups.md "creating-quicksight-groups.md")

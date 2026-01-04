@@ -168,7 +168,7 @@ The following is an example of chat logs:
     "surfaceType": "Slack, WebApp etc.",
     "webSearch": "TRUE"
     "userSelectedResources": [{"resource_type": "Dashboard","resource_id": "146abs-1222-534894"},{"resource_type": "Space","resource_id": "123abs-1234-534894"}],
-    "actionConnectors": [{"user_selected_resource_type": "Dashboard","resource_id": "146abs-1222-534894"},{"user_selected_resource_type": "Space","resource_id": "123abs-1234-534894"}]
+    "actionConnectors": [{"action_connector_id": "quicksight-website"},{"action_connector_id": "123abs-1234-534894"}]
     "citedResource": [{"cited_resource_name": "Dashboard","cited_resource_id": "146abs-1222-534894","cited_resource_name": "ds1"},{"cited_resource_name": "Space","cited_resource_id": "123abs-1234-534894","cited_resource_name": "space1"}],
     "fileAttachment": [{"file_attachmet_type": "pdf","file_attachment_name": "file1.pdf"},{"file_attachmet_type": "txt","file_attachment_name": "file2.txt"}]
 }
