@@ -1,120 +1,159 @@
-# Oracle Real Application Clusters and PostgreSQL Aurora architecture
+# Oracle Flashback Database and PostgreSQL Amazon Aurora snapshots
 
-With AWS DMS, you can migrate your on-premises Oracle Real Application Clusters (RAC) and PostgreSQL databases to Amazon Aurora, a fully managed relational database service. Oracle RAC provides scalability and high availability by allowing multiple instances to access a single database. Similarly, Amazon Aurora PostgreSQL clusters consist of a writer instance and multiple reader instances, enabling read scaling and failover support.
+With AWS DMS, you can migrate databases between different database platforms or versions by capturing consistent data snapshots from the source database and applying them to the target database. Oracle Flashback Database and PostgreSQL Amazon Aurora snapshots provide point-in-time backups of the source database, enabling migration with minimal downtime.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                             |
+| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------- |
+| Five star feature compatibility | N/A                                | N/A                       | Storage level backup managed by Amazon RDS. |
 
 ## Oracle usage
 
-Oracle Real Application Clusters (RAC) is one of the most advanced and capable technologies providing highly available and scalable relational databases. It allows multiple Oracle instances to access a single database. Applications can access the database through the multiple instances in Active-Active mode.
+Oracle Flashback Database is a special mechanism built into Oracle databases that helps protect against human errors by providing capabilities to revert the entire database back to a previous point in time using SQL commands. Flashback database implements a self-logging mechanism that captures all changes applied to a database and to data. Essentially, it stores previous versions of database modifications in the configured database “Fast Recovery Area”.
 
-The following diagram illustrates the Oracle RAC architecture.
+When using Oracle flashback database, you can choose to restore an entire database to either a user-created restore point, a timestamp value, or to a specific System Change Number (SCN).
 
-![Oracle RAC architecture](images/pb-oracle-rac.png)
+**Examples**
 
-Oracle RAC requires network configuration of SCAN IPs, VIP IPs, interconnect, and other items. As a best practice, all severs should run the same versions of Oracle software.
+Create a database restore point to which you can flashback a database.
 
-Because of the shared nature of the RAC cluster architecture—specifically, having all nodes write to a single set of database data files on disk—the following two special coordination mechanisms ensure Oracle database objects and data maintain ACID compliance:
+```
+CREATE RESTORE POINT before_update GUARANTEE FLASHBACK DATABASE;
+```
 
-- **GCS (Global Cache Services)** — Tracks the location and status of the database data blocks and helps guarantee data integrity for global access across all cluster nodes.
-- **GES (Global Enqueue Services)** — Performs concurrency control across all cluster nodes including cache locks and transactions.
+Flashback a database to a previously created restore point.
 
-These services, which run as background processes on each cluster node, are essential for serializing access to shared data structures in an Oracle database.
+```
+shutdown immediate;
+startup mount;
+flashback database to restore point before_update;
+```
 
-Shared storage is another essential component in the Oracle RAC architecture. All cluster nodes read and write data to the same physical database files stored on a disk accessible by all nodes. Most customers rely on high-end storage hardware to provide the shared storage capabilities required for RAC.
+Flashback a database to a specific time.
 
-In addition, Oracle provides its own software-based storage/disk management mechanism called Automatic Storage Management (ASM). ASM is implemented as a set of special background processes that run on all cluster nodes and allow for easy management of the database storage layer.
+```
+shutdown immediate;
+startup mount;
+FLASHBACK DATABASE TO TIME "TO_DATE('01/01/2017','MM/DD/YY')";
+```
 
-### Performance and scale-out with Oracle RAC
-
-You can add new nodes to an existing RAC cluster without downtime. Adding more nodes increases the level of high availability and enhances performance.
-
-Although you can scale read performance easily by adding more cluster nodes, scaling write performance is more complicated. Technically, Oracle RAC can scale writes and reads together when adding new nodes to the cluster, but attempts from multiple sessions to modify rows that reside in the same physical Oracle block (the lowest level of logical I/O performed by the database) can cause write overhead for the requested block and impact write performance.
-
-Concurrency is another reason why RAC implements a “smart mastering” mechanism that attempts to reduce write-concurrency overhead. The “smart mastering” mechanism enables the database to determine which service causes which rows to be read into the buffer cache and master the data blocks only on those nodes where the service is active. Scaling writes in RAC isn’t as straightforward as scaling reads.
-
-With the limitations for pure write scale-out, many Oracle RAC customers choose to split their RAC clusters into multiple services, which are logical groupings of nodes in the same RAC cluster. By using services, you can use Oracle RAC to perform direct writes to specific cluster nodes. This is usually done in one of two ways:
-
-- Splitting writes from different individual modules in the application (that is, groups of independent tables) to different nodes in the cluster. This approach is also known as application partitioning (not to be confused with database table partitions).
-- In extremely non-optimized workloads with high concurrency, directing all writes to a single RAC node and load-balancing only the reads.
-
-In summary, Oracle Real Application Clusters provides two major benefits:
-
-- Multiple database nodes within a single RAC cluster provide increased high availability. No single point of failure exists from the database servers themselves. However, the shared storage requires storage-based high availability or disaster recovery solutions.
-- Multiple cluster database nodes enable scaling-out query performance across multiple servers.
-
-For more information, see [Oracle Real Application Clusters](https://docs.oracle.com/en/database/oracle/oracle-database/19/racad/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/racad/index.html") in the _Oracle documentation_.
+For more information, see [FLASHBACK DATABASE](https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511 "https://docs.oracle.com/en/database/oracle/oracle-database/19/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-Aurora extends the vanilla versions of PostgreSQL in two major ways:
+Snapshots are the primary backup mechanism for Amazon Aurora databases. They are extremely fast and nonintrusive. You can take snapshots using the Amazon RDS Management Console or the AWS CLI. Unlike RMAN, there is no need for incremental backups. You can choose to restore your database to the exact time when a snapshot was taken or to any other point in time.
 
-- Adds enhancements to the PostgreSQL database kernel itself to improve performance (concurrency, locking, multi-threading, and so on).
-- Uses the capabilities of the AWS ecosystem for greater high availability, disaster recovery, and backup/recovery functionality.
+Amazon Aurora provides the following types of backups:
 
-Comparing the Amazon Aurora architecture to Oracle RAC, there are major differences in how Amazon implements scalability and increased high availability. These differences are due mainly to the existing capabilities of PostgreSQL and the strengths the AWS backend provides in terms of networking and storage.
+- **Automated Backups** — Always enabled on Amazon Aurora. They do not impact database performance.
+- **Manual Backups** — You can create a snapshot at any time. There is no performance impact when taking snapshots of an Aurora database. Restoring data from snapshots requires creation of a new instance. Up to 100 manual snapshots are supported for each database.
 
-Instead of having multiple read/write cluster nodes access a shared disk, an Aurora cluster has a single primary node that is open for reads and writes and a set of replica nodes that are open for reads with automatic promotion to primary in case of failures. While Oracle RAC uses a set of background processes to coordinate writes across all cluster nodes, the Amazon Aurora primary writes a constant redo stream to six storage nodes distributed across three Availability Zones within an AWS Region. The only writes that cross the network are redo log records (not pages).
+**Examples**
 
-Each Aurora cluster can have one or more instances serving different purposes:
+The following steps to enable Aurora automatic backups and configure the backup retention window as part of the database creation process. This process is equivalent to setting the Oracle RMAN backup retention policy using the `configure retention policy to recovery window of X days` command.
 
-- At any given time, a single instance functions as the primary that handles both writes and reads from your applications.
-- You can create up to 15 read replicas in addition to the primary, which are used for two purposes:
-  - **Performance and Read Scalability** — Replicas can be used as read-only nodes for queries and report workloads.
-  - **High Availability** — Replicas can be used as failover nodes in the event the master fails. Each read replica can be located in one of the three Availability Zones hosting the Aurora cluster. A single Availability Zone can host more than one read replica.
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Databases**, then choose your database or create a new one.
+3. Expand **Additional configuration** and specify **Backup retention period** in days.
 
-The following diagram illustrates a high-level Aurora architecture with four cluster nodes: one primary and three read replicas. The primary node is located in Availability Zone A, the first read replica in Availability Zone B, and the second and third read replicas in Availability Zone C.
+![Backup retention period](images/pb-backup-retention-period.png)
 
-![Aurora architecture with four cluster nodes](images/pb-aurora-architecture-four-cluster-nodes.png)
+The following table identifies the default automatic backup time for each region.
 
-An Aurora Storage volume is made up of 10 GB segments of data with six copies spread across three Availability Zones. Each Amazon Aurora read replica shares the same underlying volume as the master instance. Updates made by the master are visible to all read replicas through a combination of reading from the shared Aurora storage volume and applying log updates in-memory when received from the primary instance after a master failure. Promotion of a read replica to master usually occurs in less than 30 seconds with no data loss.
+| Region                    | Default backup window |
+| ------------------------- | --------------------- |
+| US West (Oregon)          | 06:00–14:00 UTC       |
+| US West (N. California)   | 06:00–14:00 UTC       |
+| US East (Ohio)            | 03:00–11:00 UTC       |
+| US East (N. Virginia)     | 03:00–11:00 UTC       |
+| Asia Pacific (Mumbai)     | 16:30–00:30 UTC       |
+| Asia Pacific (Seoul)      | 13:00–21:00 UTC       |
+| Asia Pacific (Singapore)  | 14:00–22:00 UTC       |
+| Asia Pacific (Sydney)     | 12:00–20:00 UTC       |
+| Asia Pacific (Tokyo)      | 13:00–21:00 UTC       |
+| Canada (Central)          | 06:29–14:29 UTC       |
+| EU (Frankfurt)            | 20:00–04:00 UTC       |
+| EU (Ireland)              | 22:00–06:00 UTC       |
+| EU (London)               | 06:00–14:00 UTC       |
+| South America (São Paulo) | 23:00–07:00 UTC       |
+| AWS GovCloud (US)         | 03:00–11:00 UTC       |
 
-For a write to be considered durable in Aurora, the primary instance (“master”) sends a redo stream to six storage nodes — two in each availability zone for the storage volume — and waits until four of the six nodes have responded. No database pages are ever written from the database tier to the storage tier. The Aurora Storage volume asynchronously applies redo records to generate database pages in the background or on demand. Aurora hides the underlying complexity.
+Use the following steps to perform a manual snapshot backup of an Aurora database. This process is equivalent to creating a full Oracle RMAN backup (`BACKUP DATABASE PLUS ARCHIVELOG`).
 
-### High availability and scale-out in Aurora
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Databases**, then choose your database.
+3. Choose **Actions** and then choose **Take snapshot**.
 
-Aurora provides two endpoints for cluster access. These endpoints provide both high availability capabilities and scale-out read processing for connecting applications.
+![Take snapshot](images/pb-take-snapshot.png)
 
-- **Cluster Endpoint** — Connects to the current primary instance for the Aurora cluster. You can perform both read and write operations using the cluster endpoint. If the current primary instance fails, Aurora automatically fails over to a new primary instance. During a failover, the database cluster continues to serve connection requests to the cluster endpoint from the new primary instance with minimal interruption of service.
-- **Reader Endpoint** — Provides load-balancing capabilities (round-robin) across the replicas allowing applications to scale-out reads across the Aurora cluster. Using the Reader Endpoint provides better use of the resources available in the cluster. The reader endpoint also enhances high availability. If an AWS Availability Zone fails, the application’s use of the reader endpoint continues to send read traffic to the other replicas with minimal disruption.
+Use the following steps to restore an Aurora database from a snapshot. This process is similar to the Oracle RMAN commands `RESTORE DATABASE` and `RECOVER DATABASE`. However, instead of running in place, restoring an Aurora database creates a new cluster.
 
-![Aurora architecture with cluster endpoints](images/pb-aurora-cluster-endpoints.png)
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Snapshots**, then choose the snapshot to restore.
+3. Choose **Actions** and then choose **Restore snapshot**. This action creates a new instance.
+4. On the **Restore snapshot** page, for **DB instance identifier**, enter the name for your restored DB instance.
+5. Choose **Restore DB instance**.
 
-While Amazon Aurora focuses on the scale-out of reads and Oracle RAC can scale-out both reads and writes, most OLTP applications are usually not limited by write scalability. Many Oracle RAC customers use RAC first for high availability and second to scale-out their reads. You can write to any node in an Oracle RAC cluster, but this capability is often a functional benefit for the application versus a method for achieving unlimited scalability for writes.
+Use the following steps to restore an Aurora PostgreSQL database backup to a specific point in time. This process is similar to running the Oracle RMAN command `SET UNTIL TIME "TO_DATE('XXX')"` before running `RESTORE DATABASE` and `RECOVER DATABASE`.
+
+1. Sign in to your AWS console and choose **RDS**.
+2. Choose **Databases**, then choose your database.
+3. Choose **Actions** and then choose **Restore to point in time**.
+4. This process launches a new instance. Select the date and time to which you want to restore your database. The selected date and time must be within the configured backup retention for this instance.
+
+### AWS CLI backup and restore operations
+
+In addition to using the AWS web console to backup and restore an Aurora instance snapshot, you can also use the AWS CLI to perform the same actions. The CLI is especially useful for migrating existing automated Oracle RMAN scripts to an AWS environment. The following list highlights some CLI operations:
+
+- Use `describe-db-cluster-snapshots` to view all current Aurora PostgreSQL snapshots.
+- Use `create-db-cluster-snapshot` to create a snapshot ("Restore Point").
+- Use `restore-db-cluster-from-snapshot` to restore a new cluster from an existing database snapshot.
+- Use `create-db-instance` to add new instances to the restored cluster.
+
+```
+aws rds describe-db-cluster-snapshots
+
+aws rds create-db-cluster-snapshot
+  --db-cluster-snapshot-identifier Snapshot_name
+  --db-cluster-identifier Cluster_Name
+
+aws rds restore-db-cluster-from-snapshot
+  --db-cluster-identifier NewCluster
+  --snapshot-identifier SnapshotToRestore
+  --engine aurora-postgresql
+
+aws rds create-db-instance
+  --region us-east-1
+  --db-subnet-group default
+  --engine aurora-postgresql
+  --db-cluster-identifier NewCluster
+  --db-instance-identifier newinstance-nodeA
+  --db-instance-class db.r4.large
+```
+
+- Use `restore-db-instance-to-point-in-time` to perform point-in-time recovery.
+
+```
+aws rds restore-db-cluster-to-point-in-time
+  --db-cluster-identifier clusternamerestore
+  --source-db-cluster-identifier clustername
+  --restore-to-time 2017-09-19T23:45:00.000Z
+
+aws rds create-db-instance
+  --region us-east-1
+  --db-subnet-group default
+  --engine aurora-postgresql
+  --db-cluster-identifier clustername-restore
+  --db-instance-identifier newinstance-nodeA
+  --db-instance-class db.r4.large
+```
 
 ## Summary
 
-- Multiple cluster database nodes provide increased high availability. There is no single point of failure from the database servers. In addition, since an Aurora cluster can be distributed across three availability zones, there is a large benefit for high availability and durability of the database. These types of “stretch” database clusters are usually uncommon with other database architectures.
-- AWS managed storage nodes also provide high availability for the storage tier. A zero-data loss architecture is employed in the event a master node fails and a replica node is promoted to the new master. This failover can usually be performed in under 30 seconds.
-- Multiple cluster database nodes enable scaling-out query read performance across multiple servers.
-- Greatly reduced operational overhead using a cloud solution and reduced total cost of ownership by using AWS and open source database engines.
-- Automatic management of storage. No need to pre-provision storage for a database. Storage is automatically added as needed, and you only pay for one copy of your data.
-- With Amazon Aurora, you can easily scale-out your reads (and scale-up your writes) which fits perfectly into the workload characteristics of many, if not most, OLTP applications. Scaling out reads usually provides the most tangible performance benefit.
+| Description                                    | Oracle                                                                                                                | Amazon Aurora                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create a restore point                         | `<br>CREATE RESTORE POINT<br>before_update GUARANTEE<br>FLASHBACK DATABASE;<br>`                                      | `<br>aws rds create-db-cluster-snapshot<br>--db-cluster-snapshotidentifier Snapshot_name<br>--db-cluster-identifier Cluster_Name<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Configure flashback retention period           | `<br>ALTER SYSTEM SET<br>db_flashback_retention_target=2880;<br>`                                                     | Configure the \*_Backup retention window_<br>• setting using the AWS management console or AWS CLI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Flashback database to a previous restore point | `<br>shutdown immediate;<br>startup mount;<br>flashback database to<br>restore point before_update;<br>`              | Create new cluster from a snapshot.<br>`<br>aws rds restore-db-cluster-from-snapshot<br>--db-cluster-identifier NewCluster<br>--snapshot-identifier SnapshotToRestore<br>--engine aurora-postgresql<br>`<br>Add new instance to the cluster.<br>`<br>aws rds create-db-instance<br>--region us-east-1<br>--db-subnetgroup default<br>--engine aurora-postgresql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>`                                                                         |
+| Flashback database to a previous point in time | `<br>shutdown immediate;<br>startup mount;<br>FLASHBACK DATABASE TO TIME<br>"TO_DATE ('01/01/2017','MM/DD/YY')";<br>` | Create a new cluster from a snapshot and provide a specific point in time.<br>`<br>aws rds restore-db-cluster-to-point-in-time<br>--db-cluster-identifier clustername-restore<br>--source-db-cluster-identifier clustername<br>--restore-to-time 2017-09-19T23:45:00.000Z<br>`<br>Add a new instance to the cluster:<br>`<br>aws rds create-db-instance<br>--region us-east-1<br>--db-subnetgroup default<br>--engine aurora-postgresql<br>--db-cluster-identifier clustername-restore<br>--db-instance-identifier newinstance-nodeA<br>--db-instance-class db.r4.large<br>` |
 
-When comparing Oracle RAC and Amazon Aurora side by side, you can see the architectural differences between the two database technologies. Both provide high availability and scalability, but with different architectures.
-
-![Oracle RAC and Aurora architecture comparison](images/pb-oracle-rac-amazon-aurora-comparison.png)
-
-Overall, Amazon Aurora introduces a simplified solution that can function as an Oracle RAC alternative for many typical OLTP applications that need high performance writes, scalable reads, and very high availability with lower operational overhead.
-
-| Feature                                   | Oracle RAC                                                                                                                                                                                         | Amazon Aurora                                                                        |
-| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Storage                                   | Usually enterprise-grade storage + ASM                                                                                                                                                             | Aurora Storage Nodes: Distributed, Low Latency, Storage Engine Spanning Multiple AZs |
-| Cluster type                              | Active/Active. All nodes open for R/W                                                                                                                                                              | Active/Active. Primary node open for R/W, Replica nodes open for reads               |
-| Cluster virtual IPs                       | R/W load balancing: SCAN IP                                                                                                                                                                        | R/W: Cluster endpoint + Read load balancing: Reader endpoint                         |
-| Internode coordination                    | Cache-fusion + GCS + GES                                                                                                                                                                           | N/A                                                                                  |
-| Internode private network                 | Interconnect                                                                                                                                                                                       | N/A                                                                                  |
-| Transaction (write) TTR from node failure | Typically, 0-30 seconds                                                                                                                                                                            | Typically, less than 30 seconds                                                      |
-| Application (Read) TTR from node failure  | Immediate                                                                                                                                                                                          | Immediate                                                                            |
-| Max number of cluster nodes               | Theoretical maximum is 100, but smaller clusters (2 to 10 nodes) are far more common                                                                                                               | 15                                                                                   |
-| Provides built-in read scaling            | Yes                                                                                                                                                                                                | Yes                                                                                  |
-| Provides built-in write scaling           | Yes, under certain scenarios, write performance can be limited and affect scale-out capabilities. For example, when multiple sessions attempt to modify rows contained in the same database blocks | No                                                                                   |
-| Data loss in case of node failure         | No data loss                                                                                                                                                                                       | No data loss                                                                         |
-| Replication latency                       | N/A                                                                                                                                                                                                | Milliseconds                                                                         |
-| Operational complexity                    | Requires database, IT, network, and storage expertise                                                                                                                                              | Provided as a cloud-solution                                                         |
-| Scale-up nodes                            | Difficult with physical hardware, usually requires to replace servers                                                                                                                              | Easy using the AWS UI/CLI                                                            |
-| Scale-out cluster                         | Provision, deploy, and configure new servers, unless you pre-allocate a pool of idle servers to scale-out on                                                                                       | Easy using the AWS UI/CLI                                                            |
-
-For more information, see [Amazon Aurora as an Alternative to Oracle RAC](https://aws.amazon.com/blogs/database/amazon-aurora-as-an-alternative-to-oracle-rac "https://aws.amazon.com/blogs/database/amazon-aurora-as-an-alternative-to-oracle-rac").
+For more information, see [rds](../../../cli/latest/reference/rds/index.md#cli-aws-rds "../../../cli/latest/reference/rds/index.md#cli-aws-rds") in the _CLI Command Reference_ and [Restoring a DB instance to a specified time](../../../AmazonRDS/latest/UserGuide/USER_PIT.md "../../../AmazonRDS/latest/UserGuide/USER_PIT.md") and [Restoring from a DB snapshot](../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.md") in the _Amazon RDS user guide_.
