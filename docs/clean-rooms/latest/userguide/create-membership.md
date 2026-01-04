@@ -65,7 +65,22 @@ storage in Amazon CloudWatch Logs**:
 After you turn on **Analysis logging**, it can take a few
 minutes for log storage to be set up and start receiving logs in Amazon CloudWatch Logs.
 During this brief period, the member who can query might run queries that
-don’t actually send logs. 8. If **Your member abilities** includes **Receive
+don’t actually send logs. 8. If the collaboration creator enabled **Detailed monitoring**
+for this collaboration, choose whether you want to receive detailed observability
+metrics in your CloudWatch account.
+
+For **Detailed monitoring**:
+
+| Detailed monitoring options | Option                                                                                                                                                                                                                                                                                                                                                                                                              | Description |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **Turn on**                 | AWS Clean Rooms will publish detailed monitoring metrics to CloudWatch<br>for this collaboration in your account. You can use these<br>metrics for operational monitoring, including query<br>performance and resource utilization.Additional CloudWatch<br>charges apply. For more information, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). |
+| **Turn off**                | No detailed metrics will be exported to your CloudWatch account.<br>Other members can still view detailed monitoring metrics in their<br>own accounts if they have enabled this option.                                                                                                                                                                                                                             |
+
+###### Note
+
+Detailed monitoring metrics are only available to members who can run
+queries (analysis runners) and members who are configured as payors for the
+collaboration. 9. If **Your member abilities** includes **Receive
 results**, for **Results settings
 defaults**:
 
@@ -181,10 +196,10 @@ defaults**:
     	 choosing an **Existing service role name** from
     	 the dropdown list.
 
-9. If you want to enable **Tags** for the membership resource,
-   choose **Add new tag** and then enter the
-   **Key** and **Value** pair.
-10. If the collaboration creator has designated you as the member who will
+10. If you want to enable **Tags** for the membership resource,
+    choose **Add new tag** and then enter the
+    **Key** and **Value** pair.
+11. If the collaboration creator has designated you as the member who will
     **Pay for queries** or **Pay for queries and
     jobs**, indicate your acceptance by selecting the **I agree
     to pay for the compute costs in this collaboration**
@@ -209,7 +224,7 @@ Amazon SNS topic for budget notifications](../../../cost-management/latest/userg
 reached, you can contact the member who can run queries and jobs or [leave the
 collaboration](leave-collab.md "leave-collab.md"). If you leave the collaboration, no more queries will
 be allowed to run, and therefore you will no longer be billed for query compute
-costs. 11. If you are sure that you want to create a membership and join the
+costs. 12. If you are sure that you want to create a membership and join the
 collaboration, choose **Create membership**.
 You are given read access to the collaboration metadata. This includes information
 such as the display name and description of the collaboration, in addition to all the

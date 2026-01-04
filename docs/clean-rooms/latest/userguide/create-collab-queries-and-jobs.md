@@ -84,8 +84,17 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
        - If you want to receive logs generated from jobs using PySpark, choose the
          **Logs from jobs** checkbox.
 
-    4. Under **Allowed query results regions**, select one or more
-       AWS Regions where you want to send query results.
+    4. If you want to enable **Detailed monitoring**, select the
+       **Enable detailed monitoring** checkbox.
+
+    The analysis runner and configured payor can choose to enable detailed metrics
+    when they create their membership. When enabled, detailed monitoring metrics will be
+    published to CloudWatch for operational monitoring of collaborations, including query
+    performance and resource utilization. These metrics will be available to the analysis
+    runner and configured payor in their respective AWS accounts.
+
+    For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 5. Under **Allowed query results regions**, select one or more
+    AWS Regions where you want to send query results.
 
     By default, only the current Region (such as N. Virginia us-east-1) is
     selected.
@@ -96,7 +105,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     processed and stored outside the source Region.
 
     For more information about Regions, see [Regions
-    and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. 5. (Optional) Manage access to your data with **Automatic change request
+    and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the _AWS General Reference_. 6. (Optional) Manage access to your data with **Automatic change request
     approval** by configuring which settings can be changed automatically without
     manual approvals for a change request. By default, some settings can only be changed by submitting
     a change request which must be approved by all members before it can take effect.
@@ -136,7 +145,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 
     If you choose this option, you can track all collaboration configuration
     modifications through the **Change requests history**, located on the
-    **Details** tab of the collaboration details page. 6. (Optional) If you want to enable the **Cryptographic computing**
+    **Details** tab of the collaboration details page. 7. (Optional) If you want to enable the **Cryptographic computing**
     capability, select the **Enable cryptographic computing**
     checkbox.
 
@@ -204,9 +213,9 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 
     Verify these configurations carefully before completing the next step. After you
     create the collaboration, you can only edit the collaboration name, description, and
-    whether the logs are stored in Amazon CloudWatch Logs. 7. If you want to enable **Tags** for the collaboration resource,
+    whether the logs are stored in Amazon CloudWatch Logs. 8. If you want to enable **Tags** for the collaboration resource,
     choose **Add new tag** and then enter the **Key**
-    and **Value** pair. 8. Choose **Next**.
+    and **Value** pair. 9. Choose **Next**.
 
 5.  For **Step 2: Specify member abilities**, do the following:
     1. For **Analysis using queries and jobs**, under

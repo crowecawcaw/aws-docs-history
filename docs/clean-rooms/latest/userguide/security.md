@@ -24,6 +24,7 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 ###### Contents
 
 - [Data protection](data-protection.md "data-protection.md")
+- [Using service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Data retention](data-retention.md "data-retention.md")
 - [Best practices](best-practices.md "best-practices.md")
 - [Identity and Access Management](security-iam.md "security-iam.md")
