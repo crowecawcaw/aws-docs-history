@@ -1,14 +1,14 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# DESCRIBE statements
+# SQL support
 
-You can view the metadata for a table by using the `DESCRIBE` statement. The
-syntax is as follows:
+Timestream for LiveAnalytics supports some common SQL constructs. You can read more below.
 
-```
-DESCRIBE database.table
-```
+###### Topics
 
-where `table` contains the table name. The describe statement returns the column
-names and data types for the table.
+- [SELECT](supported-sql-constructs.md "supported-sql-constructs.md")
+- [Subquery support](supported-sql-constructs.md "supported-sql-constructs.md")
+- [SHOW statements](supported-sql-constructs.md "supported-sql-constructs.md")
+- [DESCRIBE statements](supported-sql-constructs.md "supported-sql-constructs.md")
+- [UNLOAD](supported-sql-constructs.md "supported-sql-constructs.md")

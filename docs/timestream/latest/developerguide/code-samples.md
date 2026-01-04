@@ -1,9 +1,9 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Update database
+# Delete database
 
-You can use the following code snippets to update your databases.
+You can use the following code snippet to delete a database.
 
 ###### Note
 
@@ -13,21 +13,19 @@ For more information about how to get started with the sample applications, see 
 Java
 
 ```
-    public void updateDatabase(String kmsId) {
-        System.out.println("Updating kmsId to " + kmsId);
-        UpdateDatabaseRequest request = new UpdateDatabaseRequest();
-        request.setDatabaseName(DATABASE_NAME);
-        request.setKmsKeyId(kmsId);
+    public void deleteDatabase() {
+        System.out.println("Deleting database");
+        final DeleteDatabaseRequest deleteDatabaseRequest = new DeleteDatabaseRequest();
+        deleteDatabaseRequest.setDatabaseName(DATABASE_NAME);
         try {
-            UpdateDatabaseResult result = amazonTimestreamWrite.updateDatabase(request);
-            System.out.println("Update Database complete");
-        } catch (final ValidationException e) {
-            System.out.println("Update database failed:");
-            e.printStackTrace();
+            DeleteDatabaseResult result =
+                    amazonTimestreamWrite.deleteDatabase(deleteDatabaseRequest);
+            System.out.println("Delete database status: " + result.getSdkHttpMetadata().getHttpStatusCode());
         } catch (final ResourceNotFoundException e) {
             System.out.println("Database " + DATABASE_NAME + " doesn't exist = " + e);
+            throw e;
         } catch (final Exception e) {
-            System.out.println("Could not update Database " + DATABASE_NAME + " = " + e);
+            System.out.println("Could not delete Database " + DATABASE_NAME + " = " + e);
             throw e;
         }
     }
@@ -36,26 +34,20 @@ Java
 Java v2
 
 ```
-    public void updateDatabase(String kmsKeyId) {
-
-        if (kmsKeyId == null) {
-            System.out.println("Skipping UpdateDatabase because KmsKeyId was not given");
-            return;
-        }
-
-        System.out.println("Updating database");
-
-        UpdateDatabaseRequest request = UpdateDatabaseRequest.builder()
-                .databaseName(DATABASE_NAME)
-                .kmsKeyId(kmsKeyId)
-                .build();
+    public void deleteDatabase() {
+        System.out.println("Deleting database");
+        final DeleteDatabaseRequest deleteDatabaseRequest = new DeleteDatabaseRequest();
+        deleteDatabaseRequest.setDatabaseName(DATABASE_NAME);
         try {
-            timestreamWriteClient.updateDatabase(request);
-            System.out.println("Database [" + DATABASE_NAME + "] updated successfully with kmsKeyId " + kmsKeyId);
-        } catch (ResourceNotFoundException e) {
-            System.out.println("Database [" + DATABASE_NAME + "] does not exist. Skipping UpdateDatabase");
-        } catch (Exception e) {
-            System.out.println("UpdateDatabase failed: " + e);
+            DeleteDatabaseResult result =
+                    amazonTimestreamWrite.deleteDatabase(deleteDatabaseRequest);
+            System.out.println("Delete database status: " + result.getSdkHttpMetadata().getHttpStatusCode());
+        } catch (final ResourceNotFoundException e) {
+            System.out.println("Database " + DATABASE_NAME + " doesn't exist = " + e);
+            throw e;
+        } catch (final Exception e) {
+            System.out.println("Could not delete Database " + DATABASE_NAME + " = " + e);
+            throw e;
         }
     }
 ```
@@ -63,63 +55,58 @@ Java v2
 Go
 
 ```
-// Update Database.
-        updateDatabaseInput := &timestreamwrite.UpdateDatabaseInput {
-            DatabaseName: aws.String(*databaseName),
-            KmsKeyId: aws.String(*kmsKeyId),
-        }
+deleteDatabaseInput := &timestreamwrite.DeleteDatabaseInput{
+        DatabaseName:   aws.String(*databaseName),
+    }
 
-        updateDatabaseOutput, err := writeSvc.UpdateDatabase(updateDatabaseInput)
+    _, err = writeSvc.DeleteDatabase(deleteDatabaseInput)
 
-        if err != nil {
-            fmt.Println("Error:")
-            fmt.Println(err)
-        } else {
-            fmt.Println("Update database is successful, below is the output:")
-            fmt.Println(updateDatabaseOutput)
-        }
+    if err != nil {
+        fmt.Println("Error:")
+        fmt.Println(err)
+    } else {
+        fmt.Println("Database deleted:", *databaseName)
+    }
 ```
 
 Python
 
 ```
-    def update_database(self, kms_id):
-        print("Updating database")
+    def delete_database(self):
+        print("Deleting Database")
         try:
-            result = self.client.update_database(DatabaseName=Constant.DATABASE_NAME, KmsKeyId=kms_id)
-            print("Database [%s] was updated to use kms [%s] successfully" % (Constant.DATABASE_NAME,
-                                                                              result['Database']['KmsKeyId']))
+            result = self.client.delete_database(DatabaseName=Constant.DATABASE_NAME)
+            print("Delete database status [%s]" % result['ResponseMetadata']['HTTPStatusCode'])
         except self.client.exceptions.ResourceNotFoundException:
-            print("Database doesn't exist")
+            print("database [%s] doesn't exist" % Constant.DATABASE_NAME)
         except Exception as err:
-            print("Update database failed:", err)
+            print("Delete database failed:", err)
 ```
 
 Node.js
 The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
 
-Also see [Class UpdateDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md") and [UpdateDatabase](API_UpdateDatabase.md "API_UpdateDatabase.md").
+Also see [Class DeleteDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.md") and [DeleteDatabase](API_DeleteDatabase.md "API_DeleteDatabase.md").
 
 ```
-import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write";
+import { TimestreamWriteClient, DeleteDatabaseCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
-let updatedKmsKeyId = "`<updatedKmsKeyId>`";
 
 const params = {
-    DatabaseName: "testDbFromNode",
-    KmsKeyId: updatedKmsKeyId
+    DatabaseName: "testDbFromNode"
 };
 
-const command = new UpdateDatabaseCommand(params);
+const command = new DeleteDatabaseCommand(params);
 
 try {
     const data = await writeClient.send(command);
-    console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
+    console.log("Deleted database");
 } catch (error) {
     if (error.code === 'ResourceNotFoundException') {
-        console.log("Database doesn't exist.");
+        console.log(`Database ${params.DatabaseName} doesn't exists.`);
     } else {
-        console.log("Update database failed.", error);
+        console.log("Delete database failed.", error);
+        throw error;
     }
 }
 ```
@@ -127,29 +114,24 @@ try {
 The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
 
 ```
-async function updateDatabase(updatedKmsKeyId) {
-
-    if (updatedKmsKeyId === undefined) {
-        console.log("Skipping UpdateDatabase; KmsKeyId was not given");
-        return;
-    }
-    console.log("Updating Database");
+async function deleteDatabase() {
+    console.log("Deleting Database");
     const params = {
-        DatabaseName: constants.DATABASE_NAME,
-        KmsKeyId: updatedKmsKeyId
-    }
+        DatabaseName: constants.DATABASE_NAME
+    };
 
-    const promise = writeClient.updateDatabase(params).promise();
+    const promise = writeClient.deleteDatabase(params).promise();
 
     await promise.then(
-        (data) => {
-            console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
-        },
-        (err) => {
+        function (data) {
+            console.log("Deleted database");
+         },
+        function(err) {
             if (err.code === 'ResourceNotFoundException') {
-                console.log("Database doesn't exist.");
+                console.log(`Database ${params.DatabaseName} doesn't exists.`);
             } else {
-                console.log("Update database failed.", err);
+                console.log("Delete database failed.", err);
+                throw err;
             }
         }
     );
@@ -159,34 +141,25 @@ async function updateDatabase(updatedKmsKeyId) {
 .NET
 
 ```
-        public async Task UpdateDatabase(String updatedKmsKeyId)
+        public async Task DeleteDatabase()
         {
-            Console.WriteLine("Updating Database");
-
+            Console.WriteLine("Deleting database");
             try
             {
-                var updateDatabaseRequest = new UpdateDatabaseRequest
+                var deleteDatabaseRequest = new DeleteDatabaseRequest
                 {
-                    DatabaseName = Constants.DATABASE_NAME,
-                    KmsKeyId = updatedKmsKeyId
+                    DatabaseName = Constants.DATABASE_NAME
                 };
-                UpdateDatabaseResponse response = await writeClient.UpdateDatabaseAsync(updateDatabaseRequest);
-                Console.WriteLine($"Database {Constants.DATABASE_NAME} updated with KmsKeyId {updatedKmsKeyId}");
+                DeleteDatabaseResponse response = await writeClient.DeleteDatabaseAsync(deleteDatabaseRequest);
+                Console.WriteLine($"Database {Constants.DATABASE_NAME} delete request status:{response.HttpStatusCode}");
             }
             catch (ResourceNotFoundException)
             {
-                Console.WriteLine("Database does not exist.");
+                Console.WriteLine($"Database {Constants.DATABASE_NAME} does not exists");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Update database failed: " + e.ToString());
+                Console.WriteLine("Exception while deleting database:" + e.ToString());
             }
-
-        }
-
-        private void PrintDatabases(List<Database> databases)
-        {
-            foreach (Database database in databases)
-                Console.WriteLine($"Database:{database.DatabaseName}");
         }
 ```
