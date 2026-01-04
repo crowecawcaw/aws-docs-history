@@ -1,27 +1,37 @@
-# Preserve client IP addresses in AWS Global Accelerator
+# Benefits of
 
-Your options for preserving and accessing the client IP address for AWS Global Accelerator depend on the endpoints that
-you've set up with your accelerator. When client IP address preservation is enabled, the source IP address of the
-original client is preserved for packets that arrive at the load balancer.
+client IP address preservation
 
-Endpoints on custom routing accelerators always have the client IP address preserved. There are three types of endpoints for
-standard accelerators that can preserve the source IP address of the
-client in incoming packets: Application Load Balancers, Amazon EC2 instances, and Network Load Balancers with security groups. There are requirements and
-limitations for specific resources that you add as endpoint with client IP address
-preservation. For more information, see [Transition endpoints with client IP address preservation](about-endpoints.md "about-endpoints.md").
+You can configure client IP address preservation for specific endpoints in Global Accelerator.
+For some applications that you configure with AWS Global Accelerator, you might want to access the
+original client IP address by using endpoints with client IP address preservation.
 
-Note that Global Accelerator does not support client IP address preservation for the following endpoint types:
+For example, when you have the client IP address, you can gather statistics based on client IP
+addresses. You can also use IP-address-based filters, such as [security groups on
+Application Load Balancers](../../../elasticloadbalancing/latest/application/load-balancer-update-security-groups.md "../../../elasticloadbalancing/latest/application/load-balancer-update-security-groups.md"), to filter traffic. You can apply logic that
+is specific to a user's IP address in your applications that run on the web tier
+servers behind that Application Load Balancer endpoint by using the load balancer's
+`X-Forwarded-For` header, which contains the original client IP
+address information. You can also use client IP address preservation in security
+group rules in the security groups associated with your Application Load Balancer or Network Load Balancer. For more information, see [How the client IP address is preserved in AWS Global Accelerator](preserve-client-ip-address.md "preserve-client-ip-address.md"). For EC2 instance
+endpoints, the original client IP address is preserved.
 
-- Network Load Balancers without security groups
-- Elastic IP addresses
-  For details about endpoint requirements, see [Requirements for resources you add as accelerator endpoints](about-endpoints-caveats.md "about-endpoints-caveats.md").
+The client IP address can be used by the following, for example:
 
-###### Contents
+- The security group associated with an Application Load Balancer or Network Load Balancer
+- Application Load Balancer listener rules
+- AWS WAF rules
+  For endpoints that don’t have client IP address preservation enabled, the IP addresses
+  used by the Global Accelerator service at the edge network replace the requesting user's IP
+  address as the source address in the arriving packets. The original client's
+  connection information—such as the IP address of the client and the client's
+  port—is not preserved as traffic travels to systems behind an accelerator. This
+  works fine for many applications, especially those that are available to all users
+  such as public websites.
 
-- [Guidelines and restrictions](preserve-client-ip-address.md "preserve-client-ip-address.md")
-- [Requirements for client IP address preservation](about-endpoints.md "about-endpoints.md")
-- [How the client IP address is preserved](preserve-client-ip-address.md "preserve-client-ip-address.md")
-- [Benefits of
-  client IP address preservation](preserve-client-ip-address.md "preserve-client-ip-address.md")
-- [Best practices for ENIs and security](best-practices-aga.md "best-practices-aga.md")
-- [Transition endpoints](about-endpoints.md "about-endpoints.md")
+For endpoints that don't have client IP address preservation, you can filter for the
+source IP address that Global Accelerator uses when it forwards traffic from the edge. You can see
+information about the source IP addresses (which are also client IP
+addresses, when client IP address preservation is enabled) of incoming packets by
+reviewing your Global Accelerator flow logs. For more
+information, see [Location and IP address ranges of Global Accelerator Edge servers](introduction-ip-ranges.md "introduction-ip-ranges.md") and [Configuring and using flow logs in AWS Global Accelerator](monitoring-global-accelerator.md "monitoring-global-accelerator.md").
