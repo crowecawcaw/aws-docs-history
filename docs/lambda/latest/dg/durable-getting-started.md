@@ -293,7 +293,7 @@ Now create a test event to send to your function. The event is a JSON formatted 
 
 1. In the **TEST EVENTS** section of the console code editor, choose **Create test event**.
 
-![Create test event button in the Lambda console code editor](/images/lambda/latest/dg/images/getting-started-tutorial/test-event.png) 2. For **Event Name**, enter `myTestEvent`. 3. In the **Event JSON** section, replace the default JSON with the following:
+![Create test event button in the Lambda console code editor](images/getting-started-tutorial/test-event.png) 2. For **Event Name**, enter `myTestEvent`. 3. In the **Event JSON** section, replace the default JSON with the following:
 
 ```
 {
@@ -330,7 +330,7 @@ You can also view your function's logs in CloudWatch Logs to see the console out
 2. Choose the log group for your function (`/aws/lambda/myDurableFunction`).
 3. Scroll down and choose the **Log stream** for the function invocations you want to look at.
 
-![List of log streams for a Lambda function.](/images/lambda/latest/dg/images/log-stream.png)
+![List of log streams for a Lambda function.](images/log-stream.png)
 
 You should see log entries for each invocation of your function, including the initial execution and the replay after the wait.
 
