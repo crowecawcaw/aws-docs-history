@@ -1,114 +1,123 @@
-# synch/mutex/innodb/buf_pool_mutex
+# synch/cond/innodb/row_lock_wait
 
-The `synch/mutex/innodb/buf_pool_mutex` event occurs when a thread has
-acquired a lock on the InnoDB buffer pool to access a page in memory.
+The `synch/cond/innodb/row_lock_wait` event occurs when one session has locked a row for an update, and another session tries to update the
+same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html") in the MySQL
+documentation.
 
-###### Topics
-
-- [Relevant engine versions](#ams-waits.bufpoolmutex.context.supported "#ams-waits.bufpoolmutex.context.supported")
-- [Context](#ams-waits.bufpoolmutex.context "#ams-waits.bufpoolmutex.context")
-- [Likely causes of increased waits](#ams-waits.bufpoolmutex.causes "#ams-waits.bufpoolmutex.causes")
-- [Actions](#ams-waits.bufpoolmutex.actions "#ams-waits.bufpoolmutex.actions")
-
-## Relevant engine versions
+## Supported engine versions
 
 This wait event information is supported for the following engine versions:
 
-- Aurora MySQL version 2
-
-## Context
-
-The `buf_pool` mutex is a single mutex that protects the control data structures of the buffer pool.
-
-For more information, see [Monitoring
-InnoDB Mutex Waits Using Performance Schema](https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html "https://dev.mysql.com/doc/refman/5.7/en/monitor-innodb-mutex-waits-performance-schema.html") in the MySQL documentation.
+- Aurora MySQL version 3
 
 ## Likely causes of increased waits
 
-This is a workload-specific wait event. Common causes for `synch/mutex/innodb/buf_pool_mutex` to appear
-among the top wait events include the following:
-
-- The buffer pool size isn't large enough to hold the working set of data.
-- The workload is more specific to certain pages from a specific table in the database, leading to contention in the
-  buffer pool.
+Multiple data manipulation language (DML) statements are accessing the same row or
+rows simultaneously.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+We recommend different actions depending on the other wait events that you see.
 
 ###### Topics
 
-- [Identify the sessions and queries causing the events](#ams-waits.bufpoolmutex.actions.identify "#ams-waits.bufpoolmutex.actions.identify")
-- [Use Performance Insights](#ams-waits.bufpoolmutex.actions.action1 "#ams-waits.bufpoolmutex.actions.action1")
-- [Create Aurora Replicas](#ams-waits.bufpoolmutex.actions.action2 "#ams-waits.bufpoolmutex.actions.action2")
-- [Examine the buffer pool size](#ams-waits.bufpoolmutex.actions.action3 "#ams-waits.bufpoolmutex.actions.action3")
-- [Monitor the global status history](#ams-waits.bufpoolmutex.actions.action4 "#ams-waits.bufpoolmutex.actions.action4")
+- [Find and respond to the SQL statements responsible
+  for this wait event](#ams-waits.row-lock-wait.actions.id "#ams-waits.row-lock-wait.actions.id")
+- [Find and respond to the blocking
+  session](#ams-waits.row-lock-wait.actions.blocker "#ams-waits.row-lock-wait.actions.blocker")
 
-### Identify the sessions and queries causing the events
+### Find and respond to the SQL statements responsible
 
-Typically, databases with moderate to significant load have wait events. The wait events might be acceptable if
-performance is optimal. If performance isn't optimal, then examine where the database is spending the most time. Look
-at the wait events that contribute to the highest load, and find out whether you can optimize the database and application
-to reduce those events.
+for this wait event
 
-###### To view the Top SQL chart in the AWS Management Console
+Use Performance Insights to identify the SQL statements responsible for this wait event. Consider
+the following strategies:
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose a DB instance. The Performance Insights dashboard is shown for that DB instance.
-4. In the **Database load** chart, choose **Slice by wait**.
-5. Underneath the **Database load** chart, choose **Top SQL**.
+- If row locks are a persistent problem, consider rewriting the application to use optimistic
+  locking.
+- Use multirow statements.
+- Spread the workload over different database objects. You can do this through partitioning.
+- Check the value of the `innodb_lock_wait_timeout` parameter. It controls how
+  long transactions wait before generating a timeout error.
 
-The chart lists the SQL queries that are responsible for the load. Those at the top of the list are most
-responsible. To resolve a bottleneck, focus on these statements.
+For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze
-Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+### Find and respond to the blocking
 
-### Use Performance Insights
+session
 
-This event is related to workload. You can use Performance Insights to do the following:
+Determine whether the blocking session is idle or active. Also, find out whether the session comes
+from an application or an active user.
 
-- Identify when wait events start, and whether there's any change in the workload around that time from the
-  application logs or related sources.
-- Identify the SQL statements responsible for this wait event. Examine the execution plan of the queries to make
-  sure that these queries are optimized and using appropriate indexes.
+To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The
+following example shows sample output.
 
-If the top queries responsible for the wait event are related to the same database object or table, then consider
-partitioning that object or table.
+```
+mysql> SHOW ENGINE INNODB STATUS;
 
-### Create Aurora Replicas
+---TRANSACTION 1688153, ACTIVE 82 sec starting index read
+mysql tables in use 1, locked 1
+LOCK WAIT 2 lock struct(s), heap size 1136, 2 row lock(s)
+MySQL thread id 4244, OS thread handle 70369524330224, query id 4020834 172.31.14.179 reinvent executing
+select id1 from test.t1 where id1=1 for update
+------- TRX HAS BEEN WAITING 24 SEC FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 11 page no 4 n bits 72 index GEN_CLUST_INDEX of table test.t1 trx id 1688153 lock_mode X waiting
+Record lock, heap no 2 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+```
 
-You can create Aurora Replicas to serve read-only traffic. You can also use Aurora
-Auto Scaling to handle surges in read traffic. Make sure to run scheduled read-only
-tasks and logical backups on Aurora Replicas.
+Or you can use the following query to extract details on current locks.
 
-For more information, see [Amazon Aurora Auto Scaling with Aurora Replicas](Aurora.Integrating.md "Aurora.Integrating.md").
+```
+mysql> SELECT p1.id waiting_thread,
+    p1.user waiting_user,
+    p1.host waiting_host,
+    it1.trx_query waiting_query,
+    ilw.requesting_engine_transaction_id waiting_transaction,
+    ilw.blocking_engine_lock_id blocking_lock,
+    il.lock_mode blocking_mode,
+    il.lock_type blocking_type,
+    ilw.blocking_engine_transaction_id blocking_transaction,
+    CASE it.trx_state
+        WHEN 'LOCK WAIT'
+        THEN it.trx_state
+        ELSE p.state end blocker_state,
+    concat(il.object_schema,'.', il.object_name) as locked_table,
+    it.trx_mysql_thread_id blocker_thread,
+    p.user blocker_user,
+    p.host blocker_host
+FROM performance_schema.data_lock_waits ilw
+JOIN performance_schema.data_locks il
+ON ilw.blocking_engine_lock_id = il.engine_lock_id
+AND ilw.blocking_engine_transaction_id = il.engine_transaction_id
+JOIN information_schema.innodb_trx it
+ON ilw.blocking_engine_transaction_id = it.trx_id join information_schema.processlist p
+ON it.trx_mysql_thread_id = p.id join information_schema.innodb_trx it1
+ON ilw.requesting_engine_transaction_id = it1.trx_id join information_schema.processlist p1
+ON it1.trx_mysql_thread_id = p1.id\G
 
-### Examine the buffer pool size
+*************************** 1. row ***************************
+waiting_thread: 4244
+waiting_user: reinvent
+waiting_host: 123.456.789.012:18158
+waiting_query: select id1 from test.t1 where id1=1 for update
+waiting_transaction: 1688153
+blocking_lock: 70369562074216:11:4:2:70369549808672
+blocking_mode: X
+blocking_type: RECORD
+blocking_transaction: 1688142
+blocker_state: User sleep
+locked_table: test.t1
+blocker_thread: 4243
+blocker_user: reinvent
+blocker_host: 123.456.789.012:18156
+1 row in set (0.00 sec)
+```
 
-Check whether the buffer pool size is sufficient for the workload by looking at the metric
-`innodb_buffer_pool_wait_free`. If the value of this metric is high and increasing continuously, that
-indicates that the size of the buffer pool isn't sufficient to handle the workload. If
-`innodb_buffer_pool_size` has been set properly, the value of `innodb_buffer_pool_wait_free`
-should be small. For more information, see [Innodb_buffer_pool_wait_free](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free") in the MySQL documentation.
+When you identify the session, your options include the following:
 
-Increase the buffer pool size if the DB instance has enough memory for session
-buffers and operating-system tasks. If it doesn't, change the DB instance to a
-larger DB instance class to get additional memory that can be allocated to the
-buffer pool.
+- Contact the application owner or the user.
+- If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback.
+  To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md").
 
-###### Note
-
-Aurora MySQL automatically adjusts the value of `innodb_buffer_pool_instances` based on the configured
-`innodb_buffer_pool_size`.
-
-### Monitor the global status history
-
-By monitoring the change rates of status variables, you can detect locking or
-memory issues on your DB instance. Turn on Global Status History (GoSH) if it
-isn't already turned on. For more information on GoSH, see [Managing the global status history](../UserGuide/Appendix.MySQL.md#Appendix.MySQL.CommonDBATasks.GoSH "../UserGuide/Appendix.MySQL.md#Appendix.MySQL.CommonDBATasks.GoSH").
-
-You can also create custom Amazon CloudWatch metrics to monitor status variables. For more information, see [Publishing custom
-metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md").
+For more information about identifying blocking transactions, see [Using InnoDB transaction and locking
+information](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-examples.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-examples.html") in the MySQL documentation.

@@ -1,189 +1,197 @@
-# Troubleshooting for RDS Proxy
+# Amazon RDS Proxy for Aurora
 
-Following, you can find troubleshooting ideas for some common RDS Proxy issues and information on CloudWatch logs for
-RDS Proxy.
+By using Amazon RDS Proxy, you can allow your applications to pool and share database
+connections to improve their ability to scale. RDS Proxy makes applications more resilient to
+database failures by automatically connecting to a standby DB instance while preserving
+application connections. By using RDS Proxy, you can enforce AWS Identity and Access Management (IAM) authentication
+for clients connecting to the proxy, and the proxy can connect to databases using either IAM
+database authentication or credentials stored in AWS Secrets Manager.
 
-In the RDS Proxy logs, each entry is prefixed with the name of the associated proxy
-endpoint. This name can be the name that you specified for a user-defined endpoint. Or, it can
-be the special name `default` for the default endpoint of a proxy that performs
-read/write requests. For more information about proxy endpoints, see [Working with Amazon RDS Proxy endpoints](rds-proxy-endpoints.md "rds-proxy-endpoints.md").
+![An overview of how applications connect to RDS Proxy](images/Proxy-Overview.png)
+Using RDS Proxy, you can handle unpredictable surges in database traffic. Otherwise, these
+surges might cause issues due to oversubscribing connections or new connections being created at a
+fast rate. RDS Proxy establishes a database connection pool and reuses connections in this pool.
+This approach avoids the memory and CPU overhead of opening a new database connection each time.
+To protect a database against oversubscription, you can control the number of database
+connections that are created.
+
+RDS Proxy queues or throttles application connections that can't be served immediately from the connection pool.
+Although latencies might increase, your application can continue to scale without abruptly failing
+or overwhelming the database. If connection requests exceed the limits you specify, RDS Proxy rejects application
+connections (that is, it sheds load). At the same time, it maintains predictable performance for the load that RDS can serve with the available capacity.
+
+![A detailed view of how applications connect to RDS Proxy and the types connections involved.](images/Proxy-detail.png)
+
+You can reduce the overhead to process credentials and establish a secure connection for each new connection.
+RDS Proxy can handle some of that work on behalf of the database.
+
+RDS Proxy is fully compatible with the engine versions that it supports. You can enable RDS Proxy for most applications with no
+code changes. For a list of supported engine versions, see [Supported
+Regions and Aurora DB engines for Amazon RDS Proxy](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
 ###### Topics
 
-- [Verifying connectivity for a proxy](#rds-proxy-verifying "#rds-proxy-verifying")
-- [Common issues and solutions](#rds-proxy-diagnosis "#rds-proxy-diagnosis")
-- [Troubleshooting RDS Proxy issues with RDS for MySQL](#rds-proxy-MySQL-troubleshooting "#rds-proxy-MySQL-troubleshooting")
-- [Troubleshooting RDS Proxy issues with RDS for PostgreSQL](#rds-proxy-PostgreSQL-troubleshooting "#rds-proxy-PostgreSQL-troubleshooting")
+- [Region and version availability](#rds-proxy.RegionVersionAvailability "#rds-proxy.RegionVersionAvailability")
+- [Quotas and limitations for RDS Proxy](#rds-proxy.limitations "#rds-proxy.limitations")
+- [Planning where to use RDS Proxy](rds-proxy-planning.md "rds-proxy-planning.md")
+- [RDS Proxy concepts and terminology](rds-proxy.md "rds-proxy.md")
+- [Getting started with RDS Proxy](rds-proxy-setup.md "rds-proxy-setup.md")
+- [Managing an RDS Proxy](rds-proxy-managing.md "rds-proxy-managing.md")
+- [Working with Amazon RDS Proxy endpoints](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
+- [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.md "rds-proxy.md")
+- [Working with RDS Proxy events](rds-proxy.md "rds-proxy.md")
+- [RDS Proxy command-line examples](rds-proxy.md "rds-proxy.md")
+- [Troubleshooting for RDS Proxy](rds-proxy.md "rds-proxy.md")
+- [Using RDS Proxy with AWS CloudFormation](rds-proxy-cfn.md "rds-proxy-cfn.md")
+- [Using RDS Proxy with Aurora global databases](rds-proxy-gdb.md "rds-proxy-gdb.md")
 
-## Verifying connectivity for a proxy
+## Region and version availability
 
-You can use the following commands to verify that all components such as the proxy,
-database, and compute instances in the connection can communicate with the each other.
+For information about database engine version support and availability of RDS Proxy in a given AWS Region, see
+[Supported
+Regions and Aurora DB engines for Amazon RDS Proxy](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
-Examine the proxy itself using the [describe-db-proxies](../../../cli/latest/reference/rds/describe-db-proxies.md "../../../cli/latest/reference/rds/describe-db-proxies.md") command. Also
-examine the associated target group using the [describe-db-proxy-target-groups](../../../cli/latest/reference/rds/describe-db-proxy-target-groups.md "../../../cli/latest/reference/rds/describe-db-proxy-target-groups.md") command. Check that the details of the targets
-match the Aurora cluster that you intend to associate with the proxy.
-Use commands such as the following.
+## Quotas and limitations for RDS Proxy
 
-```
-aws rds describe-db-proxies --db-proxy-name $DB_PROXY_NAME
-aws rds describe-db-proxy-target-groups --db-proxy-name $DB_PROXY_NAME
+The following quotas and limitations apply to RDS Proxy:
 
-```
+- Each AWS account ID is limited to 20 proxies. If your application requires more
+  proxies, request an increase via the **Service Quotas** page within the
+  AWS Management Console. In the **Service Quotas** page, select **Amazon Relational Database Service
+  (Amazon RDS)** and locate **Proxies** to request a quota increase.
+  AWS can automatically increase your quota or pending review of your request by
+  Support.
+- Each proxy can have up to 200 associated Secrets Manager secrets, thus limiting connections
+  to up to 200 different user accounts when using secrets.
+- Each proxy has a default endpoint. You can also add up to 20 proxy endpoints for each proxy.
+  You can create, view, modify, and delete these endpoints.
+- In an Aurora cluster, all of the connections using the default proxy endpoint are handled by the Aurora writer
+  instance. To perform load balancing for read-intensive workloads, you can create a read-only endpoint
+  for a proxy. That endpoint passes connections to the reader endpoint of the cluster. That way, your proxy connections
+  can take advantage of Aurora read scalability.
+  For more information, see [Overview of proxy endpoints](rds-proxy-endpoints.md#rds-proxy-endpoints-overview "rds-proxy-endpoints.md#rds-proxy-endpoints-overview").
+- You can use RDS Proxy with Aurora Serverless v2 clusters, but not with Aurora Serverless
+  v1 clusters.
+- Your RDS Proxy must be in the same virtual private cloud (VPC) as the database. The
+  proxy can't be publicly accessible, although the database can be. For example, if you're
+  prototyping your database on a local host, you can't connect to your proxy unless you set up
+  the necessary network requirements to allow connection to the proxy.
+  This is because your local host is outside of the proxy’s VPC.
 
-To confirm that the proxy can connect to the underlying database, examine the targets specified in the
-target groups using the
-[describe-db-proxy-targets](../../../cli/latest/reference/rds/describe-db-proxy-targets.md "../../../cli/latest/reference/rds/describe-db-proxy-targets.md") command. Use
-a command such as the following.
+###### Note
 
-```
-aws rds describe-db-proxy-targets --db-proxy-name $DB_PROXY_NAME
-```
+For Aurora DB clusters, you can turn on cross-VPC access. To do this, create an
+additional endpoint for a proxy and specify a different VPC, subnets, and security
+groups with that endpoint. For more information, see [Accessing Aurora databases across VPCs](rds-proxy-endpoints.md#rds-proxy-cross-vpc "rds-proxy-endpoints.md#rds-proxy-cross-vpc").
 
-The output of the
-[describe-db-proxy-targets](../../../cli/latest/reference/rds/describe-db-proxy-targets.md "../../../cli/latest/reference/rds/describe-db-proxy-targets.md") command
-includes a `TargetHealth` field. You can examine the fields `State`,
-`Reason`, and `Description` inside `TargetHealth` to check if the proxy can
-communicate with the underlying DB instance.
+- You can't use RDS Proxy with a VPC that has its tenancy set to `dedicated`.
+- You can't use RDS Proxy in a VPC that has encryption controls with `Enforce Mode` enabled.
+- For IPv6 endpoint network types, configure your VPC and subnets to support only IPv6.
+  For both IPv4 and IPv6 target connection network types, configure your VPC and subnets to support dual-stack mode.
+- If you use RDS Proxy with an Aurora DB cluster that has IAM authentication enabled,
+  the proxy can connect to the database using either IAM authentication or credentials stored in Secrets Manager.
+  Clients connecting to the proxy must authenticate using IAM credentials. For detailed configuration instructions,
+  see [Setting up database credentials for RDS Proxy](rds-proxy-secrets-arns.md "rds-proxy-secrets-arns.md")
+  and [Configuring IAM authentication for RDS Proxy](rds-proxy-iam-setup.md "rds-proxy-iam-setup.md")
+- You can't use RDS Proxy with custom DNS when using SSL hostname validation.
+- Each proxy can be associated with a single target DB
+  cluster. However, you
+  can associate multiple proxies with the same DB
+  cluster.
+- Any statement with a text size greater than 16 KB causes the proxy to pin the session to the current connection.
+- Certain Regions have Availability-Zone (AZ) restrictions to consider while creating your proxy.
+  US East (N. Virginia) Region does not support RDS Proxy in the `use1-az3` Availability Zone.
+  US West (N. California) Region does not support RDS Proxy in the `usw1-az2` Availability Zone.
+  When selecting subnets while creating your proxy,
+  make sure that you don't select subnets in the Availability Zones mentioned above.
+- Currently, RDS Proxy doesn't support any global condition context keys.
 
-- A `State` value of `AVAILABLE` indicates that the proxy can connect to the DB
-  instance.
-- A `State` value of `UNAVAILABLE` indicates a temporary or permanent connection
-  problem. In this case, examine the `Reason` and `Description` fields. For example,
-  if `Reason` has a value of `PENDING_PROXY_CAPACITY`, try connecting again after
-  the proxy finishes its scaling operation. If `Reason` has a value of
-  `UNREACHABLE`, `CONNECTION_FAILED`, or `AUTH_FAILURE`, use the
-  explanation from the `Description` field to help you diagnose the issue.
-- The `State` field might have a value of `REGISTERING` for a brief time before
-  changing to `AVAILABLE` or `UNAVAILABLE`.
+For more information about global condition context keys,
+see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
 
-If the following Netcat command (`nc`) is successful, you can access the proxy endpoint from the
-EC2 instance or other system where you're logged in. This command reports failure if you're not in
-the same VPC as the proxy and the associated database. You might be able to log directly in to the database
-without being in the same VPC. However, you can't log into the proxy unless you're in the same
-VPC.
+- You can't use RDS Proxy with RDS Custom for SQL Server.
+- To reflect any database parameter group modification to your proxy,
+  an instance reboot is required even if your chose to apply your changes immediately.
+  For cluster-level parameters, a cluster-wide reboot is required.
+- Your proxy automatically creates the `rdsproxyadmin` DB user when you
+  register a proxy target. This is a protected user that is essential for proxy functionality.
+  You should avoid tampering with the `rdsproxyadmin` user in any capacity.
+  Deleting or modifying the `rdsproxyadmin` user
+  or its permissions can result in complete unavailability of the proxy to your application.
 
-```
-nc -zx `MySQL_proxy_endpoint` 3306
+For additional limitations for each DB engine, see the following sections:
 
-nc -zx `PostgreSQL_proxy_endpoint` 5432
-```
+- [Additional limitations for Aurora MySQL](#rds-proxy.limitations-my "#rds-proxy.limitations-my")
+- [Additional limitations for Aurora PostgreSQL](#rds-proxy.limitations-pg "#rds-proxy.limitations-pg")
 
-You can use the following commands to make sure that your EC2 instance has the required properties. In
-particular, the VPC for the EC2 instance must be the same as the VPC for the RDS DB instance
-Aurora cluster that the proxy connects to.
+### Additional limitations for Aurora MySQL
 
-```
-aws ec2 describe-instances --instance-ids `your_ec2_instance_id`
-```
+The following additional
+limitations apply to RDS Proxy with Aurora MySQL databases:
 
-Examine the Secrets Manager secrets used for the proxy.
+- RDS Proxy support for `caching_sha2_password` authentication requires a secure (TLS) connection.
+- RDS Proxy support for `caching_sha2_password` is known to have compatibility issues with certain
+  go-sql driver versions.
+- When using the MySQL 8.4 C driver, the `mysql_stmt_bind_named_param` API might form malformed packets
+  if parameter count exceeds placeholder count in a prepared statements. This results in incorrect responses. For
+  more information, see [MySQL bug report](https://bugs.mysql.com/bug.php?id=116860&thanks=4 "https://bugs.mysql.com/bug.php?id=116860&thanks=4").
+- Currently, all proxies listen on port 3306 for MySQL. The proxies still connect to your database using
+  the port that you specified in the database settings.
+- You can't use RDS Proxy with self-managed MySQL databases in EC2
+  instances.
+- You can't use RDS Proxy with an RDS for MySQL DB instance that has the
+  `read_only` parameter in its DB parameter group set to
+  `1`.
+- RDS Proxy doesn't support MySQL compressed mode. For example, it doesn't
+  support the compression used by the `--compress` or `-C` options
+  of the `mysql` command.
+- Database connections processing a `GET DIAGNOSTIC` command might return
+  inaccurate information when RDS Proxy reuses the same database connection to run another
+  query. This can happen when RDS Proxy multiplexes database connections.
+- Some SQL statements and functions such as `SET LOCAL` can
+  change the connection state without causing pinning. For the most current pinning
+  behavior, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").
+- Using the `ROW_COUNT()` function in a multi-statement query is not
+  supported.
+- RDS Proxy does not support client applications that can't
+  handle multiple response messages in one TLS record.
+- RDS Proxy does not support the MySQL dual passwords.
+- RDS Proxy might not work as expected when you configure the `init_connect` parameter in your
+  RDS DB parameter group to set session state variables. Instead, set the initialization query for your proxy
+  to run session initialization statements when using proxy to connect to your database.
 
-```
-aws secretsmanager list-secrets
-aws secretsmanager get-secret-value --secret-id `your_secret_id`
-```
+###### Important
 
-Make sure that the `SecretString` field displayed by
-`get-secret-value` is encoded as a JSON string that includes the
-`username` and `password` fields. The following example shows the
-format of the `SecretString` field.
+For proxies associated with MySQL databases, don't set the configuration parameter
+`sql_auto_is_null` to `true` or a nonzero value in the initialization
+query. Doing so might cause incorrect application behavior.
 
-```
-{
-  "ARN": "`some_arn`",
-  "Name": "`some_name`",
-  "VersionId": "some_version_id",
-  **"SecretString": '{"username":"some\_username","password":"`some_password`"}'**,
-  "VersionStages": [ "`some_stage`" ],
-  "CreatedDate": `some_timestamp`
-}
-```
+### Additional limitations for Aurora PostgreSQL
 
-When troubleshooting IAM authentication issues, verify the following:
+The following additional limitations apply to RDS Proxy with Aurora PostgreSQL databases:
 
-- The database has IAM authentication enabled.
-- The proxy is configured with the correct authentication scheme.
-- The IAM policies in the IAM role provided to the proxy grant the
-  necessary `rds-db:connect` permission to the appropriate database and its username.
-- For end-to-end IAM authentication, database users exist that match the IAM user or role names.
-- SSL/TLS is enabled for the connection.
+- RDS Proxy doesn't support session pinning filters for PostgreSQL.
+- Currently, all proxies listen on port 5432 for PostgreSQL.
+- For PostgreSQL, RDS Proxy doesn't currently support canceling a query from a client by
+  issuing a `CancelRequest`. This is the case, for example, when you cancel a
+  long-running query in an interactive psql session by using Ctrl+C.
+- The results of the PostgreSQL function [lastval](https://www.postgresql.org/docs/current/functions-sequence.html "https://www.postgresql.org/docs/current/functions-sequence.html")
+  aren't always accurate. As a work-around, use the [INSERT](https://www.postgresql.org/docs/current/sql-insert.html "https://www.postgresql.org/docs/current/sql-insert.html") statement
+  with the `RETURNING` clause.
+- RDS Proxy currently doesn't support streaming replication mode.
+- The default `postgres` database must exist on the RDS for PostgreSQL instance
+  for RDS Proxy to function. Don't delete this database even if your application uses
+  different databases.
+- If you use `ALTER ROLE` to change the user role with `SET ROLE`, subsequent connections as that
+  user to the proxy might not use this role setting, if those connections encounter pinning. To prevent this, when using proxy,
+  use `SET ROLE` in the initialization query of the proxy. For more information,
+  see **Initialization query** in [Creating a proxy for Amazon Aurora](rds-proxy-creating.md "rds-proxy-creating.md").
 
-## Common issues and solutions
+###### Important
 
-This section describes some common issues and potential solutions when using RDS Proxy.
+For existing proxies with PostgreSQL databases, if you modify the database authentication to use `SCRAM` only,
+the proxy becomes unavailable for up to 60 seconds. To avoid the issue, do one of the following:
 
-After running the `aws rds describe-db-proxy-targets` CLI command, if the
-`TargetHealth` description states `Proxy does not have any registered
- credentials`, verify the following:
-
-- There are credentials registered for the user to access the proxy.
-- The IAM role to access the Secrets Manager secret used by the proxy is valid.
-
-You might encounter the following RDS events while creating or connecting to a DB
-proxy.
-
-| Category | RDS event ID   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| -------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| failure  | RDS-EVENT-0243 | RDS couldn't provision capacity for the proxy because there aren't enough IP<br>addresses available in your subnets. To fix the issue, make sure that your subnets<br>have the minimum number of unused IP addresses. To determine the recommended number<br>for your instance class, see [Planning for IP address<br>capacity](rds-proxy-network-prereqs.md#rds-proxy-network-prereqs.plan-ip-address "rds-proxy-network-prereqs.md#rds-proxy-network-prereqs.plan-ip-address"). |
-| failure  | RDS-EVENT-0275 | RDS throttled some connections to DB proxy `name`.<br>The number of simultaneous connection requests from the client to the proxy has<br>exceeded the limit.                                                                                                                                                                                                                                                                                                                      |
-
-You might encounter the following issues while creating a new proxy or connecting to a proxy.
-
-| Error                                                        | Causes or workarounds                                                |
-| ------------------------------------------------------------ | -------------------------------------------------------------------- |
-| `403: The security token included in the request is invalid` | Select an existing IAM role instead of choosing to create a new one. |
-
-## Troubleshooting RDS Proxy issues with RDS for MySQL
-
-You might encounter the following issues while connecting to a MySQL proxy.
-
-| Error                                                                                           | Causes or workarounds                                                                                                                                                                                                                                                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ERROR 1040 (HY000): Connections rate limit exceeded (`limit_value`)`                           | The rate of connection requests from the client to the proxy has exceeded the limit.                                                                                                                                                                                                                                                                                                      |
-| `ERROR 1040 (HY000): IAM authentication rate limit exceeded`                                    | The number of simultaneous requests with IAM authentication from the client to the proxy has<br>exceeded the limit.                                                                                                                                                                                                                                                                       |
-| `ERROR 1040 (HY000): Number simultaneous connections exceeded (`limit_value`)`                  | The number of simultaneous connection requests from the client to the proxy exceeded the limit.                                                                                                                                                                                                                                                                                           |
-| `ERROR 1045 (28000): Access denied for user '`DB_USER`'@'%' (using<br>password: YES)`           | The Secrets Manager secret used by the proxy doesn't match the user name and<br>password of an existing database user. Either update the credentials in the Secrets Manager<br>secret, or make sure the database user exists and has the same password as in the<br>secret.                                                                                                               |
-| `ERROR 1105 (HY000): Unknown error`                                                             | An unknown error occurred.                                                                                                                                                                                                                                                                                                                                                                |
-| `ERROR 1231 (42000): Variable ''character_set_client'' can't be set to the value of<br>`value`` | The value set for the `character_set_client` parameter is not valid. For example, the<br>value `ucs2` is not valid because it can crash the MySQL server.                                                                                                                                                                                                                                 |
-| `ERROR 3159 (HY000): This RDS Proxy requires TLS connections.`                                  | You enabled the setting **Require Transport Layer Security\*<br>• in the proxy but<br>your connection included the parameter `ssl-mode=DISABLED` in the MySQL client. Do<br>either of the following:<br>• Disable the setting **Require Transport Layer Security\*\* for the proxy.<br>• Connect to the database using the minimum setting of `ssl-mode=REQUIRED` in the<br>MySQL client. |
-| `ERROR 2026 (HY000): SSL connection error: Internal Server `Error``                             | The TLS handshake to the proxy failed. Some possible reasons include the following:<br>• SSL is required but the server doesn't support it.<br>• An internal server error occurred.<br>• A bad handshake occurred.                                                                                                                                                                        |
-| `ERROR 9501 (HY000): Timed-out waiting to acquire database connection`                          | The proxy timed-out waiting to acquire a database connection. Some possible reasons include the<br>following:<br>• The proxy is unable to establish a database connection because the maximum connections have<br>been reached<br>• The proxy is unable to establish a database connection because the database is unavailable.                                                           |
-
-## Troubleshooting RDS Proxy issues with RDS for PostgreSQL
-
-You might encounter the following issues while connecting to a PostgreSQL proxy.
-
-| Error                                                                                                                               | Cause                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ERROR 28000: IAM authentication is allowed only with SSL<br>connections.`                                                          | The user tried to connect to the database using IAM authentication with the setting<br>`sslmode=disable` in the PostgreSQL client.                                                                                                                                                                                                                                                                                                                                                                           | The user needs to connect to the database using the minimum setting of<br>`sslmode=require` in the PostgreSQL client. For more information, see the<br>[PostgreSQL SSL support](https://www.postgresql.org/docs/current/libpq-ssl.html "https://www.postgresql.org/docs/current/libpq-ssl.html")<br>documentation.                                                                                                                                                                                |
-| `ERROR 28000: This RDS proxy has no credentials for the role<br>`role_name`. Check the credentials for this role and<br>try again.` | There is no Secrets Manager secret for this role.                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Add a Secrets Manager secret for this role. For more information, see [Configuring IAM authentication for RDS Proxy](rds-proxy-iam-setup.md "rds-proxy-iam-setup.md").                                                                                                                                                                                                                                                                                                                            |
-| `ERROR 28000: RDS supports only IAM, MD5, or SCRAM<br>authentication.`                                                              | The database client being used to connect to the proxy is using an<br>authentication mechanism not currently supported by the proxy.                                                                                                                                                                                                                                                                                                                                                                         | If you're not using IAM authentication, use the MD5 or SCRAM password<br>authentication.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `ERROR 28000: A user name is missing from the connection startup packet.<br>Provide a user name for this connection.`               | The database client being used to connect to the proxy isn't sending a<br>user name when trying to establish a connection.                                                                                                                                                                                                                                                                                                                                                                                   | Make sure to define a user name when setting up a connection to the proxy<br>using the PostgreSQL client of your choice.                                                                                                                                                                                                                                                                                                                                                                          |
-| `ERROR 28000: IAM is allowed only with SSL connections.`                                                                            | A client tried to connect using IAM authentication, but SSL wasn't<br>enabled.                                                                                                                                                                                                                                                                                                                                                                                                                               | Enable SSL in the PostgreSQL client.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `ERROR 28000: This RDS Proxy requires TLS connections.`                                                                             | The user enabled the option \*_Require Transport Layer Security_<br>• but tried to<br>connect with `sslmode=disable` in the PostgreSQL client.                                                                                                                                                                                                                                                                                                                                                               | To fix this error, do one of the following:<br>• Disable the proxy's **Require Transport Layer Security** option.<br>• Connect to the database using the minimum setting of `sslmode=allow` in the<br>PostgreSQL client.                                                                                                                                                                                                                                                                          |
-| `ERROR 28P01: IAM authentication failed for user<br>`user_name`. Check the IAM token for this user and<br>try again.`               | This error might be due to the following reasons:<br>• The client supplied the incorrect IAM user name.<br>• The client supplied an incorrect IAM authorization token for the user.<br>• The client is using an IAM policy that does not have the necessary permissions.<br>• The client supplied an expired IAM authorization token for the user.                                                                                                                                                           | To fix this error, do the following:<br>1. Confirm that the provided IAM user exists.<br>2. Confirm that the IAM authorization token belongs to the provided IAM user.<br>3. Confirm that the IAM policy has adequate permissions for RDS.<br>4. Check the validity of the IAM authorization token used.                                                                                                                                                                                          |
-| `ERROR 28P01: The password that was provided for the role<br>`role_name` is wrong.`                                                 | The password for this role doesn't match the Secrets Manager secret.                                                                                                                                                                                                                                                                                                                                                                                                                                         | Check the secret for this role in Secrets Manager to see if the password is the same as<br>what's being used in your PostgreSQL client.                                                                                                                                                                                                                                                                                                                                                           |
-| `ERROR 28P01: The IAM authentication failed for the role<br>`role_name`. Check the IAM token for this role and<br>try again.`       | There is a problem with the IAM token used for IAM authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                           | Generate a new authentication token and use it in a new connection.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `ERROR 0A000: Feature not supported: RDS Proxy supports only version 3.0<br>of the PostgreSQL messaging protocol.`                  | The PostgreSQL client used to connect to the proxy uses a protocol older than 3.0.                                                                                                                                                                                                                                                                                                                                                                                                                           | Use a newer PostgreSQL client that supports the 3.0 messaging protocol. If you're using the PostgreSQL `psql`<br>CLI, use a version greater than or equal to 7.4.                                                                                                                                                                                                                                                                                                                                 |
-| `ERROR 0A000: Feature not supported: RDS Proxy currently doesn't<br>support streaming replication mode.`                            | The PostgreSQL client used to connect to the proxy is trying to use the streaming replication mode, which isn't currently supported by RDS Proxy.                                                                                                                                                                                                                                                                                                                                                            | Turn off the streaming replication mode in the PostgreSQL client being used to connect.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `ERROR 0A000: Feature not supported: RDS Proxy currently doesn't<br>support the option `option_name`.`                              | Through the startup message, the PostgreSQL client used to connect to the proxy is requesting an option that isn't currently supported by RDS Proxy.                                                                                                                                                                                                                                                                                                                                                         | Turn off the option being shown as not supported from the message above in the PostgreSQL client being used to connect.                                                                                                                                                                                                                                                                                                                                                                           |
-| `ERROR 53300: The IAM authentication failed because of too many<br>competing requests.`                                             | The number of simultaneous requests with IAM authentication from the client to the proxy has exceeded the limit.                                                                                                                                                                                                                                                                                                                                                                                             | Reduce the rate in which connections using IAM authentication from a PostgreSQL client are established.                                                                                                                                                                                                                                                                                                                                                                                           |
-| `ERROR 53300: The maximum number of client connections to the proxy<br>exceeded `number_value`.`                                    | The number of simultaneous connection requests from the client to the proxy exceeded the limit.                                                                                                                                                                                                                                                                                                                                                                                                              | Reduce the number of active connections from PostgreSQL clients to this RDS proxy.                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `ERROR 53300: Rate of connection to proxy exceeded<br>`number_value`.`                                                              | The rate of connection requests from the client to the proxy has exceeded the limit.                                                                                                                                                                                                                                                                                                                                                                                                                         | Reduce the rate in which connections from a PostgreSQL client are established.                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `ERROR XX000: Unknown error.`                                                                                                       | An unknown error occurred.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Reach out to AWS Support to investigate the issue.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `ERROR 08000: Timed-out waiting to acquire database connection.`                                                                    | The proxy timed-out waiting to acquire a database connection within the<br>duration specified by the `ConnectionBorrowTimeout` setting. Some<br>possible reasons include the following:<br>• The proxy can't establish a database connection because the maximum<br>connections have been reached.<br>• The proxy can't establish a database connection because the database<br>is unavailable or if connection establishment to the database takes longer<br>than the configured `ConnectionBorrowTimeout`. | Possible solutions are the following:<br>• Avoid pinning proxy connections. See [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").<br>• Review `ConnectionBorrowTimeout` and<br>`MaxConnectionsPercent` settings. See [RDS Proxy connection considerations](rds-proxy-connections.md "rds-proxy-connections.md").<br>• Review target availability. See `AvailabilityPercentage` in [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.md "rds-proxy.md"). |
-| `ERROR XX000: Request returned an error:<br>`database_error`.`                                                                      | The database connection established from the proxy returned an error.                                                                                                                                                                                                                                                                                                                                                                                                                                        | The solution depends on the specific database error. One example is:<br>`Request returned an error: database "your-database-name" does not<br>exist`. This means that the specified database name doesn't exist on<br>the database server. Or it means that the user name used as a database name (if a<br>database name isn't specified) doesn't exist on the server.                                                                                                                            |
-| `ERROR 53300: The IAM authentication failed because of too many competing requests.`                                                | The number of simultaneous requests with IAM authentication from the client to the proxy has exceeded the limit.                                                                                                                                                                                                                                                                                                                                                                                             | Reduce the rate in which connections using IAM authentication from a PostgreSQL client are established.                                                                                                                                                                                                                                                                                                                                                                                           |
-| `ERROR 28000: Enable IAM authentication for the client connection to the proxy and try again.`                                      | RDS Proxy can't connect to the database because IAM authentication isn't<br>enabled for the client connection to the proxy. This occurs when the proxy's `DefaultAuthScheme` parameter<br>is set to `IAM_AUTH` with a registered user, but the client<br>is using password authentication instead of IAM authentication.                                                                                                                                                                                     | Enable IAM authentication for the client connection to the proxy and try again.                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `ERROR 28000: Configure IAM authentication as the `DefaultAuthScheme` in your proxy and try again.`                                 | RDS Proxy can't connect to the database because the `DefaultAuthScheme` isn't set to `IAM_AUTH`.<br>The proxy's `DefaultAuthScheme` parameter is set to `NONE`,<br>but the client is attempting to use IAM authentication.                                                                                                                                                                                                                                                                                   | Set `DefaultAuthScheme` to `IAM_AUTH` for your proxy and try again.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-
-### Troubleshooting deleted `postgres` database
-
-If you mistakenly delete the `postgres` database from your instance,
-you need to restore the database to restore connectivity to your instance. Run the following commands within your DB instance:
-
-```
-CREATE DATABASE postgres;
-GRANT CONNECT ON DATABASE postgres TO rdsproxyadmin;
-```
+- Ensure that the database allows both `SCRAM` and `MD5` authentication.
+- To use only `SCRAM` authentication, create a new proxy, migrate your application traffic to the new proxy, then delete the proxy previously associated with the database.

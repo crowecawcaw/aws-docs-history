@@ -1,33 +1,36 @@
-# Setting the SQL text limit for Aurora PostgreSQL DB
+# Analyzing database performance for a period of time
 
-instances
+Analyze database performance with on-demand analysis by creating a performance analysis report for a period of time. View performance analysis reports to find
+performance issues, such as resource bottlenecks or changes in a query in your DB instance.
+The Performance Insights dashboard allows you to select a time period and create a performance analysis
+report. You can also add one or more tags to the report.
 
-Aurora PostgreSQL
-handles text differently. You can set the text size limit with the DB instance parameter
-`track_activity_query_size`. This parameter has the following characteristics:
+To use this feature, you must be using the paid tier retention period. For more information, see
+[Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
 
-Default text size
+The report is available in the **Performance analysis reports - new** tab
+to select and view. The report contains the insights, related metrics, and recommendations
+to resolve the performance issue. The report is available to view for the duration of Performance Insights retention period.
 
-On Aurora PostgreSQL version 9.6, the default setting for the
-`track_activity_query_size` parameter is 1,024 bytes. On Aurora PostgreSQL version 10 or higher, the default is 4,096 bytes.
+The report is deleted if the start time of the report analysis period is outside of the
+retention period. You can also delete the report before the retention period ends.
 
-Maximum text size
+To detect the performance issues and generate the analysis report for your DB instance, you must turn on Performance Insights. For more information about
+turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
-The limit for `track_activity_query_size` is 102,400 bytes for Aurora PostgreSQL version 12 and lower. The maximum is 1 MB for version 13 and higher.
+For the region, DB engine, and instance class support information for this feature, see
+[Amazon Aurora DB engine, Region, and instance class support
+for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
 
-If the engine returns 1 MB to Performance Insights, the console displays only the first 4 KB. If
-you download the query, you get the full 1 MB. In this case, viewing and downloading return different
-numbers of bytes. For more information about the `track_activity_query_size` DB instance
-parameter, see [Run-time Statistics](https://www.postgresql.org/docs/current/runtime-config-statistics.html "https://www.postgresql.org/docs/current/runtime-config-statistics.html") in the PostgreSQL documentation.
+In the following sections, you can create, view, add tags, and delete a performance analysis report.
 
-To increase the SQL text size, increase the `track_activity_query_size` limit. To modify the
-parameter, change the parameter setting in the parameter group that is associated with the Aurora PostgreSQL DB
-instance.
+###### Topics
 
-###### To change the setting when the instance uses the default parameter group
-
-1. Create a new DB instance parameter group for the appropriate DB engine and DB engine version.
-2. Set the parameter in the new parameter group.
-3. Associate the new parameter group with the DB instance.
-   For information about setting a DB instance parameter, see [Modifying parameters in a DB parameter group
-   in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+- [Creating a
+  performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Viewing a performance analysis
+  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Adding tags to a performance
+  analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+- [Deleting a performance analysis
+  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")

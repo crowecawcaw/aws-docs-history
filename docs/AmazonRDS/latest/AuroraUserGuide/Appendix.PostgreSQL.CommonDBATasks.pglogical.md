@@ -1,145 +1,176 @@
-# Setting up the
+# Reestablishing logical replication after a major upgrade
 
-pglogical extension
+Before you can perform a major version upgrade of an Aurora PostgreSQL DB cluster
+that's set up as a
+publisher node for logical replication, you must drop all replication slots, even those that
+aren't active. We recommend that you temporarily divert database transactions from the
+publisher node, drop the replication slots, upgrade the
+Aurora PostgreSQL DB cluster,
+and then
+re-establish and restart replication.
 
-To set up the `pglogical` extension on your
-Aurora PostgreSQL DB cluster, you add `pglogical`
-to the shared libraries on the
-custom DB cluster parameter group for your Aurora PostgreSQL DB
-cluster. You also need to set the value of the `rds.logical_replication`
-parameter to `1`, to turn on logical decoding. Finally, you create the extension in
-the database. You can use the AWS Management Console or the AWS CLI for these tasks.
+The replication slots are hosted on the publisher node only.
 
-You must have permissions as the `rds_superuser` role to perform these
-tasks.
+The Aurora PostgreSQL subscriber node in a logical replication scenario
+has no slots to drop. The Aurora PostgreSQL major version upgrade process supports upgrading the
+subscriber to a new major version of PostgreSQL independent of the publisher node. However,
+the upgrade process does disrupt the replication process and interferes with the
+synchronization of WAL data between publisher node and subscriber node. You need to
+re-establish logical replication between publisher and subscriber after upgrading the
+publisher, the subscriber, or both. The following procedure shows you how to determine that
+replication has been disrupted and how to resolve the issue.
 
-The steps following assume that your Aurora PostgreSQL DB
-cluster
-is associated with a custom
-DB cluster
-parameter group. For information about creating a
-custom DB cluster parameter group, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+## Determining that logical replication has been disrupted
 
-###### To set up the pglogical extension
+You can determine that the replication process has been disrupted by querying either the
+publisher node or the subscriber node, as follows.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose your Aurora PostgreSQL DB
-   cluster's Writer instance
-   .
-3. Open the **Configuration** tab for your Aurora PostgreSQL DB cluster writer instance.
-   Among the Instance
-   details, find the **Parameter group** link.
-4. Choose the link to open the custom parameters associated with your Aurora PostgreSQL DB cluster.
-5. In the **Parameters** search field, type `shared_pre`
-   to find the `shared_preload_libraries` parameter.
-6. Choose **Edit parameters** to access the property values.
-7. Add `pglogical` to the list in the **Values** field.
-   Use a comma to separate items in the list of values.
+###### To check the publisher node
 
-![Image of the shared_preload_libraries parameter with pglogical added.](images/apg_rpg_shared_preload_pglogical.png) 8. Find the `rds.logical_replication` parameter and set it to
-`1`, to turn on logical replication. 9. Reboot the writer instance of your Aurora PostgreSQL DB
-cluster so
-that your changes take effect. 10. When the instance is available, you can use `psql` (or pgAdmin) to
-connect to the writer instance of your Aurora PostgreSQL DB
-cluster.
+- Use `psql` to connect to the publisher node, and then query the
+  `pg_replication_slots` function. Note the value in the active column.
+  Normally, this will return `t` (true), showing that replication is active. If
+  the query returns `f` (false), it's an indication that replication to
+  the subscriber has stopped.
 
 ```
-psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
-
-```
-
-11. To verify that pglogical is initialized, run the following command.
-
-```
-`SHOW shared_preload_libraries;`
-`shared_preload_libraries
---------------------------
-rdsutils,pglogical
+SELECT slot_name,plugin,slot_type,active FROM pg_replication_slots;
+ `slot_name | plugin | slot_type | active
+-------------------------------------------+------------------+-----------+--------
+ pgl_labdb_docs_labcb4fa94_docs_lab3de412c | pglogical_output | logical | f
 (1 row)`
 ```
 
-12. Verify the setting that enables logical decoding, as follows.
+###### To check the subscriber node
+
+On the subscriber node, you can check the status of replication in three different
+ways.
+
+- Look through the PostgreSQL logs on the subscriber node to find failure messages.
+  The log identifies failure with messages that include exit code 1, as shown
+  following.
 
 ```
-SHOW wal_level;
-`wal_level
------------
- logical
+2022-07-06 16:17:03 UTC::@:[7361]:LOG: background worker "pglogical apply 16404:2880255011" (PID 14610) exited with exit code 1
+2022-07-06 16:19:44 UTC::@:[7361]:LOG: background worker "pglogical apply 16404:2880255011" (PID 21783) exited with exit code 1
+```
+
+- Query the `pg_replication_origin` function. Connect to the database on
+  the subscriber node using `psql` and query the
+  `pg_replication_origin` function, as follows.
+
+```
+SELECT * FROM pg_replication_origin;
+ `roident | roname
+---------+--------
+(0 rows)`
+```
+
+The empty result set means that replication has been disrupted. Normally, you see
+output such as the following.
+
+```
+   roident |                       roname
+  ---------+----------------------------------------------------
+         1 | pgl_labdb_docs_labcb4fa94_docs_lab3de412c
+  (1 row)
+```
+
+- Query the `pglogical.show_subscription_status` function as shown in the
+  following example.
+
+```
+SELECT subscription_name,status,slot_name FROM pglogical.show_subscription_status();
+ `subscription_name | status | slot_name
+---====----------------+--------+-------------------------------------
+ docs_lab_subscription | down | pgl_labdb_docs_labcb4fa94_docs_lab3de412c
 (1 row)`
 ```
 
-13. Create the extension, as follows.
+This output shows that replication has been disrupted. Its status is
+`down`. Normally, the output shows the status as
+`replicating`.
+
+If your logical replication process has been disrupted, you can re-establish replication
+by following these steps.
+
+###### To reestablish logical replication between publisher and subscriber nodes
+
+To re-establish replication, you first disconnect the subscriber from the publisher
+node and then re-establish the subscription, as outlined in these steps.
+
+1. Connect to the subscriber node using `psql` as follows.
 
 ```
-CREATE EXTENSION pglogical;
-`EXTENSION CREATED`
+psql --host=`222222222222`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
 ```
 
-14. Choose **Save changes**.
-15. Open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-16. Choose your Aurora PostgreSQL DB cluster's writer
-    instance
-    from the Databases
-    list to select it, and then choose **Reboot** from the Actions
-    menu.
-
-###### To setup the pglogical extension
-
-To setup pglogical using the AWS CLI, you call the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") operation to modify certain parameters in your
-custom parameter group as shown in the following procedure.
-
-1. Use the following AWS CLI command to add `pglogical` to the
-   `shared_preload_libraries` parameter.
+2. Deactivate the subscription by using the
+   `pglogical.alter_subscription_disable` function.
 
 ```
-aws rds modify-db-parameter-group \
-   --db-parameter-group-name `custom-param-group-name` \
-   --parameters "ParameterName=shared_preload_libraries,ParameterValue=pglogical,ApplyMethod=pending-reboot" \
-   --region `aws-region`
+SELECT pglogical.alter_subscription_disable('docs_lab_subscription',true);
+ `alter_subscription_disable
+----------------------------
+ t
+(1 row)`
 ```
 
-2. Use the following AWS CLI command to set `rds.logical_replication` to
-   `1` to turn on the logical decoding capability for the writer instance of the Aurora PostgreSQL DB cluster.
+3. Get the publisher node's identifier by querying the
+   `pg_replication_origin`, as follows.
 
 ```
-aws rds modify-db-parameter-group \
-   --db-parameter-group-name `custom-param-group-name` \
-   --parameters "ParameterName=rds.logical_replication,ParameterValue=1,ApplyMethod=pending-reboot" \
-   --region `aws-region`
+SELECT * FROM pg_replication_origin;
+ `roident | roname
+---------+-------------------------------------
+ 1 | pgl_labdb_docs_labcb4fa94_docs_lab3de412c
+(1 row)`
 ```
 
-3. Use the following AWS CLI command to reboot the writer
-   instance of your Aurora PostgreSQL DB cluster so that the pglogical library is
-   initialized.
+4. Use the response from the previous step with the
+   `pg_replication_origin_create` command to assign the identifier that can be
+   used by the subscription when re-established.
 
 ```
-aws rds reboot-db-instance \
-    --db-instance-identifier `writer-instance` \
-    --region `aws-region`
+SELECT pg_replication_origin_create('pgl_labdb_docs_labcb4fa94_docs_lab3de412c');
+ `pg_replication_origin_create
+------------------------------
+ 1
+(1 row)`
 ```
 
-4. When the instance is available, use `psql` to connect to the writer instance of your Aurora PostgreSQL DB cluster.
+5. Turn on the subscription by passing its name with a status of `true`, as
+   shown in the following example.
 
 ```
-psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
-
+SELECT pglogical.alter_subscription_enable('docs_lab_subscription',true);
+ `alter_subscription_enable
+---------------------------
+ t
+(1 row)`
 ```
 
-5. Create the extension, as follows.
+Check the status of the node. Its status should be `replicating` as shown in
+this example.
 
 ```
-CREATE EXTENSION pglogical;
-`EXTENSION CREATED`
+SELECT subscription_name,status,slot_name
+  FROM pglogical.show_subscription_status();
+ `subscription_name | status | slot_name
+-------------------------------+-------------+-------------------------------------
+ docs_lab_subscription | replicating | pgl_labdb_docs_lab98f517b_docs_lab3de412c
+(1 row)`
 ```
 
-6. Reboot the writer instance of your Aurora PostgreSQL DB
-   cluster
-   using the following AWS CLI command.
+Check the status of the subscriber's replication slot on the publisher node. The
+slot's `active` column should return `t` (true), indicating that
+replication has been re-established.
 
 ```
-aws rds reboot-db-instance \
-    --db-instance-identifier `writer-instance` \
-    --region `aws-region`
+SELECT slot_name,plugin,slot_type,active
+  FROM pg_replication_slots;
+ `slot_name | plugin | slot_type | active
+-------------------------------------------+------------------+-----------+--------
+ pgl_labdb_docs_lab98f517b_docs_lab3de412c | pglogical_output | logical | t
+(1 row)`
 ```

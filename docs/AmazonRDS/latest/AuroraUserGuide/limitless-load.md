@@ -1,58 +1,88 @@
-# Using the COPY command with Aurora PostgreSQL Limitless Database
+# Loading data from an Aurora PostgreSQL DB cluster or RDS for PostgreSQL DB instance
 
-You can use the [\copy](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY "https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY") functionality in the
-`psql` utility for importing data into and exporting data from Aurora PostgreSQL Limitless Database
+After you complete the resource and authentication setup, connect to the cluster endpoint and call the
+`rds_aurora.limitless_data_load_start` stored procedure from a limitless database, such as `postgres_limitless`. The
+limitless database is a database on the DB shard group into which you want to migrate data.
 
-## Using the COPY command to load data into Aurora PostgreSQL Limitless Database
+This function connects asynchronously in the background to the source database specified in the command, reads the data from the source, and
+loads the data onto the shards. For better performance, the data is loaded using parallel threads. The function retrieves a point-in-time table
+snapshot by running a `SELECT` command to read the data of the table(s) provided in the command.
 
-Aurora PostgreSQL Limitless Database is compatible with the [\copy](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY "https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY")
-functionality in the `psql` utility for importing data.
+You can load data into sharded, reference, and standard tables.
 
-In Limitless Database as in Aurora PostgreSQL, the following aren't supported:
+You can load data at the database, schema, or table level in `rds_aurora.limitless_data_load_start` calls.
 
-- Direct SSH access to DB instances – You can't copy a data file (such as in .csv format) to the DB instance host and run
-  `COPY` from the file.
-- Using local files on the DB instance – Use `COPY ... FROM STDIN` and `COPY ... TO STDOUT`.
+- Database – You can load one database at a time in each call, with no limit on the schema or table count within the
+  database.
+- Schema – You can load a maximum of 15 schemas in each call, with no limit on the table count within each schema.
+- Table – You can load a maximum of 15 tables in each call.
 
-The `COPY` command in PostgreSQL has options for working with local files (`FROM/TO`) and transmitting data using a
-connection between the client and the server (`STDIN/STDOUT`). For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") in the PostgreSQL documentation.
+###### Note
 
-The `\copy` command in the PostgreSQL `psql` utility works with local files on the computer where you run the
-`psql` client. It invokes the respective `COPY ... FROM STDIN` or `COPY ... FROM STDOUT` command on the
-remote (for example, Limitless Database) server to which you connect. It reads data from the local file to `STDIN` or writes to it from
-`STDOUT`.
+This feature doesn't use Amazon RDS snapshots or point-in-time isolation of the database. For consistency across tables, we recommend cloning
+the source database and pointing to that cloned database as the source.
 
-### Splitting data into multiple files
-
-Data is stored on multiple shards in Aurora PostgreSQL Limitless Database. To speed up data loading using `\copy`, you can split your data into multiple
-files. Then import independently for each data file by running separate `\copy` commands in parallel.
-
-For example, you have an input data file in CSV format with 3 million rows to import. You can split the file into chunks each holding
-200,000 rows (15 chunks):
+The stored procedure uses the following syntax:
 
 ```
-split -l200000 data.csv data_ --additional-suffix=.csv -d
+CALL rds_aurora.limitless_data_load_start('`source_type`',
+    '`source_DB_cluster_or_instance_ID`',
+    '`source_database_name`',
+    '`streaming_mode'`,
+    '`data_loading_IAM_role_arn`',
+    '`source_DB_secret_arn`',
+    '`destination_DB_secret_arn`',
+    '`ignore_primary_key_conflict_boolean_flag`',
+    '`is_dry_run`',
+    (optional parameter) schemas/tables => ARRAY['`name1`', '`name2`', ...]);
 ```
 
-This results in files `data_00.csv` through `data_14.csv`. You can then import data using 15
-parallel `\copy` commands, for example:
+The input parameters are the following:
+
+- `source_type` – The source type: `aurora_postgresql` or `rds_postgresql`
+- `source_DB_cluster_or_instance_ID` – The source Aurora PostgreSQL DB cluster identifier or RDS for PostgreSQL DB instance
+  identifier
+- `source_database_name` – The source database name, such as `postgres`
+- `streaming_mode` – Whether to include change data capture (CDC): `full_load` or
+  `full_load_and_cdc`
+- `data_loading_IAM_role_arn` – The IAM role Amazon Resource Name (ARN) for `aurora-data-loader`
+- `source_DB_secret_arn` – The source DB secret ARN
+- `destination_DB_secret_arn` – The destination DB secret ARN
+- `ignore_primary_key_conflict_boolean_flag` – Whether to continue if a primary key conflict occurs:
+  - If set to `true`, data loading ignores new changes for rows with a primary key conflict.
+  - If set to `false`, data loading overwrites the existing rows on destination tables when it encounters a primary key
+    conflict.
+
+- `is_dry_run` – Whether to test that the data loading job can connect to the source and destination databases:
+  - If set to `true`, tests the connections without loading data
+  - If set to `false`, loads the data
+
+- (optional) `schemas` or `tables` – An array of schemas or tables to load. You can specify either of the
+  following:
+
+      + A list of tables in the format `tables => ARRAY['`schema1`.`table1`',
+       '`schema1`.`table2`',
+       '`schema2`.`table1`', ...]`
+      + A list of schemas in the format `schemas => ARRAY[`'schema1`',
+       '`schema2`', ...]`
+
+  If you don't include this parameter, the entire specified source database is migrated.
+  The output parameter is the job ID with a message.
+
+The following example shows how to use the `rds_aurora.limitless_data_load_start` stored procedure to load data from an
+Aurora PostgreSQL DB cluster.
 
 ```
-psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table from '/tmp/data_00.csv';" postgres_limitless &
-psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table FROM '/tmp/data_01.csv';" postgres_limitless &
-...
-psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table FROM '/tmp/data_13.csv';" postgres_limitless &
-psql -h dbcluster.limitless-111122223333.aws-region.rds.amazonaws.com -U username -c "\copy test_table FROM '/tmp/data_14.csv';" postgres_limitless
-```
+CALL rds_aurora.limitless_data_load_start('aurora_postgresql',
+    'my-db-cluster',
+    'postgres',
+    'full_load_and_cdc',
+    'arn:aws:iam::123456789012:role/aurora-data-loader-8f2c66',
+    'arn:aws:secretsmanager:us-east-1:123456789012:secret:secret-source-8f2c66-EWrr0V',
+    'arn:aws:secretsmanager:us-east-1:123456789012:secret:secret-destination-8f2c66-d04fbD',
+    'true',
+    'false',
+    tables => ARRAY['public.customer', 'public.order', 'public.orderdetails']);
 
-Using this technique, the same amount of data is imported approximately 10 times faster than using a single `\copy`
-command.
-
-## Using the COPY command to copy Limitless Database data to a file
-
-You can use the [\copy](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY "https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY") command to copy
-data from a limitless table to a file, as shown in the following example:
-
-```
-postgres_limitless=> \copy test_table TO '/tmp/test_table.csv' DELIMITER ',' CSV HEADER;
+INFO: limitless data load job id 1688761223647 is starting.
 ```

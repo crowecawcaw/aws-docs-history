@@ -1,37 +1,24 @@
-# DB cluster parameters in Aurora PostgreSQL Limitless Database
+# Variables in Aurora PostgreSQL Limitless Database
 
-You can use the following DB cluster parameters to configure Aurora PostgreSQL Limitless Database.
+You can use the following variables to configure Aurora PostgreSQL Limitless Database.
 
-**rds_aurora.limitless_adaptive_fetch_size**
+**rds_aurora.limitless_active_shard_key**
 
-Enhances batch prefetching. When set to `true`, this parameter allows a self-adjusting (adaptive) fetch size for
-prefetching. When set to `false`, the fetch size is constant.
+Sets a single shard key while querying the database, causing all `SELECT` and DML queries to be appended with the shard key
+as a constant predicate. For more information, see [Setting an active shard key](limitless-query.md#limitless-query.single-shard.active "limitless-query.md#limitless-query.single-shard.active").
 
-**rds_aurora.limitless_auto_scale_options**
+**rds_aurora.limitless_create_table_collocate_with**
 
-Sets the options available for adding routers or splitting shards in a DB shard group. The value can be `add_router`,
-`split_shard`, or both.
+Set this variable to a specific table name to collocate newly created tables with that table. For more information, see [Creating limitless tables by using variables](limitless-creating-config.md "limitless-creating-config.md").
 
-For more information, see [Adding a router to a DB shard group](limitless-add-router.md "limitless-add-router.md") and [Splitting a shard in a DB shard group](limitless-shard-split.md "limitless-shard-split.md").
+**rds_aurora.limitless_create_table_mode**
 
-**rds_aurora.limitless_distributed_deadlock_timeout**
+Sets the table creation mode. For more information, see [Creating limitless tables by using variables](limitless-creating-config.md "limitless-creating-config.md").
 
-The amount of time to wait on a lock before checking whether there is a distributed deadlock condition, in milliseconds. The default
-is `1000` (1 second).
+**rds_aurora.limitless_create_table_shard_key**
 
-For more information, see [Distributed deadlocks in Aurora PostgreSQL Limitless Database](limitless-query.md "limitless-query.md").
+Set this variable to an array of column names to use as shard keys. For more information, see [Creating limitless tables by using variables](limitless-creating-config.md "limitless-creating-config.md").
 
-**rds_aurora.limitless_enable_auto_scale**
+**rds_aurora.limitless_explain_options**
 
-Enables the adding of routers and splitting of shards in a DB shard group.
-
-For more information, see [Adding a router to a DB shard group](limitless-add-router.md "limitless-add-router.md") and [Splitting a shard in a DB shard group](limitless-shard-split.md "limitless-shard-split.md").
-
-**rds_aurora.limitless_finalize_split_shard_mode**
-
-Determines how system-initiated shard splits are finalized. For more information, see [Splitting a shard in a DB shard group](limitless-shard-split.md "limitless-shard-split.md").
-
-**rds_aurora.limitless_maximum_adaptive_fetch_size**
-
-Sets the upper limit for the adaptive fetch size. The range is `1`–`INT_MAX`. The default is
-`1000`.
+What to include in the `EXPLAIN` output. For more information, see [EXPLAIN](limitless-reference.md#limitless-reference.DML-limitations.EXPLAIN "limitless-reference.md#limitless-reference.DML-limitations.EXPLAIN").

@@ -1,261 +1,163 @@
-# Granting
+# Changing an AWS KMS
 
-fine-grained access for Performance Insights
+policy for Performance Insights
 
-Fine-grained access control offers additional ways of controlling access to Performance Insights. This
-access control can allow or deny access to individual dimensions for
-`GetResourceMetrics`, `DescribeDimensionKeys`, and
-`GetDimensionKeyDetails` Performance Insights actions. To use fine-grained access,
-specify dimensions in the IAM policy by using condition keys. The evaluation of the access follows the IAM
-policy evaluation logic. For more information, see [Policy
-evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_. If the IAM
-policy statement doesn't specify any dimension, then the statement controls access to
-all the dimensions for the specified action. For the list of available dimensions, see [DimensionGroup](../../../performance-insights/latest/APIReference/API_DimensionGroup.md "../../../performance-insights/latest/APIReference/API_DimensionGroup.md").
+Performance Insights uses an AWS KMS key to encrypt sensitive data. When you enable Performance Insights
+through the API or the console, you can do either of the following:
 
-To find out the dimensions that your credentials are authorized to access, use the `AuthorizedActions`
-parameter in `ListAvailableResourceDimensions` and specify the action. The allowed
-values for `AuthorizedActions` are as follows:
+- Choose the default AWS managed key.
 
-- `GetResourceMetrics`
+Amazon RDS uses the AWS managed key for your new DB instance. Amazon RDS creates an
+AWS managed key for your AWS account. Your AWS account has a different
+AWS managed key for Amazon RDS for each AWS Region.
+
+- Choose a customer managed key.
+
+If you specify a customer managed key, users in your account that call the Performance Insights
+API need the `kms:Decrypt` and `kms:GenerateDataKey`
+permissions on the KMS key. You can configure these permissions through IAM
+policies. However, we recommend that you manage these permissions through your
+KMS key policy. For more information, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md")
+in the _AWS Key Management Service Developer
+Guide_.
+The following example shows how to add statements to your KMS key policy. These
+statements allow access to Performance Insights.
+Depending on how you use the KMS key, you might want to change some restrictions.
+Before adding statements to your policy, remove all comments.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id" : "your-policy",
+ "Statement" : [
+ {
+ "Sid" : "AllowViewingRDSPerformanceInsights",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": [
+ "arn:aws:iam::`444455556666`:role/`Role1`"
+ ]
+ },
+ "Action": [
+ "kms:Decrypt",
+ "kms:GenerateDataKey"
+ ],
+ "Resource": "*",
+ "Condition" : {
+ "StringEquals" : {
+ "kms:ViaService" : "rds.`us-east-1`.amazonaws.com"
+ },
+ "ForAnyValue:StringEquals": {
+ "kms:EncryptionContext:aws:pi:service": "rds",
+ "kms:EncryptionContext:service": "pi",
+ "kms:EncryptionContext:aws:rds:db-id": "`db-AAAAABBBBBCCCCDDDDDEEEEE`"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+## How Performance Insights uses AWS KMS customer managed key
+
+Performance Insights uses customer managed keys to encrypt sensitive data. When you turn on Performance Insights, you can provide an
+AWS KMS key through the API. Performance Insights creates AWS KMS permissions on this key. It uses the key
+and performs the necessary operations to process sensitive data. Sensitive data
+includes fields such as user, database, application, and SQL query text. Performance Insights
+ensures that the data remains encrypted both at rest and in-flight.
+
+## How Performance Insights IAM works with AWS KMS
+
+IAM gives permissions to specific APIs. Performance Insights has the following public APIs, which you can restrict using IAM policies:
+
 - `DescribeDimensionKeys`
 - `GetDimensionKeyDetails`
-  For example, if you specify `GetResourceMetrics` to the `AuthorizedActions` parameter,
-  `ListAvailableResourceDimensions` returns the list of dimensions that the `GetResourceMetrics`
-  action is authorized to access. If you specify multiple actions in the `AuthorizedActions` parameter, then
-  `ListAvailableResourceDimensions` returns an intersection of dimensions that those actions are
-  authorized to access.
+- `GetResourceMetadata`
+- `GetResourceMetrics`
+- `ListAvailableResourceDimensions`
+- `ListAvailableResourceMetrics`
 
-The following example provides access to the specified dimensions for
-`GetResourceMetrics` and `DescribeDimensionKeys`
-actions.
+You can use the following API requests to get sensitive data.
 
-JSON
+- `DescribeDimensionKeys`
+- `GetDimensionKeyDetails`
+- `GetResourceMetrics`
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowToDiscoverDimensions",
- "Effect": "Allow",
- "Action": [
- "pi:ListAvailableResourceDimensions"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ]
- },
- {
- "Sid": "SingleAllow",
- "Effect": "Allow",
- "Action": [
- "pi:GetResourceMetrics",
- "pi:DescribeDimensionKeys"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ],
- "Condition": {
- "ForAllValues:StringEquals": {
- "pi:Dimensions": [
- "db.sql_tokenized.id",
- "db.sql_tokenized.statement"
- ]
- }
- }
- }
+When you use the API to get sensitive data, Performance Insights leverages the caller's credentials. This
+check ensures that access to sensitive data is limited to those with access to the
+KMS key.
 
+When calling these APIs, you need permissions to call the API through the IAM policy and
+permissions to invoke the `kms:decrypt` action through the AWS KMS key
+policy.
 
- ]
-}`
+The `GetResourceMetrics` API can return both sensitive and non-sensitive data. The request
+parameters determine whether the response should include sensitive data. The API returns sensitive data
+when the request includes a sensitive dimension in either the filter or group-by parameters.
+
+For more information about the dimensions that you can use with the `GetResourceMetrics` API, see [DimensionGroup](../../../performance-insights/latest/APIReference/API_DimensionGroup.md "../../../performance-insights/latest/APIReference/API_DimensionGroup.md").
+
+###### Examples
+
+The following example requests the sensitive data for the `db.user` group:
 
 ```
 
-The following is the response for the requested dimension:
+POST / HTTP/1.1
+Host: <Hostname>
+Accept-Encoding: identity
+X-Amz-Target: PerformanceInsightsv20180227.GetResourceMetrics
+Content-Type: application/x-amz-json-1.1
+User-Agent: <UserAgentString>
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=<Headers>, Signature=<Signature>
+Content-Length: <PayloadSizeBytes>
+{
+  "ServiceType": "RDS",
+  "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
+  "MetricQueries": [
+    {
+      "Metric": "db.load.avg",
+      "GroupBy": {
+        "Group": "db.user",
+        "Limit": 2
+      }
+    }
+  ],
+  "StartTime": 1693872000,
+  "EndTime": 1694044800,
+  "PeriodInSeconds": 86400
+}
 
 ```
 
-	// ListAvailableResourceDimensions API
-// Request
+The following example requests the non-sensitive data for the `db.load.avg` metric:
+
+```
+
+POST / HTTP/1.1
+Host: <Hostname>
+Accept-Encoding: identity
+X-Amz-Target: PerformanceInsightsv20180227.GetResourceMetrics
+Content-Type: application/x-amz-json-1.1
+User-Agent: <UserAgentString>
+X-Amz-Date: <Date>
+Authorization: AWS4-HMAC-SHA256 Credential=<Credential>, SignedHeaders=<Headers>, Signature=<Signature>
+Content-Length: <PayloadSizeBytes>
 {
     "ServiceType": "RDS",
     "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
-    "Metrics": [ "db.load" ],
-    "AuthorizedActions": ["DescribeDimensionKeys"]
-}
-
-// Response
-{
-    "MetricDimensions": [ {
-        "Metric": "db.load",
-        "Groups": [
-            {
-                "Group": "db.sql_tokenized",
-                "Dimensions": [
-                    { "Identifier": "db.sql_tokenized.id" },
-                  //  { "Identifier": "db.sql_tokenized.db_id" }, // not included because not allows in the IAM Policy
-                    { "Identifier": "db.sql_tokenized.statement" }
-                ]
-            }
-
-        ] }
-    ]
-}
-
-```
-
-The following example specifies one allow and two deny access for the dimensions.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowToDiscoverDimensions",
- "Effect": "Allow",
- "Action": [
- "pi:ListAvailableResourceDimensions"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ]
- },
-
- {
- "Sid": "O01AllowAllWithoutSpecifyingDimensions",
- "Effect": "Allow",
- "Action": [
- "pi:GetResourceMetrics",
- "pi:DescribeDimensionKeys"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ]
- },
-
- {
- "Sid": "O01DenyAppDimensionForAll",
- "Effect": "Deny",
- "Action": [
- "pi:GetResourceMetrics",
- "pi:DescribeDimensionKeys"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ],
- "Condition": {
- "ForAnyValue:StringEquals": {
- "pi:Dimensions": [
- "db.application.name"
- ]
- }
- }
- },
-
- {
- "Sid": "O01DenySQLForGetResourceMetrics",
- "Effect": "Deny",
- "Action": [
- "pi:GetResourceMetrics"
- ],
- "Resource": [
- "arn:aws:pi:us-east-1:123456789012:metrics/rds/db-ABC1DEFGHIJKL2MNOPQRSTUV3W"
- ],
- "Condition": {
- "ForAnyValue:StringEquals": {
- "pi:Dimensions": [
- "db.sql_tokenized.statement"
- ]
- }
- }
- }
- ]
-}`
-
-```
-
-The following are the responses for the requested dimensions:
-
-```
-
-			// ListAvailableResourceDimensions API
-// Request
-{
-    "ServiceType": "RDS",
-    "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
-    "Metrics": [ "db.load" ],
-    "AuthorizedActions": ["GetResourceMetrics"]
-}
-
-// Response
-{
-    "MetricDimensions": [ {
-        "Metric": "db.load",
-        "Groups": [
-            {
-                "Group": "db.application",
-                "Dimensions": [
-
-                  // removed from response because denied by the IAM Policy
-                  //  { "Identifier": "db.application.name" }
-                ]
-            },
-            {
-                "Group": "db.sql_tokenized",
-                "Dimensions": [
-                    { "Identifier": "db.sql_tokenized.id" },
-                    { "Identifier": "db.sql_tokenized.db_id" },
-
-                  // removed from response because denied by the IAM Policy
-                  //  { "Identifier": "db.sql_tokenized.statement" }
-                ]
-            },
-            ...
-        ] }
-    ]
-}
-
-```
-
-```
-
-// ListAvailableResourceDimensions API
-// Request
-{
-    "ServiceType": "RDS",
-    "Identifier": "db-ABC1DEFGHIJKL2MNOPQRSTUV3W",
-    "Metrics": [ "db.load" ],
-    "AuthorizedActions": ["DescribeDimensionKeys"]
-}
-
-// Response
-{
-    "MetricDimensions": [ {
-        "Metric": "db.load",
-        "Groups": [
-            {
-                "Group": "db.application",
-                "Dimensions": [
-                  // removed from response because denied by the IAM Policy
-                  //  { "Identifier": "db.application.name" }
-                ]
-            },
-            {
-                "Group": "db.sql_tokenized",
-                "Dimensions": [
-                    { "Identifier": "db.sql_tokenized.id" },
-                    { "Identifier": "db.sql_tokenized.db_id" },
-
-                  // allowed for DescribeDimensionKeys because our IAM Policy
-                  // denies it only for GetResourceMetrics
-                    { "Identifier": "db.sql_tokenized.statement" }
-                ]
-            },
-            ...
-        ] }
-    ]
+    "MetricQueries": [
+        {
+            "Metric": "db.load.avg"
+        }
+    ],
+    "StartTime": 1693872000,
+    "EndTime": 1694044800,
+    "PeriodInSeconds": 86400
 }
 
 ```

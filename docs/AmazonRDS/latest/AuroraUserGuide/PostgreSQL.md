@@ -1,151 +1,149 @@
-# Managing temporary files with
+# Tuning Aurora PostgreSQL with Amazon DevOps Guru proactive insights
 
-PostgreSQL
+DevOps Guru proactive insights detects conditions on your Aurora PostgreSQL DB clusters that can cause problems, and lets you know
+about them before they occur. Proactive insights can alert you to a long running
+idle in transaction connection. For more information about troubleshooting long running
+idle in transaction connections, see [Database has long running idle in transaction connection](#proactive-insights.idle-txn "#proactive-insights.idle-txn")
 
-In PostgreSQL, a complex query might perform several sort or hash operations at the same
-time, with each operation using instance memory to store results up to the value specified
-in the [`work_mem`](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM") parameter. When the instance memory is not
-sufficient, temporary files are created to store the results. These are written to disk to
-complete the query execution. Later, these files are automatically removed after the query
-completes. In Aurora PostgreSQL, these files share local storage with other log files. You can monitor
-your Aurora PostgreSQL DB cluster's local storage space by watching the Amazon CloudWatch
-metric for `FreeLocalStorage`. For more information, see [Troubleshoot local storage issues](https://aws.amazon.com/premiumsupport/knowledge-center/postgresql-aurora-storage-issue/ "https://aws.amazon.com/premiumsupport/knowledge-center/postgresql-aurora-storage-issue/").
+DevOps Guru can do the following:
 
-We recommend using Aurora Optimized Read clusters for workloads involving multiple concurrent queries
-that increase the usage of temporary files. These clusters use local Non-Volatile
-Memory Express (NVMe) based solid state drive (SSD) block-level storage to place the
-temporary files. For more information, see [Improving query performance for
-Aurora PostgreSQL with Aurora Optimized Reads](AuroraPostgreSQL.optimized.md "AuroraPostgreSQL.optimized.md").
+- Prevent many common database issues by cross-checking your database configuration
+  against common recommended settings.
+- Alert you to critical issues in your fleet that, if left unchecked, can lead to
+  larger problems later.
+- Alert you to newly discovered problems.
+  Every proactive insight contains an analysis of the cause of the problem and
+  recommendations for corrective actions.
 
-You can use the following parameters and functions to manage the temporary files in your
-instance.
+For more information about Amazon DevOps Guru for Amazon RDS, see
+[Analyzing Aurora performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md").
 
-- [`temp_file_limit`](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-DISK "https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-DISK") – This parameter
-  cancels any query exceeding the size of temp_files in KB. This limit prevents any
-  query from running endlessly and consuming disk space with temporary files. You can
-  estimate the value using the results from the `log_temp_files` parameter.
-  As a best practice, examine the workload behavior and set the limit according to the
-  estimation. The following example shows how a query is canceled when it exceeds the
-  limit.
+## Database has long running idle in transaction connection
 
-```
-`postgres=>``select * from pgbench_accounts, pg_class, big_table;`
+A connection to the database has been in the `idle in transaction` state for more than 1800 seconds.
 
-```
+###### Topics
 
-```
-`ERROR: temporary file size exceeds temp_file_limit (64kB)`
-```
+- [Supported engine versions](#proactive-insights.idle-txn.context.supported "#proactive-insights.idle-txn.context.supported")
+- [Context](#proactive-insights.idle-txn.context "#proactive-insights.idle-txn.context")
+- [Likely causes for this
+  issue](#proactive-insights.idle-txn.causes "#proactive-insights.idle-txn.causes")
+- [Actions](#proactive-insights.idle-txn.actions "#proactive-insights.idle-txn.actions")
+- [Relevant metrics](#proactive-insights.idle-txn.metrics "#proactive-insights.idle-txn.metrics")
 
-- [`log_temp_files`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES") – This parameter sends
-  messages to the postgresql.log when the temporary files of a session are removed.
-  This parameter produces logs after a query successfully completes. Therefore, it
-  might not help in troubleshooting active, long-running queries.
+### Supported engine versions
 
-The following example shows that when the query successfully completes, the
-entries are logged in the postgresql.log file while the temporary files are cleaned
-up.
+This insight information is supported for all versions of Aurora PostgreSQL.
 
-```
- `2023-02-06 23:48:35 UTC:205.251.233.182(12456):adminuser@postgres:[31236]:LOG: temporary file: path "base/pgsql_tmp/pgsql_tmp31236.5", size 140353536
-2023-02-06 23:48:35 UTC:205.251.233.182(12456):adminuser@postgres:[31236]:STATEMENT: select a.aid from pgbench_accounts a, pgbench_accounts b where a.bid=b.bid order by a.bid limit 10;
-2023-02-06 23:48:35 UTC:205.251.233.182(12456):adminuser@postgres:[31236]:LOG: temporary file: path "base/pgsql_tmp/pgsql_tmp31236.4", size 180428800
-2023-02-06 23:48:35 UTC:205.251.233.182(12456):adminuser@postgres:[31236]:STATEMENT: select a.aid from pgbench_accounts a, pgbench_accounts b where a.bid=b.bid order by a.bid limit 10;`
+### Context
 
-```
+A transaction in the `idle in transaction` state can hold locks that block
+other queries. It can also prevent `VACUUM` (including autovacuum) from
+cleaning up dead rows, leading to index or table bloat or transaction ID wraparound.
 
-- [`pg_ls_tmpdir`](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-GENFILE "https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-GENFILE") – This function that is
-  available from RDS for PostgreSQL 13 and above provides visibility into the current
-  temporary file usage. The completed query doesn't appear in the results of the
-  function. In the following example, you can view the results of this
-  function.
+### Likely causes for this
+
+issue
+
+A transaction initiated in an interactive session with BEGIN or START TRANSACTION
+hasn't ended by using a COMMIT, ROLLBACK, or END command. This causes the transaction to move to `idle in
+ transaction` state.
+
+### Actions
+
+You can find idle transactions by querying `pg_stat_activity`.
+
+In your SQL client, run the following query to list all connections in
+`idle in transaction` state and to order them by duration:
 
 ```
-`postgres=>``select * from pg_ls_tmpdir();`
-
+SELECT now() - state_change as idle_in_transaction_duration, now() - xact_start as xact_duration,*
+FROM  pg_stat_activity
+WHERE state  = 'idle in transaction'
+AND   xact_start is not null
+ORDER BY 1 DESC;
 ```
 
-```
-`name | size | modification
------------------+------------+------------------------
- pgsql_tmp8355.1 | 1072250880 | 2023-02-06 22:54:56+00
- pgsql_tmp8351.0 | 1072250880 | 2023-02-06 22:54:43+00
- pgsql_tmp8327.0 | 1072250880 | 2023-02-06 22:54:56+00
- pgsql_tmp8351.1 | 703168512 | 2023-02-06 22:54:56+00
- pgsql_tmp8355.0 | 1072250880 | 2023-02-06 22:54:00+00
- pgsql_tmp8328.1 | 835031040 | 2023-02-06 22:54:56+00
- pgsql_tmp8328.0 | 1072250880 | 2023-02-06 22:54:40+00
-(7 rows)`
-```
+We recommend different actions depending on the causes of your insight.
+
+###### Topics
+
+- [End transaction](#proactive-insights.idle-txn.actions.end-txn "#proactive-insights.idle-txn.actions.end-txn")
+- [Terminate the connection](#proactive-insights.idle-txn.actions.end-connection "#proactive-insights.idle-txn.actions.end-connection")
+- [Configure the idle_in_transaction_session_timeout parameter](#proactive-insights.idle-txn.actions.parameter "#proactive-insights.idle-txn.actions.parameter")
+- [Check the AUTOCOMMIT status](#proactive-insights.idle-txn.actions.autocommit "#proactive-insights.idle-txn.actions.autocommit")
+- [Check the
+  transaction logic in your application code](#proactive-insights.idle-txn.actions.app-logic "#proactive-insights.idle-txn.actions.app-logic")
+
+#### End transaction
+
+When you initiate a transaction in an interactive session with BEGIN or START
+TRANSACTION, it moves to `idle in transaction` state. It remains in
+this state until you end the transaction by issuing a COMMIT, ROLLBACK, END
+command or disconnect the connection completely to roll back the
+transaction.
+
+#### Terminate the connection
+
+Terminate the connection with an idle transaction using the following query:
 
 ```
-`postgres=>``select query from pg_stat_activity where pid = 8355;`
-                `query
-----------------------------------------------------------------------------------------
-select a.aid from pgbench_accounts a, pgbench_accounts b where a.bid=b.bid order by a.bid
-(1 row)`
-```
-
-The file name includes the processing ID (PID) of the session that generated the
-temporary file. A more advanced query, such as in the following example, performs a
-sum of the temporary files for each PID.
-
-```
-`postgres=>``select replace(left(name, strpos(name, '.')-1),'pgsql_tmp','') as pid, count(*), sum(size) from pg_ls_tmpdir() group by pid;`
+SELECT pg_terminate_backend`(pid)`;
 
 ```
 
-```
-`pid | count | sum
-------+-------------------
- 8355 | 2 | 2144501760
- 8351 | 2 | 2090770432
- 8327 | 1 | 1072250880
- 8328 | 2 | 2144501760
-(4 rows)`
-```
+pid is the process ID of the connection.
 
-- `pg_stat_statements` – If you activate the
-  pg_stat_statements parameter, then you can view the average temporary file usage per
-  call. You can identify the query_id of the query and use it to examine the temporary
-  file usage as shown in the following example.
+#### Configure the idle_in_transaction_session_timeout parameter
+
+Configure the `idle_in_transaction_session_timeout` parameter in the parameter group. The advantage of configuring this
+parameter is that it does not require a manual intervention to terminate the long idle in transaction. For more information on this parameter, see
+[the PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html "https://www.postgresql.org/docs/current/runtime-config-client.html").
+
+The following message will be reported in the PostgreSQL log file after the connection is terminated, when a transaction is
+in the idle_in_transaction state for longer than the specified time.
 
 ```
-`postgres=>``select queryid from pg_stat_statements where query like 'select a.aid from pgbench%';`
-
+FATAL: terminating connection due to idle in transaction timeout
 ```
 
-```
-`queryid
-----------------------
- -7170349228837045701
-(1 row)`
-```
+#### Check the AUTOCOMMIT status
+
+AUTOCOMMIT is turned on by default. But if it is accidentally turned off in the client ensure that you turn it back on.
+
+- In your psql client, run the following command:
 
 ```
-`postgres=>``select queryid, substr(query,1,25), calls, temp_blks_read/calls temp_blks_read_per_call, temp_blks_written/calls temp_blks_written_per_call from pg_stat_statements where queryid = -7170349228837045701;`
-
+`postgres=>` `\set AUTOCOMMIT on`
 ```
 
-```
-`queryid | substr | calls | temp_blks_read_per_call | temp_blks_written_per_call
-----------------------+---------------------------+-------+-------------------------+----------------------------
- -7170349228837045701 | select a.aid from pgbench | 50 | 239226 | 388678
-(1 row)`
-```
+- In pgadmin, turn it on by choosing the AUTOCOMMIT option from the down arrow.
 
-- `Performance
-Insights` – In the Performance Insights
-  dashboard, you can view temporary file usage by turning on the metrics
-  **temp_bytes** and **temp_files**. Then, you
-  can see the average of both of these metrics and see how they correspond to the
-  query workload. The view within Performance Insights doesn't show specifically
-  the queries that are generating the temporary files. However, when you combine
-  Performance Insights with the query shown for `pg_ls_tmpdir`, you can
-  troubleshoot, analyze, and determine the changes in your query workload.
+![In pgadmin, choose AUTOCOMMIT to turn it on.](images/apg-insight-pgadmin-autocommit.png)
 
-For more information about how to analyze metrics and queries with Performance
-Insights, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.md "USER_PerfInsights.md").
+#### Check the
 
-For an example of viewing temporary file usage with Performance Insights, see [Viewing temporary file usage with
-Performance Insights](PostgreSQL.ManagingTempFiles.md "PostgreSQL.ManagingTempFiles.md")
+transaction logic in your application code
+
+Investigate your application logic for possible problems. Consider the following
+actions:
+
+- Check if the JDBC auto commit is set true in your application. Also,
+  consider using explicit `COMMIT` commands in your
+  code.
+- Check your error handling logic to see whether it closes a transaction
+  after errors.
+- Check whether your application is taking long to process the rows returned
+  by a query while the transaction is open. If so, consider coding the
+  application to close the transaction before processing the rows.
+- Check whether a transaction contains many long-running operations. If so,
+  divide a single transaction into multiple transactions.
+
+### Relevant metrics
+
+The following PI metrics are related to this insight:
+
+- idle_in_transaction_count - Number of sessions in `idle in
+transaction` state.
+- idle_in_transaction_max_time - The duration of the longest running transaction in
+  the `idle in transaction` state.

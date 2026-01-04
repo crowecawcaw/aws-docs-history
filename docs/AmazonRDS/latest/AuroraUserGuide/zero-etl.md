@@ -1,38 +1,55 @@
-# Deleting Aurora zero-ETL integrations
+# Modifying Aurora zero-ETL integrations
 
-When you delete a zero-ETL integration, Amazon Aurora removes it from the source Aurora DB cluster. Your
-transactional data isn't deleted from Amazon Aurora or the analytics destination, but Aurora doesn't send new data to
-Amazon Redshift or Amazon SageMaker.
+You can modify only the name, description, and data filtering options for a zero-ETL integration
+in a supported data warehouse. You can't modify the AWS KMS key used to encrypt the integration, or the source or
+target databases.
 
-You can only delete an integration when it has a status of `Active`,
-`Failed`, `Syncing`, or `Needs attention`.
+If you add a data filter to an existing integration, Aurora reevaluates the filter as if it
+always existed. It removes any data that is currently in the target data warehouse that
+doesn't match the new filtering criteria. If you _remove_ a data filter
+from an integration, it replicates any data that previously didn't match the filtering
+criteria (but now does) into the target data warehouse. For more information, see [Data filtering for Aurora zero-ETL integrations](zero-etl.md "zero-etl.md").
 
-You can delete zero-ETL integrations using the AWS Management Console, the AWS CLI, or the RDS API.
+You can modify a zero-ETL integration using the AWS Management Console, the AWS CLI, or the Amazon RDS API.
 
-###### To delete a zero-ETL integration
+###### To modify a zero-ETL integration
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. From the left navigation pane, choose **Zero-ETL integrations**.
-3. Select the zero-ETL integration that you want to delete.
-4. Choose **Actions**, **Delete**, and
-   confirm deletion.
-   To delete a zero-ETL integration, use the [delete-integration](../../../cli/latest/reference/rds/delete-integration.md "../../../cli/latest/reference/rds/delete-integration.md")
-   command and specify the `--integration-identifier` option.
+2. In the navigation pane, choose **Zero-ETL integrations**, and
+   then choose the integration that you want to modify.
+3. Choose **Modify** and make modifications to any available
+   settings.
+4. When all the changes are as you want them, choose
+   **Modify**.
+   To modify a zero-ETL integration using the AWS CLI, call the [modify-integration](../../../cli/latest/reference/rds/modify-integration.md "../../../cli/latest/reference/rds/modify-integration.md")
+   command. Along with the `--integration-identifier`, specify any of the
+   following options:
+
+- `--integration-name` – Specify a new name for the
+  integration.
+- `--description` – Specify a new description for the
+  integration.
+- `--data-filter` – Specify data filtering options for the
+  integration. For more information, see [Data filtering for Aurora zero-ETL integrations](zero-etl.md "zero-etl.md").
+  The following request modifies an existing integration.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds delete-integration \
-    --integration-identifier `ee605691-6c47-48e8-8622-83f99b1af374`
+aws rds modify-integration \
+    --integration-identifier `ee605691-6c47-48e8-8622-83f99b1af374` \
+    --integration-name `my-renamed-integration`
 ```
 
 For Windows:
 
 ```
-aws rds delete-integration ^
-    --integration-identifier `ee605691-6c47-48e8-8622-83f99b1af374`
+aws rds modify-integration ^
+    --integration-identifier `ee605691-6c47-48e8-8622-83f99b1af374` ^
+    --integration-name `my-renamed-integration`
 ```
 
-To delete a zero-ETL integration using the Amazon RDS API, use the [`DeleteIntegration`](../APIReference/API_DeleteIntegration.md "../APIReference/API_DeleteIntegration.md") operation with the
-`IntegrationIdentifier` parameter.
+To modify a zero-ETL integration using the RDS API, call the [ModifyIntegration](../APIReference/API_ModifyIntegration.md "../APIReference/API_ModifyIntegration.md")
+operation. Specify the integration identifier, and the parameters that you want to
+modify.

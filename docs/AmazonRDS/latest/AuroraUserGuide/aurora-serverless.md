@@ -1,4 +1,4 @@
-# Aurora Serverless v1 and Aurora database engine versions
+# Viewing Aurora Serverless v1 DB clusters
 
 ###### Important
 
@@ -7,59 +7,63 @@ not migrated by March 31, 2025 will be migrated to Aurora Serverless v2 during t
 cluster to a provisioned cluster with the equivalent engine version during the maintenance window. If applicable, Amazon Aurora will enroll the
 converted provisioned cluster in Amazon RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon Aurora](extended-support.md "extended-support.md").
 
-Aurora Serverless v1 is available in certain AWS Regions and for specific Aurora MySQL and Aurora PostgreSQL versions only. For the
-current list of AWS Regions that support Aurora Serverless v1 and the specific Aurora MySQL and Aurora PostgreSQL versions available
-in each Region, see [Aurora Serverless v1](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+After you create one or more Aurora Serverless v1 DB clusters, you can view which DB clusters are type
+**Serverless** and which are type **Instance**. You can also view the
+current number of Aurora capacity units (ACUs) each Aurora Serverless v1 DB cluster is using. Each ACU is a
+combination of processing (CPU) and memory (RAM) capacity.
 
-Aurora Serverless v1 uses its associated Aurora database engine to identify specific supported releases for each database engine
-supported, as follows:
+###### To view your Aurora Serverless v1 DB clusters
 
-- Aurora MySQL Serverless
-- Aurora PostgreSQL Serverless
-  When minor releases of the database engines become available for Aurora Serverless v1, they are applied automatically in the various
-  AWS Regions where Aurora Serverless v1 is available. In other words, you don't need to upgrade your Aurora Serverless v1 DB
-  cluster to get a new minor release for your cluster's DB engine when it's available for Aurora Serverless v1.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you created the
+   Aurora Serverless v1 DB clusters.
+3. In the navigation pane, choose **Databases**.
 
-## Aurora MySQL Serverless
+For each DB cluster, the DB cluster type is shown under **Role**. The Aurora Serverless v1
+DB clusters show **Serverless** for the type. You can view an Aurora Serverless v1 DB
+cluster's current capacity under **Size**.
 
-Aurora Serverless v1 is available in certain AWS Regions and for specific Aurora MySQL versions only. For the
-current list of AWS Regions that support Aurora Serverless v1 and the specific Aurora MySQL versions available
-in each Region, see [Aurora Serverless v1 with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.amy").
+![Viewing Aurora Serverless v1 DB clusters](images/aurora-serverless-viewing.png) 4. Choose the name of an Aurora Serverless v1 DB cluster to display its details.
 
-To learn about enhancements
-and bug fixes for Aurora MySQL version 2, see
-[Database engine updates for Amazon Aurora MySQL version 2](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md")
-in the _Release Notes for Aurora MySQL_.
+On the **Connectivity & security** tab, note the database endpoint. Use this endpoint
+to connect to your Aurora Serverless v1 DB cluster.
 
-To use a more recent version of Aurora MySQL, you can use Aurora Serverless v2.
-For the AWS Regions and Aurora MySQL versions that you can use with Aurora Serverless v2, see
-[Aurora Serverless v2 with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.amy").
-For usage information about Aurora Serverless v2, see
-[Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+![Viewing Aurora Serverless v1 DB cluster database endpoint](images/aurora-serverless-endpoint.png)
 
-## Aurora PostgreSQL Serverless
+Choose the **Configuration** tab to view the capacity settings.
 
-Aurora Serverless v1 is available in certain AWS Regions and for specific Aurora PostgreSQL versions only. For the
-current list of AWS Regions that support Aurora Serverless v1 and the specific Aurora PostgreSQL versions available
-in each Region, see
-[Aurora Serverless v1 with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV1.apg").
+![Viewing Aurora Serverless v1 DB cluster capacity settings](images/aurora-serverless-capacity-settings.png)
 
-If you want to use Aurora PostgreSQL for your Aurora Serverless v1 DB cluster, you can use the Aurora PostgreSQL 13-compatible
-versions. Minor releases for Aurora PostgreSQL-Compatible Edition include only changes that are backward-compatible. Your
-Aurora Serverless v1 DB cluster is transparently upgraded when an Aurora PostgreSQL minor release becomes available for
-Aurora Serverless v1 in your AWS Region.
+A _scaling event_ is generated when the DB cluster scales up, scales
+down, pauses, or resumes. Choose the **Logs & events** tab to see recent events. The
+following image shows examples of these events.
 
-To use a more recent version of Aurora PostgreSQL, you can use Aurora Serverless v2.
-For the AWS Regions and Aurora PostgreSQL versions that you can use with Aurora Serverless v2, see
-[Aurora Serverless v2 with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.apg").
-For usage information about Aurora Serverless v2, see
-[Using Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+![Viewing Aurora Serverless v1 DB cluster capacity settings](images/aurora-serverless-scaling.png)
 
-##
+## Monitoring capacity and scaling events for your Aurora Serverless v1 DB cluster
 
-Automatic minor version upgrades for Aurora Serverless v1
+You can view your Aurora Serverless v1 DB cluster in CloudWatch to monitor the capacity allocated to the DB cluster
+with the `ServerlessDatabaseCapacity` metric. You can also monitor all of the standard Aurora CloudWatch
+metrics, such as `CPUUtilization`, `DatabaseConnections`, `Queries`, and so
+on.
 
-When minor releases of the database engines become available for Aurora Serverless v1,
-they are applied automatically in the various AWS Regions where Aurora Serverless v1 is available.
-In other words, you don't need to upgrade your Aurora Serverless v1 DB cluster to get a new
-minor release for your cluster's DB engine when it's available for Aurora Serverless v1.
+You can have Aurora publish some or all database logs to CloudWatch. You select the logs to publish by enabling the
+[configuration parameters such as general_log
+and slow_query_log in the DB cluster parameter group](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups") associated with
+theAurora Serverless v1 cluster. Unlike provisioned clusters, Aurora Serverless v1 clusters don't require
+you to specify in the DB cluster settings which log types to upload to CloudWatch. Aurora Serverless v1 clusters
+automatically upload all the available logs. When you disable a log configuration parameter, publishing of
+the log to CloudWatch stops. You can also delete the logs in CloudWatch if they are no longer needed.
+
+To get started with Amazon CloudWatch for your Aurora Serverless v1 DB cluster, see
+[Viewing Aurora Serverless v1 logs with Amazon CloudWatch](aurora-serverless-v1.md#aurora-serverless.logging.monitoring "aurora-serverless-v1.md#aurora-serverless.logging.monitoring").
+To learn more about how to monitor Aurora DB clusters through CloudWatch, see
+[Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor").
+
+To connect to an Aurora Serverless v1 DB cluster, use the database endpoint. For more information, see
+[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+
+###### Note
+
+You can't connect directly to specific DB instances in your Aurora Serverless v1 DB clusters.

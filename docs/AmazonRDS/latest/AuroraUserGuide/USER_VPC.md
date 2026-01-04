@@ -1,23 +1,164 @@
-# Amazon VPC and Amazon Aurora
+# Scenarios for accessing a DB cluster in a VPC
 
-Amazon Virtual Private Cloud (Amazon VPC) makes it possible for you to launch AWS resources,
-such as Aurora DB clusters, into a virtual private cloud (VPC).
+Amazon Aurora supports the following scenarios for accessing a DB cluster
+in a VPC:
 
-When you use a VPC, you have control over your virtual networking environment. You can
-choose your own IP address range, create subnets, and configure routing and access control
-lists. There is no additional cost to run your DB cluster in a VPC.
+- [An Amazon EC2 instance in the same
+  VPC](#USER_VPC.Scenario1 "#USER_VPC.Scenario1")
+- [An EC2 instance in a different
+  VPC](#USER_VPC.Scenario3 "#USER_VPC.Scenario3")
+- [A client application through the
+  internet](#USER_VPC.Scenario4 "#USER_VPC.Scenario4")
+- [A private network](#USER_VPC.NotPublic "#USER_VPC.NotPublic")
 
-Accounts have a default VPC. All new DB clusters are created in the
-default VPC unless you specify otherwise.
+## A DB cluster in a VPC
 
-###### Topics
+accessed by an Amazon EC2 instance in the same VPC
 
-- [Working with a DB cluster in a VPC](USER_VPC.md "USER_VPC.md")
-- [Scenarios for accessing a DB cluster in a VPC](USER_VPC.md "USER_VPC.md")
-- [Tutorial: Create a VPC for use with a
-  DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
-- [Tutorial: Create a VPC for use with a DB
-  cluster (dual-stack mode)](CHAP_Tutorials.md "CHAP_Tutorials.md")
-  Following, you can find a discussion about VPC functionality relevant to Amazon Aurora DB
-  clusters. For more information about Amazon VPC, see [Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide.md "../../../AmazonVPC/latest/GettingStartedGuide.md") and
-  [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
+A common use of a DB cluster in a VPC is to share data with an
+application server that is running in an Amazon EC2 instance in the same VPC.
+
+The following diagram shows this scenario.
+
+![VPC scenario with a public web server and a private database.](images/con-VPC-sec-grp-aurora.png)
+
+The simplest way to manage access between EC2 instances and DB clusters in the same VPC is to do the following:
+
+- Create a VPC security group for your DB clusters to be
+  in. This security group can be used to restrict access to the DB clusters. For example, you can create a custom rule for this
+  security group. This might allow TCP access using the port that you assigned
+  to the DB cluster when you created it and an IP
+  address you use to access the DB cluster for
+  development or other purposes.
+- Create a VPC security group for your EC2 instances (web servers and
+  clients) to be in. This security group can, if needed, allow access to the
+  EC2 instance from the internet by using the VPC's routing table. For
+  example, you can set rules on this security group to allow TCP access to the
+  EC2 instance over port 22.
+- Create custom rules in the security group for your DB clusters that allow connections from the security group you
+  created for your EC2 instances. These rules might allow any member of the
+  security group to access the DB clusters.
+
+There is an additional public and private subnet in a separate Availability Zone.
+An RDS DB subnet group requires a subnet in at least two Availability Zones. The
+additional subnet makes it easy to switch to a Multi-AZ DB instance deployment in
+the future.
+
+For a tutorial that shows you how to create a VPC with both public and private
+subnets for this scenario, see [Tutorial: Create a VPC for use with a
+DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+
+###### Tip
+
+You can set up network connectivity between an Amazon EC2 instance and a DB cluster automatically when you create the DB cluster. For more information, see [Configure automatic network connectivity with
+an EC2 instance](Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic "Aurora.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic")
+.
+
+###### To create a rule in a VPC security group that allows connections from another
+
+security group, do the following:
+
+1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
+2. In the navigation pane, choose **Security
+   groups**.
+3. Choose or create a security group for which you want to allow access to
+   members of another security group. In the preceding scenario, this is the
+   security group that you use for your DB clusters. Choose
+   the **Inbound rules** tab, and then choose **Edit
+   inbound rules**.
+4. On the **Edit inbound rules** page, choose **Add
+   rule**.
+5. For **Type**, choose the entry that corresponds to the
+   port you used when you created your DB cluster, such as
+   **MYSQL/Aurora**.
+6. In the **Source** box, start typing the ID of the
+   security group, which lists the matching security groups. Choose the
+   security group with members that you want to have access to the resources
+   protected by this security group. In the scenario preceding, this is the
+   security group that you use for your EC2 instance.
+7. If required, repeat the steps for the TCP protocol by creating a rule with
+   **All TCP** as the **Type** and your
+   security group in the **Source** box. If you intend to use
+   the UDP protocol, create a rule with **All UDP** as the
+   **Type** and your security group in
+   **Source**.
+8. Choose **Save rules**.
+
+The following screen shows an inbound rule with a security group for its
+source.
+
+![Adding a security group to another security group's rules.](images/con-vpc-add-sg-rule.png)
+
+For more information about connecting to the DB cluster from your EC2
+instance, see
+[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+
+## A DB cluster in a VPC
+
+accessed by an EC2 instance in a different VPC
+
+When your DB clusters is in a different VPC from the EC2 instance
+you are using to access it, you can use VPC peering to access the DB cluster.
+
+The following diagram shows this scenario.
+
+![A DB instance in a VPC accessed by an Amazon EC2 instance in a different VPC.](images/RDSVPC2EC2VPC-aurora.png)
+
+A VPC peering connection is a networking connection between two VPCs that enables
+you to route traffic between them using private IP addresses. Resources in either
+VPC can communicate with each other as if they are within the same network. You can
+create a VPC peering connection between your own VPCs, with a VPC in another AWS
+account, or with a VPC in a different AWS Region. To learn more about VPC peering,
+see [VPC peering](../../../vpc/latest/userguide/vpc-peering.md "../../../vpc/latest/userguide/vpc-peering.md") in the
+_Amazon Virtual Private Cloud User Guide_.
+
+## A DB cluster in a VPC
+
+accessed by a client application through the internet
+
+To access a DB clusters in a VPC from a client application through
+the internet, you configure a VPC with a single public subnet, and an internet
+gateway to enable communication over the internet.
+
+The following diagram shows this scenario.
+
+![A DB cluster in a VPC accessed by a client application through the internet.](images/GS-VPC-network-aurora.png)
+
+We recommend the following configuration:
+
+- A VPC of size /16 (for example CIDR: 10.0.0.0/16). This size provides
+  65,536 private IP addresses.
+- A subnet of size /24 (for example CIDR: 10.0.0.0/24). This size provides
+  256 private IP addresses.
+- An Amazon Aurora DB cluster that is
+  associated with the VPC and the subnet. Amazon RDS assigns an IP address within
+  the subnet to your DB cluster.
+- An internet gateway which connects the VPC to the internet and to other
+  AWS products.
+- A security group associated with the DB cluster. The
+  security group's inbound rules allow your client application to access to
+  your DB cluster.
+
+For information about creating a DB clusters in a VPC, see
+[Creating a DB cluster in a
+VPC](USER_VPC.md#USER_VPC.InstanceInVPC "USER_VPC.md#USER_VPC.InstanceInVPC").
+
+## A DB cluster in a VPC
+
+accessed by a private network
+
+If your DB cluster isn't publicly accessible, you have the
+following options for accessing it from a private network:
+
+- An AWS Site-to-Site VPN connection. For more information, see [What is
+  AWS Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md")
+- An Direct Connect connection. For more information, see [What
+  is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
+- An AWS Client VPN connection. For more information, see [What is
+  AWS Client VPN?](../../../vpn/latest/clientvpn-admin/what-is.md "../../../vpn/latest/clientvpn-admin/what-is.md")
+
+The following diagram shows a scenario with an AWS Site-to-Site VPN connection.
+
+![DB clusters in a VPC accessed by a private network.](images/site-to-site-vpn-connection-aurora.png)
+
+For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md").

@@ -1,115 +1,132 @@
-# Logging and monitoring in Amazon Aurora
+# Controlling access with security
 
-Monitoring is an important part of maintaining the reliability, availability, and
-performance of
-Amazon Aurora and your AWS solutions. You should collect monitoring data
-from all of the parts of your AWS solution so that you can more easily debug a
-multi-point failure if one occurs. AWS provides several tools for monitoring your
+groups
 
-Amazon Aurora resources and responding to potential incidents:
+VPC security groups control the access that traffic has in and out of a DB
+cluster.
+By default, network access is turned off for a DB
+cluster. You can specify rules
+in a security group that allow access from an IP address range, port, or security group.
+After ingress rules are configured, the same rules apply to all DB
+clusters
+that are associated with that security group. You can specify up to 20 rules in a
+security group.
 
-**Amazon CloudWatch Alarms**
+## Overview of VPC security
 
-Using Amazon CloudWatch alarms, you watch a single metric over a time period that
-you specify. If the metric exceeds a given threshold, a notification is sent
-to an Amazon SNS topic or AWS Auto Scaling policy. CloudWatch alarms do not invoke actions
-because they are in a particular state. Rather the state must have changed
-and been maintained for a specified number of periods.
+groups
 
-**AWS CloudTrail Logs**
-
-CloudTrail provides a record of actions taken by a user, role, or an AWS
-service in
-Amazon Aurora. CloudTrail captures all API calls for
-
-Amazon Aurora as events, including calls from the console and from
-code calls to Amazon RDS API operations. Using the information collected by CloudTrail,
-you can determine the request that was made to
-Amazon Aurora, the IP
-address from which the request was made, who made the request, when it was
-made, and additional details. For more information, see [Monitoring Amazon Aurora API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-.
-
-**Enhanced Monitoring**
-
-Amazon Aurora provides metrics in real time for the operating
-system (OS) that your DB
-cluster runs on.
-You can view the metrics for your DB
-cluster using the
-console, or consume the Enhanced Monitoring JSON output from Amazon CloudWatch Logs in a
-monitoring system of your choice. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md")
-.
-
-**Amazon RDS Performance Insights**
-
-Performance Insights expands on existing
-Amazon Aurora monitoring
-features to illustrate your database's performance and help you analyze
-any issues that affect it. With the Performance Insights dashboard, you can
-visualize the database load and filter the load by waits, SQL statements,
-hosts, or users. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md")
-.
-
-**Database Logs**
-
-You can view, download, and watch database logs using the AWS Management Console,
-AWS CLI, or RDS API. For more information, see [Monitoring Amazon Aurora log files](USER_LogAccess.md "USER_LogAccess.md")
-.
-
-**Amazon Aurora Recommendations**
-
-Amazon Aurora provides automated recommendations for database
-resources. These recommendations provide best practice guidance by analyzing
+Each VPC security group rule makes it possible for a specific source to access a
 DB
-cluster configuration, usage, and performance data. For more
-information, see [Recommendations from Amazon Aurora](monitoring-recommendations.md "monitoring-recommendations.md")
+cluster in a VPC that is associated with that VPC security group. The
+source can be a range of addresses (for example, 203.0.113.0/24), or another VPC
+security group. By specifying a VPC security group as the source, you allow incoming
+traffic from all instances (typically application servers) that use the source VPC
+security group. VPC security groups can have rules that govern both inbound and
+outbound traffic. However, the outbound traffic rules typically don't apply to DB
+
+clusters. Outbound traffic rules apply only if the DB
+cluster acts as a client. You must use the [Amazon EC2
+API](../../../AWSEC2/latest/APIReference/Welcome.md "../../../AWSEC2/latest/APIReference/Welcome.md") or the **Security Group** option on the VPC console
+to create VPC security groups.
+
+When you create rules for your VPC security group that allow access to the
+clusters in your VPC, you must specify a port for each range of
+addresses that the rule allows access for. For example, if you want to turn on
+Secure Shell (SSH) access for instances in the VPC, create a rule allowing access to
+TCP port 22 for the specified range of addresses.
+
+You can configure multiple VPC security groups that allow access to different
+ports for different instances in your VPC. For example, you can create a VPC
+security group that allows access to TCP port 80 for web servers in your VPC. You
+can then create another VPC security group that allows access to TCP port 3306 for
+
+Aurora MySQL DB instances in your VPC.
+
+###### Note
+
+In an Aurora DB cluster, the VPC security group associated with the DB cluster
+is also associated with all of the DB instances in the DB cluster. If you change
+the VPC security group for the DB cluster or for a DB instance, the change is
+applied automatically to all of the DB instances in the DB cluster.
+
+For more information on VPC security groups, see [Security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
+_Amazon Virtual Private Cloud User Guide_.
+
+###### Note
+
+If your DB
+cluster is in a VPC but isn't publicly
+accessible, you can also use an AWS Site-to-Site VPN connection or an Direct Connect
+connection to access it from a private network. For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md")
 .
 
-**Amazon Aurora Event Notification**
+## Security group
 
-Amazon Aurora uses the Amazon Simple Notification Service (Amazon SNS) to provide notification
-when an
-Amazon Aurora event occurs. These notifications
-can be in any notification form supported by Amazon SNS for an AWS Region, such
-as an email, a text message, or a call to an HTTP endpoint. For more
-information, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md")
+scenario
+
+A common use of a DB
+cluster in a VPC is to share data with an
+application server running in an Amazon EC2 instance in the same VPC, which is accessed
+by a client application outside the VPC. For this scenario, you use the RDS and VPC
+pages on the AWS Management Console or the RDS and EC2 API operations to create the necessary
+instances and security groups:
+
+1. Create a VPC security group (for example, `sg-0123ec2example`)
+   and define inbound rules that use the IP addresses of the client application
+   as the source. This security group allows your client application to connect
+   to EC2 instances in a VPC that uses this security group.
+2. Create an EC2 instance for the application and add the EC2 instance to the
+   VPC security group (`sg-0123ec2example`) that you created in the
+   previous step.
+3. Create a second VPC security group (for example,
+   `sg-6789rdsexample`) and create a new rule by specifying the
+   VPC security group that you created in step 1
+   (`sg-0123ec2example`) as the source.
+4. Create a new DB
+   cluster and add the DB
+   cluster to the VPC security group
+   (`sg-6789rdsexample`) that you created in the previous step.
+   When you create the DB
+   cluster, use the
+   same port number as the one specified for the VPC security group
+   (`sg-6789rdsexample`) rule that you created in step 3.
+
+The following diagram shows this scenario.
+
+![DB cluster and EC2 instance in a VPC](images/con-VPC-sec-grp-aurora.png)
+
+For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a
+DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
+. For more information about
+using a VPC, see [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
 .
 
-**AWS Trusted Advisor**
+## Creating a VPC security
 
-Trusted Advisor draws upon best practices learned from serving hundreds of
-thousands of AWS customers. Trusted Advisor inspects your AWS environment and
-then makes recommendations when opportunities exist to save money, improve
-system availability and performance, or help close security gaps. All AWS
-customers have access to five Trusted Advisor checks. Customers with a Business or
-Enterprise support plan can view all Trusted Advisor checks.
+group
 
-Trusted Advisor has the following
-Amazon Aurora-related
-checks:
+You can create a VPC security group for a DB instance by using
+the VPC console. For information about creating a security group, see [Provide access to the DB cluster in the VPC by
+creating a security group](CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup "CHAP_SettingUp_Aurora.md#CHAP_SettingUp_Aurora.SecurityGroup")
+and [Security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the
+_Amazon Virtual Private Cloud User Guide_.
 
-- Amazon Aurora Idle DB Instances
-- Amazon Aurora Security Group Access
-  Risk
-- Amazon Aurora Backups
-- Amazon Aurora Multi-AZ
-- Aurora DB Instance Accessibility
+## Associating a
 
-For more information on these checks, see [Trusted Advisor best
-practices (checks)](https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/ "https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/").
+security group with a DB cluster
 
-**Database activity streams**
+You can associate a security group with a DB cluster by using **Modify
+cluster** on the RDS console, the `ModifyDBCluster` Amazon RDS
+API, or the `modify-db-cluster` AWS CLI command.
 
-Database
-activity streams can protect your databases from internal threats by
-controlling DBA access to the database activity streams. Thus, the
-collection, transmission, storage, and subsequent processing of the database
-activity stream is beyond the access of the DBAs that manage the database.
-Database activity streams can provide safeguards for your database and meet
-compliance and regulatory requirements. For more information, see[Monitoring Amazon Aurora with Database Activity
-Streams](DBActivityStreams.md "DBActivityStreams.md")
-.
+The following CLI example associates a specific VPC group and removes DB security
+groups from the DB cluster
 
-For more information about monitoring Aurora see [Monitoring metrics in an Amazon Aurora cluster](MonitoringAurora.md "MonitoringAurora.md")
+```
+aws rds modify-db-cluster --db-cluster-identifier `dbName` --vpc-security-group-ids `sg-ID`
+
+```
+
+For information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.md "Aurora.md")
 .

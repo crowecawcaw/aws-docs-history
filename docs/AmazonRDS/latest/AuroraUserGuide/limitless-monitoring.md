@@ -1,13 +1,33 @@
-# Monitoring Aurora PostgreSQL Limitless Database with Amazon GuardDuty RDS Protection
+# Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch Logs
 
-Amazon GuardDuty is a threat detection service that helps protect your accounts, containers, workloads, and the data within your AWS environment. Using
-machine learning (ML) models, and anomaly and threat detection capabilities, GuardDuty continuously monitors different log sources and runtime activity
-to identify and prioritize potential security risks and malicious activities in your environment.
+Exporting PostgreSQL logs to CloudWatch Logs is required as part of enabling Aurora PostgreSQL Limitless Database. You can access and analyze these logs in CloudWatch Logs Insights, similar to
+accessing PostgreSQL logs for a standard Aurora PostgreSQL DB cluster. For more information, see
+[Analyzing PostgreSQL logs using CloudWatch Logs Insights](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md").
 
-GuardDuty RDS Protection analyzes and profiles login events for potential access threats to your Amazon Aurora databases. When you turn on RDS Protection, GuardDuty consumes RDS
-login events from your Aurora databases. RDS Protection monitors these events and profiles them for potential insider threats or external actors.
+The log group name for the DB cluster is the same as in Aurora PostgreSQL:
 
-For more information about GuardDuty RDS Protection in Aurora, see [Monitoring threats with Amazon GuardDuty RDS Protection for Amazon Aurora](guard-duty-rds-protection.md "guard-duty-rds-protection.md").
+```
+/aws/rds/cluster/`DB_cluster_ID`/postgresql
+```
 
-For more information about enabling GuardDuty RDS Protection, see [GuardDuty RDS Protection](../../../guardduty/latest/ug/rds-protection.md "../../../guardduty/latest/ug/rds-protection.md") in
-the _Amazon GuardDuty User Guide_.
+The log group name for the DB shard group takes the following form:
+
+```
+/aws/rds/cluster/`DB_cluster_ID`/`DB_shard_group_ID`/postgresql
+```
+
+There are log streams for each node (router or shard). Their names have the following form:
+
+```
+[DistributedTransactionRouter|DataAccessShard]/`node_cluster_serial_ID`-`node_instance_serial_ID`/`n`
+```
+
+For example:
+
+- Router – `DistributedTransactionRouter/6-6.2`
+- Shard – `DataAccessShard/22-22.0`
+
+###### Note
+
+You can't view PostgreSQL log files for the DB shard group directly in the RDS console, AWS CLI, or RDS API as you can for the DB cluster. You must
+use CloudWatch Logs Insights to view them.

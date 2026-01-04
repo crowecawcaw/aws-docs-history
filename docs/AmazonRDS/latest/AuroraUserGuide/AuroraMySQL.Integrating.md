@@ -1,608 +1,185 @@
-# Loading data into an Amazon Aurora MySQL DB cluster from
+# Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs
 
-text files in an Amazon S3 bucket
+You can configure your Aurora MySQL DB cluster to publish general, slow, audit, and error log data
+to a log group in Amazon CloudWatch Logs. With CloudWatch Logs, you can perform real-time analysis of the log data, and
+use CloudWatch to create alarms and view metrics. You can use CloudWatch Logs to store your log records in highly
+durable storage.
 
-You can use the `LOAD DATA FROM S3` or `LOAD XML FROM S3`
-statement to load data from files stored in an Amazon S3 bucket. In Aurora MySQL, the files are
-first stored on the local disk, and then imported to the database. After the imports to the
-database are done, the local files are deleted.
-
-###### Note
-
-Loading data into a table from text files isn't supported for Aurora Serverless v1. It is supported for
-Aurora Serverless v2.
-
-###### Contents
-
-- [Giving Aurora access to
-  Amazon S3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Authorize "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Authorize")
-- [Granting privileges to
-  load data in Amazon Aurora MySQL](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Grant "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Grant")
-- [Specifying the path (URI) to an Amazon S3 bucket](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.URI "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.URI")
-- [LOAD DATA FROM S3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text")
-  - [Syntax](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text.Syntax")
-  - [Parameters](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text.Parameters")
-  - [Using a manifest
-    to specify data files to load](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Manifest "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Manifest")
-    - [Verifying loaded files using the aurora_s3_load_history table](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History")
-
-  - [Examples](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text.Examples "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.Text.Examples")
-
-- [LOAD XML FROM S3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.XML "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.XML")
-  - [Syntax](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.XML.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.XML.Syntax")
-  - [Parameters](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.XML.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.LoadFromS3.XML.Parameters")
-
-## Giving Aurora access to
-
-Amazon S3
-
-Before you can load data from an Amazon S3 bucket, you must first give your Aurora MySQL DB
-cluster permission to access Amazon S3.
-
-###### To give Aurora MySQL access to Amazon S3
-
-1. Create an AWS Identity and Access Management (IAM) policy that provides the bucket and object permissions that allow
-   your Aurora MySQL DB cluster to access Amazon S3. For instructions, see
-   [Creating an IAM policy to access Amazon S3 resources](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
+To publish logs to CloudWatch Logs, the respective logs must be enabled. Error logs are enabled
+by default, but you must enable the other types of logs explicitly. For information about
+enabling logs in MySQL, see [Selecting general
+query and slow query log output destinations](https://dev.mysql.com/doc/refman/8.0/en/log-destinations.html "https://dev.mysql.com/doc/refman/8.0/en/log-destinations.html") in the MySQL documentation. For
+more information about enabling Aurora MySQL audit logs, see [Enabling Advanced Auditing](AuroraMySQL.md#AuroraMySQL.Auditing.Enable "AuroraMySQL.md#AuroraMySQL.Auditing.Enable").
 
 ###### Note
 
-In Aurora MySQL version 3.05 and higher, you can load objects that are encrypted using customer-managed
-AWS KMS keys. To do so, include the `kms:Decrypt` permission in your IAM policy. For more
-information, see [Creating an IAM policy to access AWS KMS resources](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md").
+- If exporting log data is disabled, Aurora doesn't delete existing log
+  groups or log streams. If exporting log data is disabled, existing log data
+  remains available in CloudWatch Logs, depending on log retention, and you still incur
+  charges for stored audit log data. You can delete log streams and log groups
+  using the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API.
+- An alternative way to publish audit logs to CloudWatch Logs is by enabling Advanced Auditing, then creating a custom DB
+  cluster parameter group and setting the `server_audit_logs_upload` parameter to `1`. The default
+  for the `server_audit_logs_upload` DB cluster parameter is `0`. For information on enabling
+  Advanced Auditing, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md").
 
-You don't need this permission to load objects that are encrypted using AWS managed keys or Amazon S3 managed keys
-(SSE-S3). 2. Create an IAM role, and attach the IAM policy you created in [Creating an IAM policy to access Amazon S3 resources](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") to the new IAM role.
-For instructions, see [Creating an
-IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md"). 3. Make sure the DB cluster is using a custom DB cluster parameter group.
+If you use this alternative method, you must have an IAM role to access
+CloudWatch Logs and set the `aws_default_logs_role` cluster-level parameter to
+the ARN for this role. For information about creating the role, see [Setting up IAM roles to
+access AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md"). However, if you have
+the `AWSServiceRoleForRDS` service-linked role, it provides access to
+CloudWatch Logs and overrides any custom-defined roles. For information about
+service-linked roles for Amazon RDS, see [Using service-linked roles for
+Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 
-For more information about creating a custom DB cluster parameter group, see [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. For Aurora MySQL version 2, set either the `aurora_load_from_s3_role` or `aws_default_s3_role`
-DB cluster parameter to the Amazon Resource Name (ARN) of the new IAM role. If an IAM role isn't specified for
-`aurora_load_from_s3_role`, Aurora uses the IAM role specified in
-`aws_default_s3_role`.
+- If you don't want to export audit logs to CloudWatch Logs, make sure that all methods of exporting audit logs are disabled. These methods are the
+  AWS Management Console, the AWS CLI, the RDS API, and the `server_audit_logs_upload` parameter.
+- The procedure is slightly different for Aurora Serverless v1 DB clusters than
+  for DB clusters with provisioned or Aurora Serverless v2 DB instances.
+  Aurora Serverless v1 clusters automatically upload all of the logs that you enable
+  through configuration parameters.
 
-For Aurora MySQL version 3, use `aws_default_s3_role`.
+Therefore, you turn on or turn off log upload for Aurora Serverless v1 DB
+clusters by turning different log types on and off in the DB cluster parameter
+group. You don't modify the settings of the cluster itself through the
+AWS Management Console, AWS CLI, or RDS API. For information about turning on and off MySQL
+logs for Aurora Serverless v1 clusters, see [Parameter groups for
+Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups").
+You can publish Aurora MySQL logs for provisioned clusters to CloudWatch Logs with the console.
 
-If the cluster is part of an Aurora global database,
-set this parameter for each Aurora cluster in the global database. Although only the primary
-cluster in an Aurora global database can load data, another cluster might be promoted
-by the failover mechanism and become the primary cluster.
+###### To publish Aurora MySQL logs from the console
 
-For more information about DB cluster parameters, see [Amazon Aurora DB cluster and DB instance
-parameters](USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups "USER_WorkingWithDBClusterParamGroups.md#Aurora.Managing.ParameterGroups"). 5. To permit database users in an Aurora MySQL DB cluster to access Amazon S3, associate the role that you
-created in [Creating an
-IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md") with the DB cluster.
-For an Aurora global database, associate the role with each Aurora cluster in the global database.
-For information about associating an IAM role with a DB cluster, see
-[Associating an IAM role with an
-Amazon Aurora MySQL DB cluster](AuroraMySQL.Integrating.Authorizing.IAM.md "AuroraMySQL.Integrating.Authorizing.IAM.md"). 6. Configure your Aurora MySQL DB cluster to allow outbound connections to Amazon S3. For instructions, see
-[Enabling network
-communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the Aurora MySQL DB cluster that you want to publish the log data
+   for.
+4. Choose **Modify**.
+5. In the **Log exports** section, choose the logs that
+   you want to start publishing to CloudWatch Logs.
+6. Choose **Continue**, and then choose **Modify DB
+   Cluster** on the summary page.
+   You can publish Aurora MySQL logs for provisioned clusters with the AWS CLI. To do so, you
+   run the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md")
+   AWS CLI command with the following options:
 
-If your DB cluster isn't publicly accessible and in a VPC public subnet, it is private.
-You can create an S3 gateway endpoint to access your S3 bucket.
-For more information, see [Gateway endpoints for Amazon S3](../../../vpc/latest/privatelink/vpc-endpoints-s3.md "../../../vpc/latest/privatelink/vpc-endpoints-s3.md").
+- `--db-cluster-identifier`—The DB cluster identifier.
+- `--cloudwatch-logs-export-configuration`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  You can also publish Aurora MySQL logs by running one of the following AWS CLI
+  commands:
 
-For an Aurora global database, enable outbound connections for each Aurora cluster in the global database.
+- [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md")
+- [restore-db-cluster-from-s3](../../../cli/latest/reference/rds/restore-db-cluster-from-s3.md "../../../cli/latest/reference/rds/restore-db-cluster-from-s3.md")
+- [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md")
+- [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
+  Run one of these AWS CLI commands with the following options:
 
-## Granting privileges to
+- `--db-cluster-identifier`—The DB cluster identifier.
+- `--engine`—The database engine.
+- `--enable-cloudwatch-logs-exports`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  Other options might be required depending on the AWS CLI command that you
+  run.
 
-load data in Amazon Aurora MySQL
+The following command modifies an existing Aurora MySQL DB cluster to publish log files to CloudWatch Logs.
 
-The database user that issues the `LOAD DATA FROM S3` or `LOAD XML FROM S3` statement must have a
-specific role or privilege to issue either statement. In Aurora MySQL version 3, you grant the `AWS_LOAD_S3_ACCESS`
-role. In Aurora MySQL version 2, you grant the `LOAD FROM S3` privilege. The administrative user for a DB cluster is
-granted the appropriate role or privilege by default. You can grant the privilege to another user by using one of the following
-statements.
-
-Use the following statement for Aurora MySQL version 3:
-
-```
-GRANT AWS_LOAD_S3_ACCESS TO '`user`'@'`domain-or-ip-address`'
-```
-
-###### Tip
-
-When you use the role technique in Aurora MySQL version 3, you can also activate the role by
-using the `SET ROLE `role_name``or`SET ROLE
-ALL` statement. If you aren't familiar with the MySQL 8.0 role system, you can
-learn more in [Role-based privilege model](AuroraMySQL.md#AuroraMySQL.privilege-model "AuroraMySQL.md#AuroraMySQL.privilege-model"). For more details, see [Using roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in the
-_MySQL Reference Manual_.
-
-This only applies to the current active session. When you reconnect, you must run the
-`SET ROLE` statement again to grant privileges. For more information, see
-[SET ROLE
-statement](https://dev.mysql.com/doc/refman/8.0/en/set-role.html "https://dev.mysql.com/doc/refman/8.0/en/set-role.html") in the _MySQL Reference Manual_.
-
-You can use the `activate_all_roles_on_login` DB cluster parameter to
-automatically activate all roles when a user connects to a DB instance. When this
-parameter is set, you generally don't have to call the `SET ROLE` statement
-explicitly to activate a role. For more information, see [activate_all_roles_on_login](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login") in the _MySQL Reference
-Manual_.
-
-However, you must call `SET ROLE ALL` explicitly at the beginning of a
-stored procedure to activate the role, when the stored procedure is called by a
-different user.
-
-Use the following statement for Aurora MySQL version 2:
+For Linux, macOS, or Unix:
 
 ```
-GRANT LOAD FROM S3 ON *.* TO '`user`'@'`domain-or-ip-address`'
-```
-
-The `AWS_LOAD_S3_ACCESS` role and `LOAD FROM S3` privilege are specific to Amazon Aurora and are not
-available for external MySQL databases or RDS for MySQL DB instances. If you have set up replication between an Aurora DB cluster as
-the replication source and a MySQL database as the replication client, then the `GRANT` statement for the role or
-privilege causes replication to stop with an error. You can safely skip the error to resume replication. To skip the error on an
-RDS for MySQL instance, use the [mysql_rds_skip_repl_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md")
-procedure. To skip the error on an external MySQL database, use the [slave_skip_errors](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors") system variable (Aurora MySQL version 2) or [replica_skip_errors](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors") system variable (Aurora MySQL version 3).
-
-###### Note
-
-The database user must have `INSERT` privileges for the database into
-which it's loading data.
-
-## Specifying the path (URI) to an Amazon S3 bucket
-
-The syntax for specifying the path (URI) to files stored on an Amazon S3 bucket is as follows.
+aws rds modify-db-cluster \
+    --db-cluster-identifier `mydbcluster` \
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["error","general","slowquery","audit","instance"]}'
 
 ```
-s3`-region`://`amzn-s3-demo-bucket`/`file-name-or-prefix`
-```
 
-The path includes the following values:
-
-- `region` (optional) – The AWS Region that contains the
-  Amazon S3 bucket to load from. This value is optional. If you don't specify a
-  `region` value, then Aurora loads your file from Amazon S3 in the
-  same region as your DB cluster.
-- `bucket-name` – The name of the Amazon S3 bucket that
-  contains the data to load. Object prefixes that identify a virtual folder
-  path are supported.
-- `file-name-or-prefix` – The name of the Amazon S3 text file
-  or XML file, or a prefix that identifies one or more text or XML files to
-  load. You can also specify a manifest file that identifies one or more text
-  files to load. For more information about using a manifest file to load text
-  files from Amazon S3, see [Using a manifest
-  to specify data files to load](#AuroraMySQL.Integrating.LoadFromS3.Manifest "#AuroraMySQL.Integrating.LoadFromS3.Manifest").
-
-###### To copy the URI for files in an S3 bucket
-
-1. Sign in to the AWS Management Console and open the Amazon S3 console at
-   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
-2. In the navigation pane, choose **Buckets**, and then choose the bucket whose URI you want to
-   copy.
-3. Select the prefix or file that you want to load from S3.
-4. Choose **Copy S3 URI**.
-
-## LOAD DATA FROM S3
-
-You can use the `LOAD DATA FROM S3` statement to load data from any text file format that is supported by the
-MySQL [LOAD DATA INFILE](https://dev.mysql.com/doc/refman/8.0/en/load-data.html "https://dev.mysql.com/doc/refman/8.0/en/load-data.html") statement, such as text data
-that is comma-delimited. Compressed files are not supported.
-
-###### Note
-
-Make sure that your Aurora MySQL DB cluster allows outbound connections to S3. For more information, see [Enabling network
-communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md").
-
-### Syntax
+For Windows:
 
 ```
-LOAD DATA [FROM] S3 [FILE | PREFIX | MANIFEST] '`S3-URI`'
-    [REPLACE | IGNORE]
-    INTO TABLE `tbl_name`
-    [PARTITION (`partition_name`,...)]
-    [CHARACTER SET `charset_name`]
-    [{FIELDS | COLUMNS}
-        [TERMINATED BY '`string`']
-        [[OPTIONALLY] ENCLOSED BY '`char`']
-        [ESCAPED BY '`char`']
-    ]
-    [LINES
-        [STARTING BY '`string`']
-        [TERMINATED BY '`string`']
-    ]
-    [IGNORE `number` {LINES | ROWS}]
-    [(`col_name_or_user_var`,...)]
-    [SET `col_name` = `expr`,...]
-```
-
-###### Note
-
-In Aurora MySQL version 3.05 and higher, the keyword `FROM` is optional.
-
-### Parameters
-
-The `LOAD DATA FROM S3` statement uses the following required and optional parameters. You can find more
-details about some of these parameters in [LOAD DATA
-Statement](https://dev.mysql.com/doc/refman/8.0/en/load-data.html "https://dev.mysql.com/doc/refman/8.0/en/load-data.html") in the MySQL documentation.
-
-**FILE | PREFIX | MANIFEST**
-
-Identifies whether to load the data from a single file, from all files that match a given prefix, or from all
-files in a specified manifest. `FILE` is the default.
-
-**S3-URI**
-
-Specifies the URI for a text or manifest file to load, or an Amazon S3 prefix to use. Specify the URI using the
-syntax described in [Specifying the path (URI) to an Amazon S3 bucket](#AuroraMySQL.Integrating.LoadFromS3.URI "#AuroraMySQL.Integrating.LoadFromS3.URI").
-
-**REPLACE | IGNORE**
-
-Determines what action to take if an input row has the same unique key values as an existing row in the
-database table.
-
-- Specify `REPLACE` if you want the input row to replace the existing row in the
-  table.
-- Specify `IGNORE` if you want to discard the input row.
-
-**INTO TABLE**
-
-Identifies the name of the database table to load the input rows into.
-
-**PARTITION**
-
-Requires that all input rows be inserted into the partitions identified by the specified list of
-comma-separated partition names. If an input row cannot be inserted into one of the specified partitions, then
-the statement fails and an error is returned.
-
-**CHARACTER SET**
-
-Identifies the character set of the data in the input file.
-
-**FIELDS | COLUMNS**
-
-Identifies how the fields or columns in the input file are delimited. Fields are tab-delimited by
-default.
-
-**LINES**
-
-Identifies how the lines in the input file are delimited. Lines are delimited by a newline character
-(`'\n'`) by default.
-
-**IGNORE `number` LINES | ROWS**
-
-Specifies to ignore a certain number of lines or rows at the start of the input file. For example, you can use
-`IGNORE 1 LINES` to skip over an initial header line containing column names, or `IGNORE 2
- ROWS` to skip over the first two rows of data in the input file. If you also use `PREFIX`,
-`IGNORE` skips a certain number of lines or rows at the start of the first input file.
-
-**col_name_or_user_var, ...**
-
-Specifies a comma-separated list of one or more column names or user variables that identify which columns to
-load by name. The name of a user variable used for this purpose must match the name of an element from the text
-file, prefixed with @. You can employ user variables to store the corresponding field values for subsequent
-reuse.
-
-For example, the following statement loads the first column from the input file into the first column of
-`table1`, and sets the value of the `table_column2` column in `table1` to
-the input value of the second column divided by 100.
+aws rds modify-db-cluster ^
+    --db-cluster-identifier `mydbcluster` ^
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["error","general","slowquery","audit","instance"]}'
 
 ```
-LOAD DATA FROM S3 's3://`amzn-s3-demo-bucket`/data.txt'
-    INTO TABLE table1
-    (column1, @var1)
-    SET table_column2 = @var1/100;
-```
 
-**SET**
+The following command creates an Aurora MySQL DB cluster to publish log files to
+CloudWatch Logs.
 
-Specifies a comma-separated list of assignment operations that set the values of columns in the table to
-values not included in the input file.
-
-For example, the following statement sets the first two columns of `table1` to the values in the
-first two columns from the input file, and then sets the value of the `column3` in
-`table1` to the current time stamp.
+For Linux, macOS, or Unix:
 
 ```
-LOAD DATA FROM S3  's3://`amzn-s3-demo-bucket`/data.txt'
-    INTO TABLE table1
-    (column1, column2)
-    SET column3 = CURRENT_TIMESTAMP;
-```
-
-You can use subqueries in the right side of `SET` assignments. For a subquery that returns a value
-to be assigned to a column, you can use only a scalar subquery. Also, you cannot use a subquery to select from
-the table that is being loaded.
-
-You can't use the `LOCAL` keyword of the `LOAD DATA FROM S3` statement if you're loading data
-from an Amazon S3 bucket.
-
-### Using a manifest
-
-to specify data files to load
-
-You can use the `LOAD DATA FROM S3` statement with the `MANIFEST` keyword to specify a manifest
-file in JSON format that lists the text files to be loaded into a table in your DB cluster.
-
-The following JSON schema describes the format and content of a manifest
-file.
+aws rds create-db-cluster \
+    --db-cluster-identifier `mydbcluster` \
+    --engine aurora \
+    --enable-cloudwatch-logs-exports '["error","general","slowquery","audit","instance"]'
 
 ```
-{
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "additionalProperties": false,
-    "definitions": {},
-    "id": "Aurora_LoadFromS3_Manifest",
-    "properties": {
-        "entries": {
-            "additionalItems": false,
-            "id": "/properties/entries",
-            "items": {
-                "additionalProperties": false,
-                "id": "/properties/entries/items",
-                "properties": {
-                    "mandatory": {
-                        "default": "false",
-                        "id": "/properties/entries/items/properties/mandatory",
-                        "type": "boolean"
-                    },
-                    "url": {
-                        "id": "/properties/entries/items/properties/url",
-                        "maxLength": 1024,
-                        "minLength": 1,
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "url"
-                ],
-                "type": "object"
-            },
-            "type": "array",
-            "uniqueItems": true
-        }
-    },
-    "required": [
-        "entries"
-    ],
-    "type": "object"
-}
-```
 
-Each `url` in the manifest must specify a URL with the bucket name
-and full object path for the file, not just a prefix. You can use a manifest to
-load files from different buckets, different regions, or files that do not share
-the same prefix. If a region is not specified in the URL, the region of the
-target Aurora DB cluster is used. The following example shows a manifest file
-that loads four files from different buckets.
+For Windows:
 
 ```
-{
-  "entries": [
-    {
-      "url":"s3://aurora-bucket/2013-10-04-customerdata",
-      "mandatory":true
-    },
-    {
-      "url":"s3-us-west-2://aurora-bucket-usw2/2013-10-05-customerdata",
-      "mandatory":true
-    },
-    {
-      "url":"s3://aurora-bucket/2013-10-04-customerdata",
-      "mandatory":false
-    },
-    {
-      "url":"s3://aurora-bucket/2013-10-05-customerdata"
-    }
-  ]
-}
-```
-
-The optional `mandatory` flag specifies whether `LOAD DATA FROM S3` should return an error if
-the file is not found. The `mandatory` flag defaults to `false`. Regardless of how
-`mandatory` is set, `LOAD DATA FROM S3` terminates if no files are found.
-
-Manifest files can have any extension. The following example runs the `LOAD DATA FROM S3` statement with
-the manifest in the previous example, which is named `customer.manifest`.
+aws rds create-db-cluster ^
+    --db-cluster-identifier `mydbcluster` ^
+    --engine aurora ^
+    --enable-cloudwatch-logs-exports '["error","general","slowquery","audit","instance"]'
 
 ```
-LOAD DATA FROM S3 MANIFEST 's3-us-west-2://aurora-bucket/customer.manifest'
-    INTO TABLE CUSTOMER
-    FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n'
-    (ID, FIRSTNAME, LASTNAME, EMAIL);
-```
 
-After the statement completes, an entry for each successfully loaded file is
-written to the `aurora_s3_load_history` table.
+You can publish Aurora MySQL logs for provisioned clusters with the RDS API. To do so, you
+run the [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") operation
+with the following options:
 
-#### Verifying loaded files using the aurora_s3_load_history table
+- `DBClusterIdentifier`—The DB cluster identifier.
+- `CloudwatchLogsExportConfiguration`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  You can also publish Aurora MySQL logs with the RDS API by running one of the
+  following RDS API operations:
 
-Every successful `LOAD DATA FROM S3` statement updates the `aurora_s3_load_history` table in
-the `mysql` schema with an entry for each file that was loaded.
+- [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md")
+- [RestoreDBClusterFromS3](../APIReference/API_RestoreDBClusterFromS3.md "../APIReference/API_RestoreDBClusterFromS3.md")
+- [RestoreDBClusterFromSnapshot](../APIReference/API_RestoreDBClusterFromSnapshot.md "../APIReference/API_RestoreDBClusterFromSnapshot.md")
+- [RestoreDBClusterToPointInTime](../APIReference/API_RestoreDBClusterToPointInTime.md "../APIReference/API_RestoreDBClusterToPointInTime.md")
+  Run the RDS API operation with the following parameters:
 
-After you run the `LOAD DATA FROM S3` statement, you can verify which files were loaded by querying the
-`aurora_s3_load_history` table. To see the files that were loaded from one iteration of the statement,
-use the `WHERE` clause to filter the records on the Amazon S3 URI for the manifest file used in the statement. If
-you have used the same manifest file before, filter the results using the `timestamp` field.
+- `DBClusterIdentifier`—The DB cluster identifier.
+- `Engine`—The database engine.
+- `EnableCloudwatchLogsExports`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  Other parameters might be required depending on the AWS CLI command that you
+  run.
 
-```
-select * from mysql.aurora_s3_load_history where load_prefix = '`S3_URI`';
-```
+## Monitoring log events in Amazon CloudWatch
 
-The following table describes the fields in the
-`aurora_s3_load_history` table.
-
-| Field            | Description                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `load_prefix`    | The URI that was specified in the<br>load statement. This URI can map to any of the<br>following:<br>• A single data file for a `LOAD DATA FROM S3 FILE` statement<br>• An Amazon S3 prefix that maps to multiple data files for a `LOAD DATA FROM S3<br>PREFIX` statement<br>• A single manifest file that contains the names of files to be loaded for a `LOAD DATA FROM S3 MANIFEST` statement |
-| `file_name`      | The name of a file that was loaded into Aurora from<br>Amazon S3 using the URI identified in the<br>`load_prefix` field.                                                                                                                                                                                                                                                                          |
-| `version_number` | The version number of the file identified by the<br>`file_name` field that was loaded, if the<br>Amazon S3 bucket has a version number.                                                                                                                                                                                                                                                           |
-| `bytes_loaded`   | The size of the file loaded, in bytes.                                                                                                                                                                                                                                                                                                                                                            |
-| `load_timestamp` | The timestamp when the `LOAD DATA FROM S3` statement completed.                                                                                                                                                                                                                                                                                                                                   |
-
-### Examples
-
-The following statement loads data from an Amazon S3 bucket that is in the same
-region as the Aurora DB cluster. The statement reads the comma-delimited data in
-the file `customerdata.txt` that is in the `amzn-s3-demo-bucket` Amazon S3
-bucket, and then loads the data into the table
-`store-schema.customer-table`.
+After enabling Aurora MySQL log events, you can monitor the events in Amazon CloudWatch Logs. A new
+log group is automatically created for the Aurora DB cluster under the following
+prefix, in which `cluster-name` represents the
+DB cluster name, and `log_type` represents the log type.
 
 ```
-LOAD DATA FROM S3 's3://`amzn-s3-demo-bucket`/customerdata.csv'
-    INTO TABLE store-schema.customer-table
-    FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n'
-    (ID, FIRSTNAME, LASTNAME, ADDRESS, EMAIL, PHONE);
+/aws/rds/cluster/`cluster-name`/`log_type`
 ```
 
-The following statement loads data from an Amazon S3 bucket that is in a different
-region from the Aurora DB cluster. The statement reads the comma-delimited data
-from all files that match the `employee-data` object prefix in the
-`amzn-s3-demo-bucket` Amazon S3 bucket in the `us-west-2` region, and
-then loads the data into the `employees` table.
+For example, if you configure the export function to include the slow query log for a DB cluster
+named `mydbcluster`, slow query data is stored in the
+`/aws/rds/cluster/mydbcluster/slowquery` log group.
 
-```
-LOAD DATA FROM S3 PREFIX 's3-us-west-2://`amzn-s3-demo-bucket`/employee_data'
-    INTO TABLE employees
-    FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n'
-    (ID, FIRSTNAME, LASTNAME, EMAIL, SALARY);
-```
+The events from all instances in your cluster are pushed to a log group using different log streams.
+The behavior depends on which of the following conditions is true:
 
-The following statement loads data from the files specified in a JSON manifest
-file named q1_sales.json into the `sales` table.
+- A log group with the specified name exists.
 
-```
-LOAD DATA FROM S3 MANIFEST 's3-us-west-2://`amzn-s3-demo-bucket1`/q1_sales.json'
-    INTO TABLE sales
-    FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n'
-    (MONTH, STORE, GROSS, NET);
-```
+Aurora uses the existing log group to export log data for the cluster. To create log groups with
+predefined log retention periods, metric filters, and customer access, you can use automated
+configuration, such as AWS CloudFormation.
 
-## LOAD XML FROM S3
+- A log group with the specified name doesn't exist.
 
-You can use the `LOAD XML FROM S3` statement to load data from XML
-files stored on an Amazon S3 bucket in one of three different XML formats:
+When a matching log entry is detected in the log file for the instance, Aurora MySQL creates a new log
+group in CloudWatch Logs automatically. The log group uses the default log retention period of
+**Never Expire**.
 
-- Column names as attributes of a `<row>` element. The
-  attribute value identifies the contents of the table field.
+To change the log retention period, use the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API. For more
+information about changing log retention periods in CloudWatch Logs, see [Change log data retention in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md "../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md").
 
-```
-<row column1="value1" column2="value2" .../>
-```
-
-- Column names as child elements of a `<row>` element. The
-  value of the child element identifies the contents of the table
-  field.
-
-```
-<row>
-  <column1>value1</column1>
-  <column2>value2</column2>
-</row>
-```
-
-- Column names in the `name` attribute of
-  `<field>` elements in a `<row>`
-  element. The value of the `<field>` element identifies the
-  contents of the table field.
-
-```
-<row>
-  <field name='column1'>value1</field>
-  <field name='column2'>value2</field>
-</row>
-```
-
-### Syntax
-
-```
-LOAD XML FROM S3 '`S3-URI`'
-    [REPLACE | IGNORE]
-    INTO TABLE `tbl_name`
-    [PARTITION (partition_name,...)]
-    [CHARACTER SET charset_name]
-    [ROWS IDENTIFIED BY '`<element-name>`']
-    [IGNORE `number` {LINES | ROWS}]
-    [(field_name_or_user_var,...)]
-    [SET col_name = expr,...]
-```
-
-### Parameters
-
-The `LOAD XML FROM S3` statement uses the following required and optional parameters. You can find more
-details about some of these parameters in [LOAD XML
-Statement](https://dev.mysql.com/doc/refman/8.0/en/load-xml.html "https://dev.mysql.com/doc/refman/8.0/en/load-xml.html") in the MySQL documentation.
-
-**FILE | PREFIX**
-
-Identifies whether to load the data from a single file, or from all files that match a given prefix.
-`FILE` is the default.
-
-**REPLACE | IGNORE**
-
-Determines what action to take if an input row has the same unique key values as an existing row in the
-database table.
-
-- Specify `REPLACE` if you want the input row to replace the existing row in the
-  table.
-- Specify `IGNORE` if you want to discard the input row. `IGNORE` is the
-  default.
-
-**INTO TABLE**
-
-Identifies the name of the database table to load the input rows into.
-
-**PARTITION**
-
-Requires that all input rows be inserted into the partitions identified by the specified list of
-comma-separated partition names. If an input row cannot be inserted into one of the specified partitions, then
-the statement fails and an error is returned.
-
-**CHARACTER SET**
-
-Identifies the character set of the data in the input file.
-
-**ROWS IDENTIFIED BY**
-
-Identifies the element name that identifies a row in the input file. The default is
-`<row>`.
-
-**IGNORE `number` LINES | ROWS**
-
-Specifies to ignore a certain number of lines or rows at the start of the input file. For example, you can use
-`IGNORE 1 LINES` to skip over the first line in the text file, or `IGNORE 2 ROWS` to
-skip over the first two rows of data in the input XML.
-
-**field_name_or_user_var, ...**
-
-Specifies a comma-separated list of one or more XML element names or user variables that identify which
-elements to load by name. The name of a user variable used for this purpose must match the name of an element
-from the XML file, prefixed with @. You can employ user variables to store the corresponding field values for
-subsequent reuse.
-
-For example, the following statement loads the first column from the input file into the first column of
-`table1`, and sets the value of the `table_column2` column in `table1` to
-the input value of the second column divided by 100.
-
-```
-LOAD XML FROM S3 's3://`amzn-s3-demo-bucket`/data.xml'
-   INTO TABLE table1
-   (column1, @var1)
-   SET table_column2 = @var1/100;
-```
-
-**SET**
-
-Specifies a comma-separated list of assignment operations that set the values of columns in the table to
-values not included in the input file.
-
-For example, the following statement sets the first two columns of `table1` to the values in the
-first two columns from the input file, and then sets the value of the `column3` in
-`table1` to the current time stamp.
-
-```
-LOAD XML FROM S3 's3://`amzn-s3-demo-bucket`/data.xml'
-   INTO TABLE table1
-   (column1, column2)
-   SET column3 = CURRENT_TIMESTAMP;
-```
-
-You can use subqueries in the right side of `SET` assignments. For a subquery that returns a value
-to be assigned to a column, you can use only a scalar subquery. Also, you can't use a subquery to select from
-the table that's being loaded.
+To search for information within the log events for a DB cluster, use the CloudWatch Logs console, the AWS CLI, or
+the CloudWatch Logs API. For more information about searching and filtering log data, see [Searching and filtering log data](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md").
