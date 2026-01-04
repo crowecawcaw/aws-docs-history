@@ -1,87 +1,84 @@
-# Required IAM permissions for Elastic Beanstalk to access secrets and parameters
+# Using AWS Secrets Manager and AWS Systems Manager Parameter Store
 
-You must grant the necessary permissions to your environment’s EC2 instances to fetch the secrets and parameters for AWS Secrets Manager and AWS Systems Manager Parameter
-Store. Permissions are provided to the EC2 instances via an EC2 [instance profile role.](iam-instanceprofile.md "iam-instanceprofile.md")
+This topic provides a brief introduction of AWS Secrets Manager and AWS Systems Manager Parameter Store, pricing information, and references to learn more about creating
+and retrieving secrets, using both the console and programmatic options.
 
-The following sections list the specific permissions that you need to add to an EC2 instance profile, depending on which service you use. Follow the
-steps provided in [Update the permissions policy for a
-role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md") in the _IAM User Guide_ to add these permissions.
+###### About Secrets Manager
 
-###### IAM permissions for the ECS managed Docker platform
+AWS Secrets Manager helps you manage, retrieve, and rotate secrets throughout their lifecycles. Examples of secret data you can manage include database
+credentials, application credentials, OAuth tokens, and API keys. Secrets Manager enables you to configure an automatic rotation schedule for your secrets.
 
-The ECS managed Docker platform requires additional IAM permissions to the ones provided in this topic. For more information about all of the
-required permissions for your ECS managed Docker platform environment to support Elastic Beanstalk environment variables integration with secrets, see [Execution Role ARN format](create_deploy_docker_v2config.md#create_deploy_docker_v2config_executionRoleArn_format "create_deploy_docker_v2config.md#create_deploy_docker_v2config_executionRoleArn_format").
+###### About Systems Manager Parameter Store
+
+Parameter Store is a tool in AWS Systems Manager. It provides secure, hierarchical storage for configuration data management and secrets management. You can
+manage important configuration data as parameter values. Examples of data that you can manage with Parameter Store includes Amazon Machine Image (AMI)
+IDs, license codes, passwords, and database strings.
+
+###### Pricing
+
+Standard charges apply for using Secrets Manager and Systems Manager
+Parameter Store. For more information about pricing,
+see the following websites:
+
+- [AWS Secrets Manager pricing](https://aws.amazon.com/secrets-manager/pricing "https://aws.amazon.com/secrets-manager/pricing")
+- [AWS Systems Manager pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/") (select _Parameter Store_ from the content
+  list)
 
 ###### Topics
 
-- [Required IAM permissions for Secrets Manager](#AWSHowTo.secrets.IAM-permissions.secrets-manager "#AWSHowTo.secrets.IAM-permissions.secrets-manager")
-- [Required IAM permissions Systems Manager Parameter Store](#AWSHowTo.secrets.IAM-permissions.ssm-paramter-store "#AWSHowTo.secrets.IAM-permissions.ssm-paramter-store")
+- [Using Secrets Manager to create and retrieve secrets](#AWSHowTo.secrets.Secrets-Manager "#AWSHowTo.secrets.Secrets-Manager")
+- [Using Systems Manager Parameter Store to create and retrieve parameters](#AWSHowTo.secrets.SSM-parmameter-store "#AWSHowTo.secrets.SSM-parmameter-store")
 
-## Required IAM permissions for Secrets Manager
+## Using Secrets Manager to create and retrieve secrets
 
-The following permissions grant access to fetch encrypted secrets from the AWS Secrets Manager store:
+You can create and retrieve Secrets Manager secrets using the AWS Secrets Manager console, the AWS CLI, or the AWS SDK. Refer to the following resources to learn more
+about different methods to create and retrieve Secrets Manager secrets.
 
-- secretsmanager:GetSecretValue
-- kms:Decrypt
+###### Creating secrets
 
-The permission to decrypt an AWS KMS key is only required if your secret uses a customer managed key instead of the default key. The addition of
-your custom key ARN adds the permission to decrypt the customer managed key.
+- Console – [Create an AWS Secrets Manager secret
+  (console)](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_
+- AWS CLI – [AWSCLI](../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli "../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli") in the
+  _AWS Secrets Manager User Guide_
+- AWS SDK – [AWS SDK](../../../secretsmanager/latest/userguide/create_secret.md#create_secret_sdk "../../../secretsmanager/latest/userguide/create_secret.md#create_secret_sdk") in
+  the _AWS Secrets Manager User Guide_
 
-###### Example policy with Secrets Manager and KMS key permissions
+###### Retrieving secrets
 
-JSON
+- Console – [Get a secret value
+  (console)](../../../secretsmanager/latest/userguide/retrieving-secrets-console.md "../../../secretsmanager/latest/userguide/retrieving-secrets-console.md") in the _AWS Secrets Manager User Guide_
+- AWS CLI – [Get a secret value
+  (AWS CLI)](../../../secretsmanager/latest/userguide/retrieving-secrets_cli.md "../../../secretsmanager/latest/userguide/retrieving-secrets_cli.md") in the _AWS Secrets Manager User Guide_
+- AWS SDK – [Code examples for Secrets Manager using
+  AWS SDKs](../../../code-library/latest/ug/secrets-manager_code_examples.md "../../../code-library/latest/ug/secrets-manager_code_examples.md") in the _AWS SDK Code Examples Code Library_
+- Other methods – [Get secrets from
+  AWS Secrets Manager](../../../secretsmanager/latest/userguide/retrieving-secrets.md "../../../secretsmanager/latest/userguide/retrieving-secrets.md") in the _AWS Secrets Manager User Guide_
 
-```
-`{
- "Version": "`2012-10-17`",
- "Statement": [
- {
- "Effect": "`Allow`",
- "Action": [
- "`secretsmanager:GetSecretValue`",
- "`kms:Decrypt`"
- ],
- "Resource": [
- "`arn:aws:secretsmanager:us-east-1:`111122223333`:secret:my-secret`",
- "`arn:aws:kms:us-east-1:`111122223333`:key/my-key`"
- ]
- }
- ]
-}`
+For more information about AWS Secrets Manager, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in
+the _AWS Secrets Manager User Guide_.
 
-```
+## Using Systems Manager Parameter Store to create and retrieve parameters
 
-## Required IAM permissions Systems Manager Parameter Store
+You can create and retrieve Parameter Store parameters using the AWS Systems Manager console, the AWS CLI, or the AWS SDK. Refer to the following resources to
+learn more about different methods to create and retrieve Parameter Store parameters.
 
-The following permissions grant access to fetch encrypted parameters from the AWS Systems Manager Parameter Store:
+###### Creating parameters
 
-- ssm:GetParameter
-- kms:Decrypt
+- Console – [Create a Systems Manager parameter
+  (console)](../../../systems-manager/latest/userguide/parameter-create-console.md "../../../systems-manager/latest/userguide/parameter-create-console.md") in the _AWS Systems Manager User Guide_
+- AWS CLI – [Create a Systems Manager parameter
+  (AWS CLI)](../../../systems-manager/latest/userguide/param-create-cli.md "../../../systems-manager/latest/userguide/param-create-cli.md") in the _AWS Systems Manager User Guide_
+- AWS SDK – [Use PutParameter with an
+  AWS SDK or AWS CLI](../../../code-library/latest/ug/ssm_example_ssm_PutParameter_section.md "../../../code-library/latest/ug/ssm_example_ssm_PutParameter_section.md") in the _AWS SDK Code Examples Code Library_
 
-The permission to decrypt an AWS KMS key is only required for `SecureString` parameter types that uses a customer managed key
-instead of a default key. The addition of your custom key ARN adds the permission to decrypt the customer managed key. The regular parameter types that
-aren't encrypted, `String` and `StringList`, don’t need an AWS KMS key.
+###### Retrieving parameters
 
-###### Example policy with Systems Manager and AWS KMS key permissions
+- Console – [Searching for
+  a parameter (console)](../../../systems-manager/latest/userguide/parameter-search.md#parameter-search-console "../../../systems-manager/latest/userguide/parameter-search.md#parameter-search-console") in the _AWS Systems Manager User Guide_
+- AWS CLI – [Use GetParameter with an
+  AWS SDK or AWS CLI](../../../code-library/latest/ug/ssm_example_ssm_GetParameter_section.md "../../../code-library/latest/ug/ssm_example_ssm_GetParameter_section.md") in the _AWS SDK Code Examples Code Library_
+- AWS SDK – [Use GetParameter with an
+  AWS SDK or AWS CLI](../../../code-library/latest/ug/ssm_example_ssm_GetParameter_section.md "../../../code-library/latest/ug/ssm_example_ssm_GetParameter_section.md") in the _AWS SDK Code Examples Code Library_
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "`Allow`",
- "Action": [
- "`ssm:GetParameter`",
- "`kms:Decrypt`"
- ],
- "Resource": [
- "`arn:aws:ssm:us-east-1:`111122223333`:parameter/my-parameter`",
- "`arn:aws:kms:us-east-1:`111122223333`:key/my-key`"
- ]
- }
- ]
-}`
-
-```
+For more information, see [AWS Systems Manager
+Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") in the _AWS Systems Manager User Guide_.

@@ -1,30 +1,23 @@
-# Configuring .NET containers using the AWS toolkit for Visual Studio
+# Managing your Elastic Beanstalk application environments
 
-The **Container/.NET Options** panel lets you fine-tune the behavior of your Amazon EC2 instances and enable or disable Amazon S3
-log rotation. You can use the AWS Toolkit for Visual Studio to configure your container information.
+With the AWS Toolkit for Visual Studio and the AWS Management Console, you can change the provisioning and configuration of the AWS resources used by
+your application environments. For information on how to manage your application environments using the AWS Management Console, see [Creating environments in Elastic Beanstalk](using-features.md "using-features.md"). This section discusses the specific service settings you can edit in the AWS
+Toolkit for Visual Studio as part of your application environment configuration.
 
-###### Note
+## Changing environment configurations settings
 
-You can modify your configuration settings with zero downtime by swapping the CNAME for your environments. For more information, see [Blue/Green deployments with Elastic Beanstalk](using-features.md "using-features.md").
+When you deploy your application, Elastic Beanstalk configures a number of AWS cloud computing services. You can control how these individual services are
+configured using the AWS Toolkit for Visual Studio.
 
-If you want to, you can extend the number of parameters. For information about extending parameters, see [Option settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md").
+###### To edit an application's environment settings
 
-###### To access the Container/.NET options panel for your Elastic Beanstalk application
+- Expand the Elastic Beanstalk node and your application node. Then right-click your Elastic Beanstalk environment in **AWS Explorer**. Select
+  **View Status**.
 
-1. In AWS Toolkit for Visual Studio, expand the Elastic Beanstalk node and your application node.
-2. In **AWS Explorer**, double-click your Elastic Beanstalk environment.
-3. At the bottom of the **Overview** pane, click the **Configuration** tab.
-4. Under **Container**, you can configure container options.
+You can now configure settings for the following:
 
-![Elastic Beanstalk container panel](images/aeb-vs-container.png)
-
-## .NET container options
-
-You can choose the version of .NET Framework for your application. Choose either 2.0 or 4.0 for **Target runtime**. Select
-**Enable 32-bit Applications** if you want to enable 32-bit applications.
-
-## Application settings
-
-The **Application Settings** section lets you specify environment variables that you can read from your application code.
-
-![Elastic Beanstalk container panel](images/aeb-vs-container-envproperties.png)
+    + Server
+    + Load balancing
+    + Autoscaling
+    + Notifications
+    + Environment properties

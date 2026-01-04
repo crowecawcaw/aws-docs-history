@@ -1,69 +1,127 @@
-# Configuring Auto Scaling using the AWS toolkit for Visual Studio
+# Configuring Elastic Load Balancing using the AWS toolkit for Visual Studio
 
-Amazon EC2 Auto Scaling is an Amazon web service that is designed to automatically launch or terminate Amazon EC2 instances based on user-defined triggers. You can
-set up _Auto Scaling groups_ and associate _triggers_ with these groups to automatically scale computing resources based on
-metrics such as bandwidth usage or CPU utilization. Amazon EC2 Auto Scaling works with Amazon CloudWatch to retrieve metrics for the server instances running your
+Elastic Load Balancing is an Amazon web service that helps you improve the availability and scalability of your application. This service makes it
+easy for you to distribute application loads between two or more Amazon EC2 instances. Elastic Load Balancing improves availability through providing
+additional redundancy and supports traffic growth for your application.
+
+With Elastic Load Balancing, you can automatically distribute and balance incoming application traffic among all your running instances. You can also
+easily add new instances when increasing the capacity of your application is required.
+
+Elastic Beanstalk automatically provisions Elastic Load Balancing when you deploy an application. You can edit the Elastic Beanstalk environment's Amazon EC2 instance
+configuration with the **Load Balancer** tab inside your application environment tab in AWS Toolkit for Visual Studio.
+
+![Screenshot of Load Balancer configuration panel in Visual Studio Toolkit for Elastic Beanstalk](images/aeb-vs-linux-loadbalancer.png)
+The following sections describe the Elastic Load Balancing parameters you can configure for your application.
+
+## Ports
+
+The load balancer provisioned to handle requests for your Elastic Beanstalk application sends requests to the Amazon EC2 instances that are running your
+application. The provisioned load balancer can listen for requests on HTTP and HTTPS ports and route requests to the Amazon EC2 instances in your AWS Elastic Beanstalk application. By default, the load balancer handles requests on the HTTP port. For this to work, at least one of the ports (either HTTP
+or HTTPS) must be turned on.
+
+![Elastic Beanstalk Elastic Load Balancing configuration - ports](images/aeb-vs-loadbalancer-ports.png)
+
+###### Important
+
+Make sure that the port that you specified is not locked down; otherwise, you won't be able to connect to your Elastic Beanstalk
 application.
 
-Amazon EC2 Auto Scaling lets you take a group of Amazon EC2 instances and set various parameters to have this group automatically increase or decrease in number.
-Amazon EC2 Auto Scaling can add or remove Amazon EC2 instances from that group to help you seamlessly deal with traffic changes to your application.
+### Controlling the HTTP port
 
-Amazon EC2 Auto Scaling also monitors the health of each Amazon EC2 instance that it launches. If any instance terminates unexpectedly, Amazon EC2 Auto Scaling detects the
-termination and launches a replacement instance. This capability enables you to maintain a fixed, desired number of Amazon EC2 instances automatically.
-
-Elastic Beanstalk provisions Amazon EC2 Auto Scaling for your application. You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the
-**Auto Scaling** tab inside your application environment tab in the AWS Toolkit for Visual Studio.
-
-![Screenshot of Auto Scaling configuration panel in Visual Studio Toolkit for Elastic Beanstalk](images/aeb-vs-linux-autoscaling.png)
-The following section discusses how to configure Auto Scaling parameters for your application.
-
-## Launch the configuration
-
-You can edit the launch configuration to control how your Elastic Beanstalk application provisions Amazon EC2 Auto Scaling resources.
-
-The **Minimum Instance Count** and **Maximum Instance Count** boxes let you specify the minimum and maximum size
-of the Auto Scaling group that your Elastic Beanstalk application uses.
-
-![Elastic Beanstalk Auto Scaling launch config configuration window](images/aeb-vs-autoscaling-launchconfig.png)
+To turn off the HTTP port, select **OFF** for **HTTP Listener Port**. To turn on the HTTP port, you select an
+HTTP port (for example, **80**) from the list.
 
 ###### Note
 
-To maintain a fixed number of Amazon EC2 instances, set **Minimum Instance Count** and **Maximum Instance
-Count** to the same value.
+To access your environment using a port other than the default port 80, such as port 8080,
+add a listener to the existing load balancer and configure the new listener to
+listen on that port.
 
-The **Availability Zones** box lets you specify the number of Availability Zones you want your Amazon EC2 instances to be in. It is
-important to set this number if you want to build fault-tolerant applications. If one Availability Zone goes down, your instances will still run in your
-other Availability Zones.
+For example, using the
+[AWS CLI for Classic load balancers](../../../cli/latest/reference/elb/create-load-balancer-listeners.md "../../../cli/latest/reference/elb/create-load-balancer-listeners.md"),
+type the following command, replacing `LOAD_BALANCER_NAME` with the name of
+your load balancer for Elastic Beanstalk.
 
-###### Note
+```
+aws elb create-load-balancer-listeners --load-balancer-name `LOAD_BALANCER_NAME` --listeners "Protocol=HTTP, LoadBalancerPort=8080, InstanceProtocol=HTTP, InstancePort=80"
+```
 
-Currently, it is not possible to specify which Availability Zone your instance will be in.
+For example, using the
+[AWS CLI for Application Load Balancers](../../../cli/latest/reference/elbv2/create-listener.md "../../../cli/latest/reference/elbv2/create-listener.md"),
+type the following command, replacing `LOAD_BALANCER_ARN` with the ARN of
+your load balancer for Elastic Beanstalk.
 
-## Triggers
+```
+aws elbv2 create-listener --load-balancer-arn `LOAD_BALANCER_ARN` --protocol HTTP --port 8080
+```
 
-A _trigger_ is an Amazon EC2 Auto Scaling mechanism that you set to tell the system when you want to increase (_scale out_)
-or decrease (_scale in_) the number of instances. You can configure triggers to _fire_ on any metric published to
-Amazon CloudWatch (for example, CPU utilization) and determine if the conditions you specified have been met. When the upper or lower thresholds of the
-conditions you have specified for the metric have been breached for the specified period of time, the trigger launches a long-running process called a
-_Scaling Activity_.
+If you want Elastic Beanstalk to monitor your environment, do not remove
+the listener on port 80.
 
-You can define a scaling trigger for your Elastic Beanstalk application using AWS Toolkit for Visual Studio.
+### Controlling the HTTPS port
 
-![Elastic Beanstalk Auto Scaling trigger](images/aeb-vs-autoscaling-triggers.png)
+Elastic Load Balancing supports the HTTPS/TLS protocol to enable traffic encryption for client connections to the load balancer. Connections from
+the load balancer to the EC2 instances use plaintext encryption. By default, the HTTPS port is turned off.
 
-Amazon EC2 Auto Scaling triggers work by monitoring a specific Amazon CloudWatch metric of a particular instance. Metrics include CPU utilization, network traffic, and disk
-activity. Use the **Trigger Measurement** setting to select a metric for your trigger.
+###### To turn on the HTTPS port
 
-The following list describes the trigger parameters you can configure using the AWS Management Console.
+1. Create a new certificate using AWS Certificate Manager (ACM) or upload a certificate and key to AWS Identity and Access Management (IAM). For more information about requesting an
+   ACM certificate, see [Request a Certificate](../../../acm/latest/userguide/gs-acm-request.md "../../../acm/latest/userguide/gs-acm-request.md") in the _AWS Certificate Manager User Guide_. For
+   more information about importing third-party certificates into ACM, see [Importing
+   Certificates](../../../acm/latest/userguide/import-certificate.md "../../../acm/latest/userguide/import-certificate.md") in the _AWS Certificate Manager User Guide_. If ACM is not [available in your
+   region](../../../general/latest/gr/acm.md "../../../general/latest/gr/acm.md"), use AWS Identity and Access Management (IAM) to upload a third-party certificate. The ACM and IAM services store the certificate and provide an
+   Amazon Resource Name (ARN) for the SSL certificate. For more information about creating and uploading certificates to IAM, see [Working with Server Certificates](../../../IAM/latest/UserGuide/ManagingServerCerts.md "../../../IAM/latest/UserGuide/ManagingServerCerts.md") in _IAM User Guide_.
+2. Specify the HTTPS port by selecting a port for **HTTPS Listener Port**.
 
-- You can specify which statistic the trigger should use. You can select **Minimum**, **Maximum**,
-  **Sum**, or **Average** for **Trigger Statistic**.
-- For **Unit of Measurement**, specify the unit for the trigger measurement.
-- The value in the **Measurement Period** box specifies how frequently Amazon CloudWatch measures the metrics for your trigger. The
-  **Breach Duration** is the amount of time a metric can go beyond its defined limit (as specified for the **Upper
-  Threshold** and **Lower Threshold**) before the trigger fires.
-- For **Upper Breach Scale Increment** and **Lower Breach Scale Increment**, specify how many Amazon EC2
-  instances to add or remove when performing a scaling activity.
+![Elastic Beanstalk Elastic Load Balancing configuration - SSL](images/aeb-vs-elb-ssl.png) 3. For **SSL Certificate ID**, enter the Amazon Resources Name (ARN) of your SSL certificate. For example,
+`arn:aws:iam::123456789012:server-certificate/abc/certs/build` or
+`arn:aws:acm:us-east-2:123456789012:certificate/12345678-12ab-34cd-56ef-12345678`. Use the SSL
+certificate that you created or uploaded in step 1.
 
-For more information on Amazon EC2 Auto Scaling, see the _Amazon EC2 Auto Scaling_ section on [Amazon Elastic Compute Cloud
-Documentation](https://aws.amazon.com/documentation/ec2/ "https://aws.amazon.com/documentation/ec2/").
+To turn off the HTTPS port, select **OFF** for **HTTPS Listener Port**.
+
+## Health checks
+
+The health check definition includes a URL to be queried for instance health. By default, Elastic Beanstalk uses TCP:80 for nonlegacy containers and HTTP:80 for
+legacy containers. You can override the default URL to match an existing resource in your application (for example,
+`/myapp/default.aspx`) by entering it in the **Application Health Check URL** box. If you override the default
+URL, then Elastic Beanstalk uses HTTP to query the resource. To check if you are using a legacy container type, see [Why are some platform versions marked legacy?](using-features.md#using-features.migration.why "using-features.md#using-features.migration.why")
+
+You can control the settings for the health check using the **EC2 Instance Health Check** section of the **Load
+Balancing** panel.
+
+![Elastic Beanstalk Elastic Load Balancing configuration - health checks](images/aeb-vs-loadbalancer-healthcheck.png)
+
+The health check definition includes a URL to be queried for instance health. Override the default URL to match an existing resource in your
+application (for example, `/myapp/index.jsp`) by entering it in the **Application Health Check URL** box.
+
+The following list describes the health check parameters you can set for your application.
+
+- For **Health Check Interval (seconds)**, enter the number of seconds Elastic Load Balancing waits between health checks for
+  your application's Amazon EC2 instances.
+- For **Health Check Timeout (seconds)**, specify the number of seconds Elastic Load Balancing waits for a response before it
+  considers the instance unresponsive.
+- For **Healthy Check Count Threshold** and **Unhealthy Check Count Threshold**, specify the number of
+  consecutive successful or unsuccessful URL probes before Elastic Load Balancing changes the instance health status. For example, specifying
+  `5` for **Unhealthy Check Count Threshold** means that the URL must return an error message or timeout five
+  consecutive times before Elastic Load Balancing considers the health check as failed.
+
+## Sessions
+
+By default, a load balancer routes each request independently to the server instance with the smallest load. By comparison, a sticky session binds a
+user's session to a specific server instance so that all requests coming from the user during the session are sent to the same server instance.
+
+Elastic Beanstalk uses load balancer–generated HTTP cookies when sticky sessions are enabled for an application. The load balancer uses a special load
+balancer–generated cookie to track the application instance for each request. When the load balancer receives a request, it first checks to see if
+this cookie is present in the request. If it is present, the request is sent to the application instance that is specified in the cookie. If there is no
+cookie, the load balancer chooses an application instance based on the existing load balancing algorithm. A cookie is inserted into the response for
+binding subsequent requests from the same user to that application instance. The policy configuration defines a cookie expiry, which establishes the
+duration of validity for each cookie.
+
+You can use the **Sessions** section on the **Load Balancer** tab to specify whether the load balancer for your
+application allows session stickiness.
+
+![Elastic Beanstalk Elastic Load Balancing configuration - sessions](images/aeb-vs-loadbalancer-sessions.png)
+
+For more information on Elastic Load Balancing, see the [Elastic Load
+Balancing Developer Guide](../../../ElasticLoadBalancing/latest/DeveloperGuide.md "../../../ElasticLoadBalancing/latest/DeveloperGuide.md").

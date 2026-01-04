@@ -1,151 +1,143 @@
-# Creating an Elastic Beanstalk environment
+# Elastic Beanstalk rolling environment configuration updates
 
-The following procedure launches a new environment running the default application. These steps are simplified to get your environment up and running
-quickly, using default option values.
+When a [configuration change requires replacing instances](environments-updating.md "environments-updating.md"), Elastic Beanstalk can perform the update in batches to avoid
+downtime while the change is propagated. During a rolling update, capacity is only reduced by the size of a single batch, which you can configure. Elastic Beanstalk
+takes one batch of instances out of service, terminates them, and then launches a batch with the new configuration. After the new batch starts serving
+requests, Elastic Beanstalk moves on to the next batch.
 
-###### Note about permissions
+Rolling configuration update batches can be processed periodically (time-based), with a delay between each batch, or based on health. For time-based
+rolling updates, you can configure the amount of time that Elastic Beanstalk waits after completing the launch of a batch of instances before moving on to the next
+batch. This pause time allows your application to bootstrap and start serving requests.
 
-Creating an environment requires the permissions in the Elastic Beanstalk full access managed policy. See [Elastic Beanstalk user policy](concepts-roles-user.md "concepts-roles-user.md") for details.
+With health-based rolling updates, Elastic Beanstalk waits until instances in a batch pass health checks before moving on to the next batch. The health of an
+instance is determined by the health reporting system, which can be basic or enhanced. With [basic health](using-features.md "using-features.md"),
+a batch is considered healthy as soon as all instances in it pass Elastic Load Balancing (ELB) health checks.
 
-###### To launch an environment with an application (console)
+With [enhanced health reporting](health-enhanced.md "health-enhanced.md"), all of the instances in a batch must pass multiple consecutive health checks
+before Elastic Beanstalk will move on to the next batch. In addition to ELB health checks, which check only your instances, enhanced health monitors application logs
+and the state of your environment's other resources. In a web server environment with enhanced health, all instances must pass 12 health checks over the
+course of two minutes (18 checks over three minutes for worker environments). If any instance fails one health check, the count resets.
+
+If a batch doesn't become healthy within the rolling update timeout (default is 30 minutes), the update is canceled. Rolling update timeout is a [configuration option](command-options.md "command-options.md") that is available in the `aws:autoscaling:updatepolicy:rollingupdate` namespace. If your application doesn't pass health checks with `Ok` status but is
+stable at a different level, you can set the `HealthCheckSuccessThreshold` option in the [aws:elasticbeanstalk:healthreporting:system](command-options-general.md#command-options-general-elasticbeanstalkhealthreporting "command-options-general.md#command-options-general-elasticbeanstalkhealthreporting") namespace to change the level at which Elastic Beanstalk
+considers an instance to be healthy.
+
+If the rolling update process fails, Elastic Beanstalk starts another rolling update to roll back to the previous configuration. A rolling update can fail due to
+failed health checks or if launching new instances causes you to exceed the quotas on your account. If you hit a quota on the number of Amazon EC2 instances, for
+example, the rolling update can fail when it attempts to provision a batch of new instances. In this case, the rollback fails as well.
+
+A failed rollback ends the update process and leaves your environment in an unhealthy state. Unprocessed batches are still running instances with the
+old configuration, while any batches that completed successfully have the new configuration. To fix an environment after a failed rollback, first resolve
+the underlying issue that caused the update to fail, and then initiate another environment update.
+
+An alternative method is to deploy the new version of your application to a different environment and then perform a CNAME swap to redirect traffic with
+zero downtime. See [Blue/Green deployments with Elastic Beanstalk](using-features.md "using-features.md") for more information.
+
+## Rolling updates versus rolling deployments
+
+Rolling updates occur when you change settings that require new Amazon EC2 instances to be provisioned for your environment. This includes changes to the
+Auto Scaling group configuration, such as instance type and key-pair settings, and changes to VPC settings. In a rolling update, each batch of instances is
+terminated before a new batch is provisioned to replace it.
+
+[Rolling deployments](using-features.md "using-features.md") occur whenever you deploy your application and can typically be
+performed without replacing instances in your environment. Elastic Beanstalk takes each batch out of service, deploys the new application version, and then places it
+back in service.
+
+The exception to this is if you change settings that require instance replacement at the same time you deploy a new application version. For example,
+if you change the [key name](command-options-general.md#command-options-general-autoscalinglaunchconfiguration "command-options-general.md#command-options-general-autoscalinglaunchconfiguration") settings in a [configuration file](ebextensions.md "ebextensions.md") in your source bundle and deploy it to your environment, you trigger a rolling update. Instead of deploying your new
+application version to each batch of existing instances, a new batch of instances is provisioned with the new configuration. In this case, a separate
+deployment doesn't occur because the new instances are brought up with the new application version.
+
+Anytime new instances are provisioned as part of an environment update, there is a deployment phase where your application's source code is deployed
+to the new instances and any configuration settings that modify the operating system or software on the instances are applied. [Deployment health check settings](using-features.md#environments-cfg-rollingdeployments-console "using-features.md#environments-cfg-rollingdeployments-console") (**Ignore health check**,
+**Healthy threshold**, and **Command timeout**) also apply to health-based rolling updates and immutable updates
+during the deployment phase.
+
+## Configuring rolling updates
+
+You can enable and configure rolling updates in the Elastic Beanstalk console.
+
+###### To enable rolling updates
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
-2. In the navigation pane, choose **Applications**. Select an existing application in the list. You can also choose to create one,
-   following the instructions in [Managing applications](applications.md "applications.md").
-3. On the application overview page, choose **Create environment**.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Rolling updates and deployments** configuration category, choose **Edit**.
+5. In the **Configuration updates** section, for **Rolling update type**, select one of the
+   **Rolling** options.
 
-This launches the **Create environment** wizard. The wizard provides a set of steps for you to create a new environment. 4. For **Environment tier**, choose the **Web server environment** or **Worker environment**
-[environment tier](concepts.md#concepts-tier "concepts.md#concepts-tier"). You can't change an environment's tier after creation.
+![The configuration updates section on the modify rolling updates and deployments configuration page](images/aeb-config-rolling-updates-health.png) 6. Choose **Batch size**, **Minimum capacity**, and **Pause time** settings. 7. To save the changes choose **Apply** at the bottom of the page.
 
-###### Note
+The **Configuration updates** section of the **Rolling updates and deployments** page has the following options for
+rolling updates:
 
-The [.NET on Windows Server platform](create_deploy_NET.md "create_deploy_NET.md") doesn't support the worker environment tier.
+- **Rolling update type** – Elastic Beanstalk waits after it finishes updating a batch of instances before moving on to the next batch,
+  to allow those instances to finish bootstrapping and start serving traffic. Choose from the following options:
+  - **Rolling based on Health** – Wait until instances in the current batch are healthy before placing instances in service
+    and starting the next batch.
+  - **Rolling based on Time** – Specify an amount of time to wait between launching new instances and placing them in
+    service before starting the next batch.
+  - **Immutable** – Apply the configuration change to a fresh group of instances by performing an [immutable update](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md").
 
-The **Application information** fields default, based on the application that you previously chose.
+- **Batch size** – The number of instances to replace in each batch, between `1` and
+  `10000`. By default, this value is one-third of the minimum size of the Auto Scaling group, rounded up to a whole number.
+- **Minimum capacity** – The minimum number of instances to keep running while other instances are updated, between
+  `0` and `9999`. The default value is either the minimum size of the Auto Scaling group or one less than the
+  maximum size of the Auto Scaling group, whichever number is lower.
+- **Pause time** (time-based only) – The amount of time to wait after a batch is updated before moving on to the next batch,
+  to allow your application to start receiving traffic. Between 0 seconds and one hour.
 
-In the **Environment information** grouping the **Environment name** defaults, based on the application name. If
-you prefer a different environment name you can enter another value in the field. You can optionally enter a **Domain** name; otherwise
-Elastic Beanstalk autogenerates a value. You can also optionally enter an **Environment description.** 5. For **Platform**, select the platform and platform branch that match the language your application uses.
+## The aws:autoscaling:updatepolicy:rollingupdate namespace
 
-###### Note
+You can also use the [configuration options](command-options.md "command-options.md") in the `aws:autoscaling:updatepolicy:rollingupdate` namespace to configure
+rolling updates.
 
-Elastic Beanstalk supports multiple [versions](concepts.md "concepts.md") for most of the platforms that are listed. By default, the console
-selects the recommended version for the platform and platform branch you choose. If your application requires a different version, you can select it
-here. For information about supported platform versions, see [Elastic Beanstalk supported platforms](concepts.md "concepts.md"). 6. For **Application code**, you have several choices to proceed.
+Use the `RollingUpdateEnabled` option to enable rolling updates, and `RollingUpdateType` to choose the update type. The
+following values are supported for `RollingUpdateType`:
 
-    * To launch the default sample application without supplying the source code, choose **Sample application**. This action chooses
-     the single page application that Elastic Beanstalk provides for the platform you previously selected.
-    * If you downloaded a sample application from this guide, or you have your own source
-     code for an application, do the following steps.
+- `Health` – Wait until instances in the current batch are healthy before placing instances in service and starting the next
+  batch.
+- `Time` – Specify an amount of time to wait between launching new instances and placing them in service before starting the next
+  batch.
+- `Immutable` – Apply the configuration change to a fresh group of instances by performing an [immutable update](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md").
 
+When you enable rolling updates, set the `MaxBatchSize` and `MinInstancesInService` options to configure the size of each batch.
+For time-based and health-based rolling updates, you can also configure a `PauseTime` and `Timeout`, respectively.
 
-    	1. Select **Upload your code**.
-    	2. Next choose **Local file**, then under **Upload application**, select **Choose
-    	 file**.
-    	3. Your client machine's operating system will present you with an interface to
-    	 select the local file that you downloaded. Select the source bundle file and
-    	 continue.
+For example, to launch up to five instances at a time, while maintaining at least two instances in service, and wait five minutes and 30 seconds
+between batches, specify the following options and values.
 
-7. Your choice for **Presets** depends on your purpose for the environment.
-   - If you're creating a sample environment to learn about Elastic Beanstalk or a development environment,
-     choose **Single instance (free tier eligible)**.
-   - If you're creating a production environment or an environment to learn more about load
-     balancing, choose one of the **High availability** options.
+###### Example .ebextensions/timebased.config
 
-8. Choose **Next**.
+```
+option_settings:
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateEnabled: true
+    MaxBatchSize: 5
+    MinInstancesInService: 2
+    RollingUpdateType: Time
+    PauseTime: PT5M30S
+```
 
-###### To configure service access
+To enable health-based rolling updates, with a 45-minute timeout for each batch, specify the following options and values.
 
-Next, you need two roles. A _service role_ allows Elastic Beanstalk
-to monitor your EC2 instances and upgrade you environment’s platform. An _EC2 instance profile_ role permits tasks such as writing logs and
-interacting with other services.
+###### Example .ebextensions/healthbased.config
 
-###### To create or select the Service role
+```
+option_settings:
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateEnabled: true
+    MaxBatchSize: 5
+    MinInstancesInService: 2
+    RollingUpdateType: Health
+    Timeout: PT45M
+```
 
-1. If you have previously created a **Service role** and would like to
-   choose an existing one, select the value from the **Service role**
-   drop-down and skip the remainder of these steps to create a Service role.
-2. If you don't see any values listed for **Service role**, or you'd like
-   to create a new one, continue with the next steps.
-3. For **Service role**, choose **Create role**.
-4. For **Trusted entity type**, choose **AWS
-   service**.
-5. For **Use case**, choose **Elastic Beanstalk –
-   Environment**.
-6. Choose **Next**.
-7. Verify that **Permissions policies** include the following, then choose
-   **Next**:
-   - `AWSElasticBeanstalkEnhancedHealth`
-   - `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
+`Timeout` and `PauseTime` values must be specified in [ISO8601
+duration](http://en.wikipedia.org/wiki/ISO_8601#Durations "http://en.wikipedia.org/wiki/ISO_8601#Durations"): `PT`#`H`#`M`#`S`, where each # is the number of
+hours, minutes, or seconds, respectively.
 
-8. Choose **Create role**.
-9. Return to the **Configure service access** tab, refresh the list, then
-   select the newly created service role.
-
-###### To create or select an EC2 instance profile
-
-1. If you have previously created an **EC2 instance profile** and would
-   like to choose an existing one, select the value from the **EC2 instance
-   profile** drop-down and skip the remainder of these steps to create an EC2
-   instance profile.
-2. If you don't see any values listed for **EC2 instance profile**, or you'd like
-   to create a new one, continue with the next steps.
-3. Choose **Create role**.
-4. For **Trusted entity type**, choose **AWS
-   service**.
-5. For **Use case**, choose **Elastic Beanstalk –
-   Compute**.
-6. Choose **Next**.
-7. Verify that **Permissions policies** include the following, then choose
-   **Next**:
-   - `AWSElasticBeanstalkWebTier`
-   - `AWSElasticBeanstalkWorkerTier`
-   - `AWSElasticBeanstalkMulticontainerDocker`
-
-8. Choose **Create role**.
-9. Return to the **Configure service access** tab, refresh the list, then
-   select the newly created EC2 instance profile.
-
-###### To finish configuring and creating your application
-
-1. (Optional) If you previously created an EC2 key pair, you can select it from the **EC2 key pair** field dropdown. You would use it
-   to securely log in to the Amazon EC2 instance that Elastic Beanstalk provisions for your application. If you skip this step, you can always create and assign an EC2 key
-   pair after the environment is created. For more information, see [EC2 key pair](using-features.managing.md#using-features.managing.security.keypair "using-features.managing.md#using-features.managing.security.keypair").
-2. Choose **Skip to Review** on the **Configure service access** page.
-3. The **Review** page displays a summary of all your choices.
-
-To further customize your environment, choose **Edit** next to the step that includes any items you want to configure. You can set
-the following options only during environment creation:
-
-    * Environment name
-    * Domain name
-    * Platform version
-    * Processor
-    * Load balancer type
-    * Tier
-
-You can change the following settings after environment creation, but they require new instances or other resources to be provisioned and can take a
-long time to apply:
-
-    * Instance type, root volume, key pair, and AWS Identity and Access Management (IAM) role
-    * Internal Amazon RDS database
-    * VPC
-
-For details on all available settings, see [The create new environment wizard](environments-create-wizard.md "environments-create-wizard.md"). 4. Choose **Submit** at the bottom of the page to initialize the creation of your new environment.
-While Elastic Beanstalk creates your environment, you are redirected to the [Elastic Beanstalk console](environments-console.md "environments-console.md"). When the environment
-health turns green, choose the URL next to the environment name to view the running
-application. This URL is generally accessible from the internet unless you configure your
-environment to use a [custom VPC with an
-internal load balancer](environments-create-wizard.md#environments-create-wizard-network "environments-create-wizard.md#environments-create-wizard-network").
-
-###### Topics
-
-- [The create new environment wizard](environments-create-wizard.md "environments-create-wizard.md")
-- [Clone an Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md")
-- [Terminate an Elastic Beanstalk environment](using-features.md "using-features.md")
-- [Creating Elastic Beanstalk environments with the AWS
-  CLI](environments-create-awscli.md "environments-create-awscli.md")
-- [Creating Elastic Beanstalk environments with the API](environments-create-api.md "environments-create-api.md")
-- [Constructing a Launch Now URL](launch-now-url.md "launch-now-url.md")
-- [Creating and updating groups of Elastic Beanstalk environments](environment-mgmt-compose.md "environment-mgmt-compose.md")
+The EB CLI and Elastic Beanstalk console apply recommended values for the preceding options.
+You must remove these settings if you want to use configuration files to configure the same. See
+[Recommended values](command-options.md#configuration-options-recommendedvalues "command-options.md#configuration-options-recommendedvalues") for details.
