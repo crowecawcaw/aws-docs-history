@@ -1,10 +1,9 @@
-# General Functions
+# Issuers and issuer processors
+
+Issuer use cases typically consist of a few parts. This section is organized by function (such as working with pins). In a production system, the keys are typically
+scoped to a given card bin and are created during bin setup rather than inline as shown here.
 
 ###### Topics
 
-- [Generate a random pin and the associated PVV and then verify the value](use-cases-issuers.generalfunctions.md "use-cases-issuers.generalfunctions.md")
-- [Generate or verify a CVV for a given card](use-cases-issuers.generalfunctions.md "use-cases-issuers.generalfunctions.md")
-- [Generate or verify a CVV2 for a specific card](use-cases-issuers.generalfunctions.md "use-cases-issuers.generalfunctions.md")
-- [Generate or verify a iCVV for a specific card](use-cases-issuers.generalfunctions.md "use-cases-issuers.generalfunctions.md")
-- [Verify an EMV ARQC and generate an ARPC](use-cases-issuers.generalfunctions.md "use-cases-issuers.generalfunctions.md")
-- [Generate and Verify an EMV MAC](use-cases-issuers.generalfunctions.md "use-cases-issuers.generalfunctions.md")
+- [General Functions](use-cases-issuers.md "use-cases-issuers.md")
+- [Network specific functions](use-cases-issuers.md "use-cases-issuers.md")
