@@ -57,7 +57,7 @@ what constitutes a simple AWS Proton workflow.
 
 ![A diagram that describes the main AWS Proton concepts discussed in the preceding paragraph. It also offers a high-level overview of what constitutes a simple AWS Proton workflow divided into the following six steps.](images/service-diagram_1.png)
 
-![Red circle with the number 1 inside, typically used as a notification icon.](images/label-one.png)
+![Red circle with the number 1 inside, typically used as a notification icon.](/images/proton/latest/userguide/images/label-one.png)
 As an **Administrator**, you create and register an **Environment Template**
 with AWS Proton, which defines the shared resources.
 
@@ -65,7 +65,7 @@ with AWS Proton, which defines the shared resources.
 AWS Proton deploys one or more **Environments**, based on an **Environment
 Template**.
 
-![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
+![Pink square icon with a white exclamation mark inside a circle.](/images/proton/latest/userguide/images/label-three.png)
 As an **Administrator**, you create and register a **Service Template**
 with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment
 Templates**.

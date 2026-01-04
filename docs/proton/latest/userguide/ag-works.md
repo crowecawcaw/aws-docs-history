@@ -14,7 +14,7 @@ services are based on environment and service _templates_, respectively, that yo
 When you, as an administrator, select an environment template with AWS Proton, you provide values for required _input
 parameters_.
 
-![Number 2 icon in a pink circle.](images/label-two.png)
+![Number 2 icon in a pink circle.](/images/proton/latest/userguide/images/label-two.png)
 AWS Proton uses the environment template and parameter values to provision your environment.
 
 ![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
