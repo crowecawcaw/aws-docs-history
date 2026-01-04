@@ -1,33 +1,32 @@
-# [DL.SCM.10] Generate a comprehensive software inventory for each build
+# [DL.SCM.8] Use a versioning specification to manage software components
 
 **Category:** RECOMMENDED
 
-Maintain a comprehensive inventory of the components and dependencies that make up
-your software assists with identifying vulnerabilities and managing risks. This inventory,
-often taking the form of a [Software Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md"), provides valuable insights into the
-composition of your software.
+Apply a versioning specification across all software
+components within your development lifecycle. Use a versioning
+specification, such as Semantic Versioning (SemVer), to
+significantly simplify governance of software governance by
+providing a systematic approach to tracking different types of
+releases (major, minor, and patch). A well-organized,
+versioned code base offers a clear chronological history of
+modifications, enhancing manageability, maintainability, and
+navigability.
 
-Generate a comprehensive inventory as part of each build. This
-forms a continuous record of your software's composition,
-enabling quick and efficient identification and management of
-potential vulnerabilities or risks. Tracking inventory that is
-machine readable enhances visibility and aids in identifying
-vulnerabilities and risks, enhancing the security posture of
-your software at scale.
+Implementing version pinning for dependencies is a practical use case enabled by
+using a versioning specification. By locking dependencies to a specific version or version
+range, build reproducibility is ensured. This approach helps ensure the reproducibility of
+software builds, but complicates dependency management as developers then need to make
+updates to stay up-to-date with security fixes, bug fixes, or other improvements.
 
-Use a tool to create and manage SBOMs, centralizing them with other build artifacts
-for easier accessibility. Open-source tool sets provided by Open Worldwide Application
-Security Project ([OWASP](https://owasp.org/ "https://owasp.org/")) and the [Linux Foundation](https://www.linuxfoundation.org/ "https://www.linuxfoundation.org/") offer options for
-creating and managing SBOMs in standardized formats.
+Use automated governance dependency management tools to maintain the balance between
+stable builds and timely updates. Consider integrating automation mechanisms that can
+update versions based on commit messages. For example, if a commit message contains the
+keyword `major`, it could trigger an update to the major version number. This
+automated approach ensures that versions are updated while minimizing chance for human
+error.  It's also possible to automate nightly or weekly upgrades of third-party
+dependencies to ensure they are regularly updated and kept secure.
 
 **Related information:**
 
-- [Exporting
-  SBOMs with Amazon Inspector](../../../inspector/latest/user/sbom-export.md "../../../inspector/latest/user/sbom-export.md")
-- [SPDX
-  Becomes Internationally Recognized Standard for Software
-  Bill of Materials](https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials "https://www.linuxfoundation.org/press/featured/spdx-becomes-internationally-recognized-standard-for-software-bill-of-materials")
-- [Software
-  Supply Chain Best Practices](https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf "https://project.linuxfoundation.org/hubfs/CNCF_SSCP_v1.pdf")
-- [OWASP
-  CycloneDX](https://owasp.org/www-project-cyclonedx/ "https://owasp.org/www-project-cyclonedx/")
+- [Semantic Versioning
+  2.0.0](https://semver.org/ "https://semver.org/")

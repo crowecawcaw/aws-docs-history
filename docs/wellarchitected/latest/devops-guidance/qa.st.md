@@ -1,59 +1,35 @@
-# [QA.ST.2] Normalize security testing findings
+# [QA.ST.6] Validate third-party components using software composition analysis
 
 **Category:** FOUNDATIONAL
 
-Effective vulnerability management requires clarity and
-consistency. Given the diversity of security testing tools in
-a DevOps environment, findings often emerge from different
-sources and in different formats. This diversity of tooling
-can introduce confusion and inefficiency into risk management
-processes.  Having a common framework for normalizing the
-interpretation and ranking of vulnerabilities from diverse
-security testing tools provides a systematic approach to risk
-management and mitigation. Normalization is not just about
-consistency, it helps ensure that every identified
-vulnerability is understood, categorized, and managed
-according to its threat level.
+The use of open-source software and third-party components accelerates the software
+development process, but it also introduces new security and compliance risks. Software
+Composition Analysis (SCA) is used to assess these risks and verify that
+external dependencies being used do not have known vulnerabilities. SCA works by scanning
+software component inventories, such as software bill of materials [software bill of materials](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md") (SBOM) and dependency manifest files.
 
-Begin by selecting a recognized scoring system, such as the
-Common Vulnerability Scoring System
-([CVSS](https://nvd.nist.gov/vuln-metrics/cvss "https://nvd.nist.gov/vuln-metrics/cvss")),
-as the baseline for vulnerability ranking. This will provide a
-universal language for risk assessment and
-prioritization. Many modern security tools have built-in
-integrations with popular scoring systems. Configure your
-tools to automatically map their findings to the chosen
-system, ensuring uniformity across all results. It is
-important to periodically review the normalization process,
-updating it as required and ensuring alignment with industry
-best practices.
+When selecting a SCA tool, focus on tools that provide the most comprehensive
+vulnerability database, pulling from sources such as the [National Vulnerability Database](https://nvd.nist.gov/ "https://nvd.nist.gov/") (NVD) and [Common Vulnerabilities and Exposures](https://www.cve.org/ "https://www.cve.org/") (CVE). The tool will need to integrate with
+your existing toolsets, frameworks, and pipelines, as well as provide both detection and
+remediation guidance for vulnerabilities. These feedback mechanisms enable teams to detect
+and mitigate vulnerabilities, maintaining the software's integrity without impacting
+development velocity.
 
-Use tools that can automatically translate findings into the
-standardized format. Integrations like the Static Analysis
-Results Interchange Format
-([SARIF](https://sarifweb.azurewebsites.net/ "https://sarifweb.azurewebsites.net/"))
-or [OCSF
-Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/") can assist with this. These tools can enable
-centralizing findings from different sources into a single
-dashboard or reporting platform to create a unified view of
-the security posture which can streamline the prioritization
-and remediation process.
-
-By adopting a systematic approach to normalization, organizations can verify that
-their response to vulnerabilities is consistent, effective, and aligned with the actual
-risks posed to the system. Ensure that everyone involved in the security process understands
-the chosen scoring system and knows how to interpret it. Regular workshops or training
-sessions can help ensure ongoing alignment.
+Integrate SCA into the continuous integration pipeline to automatically scan changes
+for vulnerabilities. Use SCA to scan existing repositories periodically to verify that
+existing codebases maintain the same security standards as newer developments. Centrally
+storing SBOMs also offers unique advantages for assessing vulnerabilities at scale. While
+scanning repositories and pipelines can capture vulnerabilities in active projects,
+centralized SBOMs act as a consistent, versioned record of all software components used
+across various projects and versions. It provides a holistic view of all dependencies across
+different projects, making it easier to manage and mitigate risks at an organizational
+level. Instead of scanning every repository individually, centralized scanning of SBOMs
+offers a consolidated method to assessing and remediating vulnerabilities.
 
 **Related information:**
 
-- [NIST
-  Common Vulnerability Scoring System (CVSS)](https://nvd.nist.gov/vuln-metrics/cvss "https://nvd.nist.gov/vuln-metrics/cvss")
-- [MITRE Common
-  Weakness Scoring System (CWSS™)](https://cwe.mitre.org/cwss/cwss_v1.0.1.html "https://cwe.mitre.org/cwss/cwss_v1.0.1.html")
-- [Static
-  Analysis Results Interchange Format (SARIF)](https://sarifweb.azurewebsites.net/ "https://sarifweb.azurewebsites.net/")
-- [OCSF
-  Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/")
-- [OCSF
-  GitHub](https://github.com/ocsf "https://github.com/ocsf")
+- [Security
+  in every stage of the CI/CD pipeline: SCA](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#software-composition-analysis-sca "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#software-composition-analysis-sca")
+- [Building
+  end-to-end AWS DevSecOps CI/CD pipeline with open source
+  SCA, SAST and DAST tools](https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/ "https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/")

@@ -1,58 +1,38 @@
-# [AG.DLM.8] Improve traceability with data provenance tracking
+# [AG.DLM.2] Strengthen security with systematic encryption enforcement
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Data provenance tracking records the history of data throughout its lifecycle—its
-origins, how and when it was processed, and who was responsible for those processes. This
-practice forms a vital part of ensuring data integrity, reliability, and traceability,
-providing a clear record of the data's journey from its source to its final form.
+With continuous delivery, the risk of data breaches that can disrupt the software
+delivery process and negatively impact the business increases. To remain agile and rapidly
+able to deploy safely, it is necessary to enforce encryption at scale to protect sensitive
+data from unauthorized access when it is at rest and in transit.
 
-The process involves capturing, logging, and storing metadata
-that provides valuable insights into the lineage of the data.
-Key aspects of metadata include the data's source, any
-transformations it underwent (such as aggregation, filtering,
-or enrichment), the flow of data across systems and services
-(movements), and actors (the systems or individuals
-interacting with the data).
+Infrastructure should be defined as code and expected to change frequently. Resources
+being deploy need to be checked for a compliant encryption configuration as part of
+deployment process, while continuous scans for unencrypted data and
+resource misconfiguration should be automated in the environment. These practices not only
+aid in maintaining compliance, but also facilitates seamless and secure data management
+across various stages of the development lifecycle.
 
-Use automated tools and processes to manage data provenance by
-automatically capturing and logging metadata, and make it
-easily accessible and queryable for review and auditing
-purposes. For instance, data cataloging tools can manage data
-assets and their provenance information effectively, providing
-a systematic way to handle large volumes of data and their
-metadata across different stages of the development lifecycle.
-
-In more complex use cases, machine learning (ML) algorithms can be used to uncover
-hidden patterns and dependencies among data entities and operations. This technique can
-reveal insights that might not be easily detectable with traditional methods.
-
-Regularly review and update the data provenance tracking
-process to keep it aligned with evolving data practices,
-business requirements, and to maintain regulatory compliance.
-Provide training and resources to teams, helping them
-understand the importance and practical use of data provenance
-information.
-
-Data provenance tracking is particularly recommended for
-datasets dealing with sensitive, regulated data or complex
-data processing workflows. It also adds significant value in
-environments where reproducibility and traceability of data
-operations are required, such as in data-driven
-decision-making, machine learning model development, and
-debugging data issues.
-
-Data provenance tracking is particularly recommended for
-datasets dealing with sensitive or regulated data, machine
-learning workflows, and complex data processing which may
-require debugging.
+Automate the process of encryption key creation, distribution,
+and rotation to make the use of secure encryption methods
+simpler for teams to follow and enable them to focus on their
+core tasks without compromising security. Automated governance
+guardrails and auto-remediation capabilities should be used to
+enforce encryption requirements at scale, ensuring compliance
+both during and after deployment.
 
 **Related information:**
 
-- [AWS Glue Data Catalog](../../../prescriptive-guidance/latest/serverless-etl-aws-glue/aws-glue-data-catalog.md "../../../prescriptive-guidance/latest/serverless-etl-aws-glue/aws-glue-data-catalog.md")
-- [Well-Architected
-  Data Analytics Lens: Best practice 7.3 – Trace data
-  lineage](../analytics-lens/best-practice-7.3---trace-data-lineage..md "../analytics-lens/best-practice-7.3---trace-data-lineage..md")
-- [Amazon SageMaker AI ML Lineage Tracking](../../../sagemaker/latest/dg/lineage-tracking.md "../../../sagemaker/latest/dg/lineage-tracking.md")
-- [Blog: Build
-  data lineage for data lakes using AWS Glue, Amazon Neptune, and Spline](https://aws.amazon.com/blogs/big-data/build-data-lineage-for-data-lakes-using-aws-glue-amazon-neptune-and-spline/ "https://aws.amazon.com/blogs/big-data/build-data-lineage-for-data-lakes-using-aws-glue-amazon-neptune-and-spline/")
+- [AWS Well-Architected Reliability Pillar: REL09-BP02 Secure and
+  encrypt backups](../reliability-pillar/rel_backing_up_data_secured_backups_data.md "../reliability-pillar/rel_backing_up_data_secured_backups_data.md")
+- [AWS Well-Architected Security Pillar: SEC08-BP02 Enforce
+  encryption at rest](../security-pillar/sec_protect_data_rest_encrypt.md "../security-pillar/sec_protect_data_rest_encrypt.md")
+- [AWS Well-Architected Security Pillar: SEC09-BP02 Enforce
+  encryption in transit](../security-pillar/sec_protect_data_transit_encrypt.md "../security-pillar/sec_protect_data_transit_encrypt.md")
+- [AWS Well-Architected Security Pillar: SEC09-BP01 Implement
+  secure key and certificate management](../security-pillar/sec_protect_data_transit_key_cert_mgmt.md "../security-pillar/sec_protect_data_transit_key_cert_mgmt.md")
+- [Encrypting
+  Data-at-Rest and -in-Transit](../../../whitepapers/latest/logical-separation/encrypting-data-at-rest-and--in-transit.md "../../../whitepapers/latest/logical-separation/encrypting-data-at-rest-and--in-transit.md")
+- [Amazon's
+  approach to security during development: Encryption](https://youtu.be/NeR7FhHqDGQ?t=1646 "https://youtu.be/NeR7FhHqDGQ?t=1646")

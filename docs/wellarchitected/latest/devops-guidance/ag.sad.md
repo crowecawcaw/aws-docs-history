@@ -1,35 +1,59 @@
-# [AG.SAD.4] Limit human access with just-in-time access
+# [AG.SAD.8] Adopt a zero trust security model, shifting towards an identity-centric security perimeter
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-As pipelines take on a more prominent role in the software
-development lifecycle in a DevOps model, the necessity for
-extensive human access to environments decreases. Human users
-should be granted minimal access necessary for their role,
-which is usually read-only access that does not allow any
-modifications or access to sensitive data. For experimentation
-which is typically hands-on and exploratory, teams should be
-granted access to sandbox environments which are isolated from
-system workloads.
+When operating under a zero trust security model, no user or
+system is trusted by default. It requires all users and
+systems, even those inside an organization's network, to be
+authenticated, authorized, and continuously validated to
+ensure secure configurations and posture. Only after
+validation will they be granted access to applications and
+data.
 
-In some cases, where things go wrong or a process cannot yet be automated, elevated
-permissions might be required. To accommodate these needs without compromising security,
-implement a just-in-time (JIT) access control strategy where permissions are temporarily
-escalated for a specific duration and purpose, upon explicit request and approval. This
-approach maintains the principle of least privilege, allowing necessary operational
-functions to be performed efficiently when needed, while also ensuring that the access is
-revoked once the task is complete.
+Zero trust is beneficial throughout the entire software
+development lifecycle. From the initial stages of code
+development as developers interact with source code
+repositories, through continuous integration using internal
+and external tools to build and test software, to the
+deployment and maintenance of the workloads, each user,
+pipeline, third-party, and service needs to be authenticated
+and authorized with every request. In these scenarios, zero
+trust enforces adherence to the principle of least privilege,
+ensuring that all of these independent users and systems are
+granted access to the right resources only when necessary.
 
-By enforcing limited human permissions and using JIT access, you can improve your
-organization's security posture and reduce the risk of accidental or deliberate misuse of
-access rights. This restrictive and controlled model supports modern, secure DevOps
-practices where pipelines, treating everything as code, and automation should take
-precedence over manual actions.
+Shifting to a zero trust model is not an all-or-nothing
+endeavor, it is a gradual process consistent with the DevOps
+principles of continuous improvement. Start small by
+pinpointing use cases that align with your organization's
+unique needs and the value and sensitivity of your systems and
+data. This understanding will guide the selection of zero
+trust principles, tools, and patterns that are most beneficial
+for your organization. Adopting zero trust often involves
+rethinking identity, authentication, and other
+context-specific factors like user behavior and device health.
+Enhance existing security practices over time, improving both
+identity-based and network-based security measures that
+complement each other to create a secure perimeter where
+identity-centric controls can operate.
 
-**Related information:**
+AWS provides several use cases that illustrate zero trust
+principles:
 
-- [Eliminate
-  the need for human access](../financial-services-industry-lens/use-immutable-infrastructure-with-no-human-access.md "../financial-services-industry-lens/use-immutable-infrastructure-with-no-human-access.md")
-- [AWS Samples: AWS IAM Temporary Elevated Access Broker](https://github.com/aws-samples/aws-iam-temporary-elevated-access-broker "https://github.com/aws-samples/aws-iam-temporary-elevated-access-broker")
-- [Blog: Managing
-  temporary elevated access to your AWS environment](https://aws.amazon.com/blogs/security/managing-temporary-elevated-access-to-your-aws-environment/ "https://aws.amazon.com/blogs/security/managing-temporary-elevated-access-to-your-aws-environment/")
+- **Signing API requests:** Every AWS API request is
+  authenticated and authorized individually, regardless of the trustworthiness of the
+  underlying network.
+- **Service-to-service interactions:** AWS services
+  authenticate and authorize calls to each other using the same security mechanisms used
+  by customers.
+- **Zero trust for internet of things (IoT):** AWS IoT
+  extends the zero trust model to IoT devices, enabling secure communication over open
+  networks.
+  **Related information:**
+
+- [Zero
+  Trust on AWS](https://aws.amazon.com/security/zero-trust/ "https://aws.amazon.com/security/zero-trust/")
+- [Zero
+  Trust Maturity Model](https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf "https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf")
+- [Amazon Verified Permissions](https://aws.amazon.com/verified-permissions/ "https://aws.amazon.com/verified-permissions/")
+- [AWS Verified Access](https://aws.amazon.com/verified-access "https://aws.amazon.com/verified-access")

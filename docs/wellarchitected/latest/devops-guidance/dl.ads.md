@@ -1,51 +1,39 @@
-# [DL.ADS.6] Use cell-based architectures for granular deployment and release
+# [DL.ADS.1] Test deployments in pre-production environments
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-A cell-based architecture segments a larger system into isolated, independently
-functioning replicas, or _cells_. These cells are smaller components of
-the system that contain all application logic and storage. They have their own monitoring
-and alerting systems, are automated for creation and update, and can be managed and scaled
-individually. This approach offers advantages including scalability, fault isolation,
-testing, and operational resilience.
+Progressively validate software changes across multiple environments, including
+development (alpha) and testing (beta) before deploying into production. Additional staging
+environments can be introduced as needed, such as staging (gamma). These additional
+environments help to prevent the introduction of bugs in production environments, validates
+backwards compatibility, and increases the confidence in the quality of the deployment.
 
-A cell-based architecture is a natural fit for DevOps as it
-enables small, frequent changes, reduces the risk from
-problematic deployments, and enables rapid recovery. It allows
-teams to deliver incremental updates to individual cells
-without risking the entire system's stability.
+Each non-production deployment serves as a gate, only allowing changes to progress to
+the next stage after they pass all validations. Early issue detection and isolation prevent
+propagation to later stages or production. A controlled deployment process includes
+strategies to manage risk and support rollback if issues are identified during these test
+deployments.
 
-Start by defining your cells, each of which should be a
-complete, independently deployable unit of your system. You
-should limit the maximum size of a cell and maintain this
-consistency across different regions or installations. You
-then need to establish a routing layer that redirects client
-requests to the appropriate cell. You can store the routing
-information, such as user-to-cell mapping, in a low-latency
-database. Every cell should have its own monitoring and
-alerting system.
-
-You will need to automate the lifecycle of your cells, including initial deployment
-and subsequent updates. A _canary cell_ can be helpful in initial
-deployment of updates and assessing their impact. Ensure that you implement a central
-dashboard to provide an aggregated view of the state of your cells, enabling easy
-system-wide monitoring. Stream changes to a central data lake for centralized querying and
-analysis of changes across all cells. Finally, implement an operational tool to move users
-between cells and create new cells as needed. This step optimizes load distribution across
-cells by updating the user-to-cell assignment.
-
-Cell-based architectures are optional. While beneficial for
-complex systems, smaller systems might not require such
-architectural complexity.
+One-box testing can be used to test backward compatibility to ensure new code changes
+coexist with and function properly with the existing code base. One-box refers to the
+testing of changes in a single unit of deployment, such as a single container or instance,
+which is configured to use production endpoints. This form of testing can be used to help
+ensure the changes interact efficiently with production endpoints of other services. This
+can be done by creating a dedicated staging environment for cross-service backward
+compatibility (zeta) testing. Services deployed to the zeta stage interact exclusively with
+production endpoints to identify potential integration issues before the code reaches the
+production stage.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL10-BP04 Use
-  bulkhead architectures to limit scope of impact](../reliability-pillar/rel_fault_isolation_use_bulkhead.md "../reliability-pillar/rel_fault_isolation_use_bulkhead.md")
-- [Guidance
-  for Cell-based Architecture on AWS](https://aws.amazon.com/solutions/guidance/cell-based-architecture-on-aws/ "https://aws.amazon.com/solutions/guidance/cell-based-architecture-on-aws/")
-- [Minimizing
-  correlated failures in distributed systems](https://aws.amazon.com/builders-library/minimizing-correlated-failures-in-distributed-systems#Noninfrastructure_causes_of_correlated_failures "https://aws.amazon.com/builders-library/minimizing-correlated-failures-in-distributed-systems#Noninfrastructure_causes_of_correlated_failures")
-- [Journey
-  to cell-based microservices architecture on AWS for
-  hyperscale](https://www.youtube.com/watch?v=ReRrhU-yRjg "https://www.youtube.com/watch?v=ReRrhU-yRjg")
+- [What
+  is Continuous Integration?](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/")
+- [What
+  is Continuous Delivery?](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
+- [Going
+  faster with continuous delivery](https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card")
+- [Automating
+  safe, hands-off deployments: Test deployments in
+  pre-production environments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments")
+- [Amazon's
+  approach to high-availability deployment](https://youtu.be/bCgD2bX1LI4 "https://youtu.be/bCgD2bX1LI4")

@@ -1,25 +1,39 @@
-# [DL.CR.1] Standardize coding practices
+# [DL.CR.2] Perform peer review for code changes
 
-**Category:** FOUNDATIONAL
+**Category:** FOUNDATIONAL
 
-Coding standards promote uniformity and consistency across the organization.
-Individual teams can also extend this standard to adopt specific practices that align with
-the team's preferences. Having standards not only helps ensure consistency across
-distributed teams, but can also make code reviews more efficient, support knowledge sharing,
-and lead to faster issue resolution.
+A peer review process for code changes is a strategy for
+ensuring code quality and shared responsibility. To support
+separation of duties in a DevOps environment, every change
+should be reviewed and approved by at least one other person
+before merging. Once approved, a pipeline with sufficient
+access will deploy the change.
 
-Identify or develop coding standards that align with the primary programming
-languages used across the organization. This does not mean that other languages cannot be
-used, but does lead to a structured approach to development for new teams and new employees.
-The coding standards are meant to facilitate error detection, improve code readability,
-simplify maintenance, and enhance the overall efficiency of builders, not prevent
-innovation.
+Most version control systems support protection rules
+enforcing certain workflows, like requiring at least one peer
+review, before merging into designated branches. Use these
+rules to enforce this workflow and provide assurance that all
+code changes adhere to this mandatory review process. 
 
-These standards can be codified into linters and code quality tools to improve
-developer experience. This approach provides fast feedback to developers and evaluate their
-adherence to the standards automatically. Hold training sessions for developers on these
-standards, store them in centralized knowledge sharing spaces, and create mechanisms to
-gather feedback to continuously improve the standard over time. We recommend getting started
-by adopting industry-specific standards, such as the [Secure Coding
-Guidelines for Java SE](https://www.oracle.com/java/technologies/javase/seccodeguide.html "https://www.oracle.com/java/technologies/javase/seccodeguide.html"), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/") for Git,
-or the [PEP8](https://pypi.org/project/pep8/ "https://pypi.org/project/pep8/") styling guide for Python.
+Incorporating [pair
+programming](https://www.agilealliance.org/glossary/pair-programming/ "https://www.agilealliance.org/glossary/pair-programming/"), where two programmers collaboratively work side-by-side or through
+screen sharing, is method of peer review. By integrating this approach, reviews can be
+integrated into the development lifecycle earlier—while the code is being written, reducing
+the time taken to identify and fix issues. This accelerates review timelines, reduces the
+introduction of bugs or issues, promotes knowledge sharing, and creates a culture
+of quality and continuous improvement.
+
+Some companies require multiple reviewers, or require more
+proof than just pair-programming to adhere to compliance
+requirements. Pick a code review process that works for your
+organization, and enforce it through policies, processes, and
+technology.
+
+**Related information:**
+
+- [AWS Well-Architected Security Pillar: SEC11-BP04 Manual code
+  reviews](../framework/sec_appsec_manual_code_reviews.md "../framework/sec_appsec_manual_code_reviews.md")
+- [Team
+  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
+- [Code
+  review](https://en.wikipedia.org/wiki/Code_review "https://en.wikipedia.org/wiki/Code_review")

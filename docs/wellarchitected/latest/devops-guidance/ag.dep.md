@@ -1,28 +1,40 @@
-# [AG.DEP.5] Standardize and manage shared resources across environments
+# [AG.DEP.7] Utilize metadata for scalable environment management
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Cross-environment resource sharing is the practice of deploying, managing, and
-providing access to common resources across various environments from a centrally managed
-account. This approach enables teams to efficiently use and manage shared resources, such
-as networking or security services, without the need to replicate their setup in each
-environment. By unifying the management of these foundational resources, individual teams
-can focus more on the functionality of their workloads, rather than spending time and
-effort managing common infrastructure components.
+Effective environment management at scale requires the
+collection and maintenance of key information about each
+environment, such as ownership, purpose, criticality,
+lifespan, and more. These details can offer visibility and
+clarity which reduces potential confusion and misuse of
+environments and assists with setting up proper controls based
+on specific details associated with the environment.
 
-Platform teams should deploy and manage shared resources into
-accounts they manage, then provide APIs or libraries that
-individual teams can use to consume the shared resources as
-needed. This approach reduces redundancy and promotes
-standardization across the organization, allowing development
-teams to concentrate on their unique workloads rather than
-complex infrastructure management.
+Adopt techniques like resource tagging to track and maintain this metadata. Not only
+does this allow platform teams to track and optimize costs by accurately attributing
+resource usage to specific environments, but it also supports the management of access
+controls and security measures, aligning governance and compliance needs with individual
+environments.
+
+For implementation, use available tagging features and APIs for resource management
+and metadata tracking. Where additional metadata capture is required, consider creating or
+integrating with a custom tracking system tailored to your specific needs, such as
+existing configuration management database (CMDB) or IT service management (ITSM) tools,
+providing a holistic view of all environments, thus empowering platform teams to better
+govern and manage environments based on their metadata.
+
+Although this practice is marked as optional, it is strongly
+recommended for organizations operating in complex and
+large-scale environments, where managing resources and
+configurations based on metadata can significantly improve
+efficiency, governance, and compliance. This indicator focuses
+on leveraging metadata for active environment management,
+distinguishing it from the broader scope of configuration item
+management.
 
 **Related information:**
 
-- [Infrastructure
-  OU and accounts](../../../whitepapers/latest/organizing-your-aws-environment/infrastructure-ou-and-accounts.md "../../../whitepapers/latest/organizing-your-aws-environment/infrastructure-ou-and-accounts.md")
-- [Sourcing
-  and distribution](../management-and-governance-guide/sourcinganddistribution.md "../management-and-governance-guide/sourcinganddistribution.md")
-- [Sharing
-  your AWS resources - AWS Resource Access Manager](../../../ram/latest/userguide/getting-started-sharing.md "../../../ram/latest/userguide/getting-started-sharing.md")
+- [Choosing
+  tags for your environment](../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/choosing-tags.md "../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/choosing-tags.md")
+- [Tag
+  policies - AWS Organizations](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")

@@ -1,28 +1,16 @@
-# [DL.LD.10] Manage unused development environments
+# [DL.LD.9] Share tool configurations
 
 **Category:** OPTIONAL
 
-Properly managing unused environments prevents unnecessary
-resource utilization and potential security threats. When
-development environments are not in use, the environment and
-associated resources should be disabled or deleted.
+Sharing tool configuration among project or team members helps ensure a uniform set
+up of integrated development environment (IDE) settings, text editor preferences, and
+pre-commit hooks. Having these configurations tailored to each code base can reduce
+discrepancies in code styles and promote seamless collaboration and a predictable
+developer experience. This enables any developer working within that repository to begin
+working in the environment quickly while maintaining team norms.
 
-Managing unused development environments requires tracking,
-disabling, or removing development setups that are dormant or
-no longer in active use. Regularly audit the active and
-inactive development environments. Implement automated tools
-or scripts that monitor activity and provide notifications
-regarding dormant environments.
-
-Once identified, these environments should be archived,
-disabled, or removed, depending on the future needs of the
-project. Treat development environments as ephemeral
-environments to reduces the risk of incurring unexpected cost
-and leaving potentially insecure resources running.
-
-**Related information:**
-
-- [AWS Well-Architected Sustainability Pillar: SUS02-BP03 Stop
-  the creation and maintenance of unused assets](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
-- [AWS Well-Architected Cost Optimization Pillar: COST04-BP03
-  Decommission resources](../cost-optimization-pillar/cost_decomissioning_resources_decommission.md "../cost-optimization-pillar/cost_decomissioning_resources_decommission.md")
+Commit tool configuration files to a shared repository.
+Periodically review these shared configurations, ensuring they
+remain updated as tools and practices evolve. While the idea
+promotes consistency, be mindful of the need to occasionally
+tailor configurations for specific tasks and preferences.

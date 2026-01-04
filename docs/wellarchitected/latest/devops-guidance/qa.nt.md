@@ -1,55 +1,51 @@
-# [QA.NT.3] Prioritize user experience with UX testing
+# [QA.NT.5] Automate adherence to compliance standards through conformance testing
 
 **Category:** RECOMMENDED
 
-User experience (UX) testing provides insight into the
-system's user interface and overall user experience, ensuring
-that they align with the diverse requirements of its user
-base. Adopting UX testing ensures that as the system evolves,
-its design remains intuitive, functional, and inclusive for
-end users.
+Conformance testing, often referred to as compliance testing, verifies that a system
+meets internal and external compliance requirements. It compares the system's behaviors,
+functions, and capabilities with predefined criteria from recognized standards or
+specifications.
 
-Recognize that UX is subjective and can vary based on
-demographics, tech proficiency, and individual preferences.
-Segment your tests to understand the diverse needs and
-preferences of your user base. This means creating different
-user profiles and scenarios, ensuring that the software is
-tested from multiple perspectives. There are various forms of
-non-functional UX tests which should be utilized to target
-specific improvements:
+Conformance testing acts as a safeguard, ensuring that while agility is prioritized,
+compliance isn't compromised. There are many regulated industries, such as finance,
+healthcare, or aerospace, that have a strict set of compliance requirements which must be
+met when delivering software. Historically, balancing fast software delivery with
+stringent compliance was a challenge in these industries. Generating the documentation and
+proof required to maintain compliance was often a manual, time-intensive step that created
+a bottleneck at the end of the development lifecycle.
 
-- **Usability testing:** UX tests determines the ease with
-  which users can perform tasks using the application and evaluates if the interface is
-  intuitive and user-friendly. Usability testing helps identify issues related to the
-  application's design, navigation, and overall ease of use, ultimately leading to
-  building a better product. Conduct usability testing by recruiting a diverse group of
-  testing participants that represent the broader user base. Provide these users with
-  typical tasks they would perform when using the application. Observe the testing
-  participants and their interactions, note areas where they encounter challenges,
-  confusion, or get frustrated. During observation, encourage the participants to
-  verbalize their thought process as they perform the tasks. After the tasks are
-  completed, conduct a brief feedback session to gather additional perspective on their
-  use of the application. Use this data to drive user experience improvements and to fix
-  any bugs that were discovered. To continuously gather feedback over time, ensure that
-  there are mechanisms for users to provide feedback as they interact with the system.
-- **Accessibility testing:** UX tests that evaluate the
-  application to ensure that it can be accessed and used by everyone. Regularly review
-  web content accessibility guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/ "https://www.w3.org/WAI/standards-guidelines/wcag/")) to ensure
-  compliance with the latest standards. To get started quickly, consider adopting an
-  existing design system which incorporates accessibility best practices and a framework
-  to create accessible applications, such as the [Cloudscape Design System](https://cloudscape.design/ "https://cloudscape.design/"). Automate accessibility tests as a part of the
-  development lifecycle using tools like [Axe](https://www.deque.com/axe/ "https://www.deque.com/axe/") or [WAVE](https://wave.webaim.org/ "https://wave.webaim.org/"). Adopt tools that
-  evaluate specific accessibility standards, such as color contrast analyzing tools like
-  [WebAim](https://webaim.org/resources/contrastchecker/ "https://webaim.org/resources/contrastchecker/"). Consider
-  regularly conducting manual exploratory tests using assistive technologies to capture
-  issues that automated tools might miss.
-  **Related information:**
+Conformance testing integrated into deployment pipelines provides a solution to this
+problem by automating the creation of compliance attestations and documentation. It can be
+used to meet both internal and external compliance requirements. Start by determining both
+internal (for example, risk assessment policies, or change management procedures) and
+external standards (for example, [GxP](https://aws.amazon.com/compliance/gxp-part-11-annex-11/ "https://aws.amazon.com/compliance/gxp-part-11-annex-11/") for life sciences). Prioritize and
+choose the relevant parts of the standards which can be automated (for example, GxP
+Installation Qualification report). Ensure that conformance tests remain current by
+updating them according to evolving standards.
 
-- [Usability
-  Evaluation Methods](https://www.usability.gov/how-to-and-tools/methods/usability-evaluation/index.html "https://www.usability.gov/how-to-and-tools/methods/usability-evaluation/index.html")
-- [W3C
-  standards](https://www.w3.org/WAI/fundamentals/accessibility-principles/ "https://www.w3.org/WAI/fundamentals/accessibility-principles/")
-- [WCAG
-  2.1 AA](https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels "https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels")
-- [Web
-  Accessibility Initiative (WAI)](https://www.w3.org/WAI/design-develop/ "https://www.w3.org/WAI/design-develop/")
+Use the data at your disposal, including APIs, output from other forms of testing,
+and possibly additional data from IT Service Management (ITSM) and Configuration
+Management Databases (CMDB). Embed conformance testing scripts into deployment pipelines
+to generate real-time compliance attestations and documentation using this data. Consider
+using machine-readable markup languages, such as JSON and YAML, to store the compliance
+artifacts. If the markup languages are not considered sufficiently human readable by
+auditors, then retain the ability to convert these markdown files into another format.
+This conversion can then be done when needed, not as a default step, removing the burden
+of document management where it is not absolutely necessary.
+
+**Related information:**
+
+- [Wikipedia
+  - Conformance testing](https://en.wikipedia.org/wiki/Conformance_testing "https://en.wikipedia.org/wiki/Conformance_testing")
+- [Qualification
+  Strategy for Life Science Organizations](../../../whitepapers/latest/gxp-systems-on-aws/qualification-strategy-for-life-science-organizations.md "../../../whitepapers/latest/gxp-systems-on-aws/qualification-strategy-for-life-science-organizations.md")
+- [Automating
+  the Installation Qualification (IQ) Step to Expedite GxP
+  Compliance](https://aws.amazon.com/blogs/industries/automating-the-installation-qualification-iq-step-to-expedite-gxp-compliance/ "https://aws.amazon.com/blogs/industries/automating-the-installation-qualification-iq-step-to-expedite-gxp-compliance/")
+- [Automating
+  GxP compliance in the cloud: Best practices and
+  architecture guidelines](https://aws.amazon.com/blogs/industries/automating-gxp-compliance-in-the-cloud-best-practices-and-architecture-guidelines/ "https://aws.amazon.com/blogs/industries/automating-gxp-compliance-in-the-cloud-best-practices-and-architecture-guidelines/")
+- [Automating
+  GxP Infrastructure Installation Qualification on AWS with
+  Chef InSpec](https://aws.amazon.com/blogs/industries/automating-gxp-infrastructure-installation-qualification-on-aws-with-chef-inspec/ "https://aws.amazon.com/blogs/industries/automating-gxp-infrastructure-installation-qualification-on-aws-with-chef-inspec/")

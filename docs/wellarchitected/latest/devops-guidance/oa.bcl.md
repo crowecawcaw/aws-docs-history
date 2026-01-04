@@ -1,10 +1,21 @@
-# [OA.BCL.4] Boost team efficiency by limiting work in progress
+# [OA.BCL.7] Cultivate a psychologically-safe culture for experimentation
 
 **Category:** FOUNDATIONAL
 
-Provide ample capacity to accomplish goals on time by reducing
-work in progress (WIP). Prioritize finishing tasks over starting new ones, which helps to
-reduce context-switching and impacts overall team efficiency. Continually monitor and adjust
-WIP limits to prioritize tasks that align with business outcomes. Encourage teams to use
-agile project management tools and rules, such as Kanban or Scrum, to
-manage work in progress and complete tasks in a timely manner.
+Encourage experimentation and learning from failures by
+establishing clear guidelines and hosting sharing sessions for
+both successful and failed experiments. Foster a
+psychologically-safe environment where team members feel
+encouraged to share their ideas and speak up without fear of
+negative consequences. Recognize and celebrate successes,
+while also recognizing individuals who take risks and
+contribute to innovation. Cultivate a culture that values open
+communication, feedback, and continuous learning. Provide
+support for team members who are willing to experiment and
+think big.
+
+**Related information:**
+
+- [Amazon's
+  approach to security during development: Technical
+  fearlessness](https://youtu.be/NeR7FhHqDGQ?t=1031 "https://youtu.be/NeR7FhHqDGQ?t=1031")
