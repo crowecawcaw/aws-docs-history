@@ -1,27 +1,23 @@
-# NEXT
+# SUM
 
-Returns a new column, where each value represents a value that is
-_n_ rows later in the source column.
+Returns the sum of the values from the selected source columns in a new column. Any
+non-number is treated as 0.
 
 ###### Parameters
 
-- `sourceColumn` – The name of an existing column.
-- `numRows` – A value that represents _n_
-  rows earlier in the source column. For example, if `numRows` is 3,
-  then `NEXT` uses the third-next `sourceColumn` value as
-  the new `targetColumn` value.
+- `sourceColumns` – A JSON-encoded string representing a list of existing
+  columns.
 - `targetColumn` – A name for the newly created column.
 
 ###### Example
 
 ```
 {
-    "Action": {
-        "Operation": "NEXT",
+    "RecipeAction": {
+        "Operation": "SUM",
         "Parameters": {
-            "numRows": "1",
-            "sourceColumn": "age",
-            "targetColumn": "age_NEXT"
+            "sourceColumns": "[\"age\",\"years_in_service\"]",
+            "targetColumn": "SUM Column 1"
         }
     }
 }
