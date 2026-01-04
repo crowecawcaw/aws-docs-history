@@ -439,7 +439,7 @@ On the details page for your job, you can view the
 instance types SageMaker AI recommends for your model, as shown in the
 following screenshot.
 
-![Screenshot of the inference recommendations list on the job details page in the SageMaker AI console.](images/inf-rec-instant-recs.png)
+![Screenshot of the inference recommendations list on the job details page in the SageMaker AI console.](/images/sagemaker/latest/dg/images/inf-rec-instant-recs.png)
 
 In this section, you can compare the instance types by various
 factors such as **Model latency**, **Cost
