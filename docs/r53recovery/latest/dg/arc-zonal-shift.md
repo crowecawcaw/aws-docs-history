@@ -1,29 +1,29 @@
-# Supported resources
+# How a zonal shift works
 
-Amazon Application Recovery Controller (ARC) currently supports enabling the following resources for zonal shift and zonal autoshift:
+When you start a zonal shift for a supported resource, traffic for the resource is moved
+away from the Availability Zone (AZ) that you've specified. ARC's supported resources
+provide integrations that mark the specified AZ as unhealthy, which results in a traffic
+shifting away from the impaired AZ.
 
-- [Amazon EC2 Auto Scaling groups](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md")
-- [Amazon Elastic Kubernetes Service](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md")
-- [Application Load Balancers](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md") with
-  cross-zone load balancing enabled or disabled
-- [Network Load Balancers](arc-zonal-shift.resource-types.md "arc-zonal-shift.resource-types.md") with cross-zone load balancing enabled or disabled
-  For specific requirements for Network Load Balancers and Application Load Balancers, see the additional topics in this section.
+**Traffic begins to shift** - When you start a zonal shift in
+ARC, you might not see traffic move out of the Availability Zone immediately. It
+can take a short time for existing, in-progress connections in the Availability Zone to
+complete, depending on client behavior and connection reuse. DNS settings and other
+factors including existing connections can complete in just a few minutes, but they may
+take longer. For more information, see [Ensuring that traffic shifts finish
+quickly](route53-arc-best-practices.md#arc-zonal-shift.existing-connections "route53-arc-best-practices.md#arc-zonal-shift.existing-connections").
 
-Review the following conditions for working with zonal shifts, zonal autoshift, and resources in ARC:
+**Traffic shift ends** - When a zonal shift expires or you cancel it, ARC takes steps to stop shifting traffic
+and reverses the process for starting a traffic shift. Now, the recovered AZ is recognized as available for the resource and traffic resumes flowing to the AZ.
 
-- A resource must be active and fully provisioned to shift traffic for it. Before you
-  start a zonal shift for a resource, check to make sure that it's a managed resource in ARC. For example,
-  view the list of managed resources in the AWS Management Console, or use the `get-managed-resource`
-  operation with the resource's identifier.
-- To start a zonal shift with a resource, it must be deployed in the Availability Zone and AWS Region
-  where you start the shift. Make sure that you start a zonal shift in the same Region that the AZ you want to shift away
-  from is in, and that the resource that you're shifting traffic for is in the same AZ and Region as well.
-- Ensure that you have the correct IAM permissions to use zonal shift with a resource. For
-  more information, see [IAM and permissions for zonal shift](security_iam_service-with-iam-zonal-shift.md "security_iam_service-with-iam-zonal-shift.md").
-- When a Network Load Balancer or Application Load Balancer is in a fail open state, a zonal shift will have no effect. This is
-  expected behavior because zonal shift cannot force an AZ to be unhealthy and
-  then shift traffic to the other AZs in a Region when a load balancer is
-  failing open. For more information, see [Using Route 53 DNS failover for your load balancer](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#r53-dns-failover "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#r53-dns-failover") in the _Network Load Balancers User Guide_ and [Using Route 53 DNS failover for your load balancer](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#r53-dns-failover "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#r53-dns-failover") in the _Application Load Balancers User Guide_.
-- If multiple load balancers are forwarding traffic to the same targets, a zonal shift on
-  a cross-zone enabled load balancer drops target capacity for all load balancers, even if their traffic is not
-  shifted by a zonal shift.
+You must set all zonal shifts to expire when you start the shifts. You can initially set a zonal shift to expire in a
+maximum of three days (72 hours). However, you can update a zonal shift to set a new expiration at any time. You can also
+cancel a zonal shift before it expires, if you're ready to restore traffic to the Availability Zone.
+
+**When traffic does not shift away** - In specific scenarios, a zonal shift does not shift traffic from the Availability Zone. For example, say you start a zonal shift
+for a load balancer when the load balancer target groups in the AZs don't have any instances, or if all of the instances
+are unhealthy. In this scenario, the load balancer is in a fail open state and starting a zonal shift does not shift away traffic.
+
+Before you start a zonal shift for a resource, make sure that all the conditions for a
+successful zonal shift are met. AWS resources handle zonal shifts differently. For
+more information about zonal shift support, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
