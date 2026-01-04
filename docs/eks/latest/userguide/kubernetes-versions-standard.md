@@ -27,6 +27,9 @@ Kubernetes `1.34` is now available in Amazon EKS. For more information about Kub
   - If you self-manage your CSI sidecar containers, you may need to pin to older sidecar versions on pre-1.34 clusters to maintain VAC functionality.
   - To use GA VolumeAttributesClass features (such as modification rollback), upgrade to EKS 1.34 or later.
 
+- External JWT Signer for Service Account Tokens is promoted to Beta. When using external signers, the --service-account-extend-token-expiration flag is no longer fully respected. The API server enforces the minimum expiration between the desired extension (1 year) and the external signer’s limit (24 hours).
+  - We recommend using [bound service account tokens](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#bound-service-account-tokens "https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#bound-service-account-tokens"), which are automatically mounted and rotated by Kubernetes.
+
 - **Dynamic Resource Allocation (DRA) Core APIs (GA):** Dynamic Resource Allocation has graduated to stable, enabling efficient management of specialized hardware like GPUs through standardized allocation interfaces - simplifying resource management for hardware accelerators and improving utilization of specialized resources.
 - **Projected ServiceAccount Tokens for Kubelet (Beta):** This enhancement improves security by using short-lived credentials for container image pulls instead of long-lived secrets - reducing the risk of credential exposure and strengthening the overall security posture of your clusters.
 - **Pod-level Resource Requests and Limits (Beta):** This feature simplifies resource management by allowing shared resource pools for multi-container pods - enabling more efficient resource allocation and utilization for complex applications with multiple containers.
