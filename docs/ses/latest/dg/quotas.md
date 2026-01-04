@@ -93,11 +93,11 @@ The following table lists the quotas associated with Mail Manager.
 | Maximum number of traffic policy statements              | 20            | No         |
 | Maximum number of traffic policy statement conditions    | 10            | No         |
 | Maximum number of traffic policies per region            | 100           | No         |
-| Maximum number of SMTP relays                            | 100           | No         |
+| Maximum number of SMTP relays                            | 40            | No         |
 | Maximum number of Address Lists per region               | 100           | No         |
 | Maximum number of addresses per Address List             | 100,000       | No         |
 | Maximum number of rule sets                              | 40            | No         |
-| Maximum number of rule executions per message            | 40            | No         |
+| Maximum number of rules per rule set                     | 40            | No         |
 | Maximum number of conditions per rule                    | 10            | No         |
 | Maximum number of actions per rule                       | 10            | No         |
 | Maximum number of relay or send actions per rule set     | 10            | No         |
