@@ -108,7 +108,7 @@ the specified time range.
    **Custom time range** to specify a range up to 7 days. This
    configuration is shown in the following image.
 
-![The Login/Logout report page.](images/login-logout-report.png) 4. Choose the **Time zone** to use for your report. 5. To filter data included in the report, for **Filter by**,
+![The Login/Logout report page.](images/login-logout-report-custom-time-range.png) 4. Choose the **Time zone** to use for your report. 5. To filter data included in the report, for **Filter by**,
 choose a value. 6. Choose **Generate report**, **Save**. 7. Provide a name for the report, and choose **Save**.
 
 ## Edit a Saved Login/Logout Report
@@ -146,10 +146,9 @@ For example, if you're displaying a page with 25 rows and there are 26 results, 
 downloaded CSV file will include only rows 1-25. You need to increase the **Rows
 per page** to include all results.
 
-The following image shows that row 26 won't be included in a download of 25
-rows.
+![Use table preferences to increase Rows per page.](images/login-logout-report-table-preferences.png)
 
-![The number of rows that will be downloaded to the CVS file.](images/pagination-loginlogout-report.png)
+![The number of rows that will be downloaded to the CSV file.](images/login-logout-report-rows-per-page.png)
 
 ###### To download a report as a CSV file
 

@@ -37,6 +37,8 @@ shared:
 - [Staff demand group](#data-lake-staff_demand_group "#data-lake-staff_demand_group")
 - [Staffing groups demand group](#data-lake-staffing-groups-demand-groups "#data-lake-staffing-groups-demand-groups")
 - [Staff shift activity allocation](#data-lake-staff-shift-activity-allocation "#data-lake-staff-shift-activity-allocation")
+- [Schedule metrics](#data-lake-schedule-metrics "#data-lake-schedule-metrics")
+- [Schedule goals](#data-lake-schedule-goals "#data-lake-schedule-goals")
 - [Data schema](#data-lake-data-schema "#data-lake-data-schema")
 - [Sample queries](#data-lake-sample-queries "#data-lake-sample-queries")
 
@@ -347,6 +349,56 @@ Composite Primary Key: `{instance_id, shift_id, shift_version, activity_id, dema
 | is_deleted                         | Boolean   | Set to False when the StaffingGroup-ForecastGroupassociation is valid.                                                                                                                          |
 | last_updated_timestamp             | Timestamp | The Timestamp when the Staffing Group was created/updated.                                                                                                                                      |
 | data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+
+## Schedule metrics
+
+Table Name: `schedule_metrics`
+
+Composite Primary Key: `{instance_id, metric_id, interval_start_timestamp}`
+
+| Column                             | Type      | Description                                                                                                                                                                            |
+| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The ARN of the Amazon Connect instance.                                                                                                                                                |
+| instance_arn                       | string    | The ID of the Amazon Connect instance.                                                                                                                                                 |
+| metric_id                          | string    | Unique identifier for the metric value                                                                                                                                                 |
+| aws_account_id                     | string    | The ID of the AWS account.                                                                                                                                                             |
+| entity_type                        | string    | Denotes whether the metric is for a forecast group or demand group.                                                                                                                    |
+| entity_arn                         | string    | Arn of the forecast group or demand group                                                                                                                                              |
+| channel                            | string    | Denotes the media channel like Voice, chat. If the row contains metrics that are not channel level, then it's populated as ALL                                                         |
+| interval_start_timestamp           | timestamp | Timestamp denoting the start of the interval                                                                                                                                           |
+| required_agent_count               | float     | Denotes the forecasted agents count                                                                                                                                                    |
+| scheduled_agent_count              | float     | Denotes the schedule agents count                                                                                                                                                      |
+| scheduled_occupancy                | float     | Denotes the occupancy percentage                                                                                                                                                       |
+| scheduled_service_level_percentage | float     | Denotes the schedule service level percentage                                                                                                                                          |
+| service_level_seconds              | integer   | Denotes the service level seconds                                                                                                                                                      |
+| scheduled_average_speed_of_answer  | float     | Denotes the average speed of answer                                                                                                                                                    |
+| is_deleted                         | boolean   | Denotes whether the metric is deleted                                                                                                                                                  |
+| last_updated_timestamp             | timestamp | The Timestamp when the metric record was created.                                                                                                                                      |
+| data_lake_last_processed_timestamp | timestamp | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+
+## Schedule goals
+
+Table Name: `schedule_goals`
+
+Composite Primary Key: `{instance_id, goal_id}`
+
+| Column                             | Type      | Description                                                                                                                                                                            |
+| ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The ARN of the Amazon Connect instance.                                                                                                                                                |
+| instance_arn                       | string    | The ID of the Amazon Connect instance.                                                                                                                                                 |
+| goal_id                            | string    | Unique identifier for the goal value                                                                                                                                                   |
+| aws_account_id                     | string    | The ID of the AWS account.                                                                                                                                                             |
+| entity_type                        | string    | Denotes whether the goal is for a forecast group or demand group.                                                                                                                      |
+| entity_arn                         | string    | Arn of the forecast group or demand group                                                                                                                                              |
+| channel                            | string    | Denotes the media channel like Voice, chat.                                                                                                                                            |
+| start_date_timestamp               | timestamp | Timestamp denoting start of the goal                                                                                                                                                   |
+| end_date_timestamp                 | timestamp | Timestamp denoting end of the goal                                                                                                                                                     |
+| goal_service_level_percentage      | float     | Denotes the goal service level percentage                                                                                                                                              |
+| goal_service_level_seconds         | integer   | Denotes the service level seconds                                                                                                                                                      |
+| goal_average_speed_of_answer       | float     | Denotes the average speed of answer                                                                                                                                                    |
+| is_deleted                         | boolean   | Denotes whether the goal is deleted                                                                                                                                                    |
+| last_updated_timestamp             | timestamp | The Timestamp when the goals record was created.                                                                                                                                       |
+| data_lake_last_processed_timestamp | timestamp | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
 
 ## Data schema
 

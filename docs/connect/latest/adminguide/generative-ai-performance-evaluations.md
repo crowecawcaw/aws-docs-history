@@ -113,6 +113,37 @@ To learn more about setting up automated evaluations using generative AI, see
 [Guidelines to improve
 generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
 
+##
+
+Set up generative AI-powered evaluations in non-English languages
+
+By default, if you do not set the language of an evaluation form, the generative
+AI model automatically detects the language of your evaluation form questions and
+tries to provide answers in the same language, if the AI model understands that
+language. By default, generative AI answer justifications are typically provided
+in English.
+
+To consistently receive both AI-generated answers and answer justifications in
+your preferred language, you can set the language of an evaluation form, choosing from
+**English**, **Spanish**,
+**Portuguese**, **French**,
+**German** and **Italian**.
+By explicitly setting the language of an evaluation, you can also perform cross-language
+evaluations, where generative AI fills a evaluation form in English, even when the
+conversation transcript is in another language, say Spanish. This enables multilingual
+contact centers to use a standardized evaluation framework across languages.
+
+To set the language of the evaluation form:
+
+1. Select the **Additional settings**
+   tab while creating or updating an evaluation form.
+2. Choose **Form language** from the dropdown.
+3. Ensure your form’s questions, instructions and answer choices are in the same
+   language as the selected **Form language**, for optimal
+   AI performance.
+
+![The evaluation form page, the Additional settings tab.](images/evaluationforms-languageexample1.png)
+
 ## Guidelines to improve
 
 generative AI accuracy

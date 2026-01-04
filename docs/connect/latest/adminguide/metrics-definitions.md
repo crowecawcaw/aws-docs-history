@@ -4497,7 +4497,8 @@ the contact center.
 
 **How to access using the Amazon Connect admin website**:
 
-- Historical metrics reports: Contacts created
+- Dashboard: [Intraday forecast performance
+  dashboard](intraday-forecast-performance-dashboard.md "intraday-forecast-performance-dashboard.md"), Contacts created
 
 **Calculation logic**:
 
