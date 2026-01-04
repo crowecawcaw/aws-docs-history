@@ -1,7 +1,7 @@
 # Sharing your licenses
 
-Only AMI, container, machine learning, and data products have licenses that can be
-shared.
+Only AMI, container, machine learning, data products and Oracle Database@AWS
+subscriptions have licenses that can be shared.
 
 Subscriptions in AWS Marketplace have an **Access level** shown in the product
 details:

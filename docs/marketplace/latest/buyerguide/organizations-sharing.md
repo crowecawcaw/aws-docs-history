@@ -2,9 +2,9 @@
 
 When you subscribe to products in AWS Marketplace, an agreement is created that grants you a license
 to use those products. If your AWS account is a member of an organization, you can share
-that license for Amazon Machine Image (AMI), container, machine learning, and data products
-with the other accounts in that organization. You must set up license support in AWS Marketplace, and
-then share this from within AWS License Manager.
+that license for Amazon Machine Image (AMI), container, machine learning, data products and
+Oracle Database@AWS subscriptions with the other accounts in that organization. You must set up
+license support in AWS Marketplace, and then share this from within AWS License Manager.
 
 ###### Note
 
