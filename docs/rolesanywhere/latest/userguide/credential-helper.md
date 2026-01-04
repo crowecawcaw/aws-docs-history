@@ -33,7 +33,7 @@ To get temporary credentials, you need all of the following:
 - An end-entity certificate from your certificate authority
 - The certificate associated private key is required in most cases, except when inferred. For example when using OS certificate stores.
 - A trust anchor configured in IAM Roles Anywhere
-  For more information, see [Getting started](getting-started.md "getting-started.md").
+  For more information, see [Getting started](getting-started.md "getting-started.md"). For detailed examples of using the credential helper with the Java SDK, see [Using IAM Roles Anywhere credentials](../../../sdk-for-java/latest/developer-guide/credentials-process.md#credentials-iam-roles-anywhere "../../../sdk-for-java/latest/developer-guide/credentials-process.md#credentials-iam-roles-anywhere").
 
 ## Credential Helper on GitHub
 
