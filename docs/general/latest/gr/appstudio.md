@@ -1,8 +1,4 @@
-#
-
-AWS App Studio
-
-endpoints and quotas
+# AWS App Studio endpoints and quotas
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
 in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
@@ -23,7 +19,4 @@ The following are the service endpoints and service quotas for this service.
 ## Service quotas
 
 For information on quotas, see [Quotas for
-
-AWS App Studio](../../../appstudio/latest/userguide/quotas.md "../../../appstudio/latest/userguide/quotas.md") in the \*AWS App Studio
-
-User Guide\*.
+AWS App Studio](../../../appstudio/latest/userguide/quotas.md "../../../appstudio/latest/userguide/quotas.md") in the _AWS App Studio User Guide_.
