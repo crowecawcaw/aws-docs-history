@@ -1,14 +1,14 @@
 # Advanced Scaling for Amazon EMR
 
 Starting with Amazon EMR on EC2 version 7.0, you can leverage Advanced
-Scaling to control your cluster's resource utilization. Advanced scaling introduces a utilization-performance scale for tuning your
+Scaling to control your cluster's resource utilization. Advanced Scaling introduces a utilization-performance scale for tuning your
 resource utilization and performance level according to your business needs. The value you set determines whether your cluster is weighted more to resource conservation or to
 scaling up to handle service-level-agreement (SLA) sensitive workloads, where quick completion is critical. When the scaling value
 is adjusted, managed scaling interprets
 your intent and intelligently scales to optimize resources. For more information about managed scaling,
 see [Configure managed scaling for Amazon EMR](managed-scaling-configure.md "managed-scaling-configure.md").
 
-## Advanced scaling settings
+## Advanced Scaling settings
 
 The value your set for Advanced Scaling optimizes your cluster to your requirements. Values range from **1**-**100**. Possible values are **1**,
 **25**, **50**, **75** and
@@ -32,7 +32,7 @@ Scaling values map to resource-utilization strategies. The following list define
 The intermediate values available provide a middle ground between strategies in order to fine tune your cluster's Advanced
 Scaling behavior.
 
-## Benefits of advanced scaling
+## Benefits of Advanced Scaling
 
 As you have variability in your environment and requirements, such as changing data volumes, cost-target adjustments, and SLA implementations,
 cluster scaling can help you adjust your cluster configuration to achieve your objectives. Key benefits include:
@@ -129,6 +129,8 @@ The following image shows these metrics for a sample cluster:
   and cluster configuration. We encourage you to experiment with the scaling setting to determine an optimal index value for your use case.
 - Amazon EMR Advanced Scaling is particularly well suited for batch workloads. For SQL/data-warehousing and streaming
   workloads, we recommend using the default managed-scaling strategy for optimal performance.
+- Amazon EMR Advanced Scaling is not supported when Node Label Configurations are enabled in the cluster. If both Advanced Scaling and
+  Node Label Configurations are enabled together in a cluster, then the scaling behavior would be as if the default managed scaling setting was enabled.
 - The performance-optimized scaling strategy enables faster job execution by maintaining high compute resources for a longer period than the default
   managed-scaling strategy. This mode prioritizes quickly scaling up to meet resource demands, resulting in quicker job completion. This might result in higher costs when compared with the default strategy.
 - In cases where the cluster is already optimized and fully utilized, enabling Advanced Scaling might not provide additional benefits. In some situations, enabling
