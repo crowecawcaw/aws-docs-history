@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function as normal. For more information, 
 # Downloading and installing the Amazon Redshift ODBC driver
 
 Use the following procedure to download and install the Amazon Redshift ODBC driver on
-Apple MacOS. Only use a different driver if you're running a
+Apple macOS. Only use a different driver if you're running a
 third-party application that is certified for use with Amazon Redshift, and that
 application requires that specific driver.
 

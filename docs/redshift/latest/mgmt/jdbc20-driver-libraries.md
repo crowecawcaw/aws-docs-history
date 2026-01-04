@@ -32,5 +32,5 @@ the class path for your operating system.
 
 - Windows: [https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html "https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html")
 - Linux and Solaris: [https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/classpath.html](https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/classpath.html "https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/classpath.html")
-- MacOS: The default MacOS class path is the directory in which the JDBC
+- macOS: The default macOS class path is the directory in which the JDBC
   driver is installed.

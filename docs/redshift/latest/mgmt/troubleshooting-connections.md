@@ -345,7 +345,7 @@ $ sudo ip link set dev eth0 mtu 1500
 
 ###### To set MTU on a Mac operating system
 
-- Follow instructions on the MacOS support site about `How to
+- Follow instructions on the macOS support site about `How to
 change the MTU for troubleshooting purposes`. For more
   information, search the [support
   site.](https://support.apple.com "https://support.apple.com")

@@ -68,9 +68,9 @@ for Linux:
 
 ## Use previous ODBC driver versions
 
-for Apple MacOS
+for Apple macOS
 
 The following are the previous versions of the Amazon Redshift ODBC driver version 2.x
-for Apple MacOS:
+for Apple macOS:
 
 -

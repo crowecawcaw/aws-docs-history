@@ -33,7 +33,7 @@ log](https://github.com/aws/amazon-redshift-odbc-driver/blob/master/CHANGELOG.md
   Windows](odbc20-install-config-win.md "odbc20-install-config-win.md")
 - [Using an Amazon Redshift ODBC driver on
   Linux](odbc20-install-config-linux.md "odbc20-install-config-linux.md")
-- [Using an Amazon Redshift ODBC driver on Apple MacOS](odbc20-install-config-mac.md "odbc20-install-config-mac.md")
+- [Using an Amazon Redshift ODBC driver on Apple macOS](odbc20-install-config-mac.md "odbc20-install-config-mac.md")
 - [Authentication methods](odbc20-authentication-ssl.md "odbc20-authentication-ssl.md")
 - [Data types conversions](odbc20-converting-data-types.md "odbc20-converting-data-types.md")
 - [ODBC driver options](odbc20-configuration-options.md "odbc20-configuration-options.md")

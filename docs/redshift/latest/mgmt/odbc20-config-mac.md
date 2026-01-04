@@ -61,14 +61,14 @@ see [here](odbc20-install-config-mac.md "odbc20-install-config-mac.md")
 
 ### Configuring a connection using a data source
 
-name (DSN) on Apple MacOS
+name (DSN) on Apple macOS
 
 When connecting to your data store using a data source name (DSN), configure
 the `odbc.ini` file to define data source names (DSNs). Set the
 properties in the `odbc.ini` file to create a DSN that specifies the
 connection information for your Redshift data warehouse.
 
-On Apple MacOS, use the following format:
+On Apple macOS, use the following format:
 
 ```
 [ODBC Data Sources]
@@ -83,7 +83,7 @@ locale=locale
 ```
 
 The following example shows the configuration for `odbc.ini` with
-the 64-bit ODBC driver on Apple MacOS.
+the 64-bit ODBC driver on Apple macOS.
 
 ```
 [ODBC Data Sources]
@@ -99,13 +99,13 @@ locale=en-US
 
 ### Configuring a connection without a DSN on
 
-Apple MacOS
+Apple macOS
 
 To connect to your Redshift data warehouse through a connection that doesn't have a DSN,
 define the driver in the `odbcinst.ini` file. Then provide a DSN-less
 connection string in your application.
 
-On Apple MacOS, use the following format:
+On Apple macOS, use the following format:
 
 ```
 [ODBC Drivers]
@@ -120,7 +120,7 @@ Driver=path/driver_file
 ```
 
 The following example shows the configuration for `odbcinst.ini`
-with the 64-bit ODBC driver on Apple MacOS.
+with the 64-bit ODBC driver on Apple macOS.
 
 ```
 [ODBC Drivers]
