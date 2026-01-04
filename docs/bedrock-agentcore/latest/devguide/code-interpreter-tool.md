@@ -36,7 +36,7 @@ development
 The AgentCore Code Interpreter enhances agent development in the following ways:
 
 - Execute code securely: Develop agents that can perform complex workflows and data
-  analysis in isolated sandbox environments, while accessing internal data sources without
+  analysis in sandbox environments, while accessing internal data sources without
   exposing sensitive data or compromising security.
 - Multiple programming languages: The Code Interpreter supports various programming
   languages including Python, JavaScript, and TypeScript, making it versatile for different

@@ -172,8 +172,7 @@ This example shows you how to:
 - Create a custom Code Interpreter with an execution role
 - Configure network access - Choose PUBLIC mode if your Code Interpreter needs to
   connect to the public internet. If your Code Interpreter supports connection to Amazon S3,
-  and if you want your Code Interpreter session to remain isolated from the public
-  internet, choose SANDBOX mode.
+  and needs limited access to the public internet, choose SANDBOX mode.
 - Upload and download files between the Code Interpreter environment and S3
 - Execute commands and scripts within the Code Interpreter environment
 - Clean up resources when finished

@@ -11,7 +11,6 @@ Amazon Bedrock AgentCore lets you add open source templates from the following i
 - Microsoft
 - PagerDuty
 - Salesforce
-- SAP
 - ServiceNow
 - Slack
 - Smartsheet
@@ -70,14 +69,6 @@ Select a topic to learn about which APIs are supported for each template:
 - [PagerDuty Advance](#gateway-target-integrations-supported-apis-pagerduty "#gateway-target-integrations-supported-apis-pagerduty")
 - [Salesforce
   Lightning Platform](#gateway-target-integrations-supported-apis-salesforce "#gateway-target-integrations-supported-apis-salesforce")
-- [SAP Bill of
-  Material](#gateway-target-integrations-supported-apis-sap-bom "#gateway-target-integrations-supported-apis-sap-bom")
-- [SAP Business Partner (A2X)](#gateway-target-integrations-supported-apis-sap-business-partner "#gateway-target-integrations-supported-apis-sap-business-partner")
-- [SAP
-  Material Stock](#gateway-target-integrations-supported-apis-sap-material-stock "#gateway-target-integrations-supported-apis-sap-material-stock")
-- [SAP Physical Inventory](#gateway-target-integrations-supported-apis-sap-physical-inventory "#gateway-target-integrations-supported-apis-sap-physical-inventory")
-- [SAP
-  Product Master (A2X)](#gateway-target-integrations-supported-apis-sap-product-master "#gateway-target-integrations-supported-apis-sap-product-master")
 - [ServiceNow](#gateway-target-integrations-supported-apis-servicenow "#gateway-target-integrations-supported-apis-servicenow")
 - [Slack Web](#gateway-target-integrations-supported-apis-slack "#gateway-target-integrations-supported-apis-slack")
 - [Smartsheet](#gateway-target-integrations-supported-apis-smartsheet "#gateway-target-integrations-supported-apis-smartsheet")
@@ -291,7 +282,7 @@ Confluence Cloud REST API v2
 
 The following list provides key information for this template
 
-- Server URL – https://`{your-domain}`
+- Server URL – https://`{sub-domain}`.atlassian.net
 - Outbound authentication types accepted:
   - API key
 
@@ -574,88 +565,6 @@ The following table shows the APIs that you can call if you add this target type
 | GET           | getUser                 | /sobjects/User                     | View user details                                              |
 | GET           | describeSObject         | /sobjects/`{sObject}`/describe     | Get object metadata and field details                          |
 | GET           | queryAccounts           | /query                             | Executes a SOQL query to retrieve account data from Salesforce |
-
-### SAP Bill of
-
-Material
-
-The following list provides key information for this template
-
-- Server URL – https://`{host}`/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=0002
-- Outbound authentication types accepted:
-  - OAuth2
-
-The following table shows the APIs that you can call if you add this target type to your gateway:
-
-| REST API type | Operation name     | REST API path    | Description                   |
-| ------------- | ------------------ | ---------------- | ----------------------------- |
-| GET           | getMaterialBOMItem | /MaterialBOMItem | View bill of material details |
-
-### SAP Business Partner (A2X)
-
-The following list provides key information for this template
-
-- Server URL – https://`{host}`/sap/opu/odata/sap/API_BUSINESS_PARTNER
-- Outbound authentication types accepted:
-  - OAuth2
-
-The following table shows the APIs that you can call if you add this target type to your gateway:
-
-| REST API type | Operation name             | REST API path                                                                                               | Description                                                       |
-| ------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| GET           | getBusinessPartner         | /A_BusinessPartner                                                                                          | Retrieves business partner general data.                          |
-| GET           | getBusinessPartnerByID     | /A_BusinessPartner('`{BusinessPartner}`')                                                                   | Retrieves business partner data by using business partner number. |
-| GET           | getBusinessPartnerAddress  | /A_BusinessPartnerAddress                                                                                   | Retrieves business partner address data.                          |
-| GET           | getBusinessPartnerRole     | /A_BusinessPartnerRole                                                                                      | Retrieves business partner role data.                             |
-| GET           | getBusinessPartnerRoleByID | /A_BusinessPartnerRole(BusinessPartner='`{BusinessPartner}`',BusinessPartnerRole='`{BusinessPartnerRole}`') | Retrieves business partner role data using the key fields.        |
-
-### SAP
-
-Material Stock
-
-The following list provides key information for this template
-
-- Server URL – https://`{host}`/sap/opu/odata/sap/API_MATERIAL_STOCK_SRV
-- Outbound authentication types accepted:
-  - OAuth2
-
-The following table shows the APIs that you can call if you add this target type to your gateway:
-
-| REST API type | Operation name            | REST API path       | Description                                                  |
-| ------------- | ------------------------- | ------------------- | ------------------------------------------------------------ |
-| GET           | getMaterialStockInAccount | /A_MatlStkInAcctMod | View material stocks details for stocks that has been posted |
-
-### SAP Physical Inventory
-
-The following list provides key information for this template
-
-- Server URL – https://`{host}`/sap/opu/odata/sap/API_PHYSICAL_INVENTORY_DOC_SRV
-- Outbound authentication types accepted:
-  - OAuth2
-
-The following table shows the APIs that you can call if you add this target type to your gateway:
-
-| REST API type | Operation name          | REST API path           | Description                                  |
-| ------------- | ----------------------- | ----------------------- | -------------------------------------------- |
-| GET           | getPhysInventoryDocItem | /A_PhysInventoryDocItem | View physical inventory document for an item |
-
-### SAP
-
-Product Master (A2X)
-
-The following list provides key information for this template
-
-- Server URL – https://`{host}`/sap/opu/odata/sap/API_PRODUCT_SRV
-- Outbound authentication types accepted:
-  - OAuth2
-
-The following table shows the APIs that you can call if you add this target type to your gateway:
-
-| REST API type | Operation name                  | REST API path                                                     | Description                                              |
-| ------------- | ------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------- |
-| GET           | getProductMaster                | /A_Product                                                        | View product master general details                      |
-| GET           | getPlantDataByMaterial          | /A_Product('`{Product}`')/to_Plant                                | View plant details of the product                        |
-| GET           | getSupplyPlanningDataByMaterial | /A_ProductSupplyPlanning(Product='`{Product}`',Plant='`{Plant}`') | View supply planning details by product number and plant |
 
 ### ServiceNow
 
