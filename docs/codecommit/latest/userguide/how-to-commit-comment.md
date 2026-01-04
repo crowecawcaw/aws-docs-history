@@ -108,10 +108,10 @@ You can add comments to a comparison between branches, tags, or commits.
 3. In the navigation pane, choose **Commits**, and then choose the
    **Compare commits** tab.
 
-![Compare any two commit specifiers](images/codecommit-compare-1.png) 4. Use the **Destination** and **Source** fields to compare two
+![Compare any two commit specifiers](/images/codecommit/latest/userguide/images/codecommit-compare-1.png) 4. Use the **Destination** and **Source** fields to compare two
 commit specifiers. Use the drop-down lists or paste in commit IDs. Choose **Compare**.
 
-![A sample result when comparing a commit ID to a branch](/images/codecommit/latest/userguide/images/codecommit-compare-4.png) 5. Do one or more of the following:
+![A sample result when comparing a commit ID to a branch](images/codecommit-compare-4.png) 5. Do one or more of the following:
 
     * To add comments to files or lines, choose the comment bubble
     ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](images/codecommit-commentbubble.png)

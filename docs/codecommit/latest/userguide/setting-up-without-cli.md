@@ -53,7 +53,7 @@ IAM accepts public keys in the OpenSSH format only. If you provide your public k
 in another format, you see an error message that says the key format is not valid. 5. Copy the SSH key ID (for example, `APKAEIBAERJR2EXAMPLE`) and
 close the console.
 
-![The SSH key ID in the IAM console](/images/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
+![The SSH key ID in the IAM console](images/codecommit-ssh-key-id-iam.png)
 
 ## Step 2: Add CodeCommit to your SSH configuration
 

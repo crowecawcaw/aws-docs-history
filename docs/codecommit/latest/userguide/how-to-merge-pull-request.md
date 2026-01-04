@@ -68,7 +68,7 @@ available, you can choose to manually resolve conflicts in the CodeCommit consol
 you can resolve them locally using your Git client. For more information, see
 [Resolve conflicts in a pull request in an AWS CodeCommit repository](how-to-resolve-conflict-pull-request.md "how-to-resolve-conflict-pull-request.md").
 
-![A pull request showing the merge strategies available for the merge in the CodeCommit console.](/images/codecommit/latest/userguide/images/codecommit-merge-squash.png)
+![A pull request showing the merge strategies available for the merge in the CodeCommit console.](images/codecommit-merge-squash.png)
 
     * A fast-forward merge moves the reference for the destination branch
      forward to the most recent commit of the source branch. This is the
