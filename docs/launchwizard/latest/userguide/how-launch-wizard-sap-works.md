@@ -161,7 +161,11 @@ During launch, in order to continue with a deployment, Launch Wizard verifies wh
 system version selected on the front end matches the operating system version of the
 instance. If the versions do not match, the deployment fails with an error.
 
-When building your own image,consider the following:
+###### Note
+
+If your own image has a volume size less than `50GB`, Launch Wizard automatically creates a root volume with `50GB`. If the image has a volume size bigger than `50GB`, then Launch Wizard creates the root volume with that size.
+
+When building your own image, consider the following:
 
 - Launch Wizard configures the operating systems with OS-level parameters and utilities
   required by SAP
