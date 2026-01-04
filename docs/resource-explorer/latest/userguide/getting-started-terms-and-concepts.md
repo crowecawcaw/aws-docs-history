@@ -53,7 +53,7 @@ The default view created by Resource Explorer doesn't have any filters. Therefor
 searching with this view can include resources of any type in all Regions in the account
 where Resource Explorer is turned on including Tags.
 
-![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](images/AREX-Overview-IAD.png)
+![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](/images/resource-explorer/latest/userguide/images/AREX-Overview-IAD.png)
 
 |                                                                                        |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
