@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.1.1 (2024-03-11)
+# Amazon Neptune Engine Version 1.2.1.0 (2023-03-08)
 
-As of 2024-03-11, engine version 1.2.1.1 is being generally deployed. Please note
+As of 2023-03-08, engine version 1.2.1.0 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -39,56 +39,193 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
+## Subsequent Patch Releases for This Release
+
+- [Release: 1.2.1.0.R2 (2023-05-02)](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md")
+- [Release: 1.2.1.0.R3 (2023-06-13)](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md")
+- [Release: 1.2.1.0.R4 (2023-08-10)](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md")
+- [Release: 1.2.1.0.R5 (2023-09-02)](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md")
+- [Release: 1.2.1.0.R6 (2023-09-12)](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md")
+- [Release: 1.2.1.0.R7 (2023-10-06)](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md")
+
+## New Features in This Engine Release
+
+- Added support for [TinkerPop 3.6.2](https://tinkerpop.apache.org/docs/3.6.2-SNAPSHOT/dev/provider/ "https://tinkerpop.apache.org/docs/3.6.2-SNAPSHOT/dev/provider/"), which
+  adds many new Gremlin features such as the new `mergeV()`, `mergeE()`,
+  `element()`, and `fail()` steps. The `mergeV()` and
+  `mergeE()` steps are of particular note as they offer a long-awaited
+  declarative option for performing upsert-like operations, which should greatly
+  simplify existing code patterns and make Gremlin easier to read. The 3.6.x
+  version also added regex predicates, a new overload to the `property()`
+  step which takes a `Map`, and a major revision of `by()`
+  modulation behavior that is far more consistent across all steps which use it.
+
+See the [TinkerPop
+change log](https://github.com/apache/tinkerpop/blob/3.6.0/CHANGELOG.asciidoc#release-3-6-0 "https://github.com/apache/tinkerpop/blob/3.6.0/CHANGELOG.asciidoc#release-3-6-0") and [upgrade
+page](https://tinkerpop.apache.org/docs/current/upgrade/ "https://tinkerpop.apache.org/docs/current/upgrade/") for information about the changes in version 3.6 and things to consider
+when upgrading.
+
+If you are using `fold().coalesce(unfold(), <mutate>)`
+for conditional inserts, we recommend that you migrate to the new `mergeV/E()`
+syntax, described [here](https://tinkerpop.apache.org/docs/3.6.0/reference/#mergevertex-step "https://tinkerpop.apache.org/docs/3.6.0/reference/#mergevertex-step") and [here](https://tinkerpop.apache.org/docs/3.6.0/reference/#mergeedge-step "https://tinkerpop.apache.org/docs/3.6.0/reference/#mergeedge-step").
+Neptune uses a narrower locking pattern for `Merge` than for `Coalesce`,
+which can reduce concurrent modification exceptions (CMEs).
+
+For more information about the new features available in this TinkerPop release,
+see Stephen Mallette's blog,
+[Exploring
+new features of Apache TinkerPop 3.6.x in Amazon Neptune](https://aws.amazon.com/blogs/database/exploring-new-features-of-apache-tinkerpop-3-6-x-in-amazon-neptune/ "https://aws.amazon.com/blogs/database/exploring-new-features-of-apache-tinkerpop-3-6-x-in-amazon-neptune/").
+
+- Added support for [R6i
+  instance types](https://aws.amazon.com/ec2/instance-types/r6i/ "https://aws.amazon.com/ec2/instance-types/r6i/"), powered by 3rd-generation Intel Xeon Scalable processors.
+  These are an ideal fit for memory-intensive workloads and offer up to 15% better
+  compute/price performance and up to 20% higher memory bandwidth per vCPU than
+  comparable R5 instance types.
+- Added [graph summary API](neptune-graph-summary.md "neptune-graph-summary.md")
+  endpoints for both property graphs and RDF graphs, that let you get a fast
+  summary report about your graph.
+
+For property (PG) graphs, the graph summary API provides a read-only
+list of node and edge labels and property keys, along with counts of
+nodes, edges, and properties. For RDF graphs, it provides a list of
+classes and predicate keys, along with counts of quads, subjects, and
+predicates.
+
+The following changes went along with the new graph summary API:
+
+    + Added a new [GetGraphSummary](iam-dp-actions.md#getgraphsummary "iam-dp-actions.md#getgraphsummary")
+     dataplane action.
+    + Added a new `rdf/statistics` endpoint to replace
+     the `sparql/statistics` endpoint, which is now deprecated.
+    + Changed the name of the `summary` field in
+     the statistics status response to `signatureInfo`, so as not
+     to confuse it with graph summary information. Previous engine versions
+     continue to use `summary` in the JSON response.
+    + Changed the precision of the `date` field in
+     the statistics status response from minute to millisecond. The previous
+     format was `2020-05-07T23:13Z` (minute precision), while
+     the new format is `2023-01-24T00:47:43.319Z` (millisecond
+     precision). Both are ISO 8601 compliant, but this change may break
+     existing code, depending on how the date is being parsed.
+    + Added a new [%statistics](notebooks-magics.md#notebooks-line-magics-statistics "notebooks-magics.md#notebooks-line-magics-statistics")
+     line magic in the Workbench that lets you retrieve DFE engine statistics.
+    + Added a new [%summary](notebooks-magics.md#notebooks-line-magics-summary "notebooks-magics.md#notebooks-line-magics-summary")
+     line magic in the Workbench that lets you retrieve graph summary information.
+
+- Added [slow-query logging](slow-query-logs.md "slow-query-logs.md") to log
+  queries that take longer to execute than a specified threshold. You enable and control
+  slow-query logging using the two new dynamic parameters, namely [neptune_enable_slow_query_log](parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log "parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log"), and [neptune_slow_query_log_threshold](parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold "parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold").
+- Added support for two [dynamic
+  parameters](parameter-groups.md "parameter-groups.md"), namely the new cluster parameters, [neptune_enable_slow_query_log](parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log "parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log"), and [neptune_slow_query_log_threshold](parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold "parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold").
+  When you make a change to a dynamic parameter, it takes effect immediately,
+  without requiring any instance reboot.
+- Added a Neptune-specific openCypher [removeKeyFromMap()](access-graph-opencypher-extensions.md#opencypher-compliance-removeKeyFromMap-function "access-graph-opencypher-extensions.md#opencypher-compliance-removeKeyFromMap-function")
+  function that removes a specified key from a map and returns the resulting new
+  map.
+
 ## Improvements in This Engine Release
 
-**General improvements**
+- Extended Gremlin DFE support to `limit` steps with local
+  scope.
+- Added `by()` modulation support for the Gremlin
+  `DedupGlobalStep` in the DFE engine.
+- Added DFE support for Gremlin `SelectStep` and
+  `SelectOneStep`.
+- Performance improvements and correctness fixes for various Gremlin
+  operators, including `repeat`, `coalesce`, `store`,
+  and `aggregate`.
+- Improved performance of openCypher queries involving `MERGE`
+  and `OPTIONAL MATCH`.
+- Improved performance of openCypher queries involving `UNWIND`
+  of a list of maps of literal values.
+- Improved performance of openCypher queries that have an `IN`
+  filter for `id`. For example:
 
-Neptune has improved the warning shown in profile/explain.
+```
+MATCH (n) WHERE id(n) IN ['1', '2', '3'] RETURN n
+```
 
-###### Gremlin Improvements
-
-- Improved DFE statistics computation to avoid very high NCUs of Serverless instance.
-- Gremlin performance improvement for WITHIN.
+- Added the ability to specify the base IRI for SPARQL queries using
+  the BASE statement (see [Default base IRI for queries and updates](feature-sparql-compliance.md#opencypher-compliance-default-iri "feature-sparql-compliance.md#opencypher-compliance-default-iri")).
+- Shortened the load processing wait time for Gremlin and openCypher
+  edge-only bulk loads.
+- Made bulk loads resume asynchronously when Neptune restarts to
+  avoid a lengthy wait time caused by Amazon S3 connectivity issues before failing resume
+  attempts.
+- Improved handling of SPARQL DESCRIBE queries that have the
+  [describeMode](sparql-query-hints-for-describe.md#sparql-query-hints-describeMode "sparql-query-hints-for-describe.md#sparql-query-hints-describeMode") query
+  hint set to `"CBD"` (concise bounded description) and that involve
+  a large number of blank nodes.
 
 ## Defects Fixed in This Engine Release
 
-###### Gremlin fixes
+- Fixed an openCypher bug where queries returned the string, `"null"`,
+  instead of a null value in Bolt and SPARQL-JSON.
+- Fixed an openCypher bug in list comprehension that produced a null value
+  rather than the values provided for the list elements.
+- Fixed an openCypher bug where byte values were not correctly serialized.
+- Fixed a Gremlin bug in `UnionStep` that occurred when
+  an input was an edge traversing to a vertex inside a child traversal.
+- Fixed a Gremlin bug that caused a step label associated with
+  `UnionStep` not to propagate correctly to the last step of each
+  child traversal.
+- Fixed a Gremlin bug for the `dedup` step with labels
+  following a `repeat` step, where the labels attached to the
+  `dedup` step weren't available to use in query further.
+- Fixed a Gremlin bug where translating the `repeat`
+  step inside a `union` step failed with an internal error.
+- Fixed Gremlin correctness issues for DFE queries with `limit`
+  as a child traversal of non-union steps by falling back to Tinkerpop.
+  Queries in a form like this are affected:
 
-- Bug fixes with ordering of Gremlin DFE engine query plan.
-- Bug fix with Gremlin out-of-memory error when originally reported as InternalFailureException.
-- Bug fix where IAM ARN was not present in audit log for a successful initial websocket connection request.
-- Bug fix for Gremlin queries with TinkerPop session enabled when queries in a session fail even when all
-  of them are read only and connect to a reader instance.
+```
+g.withSideEffect('Neptune#useDFE', true).V().as("a").select("a").by(out().limit(1))
+```
 
-###### openCypher fixes
-
-- Bug fixes in openCypher SET clause to allow setting on non-variable expression (ie: match(n:TEST) set(case when
-  n.prop = 2 then n end).prop = 3 return n.prop.
-- Bug fix for failing openCypher queries involving aggregation and order by.
-- Improved UNWIND of large list containing static maps.
-- Bug fix openCypher MERGE query using custom id with duplicate values.
-
-###### SPARQL fixes
-
-- Bug fixes in SPARQL DFE query planner.
-- Bug fix for SPARQL when used with BIND and OPTIONAL keywords.
+- Fixed a SPARQL bug where `SPARQL GRAPH` patterns would
+  not consider the dataset supplied by a `FROM NAMED` clause.
+- Fixed a SPARQL bug where SPARQL `DESCRIBE` with some
+  `FROM` and/or `FROM NAMED` clauses did not always correctly
+  use data from the default graph and sometimes threw an exception. See [SPARQL DESCRIBE behavior with respect to the default graph](sparql-default-describe.md "sparql-default-describe.md").
+- Fixed a SPARQL bug so that the correct exception message is returned
+  when null characters are rejected.
+- Fixed a SPARQL [explain](sparql-explain.md "sparql-explain.md") bug
+  that affected plans containing a [PipelinedHashIndexJoin](sparql-explain-operators.md#sparql-explain-operator-pipeline-hash-index-join "sparql-explain-operators.md#sparql-explain-operator-pipeline-hash-index-join")
+  operator.
+- Fixed a bug that caused an internal error to be thrown when a query
+  that returns a constant value was submitted.
+- Fixed an issue with deadlock detector logic that occasionally made
+  the engine unresponsive.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.1.1, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.1.0, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.6.2`
 - _Gremlin latest version supported:_ `3.6.2`
-- _openCypher version:_ `Neptune-9.0.20190305-1.0`
+- _openCypher version:_ `Neptune-9.0.20190305-1.1`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.1.1
+## Upgrade Paths to Engine Release 1.2.1.0
 
-You can upgrade to this release from [engine
-release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md") or above.
+You can manually upgrade to this release from any previous Neptune
+engine release greater than or equal to [1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md").
+
+###### Note
+
+Starting with [engine release 1.2.0.0](engine-releases-1.2.0.md "engine-releases-1.2.0.md"),
+all custom parameter groups and custom cluster parameter groups that you were using
+with engine versions earlier than `1.2.0.0` must now be re-created using
+parameter group family `neptune1.2`. Previous releases used parameter group
+family `neptune1`, and those parameter groups will not work with
+releases from `1.2.0.0` onwards. See [Amazon Neptune parameter groups](parameter-groups.md "parameter-groups.md") for more information.
+
+You will not be automatically upgraded to this major version release.
 
 ## Upgrading to This Release
+
+Amazon Neptune 1.2.1.0 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
@@ -100,8 +237,7 @@ For Linux, OS X, or Unix:
 ```
 aws neptune modify-db-cluster \
     --db-cluster-identifier `(your-neptune-cluster)` \
-    --engine-version 1.2.1.1 \
-    --allow-major-version-upgrade \
+    --engine-version 1.2.1.0 \
     --apply-immediately
 ```
 
@@ -110,29 +246,13 @@ For Windows:
 ```
 aws neptune modify-db-cluster ^
     --db-cluster-identifier `(your-neptune-cluster)` ^
-    --engine-version 1.2.1.1 ^
-    --allow-major-version-upgrade ^
+    --engine-version 1.2.1.0 ^
     --apply-immediately
 ```
 
-Instead of `--apply-immediately`, you can specify
-`--no-apply-immediately`. To perform a major version upgrade, the
-allow-major-version-upgrade parameter is required. Also, be sure to include
-the engine version or your engine may be upgraded to a different version.
-
-If your cluster uses a custom cluster parameter group, be sure to include this paramater
-to specify it:
-
-```
-    --db-cluster-parameter-group-name `(name of the custom DB cluster parameter group)`
-```
-
-Similarly, if any instances in the cluster use a custom DB parameter group, be sure
-to include this parameter to specify it:
-
-```
-    --db-instance-parameter-group-name `(name of the custom instance parameter group)`
-```
+Updates are applied to all instances in a DB cluster simultaneously. An update requires
+a database restart on those instances, so you will experience downtime ranging
+from 20–30 seconds to several minutes, after which you can resume using the DB cluster.
 
 ### Always test before you upgrade
 
