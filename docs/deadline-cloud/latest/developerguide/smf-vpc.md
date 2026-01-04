@@ -6,6 +6,11 @@ leverage Deadline Cloud's fully managed platform while integrating with your exi
 
 ![A diagram showing how the Deadline Cloud SMF connects with the VPC Lattice.](images/vpc-resource-endpoints.png)
 
+###### Tip
+
+For a reference CloudFormation template that sets up an Amazon FSx cluster and connects it to a service-managed fleet,
+see [smf_vpc_fsx](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/smf_vpc_fsx") in the Deadline Cloud samples repository on GitHub.
+
 ## How VPC resource endpoints work
 
 VPC resource endpoints use VPC Lattice to create a secure connection between your Deadline Cloud SMF workers and resources in your VPC.
