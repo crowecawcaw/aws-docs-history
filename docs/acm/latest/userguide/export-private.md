@@ -7,8 +7,7 @@ information about AWS Private CA, see [AWS Private Certificate Authority User Gu
 
 ###### Note
 
-You cannot export a publicly trusted certificate or its private key,
-regardless of whether it's issued by ACM or is imported.
+If you want to export public certificates issued through ACM, see [ACM exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md").
 
 ###### Topics
 

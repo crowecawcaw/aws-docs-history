@@ -34,11 +34,9 @@ place.
 Once you've set up HTTP validation for a fully qualified domain name (FQDN) with CloudFront,
 you can request additional ACM certificates for that FQDN without repeating the
 validation process, as long as the HTTP redirect remains in place. This means you can
-create replacement certificates with the same domain name, or certificates that cover
-different subdomains. Since the HTTP validation token works for any AWS Region where
-CloudFront is available, you can re-create the same certificate in multiple Regions. You can
-also replace a deleted certificate without going through the validation process again,
-provided the redirect is still active.
+create replacement certificates with the same domain name. You can also replace a
+deleted certificate without going through the validation process again, provided the
+redirect is still active.
 
 To stop automatic renewal of your HTTP-validated certificate, you have two options.
 You can either remove the certificate from the CloudFront distribution with which it is
