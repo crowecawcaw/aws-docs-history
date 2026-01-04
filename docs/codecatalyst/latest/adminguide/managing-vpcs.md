@@ -2,73 +2,63 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Configuring VPC endpoints for a space
+# Managing a default VPC connection for a space
 
-VPCs allow you to define a virtual network that isolates AWS resources, securely connects to remote networks,
-and safely accesses service endpoints through AWS PrivateLink. AWS PrivateLink is used to generate private endpoints which keep all
-the network traffic within the AWS network. When connected to a VPC, you can create VPC endpoints that will
-allow CodeCatalyst to communicate directly with certain services rather than through the internet.
+You can set a default VPC connection for a space. If you choose to set a default VPC connection, all workflow runs and Dev Environments in your space
+will run connected to the default VPC connection. You can override this by associating a different VPC connection in your workflow action
+or Dev Environment.
 
-For more information about PrivateLink and VPC endpoints,
-see [What is AWS PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md").
+You must have the **Space administrator** role or **Power user** role to
+manage VPC connections at the space level.
 
-Use the following procedure to configure VPC endpoints for a space.
+###### Topics
 
-AWS console
+- [Setting a default VPC connection](#managing-vpcs.default.set "#managing-vpcs.default.set")
+- [Removing a default VPC connection](#managing-vpcs.default.remove "#managing-vpcs.default.remove")
 
-###### To configure VPC endpoints using the AWS console
+## Setting a default VPC connection
 
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the navigation pane, choose **Endpoints** and then choose **Create endpoint**.
-3. In **Endpoint settings**, do the following:
-   - (Optional) For **Name tag**, enter a reference name for your endpoint.
+Use the following procedure to set a default VPC connection.
 
-4. In **Services**, enter your specified service name and
-   then select it. For more information, see [CodeCatalyst VPC endpoint service names](#managing-vpcs.endpoint-service-names "#managing-vpcs.endpoint-service-names").
-5. In **VPC**, choose the VPC in which to create your endpoint.
-   - For **Additional settings**, leave the default.
+###### To set a default VPC connection
 
-6. In **Subnets**, select the same private subnets that you associated with your
-   VPC connection to connect to in each availability zone:
-   - In **IP address type**, select **IPv4**. This enables the endpoint service to accept IPv4 requests.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Navigate to your CodeCatalyst space.
 
-7. In **Security groups**, select the same security groups that you associated with your
-   VPC connection then choose **Create endpoint**.
-8. After your VPC endpoint is created, choose that endpoint, and then choose **Modify private DNS name**.
-9. In **Enable private DNS names**, select **Enable for this endpoint**.
+###### Tip
 
-AWS CLI
+If you belong to more than one space, choose a space in the top
+navigation bar. 3. Choose **Settings**, and then choose
+**VPC connections**.
 
-###### To configure VPC endpoints using the AWS CLI
+The page lists all VPC connections in your space. You can view the
+**VPC connection name** name, the **VPC ID**, and
+the associated **AWS account connection**. 4. Choose the VPC connection name that you want to set as default.
 
-1. If you haven't done so already, [set up the AWS CLI for CodeCatalyst](../userguide/set-up-cli.md "../userguide/set-up-cli.md").
-2. Run this command to sign-in to Amazon CodeCatalyst using AWS IAM Identity Center:
+###### Note
 
-```
-aws sso login --profile codecatalyst
-```
+If your VPC connection is associated with a project-restricted AWS account, your VPC
+connection will only have access to specific projects and cannot be set as default.
+For more information, see [Enabling or disabling project-restricted account
+connections](managing-accounts-restriction.md "managing-accounts-restriction.md"). 5. Choose **Manage default**, choose **Set as default** from the drop-down
+menu, then choose **Confirm**.
 
-3. Create your VPC endpoint:
+## Removing a default VPC connection
 
-```
-aws ec2 create-vpc-endpoint --vpc-id `<vpc-id>` --service-name `<service-name>` --subnet-ids `<subnet-ids>` --security-group-ids `<security-group-ids>` --private-dns-enabled
-```
+Use the following procedure to remove a default VPC connection.
 
-For more information on service names, see [CodeCatalyst VPC endpoint service names](#managing-vpcs.endpoint-service-names "#managing-vpcs.endpoint-service-names").
+###### To remove a default VPC connection
 
-## CodeCatalyst VPC endpoint service names
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Navigate to your CodeCatalyst space.
 
-You can create VPC endpoints for these services, if you would prefer for CodeCatalyst to utilize these endpoints.
+###### Tip
 
-- Source:
-  - Regions: `us-west-2`, `eu-west-1`
-  - Service name: `com.amazonaws.`<region>`.codecatalyst.git`
+If you belong to more than one space, choose a space in the top
+navigation bar. 3. Choose **Settings**, and then choose
+**VPC connections**.
 
-- API:
-  - Regions: `us-west-2`, `eu-west-1`
-  - Service name: `aws.api.global.codecatalyst`
-
-- Packages:
-  - Regions: `us-west-2`, `eu-west-1`
-  - Service name: `com.amazonaws.`<region>`.codecatalyst.packages`
+The page lists all VPC connections in your space. You can view the
+**VPC connection name** name, the **VPC ID**, and
+the associated **AWS account connection**. 4. Choose the default VPC connection name. 5. Choose **Manage default**, choose **Remove as default** from the drop-down
+menu, then choose **Confirm**.
