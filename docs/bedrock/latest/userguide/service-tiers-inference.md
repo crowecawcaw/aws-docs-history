@@ -67,10 +67,10 @@ Models and regions supported by the Reserved service tier:
 
 Models and regions supported by Priority and Flex service tiers:
 
-|                  |                                |                                 |             |
-| ---------------- | ------------------------------ | ------------------------------- | ----------- |
-| **Provider**     | **Model**                      | **Model ID**                    | **Regions** |
-| OpenAI           | gpt-oss-120b                   | openai.gpt-oss-120b-1:0         | us-east-1   |
+|                  |                                |                                         |                |
+| ---------------- | ------------------------------ | --------------------------------------- | -------------- |
+| **Provider**     | **Model**                      | **Model ID**                            | **Regions**    |
+| OpenAI           | gpt-oss-120b                   | openai.gpt-oss-120b-1:0                 | us-east-1      |
 | us-east-2        |
 | us-west-2        |
 | ap-northeast-1   |
@@ -82,7 +82,7 @@ Models and regions supported by Priority and Flex service tiers:
 | eu-west-1        |
 | eu-west-2        |
 | sa-east-1        |
-| OpenAI           | gpt-oss-20b                    | openai.gpt-oss-20b-1:0          | us-east-1   |
+| OpenAI           | gpt-oss-20b                    | openai.gpt-oss-20b-1:0                  | us-east-1      |
 | us-east-2        |
 | us-west-2        |
 | ap-northeast-1   |
@@ -94,7 +94,41 @@ Models and regions supported by Priority and Flex service tiers:
 | eu-west-1        |
 | eu-west-2        |
 | sa-east-1        |
-| Qwen             | Qwen3 235B A22B 2507           | qwen.qwen3-235b-a22b-2507-v1:0  | us-east-2   |
+| OpenAI           | GPT OSS Safeguard 20B          | openai.gpt-oss-safeguard-20b            | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| OpenAI           | GPT OSS Safeguard 120B         | openai.gpt-oss-safeguard-120b           | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Qwen             | Qwen3 235B A22B 2507           | qwen.qwen3-235b-a22b-2507-v1:0          | us-east-2      |
 | us-west-2        |
 | ap-northeast-1   |
 | ap-south-1       |
@@ -103,14 +137,14 @@ Models and regions supported by Priority and Flex service tiers:
 | eu-north-1       |
 | eu-south-1       |
 | eu-west-2        |
-| Qwen             | Qwen3 Coder 480B A35B Instruct | qwen.qwen3-coder-480b-a35b-v1:0 | us-east-2   |
+| Qwen             | Qwen3 Coder 480B A35B Instruct | qwen.qwen3-coder-480b-a35b-v1:0         | us-east-2      |
 | us-west-2        |
 | ap-northeast-1   |
 | ap-south-1       |
 | ap-southeast-3   |
 | eu-north-1       |
 | eu-west-2        |
-| Qwen             | Qwen3-Coder-30B-A3B-Instruct   | qwen.qwen3-coder-30b-a3b-v1:0   | us-east-1   |
+| Qwen             | Qwen3-Coder-30B-A3B-Instruct   | qwen.qwen3-coder-30b-a3b-v1:0           | us-east-1      |
 | us-east-2        |
 | us-west-2        |
 | ap-northeast-1   |
@@ -122,7 +156,7 @@ Models and regions supported by Priority and Flex service tiers:
 | eu-west-1        |
 | eu-west-2        |
 | sa-east-1        |
-| Qwen             | Qwen3 32B (dense)              | qwen.qwen3-32b-v1:0             | us-east-1   |
+| Qwen             | Qwen3 32B (dense)              | qwen.qwen3-32b-v1:0                     | us-east-1      |
 | us-east-2        |
 | us-west-2        |
 | ap-northeast-1   |
@@ -134,17 +168,51 @@ Models and regions supported by Priority and Flex service tiers:
 | eu-west-1        |
 | eu-west-2        |
 | sa-east-1        |
-| DeepSeek         | DeepSeek-V3.1                  | deepseek.v3-v1:0                | us-east-2   |
+| Qwen             | Qwen3 Next 80B A3B             | qwen.qwen3-next-80b-a3b                 | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Qwen             | Qwen3 VL 235B A22B             | qwen.qwen3-vl-235b-a22b                 | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| DeepSeek         | DeepSeek-V3.1                  | deepseek.v3-v1:0                        | us-east-2      |
 | us-west-2        |
 | ap-northeast-1   |
 | ap-south-1       |
 | ap-southeast-3   |
 | eu-north-1       |
 | eu-west-2        |
-| Amazon           | Nova Premier                   | amazon.nova-premier-v1:0        | us-east-1\* |
+| Amazon           | Nova Premier                   | amazon.nova-premier-v1:0                | us-east-1\*    |
 | us-east-2\*      |
 | us-west-2\*      |
-| Amazon           | Nova Pro                       | amazon.nova-pro-v1:0            | us-east-1   |
+| Amazon           | Nova Pro                       | amazon.nova-pro-v1:0                    | us-east-1      |
 | us-east-2\*      |
 | us-west-1\*      |
 | us-west-2\*      |
@@ -167,6 +235,319 @@ Models and regions supported by Priority and Flex service tiers:
 | eu-west-3\*      |
 | il-central-1\*   |
 | me-central-1     |
+| Amazon           | Nova 2 Lite                    | amazon.nova-2-lite-v1:0                 | ap-east-2      |
+| ap-northeast-1   |
+| ap-northeast-2   |
+| ap-south-1       |
+| ap-southeast-1   |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ap-southeast-4   |
+| ap-southeast-5   |
+| ap-southeast-7   |
+| ca-central-1     |
+| ca-west-1        |
+| eu-central-1     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| il-central-1     |
+| me-central-1     |
+| us-east-1        |
+| us-east-2        |
+| us-west-1        |
+| us-west-2        |
+| Amazon           | Nova 2 Pro Preview             | amazon.nova-2-pro-preview-20251202-v1:0 | ap-east-2      |
+| ap-northeast-1   |
+| ap-northeast-2   |
+| ap-south-1       |
+| ap-southeast-1   |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ap-southeast-4   |
+| ap-southeast-5   |
+| ap-southeast-7   |
+| ca-central-1     |
+| ca-west-1        |
+| eu-central-1     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| il-central-1     |
+| me-central-1     |
+| us-east-1        |
+| us-east-2        |
+| us-west-1        |
+| us-west-2        |
+| Amazon           | Nova Lite 2 Omni               | amazon.nova-2-lite-omni-v1              | ap-east-2      |
+| ap-northeast-1   |
+| ap-northeast-2   |
+| ap-south-1       |
+| ap-southeast-1   |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ap-southeast-4   |
+| ap-southeast-5   |
+| ap-southeast-7   |
+| ca-central-1     |
+| ca-west-1        |
+| eu-central-1     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| il-central-1     |
+| me-central-1     |
+| us-east-1        |
+| us-east-2        |
+| us-west-1        |
+| us-west-2        |
+| Google           | Gemma 3 4B                     | google.gemma-3-4b-it                    | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Google           | Gemma 3 12B                    | google.gemma-3-12b-it                   | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Google           | Gemma 3 27B                    | google.gemma-3-27b-it                   | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Minimax AI       | Minimax M2                     | minimax.minimax-m2                      | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Magistral Small 1.2            | mistral.magistral-small-2509            | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Voxtral Mini 1.0               | mistral.voxtral-mini-3b-2507            | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Voxtral Small 1.0              | mistral.voxtral-small-24b-2507          | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Ministral 3B 3.0               | mistral.ministral-3-3b-instruct         | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Ministral 8B 3.0               | mistral.ministral-3-8b-instruct         | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Ministral 14B 3.0              | mistral.ministral-3-14b-instruct        | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Mistral          | Mistral Large 3                | mistral.mistral-large-3-675b-instruct   | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Kimi AI          | Kimi K2 Thinking               | moonshot.kimi-k2-thinking               | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Nvidia           | NVIDIA Nemotron Nano 2         | nvidia.nemotron-nano-9b-v2              | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
+| Nvidia           | NVIDIA Nemotron Nano 2 VL      | nvidia.nemotron-nano-12b-v2             | ap-northeast-1 |
+| ap-south-1       |
+| ap-southeast-2   |
+| ap-southeast-3   |
+| ca-central-1     |
+| eu-central-1     |
+| eu-central-2     |
+| eu-north-1       |
+| eu-south-1       |
+| eu-south-2       |
+| eu-west-1        |
+| eu-west-2        |
+| eu-west-3        |
+| sa-east-1        |
+| us-east-1        |
+| us-east-2        |
+| us-west-2        |
 
 \*Model inference may be served using multiple regions.
 
