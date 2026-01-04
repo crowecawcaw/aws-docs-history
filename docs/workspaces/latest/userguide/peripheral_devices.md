@@ -122,7 +122,7 @@ and then select **Use this device on my remote WorkSpace**. Choose **Save**.
 
 - To use the YubiKey on your local computer instead of on your WorkSpace, select
   the
-  ![Devices icon on upper-right corner of the WorkSpace](images/devices-icon.png)
+  ![Devices icon on upper-right corner of the WorkSpace](/images/workspaces/latest/userguide/images/devices-icon.png)
   in the upper-right corner, and then select **Use on
   my local machine**. Choose **Save**.
 

@@ -218,11 +218,11 @@ When trackpad mode is on, the mouse cursor tracks the movement of your finger on
 screen. In this mode, simulate a left mouse button click by tapping the left mouse
 button icon.
 
-![Left mouse button icon](images/mouse-icon-left.png)
+![Left mouse button icon](/images/workspaces/latest/userguide/images/mouse-icon-left.png)
 
 Simulate a right mouse button click by tapping the right mouse button icon.
 
-![Right mouse button icon](/images/workspaces/latest/userguide/images/mouse-icon-right.png)
+![Right mouse button icon](images/mouse-icon-right.png)
 
 ## Display support
 
