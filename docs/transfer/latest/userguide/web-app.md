@@ -38,11 +38,7 @@ the following documentation:
 
 AWS Transfer Family web apps are available in all the Transfer Family supported regions, as listed in [AWS Transfer Family service endpoints](../../../general/latest/gr/transfer-service.md#transfer-region "../../../general/latest/gr/transfer-service.md#transfer-region"), except for Mexico (Central).
 
-VPC endpoints for web apps are supported in the following AWS Regions:
-
-- US East (N. Virginia)
-- US East (Ohio)
-- Asia Pacific (Seoul)
+VPC endpoints for web apps are supported in all AWS Regions where web apps are available.
 
 ## Browser compatibility for AWS Transfer Family web apps
 

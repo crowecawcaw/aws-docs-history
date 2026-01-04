@@ -172,7 +172,7 @@ Add the user that you previously created in IAM Identity Center.
 1. Navigate to the web app that you created earlier.
 2. Choose **Assign users and groups**.
 
-![Screen showing the details for a selected web app.](/images/transfer/latest/userguide/images/webapp-transfer-details.png) 3. To assign the user that you previously created in IAM Identity Center, select
+![Screen showing the details for a selected web app.](images/webapp-transfer-details.png) 3. To assign the user that you previously created in IAM Identity Center, select
 **Assign existing users and groups** and select
 **Next**.
 
@@ -217,7 +217,7 @@ Guide_.
      have Amazon S3 create a role. This role allows S3 Access Grants to access
      your specified location scope.
 
-![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](images/webapp-grants-register-new.png)
+![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](/images/transfer/latest/userguide/images/webapp-grants-register-new.png)
 
 Choose **Register location** to continue. 6. Select the **Grants** tab, then choose **Create
 Grant** and provide the following details.
