@@ -1,131 +1,163 @@
-# Step 5: Configure an AWS DMS Target Endpoint
+# Step 6: Create an AWS DMS Task
 
-To use Amazon S3 as an AWS Database Migration Service (AWS DMS) target endpoint, create an IAM role with write and delete access to the S3 bucket. Then add DMS (dms.amazonaws.com) as _trusted entity_ in this IAM role. For more information, see [Prerequisites for using Amazon S3 as a target](../userguide/CHAP_Target.md#CHAP_Target.S3.Prerequisites "../userguide/CHAP_Target.md#CHAP_Target.S3.Prerequisites").
+After you configured the replication instance and endpoints, you need to analyze your source database. A good understanding of the workload helps plan an effective migration approach and minimize configuration issues. Find some of the important considerations following and learn how they apply to our walkthrough.
 
-When using AWS DMS to migrate data to an Amazon Simple Storage Service (Amazon S3) data lake, you can change the default task behavior, such as file formats, partitioning, file sizing, and so on. This leads to minimizing post-migration processing and helps downstream applications consume data efficiently. You can customize task behavior using endpoint settings and extra connection attributes (ECA). Most of the Amazon S3 endpoint settings and ECA settings overlap, except for a few parameters. In this walkthrough, we will configure Amazon S3 endpoint settings.
+**Size and number of records**
 
-## Choose File Format
+The volume of migrated records affects the full load completion time. It is difficult to predict the full load time upfront, but testing with a replica of a production instance should provide a baseline. Use this estimate to decide whether you should parallelize full load by using multiple tasks or by using the parallel load option.
 
-AWS DMS supports data replication through comma-separated values (CSV) or Apache Parquet file formats. Each file format has its own benefits. Choose the right file format depending on your consumption pattern.
+The `Sales` schema includes 19 tables. The `CreditCard` table is the largest table containing 100,000 records. We can increase the number of tables loaded in parallel to 19 if the full load is slow. The default value for the number of tables loaded in parallel is eight.
 
-Apache Parquet is a columnar format, which is built to support efficient compression and encoding schemes providing storage space savings and performance benefits. With Parquet, you can specify compression schemes for each column to improve query performance when using avg(), max(), or other column level aggregation operations. That is why Parquet is popular for data lake and analytics use cases.
+**Transactions per second**
 
-CSV files are helpful when you plan to keep data in human readable format, share or transfer Amazon S3 files into other downstream systems for further processing.
+While full load is affected by the number of records, the ongoing replication performance relies on the number of transactions on the source Amazon RDS for SQL Server database. Performance issues during change data capture (CDC) generally stem from resource constraints on the source database, replication instance, target database, and network bandwidth or throughput. Knowing average and peak TPS on the source and recording CDC throughput and latency metrics help baseline
+(AWS DMS) performance and identify an optimal task configuration. For more information, see [Replication task metrics](../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task "../userguide/CHAP_Monitoring.md#CHAP_Monitoring.Metrics.Task").
 
-For this walkthrough, we will use the Parquet file format. Specify the following endpoint settings.
+In this walkthrough, we will track the CDC latency and throughput values after the task moves into the ongoing replication phase to baseline AWS DMS performance.
 
-```
-DataFormat=parquet
-ParquetVersion=PARQUET_2_0
-```
+**LOB columns**
 
-## Determine File Size
+AWS DMS handles large binary objects (LOBs) columns differently compared to other data types. For more information, see [Migrating large binary objects (LOBs)](../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS "../userguide/CHAP_BestPractices.md#CHAP_BestPractices.LOBS").
 
-By default, during ongoing replication AWS DMS tasks writes to Amazon S3 are triggered either if the file size reaches 32 KB or if the previous file write was more than 60 seconds ago. These settings ensure that the data capture latency is less than a minute. However, this approach creates a large number of small files in target Amazon S3 bucket.
+Because AWS DMS does not support **Full LOB mode** for Amazon S3 endpoints, we need to identify a suitable **LOB Max Size**.
 
-Because we migrate our source `Sales` database schema for an analytics use case, some latency is acceptable. However, we need to optimize this schema for cost and performance. When you use distributed processing frameworks such as Amazon Athena, AWS Glue or Amazon EMR, it is recommended to avoid too many small files (less than 64 MB). Small files create management overhead for the driver node of the distributed processing framework.
+A detailed explanation of LOB handling by AWS DMS is out of scope for this walkthrough. However, remember that increasing the **LOB Max Size** increases the tasks memory utilization. Because of that, it is recommended not to set **LOB Max Size** to a large value.
 
-Because we plan to use Amazon Athena to query data from our Amazon S3 bucket, we need to make sure our target file size is at least 64 MB. Specify the following endpoint settings: `CdcMaxBatchInterval=3600` and `CdcMinFileSize=64000`. These settings ensure that AWS DMS writes the file until its size reaches 64 MB or if the last file write was more than an hour ago.
+For more information about LOB settings, see [Task Configuration](#chap-rdssqlserver2s3datalake.steps.createtask.configuration "#chap-rdssqlserver2s3datalake.steps.createtask.configuration").
 
-###### Note
+**Unsupported data types**
 
-Parquet files created by AWS DMS are usually smaller than the specified `CdcMinFileSize` setting because Parquet data compression ratio varies depending on the source data set. The size of CSV files created by AWS DMS is equal to the value specified in `CdcMinFileSize`.
+Identify data types used in tables and check that AWS DMS supports these data types. For more information, see [Source data types for SQL Server](../userguide/CHAP_Source.md#CHAP_Source.SQLServer.DataTypes "../userguide/CHAP_Source.md#CHAP_Source.SQLServer.DataTypes").
 
-## Turn on S3 Partitioning
+Validate that the target Amazon S3 has the corresponding data types. For more information, see [Target data types for S3 Parquet](../userguide/CHAP_Target.md#CHAP_Target.S3.DataTypes "../userguide/CHAP_Target.md#CHAP_Target.S3.DataTypes").
 
-Partitioning in Amazon S3 structures your data by folders and subfolders that help efficiently query data. For example, if you receive sales record data daily from different regions and you query data for a specific region and find stats for a few months, then it is recommended to partition data by region, year, and month. In Amazon S3, the path for our use case looks as following:
-
-```
-s3://<sales-data-bucket-name>/<region>/<schemaname>/<tablename>/<year>/<month>/<day>
-
-s3://adventure-works-datalake
-  - s3://adventure-works-datalake/US-WEST-DATA
-    - s3://adventure-works-datalake/US-WEST-DATA/Sales
-      - s3://adventure-works-datalake/US-WEST-DATA/Sales/CreditCard/
-        - s3://adventure-works-datalake/US-WEST-DATA/Sales/CreditCard/LOAD00000001.parquet
-      - s3://adventure-works-datalake/US-WEST-DATA/Sales/SalesPerson
-        - s3://adventure-works-datalake/US-WEST-DATA/Sales/SalesPerson/LOAD00000001.parquet
-        - s3://adventure-works-datalake/US-WEST-DATA/Sales/SalesPerson/2021/11/23/
-          - s3://adventure-works-datalake/US-WEST-DATA/Sales/SalesPerson/2021/11/23/20211123-013830913.parquet
-          - s3://adventure-works-datalake/US-WEST-DATA/Sales/SalesPerson/2021/11/27/20211127-175902985.parquet
-```
-
-Partitioning provides performance benefits because data scanning will be limited to the amount of data in the specific partition based on the filter condition in your queries. For our sales data example, your queries might look as follows:
-
-```
-SELECT <column-list> FROM <sales-table-name> WHERE <region> = <region-name> AND <year> = <year-value>
-```
-
-If you use Amazon Athena to query data, partitioning helps reduce cost as Athena pricing is based on the amount of data that you scan when running queries.
-
-To turn on partitioning for ongoing changes in the preceding format, use the following queries.
-
-```
-bucketFolder=US-WEST-DATA
-DatePartitionedEnabled=true
-DatePartitionSequence=YYYYMMDD
-DatePartitionDelimiter=SLASH
-```
-
-## Other Considerations
-
-The preceding settings help optimize performance and cost. We also need to configure additional settings because:
-
-- Our use case does not have a fixed end-date.
-- We need to minimize issues arising from misconfigurations or retroactive changes.
-- We want to minimize recovery time in case of unforeseen issues.
-
-### Serialize ongoing replication events
-
-A common challenge when using Amazon S3 as a target involves identifying the ongoing replication event sequence when multiple records are updated at the same time on the source database.
-
-AWS DMS provides two options to help serialize such events for Amazon S3. You can use the TimeStampColumnName endpoint setting or use transformation rules to include LSN column. Here, we will discuss the first option. For more information about the second option, see [Step 6: Create an AWS DMS Task](chap-rdssqlserver2s3datalake.steps.md "chap-rdssqlserver2s3datalake.steps.md").
-
-**Use the TimeStampColumnName endpoint setting**
-
-The `TimeStampColumnName` setting adds an additional `STRING` column to the target Parquet file created by AWS DMS. During the ongoing replication, the column value represents the commit timestamp of the event in SQL Server. For the full load phase, the columns values represent the timestamp of data transfer to Amazon S3.
-
-The default format is `yyyy-MM-dd HH:mm:ss.SSSSSS`. This format provides a microsecond precision but depends on the source database transaction log timestamp precision. The following image shows the seven microseconds difference between two operations in the `sourceRecordTime` field.
-
-![Time difference between two operations in the sourceRecordTime field.](images/sbs-rdssqlserver2s3datalake-sourcerecordtime.png)
+After running the initial load test, validate that AWS DMS converted data as you expected. You can also initiate a pre-migration assessment to identify any unsupported data types in the migration scope. For more information, see [Specifying individual assessments](../userguide/CHAP_Tasks.md#CHAP_Tasks.AssessmentReport1.Individual "../userguide/CHAP_Tasks.md#CHAP_Tasks.AssessmentReport1.Individual").
 
 ###### Note
 
-Because `TimeStampColumnName` is an endpoint setting, all tasks that use this endpoint, will include this column for all tables.
+The preceding list is not complete. For more information, see [Best practices](../userguide/CHAP_BestPractices.md "../userguide/CHAP_BestPractices.md").
 
-**Include full load operation field**
+Combining the considerations from the preceding list, we start with a single task that migrates all 19 tables. Based on the full load run time and resource utilization metrics on the source SQL Server database instance and replication instance, we can evaluate if we should parallelize the load further to improve performance.
 
-All files created during the ongoing replication, have the first column marked with `I`, `U`, or `D`. These symbols represent the DML operation on the source and stand for **Insert**, **Update**, or **Delete** operations.
+## Task Configuration
 
-For full load files, you can add this column by configuring the endpoint setting.
+In an AWS DMS task, you can specify the schema or table to migrate, the type of migration, and the configurations for the migration. You can choose one of the following options for your task.
+
+- **Full Load only** — migrate existing data.
+- **Full Load + CDC** — migrate existing data and replicate ongoing changes.
+- **CDC only** — replicate ongoing changes.
+
+For more information about the task creation steps and available configuration options, see [Creating a task](../userguide/CHAP_Tasks.md "../userguide/CHAP_Tasks.md").
+
+In this walkthrough, we will focus on the following settings.
+
+**Table mappings**
+
+Use selection rules to define the schemas and tables that the AWS DMS task will migrate. For more information, see [Selection rules and actions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+
+Because we need to identify monthly sales for a specific year, one possible approach can restrict the migration to `SalesOrder%` tables in the `Sales` schema and keep adding new tables to the task when additional reporting is required. This approach saves cost and minimizes the load, but increases operational overhead by requiring repeated configurations, performance baselining, and so on. For the walkthrough, we will migrate all tables (`%`) from the `Sales` schema.
+
+**Using transformation rules to include LSN column**
+
+In the previous section we discussed using the `TimestampColumnName` endpoint setting to serialize ongoing replication events. For more information about using the `TimestampColumnName` endpoint setting, see [Serialize ongoing replication events](chap-rdssqlserver2s3datalake.steps.md#chap-rdssqlserver2s3datalake.steps.targetendpoint.considerations.serialize "chap-rdssqlserver2s3datalake.steps.md#chap-rdssqlserver2s3datalake.steps.targetendpoint.considerations.serialize").
+
+Because the source database transaction log precision is limited to milliseconds, multiple events can have the same timestamp. To address this issue, you can use task level transformation rules to include source table headers to the Amazon S3 target files as described in the task creation section.
+
+Source table headers add an additional column that contains the log sequence number (LSN) value of the operation from the source SQL Server database instance. You can use this information in our Amazon S3 data lake scenario for downstream serialization. For more information about source table headers, see [Replicating source table headers using expressions](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers").
+
+To include headers, add the following transformation rule in the JSON editor in table mapping. This rule adds a new `transact-id` column with the LSN to all tables that the task migrates. For more information, see [Specifying table selection and transformations rules using JSON](../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md "../userguide/CHAP_Tasks.CustomizingTasks.TableMapping.md").
 
 ```
-includeOpForFullLoad=true
+{
+    "rule-type": "transformation",
+    "rule-id": "2",
+    "rule-name": "2",
+    "rule-target": "column",
+    "object-locator": {
+        "schema-name": "%",
+        "table-name": "%"
+    },
+    "rule-action": "add-column",
+    "value": "transact_id",
+    "expression": "$AR_H_STREAM_POSITION",
+    "data-type": {
+        "type": "string",
+        "length": 50
+    }
+}
 ```
 
-This ensures that all full load files are marked with an `I` operation.
+###### Note
 
-When you use this approach, new subscribers can consume the entire data set or prepare a fresh copy in case of any downstream processing issues.
+Mapping rules are applied at the task level. You need to add a mapping rule to each task that replicates data to your data lake.
 
-## Create a Target Endpoint
+**LOB settings**
 
-After you completed all settings configurations, you can create a target endpoint.
+Use the **sys** schema to identify the LOB columns in the tables of the `Sales` schema.
 
-To create a target endpoint, do the following:
+```
+SELECT s.name AS SchemaName,
+t.name AS TableName,
+c.name AS ColumnName,
+y.name AS DataType
+FROM sys.tables AS t
+INNER JOIN sys.schemas AS s ON s.schema_id = t.schema_id
+INNER JOIN sys.columns AS c ON t.object_id = c.object_id
+INNER JOIN sys.types AS y ON y.user_type_id = c.user_type_id
+WHERE (c.user_type_id in (34,35,99,129,130,241,256) OR (c.user_type_id in (165,167,231) AND c.max_length = -1))
+AND s.name = 'Sales'
+ORDER BY t.name;
+```
+
+The Sales.Store table includes one LOB column. Use the following query to identify the size of the largest LOB in the migrated tables.
+
+```
+select max(datalength(Demographics)) as "Size in Bytes" from Sales.Store
+```
+
+The size of the largest LOB is 1,000 bytes. Because of that, we will leave the default value for `LOB Max Size`, which is 32 KB. If the size of the largest LOB is more than 32 KB, it is recommended to factor in LOB growth over time, include some buffer, and set that as the `LOB Max Size` value.
+
+**Other task settings**
+
+Choose **Enable CloudWatch Logs** to upload the AWS DMS task execution log to Amazon CloudWatch. You can use these logs to troubleshoot issues because they include error and warning messages, start and end times of the run, configuration issues, and so on. Changes to the task logging setting, such as enabling debug or trace can also be helpful to diagnose performance issues.
+
+###### Note
+
+CloudWatch log usage is charged at standard rates. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+
+For **Target table preparation mode**, choose one of the following options: `Do nothing`, `truncate`, and `Drop`. Use `Truncate` in data pipelines where the downstream systems rely on a fresh dump of clean data and do not rely on historical data. In this walkthrough, we choose **Do nothing** because we want to control the retention of files from previous runs.
+
+For **Maximum number of tables to load in parallel**, enter the number of parallel threads that AWS DMS initiates during full load. You can increase this value to improve the full load performance and minimize the load time when you have numerous tables.
+
+###### Note
+
+Increasing this parameter induces additional load on the source database, replication instance, and target database.
+
+## Create an AWS DMS Task
+
+After you completed all settings configurations, you can create an AWS DMS database migration task.
+
+To create a database migration task, do the following:
 
 1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. Choose **Endpoints**, and then choose **Create endpoint**.
-3. On the **Create endpoint** page, enter the following information.
+2. Choose **Database migration tasks**, and then choose **Create task**.
+3. On the **Create database migration task** page, enter the following information.
 
-| For This Parameter          | Do This                                                              |
-| --------------------------- | -------------------------------------------------------------------- |
-| **Endpoint type**           | Choose **Target endpoint**, and turn off **Select RDS DB instance**. |
-| **Endpoint identifier**     | Enter **adventure-works-datalake-target**.                           |
-| **Target engine**           | Choose **Amazon S3**.                                                |
-| **Service access role ARN** | Enter the IAM role that can access your Amazon S3 data lake.         |
-| **Bucket name**             | Enter **adventure-works-datalake**.                                  |
-| **Bucket folder**           | Enter **US-WEST-DATA**.                                              |
+| For This Parameter                               | Do This                                                                             |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| **Task identifier**                              | Enter **AdventureWorks-to-S3-data-lake**.                                           |
+| **Replication instance**                         | Choose \*_datalake-migration-ri_<br>• (the value that you configured on Step 1).    |
+| **Source database endpoint**                     | Choose \*_datalake-source-db_<br>• (the value that you configured on Step 3).       |
+| **Target database endpoint**                     | Choose \*_adventure-works-datalake_<br>• (the value that you configured on Step 4). |
+| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                     |
+| **Editing mode**                                 | Choose **Wizard**.                                                                  |
+| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                            |
+| **Target table preparation mode**                | Choose **Do nothing**.                                                              |
+| **Stop task after full load completes**          | Choose **Don’t stop**.                                                              |
+| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                        |
+| **Maximum LOB size (KB)**                        | Enter **32**.                                                                       |
+| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                             |
+| **Enable CloudWatch logs**                       | Turn on.                                                                            |
 
-4. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the settings as shown on the following image.
-
-![Target endpoint settings.](images/sbs-rdssqlserver2s3datalake-target-endpoint-settings.png) 5. Choose **Create endpoint**.
+4. Leave the default values in the other fields and choose **Create task**.
+5. The task begins immediately. The **Database migration tasks** section shows you the status of the migration task.
