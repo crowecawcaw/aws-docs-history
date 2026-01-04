@@ -352,7 +352,7 @@ over the connection are being encrypted. For example, the following log
 indicates that a packet to the VPC was sent over tunnel 1 and was
 encrypted.
 
-![Check Point log file](images/check-point-log.png)
+![Check Point log file](/images/vpn/latest/s2svpn/images/check-point-log.png)
 
 SonicWALL
 The following procedure demonstrates how to configure the VPN tunnels on
