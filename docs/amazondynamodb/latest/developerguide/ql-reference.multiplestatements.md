@@ -1,29 +1,37 @@
-# Performing transactions
+# Running batch operations with
 
-with PartiQL for DynamoDB
+PartiQL for DynamoDB
 
-This section describes how to use transactions with PartiQL for DynamoDB. PartiQL
-transactions are limited to 100 total statements (actions).
-
-For more information on DynamoDB transactions, see [Managing complex
-workflows with DynamoDB transactions](transactions.md "transactions.md").
+This section describes how to use batch statements with PartiQL for DynamoDB.
 
 ###### Note
 
-The entire transaction must consist of either read statements or write statements.
-You can't mix both in one transaction. The EXISTS function is an exception. You can
-use it to check the condition of specific attributes of the item in a similar manner
-to `ConditionCheck` in the [TransactWriteItems](transaction-apis.md#transaction-apis-txwriteitems "transaction-apis.md#transaction-apis-txwriteitems") API operation.
+- The entire batch must consist of either read statements or write
+  statements; you cannot mix both in one batch.
+- `BatchExecuteStatement` and `BatchWriteItem` can
+  perform no more than 25 statements per batch.
+- `BatchExecuteStatement` makes use of `BatchGetItem` which takes a list
+  of primary keys in separate statements.
 
 ###### Topics
 
-- [Syntax](#ql-reference.multiplestatements.transactions.syntax "#ql-reference.multiplestatements.transactions.syntax")
-- [Parameters](#ql-reference.multiplestatements.transactions.parameters "#ql-reference.multiplestatements.transactions.parameters")
-- [Return
-  values](#ql-reference.multiplestatements.transactions.return "#ql-reference.multiplestatements.transactions.return")
-- [Examples](#ql-reference.multiplestatements.transactions.examples "#ql-reference.multiplestatements.transactions.examples")
+- [Syntax](#ql-reference.multiplestatements.batching.syntax "#ql-reference.multiplestatements.batching.syntax")
+- [Parameters](#ql-reference.multiplestatements.batching.parameters "#ql-reference.multiplestatements.batching.parameters")
+- [Examples](#ql-reference.multiplestatements.batching.examples "#ql-reference.multiplestatements.batching.examples")
 
 ## Syntax
+
+```
+[
+  {
+    "Statement": "SELECT pk FROM ProblemSet WHERE pk = 'p#9StkWHYTxm7x2AqSXcrfu7' AND sk = 'info'"
+  },
+  {
+    "Statement": "SELECT pk FROM ProblemSet WHERE pk = 'p#isC2ChceGbxHgESc4szoTE' AND sk = 'info'"
+  }
+]
+
+```
 
 ```
 [
@@ -45,8 +53,11 @@ to `ConditionCheck` in the [TransactWriteItems](transaction-apis.md#transaction-
 
 ###### Note
 
-The entire transaction must consist of either read statements or
-write statements. You can't mix both in one transaction.
+- The entire batch must consist of either read statements or
+  write statements; you cannot mix both in one batch.
+- `BatchExecuteStatement` and
+  `BatchWriteItem` can perform no more than 25
+  statements per batch.
 
 **`parametertype`**
 
@@ -58,41 +69,20 @@ PartiQL statement.
 (Optional) A parameter value if parameters were used when specifying
 the PartiQL statement.
 
-## Return
-
-values
-
-This statement doesn't return any values for Write operations (INSERT, UPDATE, or
-DELETE). However, it returns different values for Read operations (SELECT) based on
-the conditions specified in the WHERE clause.
-
-###### Note
-
-If any of the singleton INSERT, UPDATE, or DELETE operations return an error,
-the transactions are canceled with the `TransactionCanceledException`
-exception, and the cancellation reason code includes the errors from the
-individual singleton operations.
-
 ## Examples
-
-The following example runs multiple statements as a transaction.
 
 AWS CLI
 
-1. Save the following JSON code to a file called
-   partiql.json.
+1. Save the following json to a file called partiql.json
 
 ```
 [
-    {
-        "Statement": "EXISTS(SELECT * FROM \"Music\" where Artist='No One You Know' and SongTitle='Call Me Today' and Awards is  MISSING)"
-    },
-    {
-        "Statement": "INSERT INTO Music value {'Artist':?,'SongTitle':'?'}",
-        "Parameters": [{\"S\": \"Acme Band\"}, {\"S\": \"Best Song\"}]
-    },
-    {
-        "Statement": "UPDATE \"Music\" SET AwardsWon=1 SET AwardDetail={'Grammys':[2020, 2018]}  where Artist='Acme Band' and SongTitle='PartiQL Rocks'"
+   {
+	 "Statement": "INSERT INTO Music VALUE {'Artist':?,'SongTitle':?}",
+	  "Parameters": [{"S": "Acme Band"}, {"S": "Best Song"}]
+	},
+	{
+	 "Statement": "UPDATE Music SET AwardsWon=1, AwardDetail={'Grammys':[2020, 2018]} WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
     }
 ]
 ```
@@ -100,74 +90,64 @@ AWS CLI
 2. Run the following command in a command prompt.
 
 ```
-aws dynamodb execute-transaction --transact-statements  file://partiql.json
+aws dynamodb batch-execute-statement  --statements  file://partiql.json
 ```
 
 Java
 
 ```
-public class DynamoDBPartiqlTransaction {
+public class DynamoDBPartiqlBatch {
 
     public static void main(String[] args) {
         // Create the DynamoDB Client with the region you want
         AmazonDynamoDB dynamoDB = createDynamoDbClient("us-west-2");
 
         try {
-            // Create ExecuteTransactionRequest
-            ExecuteTransactionRequest executeTransactionRequest = createExecuteTransactionRequest();
-            ExecuteTransactionResult executeTransactionResult = dynamoDB.executeTransaction(executeTransactionRequest);
-            System.out.println("ExecuteTransaction successful.");
-            // Handle executeTransactionResult
+            // Create BatchExecuteStatementRequest
+            BatchExecuteStatementRequest batchExecuteStatementRequest = createBatchExecuteStatementRequest();
+            BatchExecuteStatementResult batchExecuteStatementResult = dynamoDB.batchExecuteStatement(batchExecuteStatementRequest);
+            System.out.println("BatchExecuteStatement successful.");
+            // Handle batchExecuteStatementResult
 
         } catch (Exception e) {
-            handleExecuteTransactionErrors(e);
+            handleBatchExecuteStatementErrors(e);
         }
     }
 
     private static AmazonDynamoDB createDynamoDbClient(String region) {
+
         return AmazonDynamoDBClientBuilder.standard().withRegion(region).build();
     }
 
-    private static ExecuteTransactionRequest createExecuteTransactionRequest() {
-        ExecuteTransactionRequest request = new ExecuteTransactionRequest();
+    private static BatchExecuteStatementRequest createBatchExecuteStatementRequest() {
+        BatchExecuteStatementRequest request = new BatchExecuteStatementRequest();
 
         // Create statements
-        List<ParameterizedStatement> statements = getPartiQLTransactionStatements();
+        List<BatchStatementRequest> statements = getPartiQLBatchStatements();
 
-        request.setTransactStatements(statements);
+        request.setStatements(statements);
         return request;
     }
 
-    private static List<ParameterizedStatement> getPartiQLTransactionStatements() {
-        List<ParameterizedStatement> statements = new ArrayList<ParameterizedStatement>();
+    private static List<BatchStatementRequest> getPartiQLBatchStatements() {
+        List<BatchStatementRequest> statements = new ArrayList<BatchStatementRequest>();
 
-        statements.add(new ParameterizedStatement()
-                               .withStatement("EXISTS(SELECT * FROM "Music" where Artist='No One You Know' and SongTitle='Call Me Today' and Awards is  MISSING)"));
+        statements.add(new BatchStatementRequest()
+                               .withStatement("INSERT INTO Music value {'Artist':'Acme Band','SongTitle':'PartiQL Rocks'}"));
 
-        statements.add(new ParameterizedStatement()
-                               .withStatement("INSERT INTO "Music" value {'Artist':'?','SongTitle':'?'}")
-                               .withParameters(new AttributeValue("Acme Band"),new AttributeValue("Best Song")));
-
-        statements.add(new ParameterizedStatement()
-                               .withStatement("UPDATE "Music" SET AwardsWon=1 SET AwardDetail={'Grammys':[2020, 2018]}  where Artist='Acme Band' and SongTitle='PartiQL Rocks'"));
+        statements.add(new BatchStatementRequest()
+                               .withStatement("UPDATE Music set AwardDetail.BillBoard=[2020] where Artist='Acme Band' and SongTitle='PartiQL Rocks'"));
 
         return statements;
     }
 
-    // Handles errors during ExecuteTransaction execution. Use recommendations in error messages below to add error handling specific to
+    // Handles errors during BatchExecuteStatement execution. Use recommendations in error messages below to add error handling specific to
     // your application use-case.
-    private static void handleExecuteTransactionErrors(Exception exception) {
+    private static void handleBatchExecuteStatementErrors(Exception exception) {
         try {
             throw exception;
-        } catch (TransactionCanceledException tce) {
-            System.out.println("Transaction Cancelled, implies a client issue, fix before retrying. Error: " + tce.getErrorMessage());
-        } catch (TransactionInProgressException tipe) {
-            System.out.println("The transaction with the given request token is already in progress, consider changing " +
-                "retry strategy for this type of error. Error: " + tipe.getErrorMessage());
-        } catch (IdempotentParameterMismatchException ipme) {
-            System.out.println("Request rejected because it was retried with a different payload but with a request token that was already used, " +
-                "change request token for this payload to be accepted. Error: " + ipme.getErrorMessage());
         } catch (Exception e) {
+            // There are no API specific errors to handle for BatchExecuteStatement, common DynamoDB API errors are handled below
             handleCommonErrors(e);
         }
     }
@@ -199,62 +179,5 @@ public class DynamoDBPartiqlTransaction {
         }
     }
 
-}
-```
-
-The following example shows the different return values when DynamoDB reads items
-with different conditions specified in the WHERE clause.
-
-AWS CLI
-
-1. Save the following JSON code to a file called
-   partiql.json.
-
-```
-[
-    // Item exists and projected attribute exists
-    {
-        "Statement": "SELECT * FROM "Music" WHERE Artist='No One You Know' and SongTitle='Call Me Today'"
-    },
-    // Item exists but projected attributes do not exist
-    {
-        "Statement": "SELECT non_existent_projected_attribute FROM "Music" WHERE Artist='No One You Know' and SongTitle='Call Me Today'"
-    },
-    // Item does not exist
-    {
-        "Statement": "SELECT * FROM "Music" WHERE Artist='No One I Know' and SongTitle='Call You Today'"
-    }
-]
-```
-
-2. following command in a command prompt.
-
-```
-aws dynamodb execute-transaction --transact-statements  file://partiql.json
-```
-
-3. The following response is returned:
-
-```
-{
-    "Responses": [
-        // Item exists and projected attribute exists
-        {
-            "Item": {
-                "Artist":{
-                    "S": "No One You Know"
-                },
-                "SongTitle":{
-                    "S": "Call Me Today"
-                }
-            }
-        },
-        // Item exists but projected attributes do not exist
-        {
-            "Item": {}
-        },
-        // Item does not exist
-        {}
-    ]
 }
 ```

@@ -1,145 +1,94 @@
-# Differences in querying a table
+# Differences in scanning a table
 
-Another common access pattern is reading multiple items from a table, based on
-your query criteria.
+In SQL, a `SELECT` statement without a `WHERE` clause will
+return every row in a table. In Amazon DynamoDB, the `Scan` operation does the
+same thing. In both cases, you can retrieve all of the items or just some of
+them.
+
+Whether you are using a SQL or a NoSQL database, scans should be used sparingly
+because they can consume large amounts of system resources. Sometimes a scan is
+appropriate (such as scanning a small table) or unavoidable (such as performing a
+bulk export of data). However, as a general rule, you should design your
+applications to avoid performing scans. For more information, see [Querying tables in DynamoDB](Query.md "Query.md").
+
+###### Note
+
+Doing a bulk export also creates at least 1 file per partition. All of the
+items in each file are from that particular partition's hashed keyspace.
 
 ###### Topics
 
-- [Querying a table with
-  SQL](#SQLtoNoSQL.ReadData.Query.SQL "#SQLtoNoSQL.ReadData.Query.SQL")
-- [Querying a table in
-  DynamoDB](#SQLtoNoSQL.ReadData.Query.DynamoDB "#SQLtoNoSQL.ReadData.Query.DynamoDB")
+- [Scanning a table with SQL](#SQLtoNoSQL.ReadData.Scan.SQL "#SQLtoNoSQL.ReadData.Scan.SQL")
+- [Scanning a table in
+  DynamoDB](#SQLtoNoSQL.ReadData.Scan.DynamoDB "#SQLtoNoSQL.ReadData.Scan.DynamoDB")
 
-## Querying a table with
+## Scanning a table with SQL
 
-SQL
+When using SQL you can scan a table and retrieve all of its data by using a
+`SELECT` statement without specifying a `WHERE`
+clause. You can request one or more columns in the result. Or you can request
+all of them if you use the wildcard character (\*).
 
-When using SQL the `SELECT` statement lets you query on key
-columns, non-key columns, or any combination. The `WHERE` clause
-determines which rows are returned, as shown in the following examples.
+The following are examples of using a `SELECT` statement.
 
 ```
-/* Return a single song, by primary key */
-
-SELECT * FROM Music
-WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today';
+/* Return all of the data in the table */
+SELECT * FROM Music;
 ```
 
 ```
-/* Return all of the songs by an artist */
-
-SELECT * FROM Music
-WHERE Artist='No One You Know';
+/* Return all of the values for Artist and Title */
+SELECT Artist, Title FROM Music;
 ```
 
-```
-/* Return all of the songs by an artist, matching first part of title */
-
-SELECT * FROM Music
-WHERE Artist='No One You Know' AND SongTitle LIKE 'Call%';
-```
-
-```
-/* Return all of the songs by an artist, with a particular word in the title...
-...but only if the price is less than 1.00 */
-
-SELECT * FROM Music
-WHERE Artist='No One You Know' AND SongTitle LIKE '%Today%'
-AND Price < 1.00;
-```
-
-Note that the primary key for this table consists of
-_Artist_ and _SongTitle_.
-
-## Querying a table in
+## Scanning a table in
 
 DynamoDB
 
 In Amazon DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
-language) to query an item from a table.
+language) to perform a scan on a table.
 
 DynamoDB API
-With Amazon DynamoDB, you can use the `Query` operation to
-retrieve data in a similar fashion. The `Query` operation
-provides quick, efficient access to the physical locations where the
-data is stored. For more information, see [Partitions and data distribution in DynamoDB](HowItWorks.md "HowItWorks.md").
-
-You can use `Query` with any table or secondary index.
-You must specify an equality condition for the partition key's
-value, and you can optionally provide another condition for the sort
-key attribute if it is defined.
-
-The `KeyConditionExpression` parameter specifies the
-key values that you want to query. You can use an optional
-`FilterExpression` to remove certain items from the
-results before they are returned to you.
-
-In DynamoDB, you must use `ExpressionAttributeValues` as
-placeholders in expression parameters (such as
-`KeyConditionExpression` and
-`FilterExpression`). This is analogous to the use of
-_bind variables_ in relational databases,
-where you substitute the actual values into the `SELECT`
-statement at runtime.
-
-Note that the primary key for this table consists of
-_Artist_ and
-_SongTitle_.
-
-The following are some DynamoDB `Query` examples.
+With the DynamoDB API, you use the `Scan` operation to
+return one or more items and item attributes by accessing every item
+in a table or a secondary index.
 
 ```
-// Return a single song, by primary key
-
+// Return all of the data in the table
 {
-    TableName: "Music",
-    KeyConditionExpression: "Artist = :a and SongTitle = :t",
-    ExpressionAttributeValues: {
-        ":a": "No One You Know",
-        ":t": "Call Me Today"
-    }
+    TableName:  "Music"
 }
 ```
 
 ```
-// Return all of the songs by an artist
-
+// Return all of the values for Artist and Title
 {
-    TableName: "Music",
-    KeyConditionExpression: "Artist = :a",
-    ExpressionAttributeValues: {
-        ":a": "No One You Know"
-    }
+    TableName:  "Music",
+    ProjectionExpression: "Artist, Title"
 }
 ```
 
-```
-// Return all of the songs by an artist, matching first part of title
-
-{
-    TableName: "Music",
-    KeyConditionExpression: "Artist = :a and begins_with(SongTitle, :t)",
-    ExpressionAttributeValues: {
-        ":a": "No One You Know",
-        ":t": "Call"
-    }
-}
-```
+The `Scan` operation also provides a
+`FilterExpression` parameter, which you can use to
+discard items that you do not want to appear in the results. A
+`FilterExpression` is applied after the scan is
+performed, but before the results are returned to you. (This is not
+recommended with large tables. You are still charged for the entire
+`Scan`, even if only a few matching items are
+returned.)
 
 PartiQL for DynamoDB
-With PartiQL, you can perform a query by using the
-`ExecuteStatement` operation and the
-`Select` statement on the partition key.
+With PartiQL, you perform a scan by using the
+`ExecuteStatement` operation to return all the
+contents for a table using the `Select` statement.
 
 ```
 SELECT AlbumTitle, Year, Price
 FROM Music
-WHERE Artist='No One You Know'
 ```
 
-Using the `SELECT` statement in this way returns all
-the songs associated with this particular
-`Artist`.
+Note that this statement will return all items for in the Music
+table.
 
 For code examples using `Select` and
 `ExecuteStatement`, see [PartiQL select statements for DynamoDB](ql-reference.md "ql-reference.md").

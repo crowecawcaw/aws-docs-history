@@ -1,208 +1,214 @@
-# PartiQL select statements for DynamoDB
+# PartiQL update statements for DynamoDB
 
-Use the `SELECT` statement to retrieve data from a table in
-Amazon DynamoDB.
+Use the `UPDATE` statement to modify the value of one or more
+attributes within an item in an Amazon DynamoDB table.
 
-Using the `SELECT` statement can result in a full table scan if an
-equality or IN condition with a partition key is not provided in the WHERE clause. A scan
-operation examines every item for the requested values and can use up the
-provisioned throughput for a large table or index in a single operation.
+###### Note
 
-If you want to avoid full table scan in PartiQL, you can:
-
-- Author your `SELECT` statements to not result in full table
-  scans by making sure your [WHERE clause condition](ql-reference.md#ql-reference.select.parameters "ql-reference.md#ql-reference.select.parameters") is configured accordingly.
-- Disable full table scans using the IAM policy specified at [Example: Allow select statements and
-  deny full table scan statements in PartiQL for DynamoDB](ql-iam.md#access-policy-ql-iam-example6 "ql-iam.md#access-policy-ql-iam-example6"), in the DynamoDB developer
-  guide.
-  For more information see [Best practices for
-  querying and scanning data](bp-query-scan.md "bp-query-scan.md"), in the DynamoDB developer guide.
+You can only update one item at a time; you cannot issue a single DynamoDB
+PartiQL statement that updates multiple items. For information on updating
+multiple items, see [Performing transactions
+with PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md") or [Running batch operations with
+PartiQL for DynamoDB](ql-reference.multiplestatements.md "ql-reference.multiplestatements.md").
 
 ###### Topics
 
-- [Syntax](#ql-reference.select.syntax "#ql-reference.select.syntax")
-- [Parameters](#ql-reference.select.parameters "#ql-reference.select.parameters")
-- [Examples](#ql-reference.select.examples "#ql-reference.select.examples")
+- [Syntax](#ql-reference.update.syntax "#ql-reference.update.syntax")
+- [Parameters](#ql-reference.update.parameters "#ql-reference.update.parameters")
+- [Return value](#ql-reference.update.return "#ql-reference.update.return")
+- [Examples](#ql-reference.update.examples "#ql-reference.update.examples")
 
 ## Syntax
 
 ```
-SELECT `expression`  [, ...]
-FROM `table`[.`index`]
-[ WHERE `condition` ] [ [ORDER BY `key` [DESC|ASC] , ...]
+UPDATE  `table`
+[SET | REMOVE]  `path`  [=  `data`] […]
+WHERE `condition` [RETURNING `returnvalues`]
+<returnvalues>  ::= [ALL OLD | MODIFIED OLD | ALL NEW | MODIFIED NEW] *
 ```
 
 ## Parameters
 
-**`expression`**
-
-(Required) A projection formed from the `*` wildcard or
-a projection list of one or more attribute names or document paths
-from the result set. An expression can consist of calls to [Use PartiQL functions with DynamoDB](ql-functions.md "ql-functions.md") or fields
-that are modified by [PartiQL arithmetic, comparison, and logical operators for DynamoDB](ql-operators.md "ql-operators.md") .
-
 **`table`**
 
-(Required) The table name to query.
+(Required) The table containing the data to be modified.
 
-**`index`**
+**`path`**
 
-(Optional) The name of the index to query.
+(Required) An attribute name or document path to be created or
+modified.
 
-###### Note
+**`data`**
 
-You must add double quotation marks to the table name and
-index name when querying an index.
+(Required) An attribute value or the result of an
+operation.
 
-```
-SELECT *
-FROM "TableName"."IndexName"
+The supported operations to use with SET:
 
-```
+- LIST_APPEND: adds a value to a list type.
+- SET_ADD: adds a value to a number or string set.
+- SET_DELETE: removes a value from a number or string
+  set.
 
 **`condition`**
 
-(Optional) The selection criteria for the query.
+(Required) The selection criteria for the item to be modified.
+This condition must resolve to a single primary key value.
 
-###### Important
+**`returnvalues`**
 
-To ensure that a `SELECT` statement does not result
-in a full table scan, the `WHERE` clause condition
-must specify a partition key. Use the equality or IN
-operator.
+(Optional) Use `returnvalues` if you want to get the
+item attributes as they appear before or after they are updated. The
+valid values are:
 
-For example, if you have an `Orders` table with an
-`OrderID` partition key and other non-key
-attributes, including an `Address`, the following
-statements would not result in a full table scan:
+- `ALL OLD *`- Returns all of the attributes of
+  the item, as they appeared before the update
+  operation.
+- `MODIFIED OLD *`- Returns only the updated
+  attributes, as they appeared before the update
+  operation.
+- `ALL NEW *`- Returns all of the attributes of
+  the item, as they appear after the update operation.
+- `MODIFIED NEW *`- Returns only the updated
+  attributes, as they appear after the `UpdateItem`
+  operation.
 
-```
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100
+## Return value
 
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100 and Address='some address'
-
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100 or OrderID = 200
-
-SELECT *
-FROM "Orders"
-WHERE OrderID IN [100, 300, 234]
-```
-
-The following `SELECT` statements, however, will
-result in a full table scan:
-
-```
-SELECT *
-FROM "Orders"
-WHERE OrderID > 1
-
-SELECT *
-FROM "Orders"
-WHERE Address='some address'
-
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100 OR Address='some address'
-```
-
-**`key`**
-
-(Optional) A hash key or a sort key to use to order returned
-results. The default order is ascending (`ASC`) specify
-`DESC` if you want the results retuned in descending
-order.
+This statement does not return a value unless `returnvalues`
+parameter is specified.
 
 ###### Note
 
-If you omit the `WHERE` clause, then all of the items in the
-table are retrieved.
+If the WHERE clause of the UPDATE statement does not evaluate to true for
+any item in the DynamoDB table, `ConditionalCheckFailedException` is
+returned.
 
 ## Examples
 
-The following query returns one item, if one exists, from the
-`Orders` table by specifying the partition key,
-`OrderID`, and using the equality operator.
+Update an attribute value in an existing item. If the attribute does not
+exist, it is created.
+
+The following query updates an item in the `"Music"` table by
+adding an attribute of type number (`AwardsWon`) and an attribute of
+type map (`AwardDetail`).
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE OrderID = 1
+UPDATE "Music"
+SET AwardsWon=1
+SET AwardDetail={'Grammys':[2020, 2018]}
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
 ```
 
-The following query returns all items in the `Orders` table that
-have a specific partition key, `OrderID`, values using the OR
-operator.
+You can add `RETURNING ALL OLD *` to return the attributes as they
+appeared before the `Update` operation.
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE OrderID = 1 OR OrderID = 2
+UPDATE "Music"
+SET AwardsWon=1
+SET AwardDetail={'Grammys':[2020, 2018]}
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
+RETURNING ALL OLD *
 ```
 
-The following query returns all items in the `Orders` table that
-have a specific partition key, `OrderID`, values using the IN
-operator. The returned results are in descending order, based on the
-`OrderID` key attribute value.
+This returns the following:
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE OrderID IN [1, 2, 3] ORDER BY OrderID DESC
+{
+    "Items": [
+        {
+            "Artist": {
+                "S": "Acme Band"
+            },
+            "SongTitle": {
+                "S": "PartiQL Rocks"
+            }
+        }
+    ]
+}
 ```
 
-The following query shows a full table scan that returns all items from the
-`Orders` table that have a `Total` greater than 500,
-where `Total` is a non-key attribute.
+You can add `RETURNING ALL NEW *` to return the attributes as they
+appeared after the `Update` operation.
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE Total > 500
+UPDATE "Music"
+SET AwardsWon=1
+SET AwardDetail={'Grammys':[2020, 2018]}
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
+RETURNING ALL NEW *
 ```
 
-The following query shows a full table scan that returns all items from the
-`Orders` table within a specific `Total` order range,
-using the IN operator and a non-key attribute `Total`.
+This returns the following:
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE Total IN [500, 600]
+{
+    "Items": [
+        {
+            "AwardDetail": {
+                "M": {
+                    "Grammys": {
+                        "L": [
+                            {
+                                "N": "2020"
+                            },
+                            {
+                                "N": "2018"
+                            }
+                        ]
+                    }
+                }
+            },
+            "AwardsWon": {
+                "N": "1"
+            }
+        }
+    ]
+}
 ```
 
-The following query shows a full table scan that returns all items from the
-`Orders` table within a specific `Total` order range,
-using the BETWEEN operator and a non-key attribute `Total`.
+The following query updates an item in the `"Music"` table by
+appending to a list `AwardDetail.Grammys`.
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE Total BETWEEN 500 AND 600
+UPDATE "Music"
+SET AwardDetail.Grammys =list_append(AwardDetail.Grammys,[2016])
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
 ```
 
-The following query returns the first date a firestick device was used to
-watch by specifying the partition key `CustomerID` and sort key
-`MovieID` in the WHERE clause condition and using document paths
-in the SELECT clause.
+The following query updates an item in the `"Music"` table by
+removing from a list `AwardDetail.Grammys`.
 
 ```
-SELECT Devices.FireStick.DateWatched[0]
-FROM WatchList
-WHERE CustomerID= 'C1' AND MovieID= 'M1'
+UPDATE "Music"
+REMOVE AwardDetail.Grammys[2]
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
 ```
 
-The following query shows a full table scan that returns the list of items
-where a firestick device was first used after 12/24/19 using document paths in
-the WHERE clause condition.
+The following query updates an item in the `"Music"` table by
+adding `BillBoard` to the map `AwardDetail`.
 
 ```
-SELECT Devices
-FROM WatchList
-WHERE Devices.FireStick.DateWatched[0] >= '12/24/19'
+UPDATE "Music"
+SET AwardDetail.BillBoard=[2020]
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
+```
+
+The following query updates an item in the `"Music"` table by
+adding the string set attribute `BandMembers`.
+
+```
+UPDATE "Music"
+SET BandMembers =<<'member1', 'member2'>>
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
+```
+
+The following query updates an item in the `"Music"` table by
+adding `newbandmember` to the string set
+`BandMembers`.
+
+```
+UPDATE "Music"
+SET BandMembers =set_add(BandMembers, <<'newbandmember'>>)
+WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'
 ```
