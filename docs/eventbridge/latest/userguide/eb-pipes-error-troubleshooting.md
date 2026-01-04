@@ -60,6 +60,15 @@ Step Functions standard workflow, as this target must be invoked asynchronously.
 
 For Amazon SQS and stream sources, such as Kinesis and DynamoDB, EventBridge Pipes supports partial batch failure handling of target failures. For more information, see [Partial batch failure](eb-pipes-batching-concurrency.md#pipes-partial-batch-failure "eb-pipes-batching-concurrency.md#pipes-partial-batch-failure").
 
+## Amazon SQS source retry timing with maxBatchWindowInSeconds
+
+When using an Amazon SQS queue as a pipe source, the retry timing behavior differs depending on whether you configure the `maxBatchWindowInSeconds` parameter:
+
+- **Without maxBatchWindowInSeconds** – The SQS poller uses the queue's visibility timeout setting for retries. When processing fails, messages remain hidden for the visibility timeout duration before becoming available for retry. To reduce retry delays, configure the queue's visibility timeout to an appropriate value for your use case.
+- **With maxBatchWindowInSeconds** – The SQS poller dynamically sets the visibility timeout for polled messages using the formula: `functionTimeout + maxBatchWindowInSeconds + 30 seconds`. For EventBridge Pipes, the function timeout is 7 minutes, resulting in a visibility timeout of approximately 7.5 minutes plus your configured `maxBatchWindowInSeconds` value. When processing fails, messages remain hidden for this extended duration before becoming available for retry.
+
+This behavior is particularly relevant when using [partial batch responses](eb-pipes-batching-concurrency.md#pipes-partial-batch-failure "eb-pipes-batching-concurrency.md#pipes-partial-batch-failure"). If you require faster retry timing, avoid setting `maxBatchWindowInSeconds` and instead rely on the queue's configured visibility timeout.
+
 ## Pipe DLQ behavior
 
 A pipe inherits dead-letter queue (DLQ) behavior from the source:

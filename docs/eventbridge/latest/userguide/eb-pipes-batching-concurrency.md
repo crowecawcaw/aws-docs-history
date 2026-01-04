@@ -99,7 +99,7 @@ By default, a single pipe will scale to the following maximum concurrent executi
   multiplied by the number of shards in the stream.
 - Apache Kafka – The concurrent executions can climb as high
   the number of partitions on the topic, up to 1000.
-- Kinesis – The concurrent execxutions can climb as high as the `ParallelizationFactor` configured on the pipe
+- Kinesis – The concurrent executions can climb as high as the `ParallelizationFactor` configured on the pipe
   multiplied by the number of shards in the stream.
 - Amazon MQ – 5
 - Amazon SQS – 1250

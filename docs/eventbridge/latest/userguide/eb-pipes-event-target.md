@@ -8,7 +8,7 @@ when setting up a pipe in EventBridge:
 - [Batch job queue](#pipes-targets-specifics-batch "#pipes-targets-specifics-batch")
 - [CloudWatch log group](#pipes-targets-specifics-cwl "#pipes-targets-specifics-cwl")
 - [ECS task](#pipes-targets-specifics-ecs-task "#pipes-targets-specifics-ecs-task")
-- Event bus in the same account and Region
+- [Event bus in the same account and Region](#pipes-targets-specifics-eventbridge "#pipes-targets-specifics-eventbridge")
 - Firehose delivery stream
 - Inspector assessment template
 - Kinesis stream
@@ -117,6 +117,16 @@ type.
 For Step Functions state machines, [Standard
 workflows](../../../step-functions/latest/dg/concepts-standard-vs-express.md "../../../step-functions/latest/dg/concepts-standard-vs-express.md") must be invoked asynchronously.
 
+## Payload size limits
+
+EventBridge Pipes supports payloads up to 6 MB. However, the effective payload size limit is determined by whichever is smaller: the Pipes limit of 6 MB or the target service's maximum payload size. For example:
+
+- Lambda functions support payloads up to 6 MB, so the effective limit for a pipe targeting Lambda is 6 MB.
+- EventBridge event buses support payloads up to 256 KB, so the effective limit for a pipe targeting an event bus is 256 KB.
+- Step Functions state machines support payloads up to 256 KB, so the effective limit for a pipe targeting Step Functions is 256 KB.
+
+When configuring your pipe, ensure your payload size, including any transformations applied by enrichment or input transformation, does not exceed the target's maximum payload size.
+
 ## AWS Batch job queues target specifics
 
 All AWS Batch `submitJob` parameters are configured explicitly with
@@ -155,3 +165,7 @@ Considerations when specifying a Timestream for LiveAnalytics table as a pipe ta
   source, you must specify the number of retry attempts.
 
 For more information, see [Configuring the pipe settings](eb-pipes-create.md#pipes-configure-pipe-settings "eb-pipes-create.md#pipes-configure-pipe-settings").
+
+## EventBridge event bus target specifics
+
+When you configure an EventBridge event bus as a pipe target, the payload from your pipe is automatically placed in the `detail` section of the EventBridge event. Use [`PipeTargetEventBridgeEventBusParameters`](../pipes-reference/API_PipeTargetEventBridgeEventBusParameters.md "../pipes-reference/API_PipeTargetEventBridgeEventBusParameters.md") to configure the event's `source` and `detail-type` fields. Both fields support dynamic JSON path syntax to extract values from your event payload. For example, set `Source` to `$.body.source` or `DetailType` to `$.data.eventType`. You can also use input transformers to modify the event structure before it's placed in the `detail` field. For more information, see [Amazon EventBridge Pipes input transformation](eb-pipes-input-transformation.md "eb-pipes-input-transformation.md").
