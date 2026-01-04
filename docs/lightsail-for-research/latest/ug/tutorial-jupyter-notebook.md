@@ -179,7 +179,7 @@ the following areas of the Lightsail for Research console.
    the Lightsail for Research console. The month to date cost estimate for your virtual
    computers is listed under each running virtual computer.
 
-![The month to date cost estimate for your virtual computer.](/images/lightsail-for-research/latest/ug/images/tutorial-jupyter-computer-cost-estimate.png) 2. To view the CPU utilization for a virtual computer, choose the name of the
+![The month to date cost estimate for your virtual computer.](images/tutorial-jupyter-computer-cost-estimate.png) 2. To view the CPU utilization for a virtual computer, choose the name of the
 virtual computer, and then choose the **Dashboard**
 tab.
 
