@@ -1,242 +1,282 @@
-# Create an Amazon RDS DB instance
+# Tutorial: Create a VPC for use with a
 
-Create an RDS for MariaDB, RDS for MySQL, or RDS for PostgreSQL DB instance that maintains the data used by a web
-application.
+DB instance (IPv4 only)
 
-RDS for MariaDB
+A common scenario includes a DB instance in a virtual private cloud (VPC) based on the Amazon VPC
+service. This VPC shares data with a web server that is running in the same VPC. In this
+tutorial, you create the VPC for this scenario.
 
-###### To create a MariaDB instance
+The following diagram shows this scenario. For information about other scenarios, see
+[Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
+![Single VPC scenario](images/con-VPC-sec-grp.png)
+Your DB instance needs to be available only to your web server, and not to the public
+internet. Thus, you create a VPC with both public and private subnets. The web server is
+hosted in the public subnet, so that it can reach the public internet. The DB instance is
+hosted in a private subnet. The web server can connect to the DB instance
+because it is hosted within the same VPC. But the DB instance isn't available to the
+public internet, providing greater security.
+
+This tutorial configures an additional public and private subnet in a separate
+Availability Zone. These subnets aren't used by the tutorial. An RDS DB subnet group
+requires a subnet in at least two Availability Zones. The
+additional subnet makes it easier to switch to a Multi-AZ DB instance deployment in the
+future.
+
+This tutorial describes configuring a VPC for Amazon RDS DB instances.
+For a tutorial that shows you how to create a web server for this VPC scenario, see
+[Tutorial: Create a web server and an
+Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md"). For more information about Amazon VPC, see
+[Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide.md "../../../AmazonVPC/latest/GettingStartedGuide.md") and [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
+
+###### Tip
+
+You can set up network connectivity between an Amazon EC2 instance and a DB
+instance automatically
+when you create the DB instance.
+The network configuration is similar to the one described in this tutorial. For more information, see
+[Configure
+automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
+
+## Create a VPC with
+
+private and public subnets
+
+Use the following procedure to create a VPC with both public and private subnets.
+
+###### To create a VPC and subnets
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the top-right corner of the AWS Management Console, choose the Region
+   to create your VPC in. This example uses the US West (Oregon) Region.
+3. In the upper-left corner, choose **VPC dashboard**. To begin
+   creating a VPC, choose **Create VPC**.
+4. For **Resources to create** under **VPC settings**, choose
+   **VPC and more**.
+5. For the **VPC settings**, set these values:
+   - **Name tag auto-generation** – `tutorial`
+   - **IPv4 CIDR block** – `10.0.0.0/16`
+   - **IPv6 CIDR block** – **No IPv6 CIDR block**
+   - **Tenancy** – **Default**
+   - **Number of Availability Zones (AZs)** – **2**
+   - **Customize AZs** – Keep the default values.
+   - **Number of public subnet** – **2**
+   - **Number of private subnets** – **2**
+   - **Customize subnets CIDR blocks** – Keep the default values.
+   - **NAT gateways ($)** – **None**
+   - **VPC endpoints** – **None**
+   - **DNS options** – Keep the default values.
+
+###### Note
+
+Amazon RDS requires at least two subnets in two different Availability Zones to
+support Multi-AZ DB instance deployments. This tutorial creates a Single-AZ
+deployment, but the requirement makes it easier to convert to a Multi-AZ DB
+instance deployment in the future. 6. Choose **Create VPC**.
+
+## Create a VPC
+
+security group for a public web server
+
+Next, you create a security group for public access. To connect to public EC2
+instances in your VPC, you add inbound rules to your VPC security group. These allow
+traffic to connect from the internet.
+
+###### To create a VPC security group
+
+1.  Open the Amazon VPC console at
+    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2.  Choose **VPC Dashboard**, choose **Security
+    Groups**, and then choose **Create security
+    group**.
+3.  On the **Create security group** page, set these values:
+    - **Security group name:**
+      `tutorial-securitygroup`
+    - **Description:**
+      `Tutorial Security Group`
+    - **VPC:** Choose the VPC that you created earlier, for
+      example: **vpc-`identifier` (tutorial-vpc)**
+
+4.  Add inbound rules to the security group.
+    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
+       (SSH). To determine your public IP address, in a different browser window or tab,
+       you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
+       An example of an IP address is `203.0.113.25/32`.
+
+    In many cases, you might connect through an internet service provider
+    (ISP) or from behind your firewall without a static IP address. If so,
+    find the range of IP addresses used by client computers.
+
+    ###### Warning
+
+    If you use `0.0.0.0/0` for SSH access, you make it
+    possible for all IP addresses to access your public instances using
+    SSH. This approach is acceptable for a short time in a test
+    environment, but it's unsafe for production environments. In
+    production, authorize only a specific IP address or range of
+    addresses to access your instances using SSH. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow SSH access
+    to your Amazon EC2 instance. If you do this, you can connect to your Amazon EC2
+    instance to install the web server and other utilities. You also connect
+    to your EC2 instance to upload content for your web server.
+
+        * **Type:**
+        `SSH`
+        * **Source:** The IP address or range from Step a, for
+         example: `203.0.113.25/32`.
+
+    4. Choose **Add rule**.
+    5. Set the following values for your new inbound rule to allow HTTP
+       access to your web server:
+       - **Type:**
+         `HTTP`
+       - **Source:**
+         `0.0.0.0/0`
+
+5.  Choose **Create security group** to create the security
+    group.
+
+Note the security group ID because you need it later in this tutorial.
+
+## Create a VPC
+
+security group for a private DB instance
+
+To keep your DB instance private, create a second security group for
+private access. To connect to private DB instances in your VPC, you add
+inbound rules to your VPC security group that allow traffic from your web server
+only.
+
+###### To create a VPC security group
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Choose **VPC Dashboard**, choose **Security
+   Groups**, and then choose **Create security
+   group**.
+3. On the **Create security group** page, set these
+   values:
+   - **Security group name:**
+     `tutorial-db-securitygroup`
+   - **Description:**
+     `Tutorial DB Instance Security Group`
+   - **VPC:** Choose the VPC that you created earlier, for
+     example: **vpc-`identifier` (tutorial-vpc)**
+
+4. Add inbound rules to the security group.
+   1. In the **Inbound rules** section, choose **Add rule**.
+   2. Set the following values for your new inbound rule to allow MySQL
+      traffic on port 3306 from your Amazon EC2 instance. If you do this, you can
+      connect from your web server to your DB instance. By
+      doing so, you can store and retrieve data from your web application to
+      your database.
+      - **Type:**
+        `MySQL/Aurora`
+      - **Source:** The identifier of the
+        **tutorial-securitygroup** security group that you created
+        previously in this tutorial, for example:
+        **sg-9edd5cfb**.
+
+5. Choose **Create security group** to create the security
+   group.
+
+## Create a DB subnet group
+
+A _DB subnet group_ is a collection of subnets that
+you create in a VPC and that you then designate for your DB instances. A DB subnet group makes it possible for you to specify a particular
+VPC when creating DB instances.
+
+###### To create a DB subnet group
+
+1. Identify the private subnets for your database in the VPC.
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **Subnets**.
+   3. Note the subnet IDs of the subnets named **tutorial-subnet-private1-us-west-2a**
+      and **tutorial-subnet-private2-us-west-2b**.
+
+   You need the subnet IDs when you create your DB subnet group.
+
+2. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, check the
-   AWS Region. It should be the same as the one where you
-   created your EC2 instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose
-   **MariaDB**.
 
-![Select engine type](images/tutorial-create-mariadb.png) 7. For **Templates**, choose
-**Free tier** or **Sandbox**. **Free tier**
-appears for free plan accounts. **Sandbox** appears for paid plan accounts.
+Make sure that you connect to the Amazon RDS console, not to the Amazon VPC console. 3. In the navigation pane, choose **Subnet groups**. 4. Choose **Create DB subnet group**. 5. On the **Create DB subnet group** page, set these values
+in **Subnet group details**:
 
-![Select template](images/tutorial-create-template.png) 8. In the **Availability and durability**
-section, keep the defaults. 9. In the **Settings** section, set these
-values:
+    * **Name:** `tutorial-db-subnet-group`
+    * **Description:** `Tutorial DB Subnet Group`
+    * **VPC:** **tutorial-vpc (vpc-`identifier`)**
 
-    * **DB instance identifier**
-     – Type
-     `tutorial-db-instance`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password**
-     – Leave the option turned off.
-    * **Master password** – Type
-     a password.
-    * **Confirm password** –
-     Retype the password.
+6. In the **Add subnets** section, choose the **Availability Zones** and **Subnets**.
 
-![Settings sections](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
-section, set these values:
+For this tutorial, choose **us-west-2a** and **us-west-2b** for the **Availability Zones**.
+For **Subnets**, choose the private subnets you identified in the previous step. 7. Choose **Create**.
 
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.micro**
+Your new DB subnet group appears in the DB subnet groups list on the RDS
+console. You can choose the DB subnet group to see details in the details pane
+at the bottom of the window. These details include all of the subnets associated
+with the group.
 
-![Instance configuration section](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
-defaults. 12. In the **Connectivity** section, set
-these values and keep the other values as their
-defaults:
+###### Note
 
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the
-     EC2 instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
+If you created this VPC to complete [Tutorial: Create a web server and an
+Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md"),
+create the DB instance
+by following the instructions in [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
-![Connectivity section](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
-section, make sure **Password
-authentication** is selected. 14. Open the **Additional configuration**
-section, and enter `sample` for
-**Initial database name**. Keep the
-default settings for the other options. 15. To create your MariaDB instance, choose **Create
-database**.
+## Deleting the VPC
 
-Your new DB instance appears in the
-**Databases** list with the status
-**Creating**. 16. Wait for the **Status** of your new DB
-instance to show as **Available**. Then
-choose the DB instance name to show its details. 17. In the **Connectivity & security**
-section, view the **Endpoint** and
-**Port** of the DB instance.
+After you create the VPC and other resources for this tutorial, you can delete them if they are no longer needed.
 
-![DB instance details](images/Tutorial_WebServer_Endpoint_Port.png)
+###### Note
 
-Note the endpoint and port for your DB instance. You use
-this information to connect your web server to your DB
-instance. 18. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+If you added resources in the VPC that you created for this tutorial, you might
+need to delete these before you can delete the VPC. For example, these resources
+might include Amazon EC2 instances or Amazon RDS DB instances. For more
+information, see [Delete your
+VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting") in the _Amazon VPC User Guide_.
 
-RDS for MySQL
+###### To delete a VPC and related resources
 
-###### To create a MySQL DB instance
+1. Delete the DB subnet group.
+   1. Open the Amazon RDS console at
+      [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+   2. In the navigation pane, choose **Subnet groups**.
+   3. Select the DB subnet group you want to delete, such as **tutorial-db-subnet-group**.
+   4. Choose **Delete**, and then choose **Delete** in the confirmation window.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, check the
-   AWS Region. It should be the same as the one where you
-   created your EC2 instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose
-   **MySQL**.
+2. Note the VPC ID.
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **VPCs**.
+   3. In the list, identify the VPC that you created, such as
+      **tutorial-vpc**.
+   4. Note the **VPC ID** of the VPC that you created. You
+      need the VPC ID in later steps.
 
-![Select engine type](images/tutorial-create-mysql.png) 7. For **Templates**, choose **Free
-tier** or **Sandbox**.
-**Free tier** appears for free plan
-accounts. **Sandbox** appears for paid
-plan accounts.
+3. Delete the security groups.
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **Security
+      Groups**.
+   3. Select the security group for the Amazon RDS DB instance, such as
+      **tutorial-db-securitygroup**.
+   4. For **Actions**, choose **Delete security
+      groups**, and then choose **Delete** on
+      the confirmation page.
+   5. On the **Security Groups** page, select the security group for the Amazon EC2 instance, such as
+      **tutorial-securitygroup**.
+   6. For **Actions**, choose **Delete security
+      groups**, and then choose **Delete** on
+      the confirmation page.
 
-![Select template](images/tutorial-create-template.png) 8. In the **Availability and durability**
-section, keep the defaults. 9. In the **Settings** section, set these
-values:
+4. Delete the VPC.
+   1. Open the Amazon VPC console at
+      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   2. Choose **VPC Dashboard**, and then choose **VPCs**.
+   3. Select the VPC you want to delete, such as **tutorial-vpc**.
+   4. For **Actions**, choose **Delete
+      VPC**.
 
-    * **DB instance identifier**
-     – Type
-     `tutorial-db-instance`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password**
-     – Leave the option turned off.
-    * **Master password** – Type
-     a password.
-    * **Confirm password** –
-     Retype the password.
-
-![Settings sections](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
-section, set these values:
-
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.micro**
-
-![Instance configuration section](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
-defaults. 12. In the **Connectivity** section, set
-these values and keep the other values as their
-defaults:
-
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the
-     EC2 instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
-
-![Connectivity section](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
-section, make sure **Password
-authentication** is selected. 14. Open the **Additional configuration**
-section, and enter `sample` for
-**Initial database name**. Keep the
-default settings for the other options. 15. To create your MySQL DB instance, choose **Create
-database**.
-
-Your new DB instance appears in the
-**Databases** list with the status
-**Creating**. 16. Wait for the **Status** of your new DB
-instance to show as **Available**. Then
-choose the DB instance name to show its details. 17. In the **Connectivity & security**
-section, view the **Endpoint** and
-**Port** of the DB instance.
-
-![DB instance details](images/Tutorial_WebServer_Endpoint_Port.png)
-
-Note the endpoint and port for your DB instance. You use
-this information to connect your web server to your DB
-instance. 18. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
-
-RDS for PostgreSQL
-
-###### To create a PostgreSQL DB instance
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, check the
-   AWS Region. It should be the same as the one where you
-   created your EC2 instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose
-   **PostgreSQL**.
-
-![Select engine type](images/tutorial-create-postgres.png) 7. For **Templates**, choose **Free
-tier** or **Sandbox**.
-**Free tier** appears for free plan
-accounts. **Sandbox** appears for paid
-plan accounts.
-
-![Select template](images/tutorial-create-template.png) 8. In the **Availability and durability**
-section, keep the defaults. 9. In the **Settings** section, set these
-values:
-
-    * **DB instance identifier**
-     – Type
-     `tutorial-db-instance`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password**
-     – Leave the option turned off.
-    * **Master password** – Type
-     a password.
-    * **Confirm password** –
-     Retype the password.
-
-![Settings sections](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
-section, set these values:
-
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.micro**
-
-![Instance configuration section](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
-defaults. 12. In the **Connectivity** section, set
-these values and keep the other values as their
-defaults:
-
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the
-     EC2 instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
-
-![Connectivity section](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
-section, make sure **Password
-authentication** is selected. 14. Open the **Additional configuration**
-section, and enter `sample` for
-**Initial database name**. Keep the
-default settings for the other options. 15. To create your PostgreSQL DB instance, choose **Create
-database**.
-
-Your new DB instance appears in the
-**Databases** list with the status
-**Creating**. 16. Wait for the **Status** of your new DB
-instance to show as **Available**. Then
-choose the DB instance name to show its details. 17. In the **Connectivity & security**
-section, view the **Endpoint** and
-**Port** of the DB instance.
-
-![DB instance details](images/Tutorial_WebServer_Endpoint_Port_postgres.png)
-
-Note the endpoint and port for your DB instance. You use
-this information to connect your web server to your DB
-instance. 18. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+   The confirmation page shows other resources that are associated with the VPC that
+   will also be deleted, including the subnets associated with it. 5. On the confirmation page, enter `delete`, and then choose **Delete**.

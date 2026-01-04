@@ -1,55 +1,30 @@
-# Creating an RDS for Oracle replica in mounted mode
+# Redo transport compression with RDS for Oracle
 
-By default, Oracle replicas are read-only. To create a replica in mounted mode, use the console, the AWS CLI, or
-the RDS API.
+Use RDS for Oracle redo transport compression to improve the replication performance between your primary DB instance and standby replicas. This is particularly useful in environments that have limited network bandwidth or high-latency connections.
 
-###### To create a mounted replica from a source Oracle DB instance
+## Obtaining a license for redo transport compression
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the Oracle DB instance that you want to use as the source for a mounted replica.
-4. For **Actions**, choose **Create replica**.
-5. For **Replica mode**, choose **Mounted**.
-6. Choose the settings that you want to use. For **DB instance identifier**,
-   enter a name for the read replica. Adjust other settings as needed.
-7. For **Regions**, choose the Region where the mounted replica will be launched.
-8. Choose your instance size and storage type. We recommend that you use the same DB instance
-   class and storage type as the source DB instance for the read replica.
-9. For **Multi-AZ deployment**, choose **Create a standby
-   instance** to create a standby of your replica in another Availability Zone for
-   failover support for the mounted replica. Creating your mounted replica as a Multi-AZ DB instance
-   is independent of whether the source database is a Multi-AZ DB instance.
-10. Choose the other settings that you want to use.
-11. Choose **Create replica**.
-    In the **Databases** page, the mounted replica has the role Replica.
+Redo transport compression is part of the [Oracle Advanced Compression](//www.oracle.com/database/advanced-compression/ "//www.oracle.com/database/advanced-compression/") option. To use redo transport compression, you need a valid license for the Oracle Advanced Compression option. For licensing information, contact your Oracle representative.
 
-To create an Oracle replica in mounted mode, set `--replica-mode` to `mounted` in
-the AWS CLI command [create-db-instance-read-replica](../../../cli/latest/reference/rds/create-db-instance-read-replica.md "../../../cli/latest/reference/rds/create-db-instance-read-replica.md").
+## Configuring redo transport compression
 
-###### Example
+To configure redo transport compression, you can use the `rds.replica.redo_compression` parameter. This parameter is available for Oracle versions 19c and 21c.
 
-For Linux, macOS, or Unix:
+The `rds.replica.redo_compression` parameter accepts the following values:
 
-```
-aws rds create-db-instance-read-replica \
-    --db-instance-identifier `myreadreplica` \
-    --source-db-instance-identifier `mydbinstance` \
-    --replica-mode mounted
-```
+- `DISABLE` – Default value that disables redo transport compression.
+- `ENABLE` – Value that enables redo transport compression through the default algorithm [ZLIB](https://zlib.net/ "https://zlib.net/").
+- `ZLIB` – Value that explicitly enables redo transport compression using the ZLIB algorithm, which provides good compression ratios.
+- `LZO` – Value that explicitly enables redo transport compression using the [LZO](https://www.oberhumer.com/opensource/lzo/ "https://www.oberhumer.com/opensource/lzo/") algorithm, which optimizes compression speed, particularly during decompression.
 
-For Windows:
+## Performance considerations for redo transport compression
 
-```
-aws rds create-db-instance-read-replica ^
-    --db-instance-identifier `myreadreplica` ^
-    --source-db-instance-identifier `mydbinstance` ^
-    --replica-mode mounted
-```
+Compression and decompression operations consume CPU resources on both the primary and standby instances. If you use redo transport compression, consider instance resource usage and network conditions.
 
-To change a read-only replica to a mounted state, set `--replica-mode` to
-`mounted` in the AWS CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). To place a mounted replica in read-only mode, set
-`--replica-mode` to `open-read-only`.
+## Related topics for redo transport compression
 
-To create an Oracle replica in mounted mode, specify `ReplicaMode=mounted` in the RDS API
-operation [CreateDBInstanceReadReplica](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md").
+For more information on configuring redo transport compression, see the following resources:
+
+- [DB parameter groups for
+  Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
+- [RedoCompression](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-properties.html#GUID-5E6DDFD0-6196-48EB-94AF-21A1AFBB7DE1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/oracle-data-guard-broker-properties.html#GUID-5E6DDFD0-6196-48EB-94AF-21A1AFBB7DE1") in the Oracle Database 19c release notes

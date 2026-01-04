@@ -1,73 +1,64 @@
-# Finding the connection information for a MariaDB DB instance
+# Connecting to your MariaDB DB instance
 
-The connection information for a DB instance includes its endpoint, port, and a valid database user, such
-as the master user. For example, suppose that an endpoint value is `mydb.123456789012.us-east-1.rds.amazonaws.com`.
-In this case, the port value is `3306`, and the database user is `admin`. Given this information, you specify the following
-values in a connection string:
+After Amazon RDS provisions your DB instance, you can use any standard MariaDB client
+application or utility to connect to the instance. In the connection string, you specify the
+Domain Name System (DNS) address from the DB instance endpoint as the host parameter. You
+also specify the port number from the DB instance endpoint as the port parameter.
 
-- For host or host name or DNS name, specify
-  `mydb.123456789012.us-east-1.rds.amazonaws.com`.
-- For port, specify `3306`.
-- For user, specify `admin`.
-  To connect to a DB instance, use any client for the MariaDB DB engine. For example, you might use the MySQL command-line client or MySQL Workbench.
+You can connect to an Amazon RDS for MariaDB DB instance by using tools like the MySQL command-line
+client. For more information on using the MySQL command-line client, see [mysql command-line
+client](http://mariadb.com/kb/en/mariadb/mysql-command-line-client/ "http://mariadb.com/kb/en/mariadb/mysql-command-line-client/") in the MariaDB documentation. One GUI-based application that you can use
+to connect is Heidi. For more information, see the [Download HeidiSQL](http://www.heidisql.com/download.php "http://www.heidisql.com/download.php") page.
+For information about installing MySQL (including the MySQL command-line client), see [Installing and upgrading
+MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html "https://dev.mysql.com/doc/refman/8.0/en/installing.html").
 
-To find the connection information for a DB instance, you can use the AWS Management Console, the AWS Command Line Interface (AWS CLI)
-[describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command, or the Amazon RDS API
-[DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") operation
-to list its details.
-
-###### To find the connection information for a DB instance in the AWS Management Console
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases** to display a list of your DB instances.
-3. Choose the name of the MariaDB DB instance to display its details.
-4. On the **Connectivity & security** tab, copy the endpoint.
-   Also, note the port number. You need both the endpoint and the port number
-   to connect to the DB instance.
-
-![The endpoint and port of a DB instance in the Amazon RDS console.](images/endpoint-port.png) 5. If you need to find the master user name, choose the
-**Configuration** tab and view the **Master
-username** value.
-To find the connection information for a MariaDB DB instance by using the
-AWS CLI, run the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. In the call, query for the DB
-instance ID, endpoint, port, and master user name.
-
-For Linux, macOS, or Unix:
+Most Linux distributions include the MariaDB client instead of the Oracle MySQL client.
+To install the MySQL command-line client on Amazon Linux 2023, run the following command:
 
 ```
-aws rds describe-db-instances \
-  --filters "Name=engine,Values=mariadb" \
-  --query "*[].[DBInstanceIdentifier,Endpoint.Address,Endpoint.Port,MasterUsername]"
+sudo dnf install mariadb105
 ```
 
-For Windows:
+To install the MySQL command-line client on Amazon Linux 2, run the following command:
 
 ```
-aws rds describe-db-instances ^
-  --filters "Name=engine,Values=mariadb" ^
-  --query "*[].[DBInstanceIdentifier,Endpoint.Address,Endpoint.Port,MasterUsername]"
+sudo yum install mariadb
 ```
 
-Your output should be similar to the following.
+To install the MySQL command-line client on most DEB-based Linux distributions, run the following command.
 
 ```
-[
-    [
-        "mydb1",
-        "mydb1.123456789012.us-east-1.rds.amazonaws.com",
-        3306,
-        "admin"
-    ],
-    [
-        "mydb2",
-        "mydb2.123456789012.us-east-1.rds.amazonaws.com",
-        3306,
-        "admin"
-    ]
-]
+apt-get install mariadb-client
 ```
 
-To find the connection information for a DB instance by using the Amazon RDS API,
-call the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") operation. In the output, find the values for
-the endpoint address, endpoint port, and master user name.
+To check the version of your MySQL command-line client, run the following command.
+
+```
+mysql --version
+```
+
+To read the MySQL documentation for your current client version, run the following command.
+
+```
+man mysql
+```
+
+To connect to a DB instance from outside of a virtual private cloud (VPC) based on Amazon VPC,
+the DB instance must be publicly accessible. Also, access must be granted using the inbound
+rules of the DB instance's security group, and other requirements must be met. For more
+information, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
+
+You can use SSL encryption on connections to a MariaDB DB instance. For information,
+see [SSL/TLS support for MariaDB DB instances
+on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md").
+
+To find and connect to a RDS for MariaDB DB instance, see the following topics.
+
+###### Topics
+
+- [Finding the connection information for a MariaDB DB instance](USER_ConnectToMariaDBInstance.md "USER_ConnectToMariaDBInstance.md")
+- [Connecting from the MySQL command-line client (unencrypted) for RDS for MariaDB](USER_ConnectToMariaDBInstance.md "USER_ConnectToMariaDBInstance.md")
+- [Connecting to RDS for MariaDB with the
+  AWS JDBC Driver and AWS Python Driver;](MariaDB.Connecting.md "MariaDB.Connecting.md")
+- [Troubleshooting
+  connections to your MariaDB DB instance](USER_ConnectToMariaDBInstance.md "USER_ConnectToMariaDBInstance.md")

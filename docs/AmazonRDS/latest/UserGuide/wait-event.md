@@ -1,102 +1,119 @@
-# LWLock:BufferMapping (LWLock:buffer_mapping)
-
-This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer
-pool.
-
-###### Note
-
-This event is named `LWLock:BufferMapping` for RDS for PostgreSQL version 13 and higher versions. For RDS for PostgreSQL
-version 12 and older versions, this event is named `LWLock:buffer_mapping`.
+# IO:WALWrite
 
 ###### Topics
 
-- [Supported
-  engine versions](#wait-event.lwl-buffer-mapping.context.supported "#wait-event.lwl-buffer-mapping.context.supported")
-- [Context](#wait-event.lwl-buffer-mapping.context "#wait-event.lwl-buffer-mapping.context")
-- [Causes](#wait-event.lwl-buffer-mapping.causes "#wait-event.lwl-buffer-mapping.causes")
-- [Actions](#wait-event.lwl-buffer-mapping.actions "#wait-event.lwl-buffer-mapping.actions")
+- [Supported engine versions](#wait-event.iowalwrite.context.supported "#wait-event.iowalwrite.context.supported")
+- [Context](#wait-event.iowalwrite.context "#wait-event.iowalwrite.context")
+- [Likely causes of increased waits](#wait-event.iowalwrite.causes "#wait-event.iowalwrite.causes")
+- [Actions](#wait-event.iowalwrite.actions "#wait-event.iowalwrite.actions")
 
-## Supported
+## Supported engine versions
 
-engine versions
-
-This wait event information is relevant for RDS for PostgreSQL version 9.6 and higher.
+This wait event information is supported for all versions of RDS for PostgreSQL 10 and higher.
 
 ## Context
 
-The _shared buffer pool_ is a PostgreSQL memory area that holds
-all pages that are or were being used by processes. When a process needs a page, it
-reads the page into the shared buffer pool. The `shared_buffers` parameter
-sets the shared buffer size and reserves a memory area to store the table and index
-pages. If you change this parameter, make sure to restart the database. .
+Activity in the database that's generating write-ahead log data fills up the
+WAL buffers first and then writes to disk, asynchronously. The wait event `IO:WALWrite` is generated
+when the SQL session is waiting for the WAL data to complete writing to disk so that it can
+release the transaction's COMMIT call.
 
-The `LWLock:buffer_mapping` wait event occurs in the following scenarios:
+## Likely causes of increased waits
 
-- A process searches the buffer table for a page and acquires a shared buffer mapping lock.
-- A process loads a page into the buffer pool and acquires an exclusive buffer mapping lock.
-- A process removes a page from the pool and acquires an exclusive buffer mapping lock.
+If this wait event occurs often, you should review your workload and the
+type of updates that your workload performs and their frequency. In particular,
+look for the following types of activity.
 
-## Causes
+**Heavy DML activity**
 
-When this event appears more than normal, possibly indicating a performance problem, the database is
-paging in and out of the shared buffer pool. Typical causes include the following:
+Changing data in database tables doesn't happen instantaneously. An insert to one table
+might need to wait for an insert or an update to the
+same table from another client. The data manipulation language (DML) statements
+for changing data values (INSERT, UPDATE, DELETE, COMMIT, ROLLBACK TRANSACTION)
+can result in contention that causes the write-ahead logfile to be waiting for
+the buffers to be flushed. This situation is captured in the following
+Amazon RDS Performance Insights metrics that indicate heavy DML activity.
 
-- Large queries
-- Bloated indexes and tables
-- Full table scans
-- A shared pool size that is smaller than the working set
+- `tup_inserted`
+- `tup_updated`
+- `tup_deleted`
+- `xact_rollback`
+- `xact_commit`
+
+For more information about these metrics,
+see [Performance Insights counters for Amazon RDS for PostgreSQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL").
+
+**Frequent checkpoint activity**
+
+Frequent checkpoints contribute to a higher number of WAL files. In RDS for PostgreSQL,
+full page writes are always "on." Full page writes help protect
+against data loss. However, when checkpointing occurs too
+frequently, the system can suffer overall performance issues. This
+is especially true on systems with heavy DML activity.
+In some cases, you might find error messages in your `postgresql.log`
+stating that “checkpoints are occurring too frequently."
+
+We recommend that when tuning checkpoints, you carefully balance
+performance against expected time need to recover in the event of an abnormal
+shutdown.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+We recommend the following actions to reduce the numbers of this wait event.
 
 ###### Topics
 
-- [Monitor buffer-related metrics](#wait-event.lwl-buffer-mapping.actions.monitor-metrics "#wait-event.lwl-buffer-mapping.actions.monitor-metrics")
-- [Assess your indexing strategy](#wait-event.lwl-buffer-mapping.actions.indexes "#wait-event.lwl-buffer-mapping.actions.indexes")
-- [Reduce the number of buffers that must be
-  allocated quickly](#wait-event.lwl-buffer-mapping.actions.buffers "#wait-event.lwl-buffer-mapping.actions.buffers")
+- [Reduce the number of commits](#wait-event.iowalwrite.actions.problem "#wait-event.iowalwrite.actions.problem")
+- [Monitor your checkpoints](#wait-event.iowalwrite.actions.monitor "#wait-event.iowalwrite.actions.monitor")
+- [Scale up IO](#wait-event.iowalwrite.actions.scale-io "#wait-event.iowalwrite.actions.scale-io")
+- [Dedicated log volume (DLV)](#wait-event.iowalwrite.actions.dlv "#wait-event.iowalwrite.actions.dlv")
 
-### Monitor buffer-related metrics
+### Reduce the number of commits
 
-When `LWLock:buffer_mapping` waits spike, investigate the buffer hit ratio. You can use these
-metrics to get a better understanding of what is happening in the buffer cache. Examine the following
-metrics:
+To reduce the number of commits, you can combine statements
+into transaction blocks. Use Amazon RDS Performance Insights to examine
+the type of queries being run. You can also move
+large maintenance operations to off-peak hours. For example,
+create indexes or use `pg_repack`
+operations during non-production hours.
 
-`blks_hit`
+### Monitor your checkpoints
 
-This Performance Insights counter metric indicates the number of blocks that were retrieved
-from the shared buffer pool. After the `LWLock:buffer_mapping` wait event appears, you
-might observe a spike in `blks_hit`.
+There are two parameters that you can monitor to see how frequently your RDS for PostgreSQL DB instance
+is writing to the WAL file for checkpoints.
 
-`blks_read`
+- `log_checkpoints` – This parameter is set to "on" by default. It causes
+  a message to get sent to the PostgreSQL log for each checkpoint. These log messages include the
+  number of buffers written, the time spent writing them, and the number of WAL files added, removed, or
+  recycled for the given checkpoint.
 
-This Performance Insights counter metric indicates the number of blocks that required I/O to be
-read into the shared buffer pool. You might observe a spike in `blks_read` in the
-lead-up to the `LWLock:buffer_mapping` wait event.
+For more information about this parameter, see [Error
+Reporting and Logging](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS")
+in the PostgreSQL documentation.
 
-### Assess your indexing strategy
+- `checkpoint_warning` – This parameter sets a threshold value (in seconds)
+  for checkpoint frequency above which a warning is generated. By default, this parameter isn't set in RDS for PostgreSQL.
+  You can set the value of this parameter to get a warning when the database changes in your RDS for PostgreSQL DB instance are written at a rate
+  for which the WAL files are not sized to handle. For example, say you set this
+  parameter to 30. If your RDS for PostgreSQL instance needs to
+  write changes more often than every 30 seconds, the warning that
+  "checkpoints are occurring too frequently" is sent to the PostgreSQL log. This can indicate
+  that your `max_wal_size` value should be increased.
 
-To confirm that your indexing strategy is not degrading performance, check the following:
+For more information, see
+[Write Ahead Log](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-CHECKPOINTS "https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-CHECKPOINTS") in the
+PostgreSQL documentation.
 
-Index bloat
+### Scale up IO
 
-Ensure that index and table bloat aren't leading to unnecessary pages being read into the
-shared buffer. If your tables contain unused rows, consider archiving the data and removing the
-rows from the tables. You can then rebuild the indexes for the resized tables.
+This type of input/output (IO) wait event can remediated by scaling the input/output operations per second
+(IOPs) to provide faster IO. Scaling IO is preferable to scaling CPU, because scaling CPU
+can result in even more IO contention because the increased CPU can handle more work and thus make
+the IO bottleneck even worse. In general, we recommend that you
+consider tuning your workload before performing scaling operations.
 
-Indexes for frequently used queries
+### Dedicated log volume (DLV)
 
-To determine whether you have the optimal indexes, monitor DB engine metrics in Performance
-Insights. The `tup_returned` metric shows the number of rows read. The
-`tup_fetched` metric shows the number of rows returned to the client. If
-`tup_returned` is significantly larger than `tup_fetched`, the data
-might not be properly indexed. Also, your table statistics might not be current.
-
-### Reduce the number of buffers that must be
-
-allocated quickly
-
-To reduce the `LWLock:buffer_mapping` wait events, try to reduce the number of buffers that must
-be allocated quickly. One strategy is to perform smaller batch operations. You might be able to achieve
-smaller batches by partitioning your tables.
+You can use a dedicated log volume (DLV) for a DB instance that uses Provisioned IOPS (PIOPS) storage by using the Amazon RDS console,
+AWS CLI, or Amazon RDS API. A DLV moves PostgreSQL database transaction logs to a storage volume that's separate from the volume containing the
+database tables. For more information, see [Dedicated log volume (DLV)](CHAP_Storage.md#CHAP_Storage.dlv "CHAP_Storage.md#CHAP_Storage.dlv").

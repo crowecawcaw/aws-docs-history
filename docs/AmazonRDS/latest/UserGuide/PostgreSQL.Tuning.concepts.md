@@ -1,26 +1,31 @@
 # RDS for PostgreSQL wait events
 
-The following table lists the wait events for RDS for PostgreSQL that most commonly
-indicate performance problems, and summarizes the most common causes and corrective
-actions..
+A _wait event_ is an indication that the session is waiting for
+a resource. For example, the wait event `Client:ClientRead` occurs when
+RDS for PostgreSQL is waiting to receive data from the client. Sessions typically wait
+for resources such as the following.
 
-| Wait event                                                                        | Definition                                                                                                                                                                         |
-| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Client:ClientRead](wait-event.md "wait-event.md")                                | This event occurs when RDS for PostgreSQL is waiting to receive data<br>from the client.                                                                                           |
-| [Client:ClientWrite](wait-event.md "wait-event.md")                               | This event occurs when RDS for PostgreSQL is waiting to write data to<br>the client.                                                                                               |
-| [CPU](wait-event.md "wait-event.md")                                              | This event occurs when a thread is active in CPU or is waiting for<br>CPU.                                                                                                         |
-| [IO:BufFileRead and IO:BufFileWrite](wait-event.md "wait-event.md")               | These events occur when RDS for PostgreSQL creates temporary<br>files.                                                                                                             |
-| [IO:DataFileRead](wait-event.md "wait-event.md")                                  | This event occurs when a connection waits on a backend process to<br>read a required page from storage because the page isn't available<br>in shared memory.                       |
-| [IO:WALWrite](wait-event.md "wait-event.md")                                      | This event occurs when RDS for PostgreSQL is waiting for the write-ahead<br>log (WAL) buffers to be written to a WAL file.                                                         |
-| [Lock:advisory](wait-event.md "wait-event.md")                                    | This event occurs when a PostgreSQL application uses a lock to<br>coordinate activity across multiple sessions.                                                                    |
-| [Lock:extend](wait-event.md "wait-event.md")                                      | This event occurs when a backend process is waiting to lock a<br>relation to extend it while another process has a lock on that<br>relation for the same purpose.                  |
-| [Lock:Relation](wait-event.md "wait-event.md")                                    | This event occurs when a query is waiting to acquire a lock on a<br>table or view that's currently locked by another transaction.                                                  |
-| [Lock:transactionid](wait-event.md "wait-event.md")                               | This event occurs when a transaction is waiting for a row-level<br>lock.                                                                                                           |
-| [Lock:tuple](wait-event.md "wait-event.md")                                       | This event occurs when a backend process is waiting to acquire a<br>lock on a tuple.                                                                                               |
-| [LWLock:BufferMapping (LWLock:buffer_mapping)](wait-event.md "wait-event.md")     | This event occurs when a session is waiting to associate a data<br>block with a buffer in the shared buffer pool.                                                                  |
-| [LWLock:BufferIO (IPC:BufferIO)](wait-event.md "wait-event.md")                   | This event occurs when RDS for PostgreSQL is waiting for other<br>processes to finish their input/output (I/O) operations when<br>concurrently trying to access a page.            |
-| [LWLock:buffer_content (BufferContent)](wait-event.md "wait-event.md")            | This event occurs when a session is waiting to read or write a<br>data page in memory while another session has that page locked for<br>writing.                                   |
-| [LWLock:lock_manager (LWLock:lockmanager)](wait-event.md "wait-event.md")         | This event occurs when the RDS for PostgreSQL engine maintains the<br>shared lock's memory area to allocate, check, and deallocate a lock<br>when a fast path lock isn't possible. |
-| [LWLock:SubtransSLRU (LWLock:SubtransControlLock)](wait-event.md "wait-event.md") | This event occurs when a process is waiting to access the simple<br>least-recently used (SLRU) cache for a subtransaction.                                                         |
-| [Timeout:PgSleep](wait-event.md "wait-event.md")                                  | This event occurs when a server process has called the<br>`pg_sleep` function and is waiting for the sleep<br>timeout to expire.                                                   |
-| [Timeout:VacuumDelay](wait-event.md "wait-event.md")                              | This event indicates that the vacuum process is sleeping because the<br>estimated cost limit has been reached.                                                                     |
+- Single-threaded access to a buffer, for example, when a session is
+  attempting to modify a buffer
+- A row that is currently locked by another session
+- A data file read
+- A log file write
+  For example, to satisfy a query, the session might perform a full table scan. If
+  the data isn't already in memory, the session waits for the disk I/O to complete.
+  When the buffers are read into memory, the session might need to wait because other
+  sessions are accessing the same buffers. The database records the waits by using a
+  predefined wait event. These events are grouped into categories.
+
+By itself, a single wait event doesn't indicate a performance problem. For
+example, if requested data isn't in memory, reading data from disk is necessary. If
+one session locks a row for an update, another session waits for the row to be
+unlocked so that it can update it. A commit requires waiting for the write to a log
+file to complete. Waits are integral to the normal functioning of a database.
+
+On the other hand, large numbers of wait events typically show a performance
+problem. In such cases, you can use wait event data to determine where sessions are
+spending time. For example, if a report that typically runs in minutes now takes
+hours to run, you can identify the wait events that contribute the most to total
+wait time. If you can determine the causes of the top wait events, you can sometimes
+make changes that improve performance. For example, if your session is waiting on a
+row that has been locked by another session, you can end the locking session.

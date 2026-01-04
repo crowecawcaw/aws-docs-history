@@ -1,51 +1,88 @@
-# Introduction to backups
+# Retaining automated backups
 
-Amazon RDS creates and saves automated backups of your DB instance or Multi-AZ DB cluster
-during the backup window of your DB instance. RDS creates a storage volume snapshot of your
-DB instance, backing up the entire DB instance and not just individual databases. RDS saves
-the automated backups of your DB instance according to the backup retention period that you
-specify. If necessary, you can recover your DB instance to any point in time during the
-backup retention period.
+###### Note
 
-Automated backups follow these rules:
+You can only retain automated backups of DB instances, not Multi-AZ DB
+clusters.
 
-- Your DB instance must be in the `available` state for automated backups
-  to occur. Automated backups don't occur while your DB instance is in a state
-  other than `available`, for example, `storage_full`.
-- Automated backups don't occur while a DB snapshot copy is running in the same
-  AWS Region for the same database.
-  You can also back up your DB instance manually by creating a DB snapshot. For more
-  information about manually creating a DB snapshot, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md").
+When you delete a DB instance, you can choose to retain automated backups. Automated backups can be retained
+for a number of days equal to the backup retention period configured for the DB instance at the time when you delete it.
 
-Snapshot and backup functionality supports multi-volume configurations. All backup
-operations include both the primary volume and any additional storage volumes. Snapshots
-capture the entire database storage configuration. Point-in-time recovery (PITR) works
-across all storage volumes.
+Retained automated backups contain system snapshots and transaction logs from a DB instance.
+They also include your DB instance properties like allocated storage and DB instance
+class, which are required to restore it to an active instance.
 
-The first snapshot of a DB instance contains the data for the full database. Subsequent
-snapshots of the same database are incremental, which means that only the data that has
-changed after your most recent snapshot is saved.
+Retained automated backups and manual snapshots incur billing charges until they're deleted. For more information, see
+[Retention costs](#USER_WorkingWithAutomatedBackups.RetentionCosts "#USER_WorkingWithAutomatedBackups.RetentionCosts").
 
-You can copy both automatic and manual DB snapshots, and share manual DB snapshots. For
-more information about copying a DB snapshot, see [Copying a DB snapshot for Amazon RDS](USER_CopySnapshot.md "USER_CopySnapshot.md"). For more information about sharing a DB snapshot,
-see [Sharing a DB snapshot for Amazon RDS](USER_ShareSnapshot.md "USER_ShareSnapshot.md").
+You can retain automated backups for RDS instances running the
+Db2, MariaDB, MySQL,
+PostgreSQL, Oracle, and Microsoft SQL Server engines.
 
-## Backup storage
+You can restore or remove retained automated backups using the AWS Management Console, RDS API, and AWS CLI.
 
-Your Amazon RDS backup storage for each AWS Region is composed of the automated backups
-and manual DB snapshots for that Region. Total backup storage space
-equals the sum of the storage for all backups in that Region. Moving a
-DB snapshot to another Region increases the backup storage in the
-destination Region. Backups are stored in Amazon S3.
+###### Topics
 
-For more information about backup storage costs, see [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
+- [Retention period](#USER_WorkingWithAutomatedBackups.RetentionPeriods "#USER_WorkingWithAutomatedBackups.RetentionPeriods")
+- [Viewing retained backups](#USER_WorkingWithAutomatedBackups.viewing-retained "#USER_WorkingWithAutomatedBackups.viewing-retained")
+- [Restoration](#USER_WorkingWithAutomatedBackups.Restoration "#USER_WorkingWithAutomatedBackups.Restoration")
+- [Retention costs](#USER_WorkingWithAutomatedBackups.RetentionCosts "#USER_WorkingWithAutomatedBackups.RetentionCosts")
+- [Limitations](#USER_WorkingWithAutomatedBackups.Limits "#USER_WorkingWithAutomatedBackups.Limits")
 
-If you choose to retain automated backups when you delete a DB instance, the automated
-backups are saved for the full retention period. If you don't choose
-**Retain automated backups** when you delete a DB instance, all
-automated backups are deleted with the DB instance. After they are deleted, the
-automated backups can't be recovered. If you choose to have Amazon RDS create a final DB
-snapshot before it deletes your DB instance, you can use that to recover your DB
-instance. Optionally, you can use a previously created manual snapshot. Manual snapshots
-are not deleted. You can have up to 100 manual snapshots per
-Region.
+## Retention period
+
+The system snapshots and transaction logs in a retained automated backup expire the same way that they expire for the
+source DB instance. Because there are no new snapshots or logs created for this instance, the retained automated backups
+eventually expire completely. Effectively, they live as long their last system snapshot would have done, based on the
+settings for retention period the source instance had when you deleted it. Retained automated backups are removed by the
+system after their last system snapshot expires.
+
+You can remove a retained automated backup in the same way that you can delete a DB instance. You can remove retained
+automated backups using the console or the RDS API operation `DeleteDBInstanceAutomatedBackup`.
+
+Final snapshots are independent of retained automated backups. We strongly suggest
+that you take a final snapshot even if you retain automated backups because the
+retained automated backups eventually expire. The final snapshot doesn't
+expire.
+
+## Viewing retained backups
+
+To view your retained automated backups, choose **Automated backups** in the navigation pane, then choose
+**Retained**. To view individual snapshots associated with a retained automated backup, choose
+**Snapshots** in the navigation pane. Alternatively, you can describe individual snapshots associated
+with a retained automated backup. From there, you can restore a DB instance directly from one of those snapshots.
+
+To describe your retained automated backups using the AWS CLI, use the following command:
+
+```
+aws rds describe-db-instance-automated-backups --dbi-resource-id `DbiResourceId`
+```
+
+To describe your retained automated backups using the RDS API, call the [`DescribeDBInstanceAutomatedBackups`](../APIReference/API_DescribeDBInstanceAutomatedBackups.md "../APIReference/API_DescribeDBInstanceAutomatedBackups.md")
+action with the `DbiResourceId` parameter.
+
+## Restoration
+
+For information on restoring DB instances from automated backups, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
+
+## Retention costs
+
+The cost of a retained automated backup is the cost of total storage of the system snapshots that are associated with it.
+There is no additional charge for transaction logs or instance metadata. All other pricing rules for backups apply to
+restorable instances.
+
+For example, suppose that your total allocated storage of running instances is 100 GB. Suppose also that you have 50 GB of
+manual snapshots plus 75 GB of system snapshots associated with a retained automated backup. In this case, you are charged
+only for the additional 25 GB of backup storage, like this: (50 GB + 75 GB) – 100 GB = 25 GB.
+
+## Limitations
+
+The following limitations apply to retained automated backups:
+
+- The maximum number of retained automated backups in one AWS Region is 40. It's not included in the DB
+  instances quota. You can have 40 running DB instances and an additional 40 retained automated backups at the same
+  time.
+- Retained automated backups don't contain information about parameters or option groups.
+- You can restore a deleted instance to a point in time that is within the retention period at the time of deletion.
+- You can't modify a retained automated backup. That's because it consists of system backups, transaction logs,
+  and the DB instance properties that existed at the time that you deleted the source instance.

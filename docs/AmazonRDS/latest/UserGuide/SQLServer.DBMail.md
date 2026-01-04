@@ -1,118 +1,126 @@
-# Configuring Database Mail
+# Sending email messages using Database Mail
 
-You perform the following tasks to configure Database Mail:
+You use the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure to send email messages using Database Mail.
 
-1. Create the Database Mail profile.
-2. Create the Database Mail account.
-3. Add the Database Mail account to the Database Mail profile.
-4. Add users to the Database Mail profile.
+## Usage
 
-###### Note
+```
+EXEC msdb.dbo.sp_send_dbmail
+@profile_name = '`profile_name`',
+@recipients = '`recipient1@example.com`[; `recipient2`; ... `recipientn`]',
+@subject = '`subject`',
+@body = '`message_body`',
+[@body_format = 'HTML'],
+[@file_attachments = '`file_path1`; `file_path2`; ... `file_pathn`'],
+[@query = '`SQL_query'`],
+[@attach_query_result_as_file = `0|1`]';
+```
 
-To configure Database Mail, make sure that you have `execute`
-permission on the stored procedures in the `msdb` database.
+The following parameters are required:
 
-## Creating the Database Mail profile
+- `@profile_name` – The name of the Database Mail profile from which to send the message.
+- `@recipients` – The semicolon-delimited list of email addresses to which to send the
+  message.
+- `@subject` – The subject of the message.
+- `@body` – The body of the message. You can also use a declared variable as the body.
 
-To create the Database Mail profile, you use the [sysmail_add_profile_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profile-sp-transact-sql") stored procedure. The following example creates a profile named
-`Notifications`.
+The following parameters are optional:
 
-###### To create the profile
+- `@body_format` – This parameter is used with a declared
+  variable to send email in HTML format.
+- `@file_attachments` – The semicolon-delimited list of message attachments. File paths must be
+  absolute paths.
+- `@query` – A SQL query to run. The query results can be
+  attached as a file or included in the body of the message.
+- `@attach_query_result_as_file` – Whether to attach the query result as a file. Set to 0 for no,
+  1 for yes. The default is 0.
 
-- Use the following SQL statement.
+## Examples
+
+The following examples demonstrate how to send email messages.
+
+###### Example of sending a message to a single recipient
 
 ```
 USE msdb
 GO
 
-EXECUTE msdb.dbo.sysmail_add_profile_sp
-    @profile_name         = 'Notifications',
-    @description          = 'Profile used for sending outgoing notifications using Amazon SES.';
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'Automated DBMail message - 1',
+     @body               = 'Database Mail configuration was successful.';
 GO
 ```
 
-## Creating the Database Mail account
-
-To create the Database Mail account, you use the [sysmail_add_account_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-account-sp-transact-sql") stored procedure. The following example creates an account named `SES` on an RDS for SQL Server DB instance
-in a private VPC, using Amazon Simple Email Service.
-
-Using Amazon SES requires the following parameters:
-
-- `@email_address` – An Amazon SES verified identity. For more information, see [Verified identities in
-  Amazon SES](../../../ses/latest/dg/verify-addresses-and-domains.md "../../../ses/latest/dg/verify-addresses-and-domains.md").
-- `@mailserver_name` – An Amazon SES SMTP endpoint. For more information, see [Connecting to an Amazon SES SMTP endpoint](../../../ses/latest/dg/smtp-connect.md "../../../ses/latest/dg/smtp-connect.md").
-- `@username` – An Amazon SES SMTP user name. For more information, see [Obtaining Amazon SES SMTP credentials](../../../ses/latest/dg/smtp-credentials.md "../../../ses/latest/dg/smtp-credentials.md").
-
-Don't use an AWS Identity and Access Management user name.
-
-- `@password` – An Amazon SES SMTP password. For more information, see [Obtaining Amazon SES SMTP credentials](../../../ses/latest/dg/smtp-credentials.md "../../../ses/latest/dg/smtp-credentials.md").
-
-###### To create the account
-
-- Use the following SQL statement.
+###### Example of sending a message to multiple recipients
 
 ```
 USE msdb
 GO
 
-EXECUTE msdb.dbo.sysmail_add_account_sp
-    @account_name        = 'SES',
-    @description         = 'Mail account for sending outgoing notifications.',
-    @email_address       = '`nobody@example.com`',
-    @display_name        = 'Automated Mailer',
-    @mailserver_name     = '`vpce-0a1b2c3d4e5f-01234567.email-smtp.us-west-2.vpce`.amazonaws.com',
-    @port                = 587,
-    @enable_ssl          = 1,
-    @username            = '`Smtp_Username`',
-    @password            = '`Smtp_Password`';
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'recipient1@example.com;recipient2@example.com',
+     @subject            = 'Automated DBMail message - 2',
+     @body               = 'This is a message.';
 GO
 ```
 
-###### Note
-
-Specify credentials other than the prompts shown here as a security best practice.
-
-## Adding the Database Mail account to the Database Mail
-
-profile
-
-To add the Database Mail account to the Database Mail profile, you use the [sysmail_add_profileaccount_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-profileaccount-sp-transact-sql") stored procedure. The following example adds the `SES` account to the
-`Notifications` profile.
-
-###### To add the account to the profile
-
-- Use the following SQL statement.
+###### Example of sending a SQL query result as a file attachment
 
 ```
 USE msdb
 GO
 
-EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
-    @profile_name        = 'Notifications',
-    @account_name        = 'SES',
-    @sequence_number     = 1;
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'Test SQL query',
+     @body               = 'This is a SQL query test.',
+     @query              = 'SELECT * FROM abc.dbo.test',
+     @attach_query_result_as_file = 1;
 GO
 ```
 
-## Adding users to the Database Mail profile
-
-To grant permission for an `msdb` database principal to use a Database Mail profile, you use the [sysmail_add_principalprofile_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-principalprofile-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-add-principalprofile-sp-transact-sql") stored procedure. A _principal_ is an entity that can
-request SQL Server resources. The database principal must map to a SQL Server authentication user, a Windows Authentication
-user, or a Windows Authentication group.
-
-The following example grants public access to the `Notifications` profile.
-
-###### To add a user to the profile
-
-- Use the following SQL statement.
+###### Example of sending a message in HTML format
 
 ```
 USE msdb
 GO
 
-EXECUTE msdb.dbo.sysmail_add_principalprofile_sp
-    @profile_name       = 'Notifications',
-    @principal_name     = 'public',
-    @is_default         = 1;
+DECLARE @HTML_Body as NVARCHAR(500) = 'Hi, <h4> Heading </h4> </br> See the report. <b> Regards </b>';
+
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'Test HTML message',
+     @body               = @HTML_Body,
+     @body_format        = 'HTML';
+GO
+```
+
+###### Example of sending a message using a trigger when a specific event occurs in the database
+
+```
+USE AdventureWorks2017
+GO
+IF OBJECT_ID ('Production.iProductNotification', 'TR') IS NOT NULL
+DROP TRIGGER Purchasing.iProductNotification
+GO
+
+CREATE TRIGGER iProductNotification ON Production.Product
+   FOR INSERT
+   AS
+   DECLARE @ProductInformation nvarchar(255);
+   SELECT
+   @ProductInformation = 'A new product, ' + Name + ', is now available for $' + CAST(StandardCost AS nvarchar(20)) + '!'
+   FROM INSERTED i;
+
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'New product information',
+     @body               = @ProductInformation;
 GO
 ```

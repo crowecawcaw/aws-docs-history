@@ -1,42 +1,21 @@
-# Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance
+# Best practices for configuring resource governor on RDS for SQL Server
 
-Resource Governor statistics are cumulative since the last server restart. If you need to collect statistics starting from a certain time, you can reset statistics using the following Amazon RDS stored procedure:
+To control resource consumption, RDS for SQL Server supports Microsoft SQL Server resource governor.
+The following best practices help you avoid common configuration issues and optimize database performance.
 
-```
-EXEC msdb.dbo.rds_alter_resource_governor_configuration
-@reset_statistics = 1;
-```
-
-## Resource pool runtime statistics
-
-For each resource pool, resource governor tracks CPU and memory utilization, out-of-memory events,
-memory grants, I/O, and other statistics. For more information,
-see [sys.dm_resource_governor_resource_pools](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17").
-
-The following query returns a subset of available statistics for all resource pools:
-
-```
-SELECT rp.pool_id,
-       rp.name AS resource_pool_name,
-       wg.workload_group_count,
-       rp.statistics_start_time,
-       rp.total_cpu_usage_ms,
-       rp.target_memory_kb,
-       rp.used_memory_kb,
-       rp.out_of_memory_count,
-       rp.active_memgrant_count,
-       rp.total_memgrant_count,
-       rp.total_memgrant_timeout_count,
-       rp.read_io_completed_total,
-       rp.write_io_completed_total,
-       rp.read_bytes_total,
-       rp.write_bytes_total,
-       rp.read_io_stall_total_ms,
-       rp.write_io_stall_total_ms
-FROM sys.dm_resource_governor_resource_pools AS rp
-OUTER APPLY (
-            SELECT COUNT(1) AS workload_group_count
-            FROM sys.dm_resource_governor_workload_groups AS wg
-            WHERE wg.pool_id = rp.pool_id
-            ) AS wg;
-```
+1. Resource governor configuration is stored in the `master` database.
+   We recommend that you always save a copy of resource governor configuration scripts separately.
+2. The classifier function extends login processing time hence it's recommended to avoid complex logic in the classifier.
+   An overly complex function can cause login delays or connection timeouts including Amazon RDS automation sessions.
+   This can impact the ability of Amazon RDS automation to monitor the instance health. Hence, it's always recommended to
+   test the classifier function in a pre-production environment before implementing in production environments.
+3. Avoid setting high values (above 70) for `REQUEST_MAX_MEMORY_GRANT_PERCENT` in workload groups,
+   as this can prevent the database instance from allocating sufficient memory for other concurrent queries,
+   potentially resulting in memory grant timeout errors (Error 8645). Conversely, setting this value too low
+   (less than 1) or to 0 might prevent queries that need memory workspace (like those involving sort or hash operations)
+   from executing properly in user-defined workload groups.
+   RDS enforces these limits by restricting values to between 1 and 70 on default workload groups.
+4. For binding tempdb to resource pool, after binding memory optimized tempdb metadata to a pool, the pool
+   might reach its maximum setting, and any queries that use `tempdb` might fail with out-of-memory errors.
+   Under certain circumstances, the SQL Server could potentially stop if an out-of-memory error occurs.
+   To reduce the chance of this happening, set the memory pool's `MAX_MEMORY_PERCENT` to a high value.

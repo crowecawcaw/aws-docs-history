@@ -1,51 +1,34 @@
-# Licensing Microsoft SQL Server on Amazon RDS
+# DB instance class support for Microsoft SQL Server
 
-When you set up an Amazon RDS DB instance for Microsoft SQL Server, the software license is
-included.
+The computation and memory capacity of a DB instance is determined by its DB instance
+class. The DB instance class you need depends on your processing power and memory
+requirements. For more information, see [DB instance classes](Concepts.md "Concepts.md").
 
-This means that you don't need to purchase SQL Server licenses separately. AWS holds the
-license for the SQL Server database software. Amazon RDS pricing includes the software license,
-underlying hardware resources, and Amazon RDS management capabilities.
+The following list of DB instance classes supported for Microsoft SQL Server is provided here for your convenience. For the most
+current list, see the RDS console: [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 
-Amazon RDS supports the following Microsoft SQL Server editions:
+Not all DB instance classes are available on all supported SQL Server minor versions. For example, some newer DB instance
+classes such as db.r6i aren't available on older minor versions. You can use the [describe-orderable-db-instance-options](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html") AWS CLI command to find out which DB instance classes are available for your
+SQL Server edition and version.
 
-- Enterprise
-- Standard
-- Web
-- Express
+| SQL Server edition | 2022 support range                                                                                                                                                                                                                                                                                                                                                                                          | 2019 support range                                                                                                                                                                                                                                                                                                                                                                                                                                      | 2017 and 2016 support range                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enterprise Edition | `db.t3.xlarge`–`db.t3.2xlarge``db.r5.xlarge`–`db.r5.24xlarge``db.r5b.xlarge`–`db.r5b.24xlarge``db.r5d.xlarge`–`db.r5d.24xlarge``db.r6i.xlarge`–`db.r6i.32xlarge``db.r7i.xlarge`–`db.r7i.16xlarge``db.m5.xlarge`–`db.m5.24xlarge``db.m5d.xlarge`–`db.m5d.24xlarge``db.m6i.xlarge`–`db.m6i.32xlarge``db.m7i.xlarge`–`db.m7i.16xlarge``db.x2iedn.xlarge`–`db.x2iedn.32xlarge``db.z1d.xlarge`–`db.z1d.12xlarge` | `db.t3.xlarge`–`db.t3.2xlarge`<br>`db.r5.xlarge`–`db.r5.24xlarge`<br>`db.r5b.xlarge`–`db.r5b.24xlarge`<br>`db.r5d.xlarge`–`db.r5d.24xlarge`<br>`db.r6i.xlarge`–`db.r6i.32xlarge`<br>`db.r7i.xlarge`–`db.r7i.16xlarge`<br>`db.m5.xlarge`–`db.m5.24xlarge`<br>`db.m5d.xlarge`–`db.m5d.24xlarge`<br>`db.m6i.xlarge`–`db.m6i.32xlarge`<br>`db.m7i.xlarge`–`db.m7i.16xlarge`<br>`db.x2iedn.xlarge`–`db.x2iedn.32xlarge`<br>`db.z1d.xlarge`–`db.z1d.12xlarge` | `db.t3.xlarge`–`db.t3.2xlarge`<br>`db.r5.xlarge`–`db.r5.24xlarge`<br>`db.r5b.xlarge`–`db.r5b.24xlarge`<br>`db.r5d.xlarge`–`db.r5d.24xlarge`<br>`db.r6i.xlarge`–`db.r6i.32xlarge`<br>`db.r7i.xlarge`–`db.r7i.16xlarge`<br>`db.m5.xlarge`–`db.m5.24xlarge`<br>`db.m5d.xlarge`–`db.m5d.24xlarge`<br>`db.m6i.xlarge`–`db.m6i.32xlarge`<br>`db.m7i.xlarge`–`db.m7i.16xlarge`<br>`db.x2iedn.xlarge`–`db.x2iedn.32xlarge`<br>`db.z1d.xlarge`–`db.z1d.12xlarge` |
+| Standard Edition   | `db.t3.xlarge`–`db.t3.2xlarge``db.r5.large`–`db.r5.24xlarge``db.r5b.large`–`db.r5b.8xlarge``db.r5d.large`–`db.r5d.24xlarge``db.r6i.large`–`db.r6i.8xlarge``db.r7i.large`–`db.r7i.8xlarge``db.m5.large`–`db.m5.24xlarge``db.m5d.large`–`db.m5d.24xlarge``db.m6i.large`–`db.m6i.8xlarge``db.m7i.large`–`db.m7i.8xlarge``db.x2iedn.xlarge`–`db.x2iedn.8xlarge``db.z1d.large`–`db.z1d.12xlarge`                 | `db.t3.xlarge`–`db.t3.2xlarge`<br>`db.r5.large`–`db.r5.24xlarge`<br>`db.r5b.large`–`db.r5b.24xlarge`<br>`db.r5d.large`–`db.r5d.24xlarge`<br>`db.r6i.large`–`db.r6i.8xlarge`<br>`db.r7i.large`–`db.r7i.8xlarge`<br>`db.m5.large`–`db.m5.24xlarge`<br>`db.m5d.large`–`db.m5d.24xlarge`<br>`db.m6i.large`–`db.m6i.8xlarge`<br>`db.m7i.large`–`db.m7i.8xlarge`<br>`db.x2iedn.xlarge`–`db.x2iedn.32xlarge`<br>`db.z1d.large`–`db.z1d.12xlarge`               | `db.t3.xlarge`–`db.t3.2xlarge``db.r5.large`–`db.r5.24xlarge``db.r5b.large`–`db.r5b.24xlarge``db.r5d.large`–`db.r5d.24xlarge``db.r6i.large`–`db.r6i.8xlarge``db.r7i.large`–`db.r7i.8xlarge``db.m5.large`–`db.m5.24xlarge``db.m5d.large`–`db.m5d.24xlarge``db.m6i.large`–`db.m6i.8xlarge``db.m7i.large`–`db.m7i.8xlarge``db.x2iedn.xlarge`–`db.x2iedn.32xlarge``db.z1d.large`–`db.z1d.12xlarge`                                                           |
+| Web Edition        | `db.t3.small`–`db.t3.xlarge``db.r5.large`–`db.r5.4xlarge``db.r5b.large`–`db.r5b.4xlarge``db.r5d.large`–`db.r5d.4xlarge``db.r6i.large`–`db.r6i.4xlarge``db.r7i.large`–`db.r7i.4xlarge``db.m5.large`–`db.m5.4xlarge``db.m5d.large`–`db.m5d.4xlarge``db.m6i.large`–`db.m6i.4xlarge``db.m7i.large`–`db.m7i.4xlarge``db.z1d.large`–`db.z1d.13xlarge`                                                             | `db.t3.small`–`db.t3.2xlarge``db.r5.large`–`db.r5.4xlarge``db.r5b.large`–`db.r5b.4xlarge``db.r5d.large`–`db.r5d.4xlarge``db.r6i.large`–`db.r6i.4xlarge``db.r7i.large`–`db.r7i.4xlarge``db.m5.large`–`db.m5.4xlarge``db.m5d.large`–`db.m5d.4xlarge``db.m6i.large`–`db.m6i.4xlarge``db.m7i.large`–`db.m7i.4xlarge``db.z1d.large`–`db.z1d.3xlarge`                                                                                                         | `db.t3.small`–`db.t3.2xlarge``db.r5.large`–`db.r5.4xlarge``db.r5b.large`–`db.r5b.4xlarge``db.r5d.large`–`db.r5d.4xlarge``db.r6i.large`–`db.r6i.4xlarge``db.r7i.large`–`db.r7i.4xlarge``db.m5.large`–`db.m5.4xlarge``db.m5d.large`–`db.m5d.4xlarge``db.m6i.large`–`db.m6i.4xlarge``db.m7i.large`–`db.m7i.4xlarge``db.z1d.large`–`db.z1d.3xlarge`                                                                                                         |
+| Express Edition    | `db.t3.micro`–`db.t3.xlarge`                                                                                                                                                                                                                                                                                                                                                                                | `db.t3.micro`–`db.t3.xlarge`                                                                                                                                                                                                                                                                                                                                                                                                                            | `db.t3.micro`–`db.t3.xlarge`                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Developer Edition  | `db.m6i.xlarge`–`db.m6i.32xlarge``db.r6i.xlarge`–`db.r6i.32xlarge`                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 ###### Note
 
-SQL Server Web Edition is designed for Web hosters and Web VAPs to host public and
-internet-accessible web pages, websites, web applications, and web services.
-This level of support is required for
-compliance with Microsoft's usage rights. For more information, see [AWS service terms](http://aws.amazon.com/serviceterms "http://aws.amazon.com/serviceterms").
-
-Amazon RDS supports Multi-AZ deployments for DB instances running Microsoft SQL Server
-by using SQL Server Database Mirroring (DBM), Always On Availability Groups (AGs), and
-block level replication for SQL Server Web Edition. There are no additional licensing requirements
-for Multi-AZ deployments. For more information, see
-[Multi-AZ deployments for Amazon RDS for Microsoft SQL Server](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md").
-
-## Restoring license-terminated DB instances
-
-Amazon RDS takes snapshots of license-terminated DB instances. If your instance is
-terminated for licensing issues, you can restore it from the snapshot to a new DB
-instance. New DB instances have a license included.
-
-For more information, see
-[Restoring
-license-terminated DB instances for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
-
-## Development and
-
-test
-
-Because of licensing requirements, we can't offer SQL Server Developer Edition on Amazon RDS. You can use Express Edition for many
-development, testing, and other nonproduction needs. However, if you need the full feature capabilities of an enterprise-level
-installation of SQL Server for development, you can download and install SQL Server Developer Edition on RDS Custom for SQL Server using a CEV with BYOM.
-For more information, see [Preparing a CEV using Bring Your Own Media (BYOM)](custom-cev-sqlserver.md#custom-cev-sqlserver.preparing.byom "custom-cev-sqlserver.md#custom-cev-sqlserver.preparing.byom").
-Dedicated infrastructure isn't required for Developer Edition. By using your own host, you also gain access to
-other programmability features that are not accessible on Amazon RDS. For more information on the difference between SQL Server
-editions, see [Editions and supported features of SQL Server 2019](https://learn.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2019?view=sql-server-ver15 "https://learn.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2019?view=sql-server-ver15")
-in the Microsoft documentation.
+- Starting with the 7th generation instance class, hyper-threading is
+  disabled on RDS SQL Server for instance sizes 2xlarge and above. This
+  results in the total number of vCPUs available being half of that
+  supported by the [corresponding EC2 instance](../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md "../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md"). For example, the EC2 instance type `m7i.2xlarge` by default supports 4
+  cores and 2 threadsPerCore, resulting in a total of 8 vCPUs. In
+  contrast, the RDS for SQL Server `db.m7i.2xlarge` instance, with
+  hyper-threading disabled, results in 4 cores and 1 threadsPerCore,
+  overall 4 vCPUs.
+- Starting with the 7th generation instances, your billing provides a detailed breakdown of RDS DB instance
+  and third-party licensing fees. For more details, refer to
+  [RDS SQL Server pricing](https://aws.amazon.com/rds/sqlserver/pricing/ "https://aws.amazon.com/rds/sqlserver/pricing/").

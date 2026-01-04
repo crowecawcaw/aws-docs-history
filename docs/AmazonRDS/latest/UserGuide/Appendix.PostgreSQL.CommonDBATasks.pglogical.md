@@ -1,66 +1,20 @@
-# Managing logical
+# Parameter reference
 
-replication slots for RDS for PostgreSQL
+for the pglogical extension
 
-Before you can perform a major version upgrade on an
-RDS for PostgreSQL DB instance that's serving as a
-publisher node in a logical replication scenario, you must drop the replication slots on the
-instance. The major version upgrade pre-check process notifies you that the upgrade can't
-proceed until the slots are dropped.
+In the table you can find parameters associated with the `pglogical` extension.
+Parameters such as `pglogical.conflict_log_level` and
+`pglogical.conflict_resolution` are used to handle update conflicts. Conflicts
+can emerge when changes are made locally to the same tables that are subscribed to changes
+from the publisher. Conflicts can also occur during various scenarios, such as two-way
+replication or when multiple subscribers are replicating from the same publisher. For more
+information, see [PostgreSQL bi-directional replication using pglogical](https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/ "https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/").
 
-To drop slots from your RDS for PostgreSQL DB instance, first drop the
-subscription and then drop the slot.
-
-To identify replication slots that were created using the `pglogical`
-extension, log in to each database and get the name of the nodes. When you query the
-subscriber node, you get both the publisher and the subscriber nodes in the output, as shown
-in this example.
-
-```
-SELECT * FROM pglogical.node;
-`node_id | node_name
-------------+-------------------
- 2182738256 | docs_lab_target
- 3410995529 | docs_lab_provider
-(2 rows)`
-```
-
-You can get the details about the subscription with the following query.
-
-```
-SELECT sub_name,sub_slot_name,sub_target
-  FROM pglogical.subscription;
- `sub_name | sub_slot_name | sub_target
-----------+--------------------------------+------------
- docs_lab_subscription | pgl_labdb_docs_labcb4fa94_docs_lab3de412c | 2182738256
-(1 row)`
-```
-
-You can now drop the subscription, as follows.
-
-```
-SELECT pglogical.drop_subscription(subscription_name := 'docs_lab_subscription');
- `drop_subscription
--------------------
- 1
-(1 row)`
-```
-
-After dropping the subscription, you can delete the node.
-
-```
-SELECT pglogical.drop_node(node_name := 'docs-lab-subscriber');
- `drop_node
------------
- t
-(1 row)`
-```
-
-You can verify that the node no longer exists, as follows.
-
-```
-SELECT * FROM pglogical.node;
- `node_id | node_name
----------+-----------
-(0 rows)`
-```
+| Parameter                          | Description                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pglogical.batch_inserts            | Batch inserts if possible. Not set by default. Change to '1' to turn on,<br>'0' to turn off.                                                                                                                                                                                                                                                |
+| pglogical.conflict_log_level       | Sets the log level to use for logging resolved conflicts. Supported string<br>values are debug5, debug4, debug3, debug2, debug1, info, notice, warning, error,<br>log, fatal, panic.                                                                                                                                                        |
+| pglogical.conflict_resolution      | Sets method to use to resolve conflicts when conflicts are resolvable.<br>Supported string values are error, apply_remote, keep_local, last_update_wins,<br>first_update_wins.                                                                                                                                                              |
+| pglogical.extra_connection_options | Connection options to add to all peer node connections.                                                                                                                                                                                                                                                                                     |
+| pglogical.synchronous_commit       | pglogical specific synchronous commit value                                                                                                                                                                                                                                                                                                 |
+| pglogical.use_spi                  | Use SPI (server programming interface) instead of low-level API to apply<br>changes. Set to '1' to turn on, '0' to turn off. For more information about SPI, see<br>[Server Programming<br>Interface](https://www.postgresql.org/docs/current/spi.html "https://www.postgresql.org/docs/current/spi.html") in the PostgreSQL documentation. |

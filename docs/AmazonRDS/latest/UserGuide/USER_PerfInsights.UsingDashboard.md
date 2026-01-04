@@ -1,33 +1,46 @@
-# Adding tags to a performance
+# Analyzing Oracle execution plans using the Performance
 
-analysis report in Performance Insights
+Insights dashboard for Amazon RDS
 
-You can add a tag when you create or view a report. You can add up to 50 tags for a report.
+When analyzing DB load on an Oracle Database, you might want to know which plans are contributing the most to DB load.
+You can determine which plans are contributing the most to DB load by using the plan capture feature of Performance Insights.
 
-You need permissions to add the tags. For more information about the access policies for Performance Insights, see
-[Configuring access policies for Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md")
-
-To add one or more tags while creating a report, see step 6 in the procedure
-[Creating a
-performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
-
-###### To add one or more tags when viewing a report
+###### To analyze Oracle execution plans using the console
 
 1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
+2. In the navigation pane, choose **Performance Insights**.
+3. Choose an Oracle DB instance. The Performance Insights dashboard is displayed for that DB instance.
+4. In the **Database load (DB load)** section, choose **Plans**
+   next to **Slice by**.
 
-The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Performance analysis reports - new** tab. 5. Choose the report for which you want to add the tags.
+The Average active sessions chart shows the plans used by your top SQL statements. The plan hash values appear to
+the right of the color-coded squares. Each hash value uniquely identifies a plan.
 
-The dashboard displays the report. 6. Scroll down to **Tags** and choose **Manage tags**. 7. Choose **Add new tag**. 8. Enter the **Key** and **Value - _optional_**,
-and choose **Add new tag**.
+![Slice by plans](images/pi-slice-by-plans.png) 5. Scroll down to the **Top SQL** tab.
 
-The following example provides the option to add a new tag for the selected report.
+In the following example, the top SQL digest has two plans. You can tell that it's a digest by the question mark in
+the statement.
 
-![Manage Tags window to add new tags to the report](images/PI_AddTag_ManageTags.png)
+![Choose a digest plan](images/top-sql-plans-unselected.png) 6. Choose the digest to expand it into its component statements.
 
-A new tag is created for the report.
+In the following example, the `SELECT` statement is a digest query. The component queries in the digest
+use two different plans. The colors of the plans correspond to the database load chart. The total number of
+plans in the digest is shown in the second column.
 
-The list of tags for the report is displayed in the **Tags** section on the dashboard.
-If you want to remove a tag from the report, choose **Remove** next to the tag.
+![Choose a digest plan](images/pi-digest-plan.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
+query** list.
+
+You can view either one or two plans for a query at a time. The following screenshot compares the two plans in the
+digest, with hash 2032253151 and hash 1117438016. In the following example, 62% of the average active
+sessions running this digest query are using the plan on the left, whereas 38% are using the plan on the
+right.
+
+![Compare the plans side by side](images/pi-compare-plan.png)
+
+In this example, the plans differ in an important way. Step 2 in plan 2032253151 uses an index scan, whereas plan
+1117438016 uses a full table scan. For a table with a large number of rows, a query of a single row is almost
+always faster with an index scan.
+
+![Compare the plans side by side](images/pi-table-access.png) 8. (Optional) Choose **Copy** to copy the plan to the clipboard, or **Download** to
+save the plan to your hard drive.

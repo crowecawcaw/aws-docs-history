@@ -1,46 +1,23 @@
-# Using cascading read replicas with RDS for MariaDB
+# Starting and stopping replication with MariaDB read replicas
 
-RDS for MariaDB supports cascading read replicas. With _cascading read replicas_, you can scale reads without
-adding overhead to your source RDS for MariaDB DB instance.
+You can stop and restart the replication process on an Amazon RDS DB instance by calling the
+system stored procedures
+[mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") and
+[mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication").
+You can do this when replicating between two Amazon RDS instances for long-running operations
+such as creating large indexes. You also need to stop and start replication when
+importing or exporting databases.
+For more information, see
+[Importing data to an
+Amazon RDS for MariaDB DB instance with reduced downtime](mariadb-importing-data-reduced-downtime.md "mariadb-importing-data-reduced-downtime.md")
+and
+[Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md").
 
-With cascading read replicas, your RDS for MariaDB DB instance sends data
-to the first read replica in the chain. That read replica then sends data to
-the second replica in the chain, and so on. The end result is that all
-read replicas in the chain have the changes from the RDS for MariaDB DB instance, but without
-the overhead solely on the source DB instance.
-
-You can create a series of up to three read replicas in a chain from a source
-RDS for MariaDB DB instance. For example, suppose that you have an RDS for MariaDB
-DB instance, `mariadb-main`. You can do the following:
-
-- Starting with `mariadb-main`, create the first read replica in the chain, `read-replica-1`.
-- Next, from `read-replica-1`, create the next read replica in the chain,
-  `read-replica-2`.
-- Finally, from `read-replica-2`, create the third read replica in the chain, `read-replica-3`.
-  You can't create another read replica beyond this third cascading read
-  replica in the series for `mariadb-main`. A complete series of instances
-  from an RDS for MariaDB source DB instance through to the end of a series of cascading
-  read replicas can consist of at most four DB instances.
-
-For cascading read replicas to work, each source RDS for MariaDB DB instance must
-have automated backups turned on. To turn on automatic backups on a read replica,
-first create the read replica, and then modify the read replica to
-turn on automatic backups. For more information, see [Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md").
-
-As with any read replica, you can promote a read replica that's part of a cascade.
-Promoting a read replica from within a chain of read replicas removes that replica
-from the chain. For example, suppose that you want to move some of the workload from
-your `mariadb-main` DB instance to a new instance for use by the
-accounting department only. Assuming the chain of three read replicas from the
-example, you decide to promote `read-replica-2`. The chain is affected as
-follows:
-
-- Promoting `read-replica-2` removes it from the replication chain.
-  - It is now a full read/write DB instance.
-  - It continues replicating to `read-replica-3`, just as it was doing before
-    promotion.
-
-- Your `mariadb-main` continues replicating to `read-replica-1`.
-  For more information about promoting read replicas,
-  see [Promoting a read replica to be a standalone
-  DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+If replication is stopped for more than 30 consecutive days, either manually or due to
+a replication error, Amazon RDS ends replication between the source DB instance and
+all read replicas. It does so to prevent increased storage requirements on the
+source DB instance and long failover times. The read replica DB instance is still
+available. However, replication can't be resumed because the binary logs required by
+the read replica are deleted from the source DB instance after replication is
+ended. You can create a new read replica for the source DB instance to
+reestablish replication.

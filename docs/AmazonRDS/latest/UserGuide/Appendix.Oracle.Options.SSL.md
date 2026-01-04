@@ -1,40 +1,27 @@
-# Connecting to an RDS for Oracle DB instance using SSL
+# Enforcing a DN match with an SSL connection
 
-After you configure SQL\*Plus to use SSL as described previously, you can
-connect to the RDS for Oracle DB instance with the SSL option. Optionally, you can
-first export the `TNS_ADMIN` value that points to the directory that contains the
-tnsnames.ora and sqlnet.ora files. Doing so ensures that SQL\*Plus can find these files consistently.
-The following example exports the `TNS_ADMIN` value.
+You can use the Oracle parameter `SSL_SERVER_DN_MATCH` to enforce that
+the distinguished name (DN) for the database server matches its service name. If you
+enforce the match verifications, then SSL ensures that the certificate is from the
+server. If you don't enforce the match verification, then SSL performs the
+check but allows the connection, regardless if there is a match. If you do not
+enforce the match, you allow the server to potentially fake its identity.
 
-```
-export TNS_ADMIN=${ORACLE_HOME}/network/admin
-```
+To enforce DN matching, add the DN match property and use the connection string specified below.
 
-Connect to the DB instance. For example, you can connect
-using SQL\*Plus and a `<net_service_name>` in a
-tnsnames.ora file.
+Add the property to the client connection to enforce DN matching.
 
 ```
-sqlplus `mydbuser`@`net_service_name`
+properties.put("oracle.net.ssl_server_dn_match", "TRUE");
 ```
 
-You can also connect to the DB instance using SQL\*Plus without using a
-tnsnames.ora file by using the following command.
+Use the following connection string to enforce DN matching when using SSL.
 
 ```
-sqlplus '`mydbuser`@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCPS)(HOST = `endpoint`) (PORT = `ssl_port_number`))(CONNECT_DATA = (SID = `database_name`)))'
+final String connectionString = String.format(
+    "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)(HOST=%s)(PORT=%d))" +
+    "(CONNECT_DATA=(SID=%s))" +
+    "(SECURITY = (SSL_SERVER_CERT_DN =
+\"C=US,ST=Washington,L=Seattle,O=Amazon.com,OU=RDS,CN=%s\")))",
+    DB_SERVER_NAME, SSL_PORT, DB_SID, DB_SERVER_NAME);
 ```
-
-You can also connect to the RDS for Oracle DB instance without using SSL. For example, the
-following command connects to the DB instance through the clear text port without
-SSL encryption.
-
-```
-sqlplus '`mydbuser`@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = `endpoint`) (PORT = `port_number`))(CONNECT_DATA = (SID = `database_name`)))'
-```
-
-If you want to close Transmission Control Protocol (TCP) port access, create a
-security group with no IP address ingresses and add it to the instance. This
-addition closes connections over the TCP port, while still allowing connections over
-the SSL port that are specified from IP addresses within the range permitted by the
-SSL option security group.
