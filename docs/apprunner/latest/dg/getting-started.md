@@ -186,7 +186,7 @@ deploy**.
 If the service is successfully created, the console shows the service dashboard, with a **Service overview** of the new
 service.
 
-![App Runner service dashboard page](/images/apprunner/latest/dg/images/getting-started-create-dashboard.png) 6. Verify that your service is running.
+![App Runner service dashboard page](images/getting-started-create-dashboard.png) 6. Verify that your service is running.
 
     1. On the service dashboard page, wait until the service **Status** is **Running**.
     2. Choose the **Default domain** value—it's the URL to the website of your service.
