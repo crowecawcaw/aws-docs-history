@@ -20,7 +20,7 @@ the integration endpoint receives the transformed header parameter value. When t
 status code, the status code is transformed from `200` to `204` before the method
 response.
 
-![Diagram of API Gateway data transformation](/images/apigateway/latest/developerguide/images/develop-non-proxy.png)
+![Diagram of API Gateway data transformation](images/develop-non-proxy.png)
 To create a data transformation, you can
 use the following features:
 
