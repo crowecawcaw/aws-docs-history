@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 16, 2024, 00:08 UTC
-- **Edited time:** July 16, 2025, 17:37 UTC
+- **Edited time:** December 23, 2025, 22:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -41,7 +41,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeInstances",
-        "ec2:DescribeInternetGateways"
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeNetworkAcls"
       ],
       "Resource" : "*"
     },
@@ -52,7 +54,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ssm:DescribeAutomationStepExecutions",
         "ssm:DescribeInstanceInformation",
         "ssm:DescribeAutomationExecutions",
-        "ssm:GetAutomationExecution"
+        "ssm:DescribeActivations",
+        "ssm:GetAutomationExecution",
+        "ssm:GetServiceSetting"
       ],
       "Resource" : "*"
     },

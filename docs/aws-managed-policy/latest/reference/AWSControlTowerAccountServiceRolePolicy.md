@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 05, 2023, 22:04 UTC
-- **Edited time:** November 05, 2025, 23:19 UTC
+- **Edited time:** December 31, 2025, 19:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSControlTowerAccountServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -41,12 +41,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ForAnyValue:StringEquals" : {
           "events:source" : "aws.securityhub"
         },
+        "ForAllValues:StringEquals" : {
+          "events:detail-type" : "Security Hub Findings - Imported"
+        },
         "Null" : {
           "events:detail-type" : "false"
         },
         "StringEquals" : {
-          "events:ManagedBy" : "controltower.amazonaws.com",
-          "events:detail-type" : "Security Hub Findings - Imported"
+          "events:ManagedBy" : "controltower.amazonaws.com"
         }
       }
     },
