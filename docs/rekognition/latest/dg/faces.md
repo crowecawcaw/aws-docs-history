@@ -10,7 +10,7 @@ happiness or sadness), and other attributes (e.g., glasses presence, face occlus
 face is detected, the system analyzes facial attributes and returns a confidence score for
 each attribute.
 
-![Smiling woman wearing sunglasses and driving a vintage yellow car on an open road.](images/sample-detect-faces.png)
+![Smiling woman wearing sunglasses and driving a vintage yellow car on an open road.](/images/rekognition/latest/dg/images/sample-detect-faces.png)
 This section contains examples for both image and video operations.
 
 For more information about using the Rekognition’s image operations, see [Working with images](images.md "images.md").
