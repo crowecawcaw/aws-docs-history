@@ -114,7 +114,7 @@ details.
 
 ###### Note
 
-Amazon Linux 2 (AL2) will reach end of support on June 30, 2025. See more details
+Amazon Linux 2 (AL2) will reach end of support on June 30, 2026. See more details
 in the [Amazon Linux 2
 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/"). For game servers that are hosted on AL2 and use Amazon GameLift Servers server
 SDK 4.x, first update the game server build to server SDK 5.x, and then deploy
