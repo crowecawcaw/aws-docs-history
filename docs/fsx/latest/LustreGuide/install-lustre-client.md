@@ -5,6 +5,9 @@ open-source Lustre client. Then, depending on your operating system version, use
 the following procedures. For kernel support information,
 see [Lustre file system and client kernel compatibility](lustre-client-matrix.md "lustre-client-matrix.md").
 
+If you are using a Lustre client with EFA (Elastic Fabric Adapter), see
+[Configuring EFA clients](configure-efa-clients.md "configure-efa-clients.md").
+
 If your compute instance isn't running the Linux kernel specified in the installation
 instructions, and you can't change the kernel, you can build your own Lustre client. For
 more information, see [Compiling

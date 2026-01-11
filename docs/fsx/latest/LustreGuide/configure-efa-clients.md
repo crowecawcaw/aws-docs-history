@@ -26,13 +26,34 @@ instance types](../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types "../.
 ###### Note
 
 If you are using a [Deep Learning AMI](../../../dlami/latest/devguide/what-is-dlami.md "../../../dlami/latest/devguide/what-is-dlami.md"),
-you can skip this step as both the EFA driver and NVIDIA GPUDirect Storage (GDS) driver are pre-installed.
+you can skip this step as the Lustre client, EFA driver and NVIDIA GPUDirect Storage (GDS) driver are pre-installed.
 
-### Install the EFA driver
+### Install the Lustre client and EFA driver
 
-Follow the instructions in
-[Step 3:
-Install the EFA software](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-enable "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-enable") in the _Amazon EC2 User Guide_.
+###### To quickly install the Lustre client and EFA driver
+
+1. Download and unzip the file containing the installation script:
+
+```
+`curl -O https://docs.aws.amazon.com/fsx/latest/LustreGuide/samples/install-fsx-lustre-client.zip
+unzip install-fsx-lustre-client.zip`
+```
+
+2. Change to the `install-fsx-lustre-client` folder and run the installation script:
+
+```
+`cd `install-fsx-lustre-client`
+sudo ./bin/install-fsx-lustre-client.sh --install-lustre --install-efa`
+```
+
+The script automatically does the following:
+
+    * Installs the Lustre client
+    * Installs the EFA driver
+    * Verifies the Lustre client and EFA driver installation
+
+For a list of options and usage examples you can use with the
+`install-fsx-lustre-client.sh` script, see the `README.md` file in the zip file.
 
 ### Install the GDS driver (optional)
 
@@ -40,7 +61,7 @@ This step is only required if you plan to use NVIDIA GPUDirect Storage (GDS) wit
 
 Requirements:
 
-- Amazon EC2 P5, P5e, P5en, P6-B200, or P6e-GB200 instance
+- Amazon EC2 P5, P5e, P5en, or P6-B200 instance
 - NVIDIA GDS driver version 2.24.2 or higher
 
 ###### To install the NVIDIA GPUDirect Storage driver on your client instance
@@ -82,7 +103,11 @@ unzip configure-efa-fsx-lustre-client.zip`
 
 ```
 `cd `configure-efa-fsx-lustre-client`
-sudo ./setup.sh`
+# for regular IO
+sudo ./setup.sh
+
+# for NVIDIA GPUDirect Storage (GDS) IO
+sudo ./setup.sh --optimized-for-gds`
 ```
 
 The script automatically does the following:
@@ -144,7 +169,7 @@ EFA connection limit.
 
 You can manually manage EFA interfaces using the following commands:
 
-1. View available EFA devices:
+1. View available EFA interfaces:
 
 ```
 `for interface in /sys/class/infiniband/*; do
@@ -164,7 +189,7 @@ done`
 3. Add an EFA interface:
 
 ```
-`sudo lnetctl net add --net efa --if `device_name` —peer-credits 32`
+`sudo lnetctl net add --net efa --if `device_name` --peer-credits 32`
 ```
 
 Replace `device_name` with an actual device name from the list in step 1. 4. Remove an EFA interface:
