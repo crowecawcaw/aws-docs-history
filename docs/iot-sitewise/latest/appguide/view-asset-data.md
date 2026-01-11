@@ -22,7 +22,7 @@ information about viewing asset data in dashboards, see [View dashboards in AWS 
 ![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 3. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
-![The "Assets" page, with the projects drop-down list called out.](/images/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png) 4. Choose an asset in the **Assets** hierarchy.
+![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 4. Choose an asset in the **Assets** hierarchy.
 
 Some assets might have a few static properties, called attributes. For example, a
 factory's properties, such as location, have only a single value and typically don't

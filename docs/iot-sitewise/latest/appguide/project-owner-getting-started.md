@@ -113,7 +113,7 @@ more information, see [Configure thresholds](configure-thresholds.md "configure-
 ![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
-![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
+![An example visualization with the gripper and resize controls highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
 Drag the corner to a new size and shape. Visualizations snap to the grid when resized,
 so you only have coarse control over the size. 7. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
@@ -144,7 +144,7 @@ viewers**.
 ![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
-![Shows the "Project viewers" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
+![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
 
 ###### Note
 
@@ -166,6 +166,6 @@ viewers.
 the check boxes for the project viewers to receive an email, and then choose **Send
 invitations**.
 
-![The "Project viewers" section of the project details page.](images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project viewers" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project viewers.

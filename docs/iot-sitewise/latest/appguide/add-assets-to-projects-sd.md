@@ -27,7 +27,7 @@ specific project.
 ![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
 **Add asset to project**.
 
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](/images/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
 
 ###### Note
 
@@ -67,7 +67,7 @@ to that asset) to a project. To create a dashboard to compare two assets that ar
 of a common parent asset, add that common parent to the project. 4. In the **Add assets to project** dialog box, choose **Select
 existing project**, and then choose the project to add the assets.
 
-![Add assets to project dialog.](/images/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-existing-project-console.png) 5. Choose **Add asset to project**.
+![Add assets to project dialog.](images/asset-library-add-assets-to-existing-project-console.png) 5. Choose **Add asset to project**.
 
 The **Create new project** dialog box closes, and the new project's
 page opens.
