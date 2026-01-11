@@ -6,7 +6,7 @@ Checks if Amazon GuardDuty is enabled in your AWS account and AWS Region. If you
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), AWS Secret - West, Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

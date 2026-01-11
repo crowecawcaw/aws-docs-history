@@ -10,7 +10,7 @@ The rule is NON_COMPLIANT if Amazon VPC has subnets that are assigned a public I
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

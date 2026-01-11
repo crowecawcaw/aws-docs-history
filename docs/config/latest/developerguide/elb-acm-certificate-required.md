@@ -10,7 +10,7 @@ This rule is only applicable to Classic Load Balancers. This rule does not check
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Africa (Cape Town), AWS Secret - West, Asia Pacific (Osaka), Europe (Milan), Israel (Tel Aviv), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Africa (Cape Town), Asia Pacific (Osaka), Europe (Milan), Israel (Tel Aviv), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 

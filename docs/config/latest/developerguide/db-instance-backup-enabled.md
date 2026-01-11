@@ -8,29 +8,29 @@ Checks if RDS DB instances have backups enabled. Optionally, the rule checks the
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
-
-backupRetentionPeriod (Optional)
-Type: int
-
-Retention period for backups.
 
 backupRetentionMinimum (Optional)
 Type: int
 
 Minimum retention period for backups.
 
-preferredBackupWindow (Optional)
-Type: String
+backupRetentionPeriod (Optional)
+Type: int
 
-Time range in which backups are created.
+Retention period for backups.
 
 checkReadReplicas (Optional)
 Type: boolean
 
 Checks whether RDS DB instances have backups enabled for read replicas.
+
+preferredBackupWindow (Optional)
+Type: String
+
+Time range in which backups are created.
 
 ## AWS CloudFormation template
 

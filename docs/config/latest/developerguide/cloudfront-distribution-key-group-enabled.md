@@ -1,10 +1,10 @@
-# iam-user-no-policies-check
+# cloudfront-distribution-key-group-enabled
 
-Checks if none of your AWS Identity and Access Management (IAM) users have policies attached. IAM users must inherit permissions from IAM groups or roles. The rule is NON_COMPLIANT if there is at least one policy that is attached to the IAM user.
+Checks if Amazon CloudFront distributions are configured to use only trusted key groups for signed URL or signed cookie authentication for all cache behaviors. The rule is NON_COMPLIANT if any cache behavior in the distribution is using trusted signers.
 
-**Identifier:** IAM_USER_NO_POLICIES_CHECK
+**Identifier:** CLOUDFRONT_DISTRIBUTION_KEY_GROUP_ENABLED
 
-**Resource Types:** AWS::IAM::User
+**Resource Types:** AWS::CloudFront::Distribution
 
 **Trigger type:** Configuration changes
 

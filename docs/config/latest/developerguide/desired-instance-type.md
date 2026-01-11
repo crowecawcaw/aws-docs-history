@@ -8,7 +8,7 @@ Checks if your EC2 instances are of a specific instance type. The rule is NON_CO
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

@@ -12,7 +12,7 @@ Results might take up to 6 hours to become available after an evaluation occurs.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

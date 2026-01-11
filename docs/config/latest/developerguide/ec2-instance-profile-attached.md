@@ -8,7 +8,7 @@ Checks if an EC2 instance has an AWS Identity and Access Management (IAM) profil
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
 
 **Parameters:**
 

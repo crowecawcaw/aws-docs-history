@@ -17,7 +17,7 @@ The rule will not return NON_COMPLIANT if an EC2 instance is stopped and the SSM
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
 
 **Parameters:**
 

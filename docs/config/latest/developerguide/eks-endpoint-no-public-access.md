@@ -8,7 +8,7 @@ Checks if the Amazon Elastic Kubernetes Service (Amazon EKS) endpoint is not pub
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

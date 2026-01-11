@@ -1,6 +1,6 @@
 # rds-cluster-iam-authentication-enabled
 
-Checks if an Amazon RDS Cluster has AWS Identity and Access Management (IAM) authentication enabled. The rule is COMPLIANT if an RDS Cluster has IAM authentication enabled and NON_COMPLIANT otherwise.
+Checks if an Amazon Relational Database Service (Amazon RDS) cluster has AWS Identity and Access Management (IAM) authentication enabled. The rule is NON_COMPLIANT if an Amazon RDS Cluster does not have IAM authentication enabled.
 
 **Identifier:** RDS_CLUSTER_IAM_AUTHENTICATION_ENABLED
 

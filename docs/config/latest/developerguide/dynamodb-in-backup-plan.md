@@ -8,7 +8,7 @@ Checks whether Amazon DynamoDB table is present in AWS Backup Plans. The rule is
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

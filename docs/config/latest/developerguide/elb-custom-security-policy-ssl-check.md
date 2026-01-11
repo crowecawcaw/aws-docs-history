@@ -8,12 +8,12 @@ Checks whether your Classic Load Balancer SSL listeners are using a custom polic
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
 sslProtocolsAndCiphers
-Type: String
+Type: CSV
 
 Comma separated list of ciphers and protocols.
 

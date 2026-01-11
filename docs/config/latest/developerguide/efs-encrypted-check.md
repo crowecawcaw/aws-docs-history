@@ -8,7 +8,7 @@ Checks if Amazon Elastic File System (Amazon EFS) is configured to encrypt the f
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

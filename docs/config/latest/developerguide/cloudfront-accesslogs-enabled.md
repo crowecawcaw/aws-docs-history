@@ -15,7 +15,7 @@ Checks if Amazon CloudFront distributions are configured to deliver access logs 
 S3BucketName (Optional)
 Type: String
 
-The name of the Amazon S3 bucket for storing server access logs.
+The name of the Amazon S3 bucket for storing server access logs
 
 ## AWS CloudFormation template
 

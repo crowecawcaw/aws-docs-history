@@ -12,7 +12,7 @@ Checks if the incoming SSH traffic for the security groups is accessible. The ru
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

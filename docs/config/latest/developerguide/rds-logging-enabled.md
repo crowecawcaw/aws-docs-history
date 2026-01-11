@@ -12,7 +12,7 @@ DB Instances that are not in 'available', 'backing-up', 'storage-optimization', 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

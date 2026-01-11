@@ -17,7 +17,7 @@ Checks if the security groups in use do not allow unrestricted incoming Transmis
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
@@ -47,6 +47,7 @@ Blocked TCP port number. The default of 3306 corresponds to MySQL protocol.
 
 blockedPort5 (Optional)
 Type: int
+Default: 4333
 
 Blocked TCP port number. Used for a specific port relevant for your environment.
 

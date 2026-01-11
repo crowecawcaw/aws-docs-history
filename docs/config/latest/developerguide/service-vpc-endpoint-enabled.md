@@ -8,7 +8,7 @@ Checks if Service Endpoint for the service provided in rule parameter is created
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

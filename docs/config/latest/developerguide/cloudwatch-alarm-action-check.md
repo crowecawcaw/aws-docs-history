@@ -12,11 +12,11 @@ Checks if CloudWatch alarms have an action configured for the ALARM, INSUFFICIEN
 
 **Parameters:**
 
-alarmActionRequired
+okActionRequired
 Type: String
-Default: true
+Default: false
 
-Alarms have at least one action.
+Alarms have at least one action when the alarm transitions to an OK state from any other state.
 
 insufficientDataActionRequired
 Type: String
@@ -24,11 +24,11 @@ Default: true
 
 Alarms have at least one action when the alarm transitions to the INSUFFICIENT_DATA state from any other state.
 
-okActionRequired
+alarmActionRequired
 Type: String
-Default: false
+Default: true
 
-Alarms have at least one action when the alarm transitions to an OK state from any other state.
+Alarms have at least one action.
 
 action1 (Optional)
 Type: String

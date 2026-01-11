@@ -10,7 +10,7 @@ The rule is NON_COMPLIANT if your certificates are about to expire.
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

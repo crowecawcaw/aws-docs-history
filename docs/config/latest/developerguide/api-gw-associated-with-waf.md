@@ -8,14 +8,14 @@ Checks if an Amazon API Gateway API stage is using an AWS WAF web access control
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 
 WebAclArns (Optional)
 Type: CSV
 
-Comma-separated list of web ACL Amazon Resource Names (ARNs).
+Comma-separated list of web ACL Amazon Resource Names (ARNs)
 
 ## AWS CloudFormation template
 

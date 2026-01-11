@@ -14,7 +14,7 @@ This rule does not have access to cross-account customer managed keys and evalua
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

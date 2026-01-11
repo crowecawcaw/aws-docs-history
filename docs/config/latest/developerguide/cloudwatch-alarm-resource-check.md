@@ -8,7 +8,7 @@ Checks if a resource type has a CloudWatch alarm for the named metric. For resou
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

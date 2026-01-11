@@ -8,7 +8,7 @@ Checks if Amazon Redshift clusters have the specified maintenance settings. The 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Mexico (Central) Region
+**AWS Region:** All supported AWS regions except Mexico (Central) Region
 
 **Parameters:**
 

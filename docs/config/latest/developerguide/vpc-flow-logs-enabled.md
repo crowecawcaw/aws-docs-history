@@ -8,7 +8,7 @@ Checks if Amazon Virtual Private Cloud (Amazon VPC) flow logs are found and enab
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

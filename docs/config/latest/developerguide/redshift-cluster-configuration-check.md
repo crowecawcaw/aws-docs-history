@@ -8,27 +8,27 @@ Checks if Amazon Redshift clusters have the specified settings. The rule is NON_
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Mexico (Central) Region
+**AWS Region:** All supported AWS regions except Mexico (Central) Region
 
 **Parameters:**
-
-clusterDbEncrypted
-Type: boolean
-Default: true
-
-Database encryption is enabled.
 
 loggingEnabled
 Type: boolean
 Default: true
 
-Audit logging is enabled.
+Audit logging is enabled
+
+clusterDbEncrypted
+Type: boolean
+Default: true
+
+Database encryption is enabled
 
 nodeTypes (Optional)
 Type: CSV
 Default: dc1.large
 
-Specify node type.
+Specify node type
 
 ## AWS CloudFormation template
 

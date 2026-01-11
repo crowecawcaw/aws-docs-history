@@ -6,7 +6,7 @@ Checks if Amazon GuardDuty has findings that are non-archived. The rule is NON_C
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), AWS Secret - West, Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

@@ -8,7 +8,7 @@ Checks if AWS CloudTrail is configured to use the server side encryption (SSE) A
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

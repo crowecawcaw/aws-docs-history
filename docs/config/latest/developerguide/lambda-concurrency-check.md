@@ -8,19 +8,19 @@ Checks if the Lambda function is configured with a function-level concurrent exe
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
-
-ConcurrencyLimitLow (Optional)
-Type: String
-
-Minimum concurrency execution limit
 
 ConcurrencyLimitHigh (Optional)
 Type: String
 
 Maximum concurrency execution limit
+
+ConcurrencyLimitLow (Optional)
+Type: String
+
+Minimum concurrency execution limit
 
 ## AWS CloudFormation template
 

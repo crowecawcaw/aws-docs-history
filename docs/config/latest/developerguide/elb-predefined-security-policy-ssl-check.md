@@ -8,7 +8,7 @@ Checks if your Classic Load Balancer SSL listeners use a predefined policy. The 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

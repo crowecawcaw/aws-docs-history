@@ -15,7 +15,7 @@ Checks if Amazon CloudFront distributions are associated with either web applica
 wafWebAclIds (Optional)
 Type: CSV
 
-Comma-separated list of web ACL IDs for WAF or web ACL Amazon Resource Names (ARNs) for WAFV2.
+Comma-separated list of web ACL IDs for WAF or web ACL Amazon Resource Names (ARNs) for WAFV2
 
 ## AWS CloudFormation template
 

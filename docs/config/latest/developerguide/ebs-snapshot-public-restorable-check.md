@@ -6,7 +6,7 @@ Checks if Amazon Elastic Block Store (Amazon EBS) snapshots are not publicly res
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Europe (Spain) Region
+**AWS Region:** All supported AWS regions except Europe (Spain) Region
 
 **Parameters:**
 

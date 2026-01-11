@@ -10,7 +10,7 @@ The rule is NON_COMPLIANT if the Lambda function settings do not match the expec
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 
@@ -24,17 +24,17 @@ Type: String
 
 Name or ARN of the AWS Lambda execution role
 
-timeout (Optional)
-Type: int
-Default: 3
-
-AWS Lambda function timeout in seconds
-
 memorySize (Optional)
 Type: int
 Default: 128
 
 AWS Lambda function size in megabytes
+
+timeout (Optional)
+Type: int
+Default: 3
+
+AWS Lambda function timeout in seconds
 
 ## Proactive Evaluation
 

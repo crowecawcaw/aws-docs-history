@@ -1,6 +1,6 @@
 # elasticsearch-logs-to-cloudwatch
 
-Checks if Amazon OpenSearch Service domains are configured to send logs to Amazon CloudWatch Logs. The rule is COMPLIANT if a log is enabled for an Amazon ES domain. This rule is NON_COMPLIANT if logging is not configured.
+Checks if OpenSearch Service (previously called Elasticsearch) domains are configured to send logs to CloudWatch Logs. The rule is COMPLIANT if a log is enabled for an OpenSearch Service domain. The rule is NON_COMPLIANT if logging is not configured.
 
 **Identifier:** ELASTICSEARCH_LOGS_TO_CLOUDWATCH
 
@@ -8,14 +8,14 @@ Checks if Amazon OpenSearch Service domains are configured to send logs to Amazo
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 
 logTypes (Optional)
 Type: CSV
 
-Comma-separated list of logs that are enabled. Valid values are 'search', 'index', 'error'.
+Comma-separated list of logs that are enabled. Valid values are 'search', 'index', 'error'
 
 ## Proactive Evaluation
 

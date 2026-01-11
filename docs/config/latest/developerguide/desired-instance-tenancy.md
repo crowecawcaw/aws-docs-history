@@ -8,24 +8,24 @@ Checks EC2 instances for a 'tenancy' value. Also checks if AMI IDs are specified
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
 tenancy
 Type: String
 
-Desired tenancy of the instances. Valid values are DEDICATED, HOST and DEFAULT.
+Desired tenancy of the instances. Valid values are DEDICATED, HOST and DEFAULT
 
 imageId (Optional)
 Type: CSV
 
-The rule evaluates instances launched only from AMIs with the specified IDs. Separate multiple AMI IDs with commas.
+The rule evaluates instances launched only from AMIs with the specified IDs. Separate multiple AMI IDs with commas
 
 hostId (Optional)
 Type: CSV
 
-The IDs of the EC2 Dedicated Hosts on which the instances are meant to be launched. Separate multiple Host IDs with commas.
+The IDs of the EC2 Dedicated Hosts on which the instances are meant to be launched. Separate multiple Host IDs with commas
 
 ## AWS CloudFormation template
 

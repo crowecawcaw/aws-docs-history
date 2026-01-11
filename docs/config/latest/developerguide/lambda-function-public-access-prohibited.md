@@ -26,7 +26,7 @@ To be considered non-public, a Lambda resource-based policy must grant access on
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Europe (Spain), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Europe (Spain), China (Ningxia) Region
 
 **Parameters:**
 

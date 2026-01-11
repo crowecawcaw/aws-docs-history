@@ -1,6 +1,6 @@
 # vpc-vpn-2-tunnels-up
 
-Checks that both VPN tunnels provided by AWS Site-to-Site VPN are in UP status. The rule returns NON_COMPLIANT if one or both tunnels are in DOWN status.
+Checks if both virtual private network (VPN) tunnels provided by AWS Site-to-Site VPN are in UP status. The rule is NON_COMPLIANT if one or both tunnels are in DOWN status.
 
 **Identifier:** VPC_VPN_2_TUNNELS_UP
 
@@ -8,7 +8,7 @@ Checks that both VPN tunnels provided by AWS Site-to-Site VPN are in UP status. 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (Bahrain), China (Beijing), AWS Secret - West, Asia Pacific (Osaka), Israel (Tel Aviv), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Middle East (Bahrain), China (Beijing), Asia Pacific (Osaka), Israel (Tel Aviv), China (Ningxia) Region
 
 **Parameters:**
 

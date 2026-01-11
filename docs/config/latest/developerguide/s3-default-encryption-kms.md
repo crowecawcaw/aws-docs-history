@@ -4,7 +4,7 @@ Checks if the S3 buckets are encrypted with AWS Key Management Service (AWS KMS)
 
 **Identifier:** S3_DEFAULT_ENCRYPTION_KMS
 
-**Resource Types:** AWS::S3::Bucket
+**Resource Types:** AWS::S3::Bucket, AWS::KMS::Key
 
 **Trigger type:** Configuration changes
 

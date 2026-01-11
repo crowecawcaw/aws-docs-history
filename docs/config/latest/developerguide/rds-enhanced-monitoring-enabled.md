@@ -8,7 +8,7 @@ Checks if enhanced monitoring is enabled for Amazon RDS instances. This rule is 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

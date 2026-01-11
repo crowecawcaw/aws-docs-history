@@ -15,19 +15,19 @@ Re-evaluating this rule within 4 hours of the first evaluation will have no effe
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
-
-maximumAllowedRotationFrequency (Optional)
-Type: int
-
-Maximum allowed rotation frequency of the secret in days.
 
 maximumAllowedRotationFrequencyInHours (Optional)
 Type: int
 
 Maximum allowed rotation frequency of the secret in hours.
+
+maximumAllowedRotationFrequency (Optional)
+Type: int
+
+Maximum allowed rotation frequency of the secret in days.
 
 ## AWS CloudFormation template
 

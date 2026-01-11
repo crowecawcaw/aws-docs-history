@@ -8,12 +8,12 @@ Checks if Amazon API Gateway APIs are of the type specified in the rule paramete
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 
 endpointConfigurationTypes
-Type: String
+Type: CSV
 
 Comma-separated list of allowed endpointConfigurationTypes. Allowed values are REGIONAL, PRIVATE and EDGE.
 

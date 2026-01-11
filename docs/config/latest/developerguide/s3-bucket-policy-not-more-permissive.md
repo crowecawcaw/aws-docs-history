@@ -12,7 +12,7 @@ If you provide an invalid parameter value, you will see the following error: Val
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

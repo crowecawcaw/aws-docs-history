@@ -1,12 +1,12 @@
-# sagemaker-notebook-no-direct-internet-access
+# ecs-capacity-provider-termination-check
 
-Checks if direct internet access is disabled for an Amazon SageMaker notebook instance. The rule is NON_COMPLIANT if a SageMaker notebook instance is internet-enabled.
+Checks if an Amazon ECS Capacity provider containing Auto Scaling groups has managed termination protection enabled. This rule is NON_COMPLIANT if managed termination protection is disabled on the ECS Capacity Provider.
 
-**Identifier:** SAGEMAKER_NOTEBOOK_NO_DIRECT_INTERNET_ACCESS
+**Identifier:** ECS_CAPACITY_PROVIDER_TERMINATION_CHECK
 
-**Resource Types:** AWS::SageMaker::NotebookInstance
+**Resource Types:** AWS::ECS::CapacityProvider
 
-**Trigger type:** Periodic
+**Trigger type:** Configuration changes
 
 **AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei) Region
 

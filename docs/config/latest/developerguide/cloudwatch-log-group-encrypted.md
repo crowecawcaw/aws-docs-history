@@ -8,7 +8,7 @@ Checks if Amazon CloudWatch Log Groups are encrypted with any AWS KMS key or a s
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

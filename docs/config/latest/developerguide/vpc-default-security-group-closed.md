@@ -14,7 +14,7 @@ the rule may report NON_COMPLIANT until the next account baselining process.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** Only available in Middle East (Bahrain), US East (Ohio), Europe (Ireland), Europe (Frankfurt), US East (N. Virginia), US West (Oregon) Region
 
 **Parameters:**
 

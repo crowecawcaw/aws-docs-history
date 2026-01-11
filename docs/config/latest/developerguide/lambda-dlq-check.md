@@ -1,6 +1,6 @@
 # lambda-dlq-check
 
-Checks if a Lambda function is configured with a dead-letter queue. The rule is NON_COMPLIANT if the Lambda function is not configured with a dead-letter queue.
+Checks whether an AWS Lambda function is configured with a dead-letter queue. The rule is NON_COMPLIANT if the Lambda function is not configured with a dead-letter queue.
 
 **Identifier:** LAMBDA_DLQ_CHECK
 
@@ -8,14 +8,14 @@ Checks if a Lambda function is configured with a dead-letter queue. The rule is 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
 
 **Parameters:**
 
 dlqArns (Optional)
-Type: String
+Type: CSV
 
-Comma-separated list of Amazon SQS and Amazon SNS ARNs that must be configured as the Lambda function dead-letter queue target.
+Comma-separated list of Amazon SQS and Amazon SNS ARNs that must be configured as the Lambda function dead-letter queue target
 
 ## AWS CloudFormation template
 

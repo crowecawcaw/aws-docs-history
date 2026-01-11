@@ -8,7 +8,7 @@ Checks if AWS CloudTrail trails are configured to send logs to CloudWatch logs. 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

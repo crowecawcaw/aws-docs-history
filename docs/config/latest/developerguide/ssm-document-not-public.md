@@ -8,7 +8,7 @@ Checks if AWS Systems Manager documents owned by the account are public. The rul
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West, Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
 
 **Parameters:**
 

@@ -8,7 +8,7 @@ Checks that non-default security groups are attached to Amazon Elastic Compute C
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (UAE), AWS Secret - West, Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Middle East (UAE), Canada West (Calgary) Region
 
 **Parameters:**
 

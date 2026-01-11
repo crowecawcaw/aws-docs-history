@@ -8,14 +8,14 @@ Checks if a Lambda function is allowed access to a virtual private cloud (VPC). 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 
 subnetIds (Optional)
-Type: String
+Type: CSV
 
-Comma-separated list of Subnet IDs that Lambda functions can be associated with.
+Comma-separated list of subnet IDs that Lambda functions must be associated with.
 
 ## Proactive Evaluation
 

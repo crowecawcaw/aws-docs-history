@@ -8,7 +8,7 @@ Checks whether your Amazon Elastic Compute Cloud (Amazon EC2) instance metadata 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

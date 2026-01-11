@@ -25,7 +25,7 @@ You can do the following:
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Jakarta), Middle East (UAE), AWS Secret - West, Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Israel (Tel Aviv), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Jakarta), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Israel (Tel Aviv), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 

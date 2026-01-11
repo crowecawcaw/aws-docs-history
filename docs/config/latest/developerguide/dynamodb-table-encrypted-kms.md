@@ -9,14 +9,14 @@ The rule is also NON_COMPLIANT if the encrypted AWS KMS key is not present in `k
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions
+**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 
 kmsKeyArns (Optional)
 Type: CSV
 
-Comma separated list of AWS KMS key ARNs allowed for encrypting Amazon DynamoDB Tables.
+Comma separated list of AWS KMS key ARNs allowed for encrypting Amazon DynamoDB Tables
 
 ## AWS CloudFormation template
 

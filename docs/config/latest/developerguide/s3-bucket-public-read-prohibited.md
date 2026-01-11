@@ -21,7 +21,7 @@ To be considered non-public, an S3 bucket policy must grant access only to fixed
 
 **Trigger type:** Configuration changes and Periodic
 
-**AWS Region:** All supported AWS regions except AWS Secret - West Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
