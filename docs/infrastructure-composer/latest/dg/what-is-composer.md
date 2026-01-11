@@ -30,7 +30,7 @@ architecture
 
 Place cards on the Infrastructure Composer canvas to visualize and build your application architecture.
 
-![The Infrastructure Composer canvas with an unconnected API Gateway API, Lambda function, and DynamoDB table.](images/aac_ref_05.gif)
+![The Infrastructure Composer canvas with an unconnected API Gateway API, Lambda function, and DynamoDB table.](/images/infrastructure-composer/latest/dg/images/aac_ref_05.gif)
 
 **Connect cards together**
 
@@ -76,7 +76,7 @@ your template code.
 Import existing CloudFormation and AWS SAM templates to visualize them for better understanding and modify their design. Export
 the templates that you create within Infrastructure Composer and integrate them into your existing workflows towards deployment.
 
-![The Infrastructure Composer canvas synced with a local machine using local sync mode.](images/aac_other_ide_01.gif)
+![The Infrastructure Composer canvas synced with a local machine using local sync mode.](/images/infrastructure-composer/latest/dg/images/aac_other_ide_01.gif)
 
 ## Ways to access Infrastructure Composer
 
@@ -85,7 +85,7 @@ the templates that you create within Infrastructure Composer and integrate them 
 Access Infrastructure Composer through the Infrastructure Composer console to get started quickly. Additionally, you can use **local sync** mode to automatically sync and save Infrastructure Composer with your
 local machine.
 
-![The Infrastructure Composer canvas synced with a local machine using local sync mode.](images/aac_other_ide_01.gif)
+![The Infrastructure Composer canvas synced with a local machine using local sync mode.](/images/infrastructure-composer/latest/dg/images/aac_other_ide_01.gif)
 
 **From the CloudFormation console**
 
