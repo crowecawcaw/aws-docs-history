@@ -30,3 +30,13 @@ previously, reference them as follows:
 
 - Hello $.Attributes.FirstName $.Attributes.LastName, thank you for
   calling.
+
+## Resolution using backticks
+
+You can also use backticks (`) to resolve keys dynamically. 
+ For example, suppose you retrieve a customer's name from a Lambda function that returns 
+ FirstName and LastName values from your customer database. 
+ If the customer's preference for which name to use is stored in $.Attributes.NameToPlay, 
+ you can dynamically select the appropriate name by enclosing the dynamic key in backticks (`).
+
+- Hello $.External.['`$.Attributes.NameToPlay`'], thank you for calling.

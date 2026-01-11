@@ -52,7 +52,7 @@ recordings have the same name as the contact ID, but not all. 4. Conversations t
 image. If you don't have the appropriate permissions, you won't see these
 icons.
 
-![The voice recording icons play, download, and delete on the Contact search results page.](images/recording-icons.png) 5. To listen to a recording of a voice conversation, or read the transcript of a
+![The voice recording icons play, download, and delete on the Contact search results page.](/images/connect/latest/adminguide/images/recording-icons.png) 5. To listen to a recording of a voice conversation, or read the transcript of a
 chat, choose the **Play** icon, as shown in the following
 image.
 

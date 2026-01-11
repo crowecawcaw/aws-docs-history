@@ -74,7 +74,7 @@ The following image shows the **Properties** page of the **Data Table** block co
 
 ### Accessing retrieved data for Evaluate
 
-After executing an Evaluate action, you can access the retrieved attribute values using the following namespace format: `$.DataTables.<QueryName>.<AttributeName>`
+After executing an Evaluate action, you can access the retrieved attribute values using the following namespace format: `$.DataTables.`QueryName`.`AttributeName``. Use brackets and single quotes to reference attribute names with special characters. For example, `$.DataTables.CustomQuery['my attribute name with spaces']`. If using the **Data tables** namespace dynamic dropdown selection, the root namespace, `$.DataTables.`, can be ommitted.
 
 - **Components:**
   - `QueryName` – The unique name you assigned to the query in the configuration
@@ -90,7 +90,11 @@ After executing an Evaluate action, you can access the retrieved attribute value
   - Access account status: `$.DataTables.CustomerLookup.accountStatus`
   - Access loyalty tier: `$.DataTables.CustomerLookup.loyaltyTier`
 
-- **Note** – If the query returns no results or the attribute is not found, the reference will be empty or null.
+- **Note:**
+  - If the query returns no results or the attribute is not found, the reference will be empty or null.
+  - Data table values of type list are not supported.
+  - Subsequent data table blocks will clear previous queries from the data tables namespace.
+  - Query results in the data tables namespace are only available in the flow that contains the data table flow block.
 
 ## List Data Table values
 
@@ -129,26 +133,27 @@ The following image shows the **Properties** page of the **Data Table** block co
 After executing a List action, the retrieved data is stored in a structured format. You can access the data using the following namespace patterns:
 
 - **Metadata Access:**
-  - Data table ID: `$.DataTableList.Result.dataTableId`
-  - Lock version: `$.DataTableList.Result.lockVersion.dataTable`
+  - Data table ID: `$.DataTableList.ResultData.dataTableId`
+  - Lock version: `$.DataTableList.ResultData.lockVersion.dataTable`
 
 - **List Data Access** – To access specific data from the list:
-  - Access a specific row by index: `$.DataTableList.Result.primaryKeyGroups.<GroupName>[index]`
-  - Access primary key value: `$.DataTableList.Result.primaryKeyGroups.<GroupName>[index].primaryKeys[index].attributeValue`
-  - Access attribute value: `$.DataTableList.Result.primaryKeyGroups.<GroupName>[index].attributes[index].attributeValue`
+  - Access a specific row by index: `$.DataTableList.ResultData.primaryKeyGroups.`GroupName`[`index`]`
+  - Access primary key value: `$.DataTableList.ResultData.primaryKeyGroups.`GroupName`[`index`].primaryKeys[`index`].attributeValue`
+  - Access attribute value: `$.DataTableList.ResultData.primaryKeyGroups.`GroupName`[`index`].attributes[`index`].attributeValue`
 
 - **Usage** – These values can be referenced in subsequent flow blocks such as:
   - Set contact attributes blocks (to extract and store specific values)
   - Invoke Lambda function blocks or module (to pass the entire result set for processing)
 
 - **Example** – If you configured a primary value group named "OrderHistory":
-  - Access first row: `$.DataTableList.Result.primaryKeyGroups.OrderHistory[0]`
-  - Access first row's first attribute value: `$.DataTableList.Result.primaryKeyGroups.OrderHistory[0].attributes[0].attributeValue`
+  - Access first row: `$.DataTableList.ResultData.primaryKeyGroups.OrderHistory[0]`
+  - Access first row's first attribute value: `$.DataTableList.ResultData.primaryKeyGroups.OrderHistory[0].attributes[0].attributeValue`
 
 - **Note:**
   - The list returns complete records (all attributes), not just selected ones
   - If no matching records are found, the primaryKeyGroups array will be empty
-  - When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.Result.primaryKeyGroups.default[index]`
+  - When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.ResultData.primaryKeyGroups.default[index]`
+  - When accessing array elements in flow blocks, use backticks to wrap the JSONPath reference: `$.DataTableList.ResultData.primaryKeyGroups.<GroupName>[index]`
 
 ## Write to Data Table
 

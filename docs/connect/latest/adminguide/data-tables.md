@@ -128,34 +128,7 @@ It's also possible to query for the exact message by adding a third dimension fo
 
 ###### Using data tables for dynamic lookups in flows
 
-Flows can read values from data tables.
-
-1. Add the **Data Table** block to the desired flow.
-2. Click the top right of the block to **Edit settings**.
-3. Define the data table by choosing either **Set manually** or **Set dynamically**.
-4. Enter a **Query name** to use when accessing values from other flow blocks. The data tables namespace is accessed using a JSONPath reference with the format `$.DataTables.`queryName`.`attributeName`. If using the **Data tables** namespace dynamic dropdown selection, the namespace can be ommitted (`queryName`.`attributeName``)
-
-###### Note
-
-Query names must be unique across all data table blocks in a flow.
-
-###### Note
-
-Use brackets and single quotes to reference attribute names with special characters (``queryName`['`attribute name with spaces`']`). 5. If the data table has primary attributes, enter the primary values corresponding to the **Primary attributes** for the desired record (row) to query. 6. Select the **Query attributes** that correspond the data table attributes for the values to read.
-
-###### Note
-
-Flows do not support data table values of type list.
-
-###### Note
-
-Subsequent data table blocks will clear previous queries from the data tables namespace.
-
-###### Note
-
-Query results in the data tables namespace are only available in the flow that contains the data table flow block. 7. Test the flow to confirm the desired behavior.
-
-![Data table flow block settings.](images/data-table-flow-block-settings.png)
+Flows can read and write values from data tables. For more information, see [Flow block in Amazon Connect: Data Table](data-table-block.md "data-table-block.md").
 
 ###### Leverage Data tables to build custom user interfaces
 

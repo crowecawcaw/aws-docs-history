@@ -24,6 +24,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Lambda contact attributes](#attribs-lambda-table "#attribs-lambda-table")
 - [User-defined attributes](#user-defined-attributes "#user-defined-attributes")
 - [Flow attributes](#flow-attributes "#flow-attributes")
+- [Loop Attributes](#w2aac18c52b9c39 "#w2aac18c52b9c39")
 - [Flow modules attributes](#flow-modules-attributes "#flow-modules-attributes")
 - [Data Table attributes](#data-table-attributes "#data-table-attributes")
 - [Apple Messages for Business attributes](#apple-messages-for-business-attributes "#apple-messages-for-business-attributes")
@@ -340,6 +341,17 @@ customer's credit card number to do a Lambda data dip.
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------- |
 | Any name you choose | A flow attribute has two parts:<br>• Destination key: this is any name you choose for the key. However, the<br>**$\*<br>• and **.\*<br>• (period) characters are<br>not allowed because they are both used in defining the attribute paths in<br>JSONPath.<br>• Value: this is can be any value you choose. | Flow | $.FlowAttributes._name_of_your_destination_key_ |
 
+## Loop Attributes
+
+The following table lists the attributes that are available with the Loop block if a
+LoopName is specified in the Loop block.
+
+| Attribute | Description                                                                                                   | Type | JSONPath Reference                  |
+| --------- | ------------------------------------------------------------------------------------------------------------- | ---- | ----------------------------------- |
+| Index     | Current index of the Loop. The value starts from 0. This is available with<br>both Count and Array based loop | Loop | $.Loop._name_of_your_loop_.Index    |
+| Element   | Current Element of the Loop. This is only available with an Array based<br>loop                               | Loop | $.Loop._name_of_your_loop_.Element  |
+| Elements  | Elements that were provided as input to the Loop. This is only available with<br>an Array based loop          | Loop | $.Loop._name_of_your_loop_.Elements |
+
 ## Flow modules attributes
 
 Flow module Input attribute are attributes passed into a module that has defined input schema from a flow or
@@ -380,18 +392,19 @@ Attributes returned when using the List action in a Data Table block to retrieve
 
 - The list returns complete records (all attributes), not just selected ones.
 - If no matching records are found, the primaryKeyGroups array will be empty.
-- When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.Result.primaryKeyGroups.default[index]`.
+- When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.ResultData.primaryKeyGroups.default[index]`.
 - The List namespace has a maximum data limit of 32 KB.
+- When accessing array elements in flow blocks, use backticks to wrap the JSONPath reference: `$.DataTableList.ResultData.primaryKeyGroups.<GroupName>[index]`
 
-| Attribute          | Description                                                                                                                                          | Type            | JSONPath Reference                                                                           |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------- |
-| Data table ID      | The unique identifier of the data table from which records were retrieved.                                                                           | Data Table List | $.DataTableList.Result.dataTableId                                                           |
-| Lock version       | The lock version information for the data table.                                                                                                     | Data Table List | $.DataTableList.Result.lockVersion.dataTable                                                 |
-| Default group name | When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name.                         | Data Table List | $.DataTableList.Result.primaryKeyGroups.default[index]                                       |
-| Primary key groups | The collection of retrieved records organized by primary value group name. Replace `<GroupName>` with the name assigned to your primary value group. | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>                                          |
-| Specific row       | Access a specific row within a primary key group. Replace `<GroupName>` with your group name and `[index]` with the zero-based index of the row.     | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>[index]                                   |
-| Primary key value  | Access the value of a primary key attribute in a specific row.                                                                                       | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>[index].primaryKeys[index].attributeValue |
-| Attribute value    | Access the value of a non-primary attribute in a specific row.                                                                                       | Data Table List | $.DataTableList.Result.primaryKeyGroups.<GroupName>[index].attributes[index].attributeValue  |
+| Attribute          | Description                                                                                                                                          | Type            | JSONPath Reference                                                                               |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------ |
+| Data table ID      | The unique identifier of the data table from which records were retrieved.                                                                           | Data Table List | $.DataTableList.ResultData.dataTableId                                                           |
+| Lock version       | The lock version information for the data table.                                                                                                     | Data Table List | $.DataTableList.ResultData.lockVersion.dataTable                                                 |
+| Default group name | When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name.                         | Data Table List | $.DataTableList.ResultData.primaryKeyGroups.default[index]                                       |
+| Primary key groups | The collection of retrieved records organized by primary value group name. Replace `<GroupName>` with the name assigned to your primary value group. | Data Table List | $.DataTableList.ResultData.primaryKeyGroups.<GroupName>                                          |
+| Specific row       | Access a specific row within a primary key group. Replace `<GroupName>` with your group name and `[index]` with the zero-based index of the row.     | Data Table List | $.DataTableList.ResultData.primaryKeyGroups.<GroupName>[index]                                   |
+| Primary key value  | Access the value of a primary key attribute in a specific row.                                                                                       | Data Table List | $.DataTableList.ResultData.primaryKeyGroups.<GroupName>[index].primaryKeys[index].attributeValue |
+| Attribute value    | Access the value of a non-primary attribute in a specific row.                                                                                       | Data Table List | $.DataTableList.ResultData.primaryKeyGroups.<GroupName>[index].attributes[index].attributeValue  |
 
 ## Apple Messages for Business attributes
 

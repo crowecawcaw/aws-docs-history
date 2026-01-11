@@ -47,6 +47,10 @@ The following screenshots refer to the legacy flow designer.
 
 When configuring properties to get a case:
 
+- You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+  - **Current contact** is the contact on which the current flow is being executed.
+  - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
+
 - You must provide at least one search criteria. Otherwise this block will
   take the **Error** branch.
 
@@ -181,6 +185,10 @@ When configuring properties to get a case id:
 
 When configuring properties to update a case:
 
+- You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+  - **Current contact** is the contact on which the current flow is being executed.
+  - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
+
 - Add a **Get case** block before an **Update
   case**, as shown in the following image. Use the **Get
   case** block to find the case you want to update.
@@ -224,6 +232,10 @@ specify the fields to update the case.
 ## Properties: Create case
 
 When configuring properties to create a case:
+
+- You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+  - **Current contact** is the contact on which the current flow is being executed.
+  - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
 - You must provide a case template. For more information, see [Create case templates to document customer issues in
   Amazon Connect Cases](case-templates.md "case-templates.md").

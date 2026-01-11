@@ -21,6 +21,8 @@ entering on the search text box.
 You can select a metric to edit, delete or clone. Clicking on the metric name in
 the listing page leads you to the full view of the custom metric.
 
+![The Custom metrics table with search functionality in Dashboards and reports.](images/dashboard-custom-metric-table-with-search.png)
+
 ## Create, Edit custom metric
 
 To create a custom or edit a metric, navigate to Dashboards and reports page
@@ -67,6 +69,8 @@ Configuration
     measures.
   - The percentage of contacts answered within your target time,
     excluding any contact types you specified.
+
+![The Service Level Configuration editor showing configuration options for custom service level metrics.](images/dashboard-service-level-editor.png)
 
 ### Metrics Builder
 
@@ -133,6 +137,10 @@ the definition editor.
   - Refer [link](metric-primitive-definitions.md#supported-metric-filters "metric-primitive-definitions.md#supported-metric-filters") for supported filter values.
   - Optional
 
+###### Note
+
+A custom metric utilizing a metric primitive of `Current Contact` category can only support at most 1 component.
+
 **Definition:**
 
 Define an expression using component identifiers, available mathematical
@@ -144,6 +152,10 @@ metric value.
 - The definition section requires users to add at least one
   component.
 - Up to 1024 characters are allowed in the expression.
+
+###### Note
+
+This section is disabled and cannot be used when a `Current Contact` metric primitive is used to build a custom metric.
 
 **Display
 format:**
@@ -191,6 +203,8 @@ Description of the custom metric
   have Ultimate AI enabled.
 - Metrics created using metric builder will not be accessible
   for editing once Ultimate AI is disabled.
+
+![The Metric Builder editor showing components, definition, and configuration options for creating advanced custom metrics.](images/dashboard-metric-builder-editor.png)
 
 ## View Custom metric
 

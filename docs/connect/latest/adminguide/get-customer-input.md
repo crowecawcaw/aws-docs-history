@@ -9,7 +9,7 @@ specific paths within a flow.
 Captures interactive and dynamic input from customers. It supports interruptible
 prompts with DTMF input (input from a phone) and Amazon Lex bot.
 
-This block accepts only individual digits (1-9) and the special characters # and
+This block accepts only individual digits (0-9) and the special characters # and
 \*. Multi-digit entries are not supported. For multiple entries, such as gathering a
 customer's credit card number, use the [Store customer input](store-customer-input.md "store-customer-input.md") block.
 

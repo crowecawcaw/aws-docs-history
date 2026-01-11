@@ -5,6 +5,20 @@ Inbox. Click the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## January 2026 Updates
+
+### Amazon Connect now simplifies linking related contacts to cases using flows
+
+Amazon Connect now makes it easier to link related contacts such as email replies, call transfers,
+persistent chats, and queued callbacks to the same case so agents can view the complete customer
+journey and resolve issues faster. You can use flows to search for a case associated with a
+prior contact in the [chain](contacts-contact-chains-attributes.md#contact-chains "contacts-contact-chains-attributes.md#contact-chains")
+to follow-up contacts more easily.
+
+In addition, you can now use flows to link a related contact to a case. For example, when you
+create a case via a Step-by-Step Guide, you can link that case to the main contact (e.g., voice,
+chat, email, or tasks) directly using flows.
+
 ## December 2025 Updates
 
 ### Workspace and data table resources provide business users with greater control over daily operations

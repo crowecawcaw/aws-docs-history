@@ -17,5 +17,5 @@ instance of Amazon Connect has not been set up to make outbound calls.
    URL. The following image shows the **Amazon Connect virtual contact center instances** page, with a box
    around the instance alias.
 
-![The Amazon Connect virtual contact center instances page, the instance alias.](/images/connect/latest/adminguide/images/instance.png) 3. In the navigation pane, choose **Telephony**. 4. To enable outbound calling from your contact center, choose **I want
+![The Amazon Connect virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Telephony**. 4. To enable outbound calling from your contact center, choose **I want
 to make outbound calls with Amazon Connect**. 5. Choose **Save**.

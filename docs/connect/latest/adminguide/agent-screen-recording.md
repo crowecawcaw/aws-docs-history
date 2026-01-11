@@ -27,5 +27,6 @@ diagram that shows the network calls between different components, see
   recordings](review-screen-recordings.md "review-screen-recordings.md")
 - [Download log files for the screen
   recording app](troubleshoot-sr.md "troubleshoot-sr.md")
+- [Use Amazon EventBridge events to track screen recording status](track-screen-recording-status.md "track-screen-recording-status.md")
 - [FAQ for screen recording
   capabilities](faq-screenrecording.md "faq-screenrecording.md")

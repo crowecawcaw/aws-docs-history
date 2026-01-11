@@ -1146,8 +1146,13 @@ The system endpoint. For `INBOUND`, this is the phone number
 that the customer dialed. For `OUTBOUND` and
 `EXTERNAL_OUTBOUND`, this is the outbound caller ID number
 assigned to the outbound queue that is used to dial the customer. For
-callback, this shows up as `Softphone` for calls handled by
-agents with softphone.
+`CALLBACK`, this is the caller ID number used to dial out to
+customer. If a caller ID number is explicitly configured in the Transfer to
+Queue block, that number is used to dial out to the customer. If no caller
+ID is configured in the Transfer to Queue block, the outbound caller ID
+number configured in the queue is used to dial out to the customer. If no
+caller ID is configured, SystemEndpoint value will show up as
+anonymous.
 
 When [Transfer to phone
 number](transfer-to-phone-number.md "transfer-to-phone-number.md") block is used without
