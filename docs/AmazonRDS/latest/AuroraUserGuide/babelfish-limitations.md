@@ -9,6 +9,7 @@ The following limitations currently apply to Babelfish for Aurora PostgreSQL:
   - RDS Proxy with RDS for SQL Server
   - Salted challenge response authentication mechanism (SCRAM)
   - Query editor
+  - Zero-ETL integrations
 
 - Babelfish doesn't provide the following client driver API support:
   - API requests with the connection attributes related to Microsoft

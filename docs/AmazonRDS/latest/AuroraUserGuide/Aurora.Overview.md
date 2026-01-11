@@ -1,99 +1,151 @@
-# Amazon Aurora reliability
+# Amazon Aurora
 
-Aurora is designed to be reliable, durable, and fault tolerant. You can architect your
-Aurora DB cluster to improve availability by doing things such as adding Aurora Replicas and
-placing them in different Availability Zones, and also Aurora includes several automatic
-features that make it a reliable database solution.
+storage
+
+Following, you can learn about the Aurora storage subsystem. Aurora uses a distributed and
+shared storage architecture that is an important factor in performance, scalability, and
+reliability for Aurora clusters.
 
 ###### Topics
 
-- [Storage auto-repair](#Aurora.Overview.AutoRepair "#Aurora.Overview.AutoRepair")
-- [Survivable page cache](#Aurora.Overview.CacheWarming "#Aurora.Overview.CacheWarming")
-- [Recovery from unplanned restarts](#Aurora.Overview.RestartRecovery "#Aurora.Overview.RestartRecovery")
+- [Overview of Amazon Aurora storage](#Aurora.Overview.Storage "#Aurora.Overview.Storage")
+- [What the cluster volume contains](#aurora-storage-contents "#aurora-storage-contents")
+- [Storage configurations for Amazon Aurora DB
+  clusters](#aurora-storage-type "#aurora-storage-type")
+- [How Aurora storage automatically resizes](#aurora-storage-growth "#aurora-storage-growth")
+- [How Aurora data storage is billed](#aurora-storage-data-billing "#aurora-storage-data-billing")
 
-## Storage auto-repair
+## Overview of Amazon Aurora storage
 
-Because Aurora maintains multiple copies of your data in three Availability Zones, the
-chance of losing data as a result of a disk failure is greatly minimized. Aurora
-automatically detects failures in the disk volumes that make up the cluster volume. When a
-segment of a disk volume fails, Aurora immediately repairs the segment. When Aurora repairs
-the disk segment, it uses the data in the other volumes that make up the cluster volume to
-ensure that the data in the repaired segment is current. As a result, Aurora avoids data loss
-and reduces the need to perform a point-in-time restore to recover from a disk failure.
+Aurora data is stored in the _cluster volume_, which is
+a single, virtual volume that uses solid state drives (SSDs). A cluster volume consists of
+copies of the data across three Availability Zones in a single AWS Region. Because the
+data is automatically replicated across Availability Zones, your data is highly durable with
+less possibility of data loss. This replication also ensures that your database is more
+available during a failover. It does so because the data copies already exist in the other
+Availability Zones and continue to serve data requests to the DB instances in your DB
+cluster. The amount of replication is independent of the number of DB instances in your
+cluster.
 
-## Survivable page cache
+Aurora uses separate local storage for nonpersistent, temporary files. This includes
+files that are used for such purposes as sorting large data sets during query processing,
+and building indexes. For more information, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage") and [Temporary storage limits for
+Aurora PostgreSQL](AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.TempStorage "AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.TempStorage").
 
-In Aurora, each DB instance's page cache is managed in a separate process from the
-database, which allows the page cache to survive independently of the database. (The page
-cache is also called the InnoDB _buffer pool_ on Aurora MySQL and the
-_buffer cache_ on Aurora PostgreSQL.)
+## What the cluster volume contains
 
-In the unlikely event of a database failure, the page cache remains in memory, which
-keeps current data pages "warm" in the page cache when the database restarts. This provides
-a performance gain by bypassing the need for the initial queries to execute read I/O
-operations to "warm up" the page cache.
+The Aurora cluster volume contains all your user data, schema objects, and internal
+metadata such as the system tables and the binary log. For example, Aurora stores all the
+tables, indexes, binary large objects (BLOBs), stored procedures, and so on for an Aurora
+cluster in the cluster volume.
 
-For Aurora MySQL, page cache behavior when rebooting and failing over is the
-following:
+The Aurora shared storage architecture makes your data independent from the DB instances
+in the cluster. For example, you can add a DB instance quickly because Aurora doesn't make a
+new copy of the table data. Instead, the DB instance connects to the shared volume that
+already contains all your data. You can remove a DB instance from a cluster without removing
+any of the underlying data from the cluster. Only when you delete the entire cluster does
+Aurora remove the data.
 
-- You can reboot the writer instance without rebooting the reader instances.
-  - If the reader instances don't reboot when the writer instance reboots, they
-    don't lose their page caches.
-  - If the reader instances reboot when the writer instance reboots, they do lose
-    their page caches.
+## Storage configurations for Amazon Aurora DB
 
-- When a reader instance reboots, the page caches on the writer and reader instances
-  both survive.
-- When the DB cluster fails over, the effect is similar to when a writer instance
-  reboots. On the new writer instance (previously the reader instance) the page cache
-  survives, but on the reader instance (previously the writer instance), the page cache
-  doesn't survive.
+clusters
 
-For Aurora PostgreSQL, you can use cluster cache management to preserve the page cache of a
-designated reader instance that becomes the writer instance after failover. For more
-information, see [Fast recovery after failover with
-cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+Amazon Aurora has two DB cluster storage configurations:
 
-## Recovery from unplanned restarts
+- **Aurora I/O-Optimized** – Improved price performance and predictability
+  for I/O-intensive applications. You pay only for the usage and storage of your DB
+  clusters, with no additional charges for read and write I/O operations.
 
-Aurora is designed to recover from an unplanned restart almost instantaneously and
-continue to serve your application data without the binary log. Aurora recovers
-asynchronously on parallel threads, so that your database is open and available immediately
-after an unplanned restart.
+Aurora I/O-Optimized is the best choice when your I/O spending is 25% or more of your total Aurora
+database spending.
 
-For more information, see [Fault tolerance for an Aurora DB
-cluster](Concepts.md#Aurora.Managing.FaultTolerance "Concepts.md#Aurora.Managing.FaultTolerance") and [Optimizations to reduce database restart time](AuroraMySQL.md#ReducedRestartTime "AuroraMySQL.md#ReducedRestartTime").
+You can choose Aurora I/O-Optimized when you create or modify a DB cluster with a DB engine
+version that supports the Aurora I/O-Optimized cluster configuration. You can switch from Aurora I/O-Optimized to
+Aurora Standard at any time.
 
-The following are considerations for binary logging and unplanned restart recovery on
-Aurora MySQL:
+- **Aurora Standard** – Cost-effective pricing for many applications
+  with moderate I/O usage. In addition to the usage and storage of your DB clusters, you
+  also pay a standard rate per 1 million requests for I/O operations.
 
-- Enabling binary logging on Aurora directly affects the recovery time after an
-  unplanned restart, because it forces the DB instance to perform binary log
-  recovery.
-- The type of binary logging used affects the size and efficiency of logging. For the
-  same amount of database activity, some formats log more information than others in the
-  binary logs. The following settings for the `binlog_format` parameter result
-  in different amounts of log data:
+Aurora Standard is the best choice when your I/O spending is less than 25% of your total
+Aurora database spending.
 
-      + `ROW` – The most log data
-      + `STATEMENT` – The least log data
-      + `MIXED` – A moderate amount of log data that usually provides
-       the best combination of data integrity and performance
+You can switch from Aurora Standard to Aurora I/O-Optimized once every 30 days. When you switch between
+Aurora Standard and Aurora I/O-Optimized storage options for non-NVMe-based DB instances, there is no downtime.
+However, for NVMe-based DB instances, switching between Aurora I/O-Optimized and Aurora Standard storage options
+requires a database engine restart, which may cause a brief period of downtime.
 
-  The amount of binary log data affects recovery time. If there is more data logged in
-  the binary logs, the DB instance must process more data during recovery, which increases
-  recovery time.
+For information on AWS Region and version support, see [Supported
+Regions and Aurora DB engines for cluster storage
+configurations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
 
-- To reduce computational overhead and improve recovery times with binary logging, you
-  can use enhanced binlog. Enhanced binlog improves the database recovery time by up to
-  99%. For more information, see [Setting up enhanced binlog for Aurora MySQL](AuroraMySQL.Enhanced.md "AuroraMySQL.Enhanced.md").
-- Aurora does not need the binary logs to replicate data within a DB cluster or to
-  perform point-in-time restore (PITR).
-- If you don't need the binary log for external replication (or an external binary log
-  stream), we recommend that you set the `binlog_format` parameter to
-  `OFF` to disable binary logging. Doing so reduces recovery time.
+For more information on pricing for Amazon Aurora storage configurations, see [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
 
-For more information about Aurora binary logging and replication, see [Replication with Amazon Aurora](Aurora.md "Aurora.md"). For more information
-about the implications of different MySQL replication types, see [Advantages and
-disadvantages of statement-based and row-based replication](https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html "https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html") in the MySQL
-documentation.
+For information on choosing the storage configuration when creating a DB cluster, see
+[Creating a DB cluster](Aurora.md#Aurora.CreateInstance.Creating "Aurora.md#Aurora.CreateInstance.Creating"). For information on modifying the storage
+configuration for a DB cluster, see [Settings for Amazon Aurora](Aurora.md#Aurora.Modifying.Settings "Aurora.md#Aurora.Modifying.Settings").
+
+## How Aurora storage automatically resizes
+
+Aurora cluster volumes automatically grow as the amount of data in your database
+increases. For information about maximum Aurora cluster volume sizes for each engine version, see [Amazon Aurora size limits](CHAP_Limits.md#RDS_Limits.FileSize.Aurora "CHAP_Limits.md#RDS_Limits.FileSize.Aurora"). This automatic storage scaling is combined
+with a high-performance and highly distributed storage subsystem. These make Aurora a good
+choice for your important enterprise data when your main objectives are reliability and high
+availability.
+
+To display the volume status, see [Displaying volume status for an Aurora MySQL DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md") or [Displaying volume status for an
+Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md"). For ways to balance storage
+costs against other priorities, [Storage scaling](Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling "Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling") describes how to monitor the
+Amazon Aurora metrics `AuroraVolumeBytesLeftTotal` and `VolumeBytesUsed`
+in CloudWatch.
+
+When Aurora data is removed, the space allocated for that data is freed. Examples of
+removing data include dropping or truncating a table. This automatic reduction in storage
+usage helps you to minimize storage charges.
+
+###### Note
+
+The storage limits and dynamic resizing behavior discussed here apply to persistent
+tables and other data stored in the cluster volume.
+
+For Aurora PostgreSQL, temporary table data is stored in the local DB instance.
+
+For Aurora MySQL version 2, temporary table data is stored by default in the cluster
+volume for writer instances and in local storage for reader instances. For more
+information, see [Storage engine for on-disk temporary tables](AuroraMySQL.md#AuroraMySQL.StorageEngine57 "AuroraMySQL.md#AuroraMySQL.StorageEngine57").
+
+For Aurora MySQL version 3, temporary table data is stored in the local DB instance or
+in the cluster volume. For more information, see [New temporary table behavior in Aurora MySQL version 3](ams3-temptable-behavior.md "ams3-temptable-behavior.md").
+
+The maximum size of temporary tables that reside in local storage is limited by the
+maximum local storage size of the DB instance. The local storage size depends on the
+instance class that you use. For more information, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.md#AuroraMySQL.Managing.TempStorage") and [Temporary storage limits for
+Aurora PostgreSQL](AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.TempStorage "AuroraPostgreSQL.md#AuroraPostgreSQL.Managing.TempStorage").
+
+Some storage features, such as the maximum size of a cluster volume and automatic
+resizing when data is removed, depend on the Aurora version of your cluster. For more
+information, see [Storage scaling](Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling "Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling"). You can also learn how to
+avoid storage issues and how to monitor the allocated storage and free space in your
+cluster.
+
+## How Aurora data storage is billed
+
+Even though an Aurora cluster volume can grow up to 256 tebibytes (TiB) for specific engine versions, you are only
+charged for the space that you use in an Aurora cluster volume. In earlier Aurora versions,
+the cluster volume could reuse space that was freed up when you removed data, but the
+allocated storage space would never decrease. Now when Aurora data is removed, such as by
+dropping a table or database, the overall allocated space decreases by a comparable amount.
+Thus, you can reduce storage charges by dropping tables, indexes, databases, and so on that
+you no longer need.
+
+###### Tip
+
+For earlier versions without the dynamic resizing feature, resetting the storage usage
+for a cluster involved doing a logical dump and restoring to a new cluster. That operation
+can take a long time for a substantial volume of data. If you encounter this situation,
+consider upgrading your cluster to a version that supports dynamic volume resizing.
+
+For information about which Aurora versions support dynamic resizing, and how to minimize
+storage charges by monitoring storage usage for your cluster, see [Storage scaling](Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling "Aurora.Managing.md#Aurora.Managing.Performance.StorageScaling"). For information about Aurora
+backup storage billing, see [Understanding Amazon Aurora backup storage usage](aurora-storage-backup.md "aurora-storage-backup.md"). For pricing information about Aurora data storage,
+see [Amazon RDS for Aurora pricing](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing").

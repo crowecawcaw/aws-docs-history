@@ -1,41 +1,17 @@
-# Amazon Aurora DB engine, Region, and instance class support
+# Pricing and data retention for Performance Insights
 
-for Performance Insights
+By default, Performance Insights includes 7 days of performance data history and 1 million API requests per month. You
+can also purchase longer retention periods. For complete pricing information, see [Performance Insights Pricing](https://aws.amazon.com/rds/performance-insights/pricing/ "https://aws.amazon.com/rds/performance-insights/pricing/").
 
-###### Important
+In the RDS console, you can choose any of the following retention periods for your Performance Insights data:
 
-AWS has announced the end-of-life date for Performance Insights: June 30, 2026. After this date, Amazon RDS will no longer support the Performance Insights console experience,
-flexible retention periods (1-24 months), and their associated pricing. The Performance Insights API will continue to exist with no pricing changes. Costs for the
-Performance Insights API will appear in your AWS bill with the cost of CloudWatch Database Insights.
+- **Default (7 days)**
+- **`n` months**, where **`n`** is a number
+  from 1–24
 
-We recommend that you upgrade any DB clusters
-using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
-For information about upgrading to the Advanced mode of Database Insights, see
-[Turning on the Advanced mode of Database Insights for Amazon Aurora](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+![Choose a retention period for your Performance Insights data.](images/pi-retention-periods.png)
+To learn how to set a retention period using the AWS CLI, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
-If you take no action, DB clusters using Performance Insights
-will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
-and on-demand analysis features in the Amazon RDS console. After June 30, 2026 only the Advanced mode of Database Insights will support execution plans and on-demand analysis.
+###### Note
 
-With CloudWatch Database Insights, you can monitor database load for your fleet of databases and analyze and troubleshoot performance at scale.
-For more information about Database Insights, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
-For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
-
-The following table provides Amazon Aurora DB engines that support Performance Insights.
-
-| Amazon Aurora DB engine                     | Supported engine versions and Regions                                                                                                                                                                                                                                                                                                                                                | Instance class restrictions                                                                                                                                                |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Aurora MySQL-Compatible Edition      | For more information on version and Region availability of Performance Insights with Aurora MySQL, see<br>[Performance Insights with Aurora MySQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.amy "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.amy").           | Performance Insights has the following engine class restrictions:<br>• db.t2 – Not supported<br>• db.t3 – Not supported<br>• db.t4g.micro and db.t4g.small – Not supported |
-| Amazon Aurora PostgreSQL-Compatible Edition | For more information on version and Region availability of Performance Insights with Aurora PostgreSQL, see<br>[Performance Insights with Aurora PostgreSQL](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.apg "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md#Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.apg"). | N/A                                                                                                                                                                        |
-
-## Amazon Aurora DB engine, Region, and instance class support
-
-for Performance Insights features
-
-The following table provides Amazon Aurora DB engines that support Performance Insights features.
-
-| Feature                                                                                                                          | [Pricing tier](https://aws.amazon.com/rds/performance-insights/pricing/ "https://aws.amazon.com/rds/performance-insights/pricing/") | [Supported regions](Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions "Concepts.md#Concepts.RegionsAndAvailabilityZones.Regions")                                                                                                                                                                                                                                                                   | Supported DB engines | [Supported instance classes](Concepts.md#Concepts.DBInstanceClass.Types "Concepts.md#Concepts.DBInstanceClass.Types") |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [SQL statistics for Performance Insights](sql-statistics.md "sql-statistics.md")                                                 | All                                                                                                                                 | All                                                                                                                                                                                                                                                                                                                                                                                                        | All                  | All                                                                                                                   |
-| [Analyzing database performance for a period of time](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md") | Paid tier only                                                                                                                      | All                                                                                                                                                                                                                                                                                                                                                                                                        | All                  | All except db.serverless (Aurora Serverless v2)                                                                       |
-| [Viewing Performance Insights proactive recommendations](USER_PerfInsights.md "USER_PerfInsights.md")                            | Paid tier only                                                                                                                      | • US East (Ohio)<br>• US East (N. Virginia)<br>• US West (N. California)<br>• US West (Oregon)<br>• Asia Pacific (Mumbai)<br>• Asia Pacific (Seoul)<br>• Asia Pacific (Singapore)<br>• Asia Pacific (Sydney)<br>• Asia Pacific (Tokyo)<br>• Canada (Central)<br>• Europe (Frankfurt)<br>• Europe (Ireland)<br>• Europe (London)<br>• Europe (Paris)<br>• Europe (Stockholm)<br>• South America (São Paulo) | All                  | All except db.serverless (Aurora Serverless v2)                                                                       |
+Stopping a DB cluster with Performance Insights enabled doesn't affect data retention. While a DB cluster is stopped, Performance Insights won't collect any data.

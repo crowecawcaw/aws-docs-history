@@ -1,132 +1,381 @@
-# Security in Amazon Aurora
+# Rotating your SSL/TLS
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
-data center and network architecture that are built to meet the requirements of the most
-security-sensitive organizations.
+certificate
 
-Security is a shared responsibility between AWS and you. The [shared responsibility
-model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security
-_in_ the cloud:
+Amazon RDS Certificate Authority certificates rds-ca-2019 expired in
+August, 2024. If you use or plan to use Secure Sockets Layer (SSL) or Transport
+Layer Security (TLS) with certificate verification to connect to your RDS DB
+instances ,consider using one of the new CA certificates
+rds-ca-rsa2048-g1, rds-ca-rsa4096-g1 or rds-ca-ecc384-g1.
+If you currently do not use SSL/TLS with
+certificate verification, you might still have an expired CA certificate and
+must update them to a new CA certificate if you plan to use SSL/TLS with
+certificate verification to connect to your RDS databases.
 
-- **Security of the cloud** – AWS is
-  responsible for protecting the infrastructure that runs AWS services in the AWS
-  Cloud. AWS also provides you with services that you can use securely. Third-party
-  auditors regularly test and verify the effectiveness of our security as part of the
-  [AWS compliance
-  programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to
-  Amazon Aurora
-  (Aurora), see [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
-- **Security in the cloud** – Your responsibility
-  is determined by the AWS service that you use. You are also responsible for other
-  factors including the sensitivity of your data, your organization's
-  requirements, and applicable laws and regulations.
-  This documentation helps you understand how to apply the shared responsibility model when
-  using
-  Amazon Aurora. The following topics show you how to configure
-  Amazon Aurora to
-  meet your security and compliance objectives. You also learn how to use other AWS services
-  that help you monitor and secure your
-  Amazon Aurora resources.
-
-You can manage access to your
-Amazon Aurora resources and your databases on a DB
-cluster. The
-method you use to manage access depends on what type of task the user needs to perform with
-
-Amazon Aurora:
-
-- Run your DB
-  cluster in a virtual private cloud (VPC) based on
-  the Amazon VPC service for the greatest possible network access control. For more
-  information about creating a DB
-  cluster in a VPC, see
-  [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
-  .
-- Use AWS Identity and Access Management (IAM) policies to assign permissions that determine who is allowed
-  to manage
-  Amazon Aurora resources. For example, you can use IAM to determine who is
-  allowed to create, describe, modify, and delete DB
-  clusters, tag resources,
-  or modify security groups.
-
-To review IAM policy examples, see [Identity-based policy
-examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+Amazon RDS provides new CA certificates as an AWS security best practice. For
+information about the new certificates and the supported AWS Regions, see
+[Using SSL/TLS to encrypt a connection to a DB
+cluster](UsingWithRDS.md "UsingWithRDS.md")
 .
 
-- Use security groups to control what IP addresses or Amazon EC2 instances can connect to
-  your databases on a DB
-  cluster. When you first create a DB
-  cluster, its firewall prevents any database access except through
-  rules specified by an associated security group.
-- Use Secure Socket Layer (SSL) or Transport Layer Security (TLS) connections with
-  DB
-  clusters running the Aurora MySQL or Aurora PostgreSQL. For more information
-  on using SSL/TLS with a DB cluster, see [Using SSL/TLS to encrypt a connection to a DB
-  cluster](UsingWithRDS.md "UsingWithRDS.md")
-  .
-- Use
-  Amazon Aurora encryption to secure your
-  DB clusters and snapshots
-  at rest.
-  Amazon Aurora encryption uses the industry standard AES-256 encryption
-  algorithm to encrypt your data on the server that hosts your DB
-  cluster. For more information, see [Encrypting Amazon Aurora
-  resources](Overview.md "Overview.md")
-  .
-- Use the security features of your DB engine to control who can log in to the
-  databases on a DB
-  cluster. These features work just as if the database
-  was on your local network.
+To update the CA certificate for your database, use the following methods:
 
-For information about security with Aurora MySQL, see [Security with Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md")
-. For
-information about security with Aurora PostgreSQL, see [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
+- [Updating
+  your CA certificate by modifying your DB instance](#UsingWithRDS.SSL-certificate-rotation-updating "#UsingWithRDS.SSL-certificate-rotation-updating")
+- [Updating your CA certificate by applying maintenance](#UsingWithRDS.SSL-certificate-rotation-maintenance-update "#UsingWithRDS.SSL-certificate-rotation-maintenance-update")
+  Before you update your DB instances to use the new CA certificate, make sure that you update
+  your clients or applications connecting to your RDS databases.
+
+## Considerations for rotating certificates
+
+Consider the following situations before rotating your certificate:
+
+- Amazon RDS Proxy and Aurora Serverless v1
+  use
+
+certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, when
+you rotate your SSL/TLS certificate, you don't need to update
+applications that use RDS Proxy connections. For more information, see
+[Using TLS/SSL with RDS Proxy](rds-proxy.md#rds-proxy-security.tls "rds-proxy.md#rds-proxy-security.tls")
 .
-Aurora is part of the managed database service Amazon Relational Database Service (Amazon RDS). Amazon RDS
-is a web service that makes it easier to set up, operate, and scale a relational database in
-the cloud. If you are not already familiar with Amazon RDS, see the [_Amazon RDS user
-guide_](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-Aurora includes a high-performance storage subsystem. Its MySQL- and
-PostgreSQL-compatible database engines are customized to take advantage of that fast
-distributed storage. Aurora also automates and standardizes database clustering and
-replication, which are typically among the most challenging aspects of database
-configuration and administration.
+- If you're using Aurora Serverless v1, downloading Amazon RDS certificates
+  isn't required. For more information, see [Using TLS/SSL with Aurora Serverless v1](aurora-serverless.md#aurora-serverless.tls "aurora-serverless.md#aurora-serverless.tls")
+  .
+- If you're using a Go version 1.15 application with a DB instance
+  that was created
+  or updated to the rds-ca-2019 certificate prior to July 28, 2020,
+  you must update the certificate again. Update the certificate to
+  rds-ca-rsa2048-g1, rds-ca-rsa4096-g1,
+  or rds-ca-ecc384-g1 depending on your engine
+  .
 
-For both Amazon RDS and Aurora, you can access the RDS API programmatically,
-and you can use the AWS CLI to access the RDS API interactively. Some RDS API operations and
-AWS CLI commands apply to both Amazon RDS and Aurora, while others apply to either Amazon RDS or Aurora.
-For information about RDS API operations, see [Amazon RDS
-API reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). For more information about the AWS CLI, see [AWS Command Line Interface reference for Amazon RDS](../../../cli/latest/reference/rds/index.md "../../../cli/latest/reference/rds/index.md").
+Use the `modify-db-instance` command ,
+using the new CA certificate identifier. You can find the CAs that
+are available for a specific DB engine and DB engine version using
+the `describe-db-engine-versions` command.
+
+If you created your database or updated its certificate after July
+28, 2020, no action is required. For more information, see [Go GitHub issue
+#39568](https://github.com/golang/go/issues/39568 "https://github.com/golang/go/issues/39568").
+
+## Updating
+
+your CA certificate by modifying your DB instance
+
+The following example updates your CA certificate from
+_rds-ca-2019_ to
+_rds-ca-rsa2048-g1_.You can
+choose a different certificate. For more information, see [Certificate
+authorities](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities")
+.
+
+Update your application trust store to reduce any down time associated
+with updating your CA certificate. For more information about restarts
+associated with CA certificate rotation, see [Automatic server certificate rotation](#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
+.
+
+###### To update your CA certificate by modifying your DB instance
+
+1. Download the new SSL/TLS certificate as described in [Using SSL/TLS to encrypt a connection to a DB
+   cluster](UsingWithRDS.md "UsingWithRDS.md")
+   .
+2. Update your applications to use the new SSL/TLS
+   certificate.
+
+The methods for updating applications for new SSL/TLS certificates
+depend on your specific applications. Work with your application
+developers to update the SSL/TLS certificates for your
+applications.
+
+For information about checking for SSL/TLS connections and
+updating applications for each DB engine, see the following
+topics:
+
+    * [Updating applications to connect to
+     Aurora MySQL DB clusters using new TLS certificates](ssl-certificate-rotation-aurora-mysql.md "ssl-certificate-rotation-aurora-mysql.md")
+    * [Updating applications to connect to Aurora PostgreSQL DB clusters using new SSL/TLS certificates](ssl-certificate-rotation-aurora-postgresql.md "ssl-certificate-rotation-aurora-postgresql.md")
+
+For a sample script that updates a trust
+store for a Linux operating system, see [Sample
+script for importing certificates into your trust store](#UsingWithRDS.SSL-certificate-rotation-sample-script "#UsingWithRDS.SSL-certificate-rotation-sample-script")
+.
 
 ###### Note
 
-You have to configure security only for your use cases. You don't have to configure
-security access for processes that Amazon Aurora manages. These include creating backups,
-automatic failover, and other processes.
+The certificate bundle contains certificates for both the old
+and new CA, so you can upgrade your application safely and
+maintain connectivity during the transition period. If you are
+using the AWS Database Migration Service to migrate a database to a DB
+cluster, we recommend using the
+certificate bundle to ensure connectivity during the
+migration. 3. Modify the DB instance to change the CA from
+**rds-ca-2019** to
+**rds-ca-rsa2048-g1**. To check if your
+database requires a restart to update the CA certificates, use the
+[describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command and check the
+`SupportsCertificateRotationWithoutRestart` flag.
 
-For more information on managing access to
-Amazon Aurora resources and your
-databases on a DB
-cluster, see the following topics.
+###### Note
 
-###### Topics
+Reboot your Babelfish cluster after modifying to update
+the CA certificate.
 
-- [Database authentication with Amazon Aurora](database-authentication.md "database-authentication.md")
-- [Password management with
-  Amazon Aurora
-  and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md")
-- [Data protection in Amazon RDS](DataDurability.md "DataDurability.md")
-- [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md")
-- [Logging and monitoring in Amazon Aurora](Overview.md "Overview.md")
-- [Compliance validation for Amazon Aurora](RDS-compliance.md "RDS-compliance.md")
-- [Resilience in Amazon Aurora](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in Amazon Aurora](infrastructure-security.md "infrastructure-security.md")
-- [Amazon RDS API and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
-- [Security best practices for Amazon Aurora](CHAP_BestPractices.md "CHAP_BestPractices.md")
-- [Controlling access with security
-  groups](Overview.md "Overview.md")
-- [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md")
-- [Using service-linked roles for
-  Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md")
-- [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md")
+###### Important
+
+If you are experiencing connectivity issues after certificate
+expiry, use the apply immediately option by specifying
+**Apply immediately** in the console or by
+specifying the `--apply-immediately` option using the
+AWS CLI. By default, this operation is scheduled to run during
+your next maintenance window.
+
+To set an override for your cluster
+CA that's different from the default
+RDS CA, use the [modify-certificates](../../../cli/latest/reference/rds/modify-certificates.md "../../../cli/latest/reference/rds/modify-certificates.md") CLI command.
+
+You can use the AWS Management Console or the AWS CLI to change the CA certificate from
+**rds-ca-2019** to
+**rds-ca-rsa2048-g1** for a DB instance .
+
+Console
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose
+   **Databases**, and then choose the
+   DB instance that you want to modify.
+3. Choose **Modify**.
+
+![Modify DB instance](images/ssl-rotate-cert-modify-aurora.png) 4. In the **Connectivity** section,
+choose **rds-ca-rsa2048-g1**.
+
+![Choose CA certificate](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
+summary of modifications. 6. To apply the changes immediately, choose
+**Apply immediately**. 7. On the confirmation page, review your changes. If they
+are correct, choose **Modify DB
+Instance**
+to save your changes.
+
+###### Important
+
+When you schedule this operation, make sure that
+you have updated your client-side trust store
+beforehand.
+
+Or choose **Back** to edit your
+changes or **Cancel** to cancel your
+changes.
+
+AWS CLI
+To use the AWS CLI to change the CA from
+**rds-ca-2019** to
+**rds-ca-rsa2048-g1** for a DB instance
+, call the
+[modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command. Specify the DB instance
+identifier
+and the `--ca-certificate-identifier` option.
+
+Use the `--apply-immediately` parameter to apply
+the update immediately. By default, this operation is scheduled
+to run during your next maintenance window.
+
+###### Important
+
+When you schedule this operation, make sure that you have
+updated your client-side trust store beforehand.
+
+The following example modifies `mydbinstance`
+by setting the CA certificate to
+`rds-ca-rsa2048-g1`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --ca-certificate-identifier rds-ca-rsa2048-g1
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --ca-certificate-identifier rds-ca-rsa2048-g1
+```
+
+###### Note
+
+If your instance requires reboot, you can use the
+[modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command and specify
+the `--no-certificate-rotation-restart`
+option.
+
+## Updating your CA certificate by applying maintenance
+
+Perform the following steps to update your CA certificate by applying
+maintenance.
+
+Console
+
+###### To update your CA certificate by applying
+
+maintenance
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Certificate
+   update**.
+
+![Certificate rotation navigation pane option](images/ssl-rotate-cert-certupdate.png)
+
+The **Databases requiring certificate
+update** page appears.
+
+![Update CA certificate for database](images/ssl-rotate-cert-update-multiple.png)
+
+###### Note
+
+This page only shows the DB instances for
+the current AWS Region. If you have databases in
+more than one AWS Region, check this page in each
+AWS Region to see all DB instances with old
+SSL/TLS certificates. 3. Choose the DB instance that you want to update.
+
+You can schedule the certificate rotation for your
+next maintenance window by choosing
+**Schedule**. Apply the rotation
+immediately by choosing **Apply
+now**.
+
+###### Important
+
+If you experience connectivity issues after
+certificate expiry, use the **Apply
+now** option. 4. 1. If you choose **Schedule**,
+you are prompted to confirm the CA certificate
+rotation. This prompt also states the scheduled
+window for your update.
+![Confirm certificate rotation](images/ssl-rotate-cert-confirm-schedule.png) 2. If you choose **Apply now**,
+you are prompted to confirm the CA certificate
+rotation.
+![Confirm certificate rotation](images/ssl-rotate-cert-confirm-now.png)###### Important
+
+Before scheduling the CA certificate rotation on
+your database, update any client applications that
+use SSL/TLS and the server certificate to connect.
+These updates are specific to your DB engine. After
+you have updated these client applications, you can
+confirm the CA certificate rotation.
+
+To continue, choose the check box, and then choose
+**Confirm**. 5. Repeat steps 3 and 4 for each DB instance that you
+want to update.
+
+## Automatic server certificate rotation
+
+If your root CA supports automatic server certificate rotation, RDS
+automatically handles the rotation of the DB server certificate. RDS uses
+the same root CA for this automatic rotation, so you don't need to download
+a new CA bundle. See [Certificate
+authorities](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities")
+.
+
+The rotation and validity of your DB server certificate depend on your DB
+engine:
+
+- If your DB engine supports rotation without restart, RDS
+  automatically rotates the DB server certificate without requiring
+  any action from you. RDS attempts to rotate your DB server
+  certificate in your preferred maintenance window at the DB server
+  certificate half life. The new DB server certificate is valid for 12
+  months.
+- If your DB engine doesn't support rotation without restart, Amazon RDS
+  makes a `server-certificate-rotation` Pending Maintenance Action
+  visible via Describe-pending-maintenance-actions API, at the half life of the certificate, or at least 3 months before expiry.
+  You can apply the rotation using the apply-pending-maintenance-action API. The new DB server certificate is valid for 36 months.
+
+Use the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command and inspect the
+`SupportsCertificateRotationWithoutRestart` flag to identify
+whether the DB engine version supports rotating the certificate without
+restart. For more information, see [Setting the CA for your database](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection")
+.
+
+## Sample
+
+script for importing certificates into your trust store
+
+The following are sample shell scripts that import the certificate bundle
+into a trust store.
+
+Each sample shell script uses keytool, which is part of the Java
+Development Kit (JDK). For information about installing the JDK, see [JDK Installation Guide](https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html "https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html").
+
+Linux
+The following is a sample shell script that imports the
+certificate bundle into a trust store on a Linux operating
+system.
+
+```
+
+mydir=tmp/certs
+if [ ! -e "${mydir}" ]
+then
+mkdir -p "${mydir}"
+fi truststore=${mydir}/rds-truststore.jks storepassword=`changeit`
+
+curl -sS "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"> ${mydir}/global-bundle.pem
+awk 'split_after == 1 {n++;split_after=0} /-----END CERTIFICATE-----/ {split_after=1}{print > "rds-ca-" n+1 ".pem"}' < ${mydir}/global-bundle.pem
+
+for CERT in rds-ca-*; do alias=$(openssl x509 -noout -text -in $CERT | perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print')
+  echo "Importing $alias"
+  keytool -import -file ${CERT} -alias "${alias}" -storepass ${storepassword} -keystore ${truststore} -noprompt
+  rm $CERT
+done
+
+rm ${mydir}/global-bundle.pem
+
+echo "Trust store content is: "
+
+keytool -list -v -keystore "$truststore" -storepass ${storepassword} | grep Alias | cut -d " " -f3- | while read alias
+do expiry=`keytool -list -v -keystore "$truststore" -storepass ${storepassword} -alias "${alias}" | grep Valid | perl -ne 'if(/until: (.*?)\n/) { print "$1\n"; }'`
+   echo " Certificate ${alias} expires in '$expiry'"
+done
+
+```
+
+macOS
+The following is a sample shell script that imports the
+certificate bundle into a trust store on macOS.
+
+```
+
+mydir=tmp/certs
+if [ ! -e "${mydir}" ]
+then
+mkdir -p "${mydir}"
+fi truststore=${mydir}/rds-truststore.jks storepassword=`changeit`
+
+curl -sS "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"> ${mydir}/global-bundle.pem
+split -p "-----BEGIN CERTIFICATE-----" ${mydir}/global-bundle.pem rds-ca-
+
+for CERT in rds-ca-*; do alias=$(openssl x509 -noout -text -in $CERT | perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print')
+  echo "Importing $alias"
+  keytool -import -file ${CERT} -alias "${alias}" -storepass ${storepassword} -keystore ${truststore} -noprompt
+  rm $CERT
+done
+
+rm ${mydir}/global-bundle.pem
+
+echo "Trust store content is: "
+
+keytool -list -v -keystore "$truststore" -storepass ${storepassword} | grep Alias | cut -d " " -f3- | while read alias
+do expiry=`keytool -list -v -keystore "$truststore" -storepass ${storepassword} -alias "${alias}" | grep Valid | perl -ne 'if(/until: (.*?)\n/) { print "$1\n"; }'`
+   echo " Certificate ${alias} expires in '$expiry'"
+done
+
+```
+
+To learn more best practices about using SSL with
+Amazon RDS, see [Best practices for successful SSL connections to Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/best-practices-for-successful-ssl-connections-to-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/best-practices-for-successful-ssl-connections-to-amazon-rds-for-oracle/").

@@ -1,36 +1,23 @@
-# Analyzing database performance for a period of time
+# Deleting a performance analysis
 
-Analyze database performance with on-demand analysis by creating a performance analysis report for a period of time. View performance analysis reports to find
-performance issues, such as resource bottlenecks or changes in a query in your DB instance.
-The Performance Insights dashboard allows you to select a time period and create a performance analysis
-report. You can also add one or more tags to the report.
+report in Performance Insights
 
-To use this feature, you must be using the paid tier retention period. For more information, see
-[Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
+You can delete a report from the list of reports displayed in the **Performance analysis reports** tab
+or while viewing a report.
 
-The report is available in the **Performance analysis reports - new** tab
-to select and view. The report contains the insights, related metrics, and recommendations
-to resolve the performance issue. The report is available to view for the duration of Performance Insights retention period.
+###### To delete a report
 
-The report is deleted if the start time of the report analysis period is outside of the
-retention period. You can also delete the report before the retention period ends.
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance.
 
-To detect the performance issues and generate the analysis report for your DB instance, you must turn on Performance Insights. For more information about
-turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Performance analysis reports - new** tab. 5. Select the report you want to delete and choose **Delete** in the upper right.
 
-For the region, DB engine, and instance class support information for this feature, see
-[Amazon Aurora DB engine, Region, and instance class support
-for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
+![Performance Insights dashboard to delete with a report selected for deletion](images/PI_DeleteAnalysisRep.png)
 
-In the following sections, you can create, view, add tags, and delete a performance analysis report.
+A confirmation window is displayed. The report is deleted after you choose confirm. 6. (Optional) Choose **ID** of the report you want to delete.
 
-###### Topics
+In the report page, choose **Delete** in the upper right.
 
-- [Creating a
-  performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Viewing a performance analysis
-  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Adding tags to a performance
-  analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Deleting a performance analysis
-  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+A confirmation window is displayed. The report is deleted after you choose confirm.

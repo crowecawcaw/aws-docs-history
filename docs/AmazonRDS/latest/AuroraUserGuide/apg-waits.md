@@ -1,154 +1,199 @@
-# Lock:tuple
+# LWLock:buffer_content (BufferContent)
 
-The `Lock:tuple` event occurs when a backend process is waiting to
-acquire a lock on a tuple.
+The `LWLock:buffer_content` event occurs when a session is waiting to read or
+write a data page in memory while another session has that page locked for writing. In
+Aurora PostgreSQL 13 and higher, this wait event is called `BufferContent`.
 
 ###### Topics
 
-- [Supported engine versions](#apg-waits.locktuple.context.supported "#apg-waits.locktuple.context.supported")
-- [Context](#apg-waits.locktuple.context "#apg-waits.locktuple.context")
-- [Likely causes of increased waits](#apg-waits.locktuple.causes "#apg-waits.locktuple.causes")
-- [Actions](#apg-waits.locktuple.actions "#apg-waits.locktuple.actions")
+- [Supported engine
+  versions](#apg-waits.lockbuffercontent.context.supported "#apg-waits.lockbuffercontent.context.supported")
+- [Context](#apg-waits.lockbuffercontent.context "#apg-waits.lockbuffercontent.context")
+- [Likely causes of increased
+  waits](#apg-waits.lockbuffercontent.causes "#apg-waits.lockbuffercontent.causes")
+- [Actions](#apg-waits.lockbuffercontent.actions "#apg-waits.lockbuffercontent.actions")
 
-## Supported engine versions
+## Supported engine
+
+versions
 
 This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-The event `Lock:tuple` indicates that a backend is waiting to acquire a lock on a tuple
-while another backend holds a conflicting lock on the same tuple. The following table illustrates a scenario in
-which sessions generate the `Lock:tuple` event.
+To read or manipulate data, PostgreSQL accesses it through shared memory buffers. To
+read from the buffer, a process gets a lightweight lock (LWLock) on the buffer content
+in shared mode. To write to the buffer, it gets that lock in exclusive mode. Shared
+locks allow other processes to concurrently acquire shared locks on that content.
+Exclusive locks prevent other processes from getting any type of lock on it.
 
-| Time | Session 1             | Session 2                                                                                                                                             | Session 3                                                                                     |
-| ---- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| t1   | Starts a transaction. |                                                                                                                                                       |                                                                                               |
-| t2   | Updates row 1.        |                                                                                                                                                       |                                                                                               |
-| t3   |                       | Updates row 1. The session acquires an exclusive lock on the tuple and then waits for<br>session 1 to release the lock by committing or rolling back. |                                                                                               |
-| t4   |                       |                                                                                                                                                       | Updates row 1. The session waits for session 2 to release the exclusive lock on the<br>tuple. |
+The `LWLock:buffer_content` (`BufferContent`) event indicates
+that multiple processes are attempting to get lightweight locks (LWLocks) on contents of
+a specific buffer.
 
-Or you can simulate this wait event by using the benchmarking tool
-`pgbench`. Configure a high number of concurrent sessions to update the
-same row in a table with a custom SQL file.
+## Likely causes of increased
 
-To learn more about conflicting lock modes, see [Explicit Locking](https://www.postgresql.org/docs/current/explicit-locking.html "https://www.postgresql.org/docs/current/explicit-locking.html") in the
-PostgreSQL documentation. To learn more about `pgbench`, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in the PostgreSQL
-documentation.
+waits
 
-## Likely causes of increased waits
+When the `LWLock:buffer_content` (`BufferContent`) event appears
+more than normal, possibly indicating a performance problem, typical causes include the
+following:
 
-When this event appears more than normal, possibly indicating a performance problem, typical causes
-include the following:
+**Increased concurrent updates to the same data**
 
-- A high number of concurrent sessions are trying to acquire a conflicting lock
-  for the same tuple by running `UPDATE` or `DELETE`
-  statements.
-- Highly concurrent sessions are running a `SELECT` statement using
-  the `FOR UPDATE` or `FOR NO KEY UPDATE` lock modes.
-- Various factors drive application or connection pools to open more sessions to execute the same
-  operations. As new sessions are trying to modify the same rows, DB load can spike, and
-  `Lock:tuple` can appear.
+There might be an increase in the number of concurrent sessions with
+queries that update the same buffer content. This contention can be more
+pronounced on tables with a lot of indexes.
 
-For more information, see [Row-Level Locks](https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS "https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS") in
-the PostgreSQL documentation.
+**Workload data is not in memory**
+
+When data that the active workload is processing is not in memory, these
+wait events can increase. This effect is because processes holding locks can
+keep them longer while they perform disk I/O operations.
+
+**Excessive use of foreign key constraints**
+
+Foreign key constraints can increase the amount of time a process holds
+onto a buffer content lock. This effect is because read operations require a
+shared buffer content lock on the referenced key while that key is being
+updated.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+We recommend different actions depending on the causes of your wait event. You might
+identify `LWLock:buffer_content` (`BufferContent`) events by using
+Amazon RDS Performance Insights or by querying the view `pg_stat_activity`.
 
 ###### Topics
 
-- [Investigate your application logic](#apg-waits.locktuple.actions.problem "#apg-waits.locktuple.actions.problem")
-- [Find the blocker session](#apg-waits.locktuple.actions.find-blocker "#apg-waits.locktuple.actions.find-blocker")
-- [Reduce concurrency when it is high](#apg-waits.locktuple.actions.concurrency "#apg-waits.locktuple.actions.concurrency")
-- [Troubleshoot bottlenecks](#apg-waits.locktuple.actions.bottlenecks "#apg-waits.locktuple.actions.bottlenecks")
+- [Improve in-memory
+  efficiency](#apg-waits.lockbuffercontent.actions.in-memory "#apg-waits.lockbuffercontent.actions.in-memory")
+- [Reduce usage of
+  foreign key constraints](#apg-waits.lockbuffercontent.actions.foreignkey "#apg-waits.lockbuffercontent.actions.foreignkey")
+- [Remove unused
+  indexes](#apg-waits.lockbuffercontent.actions.indexes "#apg-waits.lockbuffercontent.actions.indexes")
+- [Remove
+  duplicate indexes](#apg-waits.lockbuffercontent.actions.duplicate-indexes "#apg-waits.lockbuffercontent.actions.duplicate-indexes")
+- [Drop or
+  REINDEX invalid indexes](#apg-waits.lockbuffercontent.actions.invalid-indexes "#apg-waits.lockbuffercontent.actions.invalid-indexes")
+- [Use partial
+  indexes](#apg-waits.lockbuffercontent.actions.partial-indexes "#apg-waits.lockbuffercontent.actions.partial-indexes")
+- [Remove table and index
+  bloat](#apg-waits.lockbuffercontent.actions.bloat "#apg-waits.lockbuffercontent.actions.bloat")
 
-### Investigate your application logic
+### Improve in-memory
 
-Find out whether a blocker session has been in the `idle in
- transaction` state for long time. If so, consider ending the blocker
-session as a short-term solution. You can use the `pg_terminate_backend`
-function. For more information about this function, see [Server Signaling Functions](https://www.postgresql.org/docs/13/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL "https://www.postgresql.org/docs/13/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL") in the PostgreSQL documentation.
+efficiency
 
-For a long-term solution, do the following:
+To increase the chance that active workload data is in memory, partition tables or
+scale up your instance class. For information about DB instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
 
-- Adjust the application logic.
-- Use the `idle_in_transaction_session_timeout` parameter. This
-  parameter ends any session with an open transaction that has been idle for
-  longer than the specified amount of time. For more information, see [Client Connection Defaults](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT "https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT") in the PostgreSQL
-  documentation.
-- Use autocommit as much as possible. For more information, see [SET AUTOCOMMIT](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html "https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html") in the PostgreSQL documentation.
+Monitor the `BufferCacheHitRatio` metric, which measures the percentage
+of requests served by the buffer cache of a DB instance in your DB cluster. This
+metric provides insight into the amount of data being served from memory. A high hit
+ratio indicates that your DB instance has sufficient memory available for your
+working data set, while a low ratio suggests that your queries are frequently
+accessing data from storage.
 
-### Find the blocker session
+The cache read hit per table and cache read hit per index under Memory setting
+section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into the tables and indexes
+cache hit ratio.
 
-While the `Lock:tuple` wait event is occurring, identify the blocker and
-blocked session by finding out which locks depend on one another. For more
-information, see [Lock
-dependency information](https://wiki.postgresql.org/wiki/Lock_dependency_information "https://wiki.postgresql.org/wiki/Lock_dependency_information") in the PostgreSQL wiki. To analyze past
-`Lock:tuple` events, use the Aurora function
-`aurora_stat_backend_waits`.
+### Reduce usage of
 
-The following example queries all sessions, filtering on `tuple` and
-ordering by `wait_time`.
+foreign key constraints
 
-```
---AURORA_STAT_BACKEND_WAITS
-      SELECT a.pid,
-             a.usename,
-             a.app_name,
-             a.current_query,
-             a.current_wait_type,
-             a.current_wait_event,
-             a.current_state,
-             wt.type_name AS wait_type,
-             we.event_name AS wait_event,
-             a.waits,
-             a.wait_time
-        FROM (SELECT pid,
-                     usename,
-                     left(application_name,16) AS app_name,
-                     coalesce(wait_event_type,'CPU') AS current_wait_type,
-                     coalesce(wait_event,'CPU') AS current_wait_event,
-                     state AS current_state,
-                     left(query,80) as current_query,
-                     (aurora_stat_backend_waits(pid)).*
-                FROM pg_stat_activity
-               WHERE pid <> pg_backend_pid()
-                 AND usename<>'rdsadmin') a
-NATURAL JOIN aurora_stat_wait_type() wt
-NATURAL JOIN aurora_stat_wait_event() we
-WHERE we.event_name = 'tuple'
-    ORDER BY a.wait_time;
+Investigate workloads experiencing high numbers of
+`LWLock:buffer_content` (`BufferContent`) wait events for
+usage of foreign key constraints. Remove unnecessary foreign key constraints.
 
-  pid  | usename | app_name |                 current_query                  | current_wait_type | current_wait_event | current_state | wait_type | wait_event | waits | wait_time
--------+---------+----------+------------------------------------------------+-------------------+--------------------+---------------+-----------+------------+-------+-----------
- 32136 | sys     | psql     | /*session3*/ update tab set col=1 where col=1; | Lock              | tuple              | active        | Lock      | tuple      |     1 |   1000018
- 11999 | sys     | psql     | /*session4*/ update tab set col=1 where col=1; | Lock              | tuple              | active        | Lock      | tuple      |     1 |   1000024
-```
+### Remove unused
 
-### Reduce concurrency when it is high
+indexes
 
-The `Lock:tuple` event might occur constantly, especially in a busy
-workload time. In this situation, consider reducing the high concurrency for very
-busy rows. Often, just a few rows control a queue or the Boolean logic, which makes
-these rows very busy.
+For workloads experiencing high numbers of `LWLock:buffer_content`
+(`BufferContent`) wait events, identify unused indexes and remove
+them.
 
-You can reduce concurrency by using different approaches based in the business requirement, application
-logic, and workload type. For example, you can do the following:
+The unused indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
+the unused indexes in the database.
 
-- Redesign your table and data logic to reduce high concurrency.
-- Change the application logic to reduce high concurrency at the row level.
-- Leverage and redesign queries with row-level locks.
-- Use the `NOWAIT` clause with retry operations.
-- Consider using optimistic and hybrid-locking logic concurrency control.
-- Consider changing the database isolation level.
+### Remove
 
-### Troubleshoot bottlenecks
+duplicate indexes
 
-The `Lock:tuple` can occur with bottlenecks such as CPU starvation or maximum usage of Amazon EBS
-bandwidth. To reduce bottlenecks, consider the following approaches:
+Identify duplicate indexes and remove them.
 
-- Scale up your instance class type.
-- Optimize resource-intensive queries.
-- Change the application logic.
-- Archive data that is rarely accessed.
+The duplicate indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
+the duplicate indexes in the database.
+
+### Drop or
+
+REINDEX invalid indexes
+
+Invalid indexes typically occur when using `CREATE INDEX CONCURRENTLY`
+or `REINDEX CONCURRENTLY` and the command fails or is aborted.
+
+Invalid indexes can't be used for queries, though they will still be updated and
+take up disk space.
+
+The Invalid indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
+the invalid indexes in the database.
+
+### Use partial
+
+indexes
+
+Partial indexes can be leveraged to enhance query performance and reduce index
+size. A partial index is an index built over a subset of a table, with the subset
+defined by a conditional expression. As detailed in the [partial index](https://www.postgresql.org/docs/current/indexes-partial.html "https://www.postgresql.org/docs/current/indexes-partial.html") documentation,
+partial indexes can reduce the overhead of maintaining indexes, as PostgreSQL does
+not need to update the index in all cases.
+
+### Remove table and index
+
+bloat
+
+Excessive table and index bloat can negatively impact database performance.
+Bloated tables and indexes increase the active working set size, degrading in-memory
+efficiency. Additionally, bloat increases storage costs and slows query execution.
+To diagnose bloat, refer to the [Diagnosing table and index bloat](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+Further, the Fragmentation (Bloat) section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide
+insights into tables and indexes bloat.
+
+To address table and index bloat, there are a few options:
+
+**VACUUM FULL**
+
+`VACUUM FULL` creates a new copy of the table, copying over
+only the live tuples, and then replaces the old table with the new one
+while holding an `ACCESS EXCLUSIVE` lock. This prevents any
+reading or writing to the table, which can cause an outage.
+Additionally, `VACUUM FULL` will take longer if the table is
+large.
+
+**pg_repack**
+
+The `pg_repack` is helpful in situations where `VACUUM
+ FULL` might not be suitable. It creates a new table that
+contains the data of the bloated table, tracks the changes from the
+original table, and then replaces the original table with the new one.
+It doesn't lock the original table for read or write operations while
+it's building the new table. For more information, for how to use
+`pg_repack`, see [Removing bloat with pg_repack](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md") and
+[pg_repack](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/").
+
+**REINDEX**
+
+The `REINDEX` command can be leveraged to address index
+bloat. `REINDEX` writes a new version of the index without
+the dead pages or the empty or nearly-empty pages, thereby reducing the
+space consumption of the index. For detailed information about the
+[`REINDEX`](https://www.postgresql.org/docs/current/sql-reindex.html "https://www.postgresql.org/docs/current/sql-reindex.html") command, please refer to the REINDEX
+documentation.
+
+After removing bloat from tables and indexes, it may be necessary to increase the
+autovacuum frequency on those tables. Implementing aggressive autovacuum settings at
+the table level can help prevent future bloat from occurring. For more information,
+please refer to the documentation on [`Vacuuming and analyzing tables
+ automatically`](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/autovacuum.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/autovacuum.md").

@@ -1,357 +1,206 @@
-# Overview of Aurora PostgreSQL query
+# Improving Aurora PostgreSQL query
 
-plan management
+plans
 
-Aurora PostgreSQL query plan management is designed to ensure plan stability regardless of
-changes to the database that might cause query plan regression. _Query plan
-regression_ occurs when the optimizer chooses a sub-optimal plan for a
-given SQL statement after system or database changes. Changes to statistics,
-constraints, environment settings, query parameter bindings, and upgrades to the
-PostgreSQL database engine can all cause plan regression.
-
-With Aurora PostgreSQL query plan management, you can control how and when query execution
-plans change. The benefits of Aurora PostgreSQL query plan management include the following.
-
-- Improve plan stability by forcing the optimizer to choose from a small number
-  of known, good plans.
-- Optimize plans centrally and then distribute the best plans globally.
-- Identify indexes that aren't used and assess the impact of creating or
-  dropping an index.
-- Automatically detect a new minimum-cost plan discovered by the
-  optimizer.
-- Try new optimizer features with less risk, because you can choose to approve
-  only the plan changes that improve performance.
-  You can use the tools provided by query plan management proactively, to specify the
-  best plan for certain queries. Or you can use query plan management to react to changing
-  circumstances and avoid plan regressions. For more information, see [Best practices for
-  Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+Improve query plan management by evaluating plan performance and fixing plans. For
+more information about improving your query plans, see the following topics.
 
 ###### Topics
 
-- [Supported SQL
-  statements](#AuroraPostgreSQL.Optimize.overview.features "#AuroraPostgreSQL.Optimize.overview.features")
-- [Query plan
-  management limitations](#AuroraPostgreSQL.Optimize.overview.limitations "#AuroraPostgreSQL.Optimize.overview.limitations")
-- [Query plan management
-  terminology](#AuroraPostgreSQL.Optimize.Start-terminology "#AuroraPostgreSQL.Optimize.Start-terminology")
-- [Aurora PostgreSQL query
-  plan management versions](#AuroraPostgreSQL.Optimize.overview.versions "#AuroraPostgreSQL.Optimize.overview.versions")
-- [Turning on Aurora PostgreSQL query
-  plan management](#AuroraPostgreSQL.Optimize.Enable "#AuroraPostgreSQL.Optimize.Enable")
-- [Upgrading Aurora PostgreSQL query
-  plan management](#AuroraPostgreSQL.Optimize.Upgrade "#AuroraPostgreSQL.Optimize.Upgrade")
-- [Turning off Aurora PostgreSQL
-  query plan management](#AuroraPostgreSQL.Optimize.Enable.turnoff "#AuroraPostgreSQL.Optimize.Enable.turnoff")
+- [Evaluating plan performance](#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance")
+- [Fixing plans
+  using pg_hint_plan](#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan")
 
-## Supported SQL
+## Evaluating plan performance
 
-statements
+After the optimizer captures plans as unapproved, use the
+`apg_plan_mgmt.evolve_plan_baselines` function to compare plans based
+on their actual performance. Depending on the outcome of your performance
+experiments, you can change a plan's status from unapproved to either approved
+or rejected. You can instead decide to use the
+`apg_plan_mgmt.evolve_plan_baselines` function to temporarily disable
+a plan if it does not meet your requirements.
 
-Query plan management supports the following types of SQL statements.
+### Approving better plans
 
-- Any SELECT, INSERT, UPDATE, or DELETE statement, regardless of complexity.
-- Prepared statements. For more information, see [PREPARE](https://www.postgresql.org/docs/14/sql-prepare.html "https://www.postgresql.org/docs/14/sql-prepare.html") in the PostgreSQL documentation.
-- Dynamic statements, including those run in immediate-mode. For more
-  information, see [Dynamic
-  SQL](https://www.postgresql.org/docs/current/ecpg-dynamic.html "https://www.postgresql.org/docs/current/ecpg-dynamic.html") and [EXECUTE IMMEDIATE](https://www.postgresql.org/docs/current/ecpg-sql-execute-immediate.html "https://www.postgresql.org/docs/current/ecpg-sql-execute-immediate.html") in PostgreSQL documentation.
-- Embedded SQL commands and statements. For more information, see [Embedded SQL Commands](https://www.postgresql.org/docs/current/ecpg-sql-commands.html "https://www.postgresql.org/docs/current/ecpg-sql-commands.html") in the PostgreSQL documentation.
-- Statements inside named functions. For more information, see [CREATE FUNCTION](https://www.postgresql.org/docs/current/sql-createfunction.html "https://www.postgresql.org/docs/current/sql-createfunction.html") in the PostgreSQL documentation.
-- Statements containing temp tables.
-- Statements inside procedures and DO-blocks.
-
-You can use query plan management with `EXPLAIN` in manual mode to
-capture a plan without actually running it. For more information, see [Analyzing the
-optimizer's chosen plan](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.UsePlans.AnalyzePlans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.UsePlans.AnalyzePlans"). To learn more
-about query plan management's modes (manual, automatic), see [Capturing Aurora PostgreSQL
-execution plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
-
-Aurora PostgreSQL query plan management supports all PostgreSQL language features,
-including partitioned tables, inheritance, row-level security, and recursive common
-table expressions (CTEs). To learn more about these PostgreSQL language features,
-see [Table
-Partitioning](https://www.postgresql.org/docs/current/ddl-partitioning.html "https://www.postgresql.org/docs/current/ddl-partitioning.html"), [Row Security
-Policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"), and [WITH Queries
-(Common Table Expressions)](https://www.postgresql.org/docs/current/queries-with.html "https://www.postgresql.org/docs/current/queries-with.html") and other topics in the PostgreSQL
-documentation.
-
-For information about different versions of the Aurora PostgreSQL query plan
-management feature, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
-_Release Notes for Aurora PostgreSQL_.
-
-## Query plan
-
-management limitations
-
-The current release of Aurora PostgreSQL query plan management has the following
-limitations.
-
-- Plans aren't captured for statements that
-  reference system relations – Statements that reference
-  system relations, such as `pg_class`, aren't captured. This
-  is by design, to prevent a large number of system-generated plans that are
-  used internally from being captured. This also applies to system tables
-  inside views.
-- Larger DB instance class might be needed for your
-  Aurora PostgreSQL DB cluster – Depending on the workload,
-  query plan management might need a DB instance class that has more than 2
-  vCPUs. The number of `max_worker_processes` is limited by the DB
-  instance class size. The number of `max_worker_processes`
-  provided by a 2-vCPU DB instance class (db.t3.medium, for example) might not
-  be sufficient for a given workload. We recommend that you choose a DB
-  instance class with more than 2 vCPUs for your Aurora PostgreSQL DB cluster if
-  you use query plan managment.
-
-When the DB instance class can't support the workload, query plan
-management raises an error message such as the following.
+The following example demonstrates how to change the status of managed plans
+to approved using the `apg_plan_mgmt.evolve_plan_baselines` function.
 
 ```
-WARNING: could not register plan insert background process
-HINT: You may need to increase max_worker_processes.
+SELECT apg_plan_mgmt.evolve_plan_baselines (
+   sql_hash,
+   plan_hash,
+   min_speedup_factor := 1.0,
+   action := 'approve'
+)
+FROM apg_plan_mgmt.dba_plans WHERE status = 'Unapproved';
 ```
 
-In this case, you should scale up your Aurora PostgreSQL DB cluster to a DB
-instance class size with more memory. For more information, see [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
-
-- Plans already stored in sessions aren't
-  affected – Query plan management provides a way to
-  influence query plans without changing the application code. However, when a
-  generic plan is already stored in an existing session and if you want to
-  change its query plan, then you must first set`plan_cache_mode`
-  to `force_custom_plan` in the DB cluster parameter group.
-- `queryid` in `apg_plan_mgmt.dba_plans` and
-  `pg_stat_statements` can diverge when:
-  - Objects are dropped and recreated after storing in
-    apg_plan_mgmt.dba_plans.
-  - `apg_plan_mgmt.plans` table is imported from another
-    cluster.
-
-For information about different versions of the Aurora PostgreSQL query plan
-management feature, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
-_Release Notes for Aurora PostgreSQL_.
-
-## Query plan management
-
-terminology
-
-The following terms are used throughout this topic.
-
-**managed statement**
-
-A SQL statement captured by the optimizer under query plan management.
-A managed statement has one or more query execution plans stored in the
-`apg_plan_mgmt.dba_plans` view.
-
-**plan baseline**
-
-The set of approved plans for a given managed statement. That is, all
-the plans for the managed statement that have "Approved" for their
-`status` column in the `dba_plan` view.
-
-**plan history**
-
-The set of all captured plans for a given managed statement. The plan
-history contains all plans captured for the statement, regardless of
-status.
-
-**query plan regression**
-
-The case when the optimizer chooses a less optimal plan than it did
-before a given change to the database environment, such as a new
-PostgreSQL version or changes to statistics.
-
-## Aurora PostgreSQL query
-
-plan management versions
-
-Query plan management is supported by all currently available Aurora PostgreSQL
-releases. For more information, see the list of [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in the
-_Release Notes for Aurora PostgreSQL_.
-
-Query plan management functionality is added to your Aurora PostgreSQL DB cluster when
-you install the `apg_plan_mgmt` extension. Different versions of
-Aurora PostgreSQL support different versions of the `apg_plan_mgmt`
-extension. We recommend that you upgrade the query plan management extension to the
-latest release for your version of Aurora PostgreSQL.
-
-###### Note
-
-For release notes for each `apg_plan_mgmt` extension versions, see
-[Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
-_Release Notes for Aurora PostgreSQL_.
-
-You can identify the version running on your cluster by connecting to an instance
-using `psql` and using the metacommand \dx to list extensions as shown
-following.
-
 ```
-`labdb=>` \dx
- `List of installed extensions
- Name | Version | Schema | Description
----------------+---------+---------------+-------------------------------------------------------------------
- apg_plan_mgmt | 1.0 | apg_plan_mgmt | Amazon Aurora with PostgreSQL compatibility Query Plan Management
- plpgsql | 1.0 | pg_catalog | PL/pgSQL procedural language
-(2 rows)`
+NOTICE:     rangequery (1,10000)
+NOTICE:     Baseline   [ Planning time 0.761 ms, Execution time 13.261 ms]
+NOTICE:     Baseline+1 [ Planning time 0.204 ms, Execution time 8.956 ms]
+NOTICE:     Total time benefit: 4.862 ms, Execution time benefit: 4.305 ms
+NOTICE:     Unapproved -> Approved
+evolve_plan_baselines
+-----------------------
+0
+(1 row)
 ```
 
-The output shows that this cluster is using 1.0 version of the extension. Only
-certain `apg_plan_mgmt` versions are available for a given Aurora PostgreSQL
-version. In some cases, you might need to upgrade the Aurora PostgreSQL DB cluster to a
-new minor release or apply a patch so that you can upgrade to the most recent
-version of query plan management. The `apg_plan_mgmt` version 1.0 shown
-in the output is from an Aurora PostgreSQL version 10.17 DB cluster, which doesn't
-have a newer version of `apg_plan_mgmt` available. In this case, the
-Aurora PostgreSQL DB cluster should be upgraded to a more recent version of
-PostgreSQL.
-
-For more information about upgrading your Aurora PostgreSQL DB cluster to a new
-version of PostgreSQL, see [Database engine updates for
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
-
-To learn how to upgrade the `apg_plan_mgmt` extension, see [Upgrading Aurora PostgreSQL query
-plan management](#AuroraPostgreSQL.Optimize.Upgrade "#AuroraPostgreSQL.Optimize.Upgrade").
-
-## Turning on Aurora PostgreSQL query
-
-plan management
-
-Setting up query plan management for your Aurora PostgreSQL DB cluster involves
-installing an extension and changing several DB cluster parameter settings. You need
-`rds_superuser` permissions to install the `apg_plan_mgmt`
-extension and to turn on the feature for the Aurora PostgreSQL DB cluster.
-
-Installing the extension creates a new role, `apg_plan_mgmt`. This role
-allows database users to view, manage, and maintain query plans. As an administrator
-with `rds_superuser` privileges, be sure to grant the
-`apg_plan_mgmt` role to database users as needed.
-
-Only users with the `rds_superuser` role can complete the following
-procedure. The `rds_superuser` is required for creating the
-`apg_plan_mgmt` extension and its `apg_plan_mgmt` role.
-Users must be granted the `apg_plan_mgmt` role to administer the
-`apg_plan_mgmt` extension.
-
-###### To turn on query plan management for your Aurora PostgreSQL DB cluster
-
-The following steps turn on query plan management for all SQL statements that
-get submitted to the Aurora PostgreSQL DB cluster. This is known as
-_automatic_ mode. To learn more about the difference
-between modes, see [Capturing Aurora PostgreSQL
-execution plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
-
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Create a custom DB cluster parameter group for your Aurora PostgreSQL DB
-   cluster. You need to change certain parameters to activate query plan
-   management and to set its behavior. For more information, see [Creating a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-3. Open the custom DB cluster parameter group and set the
-   `rds.enable_plan_management` parameter to `1`, as
-   shown in the following image.
-
-![Image of the DB cluster parameter group.](images/aurora-qpm-custom-db-cluster-param-change-1.png)
-
-For more information, see [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. Create a custom DB parameter group that you can use to set query plan
-parameters at the instance level. For more information, see [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 5. Modify the writer instance of the Aurora PostgreSQL DB cluster to use the
-custom DB parameter group. For more information, see [Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance"). 6. Modify the Aurora PostgreSQL DB cluster to use the custom DB cluster parameter
-group. For more information, see [Modifying the DB cluster by using the console, CLI, and API](Aurora.md#Aurora.Modifying.Cluster "Aurora.md#Aurora.Modifying.Cluster"). 7. Reboot your DB instance to enable the custom parameter group
-settings. 8. Connect to your Aurora PostgreSQL DB cluster's DB instance endpoint using
-`psql` or `pgAdmin`. The following example uses
-the default `postgres` account for the `rds_superuser`
-role.
+The output shows a performance report for the `rangequery`
+statement with parameter bindings of 1 and 10,000. The new unapproved plan
+(`Baseline+1`) is better than the best previously approved plan
+(`Baseline`). To confirm that the new plan is now
+`Approved`, check the `apg_plan_mgmt.dba_plans` view.
 
 ```
-psql --host=`cluster-instance-1.111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password --dbname=`my-db`
+SELECT sql_hash, plan_hash, status, enabled, stmt_name
+FROM apg_plan_mgmt.dba_plans;
 ```
 
-9. Create the `apg_plan_mgmt` extension for your DB instance, as
-   shown following.
-
 ```
-`labdb=>` CREATE EXTENSION apg_plan_mgmt;
-`CREATE EXTENSION`
-```
-
-###### Tip
-
-Install the `apg_plan_mgmt` extension in the template
-database for your application. The default template database is named
-`template1`. To learn more, see [Template Databases](https://www.postgresql.org/docs/current/manage-ag-templatedbs.html "https://www.postgresql.org/docs/current/manage-ag-templatedbs.html") in the PostgreSQL documentation. 10. Change the `apg_plan_mgmt.capture_plan_baselines` parameter to
-`automatic`. This setting causes the optimizer to generate
-plans for every SQL statement that is either planned or executed two or more
-times.
-
-###### Note
-
-Query plan management also has a _manual_ mode that
-you can use for specific SQL statements. To learn more, see [Capturing Aurora PostgreSQL
-execution plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md"). 11. Change the value of `apg_plan_mgmt.use_plan_baselines`
-parameter to "on." This parameter causes the optimizer to choose a plan for
-the statement from its plan baseline. To learn more, see [Using Aurora PostgreSQL managed
-plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
-
-###### Note
-
-You can modify the value of either of these dynamic parameters for the
-session without needing to reboot the instance.
-
-When your query plan management set up is complete, be sure to grant the
-`apg_plan_mgmt` role to any database users that need to view, manage,
-or maintain query plans.
-
-## Upgrading Aurora PostgreSQL query
-
-plan management
-
-We recommend that you upgrade the query plan management extension to the latest
-release for your version of Aurora PostgreSQL.
-
-1. Connect to the writer instance of your Aurora PostgreSQL DB cluster as a user
-   that has `rds_superuser` privileges. If you kept the default name
-   when you set up your instance, you connect as `postgres` This
-   example shows how to use `psql`, but you can also use pgAdmin if
-   you prefer.
-
-```
-psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
+sql_hash  | plan_hash |  status  | enabled | stmt_name
+------------+-----------+----------+---------+------------
+1984047223 | 512153379 | Approved | t       | rangequery
+1984047223 | 512284451 | Approved | t       | rangequery
+(2 rows)
 ```
 
-2. Run the following query to upgrade the extension.
+The managed plan now includes two approved plans that are the statement's
+plan baseline. You can also call the `apg_plan_mgmt.set_plan_status`
+function to directly set a plan's status field to `'Approved'`,
+`'Rejected'`, `'Unapproved'`, or
+`'Preferred'`.
+
+### Rejecting or disabling slower plans
+
+To reject or disable plans, pass `'reject'` or `'disable'` as the action parameter to the
+`apg_plan_mgmt.evolve_plan_baselines` function. This example
+disables any captured `Unapproved` plan that is slower by at least 10
+percent than the best `Approved` plan for the statement.
 
 ```
-ALTER EXTENSION apg_plan_mgmt UPDATE TO '2.1';
+`SELECT apg_plan_mgmt.evolve_plan_baselines(`
+`sql_hash,`  `-- The managed statement ID`
+`plan_hash,` `-- The plan ID`
+`1.1,`       `-- number of times faster the plan must be`
+`'disable'`  `-- The action to take. This sets the enabled field to false.`
+`)
+FROM apg_plan_mgmt.dba_plans
+WHERE status = 'Unapproved' AND`   `-- plan is Unapproved`
+`origin = 'Automatic';`       `-- plan was auto-captured`
 ```
 
-3. Use the [apg_plan_mgmt.validate_plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.validate_plans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.validate_plans")
-   function to update the hashes of all plans. The optimizer validates all
-   Approved, Unapproved, and Rejected plans to ensure that they's still
-   viable plans for new version of the extension.
+You can also directly set a plan to rejected or disabled. To directly set a
+plan's enabled field to `true` or `false`, call the
+`apg_plan_mgmt.set_plan_enabled` function. To directly set a
+plan's status field to `'Approved'`, `'Rejected'`,
+`'Unapproved'`, or `'Preferred'`, call the
+`apg_plan_mgmt.set_plan_status` function.
+
+To delete plans that aren't valid and that you expect to remain invalid,
+use the `apg_plan_mgmt.validate_plans` function. This function lets
+you delete or disable invalid plans. For more information, see [Validating
+plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans").
+
+## Fixing plans
+
+using pg_hint_plan
+
+The query optimizer is well-designed to find an optimal plan for all statements,
+and in most cases the optimizer finds a good plan. However, occasionally you might
+know that a much better plan exists than that generated by the optimizer. Two
+recommended ways to get the optimizer to generate a desired plan include using the
+`pg_hint_plan` extension or setting Grand Unified Configuration (GUC)
+variables in PostgreSQL:
+
+- `pg_hint_plan` extension – Specify a "hint" to modify
+  how the planner works by using PostgreSQL's `pg_hint_plan`
+  extension. To install and learn more about how to use the
+  `pg_hint_plan` extension, see the [pg_hint_plan
+  documentation](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan").
+- GUC variables – Override one or more cost model parameters or other
+  optimizer parameters, such as the `from_collapse_limit` or
+  `GEQO_threshold`.
+
+When you use one of these techniques to force the query optimizer to use a plan,
+you can also use query plan management to capture and enforce use of the new
+plan.
+
+You can use the `pg_hint_plan` extension to change the join order, the
+join methods, or the access paths for a SQL statement. You use a SQL comment with
+special `pg_hint_plan` syntax to modify how the optimizer creates a plan.
+For example, assume the problem SQL statement has a two-way join.
 
 ```
-SELECT apg_plan_mgmt.validate_plans('update_plan_hash');
+SELECT *
+FROM t1, t2
+WHERE t1.id = t2.id;
 ```
 
-To learn more about using this function, see [Validating
-plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans"). 4. Use the [apg_plan_mgmt.reload](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.reload "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.reload") function to
-refresh any plans in the shared memory with the validated plans from the
-dba_plans view.
+Then suppose that the optimizer chooses the join order (t1, t2), but you know that
+the join order (t2, t1) is faster. The following hint forces the optimizer to use
+the faster join order, (t2, t1). Include EXPLAIN so that the optimizer generates a
+plan for the SQL statement but without running the statement. (Output not
+shown.)
 
 ```
-SELECT apg_plan_mgmt.reload();
+/*+ Leading ((t2 t1)) */ EXPLAIN SELECT *
+FROM t1, t2
+WHERE t1.id = t2.id;
 ```
 
-To learn more about all functions available for query plan management, see [Function reference for
-Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+The following steps show how to use `pg_hint_plan`.
 
-## Turning off Aurora PostgreSQL
+###### To modify the optimizer's generated plan and capture the plan using
 
-query plan management
+pg_hint_plan
 
-You can disable query plan management at any time by turning off the
-`apg_plan_mgmt.use_plan_baselines` and
-`apg_plan_mgmt.capture_plan_baselines`.
+1. Turn on the manual capture mode.
 
 ```
-`labdb=>` SET apg_plan_mgmt.use_plan_baselines = off;
+SET apg_plan_mgmt.capture_plan_baselines = manual;
+```
 
-`labdb=>` SET apg_plan_mgmt.capture_plan_baselines = off;
+2. Specify a hint for the SQL statement of interest.
 
 ```
+/*+ Leading ((t2 t1)) */ EXPLAIN SELECT *
+FROM t1, t2
+WHERE t1.id = t2.id;
+```
+
+After this runs, the optimizer captures the plan in the
+`apg_plan_mgmt.dba_plans` view. The captured plan
+doesn't include the special `pg_hint_plan` comment syntax
+because query plan management normalizes the statement by removing leading
+comments. 3. View the managed plans by using the `apg_plan_mgmt.dba_plans`
+view.
+
+```
+SELECT sql_hash, plan_hash, status, sql_text, plan_outline
+FROM apg_plan_mgmt.dba_plans;
+```
+
+4. Set the status of the plan to `Preferred`. Doing so makes sure
+   that the optimizer chooses to run it, instead of selecting from the set of
+   approved plans, when the minimum-cost plan isn't already
+   `Approved` or `Preferred`.
+
+```
+SELECT apg_plan_mgmt.set_plan_status(`sql-hash`, `plan-hash`, 'preferred' );
+```
+
+5. Turn off manual plan capture and enforce the use of managed plans.
+
+```
+SET apg_plan_mgmt.capture_plan_baselines = false;
+SET apg_plan_mgmt.use_plan_baselines = true;
+```
+
+Now, when the original SQL statement runs, the optimizer chooses either an
+`Approved` or `Preferred` plan. If the
+minimum-cost plan isn't `Approved` or
+`Preferred`, then the optimizer chooses the
+`Preferred` plan.

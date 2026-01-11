@@ -1,12 +1,10 @@
-# Connecting to your DB
+# Connecting to your DB cluster
 
-cluster using IAM authentication from the command line: AWS CLI and
-mysql client
+using IAM authentication and the AWS SDK for .NET
 
-You can connect from the command line to an
-Aurora DB cluster
-with the AWS CLI and `mysql` command line tool as described
-following.
+You can connect to an
+Aurora MySQL or Aurora PostgreSQL DB cluster
+with the AWS SDK for .NET as described following.
 
 ###### Prerequisites
 
@@ -19,120 +17,141 @@ The following are prerequisites for connecting to your DB cluster using IAM auth
 - [Creating a database account using
   IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 
-###### Note
+###### Examples
 
-For information about connecting to your database using SQL Workbench/J with IAM authentication,
-see the blog post [Use IAM authentication to connect with SQL Workbench/J to Aurora MySQL or Amazon RDS for MySQL](https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/ "https://aws.amazon.com/blogs/database/use-iam-authentication-to-connect-with-sql-workbenchj-to-amazon-aurora-mysql-or-amazon-rds-for-mysql/").
+The following code examples show how to generate an authentication token, and
+then use it to connect to a DB
+cluster.
 
-###### Topics
+To run this code example, you need the [AWS SDK for .NET](http://aws.amazon.com/sdk-for-net/ "http://aws.amazon.com/sdk-for-net/"),
+found on the AWS site. The `AWSSDK.CORE` and the `AWSSDK.RDS` packages are required.
+To connect to a DB cluster,
+use the .NET database connector for the DB engine, such as MySqlConnector for MariaDB or MySQL, or Npgsql
+for PostgreSQL.
 
-- [Generating an
-  IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.AuthToken")
-- [Connecting to
-  a DB cluster](#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect "#UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.Connect")
+This code connects to an Aurora MySQL DB cluster.
+Modify the values of the following variables as needed:
 
-## Generating an
+- `server` – The endpoint of
+  the DB cluster that you want to
+  access
+- `user` – The database account that you
+  want to access
+- `database` – The database that you want to access
+- `port` – The port number used
+  for connecting to your DB cluster
+- `SslMode` – The SSL mode to use
 
-IAM authentication token
+When you use `SslMode=Required`, the SSL connection verifies the DB
+cluster endpoint against the endpoint in
+the SSL certificate.
 
-The following example shows how to get a signed authentication token using the
-AWS CLI.
+- `SslCa` – The full path to the SSL certificate for Amazon Aurora
 
-```
-aws rds generate-db-auth-token \
-   --hostname `rdsmysql.123456789012.us-west-2.rds.amazonaws.com` \
-   --port `3306` \
-   --region `us-west-2` \
-   --username `jane_doe`
-```
-
-In the example, the parameters are as follows:
-
-- `--hostname` – The host name of the DB
-  cluster that you want to access
-- `--port` – The port number used for connecting to your DB
-  cluster
-- `--region` – The AWS Region where the DB cluster is running
-- `--username` – The database account that you want to access
-
-The first several characters of the token look like the following.
-
-```
-rdsmysql.123456789012.us-west-2.rds.amazonaws.com:3306/?Action=connect&DBUser=jane_doe&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=900...
-```
-
-###### Note
-
-You cannot use a custom Route 53 DNS record or an Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
-
-## Connecting to
-
-a DB cluster
-
-The general format for connecting is shown following.
-
-```
-mysql --host=`hostName` --port=`portNumber` --ssl-ca=`full_path_to_ssl_certificate` --enable-cleartext-plugin --user=`userName` --password=`authToken`
-```
-
-The parameters are as follows:
-
-- `--host` – The host name of the DB cluster that you want to access
-- `--port` – The port number used for connecting to your
-  DB cluster
-- `--ssl-ca` – The full path to the SSL certificate file that contains the
-  public key
-
-For more information, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.md#AuroraMySQL.Security.SSL "AuroraMySQL.md#AuroraMySQL.Security.SSL").
-
-To download an SSL certificate, see [Using SSL/TLS to encrypt a connection to a DB
+To download a certificate, see [Using SSL/TLS to encrypt a connection to a DB
 cluster](UsingWithRDS.md "UsingWithRDS.md").
 
-- `--enable-cleartext-plugin` – A value that specifies
-  that `AWSAuthenticationPlugin` must be used for this
-  connection
+###### Note
 
-If you are using a MariaDB client, the `--enable-cleartext-plugin` option isn't required.
+You cannot use a custom Route 53 DNS record or an
+Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
 
-- `--user` – The database account that you want to
+```
+using System;
+using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using Amazon;
+
+namespace ubuntu
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      var pwd = Amazon.RDS.Util.RDSAuthTokenGenerator.GenerateAuthToken(RegionEndpoint.USEast1, "`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`", `3306`, "`jane_doe`");
+      // for debug only Console.Write("{0}\n", pwd);  //this verifies the token is generated
+
+      MySqlConnection conn = new MySqlConnection($"server=`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`;user=`jane_doe`;database=`mydB`;port=`3306`;password={pwd};SslMode=Required;SslCa=`full_path_to_ssl_certificate`");
+      conn.Open();
+
+      // Define a query
+      MySqlCommand sampleCommand = new MySqlCommand("SHOW DATABASES;", conn);
+
+      // Execute a query
+      MySqlDataReader mysqlDataRdr = sampleCommand.ExecuteReader();
+
+      // Read all rows and output the first column in each row
+      while (mysqlDataRdr.Read())
+        Console.WriteLine(mysqlDataRdr[0]);
+
+      mysqlDataRdr.Close();
+      // Close connection
+      conn.Close();
+    }
+  }
+}
+```
+
+This code connects to an Aurora PostgreSQL DB cluster.
+
+Modify the values of the following variables as needed:
+
+- `Server` – The endpoint of the DB cluster that you want to access
+- `User ID` – The database account that you want to
   access
-- `--password` – A signed IAM authentication
-  token
+- `Database` – The database that you want to access
+- `Port` – The port number used for connecting to your DB
+  cluster
+- `SSL Mode` – The SSL mode to use
 
-The authentication token consists of several hundred characters. It can be
-unwieldy on the command line. One way to work around this is to save the token
-to an environment variable, and then use that variable when you connect. The
-following example shows one way to perform this workaround. In the example, `/sample_dir/`
-is the full path to the SSL certificate file that contains the public key.
+When you use `SSL Mode=Required`, the SSL connection verifies
+the DB cluster endpoint against the endpoint in the
+SSL certificate.
 
-```
+- `Root Certificate` – The full path to the SSL certificate
+  for Amazon Aurora
 
-RDSHOST="`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`"
-TOKEN="$(aws rds generate-db-auth-token --hostname $RDSHOST --port `3306` --region `us-west-2` --username `jane_doe` )"
+To download a certificate, see [Using SSL/TLS to encrypt a connection to a DB
+cluster](UsingWithRDS.md "UsingWithRDS.md").
 
-mysql --host=$RDSHOST --port=`3306` --ssl-ca=`/sample_dir/`global-bundle.pem --enable-cleartext-plugin --user=`jane_doe` --password=$TOKEN
-```
+###### Note
 
-When you connect using `AWSAuthenticationPlugin`, the connection is
-secured using SSL. To verify this, type the following at the `mysql>`
-command prompt.
-
-```
-show status like 'Ssl%';
-```
-
-The following lines in the output show more details.
+You cannot use a custom Route 53 DNS record or an
+Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
 
 ```
-+---------------+-------------+
-| Variable_name | Value                                                                                                                                                                                                                                |
-+---------------+-------------+
-| ...           | ...
-| Ssl_cipher    | AES256-SHA                                                                                                                                                                                                                           |
-| ...           | ...
-| Ssl_version   | TLSv1.1                                                                                                                                                                                                                              |
-| ...           | ...
-+-----------------------------+
+using System;
+using Npgsql;
+using Amazon.RDS.Util;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var pwd = RDSAuthTokenGenerator.GenerateAuthToken("`postgresmycluster.cluster-123456789012.us-east-1.rds.amazonaws.com`", `5432`, "`jane_doe`");
+// for debug only Console.Write("{0}\n", pwd);  //this verifies the token is generated
+
+            NpgsqlConnection conn = new NpgsqlConnection($"Server=`postgresmycluster.cluster-123456789012.us-east-1.rds.amazonaws.com`;User Id=`jane_doe`;Password={pwd};Database=`mydb`;SSL Mode=Require;Root Certificate=`full_path_to_ssl_certificate`");
+            conn.Open();
+
+            // Define a query
+                   NpgsqlCommand cmd = new NpgsqlCommand("select count(*) FROM pg_user", conn);
+
+            // Execute a query
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            // Read all rows and output the first column in each row
+            while (dr.Read())
+                Console.Write("{0}\n", dr[0]);
+
+            // Close connection
+            conn.Close();
+        }
+    }
+}
 ```
 
 If you want to connect to a DB cluster

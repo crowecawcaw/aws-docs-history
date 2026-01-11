@@ -1,172 +1,219 @@
-# Aurora MySQL hints
+# Aurora MySQL thread states
 
-You can use SQL hints with Aurora MySQL queries to fine-tune performance. You can also use hints to prevent execution plans for
-important queries from changing because of unpredictable conditions.
+The following are some common thread states for Aurora MySQL.
 
-###### Tip
+**checking permissions**
 
-To verify the effect that a hint has on a query, examine the query plan produced by the
-`EXPLAIN` statement. Compare the query plans with and without the hint.
+The thread is checking whether the server has the required privileges to run the statement.
 
-In Aurora MySQL version 3, you can use all the hints that are available in MySQL Community Edition 8.0. For more information about
-these hints, see [Optimizer Hints](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html") in the
-_MySQL Reference Manual_.
+**checking query cache for query**
 
-The following hints are available in Aurora MySQL version 2. These hints apply to queries that use the hash join feature in Aurora MySQL
-version 2, especially queries that use parallel query optimization.
+The server is checking whether the current query is present in the query cache.
 
-**PQ, NO_PQ**
+**cleaned up**
 
-Specifies whether to force the optimizer to use parallel query on a per-table or per-query basis.
+This is the final state of a connection whose work is complete but which hasn't been closed by the
+client. The best solution is to explicitly close the connection in code. Or you can set a lower value
+for `wait_timeout` in your parameter group.
 
-`PQ` forces the optimizer to use parallel query for specified tables or the whole query (block).
-`NO_PQ` prevents the optimizer from using parallel query for specified tables or the whole query
-(block).
+**closing tables**
 
-This hint is available in Aurora MySQL version 2.11 and higher. The following examples show you how to use this
-hint.
+The thread is flushing the changed table data to disk and closing the used tables. If this isn't a
+fast operation, verify the network bandwidth consumption metrics against the instance class network
+bandwidth. Also, check that the parameter values for `table_open_cache` and
+`table_definition_cache` parameter allow for enough tables to be simultaneously open
+so that the engine doesn't need to open and close tables frequently. These parameters influence the
+memory consumption on the instance.
 
-###### Note
+**converting HEAP to MyISAM**
 
-Specifying a table name forces the optimizer to apply the `PQ/NO_PQ` hint only on those select tables.
-Not specifying a table name forces the `PQ/NO_PQ` hint on all tables affected by the query block.
+The query is converting a temporary table from in-memory to on-disk. This conversion is necessary
+because the temporary tables created by MySQL in the intermediate steps of query processing grew too
+big for memory. Check the values of `tmp_table_size` and `max_heap_table_size`.
+In later versions, this thread state name is `converting HEAP to ondisk`.
 
-```
-EXPLAIN SELECT /*+ PQ() */ f1, f2
-    FROM num1 t1 WHERE f1 > 10 and f2 < 100;
+**converting HEAP to ondisk**
 
-EXPLAIN SELECT /*+ PQ(t1) */ f1, f2
-    FROM num1 t1 WHERE f1 > 10 and f2 < 100;
+The thread is converting an internal temporary table from an in-memory table to an on-disk
+table.
 
-EXPLAIN SELECT /*+ PQ(t1,t2) */ f1, f2
-    FROM num1 t1, num1 t2 WHERE t1.f1 = t2.f21;
+**copy to tmp table**
 
-EXPLAIN SELECT /*+ NO_PQ() */ f1, f2
-    FROM num1 t1 WHERE f1 > 10 and f2 < 100;
+The thread is processing an `ALTER TABLE` statement. This state occurs after the table
+with the new structure has been created but before rows are copied into it. For a thread in this
+state, you can use the Performance Schema to obtain information about the progress of the copy
+operation.
 
-EXPLAIN SELECT /*+ NO_PQ(t1) */ f1, f2
-    FROM num1 t1 WHERE f1 > 10 and f2 < 100;
+**creating sort index**
 
-EXPLAIN SELECT /*+ NO_PQ(t1,t2) */ f1, f2
-    FROM num1 t1, num1 t2 WHERE t1.f1 = t2.f21;
-```
+Aurora MySQL is performing a sort because it can't use an existing index to satisfy the `ORDER
+ BY` or `GROUP BY` clause of a query. For more information, see [creating sort index](ams-states.md "ams-states.md").
 
-**HASH_JOIN, NO_HASH_JOIN**
+**creating table**
 
-Turns on or off the ability of the parallel query optimizer to choose whether to use the hash join optimization method for a
-query. `HASH_JOIN` lets the optimizer use hash join if that mechanism is more efficient.
-`NO_HASH_JOIN` prevents the optimizer from using hash join for the query. This hint is available in
-Aurora MySQL version 2.08 and higher. It has no effect in Aurora MySQL version 3.
+The thread is creating a permanent or temporary table.
 
-The following examples show you how to use this hint.
+**delayed commit ok done**
 
-```
-EXPLAIN SELECT/*+ HASH_JOIN(t2) */ f1, f2
-  FROM t1, t2 WHERE t1.f1 = t2.f1;
+An asynchronous commit in Aurora MySQL has received an acknowledgement and is complete.
 
-EXPLAIN SELECT /*+ NO_HASH_JOIN(t2) */ f1, f2
-  FROM t1, t2 WHERE t1.f1 = t2.f1;
+**delayed commit ok initiated**
 
-```
+The Aurora MySQL thread has started the async commit process but is waiting for acknowledgement. This
+is usually the genuine commit time of a transaction.
 
-**HASH_JOIN_PROBING, NO_HASH_JOIN_PROBING**
+**delayed send ok done**
 
-In a hash join query, specifies whether to use the specified table for the probe side of the join. The query tests if column
-values from the build table exist in the probe table, instead of reading the entire contents of the probe table. You can
-use `HASH_JOIN_PROBING` and `HASH_JOIN_BUILDING` to specify how hash join queries are processed
-without reordering the tables within the query text. This hint is available in Aurora MySQL version 2.08 and higher. It
-has no effect in Aurora MySQL version 3.
+An Aurora MySQL worker thread that is tied to a connection can be freed while a response is sent to
+the client. The thread can begin other work. The state `delayed send ok` means that the
+asynchronous acknowledgement to the client completed.
 
-The following examples show how to use this hint. Specifying the `HASH_JOIN_PROBING` hint
-for the table `T2` has the same effect as specifying `NO_HASH_JOIN_PROBING`
-for the table `T1`.
+**delayed send ok initiated**
 
-```
-EXPLAIN SELECT /*+ HASH_JOIN(t2) HASH_JOIN_PROBING(t2) */ f1, f2
-  FROM t1, t2 WHERE t1.f1 = t2.f1;
+An Aurora MySQL worker thread has sent a response asynchronously to a client and is now free to do
+work for other connections. The transaction has started an async commit process that hasn't yet been
+acknowledged.
 
-EXPLAIN SELECT /*+ HASH_JOIN(t2) NO_HASH_JOIN_PROBING(t1) */ f1, f2
-  FROM t1, t2 WHERE t1.f1 = t2.f1;
+**executing**
 
-```
+The thread has begun running a statement.
 
-**HASH_JOIN_BUILDING, NO_HASH_JOIN_BUILDING**
+**freeing items**
 
-In a hash join query, specifies whether to use the specified table for the build side of the join. The query processes all the
-rows from this table to build the list of column values to cross-reference with the other table. You can use
-`HASH_JOIN_PROBING` and `HASH_JOIN_BUILDING` to specify how hash join queries are processed
-without reordering the tables within the query text. This hint is available in Aurora MySQL version 2.08 and higher. It
-has no effect in Aurora MySQL version 3.
+The thread has run a command. Some freeing of items done during this state involves the query
+cache. This state is usually followed by cleaning up.
 
-The following example shows you how to use this hint. Specifying the `HASH_JOIN_BUILDING` hint for the table
-`T2` has the same effect as specifying `NO_HASH_JOIN_BUILDING` for the table
-`T1`.
+**init**
 
-```
-EXPLAIN SELECT /*+ HASH_JOIN(t2) HASH_JOIN_BUILDING(t2) */ f1, f2
-  FROM t1, t2 WHERE t1.f1 = t2.f1;
+This state occurs before the initialization of `ALTER TABLE`, `DELETE`,
+`INSERT`, `SELECT`, or `UPDATE` statements. Actions in this
+state include flushing the binary log or InnoDB log, and some cleanup of the query cache.
 
-EXPLAIN SELECT /*+ HASH_JOIN(t2) NO_HASH_JOIN_BUILDING(t1) */ f1, f2
-  FROM t1, t2 WHERE t1.f1 = t2.f1;
+**Source has sent all binlog to replica; waiting for more updates**
 
-```
+The primary node has finished its part of the replication. The thread is waiting for more queries
+to run so that it can write to the binary log (binlog).
 
-**JOIN_FIXED_ORDER**
+**opening tables**
 
-Specifies that tables in the query are joined based on the order they are listed in the query. It is useful with queries
-involving three or more tables. It is intended as a replacement for the MySQL `STRAIGHT_JOIN` hint and is
-equivalent to the MySQL [JOIN_FIXED_ORDER](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html") hint.
-This hint is available in Aurora MySQL version 2.08 and higher.
+The thread is trying to open a table. This operation is fast unless an `ALTER TABLE` or
+a `LOCK TABLE` statement needs to finish, or it exceeds the value of
+`table_open_cache`.
 
-The following example shows you how to use this hint.
+**optimizing**
 
-```
-EXPLAIN SELECT /*+ JOIN_FIXED_ORDER() */ f1, f2
-  FROM t1 JOIN t2 USING (id) JOIN t3 USING (id) JOIN t4 USING (id);
+The server is performing initial optimizations for a query.
 
-```
+**preparing**
 
-**JOIN_ORDER**
+This state occurs during query optimization.
 
-Specifies the join order for the tables in the query. It is useful with queries involving three or more tables. It is
-equivalent to the MySQL [JOIN_ORDER](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html")
-hint. This hint is available in Aurora MySQL version 2.08 and higher.
+**query end**
 
-The following example shows you how to use this hint.
+This state occurs after processing a query but before the freeing items state.
 
-```
-EXPLAIN SELECT /*+ JOIN_ORDER (t4, t2, t1, t3) */ f1, f2
-  FROM t1 JOIN t2 USING (id) JOIN t3 USING (id) JOIN t4 USING (id);
+**removing duplicates**
 
-```
+Aurora MySQL couldn't optimize a `DISTINCT` operation in the early stage of a query.
+Aurora MySQL must remove all duplicated rows before sending the result to the client.
 
-**JOIN_PREFIX**
+**searching rows for update**
 
-Specifies the tables to put first in the join order. It is useful with queries involving three or more tables. It is
-equivalent to the MySQL [JOIN_PREFIX](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html")
-hint. This hint is available in Aurora MySQL version 2.08 and higher.
+The thread is finding all matching rows before updating them. This stage is necessary if the
+`UPDATE` is changing the index that the engine uses to find the rows.
 
-The following example shows you how to use this hint.
+**sending binlog event to slave**
 
-```
-EXPLAIN SELECT /*+ JOIN_PREFIX (t4, t2) */ f1, f2
-  FROM t1 JOIN t2 USING (id) JOIN t3 USING (id) JOIN t4 USING (id);
+The thread read an event from the binary log and is sending it to the replica.
 
-```
+**sending cached result to client**
 
-**JOIN_SUFFIX**
+The server is taking the result of a query from the query cache and sending it to the
+client.
 
-Specifies the tables to put last in the join order. It is useful with queries involving three or more tables. It is equivalent
-to the MySQL [JOIN_SUFFIX](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html "https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html") hint. This
-hint is available in Aurora MySQL version 2.08 and higher.
+**sending data**
 
-The following example shows you how to use this hint.
+The thread is reading and processing rows for a `SELECT` statement but hasn't yet
+started sending data to the client. The process is identifying which pages contain the results
+necessary to satisfy the query. For more information, see [sending data](ams-states.md "ams-states.md").
 
-```
-EXPLAIN SELECT /*+ JOIN_SUFFIX (t1) */ f1, f2
-  FROM t1 JOIN t2 USING (id) JOIN t3 USING (id) JOIN t4 USING (id);
+**sending to client**
 
-```
+The server is writing a packet to the client. In earlier MySQL versions, this wait event was
+labeled `writing to net`.
 
-For information about using hash join queries, see
-[Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.md#Aurora.BestPractices.HashJoin").
+**starting**
+
+This is the first stage at the beginning of statement execution.
+
+**statistics**
+
+The server is calculating statistics to develop a query execution plan. If a thread is in this
+state for a long time, the server is probably disk-bound while performing other work.
+
+**storing result in query cache**
+
+The server is storing the result of a query in the query cache.
+
+**system lock**
+
+The thread has called `mysql_lock_tables`, but the thread state hasn't been updated
+since the call. This general state occurs for many reasons.
+
+**update**
+
+The thread is preparing to start updating the table.
+
+**updating**
+
+The thread is searching for rows and is updating them.
+
+**user lock**
+
+The thread issued a `GET_LOCK` call. The thread either requested an advisory lock and is
+waiting for it, or is planning to request it.
+
+**waiting for more updates**
+
+The primary node has finished its part of the replication. The thread is waiting for more queries
+to run so that it can write to the binary log (binlog).
+
+**waiting for schema metadata lock**
+
+This is a wait for a metadata lock.
+
+**waiting for stored function metadata lock**
+
+This is a wait for a metadata lock.
+
+**waiting for stored procedure metadata lock**
+
+This is a wait for a metadata lock.
+
+**waiting for table flush**
+
+The thread is executing `FLUSH TABLES` and is waiting for all threads to close their
+tables. Or the thread received notification that the underlying structure for a table changed, so it
+must reopen the table to get the new structure. To reopen the table, the thread must wait until all
+other threads have closed the table. This notification takes place if another thread has used one of
+the following statements on the table: `FLUSH TABLES`, `ALTER TABLE`,
+`RENAME TABLE`, `REPAIR TABLE`, `ANALYZE TABLE`, or
+`OPTIMIZE TABLE`.
+
+**waiting for table level lock**
+
+One session is holding a lock on a table while another session tries to acquire the same lock on
+the same table.
+
+**waiting for table metadata lock**
+
+Aurora MySQL uses metadata locking to manage concurrent access to database objects and to ensure data
+consistency. In this wait event, one session is holding a metadata lock on a table while another
+session tries to acquire the same lock on the same table. When the Performance Schema is enabled,
+this thread state is reported as the wait event
+`synch/cond/sql/MDL_context::COND_wait_status`.
+
+**writing to net**
+
+The server is writing a packet to the network. In later MySQL versions, this wait event is labeled
+`Sending to client`.

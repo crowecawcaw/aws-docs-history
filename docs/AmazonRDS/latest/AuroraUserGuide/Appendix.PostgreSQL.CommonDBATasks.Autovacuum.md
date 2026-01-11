@@ -1,59 +1,52 @@
-# Reindexing a table
+# Determining
 
-when autovacuum is running
+if autovacuum is currently running and for how long
 
-If an index has become corrupt, autovacuum continues to process the table and fails. If
-you attempt a manual vacuum in this situation, you receive an error message like the
-following.
+If you need to manually vacuum a table, make sure to determine if autovacuum is currently
+running. If it is, you might need to adjust parameters to make it run more efficiently, or
+turn off autovacuum temporarily so that you can manually run VACUUM.
 
-```
-`postgres=>`  `vacuum freeze pgbench_branches;`
-`ERROR: index "pgbench_branches_test_index" contains unexpected
- zero page at block 30521
-HINT: Please REINDEX it.`
-```
-
-When the index is corrupted and autovacuum is attempting to run on the table, you contend
-with an already running autovacuum session. When you issue a [REINDEX](https://www.postgresql.org/docs/current/static/sql-reindex.html "https://www.postgresql.org/docs/current/static/sql-reindex.html")
-command, you take out an exclusive lock on the table. Write operations are blocked, and also
-read operations that use that specific index.
-
-###### To reindex a table when autovacuum is running on the table
-
-1. Open two sessions to the database containing the table that you want to vacuum. For
-   the second session, use "screen" or another utility that maintains the session if your
-   connection is dropped.
-2. In session one, get the PID of the autovacuum session running on the table.
-
-Run the following query to get the PID of the autovacuum session.
+Use the following query to determine if autovacuum is running, how long it has been
+running, and if it is waiting on another session.
 
 ```
-`SELECT datname, usename, pid, current_timestamp - xact_start
-AS xact_runtime, query
-FROM pg_stat_activity WHERE upper(query) like '%VACUUM%' ORDER BY
-xact_start;`
+SELECT datname, usename, pid, state, wait_event, current_timestamp - xact_start AS xact_runtime, query
+FROM pg_stat_activity
+WHERE upper(query) LIKE '%VACUUM%'
+ORDER BY xact_start;
 ```
 
-3. In session two, issue the reindex command.
-
-```
-`\timing on`
-`Timing is on.`
-`reindex index pgbench_branches_test_index;`
-`REINDEX
- Time: 9.966 ms`
+After running the query, you should see output similar to the following.
 
 ```
 
-4. In session one, if autovacuum was blocking the process, you see in
-   `pg_stat_activity` that waiting is "T" for your vacuum session. In this case,
-   you end the autovacuum process.
+ datname | usename  |  pid  | state  | wait_event |      xact_runtime       | query
+ --------+----------+-------+--------+------------+-------------------------+--------------------------------------------------------------------------------------------------------
+ mydb    | rdsadmin | 16473 | active |            | 33 days 16:32:11.600656 | autovacuum: VACUUM ANALYZE public.mytable1 (to prevent wraparound)
+ mydb    | rdsadmin | 22553 | active |            | 14 days 09:15:34.073141 | autovacuum: VACUUM ANALYZE public.mytable2 (to prevent wraparound)
+ mydb    | rdsadmin | 41909 | active |            | 3 days 02:43:54.203349  | autovacuum: VACUUM ANALYZE public.mytable3
+ mydb    | rdsadmin |   618 | active |            | 00:00:00                | SELECT datname, usename, pid, state, wait_event, current_timestamp - xact_start AS xact_runtime, query+
+         |          |       |        |            |                         | FROM pg_stat_activity                                                                                 +
+         |          |       |        |            |                         | WHERE query like '%VACUUM%'                                                                           +
+         |          |       |        |            |                         | ORDER BY xact_start;                                                                                  +
 
 ```
-SELECT pg_terminate_backend('the_pid');
+
+Several issues can cause a long-running autovacuum session (that is, multiple days long).
+The most common issue is that your [`maintenance_work_mem`](https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/static/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") parameter value is set too low for the size of
+the table or rate of updates.
+
+We recommend that you use the following formula to set the
+`maintenance_work_mem` parameter value.
+
+```
+GREATEST({DBInstanceClassMemory/63963136*1024},65536)
 ```
 
-At this point, your session begins. It's important to note that autovacuum restarts
-immediately because this table is probably the highest on its list of work. 5. Initiate your command in session two, and then end the autovacuum process in session
+Short running autovacuum sessions can also indicate problems:
 
-1.
+- It can indicate that there aren't enough `autovacuum_max_workers` for
+  your workload. In this case, you need to indicate the number of workers.
+- It can indicate that there is an index corruption (autovacuum crashes and restarts on
+  the same relation but makes no progress). In this case, run a manual `vacuum freeze
+verbose `table`` to see the exact cause.

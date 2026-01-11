@@ -1,274 +1,40 @@
-# Aurora MySQL in-place upgrade tutorial
+# Troubleshooting for Aurora MySQL in-place upgrade
 
-The following Linux examples show how you might perform the general steps of the in-place
-upgrade procedure using the AWS CLI.
+Use the following tips to help troubleshoot problems with Aurora MySQL in-place upgrades. These tips don't apply to Aurora Serverless DB
+clusters.
 
-This first example creates an Aurora DB cluster that's running a 2.x version of
-Aurora MySQL. The cluster includes a writer DB instance and a reader DB instance. The `wait
- db-instance-available` command pauses until the writer DB instance is available.
-That's the point when the cluster is ready to be upgraded.
+| Reason for in-place upgrade being canceled or slow                     | Effect                          | Solution to allow in-place upgrade to complete within maintenance window                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Associated Aurora cross-Region replica isn't patched yet               | Aurora cancels the upgrade.     | Upgrade the Aurora cross-Region replica and try again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Cluster has XA transactions in the prepared state                      | Aurora cancels the upgrade.     | Commit or roll back all prepared XA transactions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Cluster is processing any data definition language (DDL) statements    | Aurora cancels the upgrade.     | Consider waiting and performing the upgrade after all DDL statements are finished.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Cluster has uncommitted changes for many rows                          | Upgrade might take a long time. | The upgrade process rolls back the uncommitted changes. The indicator for this condition is the value of `TRX_ROWS_MODIFIED` in<br>the `INFORMATION_SCHEMA.INNODB_TRX` table.<br>Consider performing the upgrade only after all large transactions are committed or rolled back.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Cluster has high number of undo records                                | Upgrade might take a long time. | Even if the uncommitted transactions don't affect a large number of rows, they might involve a large volume of data. For example, you<br>might be inserting large BLOBs. Aurora doesn't automatically detect or generate an event for this kind of transaction activity. The<br>indicator for this condition is the history list length (HLL). The upgrade process rolls back the uncommitted changes.<br>You can check the HLL in the output from the `SHOW ENGINE INNODB STATUS` SQL command, or directly by using the following SQL<br>query:<br>`<br>SELECT count FROM information_schema.innodb_metrics WHERE name = 'trx_rseg_history_len';<br>`<br>You can also monitor the `RollbackSegmentHistoryListLength` metric in Amazon CloudWatch.<br>Consider performing the upgrade only after the HLL is smaller. |
+| Cluster is in the process of committing a large binary log transaction | Upgrade might take a long time. | The upgrade process waits until the binary log changes are applied. More transactions or DDL statements could start during this period,<br>further slowing down the upgrade process.<br>Schedule the upgrade process when the cluster isn't busy with generating binary log replication changes. Aurora doesn't<br>automatically detect or generate an event for this condition.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Schema inconsistencies resulting from file removal or corruption       | Aurora cancels the upgrade.     | Change the default storage engine for temporary tables from MyISAM to InnoDB. Perform the following steps:<br>1. Modify the `default_tmp_storage_engine` DB parameter to `InnoDB`.<br>2. Reboot the DB cluster.<br>3. After rebooting, confirm that the `default_tmp_storage_engine` DB parameter is set to `InnoDB`. Use the following<br>command:<br>`<br>show global variables like 'default_tmp_storage_engine';<br>`<br>4. Make sure not to create any temporary tables that use the MyISAM storage engine. We recommend that you pause any database workload and<br>not create any new database connections, because you're upgrading soon.<br>5. Try the in-place upgrade again.                                                                                                                              |
+| Master user was deleted                                                | Aurora cancels the upgrade.     | ImportantDon't delete the master user.<br>However, if for some reason you should happen to delete the master user, restore it using the following SQL commands:<br>``<br>CREATE USER '`master_username`'@'%' IDENTIFIED BY '`master_user_password`' REQUIRE NONE PASSWORD EXPIRE DEFAULT ACCOUNT UNLOCK;<br>GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES,<br>LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT,<br>TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA, INVOKE SAGEMAKER, INVOKE COMPREHEND ON *.<br>• TO '`master_username`'@'%' WITH GRANT OPTION;<br>``                                                           |
 
-```
-aws rds create-db-cluster --db-cluster-identifier mynewdbcluster --engine aurora-mysql \
-  --db-cluster-version 5.7.mysql_aurora.2.11.2
-`...`
-aws rds create-db-instance --db-instance-identifier mynewdbcluster-instance1 \
-  --db-cluster-identifier mynewdbcluster --db-instance-class db.t4g.medium --engine aurora-mysql
-`...`
-aws rds wait db-instance-available --db-instance-identifier mynewdbcluster-instance1
-```
+For more details on troubleshooting issues that cause upgrade prechecks to fail, see the following blogs:
 
-The Aurora MySQL 3.x versions that you can upgrade the cluster to depend on the 2.x version that the cluster is currently running and on the
-AWS Region where the cluster is located. The first command, with `--output text`, just shows the available target version. The second command
-shows the full JSON output of the response. In that response, you can see details such as the `aurora-mysql` value that you use for the
-`engine` parameter. You can also see the fact that upgrading to 3.04.0 represents a major version upgrade.
+- [Amazon Aurora MySQL version 2 (with MySQL 5.7 compatibility) to version 3 (with MySQL 8.0 compatibility) upgrade checklist, Part 1](https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-1/ "https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-1/")
+- [Amazon Aurora MySQL version 2 (with MySQL 5.7 compatibility) to version 3 (with MySQL 8.0 compatibility) upgrade checklist, Part 2](https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-2/ "https://aws.amazon.com/blogs/database/amazon-aurora-mysql-version-2-with-mysql-5-7-compatibility-to-version-3-with-mysql-8-0-compatibility-upgrade-checklist-part-2/")
+  You can use the following steps to perform your own checks for some of the conditions in the preceding table. That way, you can schedule the upgrade
+  at a time when you know the database is in a state where the upgrade can complete successfully and quickly.
 
-```
-aws rds describe-db-clusters --db-cluster-identifier mynewdbcluster \
-  --query '*[].{EngineVersion:EngineVersion}' --output text
-`5.7.mysql_aurora.2.11.2`
-
-aws rds describe-db-engine-versions --engine aurora-mysql --engine-version 5.7.mysql_aurora.2.11.2 \
-  --query '*[].[ValidUpgradeTarget]'
-`...
-{
- "Engine": "aurora-mysql",
- "EngineVersion": "8.0.mysql_aurora.3.04.0",
- "Description": "Aurora MySQL 3.04.0 (compatible with MySQL 8.0.28)",
- "AutoUpgrade": false,
- "IsMajorVersionUpgrade": true,
- "SupportedEngineModes": [
- "provisioned"
- ],
- "SupportsParallelQuery": true,
- "SupportsGlobalDatabases": true,
- "SupportsBabelfish": false,
- "SupportsIntegrations": false
-},
-...`
-```
-
-This example shows how if you enter a target version number that isn't a valid
-upgrade target for the cluster, Aurora doesn't perform the upgrade. Aurora also
-doesn't perform a major version upgrade unless you include the
-`--allow-major-version-upgrade` parameter. That way, you can't accidentally
-perform an upgrade that has the potential to require extensive testing and changes to your
-application code.
+- You can check for open XA transactions by executing the `XA RECOVER` statement. You can then commit or roll back the XA transactions
+  before starting the upgrade.
+- You can check for DDL statements by executing a `SHOW PROCESSLIST` statement and looking for `CREATE`, `DROP`,
+  `ALTER`, `RENAME`, and `TRUNCATE` statements in the output. Allow all DDL statements to finish before starting the
+  upgrade.
+- You can check the total number of uncommitted rows by querying the `INFORMATION_SCHEMA.INNODB_TRX` table. The table contains one row
+  for each transaction. The `TRX_ROWS_MODIFIED` column contains the number of rows modified or inserted by the transaction.
+- You can check the length of the InnoDB history list by executing the `SHOW ENGINE INNODB STATUS SQL` statement and looking for the
+  `History list length` in the output. You can also check the value directly by running the following query:
 
 ```
-aws rds modify-db-cluster --db-cluster-identifier mynewdbcluster \
-  --engine-version 5.7.mysql_aurora.2.09.2 --apply-immediately
-`An error occurred (InvalidParameterCombination) when calling the ModifyDBCluster operation: Cannot find upgrade target from 5.7.mysql_aurora.2.11.2 with requested version 5.7.mysql_aurora.2.09.2.`
-
-aws rds modify-db-cluster --db-cluster-identifier mynewdbcluster \
-  --engine-version 8.0.mysql_aurora.3.04.0 --region us-east-1 --apply-immediately
-`An error occurred (InvalidParameterCombination) when calling the ModifyDBCluster operation: The AllowMajorVersionUpgrade flag must be present when upgrading to a new major version.`
-
-aws rds modify-db-cluster --db-cluster-identifier mynewdbcluster \
-  --engine-version 8.0.mysql_aurora.3.04.0 --apply-immediately --allow-major-version-upgrade
-`{
- "DBClusterIdentifier": "mynewdbcluster",
- "Status": "available",
- "Engine": "aurora-mysql",
- "EngineVersion": "5.7.mysql_aurora.2.11.2"
-}`
-```
-
-It takes a few moments for the status of the cluster and associated DB instances to
-change to `upgrading`. The version numbers for the cluster and DB instances only
-change when the upgrade is finished. Again, you can use the `wait
- db-instance-available` command for the writer DB instance to wait until the upgrade is
-finished before proceeding.
+SELECT count FROM information_schema.innodb_metrics WHERE name = 'trx_rseg_history_len';
 
 ```
-aws rds describe-db-clusters --db-cluster-identifier mynewdbcluster \
-  --query '*[].[Status,EngineVersion]' --output text`upgrading 5.7.mysql_aurora.2.11.2`
 
-aws rds describe-db-instances --db-instance-identifier mynewdbcluster-instance1 \
-  --query '*[].{DBInstanceIdentifier:DBInstanceIdentifier,DBInstanceStatus:DBInstanceStatus} | [0]'
-`{
- "DBInstanceIdentifier": "mynewdbcluster-instance1",
- "DBInstanceStatus": "upgrading"
-}`
-
-aws rds wait db-instance-available --db-instance-identifier mynewdbcluster-instance1
-```
-
-At this point, the version number for the cluster matches the one that was specified for
-the upgrade.
-
-```
-aws rds describe-db-clusters --db-cluster-identifier mynewdbcluster \
-  --query '*[].[EngineVersion]' --output text
-`8.0.mysql_aurora.3.04.0`
-```
-
-The preceding example did an immediate upgrade by specifying the
-`--apply-immediately` parameter. To let the upgrade happen at a convenient time
-when the cluster isn't expected to be busy, you can specify the
-`--no-apply-immediately` parameter. Doing so makes the upgrade start during the
-next maintenance window for the cluster. The maintenance window defines the period during
-which maintenance operations can start. A long-running operation might not finish during the
-maintenance window. Thus, you don't need to define a larger maintenance window even if
-you expect that the upgrade might take a long time.
-
-The following example upgrades a cluster that's initially running Aurora MySQL version 2.11.2. In the `describe-db-engine-versions`
-output, the `False` and `True` values represent the `IsMajorVersionUpgrade` property. From version 2.11.2, you can
-upgrade to some other 2.\* versions. Those upgrades aren't considered major version upgrades and so don't require an in-place upgrade. In-place
-upgrade is only available for upgrades to the 3.\* versions that are shown in the list.
-
-```
-aws rds describe-db-clusters --db-cluster-identifier mynewdbcluster \
-  --query '*[].{EngineVersion:EngineVersion}' --output text
-`5.7.mysql_aurora.2.11.2`
-
-aws rds describe-db-engine-versions --engine aurora-mysql --engine-version 5.7.mysql_aurora.2.10.2 \
-  --query '*[].[ValidUpgradeTarget]|[0][0]|[*].[EngineVersion,IsMajorVersionUpgrade]' --output text
-`5.7.mysql_aurora.2.11.3 False
-5.7.mysql_aurora.2.11.4 False
-5.7.mysql_aurora.2.11.5 False
-5.7.mysql_aurora.2.11.6 False
-5.7.mysql_aurora.2.12.0 False
-5.7.mysql_aurora.2.12.1 False
-5.7.mysql_aurora.2.12.2 False
-5.7.mysql_aurora.2.12.3 False
-8.0.mysql_aurora.3.04.0 True
-8.0.mysql_aurora.3.04.1 True
-8.0.mysql_aurora.3.04.2 True
-8.0.mysql_aurora.3.04.3 True
-8.0.mysql_aurora.3.05.2 True
-8.0.mysql_aurora.3.06.0 True
-8.0.mysql_aurora.3.06.1 True
-8.0.mysql_aurora.3.07.1 True`
-
-aws rds modify-db-cluster --db-cluster-identifier mynewdbcluster \
-  --engine-version 8.0.mysql_aurora.3.04.0 --no-apply-immediately --allow-major-version-upgrade
-`...`
-```
-
-When a cluster is created without a specified maintenance window, Aurora picks a random day
-of the week. In this case, the `modify-db-cluster` command is submitted on a
-Monday. Thus, we change the maintenance window to be Tuesday morning. All times are
-represented in the UTC time zone. The `tue:10:00-tue:10:30` window corresponds to
-2:00-2:30 AM Pacific time. The change in the maintenance window takes effect
-immediately.
-
-```
-aws rds describe-db-clusters --db-cluster-identifier mynewdbcluster --query '*[].[PreferredMaintenanceWindow]'
-`[
- [
- "sat:08:20-sat:08:50"
- ]
-]`
-
-aws rds modify-db-cluster --db-cluster-identifier mynewdbcluster --preferred-maintenance-window tue:10:00-tue:10:30"
-aws rds describe-db-clusters --db-cluster-identifier mynewdbcluster --query '*[].[PreferredMaintenanceWindow]'
-`[
- [
- "tue:10:00-tue:10:30"
- ]
-]`
-```
-
-The following example shows how to get a report of the events generated by the upgrade.
-The `--duration` argument represents the number of minutes to retrieve the event
-information. This argument is needed, because by default `describe-events` only
-returns events from the last hour.
-
-```
-aws rds describe-events --source-type db-cluster --source-identifier mynewdbcluster --duration 20160
-`{
- "Events": [
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "DB cluster created",
- "EventCategories": [
- "creation"
- ],
- "Date": "2022-11-17T01:24:11.093000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Performing online pre-upgrade checks.",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T22:57:08.450000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Performing offline pre-upgrade checks.",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T22:57:59.519000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Creating pre-upgrade snapshot [preupgrade-mynewdbcluster-5-7-mysql-aurora-2-10-2-to-8-0-mysql-aurora-3-02-0-2022-11-18-22-55].",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T23:00:22.318000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Cloning volume.",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T23:01:45.428000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Purging undo records for old row versions. Records remaining: 164",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T23:02:25.141000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Purging undo records for old row versions. Records remaining: 164",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T23:06:23.036000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Upgrade in progress: Upgrading database objects.",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T23:06:48.208000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- },
- {
- "SourceIdentifier": "mynewdbcluster",
- "SourceType": "db-cluster",
- "Message": "Database cluster major version has been upgraded",
- "EventCategories": [
- "maintenance"
- ],
- "Date": "2022-11-18T23:10:28.999000+00:00",
- "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:mynewdbcluster"
- }
- ]
-}`
-```
+The length of the history list corresponds to the amount of undo information stored by the database to implement multi-version concurrency
+control (MVCC).

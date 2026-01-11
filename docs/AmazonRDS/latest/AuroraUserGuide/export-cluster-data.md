@@ -1,65 +1,37 @@
-# Exporting DB cluster data to Amazon S3
+# Canceling a DB cluster export task
 
-You can export data from a live Amazon Aurora DB cluster to an Amazon S3 bucket. The export process runs in the background and doesn't
-affect the performance of your active DB cluster.
+You can cancel a DB cluster export task using the AWS Management Console, the AWS CLI, or the RDS API.
 
-By default, all data in the DB cluster is exported. However, you can choose to export specific sets of
-databases, schemas, or tables.
+###### Note
 
-Amazon Aurora clones the DB cluster, extracts data from the clone, and stores the data in an Amazon S3 bucket. The data is stored in an
-Apache Parquet format that is compressed and consistent. Individual Parquet files are usually 1–10 MB in size.
+Canceling an export task doesn't remove any data that was exported to Amazon S3. For information about how to delete the
+data using the console, see [How do I
+delete objects from an S3 bucket?](../../../AmazonS3/latest/user-guide/delete-objects.md "../../../AmazonS3/latest/user-guide/delete-objects.md") To delete the data using the CLI, use the [delete-object](../../../cli/latest/reference/s3api/delete-object.md "../../../cli/latest/reference/s3api/delete-object.md") command.
 
-The faster performance that you can get with exporting snapshot data for Aurora MySQL version 2 and version 3 doesn't apply to
-exporting DB cluster data. For more information, see [Exporting DB cluster snapshot data to Amazon S3](aurora-export-snapshot.md "aurora-export-snapshot.md").
+###### To cancel a DB cluster export task
 
-You're charged for exporting the entire DB cluster, whether you export all or partial data. For more information, see the [Amazon Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/").
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Exports in Amazon S3**.
 
-After the data is exported, you can analyze the exported data directly through tools like Amazon Athena or Amazon Redshift Spectrum. For more
-information on using Athena to read Parquet data, see [Parquet SerDe](../../../athena/latest/ug/parquet-serde.md "../../../athena/latest/ug/parquet-serde.md") in the
-_Amazon Athena User Guide_. For more information on using Redshift Spectrum to read Parquet data, see [COPY from columnar data formats](../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md "../../../redshift/latest/dg/copy-usage_notes-copy-from-columnar.md") in the
-_Amazon Redshift Database Developer Guide_.
+DB cluster exports are indicated in the **Source type** column. Export status is displayed in
+the **Status** column. 3. Choose the export task that you want to cancel. 4. Choose **Cancel**. 5. Choose **Cancel export task** on the confirmation page.
 
-Feature availability and support varies across specific versions of each database engine and across AWS Regions. For more
-information on version and Region availability of exporting DB cluster data to S3, see [Supported
-Regions and Aurora DB engines for exporting cluster data to
-Amazon S3](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+To cancel an export task using the AWS CLI, use the [cancel-export-task](../../../cli/latest/reference/rds/cancel-export-task.md "../../../cli/latest/reference/rds/cancel-export-task.md") command. The command requires the `--export-task-identifier` option.
 
-You use the following process to export DB cluster data to an Amazon S3 bucket. For more details, see the following
-sections.
+```
+aws rds cancel-export-task --export-task-identifier my-export
+{
+    "Status": "CANCELING",
+    "S3Prefix": "",
+    "S3Bucket": "`amzn-s3-demo-bucket`",
+    "PercentProgress": 0,
+    "KmsKeyId": "arn:aws:kms:`us-west-2`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "ExportTaskIdentifier": "my-export",
+    "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
+    "TotalExtractedDataInGB": 0,
+    "SourceArn": "arn:aws:rds:`us-west-2`:123456789012:cluster:export-example-1"
+}
+```
 
-###### Overview of exporting DB cluster data
-
-1. Identify the DB cluster whose data you want to export.
-2. Set up access to the Amazon S3 bucket.
-
-A _bucket_ is a container for Amazon S3 objects or files. To provide the information to
-access a bucket, take the following steps:
-
-    1. Identify the S3 bucket where the DB cluster data is to be exported. The S3 bucket must be in the same AWS
-     Region as the DB cluster. For more information, see [Identifying the Amazon S3 bucket for export](export-cluster-data.md#export-cluster-data.SetupBucket "export-cluster-data.md#export-cluster-data.SetupBucket").
-    2. Create an AWS Identity and Access Management (IAM) role that grants the DB cluster export task access to the S3 bucket. For more
-     information, see [Providing access to an Amazon S3 bucket using an IAM role](export-cluster-data.md#export-cluster-data.SetupIAMRole "export-cluster-data.md#export-cluster-data.SetupIAMRole").
-
-3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the cluster
-   export task to set up AWS KMS server-side encryption when writing the export data to S3.
-
-The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
-For more information on using KMS keys in Amazon Aurora, see [AWS KMS key management](Overview.Encryption.md "Overview.Encryption.md").
-
-If you have a deny statement in your KMS key policy, make sure to explicitly exclude the AWS service principal
-`export.rds.amazonaws.com`.
-
-You can use a KMS key within your AWS account, or you can use a cross-account KMS key. For more information, see
-[Using a cross-account AWS KMS key](aurora-export-snapshot.md#aurora-export-snapshot.CMK "aurora-export-snapshot.md#aurora-export-snapshot.CMK"). 4. Export the DB cluster to Amazon S3 using the console or the `start-export-task` CLI command. For more
-information, see [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md"). 5. To access your exported data in the Amazon S3 bucket, see [Uploading, downloading, and managing objects](../../../AmazonS3/latest/user-guide/upload-download-objects.md "../../../AmazonS3/latest/user-guide/upload-download-objects.md")
-in the _Amazon Simple Storage Service User Guide_.
-Learn to set up, export, monitor, cancel, and troubleshoot DB cluster export tasks in the following sections.
-
-###### Topics
-
-- [Considerations for DB cluster exports](export-cluster-data.md "export-cluster-data.md")
-- [Setting up access to an Amazon S3 bucket](export-cluster-data.md "export-cluster-data.md")
-- [Creating DB cluster export tasks](export-cluster-data.md "export-cluster-data.md")
-- [Monitoring DB cluster export tasks](export-cluster-data.md "export-cluster-data.md")
-- [Canceling a DB cluster export task](export-cluster-data.md "export-cluster-data.md")
-- [Troubleshooting DB cluster exports](export-cluster-data.md "export-cluster-data.md")
+To cancel an export task using the Amazon RDS API, use the [CancelExportTask](../APIReference/API_CancelExportTask.md "../APIReference/API_CancelExportTask.md") operation with the `ExportTaskIdentifier` parameter.

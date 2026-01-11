@@ -1,51 +1,62 @@
-# Disabling backtracking for an Aurora MySQL DB cluster
+# Performing a backtrack for an Aurora MySQL DB cluster
 
-You can disable the Backtrack feature for a DB cluster.
+You can backtrack a DB cluster to a specified backtrack time stamp. If the
+backtrack time stamp isn't earlier than the earliest possible backtrack time, and
+isn't in the future, the DB cluster is backtracked to that time stamp.
 
-You can disable backtracking for a DB cluster using the console. After you
-turn off backtracking entirely for a cluster, you can't enable it
-again for that cluster.
+Otherwise, an error typically occurs. Also, if you try to backtrack a DB cluster for which
+binary logging is enabled, an error typically occurs unless you've chosen to force the backtrack
+to occur. Forcing a backtrack to occur can interfere with other operations that use binary logging.
 
-###### To disable the Backtrack feature for a DB cluster using the console
+###### Important
+
+Backtracking doesn't generate binlog entries for the changes that it makes. If
+you have binary logging enabled for the DB cluster, backtracking might not be
+compatible with your binlog implementation.
+
+###### Note
+
+For database clones, you can't backtrack the DB cluster earlier than the
+date and time when the clone was created. For more information about database
+cloning, see [Cloning a volume for an Amazon Aurora DB cluster](Aurora.Managing.md "Aurora.Managing.md").
+
+The following procedure describes how to perform a backtrack operation for a DB cluster
+using the console.
+
+###### To perform a backtrack operation using the console
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose **Databases**.
-3. Choose the cluster you want to modify, and choose **Modify**.
-4. In the **Backtrack** section, choose **Disable Backtrack**.
-5. Choose **Continue**.
-6. For **Scheduling of Modifications**, choose one of the following:
-   - **Apply during the next scheduled maintenance
-     window** – Wait to apply the modification
-     until the next maintenance window.
-   - **Apply immediately** – Apply the
-     modification as soon as possible.
+2. In the navigation pane, choose **Instances**.
+3. Choose the primary instance for the DB cluster that you
+   want to backtrack.
+4. For **Actions**, choose **Backtrack DB cluster**.
+5. On the **Backtrack DB cluster** page, enter the
+   backtrack time stamp to backtrack the DB cluster to.
 
-7. Choose **Modify Cluster**.
-   You can disable the Backtrack feature for a DB cluster using the AWS CLI by
-   setting the target backtrack window to `0` (zero). After you
-   turn off backtracking entirely for a cluster, you can't enable it
-   again for that cluster.
+![Backtrack DB cluster](images/aurora-backtrack-db-cluster.png) 6. Choose **Backtrack DB cluster**.
+The following procedure describes how to backtrack a DB cluster using the AWS CLI.
 
-###### To modify the target backtrack window for a DB cluster using the AWS CLI
+###### To backtrack a DB cluster using the AWS CLI
 
-- Call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md")
-  AWS CLI command and supply the following values:
+- Call the [backtrack-db-cluster](../../../cli/latest/reference/rds/backtrack-db-cluster.md "../../../cli/latest/reference/rds/backtrack-db-cluster.md") AWS CLI command and supply
+  the following values:
 
       + `--db-cluster-identifier` – The name of the
        DB cluster.
-      + `--backtrack-window` – specify `0` to turn off backtracking.
+      + `--backtrack-to` – The backtrack time stamp to backtrack the DB cluster to,
+       specified in ISO 8601 format.
 
-  The following example disables the Backtrack feature for the `sample-cluster` by
-  setting `--backtrack-window` to `0`.
+  The following example backtracks the DB cluster
+  `sample-cluster` to March 19, 2018, at 10 a.m.
 
 For Linux, macOS, or Unix:
 
 ```
 
-aws rds modify-db-cluster \
+aws rds backtrack-db-cluster \
     --db-cluster-identifier sample-cluster \
-    --backtrack-window 0
+    --backtrack-to 2018-03-19T10:00:00+00:00
 
 ```
 
@@ -53,14 +64,12 @@ For Windows:
 
 ```
 
-aws rds modify-db-cluster ^
+aws rds backtrack-db-cluster ^
     --db-cluster-identifier sample-cluster ^
-    --backtrack-window 0
+    --backtrack-to 2018-03-19T10:00:00+00:00
 
 ```
 
-To disable the Backtrack feature for a DB cluster using the Amazon RDS API, use the
-[ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") operation.
-Set the `BacktrackWindow` value to `0` (zero), and specify the DB
-cluster in the `DBClusterIdentifier` value. After you turn off backtracking
-entirely for a cluster, you can't enable it again for that cluster.
+To backtrack a DB cluster using the Amazon RDS API, use the
+[BacktrackDBCluster](../APIReference/API_BacktrackDBCluster.md "../APIReference/API_BacktrackDBCluster.md") operation. This operation backtracks the DB
+cluster specified in the `DBClusterIdentifier` value to the specified time.
