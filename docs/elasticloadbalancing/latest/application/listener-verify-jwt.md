@@ -25,7 +25,7 @@ Complete the following tasks:
 3. Set up a JSON Web Key Sets (JWKS) endpoint. The load balancer acquires the
    public key published by the IdP in a well-known location that you configure.
 4. Include the JWT in a request header, and forward it to the
-   Application Load Balancer in every request.
+   Application Load Balancer in every request. Note: Only the RS256 algorithm is supported
 
 # To configure JWT verification using console
 
