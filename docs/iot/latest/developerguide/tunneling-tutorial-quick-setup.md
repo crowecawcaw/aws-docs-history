@@ -69,7 +69,7 @@ to the tunnel. If your tunnel gets disconnected, you can generate and
 send new tokens to your remote device for reconnecting to the tunnel.
 For more information, see [Resend tunnel access tokens](tunneling-tutorial-manual-setup.md#resend-access-tokens "tunneling-tutorial-manual-setup.md#resend-access-tokens").
 
-![A dialog showing source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](/images/iot/latest/developerguide/images/tunnel-success.png)
+![A dialog showing source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](images/tunnel-success.png)
 
 ###### To open a tunnel using the API
 

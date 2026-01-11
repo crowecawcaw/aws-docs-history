@@ -1205,7 +1205,7 @@ Examples:
 ## isNull()
 
 Returns true if the argument is the `Null` value. Supported by SQL
-version 2015-10-08 and later.
+version 2016-03-23 and later.
 
 Examples:
 

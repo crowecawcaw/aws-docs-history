@@ -103,7 +103,7 @@ You will not be able to define a separate batching logic in your Error Action de
 However, your Error Action will support batching if you have defined batching logic in your primary Action.
 
 When a batch request fails, AWS IoT Core Rules engine will follow the [HTTP action retry logic](https-rule-action.md#https-rule-action-retry-logic "https-rule-action.md#https-rule-action-retry-logic"). After the final retry attempt,
-an error action will be invoked for each individual message.
+an error action will be invoked for the entire failed batch.
 
 The following is an example of an error action message with batching enabled:
 
