@@ -1,22 +1,30 @@
-# .co.uk (United Kingdom)
+# .co.za (South Africa)
 
 [Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
 
 **Lease period for registration and renewal**
 
-One to ten years.
+One year.
 
 **Restrictions**
 
-Open to the public, with no restrictions.
+Only second-level domains are available for the .za extension.
+Route 53 supports the second-level domain .co.za.
+
+Open to the public, with some restrictions:
+
+- Registration is open to identifiable legal entities
+  (individuals and legal persons).
+- The domain name must pass a zone check during the
+  registration process.
 
 **Privacy protection**
 
-All information is hidden.
+Not supported.
 
 **Domain locking to prevent unauthorized transfers**
 
-Supported
+Supported.
 
 **Internationalized domain names**
 
@@ -24,17 +32,7 @@ Not supported.
 
 **Authorization code required for transfers**
 
-If you're transferring a .co.uk domain to Route 53, you don't need to
-get an authorization code. Instead, use the method provided by your
-current domain registrar to update the value of the IPS tag for the
-domain to **GANDI**, all uppercase. (An IPS tag is
-required by Nominet, the registry for .uk domain names.) If your
-registrar will not change the value of the IPS tag, [contact Nominet](http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar "http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar").
-
-###### Note
-
-When you register a .co.uk domain, Route 53 automatically sets
-the IPS tag for the domain to **GANDI**.
+No
 
 **DNSSEC**
 
@@ -42,18 +40,12 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 
 **Deadlines for renewing and restoring domains**
 
-- Renewal is possible: Between 180 days before and 30 days
-  after the expiration date
-- Late renewal with Route 53 is possible: Between 30 days and
-  90 days after expiration
-- Domain is deleted from Route 53: 90 days after
+- Renewal is possible: Until one day before the expiration
+  date
+- Late renewal with Route 53 is possible: No
+- Domain is deleted from Route 53: 1 day before
   expiration
-- Restoration with the registry is possible: No
-- Domain is deleted from the registry: 92 days after
+- Restoration with the registry is possible: Between 1 day
+  and 9 days after expiration
+- Domain is deleted from the registry: 9 days after
   expiration
-
-**Deletion of domain registration**
-
-The registry for .co.uk domains doesn't allow you to delete domain
-registrations. Instead, you must disable automatic renewal and wait
-for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md "domain-delete.md").
