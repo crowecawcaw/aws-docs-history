@@ -89,6 +89,60 @@ Political view
 
 ![Map of Cyprus showing Nicosia in the north and Limassol in the south, with surrounding Mediterranean Sea.](images/maps-political-view.png)
 
+## Topography
+
+The Standard map style provides detailed topographic visualization that highlights
+elevation variations and natural geographic features. Contour lines, shading, and terrain
+textures create a realistic representation of the landscape, enabling users to easily
+interpret slopes, valleys, and peaks. This topographic rendering is ideal for outdoor planning,
+environmental analysis, and applications where understanding terrain characteristics enhances
+decision-making and spatial awareness.
+
+Both Terrain and Contour Density
+
+![](images/map-terrain-contour-light.png)
+
+![](images/map-terrain-contour-dark.png)
+
+Only terrain
+
+![](images/map-terrain-light.png)
+
+![](images/map-terrain-dark.png)
+
+Only contour density
+
+![](images/map-contour-light.png)
+
+![](images/map-contour-dark.png)
+
+## Navigation
+
+The Standard map style provides options to provide dynamic visualization designed to
+optimize navigation and route planning. Live traffic data highlights congestion, incidents,
+and road conditions, enabling users to anticipate delays and adjust their routes accordingly.
+With multiple travel modes—such as truck or public transit—this feature empowers users to select
+the most efficient and context-appropriate option for their route, ensuring smoother and more informed
+routing experiences.
+
+Traffic
+
+![](images/traffic-light.png)
+
+![](images/traffic-dark.png)
+
+Transit
+
+![](images/transit-light.png)
+
+![](images/transit-dark.png)
+
+Truck
+
+![](images/truck-light.png)
+
+![](images/truck-dark.png)
+
 ## Land use
 
 The Standard map style uses vibrant colors to indicate designated land uses.

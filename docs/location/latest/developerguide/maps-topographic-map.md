@@ -14,6 +14,6 @@ Use the `terrain` parameter in your API request to display regional topography w
 
 The contour density feature visualizes contour lines to represent terrain steepness and elevation variation. Users can easily identify slopes, elevation gradients, and other topographic patterns with this.
 
-Use the `contour-density` parameter in your API request to render topographical elevation contour lines that represent terrain steepness and shape. This provides detailed visualization of landforms at varying density levels for enhanced topographic understanding. See [How to create topography maps](how-to-make-topography-maps.md "how-to-make-topography-maps.md").
+Use the `contour-density` parameter in your API request to render topographical elevation contour lines that represent terrain steepness and shape. This provides detailed visualization of landforms at varying density levels for enhanced topographic understanding. See [How to create topography maps](how-to-create-topographic-maps.md "how-to-create-topographic-maps.md").
 
 ![](/images/location/latest/developerguide/images/map-topographic-contour.gif)
