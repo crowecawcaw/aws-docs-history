@@ -1,217 +1,196 @@
-# Oracle UTL_FILE and MySQL integration with Amazon S3
+# Oracle MERGE statement and MySQL equivalent
 
-With AWS DMS, you can seamlessly migrate Oracle databases utilizing `UTL_FILE` and MySQL databases with Amazon S3 integration to AWS. The following sections outline the steps to configure and utilize `UTL_FILE` with Oracle and MySQL integration with Amazon S3 through AWS DMS.
+With AWS DMS, you can perform Oracle `MERGE` statements and the MySQL equivalent to conditionally insert, update, or delete rows in a target table based on the results of a join with a source table.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                              |
-| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | No automation                      | N/A                       | MySQL doesn’t support `UTL_FILE` but Aurora MySQL has a built-in integration with Amazon S3. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                      | Key differences                                                                |
+| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| Three star feature compatibility | No automation                      | [Merge](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.merge "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.merge") | Aurora MySQL doesn’t support the `MERGE` statement. A workaround is available. |
 
 ## Oracle usage
 
-Oracle `UTL_FILE` PL/SQL package enables you to access files stored outside of the database such as files stored on the operating system, the database server, or a connected storage volume. `UTL_FILE.FOPEN`, `UTL_FILE.GET_LINE`, and `UTL_FILE.PUT_LINE` are procedures within the `UTL_FILE` package used to open, read, and write files.
+The `MERGE` statement provides a means to specify single SQL statements that conditionally perform `INSERT`, `UPDATE`, or `DELETE` operations on a target table—a task that would otherwise require multiple logical statements.
+
+The `MERGE` statement selects record(s) from the source table and then, by specifying a logical structure, automatically performs multiple DML operations on the target table. Its main advantage is to help avoid the use of multiple inserts, updates or deletes. It is important to note that `MERGE` is a deterministic statement. That is, once a row has been processed by the MERGE statement, it can’t be processed again using the same `MERGE` statement. `MERGE` is also sometimes known as `UPSERT`.
 
 ### Examples
 
-Run an anonymous PL/SQL block that reads a single line from file1 and writes it to file2.
-
-- Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
-- Use `UTL_FILE.FOPEN` to open stream access to the file and specify:
-  - The logical Oracle directory object pointing to the O/S folder where the file resides.
-  - The file name.
-  - The file access mode: 'A'=append mode, 'W'=write mode
-
-- Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
-- Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
+Use `MERGE` to insert or update employees who are entitled to a bonus (by year).
 
 ```
-DECLARE
-strString1 VARCHAR2(32767);
-fileFile1 UTL_FILE.FILE_TYPE;
-BEGIN
-fileFile1 := UTL_FILE.FOPEN('FILES_DIR','File1.tmp','R');
-UTL_FILE.GET_LINE(fileFile1,strString1);
-UTL_FILE.FCLOSE(fileFile1);
-fileFile1 := UTL_FILE.FOPEN('FILES_DIR','File2.tmp','A');
-utl_file.PUT_LINE(fileFile1,strString1);
-utl_file.fclose(fileFile1);
-END;
-/
+CREATE TABLE EMP_BONUS(EMPLOYEE_ID NUMERIC,BONUS_YEAR VARCHAR2(4),
+SALARY NUMERIC,BONUS NUMERIC, PRIMARY KEY (EMPLOYEE_ID, BONUS_YEAR));
+
+MERGE INTO EMP_BONUS E1
+USING (SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID
+FROM EMPLOYEES) E2 ON (E1.EMPLOYEE_ID = E2.EMPLOYEE_ID) WHEN MATCHED THEN
+UPDATE SET E1.BONUS = E2.SALARY * 0.5
+DELETE WHERE (E1.SALARY >= 10000)
+WHEN NOT MATCHED THEN
+INSERT (E1.EMPLOYEE_ID, E1.BONUS_YEAR, E1.SALARY , E1.BONUS)
+VALUES (E2.EMPLOYEE_ID, EXTRACT(YEAR FROM SYSDATE), E2.SALARY,
+E2.SALARY * 0.5)
+WHERE (E2.SALARY < 10000);
+
+SELECT * FROM EMP_BONUS;
+
+EMPLOYEE_ID BONUS_YEAR SALARY BONUS
+103         2017       9000   4500
+104         2017       6000   3000
+105         2017       4800   2400
+106         2017       4800   2400
+107         2017       4200   2100
+111         2017       7700   3850
+112         2017       7800   3900
+113         2017       6900   3450
+115         2017       3100   1550
 ```
 
-For more information, see [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
+For more information, see [MERGE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Aurora MySQL provides similar functionality to Oracle `UTL_FILE` with Amazon S3 integration.
+Aurora MySQL doesn’t support the `MERGE` statement. However, it provides two other statements for merging data: `REPLACE`, and `INSERT…​ ON DUPLICATE KEY UPDATE`.
 
-There two important integration aspects between Aurora MySQL and Amazon S3:
+`REPLACE` deletes a row and inserts a new row if a duplicate key conflict occurs. `INSERT…​ ON DUPLICATE KEY UPDATE` performs an in-place update. Both `REPLACE` and `ON DUPLICATE KEY UPDATE` rely on an existing primary key and unique constraints. It is not possible to define custom `MATCH` conditions as with the `MERGE` statement in Oracle.
 
-- Saving data to an S3 file.
-- Loading data from an S3 file.
+`REPLACE` provides a function similar to `INSERT`. The difference is that `REPLACE` first deletes an existing row if a duplicate key violation for a `PRIMARY KEY` or `UNIQUE` constraint occurs.
 
-###### Note
+`REPLACE` is a MySQL extension that is not ANSI compliant. It either performs only an `INSERT` when no duplicate key violations occur, or it performs a `DELETE` and then an `INSERT` if violations occur.
 
-Make sure that Aurora MySQL has permissions to the S3 bucket.
-
-### Saving data to Amazon S3
-
-You can use the `SELECT INTO OUTFILE S3` statement to query data from an Amazon Aurora MySQL DB cluster and save it directly to text files stored in an Amazon S3 bucket. You can use this approach to avoid transferring data first to the client and then copying the data from the client to Amazon S3.
-
-###### Note
-
-The default file size threshold is 6 GB. If the data selected by the statement is less than the file size threshold, a single file is created. Otherwise, multiple files are created.
-
-If the `SELECT` statement failed, files already uploaded to Amazon S3 remain in the specified Amazon S3 bucket. You can use another statement to upload the remaining data instead of starting over.
-
-If the amount of data to be selected is more than 25 GB, it is recommended to use multiple `SELECT INTO OUTFILE S3` statements to save the data to Amazon S3.
-
-Metadata, such as table schema or file metadata, isn’t uploaded by Aurora MySQL to Amazon S3.
-
-#### Examples
-
-The following statement selects all data in the employees table and saves it to an Amazon S3 bucket in a different region from the Aurora MySQL DB cluster. The statement creates data files in which each field is terminated by a comma `,` character and each row is terminated by a newline `\n` character. The statement returns an error if files that match the `sample_employee_data` file prefix already exist in the specified Amazon S3 bucket.
+### Syntax
 
 ```
-SELECT * FROM employees INTO OUTFILE S3
-'s3-us-west-2://aurora-select-into-s3-pdx/sample_employee_data'
-FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+REPLACE [INTO] <Table Name> (<Column List>) VALUES v(<Values List>)
 ```
 
-The following statement selects all data in the employees table and saves the data to an Amazon S3 bucket in the same region as the Aurora MySQL DB cluster. The statement creates data files in which each field is terminated by a comma `,` character and each row is terminated by a newline `\n` character. It also creates a manifest file. The statement returns an error if files that match the `sample_employee_data` file prefix already exist in the specified Amazon S3 bucket.
-
 ```
-SELECT * FROM employees INTO OUTFILE S3
-'s3://aurora-select-into-s3-pdx/sample_employee_data'
-FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'
-MANIFEST ON;
+REPLACE [INTO] <Table Name> SET <Assignment List: ColumnName = VALUE...>
 ```
 
-The following statement selects all data in the employees table and saves the data to an Amazon S3 bucket in a different region from the Aurora database cluster. The statement creates data files in which each field is terminated by a comma `,` character and each row is terminated by a newline `\n` character. The statement overwrites any existing files that match the `sample_employee_data` file prefix in the specified Amazon S3 bucket.
-
 ```
-SELECT * FROM employees INTO OUTFILE S3 '
-s3-us-west-2://aurora-select-into-s3-pdx/sample_employee_data'
-FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' OVERWRITE ON;
+REPLACE [INTO] <Table Name> (<Column List>) SELECT ...
 ```
 
-The following statement selects all data in the employees table and saves the data to an Amazon S3 bucket in the same region as the Aurora MySQL DB cluster. The statement creates data files in which each field is terminated by a comma `,` character and each row is terminated by a newline `\n` character. It also creates a manifest file. The statement overwrites any existing files that match the `sample_employee_data` file prefix in the specified Amazon S3 bucket.
+### INSERT …​ ON DUPLICATE KEY UPDATE
+
+The `ON DUPLICATE KEY UPDATE` clause of the `INSERT` statement acts as a dual DML hybrid. Similar to `REPLACE`, it executes the assignments in the `SET` clause instead of raising a duplicate key error. `ON DUPLICATE KEY UPDATE` is a MySQL extension that in not ANSI compliant.
 
 ```
-SELECT * FROM employees INTO OUTFILE S3
-'s3://aurora-select-into-s3-pdx/sample_employee_data'
-FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'
-MANIFEST ON OVERWRITE ON;
+INSERT [INTO] <Table Name> [<Column List>] VALUES (<Value List>
+ON DUPLICATE KEY <Assignment List: ColumnName = Value...>
 ```
 
-For more information, see [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_.
-
-### Load XML from Amazon S3
-
-Use the `LOAD DATA FROM S3` or `LOAD XML FROM S3` statement to load data from files stored in an Amazon S3 bucket.
-
-The `LOAD DATA FROM S3` statement can load data from any text file format supported by the MySQL `LOAD DATA INFILE` statement such as comma-delimited text data. Compressed files are not supported.
-
-#### Examples
-
-The following example runs the `LOAD DATA FROM S3` statement with the manifest file named `customer.manifest`. After the statement completes, an entry for each successfully loaded file is written to the `aurora_s3_load_history` table.
-
 ```
-LOAD DATA FROM S3 MANIFEST
-'s3-us-west-2://aurora-bucket/customer.manifest'
-INTO TABLE CUSTOMER FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\n'
-(ID, FIRSTNAME, LASTNAME, EMAIL);
+INSERT [INTO] <Table Name> SET <Assignment List: ColumnName = Value...>
+ON DUPLICATE KEY UPDATE <Assignment List: ColumnName = Value...>
 ```
 
-Every successful `LOAD DATA FROM S3` statement updates the `aurora_s3_load_history` table in the `mysql` schema with an entry for each file that was loaded.
-
-After you run the `LOAD DATA FROM S3` statement, you can verify which files were loaded by querying the `aurora_s3_load_history` table. To see the files that were loaded from one execution of the statement, use the `WHERE` clause to filter the records on the Amazon S3 URI for the manifest file used in the statement. If you have used the same manifest file before, filter the results using the timestamp field.
-
 ```
-select * from mysql.aurora_s3_load_history where load_prefix = 'S3_URI';
+INSERT [INTO] <Table Name> [<Column List>] SELECT ... ON DUPLICATE KEY
+UPDATE <Assignment List: ColumnName = Value...>
 ```
 
-The following table describes the fields in the `aurora_s3_load_history` table.
+### Migration considerations
 
-| Field          | Description                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| load_prefix    | The URI specified in the load statement. This URI can map to any of the following:<br>• A single data file for a `LOAD DATA FROM S3 FILE` statement.<br>• An Amazon S3 prefix that maps to multiple data files for a `LOAD DATA FROM S3 PREFIX` statement.<br>• A single manifest file containing the names of files to be loaded for a `LOAD DATA FROM S3 MANIFEST` statement. |
-| file_name      | The name of a file that was loaded into Aurora from Amazon S3 using the URI identified in the `load_prefix` field.                                                                                                                                                                                                                                                              |
-| version_number | The version number of the file identified by the `file_name` field that was loaded if the Amazon S3 bucket has a version number.                                                                                                                                                                                                                                                |
-| bytes_loaded   | The size in bytes of the file loaded.                                                                                                                                                                                                                                                                                                                                           |
-| load_timestamp | The timestamp when the `LOAD DATA FROM S3` statement completed.                                                                                                                                                                                                                                                                                                                 |
+Neither `REPLACE` nor `INSERT …​ ON DUPLICATE KEY UPDATE` provide a full functional replacement for the `MERGE` statement in Oracle. The key differences are:
 
-The following statement loads data from an Amazon S3 bucket in the same region as the Aurora DB cluster. It reads the comma-delimited data in the `customerdata.txt` file residing in the `dbbucket` Amazon S3 bucket and then loads the data into the table `store-schema.customer-table`.
+- Key violation conditions are mandated by the primary key or unique constraints that exist on the target table. They can’t be defined using an explicit predicate.
+- There is no alternative for the `WHEN NOT MATCHED BY SOURCE` clause.
+- There is no alternative for the `OUTPUT` clause.
 
-```
-LOAD DATA FROM S3 's3://dbbucket/customerdata.csv'
-INTO TABLE store-schema.customer-table
-FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'
-(ID, FIRSTNAME, LASTNAME, ADDRESS, EMAIL, PHONE);
-```
+The key difference between `REPLACE` and `INSERT ON DUPLICATE KEY UPDATE` is that with `REPLACE`, the violating row is deleted or attempted to be deleted. If foreign keys are in place, the `DELETE` operation may fail, which may fail the entire transaction.
 
-The following statement loads data from an Amazon S3 bucket in a different region from the Aurora DB cluster. The statement reads the comma-delimited data from all files that match the `employee-data` object prefix in the `my-data` Amazon S3 bucket in the us-west-2 region and then loads the data into the employees table.
+For `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place without attempting to delete it.
+
+It should be straightforward to replace most `MERGE` statements with either `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`. Alternatively, break down the operations into their constituent `INSERT`, `UPDATE`, and `DELETE` statements.
+
+### Examples
+
+Use `REPLACE` to create a simple one-way, two-table sync.
 
 ```
-LOAD DATA FROM S3 PREFIX
-'s3-us-west-2://my-data/employee_data'
-INTO TABLE employees
-FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\n'
-(ID, FIRSTNAME, LASTNAME, EMAIL, SALARY);
+CREATE TABLE SourceTable (Col1 INT NOT NULL PRIMARY KEY,
+  Col2 VARCHAR(20) NOT NULL);
+CREATE TABLE TargetTable (Col1 INT NOT NULL PRIMARY KEY,
+  Col2 VARCHAR(20) NOT NULL);
 ```
 
-The following statement loads data from the files specified in a JSON manifest file named `q1_sales.json` into the sales table.
-
 ```
-LOAD DATA FROM S3 MANIFEST
-'s3-us-west-2://aurora-bucket/q1_sales.json'
-INTO TABLE sales FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\n' (MONTH, STORE, GROSS, NET);
+INSERT INTO SourceTable (Col1, Col2)
+  VALUES (2, 'Source2'), (3, 'Source3'), (4, 'Source4');
+INSERT INTO TargetTable (Col1, Col2)
+  VALUES (1, 'Target1'), (2, 'Target2'), (3, 'Target3');
 ```
 
-You can use the `LOAD XML FROM S3` statement to load data from XML files stored on an Amazon S3 bucket in one of three different XML formats as described below.
-
-Column names as attributes of a `<row>` element. The attribute value identifies the contents of the table field.
-
 ```
-<row column1="value1" column2="value2" .../>
+REPLACE INTO TargetTable(Col1, Col2)
+  SELECT Col1, Col2 FROM SourceTable;
 ```
 
-Column names as child elements of a `<row>` element. The value of the child element identifies the contents of the table field.
-
 ```
-<row>
-<column1>value1</column1>
-<column2>value2</column2>
-</row>
+SELECT * FROM TargetTable;
 ```
 
-Column names in the name attribute of `<field>` elements in a `<row>` element. The value of the `<field>` element identifies the contents of the table field.
+For the preceding example, the result looks as shown following.
 
 ```
-<row>
-<field name='column1'>value1</field>
-<field name='column2'>value2</field>
-</row>
+Col1  Col2
+1     Target1
+2     Source2
+3     Source3
+4     Source4
 ```
 
-The following statement loads the first column from the input file into the first column of table1 and sets the value of the table_column2 column in table1 to the input value of the second column divided by 100.
+The following example creates a conditional two-way sync using NULL for no change and `DELETE` from target when not found in source.
 
 ```
-LOAD XML FROM S3 's3://mybucket/data.xml'
-INTO TABLE table1 (column1, @var1)
-SET table_column2 = @var1/100;
+TRUNCATE TABLE SourceTable;
 ```
 
-The following statement sets the first two columns of table1 to the values in the first two columns from the input file and then sets the value of the column3 in table1 to the current time stamp.
+```
+INSERT INTO SourceTable(Col1, Col2)
+  VALUES (3, NULL), (4, 'NewSource4'), (5, 'Source5');
+DELETE FROM TargetTable
+  WHERE Col1 NOT IN (SELECT Col1 FROM SourceTable);
+```
 
 ```
-LOAD XML FROM S3 's3://mybucket/data.xml'
-INTO TABLE table1 (column1, column2)
-SET column3 = CURRENT_TIMESTAMP;
+INSERT INTO TargetTable (Col1, Col2)
+SELECT Col1, Col2
+FROM SourceTable AS SRC
+WHERE SRC.Col1 NOT IN (SELECT Col1 FROM TargetTable);
 ```
 
-You can use subqueries in the right side of `SET` assignments. For a subquery that returns a value to be assigned to a column, you can use only a scalar subquery. Also, you cannot use a subquery to select from the table that is being loaded.
+```
+UPDATE TargetTable AS TGT
+SET Col2 = (SELECT COALESCE(SRC.Col2, TGT.Col2)
+FROM SourceTable AS SRC WHERE SRC.Col1 = TGT.Col1)
+WHERE TGT.Col1 IN (SELECT Col1 FROM SourceTable);
+```
 
-For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_.
+```
+SELECT * FROM TargetTable;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Col1  Col2
+3     Source3
+4     NewSource4
+5     Source5
+```
+
+## Summary
+
+The following table describes similarities, differences, and key migration considerations.
+
+| Oracle MERGE feature                                           | Migrate to Aurora MySQL                                                                 | Comments                                                                                                                                                                                                                                                                                                                     |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Define source set in `USING` clause.                           | Define source set in a `SELECT` query or in a table.                                    |                                                                                                                                                                                                                                                                                                                              |
+| Define logical duplicate key condition with an `ON` predicate. | Duplicate key condition mandated by primary key and unique constraints on target table. |                                                                                                                                                                                                                                                                                                                              |
+| `WHEN MATCHED THEN UPDATE`                                     | `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`                                         | When using `REPLACE`, the violating row is deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction. With `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place, without attempting to delete it. |
+| `WHEN MATCHED THEN DELETE`                                     | `DELETE FROM Target WHERE Key IN (SELECT Key FROM Source)`                              |                                                                                                                                                                                                                                                                                                                              |
+| `WHEN NOT MATCHED THEN INSERT`                                 | `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`                                         | When using REPLACE, the violating row is deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction. With `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place, without attempting to delete it.   |
+
+For more information, see [REPLACE Statement](https://dev.mysql.com/doc/refman/5.7/en/replace.html "https://dev.mysql.com/doc/refman/5.7/en/replace.html") and [INSERT …​ ON DUPLICATE KEY UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html "https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html") in the _MySQL documentation_.

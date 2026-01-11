@@ -1,114 +1,83 @@
-# MySQL overall indexes summary
+# Oracle index-organized table and MySQL InnoDB clustered index
 
-MySQL supports multiple types of indexes using different indexing algorithms that can provide performance benefits for different types of queries.
+With AWS DMS, you can migrate databases that utilize Oracle index-organized tables and MySQL InnoDB clustered indexes.
 
-## Usage
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                            | Key differences                                                                            |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| Four star feature compatibility | Three star automation level        | [Indexes](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t support the index-organized tables. This is the default behavior for InnoDB. |
 
-The built-in MySQL index types include:
+## Oracle usage
 
-- **B-tree** — Default indexes that you can use for equality and range for the majority of queries. These indexes can operate against all data types. You can use B-tree indexes to retrieve NULL values. B-tree index values are sorted in ascending order by default.
-- **Hash** — Hash Indexes are practical for equality operators. These types of indexes are rarely used because they aren’t transaction-safe. This type of index is supported by `MEMORY` and `NDB` storage engines.
-- **Full-text** — Full-text indexes are useful when the application needs to query large amount of text, using more complicated morphology attributes.
-- **Spatial** — This index supports objects such as `POINT` and `GEOMETRY` to run geographic-related queries.
+In Oracle, an index-organized table (IOT) object is a special type of index/table hybrid that physically controls how data is stored at the table and index level. When you create a common database table or a heap-organized table, the data is stored unsorted, as a heap. However, when you create an index-organized table, the actual table data is stored in a B-tree index structure sorted by the primary key of each row. Each leaf block in the index structure stores both the primary key and non-key columns.
+
+IOTs provide performance improvements when accessing data using the primary key because table records are sorted or clustered using the primary key and physically co-located alongside the primary key.
+
+### Example
+
+Create an Oracle index-organized table storing ordered data based on the primary key.
+
+```
+CREATE TABLE SYSTEM_EVENTS (
+  EVENT_ID NUMBER,
+  EVENT_CODE VARCHAR2(10) NOT NULL,
+  EVENT_DESCIPTION VARCHAR2(200),
+  EVENT_TIME DATE NOT NULL,
+  CONSTRAINT PK_EVENT_ID PRIMARY KEY(EVENT_ID))
+  ORGANIZATION INDEX;
+
+INSERT INTO SYSTEM_EVENTS VALUES(9, 'EVNT-A1-10', 'Critical', '01-JAN-2017');
+INSERT INTO SYSTEM_EVENTS VALUES(1, 'EVNT-C1-09', 'Warning', '01-JAN-2017');
+INSERT INTO SYSTEM_EVENTS VALUES(7, 'EVNT-E1-14', 'Critical', '01-JAN-2017');
+
+SELECT * FROM SYSTEM_EVENTS;
+
+EVENT_ID  EVENT_CODE  EVENT_DESCIPTION  EVENT_TIM
+1         EVNT-C1-09  Warning           01-JAN-17
+7         EVNT-E1-14  Critical          01-JAN-17
+9         EVNT-A1-10  Critical          01-JAN-17
+```
 
 ###### Note
 
-Amazon Relational Database Service (Amazon RDS) for MySQL version supports descending indexes: `DESC` in an index definition is no longer ignored but causes storage of key values in descending order. Previously indexes could be scanned in reverse order but at a performance penalty. A descending index can be scanned in forward order which is more efficient. Descending indexes also make it possible for the optimizer to use multiple-column indexes when the most efficient scan order mixes ascending order for some columns and descending order for others. For more information, see [Descending Indexes](https://dev.mysql.com/doc/refman/8.0/en/descending-indexes.html "https://dev.mysql.com/doc/refman/8.0/en/descending-indexes.html") in the _MySQL documentation_.
+The records are sorted in the reverse order from which they were inserted.
 
-## CREATE INDEX synopsis
+For more information, see [Indexes and Index-Organized Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1") in the _Oracle documentation_.
 
-```
-CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX index_name
-  [index_type]
-  ON tbl_name (key_part,...)
-  [index_option]
-  [algorithm_option | lock_option] ...
+## MySQL usage
 
-key_part:
-  col_name [(length)] [ASC | DESC]
+MySQL doesn’t support index-organized tables. However it provides similar functionality using InnoDB, which is the Amazon Aurora default storage engine.
 
-index_option:
-  KEY_BLOCK_SIZE [=] value
-  | index_type
-  | WITH PARSER parser_name
-  | COMMENT 'string'
+Each InnoDB table provides a special clustered index. When you create a `PRIMARY KEY` on a table, InnoDB automatically uses it as the clustered index. This behavior is similar to index-organized tables in Oracle.
 
-index_type:
-  USING {BTREE | HASH}
+The best practice is to specify a primary key for each MySQL table. If you do not specify a primary key, MySQL locates the first unique index where all key columns are specified as NOT NULL and uses it as the clustered index.
 
-algorithm_option:
-  ALGORITHM [=] {DEFAULT | INPLACE | COPY}
+If a table layout doesn’t logically provide a column or multiple columns that are unique and not null, it is recommended to explicitly add an auto-incremented column to generate unique values.
 
-lock_option:
-  LOCK [=] {DEFAULT | NONE | SHARED | EXCLUSIVE}
-```
+###### Note
 
-By default, the `CREATE INDEX` statement creates a B-tree index.
+If no primary key or a suitable unique index can be found, InnoDB actually creates a hidden `GEN_CLUST_INDEX` clustered index with internally generated row ID values. These auto-generated row IDs are based on a 6-byte field that increases monotonically.
 
-## Examples
+### Example
 
-Oracle `CREATE/DROP` index.
+Create a new table with a simple primary key. Because the storage engine is InnoDB, the table is created as a clustered table sorting data based on the primary key itself.
 
 ```
-CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
-DROP INDEX IDX_EMP_ID;
+CREATE TABLE SYSTEM_EVENTS (
+  EVENT_ID INT PRIMARY KEY,
+  EVENT_CODE VARCHAR(10) NOT NULL,
+  EVENT_DESCIPTION VARCHAR(200),
+  EVENT_TIME DATE NOT NULL);
+
+INSERT INTO SYSTEM_EVENTS VALUES(9,'EVNT10','Critical',NOW());
+INSERT INTO SYSTEM_EVENTS VALUES(1,'EVNT09','Warning',NOW());
+INSERT INTO SYSTEM_EVENTS VALUES(7,'EVNT14','Critical',NOW());
+
+SELECT * FROM SYSTEM_EVENTS;
+
+event_id  event_code  event_desciption  event_time
+1         EVNT-C1-09  Warning           2017-01-01
+7         EVNT-E1-14  Critical          2017-01-01
+9         EVNT-A1-10  Critical          2017-01-01
 ```
 
-MySQL `CREATE/DROP` index.
-
-```
-CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
-DROP INDEX IDX_EMP_ID;
-```
-
-Oracle `ALTER INDEX …​ RENAME`.
-
-```
-ALTER INDEX IDX_EMP_ID RENAME TO IDX_EMP_ID_OLD;
-```
-
-MySQL `ALTER INDEX …​ RENAME`.
-
-```
-ALTER TABLE EMPLOYEES RENAME INDEX IDX_EMP_ID TO IDX_EMP_ID_OLD;
-```
-
-Oracle `REBUILD INDEX`.
-
-```
-ALTER INDEX IDX_EMP_ID REBUILD;
-```
-
-MySQL `REINDEX (REBUILD) INDEX`.
-
-```
-ANALYZE TABLE EMPLOYEES;
-```
-
-For more information, see [CREATE INDEX Statement](https://dev.mysql.com/doc/refman/5.7/en/create-index.html "https://dev.mysql.com/doc/refman/5.7/en/create-index.html"), [ANALYZE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/analyze-table.html "https://dev.mysql.com/doc/refman/5.7/en/analyze-table.html"), and [ALTER TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html "https://dev.mysql.com/doc/refman/5.7/en/alter-table.html") in the _MySQL documentation_.
-
-## Summary
-
-| Oracle indexes types and features                   | MySQL compatibility                                                                | MySQL equivalent                                                                                                        |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| B-tree Index                                        | Supported                                                                          | B-tree Index                                                                                                            |
-| Index-organized tables                              | Supported                                                                          | Default behavior by InnoDB                                                                                              |
-| Reverse key indexes                                 | Not supported                                                                      | N/A                                                                                                                     |
-| Descending indexes                                  | Supported                                                                          | `ABS` (default) / `DESC`                                                                                                |
-| B-tree cluster indexes                              | Not supported                                                                      | N/A                                                                                                                     |
-| Unique and non-unique indexes                       | Supported                                                                          | Syntax is identical                                                                                                     |
-| Function-based indexes                              | Supported                                                                          | Use generated columns                                                                                                   |
-| Application domain indexes                          | Not supported                                                                      | N/A                                                                                                                     |
-| BITMAP index or Bitmap join indexes                 | Not supported                                                                      | N/A                                                                                                                     |
-| Composite indexes                                   | Supported                                                                          | Multicolumn indexes                                                                                                     |
-| Invisible indexes                                   | Not supported                                                                      | N/A                                                                                                                     |
-| Local and global indexes                            | Not supported                                                                      | N/A                                                                                                                     |
-| Partial indexes for partitioned tables (Oracle 12c) | Limited compatibility                                                              | Column prefix index                                                                                                     |
-| `CREATE INDEX…​` or `DROP INDEX…​`                  | Supported                                                                          | High percentage of syntax similarity                                                                                    |
-| `ALTER INDEX…​` (general definitions)               | Not supported                                                                      | N/A                                                                                                                     |
-| `ALTER INDEX…​ REBUILD`                             | Supported                                                                          | `ANALYZE TABLE`                                                                                                         |
-| `ALTER INDEX…​ REBUILD ONLINE`                      | Not supported                                                                      | N/A                                                                                                                     |
-| Index metadata                                      | `STATISTICS (Oracle USER_INDEXES)`                                                 | `<br>SELECT DISTINCT TABLE_SCHEMA,<br>TABLE_NAME, INDEX_NAME,<br>INDEX_TYPE FROM<br>INFORMATION_SCHEMA.STATISTICS;<br>` |
-| Index tablespace allocation                         | Not supported                                                                      | N/A                                                                                                                     |
-| Index parallel operations                           | Not supported                                                                      | N/A                                                                                                                     |
-| Index compression                                   | No direct equivalent to Oracle index key compression or advanced index compression | N/A                                                                                                                     |
+For more information, see [Clustered and Secondary Indexes](https://dev.mysql.com/doc/refman/5.7/en/innodb-index-types.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-index-types.html") in the _MySQL documentation_.
