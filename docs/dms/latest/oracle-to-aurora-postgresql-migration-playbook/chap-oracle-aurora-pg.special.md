@@ -1,189 +1,157 @@
-# Oracle Log Miner and PostgreSQL logging options
+# Oracle and PostgreSQL views
 
-With AWS DMS, you can migrate data from Oracle and PostgreSQL databases while maintaining transaction integrity by utilizing Oracle Log Miner and PostgreSQL logical replication capabilities. Oracle Log Miner provides access to redo log files, allowing you to capture data manipulation language (DML) and data definition language (DDL) changes made to Oracle databases. PostgreSQL logical replication streams write-ahead log (WAL) records, enabling data synchronization between primary and standby servers.
+With AWS DMS, you can create database views on source and target databases to simplify data access and transformation during migration. Views are virtual tables that derive their data from one or more underlying base tables or views. They provide a logical representation of data without duplicating or moving the base data.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                               |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | PostgreSQL doesn’t support LogMiner, workaround is available. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                          | Key differences |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| Four star feature compatibility | Four star automation level         | [Views](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.views "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.views") | N/A             |
 
 ## Oracle usage
 
-Oracle Log Miner is a tool for querying the database Redo Logs and the Archived Redo Logs using an SQL interface. Using Log Miner, you can analyze the content of database “transaction logs” (online and archived redo logs) and gain historical insights on past database activity such as data modification by individual DML statements.
+Database Views store a named SQL query in the Oracle Data Dictionary with a predefined structure. A view doesn’t store actual data and may be considered a virtual table or a logical table based on the data from one or more physical database tables.
+
+**Privileges**
+
+A user needs the `CREATE VIEW` privilege to create a view in their own schema. A user needs the `CREATE ANY VIEW` privilege to create a view in any schema.
+
+The owner of a needs all the necessary privileges on the source tables or views on which the view is based (`SELECT` or `DML` privileges).
+
+**CREATE (OR REPLACE) VIEW statements**
+
+- `CREATE VIEW` creates a new view.
+- `CREATE OR REPLACE` overwrites an existing view and modifies the view definition without having to manually drop and recreate the original view, and without deleting the previously granted privileges.
+
+**Oracle common view parameters**
+
+| Oracle view parameter    | Description                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `CREATE OR REPLACE`      | Recreate an existing view (if one exists) or create a new view.                                              |
+| `FORCE`                  | Create the view regardless of the existence of the source tables or views and regardless of view privileges. |
+| `VISIBLE` or `INVISIBLE` | Specify if a column based on the view is visible or invisible.                                               |
+| `WITH READ ONLY`         | Disable DML commands.                                                                                        |
+| `WITH CHECK OPTION`      | Specifies the level of enforcement when performing DML commands on the view.                                 |
 
 **Examples**
 
-The following examples demonstrate how to use Log Miner to view DML statements that run on the employees table.
+Views are classified as either simple or complex.
 
-Find the current redo log file.
-
-```
-SELECT V$LOG.STATUS, MEMBER
-FROM V$LOG, V$LOGFILE
-WHERE V$LOG.GROUP# = V$LOGFILE.GROUP#
-AND V$LOG.STATUS = 'CURRENT';
-
-STATUS    MEMBER
-CURRENT   /u01/app/oracle/oradata/orcl/redo02.log
-```
-
-Use the `DBMS_LOGMNR.ADD_LOGFILE` procedure. Pass the file path as a parameter to the Log Miner API.
+A simple view is a view having a single source table with no aggregate functions. DML operations can be performed on simple views and affect the base table(s). The following example creates and updates a simple View.
 
 ```
-BEGIN
-DBMS_LOGMNR.ADD_LOGFILE('/u01/app/oracle/oradata/orcl/redo02.log');
-END;
-/
+CREATE OR REPLACE VIEW VW_EMP
+AS
+SELECT EMPLOYEE_ID, LAST_NAME, EMAIL, SALARY
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID BETWEEN 100 AND 130;
+UPDATE VW_EMP
+SET EMAIL=EMAIL||'.org'
+WHERE EMPLOYEE_ID=110;
 
-PL/SQL procedure successfully completed.
+1 row updated.
 ```
 
-Start Log Miner using the `DBMS_LOGMNR.START_LOGMNR` procedure.
+A complex view is a view with several source tables or views containing joins, aggregate (group) functions, or an order by clause. Performing DML operations on complex views can’t be done directly, but `INSTEAD OF` triggers can be used as a workaround. The following example creates and updates a complex view.
 
 ```
-BEGIN
-DBMS_LOGMNR.START_LOGMNR(options=>
-dbms_logmnr.dict_from_online_catalog);
-END;
-/
+CREATE OR REPLACE VIEW VW_DEP
+AS
+SELECT B.DEPARTMENT_NAME, COUNT(A.EMPLOYEE_ID) AS CNT
+FROM EMPLOYEES A JOIN DEPARTMENTS B USING(DEPARTMENT_ID)
+GROUP BY B.DEPARTMENT_NAME;
+UPDATE VW_DEP
+SET CNT=CNT +1
+WHERE DEPARTMENT_NAME=90;
 
-PL/SQL procedure successfully completed.
+ORA-01732: data manipulation operation not legal on this view
 ```
 
-Run a DML statement.
-
-```
-UPDATE HR.EMPLOYEES SET SALARY=SALARY+1000 WHERE EMPLOYEE_ID=116;
-COMMIT;
-```
-
-Query the `V$LOGMNR_CONTENTS` table to view the DML commands captured by the Log Miner.
-
-```
-SELECT TO_CHAR(TIMESTAMP,'mm/dd/yy hh24:mi:ss') TIMESTAMP,
-SEG_NAME, OPERATION, SQL_REDO, SQL_UNDO
-FROM V$LOGMNR_CONTENTS
-WHERE TABLE_NAME = 'EMPLOYEES'
-AND OPERATION = 'UPDATE';
-
-TIMESTAMP  SEG_NAME  OPERATION
-10/09/17   06:43:44  EMPLOYEES UPDATE
-
-SQL_REDO                                         SQL_UNDO
-update "HR"."EMPLOYEES" set                      update "HR"."EMPLOYEES" set
-"SALARY" = '3900' where "SALARY" = '2900'        "SALARY" = '2900' where "SALARY" = '3900'
-and ROWID = 'AAAViUAAEAAABVvAAQ';                and ROWID = 'AAAViUAAEAAABVvAAQ';
-```
-
-For more information, see [Using LogMiner to Analyze Redo Log Files](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5") in the _Oracle documentation_.
+For more information, see [CREATE VIEW](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL doesn’t provide a feature that is directly equivalent to Oracle Log Miner. However, several alternatives exist which allow viewing historical database activity in PostgreSQL.
+PostgreSQL views share functionality with Oracle views. Creating a view defines a stored query based on one or more physical database tables which runs every time the view is accessed.
 
-**Using PG_STAT_STATEMENTS**
+Views with `INSTEAD INSERT` triggers can be used with `COPY` command, with this synopsis.
 
-Extension module for tracking query run details with statistical information. The `PG_STAT_STATEMENTS` view presents a single row for each database operation that was logged, including information about the user, query, number of rows retrieved by the query, and more.
+```
+COPY view FROM source;
+```
+
+Starting with PostgreSQL 13 it is now possible to rename view columns using `ALTER VIEW` command, this will help the DBA to avoid dropping and recreating the view in order to change a column name.
+
+The following syntax was added to the `ALTER VIEW`:
+
+```
+ALTER VIEW [ IF EXISTS ] name RENAME [ COLUMN ] column_name TO new_column_name
+```
+
+Prior to PostgreSQL 13 the capability was there but in order to change the view’s column name the DBA had to use the `ALTER TABLE` command.
+
+**PostgreSQL View Synopsis**
+
+```
+CREATE [ OR REPLACE ] [ TEMP | TEMPORARY ] [ RECURSIVE ] VIEW name [ (
+column_name [, ...] ) ]
+[ WITH ( view_option_name [= view_option_value] [, ... ] ) ]
+AS query
+[ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
+```
+
+**PostgreSQL view privileges**
+
+A Role or user must be granted `SELECT` and `DML` privileges on the base tables or views in order to create a view.
+
+For more information, see [GRANT](https://www.postgresql.org/docs/10/sql-grant.html "https://www.postgresql.org/docs/10/sql-grant.html") in the _PostgreSQL documentation_.
+
+**PostgreSQL view parameters**
+
+- `CREATE [OR REPLACE] VIEW` — Similar to the Oracle syntax. When you re-create an existing view, the new view must have the same column structure as generated by the original view (column names, column order and data types). As such, it is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead.
+
+```
+CREATE [OR REPLACE] VIEW VW_NAME AS SELECT COLUMNS FROM TABLE(s) [WHERE CONDITIONS];
+DROP VIEW [IF EXISTS] VW_NAME;
+```
+
+The `IF EXISTS` parameter is optional.
+
+- `WITH [ CASCADED | LOCAL ] CHECK OPTION` — DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure that new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails.
+
+`CHECK OPTION` can be `LOCAL` or `CASCADED`. `LOCAL` verifies against the view without a hierarchical check. `CASCADED` verifies all underlying base views using a hierarchical check.
+
+**Executing DML commands on views**
+
+PostgreSQL simple views are automatically updatable. Unlike Oracle views, no restrictions exist when performing DML operations against views. An updatable view may contain a combination of updatable and non-updatable columns. A column is updatable if it references an updatable column of the underlying base table. If not, the column is read-only and an error is raised if an `INSERT` or `UPDATE` statement is attempted on the column.
 
 **Examples**
 
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Parameter groups** and choose the parameter to edit.
-3. On the **Parameter group actions**, choose **Edit**.
-4. Set the following parameters:
-   - shared_preload_libraries = 'pg_stat_statements'
-   - pg_stat_statements.max = 10000
-   - pg_stat_statements.track = all
-
-5. Choose **Save changes**.
-
-A database reboot may be required for the updated values to take effect.
-
-Connect to your database and run the following command.
+Creating and updating a view without the `CHECK OPTION` parameter.
 
 ```
-CREATE EXTENSION PG_STAT_STATEMENTS;
+CREATE OR REPLACE VIEW VW_DEP AS
+SELECT DEPARTMENT_ID, DEPARTMENT_NAME,
+MANAGER_ID, LOCATION_ID FROM DEPARTMENTS
+WHERE LOCATION_ID=1700;
+
+view VW_DEP created.
+
+UPDATE VW_DEP SET LOCATION_ID=1600;
+
+21 rows updated.
 ```
 
-Test the `PG_STAT_STATEMENTS` view to see captured database activity.
+Creating and updating a view with the `LOCAL CHECK OPTION` parameter.
 
 ```
-UPDATE EMPLOYEES
-SET SALARY=SALARY+1000
-WHERE EMPLOYEE_ID=116;
+CREATE OR REPLACE VIEW VW_DEP AS
+SELECT DEPARTMENT_ID, DEPARTMENT_NAME,
+MANAGER_ID, LOCATION_ID FROM DEPARTMENTS
+WHERE LOCATION_ID=1700 WITH LOCAL CHECK OPTION;
 
-SELECT *
-FROM PG_STAT_STATEMENTS
-WHERE LOWER(QUERY) LIKE '%update%';
+view VW_DEP created.
 
-[ RECORD 1 ]
-userid               16393
-dbid                 16394
-queryid              2339248071
-query                UPDATE EMPLOYEES + SET SALARY = SALARY + ? + WHERE EMPLOYEE_ID=?
-calls                1
-total_time           11.989
-min_time             11.989
-max_time             11.989
-mean_time            11.989
-stddev_time          0
-rows                 1
-shared_blks_hit      15
-shared_blks_read     10
-shared_blks_dirtied  0
-shared_blks_written  0
-local_blks_hit       0
-local_blks_read      0
-local_blks_dirtied   0
-local_blks_written   0
-temp_blks_read       0
-temp_blks_written    0
-blk_read_time        0
-blk_write_time       0
+UPDATE VW_DEP SET LOCATION_ID=1600;
+
+SQL Error: ERROR: new row violates check option for view "vw_dep"
 ```
 
-###### Note
-
-PostgreSQL `PG_STAT_STATEMENTS` doesn’t provide a feature that is equivalent to LogMiner `SQL_UNDO` column.
-
-**DML / DDL Database Activity Logging**
-
-DML and DML operations can be tracked inside the PostgreSQL log file (postgres.log) and viewed using AWS console.
-
-**Examples**
-
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Parameter groups** and choose the parameter to edit.
-3. On the **Parameter group actions**, choose **Edit**.
-4. Set the following parameters:
-   - log_statement = 'ALL'
-   - log_min_duration_statement = 1
-
-5. Choose **Save changes**.
-
-A database reboot may be required for the updated values to take effect.
-
-Test DDL/DML logging.
-
-1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases**, then choose your database, and choose **Logs**.
-3. Sort the log by the `Last Written` column to show recent logs.
-4. For the log you want to review, choose **View**. For example, the following image shows the PostgreSQL log file with a logged `UPDATE` command.
-
-![A screenshot of a PostgreSQL log file](images/pb-pg-log.png)
-
-**Amazon Aurora Performance Insights**
-
-The Amazon Aurora performance insights dashboard provides information about current and historical SQL statements, runs and workloads. Note, enhanced monitoring should be enabled during Amazon Aurora instance configuration.
-
-**Examples**
-
-1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose **Databases**, then choose your database.
-3. On the **Actions**, choose **Modify**.
-4. Make sure that the Enable Enhanced Monitoring option is set to Yes.
-5. Choose **Apply immediately** and then choose **Continue**.
-6. On the AWS console, choose **RDS**, and then choose **Performance insights**.
-7. Choose the instance to monitor.
-8. Specify the timeframe and the monitoring scope (Waits, SQL, Hosts and Users).
-
-For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/13/runtime-config-logging.html "https://www.postgresql.org/docs/13/runtime-config-logging.html") and [pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html "https://www.postgresql.org/docs/13/pgstatstatements.html") in the _PostgreSQL documentation_ and [PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon RDS user guide_.
+For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html "https://www.postgresql.org/docs/13/tutorial-views.html") and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html "https://www.postgresql.org/docs/13/sql-createview.html") in the _PostgreSQL documentation_.

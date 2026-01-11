@@ -1,79 +1,137 @@
-# Common Table Expressions
+# Single-row and aggregate functions
 
-The following sections provide details on defining and leveraging Common Table Expressions (CTEs) within AWS DMS to streamline database operations and enhance query performance.
+Single-row and aggregate functions are essential SQL constructs that perform operations on individual rows or groups of rows, respectively. The following sections compare Oracle and PostgreSQL single-row and aggregate functions.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                   |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | Not all functions are supported by PostgreSQL and may require to create manually. |
 
 ## Oracle usage
 
-Common Table Expressions (CTE) provide a way to implement the logic of sequential code or to reuse code. You can define a named sub query and then use it multiple times in different parts of a query statement.
+Oracle provides two main categories of built-in SQL functions based on the number of rows used as input and generated as output.
 
-A CTE is implemented using a `WITH` clause, which is part of the ANSI SQL-99 standard and has existed in Oracle since version 9.2. CTE usage is similar to an inline view or a temporary table. Its main purpose is to reduce query statement repetition and make complex queries simpler to read and understand.
+- Single-row functions (also known as scalar functions) return a single result for each row of the queried table or view. You can use them with a `SELECT` statement in the `WHERE` clause, the `START WITH` clause, the `CONNECT BY` clause, and the `HAVING` clause. The single-row functions are divided into groups according to data types such as `NUMERIC` functions, `CHAR` functions, and `DATETIME` functions.
+- Aggregative Functions (also known as Group functions) are used to summarize a group of values into a single result. Examples include `AVG`, `MIN`, `MAX`, `SUM`, `COUNT`, `LISTAGG`, `FIRST`, and `LAST`.
 
-**Syntax**
+See the following section for a comparison of Oracle and PostgreSQL single-row functions.
 
-```
-WITH <subquery name> AS (<subquery code>)[...]
-SELECT <Select list> FROM <subquery name>;
-```
+Oracle 19 adds ability to eliminate duplicate items in `LISTAGG` function results with new `DISTINCT` keyword.
 
-**Examples**
+Oracle 19 introduces several new bitmap SQL aggregate functions (`BITMAP_BUCKET_NUMBER`, `BITMAP_BIT_POSITION` and `BITMAP_CONSTRUCT_AGG`) that help to speed up `COUNT DISTINCT` operations.
 
-Create a sub query of the employee count for each department and then use the result set of the CTE in a query.
-
-```
-WITH DEPT_COUNT
-(DEPARTMENT_ID, DEPT_COUNT) AS
-(SELECT DEPARTMENT_ID, COUNT(*)
-FROM EMPLOYEES
-GROUP BY DEPARTMENT_ID)
-SELECT E.FIRST_NAME ||' '|| E.LAST_NAME AS EMP_NAME,
-D.DEPT_COUNT AS EMP_DEPT_COUNT
-FROM EMPLOYEES E JOIN DEPT_COUNT D
-USING (DEPARTMENT_ID)
-ORDER BY 2;
-```
+For more information, see [Single-Row Functions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Single-Row-Functions.html#GUID-B93F789D-B486-49FF-B0CD-0C6181C5D85C "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Single-Row-Functions.html#GUID-B93F789D-B486-49FF-B0CD-0C6181C5D85C") and [Aggregate Functions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Aggregate-Functions.html#GUID-62BE676BAF18-4E63-BD14-25206FEA0848 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Aggregate-Functions.html#GUID-62BE676BAF18-4E63-BD14-25206FEA0848") in _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL conforms to the ANSI SQL-99 standard. Implementing CTEs in PostgreSQL is done in a similar way to Oracle as long as you aren’t using native Oracle elements (for example, connect by).
+PostgreSQL provides an extensive list of single-row and aggregation functions. Some are similar to their Oracle counterparts (by name and functionality, or under a different name but with similar functionality). Other functions can have identical names to their Oracle counterparts, but exhibit different functionality. In the following tables, the Equivalent column indicates functional equivalency.
 
-**Examples**
+**Numeric functions**
 
-A PostgreSQL CTE.
+| Oracle function  | Function definition                                                                             | PostgreSQL function | Function definition                                                                             | Equivalent |
+| ---------------- | ----------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------- | ---------- |
+| `ABS`            | Absolute value of n: `abs (-11.3) → 11.3`.                                                      | `ABS(n)`            | Absolute value of n: `abs (-11.3) → 11.3`.                                                      | Yes        |
+| `CEIL`           | Returns the smallest integer that is greater than or equal to n: `ceil (-24.9) → -24`.          | `CEIL` / `CEILING`  | Returns the smallest integer that is greater than or equal to n: `ceil (-24.9) → -24`.          | Yes        |
+| `FLOOR`          | Returns the largest integer equal to or less than n: `floor (-43.7) → -44`.                     | `FLOOR`             | Returns the largest integer equal to or less than n: `floor (-43.7) → -44`.                     | Yes        |
+| `MOD`            | Remainder of n2 divided by n1: `mod(10,3) → 1`.                                                 | `MOD`               | Remainder of n2 divided by n1: `mod(10,3) → 1`.                                                 | Yes        |
+| `ROUND`          | Returns n rounded to integer places to the right of the decimal point: `round (3.49, 1) → 3.5`. | `ROUND`             | Returns n rounded to integer places to the right of the decimal point: `round (3.49, 1) → 3.5`. | Yes        |
+| `TRUNC (Number)` | Returns n1 truncated to n2 decimal places: `trunc(13.5) → 13`.                                  | `TRUNC (Number)`    | Returns n1 truncated to n2 decimal places: `trunc(13.5) → 13`.                                  | Yes        |
+
+**Character functions**
+
+| Oracle function   | Function definition                                                                                                                                                                                    | PostgreSQL function           | Function definition                                                                                                                                                                                                                                                                  | Equivalent |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| `CONCAT`          | Returns char1 concatenated with char2: `concat('a', 1) → a1`.                                                                                                                                          | `CONCAT`                      | Concatenate the text representations of all the arguments: `concat('a', 1) → a1`.                                                                                                                                                                                                    | Partly     |
+| `LOWER` / `UPPER` | Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith') → mr. smith`.                                                                                                              | `LOWER` / `UPPER`             | Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith') → mr. smith`.                                                                                                                                                                                            | Yes        |
+| `LPAD` / `RPAD`   | Returns expr1, left or right padded to length n characters with the sequence of characters in expr2: `LPAD('Log-1',10,'-') → -----Log-1`.                                                              | `LPAD` / `RPAD`               | Returns expr1, left or right padded to length n characters with the sequence of characters in expr2: `LPAD('Log-1',10,'-') → -----Log-1`.                                                                                                                                            | Yes        |
+| `REGEXP_REPLACE`  | Search a string for a regular expression pattern: `regexp_replace('John', '[hn].', '1') → Jo1`.                                                                                                        | `REGEXP_REPLACE`              | Replace substring(s) matching a POSIX regular expression: `regexp_replace('John', '[hn].', '1') → Jo1`.                                                                                                                                                                              | Yes        |
+| `REGEXP_SUBSTR`   | Extends the functionality of the SUBSTR function by searching a string for a regular expression pattern: `REGEXP_SUBSTR('http://www.aws.-com/products','http://(+\.?){3,4}/?') → http://www.aws.com/`. | `REGEXP_MATCHES OR SUBSTRING` | Return all captured substrings resulting from matching a POSIX regular expression against the string: `REGEXP_MATCHES ('http://www.aws.com/products', '(http://+./)') → {http://www.aws.com/} OR SUBSTRING ('http://www.aws.-com/products', '(http://+./)') → http://www.aws.-com/`. | No         |
+| `REPLACE`         | Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123') → 123def`.                                                                   | `REPLACE`                     | Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123') → 123def`.                                                                                                                                                 | Yes        |
+| `LTRIM` / `RTRIM` | Removes from the left or right end of char all of the characters that appear in set: `ltrim ('zzzyaws', 'xyz') → aws`.                                                                                 | `LTRIM` / `RTRIM`             | Remove the longest string containing only characters from characters (a space by default) from the start of string: `ltrim('zzzyaws', 'xyz') → aws`.                                                                                                                                 | Yes        |
+| `SUBSTR`          | Return a portion of char, beginning at character position, substring length characters long: `substr('John Smith', 6 ,1) → S`.                                                                         | `SUBSTRING`                   | Extract substring: `substring ( 'John Smith', 6 ,1) → S `.                                                                                                                                                                                                                           | No         |
+| `TRIM`            | Trim leading or trailing characters (or both) from a character string: `trim (both 'x' FROM 'xJohnxx') → John`.                                                                                        | `TRIM`                        | Remove the longest string containing only characters from characters (a space by default) from the start, end, or both ends: `trim (both from 'yxJohnxx', 'xyz') → John`.                                                                                                            | Partly     |
+| `ASCII`           | Returns the decimal representation in the database character set of the first character of char: `ascii('a') → 97`.                                                                                    | `ASCII`                       | Returns the decimal representation in the database character set of the first character of char: `ascii('a') → 97`.                                                                                                                                                                  | Yes        |
+| `INSTR`           | Search string for substring                                                                                                                                                                            | N/A                           | Oracle `INSTR` function can be simulated using PostgreSQL built-in function.                                                                                                                                                                                                         | No         |
+| `LENGTH`          | Return the length of char: `length ('John S.') → 7`.                                                                                                                                                   | `LENGTH`                      | Return the length of char: `length ('John S.') → 7`.                                                                                                                                                                                                                                 | Yes        |
+| `REGEXP_COUNT`    | Returns the number of times, a pattern occurs in a source string.                                                                                                                                      | N/A                           | You can use the `REGEXP_COUNT` function with Amazon Redshift if necessary.                                                                                                                                                                                                           | No         |
+| `REGEXP_INSTR`    | Search a string position for a regular expression pattern.                                                                                                                                             | N/A                           | You can use the `REGEXP_INSTR` function with Amazon Redshift if necessary.                                                                                                                                                                                                           | No         |
+
+**Datetime functions**
+
+| Oracle function       | Function definition                                                                                                                                                                               | PostgreSQL function   | Function definition                                                                                                                                                                                                                                                 | Equivalent |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `ADD_MONTHS`          | Returns the date plus integer months: `add_months( sysdate,1)`                                                                                                                                    | N/A                   | PostgreSQL can implement the same functionality using the `<date>+ interval month` statement: `now () + interval '1 month'`.                                                                                                                                        | No         |
+| `CURRENT_DATE`        | Returns the current date in the session time zone: `select current_date from dual → 2017-01-01 13:01:01`.                                                                                         | `CURRENT_DATE`        | PostgreSQL CURRENT_DATE will return date with no time, use the `now()` or the `current_timestamp` function to achieve the same results: `select current_timestamp → 2017-01-01 13:01:01`.                                                                           | Partly     |
+| `CURRENT_TIMESTAMP`   | Returns the current date and time in the session time zone: `select current_timestamp from dual; → 2017-01-01 13:01:01`.                                                                          | `CURRENT_TIMESTAMP`   | Returns the current date and time in the session time zone: `select current_timestamp; → 2017-01-01 13:01:01`.                                                                                                                                                      | Yes        |
+| `EXTRACT (date part)` | Returns the value of a specified datetime field from a datetime or interval expression: `EXTRACT (YEAR FROM DATE '2017-03-07') → 2017`.                                                           | `EXTRACT (date part)` | Returns the value of a specified datetime field from a datetime or interval expression: `EXTRACT (YEAR FROM DATE '2017-03-07') → 2017`.                                                                                                                             | Yes        |
+| `LAST_DAY`            | Returns the date of the last day of the month that contains date: `LAST_DAY('05-07-2018') → 05-31-2018`.                                                                                          | N/A                   | You can use the `LAST_DAY` function with Amazon Redshift if necessary or you can create a workaround with PostgreSQL built-in functions.                                                                                                                            | No         |
+| `BETWEEN`             | Returns the number of months between dates date1 and date2: `MONTHS_BETWEEN ( sysdate, sysdate-100) → 3.25`.                                                                                      | N/A                   | As an alternative solution create a function from PostgreSQL built-in functions to achieve the same functionality. Example for a possible solution without decimal values: `DATE_PART ('month', now())<br>• DATE_PART('month', now()<br>• interval'100 days') → 3`. | No         |
+| `SYSDATE`             | Returns the current date and time set for the operating system on which the database server resides: `select sysdate from dual; → 2017-01-01 13:01:01`.                                           | `now()`               | Current date and time including fractional seconds and time zone: `select now (); → 2017-01-01 13:01:01.123456+00`.                                                                                                                                                 | No         |
+| `SYSTIMESTAMP`        | Returns the system date, including fractional seconds and time zone: `select systimestamp from dual; → 2017-01-01 13:01:01.123456 PM+00:00`.                                                      | `NOW()`               | Current date and time including fractional seconds and time zone: `select now (); → 2017-01-0113:01:01.123456+00`.                                                                                                                                                  | No         |
+| `LOCALTIMESTAMP`      | Returns the current date and time in the session time zone in a value of data type TIMESTAMP: `select localtimestamp from dual; → 01-JAN-17 10.01.10.123456 PM`.                                  | `LOCALTIMESTAMP`      | Returns the current date and time in the session time zone in a value of data type TIMESTAMP: `select localtimestamp; → 01-JAN-17 10.01.10.123456 PM`.                                                                                                              | Yes        |
+| `TO_CHAR(datetime)`   | Converts a datetime or timestamp to data type to a value of VARCHAR2 data type in the format specified by the date format: `to_char(sys-date, 'DD-MON-YYYY HH24:MI:SS'); → 01-JAN-2017 01:01:01`. | `TO_CHAR(datetime)`   | Convert time stamp to string: `TO_CHAR(now(), 'DD-MONYYYY HH24:MI:SS'); → 01-JAN-2017 01:01:01`.                                                                                                                                                                    | Yes        |
+| `TRUNC (date)`        | Returns a date with the time portion of the day truncated to the unit specified by the format model: `trunc(systimestamp); → 2017-01-01 00:00:00`.                                                | `DATE_TRUNC`          | Truncate to specified precision: `date_trunc('day', now()); → 2017-01-01 00:00:00`.                                                                                                                                                                                 | No         |
+
+**Encoding and decoding functions**
+
+| Oracle function | Function definition                                                                                                   | PostgreSQL function | Function definition                                                                                                                                                                             | Equivalent |
+| --------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `DECODE`        | Compares expression to each search value one by one using the functionality of an `IF-THEN-ELSE` statement.           | `DECODE`            | PostgreSQL Decode function acts differently from Oracle, PostgreSQL decode binary data from textual representation in string and doesn’t have the functionality of an `IF-THEN-ELSE` statement. | No         |
+| `DUMP`          | Returns a `VARCHAR2` value containing the data type code, length in bytes, and internal representation of expression. | N/A                 | N/A                                                                                                                                                                                             | No         |
+| `ORA_HASH`      | Computes a hash value for a given expression.                                                                         | N/A                 | N/A                                                                                                                                                                                             | No         |
+
+**Null functions**
+
+| Oracle function | Function definition                                                                                                                                           | PostgreSQL function | Function definition                                                                                                                                                                                | Equivalent |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `CASE`          | The `CASE` statement chooses from a sequence of conditions and runs a corresponding statement: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`. | `CASE`              | The PostgreSQL `CASE` expression is a generic conditional expression, similar to if/else statements in other programming languages: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`. | Yes        |
+| `COALESCE`      | Returns the first non-null expr in the expression list: `coalesce (null, 'a', 'b') → a`.                                                                      | `COALESCE`          | Returns the first of its arguments that isn’t null: `coalesce (null, 'a', 'b') → a`.                                                                                                               | Yes        |
+| `NULLIF`        | Compares expr1 and expr2. If they are equal, the function returns null. If they aren’t equal, the function returns expr1: `NULLIF('a', 'b') → a`.             | `NULLIF`            | Returns a null value if value1 equals value2 otherwise it returns value1: `NULLIF ('a', 'b') → a`.                                                                                                 | Yes        |
+| `NVL`           | Replace null (returned as a blank) with a string in the results of a query: `NVL (null, 'a') → a`.                                                            | `COALESCE`          | Returns the first of its arguments that isn’t null: `coalesce (null, 'a') → a`.                                                                                                                    | No         |
+| `NVL2`          | Determine the value returned by a query based on whether a specified expression is null or not null.                                                          | N/A                 | Can use the `CASE` statement instead.                                                                                                                                                              | No         |
+
+**Environment and identifier functions**
+
+| Oracle function | Function definition                                                                                                                                    | PostgreSQL function                                           | Function definition                                                                                                                                                                      | Equivalent |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `SYS_GUID`      | Generates and returns a globally unique identifier (RAW value) made up of 16 bytes: `select sys_guid() from dual → 5A280ABA8C76201EE0530-100007FF691`. | UUID_GENERATE_V1()                                            | Generates a version 1 UUID: `select uuid_generate_v1() → 90791a6-a359-11e7-a61c-12803bf1597a`.                                                                                           | No         |
+| `UID`           | Returns an integer that uniquely identifies the session user (the user who logged on): `select uid from dual → 84`                                     | N/A                                                           | Consider using the PostgreSQL current_user function along with other PostgreSQL built-in function to generate a UID.                                                                     | No         |
+| `USER`          | Returns the name of the session user: `select user from dual`.                                                                                         | `USER` / `SESSION_USER` / `CURRENT_USER` / `CURRENT_SCHEMA()` | User name or schema of current run context: `select user;` or `select current_schema();`                                                                                                 | No         |
+| `USERENV`       | Returns information about the current session using parameters: `SELECT USERENV ('LANGUAGE') "Language" FROM DUAL`                                     | N/A                                                           | For a list of all system functions, see the [PostgreSQL documentation](https://www.postgresql.org/docs/13/functions-info.html "https://www.postgresql.org/docs/13/functions-info.html"). | No         |
+
+**Conversion functions**
+
+| Oracle function              | Function definition                                                                                                                                    | PostgreSQL function | Function definition                                                                            | Equivalent |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+| `CAST`                       | Converts one built-in data type or collection-typed value into another built-in data type or collection-typed value: `cast ('10' as int) + 1 → 11`.    | `CAST`              | Converting one data type into another: `cast ( '10' as int) + 1 → 11`.                         | Yes        |
+| `CONVERT`                    | Converts a character string from a one-character set to another: `select convert ('Ä Ê Í Õ Ø A B C D E ', 'US7ASCII', 'WE8ISO8859P1') from dual`       | N/A                 | N/A                                                                                            | No         |
+| `TO_CHAR (string / numeric)` | Converts `NCHAR`, `NVARCHAR2`, `CLOB`, or `NCLOB` data to the database character set: `select to_char ('01234') from dual → 01234`.                    | `TO_CHAR`           | Converts the first argument to the second argument: `select to_char (01234, '00000') → 01234`. | No         |
+| `TO_DATE`                    | Converts char of `CHAR`, `VARCHAR2`, `NCHAR`, or `NVARCHAR2` data type to a value of `DATE` data type: `to_date('01Jan2017','DDMonYYYY') → 01-JAN-17`. | `TO_DATE`           | Convert string to date: `to_date('01Jan2017', 'DDMonYYYY') → 2017-01-01`.                      | Partly     |
+| `TO_NUMBER`                  | Converts expr to a value of `NUMBER` data type: `to_number('01234') → 1234 or to_number('01234', '99999') → 1234`.                                     | `TO_NUMBER`         | Convert string to numeric: `to_number('01234', '99999') → 1234`.                               | Partly     |
+
+**Aggregate functions**
+
+| Oracle function | Function definition                                                                                                                                                                                         | PostgreSQL function | Function definition                                                                                                              | Equivalent |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `AVG`           | Returns average value of expression: `select avg(salary) from employees`.                                                                                                                                   | `AVG`               | Average (arithmetic mean) of all input values: `select avg(salary) from employees`.                                              | Yes        |
+| `COUNT`         | Returns the number of rows returned by the query: `select count(*) from employees`.                                                                                                                         | `COUNT`             | The number of input rows: `select count(*) from employees`.                                                                      | Yes        |
+| `LISTAGG`       | Orders data within each group specified in the `ORDER BY` clause and then concatenates the values of the measure column: `select listagg(firstname,' ,') within group (order by customerid) from customer`. | `STRING_AGG`        | Input values concatenated into a string, separated by delimiter: `select string_agg(firstname, ' ,') from customer order by 1;`. | No         |
+| `MAX`           | Returns the maximum value of expression: `select max(salary) from employees`.                                                                                                                               | `MAX`               | Returns maximum value of expression: `select max(salary) from employees`.                                                        | Yes        |
+| `MIN`           | Returns the minimum value of expression: `select min(salary) from employees`.                                                                                                                               | `MIN`               | Returns minimum value of expression: `select min(salary) from employees`.                                                        | Yes        |
+| `SUM`           | Returns the sum of values of expression: `select sum(salary) from employees`.                                                                                                                               | `SUM`               | Returns the sum of values of expression: `select sum(salary) from employees`.                                                    | Yes        |
+
+**Top-N query Oracle 12c**
+
+| Oracle function | Function definition                                                                                                    | PostgreSQL function | Function definition                                                                                                                    | Equivalent |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `FETCH`         | Retrieves rows of data from the result set of a multi-row query: `select<br>• from customer fetch first 10 rows only`. | `FETCH` or `LIMIT`  | Retrieve just a portion of the rows that are generated by the rest of the query: `select<br>• from customer fetch first 10 rows only`. | Yes        |
+
+`REGEXP_MATCH` is a new pattern matching function that was introduced in PostgreSQL 10.
 
 ```
-WITH DEPT_COUNT
-(DEPARTMENT_ID, DEPT_COUNT) AS (
-SELECT DEPARTMENT_ID, COUNT(*) FROM EMPLOYEES GROUP BY DEPARTMENT_ID)
-SELECT E.FIRST_NAME ||' '|| E.LAST_NAME AS EMP_NAME, D.DEPT_COUNT AS EMP_
-DEPT_COUNT
-FROM EMPLOYEES E JOIN DEPT_COUNT D USING (DEPARTMENT_ID) ORDER BY 2;
+SELECT REGEXP_MATCH('foobarbequebaz','bar.*que');
+regexp_match
+-------------
+{barbeque}
 ```
 
-PostgreSQL provides an additional feature when using CTE as a recursive modifier. The following example uses a recursive `WITH` clause to access its own result set.
-
-```
-WITH RECURSIVE t(n) AS (
-VALUES (0)
-UNION ALL
-SELECT n+1 FROM t WHERE n < 5)
-SELECT * FROM t;
-WITH RECURSIVE t(n) AS (
-VALUES (0)
-UNION ALL
-SELECT n+1 FROM t WHERE n < 5)
-SELECT * FROM t;
-n
---
-0
-1
-2
-3
-4
-5
-```
-
-For more information, see [WITH Queries (Common Table Expressions)](https://www.postgresql.org/docs/13/queries-with.html "https://www.postgresql.org/docs/13/queries-with.html") in the _PostgreSQL documentation_.
+For more information, see [Functions and Operators](https://www.postgresql.org/docs/13/functions.html "https://www.postgresql.org/docs/13/functions.html"), [Mathematical Functions and Operators](https://www.postgresql.org/docs/13/functions-math.html "https://www.postgresql.org/docs/13/functions-math.html"), [String Functions and Operators](https://www.postgresql.org/docs/13/functions-string.html "https://www.postgresql.org/docs/13/functions-string.html"), and [uuid-ossp Functions](https://www.postgresql.org/docs/13/uuid-ossp.html "https://www.postgresql.org/docs/13/uuid-ossp.html") in the _PostgreSQL documentation_.
