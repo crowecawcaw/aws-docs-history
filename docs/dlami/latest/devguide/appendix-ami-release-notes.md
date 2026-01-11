@@ -64,6 +64,7 @@ GPU
 - [GPU PyTorch 2.9 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
 - [GPU PyTorch 2.9 (Ubuntu 24.04)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
 - [GPU PyTorch 2.8 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
+- [GPU PyTorch 2.8 (Ubuntu 24.04)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
 - [GPU PyTorch 2.7 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
 - [GPU PyTorch 2.7 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
 - [GPU PyTorch 2.6 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.md "aws-deep-learning-x86-gpu-pytorch-2.md")
