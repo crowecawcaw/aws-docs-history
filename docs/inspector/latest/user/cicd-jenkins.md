@@ -249,7 +249,7 @@ The list overrides all other threshold settings for maximum security.
    If you select HTML, you have the option to download a JSON SBOM or CSV version of the report.
    The following shows an example of an HTML report:
 
-![Sample of an Amazon Inspector vulnerability report.](/images/inspector/latest/user/images/report.png)
+![Sample of an Amazon Inspector vulnerability report.](images/report.png)
 
 ###### Note
 
