@@ -52,7 +52,7 @@ following controls:
 tables, and functions.
 
 - A
-  ![The upload icon used in the AWS Console.](images/qev2-upload.png)
+  ![The upload icon used in the AWS Console.](/images/redshift/latest/mgmt/images/qev2-upload.png)
   **Load data** action to load
   data from Amazon S3 or from a local file into your database.
 - A

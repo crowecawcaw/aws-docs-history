@@ -11,7 +11,7 @@ After the correct permissions are configured, when working with a notebook in qu
 
 1. In the **Editor** tab of the query editor v2, open a notebook.
 2. Choose the
-   ![Generative SQL panel](/images/redshift/latest/mgmt/images/qev2-amazon-q.png)
+   ![Generative SQL panel](images/qev2-amazon-q.png)
    Generative SQL icon, then follow the directions to ask your questions of the Amazon Redshift query editor v2 generative SQL in the chat panel.
 
 You provide questions in a prompt field and Amazon Q generative SQL responds with suggested SQL.
