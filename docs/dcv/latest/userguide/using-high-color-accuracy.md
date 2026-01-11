@@ -58,7 +58,7 @@ The steps for enabling the high color accuracy are the same across all supported
 
 1. In the client, choose **Session**, **Preferences**.
 
-![Session is located inside the menu in the top-right of the interface.](/images/dcv/latest/userguide/images/web-preferences-menu.png) 2. Under the **Display** tab, if the high color accuracy feature is available,
+![Session is located inside the menu in the top-right of the interface.](images/web-preferences-menu.png) 2. Under the **Display** tab, if the high color accuracy feature is available,
 the corresponding toggle will be visible and allows to specify whether to enable or disable the
 YUV chroma subsampling set to 4:4:4:
 
