@@ -17,6 +17,10 @@ The following services offer managed rotation:
   credentials. For more information, see [Password management
   with Amazon RDS and AWS Secrets Manager](../../../AmazonRDS/latest/UserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/UserGuide/rds-secrets-manager.md") in the
   _Amazon RDS User Guide_.
+- **Amazon DocumentDB** offers managed rotation for master user
+  credentials. For more information, see [Password management
+  with Amazon DocumentDB and AWS Secrets Manager](../../../documentdb/latest/developerguide/docdb-secrets-manager.md "../../../documentdb/latest/developerguide/docdb-secrets-manager.md") in the
+  _Amazon DocumentDB User Guide_.
 - **Amazon Redshift** offers managed rotation for admin
   passwords. For more information, see [Managing
   Amazon Redshift admin passwords using AWS Secrets Manager](../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md "../../../redshift/latest/mgmt/redshift-secrets-manager-integration.md") in the _Amazon Redshift

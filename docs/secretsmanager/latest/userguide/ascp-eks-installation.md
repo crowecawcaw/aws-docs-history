@@ -24,11 +24,34 @@ endpoints, see [AWS Secrets Manager endpoints](asm_access.md#endpoints "asm_acce
 ###### To install the ASCP as an EKS add-on
 
 1. Install `eksctl` ([installation instructions](../../../eks/latest/eksctl/installation.md "../../../eks/latest/eksctl/installation.md"))
-2. Run the following command:
+2. Run the following command to install the add-on with the [default configuration](https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/charts/secrets-store-csi-driver-provider-aws/values.yaml "https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/charts/secrets-store-csi-driver-provider-aws/values.yaml"):
 
 ```
 eksctl create addon --cluster <your_cluster> --name aws-secrets-store-csi-driver-provider
 ```
+
+If you'd like to configure the add-on, run the following installation command instead:
+
+```
+aws eks create-addon --cluster-name <your_cluster> --addon-name aws-secrets-store-csi-driver-provider --configuration-values 'file://path/to/config.yaml'
+```
+
+The configuration file can be a YAML or JSON file. To see the configuration schema for the add-on:
+
+    1. Run the following command and note the latest version of the add-on:
+
+
+
+    ```
+    aws eks describe-addon-versions --addon-name aws-secrets-store-csi-driver-provider
+    ```
+    2. Run the following command to see the add-on's configuration schema, replacing `<version>` with the version from the previous step:
+
+
+
+    ```
+    aws eks describe-addon-configuration --addon-name aws-secrets-store-csi-driver-provider --addon-version <version>
+    ```
 
 ###### To install the ASCP by using Helm
 
