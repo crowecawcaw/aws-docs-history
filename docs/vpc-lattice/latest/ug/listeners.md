@@ -5,7 +5,7 @@ _listener_. A listener is a process that checks for connection
 requests, using the protocol and port that you configure. The rules that you define for a
 listener determine how the service routes requests to its registered targets.
 
-![A service with a listener, listener rules, and two target groups.](images/service.png)
+![A service with a listener, listener rules, and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
 
 ###### Contents
 
