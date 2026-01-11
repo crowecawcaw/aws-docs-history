@@ -14,4 +14,4 @@ You can set up permissions for AI-enhanced troubleshooting in two ways:
 
 [Option 1: Use the AWS managed policy (recommended)](support-interaction-perm-man-policy.md "support-interaction-perm-man-policy.md"). Attach the `AWSSupportAccess` managed policy to your users or roles. This policy includes all required permissions and is automatically updated when new Support features are released.
 
-[Option 2: Create a custom policy with minimum required permissions](../../../wssupport/latest/user/support-interaction-perm-custom-policy.md "../../../wssupport/latest/user/support-interaction-perm-custom-policy.md"). This approach gives you more control but requires manual updates when new features are added.
+[Option 2: Create a custom policy with minimum required permissions](support-interaction-perm-custom-policy.md "support-interaction-perm-custom-policy.md"). This approach gives you more control but requires manual updates when new features are added.
