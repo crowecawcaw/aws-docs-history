@@ -67,6 +67,69 @@ Kore.ai Tenant ID:
 3. In the setup form that opens, the Tenant ID is displayed and ready to
    copy.
 
+Revinova
+The Portal ID in Revinova is the Tenant ID for Amazon Q
+Business Data Accessor. You can use the instructions below to retrieve the
+Portal ID from Revinova.
+
+1. Log in to the admin console.
+2. Navigate to the portals dashboard using the
+   **Portals** menu under the settings menu
+   collection.
+3. In the portal's grid, hover on the header of any of the columns
+   and click on the hamburger menu shown in the column to open the
+   column options context menu.
+4. Click on the grid icon available on the top right corner of the
+   column options context menu.
+5. Select **ID** from the list of columns available
+   for display, and it will show the portal IDs in the grid.
+6. You can get the ID for the portal from the corresponding
+   row.
+
+Planview
+Your Planview Tenant ID is a unique identifier in UUID/GUID format (e.g., 12345678-1234-1234-1234-123456789abc).
+
+For Planview, the Tenant ID information can be found in their integration
+documentation. You can use the following resource to retrieve the Tenant ID
+for Planview Viz integration with Amazon Q Business.
+
+1. Refer to the [Planview Amazon Q Business Integration FAQ](https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ "https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ") for detailed
+   instructions on retrieving your Tenant ID.
+
+###### Note
+
+Planview data accessor is only available in the `us-west-2` region.
+
+Amplience
+For Amplience, the Tenant ID is the Hub ID. You can use the following instructions to retrieve the Amplience Tenant ID.
+
+1. Within Amplience Dynamic Content, switch into the Hub you wish to connect.
+2. Select the settings icon in the top right corner and select the **Properties** menu item.
+3. The Hub ID will be displayed with a copy to clipboard option.
+
+Saviynt
+For Saviynt, the Tenant ID is the FQDN from the Saviynt Console. You can use the following instructions to retrieve the Saviynt FQDN.
+
+The URL will look similar to this example https://ispm-dev.saviyntcloud.com/ and the tenant id from this example will be "ispm-dev.saviyntcloud.com"
+
+Webex by CISCO
+In Webex, the tenant ID in Amazon Q Business Data Accessor is called the Organization ID. You can use the following instructions to retrieve the Webex Tenant ID.
+
+1. Login in Cisco Control Hub.
+
+2. Go to Account->Info page.
+
+3. Copy the Organization ID.
+
+Fireflies.ai
+When prompted for Tenant ID, please enter Team ID
+
+Miro
+For Miro, the Tenant ID is Organization ID. Organization admins can navigate to the 'Organization profile' page and get the id from the address bar.
+
+SUSE Rancher for Amazon Web Services
+For SUSE Rancher for Amazon Web Services, the Tenant ID is tenant-uid. The tenant-uid can be found within the application in the about info in the top right of the screen.
+
 ###### Topics
 
 - [Add a data accessor
@@ -165,7 +228,7 @@ ISVs:
 - Asana —
   `arn:aws:iam::865993441991:role/autogen_role_customer-byoq-data-accessor_customer_q_biz_d-217f4f`
 - Miro —
-  `arn:aws:iam::419356813857:role/AwsQBusinessMiroRetrievalRole`
+  `arn:aws:iam::380983552397:role/AwsQBusinessMiroRetriever`
 - Zoom —
   `arn:aws:iam::796973485215:role/zoom-ai-amazon-q-business-retrieval-role`
 - PagerDuty —
@@ -182,8 +245,12 @@ ISVs:
   `arn:aws:iam::123645302184:role/q-index-isv-role`
 - Saviynt —
   `arn:aws:iam::249469748895:role/ispm-isv-qindex`
-- Webex —
+- Webex by CISCO —
   `arn:aws:iam::973559386291:role/WebexSuit-QIndex-role-prod`
+- Fireflies.ai —
+  `arn:aws:iam::466023587921:role/awsQAccessorRole`
+- SUSE Rancher for Amazon Web Services —
+  `arn:aws:iam::940482441539:role/mcm-q-data-accessor`
 
 ### Action
 

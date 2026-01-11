@@ -18,4 +18,6 @@ The following are the _verified_ independent software vendors
 - **Planview** (available in `us-west-2` only) — [Data accessor configuration registration page](https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ "https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ")
 - **Amplience** — [Data accessor configuration registration page](https://amplience.com/developers/docs/workforce-studio/integrations/amazon-q-index/ "https://amplience.com/developers/docs/workforce-studio/integrations/amazon-q-index/")
 - **Saviynt**
-- **Webex**
+- **Webex by CISCO** — [Data accessor configuration registration page](https://help.webex.com/en-us/article/nhq0zj8/Set-up-AI-integrations-in-Control-Hub "https://help.webex.com/en-us/article/nhq0zj8/Set-up-AI-integrations-in-Control-Hub")
+- **Fireflies.ai**
+- **SUSE Rancher for Amazon Web Services**

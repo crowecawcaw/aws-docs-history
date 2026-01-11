@@ -94,5 +94,18 @@ For Saviynt, the Tenant ID is the FQDN from the Saviynt Console. You can use the
 
 The URL will look similar to this example https://ispm-dev.saviyntcloud.com/ and the tenant id from this example will be "ispm-dev.saviyntcloud.com"
 
-Webex
-For Webex, the Tenant ID is Webex Organization ID. Webex Organization ID can be found in account page of Webex Suite.
+Webex by CISCO
+In Webex, the tenant ID in Amazon Q Business Data Accessor is called the Organization ID. You can use the following instructions to retrieve the Webex Tenant ID.
+
+1. Login in Cisco Control Hub.
+2. Go to Account->Info page.
+3. Copy the Organization ID.
+
+Fireflies.ai
+When prompted for Tenant ID, please enter Team ID
+
+Miro
+For Miro, the Tenant ID is Organization ID. Organization admins can navigate to the 'Organization profile' page and get the id from the address bar.
+
+SUSE Rancher for Amazon Web Services
+For SUSE Rancher for Amazon Web Services, the Tenant ID is tenant-uid. The tenant-uid can be found within the application in the about info in the top right of the screen.
