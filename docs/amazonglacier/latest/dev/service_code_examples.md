@@ -16,55 +16,6 @@ For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Glacier with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
 
-**Get started**
-
-The following code example shows how to get started using Amazon Glacier.
-
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EventBridge#code-examples").
-
-```
-
-using Amazon.Glacier;
-using Amazon.Glacier.Model;
-
-namespace GlacierActions;
-
-public static class HelloGlacier
-{
-    static async Task Main()
-    {
-        var glacierService = new AmazonGlacierClient();
-
-        Console.WriteLine("Hello Amazon Glacier!");
-        Console.WriteLine("Let's list your Glacier vaults:");
-
-        // You can use await and any of the async methods to get a response.
-        // Let's get the vaults using a paginator.
-        var glacierVaultPaginator = glacierService.Paginators.ListVaults(
-            new ListVaultsRequest { AccountId = "-" });
-
-        await foreach (var vault in glacierVaultPaginator.VaultList)
-        {
-            Console.WriteLine($"{vault.CreationDate}:{vault.VaultName}, ARN:{vault.VaultARN}");
-        }
-    }
-}
-
-
-```
-
-- For API details, see
-  [ListVaults](../../../goto/DotNetSDKV3/glacier-2012-06-01/ListVaults.md "../../../goto/DotNetSDKV3/glacier-2012-06-01/ListVaults.md")
-  in _AWS SDK for .NET API Reference_.
-
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
