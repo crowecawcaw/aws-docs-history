@@ -1,80 +1,57 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Interpolation
+# Correlation
 
 functions
 
-If your time series data is missing values for events at certain points in time,
-you can estimate the values of those missing events using interpolation. Amazon
-Timestream supports four variants of interpolation: linear interpolation, cubic
-spline interpolation, last observation carried forward (locf) interpolation, and
-constant interpolation. This section provides usage information for the Timestream for LiveAnalytics
-interpolation functions, as well as sample queries.
+Given two similar length time series, correlation functions provide a correlation
+coefficient, which explains how the two time series trend over time. The correlation
+coefficient ranges from `-1.0` to `1.0`. `-1.0`
+indicates that the two time series trend in opposite directions at the same rate.
+whereas `1.0` indicates that the two timeseries trend in the same
+direction at the same rate. A value of `0` indicates no correlation
+between the two time series. For example, if the price of oil increases, and the
+stock price of an oil company increases, the trend of the price increase of oil and
+the price increase of the oil company will have a positive correlation coefficient.
+A high positive correlation coefficient would indicate that the two prices trend at
+a similar rate. Similarly, the correlation coefficient between bond prices and bond
+yields is negative, indicating that these two values trends in the opposite
+direction over time.
+
+Amazon Timestream supports two variants of correlation functions. This section
+provides usage information for the Timestream for LiveAnalytics correlation functions, as well as sample
+queries.
 
 ## Usage information
 
-| Function                                                    | Output data type | Description                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `interpolate_linear(timeseries,<br>array[timestamp])`       | timeseries       | Fills in missing data using [linear interpolation](https://wikipedia.org/wiki/Linear_interpolation "https://wikipedia.org/wiki/Linear_interpolation").                                                                                                                                                                                                                             |
-| `interpolate_linear(timeseries,<br>timestamp)`              | double           | Fills in missing data using [linear interpolation](https://wikipedia.org/wiki/Linear_interpolation "https://wikipedia.org/wiki/Linear_interpolation").                                                                                                                                                                                                                             |
-| `interpolate_spline_cubic(timeseries,<br>array[timestamp])` | timeseries       | Fills in missing data using [cubic spline interpolation](https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial. "https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial."). |
-| `interpolate_spline_cubic(timeseries,<br>timestamp)`        | double           | Fills in missing data using [cubic spline interpolation](https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial. "https://wikiversity.org/wiki/Cubic_Spline_Interpolation#:~:text=Cubic%20spline%20interpolation%20is%20a,Lagrange%20polynomial%20and%20Newton%20polynomial."). |
-| `interpolate_locf(timeseries,<br>array[timestamp])`         | timeseries       | Fills in missing data using the last sampled value.                                                                                                                                                                                                                                                                                                                                |
-| `interpolate_locf(timeseries,<br>timestamp)`                | double           | Fills in missing data using the last sampled value.                                                                                                                                                                                                                                                                                                                                |
-| `interpolate_fill(timeseries, array[timestamp],<br>double)` | timeseries       | Fills in missing data using a constant value.                                                                                                                                                                                                                                                                                                                                      |
-| `interpolate_fill(timeseries, timestamp,<br>double)`        | double           | Fills in missing data using a constant value.                                                                                                                                                                                                                                                                                                                                      |
+| Function                                        | Output data type | Description                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `correlate_pearson(timeseries,<br>timeseries)`  | double           | Calculates [Pearson's correlation coefficient](https://wikipedia.org/wiki/Pearson_correlation_coefficient "https://wikipedia.org/wiki/Pearson_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps.                            |
+| `correlate_spearman(timeseries,<br>timeseries)` | double           | Calculates [Spearman's correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient "https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps. |
 
 ## Query examples
 
-Find the average CPU utilization binned at 30 second intervals for a
-specific EC2 host over the past 2 hours, filling in the missing values using
-linear interpolation:
-
 ```
-WITH binned_timeseries AS (
-SELECT hostname, BIN(time, 30s) AS binned_timestamp, ROUND(AVG(measure_value::double), 2) AS avg_cpu_utilization
-FROM "sampleDB".DevOps
-WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv'
-    AND time > ago(2h)
-GROUP BY hostname, BIN(time, 30s)
-), interpolated_timeseries AS (
-SELECT hostname,
-    INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(binned_timestamp, avg_cpu_utilization),
-            SEQUENCE(min(binned_timestamp), max(binned_timestamp), 15s)) AS interpolated_avg_cpu_utilization
-FROM binned_timeseries
-GROUP BY hostname
+WITH cte_1 AS (
+    SELECT INTERPOLATE_LINEAR(
+        CREATE_TIME_SERIES(time, measure_value::double),
+        SEQUENCE(min(time), max(time), 10m)) AS result
+    FROM sample.DevOps
+    WHERE measure_name = 'cpu_utilization'
+    AND hostname = 'host-Hovjv' AND time > ago(1h)
+    GROUP BY hostname, measure_name
+),
+cte_2 AS (
+    SELECT INTERPOLATE_LINEAR(
+        CREATE_TIME_SERIES(time, measure_value::double),
+        SEQUENCE(min(time), max(time), 10m)) AS result
+    FROM sample.DevOps
+    WHERE measure_name = 'cpu_utilization'
+    AND hostname = 'host-Hovjv' AND time > ago(1h)
+    GROUP BY hostname, measure_name
 )
-SELECT time, ROUND(value, 2) AS interpolated_cpu
-FROM interpolated_timeseries
-CROSS JOIN UNNEST(interpolated_avg_cpu_utilization)
-
-```
-
-Find the average CPU utilization binned at 30 second intervals for a
-specific EC2 host over the past 2 hours, filling in the missing values using
-interpolation based on the last observation carried forward:
-
-```
-WITH binned_timeseries AS (
-SELECT hostname, BIN(time, 30s) AS binned_timestamp, ROUND(AVG(measure_value::double), 2) AS avg_cpu_utilization
-FROM "sampleDB".DevOps
-WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv'
-    AND time > ago(2h)
-GROUP BY hostname, BIN(time, 30s)
-), interpolated_timeseries AS (
-SELECT hostname,
-    INTERPOLATE_LOCF(
-        CREATE_TIME_SERIES(binned_timestamp, avg_cpu_utilization),
-            SEQUENCE(min(binned_timestamp), max(binned_timestamp), 15s)) AS interpolated_avg_cpu_utilization
-FROM binned_timeseries
-GROUP BY hostname
-)
-SELECT time, ROUND(value, 2) AS interpolated_cpu
-FROM interpolated_timeseries
-CROSS JOIN UNNEST(interpolated_avg_cpu_utilization)
+SELECT correlate_pearson(cte_1.result, cte_2.result) AS result
+FROM cte_1, cte_2
 
 ```

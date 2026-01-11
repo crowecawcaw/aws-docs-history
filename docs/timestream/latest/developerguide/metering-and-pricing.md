@@ -1,22 +1,33 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Cost optimization
+# Storage
 
-To optimize the cost of writes, storage, and queries, use the following best practices with Amazon Timestream for LiveAnalytics:
+The storage size of each time series event in the memory store
+and the magnetic store is calculated as the sum of the size of the timestamp, dimension names,
+dimension values, measure names, and measure values.
+The size of the timestamp is 8 bytes.
+The size of dimension names, dimension values,
+and measure names are the length of the UTF-8 encoded bytes of each string representing the dimension name,
+dimension value, and measure name. The size of the measure value depends on the data type.
+It is 1 byte for boolean data types,
+8 bytes for bigint and double, and the length of the UTF-8 encoded bytes for strings.
+Each measure is stored as a separate record in Amazon Timestream for LiveAnalytics, i.e.
+if your time series event has four measures, there will be four records for that time series event in storage.
 
-- Batch multiple time series events per write to reduce the number of write requests.
-- Consider using Multi-measure records, which allows you to write multiple time-series measures in a single write request and stores your data in a more
-  compact manner. This reduces the number of write requests as well as data storage cost and query cost.
-- Use common attributes with batching to batch more time series events per write to further reduce the number of write requests.
-- Set the data retention of the memory store to match your application's requirements for processing late-arriving data.
-  Late-arriving data is incoming data with a timestamp earlier than the current time and outside the memory store retention period.
-- Set the data retention of the magnetic store to match your long term data storage requirements.
-- While writing queries, include only the measure and dimension names essential to query.
-  Adding extraneous columns will increase data scans and therefore will also increase the query cost. We recommend that you review [query insights](using-query-insights.md "using-query-insights.md") to assess the pruning efficiency of the included dimensions and measures.
-- Where possible, include a time range in the WHERE clause of your query.
-  For example, if you only need the last one hour of data in your dataset,
-  include a time predicate such as `time > ago(1h)`.
-- When a query accesses a subset of measures in a table, always include the measure names in the WHERE clause of the query.
-- If you've started running a query and realize that the query will not return the results you're looking for,
-  cancel the query to save on cost.
+Considering the example of the time series event representing the CPU utilization of an EC2 instance
+(see [Calculating the write size of a time series event](metering-and-pricing.md#metering-and-pricing.writes.write-size-one-event "metering-and-pricing.md#metering-and-pricing.writes.write-size-one-event")),
+the storage size of the time series event is calculated as:
+
+- time = 8 bytes
+- first dimension = 15 bytes (`region`+`us-east-1`)
+- second dimension = 4 bytes (`az`+`1d`)
+- third dimension = 15 bytes (`vpc`+`vpc-1a2b3c4d`)
+- fourth dimension = 18 bytes (`hostname`+`host-24Gju`)
+- name of the measure = 15 bytes (`cpu_utilization`)
+- value of the measure = 8 bytes
+  **Storage size of the time series event = 83 bytes**
+
+###### Note
+
+The memory store is metered in GB-hour and the magnetic store is metered in GB-month.
