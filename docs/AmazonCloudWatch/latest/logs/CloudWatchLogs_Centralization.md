@@ -90,6 +90,13 @@ as metric dimensions. For more information, see [Creating metrics from log event
 - Trusted access must be enabled for CloudWatch, the management account and the
   destination account so provide access to the log data.
 
+###### Note
+
+It is recommended to enable trusted access through the console, which
+automatically creates the required service-linked role (SLR). If trusted
+access is enabled through other methods, the service-linked role will
+need to be created separately.
+
 ### Creating a centralization rule
 
 Use the following procedure to create a centralization rule that replicates log
@@ -261,59 +268,25 @@ Use the following procedure to delete an existing centralization rule.
 5. Select the rule to delete and choose **Delete**.
 6. Confirm deletion and choose **Delete**.
 
-## Monitoring centralization
+## Monitoring and troubleshooting centralization rules
 
 You can monitor the status and performance of your centralization rules using CloudWatch
 metrics, the CloudWatch Logs console, and AWS CloudTrail logs. This helps you ensure that log data is
-being replicated successfully and identify any issues with your centralization
-configuration.
+being replicated successfully and identify any issues with your centralization configuration.
 
-### Monitoring centralization in the
+CloudWatch Logs provides:
 
-console
+1. _Rule health per Centralization rule_
+   1. Choose **Settings**.
+   2. Navigate to the **Organization** tab.
+   3. Choose **Manage rules**.
 
-Use the CloudWatch Logs console to view the status and activity of your centralization
-rules.
+2. _Logs API calls with AWS CloudTrail_
+3. CloudWatch also publishes metrics for centralization, including log events replicated,
+   errors, and throttling. For more information about these metrics and their dimensions,
+   see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics").
 
-###### To monitor centralization rules in the console
-
-1. Navigate to the CloudWatch console in the Management or Delegated Administrator
-   account of the organization.
-2. Choose **Settings**.
-3. Navigate to the **Organization** tab.
-4. Choose **Manage rules**.
-5. Review the centralization rules list, which displays:
-   - **Rule name**: The name of each centralization
-     rule
-   - **Rule status**: Current operational status
-     (Active, Inactive, Error)
-   - **Creation date**: When the rule was
-     created
-   - **Destination account ID**: The account ID of the
-     destination account
-   - **Destination Region**: The Region of the
-     destination account
-
-6. Choose a specific rule name to view the rule configuration details
-
-### Centralization monitoring
-
-You can monitor centralization rules using the console interface and API
-operations.
-
-Current monitoring capabilities include:
-
-- _Rule health status_: Monitor the overall health of
-  centralization rules through the console or
-  `GetCentralizationRuleForOrganization` API
-- _Rule configuration_: Review rule settings and last
-  update timestamps
-- _Failure reasons_: View detailed failure information
-  when rules are marked as UNHEALTHY
-- _API activity_: Track centralization API calls through
-  CloudTrail logs
-
-### Monitoring rule health
+### Centralization rule health status
 
 Each centralization rule has a health status that indicates whether it's operating
 correctly. You can check rule health through the console or programmatically using
@@ -354,3 +327,103 @@ Key CloudTrail events for centralization include:
 
 You can use CloudTrail logs to audit centralization configuration changes and correlate
 them with performance issues or replication failures.
+
+### Monitoring recommendations
+
+To ensure centralization is working correctly, we recommend setting up CloudWatch alarms
+on key centralization metrics that we vend to CloudWatch Metrics. This proactive monitoring helps you detect issues early
+and maintain reliable log centralization across your organization.
+
+Key metrics to monitor include:
+
+- `IncomingCopiedBytes`: Monitor the volume of log data being
+  successfully replicated to your destination account. A sudden drop or absence
+  of this metric may indicate centralization issues.
+- `CentralizationError`: Set up alarms for any errors in the centralization
+  process to quickly identify and resolve issues.
+- `CentralizationThrottled`: Monitor for throttling events that could
+  impact log replication performance.
+
+For a complete list of available centralization metrics and their dimensions,
+see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics").
+
+If logs are not being centralized as expected, review the following common scenarios
+that can prevent log centralization.
+
+**Historical log data**
+
+The CloudWatch Logs centralization feature only processes new log data that arrives
+in source accounts after you create the centralization rule. Historical log
+data (logs that existed before rule creation) is not centralized.
+
+**KMS key permissions**
+
+Centralization rules will fail to deliver logs from the source account to
+the destination log groups if the KMS key provided in the centralization
+rule doesn't permit CloudWatch Logs to use it. Ensure that the KMS key policy grants
+the necessary permissions to CloudWatch Logs. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
+
+**Customer Managed KMS keys configuration**
+
+If you selected **Do not centralize log groups encrypted with
+Customer Managed KMS keys** during rule creation, log events
+from source log groups encrypted with Customer Managed KMS keys will be
+skipped and not centralized.
+
+**Destination encryption mismatch**
+
+If the destination log group already exists with a different KMS encryption
+configuration than what the centralization rule specifies, and the conflict
+resolution is set to SKIP, records will be dropped and a
+`DestinationEncryptionMismatch` error will be emitted. For
+example, this occurs when the destination has default encryption but the rule
+specifies a customer managed KMS key.
+
+**Trusted access not enabled**
+
+Trusted access must be enabled for CloudWatch in AWS Organizations for the management
+account and the destination account to provide access to the log data.
+
+**Source selection criteria**
+
+Verify that your centralization rule's source selection criteria is
+configured correctly:
+
+- _Accounts and regions_: Ensure that the source
+  accounts and regions where logs originate are included in the rule.
+  Log groups from accounts or regions not specified in the rule will
+  not be centralized.
+- _Log group filters_: If you configured log group
+  filters, only log groups matching the specified criteria will be
+  centralized. Verify that your log group selection criteria includes
+  the log groups you expect to centralize.
+- _Organization membership_: Both source and
+  destination accounts must belong to the same AWS Organizations organization.
+  Accounts outside the organization cannot participate in
+  centralization.
+
+**Log group quota limit reached**
+
+If the destination account has reached its log group quota limit, new log
+groups cannot be created for centralization. Verify that the destination
+account has sufficient quota to accommodate centralized log groups from all
+source accounts. You can request a quota increase if needed.
+
+**Log stream name length limit exceeded**
+
+Log stream names have maximum length restrictions. When centralization
+replicates log streams to the destination account, a suffix is added to the
+log stream name. If the resulting log stream name exceeds the maximum allowed
+length, records will be dropped and an `InvalidLogStream`
+error will be emitted to the customer account.
+
+**Rule health status**
+
+Check the centralization rule health status in the console or using the
+`GetCentralizationRuleForOrganization` API. If the rule is
+marked as UNHEALTHY, review the `FailureReason` field for
+specific details about the issue.
+
+To diagnose centralization issues, review the centralization rule health status in the
+console, check CloudWatch metrics for errors and throttling, and examine AWS CloudTrail logs for API
+call failures. For more information about centralization metrics, see [Centralization metrics and dimensions](CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics "CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md#CloudWatchLogs-Centralization-Metrics").

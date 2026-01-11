@@ -57,7 +57,7 @@ The following is example output.
 `{
  "exportTasks": [
  {
- "destination": "`my-exported-logs`",
+ "destination": "`amzn-s3-demo-bucket`",
  "destinationPrefix": "`export-task-output`",
  "executionInfo": {
  "completionTime": `1441498600000`

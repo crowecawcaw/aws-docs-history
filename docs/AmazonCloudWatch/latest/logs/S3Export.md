@@ -2,7 +2,7 @@
 
 This chapter provides you with information, so you can export log data from your log
 groups to an Amazon S3 bucket for custom processing and analysis, or to load onto other systems.
-You can export to a bucket in the same account or a different account.
+You can export to an S3 bucket in the same account or a different account.
 
 You can do the following:
 
@@ -21,8 +21,9 @@ You can export to S3 buckets that are encrypted with AES-256 or with SSE-KMS. Ex
 buckets encrypted with DSSE-KMS is not supported.
 
 You can export logs from multiple log groups or multiple time ranges to the same S3
-bucket. To separate log data for each export task, you can specify a prefix that will be
-used as the Amazon S3 key prefix for all exported objects.
+bucket. To organize exported data, specify a prefix for each export task which will be used
+as the Amazon S3 key prefix for all exported objects. For example `prod/app-logs/2026-01-03/`
+or `log-group-name/backup/`
 
 ###### Note
 

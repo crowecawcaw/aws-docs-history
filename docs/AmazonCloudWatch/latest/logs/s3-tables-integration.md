@@ -253,3 +253,63 @@ Page
    Integration**.
 7. Review the data sources, and then choose **Associate Data
    source**.
+
+Before you can use the data you have to do the following 3 steps:
+
+1. Integrating Amazon Amazon S3 Tables with AWS analytics services - Using the Amazon S3 console
+2. Configure Lake Formation Permissions
+3. Connect with Analytics Tools
+
+### Integrating Amazon Amazon S3 Tables with AWS analytics services - Using the Amazon S3 console ([Link](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md"))
+
+###### To enable S3 Tables integration using the S3 console
+
+1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the left navigation pane, choose **Table buckets**.
+3. Click the **Enable integration** on the top.
+4. The first time that you integrate table buckets in any Region, Amazon Amazon S3 creates a new IAM service role on your behalf. This role allows Lake Formation to access all table buckets in your account and federate access to your tables in AWS Glue Data Catalog.
+
+### Configure Lake Formation Permissions
+
+While CloudWatch Logs has permission to write to the table (configured in previous steps), users and analytics roles do not automatically have permission to read the data. You must explicitly grant access using AWS Lake Formation. You have to do this for every IAM principal you want to provide access to the table.
+
+###### To grant query access to users or roles
+
+You must grant SELECT and DESCRIBE permissions to the IAM principals (users or roles) that will be running queries in Athena or Redshift.
+
+1. Open the AWS Lake Formation console.
+2. In the navigation pane, under **Permissions**, choose **Data lake permissions**.
+3. Choose **Grant**.
+4. **Principals**: Select the IAM users or roles that require access (e.g., your data analysts or the Admin role you are currently using).
+5. **LF-Tags or Catalog resources**: Select **Named Data Catalog resources**.
+6. **Databases and Tables**:
+   - Select the S3 Table bucket created by the CloudWatch integration (`aws-cloudwatch`).
+   - Select the specific table associated with your data source (optional).
+
+7. **Table Permissions**: Select **Select** and **Describe**.
+8. Choose **Grant**.
+
+###### Note
+
+If you encounter "Access Denied" errors when querying logs in Athena, ensure that the user running the query has both the appropriate IAM permissions for Athena and the Lake Formation permissions defined above.
+
+Learn more about Lake Formation permissions at [https://docs.aws.amazon.com/lake-formation/latest/dg/granting-catalog-permissions.html](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md").
+
+### Connect with Analytics Tools
+
+Once permissions are granted, you can configure your preferred analytics service to query the S3 Tables. S3 Tables use the Apache Iceberg format, which is natively supported by Amazon Athena, Amazon Redshift, and Amazon EMR.
+
+#### To query log data in Amazon Athena
+
+Amazon Athena interacts with S3 Tables through the Amazon S3 Tables catalog.
+
+###### To set up Athena to query your log data
+
+1. Open the Amazon Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/").
+2. In the query editor, select the **Amazon S3 Tables** catalog from the data source dropdown.
+3. If you do not see the catalog, ensure you have completed the Lake Formation permission steps above for your specific user role.
+4. Once the catalog is selected, your log tables will appear in the database list. You can now run standard SQL queries against your log data.
+
+**Example Query:** `SELECT * FROM "amazon_vpc__flow" LIMIT 100;`
+
+Learn more about connecting Analytics services with S3 Tables at [https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").

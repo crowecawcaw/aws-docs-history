@@ -2,7 +2,7 @@
 
 In the following examples, you use the Amazon CloudWatch console to export all data from an
 Amazon CloudWatch Logs log group named `my-log-group` to an Amazon S3 bucket named
-`my-exported-logs`.
+`amzn-s3-demo-bucket`.
 
 Exporting log data to S3 buckets that are encrypted by SSE-KMS is supported. Exporting
 to buckets encrypted with DSSE-KMS is not supported.
@@ -28,8 +28,8 @@ the instructions in this section.
   permissions (console)](#CreateIAMUser-With-S3-Access "#CreateIAMUser-With-S3-Access")
 - [Set permissions on an Amazon S3
   bucket (console)](#S3PermissionsConsole "#S3PermissionsConsole")
-- [(Optional) Exporting to a
-  bucket encrypted with SSE-KMS (console)](#S3-Export-KMSEncrypted "#S3-Export-KMSEncrypted")
+- [(Optional) Exporting to a destination
+  Amazon S3 bucket encrypted with SSE-KMS (console)](#S3-Export-KMSEncrypted "#S3-Export-KMSEncrypted")
 - [Create an export task (console)](#CreateExportTaskConsole "#CreateExportTaskConsole")
 
 ### Create an Amazon S3 bucket (console)
@@ -120,7 +120,7 @@ S3 bucket is created, to allow export within the same account.
 2. Choose **Permissions**, **Bucket
    policy**.
 3. In the **Bucket Policy Editor**, add the following
-   policy. Change `my-exported-logs` to the name of your S3
+   policy. Change `amzn-s3-demo-bucket` to the name of your S3
    bucket. Be sure to specify the correct Region endpoint, such as
    `us-west-1`, for **Principal**.
 
@@ -191,9 +191,9 @@ policies. We recommend that you evaluate the resulting set of
 permissions to be sure that they're appropriate for the users who
 will access the bucket.
 
-### (Optional) Exporting to a
+### (Optional) Exporting to a destination
 
-bucket encrypted with SSE-KMS (console)
+Amazon S3 bucket encrypted with SSE-KMS (console)
 
 This step is necessary only if you are exporting to an Amazon S3 bucket that uses
 server-side encryption with AWS KMS keys. This encryption is known as
@@ -325,7 +325,7 @@ exported, use the instructions in this section.
   access permissions for cross-account export (console)](#CreateIAMUser-With-S3-Access-crossaccount "#CreateIAMUser-With-S3-Access-crossaccount")
 - [Set permissions on
   an S3 bucket for cross-account export (console)](#S3PermissionsConsole-crossaccount "#S3PermissionsConsole-crossaccount")
-- [(Optional) Exporting to a bucket encrypted with SSE-KMS for cross-account export (console)](#S3-Export-KMSEncrypted-crossaccount "#S3-Export-KMSEncrypted-crossaccount")
+- [(Optional) Exporting to a destination Amazon S3 bucket encrypted with SSE-KMS for cross-account export (console)](#S3-Export-KMSEncrypted-crossaccount "#S3-Export-KMSEncrypted-crossaccount")
 - [Create an export
   task for cross-account export (console)](#CreateExportTaskConsole-crossaccount "#CreateExportTaskConsole-crossaccount")
 
@@ -363,12 +363,14 @@ First, you must create a new IAM policy to enable CloudWatch Logs to have the
 `s3:PutObject` action for the destination Amazon S3 bucket in the
 destination account.
 
-The additional actions included in the policy depend on whether the destination bucket uses
+Along with `s3:PutObject` action, additional actions included in the policy depend on whether the destination bucket uses
 AWS KMS encryption or has ACLs enabled using the [S3 Object
 Ownership](../../../AmazonS3/latest/userguide/about-object-ownership.md "../../../AmazonS3/latest/userguide/about-object-ownership.md") setting.
 
-- If using KMS encryption, add the `GenerateDataKey` and `Decrypt` actions for the key resource
+- If using KMS encryption, add the `kms:GenerateDataKey` and `kms:Decrypt` actions for the key resource
 - If ACLs are enabled on the bucket add the `s3:PutObjectAcl` action for the bucket resource
+
+Change `amzn-s3-demo-bucket` to the name of your destination S3 bucket in the following policies.
 
 ###### To create an IAM policy to export logs to an Amazon S3 bucket
 
@@ -391,7 +393,7 @@ JSON
  {
  "Effect": "Allow",
  "Action": "s3:PutObject",
- "Resource": "arn:aws:s3:::`my-exported-logs`/*"
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
  }
  ]
 }`
@@ -425,16 +427,37 @@ JSON
 
 ```
 
+If the ACLs are enabled on destination bucket then add s3:PutObjectAcl
+to s3:PutObject Action block in the above policies.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "s3:PutObjectAcl"
+ ],
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+ }
+ ]
+}`
+
+```
+
 6. Choose **Next**.
 7. Enter a policy name. You will use this name to attach the policy to
    your IAM role.
 8. Choose **Create policy** to save the new
    policy.
 
-To create the export task, you'll need to be signed in with the
-`AmazonS3ReadOnlyAccess` IAM role. You must also be signed in
-with the IAM policy that you just created, and also with the following
-permissions:
+To create an export task, you must be signed in with a IAM role that has the
+`AmazonS3ReadOnlyAccess` managed policy attached, the IAM policy created above,
+and also with the following permissions:
 
 - `logs:CreateExportTask`
 - `logs:CancelExportTask`
@@ -492,9 +515,9 @@ S3 bucket is created, to allow export within the same account.
 2. Choose **Permissions**, **Bucket
    policy**.
 3. In the **Bucket Policy Editor**, add the following
-   policy. Change `my-exported-logs` to the name of your S3
+   policy. Change `amzn-s3-demo-bucket` to the name of your S3
    bucket. Be sure to specify the correct Region endpoint, such as
-   `us-west-1`, for **Principal**.
+   `us-east-1`, for **Principal**.
 
 JSON
 
@@ -574,7 +597,7 @@ policies. We recommend that you evaluate the resulting set of
 permissions to be sure that they're appropriate for the users who
 will access the bucket.
 
-### (Optional) Exporting to a bucket encrypted with SSE-KMS for cross-account export (console)
+### (Optional) Exporting to a destination Amazon S3 bucket encrypted with SSE-KMS for cross-account export (console)
 
 This procedure is necessary only if you are exporting to an S3 bucket that uses
 server-side encryption with AWS KMS keys. This encryption is known as
@@ -597,9 +620,12 @@ changes and choose **Next**. 9. Review the settings and choose **Finish**. 10. B
 the name of the key that you just created. 11. Choose the **Key policy** tab and choose
 **Switch to policy view**. 12. In the **Key policy** section, choose
 **Edit**. 13. Add the following statement to the key policy statement list. When you
-do, replace `Region` with the Region of your
-logs and replace `account-ARN` with the ARN of
-the account that owns the KMS key.
+do, replace `us-east-1` with the Region of your
+logs, `account-ARN` with the ARN of
+the account that owns the KMS key, `123456789012` with the
+account number that owns the KMS key,`key_id` with the
+kms-key Id and `role_name` with the role used for
+creating export task.
 
 JSON
 
@@ -645,7 +671,7 @@ JSON
  "kms:GenerateDataKey",
  "kms:Decrypt"
  ],
- "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`key-id`"
+ "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-id`"
  }
  ]
 }`
