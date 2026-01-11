@@ -200,8 +200,6 @@ Typically, this process completes in a few minutes but can last up to two hours 
 An immediate reboot, failover, or scale up/down of your writer instance after in-place MVU, may disrupt the index metadata calculation process on your cluster.
 After the in-place MVU completes, we recommend making such changes once you observe expected query performance on your Amazon DocumentDB 5.0 cluster.
 
-Additionally, after the in-place MVU completes, the available change stream data will be limited to the last 3 hours.
-
 Please contact AWS support if you see this temporary performance drop persisting for more than two hours after in-place MVU.
 
 Fully test the upgraded Amazon DocumentDB 5.0 cluster to ensure everything is working as expected.

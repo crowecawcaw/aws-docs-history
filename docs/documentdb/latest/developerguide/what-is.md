@@ -83,6 +83,7 @@ For a complete list of instance types supported by Amazon DocumentDB in each ins
 | Asia Pacific (Osaka)                 |           |                  | Supported | Supported |           | Supported | Supported |
 | Asia Pacific (Seoul)                 |           | Supported        | Supported | Supported |           | Supported | Supported |
 | Asia Pacific (Sydney)                | Supported | Supported        | Supported | Supported |           | Supported | Supported |
+| Asia Pacific (Jakarta)               | Supported | Supported        | Supported | Supported |           | Supported | Supported |
 | Asia Pacific (Singapore)             |           | Supported        | Supported | Supported |           | Supported | Supported |
 | Asia Pacific (Thailand)              |           |                  | Supported |           |           | Supported | Supported |
 | Asia Pacific (Tokyo)                 | Supported | Supported        | Supported | Supported |           | Supported | Supported |
@@ -145,6 +146,7 @@ The following table lists the number of Availability Zones that you can use in a
 | Asia Pacific (Seoul)      | `ap-northeast-2` | 4                            |
 | Asia Pacific (Singapore)  | `ap-southeast-1` | 3                            |
 | Asia Pacific (Sydney)     | `ap-southeast-2` | 3                            |
+| Asia Pacific (Jakarta)    | `ap-southeast-3` | 3                            |
 | Asia Pacific (Thailand)   | `ap-southeast-7` | 3                            |
 | Asia Pacific (Tokyo)      | `ap-northeast-1` | 3                            |
 | Canada (Central)          | `ca-central-1`   | 3                            |

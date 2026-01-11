@@ -73,6 +73,7 @@ window by modifying the cluster. For more information, see [Modifying an Amazon 
 | Asia Pacific (Seoul)      | ap-northeast-2 | 13:00-21:00    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | 14:00-22:00    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | 12:00-20:00    |
+| Asia Pacific (Jakarta)    | ap-southeast-3 | 08:00-16:00    |
 | Asia Pacific (Thailand)   | ap-southeast-7 | 15:00-23:00    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | 13:00-21:00    |
 | Canada (Central)          | ca-central-1   | 03:00-11:00    |
