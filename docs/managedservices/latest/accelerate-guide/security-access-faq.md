@@ -28,7 +28,7 @@ To provide RDP access for Windows instances, the operations engineer uses Amazon
 
 The following diagram outlines the process used by AMS operations engineers to access your account:
 
-![AMS Accelerate console access method.](images/acc-op-console-access-method2.png)
+![AMS Accelerate console access method.](/images/managedservices/latest/accelerate-guide/images/acc-op-console-access-method2.png)
 
 ## How do I track changes made by AMS in my AMS managed AWS accounts?
 
