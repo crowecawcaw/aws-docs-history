@@ -1,23 +1,12 @@
-# Generate and Verify an EMV MAC
+# Generate or verify a CVV2 for a specific card
 
-EMV MAC is MAC using an input of an EMV derived key and then performing a ISO9797-3 (Retail) MAC over the resulting data. EMV MAC is typically used to send commands
-to an EMV card such as unblock scripts.
-
-###### Note
-
-AWS Payment Cryptography does not validate the contents of the script. Please consult your scheme or card manual for details on specific commands to include.
-
-For more information, see [MacAlgorithmEmv](../DataAPIReference/API_MacAlgorithmEmv.md "../DataAPIReference/API_MacAlgorithmEmv.md") in the API guide.
-
-###### Topics
-
-- [Create the key](#use-cases-issuers.generalfunctions.emvmac.setup "#use-cases-issuers.generalfunctions.emvmac.setup")
-- [Generate an EMV MAC](#use-cases-issuers.generalfunctions.emvmac.generate "#use-cases-issuers.generalfunctions.emvmac.generate")
+[CVV2](terminology.md#terms.cvv2 "terminology.md#terms.cvv2") is a value that is traditionally provided on the back of a card and is used for online purchases. For virtual cards, it might also be displayed on an app or a screen.
+Cryptographically, it is the same as CVV1 but with a different service code value.
 
 ## Create the key
 
 ```
-`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_E2_EMV_MKEY_INTEGRITY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{DeriveKey=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVN18"},{"Key":"CARD_BIN","Value":"12345678"}]'`
+`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=TDES_2KEY,KeyUsage=TR31_C0_CARD_VERIFICATION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate=true,Verify=true}' --tags='[{"Key":"KEY_PURPOSE","Value":"CVV2"},{"Key":"CARD_BIN","Value":"12345678"}]'`
 ```
 
 The response echoes back the request parameters, including an ARN for subsequent calls as well as a Key Check Value (KCV).
@@ -25,9 +14,9 @@ The response echoes back the request parameters, including an ARN for subsequent
 ```
 `{
  "Key": {
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
  "KeyAttributes": {
- "KeyUsage": "TR31_E2_EMV_MKEY_INTEGRITY",
+ "KeyUsage": "TR31_C0_CARD_VERIFICATION_KEY",
  "KeyClass": "SYMMETRIC_KEY",
  "KeyAlgorithm": "TDES_2KEY",
  "KeyModesOfUse": {
@@ -35,68 +24,70 @@ The response echoes back the request parameters, including an ARN for subsequent
  "Decrypt": false,
  "Wrap": false,
  "Unwrap": false,
- "Generate": false,
+ "Generate": true,
  "Sign": false,
- "Verify": false,
- "DeriveKey": true,
+ "Verify": true,
+ "DeriveKey": false,
  "NoRestrictions": false
  }
  },
- "KeyCheckValue": "08D7B4",
+ "KeyCheckValue": "AEA5CD",
  "KeyCheckValueAlgorithm": "ANSI_X9_24",
  "Enabled": true,
  "Exportable": true,
  "KeyState": "CREATE_COMPLETE",
  "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
- "CreateTimestamp": "2024-03-07T06:41:46.648000-07:00",
- "UsageStartTimestamp": "2024-03-07T06:41:46.626000-07:00"
+ "CreateTimestamp": "2023-06-05T06:41:46.648000-07:00",
+ "UsageStartTimestamp": "2023-06-05T06:41:46.626000-07:00"
  }
  }`
 ```
 
-Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk_. You need that in the next step.
+Take note of the `KeyArn` that represents the key, for example _arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu_. You need that in the next step.
 
-## Generate an EMV MAC
+## Generate a CVV2
 
-The typical flow is that a backend process will generate an EMV script (such as card unblock), sign it using this command (which derives a one-time key specific to one particular card)
-and then return the MAC. Then the command + MAC are sent to the card to be applied. Sending the command to the card is outside the scope of AWS Payment Cryptography.
+In this example, we will generate a [CVV2](terminology.md#terms.cvv2 "terminology.md#terms.cvv2") for a given PAN with
+inputs of `PAN` and card expiration date.
+
+For all available parameters see [CardVerificationValue2](../DataAPIReference/API_CardVerificationValue2.md "../DataAPIReference/API_CardVerificationValue2.md") in the API reference guide.
+
+```
+`$` `aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu --primary-account-number=171234567890123 --generation-attributes CardVerificationValue2='{CardExpiryDate=1127}'`
+
+```
+
+```
+
+                     `{
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
+ "KeyCheckValue": "AEA5CD",
+ "ValidationData": "321"
+ }`
+
+```
+
+## Validate a CVV2
+
+In this example, we will verify a [CVV2](terminology.md#terms.cvv2 "terminology.md#terms.cvv2") for a given PAN with
+inputs of an CVK, `PAN`and card expiration date and the CVV provided during the transaction to validate.
+
+For all available parameters see, [CardVerificationValue2](../DataAPIReference/API_CardVerificationValue2.md "../DataAPIReference/API_CardVerificationValue2.md") in the API reference guide.
 
 ###### Note
 
-This command is meant for commands when no encrypted data (such as PIN) is sent. EMV Encrypt can be combined with this command to append encrypted data to the issuer script prior to calling this command
-
-Message Data
-Message data includes the APDU header and command. While this can vary by implementation, this example is the APDU header for unblock (84 24 00 00 08), following
-by ATC (0007) and then ARQC of the previous transaction (999E57FD0F47CACE). The service does not validate the contents of this field.
-
-Session Key Derivation Mode
-This field defines how the session key is generated. EMV_COMMON_SESSION_KEY is generally used for the new implementations,
-while EMV2000 | AMEX | MASTERCARD_SESSION_KEY | VISA may be used as well.
-
-MajorKeyDerivationMode
-EMV Defines Mode A, B or C. Mode A is the most common and AWS Payment Cryptography currently supports mode A or mode B.
-
-PAN
-The account number, typically available in chip field 5A or ISO8583 field 2 but may also be retrieved from the card system.
-
-PSN
-The card sequence number. If not used, enter 00.
-
-SessionKeyDerivationValue
-This is the per session derivation data. It can either be the last ARQC(ApplicationCryptogram) from field 9F26
-or the last ATC from 9F36 depending on the derivation scheme.
-
-Padding
-Padding is automatically applied and uses ISO/IEC 9797-1 padding method 2.
+CVV2 and the other inputs are user entered values. As such, it is not necessarily a sign of an issue that this periodically fails to validate.
 
 ```
-`$` `aws payment-cryptography-data generate-mac --message-data 84240000080007999E57FD0F47CACE --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk --message-data 8424000008999E57FD0F47CACE0007 --generation-attributes EmvMac="{MajorKeyDerivationMode=EMV_OPTION_A,PanSequenceNumber='00',PrimaryAccountNumber='2235521304123282',SessionKeyDerivationMode=EMV_COMMON_SESSION_KEY,SessionKeyDerivationValue={ApplicationCryptogram='999E57FD0F47CACE'}}"`
+`$` `aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu --primary-account-number=171234567890123 --verification-attributes CardVerificationValue2='{CardExpiryDate=1127} --validation-data 321`
+
 ```
 
 ```
 `{
-"KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/pw3s6nl62t5ushfk",
-"KeyCheckValue": "08D7B4",
-"Mac":"5652EEDF83EA0D84"
-}`
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/7f7g4spf3xcklhzu",
+ "KeyCheckValue": "AEA5CD",
+ "ValidationData": "801"
+ }`
+
 ```
