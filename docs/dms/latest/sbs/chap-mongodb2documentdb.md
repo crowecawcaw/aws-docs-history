@@ -1,36 +1,72 @@
-# Launch an Amazon EC2 instance for MongoDB migration
+# Install and configure MongoDB community edition
 
-For this tutorial, you launch an Amazon EC2 instance into your default VPC.
+Perform these steps on the Amazon EC2 instance that you launched in [Launch an Amazon EC2 instance](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md").
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. Choose **Launch Instance**, and do the following:
-   1. On the **Choose an Amazon Machine Image (AMI)** page, at the top of the list of AMIs, go to **Amazon Linux AMI** and choose **Select**.
-   2. On the **Choose an Instance Type** page, at the top of the list of instance types, choose **t2.micro**. Then choose **Next: Configure Instance Details**.
-   3. On the **Configure Instance Details** page, for **Network**, choose your default VPC. Then choose **Next: Add Storage**.
-   4. On the **Add Storage** page, skip this step by choosing **Next: Add Tags**.
-   5. On the **Add Tags** page, skip this step by choosing **Next: Configure Security Group**.
-   6. On the **Configure Security Group** page, do the following:
-      1. Choose **Select an existing security group**.
-      2. In the list of security groups, choose **default**. Doing this chooses the default security group for your VPC. By default, the security group accepts inbound Secure Shell (SSH) connections on TPC port 22. If this isn’t the case for your VPC, add this rule; for more information, see [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide_.
-      3. Choose **Next: Review and Launch**.
+1.  Go to [Install MongoDB community edition on Amazon Linux](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-amazon/ "https://docs.mongodb.com/manual/tutorial/install-mongodb-on-amazon/") in the MongoDB documentation and follow the instructions there.
+2.  By default, the MongoDB server (`mongod`) only allows loopback connections from IP address 127.0.0.1 (localhost). To allow connections from elsewhere in your Amazon VPC, do the following:
+    1. Edit the `/etc/mongod.conf` file and look for the following lines.
 
-   7. Review the information, and choose **Launch**.
+    ```
+    # network interfaces
+    net:
+      port: 27017
+      bindIp: 127.0.0.1  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.
+    ```
 
-3. In the **Select an existing key pair or create a new key pair** window, do one of the following:
-   - If you don’t have an Amazon EC2 key pair, choose **Create a new key pair** and follow the instructions. You are asked to download a private key file (.pem file). You need this file later when you log in to your Amazon EC2 instance.
-   - If you already have an Amazon EC2 key pair, for **Select a key pair** choose your key pair from the list. You must already have the private key file (.pem file) available in order to log in to your Amazon EC2 instance.
+    2. Modify the `bindIp` line so that it looks like the following.
 
-4. After you configure your key pair, choose **Launch Instances**.
+    ```
+      bindIp: public-dns-name
+    ```
 
-In the console navigation pane, choose **EC2 Dashboard**, and then choose the instance that you launched. In the lower pane, on the **Description** tab, find the **Public DNS** location for your instance, for example: `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`.
+    3. Replace `public-dns-name` with the actual public DNS name for your instance, for example `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`.
+    4. Save the `/etc/mongod.conf` file, and then restart `mongod`.
 
-It takes a few minutes for your Amazon EC2 instance to become available. 5. Use the `ssh` command to log in to your Amazon EC2 instance, as in the following example.
+    ```
+    sudo service mongod restart
+    ```
 
-```
-chmod 400 my-keypair.pem
-ssh -i my-keypair.pem ec2-user@public-dns-name
-```
+3.  Populate your MongoDB instance with data by doing the following:
+    1. Use the `wget` command to download a JSON file containing sample data.
 
-Specify your private key file (.pem file) and the public DNS name of your EC2 instance. The login ID is `ec2-user`. No password is required.
+    ```
+    wget http://media.mongodb.org/zips.json
+    ```
 
-For further details about connecting to your EC instance, see [Connecting to your Linux instance using SSH](../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md "../../../AWSEC2/latest/UserGuide/AccessingInstancesLinux.md") in the _Amazon EC2 User Guide for Linux Instances_.
+    2. Use the `mongoimport` command to import the data into a new database (`zips-db`).
+
+    ```
+    mongoimport --host public-dns-name:27017 --db zips-db --file zips.json
+    ```
+
+    3. After the import completes, use the `mongo` shell to connect to MongoDB and verify that the data was loaded successfully.
+
+    ```
+    mongo --host public-dns-name:27017
+    ```
+
+    4. Replace `public-dns-name` with the actual public DNS name for your instance.
+    5. At the `mongo` shell prompt, enter the following commands.
+
+    ```
+    use zips-db
+
+    db.zips.count()
+
+    db.zips.aggregate( [
+       { $group: { _id: { state: "$state", city: "$city" }, pop: { $sum: "$pop" } } },
+       { $group: { _id: "$_id.state", avgCityPop: { $avg: "$pop" } } }
+    ] )
+    ```
+
+    The output should display the following:
+
+        * The name of the database (`zips-db`)
+        * The number of documents in the `zips` collection (29353)
+        * The average population for cities in each state
+
+    6. Exit from the `mongo` shell and return to the command prompt by using the following command.
+
+    ```
+    exit
+    ```

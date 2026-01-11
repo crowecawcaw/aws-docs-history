@@ -1,64 +1,35 @@
-# Set up Aurora MySQL as a target database
+# Set up an AWS DMS replication instance
 
-To provision Aurora MySQL as a target database, download the [AuroraMysql_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml"). This template creates an Aurora MySQL database with required parameters.
+To provision an AWS DMS replication instance, download the [DMS_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/DMS_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/DMS_CF.yaml").
 
 1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
-2. Choose **Create stack**, and then choose **With new resources (standard)**.
+2. Choose **Create stack**.
 3. For **Specify template**, choose **Upload a template file**.
-4. Select **Choose file**.
-5. Choose the `AuroraMySQL.yaml` file.
+4. Select **Choose File**.
+5. Choose the `DMS_CF.yaml` file.
 6. Choose **Next**.
-7. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+7. On the **Specify Stack Details** page, edit the predefined values as needed, and then choose **Next**:
    - **Stack name** — Enter a name for the stack.
-   - **CIDR** — Enter the CIDR IP range to access the instance.
-   - **DBBackupRetentionPeriod** — The number of days for backup retention.
-   - **DBInstanceClass** — Enter the instance type of the database server.
-   - **DBMasterPassword** — Enter the master password for the DB instance.
-   - **DBMasterUsername** — Enter the master user name for the DB instance.
-   - **DBName** — Enter the name of the database.
-   - **DBSubnetGroup** — Enter the DB subnet group.
-   - **Engine** — Enter the Aurora engine version; the default is `5.7.mysql-aurora.2.03.4`.
-   - **PreferredBackupWindow** — Enter the daily time range in UTC during which you want to create automated backups.
-   - **PreferredMaintenanceWindow** — Enter the weekly time range in UTC during which system maintenance can occur.
-   - **VPCID** — Enter the ID for the VPC to launch your DB instance in.
+   - **AllocatedStorageSize** — Enter the storage size in GB. The default is 200 GB.
+   - **DMSReplicationSubnetGroup** — Enter the subnet group for DMS replication.
+   - **DMSSecurityGroup** — Enter the security group for DMS replication.
+   - **InstanceType** — Enter the instance type.
+   - **SourceDBPort** — Enter the source database port.
+   - **SourceDatabaseName** — Enter the source database name.
+   - **SourceServerName** — Enter the IP address of the source database server.
+   - **SourceUsername** — Enter the source database user name.
+   - **SourcePassword** — Enter the source database password.
+   - **TargetDBPort** — Enter the target database port.
+   - **TargetDatabaseName** — Enter the target database name.
+   - **TargetServerName** — Enter the IP address of the target database server.
+   - **TargetUsername** — Enter the target database user name.
+   - **TargetPassword** — Enter the target database password.
 
 8. On the **Configure stack options** page, for **Tags**, specify any optional tags, and then choose **Next**.
-9. On the **Review** page, choose **Next**.
-10. Choose **Create stack**.
-    After the Aurora MySQL database is created, log in to the Aurora MySQL instance:
+9. On the **Review** page, choose **I acknowledge that AWS CloudFormation might create IAM resources**.
+10. Choose **Create Stack**.
+    This AWS CloudFormation template creates a replication instance named `mariadb-mysql`. This replication instance has a source endpoint named `maria-on-prem` and a target endpoint named `mysqltrg-rds`. This target endpoint has extra connection attributes to disable foreign key constraint checks during the AWS DMS replication, as shown following.
 
 ```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com -u master -p migration -P 3306
-MySQL [(none)]> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| awsdms_control     |
-| mysql              |
-| performance_schema |
-| source             |
-| tmp                |
-| webdb              |
-+--------------------+
-7 rows in set (0.001 sec)
-
-MySQL [(none)]> create database migration;
-Query OK, 1 row affected (0.016 sec)
-
-MySQL [(none)]> use migration;
-Database changed
-
-MySQL [migration]> show tables;
-Empty set (0.001 sec)
+ExtraConnectionAttributes : "initstmt=SET FOREIGN_KEY_CHECKS=0;parallelLoadThreads=1"
 ```
-
-Use `mysql_tables_indexes.sql` to create table and index structures in Aurora MySQL.
-
-```
-$ mysql -h mysqltrg-instance-1.xxxxxxxxx.us-east-1.rds.amazonaws.com  -u master -p migration -P 3306 < mysql_tables_indexes.sql
-Enter password:
-$
-```
-
-After the tables and indexes are successfully created, the next step is to set up and use AWS DMS.
