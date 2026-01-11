@@ -16,9 +16,7 @@ With enforcement for basic compliance rules, you can prevent resource creation w
 
 ###### Important
 
-Basic compliance rules do not enforce tag compliance on resources that are created without tags. This capability does not enforce missing tag keys. You cannot use this capability to ensure that required or mandatory tag keys are configured at resource creation. Use reporting mode in "Required tag keys" to enforce required tag keys for resources created by IaC tools such as CloudFormation, Terraform, and Pulumi. Use SCPs to prevent IAM users and roles in target accounts from creating certain resource types if the request doesn't include the specified tags. Find sample SCPs for tagging enforcement in our
-[Example SCPs for tagging
-resources](orgs_manage_policies_scps_examples_tagging.md "orgs_manage_policies_scps_examples_tagging.md").
+Basic compliance rules do not enforce tag compliance on resources that are created without tags. This capability does not enforce missing tag keys. You cannot use this capability to ensure that required or mandatory tag keys are configured at resource creation. Use reporting mode in "Required tag keys" to enforce required tag keys for resources created by IaC tools such as CloudFormation, Terraform, and Pulumi. Use SCPs to prevent IAM users and roles in target accounts from creating certain resource types if the request doesn't include the specified tags.
 
 To enforce basic compliance rules with tag policies, do one of the following when you
 [create a tag policy](orgs_policies_create.md "orgs_policies_create.md"):

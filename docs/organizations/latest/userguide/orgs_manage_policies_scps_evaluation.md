@@ -73,12 +73,6 @@ organization. `Deny` statements are a powerful way to implement restrictions
 that should be true for a broader part of your organization or OUs because when they are
 applied at the root or the OU-level they affect all the accounts under it.
 
-For example, you can implement a policy using `Deny` statements to [Prevent member accounts from leaving the
-organization](orgs_manage_policies_scps_examples_general.md#example-scp-leave-org "orgs_manage_policies_scps_examples_general.md#example-scp-leave-org") at the
-root-level, which will be effective for all the accounts in the organization. Deny
-statements also support condition element which can be helpful to create
-exceptions.
-
 ###### Tip
 
 You can use [service

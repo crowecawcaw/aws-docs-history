@@ -68,8 +68,7 @@ resource creation requests
 Resources that have never had tags attached to them don't show as noncompliant in
 reports. Account administrators can still create untagged resources. In some cases, you
 can use a service control policy (SCP) to set guardrails around resource creation
-requests. For an example SCP, see [Require a tag on specified
-created resources](orgs_manage_policies_scps_examples_tagging.md#example-require-tag-on-create "orgs_manage_policies_scps_examples_tagging.md#example-require-tag-on-create").
+requests.
 
 To learn whether an AWS service
 supports controlling access using tags, see [AWS services
