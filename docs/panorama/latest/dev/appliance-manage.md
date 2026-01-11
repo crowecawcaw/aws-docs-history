@@ -32,7 +32,7 @@ on the appliance **Settings** page.
 3. Choose **Settings**
 4. Under **System software**, choose **Install software update**.
 
-![Software upgrade for the AWS Panorama Appliance.](images/setup-upgrade.png) 5. Choose a new version and then choose **Install**.
+![Software upgrade for the AWS Panorama Appliance.](/images/panorama/latest/dev/images/setup-upgrade.png) 5. Choose a new version and then choose **Install**.
 
 ## Deregister an appliance
 
