@@ -75,7 +75,7 @@ its next response. 10. Choose **Reset** to start a new chat with the model. 11. 
         that supports [images](../../../bedrock/latest/userguide/models-supported.md "../../../bedrock/latest/userguide/models-supported.md").
     2.  Choose the attachment button at the left of the **Enter prompt** text box.
 
-    ![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-run-prompt-attach.png) 3. In the open file dialog box, choose an image from your local computer. 4. In the text box, next to the image that you uploaded, enter `What's in this
+    ![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](/images/sagemaker-unified-studio/latest/userguide/images/bedrock/bedrock-ide-chat-playground-run-prompt-attach.png) 3. In the open file dialog box, choose an image from your local computer. 4. In the text box, next to the image that you uploaded, enter `What's in this
  image?`. 5. Press Enter on your keyboard enter to send the prompt to the model. The response from the
     models describes the model or image.
 
