@@ -109,7 +109,7 @@ use cases:
    `Minimum` = 0,
    `Maximum` = 1,000, and
    `Target Idle` = 100.
-   This saves money when idle. This keeps at least one session available for fast
+   This saves money when idle. This keeps at least 100 sessions available for fast
    start up.
 
 ###### Note
