@@ -48,7 +48,7 @@ the AMS service knowledge management API (`amsskms)`, in a non-USA East Region, 
     + Red Hat Enterprise Linux (RHEL) 9.x, 8.x
     + SUSE Linux Enterprise Server 15 SP6
     + SUSE Linux Enterprise Server for SAP 15 SP3 and later
-    + Microsoft Windows Server 2022, 2019, 2016
+    + Microsoft Windows Server 2025, 2022, 2019, 2016
     + Ubuntu 20.04, 22.04, 24.04
 
 **Supported operating systems (ARM64)**

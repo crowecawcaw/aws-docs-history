@@ -30,11 +30,12 @@ For help with other access RFC failures, see
 
 Most change types are ExecutionMode=Automated, but some are ExecutionMode=Manual and that affects how you should schedule them to avoid RFC failure.
 
-Scheduled RFCs with ExecutionMode=Manual, must be set to execute at least 24 hours in the future if you are using the AMS Console to
-create the RFC. This caveat does not apply to the AMS API/CLI, but it is still important to schedule Manual RFCs at least 8 hours ahead.
+Scheduled RFCs with ExecutionMode=Manual, must be set to execute at least 24
+hours in the future if you are using the AMS Console to create the RFC.
 
-AMS aims to respond to a manual CT within four hours, and will correspond as soon as possible, but it could take much longer for the RFC to actually
-be executed.
+AMS aims to respond to a manual CT within eight hours, and will correspond
+as soon as possible, but it could take much longer for the RFC to actually be
+executed.
 
 ### Using RFCs with manual update CTs
 
@@ -282,10 +283,8 @@ When you come across the following error for the listed change types (CTs), you 
 `{"errorMessage":"An error has occurred during RFC execution. We are investigating the issue.","errorType":"InternalError"}`
 
 If you require further assistance after referring to the following troubleshooting
-options, then engage AMS via RFC correspondence or create a service request. See
-[RFC Correspondence
-and Attachment (Console)](ex-rfc-correspondence.md "ex-rfc-correspondence.md") and [Creating a
-Service Request in AMS](gui-ex-create-service-request.md "gui-ex-create-service-request.md") for more details.
+options, then engage AMS through RFC correspondence. For more information, see [RFC Correspondence
+and Attachment (Console)](ex-rfc-gui.md#ex-rfc-correspondence "ex-rfc-gui.md#ex-rfc-correspondence").
 
 ### Workload ingestion (WIGS) errors
 
@@ -341,11 +340,9 @@ as AMS Operators proactively work on the RFC failure instead of waiting for your
 
 You can reach out to AMS to identify the root cause of your failure. AMS business hours are 24 hours a day, 7 days a week, 365 days a year.
 
-AMS provides several avenues for you to ask for help or make service requests.
+AMS provides several avenues for you to ask for help.
 
-- To ask for information or advice, or for access to an AMS-managed IT service, or to request an additional service from AMS, use the AMS console and submit a
-  service request. For details, see [Creating a Service Request](gui-ex-create-service-request.md "gui-ex-create-service-request.md").
-  For general information about AMS service requests, see [Service Request Management](mk-service-requests.md "mk-service-requests.md").
+- If you require assistance with an open RFC or an RFC which is completed but was incorrect, engage AMS through RFC bi-directional correspondence. For more information, see [RFC Correspondence and Attachment (Console)](ex-rfc-gui.md#ex-rfc-correspondence "ex-rfc-gui.md#ex-rfc-correspondence").
 - To report an AWS or AMS service performance issue that impacts your managed environment, use the AMS console and submit an incident report.
   For details, see [Reporting an Incident](gui-ex-report-incident.md "gui-ex-report-incident.md"). For general information about AMS
   incident management, see [Incident response](sec-incident-response.md "sec-incident-response.md").
