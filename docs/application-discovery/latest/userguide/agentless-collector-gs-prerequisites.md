@@ -39,6 +39,14 @@ but we currently test against version 6.7 and 7.0.
 - Agentless Collector version 2 requires ESXi 6.5 or a later
   version.
 
+## Configure data perimeter for access to AWS service-owned resources
+
+The Agentless Collector automatic update feature retrieves updates in the form of Docker images from an AWS service-owned Public ECR Repository. If you are using data perimeters to control access to Amazon ECR in your environment,
+you might need to explicitly allow access to the following to use the automatic update feature:
+
+- Resource ARNs that require access: `arn:aws:ecr-public::446372222237:repository/6e5498e4-8c31-4f57-9991-13b4b992ff7b`
+- Required permissions: `ecr-public:DescribeImages`
+
 ## Configure firewall
 
 for outbound access to AWS domains
