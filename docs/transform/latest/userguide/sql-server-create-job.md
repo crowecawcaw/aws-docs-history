@@ -26,7 +26,7 @@ Enable AWS Transform to access your .NET application source code through AWS Cod
 **Actions to Complete:**
 
 - Navigate to **Connect Source Code Repository** section
-- Select your source code platform (GitHub, GitLab, Bitbucket, CodeCommit)
+- Select your source code platform (GitHub, GitLab, Bitbucket, Azure Repos)
 - Configure AWS CodeConnections and authorize access
 - Select repositories containing .NET applications
 - Specify branch for analysis (typically main/master or development)

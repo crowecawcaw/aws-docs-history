@@ -42,7 +42,7 @@ After transformation, the transformed files reside in the following project loca
 
 ### Limitations and unsupported features
 
-Projects with up to 500 pages (.aspx + .ascx files) can be transformed.
+Projects with up to 1000 pages (.aspx + .ascx files) can be transformed.
 
 The following features are not supported at present. If your workloads use these features, that code will need to be ported manually or with an AI code companion post-transformation.
 

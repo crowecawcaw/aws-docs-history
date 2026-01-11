@@ -43,12 +43,7 @@ AWS Transform has the following limitations:
   job will start again from the beginning and you will lose any progress you have
   made in the job. However, artifacts created in the job before restarting it will
   still be available.
-- You can specify one target AWS account and one target AWS Region per
-  VMware migration job. To migrate waves to different target accounts or different
-  Regions, create multiple VMware migration jobs, and use the same source account
-  connector for your inventory. For information about the two types of account
-  connectors, see [AWS account connectors for
-  VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").
+- You can specify one target AWS Region per VMware migration job. To migrate applications to different target Regions, create multiple VMware migration jobs.
 - NSX imports are only supported for end-to-end migration jobs.
 
 ###### Important

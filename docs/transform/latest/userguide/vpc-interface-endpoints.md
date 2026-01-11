@@ -20,6 +20,11 @@ Guide_.
 - Only the AWS Transform console can be accessed thru AWS PrivateLink.
 - The AWS Transform WebApp and other related services such as .NET IDE cannot be accessed thru AWS PrivateLink.
 
+###### Note
+
+For AWS Transform custom PrivateLink documentation, see [AWS Transform custom and interface endpoints
+(AWS PrivateLink)](vpc-interface-endpoints-transform-custom.md "vpc-interface-endpoints-transform-custom.md").
+
 ## Considerations for AWS Transform VPC
 
 endpoints

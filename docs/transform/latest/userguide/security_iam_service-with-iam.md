@@ -82,6 +82,11 @@ actions that you can use to allow or deny access in a policy. Include actions in
 To see a list of AWS Transform actions, see [Actions, resources, and condition keys for AWS Transform](../../../service-authorization/latest/reference/list_awstransform.md "../../../service-authorization/latest/reference/list_awstransform.md") in the
 _Service Authorization Reference_.
 
+To see a list of actions for AWS Transform _custom_, see
+[Actions,
+resources, and condition keys for AWS Transform custom](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md") in the
+_Service Authorization Reference_.
+
 Policy actions in AWS Transform use the following prefix before the action:
 
 ```
@@ -121,6 +126,11 @@ To see a list of AWS Transform resource types and their ARNs, and with
 which actions you can specify the ARN of each resource, see
 [Actions, resources, and condition keys for AWS Transform](../../../service-authorization/latest/reference/list_awstransform.md "../../../service-authorization/latest/reference/list_awstransform.md") in the _Service Authorization Reference_.
 
+To see a list of resource types and their ARNs, and with which actions you can
+specify the ARN of each resource for AWS Transform _custom_, see [Actions,
+resources, and condition keys for AWS Transform custom](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md") in the
+_Service Authorization Reference_.
+
 To view examples of AWS Transform identity-based policies, see [Identity-based policy
 examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
@@ -143,6 +153,11 @@ _IAM User Guide_.
 
 To see a list of AWS Transform condition keys, and with which actions and resources you
 can use a condition key, see [Actions, resources, and condition keys for AWS Transform](../../../service-authorization/latest/reference/list_awstransform.md "../../../service-authorization/latest/reference/list_awstransform.md") in the
+_Service Authorization Reference_.
+
+To see a list of condition keys, and with which actions and resources you can use a
+condition key for AWS Transform _custom_, see [Actions,
+resources, and condition keys for AWS Transform custom](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md") in the
 _Service Authorization Reference_.
 
 To view examples of AWS Transform identity-based policies, see [Identity-based policy

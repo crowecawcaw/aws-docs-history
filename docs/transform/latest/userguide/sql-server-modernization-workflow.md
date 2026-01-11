@@ -52,7 +52,6 @@ AWS Transform needs access to your .NET application source code to analyze and t
    - GitLab.com / GitLab self-managed
    - Bitbucket Cloud
    - Azure Repositories
-   - AWS CodeCommit
 
 5. Follow the authorization flow for your provider
 6. After authorization, choose **Connect**

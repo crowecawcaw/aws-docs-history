@@ -95,7 +95,6 @@ AWS Transform supports the following repository platforms via AWS CodeConnection
 - GitLab.com and GitLab self-managed
 - Bitbucket Cloud
 - Azure Repositories
-- AWS CodeCommit
 
 ### Target database
 
