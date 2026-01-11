@@ -17,8 +17,8 @@ enhance search results.
 
 ###### Note
 
-Automatic semantic enrichment is available for Amazon OpenSearch Service domains running version 2.19
-or later with the latest service software version update.
+AAutomatic semantic enrichment is available for OpenSearch Service domains running version 2.19 or later.
+Additionally, domains with OpenSearch version 2.19 also need to be on the latest service software version update.
 
 ## How it works
 
@@ -51,7 +51,7 @@ Semantic enrichment is configured at the index level during creation,
 giving you granular control over which data receives semantic
 processing.
 
-**Zero impact on search latency**
+**Minimal impact on search latency**
 
 Automatic Semantic Enrichment stores sparse encodings directly in your
 index during indexing. You don't need separate KNN indices. Your searches
@@ -127,6 +127,13 @@ With Automatic Semantic Enrichment, you pay only for the resources your
 workload consumes. The compute capacity is measured in OpenSearch Compute Units
 (OCUs). Check the pricing details for your specific Region and pricing
 illustration on the [https://aws.amazon.com/opensearch-service/pricing/](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/")OpenSearch Service pricing page.
+
+## Index set up example
+
+For a practical example, refer to the blog post [https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/](https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/ "https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/")
+on index setup for product catalog search using automatic semantic enrichment. Although the blog focuses on OpenSearch Serverless,
+the approach applies to managed clusters as well. Use this example as a starting point, then test with your own workload to
+validate search relevance improvements.
 
 ## Configuring permissions for
 

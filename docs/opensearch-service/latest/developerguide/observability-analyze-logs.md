@@ -21,7 +21,7 @@ After your logs data is ingested into Amazon OpenSearch Service, you use the too
 OpenSearch Service observability workspace in OpenSearch UI to analyze it. The observability workspace provides
 specialized tools designed to extract meaningful insights in Discover and Dashboards.
 
-The observability workspace comes with a new Discover experience which uses [piped processing language](https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst "https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst") (PPL) complemented with a natural language assistant powered by Amazon Q Developer for Business.
+The observability workspace comes with a new Discover experience which uses [piped processing language](https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/ "https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/") (PPL) complemented with a natural language assistant powered by Amazon Q Developer for Business.
 The language assistance makes it simple for anyone to get started with piped languages.
 After refining your query, create visualizations and dashboards right from new Discover without
 jumping to other parts of the tool. To query your data using [DQL](https://docs.opensearch.org/latest/dashboards/dql/ "https://docs.opensearch.org/latest/dashboards/dql/") or [SQL](https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst "https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst"), switch to the old Discover experience.
@@ -68,9 +68,9 @@ source = my-index |
     stats avg(request_time) by status_code
 ```
 
-For more information about PPL, see the [reference manual](https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst "https://github.com/opensearch-project/sql/blob/main/docs/user/ppl/index.rst") on GitHub.
+For more information about PPL, see the [PPL reference manual](https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/ "https://docs.opensearch.org/latest/sql-and-ppl/ppl/index/") on opensearch.org.
 
-### Querying your logs using AI
+## Querying your logs using AI
 
 This example analyzes your logs to show the errors logged in the
 last 5 minutes.
@@ -81,7 +81,7 @@ Show me all of the error logs from the last 5 minutes
 
 ![](images/ppl-ai-query.png)
 
-### Querying your logs using SQL
+## Querying your logs using SQL
 
 SQL provides a familiar way to query log data.
 
@@ -97,7 +97,7 @@ ORDER BY timestamp DESC;
 
 For more information about SQL, see the [SQL reference manual](https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst "https://github.com/opensearch-project/sql/blob/main/docs/user/index.rst") on GitHub.
 
-### Querying your logs using DQL
+## Querying your logs using DQL
 
 DQL is good for quick searching and filtering.
 

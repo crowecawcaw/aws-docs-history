@@ -1,5 +1,10 @@
 # Semantic search in Amazon OpenSearch Service
 
+Starting with version 2.19, you can use automatic semantic enrichment to implement semantic search
+with minimal configuration effort. This feature automatically generates sparse encoding for your
+text fields, eliminating the need for manual ingestion pipeline setup. For details,
+see [Automatic Semantic Enrichment](opensearch-semantic-enrichment.md "opensearch-semantic-enrichment.md") in the OpenSearch documentation.
+
 Starting with OpenSearch version 2.9, you can use semantic search to help you understand
 search queries and improve search relevance. You can use semantic search in one of two ways
 – with [neural search](https://opensearch.org/docs/latest/search-plugins/neural-search/ "https://opensearch.org/docs/latest/search-plugins/neural-search/") and with [k-Nearest Neighbor

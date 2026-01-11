@@ -4,7 +4,8 @@ Amazon OpenSearch Service now includes Cluster Insights, a monitoring solution t
 
 ###### Note
 
-Cluster Insights is available through OpenSearch Service UI at no additional cost to all users running OpenSearch version 2.17 or later.
+Cluster Insights is available through the OpenSearch Service UI at no additional cost to all users running OpenSearch version 2.17 or later.
+Additionally, domains with OpenSearch versions 2.17 and 2.19 also need to be on the latest service software version update.
 
 ## Benefits
 

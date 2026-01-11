@@ -197,15 +197,34 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Action": "kms:DescribeKey",
  "Effect": "Allow",
- "Action": [
- "kms:DescribeKey",
- "kms:CreateGrant"
- ],
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:user/Dale"
+ },
  "Resource": "*",
  "Condition": {
  "StringEquals": {
  "kms:ViaService": "aoss.us-east-1.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Action": "kms:CreateGrant",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:user/Dale"
+ },
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "aoss.us-east-1.amazonaws.com"
+ },
+ "ForAllValues:StringEquals": {
+ "kms:GrantOperations": [
+ "Decrypt",
+ "GenerateDataKey"
+ ]
  },
  "Bool": {
  "kms:GrantIsForAWSResource": "true"

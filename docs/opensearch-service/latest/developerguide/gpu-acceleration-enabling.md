@@ -94,6 +94,20 @@ aws opensearch update-domain-config \
     --aiml-options '{"ServerlessVectorAcceleration": {"Enabled": true}}'
 ```
 
+Create new collection
+The following AWS CLI example creates an OpenSearch Serverless collection with GPU-acceleration
+enabled in US East (N. Virginia). Replace the `text` with that of
+your own configuration.
+
+```
+aws opensearchserverless create-collection \
+    --name "`my-collection`" \
+    --type "VECTORSEARCH" \
+    --description "`My vector collection with GPU acceleration`" \
+    --vector-options '{"ServerlessVectorAcceleration": "`ENABLED`"}' \
+    --region `us-east-1`
+```
+
 Edit existing collection
 
 ###### Note

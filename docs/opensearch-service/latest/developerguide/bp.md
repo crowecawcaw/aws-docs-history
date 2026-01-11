@@ -14,6 +14,7 @@ find the optimal configuration, stability, and cost for your workload.
 - [Performance](#bp-perf "#bp-perf")
 - [Security](#bp-security "#bp-security")
 - [Cost optimization](#bp-cost-optimization "#bp-cost-optimization")
+- [Recommended CloudWatch alarms for Amazon OpenSearch Service](cloudwatch-alarms.md "cloudwatch-alarms.md")
 - [Sizing Amazon OpenSearch Service domains](sizing-domains.md "sizing-domains.md")
 - [Petabyte scale in Amazon OpenSearch Service](petabyte-scale.md "petabyte-scale.md")
 - [Dedicated coordinator nodes in
