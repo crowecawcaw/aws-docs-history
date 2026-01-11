@@ -18,7 +18,7 @@ Set up a test run and verify that it is complete.
 ![Device Farm scheduled a job.](images/df-run-calendar.png)
 for runs that are in progress. Each device in the run will also start with the
 pending icon, then switch to the running
-![Device Farm progress indicator.](/images/devicefarm/latest/developerguide/images/df-run-progress.png)
+![Device Farm progress indicator.](images/df-run-progress.png)
 icon when the test begins. As each test
 finishes, a test result icon is displayed next to the device name. When all tests have been
 completed, the pending icon next to the run changes to a test result icon. For more information, see
