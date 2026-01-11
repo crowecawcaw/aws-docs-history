@@ -573,6 +573,18 @@ By using the same session ID for related WebSocket connections, you ensure that 
 maintained across the same conversation, allowing your agent to provide coherent responses that
 build on previous interactions.
 
+### Session lifecycle with WebSocket connections
+
+For WebSocket connections, the session's idle timeout is reset each time there is message
+activity between the client and agent. This includes any WebSocket message exchange such as
+sending data from client to agent, receiving responses from agent to client, or WebSocket
+ping/pong frames. This means that active WebSocket conversations will keep the session alive
+as long as messages continue to flow, preventing premature session termination during ongoing
+interactions.
+
+For more information about configuring lifecycle settings, see [Configure Amazon Bedrock AgentCore lifecycle settings](runtime-lifecycle-settings.md "runtime-lifecycle-settings.md"). For more direct control of session
+lifecycle through agent health status, see [Runtime session lifecycle management](runtime-long-run.md#runtime-long-run-session-lifecycle "runtime-long-run.md#runtime-long-run-session-lifecycle").
+
 ## Observability
 
 [Amazon Bedrock AgentCore Observability](observability.md "observability.md") helps you trace, debug, and monitor agents

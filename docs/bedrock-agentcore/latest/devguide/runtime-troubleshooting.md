@@ -161,33 +161,6 @@ terminates sessions after 15 minutes of inactivity
 **Example solution:** Implement ping handlers with
 HEALTHY_BUSY status for async tasks:
 
-```
-
-import asyncio
-from bedrock_agentcore.runtime import BedrockAgentCoreApp
-
-app = BedrockAgentCoreApp()
-
-@app.entrypoint
-async def long_running_agent(payload, context):
-    # For long-running tasks, create async task with ping handler
-    async def ping_handler():
-        while task_running:
-            await context.ping(status="HEALTHY_BUSY")
-            await asyncio.sleep(30)  # Ping every 30 seconds
-
-    # Start ping handler
-    ping_task = asyncio.create_task(ping_handler())
-
-    # Your long-running work here
-    result = await perform_long_task()
-
-    # Clean up
-    ping_task.cancel()
-    return result
-
-```
-
 ## How do I access the runtimeSessionId in my agent code for tagging or grouping
 
 resources?
