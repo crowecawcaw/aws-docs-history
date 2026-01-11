@@ -1,77 +1,93 @@
-#
+# Working with replication
 
-Modifying a replication instance
+engine versions
 
-You can modify the settings for a replication instance to, for example, change the
-instance class or to increase storage.
+The _replication engine_ is the core AWS DMS software
+that runs on your replication instance and performs the migration tasks you specify. AWS
+periodically releases new versions of the AWS DMS replication engine software, with new
+features and performance improvements. Each version of the replication engine software
+has its own version number, to distinguish it from other versions.
 
-When you modify a replication instance, you can apply the changes immediately. To
-apply changes immediately, choose the **Apply changes immediately**
-option in the AWS Management Console. Or use the `--apply-immediately` parameter when
-calling the AWS CLI, or set the `ApplyImmediately` parameter to
-`true` when using the DMS API.
+When you launch a new replication instance, it runs the latest AWS DMS engine version
+unless you specify otherwise. For more information, see [Working with an AWS DMS replication
+instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
 
-If you don't choose to apply changes immediately, the changes are put into the pending
-modifications queue. During the next maintenance window, any pending changes in the
-queue are applied.
+If you have a replication instance that is currently running, you can upgrade it to a
+more recent engine version. (AWS DMS doesn't support engine version downgrades.) For
+more information about replication engine versions, see [AWS DMS release notes](CHAP_ReleaseNotes.md "CHAP_ReleaseNotes.md").
+
+## Upgrading the engine version using the
+
+console
+
+You can upgrade an AWS DMS replication instance using the AWS Management Console.
+
+###### To upgrade a replication instance using the console
+
+1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+2. In the navigation pane, choose **Replication instances**.
+3. Choose your replication engine, and then choose
+   **Modify**.
+4. For **Engine version**, choose the version
+   number you want, and then choose **Modify**.
 
 ###### Note
 
-If you choose to apply changes immediately, any changes in the pending modifications queue are
-also applied. If any of the pending modifications require downtime, choosing
-**Apply changes immediately** can cause unexpected downtime.
+We recommend that you stop all tasks before upgrading the Replication Instance.
+If you don't stop the task, AWS DMS will stop the task automatically before the upgrade. If you stop
+the task manually, you will need to start the task manually after the upgrade is complete. Upgrading the
+replication instance takes several minutes. When the instance is
+ready, its status changes to **available**.
 
-###### To modify a replication instance by using the AWS console
+## Upgrading the engine version using the AWS CLI
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at
-   [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. In the navigation pane, choose **Replication instances**.
-3. Choose
-   the replication instance you want to modify. The following table describes the
-   modifications you can make.
+You can upgrade an AWS DMS replication instance using the AWS CLI, as follows.
 
-| Option                                                     | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**                                                   | You can change the name of the replication instance. Enter<br>a name for the replication instance that contains from 8 to<br>16 printable ASCII characters (excluding /,", and @).<br>The name should be unique for your account for the AWS<br>Region you selected. You can choose to add some intelligence<br>to the name, such as including the AWS Region and task you<br>are performing, for example<br>`west2-mysql2mysql-instance1`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Description**                                            | Revise or enter a brief description of the replication<br>instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Instance class**                                         | You can change the instance class. Choose an instance<br>class with the configuration you need for your migration.<br>Changing the instance class causes the replication instance<br>to reboot. This reboot occurs during the next maintenance<br>window or can occur immediately if you choose the<br>**Apply changes immediately**<br>option.<br>For more information on how to determine which<br>instance class is best for your migration, see<br>[Working with an AWS DMS replication<br>instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Engine version**                                         | You can upgrade the engine version that is used<br>by the replication instance. Upgrading the replication<br>engine version causes the replication instance to<br>shut down while it is being upgraded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Multi-AZ**                                               | You can change this option to create a standby<br>replica of your replication instance in another<br>Availability Zone for failover support or remove<br>this option. If you<br>intend to use change data capture (CDC),<br>ongoing replication, you should enable<br>this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Allocated storage (GiB)**                                | Storage is primarily consumed by log files and cached<br>transactions. For caches transactions, storage is used only<br>when the cached transactions need to be written to disk.<br>Therefore, AWS DMS doesn't use a significant amount of<br>storage. Some exceptions include the following:<br>• Very large tables that incur a significant<br>transaction load. Loading a large table can take<br>some time, so cached transactions are more likely to<br>be written to disk during a large table load.<br>• Tasks that are configured to pause before loading<br>cached transactions. In this case, all transactions<br>are cached until the full load completes for all<br>tables. With this configuration, a fair amount of<br>storage might be consumed by cached<br>transactions.<br>• Tasks configured with tables being loaded into<br>Amazon Redshift. However, this configuration isn't an<br>issue when Amazon Aurora is the target.<br>In most cases, the default allocation of storage is<br>sufficient. However, it's always a good idea to pay<br>attention to storage related metrics and scale up your<br>storage if you find you are consuming more than the default<br>allocation. |
-| **Network type**                                           | DMS supports the **IPv4\*<br>• addressing<br>protocol network type, and supports both IPv4 and IPv6<br>addressing protocol network types in<br>**Dual-stack*<br>• mode. When you have<br>resources that must communicate to your replication instance<br>using an IPv6 addressing protocol network type, choose<br>\*\*Dual-stack*<br>• mode. For information<br>about limitations in dual-stack mode, see [Limitations for dual-stack network DB instances](../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations "../../../AmazonRDS/latest/UserGuide/USER_VPC.md#USER_VPC.IP_addressing.dual-stack-limitations") in the [Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md") userguide.                                                                                                                                                                                                                                                                                                                                                                                     |
-| **VPC Security Group(s)**                                  | The replication instance is created in a VPC. If your<br>source database is in a VPC, choose the VPC security group<br>that provides access to the DB instance where the database<br>resides.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Automatic version upgrade**                              | AWS DMS doesn't differentiate between major and minor versions.<br>For example, upgrading from version 3.4.x to 3.5.x isn't considered<br>a major upgrade, so all changes should be backward-compatible. When<br>**Automatic version upgrade\*<br>• is enabled, DMS<br>automatically upgrades the replication instance's version during the<br>maintenance window if it is deprecated.<br>When **Automatic version upgrade*<br>• is enabled, DMS uses the current<br>default engine version when you create a replication instance. For example, if you set<br>\*\*Engine version*<br>• to a lower version number than the current default<br>version, DMS uses the default version.<br>If **Automatic version upgrade\*<br>• isn't enabled when you create<br>a replication instance, DMS uses the engine version specified by the<br>**Engine version\*<br>• parameter.                                                                                                                                                                                                                                                                                                                               |
-| **Maintenance window**                                     | Choose a weekly time range during which system maintenance<br>can occur, in Universal Coordinated Time (UTC).<br>Default: A 30-minute window selected at random from an<br>8-hour block of time per AWS Region, occurring on a random<br>day of the week.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Apply changes immediately**                              | Choose this option to apply any modifications<br>you made immediately. Depending on the settings you choose,<br>choosing this option could cause an immediate reboot of the<br>replication instance.<br>If you choose **Test connection\*<br>• while<br>AWS DMS applies changes, then you will see an error message.<br>After AWS DMS applies changes to your replication instance,<br>choose **Test connection\*<br>• again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Apply changes during next scheduled maintenance window** | Choose this option if you want DMS to wait until the next<br>scheduled maintenance window to apply your changes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+###### To upgrade a replication instance using the AWS CLI
 
-## Best practices
+1. Determine the Amazon Resource Name (ARN) of your replication instance by
+   using the following command.
 
-when modifying a replication instance
+```
+aws dms describe-replication-instances \
+--query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceArn,ReplicationInstanceClass]"
+```
 
-When modifying a replication instance, following these best practices helps ensure
-a successful update with minimal impact to your migration workflows. Take the
-following key steps before, during, and after modifications to maintain data
-integrity and operational efficiency throughout the process.
+In the output, take note of the ARN for the replication instance you want
+to upgrade, for example:
+`arn:aws:dms:us-east-1:123456789012:rep:6EFQQO6U6EDPRCPKLNPL2SCEEY` 2. Determine which replication instance versions are available by using the
+following command.
 
-**Plan modification timing:**
+```
+aws dms describe-orderable-replication-instances \
+--query "OrderableReplicationInstances[*].[ReplicationInstanceClass,EngineVersion]"
+```
 
-- You can either apply changes immediately or schedule them for
-  the next maintenance window.
-- Schedule during low-traffic periods to minimize impact.
+In the output, note the engine version number or numbers that are
+available for your replication instance class. You should see this
+information in the output from step 1. 3. Upgrade the replication instance by using the following command.
 
-**Pre-modification steps:**
+```
+aws dms modify-replication-instance \
+--replication-instance-arn `arn` \
+--engine-version `n.n.n`
+```
 
-- Stop all active replication tasks.
-- Verify all tasks have successfully stopped.
-- Document current configuration task settings.
+Replace `arn` in the preceding with the actual
+replication instance ARN from the previous step.
 
-**During modification:**
+Replace `n.n.n` with the engine version number
+that you want, for example: `3.4.5`
 
-- Monitor the modification progress.
-- Wait for "Available" status before proceeding.
+###### Note
 
-**Post-modification steps:**
+Upgrading the replication instance takes several minutes. You can view the
+replication instance status using the following command.
 
-- Resume all previously stopped tasks.
-- Confirm tasks are running correctly.
+```
+aws dms describe-replication-instances \
+--query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceStatus]"
+```
+
+When the replication instance is ready, its status changes to
+**available**.

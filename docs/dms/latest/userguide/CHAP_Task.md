@@ -101,6 +101,21 @@ timestamp to an LSN or SCN as Oracle and SQL Server do.
   - MySQL
   - MariaDB
 
+###### Note
+
+The following database endpoints do not support CDC native start point functionality:
+
+    + Amazon Aurora MySQL
+    + Amazon Aurora PostgreSQL
+    + Amazon DocumentDB (with MongoDB compatibility)
+    + Amazon S3
+    + IBM Db2 for z/OS
+    + IBM Db2 LUW
+    + Microsoft Azure SQL Database
+    + Microsoft Azure SQL Managed Instance
+    + MongoDB
+    + SAP Sybase ASE
+
 When the task is created, AWS DMS marks the CDC start point, and it can't be changed. To
 use a different CDC start point, create a new task.
 

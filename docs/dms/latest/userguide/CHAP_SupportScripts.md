@@ -1,106 +1,69 @@
-# PostgreSQL diagnostic support
+# Working with diagnostic support scripts in AWS DMS
 
-scripts
+If you encounter an issue when working with AWS DMS, your support engineer might need more
+information about either your source or target database. We want to make sure that AWS Support
+gets as much of the required information as possible in the shortest possible time. Therefore, we
+developed scripts to query this information for several of the major relational database
+engines.
 
-Following, you can find the diagnostic support scripts available to analyze any PostgreSQL
-RDBMS (on-premises, Amazon RDS, or Aurora PostgreSQL) in your AWS DMS migration configuration. These
-scripts work with either a source or target endpoint. The scripts are all written to run in
-the psql command-line utility.
+If a support script is available for your database, you can download it using the link in the
+corresponding script topic described following. After verifying and reviewing the script
+(described following), you can run it according to the procedure described in the script topic.
+When the script run is complete, you can upload its output to your AWS Support case (again,
+described following).
 
-Before running these scripts, ensure that the user account that you use has the following necessary
-permissions to access any PostgreSQL RDBMS:
+Before running the script, you can detect any errors that might have been introduced when
+downloading or storing the support script. To do this, compare the checksum for the script file
+with a value provided by AWS. AWS uses the SHA256 algorithm for the checksum.
 
-- PostgreSQL 10.x or higher – A user account with execute permission on the
-  `pg_catalog.pg_ls_waldir` function.
-- PostgreSQL 9.x or earlier – A user account with default permissions.
-  We recommend using an existing account with the appropriate permissions to run these
-  scripts.
+###### To verify the support script file using a checksum
 
-If you need to create a new user account or grant permissions to an existing account to
-run these scripts, you can execute the following SQL commands for any PostgreSQL RDBMS based
-on the PostgreSQL version.
+1. Open the latest checksum file provided to verify these support scripts at [https://d2pwp9zz55emqw.cloudfront.net/sha256Check.txt](https://d2pwp9zz55emqw.cloudfront.net/sha256Check.txt "https://d2pwp9zz55emqw.cloudfront.net/sha256Check.txt"). For example,
+   the file might have content like the following.
 
-###### To grant account permissions to run these scripts for a PostgreSQL databases version 10.x or higher
+```
+MYSQL  dfafd0d511477c699f96c64693ad0b1547d47e74d5c5f2f2025b790b1422e3c8
+ORACLE  6c41ebcfc99518cfa8a10cb2ce8943b153b2cc7049117183d0b5de3d551bc312
+POSTGRES  6ccd274863d14f6f3146fbdbbba43f2d8d4c6a4c25380d7b41c71883aa4f9790
+SQL_SERVER  971a6f2c46aec8d083d2b3b6549b1e9990af3a15fe4b922e319f4fdd358debe7
 
-- Do one of the following:
-  - For a new user account, run the following.
+```
 
-  ```
-  CREATE USER `script_user` WITH PASSWORD '`password`';
-  GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
-  ```
+2. Run the SHA256 validation command for your operating system in the directory that contains
+   the support file. For example, on the macOS operating system you can run the following command
+   on an Oracle support script described later in this topic.
 
-  - For an existing user account, run the following.
+```
+shasum -a 256 awsdms_support_collector_oracle.sql
 
-  ```
-  GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
-  ```
+```
 
-###### To grant account permissions to run these scripts for a PostgreSQL 9.x or earlier
+3. Compare the results of the command with the value shown in the latest
+   `sha256Check.txt` file that you opened. The two values should match. If they
+   don't, contact your support engineer about the mismatch and how you can obtain a clean
+   support script file.
+   If you have a clean support script file, before running the script make sure to read and
+   understand the SQL from both a performance and security perspective. If you aren't
+   comfortable running any of the SQL in this script, you can comment out or remove the problem SQL.
+   You can also consult with your support engineer about any acceptable workarounds.
 
-database
+Upon successful completion and unless otherwise noted, the script returns output in a
+readable HTML format. The script is designed to exclude from this HTML any data or security
+details that might compromise your business. It also makes no modifications to your database or
+its environment. However, if you find any information in the HTML that you are uncomfortable
+sharing, feel free to remove the problem information before uploading the HTML. When the HTML is
+acceptable, upload it using the **Attachments** in the **Case
+details** of your support case.
 
-- Do one of the following:
-  - For a new user account, run the following with default permissions.
-
-  ```
-  CREATE USER `script_user` WITH PASSWORD `password`;
-  ```
-
-  - For an existing user account, use the existing permissions.
-
-###### Note
-
-These scripts do not support certain functionality related to finding WAL size for
-PostgreSQL 9.x and earlier databases. For more information, work with AWS Support.
-
-The following topics describe how to download, review, and run each support script
-available for PostgreSQL They also describe how to review and upload the script output to your
-AWS Support case.
+Each of the following topics describes the scripts available for a supported AWS DMS database
+and how to run them. Your support engineer will direct you to a specific script documented
+following.
 
 ###### Topics
 
-- [awsdms_support_collector_postgres.sql script](#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script "#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script")
-
-## awsdms_support_collector_postgres.sql script
-
-Download the [`awsdms_support_collector_postgres.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql") script.
-
-This script collects information about your PostgreSQL database configuration. Remember
-to verify the checksum on the script. If the checksum verifies, review the SQL code in the
-script to comment out any of the code that you are uncomfortable running. After you are
-satisfied with the integrity and content of the script, you can run it.
-
-###### Note
-
-You can run this script with psql client version 10 or higher.
-
-You can use the following procedures to run this script either from your database
-environment or from the command line. In either case, you can then upload your file to AWS
-Support later.
-
-###### To run this script and upload the results to your support case
-
-1. Do one of the following:
-   - Run the script from your database environment using the following psql command line.
-
-   ```
-   dbname=# \i awsdms_support_collector_postgres.sql
-   ```
-
-   At the following prompt, enter the name of only one of the schemas that you want
-   to migrate.
-
-   At the following prompt, enter the name of the user
-   (`script_user`) that you have defined to
-   connect to the database.
-   - Run the following script directly from the command line. This
-     option avoids any prompts prior to script execution.
-
-   ```
-   psql -h `database-hostname` -p `port` -U `script_user` -d `database-name` -f awsdms_support_collector_postgres.sql
-   ```
-
-2. Review the output HTML file and remove any information that you are uncomfortable
-   sharing. When the HTML is acceptable for you to share, upload the file to your AWS
-   Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+- [Oracle diagnostic support scripts](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
+- [SQL Server diagnostic support scripts](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
+- [Diagnostic support scripts for MySQL-compatible
+  databases](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
+- [PostgreSQL diagnostic support
+  scripts](CHAP_SupportScripts.md "CHAP_SupportScripts.md")

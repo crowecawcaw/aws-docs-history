@@ -1,29 +1,30 @@
-# Working with AWS DMS Serverless
+# AWS DMS Serverless limitations
 
-AWS DMS Serverless is a feature that provides automatic provisioning, scaling, built-in high availability,
-and a pay-for-use billing model, to increase operations agility and optimize your costs. The Serverless feature
-eliminates replication instance management tasks like capacity estimation, provisioning, cost optimization,
-and managing replication engine versions and patching.
+AWS DMS Serverless has the following limitations:
 
-With AWS DMS Serverless, similar to the current functionality of AWS DMS (referred to in this document
-as AWS DMS Standard), you create source and target connections
-using endpoints. After you create your source and target endpoints, you create a replication
-configuration, which includes configuration settings for the given replication. You can manage the replications
-by starting, stopping, modifying, or deleting them. Each replication has settings that you can configure
-according to the requirements of your database migration. You specify these settings using either a JSON file
-or the AWS DMS section of the AWS Management Console. For more information about replication
-settings, see [Working with AWS DMS endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md"). After starting the replication,
-AWS DMS serverless connects to the source database and collects the database metadata to analyze the replication
-workload. Using this metadata, AWS DMS computes and provisions the required capacity and starts
-the data replication.
+- You can only modify an AWS DMS replication configuration that is in the `CREATED`,
+  `STOPPED`, or `FAILED` states. For details about which settings you can
+  change under which conditions, see [Modifying AWS DMS serverless replications](CHAP_Serverless.md#CHAP_Serverless.modify "CHAP_Serverless.md#CHAP_Serverless.modify").
+- You can only delete an AWS DMS replication configuration that is in the
+  `STOPPED`, or `FAILED` states.
+- Unlike replication instances, AWS DMS Serverless replications do not have a public IP address for management tasks.
+  You manage serverless replications using the console.
+- This release of AWS DMS serverless does not support all the source and target endpoint types that AWS DMS standard
+  supports. For a list of supported engine types, see [AWS DMS Serverless components](CHAP_Serverless.md "CHAP_Serverless.md").
+- Serverless replications need to access dependencies by using VPC endpoints. You must use VPC endpoints to access the
+  following endpoint types:
 
-The following diagram shows the AWS DMS Serverless replication process.
+      + Amazon Amazon S3
+      + Amazon Kinesis
+      + AWS Secrets Manager
+      + Amazon DynamoDB
+      + Amazon Redshift
+      + Amazon OpenSearch Service
 
-![AWS DMS Serverless replication states](images/datarep-serverless-replication-process.png)
-View the following topics to discover more details about AWS DMS Serverless.
+  For information about setting up VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
 
-###### Topics
-
-- [AWS DMS Serverless components](CHAP_Serverless.md "CHAP_Serverless.md")
-- [AWS DMS Serverless limitations](CHAP_Serverless.md "CHAP_Serverless.md")
-- [AWS DMS Serverless premigration.](CHAP_Serverless.md "CHAP_Serverless.md")
+- AWS DMS serverless does not support views.
+- AWS DMS Serverless does not support SSL connections for DB2 endpoints.
+- AWS DMS Serverless does not support setting custom CDC start points.
+- When a replication task is in deprovisioned state, the metadata related to the
+  table and the replication statistics are lost.

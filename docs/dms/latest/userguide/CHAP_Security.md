@@ -1,165 +1,106 @@
-# Using SSL with AWS Database Migration Service
+# Data protection in AWS Database Migration Service
 
-You can encrypt connections for source and target endpoints by using Secure Sockets
-Layer (SSL). To do so, you can use the AWS DMS Management Console or AWS DMS API
-to assign a certificate to an endpoint. You can also use the AWS DMS console to
-manage your certificates.
+## Data
 
-Not all databases use SSL in the same way. Amazon Aurora MySQL-Compatible Edition uses the server name,
-the endpoint of the primary instance in the cluster, as the endpoint for SSL. An Amazon Redshift
-endpoint already uses an SSL connection and does not require an SSL connection
-set up by AWS DMS. An Oracle endpoint requires additional steps; for more information, see
-[SSL support for an Oracle
-endpoint](CHAP_Source.md#CHAP_Security.SSL.Oracle "CHAP_Source.md#CHAP_Security.SSL.Oracle").
+encryption
+
+You can enable encryption for data resources of supported AWS DMS target endpoints.
+AWS DMS also encrypts connections to AWS DMS and between AWS DMS and all its source and
+target endpoints. In addition, you can manage the keys that AWS DMS and its supported
+target endpoints use to enable this encryption.
 
 ###### Topics
 
-- [Limitations on using SSL with
-  AWS DMS](#CHAP_Security.SSL.Limitations "#CHAP_Security.SSL.Limitations")
-- [Managing certificates](#CHAP_Security.SSL.ManagingCerts "#CHAP_Security.SSL.ManagingCerts")
-- [Enabling SSL for a MySQL-compatible,
-  PostgreSQL, or SQL Server endpoint](#CHAP_Security.SSL.Procedure "#CHAP_Security.SSL.Procedure")
-  To establish a secure connection, you provide the root certificate or the chain of
-  intermediate CA certificates leading to the root (as a certificate bundle) that was used
-  to sign the server's SSL certificate at the endpoint. Certificates are accepted as PEM
-  formatted X509 files, only. When you import a certificate, you receive an Amazon
-  Resource Name (ARN) that you can use to specify that certificate for an endpoint. If you
-  use Amazon RDS, you can download the root CA and certificate bundle provided in the
-  `rds-combined-ca-bundle.pem` file hosted by Amazon RDS. For more
-  information about downloading this file, see [Using
-  SSL/TLS to encrypt a connection to a DB instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
-  _Amazon RDS User Guide_.
+- [Encryption at rest](#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest "#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest")
+- [Encryption in transit](#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit "#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit")
+- [Key
+  management](#CHAP_Security.DataProtection.DataEncryption.KeyManagement "#CHAP_Security.DataProtection.DataEncryption.KeyManagement")
 
-You can choose from several SSL modes to use for your SSL certificate verification.
+### Encryption at rest
 
-- **none** – The connection is not encrypted. This
-  option is not secure, but requires less overhead.
-- **require** – The connection is encrypted using SSL
-  (TLS) but no CA verification is made. This option is more secure, and requires
-  more overhead.
-- **verify-ca** – The connection is encrypted. This
-  option is more secure, and requires more overhead. This option verifies the
-  server certificate.
-- **verify-full** – The connection is encrypted. This
-  option is more secure, and requires more overhead. This option verifies the
-  server certificate and verifies that the server hostname matches the hostname
-  attribute for the certificate.
-  Not all SSL modes work with all database endpoints. The following table shows which
-  SSL modes are supported for each database engine.
+AWS DMS supports encryption at rest by allowing you to specify the server-side
+encryption mode that you want used to push your replicated data to Amazon S3 before it is
+copied to supported AWS DMS target endpoints. You can specify this encryption mode by
+setting the `encryptionMode` extra connection attribute for the endpoint.
+If this `encryptionMode` setting specifies KMS key encryption mode, you
+can also create custom AWS KMS keys specifically to encrypt the target data for the
+following AWS DMS target endpoints:
 
-| DB engine                         | **none** | **require**     | **verify-ca**   | **verify-full** |
-| --------------------------------- | -------- | --------------- | --------------- | --------------- |
-| MySQL/MariaDB/Amazon Aurora MySQL | Default  | Not supported   | Supported       | Supported       |
-| Microsoft SQL Server              | Default  | Supported       | Not Supported   | Supported       |
-| PostgreSQL                        | Default  | Supported       | Supported       | Supported       |
-| Amazon Redshift                   | Default  | SSL not enabled | SSL not enabled | SSL not enabled |
-| Oracle                            | Default  | Not supported   | Supported       | Not Supported   |
-| SAP ASE                           | Default  | SSL not enabled | SSL not enabled | Supported       |
-| MongoDB                           | Default  | Supported       | Not Supported   | Supported       |
-| Db2 LUW                           | Default  | Not Supported   | Supported       | Not Supported   |
-| Db2 for z/OS                      | Default  | Not Supported   | Supported       | Not Supported   |
+- Amazon Redshift – For more information about setting
+  `encryptionMode`, see [Endpoint settings
+  when using Amazon Redshift as a target for AWS DMS](CHAP_Target.md#CHAP_Target.Redshift.ConnectionAttrib "CHAP_Target.md#CHAP_Target.Redshift.ConnectionAttrib"). For more
+  information about creating a custom AWS KMS encryption key, see [Creating and using AWS KMS keys to
+  encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys").
+- Amazon S3 – For more information about setting
+  `encryptionMode`, see [Endpoint settings when using
+  Amazon S3 as a target for AWS DMS](CHAP_Target.md#CHAP_Target.S3.Configuring "CHAP_Target.md#CHAP_Target.S3.Configuring"). For more information about
+  creating a custom AWS KMS encryption key, see [Creating AWS KMS keys to encrypt Amazon S3 target
+  objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
 
-###### Note
+### Encryption in transit
 
-The SSL Mode option on the DMS console or API doesn’t apply to some data streaming
-and NoSQL services like Kinesis, and DynamoDB. They are secure by default, so DMS
-shows the SSL mode setting is equal to none (**SSL
-Mode=None**). You don’t need to provide any additional configuration
-for your endpoint to make use of SSL. For example, when using Kinesis as a target
-endpoint, it is secure by default. All API calls to Kinesis use SSL, so there is no
-need for an additional SSL option in the DMS endpoint. You can securely put data and
-retrieve data through SSL endpoints using the HTTPS protocol, which DMS uses by
-default when connecting to a Kinesis Data Stream.
+AWS DMS supports encryption in transit by ensuring that the data it replicates
+moves securely from the source endpoint to the target endpoint. This includes
+encrypting an S3 bucket on the replication instance that your replication task
+uses for intermediate storage as the data moves through the replication
+pipeline. To encrypt task connections to source and target endpoints AWS DMS uses
+Secure Socket Layer (SSL) or Transport Layer Security (TLS). By encrypting
+connections to both endpoints, AWS DMS ensures that your data is secure as it
+moves both from the source endpoint to your replication task and from your task
+to the target endpoint. For more information about using SSL/TLS with AWS DMS, see
+[Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
 
-## Limitations on using SSL with
+AWS DMS supports both default and custom keys to encrypt both intermediate
+replication storage and connection information. You manage these keys by using
+AWS KMS. For more information, see [Setting an encryption key and
+specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
 
-AWS DMS
+### Key
 
-Following are limitations on using SSL with AWS DMS:
+management
 
-- SSL connections to Amazon Redshift target endpoints are not supported. AWS DMS uses an
-  Amazon S3 bucket to transfer data to the Amazon Redshift database. This transmission is
-  encrypted by Amazon Redshift by default.
-- SQL timeouts can occur when performing change data capture (CDC) tasks
-  with SSL-enabled Oracle endpoints. If you have an issue where CDC counters
-  don't reflect the expected numbers, set the
-  `MinimumTransactionSize` parameter from the
-  `ChangeProcessingTuning` section of the task settings to a
-  lower value. You can start with a value as low as 100. For more information
-  about the `MinimumTransactionSize` parameter, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
-- You can import certificates only in the .pem and .sso (Oracle wallet)
-  formats.
-- In some cases, your server SSL certificate might be signed by an
-  intermediate certificate authority (CA). If so, make sure that the entire
-  certificate chain leading from the intermediate CA up to the root CA is
-  imported as a single .pem file.
-- If you are using self-signed certificates on your server, choose
-  **require** as your SSL mode. The
-  **require** SSL mode implicitly trusts the
-  server's SSL certificate and doesn't try to validate that the
-  certificate was signed by a CA.
-- AWS DMS does not support TLS version 1.3 for MySQL and MariaDb
-  endpoints.
+AWS DMS supports default or custom keys to encrypt replication storage,
+connection information, and the target data storage for certain target
+endpoints. You manage these keys by using AWS KMS. For more information, see [Setting an encryption key and
+specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
 
-## Managing certificates
+## Internetwork
 
-You can use the DMS console to view and manage your SSL certificates. You can also
-import your certificates using the DMS console.
+traffic privacy
 
-![AWS Database Migration Service SSL certificate management](images/datarep-certificatemgr.png)
+Connections are provided with protection between AWS DMS and source and target
+endpoints in the same AWS Region, whether running on premises or as part of an
+AWS service in the cloud. (At least one endpoint, source or target, must run as
+part of an AWS service in the cloud.) This protection applies whether these
+components share the same virtual private cloud (VPC) or exist in separate VPCs, if
+the VPCs are all in the same AWS Region. For more information about the supported
+network configurations for AWS DMS, see [Setting up a network for a replication
+instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). For more information about the
+security considerations when using these network configurations, see [Network security for AWS Database Migration Service](CHAP_Security.md#CHAP_Security.Network "CHAP_Security.md#CHAP_Security.Network").
 
-## Enabling SSL for a MySQL-compatible,
+## Data protection in DMS Fleet Advisor
 
-PostgreSQL, or SQL Server endpoint
+DMS Fleet Advisor collects and analyzes your database metadata to determine the right size of
+the migration target. DMS Fleet Advisor doesn't access data in your tables and doesn't transfer
+it. Also, DMS Fleet Advisor doesn't track database feature usage and doesn't access your usage
+statistics.
 
-You can add an SSL connection to a newly created endpoint or to an existing
-endpoint.
+You control access to your databases when you create database users which DMS Fleet Advisor
+uses to work with your databases. You grant the required privileges to these users.
+To use DMS Fleet Advisor, you grant your database users with read permissions. DMS Fleet Advisor doesn't
+modify your databases and doesn't require write permissions. For more information, see
+[Creating database users for AWS DMS Fleet Advisor](fa-database-users.md "fa-database-users.md").
 
-###### To create an AWS DMS endpoint with SSL
+You can use data encryption in your databases. AWS DMS also encrypts connections
+within DMS Fleet Advisor and within its data collectors.
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+DMS data collector uses the Data Protection application programming interface (DPAPI) to encrypt,
+protect, and store information about customer's environment and database credentials.
+DMS Fleet Advisor stores this encrypted data in a file on the server where your DMS data collector works.
+DMS Fleet Advisor doesn't transfer this data from this server. For more information about
+DPAPI, see [How to: Use Data Protection](https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection "https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection").
 
-If you're signed in as an AWS Identity and Access Management (IAM) user, make sure that you
-have the appropriate permissions to access AWS DMS. For more information about
-the permissions required for database migration, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Certificates**. 3. Choose **Import Certificate**. 4. Upload the certificate you want to use for encrypting the connection to an
-endpoint.
-
-###### Note
-
-You can also upload a certificate using the AWS DMS console when
-you create or modify an endpoint by selecting **Add new CA
-certificate** on the **Create database
-endpoint** page.
-
-For Aurora Serverless as target, get the certificate mentioned in
-[Using TLS/SSL with Aurora Serverless](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md#aurora-serverless.tls "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless.md#aurora-serverless.tls"). 5. Create an endpoint as described in [Step 2: Specify source and target endpoints](CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Endpoints "CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Endpoints")
-
-###### To modify an existing AWS DMS endpoint to use SSL
-
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-
-If you're signed in as an IAM user, make sure that you have the
-appropriate permissions to access AWS DMS. For more information about the
-permissions required for database migration, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. In the navigation pane, choose **Certificates**. 3. Choose **Import Certificate**. 4. Upload the certificate you want to use for encrypting the connection to an
-endpoint.
-
-###### Note
-
-You can also upload a certificate using the AWS DMS console when
-you create or modify an endpoint by selecting **Add new CA
-certificate** on the **Create database
-endpoint** page. 5. In the navigation pane, choose **Endpoints**, select the
-endpoint you want to modify, and choose **Modify**. 6. Choose a value for **SSL mode**.
-
-If you choose **verify-ca** or
-**verify-full** mode, specify the certificate that you
-want to use for **CA certificate**, as shown following.
-
-![AWS Database Migration Service SSL certificate management](images/datarep-certificate2.png) 7. Choose **Modify**. 8. When the endpoint has been modified, choose the endpoint and choose
-**Test connection** to determine if the SSL connection
-is working.
-
-After you create your source and target endpoints, create a task that uses these
-endpoints. For more information about creating a task, see [Step 3: Create a task and migrate data](CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Tasks "CHAP_GettingStarted.md#CHAP_GettingStarted.Replication.Tasks").
+After you install the DMS data collector, you can view all queries that this application runs
+to collect metrics. You can run the DMS data collector in an offline mode and then review the
+collected data on your server. Also, you can review this collected data in your Amazon S3
+bucket. For more information, see [How does DMS data collector work?](fa-collecting.md#fa-data-collectors-how-it-works "fa-collecting.md#fa-data-collectors-how-it-works").
