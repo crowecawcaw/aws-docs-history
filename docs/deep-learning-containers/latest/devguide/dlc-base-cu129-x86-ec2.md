@@ -1,6 +1,6 @@
-# AWS Deep Learning Base Containers for EC2, ECS, EKS (with NVIDIA CUDA 12.8 and AWS EFA)
+# AWS Deep Learning Base Containers for EC2, ECS, EKS (with NVIDIA CUDA 12.9 and AWS EFA)
 
-[AWS Deep Learning Containers (DLCs)](https://aws.amazon.com/machine-learning/containers/ "https://aws.amazon.com/machine-learning/containers/") now support Base images that serve as a foundational layer to build the machine learning environment on EC2, ECS and EKS, with Ubuntu 24.04.
+[AWS Deep Learning Containers (DLCs)](https://aws.amazon.com/machine-learning/containers/ "https://aws.amazon.com/machine-learning/containers/") now support Base images that serve as a foundational layer to build the machine learning environment on EC2, ECS and EKS, with Ubuntu 22.04.
 
 These Base DLCs package the essential deep learning components and dependencies without being tied to a specific framework implementation, providing users the flexibility to customize the DLCs with their preferred frameworks.
 
@@ -14,10 +14,10 @@ A list of available containers can be found on [GitHub](https://github.com/aws/d
 
 - Development Tools: Includes curl, build-essential, cmake, and git for common development needs
 - Python Environment: Python 3.12 with AWS CLI, boto3, and requests pre-installed
-- GPU Support: CUDA 12.8.1 with cuda-compat for backward compatibility
-- Neural Network Libraries: cuDNN 9.8.0.87 for deep neural network operations
-- Distributed Training: NCCL 2.26.2-1 for multi-GPU and multi-node communication
-- Network Performance: EFA 1.40.0 for low-latency network communications
+- GPU Support: CUDA 12.9.1 with cuda-compat for backward compatibility
+- Neural Network Libraries: cuDNN 9.10.2.21 for deep neural network operations
+- Distributed Training: NCCL 2.27.3-1 for multi-GPU and multi-node communication
+- Network Performance: EFA 1.43.1 for low-latency network communications
 
 ## Security Advisory
 
@@ -31,14 +31,14 @@ Python 3.12 is supported.
 
 The containers support the Graviton GPU instance type G5g and contain the following software components for GPU support:
 
-- CUDA 12.8
-- cuDNN 9.8.0.87
-- NCCL 2.26.2-1
+- CUDA 12.9
+- cuDNN 9.10.2.21
+- NCCL 2.27.3-1
 
 ## Example URL
 
 ```
-763104351884.dkr.ecr.us-east-1.amazonaws.com/base:12.8.1-gpu-py312-cu128-ubuntu24.04-ec2
+763104351884.dkr.ecr.us-east-1.amazonaws.com/base:12.9.1-gpu-py312-cu129-ubuntu22.04-ec2
 ```
 
 ## AWS Regions support

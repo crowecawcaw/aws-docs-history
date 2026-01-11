@@ -1,8 +1,8 @@
-# AWS Deep Learning Containers for vLLM with EFA Support on EC2, ECS, and EKS
+# AWS Deep Learning Containers for vLLM with EFA Support on SageMaker
 
-[AWS Deep Learning Containers (DLCs)](https://aws.amazon.com/machine-learning/containers/ "https://aws.amazon.com/machine-learning/containers/") now support vLLM images that are optimized for large language model serving. The vLLM DLC provides a production-ready environment for deploying and serving LLMs with built-in support for EFA (Elastic Fabric Adapter). With vLLM's advanced features and optimizations pre-configured, this specialized container offer an ideal starting point for high-performance, scalable and efficient LLM serving for various use cases, from single-node to multi-node deployments.
+[AWS Deep Learning Containers (DLCs)](https://aws.amazon.com/machine-learning/containers/ "https://aws.amazon.com/machine-learning/containers/") now support vLLM images that are optimized for large language model serving on Amazon SageMaker. The vLLM DLC provides a production-ready environment for deploying and serving LLMs with advanced features like PagedAttention for efficient memory management and continuous batching. With vLLM's advanced features and optimizations pre-configured, this specialized container offers an ideal starting point for high-performance, scalable and efficient LLM serving on SageMaker.
 
-All software components in this container are scanned for security vulnerabilities and updated or patched in accordance with AWS Security best practices. A list of all available AWS DLCs can be found in our [github repo](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#dlc-available-image-user-guide "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#dlc-available-image-user-guide"). Get started quickly with AWS DLCs using the getting-started section in our [developer guide](../../../dlami/latest/devguide/deep-learning-containers.md "../../../dlami/latest/devguide/deep-learning-containers.md"). To ensure you're using the latest DLC releases, we invite you to subscribe to our [DLC notification mechanism](dlc-release-notifications.md "dlc-release-notifications.md"). If you are looking for a DLC to use with SageMaker, please refer to [this documentation](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#general-framework-containers-ec2-ecs-eks--sm-support "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#general-framework-containers-ec2-ecs-eks--sm-support"). For guide on how to use vLLM, checkout [vLLM documentation](https://docs.vllm.ai/en/latest/ "https://docs.vllm.ai/en/latest/").
+All software components in this container are scanned for security vulnerabilities and updated or patched in accordance with AWS Security best practices. A list of all available AWS DLCs can be found in our [github repo](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#dlc-available-image-user-guide "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#dlc-available-image-user-guide"). Get started quickly with AWS DLCs using the getting-started section in our [developer guide](what-is-dlc.md "what-is-dlc.md"). To ensure you're using the latest DLC releases, we invite you to subscribe to our [DLC notification mechanism](dlc-release-notifications.md "dlc-release-notifications.md"). For guide on how to use vLLM, checkout [vLLM documentation](https://docs.vllm.ai/en/latest/ "https://docs.vllm.ai/en/latest/").
 
 ## Changelog
 
@@ -10,7 +10,11 @@ To learn about latest changes in vLLM DLC, checkout the [changelog](https://gith
 
 A list of available containers can be found on [GitHub](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#vllm-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#vllm-containers").
 
+vLLM v0.11.1 and above utilizes CUDA 12.9 which is only compatible with Nvidia Driver 535 and above (550 preferred). To deploy the container on SageMaker platform, please specify `al2-ami-sagemaker-inference-gpu-3-1` as the [ProductionVariant](../../../sagemaker/latest/APIReference/API_ProductionVariant.md "../../../sagemaker/latest/APIReference/API_ProductionVariant.md").
+
 ## Security Advisory
+
+All software components in these images are scanned for security vulnerabilities and updated or patched in accordance with AWS Security best practices.
 
 AWS recommends that customers monitor critical security updates in the [AWS Security Bulletin](https://aws.amazon.com/security/security-bulletins/ "https://aws.amazon.com/security/security-bulletins/").
 
@@ -66,7 +70,7 @@ The containers are available in the following regions:
 ## Build and Test
 
 - Built on: c5.18xlarge
-- Tested on: p4d.24xlarge, p5.48xlarge
+- Tested on: p4d.24xlarge, p5.48xlarges
 - Tested with deepseek-ai/DeepSeek-R1-Distill-Qwen-32B model, single-node and multi-node serving configurations
 
 ## Known Issues

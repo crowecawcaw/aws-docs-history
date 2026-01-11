@@ -11,5 +11,6 @@ For the full list of available Deep Learning Containers and information on pulli
 
 - [Base Deep Learning Containers](appendix-dlc-release-notes-base.md "appendix-dlc-release-notes-base.md")
 - [vLLM Deep Learning Containers](appendix-dlc-release-notes-vllm.md "appendix-dlc-release-notes-vllm.md")
+- [SGLang Deep Learning Containers](appendix-dlc-release-notes-sglang.md "appendix-dlc-release-notes-sglang.md")
 - [PyTorch Deep Learning Containers](appendix-dlc-release-notes-pytorch.md "appendix-dlc-release-notes-pytorch.md")
 - [TensorFlow Deep Learning Containers](appendix-dlc-release-notes-tensorflow.md "appendix-dlc-release-notes-tensorflow.md")

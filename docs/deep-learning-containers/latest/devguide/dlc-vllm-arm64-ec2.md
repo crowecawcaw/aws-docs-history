@@ -1,4 +1,4 @@
-# AWS Deep Learning Containers for vLLM with EFA Support on EC2, ECS, and EKS
+# AWS Deep Learning Containers for vLLM ARM64 with EFA Support on EC2, ECS, and EKS
 
 [AWS Deep Learning Containers (DLCs)](https://aws.amazon.com/machine-learning/containers/ "https://aws.amazon.com/machine-learning/containers/") now support vLLM images that are optimized for large language model serving. The vLLM DLC provides a production-ready environment for deploying and serving LLMs with built-in support for EFA (Elastic Fabric Adapter). With vLLM's advanced features and optimizations pre-configured, this specialized container offer an ideal starting point for high-performance, scalable and efficient LLM serving for various use cases, from single-node to multi-node deployments.
 
@@ -20,7 +20,7 @@ Python 3.12 is supported.
 
 ## Instance Type Support
 
-The containers support x86_64 instance types.
+The containers support ARM64 instance types.
 
 ## AWS Regions support
 
@@ -65,8 +65,8 @@ The containers are available in the following regions:
 
 ## Build and Test
 
-- Built on: c5.18xlarge
-- Tested on: p4d.24xlarge, p5.48xlarge
+- Built on: c6g.12xlarge
+- Tested on: g5g.16xlarge
 - Tested with deepseek-ai/DeepSeek-R1-Distill-Qwen-32B model, single-node and multi-node serving configurations
 
 ## Known Issues
