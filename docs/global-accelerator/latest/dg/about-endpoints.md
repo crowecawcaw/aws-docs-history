@@ -1,83 +1,86 @@
 #
 
-How to avoid connection collisions that result in TCP connection time delays
+Requirements for endpoints with client IP address preservation
 
-Intermittent connectivity issues can be caused by connection collisions in AWS Global Accelerator. These can
-occur when users (with the same source IP and source port) access resources in Global Accelerator in certain scenarios. The
-collisions can result in TCP connection time delays for traffic that goes through your accelerators.
+There are specific requirements for endpoint types that you can use with client IP address preservation.
 
-You can avoid these delays by configuring your accelerators with _port overrides_,
-a feature in Global Accelerator that enables you to route incoming traffic to a different destination
-ports on your accelerator endpoints. Follow the guidance in this section to learn about how to use port overrides to prevent
-the connection collisions and avoid potential TCP connection time delays.
+> You can use this feature with endpoints that are Application Load Balancers, Network Load Balancers with security groups, and Amazon EC2 instances,
+> subject to the additional requirements described in this section. Endpoints on custom routing accelerators always
+> have the client IP address preserved.
 
-##
+This section provides information that is specific to endpoints that you want to add with client IP
+address preservation enabled. For information about overall requirements for endpoints,
+see [Requirements for resources you add as accelerator endpoints](about-endpoints-caveats.md "about-endpoints-caveats.md").
 
-Scenarios that can cause connection collisions
+In addition, for more information about best practices with client IP address
+preservation, see [Best practices for ENIs and security groups with client IP address
+preservation](best-practices-aga.md "best-practices-aga.md").
 
-There are three scenarios in Global Accelerator that can lead to connection collisions,
-and thus to TCP connection time delays:
+If you intend to use the client IP address preservation feature, be aware of the following
+when you add endpoints to Global Accelerator, in addition to the overall requirements for
+endpoints in Global Accelerator.
 
-- You configure the same resource as an endpoint with multiple accelerators.
-- You configure resources as endpoints behind Global Accelerator, and you also send traffic
-  directly over the internet from your end users to the same resources.
-- You configure Network Load Balancer endpoints for cross-zone traffic.
+**Elastic IP addresses**
+Client IP address preservation is not supported for Elastic IP address endpoints
+in Global Accelerator.
 
-For Network Load Balancer endpoints, we recommend that
-you disable cross-zone traffic for the load balancers to avoid connection collisions. For more information, see
-[TCP Connection Delays](../../../elasticloadbalancing/latest/network/load-balancer-troubleshooting.md#tcp-delays "../../../elasticloadbalancing/latest/network/load-balancer-troubleshooting.md#tcp-delays") in the _User Guide for Network Load Balancers_.
+**Network Load Balancer endpoints**
+If you want to enable client IP address preservation when you add Network Load Balancer resources
+as endpoints to Global Accelerator, be aware that client IP address preservation is not supported for the
+following:
 
-For the other scenarios, we recommend that you use the port override feature with the endpoint group
-to prevent collisions. Using port overrides, you can map Global Accelerator listener ports to different destination
-port numbers on an endpoint resource. Listener ports default to using the same port numbers on endpoint resources.
-By using port overrides, accelerators can route traffic from the same users (with the source IP and source port)
-to the same endpoint, but use different destination port numbers, which avoids collisions.
+- Network Load Balancers without security groups
+- Network Load Balancers with security groups that have TLS listeners attached
+- Network Load Balancers with security groups that perform IPv4 to IPv6 NAT translation to their EC2 targets
 
-The next section provides specific examples for each of the scenarios of how you can configure port
-overrides to avoid connection collisions. For more information about configuring port overrides, see
-[Override listener ports for restricted ports or connection collisions](about-endpoint-groups-port-override.md "about-endpoint-groups-port-override.md").
+In addition, for Network Load Balancers, client IP address preservation is supported only when targets are in
+the same VPC as the Network Load Balancer. Traffic must flow directly from the Network Load Balancer to the target.
 
-##
+These requirements apply only to Network Load Balancer endpoints, not to other load balancing endpoints,
+such as Application Load Balancers.
 
-How to prevent connection collisions by using port overrides
+**Elastic network interfaces**
+To support client IP address preservation, Global Accelerator creates elastic network interfaces in your
+AWS account—one for each subnet where an endpoint is present. For more information about how Global Accelerator
+works with elastic network interfaces, see [Best practices for ENIs and security groups with client IP address
+preservation](best-practices-aga.md "best-practices-aga.md").
 
-By default, an accelerator routes user traffic to endpoints in AWS Regions using the same protocol
-and the same destination port ranges that you specify when you create a listener. However, you can
-optionally choose to override the port number mapping for the listener port. That is, you can map a
-listener port number to route traffic to a different destination port number on an endpoint.
+**Endpoints in private subnets**
+You can target an Application Load Balancer, Network Load Balancer, or an EC2 instance in a private subnet using
+Global Accelerator but you must have an [internet
+gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") attached to the VPC that contains the endpoints. For more information, see
+[Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md "secure-vpc-connections.md").
 
-For example, if you define a listener that accepts TCP traffic on ports 80 and 443, by default,
-the accelerator routes traffic to those same ports, 80 and 443, on endpoints. However, using the
-port override feature, the accelerator can route traffic coming in on those ports to different
-ports on endpoints, such as 8080 and 8443.
+As a best practice, use private subnets if you want to ensure that traffic
+is delivered only by Global Accelerator. Also, make sure that inbound security group rules are configured appropriately
+to correctly allow or deny traffic for your applications.
 
-By creating different port mappings for listeners in two (or more) accelerators that have
-the same resources configured behind them, you can use separate destination port numbers for each accelerator
-and avoid collisions.
+**Add the client IP address to the allow list**
+Before you add and begin to route traffic to endpoints that preserve the
+client IP address, make sure that all your required security configurations, for example,
+security groups, are updated to include the user client IP address on the allow list. Network
+access control lists (ACLs) only apply to egress (outbound) traffic. If you need to filter ingress
+(inbound) traffic, you must use security groups.
 
-For example, say you have Accelerator-A and Accelerator-B, and each one has a listener configured for
-TCP and port 443. You can set up a port override for the listener for Accelerator-A to map port 443 to
-8443, and the listener for Accelerator-B to map port 443 to 9443. Now you configure an Application Load Balancer endpoint,
-ALB-1234, for example, to listen on both ports 8443 and 9443. Then traffic coming in on port 443
-(to the listeners for both accelerators) from the same user IP address will arrive at ALB-1234,
-without connection collisions or TCP connection time delays.
+**Configure network access control lists (ACLs)**
 
-You can see the traffic paths for this example illustrated in the following:
+Network ACLs associated with your VPC subnets apply to egress (outbound)
+traffic when client IP address preservation is enabled on your accelerator. However, for
+traffic to be allowed to exit through Global Accelerator, you must configure the ACL as both an inbound and
+outbound rule.
 
-`Accelerator-A [listener: tcp,443] → Endpoint-Group [port-override: 443→8443] → ALB-1234 (listener: HTTPS,8443)`
+For example, to allow TCP and UDP clients using an ephemeral source port to connect
+to your endpoint through Global Accelerator, associate the subnet of your endpoint with a
+Network ACL that allows outbound traffic destined to an ephemeral TCP or UDP port (port range
+1024-65535, destination 0.0.0.0/0). In addition, create a matching inbound rule (port range
+1024-65535, source 0.0.0.0/0).
 
-`Accelerator-B [listener: tcp,443] → Endpoint-Group [port-override: 443→9443] → ALB-1234 (listener: HTTPS,9443)`
+Be aware of the following for security groups and WAF:
 
-You can use a port override in a similar way to prevent connection collisions for
-resources that are accessed by both direct user traffic and through an accelerator
-by overriding the default mapping for the accelerator's listener port number. To prevent collisions in this scenario, do the following:
-
-1. Determine the port that you want the resource to listen on for your direct traffic.
-2. Configure the listener for your accelerator to override the default port, and configure the listener
-   on your resource to listen on that port for accelerator traffic.
-
-For example, you could set up a port override for the listener for your accelerator to map port
-443 to port 8443. Now, you could configure an Application Load Balancer endpoint, for example, to
-listen for your accelerator traffic on port 8443 and for direct traffic on port 443. With this
-configuration, you avoid connection collisions on the Application Load Balancer for traffic coming
-from the same user IP address.
+- Security group and AWS WAF rules are an additional set of capabilities that you can
+  apply to protect your resources. For example, the inbound security group rules associated
+  with your Amazon EC2 instances and Application Load Balancers allow you to control the destination ports that clients
+  can connect to through Global Accelerator, such as port 80 for HTTP or port 443 for HTTPS.
+- Amazon EC2 instance security groups apply to any traffic
+  that arrives to your instances, including traffic from Global Accelerator and any public or Elastic IP address that
+  is assigned to your instance.
