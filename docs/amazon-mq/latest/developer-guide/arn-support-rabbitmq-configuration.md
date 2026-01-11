@@ -20,25 +20,37 @@ Amazon MQ for RabbitMQ supports AWS ARNs for the values of some RabbitMQ configu
 
 ## Supported keys
 
-`aws.arns.auth_ldap.dn_lookup_bind.password`
+###### Required IAM role
 
-Amazon MQ requires using AWS Secrets Manager to store the password as a plaintext value
+`aws.arns.assume_role_arn`
 
-`aws.arns.auth_ldap.other_bind.password`
+IAM role ARN that Amazon MQ assumes to access other AWS resources. Required when any other ARN configuration is used.
 
-Amazon MQ requires using AWS Secrets Manager to store the password as a plaintext value
+| Configuration key                 | Description                                                                                                                |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `aws.arns.ssl_options.cacertfile` | Certificate authority file for SSL/TLS client connections. Amazon MQ requires using Amazon S3 or to store the certificate. |
 
-`aws.arns.auth_ldap.ssl_options.cacertfile`
+| Configuration key                    | Description                                                                                                                              |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws.arns.management.ssl.cacertfile` | Certificate authority file for management interface SSL/TLS connections. Amazon MQ requires using Amazon S3 or to store the certificate. |
 
-Certificate authority file for TLS connections between Amazon MQ and the LDAP server
+| Configuration key                       | Description                                                                                                                 |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `aws.arns.auth_oauth2.https.cacertfile` | Certificate authority file for OAuth 2.0 HTTPS connections. Amazon MQ requires using Amazon S3 or to store the certificate. |
 
-`aws.arns.auth_ldap.ssl_options.certfile`
+| Configuration key                           | Description                                                                                                                                                              |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `aws.arns.auth_http.ssl_options.cacertfile` | Certificate authority file for HTTP authentication SSL/TLS connections. Amazon MQ requires using Amazon S3 or to store the certificate.                                  |
+| `aws.arns.auth_http.ssl_options.certfile`   | Certificate file for mutual TLS connections between Amazon MQ and the HTTP authentication server. Amazon MQ requires using Amazon S3 or to store the certificate.        |
+| `aws.arns.auth_http.ssl_options.keyfile`    | Private key file for mutual TLS connections between Amazon MQ and the HTTP authentication server. Amazon MQ requires using AWS Secrets Manager to store the private key. |
 
-Certificate file for mutual TLS connections between Amazon MQ and the LDAP server
-
-`aws.arns.auth_ldap.ssl_options.keyfile`
-
-Private key file for mutual TLS connections between Amazon MQ and the LDAP server
+| Configuration key                            | Description                                                                                                                                               |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws.arns.auth_ldap.ssl_options.cacertfile`  | Certificate authority file for LDAP SSL/TLS connections. Amazon MQ requires using Amazon S3 or to store the certificate.                                  |
+| `aws.arns.auth_ldap.ssl_options.certfile`    | Certificate file for mutual TLS connections between Amazon MQ and the LDAP server. Amazon MQ requires using Amazon S3 or to store the certificate.        |
+| `aws.arns.auth_ldap.ssl_options.keyfile`     | Private key file for mutual TLS connections between Amazon MQ and the LDAP server. Amazon MQ requires using AWS Secrets Manager to store the private key. |
+| `aws.arns.auth_ldap.dn_lookup_bind.password` | Password for LDAP DN lookup bind. Amazon MQ requires using AWS Secrets Manager to store the password as a plaintext value.                                |
+| `aws.arns.auth_ldap.other_bind.password`     | Password for LDAP other bind. Amazon MQ requires using AWS Secrets Manager to store the password as a plaintext value.                                    |
 
 ## IAM policy samples
 

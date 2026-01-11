@@ -12,8 +12,16 @@ You can disable _TLS peer verification_ for these use cases.
 
 ###### Important
 
+Amazon MQ does not currently support configuring client certificates for AMQP client connections. As a result, federation and shovel cannot connect to mTLS-enabled brokers that require client certificate authentication.
+
+###### Important
+
 On Amazon MQ for RabbitMQ 3 SSL properties of AMQP clients is configured with RabbitMQ defaults*(verify_none)*.
 Amazon MQ for RabbitMQ 3 does not support overriding these defaults.
+
+###### Note
+
+With the default `verify_peer` setting, you can establish federation and shovel connections between any 2 Amazon MQ brokers but this does not support establishing the connection between Amazon MQ broker and private brokers or on-premises brokers that are running with non-Amazon MQ CA certificates. To connect with private or on-premises brokers, you need to disable peer verification on the downstream Amazon MQ broker.
 
 ## AMQP client SSL configuration key
 

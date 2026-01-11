@@ -88,7 +88,7 @@ console
 
         Does not apply to single-instance brokers.
         * `max-length`=``number-of-messages``.
-         Replace `number-of-messages` with the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
+         Replace `number-of-messages` with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
          according to the broker's instance size and deployment mode, for example,
          `8000000` for an `mq.m7g.large` cluster.
          Choose **Number** from the dropdown list.
@@ -115,7 +115,7 @@ the following:
      from the dropdown list. To choose the default vhost, choose **/**.
     2. For **Limit**, choose **max-connections** from the
      dropdown options.
-    3. For **Value**, enter the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
+    3. For **Value**, enter the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
      according to the broker's instance size and deployment mode, for example,
      `15000` for an `mq.m5.large` cluster.
     4. Choose **Set / update limit**.
@@ -142,7 +142,7 @@ the following:
 
 Replace `username` and `password`
 with your administrator sign-in credentials. Replace `number-of-messages`
-with the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
+with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
 according to the broker's instance size and deployment mode. Replace `policy-name`
 with a name for your policy. Replace `broker-endpoint` with the URL that you noted previously.
 
@@ -168,7 +168,7 @@ curl -i -u `username`:`password` `broker-endpoint`/api/policies
 
 Replace `username` and `password`
 with your administrator sign-in credentials. Replace `max-connections`
-with the [Amazon MQ recommended value](rabbitmq-resource-limits-configuration.md "rabbitmq-resource-limits-configuration.md")
+with the [Amazon MQ recommended value](rabbitmq-defaults.md#rabbitmq-defaults-values "rabbitmq-defaults.md#rabbitmq-defaults-values")
 according to the broker's instance size and deployment mode. Replace the
 broker endpoint with the URL that you noted previously.
 

@@ -8,6 +8,8 @@ Amazon MQ for RabbitMQ also supports the following plugins.
 - [Consistent Hash exchange plugin](#rabbitmq-consistent-hash-exchange "#rabbitmq-consistent-hash-exchange")
 - [OAuth 2 plugin](#rabbitmq-oauth-plugin "#rabbitmq-oauth-plugin")
 - [LDAP plugin](#rabbitmq-ldap-plugin "#rabbitmq-ldap-plugin")
+- [HTTP plugin](#rabbitmq-http-plugin "#rabbitmq-http-plugin")
+- [SSL certificate plugin](#rabbitmq-ssl-plugin "#rabbitmq-ssl-plugin")
 - [aws plugin](#rabbitmq-aws-plugin "#rabbitmq-aws-plugin")
 
 ## RabbitMQ management plugin
@@ -123,6 +125,28 @@ Amazon MQ for RabbitMQ supports the [LDAP authentication backend plugin](https:/
 enabled based on your broker configuration. When enabled, this plugin provides LDAP authentication and
 authorization with integration to external LDAP directory services for centralized user authentication and
 authorization. For more information about LDAP authentication, see [LDAP authentication and authorization](ldap-for-amq-for-rabbitmq.md "ldap-for-amq-for-rabbitmq.md").
+
+## HTTP plugin
+
+Amazon MQ for RabbitMQ supports the [HTTP authentication backend plugin](https://github.com/rabbitmq/rabbitmq-auth-backend-http "https://github.com/rabbitmq/rabbitmq-auth-backend-http"). This plugin is conditionally
+enabled based on your broker configuration. When enabled, this plugin provides HTTP authentication and
+authorization with integration to external HTTP servers for centralized user authentication and
+authorization. For more information about HTTP authentication, see [HTTP authentication and authorization](http-for-amq-for-rabbitmq.md "http-for-amq-for-rabbitmq.md").
+
+###### Note
+
+The HTTP authentication plugin is only available for Amazon MQ for RabbitMQ version 4 and above.
+
+## SSL certificate plugin
+
+Amazon MQ supports mutual TLS (mTLS) for RabbitMQ brokers. The [SSL authentication plugin](https://github.com/rabbitmq/rabbitmq-auth-mechanism-ssl "https://github.com/rabbitmq/rabbitmq-auth-mechanism-ssl") uses client certificates from mTLS connections to authenticate users. This plugin is conditionally
+enabled based on your broker configuration. When enabled, it provides certificate-based authentication
+using X.509 client certificates for strong authentication without transmitting credentials over the network.
+For more information about SSL certificate authentication, see [SSL certificate authentication](ssl-for-amq-for-rabbitmq.md "ssl-for-amq-for-rabbitmq.md").
+
+###### Note
+
+The SSL certificate authentication plugin is only available for Amazon MQ for RabbitMQ version 4 and above.
 
 ## aws plugin
 

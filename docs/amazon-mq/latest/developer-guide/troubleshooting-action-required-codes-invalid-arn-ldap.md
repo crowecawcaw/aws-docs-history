@@ -10,13 +10,12 @@ To diagnose and address the RABBITMQ_INVALID_ARN_LDAP action required code, you 
 
 ###### To resolve the invalid LDAP ARN issue
 
-1. Navigate to Amazon CloudWatch Logs Insights and run the following query against your broker's log group `/amazonmq/rabbitmq-on-host/rabbitmq`:
+1. Navigate to Amazon CloudWatch Logs Insights and run the following query against your broker's log group `/aws/amazonmq/broker/<broker-id>/general`:
 
 ```
 
-fields @timestamp, @message, @logStream, @log
+fields @timestamp, @message
 | sort @timestamp desc
-| filter @logStream like "b-<your-broker-id>"
 | filter @message like /error.*aws_arn_config/
 | limit 10000
 
