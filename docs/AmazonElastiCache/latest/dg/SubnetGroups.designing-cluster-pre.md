@@ -1,19 +1,10 @@
-# Creating a node-based ElastiCache cluster for Redis OSS
+# Creating a node-based ElastiCache cluster for Valkey
 
-Following are the one-time actions you must take in order to create a node-based ElastiCache cluster for Redis OSS.
-
-For further information on setting up ElastiCache see [Setting up ElastiCache](set-up.md "set-up.md").
-
-###### Topics
-
-- [Step 1: Create a subnet group](#SubnetGroups.Creating-gs.redis "#SubnetGroups.Creating-gs.redis")
-- [Step 2: Create a cluster](#GettingStarted.CreateCluster.redis "#GettingStarted.CreateCluster.redis")
-- [Step 3: Authorize access to the cluster](#GettingStarted.AuthorizeAccess.redis "#GettingStarted.AuthorizeAccess.redis")
-- [Step 4: Connect to the cluster's node](#GettingStarted.ConnectToCacheNode.redis "#GettingStarted.ConnectToCacheNode.redis")
+Following are the one-time actions you must take to create a node-based ElastiCache cluster for Valkey.
 
 ## Step 1: Create a subnet group
 
-Before you create a cluster, you first create a subnet group. A _cache subnet group_ is a collection of subnets that you may want
+Before you create an ElastiCache (Valkey) cluster, you first create a subnet group. A _cache subnet group_ is a collection of subnets that you may want
 to designate for your clusters in a VPC. When launching a cluster in a VPC,
 you need to select a cache subnet group. Then ElastiCache uses that cache subnet group to
 assign IP addresses within that subnet to each cache node in the cluster.
@@ -25,6 +16,8 @@ resolve this issue, you can assign one or more subnets to a subnet group
 so that you have a sufficient number of IP addresses in your cluster's
 Availability Zone. After that, you can add more nodes to your
 cluster.
+
+For further information on setting up ElastiCache see [Setting up ElastiCache](set-up.md "set-up.md").
 
 The following procedures show you how to create a subnet group called
 `mysubnetgroup` (console) and the AWS CLI.
@@ -46,7 +39,7 @@ The following procedure shows how to create a subnet group (console).
    3. In the **VPC ID** box,
       choose the Amazon VPC that you created.
    4. In the **Availability Zone** and **Subnet ID** lists,
-      choose the Availability Zone or [Local Zone](Local_zones.md "Local_zones.md") and ID of your private subnet,
+      choose the Availability Zone or [Using local zones with ElastiCache](Local_zones.md "Local_zones.md") and ID of your private subnet,
       and then choose **Add**.
 
    ![Image: Create Subnet VPC screen](images/vpc-03.png)
@@ -112,9 +105,9 @@ information about ElastiCache usage rates, see [Amazon ElastiCache](https://aws.
 
 Your cluster is launched in a virtual private cloud (VPC) based on the Amazon VPC service.
 
-### Creating a Redis OSS (cluster mode disabled) cluster (Console)
+### Creating a Valkey (cluster mode disabled) cluster (Console)
 
-###### To create a Redis OSS (cluster mode disabled) cluster using the ElastiCache console
+###### To create a Valkey (cluster mode disabled) cluster using the ElastiCache console
 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. From the list in the upper-right corner, choose the AWS Region that you want to launch
@@ -122,7 +115,7 @@ Your cluster is launched in a virtual private cloud (VPC) based on the Amazon VP
 3. Choose **Get started** from the navigation pane.
 4. Choose **Create VPC** and follow the steps outlined at
    [Creating a Virtual Private Cloud (VPC)](VPCs.md "VPCs.md").
-5. On the ElastiCache dashboard page, choose **Valkey cache** or **Redis OSS cache**. For this exercise we will choose **Redis OSS cache**, and then choose **Create Redis OSS cache**.
+5. On the ElastiCache dashboard page, choose **Valkey cache** or **Redis OSS cache** and then choose **Create Valkey cache** or **Create Redis OSS cache**.
 6. Under **Cluster settings**, do the following:
    1. Choose **Configure and create a new cluster**.
    2. For **Cluster mode**, choose **Disabled**.
@@ -159,7 +152,7 @@ AWS Cloud
     	 **Global** attribute indicates whether a parameter group is
     	 part of a global datastore.
     	4. For **Node type**, choose the down arrow (
-    	![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](images/ElastiCache-DnArrow.png)
+    	![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](/images/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)
     	). In the **Change node type**
     	 dialog box, choose a value for **Instance family**
     	 for the node type that you want. Then choose the node type that you
@@ -210,7 +203,7 @@ AWS Cloud
     	 choose the Availability Zone from the list.
     For more information, see [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md "RegionsAndAZs.md").
     5. Choose **Next**
-    6. Under **Advanced Redis OSS settings**
+    6. Under **Advanced Valkey or Redis OSS settings**
 
 
     	1. For **Security**:
@@ -231,7 +224,9 @@ AWS Cloud
     			 Managed AWS KMS key** and choosing
     			 the key. For more information, see [Using customer managed keys from AWS
     			 KMS](at-rest-encryption.md#using-customer-managed-keys-for-elasticache-security "at-rest-encryption.md#using-customer-managed-keys-for-elasticache-security").
-    			* **Encryption in-transit** – Enables encryption of data on the wire. For more information, see [encryption in transit](in-transit-encryption.md "in-transit-encryption.md"). For ElastiCache engine version 6.0 for Redis OSS and above, if you enable encryption in-transit
+    			* **Encryption in-transit** – Enables encryption of data on the wire. For more information, see
+    			 [encryption in transit](in-transit-encryption.md "in-transit-encryption.md").
+    			 For Valkey and for Redis OSS 6.0 and above, if you enable Encryption in-transit
     			 you will be prompted to specify one of the following **Access Control** options:
 
 
@@ -241,12 +236,12 @@ AWS Cloud
     				+ **User Group Access Control List** – Select a user group with a defined set of users that can access the cluster.
     				 For more information, see [Managing User Groups with the Console and CLI](Clusters.md#User-Groups "Clusters.md#User-Groups").
     				+ **AUTH Default User** – An authentication
-    				 mechanism for Valkey and Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
+    				 mechanism for Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
     			* **AUTH** – An authentication
     			 mechanism for Redis OSS server. For more information, see [AUTH](auth.md "auth.md").
     		###### Note
 
-    		For Redis OSS versions between 3.2.6 onward, excluding version 3.2.10, Redis OSS AUTH is the sole option.
+    		For Valkey and for Redis OSS versions between 3.2.6 onward, excluding version 3.2.10, Redis OSS AUTH is the sole option.
     		2. For **Security groups**, choose the security groups that you want for
     		 this cluster. A *security group*
     		 acts as a firewall to control network access to your cluster. You
@@ -265,7 +260,7 @@ AWS Cloud
      backups.
 
 
-    For more information on backup and restore, see [Snapshot and restore](backups.md "backups.md").
+    For more information on Redis OSS backup and restore, see [Snapshot and restore](backups.md "backups.md").
     8. (Optional) Specify a maintenance window. The *maintenance window* is
      the time, generally an hour in length, each week when ElastiCache
      schedules system maintenance for your cluster. You can allow ElastiCache
@@ -299,11 +294,12 @@ On premises
 
     1. For **On premises**, we recommend you leave **Auto-failover** enabled.
      For more information, see [Minimizing downtime in ElastiCache for Redis OSS with Multi-AZ](AutoFailover.md "AutoFailover.md")
-    2. To finish creating the cluster, follow the steps at [Using Outposts](ElastiCache-Outposts.md "ElastiCache-Outposts.md").
+    2. To finish creating the cluster,
+     follow the steps at [Using Outposts](ElastiCache-Outposts.md "ElastiCache-Outposts.md").
 
 As soon as your cluster's status is _available_, you can grant Amazon EC2 access to it, connect to it, and begin using it.
-For more information, see [Step 3. Authorize access to the cluster](SubnetGroups.designing-cluster-pre.md#GettingStarted.AuthorizeAccess.valkey "SubnetGroups.designing-cluster-pre.md#GettingStarted.AuthorizeAccess.valkey")
-and [Step 4. Connect to the cluster's node](SubnetGroups.designing-cluster-pre.md#GettingStarted.ConnectToCacheNode.valkey "SubnetGroups.designing-cluster-pre.md#GettingStarted.ConnectToCacheNode.valkey").
+For more information, see [Step 3. Authorize access to the cluster](#GettingStarted.AuthorizeAccess.valkey "#GettingStarted.AuthorizeAccess.valkey")
+and [Step 4. Connect to the cluster's node](#GettingStarted.ConnectToCacheNode.valkey "#GettingStarted.ConnectToCacheNode.valkey").
 
 ###### Important
 
@@ -312,38 +308,12 @@ you're billed for each hour or partial hour that the cluster is active,
 even if you're not actively using it.
 To stop incurring charges for this cluster, you must delete it. See [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
 
-###### Example
-
-The following CLI code creates a Redis OSS (cluster mode disabled) cluster with no replicas.
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache create-cache-cluster \
---cache-cluster-id `my-cluster` \
---cache-node-type `cache.r4.large` \
---engine `redis` \
---num-cache-nodes `1` \
---snapshot-arns `arn:aws:s3:::my_bucket/snapshot.rdb`
-```
-
-For Windows:
-
-```
-aws elasticache create-cache-cluster ^
---cache-cluster-id `my-cluster` ^
---cache-node-type `cache.r4.large` ^
---engine `redis` ^
---num-cache-nodes `1` ^
---snapshot-arns `arn:aws:s3:::my_bucket/snapshot.rdb`
-```
-
 To work with cluster mode enabled, see the following topics:
 
 - To use the console, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster").
 - To use the AWS CLI, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (AWS CLI)](Clusters.md#Clusters.Create.CLI.RedisCluster "Clusters.md#Clusters.Create.CLI.RedisCluster").
 
-## Step 3: Authorize access to the cluster
+## Step 3. Authorize access to the cluster
 
 This section assumes that you are familiar with launching and connecting to Amazon EC2
 instances. For more information, see the _[Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md")_.
@@ -354,8 +324,7 @@ scenario is to access an ElastiCache cluster from an Amazon EC2 instance in the 
 
 By default, network access to your cluster is limited to the account that
 was used to create it. Before you can connect to a cluster from an EC2 instance,
-you must authorize the EC2 instance to access the cluster. The steps required
-depend upon whether you launched your cluster into EC2-VPC or EC2-Classic.
+you must authorize the EC2 instance to access the cluster.
 
 The most common use case is when an application deployed on an EC2 instance needs to connect to a cluster in the same VPC. The simplest way to manage access between EC2 instances and clusters in the same VPC is to do the following:
 
@@ -365,7 +334,7 @@ The most common use case is when an application deployed on an EC2 instance need
    TCP access using the port you assigned to the cluster when you created it
    and an IP address you will use to access the cluster.
 
-The default port for Redis OSS clusters and replication groups is `6379`.
+The default port for Valkey or Redis OSS clusters and replication groups is `6379`.
 
 ###### Important
 
@@ -386,7 +355,7 @@ the security group to access the clusters.
 
 ###### Note
 
-If you are planning to use [Using local zones with ElastiCache](Local_zones.md "Local_zones.md"), ensure that you have enabled them. When you create a subnet group in that local zone, your VPC is extended to that Local Zone and your VPC will treat the subnet as any subnet in any other Availability Zone. All relevant gateways and route tables will be automatically adjusted.
+If you are planning to use [Local Zones](Local_zones.md "Local_zones.md"), ensure that you have enabled them. When you create a subnet group in that local zone, your VPC is extended to that Local Zone and your VPC will treat the subnet as any subnet in any other Availability Zone. All relevant gateways and route tables will be automatically adjusted.
 
 ###### To create a rule in a VPC security group that allows connections from another security group
 
@@ -400,7 +369,7 @@ If you are planning to use [Using local zones with ElastiCache](Local_zones.md "
    1. For **Port Range**, specify the port you used when you created your
       cluster.
 
-   The default port for Redis OSS clusters and replication groups is `6379`. 2. In the **Source** box, start typing the ID of the security group.
+   The default port for Valkey or Redis OSS clusters and replication groups is `6379`. 2. In the **Source** box, start typing the ID of the security group.
    From the list select the security group you will use for your Amazon EC2 instances.
 
 5. Choose **Save** when you finish.
@@ -416,9 +385,9 @@ network, see the following:
 - [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md")
 - [Accessing ElastiCache resources from outside AWS](accessing-elasticache.md#access-from-outside-aws "accessing-elasticache.md#access-from-outside-aws")
 
-## Step 4: Connect to the cluster's node
+## Step 4. Connect to the cluster's node
 
-Before you continue, complete [Step 3: Authorize access to the cluster](#GettingStarted.AuthorizeAccess.redis "#GettingStarted.AuthorizeAccess.redis").
+Before you continue, complete [Step 3. Authorize access to the cluster](#GettingStarted.AuthorizeAccess.valkey "#GettingStarted.AuthorizeAccess.valkey").
 
 This section assumes that you've created an Amazon EC2 instance and can connect to it. For
 instructions on how to do this, see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md").
@@ -432,9 +401,9 @@ access to it, you can log in to an Amazon EC2
 instance and connect to the cluster. To do so, you must first determine the
 endpoint.
 
-#### Finding a Valkey or Redis OSS (Cluster Mode Disabled) Cluster's Endpoints (Console)
+#### Finding a Valkey (cluster mode disabled) cluster's endpoints (Console)
 
-If a Redis OSS (cluster mode disabled) cluster has only one node, the node's endpoint is used for both reads and writes.
+If a Valkey (cluster mode disabled) cluster has only one node, the node's endpoint is used for both reads and writes.
 
 If the cluster has multiple nodes, there are three types of endpoints; the _primary endpoint_, the _reader endpoint_ and
 the _node endpoints_.
@@ -444,9 +413,9 @@ The primary endpoint is immune to changes to your cluster, such as promoting a r
 to the primary role. For write activity, we recommend that your applications connect to the primary
 endpoint.
 
-A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache for Redis OSS cluster.
+A reader endpoint will evenly split incoming connections to the endpoint between all read replicas in a ElastiCache cluster.
 Additional factors such as when the application creates the connections or how the application (re)-uses the connections will determine the traffic distribution. Reader endpoints keep up with cluster changes in real-time as replicas are added or removed.
-You can place your ElastiCache for Redis OSS cluster’s multiple read replicas in different AWS Availability Zones (AZ) to ensure high availability of reader endpoints.
+You can place your ElastiCache cluster’s multiple read replicas in different AWS Availability Zones (AZ) to ensure high availability of reader endpoints.
 
 ###### Note
 
@@ -457,35 +426,37 @@ Unlike the primary endpoint, node endpoints resolve to specific endpoints.
 If you make a change in your cluster, such as adding or deleting a replica,
 you must update the node endpoints in your application.
 
-###### To find a Redis OSS (cluster mode disabled) cluster's endpoints
+###### To find a Valkey (cluster mode disabled) cluster's endpoints
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. From the navigation pane, choose **Redis OSS caches**.
+2. From the navigation pane, choose **Valkey caches** or **Redis OSS caches**.
 
 The clusters screen will appear with a list that will include any existing Valkey or Redis OSS serverless caches,
-Redis OSS (cluster mode disabled) clusters and Redis OSS (cluster mode enabled) clusters. Choose the cluster you created in the
-[Creating a Redis OSS (cluster mode disabled) cluster (Console)](#Clusters.Create.CON.Redis-gs "#Clusters.Create.CON.Redis-gs") section. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the radio button).
+Valkey (cluster mode disabled) and Valkey (cluster mode enabled) clusters. Choose the cluster you created in the
+[Creating a Valkey (cluster mode disabled) cluster (Console)](#Clusters.Create.CON.valkey-gs "#Clusters.Create.CON.valkey-gs") section. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the radio button).
 
-![Image: Primary endpoint for a Redis OSS (cluster mode disabled) cluster](images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Valkey (cluster mode disabled) cluster](images/Reader-Endpoint.png)
 
-_Primary and Reader endpoints for a Redis OSS (cluster mode disabled) cluster_
+_Primary and Reader endpoints for a Valkey (cluster mode disabled) cluster_
 
-If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step. 4. If the Redis OSS (cluster mode disabled) cluster has replica nodes,
+If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step. 4. If the Valkey (cluster mode disabled) cluster has replica nodes,
 you can find the cluster's replica node endpoints by choosing the cluster's
 name and then choosing the **Nodes** tab.
 
 The nodes screen appears with each node in the cluster, primary and replicas,
 listed with its endpoint.
 
-![Image: Node endpoints for a Redis OSS (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Valkey (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
 
-_Node endpoints for a Redis OSS (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
+_Node endpoints for a Valkey (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
 
     1. One endpoint at a time, find the endpoint you want to copy.
-    2. Choose the copy icon directly in front of the endpoint.The endpoint is now copied to your clipboard. For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md "nodes-connecting.md").
+    2. Choose the copy icon directly in front of the endpoint.The endpoint is now copied to your clipboard.
 
-A Redis OSS (cluster mode disabled) primary endpoint looks something like the following. There is a difference depending upon whether
+For information on using the endpoint to connect to a node, see [Connecting to nodes](nodes-connecting.md "nodes-connecting.md").
+
+A Valkey (cluster mode disabled) primary endpoint looks something like the following. There is a difference depending upon whether
 or not In-Transit encryption is enabled.
 
 **In-transit encryption not enabled**
@@ -517,24 +488,24 @@ The following example uses Amazon EC2 instances running Amazon Linux and Amazon 
 
 ###### Note
 
-This process covers testing a connection using valkey-cli utility for unplanned use only. For a list of supported clients, see the
+This process covers testing a connection using valkey-cli utility for unplanned use only. For a list of supported Valkey and Redis OSS clients, see the
 [Valkey documentation](https://valkey.io/ "https://valkey.io/"). For examples of using the AWS SDKs with ElastiCache, see [Tutorials: Getting started with Python and ElastiCache](ElastiCache-Getting-Started-Tutorials.md "ElastiCache-Getting-Started-Tutorials.md").
 
 #### Connecting to a cluster mode disabled unencrypted-cluster
 
-1. Run the following command to connect to the cluster and replace `primary-endpoint` and `port number` with the endpoint of your cluster and your port number. (The default port for Valkey and Redis OSS is 6379.)
+1. Run the following command to connect to the cluster and replace `primary-endpoint` and `port number` with the endpoint of your cluster and your port number. (The default port for Valkey or Redis OSS is 6379.)
 
 ```
 src/valkey-cli -h `primary-endpoint` -p `port number`
 ```
 
-The result in a command prompt looks similar to the following:
+The result in a Valkey or Redis OSS command prompt looks similar to the following:
 
 ```
 `primary-endpoint`:`port number`
 ```
 
-2. You can now run Valkey and Redis OSS commands.
+2. You can now run Valkey or Redis OSS commands.
 
 ```
 set x Hello
@@ -547,7 +518,7 @@ get x
 #### Connecting to a cluster mode enabled unencrypted-cluster
 
 1. Run the following command to connect to the cluster and replace `configuration-endpoint` and `port number` with the
-   endpoint of your cluster and your port number. (The default port for Valkey and Redis OSS is 6379.)
+   endpoint of your cluster and your port number. (The default port for Valkey or Redis OSS is 6379.)
 
 ```
 src/valkey-cli -h `configuration-endpoint` -c -p `port number`
@@ -556,17 +527,17 @@ src/valkey-cli -h `configuration-endpoint` -c -p `port number`
 ###### Note
 
 In the preceding command, option -c enables cluster mode following
-[-ASK and -MOVED redirections](https://redis.io/topics/cluster-spec "https://redis.io/topics/cluster-spec").
+[-ASK and -MOVED redirections](https://valkey.io/topics/cluster-spec "https://valkey.io/topics/cluster-spec").
 
-The result in a command prompt looks similar to the following:
+The result in a Valkey or Redis OSS command prompt looks similar to the following:
 
 ```
 `configuration-endpoint`:`port number`
 ```
 
-2. You can now run Valkey and Redis OSS commands. Note that redirection occurs because you enabled it using the -c option. If redirection isn't enabled,
+2. You can now run Valkey or Redis OSS commands. Note that redirection occurs because you enabled it using the -c option. If redirection isn't enabled,
    the command returns the MOVED error. For more information on the MOVED error, see
-   [cluster specification](https://valkey.io/topics/cluster-spec "https://valkey.io/topics/cluster-spec").
+   [Redis OSS cluster specification](https://valkey.io/topics/cluster-spec "https://valkey.io/topics/cluster-spec").
 
 ```
 set x Hi
@@ -588,7 +559,7 @@ get x
 
 #### Connecting to an Encryption/Authentication enabled cluster
 
-By default, valkey-cli uses an unencrypted TCP connection when connecting to Valkey and Redis OSS. The option `BUILD_TLS=yes` enables SSL/TLS at the time of valkey-cli compilation
+By default, valkey-cli uses an unencrypted TCP connection when connecting to Valkey or Redis OSS. The option `BUILD_TLS=yes` enables SSL/TLS at the time of valkey-cli compilation
 as shown in the preceding [Download and set up command line access](set-up.md#Download-and-install-cli "set-up.md#Download-and-install-cli") section. Enabling AUTH is optional.
 However, you must enable encryption in-transit in order to enable AUTH. For more details on ElastiCache
 encryption and authentication, see [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md "in-transit-encryption.md").
@@ -598,7 +569,7 @@ encryption and authentication, see [ElastiCache in-transit encryption (TLS)](in-
 You can use the option `--tls` with valkey-cli to connect to both cluster mode enabled and disabled encrypted clusters. If a cluster has an AUTH token set, then you can use the option `-a`
 to provide an AUTH password.
 
-In the following examples, be sure to replace `cluster-endpoint` and `port number` with the endpoint of your cluster and your port number. (The default port for Redis OSS is 6379.)
+In the following examples, be sure to replace `cluster-endpoint` and `port number` with the endpoint of your cluster and your port number. (The default port for Valkey or Redis OSS is 6379.)
 
 **Connect to cluster mode disabled encrypted clusters**
 
@@ -630,11 +601,11 @@ src/valkey-cli -c -h `cluster-endpoint` --tls -p `port number`
 
 After you connect to the cluster, you can run the Valkey or Redis OSS commands as shown in the preceding examples for unencrypted clusters.
 
-#### An alternative to valkey-cli or Redis-cli
+#### valkey-cli alternative
 
 If the cluster isn't cluster mode enabled and you need to make a connection to the cluster for a short test
-but without going through the valkey-cli or redis-cli compilation, you can use telnet or openssl.
-In the following example commands, be sure to replace `cluster-endpoint` and `port number` with the endpoint of your cluster and your port number. (The default port for Redis OSS is 6379.)
+but without going through the valkey-cli compilation, you can use telnet or openssl.
+In the following example commands, be sure to replace `cluster-endpoint` and `port number` with the endpoint of your cluster and your port number. (The default port for Valkey or Redis OSS is 6379.)
 
 The following example connects to an encryption and/or authentication enabled cluster mode disabled cluster:
 
@@ -655,12 +626,12 @@ The following example connects to a cluster mode disabled cluster that doesn't h
 telnet `cluster-endpoint` `port number`
 ```
 
-In order to connect to the cluster from an EC2 Windows instance using the Valkey or Redis OSS CLI, you must download the _valkey-cli_ package
+In order to connect to the Valkey or Redis OSS cluster from an EC2 Windows instance using the Valkey CLI or Redis OSS CLI, you must download the _valkey-cli_ package
 and use _valkey-cli.exe_ to connect to the Valkey or Redis OSS cluster from an EC2 Windows instance.
 
 In the following example, you use the _valkey-cli_ utility to connect to
 a cluster that is not encryption enabled and running Valkey or Redis OSS. For more information
-about Valkey and available commands, see [Valkey commands](http://valkey.io/commands "http://valkey.io/commands") on the Valkey website.
+about Valkey or Redis OSS and available commands, see [Valkey and Redis OSS commands](http://valkey.io/commands "http://valkey.io/commands") on the Valkey website.
 
 ###### To connect to a Valkey or Redis OSS cluster that is not encryption-enabled using
 
@@ -668,12 +639,12 @@ _valkey-cli_
 
 1. Connect to your Amazon EC2 instance using the connection utility of your choice. For instructions on
    how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md").
-2. Copy and paste the link [https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip "https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip") in an Internet browser to download the zip file for the Redis OSS client from
+2. Copy and paste the link [https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip "https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip") in an Internet browser to download the zip file for the Valkey client from
    the available release at GitHub [https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504 "https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504")
 
 Extract the zip file to you desired folder/path.
 
-Open the Command Prompt and change to the Valkey directory and run the command `c:\Valkey>valkey-cli -h `Valkey_Cluster_Endpoint` -p 6379`.
+Open the Command Prompt and change to the Valkey directory and run the command `c:\Valkey>valkey-cli -h `Redis_Cluster_Endpoint` -p 6379`.
 
 For example:
 
@@ -701,3 +672,26 @@ OK
 (nil)                  // key has expired, nothing returned
 `quit`                   // Exit from valkey-cli
 ```
+
+## Where do I go from here?
+
+Now that you have tried the Getting Started exercise, you can explore the following sections
+to learn more about ElastiCache and available tools:
+
+- [Getting started with AWS](https://aws.amazon.com/getting-started/ "https://aws.amazon.com/getting-started/")
+- [Tools for Amazon Web Services](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")
+- [AWS Command Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")
+- [Amazon ElastiCache API reference](../APIReference/Welcome.md "../APIReference/Welcome.md")
+
+After you complete the Getting Started exercise, you can read these sections to learn
+more about ElastiCache administration:
+
+- [Choosing your node size](CacheNodes.md "CacheNodes.md")
+
+You want your cache to be large enough to accommodate all the data you want to cache. At
+the same time, you don't want to pay for more cache than you need. Use this
+topic to help you choose the best node size.
+
+- [ElastiCache best practices and caching strategies](BestPractices.md "BestPractices.md")
+
+Identify and address issues that can affect the efficiency of your cluster.

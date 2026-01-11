@@ -1,69 +1,42 @@
-# Modifying a subnet group
+# Deleting a subnet group
 
-You can modify a subnet group's description, or modify the list of subnet IDs associated with the subnet group.
-You cannot delete a subnet ID from a subnet group if a cache is currently using that subnet.
+If you decide that you no longer need your subnet group, you can delete it.
+You cannot delete a subnet group if it is currently in use by a cache.
 
-The following procedures show you how to modify a subnet group.
+The following procedures show you how to delete a subnet group.
 
-## Modifying subnet groups (Console)
+## Deleting a subnet group (Console)
 
-###### To modify a subnet group
+###### To delete a subnet group
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. In the navigation pane, choose **Subnet groups**.
-3. In the list of subnet groups, select the radio button of the one you want to modify and choose **Modify**.
-4. In the **Selected subnets** panel, choose **Manage**.
-5. Make any changes to the selected subnets and click **Choose**.
-6. Click **Save changes** to save your changes.
+3. In the list of subnet groups,
+   choose the one you want to delete and then choose **Delete**.
+4. When you are asked to confirm this operation, type the name of the subnet group in the text input field and choose **Delete**.
 
-## Modifying subnet groups (AWS CLI)
+## Deleting a subnet group (AWS CLI)
 
-At a command prompt, use the command `modify-cache-subnet-group` to
-modify a subnet group.
+Using the AWS CLI, call the command **delete-cache-subnet-group** with the following
+parameter:
+
+- `--cache-subnet-group-name` `mysubnetgroup`
 
 For Linux, macOS, or Unix:
 
 ```
-aws elasticache modify-cache-subnet-group \
-    --cache-subnet-group-name `mysubnetgroup` \
-    --cache-subnet-group-description `"New description"` \
-    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
+aws elasticache delete-cache-subnet-group \
+    --cache-subnet-group-name `mysubnetgroup`
 ```
 
 For Windows:
 
 ```
-aws elasticache modify-cache-subnet-group ^
-    --cache-subnet-group-name `mysubnetgroup` ^
-    --cache-subnet-group-description `"New description"` ^
-    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
+aws elasticache delete-cache-subnet-group ^
+    --cache-subnet-group-name `mysubnetgroup`
 ```
 
-This command should produce output similar to the following:
+This command produces no output.
 
-```
-{
-    "CacheSubnetGroup": {
-        "VpcId": "vpc-73cd3c17",
-        "CacheSubnetGroupDescription": "New description",
-        "Subnets": [
-            {
-                "SubnetIdentifier": "subnet-42dcf93a",
-                "SubnetAvailabilityZone": {
-                    "Name": "us-west-2a"
-                }
-            },
-            {
-                "SubnetIdentifier": "subnet-48fc12a9",
-                "SubnetAvailabilityZone": {
-                    "Name": "us-west-2a"
-                }
-            }
-        ],
-        "CacheSubnetGroupName": "mysubnetgroup"
-    }
-}
-```
-
-For more information, see the AWS CLI topic modify-cache-subnet-group.
+For more information, see the AWS CLI topic delete-cache-subnet-group.

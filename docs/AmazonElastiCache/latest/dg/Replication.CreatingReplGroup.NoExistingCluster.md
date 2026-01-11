@@ -1,47 +1,29 @@
-# Creating a replication group in Valkey or Redis OSS (Cluster Mode Enabled) from scratch
+# Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch
 
-You can create a Valkey or Redis OSS (cluster mode enabled) cluster (API/CLI: _replication group_)
-using the ElastiCache console, the AWS CLI, or the ElastiCache API.
-A Valkey or Redis OSS (cluster mode enabled) replication group has from 1 to 500 shards (API/CLI: node groups),
-a primary node in each shard, and up to 5 read replicas in each shard.
-You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed.
+You can create a Valkey or Redis OSS (cluster mode disabled) replication group from scratch using the ElastiCache
+console, the AWS CLI, or the ElastiCache API. A Valkey or Redis OSS (cluster mode disabled) replication group always has
+one node group, a primary cluster, and up to five read replicas. Valkey or Redis OSS (cluster mode disabled)
+replication groups don't support partitioning your data.
 
-The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey or Redis OSS engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between
-83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
-Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
-[Creating a subnet group](SubnetGroups.md "SubnetGroups.md").
+###### Note
 
-For versions below 5.0.6,
-the limit is 250 per cluster.
+The node/shard limit can be increased to a maximum of 500 per cluster. To request a limit increase, see [AWS Service Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") and include the instance type in the request.
 
-To request a limit increase, see
-[AWS Service Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md")
-and choose the limit type **Nodes per cluster per instance type**.
+To create a Valkey or Redis OSS (cluster mode disabled) replication group from scratch, take one of the
+following approaches:
 
-###### Creating a Cluster in Valkey or Redis OSS (Cluster Mode Enabled)
+## Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch (AWS CLI)
 
-- [Using the ElastiCache Console](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON "#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON")
-- [Creating a Valkey or Redis OSS (Cluster Mode Enabled) replication group from scratch (AWS CLI)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI "#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CLI")
-- [Creating a replication group in Valkey or Redis OSS (Cluster Mode Enabled) from scratch (ElastiCache API)](#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API "#Replication.CreatingReplGroup.NoExistingCluster.Cluster.API")
+The following procedure creates a Valkey or Redis OSS (cluster mode disabled) replication group using the AWS CLI.
 
-## Creating a Valkey or Redis OSS (Cluster Mode Enabled) cluster (Console)
-
-To create a Valkey or Redis OSS (cluster mode enabled) cluster, see [Creating a Valkey or Redis OSS (cluster mode enabled) cluster (Console)](Clusters.md#Clusters.Create.CON.RedisCluster "Clusters.md#Clusters.Create.CON.RedisCluster").
-Be sure to enable cluster mode, **Cluster Mode enabled (Scale Out)**,
-and specify at least two shards and one replica node in each.
-
-## Creating a Valkey or Redis OSS (Cluster Mode Enabled) replication group from scratch (AWS CLI)
-
-The following procedure creates a Valkey or Redis OSS (cluster mode enabled) replication group using the AWS CLI.
-
-When you create a Valkey or Redis OSS (cluster mode enabled) replication group from scratch,
+When you create a Valkey or Redis OSS (cluster mode disabled) replication group from scratch,
 you create the replication group and all its nodes with a single call to the AWS CLI
 `create-replication-group` command. Include the following parameters.
 
 **--replication-group-id**
 The name of the replication group you are creating.
 
-Valkey or Redis OSS (cluster mode enabled) replication group naming constraints are as follows:
+Valkey or Redis OSS (cluster mode disabled) replication group naming constraints are as follows:
 
 - Must contain 1–40 alphanumeric characters or hyphens.
 - Must begin with a letter.
@@ -50,6 +32,13 @@ Valkey or Redis OSS (cluster mode enabled) replication group naming constraints 
 
 **--replication-group-description**
 Description of the replication group.
+
+**--num-cache-clusters**
+The number of nodes you want created with this replication group, primary and
+read replicas combined.
+
+If you enable Multi-AZ (`--automatic-failover-enabled`), the value of
+`--num-cache-clusters` must be at least 2.
 
 **--cache-node-type**
 The node type for each node in the replication group.
@@ -64,32 +53,27 @@ For more information on performance details for each node type, see [Amazon EC2 
 Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md").
 
 **--cache-parameter-group**
-Specify the `default.redis6.x.cluster.on` parameter group
-or a parameter group derived from `default.redis6.x.cluster.on`
-to create a Valkey or Redis OSS (cluster mode enabled) replication group.
-For more information, see [Redis OSS 6.x parameter changes](ParameterGroups.md#ParameterGroups.Redis.6-x "ParameterGroups.md#ParameterGroups.Redis.6-x").
+Specify a parameter group that corresponds to your engine version.
+If you are running Redis OSS 3.2.4 or later,
+specify the `default.redis3.2` parameter group or a parameter group
+derived from `default.redis3.2` to create a Valkey or Redis OSS (cluster mode disabled) replication group.
+For more information, see [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis").
+
+**--network-type**
+Either `ipv4`, `ipv6` or `dual-stack`. If you choose dual-stack, you must set the `--IpDiscovery` parameter to either
+`ipv4` or `ipv6`.
 
 **--engine**
 redis
 
 **--engine-version**
-3.2.4
+To have the richest set of features, choose the latest engine version.
 
-**--num-node-groups**
-The number of node groups in this replication group.
-Valid values are 1 to 500.
-
-###### Note
-
-The node/shard limit can be increased to a maximum of 500 per cluster. To request a limit increase, see [AWS Service Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") and select limit type "Nodes per cluster per instance type”.
-
-**--replicas-per-node-group**
-The number of replica nodes in each node group.
-Valid values are 0 to 5.
-
-**--network-type**
-Either `ipv4`, `ipv` or `dual-stack`. If you choose dual-stack, you must set the `--IpDiscovery` parameter to either
-`ipv4` or `ipv6`.
+The names of the nodes will be derived from the replication group name by postpending
+`-00`_#_ to the replication group name.
+For example, using the replication group name `myReplGroup`,
+the name for the primary will be `myReplGroup-001` and the read replicas
+`myReplGroup-002` through `myReplGroup-006`.
 
 If you want to enable in-transit or at-rest encryption on this replication group,
 add either or both of the `--transit-encryption-enabled` or
@@ -101,9 +85,8 @@ add either or both of the `--transit-encryption-enabled` or
 - You must also include the parameter `--auth-token` with the customer specified
   string value for your AUTH token (password) needed to perform operations on this replication group.
 
-The following operation creates the Valkey or Redis OSS (cluster mode enabled) replication group `sample-repl-group`
-with three node groups/shards (--num-node-groups), each with three nodes,
-a primary and two read replicas (--replicas-per-node-group).
+The following operation creates a Valkey or Redis OSS (cluster mode disabled) replication group `sample-repl-group`
+with three nodes, a primary and two replicas.
 
 For Linux, macOS, or Unix:
 
@@ -111,13 +94,9 @@ For Linux, macOS, or Unix:
 aws elasticache create-replication-group \
    --replication-group-id `sample-repl-group` \
    --replication-group-description `"Demo cluster with replicas"` \
-   --num-node-groups `3` \
-   --replicas-per-node-group `2` \
+   --num-cache-clusters `3` \
    --cache-node-type `cache.m4.large` \
-   --engine `redis` \
-   --security-group-ids `SECURITY_GROUP_ID` \
-   --cache-subnet-group-name `SUBNET_GROUP_NAME>`
-
+   --engine `redis`
 ```
 
 For Windows:
@@ -126,143 +105,42 @@ For Windows:
 aws elasticache create-replication-group ^
    --replication-group-id `sample-repl-group` ^
    --replication-group-description `"Demo cluster with replicas"` ^
-   --num-node-groups `3` ^
-   --replicas-per-node-group `2` ^
+   --num-cache-clusters `3` ^
    --cache-node-type `cache.m4.large` ^
-   --engine `redis` ^
-   --security-group-ids `SECURITY_GROUP_ID` ^
-   --cache-subnet-group-name `SUBNET_GROUP_NAME>`
-
+   --engine `redis`
 ```
 
-The preceding command generates the following output.
+Output from the this command is something like this.
 
 ```
 {
     "ReplicationGroup": {
         "Status": "creating",
         "Description": "Demo cluster with replicas",
+        "ClusterEnabled": false,
         "ReplicationGroupId": "sample-repl-group",
         "SnapshotRetentionLimit": 0,
-        "AutomaticFailover": "enabled",
-        "SnapshotWindow": "05:30-06:30",
+        "AutomaticFailover": "disabled",
+        "SnapshotWindow": "01:30-02:30",
         "MemberClusters": [
-            "sample-repl-group-0001-001",
-            "sample-repl-group-0001-002",
-            "sample-repl-group-0001-003",
-            "sample-repl-group-0002-001",
-            "sample-repl-group-0002-002",
-            "sample-repl-group-0002-003",
-            "sample-repl-group-0003-001",
-            "sample-repl-group-0003-002",
-            "sample-repl-group-0003-003"
+            "sample-repl-group-001",
+            "sample-repl-group-002",
+            "sample-repl-group-003"
         ],
+        "CacheNodeType": "cache.m4.large",
+        "DataTiering": "disabled",
         "PendingModifiedValues": {}
     }
 }
 ```
 
-When you create a Valkey or Redis OSS (cluster mode enabled) replication group from scratch,
-you are able to configure each shard in the cluster using the
-`--node-group-configuration` parameter as shown in the following
-example which configures two node groups (Console: shards).
-The first shard has two nodes, a primary and one read replica.
-The second shard has three nodes, a primary and two read replicas.
+For additional information and parameters you might want to use, see the AWS CLI topic [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md").
 
-**--node-group-configuration**
-The configuration for each node group.
-The `--node-group-configuration` parameter consists of the following fields.
+## Creating a Valkey or Redis OSS (cluster mode disabled) replication group from scratch (ElastiCache API)
 
-- `PrimaryAvailabilityZone` –
-  The Availability Zone where the primary node of this node group is located.
-  If this parameter is omitted, ElastiCache chooses the Availability Zone for the primary node.
+The following procedure creates a Valkey or Redis OSS (cluster mode disabled) replication group using the ElastiCache API.
 
-**Example:** us-west-2a.
-
-- `ReplicaAvailabilityZones` –
-  A comma separated list of Availability Zones where the read replicas are located.
-  The number of Availability Zones in this list must match the value of
-  `ReplicaCount`.
-  If this parameter is omitted, ElastiCache chooses the Availability Zones for the replica nodes.
-
-**Example:** "us-west-2a,us-west-2b,us-west-2c"
-
-- `ReplicaCount` –
-  The number of replica nodes in this node group.
-- `Slots` –
-  A string that specifies the keyspace for the node group.
-  The string is in the format `startKey-endKey`.
-  If this parameter is omitted, ElastiCache allocates keys equally among the node groups.
-
-**Example:** "0-4999"
-
-The following operation creates the Valkey or Redis OSS (cluster mode enabled) replication group
-`new-group` with two node groups/shards
-(`--num-node-groups`). Unlike the preceding example, each node group
-is configured differently from the other node group
-(`--node-group-configuration`).
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache create-replication-group \
-  --replication-group-id `new-group` \
-  --replication-group-description "`Sharded replication group`" \
-  --engine `redis` \
-  --snapshot-retention-limit `8` \
-  --cache-node-type `cache.m4.medium` \
-  --num-node-groups `2` \
-  --node-group-configuration \
-      "ReplicaCount=`1`,Slots=`0-8999`,PrimaryAvailabilityZone='`us-east-1c`',ReplicaAvailabilityZones='`us-east-1b`'" \
-      "ReplicaCount=`2`,Slots=`9000-16383`,PrimaryAvailabilityZone='`us-east-1a`',ReplicaAvailabilityZones='`us-east-1a`','`us-east-1c`'"
-```
-
-For Windows:
-
-```
-aws elasticache create-replication-group ^
-  --replication-group-id `new-group` ^
-  --replication-group-description "`Sharded replication group`" ^
-  --engine `redis` ^
-  --snapshot-retention-limit `8` ^
-  --cache-node-type `cache.m4.medium` ^
-  --num-node-groups `2` ^
-  --node-group-configuration \
-      "ReplicaCount=`1`,Slots=`0-8999`,PrimaryAvailabilityZone='`us-east-1c`',ReplicaAvailabilityZones='`us-east-1b`'" \
-      "ReplicaCount=`2`,Slots=`9000-16383`,PrimaryAvailabilityZone='`us-east-1a`',ReplicaAvailabilityZones='`us-east-1a`','`us-east-1c`'"
-```
-
-The preceding operation generates the following output.
-
-```
-{
-    "ReplicationGroup": {
-        "Status": "creating",
-        "Description": "Sharded replication group",
-        "ReplicationGroupId": "rc-rg",
-        "SnapshotRetentionLimit": 8,
-        "AutomaticFailover": "enabled",
-        "SnapshotWindow": "10:00-11:00",
-        "MemberClusters": [
-            "rc-rg-0001-001",
-            "rc-rg-0001-002",
-            "rc-rg-0002-001",
-            "rc-rg-0002-002",
-            "rc-rg-0002-003"
-        ],
-        "PendingModifiedValues": {}
-    }
-}
-```
-
-For additional information and parameters you might want to use,
-see the AWS CLI topic create-replication-group.
-
-## Creating a replication group in Valkey or Redis OSS (Cluster Mode Enabled) from scratch (ElastiCache API)
-
-The following procedure creates a Valkey or Redis OSS (cluster mode enabled) replication group using the ElastiCache API.
-
-When you create a Valkey or Redis OSS (cluster mode enabled) replication group from scratch,
+When you create a Valkey or Redis OSS (cluster mode disabled) replication group from scratch,
 you create the replication group and all its nodes with a single call to the ElastiCache API
 `CreateReplicationGroup` operation. Include the following parameters.
 
@@ -277,39 +155,14 @@ Valkey or Redis OSS (cluster mode enabled) replication group naming constraints 
 - Can't end with a hyphen.
 
 **ReplicationGroupDescription**
-Description of the replication group.
+Your description of the replication group.
 
-**NumNodeGroups**
-The number of node groups you want created with this replication group.
-Valid values are 1 to 500.
+**NumCacheClusters**
+The total number of nodes you want created with this replication group,
+primary and read replicas combined.
 
-**ReplicasPerNodeGroup**
-The number of replica nodes in each node group.
-Valid values are 1 to 5.
-
-**NodeGroupConfiguration**
-The configuration for each node group.
-The `NodeGroupConfiguration` parameter consists of the following fields.
-
-- `PrimaryAvailabilityZone` –
-  The Availability Zone where the primary node of this node group is located.
-  If this parameter is omitted, ElastiCache chooses the Availability Zone for the primary node.
-
-**Example:** us-west-2a.
-
-- `ReplicaAvailabilityZones` –
-  A list of Availability Zones where the read replicas are located.
-  The number of Availability Zones in this list must match the value of
-  `ReplicaCount`.
-  If this parameter is omitted, ElastiCache chooses the Availability Zones for the replica nodes.
-- `ReplicaCount` –
-  The number of replica nodes in this node group.
-- `Slots` –
-  A string that specifies the keyspace for the node group.
-  The string is in the format `startKey-endKey`.
-  If this parameter is omitted, ElastiCache allocates keys equally among the node groups.
-
-**Example:** "0-4999"
+If you enable Multi-AZ (`AutomaticFailoverEnabled=true`), the value of
+`NumCacheClusters` must be at least 2.
 
 **CacheNodeType**
 The node type for each node in the replication group.
@@ -324,9 +177,11 @@ For more information on performance details for each node type, see [Amazon EC2 
 Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md").
 
 **CacheParameterGroup**
-Specify the `default.redis6.x.cluster.on` parameter group or a parameter group
-derived from `default.redis6.x.cluster.on` to create a Valkey or Redis OSS (cluster mode enabled) replication group.
-For more information, see [Redis OSS 6.x parameter changes](ParameterGroups.md#ParameterGroups.Redis.6-x "ParameterGroups.md#ParameterGroups.Redis.6-x").
+Specify a parameter group that corresponds to your engine version.
+If you are running Redis OSS 3.2.4 or later,
+specify the `default.redis3.2` parameter group or a parameter group
+derived from `default.redis3.2` to create a Valkey or Redis OSS (cluster mode disabled) replication group.
+For more information, see [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis").
 
 **--network-type**
 Either `ipv4`, `ipv` or `dual-stack`. If you choose dual-stack, you must set the `--IpDiscovery` parameter to either
@@ -338,6 +193,12 @@ redis
 **EngineVersion**
 6.0
 
+The names of the nodes will be derived from the replication group name by postpending
+`-00`_#_ to the replication group name.
+For example, using the replication group name `myReplGroup`,
+the name for the primary will be `myReplGroup-001` and the read replicas
+`myReplGroup-002` through `myReplGroup-006`.
+
 If you want to enable in-transit or at-rest encryption on this replication group,
 add either or both of the `TransitEncryptionEnabled=true` or
 `AtRestEncryptionEnabled=true` parameters and meet the following conditions.
@@ -348,17 +209,17 @@ add either or both of the `TransitEncryptionEnabled=true` or
 - You must also include the parameter `AuthToken` with the customer specified
   string value for your AUTH token (password) needed to perform operations on this replication group.
 
-Line breaks are added for ease of reading.
+The following operation creates the Valkey or Redis OSS (cluster mode disabled) replication group `myReplGroup`
+with three nodes, a primary and two replicas.
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateReplicationGroup
    &CacheNodeType=cache.m4.large
-   &CacheParemeterGroup=default.redis6.xcluster.on
+   &CacheParameterGroup=default.redis6.x
    &Engine=redis
    &EngineVersion=6.0
-   &NumNodeGroups=3
-   &ReplicasPerNodeGroup=2
+   &NumCacheClusters=3
    &ReplicationGroupDescription=test%20group
    &ReplicationGroupId=myReplGroup
    &Version=2015-02-02
