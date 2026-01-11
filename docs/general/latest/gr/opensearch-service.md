@@ -102,6 +102,8 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Stockholm)        | eu-north-1     | osis.eu-north-1.amazonaws.com     | HTTPS    |
 | South America (São Paulo) | sa-east-1      | osis.sa-east-1.amazonaws.com      | HTTPS    |
 
+**OpenSearch UI**
+
 ## Service quotas
 
 For more information, see [Amazon OpenSearch Service
@@ -180,3 +182,12 @@ Region-specific.
 | Minimum Ingestion OCUs per pipeline           | Each supported Region: 1      | No         |                                                                                                                                                                                                                                                                                           |
 | Maximum Ingestion OCUs per stateless pipeline | Each supported Region: 96     | No         | See [Stateless versus stateful processors](../../../opensearch-service/latest/developerguide/pipeline-config-reference.md#processor-stateful-stateless "../../../opensearch-service/latest/developerguide/pipeline-config-reference.md#processor-stateful-stateless").                    |
 | Maximum Ingestion OCUs per stateful pipeline  | Each supported Region: 48     | No         | See [Stateless versus stateful processors](../../../opensearch-service/latest/developerguide/pipeline-config-reference.md#processor-stateful-stateless "../../../opensearch-service/latest/developerguide/pipeline-config-reference.md#processor-stateful-stateless").                    |
+
+### OpenSearch UI quotas
+
+Your AWS account has the following quotas related to OpenSearch UI. Unless otherwise noted, each quota is
+Region-specific.
+
+| Name                                                | Default                   | Adjustable | Notes                                                          |
+| --------------------------------------------------- | ------------------------- | ---------- | -------------------------------------------------------------- |
+| OpenSearch UI (Dashboards) applications per account | Each supported Region: 30 | Yes        | You can request an increase up to 50 applications per account. |

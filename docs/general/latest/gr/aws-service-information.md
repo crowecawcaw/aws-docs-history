@@ -157,7 +157,6 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [Incident Manager](incident-manager.md "incident-manager.md")
 - [Amazon Inspector](inspector2.md "inspector2.md")
 - [Amazon Inspector Classic](inspector.md "inspector.md")
-- [AWS IoT Analytics](iot-analytics.md "iot-analytics.md")
 - [AWS IoT Core](iot-core.md "iot-core.md")
 - [AWS IoT Device Defender](iot_device_defender.md "iot_device_defender.md")
 - [AWS IoT Device Management](iot_device_management.md "iot_device_management.md")
