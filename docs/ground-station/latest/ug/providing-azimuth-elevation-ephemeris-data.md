@@ -8,7 +8,9 @@ Azimuth elevation ephemeris functionality is under strict access control for a
 limited number of pre-determined, specialized use cases. Access is
 significantly more restrictive than for standard customer-provided
 ephemeris capabilities. For more information about approved use cases and
-the access request process, contact `<aws-groundstation@amazon.com>`.
+the access request process, please open an AWS Support ticket through the
+[AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
+Our team will guide you through the approval process for specialized use cases.
 
 ## Overview
 

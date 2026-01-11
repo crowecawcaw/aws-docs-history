@@ -5,8 +5,7 @@
 The ephemeris API is currently in a Preview state
 
 Access to the Ephemeris API is provided only on an as-needed basis. If you require the
-ability to upload custom ephemeris data, you should contact `<aws-groundstation@amazon.com>`
-.
+ability to upload custom ephemeris data, please open an AWS Support ticket through the [AWS Support Center Console](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support"). Our team will work with you to enable this capability for your specific requirements.
 
 ## Overview
 
