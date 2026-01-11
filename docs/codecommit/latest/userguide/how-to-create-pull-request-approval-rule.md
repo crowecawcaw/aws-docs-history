@@ -37,7 +37,7 @@ CodeCommit repository.
 4. Choose the pull request for which you want to create an approval rule from the list. You
    can only create approval rules for open pull requests.
 
-![A list of pull requests for a repository in the CodeCommit console.](images/codecommit-pull-request-view.png) 5. In the pull request, choose **Approvals**, and then choose
+![A list of pull requests for a repository in the CodeCommit console.](/images/codecommit/latest/userguide/images/codecommit-pull-request-view.png) 5. In the pull request, choose **Approvals**, and then choose
 **Create approval rule**. 6. In **Rule name**, give the rule a descriptive name so you know what it is
 for. For example, if you want to require two people to approve a pull request before it can be
 merged, you might name the rule `Require two approvals before merge`.
