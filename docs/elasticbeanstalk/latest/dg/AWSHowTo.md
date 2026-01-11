@@ -1,24 +1,17 @@
-# Using Elastic Beanstalk with Amazon ElastiCache
+# Using Elastic Beanstalk with Amazon CloudFront
 
-Amazon ElastiCache is a web service that enables setting up, managing, and scaling distributed in-memory cache environments in the cloud. It provides a
-high-performance, scalable, and cost-effective in-memory cache, while removing the complexity associated with deploying and managing a distributed cache
-environment. ElastiCache is protocol-compliant with Redis and Memcached, so the code, applications, and most popular tools that you use today with your existing
-Redis and Memcached environments will work seamlessly with the service. For more information about ElastiCache, go to the [Amazon ElastiCache](https://aws.amazon.com/elasticache/ "https://aws.amazon.com/elasticache/") product page.
+Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content,
+for example, .html, .css, .php, image, and media files, to end users.
+CloudFront delivers your content through a worldwide network of edge locations.
+When an end user requests content that you're serving with CloudFront,
+the user is routed to the edge location that provides the lowest latency,
+so content is delivered with the best possible performance. If the content is already in that edge location,
+CloudFront delivers it immediately.
+If the content is not currently in that edge location,
+CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example,
+a web server) that you have identified as the source for the definitive version of your
+content.
 
-**To use Elastic Beanstalk with Amazon ElastiCache**
-
-1.  Create an ElastiCache cluster.
-    - For instructions on how to create an ElastiCache cluster with Redis, go to [Getting Started with Amazon ElastiCache for Redis](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the _ElastiCache
-      for Redis User Guide_.
-    - For instructions on how to create an ElastiCache cluster with Memcached, go to [Getting Started with Amazon ElastiCache for Memcached](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md") in the
-      _ElastiCache for Memcached User Guide_.
-
-2.  Configure your ElastiCache Security Group to allow access from the Amazon EC2 security group used by your Elastic Beanstalk application. For instructions on how to find
-    the name of your EC2 security group using the AWS Management Console, see [EC2 security groups](using-features.managing.ec2.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.md#using-features.managing.ec2.securitygroups") on the _EC2 Instances_ document page.
-
-        * For more information on Redis, go to [Authorize
-         Access](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the *ElastiCache for Redis User Guide*.
-        * For more information on Memcached, go to [Authorize Access](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md") in the *ElastiCache for Memcached User Guide*.
-
-    You can use configuration files to customize your Elastic Beanstalk environment to use ElastiCache. For configuration file examples that integrate ElastiCache with Elastic Beanstalk, see
-    [Example: ElastiCache](customize-environment-resources-elasticache.md "customize-environment-resources-elasticache.md").
+After you have created and deployed your Elastic Beanstalk application you can sign up for CloudFront
+and start using CloudFront to distribute your content.
+Learn more about CloudFront from the [Amazon CloudFront Developer Guide](../../../AmazonCloudFront/latest/DeveloperGuide.md "../../../AmazonCloudFront/latest/DeveloperGuide.md").
