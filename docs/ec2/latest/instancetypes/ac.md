@@ -296,7 +296,7 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | **P4de**           |
 | p4de.24xlarge      | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 4             | 60                      | 50                         | ✓ Yes |
 | **P5**             |
-| p5.4xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| p5.4xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 4                       | 30                         | ✓ Yes |
 | p5.48xlarge        | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32            | 64                      | 50                         | ✓ Yes |
 | **P5e**            |
 | p5e.48xlarge       | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32            | 64                      | 50                         | ✓ Yes |
