@@ -1,29 +1,20 @@
-# FORMAT_DATE
+# ADD_SINGLE_QUOTES
 
-Returns a column in which a date string is converted into a formatted value.
+Encloses the characters in a column with single quotation marks.
 
 ###### Parameters
 
 - `sourceColumn` – The name of an existing column.
-- `targetDateFormat` – One of the following date
-  formats:
-  - `mm/dd/yyyy`
-  - `mm-dd-yyyy`
-  - `dd month yyyy`
-  - `month yyyy`
-  - `dd month`
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "FORMAT_DATE",
+        "Operation": "ADD_SINGLE_QUOTES",
         "Parameters": {
-            "sourceColumn": "birth_date",
-            "targetDateFormat": "mm-dd-yyyy"
+            "sourceColumn": "info_url"
         }
     }
 }
-
 ```
