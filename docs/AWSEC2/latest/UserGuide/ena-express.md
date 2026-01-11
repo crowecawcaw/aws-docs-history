@@ -424,6 +424,7 @@ Accelerated computing
 | `g6e.12xlarge`     | x86_64       |
 | `g6e.24xlarge`     | x86_64       |
 | `g6e.48xlarge`     | x86_64       |
+| `p5.4xlarge`       | x86_64       |
 | `p5.48xlarge`      | x86_64       |
 | `p5e.48xlarge`     | x86_64       |
 | `p5en.48xlarge`    | x86_64       |

@@ -680,10 +680,9 @@ to configure your wallpaper:
 - `hostName`
 - `instanceId`
 - `instanceSize`
-- `memory`
-- `network`
 - `privateIpAddress`
 - `publicIpAddress`
+- `ipv6Address`
 
 **instanceTags**
 

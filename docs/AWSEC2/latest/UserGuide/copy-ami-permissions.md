@@ -11,7 +11,10 @@ To copy an EBS-backed or Amazon S3-backed AMI, you need the following IAM permis
 
 - `s3:CreateBucket` – To create the S3 bucket in the target
   Region for the new AMI
-- `s3:GetBucketAcl` – To read the ACL permissions for the
+- `s3:PutBucketOwnershipControls` – To enable ACLs for the
+  newly created S3 bucket so that objects can be written with the `aws-exec-read`
+  [canned ACL](../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl "../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl")
+- `s3:GetBucketAcl` – To read the ACLs for the
   source bucket
 - `s3:ListAllMyBuckets` – To find an existing S3 bucket for
   AMIs in the target Region

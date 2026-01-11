@@ -39,27 +39,8 @@ Israel (Tel Aviv) and AWS GovCloud (US-West).
 
 Supported instance types:
 
-- Returns 3\* network nodes in the response
-  - `g6e.xlarge` | `g6e.2xlarge` |
-    `g6e.4xlarge` | `g6e.8xlarge` |
-    `g6e.12xlarge` | `g6e.16xlarge` |
-    `g6e.24xlarge` | `g6e.48xlarge`
-  - `hpc6a.48xlarge` | `hpc6id.32xlarge` |
-    `hpc7a.12xlarge` | `hpc7a.24xlarge` |
-    `hpc7a.48xlarge` | `hpc7a.96xlarge` |
-    `hpc7g.4xlarge` | `hpc7g.8xlarge` |
-    `hpc7g.16xlarge`
-  - `p3dn.24xlarge` | `p4d.24xlarge` |
-    `p4de.24xlarge` | `p5.48xlarge` |
-    `p5e.48xlarge` | `p5en.48xlarge` |
-    `p6e-gb200.36xlarge`
-  - `trn1.2xlarge` | `trn1.32xlarge` |
-    `trn1n.32xlarge` | `trn2.48xlarge` |
-    `trn2u.48xlarge`
-
-- Returns 4\* network nodes in the response
-  - `p6-b200.48xlarge` |
-    `p6-b300.48xlarge`
+- Returns **3\* network nodes** in the response: `g6e.xlarge` | `g6e.2xlarge` | `g6e.4xlarge` | `g6e.8xlarge` | `g6e.12xlarge` | `g6e.16xlarge` | `g6e.24xlarge` | `g6e.48xlarge` | `hpc6a.48xlarge` | `hpc6id.32xlarge` | `hpc7g.4xlarge` | `hpc7g.8xlarge` | `hpc7g.16xlarge` | `hpc7a.12xlarge` | `hpc7a.24xlarge` | `hpc7a.48xlarge` | `hpc7a.96xlarge` | `p3dn.24xlarge` | `p4d.24xlarge` | `p4de.24xlarge` | `p5.48xlarge` | `p5e.48xlarge` | `p5en.48xlarge` | `p6e-gb200.36xlarge` | `trn1.2xlarge` | `trn1.32xlarge` | `trn1n.32xlarge` | `trn2.48xlarge` | `trn2u.48xlarge`
+- Returns **4\* network nodes** in the response: `p6-b200.48xlarge` | `p6-b300.48xlarge`
 
 \* The number of network nodes returned is only applicable when using the
 DescribeInstanceTopology API. For the DescribeCapacityReservationTopology API, the

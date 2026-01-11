@@ -14,7 +14,7 @@ Capacity Reservation for immediate use or you can request a Capacity Reservation
 - If you request a **Capacity Reservation for immediate use**, the Capacity Reservation
   becomes available for use immediately and there is no term commitment. You can
   modify the Capacity Reservation at any time, and you can cancel it at any time to release the
-  reserved capacity and to stop incurring changes.
+  reserved capacity and to stop incurring charges.
 - If you request a **future-dated Capacity Reservation**, you specify
   the future date at which you need the Capacity Reservation to become available for use. You must
   also specify a commitment duration for which you commit to keeping the requested

@@ -235,11 +235,10 @@ config:
             - instanceId
             - privateIpAddress
             - publicIpAddress
+            - ipv6Address
             - instanceSize
             - availabilityZone
             - architecture
-            - memory
-            - network
   - stage: postReady
     tasks:
       - task: startSsm
@@ -569,7 +568,7 @@ displays the selected instance details.
 ec2launch wallpaper ^
 --path="C:\ProgramData\Amazon\EC2Launch\wallpaper\Ec2Wallpaper.jpg" ^
 --all-tags ^
---attributes=hostName,instanceId,privateIpAddress,publicIpAddress,instanceSize,availabilityZone,architecture,memory,network
+--attributes=hostName,instanceId,privateIpAddress,publicIpAddress,ipv6Address,instanceSize,availabilityZone,architecture
 ```
 
 #### Inputs
@@ -705,11 +704,10 @@ config:
       - instanceId
       - privateIpAddress
       - publicIpAddress
+      - ipv6Address
       - instanceSize
       - availabilityZone
       - architecture
-      - memory
-      - network
 - stage: postReady
   tasks:
   - task: startSsm
