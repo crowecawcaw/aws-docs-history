@@ -239,12 +239,12 @@ with one of the appropriate sets of values.
     	+ ```
     	 --set image.repository=`account-id`.dkr.ecr.`Region-code`.amazonaws.com/amazon/appmesh-controller
     	```
-    	+ 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.0-prod
-    	+ 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.0-prod
-    	+ 909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.4.0-prod
-    	+ 422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.0-prod
-    	+ 564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.0-prod
-    	+ 924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.0-prod
+    	+ 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.2-prod
+    	+ 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.2-prod
+    	+ 909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.4.2-prod
+    	+ 422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.2-prod
+    	+ 564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.2-prod
+    	+ 924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.4.2-prod
     * The older image URIs can be found in the [change
      log](https://github.com/aws/aws-app-mesh-controller-for-k8s/releases "https://github.com/aws/aws-app-mesh-controller-for-k8s/releases") on GitHub. The AWS accounts on which the images are present have
      changed in version `v1.5.0`. Older version of the images are hosted on
