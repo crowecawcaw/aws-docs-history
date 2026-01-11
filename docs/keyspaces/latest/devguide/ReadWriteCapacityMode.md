@@ -1,86 +1,114 @@
-# Configure provisioned throughput capacity
+# Pre-warm an existing table for
 
-mode
+on-demand capacity mode in Amazon Keyspaces
 
-If you choose _provisioned throughput_ capacity mode, you
-specify the number of reads and writes per second that are required for your
-application. This helps you manage your Amazon Keyspaces usage to stay at or below a defined
-request rate to maintain predictability. To learn more about
-automatic scaling for provisioned throughput see [Manage throughput capacity automatically with Amazon Keyspaces auto scaling](autoscaling.md "autoscaling.md").
+Amazon Keyspaces automatically scales storage partitions based on throughput, but for new tables or new throughput
+peaks, it can take longer to allocate the required storage partitions. To insure that tables in on-demand and
+provisioned capacity mode have enough storage partitions to support the sudden higher throughput, you can
+_pre-warm_ a new or existing table.
 
-Provisioned throughput capacity mode is a good option if any of the following is
-true:
+If you anticipate a spike in peak capacity for your table that is twice
+as high as the previous peek withing the same 30 minutes, you can pre-warm the table
+to the peak capacity of the expected spike.
 
-- You have predictable application traffic.
-- You run applications whose traffic is consistent or ramps up gradually.
-- You can forecast capacity requirements.
+To pre-warm an existing on-demand table
+in Amazon Keyspaces, you can follow these steps. To pre-warm a new table, see [Pre-warm a new table for
+on-demand capacity mode in Amazon Keyspaces](ReadWriteCapacityMode.prewarming.md "ReadWriteCapacityMode.prewarming.md").
 
-## Read capacity units
+Before you get started, review your [account and table quotas](quotas.md#table "quotas.md#table") for provisioned
+mode and adjust them as needed.
 
-and write capacity units
+Next review the required [waiting periods](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md") between changing capacity modes.
+Note that you'll incur costs for the provisioned capacity until the table is back in on-demand mode.
 
-For provisioned throughput capacity mode tables, you specify throughput
-capacity in terms of read capacity units (RCUs) and write capacity units (WCUs):
+Console
 
-- One _RCU_ represents one `LOCAL_QUORUM`
-  read per second, or two `LOCAL_ONE` reads per second, for a
-  row up to 4 KB in size. If you need to read a row that is larger than
-  4 KB, the read operation uses additional RCUs.
+###### How to pre-warm an existing table in on-demand mode
 
-The total number of RCUs required depends on the row size, and whether
-you want `LOCAL_QUORUM` or `LOCAL_ONE` reads. For
-example, if your row size is 8 KB, you require 2 RCUs to sustain one
-`LOCAL_QUORUM` read per second, and 1 RCU if you choose
-`LOCAL_ONE` reads.
+1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
+2. Choose the table that you want to work with, and go to the **Capacity** tab.
+3. In the **Capacity settings** section, choose **Edit**.
+4. Under **Capacity mode**, change the table to
+   **Provisioned** capacity mode.
+5. In the **Read capacity** section, deselect
+   **Scale automatically**.
 
-- One _WCU_ represents one write per second for a row
-  up to 1 KB in size. All writes are using
-  `LOCAL_QUORUM` consistency, and there is no additional
-  charge for using lightweight transactions (LWTs). If you need to write a
-  row that is larger than 1 KB, the write operation uses
-  additional WCUs.
+Set the table's **Provisioned capacity units** to the expected peak value. 6. In the **Write capacity** section, choose the same settings
+as defined in the previous step for read capacity, or configure capacity
+values manually. 7. When the provisioned capacity settings are defined, choose
+**Save**. After you save changes, the table's status shows as **Updating...**
+until the capacity is provisioned. Note that for large tables, the pre-warming process can take some time,
+because the data needs to be divided across partitions. During this time, you can continue to access
+the table and expect the previously configured peak capacity to be available. 8. When the table's status turns to **Active**, you can switch the table back to
+**On-demand** capacity mode.
 
-The total number of WCUs required depends on the row size. For
-example, if your row size is 2 KB, you require 2 WCUs to sustain one
-write request per second. For more information about how to estimate read and write capacity consumption of a table, see
-[Estimate capacity consumption of read and write throughput in Amazon Keyspaces](capacity-examples.md "capacity-examples.md").
+Cassandra Query Language (CQL)
 
-If your application reads or writes larger rows (up to the Amazon Keyspaces maximum row
-size of 1 MB), it consumes more capacity units. To learn more about
-how to estimate the row size, see [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md"). For
-example, suppose that you create a provisioned table with 6 RCUs and 6 WCUs.
-With these settings, your application could do the following:
+###### Pre-warm an existing table for on-demand mode using CQL
 
-- Perform `LOCAL_QUORUM` reads of up to 24 KB per second
-  (4 KB × 6 RCUs).
-- Perform `LOCAL_ONE` reads of up to 48 KB per second (twice
-  as much read throughput).
-- Write up to 6 KB per second (1 KB × 6 WCUs).
+1. Change the table's capacity mode to `PROVIOSIONED` and configure the read capacity
+   and write capacity based on your expected peak values.
 
-_Provisioned throughput_ is the maximum amount of throughput
-capacity an application can consume from a table. If your application exceeds
-your provisioned throughput capacity, you might observe insufficient capacity
-errors.
+```
 
-For example, a read request that doesn’t have enough throughput capacity fails
-with a `Read_Timeout` exception and is posted to the
-`ReadThrottleEvents` metric. A write request that doesn’t have
-enough throughput capacity fails with a `Write_Timeout` exception and
-is posted to the `WriteThrottleEvents` metric.
+ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PROVISIONED', 'read_capacity_units': 18000, 'write_capacity_units': 6000}};
+```
 
-You can use Amazon CloudWatch to monitor your provisioned and actual throughput metrics
-and insufficient capacity events. For more information about these metrics, see
-[Amazon Keyspaces metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").
+2. Confirm that the table is active. The following statement is an example.
 
-###### Note
+```
+SELECT * from system_schema_mcs.tables where keyspace_name = 'catalog' and table_name = 'book_awards';
+```
 
-Repeated errors due to insufficient capacity can lead to client-side
-driver specific exceptions, for example the DataStax Java driver fails with
-a `NoHostAvailableException`.
+3. When the table's status is `ACTIVE`, you can use the following statement to change
+   the capacity mode of the table to on-demand mode by setting the throughput mode to `PAY_PER_REQUEST`.
+   The following statement is an example of this.
 
-To change the throughput capacity settings for tables, you can use the
-AWS Management Console or the `ALTER TABLE` statement using CQL, for more
-information see [ALTER TABLE](cql.ddl.md#cql.ddl.table.alter "cql.ddl.md#cql.ddl.table.alter").
+```
+ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PAY_PER_REQUEST'}};
+```
 
-To learn more about default quotas for your account and how to increase them,
-see [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md").
+4. You can use the following statement to confirm that the table is now in on-demand mode and see the
+   table's status.
+
+```
+SELECT * from system_schema_mcs.tables where keyspace_name = 'catalog' and table_name = 'book_awards';
+```
+
+CLI
+
+###### Pre-warm an existing table for on-demand mode using the AWS CLI
+
+1. Change the table's capacity mode to `PROVIOSIONED` and configure the read capacity
+   and write capacity based on your expected peak values. The following command is an example of this.
+
+```
+aws keyspaces update-table --keyspace-name catalog --table-name book_awards
+                                    \--capacity-specification throughputMode=PROVISIONED,readCapacityUnits=18000,writeCapacityUnits=6000
+```
+
+2. Confirm that the status of the table is active and that the capacity has been provisioned. You can use the following statement.
+
+```
+aws keyspaces get-table --keyspace-name catalog --table-name book_awards
+```
+
+3. When the table's status is `ACTIVE` and the capacity has been provisioned,
+   you can use the following statement to change
+   the capacity mode of the table to on-demand mode by setting the throughput mode to `PAY_PER_REQUEST`.
+   The following statement is an example of this.
+
+```
+aws keyspaces update-table --keyspace-name catalog --table-name book_awards
+                                    \--capacity-specification throughputMode=PAY_PER_REQUEST
+```
+
+4. You can use the following statement to confirm that the table is now in on-demand mode and see the
+   table's status.
+
+```
+aws keyspaces get-table --keyspace-name catalog --table-name book_awards
+```
+
+When the table is active in on-demand capacity mode,
+it's prepared to handle a similar throughput capacity as before in provisioned capacity mode.

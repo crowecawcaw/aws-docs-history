@@ -1,38 +1,23 @@
-# Built-in functions in Amazon Keyspaces
+# CQL language reference for Amazon Keyspaces (for Apache Cassandra)
 
-Amazon Keyspaces (for Apache Cassandra) supports a variety of built-in functions that you can use in Cassandra Query
-Language (CQL) statements.
+After you connect to an Amazon Keyspaces endpoint, you use Cassandra Query Language (CQL) to work
+with your database. CQL is similar in many ways to Structured Query Language (SQL).
+
+- **CQL elements** – This section covers the fundamental elements of CQL supported in Amazon Keyspaces,
+  including identifiers, constants, terms, and data types. It explains concepts like string types, numeric types, collection types, and more.
+- **Data Definition Language (DDL)** – DDL statements are used to manage data structures like
+  keyspaces and tables in Amazon Keyspaces. This section covers statements for creating, altering, and dropping keyspaces and tables, as well as restoring
+  tables from a point-in-time backup.
+- **Data Manipulation Language (DML)** – DML statements are used to manage data within tables.
+  This section covers statements for selecting, inserting, updating, and deleting data. It also explains advanced querying capabilities like
+  using the `IN` operator, ordering results, and pagination.
+- **Built-in functions** – Amazon Keyspaces supports a variety of built-in scalar functions that you can use
+  in CQL statements. This section provides an overview of these functions, including examples of their usage.
+  Throughout this topic, you'll find detailed syntax, examples, and best practices for using CQL effectively in Amazon Keyspaces.
 
 ###### Topics
 
-- [Scalar functions](#cql.functions.scalar "#cql.functions.scalar")
-
-## Scalar functions
-
-A _scalar function_ performs a calculation on a single value
-and returns the result as a single value. Amazon Keyspaces supports the following scalar
-functions.
-
-| Function           | Description                                                                                                                 |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `blobAsType`       | Returns a value of the specified data type.                                                                                 |
-| `cast`             | Converts one native data type into another native data type.                                                                |
-| `currentDate`      | Returns the current date/time as a date.                                                                                    |
-| `currentTime`      | Returns the current date/time as a time.                                                                                    |
-| `currentTimestamp` | Returns the current date/time as a timestamp.                                                                               |
-| `currentTimeUUID`  | Returns the current date/time as a `timeuuid`.                                                                              |
-| `fromJson`         | Converts the JSON string into the selected column's data type.                                                              |
-| `maxTimeuuid`      | Returns the largest possible `timeuuid` for timestamp or date string.                                                       |
-| `minTimeuuid`      | Returns the smallest possible `timeuuid` for timestamp or date string.                                                      |
-| `now`              | Returns a new unique `timeuuid`.                                                                                            |
-| `toDate`           | Converts either a `timeuuid` or a timestamp to a date<br>type.                                                              |
-| `toJson`           | Returns the column value of the selected column in JSON format.                                                             |
-| `token`            | Returns the hash value of the partition key.                                                                                |
-| `toTimestamp`      | Converts either a `timeuuid` or a date to a<br>timestamp.                                                                   |
-| `TTL`              | Returns the expiration time in seconds for a column.                                                                        |
-| `typeAsBlob`       | Converts the specified data type into a `blob`.                                                                             |
-| `toUnixTimestamp`  | Converts either a `timeuuid` or a timestamp into a<br>`bigInt`.                                                             |
-| `uuid`             | Returns a random version 4 UUID.                                                                                            |
-| `writetime`        | Returns the timestamp of the value of the specified column.                                                                 |
-| `dateOf`           | \*(Deprecated)<br>• Extracts the timestamp of a<br>`timeuuid`, and returns the value as a date.                             |
-| `unixTimestampOf`  | \*(Deprecated)<br>• Extracts the timestamp of a<br>`timeuuid`, and returns the value as a raw, 64-bit<br>integer timestamp. |
+- [Cassandra Query Language (CQL) elements in Amazon Keyspaces](cql.md "cql.md")
+- [DDL statements (data definition language) in Amazon Keyspaces](cql.md "cql.md")
+- [DML statements (data manipulation language) in Amazon Keyspaces](cql.md "cql.md")
+- [Built-in functions in Amazon Keyspaces](cql.md "cql.md")

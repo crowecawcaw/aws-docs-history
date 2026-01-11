@@ -1,52 +1,51 @@
-# View the tags of a stream
+# View the tags of a keyspace
 
-The following examples show how to view the tags of a stream in Amazon Keyspaces using CQL or the
-AWS CLI.
+The following examples show how to read tags using the console, CQL or the AWS CLI.
 
 Console
 
-###### View the tags of a stream using the console
+###### View the tags of a keyspace using the Amazon Keyspaces console
 
 1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
-2. In the navigation pane, choose **Tables**.
-3. Choose a table from the list and choose the **Streams** tab.
-4. You can view the tags of the stream in the **Tags** section.
+2. In the navigation pane, choose **Keyspaces**.
+3. Choose a keyspace from the list. Then choose the **Tags** tab where you can view the tags of the keyspace.
 
 Cassandra Query Language (CQL)
 
-###### View the tags of a stream using CQL
+###### View the tags of a keyspace using CQL
 
-To read the tags attached to a stream, you must specify the resource
-ARN of the stream in the `WHERE` clause. The following CQL
-syntax is an example of this.
+To read the tags attached to a keyspace, use the following CQL statement.
 
 ```
-SELECT * FROM system_schema_mcs.tags WHERE resource_id = `stream_arn`;
+SELECT * FROM system_schema_mcs.tags WHERE `valid_where_clause`;
 ```
 
-- The following query returns the tags for the specified
-  stream.
+The `WHERE` clause is required, and must use one of the following formats:
+
+- `keyspace_name = `'mykeyspace'` AND resource_type = 'keyspace'`
+- `resource_id = `arn``
+- The following statement shows whether a keyspace has tags.
 
 ```
-SELECT tags FROM system_schema_mcs.tags WHERE resource_id = '`arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/my_keyspace/table/my_table/stream/2025-05-06T17:17:39.800`';
+SELECT * FROM system_schema_mcs.tags WHERE keyspace_name = `'mykeyspace'` AND resource_type = 'keyspace';
 ```
 
-The output of that query looks like the following.
+The output of the query looks like the following.
 
 ```
- `resource_id | keyspace_name | resource_name | resource_type | tags
- ------------------------------------------------------------------------------------------------------------------+---------------+-------------------------+---------------+----------------------
- arn:aws:cassandra:us-east-1:111122223333:/keyspace/my_keyspace/table/my_table/stream/2025-04-02T23:00:07.052 | singleks | 2025-04-02T23:00:07.052 | stream | {'tagkey': 'tagval'}`
+`resource_id | keyspace_name | resource_name | resource_type | tags
+-----------------------------------------------------------------+---------------+---------------+---------------+------
+arn:aws:cassandra:us-east-1:111122223333:/keyspace/mykeyspace/ | mykeyspace | mykeyspace | keyspace | {'key1': 'val1', 'key2': 'val2'}`
 ```
 
 CLI
 
-###### View the tags of a stream using the AWS CLI
+###### View the tags of a keyspace using the AWS CLI
 
-- This example shows how to list the tags for all streams under the specified keyspace.
+- This example shows how to list the tags of the specified resource.
 
 ```
-aws keyspaces list-tags-for-resource --resource-arn '`arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/my_keyspace/table/my_table/stream/2025-05-11T21:21:33.291`'
+aws keyspaces list-tags-for-resource --resource-arn '`arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/myKeyspace/`'
 ```
 
 The output of the last command looks like this.
