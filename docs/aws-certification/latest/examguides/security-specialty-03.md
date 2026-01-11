@@ -4,22 +4,22 @@ The AWS Certified Security - Specialty exam is intended for individuals who have
 
 ###### Topics
 
-- [Introduction](#security-specialty-02-intro "#security-specialty-02-intro")
-- [Target candidate description](#security-specialty-02-target "#security-specialty-02-target")
-- [Exam content](#security-specialty-02-exam-content "#security-specialty-02-exam-content")
-- [Content outline](#security-specialty-02-domains "#security-specialty-02-domains")
+- [Introduction](#security-specialty-03-intro "#security-specialty-03-intro")
+- [Target candidate description](#security-specialty-03-target "#security-specialty-03-target")
+- [Exam content](#security-specialty-03-exam-content "#security-specialty-03-exam-content")
+- [Content outline](#security-specialty-03-domains "#security-specialty-03-domains")
 - [Service References](#scs-service-references "#scs-service-references")
-- [Content Domain 1: Detection](security-specialty-02-domain1.md "security-specialty-02-domain1.md")
-- [Content Domain 2: Incident Response](security-specialty-02-domain2.md "security-specialty-02-domain2.md")
-- [Content Domain 3: Infrastructure Security](security-specialty-02-domain3.md "security-specialty-02-domain3.md")
-- [Content Domain 4: Identity and Access Management](security-specialty-02-domain4.md "security-specialty-02-domain4.md")
-- [Content Domain 5: Data Protection](security-specialty-02-domain5.md "security-specialty-02-domain5.md")
-- [Content Domain 6: Security Foundations and Governance](security-specialty-02-domain6.md "security-specialty-02-domain6.md")
+- [Content Domain 1: Detection](security-specialty-03-domain1.md "security-specialty-03-domain1.md")
+- [Content Domain 2: Incident Response](security-specialty-03-domain2.md "security-specialty-03-domain2.md")
+- [Content Domain 3: Infrastructure Security](security-specialty-03-domain3.md "security-specialty-03-domain3.md")
+- [Content Domain 4: Identity and Access Management](security-specialty-03-domain4.md "security-specialty-03-domain4.md")
+- [Content Domain 5: Data Protection](security-specialty-03-domain5.md "security-specialty-03-domain5.md")
+- [Content Domain 6: Security Foundations and Governance](security-specialty-03-domain6.md "security-specialty-03-domain6.md")
 - [In-scope AWS services and features](scs-02-in-scope-services.md "scs-02-in-scope-services.md")
 - [Out-of-scope AWS services and features](scs-02-out-of-scope-services.md "scs-02-out-of-scope-services.md")
 - [Technologies and Concepts](scs-technologies-concepts.md "scs-technologies-concepts.md")
-- [Appendix: Comparison of SCS-C02 and SCS-C03](security-specialty-02-appendix-b.md "security-specialty-02-appendix-b.md")
-- [Survey](#security-specialty-02-survey "#security-specialty-02-survey")
+- [Appendix: Comparison of SCS-C02 and SCS-C03](security-specialty-03-appendix-b.md "security-specialty-03-appendix-b.md")
+- [Survey](#security-specialty-03-survey "#security-specialty-03-survey")
 
 ## Introduction
 
@@ -98,12 +98,12 @@ This exam guide includes weightings, content domains, and task statements for th
 
 The exam has the following content domains and weightings:
 
-- [Content Domain 1: Detection (16% of scored content)](security-specialty-02-domain1.md "security-specialty-02-domain1.md")
-- [Content Domain 2: Incident Response (14% of scored content)](security-specialty-02-domain2.md "security-specialty-02-domain2.md")
-- [Content Domain 3: Infrastructure Security (18% of scored content)](security-specialty-02-domain3.md "security-specialty-02-domain3.md")
-- [Content Domain 4: Identity and Access Management (20% of scored content)](security-specialty-02-domain4.md "security-specialty-02-domain4.md")
-- [Content Domain 5: Data Protection (18% of scored content)](security-specialty-02-domain5.md "security-specialty-02-domain5.md")
-- [Content Domain 6: Security Foundations and Governance (14% of scored content)](security-specialty-02-domain6.md "security-specialty-02-domain6.md")
+- [Content Domain 1: Detection (16% of scored content)](security-specialty-03-domain1.md "security-specialty-03-domain1.md")
+- [Content Domain 2: Incident Response (14% of scored content)](security-specialty-03-domain2.md "security-specialty-03-domain2.md")
+- [Content Domain 3: Infrastructure Security (18% of scored content)](security-specialty-03-domain3.md "security-specialty-03-domain3.md")
+- [Content Domain 4: Identity and Access Management (20% of scored content)](security-specialty-03-domain4.md "security-specialty-03-domain4.md")
+- [Content Domain 5: Data Protection (18% of scored content)](security-specialty-03-domain5.md "security-specialty-03-domain5.md")
+- [Content Domain 6: Security Foundations and Governance (14% of scored content)](security-specialty-03-domain6.md "security-specialty-03-domain6.md")
 
 ## Service References
 

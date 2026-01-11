@@ -2,9 +2,9 @@
 
 ###### Tasks
 
-- [Task 5.1: Design and implement controls for data in transit](#security-specialty-02-domain5-task1 "#security-specialty-02-domain5-task1")
-- [Task 5.2: Design and implement controls for data at rest](#security-specialty-02-domain5-task2 "#security-specialty-02-domain5-task2")
-- [Task 5.3: Design and implement controls to protect confidential data, credentials, secrets, and cryptographic key materials](#security-specialty-02-domain5-task3 "#security-specialty-02-domain5-task3")
+- [Task 5.1: Design and implement controls for data in transit](#security-specialty-03-domain5-task1 "#security-specialty-03-domain5-task1")
+- [Task 5.2: Design and implement controls for data at rest](#security-specialty-03-domain5-task2 "#security-specialty-03-domain5-task2")
+- [Task 5.3: Design and implement controls to protect confidential data, credentials, secrets, and cryptographic key materials](#security-specialty-03-domain5-task3 "#security-specialty-03-domain5-task3")
 
 ## Task 5.1: Design and implement controls for data in transit
 

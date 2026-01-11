@@ -2,8 +2,8 @@
 
 ###### Tasks
 
-- [Task 2.1: Design and test an incident response plan](#security-specialty-02-domain2-task1 "#security-specialty-02-domain2-task1")
-- [Task 2.2: Respond to security events](#security-specialty-02-domain2-task2 "#security-specialty-02-domain2-task2")
+- [Task 2.1: Design and test an incident response plan](#security-specialty-03-domain2-task1 "#security-specialty-03-domain2-task1")
+- [Task 2.2: Respond to security events](#security-specialty-03-domain2-task2 "#security-specialty-03-domain2-task2")
 
 ## Task 2.1: Design and test an incident response plan
 

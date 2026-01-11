@@ -2,8 +2,8 @@
 
 ###### Tasks
 
-- [Task 4.1: Design, implement, and troubleshoot authentication strategies](#security-specialty-02-domain4-task1 "#security-specialty-02-domain4-task1")
-- [Task 4.2: Design, implement, and troubleshoot authorization strategies](#security-specialty-02-domain4-task2 "#security-specialty-02-domain4-task2")
+- [Task 4.1: Design, implement, and troubleshoot authentication strategies](#security-specialty-03-domain4-task1 "#security-specialty-03-domain4-task1")
+- [Task 4.2: Design, implement, and troubleshoot authorization strategies](#security-specialty-03-domain4-task2 "#security-specialty-03-domain4-task2")
 
 ## Task 4.1: Design, implement, and troubleshoot authentication strategies
 

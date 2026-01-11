@@ -2,9 +2,9 @@
 
 ###### Tasks
 
-- [Task 3.1: Design, implement, and troubleshoot security controls for network edge services](#security-specialty-02-domain3-task1 "#security-specialty-02-domain3-task1")
-- [Task 3.2: Design, implement, and troubleshoot security controls for compute workloads](#security-specialty-02-domain3-task2 "#security-specialty-02-domain3-task2")
-- [Task 3.3: Design and troubleshoot network security controls](#security-specialty-02-domain3-task3 "#security-specialty-02-domain3-task3")
+- [Task 3.1: Design, implement, and troubleshoot security controls for network edge services](#security-specialty-03-domain3-task1 "#security-specialty-03-domain3-task1")
+- [Task 3.2: Design, implement, and troubleshoot security controls for compute workloads](#security-specialty-03-domain3-task2 "#security-specialty-03-domain3-task2")
+- [Task 3.3: Design and troubleshoot network security controls](#security-specialty-03-domain3-task3 "#security-specialty-03-domain3-task3")
 
 ## Task 3.1: Design, implement, and troubleshoot security controls for network edge services
 

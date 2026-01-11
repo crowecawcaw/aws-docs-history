@@ -2,9 +2,9 @@
 
 ###### Tasks
 
-- [Task 6.1: Develop a strategy to centrally deploy and manage AWS accounts](#security-specialty-02-domain6-task1 "#security-specialty-02-domain6-task1")
-- [Task 6.2: Implement a secure and consistent deployment strategy for cloud resources](#security-specialty-02-domain6-task2 "#security-specialty-02-domain6-task2")
-- [Task 6.3: Evaluate the compliance of AWS resources](#security-specialty-02-domain6-task3 "#security-specialty-02-domain6-task3")
+- [Task 6.1: Develop a strategy to centrally deploy and manage AWS accounts](#security-specialty-03-domain6-task1 "#security-specialty-03-domain6-task1")
+- [Task 6.2: Implement a secure and consistent deployment strategy for cloud resources](#security-specialty-03-domain6-task2 "#security-specialty-03-domain6-task2")
+- [Task 6.3: Evaluate the compliance of AWS resources](#security-specialty-03-domain6-task3 "#security-specialty-03-domain6-task3")
 
 ## Task 6.1: Develop a strategy to centrally deploy and manage AWS accounts
 

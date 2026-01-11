@@ -2,13 +2,13 @@
 
 ###### Tasks
 
-- [Task 1.1: Architect network connectivity strategies](#solutions-architect-professional-02-domain1-task1 "#solutions-architect-professional-02-domain1-task1")
-- [Task 1.2: Prescribe security controls](#solutions-architect-professional-02-domain1-task2 "#solutions-architect-professional-02-domain1-task2")
-- [Task 1.3: Design reliable and resilient architectures](#solutions-architect-professional-02-domain1-task3 "#solutions-architect-professional-02-domain1-task3")
-- [Task 1.4: Design a multi-account AWS environment](#solutions-architect-professional-02-domain1-task4 "#solutions-architect-professional-02-domain1-task4")
-- [Task 1.5: Determine cost optimization and visibility strategies](#solutions-architect-professional-02-domain1-task5 "#solutions-architect-professional-02-domain1-task5")
+- [Task 1.1: Architect network connectivity strategies.](#solutions-architect-professional-02-domain1-task1 "#solutions-architect-professional-02-domain1-task1")
+- [Task 1.2: Prescribe security controls.](#solutions-architect-professional-02-domain1-task2 "#solutions-architect-professional-02-domain1-task2")
+- [Task 1.3: Design reliable and resilient architectures.](#solutions-architect-professional-02-domain1-task3 "#solutions-architect-professional-02-domain1-task3")
+- [Task 1.4: Design a multi-account AWS environment.](#solutions-architect-professional-02-domain1-task4 "#solutions-architect-professional-02-domain1-task4")
+- [Task 1.5: Determine cost optimization and visibility strategies.](#solutions-architect-professional-02-domain1-task5 "#solutions-architect-professional-02-domain1-task5")
 
-## Task 1.1: Architect network connectivity strategies
+## Task 1.1: Architect network connectivity strategies.
 
 Knowledge of:
 
@@ -26,7 +26,7 @@ Skills in:
 - Troubleshooting traffic flows by using AWS tools
 - Using service endpoints for service integrations
 
-## Task 1.2: Prescribe security controls
+## Task 1.2: Prescribe security controls.
 
 Knowledge of:
 
@@ -42,7 +42,7 @@ Skills in:
 - Deploying encryption strategies for data at rest and data in transit
 - Developing a strategy for centralized security event notifications and auditing
 
-## Task 1.3: Design reliable and resilient architectures
+## Task 1.3: Design reliable and resilient architectures.
 
 Knowledge of:
 
@@ -57,7 +57,7 @@ Skills in:
 - Developing the optimal architecture by considering scale-up and scale-out options
 - Designing an effective backup and restoration strategy
 
-## Task 1.4: Design a multi-account AWS environment
+## Task 1.4: Design a multi-account AWS environment.
 
 Knowledge of:
 
@@ -71,7 +71,7 @@ Skills in:
 - Recommending a strategy for central logging and event notifications
 - Developing a multi-account governance model
 
-## Task 1.5: Determine cost optimization and visibility strategies
+## Task 1.5: Determine cost optimization and visibility strategies.
 
 Knowledge of:
 

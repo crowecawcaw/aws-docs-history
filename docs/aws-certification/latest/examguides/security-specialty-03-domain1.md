@@ -2,9 +2,9 @@
 
 ###### Tasks
 
-- [Task 1.1: Design and implement monitoring and alerting solutions for an AWS account or organization](#security-specialty-02-domain1-task1 "#security-specialty-02-domain1-task1")
-- [Task 1.2: Design and implement logging solutions](#security-specialty-02-domain1-task2 "#security-specialty-02-domain1-task2")
-- [Task 1.3: Troubleshoot security monitoring, logging, and alerting solutions](#security-specialty-02-domain1-task3 "#security-specialty-02-domain1-task3")
+- [Task 1.1: Design and implement monitoring and alerting solutions for an AWS account or organization](#security-specialty-03-domain1-task1 "#security-specialty-03-domain1-task1")
+- [Task 1.2: Design and implement logging solutions](#security-specialty-03-domain1-task2 "#security-specialty-03-domain1-task2")
+- [Task 1.3: Troubleshoot security monitoring, logging, and alerting solutions](#security-specialty-03-domain1-task3 "#security-specialty-03-domain1-task3")
 
 ## Task 1.1: Design and implement monitoring and alerting solutions for an AWS account or organization
 
