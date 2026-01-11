@@ -69,6 +69,8 @@ recovery when you desire a vault for your backups that
 
 - Cross-Region copy to or from a logically air-gapped vault is not currently available
   for backups that contain Amazon Aurora, Amazon DocumentDB, and Amazon Neptune.
+- Unencrypted Amazon Aurora, Amazon DocumentDB, and Amazon Neptune clusters are not supported for logically air-gapped vault,
+  as they do not support encryption of unencrypted DB cluster snapshots.
 - Amazon EC2 offers [EC2 Allowed AMIs](../../../AWSEC2/latest/UserGuide/ec2-allowed-amis.md "../../../AWSEC2/latest/UserGuide/ec2-allowed-amis.md"). If
   this setting is enabled in your account, add the alias `aws-backup-vault` to your
   allowlist.
@@ -603,8 +605,9 @@ The `EncryptionKeyType` field can have the following values:
 
 ###### Note
 
-- AWS Backup recommends using AWS owned keys with logically air-gapped vaults. However, if your organization policy requires using a customer managed key,
-  use keys from another account in a secondary organization dedicated to recovery as a best practice. You can reference the blog
+- AWS Backup recommends using AWS owned keys with logically air-gapped vaults.
+- If your organization policy requires using a customer managed key, AWS does not recommend using keys from the same account, except for testing.
+  For production workloads, use a customer managed key from another account in a secondary organization dedicated to recovery as a best practice. You can reference the blog
   [Encrypt AWS Backup logically air-gapped vaults with customer-managed keys](https://aws.amazon.com/blogs/storage/encrypt-aws-backup-logically-air-gapped-vaults-with-customer-managed-keys/ "https://aws.amazon.com/blogs/storage/encrypt-aws-backup-logically-air-gapped-vaults-with-customer-managed-keys/") to gather more insights into setting up CMK based logically air-gapped vaults.
 - You can only select an AWS KMS encryption key during vault creation.
   Once created, all backups contained in the vault will be encrypted with that key. You cannot change or migrate your vaults to use a different encryption key.
