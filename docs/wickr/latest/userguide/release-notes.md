@@ -6,6 +6,29 @@ Enterprise, which is the on-premises version of Wickr, see [Enterprise Administr
 To help you keep track of the ongoing updates and improvements to Wickr, we publish
 release notices that describe recent changes.
 
+## December 2025
+
+- Enhancements
+  - Users can now forward a message to another room, group, or one-on-one
+    conversation. Long-press a message to find the Forward option. For more
+    information, see [Message
+    forwarding in the Wickr client](message-forwarding.md "message-forwarding.md").
+  - General enhancements and bug fixes.
+
+The AWS Wickr client is now only available from the Play Store for users 18 or older.
+
+## November 2025
+
+- Enhancements
+  - An optional Region selection picker has been added to the sign in flow
+    allowing users to choose the region to use for authentication.
+  - General enhancements and bug fixes.
+
+###### Note
+
+Beginning with v6.64 (planned for Dec 2025), AWS Wickr will no longer provide
+updates for end-of-life Android OSes. Please upgrade to Android 13+.
+
 ## September 2025
 
 - Enhancements
