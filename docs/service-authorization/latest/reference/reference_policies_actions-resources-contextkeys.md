@@ -180,6 +180,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon EC2 Auto Scaling](list_amazonec2autoscaling.md "list_amazonec2autoscaling.md")
 - [Amazon EC2 Image Builder](list_amazonec2imagebuilder.md "list_amazonec2imagebuilder.md")
 - [Amazon EC2 Instance Connect](list_amazonec2instanceconnect.md "list_amazonec2instanceconnect.md")
+- [Amazon ECS MCP Service](list_amazonecsmcpservice.md "list_amazonecsmcpservice.md")
 - [Amazon EKS Auth](list_amazoneksauth.md "list_amazoneksauth.md")
 - [Amazon EKS MCP Server](list_amazoneksmcpserver.md "list_amazoneksmcpserver.md")
 - [AWS Elastic Beanstalk](list_awselasticbeanstalk.md "list_awselasticbeanstalk.md")
