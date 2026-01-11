@@ -26,7 +26,7 @@ To learn more about AWS Resilience Hub, See:
 
 Get more familiar with Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=resiliencevue "https://cid.workshops.aws.dev/demo?dashboard=resiliencevue")
 
-![Image of ResilienceVue dashboard in Quick Sight](images/rv_demo.png)
+![Image of ResilienceVue dashboard in Quick Sight](/images/guidance/latest/cloud-intelligence-dashboards/images/rv_demo.png)
 
 ## Prerequisites
 
