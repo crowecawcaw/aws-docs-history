@@ -12,9 +12,9 @@ produce computed scores and metrics that help you assess the effectiveness of a 
 knowledge base. Human-based evaluations use a team of people who provide their ratings and
 preferences in relation to certain metrics.
 
-###### Overview: Automatic model evaluation jobs
+###### Overview: Programmatic model evaluation jobs
 
-Automatic model evaluation jobs allow you to quickly evaluate a model's ability to
+Programmatic model evaluation jobs allow you to quickly evaluate a model's ability to
 perform a task. You can either provide your own custom prompt dataset that you've
 tailored to a specific use case, or you can use an available built-in dataset.
 
