@@ -124,9 +124,6 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
                     "maxLength": 2048,
                     "minLength": 1,
                     "additionalProperties": false
-                },
-                "backupPlan": {
-                    "$ref": "#/definitions/BackupPlanDefinition"
                 }
             },
             "additionalProperties": false
@@ -146,55 +143,6 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
                 }
             },
             "additionalProperties": false
-        },
-        "BackupPlanDefinition": {
-            "type": "object",
-            "required": [
-                "scheduleExpression",
-                "localVaultRetentionDays",
-                "selectionTag"
-            ],
-            "properties": {
-                "scheduleExpression": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "additionalProperties": false
-                },
-                "localVaultRetentionDays": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 36500,
-                    "additionalProperties": false
-                },
-                "centralVaultRetentionDays": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 36500,
-                    "additionalProperties": false
-                },
-                "selectionTag": {
-                    "$ref": "#/definitions/SelectionTagMap"
-                }
-            },
-            "additionalProperties": false
-        },
-        "SelectionTagMap": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "additionalProperties": false
-                },
-                "value": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "additionalProperties": false
-                }
-            }
         },
         "CentralizedLogging": {
             "type": "object",
@@ -245,13 +193,6 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
                 },
                 "loggingBucket": {
                     "$ref": "#/definitions/S3BucketConfiguration"
-                },
-                "bucketRegion": {
-                    "type": "string",
-                    "maxLength": 24,
-                    "minLength": 1,
-                    "pattern": "^[a-z]{2}-[a-z\\-]*-[0-9]{1}$",
-                    "additionalProperties": false
                 }
             },
             "additionalProperties": false
@@ -259,13 +200,6 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
         "S3BucketConfiguration": {
             "type": "object",
             "properties": {
-                "bucketArn": {
-                    "type": "string",
-                    "maxLength": 2048,
-                    "minLength": 16,
-                    "pattern": "^arn:(aws*[0-9a-zA-Z-]*[0-9a-zA-Z]):s3:::([a-z0-9.-]+[a-z0-9.])$",
-                    "additionalProperties": false
-                },
                 "retentionDays": {
                     "type": "number",
                     "minimum": 1,
