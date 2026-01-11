@@ -17,5 +17,6 @@ This topic describes Client SDK 5. To check what version of Client SDK you're us
 - [AWS CloudHSM Client SDK 5 supported platforms](client-supported-platforms.md "client-supported-platforms.md")
 - [PKCS #11 library for AWS CloudHSM Client SDK 5](pkcs11-library.md "pkcs11-library.md")
 - [OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl-library.md "openssl-library.md")
+- [OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-library.md "openssl-provider-library.md")
 - [Key storage provider (KSP) for AWS CloudHSM Client SDK 5](ksp-library.md "ksp-library.md")
 - [JCE provider for AWS CloudHSM Client SDK 5](java-library.md "java-library.md")

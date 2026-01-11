@@ -7,6 +7,8 @@ subcommands:
 
 - [Generate a signature with the ECDSA mechanism in
   CloudHSM CLI](cloudhsm_cli-crypto-sign-ecdsa.md "cloudhsm_cli-crypto-sign-ecdsa.md")
+- [Generate a signature with the HashEdDSA mechanism in
+  CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md")
 - [Generate a signature with the RSA-PKCS
   mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs.md "cloudhsm_cli-crypto-sign-rsa-pkcs.md")
 - [Generate a signature with the

@@ -106,6 +106,7 @@ Valid values:
 - secp384r1
 - secp256k1
 - secp521r1
+- ed25519 (only supported on hsm2m.medium instances in non-FIPS mode)
 
 Required: Yes
 

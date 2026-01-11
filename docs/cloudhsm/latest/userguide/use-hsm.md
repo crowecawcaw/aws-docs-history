@@ -19,6 +19,11 @@ AWS CloudHSM offers implementations of the PKCS #11 library that are compliant w
 The AWS CloudHSM OpenSSL Dynamic Engine allows you to offload cryptographic operations to your
 CloudHSM cluster through the OpenSSL API.
 
+**[OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-library.md "openssl-provider-library.md")**
+
+The AWS CloudHSM OpenSSL Dynamic Engine Provider allows you to offload cryptographic operations to your
+CloudHSM cluster through the OpenSSL Provider API.
+
 **[JCE provider for AWS CloudHSM Client SDK 5](java-library.md "java-library.md")**
 
 The AWS CloudHSM JCE provider is compliant with the Java Cryptographic Architecture (JCA).

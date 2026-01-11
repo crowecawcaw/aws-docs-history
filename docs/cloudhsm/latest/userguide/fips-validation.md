@@ -34,7 +34,7 @@ personal identification number (PIN) data, information that is used for transact
 **PCI-3DS Compliance**
 
 PCI 3DS (or Three Domain Secure, 3-D Secure) provides security of data for EMV 3D secure e-commerce payments. PCI 3DS provides another layer of security for online shopping.
-The type hsm1.medium HSMs provided by AWS CloudHSM are PCI-3DS compliant.
+The hsm1.medium and hsm2m.medium HSMs that are provided by AWS CloudHSM are both PCI-3DS compliant.
 
 **SOC2**
 

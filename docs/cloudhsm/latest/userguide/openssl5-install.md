@@ -58,6 +58,27 @@ Install the OpenSSL Dynamic Engine for Amazon Linux 2 on ARM64 architecture:
 `$` `sudo yum install ./cloudhsm-dyn-latest.el7.aarch64.rpm`
 ```
 
+RHEL 10 (10.0+)
+Install the OpenSSL Dynamic Engine for RHEL 10 on x86_64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-dyn-latest.el10.x86_64.rpm`
+```
+
+```
+`$` `sudo yum install ./cloudhsm-dyn-latest.el10.x86_64.rpm`
+```
+
+Install the OpenSSL Dynamic Engine for RHEL 10 on ARM64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-dyn-latest.el10.aarch64.rpm`
+```
+
+```
+`$` `sudo yum install ./cloudhsm-dyn-latest.el10.aarch64.rpm`
+```
+
 RHEL 9 (9.2+)
 Install the OpenSSL Dynamic Engine for RHEL 9 on x86_64 architecture:
 
@@ -88,6 +109,16 @@ Install the OpenSSL Dynamic Engine for RHEL 8 on x86_64 architecture:
 
 ```
 `$` `sudo yum install ./cloudhsm-dyn-latest.el8.x86_64.rpm`
+```
+
+Install the OpenSSL Dynamic Engine for RHEL 8 on ARM64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-dyn-latest.el8.aarch64.rpm`
+```
+
+```
+`$` `sudo yum install ./cloudhsm-dyn-latest.el8.aarch64.rpm`
 ```
 
 Ubuntu 24.04 LTS
@@ -130,17 +161,6 @@ Install the OpenSSL Dynamic Engine for Ubuntu 22.04 LTS on ARM64 architecture:
 
 ```
 `$` `sudo apt install ./cloudhsm-dyn_latest_u22.04_arm64.deb`
-```
-
-Ubuntu 20.04 LTS
-Install the OpenSSL Dynamic Engine for Ubuntu 20.04 LTS on x86_64 architecture:
-
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Focal/cloudhsm-dyn_latest_u20.04_amd64.deb`
-```
-
-```
-`$` `sudo apt install ./cloudhsm-dyn_latest_u20.04_amd64.deb`
 ```
 
 You have installed the shared

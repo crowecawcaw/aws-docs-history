@@ -12,5 +12,6 @@ configure tool named `configure-pkcs11` on Linux or
 - [Syntax](configure-tool-syntax5.md "configure-tool-syntax5.md")
 - [Parameters](configure-tool-params5.md "configure-tool-params5.md")
 - [Examples](configure-tool-examples5.md "configure-tool-examples5.md")
+- [Bootstrap OpenSSL Provider](configure-openssl-provider.md "configure-openssl-provider.md")
 - [Advanced configurations](configure-sdk5-advanced-configs.md "configure-sdk5-advanced-configs.md")
 - [Related topics](configure-tool-seealso5.md "configure-tool-seealso5.md")

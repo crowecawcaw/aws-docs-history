@@ -2982,7 +2982,7 @@ SSL/TLS offload with AWS CloudHSM.
 - [Enable inbound HTTPS
   connections](#ssl-offload-add-security-group-linux "#ssl-offload-add-security-group-linux")
 - [Verify that HTTPS uses the
-  certificate that you configured](#ssl-offload-verify-https-connection-linux "#ssl-offload-verify-https-connection-linux")
+  certificate that you configured](#ssl-offload-verify-https-connection-linux-enable "#ssl-offload-verify-https-connection-linux-enable")
 
 ### Enable inbound HTTPS
 

@@ -16,7 +16,7 @@ supported by AWS CloudHSM, see the following topics.
 - [Cipher-based message authentication code (CMAC) functions](#java-cmac_5 "#java-cmac_5")
 - [Key Agreement Functions](#java-key-derivation_5 "#java-key-derivation_5")
 - [Convert keys to key specifications using key factories](#java-key-factories "#java-key-factories")
-- [Mechanism annotations](#w2aac25c21c23c15c23 "#w2aac25c21c23c15c23")
+- [Mechanism annotations](#w2aac25c21c25c15c23 "#w2aac25c21c25c15c23")
 
 ## Generate key and key pair functions
 
@@ -167,4 +167,4 @@ For KeyFactory's `translateKey` method, it takes in any Key that implements the 
 
 [1] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details.
 
-[2] Key derivation functions (KDFs) are specified in [RFC 8418, Section 2.1](https://datatracker.ietf.org/doc/html/rfc8418 "https://datatracker.ietf.org/doc/html/rfc8418").
+[2] Key derivation functions (KDFs) are specified in [NIST Special Publication 800-56A Revision 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf").

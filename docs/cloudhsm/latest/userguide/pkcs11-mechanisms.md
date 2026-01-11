@@ -181,7 +181,7 @@ The following table lists the maximum data size set for each mechanism:
 [Show moreShow less](# "#")
 
 - [3] Vendor-defined mechanism. In order to use the CloudHSM
-  vendor defined mechanisms, PKCS#11 applications must include `/opt/cloudhsm/include/pkcs11t.h` during compilation.
+  vendor defined mechanisms, PKCS#11 applications must include `/opt/cloudhsm/include/pkcs11/pkcs11t.h` during compilation.
 
 `**CKM\_CLOUDHSM\_AES\_GCM**`: This proprietary
 mechanism is a programmatically safer alternative to the standard
@@ -219,6 +219,6 @@ to be prepended to the ciphertext that is being unwrapped.
 
 [Show moreShow less](# "#")
 
-- [7] Key derivation functions (KDFs) are specified in [RFC 8418, Section 2.1](https://datatracker.ietf.org/doc/html/rfc8418 "https://datatracker.ietf.org/doc/html/rfc8418").
+- [7] Key derivation functions (KDFs) are specified in [NIST Special Publication 800-56A Revision 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf").
 
 [Show moreShow less](# "#")

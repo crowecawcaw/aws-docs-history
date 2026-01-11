@@ -31,7 +31,7 @@ Options:
  --session
  Creates a session key pair that exists only in the current session. The key cannot be recovered after the session ends
  --curve `<CURVE>`
- Elliptic curve used to generate the key pair [possible values: prime256v1, secp256r1, secp224r1, secp384r1, secp256k1, secp521r1]
+ Elliptic curve used to generate the key pair [possible values: prime256v1, secp256r1, secp224r1, secp384r1, secp256k1, secp521r1, ed25519]
  --public-attributes [`<PUBLIC_KEY_ATTRIBUTES>`...]
  Space separated list of key attributes to set for the generated EC public key in the form of KEY_ATTRIBUTE_NAME=KEY_ATTRIBUTE_VALUE
  --private-attributes [`<PRIVATE_KEY_ATTRIBUTES>`...]
@@ -403,6 +403,7 @@ Specifies the identifier for the elliptic curve.
 - secp384r1
 - secp256k1
 - secp521r1
+- ed25519 (only supported on hsm2m.medium instances in non-FIPS mode)
 
 Required: Yes
 
