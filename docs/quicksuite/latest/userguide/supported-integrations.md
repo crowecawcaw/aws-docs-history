@@ -8,13 +8,22 @@ Amazon Quick Suite supports integrations with various third-party applications a
 | Asana                              | ✓           | —       |
 | Atlassian Confluence Cloud         | ✓           | ✓       |
 | BambooHR                           | ✓           | —       |
+| Box                                | ✓           | —       |
+| Canva                              | ✓           | —       |
+| GitHub                             | ✓           | —       |
 | Google Drive                       | —           | ✓       |
+| HubSpot                            | ✓           | —       |
+| HuggingFace                        | ✓           | —       |
+| Intercom                           | ✓           | —       |
 | Atlassian Jira Cloud               | ✓           | —       |
+| Linear                             | ✓           | —       |
 | Microsoft Outlook                  | ✓           | —       |
 | Microsoft OneDrive                 | ✓           | ✓       |
 | Microsoft SharePoint Cloud         | ✓           | ✓       |
 | Microsoft Teams                    | ✓           | —       |
 | Model Context Protocol (MCP)       | ✓           | —       |
+| Monday.com                         | ✓           | —       |
+| Notion                             | ✓           | —       |
 | OpenAPI Specification              | ✓           | —       |
 | PagerDuty                          | ✓           | —       |
 | REST API                           | ✓           | —       |

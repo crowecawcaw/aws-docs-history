@@ -37,7 +37,7 @@ This section covers:
 
 ###### Topics
 
-- [Monitoring Amazon Quick Suite chat and feedback using CloudWatch Logs](monitoring-quicksuite-chat-feedback-cloudwatch.md "monitoring-quicksuite-chat-feedback-cloudwatch.md")
+- [Monitoring Amazon Quick Suite usage using CloudWatch Logs](monitoring-quicksuite-chat-feedback-cloudwatch.md "monitoring-quicksuite-chat-feedback-cloudwatch.md")
 - [Incident response,
   logging, and monitoring in Amazon Quick Sight using CloudTrail](incident-response-logging-and-monitoring-qs.md "incident-response-logging-and-monitoring-qs.md")
 - [Monitoring data in Amazon Quick Sight using CloudWatch](monitoring-quicksight.md "monitoring-quicksight.md")

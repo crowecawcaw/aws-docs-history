@@ -46,6 +46,10 @@ Create a connected app in Salesforce to enable OAuth authentication with Amazon 
 
 6. In the OAuth Settings section, select the following checkboxes:
    - **Enable OAuth Settings**
+   - **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows** _(recommended)_
+
+     Enable this option to add an additional security layer to the Authorization Code flow.
+
    - **Require Secret for Web Server Flow**
    - **Require Secret for Refresh Token Flow**
    - **Enable Client Credentials Flow**
@@ -105,7 +109,7 @@ creation are not available for Salesforce systems.
 
 4. Choose your connection type:
    - **User authentication** - OAuth-based authentication for individual user access.
-   - **Service authentication** - API key-based authentication for service access.
+   - **Service authentication** - Service-to-service authentication for application access.
 
 5. Fill in the connection settings based on your selected authentication method (either user or service):
    1. For **User authentication (OAuth)**, configure the following fields:

@@ -14,8 +14,17 @@ Amazon Quick Suite supports multiple connector types, each with specific actions
 - **Asana** - Create actions, update projects,
   manage team workflows.
 - **BambooHR** - Access employee data, manage time-off requests.
+- **Box** - Manage files, folders, and collaborate on documents.
+- **Canva** - Create and edit designs, manage templates and assets.
+- **FactSet** - Access financial data, generate reports.
+- **GitHub** - Manage repositories, issues, pull requests, and code collaboration.
+- **HuggingFace** - Access AI models, datasets, and machine learning workflows.
+- **HubSpot** - Manage contacts, deals, marketing campaigns, and CRM data.
+- **Intercom** - Manage customer conversations, support tickets, and messaging.
+- **Linear** - Create and manage issues, projects, and development workflows.
+- **Monday** - Manage projects, tasks, and team collaboration workflows.
+- **Notion** - Create and manage pages, databases, and collaborative workspaces.
 - **Smartsheet** - Update sheets, manage project data.
-- **Factset** - Access financial data, generate reports.
 - **Confluence** - Create, update, and manage pages, spaces, and other Confluence objects.
 - **SharePoint** - Perform actions on SharePoint lists, items, and Excel files with 19 available actions for creating, updating, deleting, and retrieving SharePoint content.
 - **OneDrive** - Create, update, delete, and manage OneDrive files and folders.
@@ -48,6 +57,16 @@ The following table shows which Amazon Quick Suite features each action connecto
 | Atlassian Confluence Cloud             | ✓                | ✓           | —     | —                 | ✓                | ✓           |
 | Atlassian Jira Cloud                   | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | BambooHR                               | ✓                | ✓           | —     | —                 | —                | ✓           |
+| Box                                    | ✓                | ✓           | —     | —                 | —                | —           |
+| Canva                                  | ✓                | ✓           | —     | —                 | —                | —           |
+| FactSet                                | ✓                | ✓           | —     | —                 | —                | —           |
+| GitHub                                 | ✓                | ✓           | —     | —                 | —                | —           |
+| HuggingFace                            | ✓                | ✓           | —     | —                 | —                | —           |
+| HubSpot                                | ✓                | ✓           | —     | —                 | —                | —           |
+| Intercom                               | ✓                | ✓           | —     | —                 | —                | —           |
+| Linear                                 | ✓                | ✓           | —     | —                 | —                | —           |
+| Monday                                 | ✓                | ✓           | —     | —                 | —                | —           |
+| Notion                                 | ✓                | ✓           | —     | —                 | —                | —           |
 | Microsoft OneDrive                     | ✓                | ✓           | —     | —                 | ✓                | ✓           |
 | Microsoft Outlook                      | ✓                | ✓           | ✓     | ✓                 | ✓                | ✓           |
 | Microsoft SharePoint                   | ✓                | ✓           | —     | —                 | ✓                | ✓           |
