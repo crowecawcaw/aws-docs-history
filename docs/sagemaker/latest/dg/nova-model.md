@@ -21,6 +21,15 @@ SageMaker AI offers two environments for customizing Amazon Nova models.
   models on SageMaker training jobs with techniques like Parameter Efficient
   Fine-tuning (PEFT), Full rank fine tuning, Direct Preference Optimization
   (DPO), and Reinforcement Fine-Tuning (RFT). For more information, see [Amazon Nova customization on SageMaker training jobs](nova-model-training-job.md "nova-model-training-job.md").
+
+###### Note
+
+If you provide a KMS key to your Nova model customization training job for encryption in the Amazon-owned output S3 bucket:
+
+    + You must provide the same KMS key when calling subsequent [iterative
+     training jobs](nova-iterative-training.md "nova-iterative-training.md"), or when calling the [CreateCustomModel](../../../bedrock/latest/APIReference/API_CreateCustomModel.md#bedrock-CreateCustomModel-request-modelKmsKeyArn "../../../bedrock/latest/APIReference/API_CreateCustomModel.md#bedrock-CreateCustomModel-request-modelKmsKeyArn") API leveraging the encrypted model.
+    + The identity calling the `CreateTrainingJob` API (rather than the execution role) must have permissions to `CreateGrant`, `RetireGrant`, `Encrypt`, and `GenerateDataKey` as defined in KMS key policy.
+
 - [**Amazon SageMaker HyperPod**](sagemaker-hyperpod.md "sagemaker-hyperpod.md") offers a
   specialized environment to train Nova models by requiring you to create and manage
   SageMaker HyperPod EKS clusters with restricted instance groups (RIGs). This environment

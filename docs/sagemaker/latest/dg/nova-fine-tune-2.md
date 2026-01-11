@@ -688,6 +688,8 @@ if default_prefix:
 else:
     output_path = f"s3://{bucket_name}/{sm_training_job_name}"
 
+output_kms_key = "<KMS key arn to encrypt trained model in Amazon-owned S3 bucket>" # optional, leave blank for Amazon managed encryption
+
 recipe_overrides = {
     "run": {
         "replicas": instance_count,  # Required
@@ -708,6 +710,7 @@ estimator = PyTorch(
     max_run=432000,
     sagemaker_session=sagemaker_session,
     image_uri=image_uri,
+    output_kms_key=output_kms_key,
     tags=[
         {'Key': 'model_name_or_path', 'Value': model_name_or_path},
     ]

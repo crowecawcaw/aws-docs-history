@@ -440,6 +440,7 @@ instance_type = "ml.p5.48xlarge" # do not change
 instance_count = <Integer number of hosts> # change hosts as needed. Refer to documentation for allowed values based on model type.
 role_arn = "<IAM Role you want to use to run the job>"
 recipe_path = "<Local path to the recipe file>"
+output_kms_key = "<KMS key arn to encrypt trained model in Amazon-owned S3 bucket>" # optional, leave blank for Amazon managed encryption
 
 # 4. Launch SageMaker Training Job
 # This block sets up and runs the SageMaker training job using the PyTorch estimator. It configures the training image, hardware, input channels, and TensorBoard integration. Validation data is included if provided.
@@ -463,7 +464,8 @@ estimator = PyTorch(
     image_uri=image_uri,
     tensorboard_output_config=tensorboard_output_config, # Add the setting for using TensorBoard.
     disable_profiler=True,
-    debugger_hook_config=False
+    debugger_hook_config=False,
+    output_kms_key=output_kms_key
 )
 
 trainingInput = TrainingInput(

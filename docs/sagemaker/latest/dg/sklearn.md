@@ -7,20 +7,21 @@ provides reference material you can use to learn how to use Scikit-learn with Sa
 
 **Requirements**
 
-Scikit-learn 1.2 has the following dependencies.
+Scikit-learn 1.4 has the following dependencies.
 
 | Dependency    | Minimum version |
 | ------------- | --------------- |
-| Python        | 3.8             |
-| NumPy         | 1.17.3          |
-| SciPy         | 1.3.2           |
-| joblib        | 1.1.1           |
-| threadpoolctl | 2.0.0           |
+| Python        | 3.10            |
+| NumPy         | 2.1.0           |
+| SciPy         | 1.15.3          |
+| joblib        | 1.5.2           |
+| threadpoolctl | 3.6.0           |
 
 The SageMaker AI Scikit-learn container supports the following Scikit-learn versions.
 
 | Supported Scikit-learn version | Minimum Python version |
 | ------------------------------ | ---------------------- |
+| `1.4-2`                        | `3.10`                 |
 | `1.2-1`                        | `3.8`                  |
 | `1.0-1`                        | `3.7`                  |
 | `0.23-1`                       | `3.6`                  |

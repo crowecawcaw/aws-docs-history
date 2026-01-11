@@ -28,6 +28,35 @@ using your custom scripts, write your logs to the
 `/var/log/provision/provisioning.log` location for them to be available
 in CloudWatch.
 
+**Lifecycle script log markers**
+
+CloudWatch logs for lifecycle scripts include specific markers to help you track execution progress and identify issues:
+
+|                                                                                                                           |                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Marker**                                                                                                                | **Description**                                                         |
+| `START`                                                                                                                   | `Indicates the beginning of lifecycle script execution on the instance` |
+| `[SageMaker] Lifecycle scripts were provided, with S3 uri: `[s3://bucket-name/]`and entrypoint script:`[script-name.sh]`` | `Indicates the S3 location and entrypoint script that will be used`     |
+| `[SageMaker] Downloading lifecycle scripts`                                                                               | `Indicates scripts are being downloaded from the specified S3 location` |
+| `[SageMaker] Lifecycle scripts have been downloaded`                                                                      | `Indicates scripts have been successfully downloaded from S3`           |
+| `[SageMaker] The lifecycle scripts succeeded`                                                                             | `Indicates successful completion of all lifecycle scripts`              |
+| `[SageMaker] The lifecycle scripts failed`                                                                                | `Indicates failed execution of lifecycle scripts`                       |
+
+These markers help you quickly identify where in the lifecycle script execution process an issue occurred. When troubleshooting failures, review the log entries to identify where the process stopped or failed.
+
+**Lifecycle script failure messages**
+
+If the lifecycle script exists but fails during execution, you will receive an error message that includes the CloudWatch log group name and log stream name. In the event that there are lifecycle script failures across multiple instances, the error message will indicate only one failed instance, but the log group should contain streams for all instances.
+
+You can view the error message by running the [DescribeCluster](../APIReference/API_DescribeCluster.md "../APIReference/API_DescribeCluster.md") API or by viewing the cluster details page in the SageMaker console. In the console, a **View lifecycle script logs** button is provided that navigates directly to the CloudWatch log stream. The error message has the following format:
+
+```
+Instance `[instance-id]` failed to provision with the following error: "Lifecycle scripts did not run successfully. To view lifecycle script logs,
+visit log group ‘/aws/sagemaker/Clusters/`[cluster-name]`/`[cluster-id]`' and log stream ‘LifecycleConfig/`[instance-group-name]`/`[instance-id]`’.
+If you cannot find corresponding lifecycle script logs in CloudWatch, please make sure you follow one of the options here:
+https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-faq-slurm.html#hyperpod-faqs-q1.” Note that multiple instances may be impacted.
+```
+
 ## Tagging resources
 
 AWS Tagging system helps manage, identify, organize, search for, and filter

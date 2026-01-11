@@ -151,11 +151,15 @@ If target metrics are not satisfied, continue iterating with adjusted data or hy
 
 ###### Important
 
-**⚠️ Important:** The training technique (LoRA vs. Full Rank) must remain consistent across all iterations:
+The training technique (LoRA vs. Full Rank) must remain consistent across all iterations:
 
 - If you use SFT with **LoRA**, you must use RFT with **LoRA**
 - If you use SFT with **Full Rank**, you must use RFT with **Full Rank**
 - You cannot switch between LoRA and Full Rank mid-pipeline
+
+###### Important
+
+If a KMS key is used for encryption in the Amazon-owned output S3 bucket, that same KMS key must be used for all future iterations.
 
 ## Monitoring progress across iterations
 

@@ -76,17 +76,19 @@ following SageMaker Python SDK commands:
 
 ```
 from sagemaker import image_uris
-image_uris.retrieve(framework='xgboost',region='us-east-1',version='1.7-1')
+image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.0-5')
 ```
 
 | Framework    | Current version | GitHub GA  | End of patch  |
 | ------------ | --------------- | ---------- | ------------- |
+| XGBoost      | 3.0-5           | 11/17/2025 | 11/17/2026    |
 | XGBoost      | 1.7-1           | 03/06/2023 | 03/06/2025    |
 | XGBoost      | 1.5-1           | 02/21/2022 | 02/21/2023    |
 | XGBoost      | 1.3-1           | 05/21/2021 | 05/21/2022    |
 | XGBoost      | 1.2-2           | 09/20/2020 | 09/20/2021    |
 | XGBoost      | 1.2-1           | 07/19/2020 | 07/19/2021    |
 | XGBoost      | 1.0-1           | >4 years   | Not supported |
+| Scikit-Learn | 1.4-2           | 10/30/2025 | 10/30/2026    |
 | Scikit-Learn | 1.2-1           | 03/06/2023 | 03/06/2025    |
 | Scikit-Learn | 1.0-1           | 04/07/2022 | 04/07/2023    |
 | Scikit-Learn | 0.23-1          | 3/6/2023   | 06/02/2021    |

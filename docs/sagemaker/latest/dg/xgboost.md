@@ -21,7 +21,7 @@ You can use the new release of the XGBoost algorithm as either:
   hyperparameter validation, and an bigger set of metrics than the original versions. It
   provides an XGBoost `estimator` that runs a training script in a managed XGBoost
   environment. The current release of SageMaker AI XGBoost is based on the original XGBoost versions
-  1.0, 1.2, 1.3, 1.5, and 1.7.
+  1.0, 1.2, 1.3, 1.5, 1.7 and 3.0.
 
 For more information about the Amazon SageMaker AI XGBoost algorithm, see the following blog
 posts:
@@ -31,13 +31,30 @@ posts:
 
 ## Supported versions
 
-- Framework (open source) mode: 1.2-1, 1.2-2, 1.3-1, 1.5-1, 1.7-1
-- Algorithm mode: 1.2-1, 1.2-2, 1.3-1, 1.5-1, 1.7-1
+For more details, see our [support policy](pre-built-containers-support-policy.md#pre-built-containers-support-policy-ml-framework "pre-built-containers-support-policy.md#pre-built-containers-support-policy-ml-framework").
+
+- Framework (open source) mode: 1.2-1, 1.2-2, 1.3-1, 1.5-1, 1.7-1, 3.0-5
+- Algorithm mode: 1.2-1, 1.2-2, 1.3-1, 1.5-1, 1.7-1, 3.0-5
+
+###### Warning
+
+Due to required compute capacity, version 3.0-5 of SageMaker AI XGBoost is not compatible with
+GPU instances from the P3 instance family for training or inference.
+
+###### Warning
+
+Due to package compatible, version 3.0-5 of SageMaker AI XGBoost does not support SageMaker
+debugger.
 
 ###### Warning
 
 Due to required compute capacity, version 1.7-1 of SageMaker AI XGBoost is not compatible with
 GPU instances from the P2 instance family for training or inference.
+
+###### Warning
+
+Network Isolation Mode: Do not upgrade pip beyond version 25.2. Newer versions may
+attempt to fetch setuptools from PyPI during module installation.
 
 ###### Important
 
@@ -103,9 +120,11 @@ SageMaker AI XGBoost version 1.2-2 or later supports P2, P3, G4dn, and G5 GPU in
 
 SageMaker AI XGBoost version 1.7-1 or later supports P3, G4dn, and G5 GPU instance families. Note that due to compute capacity requirements, version 1.7-1 or later does not support the P2 instance family.
 
+SageMaker AI XGBoost version 3.0-5 or later supports G4dn and G5 GPU instance families. Note that due to compute capacity requirements, version 3.0-5 or later does not support the P3 instance family.
+
 To take advantage of GPU training:
 
-- Specify the instance type as one of the GPU instances (for example, P3)
+- Specify the instance type as one of the GPU instances (for example, G4dn)
 - Set the `tree_method` hyperparameter to `gpu_hist` in your
   existing XGBoost script
 

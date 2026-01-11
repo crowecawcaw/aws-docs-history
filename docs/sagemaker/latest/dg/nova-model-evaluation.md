@@ -801,6 +801,7 @@ instance_count = 1 # The number of instances for inference (set `instance_count`
 job_name = "`your job name`"
 recipe_path = "`recipe path`" # ./recipe.yaml as example
 image_uri = "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-V2-latest" # Do not change
+output_kms_key = "<KMS key arn to encrypt trained model in Amazon-owned S3 bucket>" # optional, leave blank for Amazon managed encryption
 
 # (Optional) To bring your own dataset and LLM judge for evaluation
 # evalInput = TrainingInput(
@@ -817,7 +818,8 @@ estimator = PyTorch(
     instance_count=instance_count,
     training_recipe=recipe_path,
     sagemaker_session=sagemaker_session,
-    image_uri=image_uri
+    image_uri=image_uri,
+    output_kms_key=output_kms_key
 )
 estimator.fit()
 
