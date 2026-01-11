@@ -30,10 +30,11 @@ This page explains how to build, test, and deploy container images for Lambda.
 
 AWS provides the following base images for .NET:
 
-| Tags | Runtime | Operating system  | Dockerfile                                                                                                                                                                                          | Deprecation  |
-| ---- | ------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| 9    | .NET 9  | Amazon Linux 2023 | [Dockerfile<br>for .NET 9 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/dotnet9/Dockerfile.dotnet9 "https://github.com/aws/aws-lambda-base-images/blob/dotnet9/Dockerfile.dotnet9") | Nov 10, 2026 |
-| 8    | .NET 8  | Amazon Linux 2023 | [Dockerfile<br>for .NET 8 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/dotnet8/Dockerfile.dotnet8 "https://github.com/aws/aws-lambda-base-images/blob/dotnet8/Dockerfile.dotnet8") | Nov 10, 2026 |
+| Tags | Runtime | Operating system  | Dockerfile                                                                                                                                                                                               | Deprecation  |
+| ---- | ------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 10   | .NET 10 | Amazon Linux 2023 | [Dockerfile<br>for .NET 10 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/dotnet10/Dockerfile.dotnet10 "https://github.com/aws/aws-lambda-base-images/blob/dotnet10/Dockerfile.dotnet10") | Nov 14, 2028 |
+| 9    | .NET 9  | Amazon Linux 2023 | [Dockerfile<br>for .NET 9 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/dotnet9/Dockerfile.dotnet9 "https://github.com/aws/aws-lambda-base-images/blob/dotnet9/Dockerfile.dotnet9")      | Nov 10, 2026 |
+| 8    | .NET 8  | Amazon Linux 2023 | [Dockerfile<br>for .NET 8 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/dotnet8/Dockerfile.dotnet8 "https://github.com/aws/aws-lambda-base-images/blob/dotnet8/Dockerfile.dotnet8")      | Nov 10, 2026 |
 
 Amazon ECR repository: [gallery.ecr.aws/lambda/dotnet](https://gallery.ecr.aws/lambda/dotnet "https://gallery.ecr.aws/lambda/dotnet")
 

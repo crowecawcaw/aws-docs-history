@@ -42,9 +42,7 @@ Create CloudWatch alarms to notify you when metrics exceed thresholds. Common al
 - `DurableExecutionTimedOut` indicates executions are timing out
 - `DurableExecutionStorageWrittenBytes` approaches storage limits
 
-For more information, [see Using CloudWatch alarms.](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")
-
-.
+For more information, [see Using CloudWatch alarms.](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
 
 ## EventBridge events
 

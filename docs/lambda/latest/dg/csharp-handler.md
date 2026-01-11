@@ -18,6 +18,7 @@ function after writing it, see [Build and deploy C# Lambda functions with .zip f
 - [Valid handler signatures for C# functions](#csharp-handler-signatures "#csharp-handler-signatures")
 - [Handler naming conventions](#csharp-handler-naming "#csharp-handler-naming")
 - [Serialization in C# Lambda functions](#csharp-handler-serializer "#csharp-handler-serializer")
+- [File-based functions](#csharp-file-based-functions "#csharp-file-based-functions")
 - [Accessing and using the Lambda context object](#csharp-example-context "#csharp-example-context")
 - [Using the SDK for .NET v3 in your handler](#csharp-example-sdk-usage "#csharp-example-sdk-usage")
 - [Accessing environment variables](#csharp-example-envvars "#csharp-example-envvars")
@@ -440,9 +441,29 @@ due to compile-time code generation. To help eliminate function [cold starts](la
 If you want to use native [ahead-of-time compilation (AOT)](dotnet-native-aot.md "dotnet-native-aot.md")
 with Lambda, you must use source-generated serialization.
 
+## File-based functions
+
+Introduced in .NET 10, file-based apps enable you to build .NET applications from a single `.cs` file, without a `.csproj` file or directory structure. Lambda supports file-based functions, starting with .NET 10. They offer a streamlined, lightweight way to build Lambda functions in C#.
+
+The fastest way to get started creating a C# file-based Lambda function is to use the `Amazon.Lambda.Templates` package. To install the package, run the following command:
+
+```
+dotnet new install Amazon.Lambda.Templates
+```
+
+Next, create a C# file-based Lambda example function:
+
+```
+dotnet new lambda.FileBased -n MyLambdaFunction
+```
+
+File-based functions use [executable assembly handlers](#csharp-executable-assembly-handlers "#csharp-executable-assembly-handlers"). You must therefore include the `Amazon.Lambda.RuntimeSupport` NuGet package and use the `LambdaBootstrapBuilder.Create` method to register the .NET handler function for the event type and start the .NET Lambda runtime client.
+
+File-based functions use .NET Native AOT by default, which requires source-generated serialization. You can disable Native AOT by specifying `#:property PublishAot=false` in your source file. For more information on using Native AOT in Lambda, see [Compile .NET Lambda function code to a native runtime format](dotnet-native-aot.md "dotnet-native-aot.md").
+
 ## Accessing and using the Lambda context object
 
-The Lambda [context object](golang-context.md "golang-context.md") contains information about
+The Lambda [context object](csharp-context.md "csharp-context.md") contains information about
 the invocation, function, and execution environment. In this example, the context object is of type
 `Amazon.Lambda.Core.ILambdaContext`, and is the second argument of the main handler
 function.

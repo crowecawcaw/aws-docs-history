@@ -49,6 +49,7 @@ subject to change.
 | Java 17                 | `java17`          | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 | Java 11                 | `java11`          | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
 | Java 8                  | `java8.al2`       | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
+| .NET 10                 | `dotnet10`        | Amazon Linux 2023 | Nov 14, 2028     | Dec 14, 2028          | Jan 15, 2029          |
 | .NET 9 (container only) | `dotnet9`         | Amazon Linux 2023 | Nov 10, 2026     | Not scheduled         | Not scheduled         |
 | .NET 8                  | `dotnet8`         | Amazon Linux 2023 | Nov 10, 2026     | Dec 10, 2026          | Jan 11, 2027          |
 | Ruby 3.4                | `ruby3.4`         | Amazon Linux 2023 | Mar 31, 2028     | Apr 30, 2028          | May 31, 2028          |
@@ -98,7 +99,9 @@ Lambda doesn't provide managed runtimes for language versions which aren't sched
 
 The following list shows the target launch month for upcoming Lambda runtimes. These dates are indicative only and subject to change.
 
-- **.NET 10** - January 2026
+- **Ruby 3.5** - March 2026
+- **Node.js 26** - November 2026
+- **Python 3.15** - November 2026
 
 ## Runtime deprecation policy
 
