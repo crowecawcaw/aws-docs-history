@@ -52,7 +52,7 @@ documentation.
 
 The **Quick create record** page appears.
 
-![Create a record in Route 53 to point an alias to your Lightsail load balancer](/images/lightsail/latest/userguide/images/create-record-set-alias-record-route-53-blank.png)
+![Create a record in Route 53 to point an alias to your Lightsail load balancer](images/create-record-set-alias-record-route-53-blank.png)
 
 ###### Note
 

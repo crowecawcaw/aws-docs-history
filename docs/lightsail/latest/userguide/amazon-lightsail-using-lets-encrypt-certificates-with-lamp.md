@@ -179,7 +179,7 @@ echo $DOMAIN && echo $WILDCARD
 
 You should see a result similar to the following:
 
-![Confirm the domain environment variables.](images/amazon-lightsail-ssh-lets-encrypt-confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
+![Confirm the domain environment variables.](images/instances/lets-encrypt/bitnami-confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
 Certbot to use a manual authorization method with DNS challenges to verify domain
 ownership. It requests a wildcard certificate for your top-level domain, as well as its
 subdomains.
@@ -204,7 +204,7 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
 verification. In this example, we were provided with two TXT records to use for
 verification.
 
-![TXT records for Let's Encrypt certificates.](images/amazon-lightsail-ssh-lets-encrypt-text-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
+![TXT records for Let's Encrypt certificates.](/images/lightsail/latest/userguide/images/instances/ssh/lets-encrypt-text-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
 tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-lamp") of this tutorial.
 
 ## Step 4: Add TXT
@@ -271,7 +271,7 @@ Example:
 _acme-challenge.`example.com`
 ```
 
-![MXTookbox TXT record lookup.](images/amazon-lightsail-mxtoobox-text-record-lookup.png) 3. Choose **TXT Lookup** to run the check. 4. One of the following responses occurs:
+![MXToolbox TXT record lookup.](images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png) 3. Choose **TXT Lookup** to run the check. 4. One of the following responses occurs:
 
     * If your TXT records have propagated to the internet’s DNS, you see a response
      similar to the one shown in the following screenshot. Close the browser window and
@@ -279,7 +279,7 @@ _acme-challenge.`example.com`
 
 
 
-    ![Confirmation that TXT records propagated.](images/amazon-lightsail-mxtoobox-propagated-text-record-lookup.png)
+    ![Confirmation that TXT records propagated.](images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
     * If your TXT records have not propagated to the internet’s DNS, you see a
      **DNS Record not found** response. Confirm that you added the
      correct DNS records to your domains’ DNS zone. If you added the correct records, wait
@@ -301,7 +301,7 @@ files to a specific directory on your LAMP instance.
    successful, a response similar to the one shown in the following screenshot
    appears:
 
-![Successful Let's Encrypt certificate request.](images/amazon-lightsail-ssh-lets-encrypt-request-success.png)
+![Successful Let's Encrypt certificate request.](images/instances/lets-encrypt/bitnami-certificate-request-success.png)
 
 The message confirms that your certificate, chain, and key files are stored in the
 `/etc/letsencrypt/live/`Domain`/` directory.
@@ -309,7 +309,7 @@ The message confirms that your certificate, chain, and key files are stored in t
 `/etc/letsencrypt/live/`example.com`/`. 2. Make note of the expiration date specified in the message. You use it to renew your
 certificate by that date.
 
-![Let's Encrypt certificate renewal date.](images/amazon-lightsail-ssh-lets-encrypt-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp "#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp") of this tutorial.
+![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp "#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp") of this tutorial.
 
 ## Step 7:
 
@@ -355,7 +355,7 @@ echo $DOMAIN
 
 You should see a result similar to the following:
 
-![Confirm the domain environment variable.](images/amazon-lightsail-ssh-lets-encrypt-confirm-domain-variable.png) 4. Enter the following commands individually to rename your existing certificate files as
+![Confirm the domain environment variable.](images/instances/lets-encrypt/bitnami-confirm-domain-variable.png) 4. Enter the following commands individually to rename your existing certificate files as
 backups. Refer to the **Important** block at the beginning of
 this tutorial for information about the different distributions and file
 structures.

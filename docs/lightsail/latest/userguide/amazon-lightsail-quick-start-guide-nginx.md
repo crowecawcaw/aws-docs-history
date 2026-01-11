@@ -9,10 +9,13 @@ automatic snapshots for your instance. For more information, see
 [Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md")
 .
 
+## Identify your Nginx blueprint vendor
+
 Here are a few steps you should take to get started after your Nginx instance is up and
 running on Amazon Lightsail. Before you get started, identify your blueprint vendor on your instance management page:
 
-![Nginx blueprint vendor on the instance management page](images/nginx/nginx-blueprint-vendor.png)
+![Nginx blueprint vendor on the instance management page](images/instances/headers/nginx-blueprint-vendor.png)
+
 Select the appropriate guide for your Nginx instance:
 
 Bitnami
@@ -176,7 +179,7 @@ it or access phpMyAdmin.
 
 1. On your instance management page, copy the static IP address:
 
-![Copy static IP](images/nginx/nginx-copy-static-ip.png) 2. Paste the static IP address into your browser address, for example
+![Copy static IP](images/instances/headers/nginx-copy-static-ip.png) 2. Paste the static IP address into your browser address, for example
 `http://192.0.0.1`.
 
 For more information, see the [Nginx admin guide](https://docs.nginx.com/nginx/admin-guide/ "https://docs.nginx.com/nginx/admin-guide/").

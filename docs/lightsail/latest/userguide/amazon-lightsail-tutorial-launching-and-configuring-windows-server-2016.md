@@ -155,7 +155,7 @@ records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry
 You add these name server addresses to your domain name’s registrar to transfer
 management of your domain’s DNS records to Lightsail.
 
-![Launching and configuring a LAMP instance in Lightsail.](/images/lightsail/latest/userguide/images/amazon-wordpress-tutorial-15.png) 4. After management of your domain’s DNS records are transferred to Lightsail, add an A
+![Launching and configuring a LAMP instance in Lightsail.](images/amazon-wordpress-tutorial-15.png) 4. After management of your domain’s DNS records are transferred to Lightsail, add an A
 record to point the apex of your domain to your LAMP instance, as follows:
 
     1. In the **Assignments** tab of the DNS zone, choose **Add

@@ -32,7 +32,7 @@ Lightsail.
    Ubuntu instance that you wish to configure, and choose the browser-based SSH client
    icon to connect to it using SSH.
 
-![Browser-based SSH client icon in the Lightsail home page.](images/lightsail-nginx-ssh-quick-connect.png) 3. After you're connected to your instance, enter the following command to determine if
+![Browser-based SSH client icon in the Lightsail home page.](images/instances/resource_cards/nginx-ssh-quick-connect.png) 3. After you're connected to your instance, enter the following command to determine if
 your instance is listening to IPv6 requests over port 80. Be sure to replace
 `<IPv6Address>` with the IPv6 address assigned to your
 instance.
