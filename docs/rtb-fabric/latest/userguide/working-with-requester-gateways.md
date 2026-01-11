@@ -33,23 +33,31 @@ You are responsible for the data you send through RTB Fabric, including ensuring
 
 Use the following command to create a requester gateway using the AWS Command Line Interface (AWS CLI).
 
-```
-# Create a requester gateway with required parameters
-aws rtbfabric create-requester-gateway \
-    --description "My RTB requester gateway" \
-    --vpc-id vpc-12345678 \
-    --subnet-ids subnet-abc12345 subnet-def67890 \
-    --security-group-ids sg-12345678 \
-    --client-token "unique-client-token-123"
+**Create a requester gateway with required parameters**
 
-# Create with optional tags
-aws rtbfabric create-requester-gateway \
-    --description "My RTB requester gateway" \
-    --vpc-id vpc-12345678 \
-    --subnet-ids subnet-abc12345 subnet-def67890 \
-    --security-group-ids sg-12345678 \
-    --client-token "unique-client-token-123" \
-    --tags Environment=Production Team=RTB
+```
+`$` `aws rtbfabric create-requester-gateway \
+--description `"My RTB requester gateway"` \
+--vpc-id `vpc-12345678` \
+--subnet-ids `subnet-abc12345 subnet-def67890` \
+--security-group-ids `sg-12345678` \
+--client-token `"unique-client-token-123"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**Create with optional tags**
+
+```
+`$` `aws rtbfabric create-requester-gateway \
+--description `"My RTB requester gateway"` \
+--vpc-id `vpc-12345678` \
+--subnet-ids `subnet-abc12345 subnet-def67890` \
+--security-group-ids `sg-12345678` \
+--client-token `"unique-client-token-123"` \
+--tags `Environment=Production Team=RTB` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 ### Updating gateway description
@@ -69,9 +77,13 @@ Use the search functionality in the console to locate specific gateways associat
 
 Use the following command to get details for a specific requester gateway using the AWS Command Line Interface (AWS CLI).
 
+**Get details for a specific requester gateway**
+
 ```
-# Get details for a specific requester gateway
-aws rtbfabric get-requester-gateway --gateway-id "rtb-gw-req-12345"
+`$` `aws rtbfabric get-requester-gateway \
+--gateway-id `"rtb-gw-req-12345"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 ## Viewing associated links
@@ -96,12 +108,24 @@ The links table includes the following columns:
 
 Use the following command to list all links associated with a specific requester gateway using the AWS Command Line Interface (AWS CLI).
 
-```
-# List all links associated with a gateway
-aws rtbfabric list-links --gateway-id "rtb-gw-dsj34i23nsllka"
+**List all links associated with a gateway**
 
-# List links with pagination
-aws rtbfabric list-links --gateway-id "rtb-gw-dsj34i23nsllka" --max-results 10 --next-token "token"
+```
+`$` `aws rtbfabric list-links \
+--gateway-id `"rtb-gw-dsj34i23nsllka"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**List links with pagination**
+
+```
+`$` `aws rtbfabric list-links \
+--gateway-id `"rtb-gw-dsj34i23nsllka"` \
+--max-results `10` \
+--next-token `"token"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 ## Deleting requester gateways
@@ -118,13 +142,17 @@ Deleting a requester gateway is permanent and cannot be undone. Check your gatew
 
 1. On the **Requester gateways** page, select the radio button next to the application you want to delete.
 2. Choose **Delete** from the action buttons at the top of the page.
-3. If the gateway has associated links, a dialog appears with the message "To delete this application, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the application. For more information, see [Deleting gateway links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
+3. If the gateway has associated links, a dialog appears with the message "To delete this application, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the application. For more information, see [Deleting links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
 4. If the application has no associated links, a confirmation dialog appears. Verify that you want to delete the selected application.
 5. Choose **Delete** to confirm the deletion.
 
 Use the following command to delete a requester gateway using the AWS Command Line Interface (AWS CLI).
 
+**Delete a requester gateway**
+
 ```
-# Delete a requester gateway
-aws rtbfabric delete-requester-gateway --gateway-id "rtb-gw-dsj34i23nsllka"
+`$` `aws rtbfabric delete-requester-gateway \
+--gateway-id `"rtb-gw-dsj34i23nsllka"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```

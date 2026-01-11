@@ -44,24 +44,27 @@ parameters, and the order in which they execute.
 
 The following example shows how to add a QPS rate limiter module to a link using the AWS Command Line Interface (AWS CLI).
 
+**Add a QPS rate limiter module to a link**
+
 ```
-# Add a QPS rate limiter module to a link
-aws rtbfabric update-link-module-flow \
-    --gateway-id rtb-gw-source123 \
-    --link-id link-abc456def \
-    --client-token "unique-update-token-789" \
-    --modules '[
-        {
-            "name": "rate-limiter-module",
-            "version": "1.0.0",
-            "dependsOn": [],
-            "moduleParameters": {
-                "rateLimiter": {
-                    "tps": 1000.0
-                }
-            }
-        }
-    ]'
+`$` `aws rtbfabric update-link-module-flow \
+--gateway-id `rtb-gw-source123` \
+--link-id `link-abc456def` \
+--client-token `"unique-update-token-789"` \
+--modules `'[
+ {
+ "name": "rate-limiter-module",
+ "version": "1.0.0",
+ "dependsOn": [],
+ "moduleParameters": {
+ "rateLimiter": {
+ "tps": 1000.0
+ }
+ }
+ }
+]'` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 For detailed information about module configuration parameters and API usage,

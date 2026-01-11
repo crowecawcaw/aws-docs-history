@@ -45,29 +45,37 @@ You can update the gateway description using the RTB Fabric API. For more inform
 
 Use the following command to create a responder gateway using the AWS Command Line Interface (AWS CLI).
 
-```
-# Create a responder gateway with required parameters
-aws rtbfabric create-responder-gateway \
-    --description "My RTB responder gateway" \
-    --vpc-id vpc-01f345ad6524a6d7 \
-    --subnet-ids subnet-abc12345 subnet-def67890 \
-    --security-group-ids sg-12345678 \
-    --port 443 \
-    --protocol HTTPS \
-    --client-token "unique-client-token-123"
+**Create a responder gateway with required parameters**
 
-# Create with optional domain name and trust store configuration
-aws rtbfabric create-responder-gateway \
-    --description "My RTB responder gateway" \
-    --vpc-id vpc-01f345ad6524a6d7 \
-    --subnet-ids subnet-abc12345 subnet-def67890 \
-    --security-group-ids sg-12345678 \
-    --domain-name responder.example.com \
-    --port 443 \
-    --protocol HTTPS \
-    --client-token "unique-client-token-123" \
-    --trust-store-configuration certificateAuthorityCertificates="-----BEGIN CERTIFICATE-----..." \
-    --tags Environment=Production Team=RTB
+```
+`$` `aws rtbfabric create-responder-gateway \
+--description `"My RTB responder gateway"` \
+--vpc-id `vpc-01f345ad6524a6d7` \
+--subnet-ids `subnet-abc12345 subnet-def67890` \
+--security-group-ids `sg-12345678` \
+--port `443` \
+--protocol `HTTPS` \
+--client-token `"unique-client-token-123"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**Create with optional domain name and trust store configuration**
+
+```
+`$` `aws rtbfabric create-responder-gateway \
+--description `"My RTB responder gateway"` \
+--vpc-id `vpc-01f345ad6524a6d7` \
+--subnet-ids `subnet-abc12345 subnet-def67890` \
+--security-group-ids `sg-12345678` \
+--domain-name `responder.example.com` \
+--port `443` \
+--protocol `HTTPS` \
+--client-token `"unique-client-token-123"` \
+--trust-store-configuration `certificateAuthorityCertificates="-----BEGIN CERTIFICATE-----..."` \
+--tags `Environment=Production Team=RTB` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 ### Logging
@@ -88,9 +96,13 @@ Use the search functionality in the console to locate specific gateways in your 
 
 Use the following command to get details for a specific responder gateway using the AWS Command Line Interface (AWS CLI).
 
+**Get details for a specific responder gateway**
+
 ```
-# Get details for a specific responder gateway
-aws rtbfabric get-responder-gateway --gateway-id "rtb-gw-kasoi29asfdhn"
+`$` `aws rtbfabric get-responder-gateway \
+--gateway-id `"rtb-gw-kasoi29asfdhn"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 ## Viewing associated links
@@ -105,12 +117,24 @@ Each responder gateway can have associated links that connect it to requester ga
 
 Use the following command to list all links associated with a specific responder gateway using the AWS Command Line Interface (AWS CLI).
 
-```
-# List all links associated with a gateway
-aws rtbfabric list-links --gateway-id "rtb-gw-dsj34i23nsllka"
+**List all links associated with a gateway**
 
-# List links with pagination
-aws rtbfabric list-links --gateway-id "rtb-gw-dsj34i23nsllka" --max-results 10 --next-token "token"
+```
+`$` `aws rtbfabric list-links \
+--gateway-id `"rtb-gw-dsj34i23nsllka"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
+```
+
+**List links with pagination**
+
+```
+`$` `aws rtbfabric list-links \
+--gateway-id `"rtb-gw-dsj34i23nsllka"` \
+--max-results `10` \
+--next-token `"token"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
 
 ## Deleting responder gateways
@@ -127,12 +151,16 @@ Deleting a responder gateway is permanent and cannot be undone. Check your gatew
 
 1. On the **Responder gateways** page, select the radio button next to the responder gateway you want to delete.
 2. Choose **Delete** from the action buttons at the top of the page.
-3. If the application has associated links, a dialog appears with the message "To delete this application, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the application. For more information, see [Deleting gateway links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
+3. If the application has associated links, a dialog appears with the message "To delete this application, you must first delete all of its associated links. You can delete links on the Links table." Follow the provided instructions to delete associated links first, then return to delete the application. For more information, see [Deleting links](links.md#deleting-rtb-links "links.md#deleting-rtb-links").
 4. If the application has no associated links, confirm the deletion when prompted.
 
 Use the following command to delete a responder gateway using the AWS Command Line Interface (AWS CLI).
 
+**Delete a responder gateway**
+
 ```
-# Delete a responder gateway
-aws rtbfabric delete-responder-gateway --gateway-id "rtb-gw-kasoi29asfdhn"
+`$` `aws rtbfabric delete-responder-gateway \
+--gateway-id `"rtb-gw-kasoi29asfdhn"` \
+--endpoint-url https://rtbfabric.`us-east-1`.amazonaws.com \
+--region `us-east-1``
 ```
