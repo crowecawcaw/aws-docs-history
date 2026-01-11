@@ -32,6 +32,7 @@ _in_ the cloud:
 - [Identity and access management for AWS Wickr](security-iam.md "security-iam.md")
 - [Compliance validation](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Wickr](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [AWS PrivateLink for AWS Wickr](privatelink-overview.md "privatelink-overview.md")
 - [Infrastructure Security in AWS Wickr](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability
   analysis in AWS Wickr](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
