@@ -1,38 +1,37 @@
-# Configuring AWS Secrets Manager in the AWS Schema Conversion Tool
+# Using offline mode in AWS Schema Conversion Tool
 
-AWS SCT can use database credentials that you store in AWS Secrets Manager. You can fill in
-all values in the database connection dialog box from Secrets Manager. To use Secrets Manager, make sure
-that you store AWS profiles in the AWS Schema Conversion Tool.
+You can run AWS Schema Conversion Tool in an offline mode. Following, you can learn how to work with
+an existing AWS SCT project when disconnected from your source database.
 
-For more information about using AWS Secrets Manager, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User Guide_. For more information
-about storing AWS profiles, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
+AWS SCT doesn't require a connection to your source database to run the following operations:
 
-###### To retrieve database credentials from Secrets Manager
+- Add mapping rules.
+- Create database migration assessment reports.
+- Convert database schemas and code.
+- Edit your source and converted code.
+- Save your source and converted code as SQL scripts in a text file.
+  Before you use AWS SCT in an offline mode, connect to your source database, load
+  metadata, and save your project. Open this project or disconnect from the source
+  database server to use AWS SCT in an offline mode.
 
-1. Start the AWS Schema Conversion Tool and create a new project.
-2. Choose **Add source** or **Add target** to
-   add a new database to your project.
-3. Choose a database platform and then choose **Next**.
-4. For **AWS Secret**, choose the secret you want to use.
-5. Choose **Populate**. Then AWS SCT fills in all values in
-   the database connection dialog box.
-6. Choose **Test connection** to verify
-   that AWS SCT can connect to your database.
-7. Choose **Connect** to connect to your database.
+###### To run AWS SCT in an offline mode
 
-AWS SCT supports secrets that have the following structure.
+1. Start the AWS Schema Conversion Tool and create a new project. For more information, see [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+2. Add a source database server and connect to your source database. For more information,
+   see [Adding servers to project in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md").
+3. Add a target database server or use a virtual target database platform. For more information,
+   see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
+4. Create a mapping rule to define the target database platform for your source database.
+   For more information, see [Mapping data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
+5. Choose **View**, and then choose **Main view**.
+6. In the left panel that displays the objects of your source database, choose your source
+   database schemas. Open the context (right-click) menu for the object, and then choose
+   **Load schema**. This operation loads all source schema metadata into your
+   AWS SCT project.
 
-```
-{
-  "username": "secret_user",
-  "password": "secret_password",
-  "engine": "oracle",
-  "host": "secret_host.eu-west-1.compute.amazonaws.com",
-  "port": "1521",
-  "dbname": "ora_db"
-}
-```
-
-In this structure, the `username` and `password`
-values are required, and all other values are optional. Make sure that the values that you
-store in Secrets Manager include all database credentials.
+The **Create report** and **Convert schema** operations
+also load all source schema metadata into your AWS SCT project.
+If you ran one of these operations from the context menu, skip the
+**Load schema** operation. 7. On the **File** menu, choose **Save project** to save the
+source database metadata in your project. 8. Choose **Disconnect from the server** to disconnect from your source database.
+Now you can use AWS SCT in the offline mode.
