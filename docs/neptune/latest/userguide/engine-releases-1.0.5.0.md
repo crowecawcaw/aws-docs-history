@@ -1,49 +1,26 @@
-# Amazon Neptune Engine Version 1.0.5.0.R3 (2021-09-15)
+# Amazon Neptune maintenance release, version 1.0.5.0.R5 (2022-05-16)
 
-As of 2021-09-15, engine version 1.0.5.0.R3 is being generally deployed. Please note
+As of 2022-05-16, engine version 1.0.5.0.R5 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
-
-## Defects Fixed in This Engine Release
-
-- Fixed a bug that causes the engine to become unresponsive in either of these
-  situations:
-  - A bulk load happens at the same time as automatic statistics
-    computation is taking place.
-  - A statistics computation was requested manually at the same time
-    that one was already occurring.
-
-- Fixed a bug in deadlock detection and in lock acquisition that
-  could cause the engine to crash.
-- Fixed a Gremlin bug where the engine threw an error when
-  it encountered unknown data from a remote ML endpoint in a Gremlin inference
-  query.
-- Fixed several bugs in ML model management APIs related to model
-  transform jobs and instance recommendations.
-- Fixed a bug that could cause the engine to crash when generating
-  node and edge IDs.
-- Fixed a bug that slowed down the generation of query plans for
-  queries with large graph patterns.
-- Fixed an openCypher bug that could cause a query to stall
-  when retrieving a node that had more than 100 properties.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.5.0.R3, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.5.0.R5, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.11`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.5.0.R3
+## Upgrade Paths to Engine Release 1.0.5.0.R5
 
-Your cluster will be upgraded to this patch release automatically during your
-next maintenance window if you are running engine version 1.0.5.0.
+Your cluster will be upgraded to this maintenance patch release automatically
+during your next maintenance window if you are running engine version 1.0.5.0.
 
 You can manually upgrade any previous Neptune engine release to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.5.0.R3 is now generally available.
+Amazon Neptune 1.0.5.0.R5 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster
