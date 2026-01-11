@@ -1,158 +1,155 @@
-# Data control language for Aurora MySQL
+# Users and roles for Aurora MySQL
 
-This topic provides reference information foruser permissions and access control in Amazon Aurora MySQL compared to Microsoft SQL Server. You can understand the similarities and differences in how these database systems manage user privileges, including the types of permissions available, the granularity of access control, and the commands used to grant or revoke permissions.
+This topic provides reference information comparing security features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences in user management, authentication methods, and access control between these two database systems.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Four star feature compatibility | No automation                      | N/A                       | Difference.     |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                  |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------ |
+| Two star feature compatibility | N/A                                | N/A                       | No native role support in the database. Use AWS IAM accounts with the AWS Authentication Plugin. |
 
 ## SQL Server Usage
 
-The ANSI standard specifies, and most Relational Database Management Systems (RDBMS) use `GRANT` and `REVOKE` commands to control permissions.
+SQL Server provides two layers of security principals: Logins at the server level and Users at the database level. Logins are mapped to users in one or more databases. Administrators can grant logins server-level permissions that aren’t mapped to particular databases such as Database Creator, System Administrator and Security Administrator.
 
-However, SQL Server also provides a `DENY` command to explicitly restrict access to a resource. `DENY` takes precedence over `GRANT` and is needed to avoid potentially conflicting permissions for users having multiple logins. For example, if a user has `DENY` for a resource through group membership but `GRANT` access for a personal login, the user is denied access to that resource.
+SQL Server also supports Roles for both the server and the database levels. At the database level, administrators can create custom roles in addition to the general purpose built-in roles.
 
-SQL Server allows granting permissions at multiple levels from lower-level objects such as columns to higher level objects such as servers. Permissions are categorized for specific services and features such as the service broker.
+For each database, administrators can create users and associate them with logins. At the database level, the built-in roles include `db_owner`, `db_datareader`, `db_securityadmin`, and others. A database user can belong to one or more roles (users are assigned to the public role by default and can’t be removed). Administrators can grant permissions to roles and then assign individual users to the roles to simplify security management.
 
-Permissions are used in conjunction with database users and roles.
+Logins are authenticated using either Windows Authentication, which uses the Windows Server Active Directory framework for integrated single sign-on, or SQL authentication, which is managed by the SQL Server service and requires a password, certificate, or asymmetric key for identification. Logins using windows authentication can be created for individual users and domain groups.
 
-For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
-
-### Syntax
-
-The following examples show the simplified syntax for SQL Server DCL commands:
-
-```
-GRANT { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
-```
-
-```
-DENY { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
-```
-
-```
-REVOKE [ GRANT OPTION FOR ] {[ ALL [ PRIVILEGES ] ]|<permission>} [ ON <securable> ] { TO | FROM } <principal>
-```
-
-For more information, see [Permissions Hierarchy (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## MySQL Usage
-
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the ANSI Data Control Language (DCL) commands `GRANT` and `REVOKE`.
-
-Administrators can grant or revoke permissions for individual objects such as a column, a stored function, or a table. Administrators can grant permissions to multiple objects using wildcards.
-
-Only explicitly granted permissions can be revoked. For example, if a user was granted `SELECT` permissions for the entire database using the following command:
-
-```
-GRANT SELECT
-ON database.*
-TO UserX;
-```
-
-It isn’t possible to `REVOKE` the permission for a single table. Instead, revoke the `SELECT` permission for all tables using the following command:
-
-```
-REVOKE SELECT
-ON database.*
-FROM UserX;
-```
-
-Aurora MySQL provides a `GRANT` permission option, which is very similar to the `WITH GRANT OPTION` clause in SQL Server. This permission gives a user permission to further grant the same permission to other users.
-
-```
-GRANT EXECUTE
-ON PROCEDURE demo.Procedure1
-TO UserY
-WITH GRANT OPTION;
-```
-
-###### Note
-
-Aurora MySQL users can have resource restrictions associated with their accounts similar to the SQL Server resource governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
-
-The following table identifies Aurora MySQL privileges:
-
-| Permissions               | Use to                                                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `ALL [PRIVILEGES]`        | Grant all privileges at the specified access level except `GRANT OPTION` and `PROXY`.                                 |
-| `ALTER`                   | Enable use of `ALTER TABLE`. Levels: Global, database, table.                                                         |
-| `ALTER ROUTINE`           | Enable stored routines to be altered or dropped. Levels: Global, database, procedure.                                 |
-| `CREATE`                  | Enable database and table creation. Levels: Global, database, table.                                                  |
-| `CREATE ROUTINE`          | Enable stored routine creation. Levels: Global, database.                                                             |
-| `CREATE TEMPORARY TABLES` | Enable the use of `CREATE TEMPORARY TABLE`. Levels: Global, database.                                                 |
-| `CREATE USER`             | Enable the use of `CREATE USER`, `DROP USER`, `RENAME USER`, and `REVOKE ALL PRIVILEGES`. Level: Global.              |
-| `CREATE VIEW`             | Enable views to be created or altered. Levels: Global, database, table.                                               |
-| `DELETE`                  | Enable the use of `DELETE`. Level: Global, database, table.                                                           |
-| `DROP`                    | Enable databases, tables, and views to be dropped. Levels: Global, database, table.                                   |
-| `EVENT`                   | Enable the use of events for the Event Scheduler. Levels: Global, database.                                           |
-| `EXECUTE`                 | Enable the user to run stored routines. Levels: Global, database, table.                                              |
-| `GRANT OPTION`            | Enable privileges to be granted to or removed from other accounts. Levels: Global, database, table, procedure, proxy. |
-| `INDEX`                   | Enable indexes to be created or dropped. Levels: Global, database, table.                                             |
-| `INSERT`                  | Enable the use of `INSERT`. Levels: Global, database, table, column.                                                  |
-| `LOCK TABLES`             | Enable the use of `LOCK TABLES` on tables for which you have the `SELECT` privilege. Levels: Global, database.        |
-| `PROXY`                   | Enable user proxying. Level: From user to user.                                                                       |
-| `REFERENCES`              | Enable foreign key creation. Levels: Global, database, table, column.                                                 |
-| `REPLICATION CLIENT`      | Enable the user to determine the location of primary and secondary servers. Level: Global.                            |
-| `REPLICATION SLAVE`       | Enable replication replicas to read binary log events from the primary. Level: Global.                                |
-| `SELECT`                  | Enable the use of `SELECT`. Levels: Global, database, table, column.                                                  |
-| `SHOW DATABASES`          | Enable `SHOW DATABASES` to show all databases. Level: Global.                                                         |
-| `SHOW VIEW`               | Enable the use of `SHOW CREATE VIEW`. Levels: Global, database, table.                                                |
-| `TRIGGER`                 | Enable trigger operations. Levels: Global, database, table.                                                           |
-| `UPDATE`                  | Enable the use of `UPDATE`. Levels: Global, database, table, column.                                                  |
-
-### Syntax
-
-```
-GRANT <privilege type>...
-ON [object type] <privilege level>
-TO <user> ...
-```
-
-```
-REVOKE <privilege type>...
-ON [object type] <privilege level>
-FROM <user> ...
-```
-
-###### Note
-
-Table, Function, and Procedure object types can be explicitly stated but aren’t mandatory.
+In previous versions of SQL server, the concepts of user and schema were interchangeable. For backward compatibility, each database has several existing schemas, including a default schema named dbo which is owned by the `db_owner` role. Logins with system administrator privileges are automatically mapped to the dbo user in each database. Typically, you don’t need to migrate these schemas.
 
 ### Examples
 
-Attempt to `REVOKE` a partial permission that was granted as a wild card permission.
+The following example creates a login.
 
 ```
-CREATE USER TestUser;
-GRANT SELECT
-    ON Demo.*
-    TO TestUser;
-REVOKE SELECT ON Demo.Invoices
-    FROM TestUser
+CREATE LOGIN MyLogin WITH PASSWORD = 'MyPassword'
 ```
 
-For the preceding example, the result looks as shown following.
+The following example creates a database user for `MyLogin`.
 
 ```
-SQL ERROR [1147][42000]: There is no such grant defined for user TestUser on host '%'
-on table 'Invoices'
+USE MyDatabase; CREATE USER MyUser FOR LOGIN MyLogin;
 ```
 
-Grant the `SELECT` permission to a user on all tables in the demo database.
+The following example assigns `MyLogin` to a server role.
 
 ```
-GRANT SELECT
-ON Demo.*
-TO 'user'@'localhost';
+ALTER SERVER ROLE dbcreator ADD MEMBER 'MyLogin'
 ```
 
-Revoke `EXECUTE` permissions from a user on the `EmployeeReport` stored procedure.
+The following example assigns `MyUser` to the `db_datareader` role.
 
 ```
-REVOKE EXECUTE
-ON Demo.EmployeeReport
-FROM 'user'@'localhost';
+ALTER ROLE db_datareader ADD MEMBER 'MyUser';
 ```
 
-For more information, see [GRANT Statement](https://dev.mysql.com/doc/refman/5.7/en/grant.html "https://dev.mysql.com/doc/refman/5.7/en/grant.html") in the _MySQL documentation_.
+For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## MySQL Usage
+
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports only Users; Roles aren’t supported. Database administrators must specify privileges for individual users. Aurora MySQL uses database user accounts to authenticate sessions and authorize access to specific database objects.
+
+###### Note
+
+When granting privileges, you have the option to use wild-card characters for specifying multiple privileges for multiple objects. For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
+
+When using Identity and Access Management (IAM) database authentication, roles are available as part of the IAM framework and can be used for authentication. This authentication method uses tokens in place of passwords. AWS Signature Version 4 generates authentication tokens with a lifetime of 15 minutes. You don’t need to store user credentials in the database because authentication is managed externally. You can use IAM in conjunction with standard database authentication.
+
+###### Note
+
+In Aurora MySQL, a database is equivalent to an SQL Server schema.
+
+The AWS Authentication Plugin works seamlessly with Aurora MySQL instances. Users logged in with AWS IAM accounts use access tokens to authenticate. This mechanism is similar to the SQL Server windows authentication option.
+
+IAM database authentication provides the following benefits:
+
+- Supports roles for simplifying user and access management.
+- Provides a single sign on experience that is safer than using MySQL managed passwords.
+- Encrypts network traffic to and from the database using Secure Sockets Layer (SSL) protocol.
+- Provides centrally managed access to your database resources, alleviating the need to manage access individually for each database instance or database cluster.
+
+###### Note
+
+IAM database authentication limits the number of new connections to 20 connections/second.
+
+###### Note
+
+Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports roles which are named collections of privileges. Roles can be created and dropped. Roles can have privileges granted to and revoked from them. Roles can be granted to and revoked from user accounts. The active applicable roles for an account can be selected from among those granted to the account and can be changed during sessions for that account. For more information, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html").
+
+```
+CREATE ROLE 'app_developer', 'app_read', 'app_write';
+```
+
+###### Note
+
+Amazon RDS for MySQL 8 incorporates the concept of user account categories with system and regular users distinguished according to whether they have the `SYSTEM_USER` privilege. For more information, see [Account Categories](https://dev.mysql.com/doc/refman/8.0/en/account-categories.html "https://dev.mysql.com/doc/refman/8.0/en/account-categories.html").
+
+```
+CREATE USER u1 IDENTIFIED BY 'password';
+
+GRANT ALL ON *.* TO u1 WITH GRANT OPTION;
+
+-- GRANT ALL includes SYSTEM_USER, so at this point
+
+-- u1 can manipulate system or regular accounts
+```
+
+### Syntax
+
+Simplified syntax for `CREATE USER` in Aurora MySQL:
+
+```
+CREATE USER <user> [<authentication options>] [REQUIRE {NONE | <TLS options>] }]
+[WITH <resource options> ] [<Password options> | <Lock options>]
+```
+
+```
+<Authentication option>:
+{IDENTIFIED BY 'auth string'|PASSWORD 'hash string'|WITH auth plugin|auth plugin BY
+'auth_string'|auth plugin AS 'hash string'}
+<TLS options>: {SSL| X509| CIPHER 'cipher'| ISSUER 'issuer'| SUBJECT 'subject'}
+<Resource options>: { MAX_QUERIES_PER_HOUR | MAX_UPDATES_PER_HOUR | MAX_CONNECTIONS_
+PER_HOUR | MAX_USER_CONNECTIONS count}
+<Password options>: {PASSWORD EXPIRE | DEFAULT | NEVER | INTERVAL N DAY}
+<Lock options>: {ACCOUNT LOCK | ACCOUNT UNLOCK}
+```
+
+###### Note
+
+In Aurora MySQL, you can assign resource limitations to specific users, similar to SQL Server Resource Governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
+
+### Examples
+
+The following example creates a user, forces a password change, and imposes resource limits.
+
+```
+CREATE USER 'Dan'@'localhost'
+IDENTIFIED WITH mysql_native_password BY 'Dan''sPassword'
+WITH MAX_QUERIES_PER_HOUR 500
+PASSWORD EXPIRE;
+```
+
+The following example creates a user with IAM authentication.
+
+```
+CREATE USER LocalUser
+IDENTIFIED WITH AWSAuthenticationPlugin AS 'IAMUser';
+```
+
+## Summary
+
+The following table summarizes common security tasks and the differences between SQL Server and Aurora MySQL.
+
+| Task                       | SQL Server                                                       | Aurora MySQL                                                  |
+| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- |
+| View database users        | `<br>SELECT Name FROM sys.sysusers<br>`                          | `<br>SELECT User FROM mysql.user<br>`                         |
+| Create a user and password | `<br>CREATE USER <User Name> WITH<br>PASSWORD = <PassWord>;<br>` | `<br>CREATE USER <User Name><br>IDENTIFIED BY <Password><br>` |
+| Create a role              | `<br>CREATE ROLE <Role Name><br>`                                | Use AWS IAM Roles                                             |
+| Change a user’s password   | `<br>ALTER LOGIN <SQL Login> WITH<br>PASSWORD = <PassWord>;<br>` | `<br>ALTER USER <User Name><br>IDENTIFIED BY <Password><br>`  |
+| External authentication    | Windows Authentication                                           | AWS IAM (Identity and Access Management)                      |
+| Add a user to a role       | `<br>ALTER ROLE <Role Name> ADD MEMBER <User Name><br>`          | Use AWS IAM Roles                                             |
+| Lock a user                | `<br>ALTER LOGIN <Login Name><br>DISABLE<br>`                    | `<br>ALTER User <User Name><br>ACCOUNT LOCK<br>`              |
+| Grant SELECT on a schema   | `<br>GRANT SELECT ON SCHEMA::<Schema Name> to <User Name><br>`   | `<br>GRANT SELECT ON <Schema Name>.<br>• TO <User Name><br>`  |
+
+For more information, see [What is IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") and [IAM Identities (users, user groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").

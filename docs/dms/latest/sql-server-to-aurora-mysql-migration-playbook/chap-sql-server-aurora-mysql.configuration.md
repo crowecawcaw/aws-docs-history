@@ -1,199 +1,142 @@
-# Configuring session options
+# Configuring server options
 
-This topic provides reference information about session options and system variables in SQL Server and Amazon Aurora MySQL. You can use this content to understand the differences and similarities between how these two database systems handle runtime settings that control server behavior.
+This topic provides reference content comparing server and database configuration options between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences in how these database systems manage global settings, runtime configurations, and security parameters.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                    |
-| ------------------------------ | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | SET options are significantly different, except for transaction isolation control. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                            |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------ |
+| One star feature compatibility | N/A                                | N/A                       | Use cluster and database parameter groups. |
 
 ## SQL Server Usage
 
-Session options in SQL Server is a collection of run-time settings that control certain aspects of how the server handles data for individual sessions. A session is the period between a login event and a disconnect event or the `exec sp_reset_connection` command for connection pooling.
+SQL Server provides server-level settings that affect all databases and all sessions. You can modify these settings using the `sp_configure` system stored procedure.
 
-Each session may have multiple run scopes, which are all the statements before the `GO` keyword used in SQL Server management Studio scripts, or any set of commands sent as a single run batch by a client application. Each run scope may contain additional sub-scopes. For example, scripts calling stored procedures or functions.
+You can use server options to perform the following configuration tasks:
 
-You can set the global session options, which all run scopes use by default, using the `SET` T-SQL command. Server code modules such as stored procedures and functions may have their own run context settings,
-which are saved along with the code to guarantee the validity of results.
+- Define hardware utilization such as memory management, affinity mask, priority boost, network packet size, and soft Non-Uniform Memory Access (NUMA).
+- Alter run time global values such as recovery interval, remote login timeout, optimization for ad-hoc workloads, and cost threshold for parallelism.
+- Turn on and turn off global features such as C2 Audit, OLE, procedures, CLR procedures, and allow trigger recursion.
+- Configure global security settings such as server authentication mode, remote access, shell access with `xp_cmdshell`, CLR access level, and database chaining.
+- Set default values for sessions such as user options, default language, backup compression, and fill factor.
 
-Developers can explicitly use `SET` commands to change the default settings for any session or for an run scope within the session. Typically, client applications send explicit `SET` commands upon connection initiation.
-
-You can view the metadata for current sessions using the `sp_who_system` stored procedure and the `sysprocesses` system table.
+Some settings require an explicit `RECONFIGURE` command to apply the changes to the server. High risk settings require `RECONFIGURE WITH OVERRIDE` for the changes to be applied. Some advanced options are hidden by default. To view and modify these settings, set show advanced options to 1 and run `sp_configure`.
 
 ###### Note
 
-To change the default setting for SQL Server Management Studio, choose **Tools**, **Options**, **Query Execution**, **SQL Server**, **Advanced**.
+Server audits are managed through the T-SQL commands `CREATE` and `ALTER SERVER AUDIT`.
 
 ### Syntax
 
-The following example includes categories and settings for the `SET` command:
-
 ```
-SET
-Date and time
-DATEFIRST | DATEFORMAT
-Locking
-DEADLOCK_PRIORITY | SET LOCK_TIMEOUT
-Miscellaneous
-CONCAT_NULL_YIELDS_NULL | CURSOR_CLOSE_ON_COMMIT | FIPS_FLAGGER |
-SET IDENTITY_INSERT | LANGUAGE | OFFSETS | QUOTED_IDENTIFIER
-Query Execution
-ARITHABORT | ARITHIGNORE | FMTONLY | NOCOUNT | NOEXEC |
-NUMERIC_ROUNDABORT | PARSEONLY | QUERY_GOVERNOR_COST_LIMIT |
-ROWCOUNT | TEXTSIZE | ANSI ANSI_DEFAULTS | ANSI_NULL_DFLT_OFF |
-ANSI_NULL_DFLT_ON | ANSI_NULLS | ANSI_PADDING |  ANSI_WARNINGS
-Execution Stats
-FORCEPLAN | SHOWPLAN_ALL | SHOWPLAN_TEXT | SHOWPLAN_XML | STATISTICS IO |
-STATISTICS XML | STATISTICS PROFILE | STATISTICS TIME
-Transactions
-IMPLICIT_TRANSACTIONS | REMOTE_PROC_TRANSACTIONS |
-TRANSACTION ISOLATION LEVEL | XACT_ABORT
+EXECUTE sp_configure <option>, <value>;
 ```
-
-For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### SET ROWCOUNT for DML Deprecated Setting
-
-The SET ROWCOUNT for DML statements has been deprecated as of SQL Server 2008.
-
-Up to and including SQL Server 2008 R2, you could limit the number of rows affected by `INSERT`, `UPDATE`, and `DELETE` operations using `SET ROWCOUNT`. For example, it is a common practice in SQL Server to batch large `DELETE` or `UPDATE` operations to avoid transaction logging issues. The following example loops and deletes rows having `ForDelete` set to 1, but only 5000 rows at a time in separate transactions (assuming the loop isn’t within an explicit transaction).
-
-```
-SET ROWCOUNT 5000;
-WHILE @@ROWCOUNT > 0
-BEGIN
-    DELETE FROM MyTable
-    WHERE ForDelete = 1;
-END
-```
-
-Starting with SQL Server 2012, `SET ROWCOUNT` is ignored for `INSERT`, `UPDATE` and `DELETE` statements.
-
-You can achieve the same functionality using `TOP`, which can be converted to `LIMIT` in Aurora MySQL. For example, you can rewrite the preceding example as shown following:
-
-```
-WHILE @@ROWCOUNT > 0
-BEGIN
-    DELETE TOP (5000)
-    FROM MyTable
-    WHERE ForDelete = 1;
-END
-```
-
-AWS Schema Conversion Tool (AWS SCT automatically converts this example to Aurora MySQL.
 
 ### Examples
 
-Use `SET` within a stored procedure.
+Limit server memory usage to 4 GB.
 
 ```
-CREATE PROCEDURE <ProcedureName>
-AS
-BEGIN
-    <Some non critical transaction code>
-    SET TRANSACTION_ISOLATION_LEVEL SERIALIZABLE;
-    SET XACT_ABORT ON;
-    <Some critical transaction code>
-END
+EXECUTE sp_configure 'show advanced options', 1;
 ```
 
-###### Note
+```
+RECONFIGURE;
+```
 
-Explicit `SET` commands affect their run scope and sub scopes. After the scope terminates and the procedure code exits, the calling scope resumes its original settings used before the calling the stored procedure.
+```
+sp_configure 'max server memory', 4096;
+```
 
-For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+RECONFIGURE;
+```
+
+Allow command shell access from T-SQL.
+
+```
+EXEC sp_configure 'show advanced options', 1;
+```
+
+```
+RECONFIGURE;
+```
+
+```
+EXEC sp_configure 'xp_cmdshell', 1;
+```
+
+```
+RECONFIGURE;
+```
+
+View current values.
+
+```
+EXECUTE sp_configure
+```
+
+For more information, see [Server Configuration Options (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports hundreds of Server System Variables to control server behavior and the global and session levels.
+The concept of an database in Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) is different than SQL Server. For Aurora MySQL, the terms database and schema are synonymous. Therefore, the concept of database options does isn’t applicable to Aurora MySQL.
 
-Use the `SHOW VARIABLES` command to view a list of all variables.
+The Aurora MySQL equivalent of SQL Server database and server options are Server System Variables, which are run time settings you can modify using one of the following approaches:
 
-```
-SHOW SESSION VARIABLES;
--- 532 rows returned
-```
+- MySQL command line utility.
+- Aurora DB Cluster and DB Instance Parameters.
+- System variables used by the SQL `SET` command.
 
-###### Note
-
-Aurora MySQL 5.7 provides additional variables that don’t exist in MySQL 5.7 standalone installations. These variables are prefixed with Amazon Aurora or AWS.
-
-You can view Aurora MySQL variables using the MySQL command line utility, Aurora database cluster parameters, Aurora database instance parameters, or SQL interface system variables.
-
-To view all sessions, use the `SHOW PROCESSLIST` command or the `information_schema PROCESSLIST` view, which displays information such as session current status, default database, host name, and application name.
+Compared to SQL Server, Aurora MySQL provides a much wider range of server settings and configurations. For a full list of the options available in Aurora MySQL, see the links at the end of this section. The Aurora MySQL default parameter group lists more than 250 different parameters.
 
 ###### Note
 
-Unlike standalone installations of MySQL, Amazon Aurora doesn’t provide access to the configuration file containing system variable defaults. Cluster-level parameters are managed in database cluster parameter groups and instance-level parameters are managed in database parameter groups. In Aurora MySQL, some parameters from the full base set of standalone MySQL installations can’t be modified and others were removed. See Server Options for a walkthrough of creating a custom parameter group.
+Unlike standalone installations of MySQL, Amazon Aurora doesn’t provide file system access to the configuration file. Cluster-level parameters are managed in database cluster parameter groups. Instance-level parameters are managed in database parameter groups. Also, in Aurora MySQL some parameters from the full base set of standalone MySQL installations can’t be modified and others were removed. Many parameters are viewable but not modifiable.
 
-### Converting from SQL Server 2008 SET ROWCOUNT for DML operations
+SQL Server and Aurora MySQL are completely different engines. Except for a few obvious settings such as max server memory which has an equivalent of `innodb_buffer_pool_size`, most of the Aurora MySQL parameter settings aren’t compatible with SQL Server.
 
-The use of `SET ROWCOUNT` for DML operations is deprecated as of SQL Server 2008 R2. Code that uses the `SET ROWCOUNT` syntax can’t be converted automatically. You can either rewrite to use `TOP` before running AWS SCT, or manually change it afterward.
+In most cases, you should use the default parameter groups because they are optimized for common use cases. Amazon Aurora is a cluster of DB instances and, as a direct result, some of the MySQL parameters apply to the entire cluster while other parameters apply only to particular database instances in the cluster. The following table describes how Aurora MySQL parameters are controlled:
 
-The following example runs batch `DELETE` operations in SQL Server using `TOP`:
+| Aurora MySQL Parameter Class                                                                                                                 | Controlled by                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Cluster-level parameters<br>Single cluster parameter group for each Amazon Aurora cluster.                                                   | Managed by cluster parameter groups. For example, `aurora_load_from_s3_role`, `default_password_lifetime`, `default_storage_engine`. |
+| Database instance-level parameters<br>You can associate every instance in your Amazon Aurora cluster with a unique database parameter group. | Managed by database parameter groups. For example, `autocommit`, `connect_timeout`, `innodb_change_buffer_max_size`.                 |
 
-```
-WHILE @@ROWCOUNT > 0
-BEGIN
-    DELETE TOP (5000)
-    FROM MyTable
-    WHERE ForDelete = 1;
-END
-```
+### Syntax
 
-You can rewrite the preceding example to use the `LIMIT` clause in Aurora MySQL.
+Server-level options are set with the `SET GLOBAL` command.
 
 ```
-WHILE row_count() > 0
-DO
-    DELETE
-    FROM MyTable
-    WHERE ForDelete = 1
-    LIMIT 5000;
-END WHILE;
+SET GLOBAL <option> = <Value>;
 ```
 
 ### Examples
 
-View the metadata for all processes.
+**Modify compression level**
+
+Decrease compression level to reduce CPU usage.
 
 ```
-SELECT *
-FROM information_schema.PROCESSLIST;
+SET GLOBAL innodb_compression_level = 5;
 ```
 
-```
-SHOW PROCESSLIST;
-```
+**Create parameter groups**
 
-Use the `SET` command to change session isolation level and SQL mode.
+The following walkthrough demonstrates how to create and configure the Amazon Aurora database and cluster parameter groups:
 
-```
-SET sql_mode = 'ANSI_QUOTES';
-SET SESSION TRANSACTION ISOLATION LEVEL 'READ-COMMITTED';
-```
+1. Navigate to **Parameter group** in the Amazon RDS service of the AWS Console.
+2. Choose **Create parameter group**.
 
-Set isolation level using a system variable.
+###### Note
 
-```
-SET SESSION tx_isolation = 'READ-COMMITTED'
-```
+You can’t edit the default parameter group. Create a custom parameter group to apply changes to your Amazon Aurora cluster and its database instances. 3. For **Parameter group family**, choose `aurora-mysql5.7`. 4. For **Type**, choose **DB Parameter Group**. Another option is to choose **Cluster Parameter Group** to modify cluster parameters. 5. Choose **Create**.
 
-The `SET SESSION` command is the equivalent to the `SET` command in T-SQL.
+**Modify a parameter group**
 
-However, there are far more configurable parameters in Aurora MySQL than in SQL Server.
+The following walkthrough demonstrates how to modify an existing parameter group
 
-## Summary
+1. Navigate to **Parameter group** in the Amazon RDS service of the AWS Console.
+2. Choose the name of the parameter group to edit.
+3. Choose **Edit parameters**.
+4. Change parameter values and choose **Save changes**.
 
-The following table summarizes commonly used SQL Server session options and their corresponding Aurora MySQL system variables.
-
-| Category      | SQL Server                                                                         | Aurora MySQL                                                                                                                                                        | Comments                                                                                                                                                                                                                                                                                                               |
-| ------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Date and time | `DATEFIRST`<br>`DATEFORMAT`                                                        | `default_week_format`<br>`date_format` (deprecated)                                                                                                                 | `default_week_format` operates different than `DATEFIRST`. You can use only Sunday and Monday as the start of the week. It also controls what is considered week one of the year and whether returned `WEEK` value is zero<br>• based, or one-based. There is no alternative to the deprecated `date_format` variable. |
-| Locking       | `LOCK_TIMEOUT`                                                                     | `lock_wait_timeout`                                                                                                                                                 | Set in database parameter groups.                                                                                                                                                                                                                                                                                      |
-| ANSI          | `ANSI_NULLS`<br>`ANSI_PADDING`                                                     | N/A<br>`PAD_CHAR_TO_FULL_LENGTH`                                                                                                                                    | Set with the sql_mode system variable.                                                                                                                                                                                                                                                                                 |
-| Transactions  | `IMPLICIT_TRANSACTIONS`<br>`TRANSACTION ISOLATION LEVEL`                           | `autocommit`<br>`SET SESSION TRANSACTION ISOLATION LEVEL`                                                                                                           | The default for Aurora MySQL, as in SQL server, is to commit automatically. Syntax is compatible except the addition of the `SESSION` keyword.                                                                                                                                                                         |
-| Query run     | `IDENTITY_INSERT`<br>`LANGUAGE`<br>`QUOTED_IDENTIFIER`<br>`NOCOUNT`                | See [Identity and Sequences](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md")<br>`lc_time_names`<br>`ANSI_QUOTES`<br>N/A and not needed | `lc_time_names` are set in a database parameter group. `lc_messages` isn’t supported in Aurora MySQL. `ANSI_QUOTES` is a value for the `sql_mode` parameter. Aurora MySQL doesn’t add row count information<br>to the errors collection.                                                                               |
-| Runtime stats | `SHOWPLAN_ALL`, `TEXT`, and `XML`<br>`STATISTICS IO`, `XML`, `PROFILE`, and `TIME` | See [Run Plans](chap-sql-server-aurora-mysql.tuning.md "chap-sql-server-aurora-mysql.tuning.md")                                                                    |                                                                                                                                                                                                                                                                                                                        |
-| Miscellaneous | `CONCAT_NULL_YIELDS_NULL`<br>`ROWCOUNT`                                            | N/A<br>`sql_select_limit`                                                                                                                                           | Aurora MySQL always returns NULL for any NULL concatenation operation. `sql_select_limit` only affects `SELECT` statements unlike `ROWCOUNT`, which also affects all DML.                                                                                                                                              |
-
-For more information, see [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html") in the _MySQL documentation_.
+For more information, see [Working with parameter groups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md") in the _Amazon Relational Database Service User Guide_ and [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html") in the _MySQL documentation_.

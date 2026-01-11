@@ -1,262 +1,313 @@
-# Views for ANSI SQL
+# Constraints for ANSI SQL
 
-This topic provides reference information about views in Microsoft SQL Server and Amazon Aurora MySQL, comparing their features and usage. You can use this content to understand the similarities and differences between views in these two database systems, which is valuable for planning and executing migrations from SQL Server to Aurora MySQL.
+This topic provides reference information about constraint compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in how these two database systems handle various types of constraints, including check constraints, unique constraints, primary key constraints, and foreign key constraints.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                 |
-| ------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | Minor syntax and handling differences. Indexes, triggers, and temporary views aren’t supported. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                        | Key differences                                          |
+| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Constraints](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints") | Unsupported `CHECK`. Indexing requirements for `UNIQUE`. |
 
 ## SQL Server Usage
 
-Views are schema objects that provide stored definitions for virtual tables. Similar to tables, views are data sets with uniquely named columns and rows. With the exception of indexed views, view objects don’t store data. They consist only of a query definition and are reevaluated for each invocation.
+Column and table constraints are defined by the SQL standard and enforce relational data consistency. There are four types of SQL constraints: check constraints, unique constraints, primary key constraints, and foreign key constraints.
 
-Views are used as abstraction layers and security filters for the underlying tables. They can `JOIN` and `UNION` data from multiple source tables and use aggregates, window functions, and other SQL features as long as the result is a semi-proper set with uniquely identifiable columns and no order to the rows. You can use distributed views to query other databases and data sources using linked servers.
-
-As an abstraction layer, a view can decouple application code from the database schema. The underlying tables can be changed without the need to modify the application code, as long as the expected results of the view don’t change. You can use this approach to provide backward compatible views of data.
-
-As a security mechanism, a view can screen and filter source table data. You can perform permission management at the view level without explicit permissions to the base objects, provided the ownership chain is maintained.
-
-For more information, see [Overview of SQL Server Security](https://docs.microsoft.com/en-us/previous-versions/dotnet/framework/data/adonet/sql/overview-of-sql-server-security?view=sql-server-ver15 "https://docs.microsoft.com/en-us/previous-versions/dotnet/framework/data/adonet/sql/overview-of-sql-server-security?view=sql-server-ver15") in the _SQL Server documentation_.
-
-View definitions are evaluated when they are created and aren’t affected by subsequent changes to the underlying tables.
-
-For example, a view that uses `SELECT *` doesn’t display columns that were added later to the base table. Similarly, if a column was dropped from the base table, invoking the view results in an error. Use the `SCHEMABINDING` option to prevent changes to base objects.
-
-### Modifying Data Through Views
-
-Updatable views can both `SELECT` and modify data. For a view to be updatable, the following conditions must be met:
-
-- The DML targets only one base table.
-- Columns being modified must be directly referenced from the underlying base tables. Computed columns, set operators, functions, aggregates, or any other expressions aren’t permitted.
-- If a view is created with the `CHECK OPTION`, rows being updated can’t be filtered out of the view definition as the result of the update.
-
-### Special View Types
-
-SQL Server also provides three types of special views:
-
-- **Indexed views** (also known as materialized views or persisted views) are standard views that have been evaluated and persisted in a unique clustered index, much like a normal clustered primary key table. Each time the source data changes, SQL Server re-evaluates the indexed views automatically and updates the indexed view. Indexed views are typically used as a means to optimize performance by pre-processing operators such as aggregations, joins, and others. Queries needing this pre-processing don’t have to wait for it to be reevaluated on every query run.
-- **Partitioned views** are views that rejoin horizontally partitioned data sets from multiple underlying tables, each containing only a subset of the data. The view uses a UNION ALL query where the underlying tables can reside locally or in other databases (or even other servers). These types of views are called Distributed Partitioned Views (DPV).
-- **System views** are used to access server and object meta data. SQL Server also supports a set of standard `INFORMATION_SCHEMA` views for accessing object meta data.
-
-### Syntax
+### Check Constraints
 
 ```
-CREATE [OR ALTER] VIEW [<Schema Name>.] <View Name> [(<Column Aliases> ])]
-[WITH [ENCRYPTION][SCHEMABINDING][VIEW_METADATA]]
-AS <SELECT Query>
-[WITH CHECK OPTION][;]
+CHECK (<Logical Expression>)
 ```
+
+Check constraints enforce domain integrity by limiting the data values stored in table columns. They are logical Boolean expressions that evaluate to one of three values: `TRUE`, `FALSE`, and `UNKNOWN`.
+
+###### Note
+
+Check constraint expressions behave differently than predicates in other query clauses. For example, in a `WHERE` clause, a logical expression that evaluates to `UNKNOWN` is functionally equivalent to `FALSE` and the row is filtered out. For check constraints, an expression that evaluates to `UNKNOWN` is functionally equivalent to `TRUE` because the value is permitted by the constraint.
+
+You can assign multiple check constraints to a single column. A single check constraint may apply to multiple columns. In this case, it is known as a table-level check constraint.
+
+In ANSI SQL, check constraints can’t access other rows as part of the expression. In SQL Server, you can use user-defined functions in constraints to access other rows, tables, or even databases.
+
+### Unique Constraints
+
+```
+UNIQUE [CLUSTERED | NONCLUSTERED] (<Column List>)
+```
+
+Unique constraints should be used for all candidate keys. A candidate key is an attribute or a set of attributes such as columns that uniquely identify each row in the relation or table data.
+
+Unique constraints guarantee that no rows with duplicate column values exist in a table.
+
+A unique constraint can be simple or composite. Simple constraints are composed of a single column. Composite constraints are composed of multiple columns. A column may be a part of more than one constraint.
+
+Although the ANSI SQL standard allows multiple rows having NULL values for unique constraints, in SQL Server, you can use a NULL value for only one row. Use a `NOT NULL` constraint in addition to a unique constraint to disallow all NULL values.
+
+To improve efficiency, SQL Server creates a unique index to support unique constraints. Otherwise, every `INSERT` and `UPDATE` would require a full table scan to verify there are no duplicates. The default index type for unique constraints is non-clustered.
+
+### Primary Key Constraints
+
+```
+PRIMARY KEY [CLUSTERED | NONCLUSTERED] (<Column List>)
+```
+
+A primary key is a candidate key serving as the unique identifier of a table row. Primary keys may consist of one or more columns. All columns that comprise a primary key must also have a NOT NULL constraint. Tables can have one primary key.
+
+The default index type for primary keys is a clustered index.
+
+### Foreign Key Constraints
+
+```
+FOREIGN KEY (<Referencing Column List>)
+REFERENCES <Referenced Table>(<Referenced Column List>)
+```
+
+Foreign key constraints enforce domain referential integrity. Similar to check constraints, foreign keys limit the values stored in a column or set of columns.
+
+Foreign keys reference columns in other tables, which must be either primary keys or have unique constraints. The set of values allowed for the referencing table is the set of values existing the referenced table.
+
+Although the columns referenced in the parent table are indexed (since they must have either a primary key or unique constraint), no indexes are automatically created for the referencing columns in the child table. A best practice is to create appropriate indexes to support joins and constraint enforcement.
+
+Foreign key constraints impose DML limitations for the referencing child table and for the parent table. The constraint’s purpose is to guarantee that no orphan rows with no corresponding matching values in the parent table exist in the referencing table. The constraint limits `INSERT` and `UPDATE` to the child table and `UPDATE` and `DELETE` to the parent table. For example, you can’t delete an order having associated order items.
+
+Foreign keys support cascading referential integrity (CRI). CRI can be used to enforce constraints and define action paths for DML statements that violate the constraints. There are four CRI options:
+
+- **NO ACTION** — When the constraint is violated due to a DML operation, an error is raised and the operation is rolled back.
+- **CASCADE** — Values in a child table are updated with values from the parent table when they are updated or deleted along with the parent.
+- **SET NULL** — All columns that are part of the foreign key are set to NULL when the parent is deleted or updated.
+- **SET DEFAULT** — All columns that are part of the foreign key are set to their DEFAULT value when the parent is deleted or updated.
+
+These actions can be customized independently of others in the same constraint. For example, a cascading constraint may have `CASCADE` for `UPDATE`, but `NO ACTION` for `UPDATE`.
 
 ### Examples
 
-Create a view that aggregates items for each customer.
+The following example creates a composite non-clustered primary key.
 
 ```
-CREATE TABLE Orders
+CREATE TABLE MyTable
 (
-    OrderID INT NOT NULL PRIMARY KEY,
-    OrderDate DATETIME NOT NULL
-    DEFAULT GETDATE()
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+    PRIMARY KEY NONCLUSTERED (Col1, Col2)
+);
+```
+
+The following example creates a table-level check constraint.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+    PRIMARY KEY NONCLUSTERED (Col1, Col2),
+    CONSTRAINT CK_MyTableCol1Col2
+    CHECK (Col2 >= Col1)
+);
+```
+
+The following example creates a simple non-null unique constraint.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+        PRIMARY KEY NONCLUSTERED (Col1, Col2),
+    CONSTRAINT UQ_Col2Col3
+        UNIQUE (Col2, Col3)
+);
+```
+
+The following example creates a foreign key with multiple cascade actions.
+
+```
+CREATE TABLE MyParentTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PK_MyTable
+    PRIMARY KEY NONCLUSTERED (Col1, Col2)
 );
 ```
 
 ```
-CREATE TABLE OrderItems
+CREATE TABLE MyChildTable
 (
-    OrderID INT NOT NULL
-        REFERENCES Orders(OrderID),
-    Item VARCHAR(20) NOT NULL,
-    Quantity SMALLINT NOT NULL,
-    PRIMARY KEY(OrderID, Item)
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 INT NOT NULL,
+    Col3 INT NOT NULL,
+    CONSTRAINT FK_MyChildTable_MyParentTable
+        FOREIGN KEY (Col2, Col3)
+        REFERENCES MyParentTable (Col1, Col2)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE
 );
 ```
 
-```
-CREATE VIEW SalesView
-AS
-SELECT O.Customer,
-    OI.Product,
-    SUM(CAST(OI.Quantity AS BIGINT)) AS TotalItemsBought
-FROM Orders AS O
-    INNER JOIN
-    OrderItems AS OI
-        ON O.OrderID = OI.OrderID;
-```
-
-Create an indexed view that pre-aggregates items for each customer.
-
-```
-CREATE VIEW SalesViewIndexed
-AS
-SELECT O.Customer,
-    OI.Product,
-    SUM_BIG(OI.Quantity) AS TotalItemsBought
-FROM Orders AS O
-    INNER JOIN
-    OrderItems AS OI
-        ON O.OrderID = OI.OrderID;
-```
-
-```
-CREATE UNIQUE CLUSTERED INDEX IDX_SalesView
-ON SalesViewIndexed (Customer, Product);
-```
-
-Create a partitioned view.
-
-```
-CREATE VIEW dbo.PartitioneView
-WITH SCHEMABINDING
-AS
-SELECT *
-FROM Table1
-UNION ALL
-SELECT *
-FROM Table2
-UNION ALL
-SELECT *
-FROM Table3
-```
-
-For more information, see [Views](https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15"), [Modify Data Through a View](https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15"), and [CREATE VIEW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Unique Constraints and Check Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15") and [Primary and Foreign Key Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Similar to SQL Server, Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) views consist of a `SELECT` statement that can references base tables and other views.
+Similar to SQL Server, Aurora MySQL supports all ANSI constraint types, except check.
 
-Aurora MySQL views are created using the `CREATE VIEW` statement. The `SELECT` statement comprising the definition of the view is evaluated only when the view is created and isn’t affected by subsequent changes to the underlying base tables.
+###### Note
 
-Aurora MySQL views have the following restrictions:
+You can work around some of the functionality of `CHECK (<Column>) IN (<Value List>)` using the `SET` and `ENUM` data types. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
 
-- A view can’t reference system variables or user-defined variables.
-- When used within a stored procedure or function, the `SELECT` statement can’t reference parameters or local variables.
-- A view can’t reference prepared statement parameters.
-- All objects referenced by a view must exist when the view is created. If an underlying table or view is later dropped, invoking the view results in an error.
-- Views can’t reference `TEMPORARY` tables.
-- `TEMPORARY` views aren’t supported.
-- Views don’t support triggers.
-- Aliases are limited to a maximum length of 64 characters (not the typical 256 maximum alias length).
+Unlike SQL Server, constraint names, or symbols in Aurora MySQL terminology, are optional. Identifiers are created automatically and are similar to SQL Server column constraints that are defined without an explicit name.
 
-Aurora MySQL provides additional properties not available in SQL Server:
+### Unique Constraints
 
-- The `ALGORITHM` clause is a fixed hint that affects the way the MySQL query processor handles the view physical evaluation operator.
+Unlike SQL Server, where unique constraints are objects supported by unique indexes, Aurora MySQL only provides unique indexes. A unique index is the equivalent to a SQL Server unique constraint.
 
-The MERGE algorithm uses a dynamic approach where the definition of the view is merged to the outer query.
+As with SQL Server, unique indexes enforce distinct values for index columns. If a new row is added or an existing row is updated with a value that matches an existing row, an error is raised and the operation is rolled back.
 
-The TEMPTABLE algorithm materializes the view data internally. For more information, see [View Processing Algorithms](https://dev.mysql.com/doc/refman/5.7/en/view-algorithms.html "https://dev.mysql.com/doc/refman/5.7/en/view-algorithms.html") in the _MySQL documentation_.
+Unlike SQL Server, Aurora MySQL permits multiple rows with NULL values for unique indexes.
 
-- The `DEFINER` and `SQL SECURITY` clauses can be used to specify a specific security context for checking view permissions at run time.
+###### Note
 
-Similar to SQL Server, Aurora MySQL supports updatable views and the ANSI standard `CHECK OPTION` to limit inserts and updates to rows referenced by the view.
+If a unique index consists of only one `INT` type column, you can use the `_rowid` alias to reference the index in `SELECT` statements.
 
-The `LOCAL` and `CASCADED` keywords are used to determine the scope of violation checks. When using the `LOCAL` keyword, the `CHECK OPTION` is evaluated only for the view being created. `CASCADED` causes evaluation of referenced views. The default is `CASCADED`.
+### Primary Key Constraints
 
-In general, only views having a one-to-one relationship between the source rows and the exposed rows are updatable.
+Similar to SQL Server, a primary key constraint in Aurora MySQL is a unique index where all columns are NOT NULL. Each table can have only one primary key. The name of the constraint is always `PRIMARY`.
 
-Adding the following constructs prevents modification of data:
+Primary keys in Aurora MySQL are always clustered. They can’t be configured as `NON CLUSTERED` like SQL Server. For more information, see [Indexes](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
 
-- Aggregate functions.
-- `DISTINCT`.
-- `GROUP BY`.
-- `HAVING`.
-- `UNION` or `UNION ALL`.
-- Subquery in the select list.
-- Certain joins.
-- Reference to a non-updatable view.
-- Subquery in the `WHERE` clause that refers to a table in the `FROM` clause.
-- `ALGORITHM = TEMPTABLE`.
-- Multiple references to any column of a base table.
+Applications can reference a primary key using the `PRIMARY` alias. If a table has no primary key, which isn’t recommended, Aurora MySQL uses the first NOT NULL and unique index.
 
-A view must have unique column names. Column aliases are derived from the base tables or explicitly specified in the `SELECT` statement of column definition list. `ORDER BY` is permitted in Aurora MySQL, but ignored if the outer query has an `ORDER BY` clause.
+###### Note
 
-Aurora MySQL assesses data access privileges as follows:
+Keep the primary key short to minimize storage overhead for secondary indexes. In Aurora MySQL, the primary key is clustered. Therefore, every secondary or nonclustered index maintains a copy of the clustering key as the row pointer. It is also recommended to create tables and declare the primary key first, followed by the unique indexes. Then create the non-unique indexes.
 
-- The user creating a view must have all required privileges to use the top-level objects referenced by the view.
+If a primary key consists of a single `INTEGER` column, it can be referenced using the `_rowid` alias in `SELECT` commands.
 
-For example, for a view referencing table columns, the user must have privilege for each column in any clause of the view definition.
+### Foreign Key Constraints
 
-- If the view definition references a stored function, only the privileges needed to invoke the function are checked. The privileges required at run time can be checked only at run time because different invocations may use different run paths within the function code.
-- The user referencing a view must have appropriate `SELECT`, `INSERT`, `UPDATE`, or `DELETE` privileges, as with a normal table.
-- When a view is referenced, privileges for all objects accessed by the view are evaluated using the privileges for the view `DEFINER` account, or the invoker, depending on whether `SQL SECURITY` is set to `DEFINER` or `INVOKER`.
-- When a view invocation triggers the call of a stored function, privileges are checked for statements that run within the function based on the function’s `SQL SECURITY` setting. For functions where the security is set to `DEFINER`, the function runs with the privileges of the `DEFINER` account. For functions where it is set to `INVOKER`, the function runs with the privileges determined by the view’s `SQL SECURITY` setting as described before.
+###### Note
 
-### Syntax
+MySQL doesn’t support foreign key constraints for partitioned tables. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
+
+Aurora MySQL supports foreign key constraints for limiting values in a column, or a set of columns, of a child table based on their existence in a parent table.
+
+Unlike SQL Server and contrary to the ANSI standard, Aurora MySQL allows foreign keys to reference nonunique columns in the parent table. The only requirement is that the columns are indexed as the leading columns of an index, but not necessarily a unique index.
+
+Aurora MySQL supports cascading referential integrity actions using the `ON UPDATE` and `ON DELETE` clauses. The available referential actions are `RESTRICT`, `CASCADE`, `SET NULL`, and `NO ACTION`. The default action is `RESTRICT`. `RESTRICT` and `NO ACTION` are synonymous.
+
+###### Note
+
+SET DEFAULT is supported by some other MySQL Server engines. Aurora MySQL uses the InnoDB engine exclusively, which doesn’t support `SET DEFAULT`.
+
+###### Note
+
+Some database engines support the ANSI standard for deferred checks. `NO ACTION` is a deferred check as opposed to `RESTRICT`, which is immediate. In MySQL, foreign key constraints are always validated immediately. Therefore, `NO ACTION` is the same as the `RESTRICT` action.
+
+Aurora MySQL handles foreign keys differently than most other engines in the following ways:
+
+- If there are multiple rows in the parent table that have the same values for the referenced foreign key, Aurora MySQL foreign key checks behave as if the other parent rows with the same key value don’t exist. For example, if a `RESTRICT` action is defined and a child row has several parent rows, Aurora MySQL doesn’t permit deleting them.
+- If `ON UPDATE CASCADE` or `ON UPDATE SET NULL` causes a recursion and updates the same table that has been updated as part of the same cascade operation, Aurora MySQL treats it as if it was a
+  `RESTRICT` action. This effectively turns off self-referencing `ON UPDATE CASCADE` or `ON UPDATE SET NULL` operations to prevent potential infinite loops resulting from cascaded updates. A self-referencing `ON DELETE SET NULL` or `ON DELETE CASCADE` are allowed because there is no risk of an infinite loop.
+- Cascading operations are limited to 15 levels deep.
+
+### Check Constraints
+
+Standard ANSI check clauses are parsed correctly and don’t raise syntax errors. However, they are ignored and aren’t stored as part of the Aurora MySQL table definition.
+
+**Syntax**
 
 ```
-CREATE [OR REPLACE]
-    [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}]
-    [DEFINER = { <User> | CURRENT_USER }]
-    [SQL SECURITY { DEFINER | INVOKER }]
-    VIEW <View Name> [(<Column List>)]
-    AS <SELECT Statement>
-    [WITH [CASCADED | LOCAL] CHECK OPTION];
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
+(
+    <Column Definition>
+    [CONSTRAINT [<Symbol>]]
+        PRIMARY KEY (<Column List>)
+    | [CONSTRAINT [<Symbol>]]
+        UNIQUE [INDEX|KEY] [<Index Name>] [<Index Type>] (<Column List>)
+    | [CONSTRAINT [<Symbol>]]
+        FOREIGN KEY [<Index Name>] (<Column List>)
+            REFERENCES <Table Name> (<Column List>)
+                [ON DELETE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
+                [ON UPDATE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
+);
 ```
 
 ### Migration Considerations
 
-The basic syntax for views is very similar to SQL Server and is ANSI compliant. Code migration should be straightforward.
-
-Aurora MySQL doesn’t support triggers on views. In SQL Server, `INSTEAD OF` triggers are supported. For more information, see [Triggers](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
-
-In Aurora MySQL, `ORDER BY` is permitted in a view definition. It is ignored if the outer `SELECT` has its own `ORDER BY`. This behavior is different than SQL Server where `ORDER BY` is allowed only for `TOP` filtering. The actual order of the rows isn’t guaranteed.
-
-Security context is explicit in Aurora MySQL, which isn’t supported in SQL Server. Use security contexts to work around the lack of ownership-chain permission paths.
-
-Unlike SQL Server, a view in Aurora MySQL can invoke functions, which in turn may introduce a change to the database. For more information, see [User-Defined Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
-
-The `WITH CHECK` option in Aurora MySQL can be scoped to `LOCAL` or `CASCADED`. The `CASCADED` causes the `CHECK` option to be evaluated for nested views referenced in the parent.
-
-Indexed views aren’t supported in Aurora MySQL. Consider using application maintained tables instead. Change application code to reference those tables instead of the base table.
+- Aurora MySQL doesn’t support check constraints. The engine parses the syntax for check constraints, but they are ignored.
+- Consider using triggers or stored routines to validate data values for complex expressions.
+- When using check constraints for limiting to a value list such as `CHECK (Col1 IN (1,2,3))`, consider using the `ENUM` or `SET` data types.
+- In Aurora MySQL, the constraint name (symbol) is optional, even for table constraints defined with the `CONSTRAINT` keyword. In SQL Server, it is mandatory.
+- Aurora MySQL requires that both the child table and the parent table in foreign key relationship are indexed. If the appropriate index doesn’t exist, Aurora MySQL automatically creates one.
 
 ### Examples
 
-Create and populate the `Invoices` table.
+The following example creates a composite primary key.
 
 ```
-CREATE TABLE Invoices(
-InvoiceID INT NOT NULL PRIMARY KEY,
-Customer VARCHAR(20) NOT NULL,
-TotalAmount DECIMAL(9,2) NOT NULL);
-
-INSERT INTO Invoices (InvoiceID,Customer,TotalAmount)
-VALUES
-(1, 'John', 1400.23),
-(2, 'Jeff', 245.00),
-(3, 'James', 677.22);
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PRIMARY KEY (Col1, Col2)
+);
 ```
 
-Create the `TotalSales` view.
+The following example creates a simple non-null unique constraint.
 
 ```
-CREATE VIEW TotalSales
-AS
-SELECT Customer,
-    SUM(TotalAmount) AS CustomerTotalAmount
-GROUP BY Customer;
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PRIMARY KEY (Col1, Col2),
+    CONSTRAINT UNIQUE (Col2, Col3)
+);
 ```
 
-Invoke the view.
+The following example creates a named foreign key with multiple cascade actions.
 
 ```
-SELECT * FROM TotalSales
-ORDER BY CustomerTotalAmount DESC;
+CREATE TABLE MyParentTable
+(
+    Col1 INT NOT NULL,
+    Col2 INT NOT NULL,
+    Col3 VARCHAR(20) NULL,
+    CONSTRAINT PRIMARY KEY (Col1, Col2)
+);
+```
 
-Customer  CustomerTotalAmount
-John      1400.23
-James     677.22
-Jeff      245.00
+```
+CREATE TABLE MyChildTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 INT NOT NULL,
+    Col3 INT NOT NULL,
+    FOREIGN KEY (Col2, Col3)
+    REFERENCES MyParentTable (Col1, Col2)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
 ```
 
 ## Summary
 
-| Feature                  | SQL Server                      | Aurora MySQL | Comments                                                                                                                                          |
-| ------------------------ | ------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Indexed views            | Supported                       | N/A          |                                                                                                                                                   |
-| Partitioned views        | Supported                       | N/A          | You can create partitioned views in the same way as SQL Server, they won’t benefit from the internal optimizations such as partition elimination. |
-| Updateable views         | Supported                       | Supported    |                                                                                                                                                   |
-| Prevent schema conflicts | `SCHEMABINDING` option          |              |                                                                                                                                                   |
-| Triggers on views        | `INSTEAD OF`                    | N/A          | For more information, see [Triggers](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").                                |
-| Temporary views          | `CREATE VIEW #View…​`           | N/A          |                                                                                                                                                   |
-| Refresh view definition  | `sp_refreshview` / `ALTER VIEW` | `ALTER VIEW` |                                                                                                                                                   |
+The following table identifies similarities, differences, and key migration considerations.
 
-For more information, see [CREATE VIEW Statement](https://dev.mysql.com/doc/refman/5.7/en/create-view.html "https://dev.mysql.com/doc/refman/5.7/en/create-view.html"), [Restrictions on Views](https://dev.mysql.com/doc/refman/5.7/en/view-restrictions.html "https://dev.mysql.com/doc/refman/5.7/en/view-restrictions.html"), and [Updatable and Insertable Views](https://dev.mysql.com/doc/refman/5.7/en/view-updatability.html "https://dev.mysql.com/doc/refman/5.7/en/view-updatability.html") in the _MySQL documentation_.
+| Feature                         | SQL Server                                        | Aurora MySQL                                   | Comments                                                                  |
+| ------------------------------- | ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- |
+| Check constraints               | `CHECK`                                           | Not supported                                  | Aurora MySQL parses `CHECK` syntax, but ignores it.                       |
+| Unique constraints              | `UNIQUE`                                          | `UNIQUE`                                       |                                                                           |
+| Primary key constraints         | `PRIMARY KEY`                                     | `PRIMARY KEY`                                  |                                                                           |
+| Foreign key constraints         | `FOREIGN KEY`                                     | `FOREIGN KEY`                                  |                                                                           |
+| Cascaded referential actions    | `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT` | `RESTRICT`, `CASCADE`, `SET NULL`, `NO ACTION` | `NO ACTION` and `RESTRICT` are synonymous.                                |
+| Indexing of referencing columns | Not required                                      | Required                                       | If not specified, an index is created silently to support the constraint. |
+| Indexing of referenced columns  | `PRIMARY KEY` or `UNIQUE`                         | Required                                       | Aurora MySQL doesn’t enforce uniqueness of referenced columns.            |
+| Cascade recursion               | Not allowed, discovered at `CREATE` time          | Not allowed, discovered at run time.           |                                                                           |
+
+For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [How MySQL Deals with Constraints](https://dev.mysql.com/doc/refman/5.7/en/constraints.html "https://dev.mysql.com/doc/refman/5.7/en/constraints.html"), and [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html") in the _MySQL documentation_.
