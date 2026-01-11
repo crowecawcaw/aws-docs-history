@@ -15,6 +15,9 @@ Before connecting an MCP server, ensure your server meets these requirements:
 When connecting MCP servers to AWS DevOps Agent, consider these security aspects:
 
 - **Tool allowlisting –** You should allowlist only the specific tools your Agent Space needs, rather than exposing all tools from your MCP server. See [Connecting MCP Servers](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md") for how to allow list tools per Agent Space.
+
+Please note that the maximum tool length of any MCP tool is 64.
+
 - **Prompt injection risks** – Custom MCP servers can introduce additional risk of prompt injection attacks. See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md") for more information.
 - **Read-only tools and access –** Only allowlist read-only MCP tools and ensure that authentication credentials are only permitted read-only access.
 
@@ -130,9 +133,9 @@ AWS DevOps Agent will now be able to use the allowlisted tools from your MCP ser
 
 ## Managing MCP server connections
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, navigate to the **Capabilities** tab in the AWS DevOps Agent console, select your MCP server, click **Edit**, update the authentication configuration, and click **Save**.
+**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your MCP server. Navigate to the **Settings** page the AWS DevOps Agent console, locate your MCP server, remove any active associations, and click **Deregister**. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
 
-**Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section.
+**Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 
 **Removing MCP server connections** – To disconnect an MCP server from an Agent Space, select the server in the **MCP Servers** section and click **Remove**. To completely delete an MCP server registration, remove it from all Agent Spaces first, then delete the account-level registration.
 

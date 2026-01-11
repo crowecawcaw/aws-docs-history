@@ -51,7 +51,7 @@ Use this option when you need to limit the services and resources the agent can 
 
 ### Using AWS tags for resource discovery
 
-By default, all CloudFormation stacks and their resources will be discovered. If your resources were not deployed with CloudFormation, you can have AWS DevOps Agent discover resources with specific AWS tags. See Application Resource Mapping[link] to learn more.
+By default, all CloudFormation stacks and their resources will be discovered. If your resources were not deployed with CloudFormation, you can have AWS DevOps Agent discover resources with specific AWS tags.
 
 ### Enabling the Agent Space Web App
 
