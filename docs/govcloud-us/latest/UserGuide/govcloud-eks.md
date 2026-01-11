@@ -8,7 +8,6 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes i
 - [Amazon Managed Service for Prometheus](../../../eks/latest/userguide/prometheus.md "../../../eks/latest/userguide/prometheus.md") isn’t available.
 - The Mountpoint for Amazon S3 CSI driver isn’t available as an Amazon EKS add-on and self-managed installation isn’t officially supported.
 - Amazon EKS Anywhere isn’t available.
-- Amazon EKS Upgrade insights aren’t available.
 - Amazon EKS Hybrid Nodes isn’t available.
 
 ## Documentation for Amazon EKS

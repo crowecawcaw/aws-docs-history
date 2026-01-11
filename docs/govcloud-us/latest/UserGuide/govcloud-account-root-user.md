@@ -138,7 +138,7 @@ aws kms create-key \
                 "Action": "kms:*",
                 "Resource": "*"
             },
-            {=
+            {
                 "Sid": "Allow external account to encrypt",
                 "Effect": "Allow",
                 "Principal": {"AWS": "arn:aws:iam::536883072436:root"},

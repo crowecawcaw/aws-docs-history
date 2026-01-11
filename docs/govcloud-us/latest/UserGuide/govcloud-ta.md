@@ -196,12 +196,11 @@ The following table lists the checks for Trusted Advisor service quotas, formerl
 
 See the following topics:
 
-- [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") in the **AWS Support User Guide**
-
+- [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") in the _AWS Support User Guide_
 - For more information about Trusted Advisor features, see [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/ "https://aws.amazon.com/premiumsupport/trustedadvisor/").
 - For a complete list of Trusted Advisor checks, see the [AWS Trusted Advisor best practice checklist](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist").
 
-### Export-controlled content
+## Export-controlled content
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
