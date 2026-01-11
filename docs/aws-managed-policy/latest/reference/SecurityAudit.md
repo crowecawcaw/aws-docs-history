@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** October 13, 2025, 18:19 UTC
+- **Edited time:** January 08, 2026, 16:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v56 (default)
+**Policy version:** v57 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -365,6 +365,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "eks:DescribeCluster",
         "eks:DescribeFargateProfile",
         "eks:DescribeNodeGroup",
+        "eks:ListAccessEntries",
+        "eks:ListAssociatedAccessPolicies",
         "eks:ListClusters",
         "eks:ListFargateProfiles",
         "eks:ListNodeGroups",

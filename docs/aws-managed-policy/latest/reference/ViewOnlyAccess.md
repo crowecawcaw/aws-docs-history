@@ -14,13 +14,13 @@ details
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:20 UTC
-- **Edited time:** October 13, 2025, 21:34 UTC
+- **Edited time:** January 08, 2026, 16:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/ViewOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -280,6 +280,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "mediaconnect:ListFlows",
         "mediaconnect:ListOfferings",
         "mediaconnect:ListReservations",
+        "mediaconnect:ListRouterInputs",
+        "mediaconnect:ListRouterOutputs",
+        "mediaconnect:ListRouterNetworkInterfaces",
         "mobiletargeting:GetApplicationSettings",
         "mobiletargeting:GetCampaigns",
         "mobiletargeting:GetImportJobs",
