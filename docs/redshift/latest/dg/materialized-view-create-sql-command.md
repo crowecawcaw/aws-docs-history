@@ -86,6 +86,9 @@ To create a materialized view, you must have the following privileges:
   materialized view. If you have column-level privileges on specific columns, you
   can create a materialized view on only those columns.
 
+You can create a materialized view from a remote datasharing cluster by providing the
+external database name at the `mv_name`.
+
 ## Incremental refresh for
 
 materialized views in a datashare
@@ -146,6 +149,8 @@ following:
 - You don't have to manually run [ANALYZE](r_ANALYZE.md "r_ANALYZE.md") on materialized views. This happens currently only
   via AUTO ANALYZE. For more information, see [Analyzing tables](t_Analyzing_tables.md "t_Analyzing_tables.md").
 - RLS-protected or DDM-protected tables.
+- Materialized view creation from remote datasharing clusters does not support references on other materialized views, Spectrum tables, tables defined in a different Redshift cluster and UDFs.
+  These are supported for materialized view creation from the local (producer) cluster.
 
 ## Examples
 

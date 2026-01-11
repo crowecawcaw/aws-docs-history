@@ -11,22 +11,48 @@ develops its customized recommendations by analyzing performance and usage metri
 cluster. These tailored recommendations relate to operations and cluster settings. To help
 you prioritize your optimizations, Advisor ranks recommendations by order of impact.
 
+## How Advisor Works
+
 Advisor bases its recommendations on observations regarding performance statistics or
-operations data. Advisor develops observations by running tests on your clusters to
+operations data. Advisor develops observations by running tests on your clusters/workgroups to
 determine if a test value is within a specified range. If the test result is outside of
 that range, Advisor generates an observation for your cluster. At the same time, Advisor
 creates a recommendation about how to bring the observed value back into the best-practice
-range. Advisor only displays recommendations that should have a significant impact on
-performance and operations. When Advisor determines that a recommendation has been
-addressed, it removes it from your recommendation list.
+range.
 
-For example, suppose that your data warehouse contains a large number of uncompressed
-table columns. In this case, you can save on cluster storage costs by rebuilding tables
-using the `ENCODE` parameter to specify column compression. In another example,
-suppose that Advisor observes that your cluster contains a significant amount of data in
-uncompressed table data. In this case, it provides you with the SQL code block to find the
-table columns that are candidates for compression and resources that describe how to
-compress those columns.
+For multi cluster architectures using Amazon Redshift Data Sharing, Advisor now provides enhanced optimization
+by analyzing workload patterns across all clusters/workgroups in your data mesh, including clusters/workgroups across different regions.
+When you share tables between producer and consumer clusters/workgroups, Advisor automatically collects query patterns
+from all consumer endpoints in the data mesh, unless they are explicitly denylisted, and combines them with
+producer workloads to generate more effective recommendations.
+This means your table optimizations—including sort keys, distribution keys, and compression
+are based on how your data is actually being used across your entire organization, not just on a single cluster.
+Advisor also supports Amazon Redshift Serverless, automatically maintaining optimization continuity
+across pause and resume cycles.
+
+For example, suppose that your data warehouse contains tables with suboptimal distribution keys
+that cause data skew across compute nodes. In this case, Advisor automatically recommends redistributing
+tables using the DISTKEY parameter to specify a column that evenly distributes data.
+In another example, suppose that Advisor observes that your cluster has tables without sort keys
+or with inefficient sort key definitions that result in poor query performance.
+In this case, Advisor automatically provides recommendations for appropriate sort key columns
+based on your query patterns to improve data filtering and reduce disk I/O.
+
+## Optimizing Data Sharing Architectures
+
+When you use Amazon Redshift Data Sharing to distribute workloads across multiple clusters/workgroups, Advisor helps you optimize
+performance across your entire data mesh.
+Advisor automatically analyzes how shared tables are being queried across all consumer clusters/workgroups.
+This includes understanding which columns are frequently filtered, which tables are commonly joined together,
+and how data is being scanned.
+By considering the complete picture of data usage, Advisor generates recommendations that improve performance
+for all users of your shared data.
+
+By optimizing tables based on usage patterns across your entire organization rather than a single cluster, you can:
+
+- Make data-driven optimization decisions based on data access patterns across all clusters/workgroups in the mesh
+- Lower storage costs through more effective compression strategies
+- Improve resource utilization across your data mesh
 
 ## Amazon Redshift Regions where Advisor is supported
 

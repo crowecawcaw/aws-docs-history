@@ -67,6 +67,9 @@ VIEW` sees all base table rows visible to the refresh transaction,
   time-tz), DATE_TRUNC (timestamp, interval).
 - Incremental refresh is supported on a materialized view where the base table is
   in a datashare.
+- Refresh of shared materialized views from remote datasharing clusters is not supported for
+  materialized views that contain references to other materialized views, Spectrum tables, tables defined in a different Redshift cluster or UDFs.
+  Such materialized views can be refreshed from the local (producer) cluster.
 
 Some operations in Amazon Redshift interact with materialized views. Some of these operations
 might force a `REFRESH MATERIALIZED VIEW` operation to fully recompute the
