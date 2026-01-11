@@ -438,3 +438,17 @@ AWS CLI, tries to use a session that is revoked or invalidated on the server sid
 this issue, return to the client application or website and try again, including logging in
 again if prompted. This might sometimes require you to also cancel pending requests, such as a
 pending connection attempt from the AWS Toolkit within your IDE.
+
+## Group members from trusted domains do not sync to IAM Identity Center
+
+If a security group syncs successfully to IAM Identity Center, but its members from a trusted on-premises
+domain do not appear in the IAM Identity Center, this can be caused by the group resides in AWS Managed Microsoft AD
+and contains Foreign Security Principal (FSPs) representing users from a trusted domain.
+
+Try the following steps to troubleshoot:
+
+- Sync groups directly from the trusted domain: Instead of syncing a group from AWS Managed Microsoft AD that
+  contains cross-domain members, create and sync the group directly from the trusted on-premises
+  domain. This approach works because IAM Identity Center can access actual user objects in the source domain.
+- Verify service account permissions: Ensure the IAM Identity Center service account has the required
+  permissions on user objects in the trusted domain: ReadProperties and ListContents permission.

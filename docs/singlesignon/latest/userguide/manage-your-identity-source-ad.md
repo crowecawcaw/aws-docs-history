@@ -24,6 +24,8 @@ name when performing sign-ins to IAM Identity Center.
 - As a prerequisite step, make sure your AD Connector or directory in AWS Managed Microsoft AD in
   Directory Service resides within your AWS Organizations management account.
 - IAM Identity Center does not support SAMBA 4-based Simple AD as a connected directory.
+- IAM Identity Center cannot synchronize Foreign Security Principals (FSPs). If a group in AWS Managed Microsoft AD
+  contains members from a trusted domain as FSPs, those members will not sync.
   For a demonstration on the process of using Active Directory as an identity source for
   IAM Identity Center, see the following YouTube video:
 
