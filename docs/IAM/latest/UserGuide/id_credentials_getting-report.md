@@ -6,6 +6,10 @@ You can generate and download a _credential report_ that lists all users
 in your account and the status of their various credentials, including passwords, access keys,
 and MFA devices. You can get a credential report from the AWS Management Console, the [AWS SDKs](https://aws.amazon.com/tools "https://aws.amazon.com/tools") and [Command Line Tools](https://aws.amazon.com/tools/#Command_Line_Tools "https://aws.amazon.com/tools/#Command_Line_Tools"), or the IAM API.
 
+###### Note
+
+The IAM credential report only includes the following IAM-managed credentials: passwords, the first two access keys per user, MFA devices, and X.509 signing certificates. The report does not include service-specific credentials (such as CodeCommit passwords or Amazon Bedrock long-term API keys) or any other user access keys beyond the first two. For complete credential visibility, use the [ListServiceSpecificCredentials](../APIReference/API_ListServiceSpecificCredentials.md "../APIReference/API_ListServiceSpecificCredentials.md") and [ListAccessKeys](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md") APIs.
+
 You can use credential reports to assist in your auditing and compliance efforts. You can
 use the report to audit the effects of credential lifecycle requirements, such as password and
 access key updates. You can provide the report to an external auditor, or grant permissions to
