@@ -120,6 +120,7 @@ This section determines the recommended parameter values for use in tuning secti
 
 | Family | Instance Type                                      | ${interrupt_core_list}                    | ${rps_core_mask}                                                          |
 | ------ | -------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------- |
+| c7i    | • c7i.24xlarge<br>• c7i.12xlarge                   | • 0,1,48,49<br>• 0,1,24,25                | • ffffffff,ffffffff,ffffffff<br>• ffff,ffffffff                           |
 | c6i    | • c6i.32xlarge                                     | • 0,1,64,65                               | • ffffffff,ffffffff,ffffffff,ffffffff                                     |
 | c5     | • c5.24xlarge<br>• c5.18xlarge<br>• c5.12xlarge    | • 0,1,48,49<br>• 0,1,36,37<br>• 0,1,24,25 | • ffffffff,ffffffff,ffffffff<br>• ff,ffffffff,ffffffff<br>• ffff,ffffffff |
 | c5n    | • c5n.metal<br>• c5n.18xlarge                      | • 0,1,36,37<br>• 0,1,36,37                | • ff,ffffffff,ffffffff<br>• ff,ffffffff,ffffffff                          |

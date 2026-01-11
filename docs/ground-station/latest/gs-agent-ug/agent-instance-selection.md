@@ -14,6 +14,8 @@ We support the following instance types. See [CPU core planning](#cpu-core-plann
 | c5n.metal       | 72            | 36            | 400               |
 | c6i             | c6i.24xlarge  | 96            | 48                | 400                                 |
 | c6i.32xlarge    | 128           | 64            | 400               |
+| c7i             | c7i.12xlarge  | 48            | 24                | 280                                 |
+| c7i.24xlarge    | 96            | 48            | 400               |
 | p3dn            | p3dn.24xlarge | 96            | 48                | 400                                 |
 | g4dn            | g4dn.12xlarge | 48            | 24                | 400                                 |
 | g4dn.16xlarge   | 64            | 32            | 400               |
