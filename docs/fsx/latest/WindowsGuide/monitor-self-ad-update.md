@@ -12,7 +12,7 @@ can take up to several minutes to complete.
 In the **Updates** tab in the **File system details**
 window, you can view the 10 most recent updates for each update type.
 
-![Console screen shot showing recent updates list.](/images/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
+![Console screen shot showing recent updates list.](images/fs-updates-panel.png)
 
 For self-managed Active Directory updates, you can view the following information.
 
