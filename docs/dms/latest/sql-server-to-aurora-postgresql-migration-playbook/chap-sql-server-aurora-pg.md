@@ -1,10 +1,9 @@
-# Migrating security features to Aurora PostgreSQL
+# Performance tuning overview
 
-This topic provides conceptual content comparing the security and encryption features of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain a comprehensive understanding of how encryption, user permissions, access control, and authentication mechanisms differ between these two database systems. The content explores encryption functions, data protection at rest, user management, and role-based access control, highlighting similarities and key differences in implementation. By understanding these concepts, you can make informed decisions about securing your data and implementing robust security measures when migrating from SQL Server to Aurora PostgreSQL. This knowledge is crucial for database administrators and developers to ensure a smooth transition while maintaining data integrity and compliance in the new database environment.
+This topic provides conceptual information about query execution plans, feature compatibility, and statistics in the context of migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can gain insights into how these database management systems approach query optimization, execution plan generation, and statistical data management. The content compares and contrasts the methods used by SQL Server and PostgreSQL, highlighting key differences in functionality such as database hints, graphical execution plans, and statistics collection. Understanding these concepts is crucial for database administrators and developers who are planning or executing a migration from SQL Server to Aurora PostgreSQL, as it helps them anticipate changes in query performance optimization strategies and adapt their database management practices accordingly.
 
 ###### Topics
 
-- [Column encryption for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [Data control language for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [Transparent data encryption Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
-- [Users and roles for Aurora PostgreSQL](chap-sql-server-aurora-pg.security.md "chap-sql-server-aurora-pg.security.md")
+- [Tuning run plans](chap-sql-server-aurora-pg.tuning.md "chap-sql-server-aurora-pg.tuning.md")
+- [Query hints and plan guides](chap-sql-server-aurora-pg.tuning.md "chap-sql-server-aurora-pg.tuning.md")
+- [Managing statistics](chap-sql-server-aurora-pg.tuning.md "chap-sql-server-aurora-pg.tuning.md")

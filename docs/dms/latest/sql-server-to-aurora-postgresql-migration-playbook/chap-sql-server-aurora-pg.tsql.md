@@ -1,175 +1,290 @@
-# Merge for T-SQL
+# Error handling for T-SQL
 
-This topic contains reference information comparing the MERGE statement in SQL Server with equivalent functionality in PostgreSQL. You can understand the differences in feature compatibility between these database systems when migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL.
+This topic provides reference information about error handling in SQL Server and Amazon Aurora PostgreSQL, focusing on the differences and similarities between the two systems. You can use this knowledge to understand how error handling mechanisms in SQL Server translate to Aurora PostgreSQL when migrating your database. The topic compares specific error handling features, such as TRY…​CATCH blocks and THROW statements, with their PostgreSQL equivalents.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                          | Key differences                        |
-| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| Three star feature compatibility | No automation                      | [MERGE](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.merge "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.merge") | Rewrite to use `INSERT…​ ON CONFLICT`. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                            |
+| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
+| Two star feature compatibility | Three star automation level        | N/A                       | Different paradigm and syntax will require rewrite of error handling code. |
 
 ## SQL Server Usage
 
-`MERGE` is a complex , hybrid DML/DQL statement for performing `INSERT`, `UPDATE`, or `DELETE` operations on a target table based on the results of a logical join of the target table and a source data set.
+SQL Server error handling capabilities have significantly improved throughout the years. However, previous features are retained for backward compatibility.
 
-`MERGE` can also return row sets similar to SELECT using the OUTPUT clause, which gives the calling scope access to the actual data modifications of the `MERGE` statement.
+Before SQL Server 2008, only very basic error handling features were available. `RAISERROR` was the primary statement used for error handling.
 
-The `MERGE` statement is most efficient for non-trivial conditional DML. For example, inserting data if a row key value doesn’t exist and updating the existing row if the key value already exists.
+Starting from SQL Server 2008, the extensive .NET-like error handling capabilities were added. They included `TRY…​CATCH` blocks, `THROW` statements, the `FORMATMESSAGE` function, and a set of system functions that return metadata for the current error condition.
 
-You can easily manage additional logic such as deleting rows from the target that don’t appear in the source. For simple, straightforward updates of data in one table based on data in another, it is typically more efficient to use simple `INSERT`, `DELETE`, and `UPDATE` statements. You can replace all `MERGE` functionality with `INSERT`, `DELETE`, and `UPDATE` statements, but not necessarily less efficiently.
+### TRY…​CATCH Blocks
 
-The SQL Server `MERGE` statement provides a wide range of functionality and flexibility and is compatible with ANSI standard SQL:2008. SQL Server has many extensions to `MERGE` that provide efficient T-SQL solutions for synchronizing data.
+`TRY…​CATCH` blocks implement error handling similar to Microsoft Visual C# and Microsoft Visual C++. `TRY …​ END TRY` statement blocks can contain T-SQL statements.
+
+If an error is raised by any of the statements within the `TRY …​ END TRY` block, the run stops and is moved to the nearest set of statements that are bounded by a `CATCH …​ END CATCH` block.
+
+```
+BEGIN TRY
+<Set of SQL Statements>
+END TRY
+BEGIN CATCH
+<Set of SQL Error Handling Statements>
+END CATCH
+```
+
+### THROW
+
+The `THROW` statement raises an exception and transfers run of the `TRY …​ END TRY` block of statements to the associated `CATCH …​ END CATCH` block of statements.
+
+Throw accepts either constant literals or variables for all parameters.
+
+```
+THROW [Error Number>, <Error Message>, < Error State>] [;]
+```
+
+### Examples
+
+The following example uses `TRY…​CATCH` error blocks to handle key violations.
+
+```
+CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
+```
+
+```
+BEGIN TRY
+  BEGIN TRANSACTION
+    INSERT INTO ErrorTest(Col1) VALUES(1);
+    INSERT INTO ErrorTest(Col1) VALUES(2);
+    INSERT INTO ErrorTest(Col1) VALUES(1);
+  COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+  THROW; -- Throw with no parameters = RETHROW
+END CATCH;
+```
+
+```
+(1 row affected)
+(1 row affected)
+(0 rows affected)
+Msg 2627, Level 14, State 1, Line 7
+Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE54D8676973'.
+Can't insert duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
+```
+
+###### Note
+
+Contrary to what many SQL developers believe, the values 1 and 2 are indeed inserted into `ErrorTestTable` in the preceding example. This behavior is in accordance with ANSI specifications stating that a constraint violation should not roll back an entire transaction.
+
+The following example uses `THROW` with variables.
+
+```
+BEGIN TRY
+BEGIN TRANSACTION
+INSERT INTO ErrorTest(Col1) VALUES(1);
+INSERT INTO ErrorTest(Col1) VALUES(2);
+INSERT INTO ErrorTest(Col1) VALUES(1);
+COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+DECLARE @CustomMessage VARCHAR(1000),
+  @CustomError INT,
+  @CustomState INT;
+SET @CustomMessage = 'My Custom Text ' + ERROR_MESSAGE();
+SET @CustomError = 54321;
+SET @CustomState = 1;
+THROW @CustomError, @CustomMessage, @CustomState;
+END CATCH;
+```
+
+```
+(0 rows affected)
+Msg 54321, Level 16, State 1, Line 19
+My Custom Text Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE545CBDBB9A'.
+Can't insert duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
+```
+
+### RAISERROR
+
+The `RAISERROR` statement is used to explicitly raise an error message, similar to `THROW`. It causes an error state for the run session and forwards run to either the calling scope or, if the error occurred within a `TRY …​ END TRY` block, to the associated `CATCH …​ END CATCH` block. `RAISERROR` can reference a user-defined message stored in the `sys.messages` system table or can be used with dynamic message text.
+
+The key differences between `THROW` and `RAISERROR` are:
+
+- Message IDs passed to `RAISERROR` must exist in the sys.messages system table. The error number parameter passed to THROW doesn’t.
+- `RAISERROR` message text may contain `printf` formatting styles. The message text of `THROW` may not.
+- `RAISERROR` uses the severity parameter for the error returned. For `THROW`, severity is always 16.
+
+```
+RAISERROR (<Message ID>|<Message Text>, <Message Severity>, <Message State>
+[WITH option [<Option List>]])
+```
+
+The following example raises a custom error.
+
+```
+RAISERROR (N'This is a custom error message with severity 10 and state 1.', 10, 1)
+```
+
+### FORMATMESSAGE
+
+`FORMATMESSAGE` returns a sting message consisting of an existing error message in the `sys.messages` system table, or from a text string, using the optional parameter list replacements. The `FORMATMESSAGE` statement is similar to the `RAISERROR` statement.
+
+```
+FORMATMESSAGE (<Message Number> | <Message String>, <Parameter List>)
+```
+
+### Error State Functions
+
+SQL Server provides the following error state functions:
+
+- ERROR_LINE
+- ERROR_MESSAGE
+- ERROR_NUMBER
+- ERROR_PROCEDURE
+- ERROR_SEVERITY
+- ERROR_STATE
+- @@ERROR
+
+The following example uses error state functions within a `CATCH` block.
+
+```
+CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
+```
+
+```
+BEGIN TRY;
+  BEGIN TRANSACTION;
+    INSERT INTO ErrorTest(Col1) VALUES(1);
+    INSERT INTO ErrorTest(Col1) VALUES(2);
+    INSERT INTO ErrorTest(Col1) VALUES(1);
+  COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+  SELECT ERROR_LINE(),
+    ERROR_MESSAGE(),
+    ERROR_NUMBER(),
+    ERROR_PROCEDURE(),
+    ERROR_SEVERITY(),
+    ERROR_STATE(),
+    @@Error;
+THROW;
+END CATCH;
+```
+
+```
+6
+Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE543C8912D8'. Can't insert
+duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
+2627
+NULL
+14
+1
+2627
+```
+
+```
+(1 row affected)
+(1 row affected)
+(0 rows affected)
+(1 row affected)
+Msg 2627, Level 14, State 1, Line 25
+Violation of PRIMARY KEY constraint 'PK__ErrorTes__A259EE543C8912D8'. Can't insert
+duplicate key in object 'dbo.ErrorTest'. The duplicate key value is (1).
+```
+
+For more information, see [RAISERROR (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver15"), [TRY…​CATCH (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver15"), and [THROW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## PostgreSQL Usage
+
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t provide native replacement for SQL Server error handling features and options, but it has many comparable options.
+
+To trap the errors, use the `BEGIN.. EXCEPTION.. END`. By default, any error raised in a PL/pgSQL function block stops running and the surrounding transaction. You can trap and recover from errors using a `BEGIN` block with an `EXCEPTION` clause. The syntax is an extension to the normal syntax for a `BEGIN` block.
 
 ### Syntax
 
 ```
-MERGE [INTO] <Target Table> [AS] <Table Alias>]
-USING <Source Table>
-ON <Merge Predicate>
-[WHEN MATCHED [AND <Predicate>]
-THEN UPDATE SET <Column Assignments...> | DELETE]
-[WHEN NOT MATCHED [BY TARGET] [AND <Predicate>]
-THEN INSERT [(<Column List>)]
-VALUES (<Values List>) | DEFAULT VALUES]
-[WHEN NOT MATCHED BY SOURCE [AND <Predicate>]
-THEN UPDATE SET <Column Assignments...> | DELETE]
-OUTPUT [<Output Clause>]
+[ <<label>> ]
+[ DECLARE
+  declarations ]
+BEGIN
+  statements
+EXCEPTION
+  WHEN condition [ OR condition ... ] THEN
+    handler_statements
+  [ WHEN condition [ OR condition ... ] THEN
+    handler_statements
+  ... ]
+END;
 ```
+
+For the preceding example, condition is related to the error or the code. For example:
+
+- `WHEN interval_field_overflow THEN…​`
+- `WHEN SQLSTATE '22015' THEN…​`
+
+For all error codes, see [PostgreSQL Error Codes](https://www.postgresql.org/docs/13/errcodes-appendix.html "https://www.postgresql.org/docs/13/errcodes-appendix.html") in the _PostgreSQL documentation_.
+
+### Throw errors
+
+You can use the PostgreSQL `RAISE` statement to throw errors. You can combine `RAISE` with several levels of severity including:
+
+| Severity       | Usage                                                                                |
+| -------------- | ------------------------------------------------------------------------------------ |
+| DEBUG1..DEBUG5 | Provides successively more detailed information for use by developers.               |
+| INFO           | Provides information implicitly requested by the user.                               |
+| NOTICE         | Provides information that might be helpful to users.                                 |
+| WARNING        | Provides warnings of likely problems.                                                |
+| ERROR          | Reports an error that caused the current command to abort.                           |
+| LOG            | Reports information of interest to administrators. For example, checkpoint activity. |
+| FATAL          | Reports an error that caused the current session to abort.                           |
+| PANIC          | Reports an error that caused all database sessions to abort.                         |
 
 ### Examples
 
-The following example performs a simple one-way synchronization of two tables.
+The following example uses `RAISE DEBUG`, where `DEBUG` is the configurable severity level.
 
 ```
-CREATE TABLE SourceTable
-(
-  Col1 INT NOT NULL PRIMARY KEY,
-  Col2 VARCHAR(20) NOT NULL
-);
+SET CLIENT_MIN_MESSAGES = 'debug';
+
+DO $$
+BEGIN
+RAISE DEBUG USING MESSAGE := 'hello world';
+END $$;
+
+DEBUG: hello world
+DO
 ```
 
-```
-CREATE TABLE TargetTable
-(
-  Col1 INT NOT NULL PRIMARY KEY,
-  Col2 VARCHAR(20) NOT NULL
-);
-```
+The following example uses the `client_min_messages` parameter to control the level of messages sent to the client. The default is `NOTICE`. Use the `log_min_messages` parameter to control which message levels are written to the server log. The default is `WARNING`.
 
 ```
-INSERT INTO SourceTable (Col1, Col2)
-VALUES
-(2, 'Source2'),
-(3, 'Source3'),
-(4, 'Source4');
+SET CLIENT_MIN_MESSAGES = 'debug';
 ```
 
+The following example uses `EXCEPTION..WHEN…​THEN` inside `BEGIN` and `END` block to handle dividing by zero violations.
+
 ```
-INSERT INTO TargetTable (Col1, Col2)
-VALUES
-(1, 'Target1'),
-(2, 'Target2'),
-(3, 'Target3');
+CREATE TABLE ErrorTest (Col1 INT NOT NULL PRIMARY KEY);
 ```
 
 ```
-MERGE INTO TargetTable AS TGT
-USING SourceTable AS SRC ON TGT.Col1 = SRC.Col1
-WHEN MATCHED
-  THEN UPDATE SET TGT.Col2 = SRC.Col2
-WHEN NOT MATCHED
-  THEN INSERT (Col1, Col2)
-  VALUES (SRC.Col1, SRC.Col2);
+INSERT INTO employee values ('John',10);
+BEGIN
+  SELECT 5/0;
+EXCEPTION
+  WHEN division_by_zero THEN
+    RAISE NOTICE 'caught division_by_zero';
+  return 0;
+END;
 ```
 
-```
-SELECT * FROM TargetTable;
-```
+## Summary
 
-For the preceding examples, the result looks as shown following.
+The following table identifies similarities, differences, and key migration considerations.
 
-```
-Col1  Col2
-1     Target1
-2     Source2
-3     Source3
-4     Source4
-```
+| SQL Server error handling feature                         | Aurora PostgreSQL equivalent                                      |
+| --------------------------------------------------------- | ----------------------------------------------------------------- |
+| `TRY …​ END TRY` and `CATCH …​ END CATCH` blocks          | `<br>Inner<br>BEGIN<br>...<br>EXCEPTION WHEN ... THEN<br>END<br>` |
+| `THROW` and `RAISERROR`                                   | `RAISE`                                                           |
+| `FORMATMESSAGE`                                           | `RAISE [ level ] 'format'` or `ASSERT`                            |
+| Error state functions                                     | `GET STACKED DIAGNOSTICS`                                         |
+| Proprietary error messages in `sys.messages` system table | RAISE                                                             |
 
-Perform a conditional two-way synchronization using `NULL` for no change and `DELETE` from the target when the data isn’t found in the source.
-
-```
-TRUNCATE TABLE SourceTable;
-INSERT INTO SourceTable (Col1, Col2) VALUES (3, NULL), (4, 'NewSource4'), (5,'Source5');
-```
-
-```
-MERGE INTO TargetTable AS TGT
-USING SourceTable AS SRC ON TGT.Col1 = SRC.Col1
-WHEN MATCHED AND SRC.Col2 IS NOT NULL
-  THEN UPDATE SET TGT.Col2 = SRC.Col2
-WHEN NOT MATCHED
-  THEN INSERT (Col1, Col2)
-    VALUES (SRC.Col1, SRC.Col2)
-WHEN NOT MATCHED BY SOURCE
-  THEN DELETE;
-```
-
-```
-SELECT *
-FROM TargetTable;
-```
-
-For the preceding examples, the result looks as shown following.
-
-```
-Col1  Col2
-3     Source3
-4     NewSource4
-5     Source5
-```
-
-For more information, see [MERGE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## PostgreSQL Usage
-
-Currently, PostgreSQL version 10 doesn’t support the use of the `MERGE` command. As an alternative, consider using the `INSERT…​ ON CONFLICT` clause, which can handle cases where insert clauses might cause a conflict, and then redirect the operation as an update.
-
-### Examples
-
-The following example uses the `ON ONFLICT` clause.
-
-```
-CREATE TABLE EMP_BONUS (
-EMPLOYEE_ID NUMERIC,
-BONUS_YEAR VARCHAR(4),
-SALARY NUMERIC,
-BONUS NUMERIC,
-PRIMARY KEY (EMPLOYEE_ID, BONUS_YEAR));
-
-INSERT INTO EMP_BONUS (EMPLOYEE_ID, BONUS_YEAR, SALARY)
-  SELECT EMPLOYEE_ID, EXTRACT(YEAR FROM NOW()), SALARY
-  FROM EMPLOYEES
-  WHERE SALARY < 10000
-  ON CONFLICT (EMPLOYEE_ID, BONUS_YEAR)
-  DO UPDATE SET BONUS = EMP_BONUS.SALARY * 0.5;
-  SELECT * FROM EMP_BONUS;
-
-employee_id  bonus_year  salary   bonus
-103          2017        9000.00  4500.000
-104          2017        6000.00  3000.000
-105          2017        4800.00  2400.000
-106          2017        4800.00  2400.000
-107          2017        4200.00  2100.000
-109          2017        9000.00  4500.000
-110          2017        8200.00  4100.000
-111          2017        7700.00  3850.000
-112          2017        7800.00  3900.000
-113          2017        6900.00  3450.000
-115          2017        3100.00  1550.000
-116          2017        2900.00  1450.000
-117          2017        2800.00  1400.000
-118          2017        2600.00  1300.000
-```
-
-Running the same operation multiple times using the `ON CONFLICT` clause doesn’t generate an error because the existing records are redirected to the update clause.
-
-For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html "https://www.postgresql.org/docs/13/sql-insert.html") and [Unsupported Features](https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm "https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm") in the _PostgreSQL documentation_.
+For more information, see [Error Handling](https://www.postgresql.org/docs/13/ecpg-errors.html "https://www.postgresql.org/docs/13/ecpg-errors.html"), [Errors and Messages](https://www.postgresql.org/docs/13/plpgsql-errors-and-messages.html "https://www.postgresql.org/docs/13/plpgsql-errors-and-messages.html"), and [When to Log](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES "https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES") in the _PostgreSQL documentation_.
