@@ -475,9 +475,10 @@ $ gpg --edit-key 0xB840C08C29A90796A071FAA5F6CD3CE6B76F3CEF
 To verify the Deadline Cloud submitter installer, complete the following
 steps:
 
-    1. Return to the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")
-    **Downloads** page and download the signature file
-     for the Deadline Cloud submitter installer.
+    1. Download the signature file for the Deadline Cloud submitter installer.
+
+
+    [Download signature file (.sig)](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/linux/DeadlineCloudSubmitter-linux-x64-installer.run.sig "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/linux/DeadlineCloudSubmitter-linux-x64-installer.run.sig")
     2. Verify the signature of the Deadline Cloud submitter installer by
      running:
 
@@ -499,9 +500,15 @@ specific methods. For platform specific methods, see the Linux
 To verify the Deadline Cloud monitor desktop application with signature files, complete
 the following steps:
 
-    1. Return to the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")
-    **Downloads** page and download the corresponding
-     .sig file, and then run
+    1. Download the corresponding signature file for your Deadline Cloud monitor installer:
+
+
+
+
+    	* [Download .deb signature file](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb.sig "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb.sig")
+    	* [Download .rpm signature file](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm.sig "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm.sig")
+    	* [Download .AppImage signature file](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage.sig "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage.sig")
+    2. Verify the signature:
 
 
     **For .deb:**
@@ -509,7 +516,7 @@ the following steps:
 
 
     ```
-    gpg --verify ./deadline-cloud-monitor_`<APP_VERSION>`_amd64.deb.sig ./deadline-cloud-monitor_`<APP_VERSION>`_amd64.deb
+    gpg --verify ./deadline-cloud-monitor_amd64.deb.sig ./deadline-cloud-monitor_amd64.deb
     ```
 
     **For .rpm:**
@@ -517,7 +524,7 @@ the following steps:
 
 
     ```
-    gpg --verify ./deadline-cloud-monitor_`<APP_VERSION>`_x86_64.deb.sig ./deadline-cloud-monitor_`<APP_VERSION>`_x86_64.rpm
+    gpg --verify ./deadline-cloud-monitor.x86_64.rpm.sig ./deadline-cloud-monitor.x86_64.rpm
     ```
 
     **For .AppImage:**
@@ -525,9 +532,9 @@ the following steps:
 
 
     ```
-    gpg --verify ./deadline-cloud-monitor_`<APP_VERSION>`_amd64.AppImage.sig ./deadline-cloud-monitor_`<APP_VERSION>`_amd64.AppImage
+    gpg --verify ./deadline-cloud-monitor_amd64.AppImage.sig ./deadline-cloud-monitor_amd64.AppImage
     ```
-    2. Confirm that the output looks similar to the following:
+    3. Confirm that the output looks similar to the following:
 
 
     `gpg: Signature made Mon Apr 1 21:10:14 2024 UTC`
@@ -542,7 +549,7 @@ the following steps:
      successfully been verified and you can run the Deadline Cloud monitor installation
      script.
 
-###### Historical Keys
+**Historical Keys**
 
 ```
 
@@ -615,19 +622,18 @@ the Linux tab.
 debian based Linux distributions. You can verify
 the .deb file with the tool.
 
-1. From the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")
-   **Downloads** page, download the Deadline Cloud monitor .deb file.
-2. Replace `<APP_VERSION>` with the version
-   of the .deb file you want to verify.
+1. Download the Deadline Cloud monitor .deb file:
+
+[Download Deadline Cloud monitor (.deb)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb") 2. Verify the .deb file:
 
 ```
-dpkg-sig --verify deadline-cloud-monitor_`<APP_VERSION>`_amd64.deb
+dpkg-sig --verify deadline-cloud-monitor_amd64.deb
 ```
 
 3. The output will be similar to:
 
 ```
-ProcessingLinux deadline-cloud-monitor_`<APP_VERSION>`_amd64.deb...
+Processing deadline-cloud-monitor_amd64.deb...
 GOODSIG _gpgbuilder B840C08C29A90796A071FAA5F6CD3C 171200
 ```
 
@@ -638,21 +644,20 @@ Linux (RPM)
 To verify packages that use a Linux .rpm binary, first complete steps 1-3 in
 the Linux tab.
 
-1. From the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")
-   **Downloads** page, download the Deadline Cloud monitor .rpm file.
-2. Replace `<APP_VERSION>` with the version
-   of the .rpm file to verify.
+1. Download the Deadline Cloud monitor .rpm file:
+
+[Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Verify the .rpm file:
 
 ```
 gpg --export --armor "Deadline Cloud" > key.pub
 sudo rpm --import key.pub
-rpm -K deadline-cloud-monitor-`<APP_VERSION>`-1.x86_64.rpm
+rpm -K deadline-cloud-monitor.x86_64.rpm
 ```
 
 3. The output will be similar to:
 
 ```
-deadline-cloud-monitor-deadline-cloud-monitor-`<APP_VERSION>`-1.x86_64.rpm-1.x86_64.rpm: digests signatures OK
+deadline-cloud-monitor.x86_64.rpm: digests signatures OK
 ```
 
 4. To verify the .rpm file, confirm that `digests signatures OK`

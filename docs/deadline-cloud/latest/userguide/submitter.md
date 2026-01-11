@@ -38,13 +38,13 @@ submitter.
 Before you can install the Deadline Cloud submitter, you must download the submitter
 installer.
 
-1. Sign in to the AWS Management Console and open the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").
-2. From the side navigation pane, choose
-   **Downloads**.
-3. From the Deadline Cloud submitter installer section, select the
-   **installer** for your computer's operating
-   system, and then choose **Download**.
-4. (Optional) [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer").
+1. Download the submitter installer for your operating system:
+
+|                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Download for Windows](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/windows/DeadlineCloudSubmitter-windows-x64-installer.exe "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/windows/DeadlineCloudSubmitter-windows-x64-installer.exe") | [Download for Linux](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/linux/DeadlineCloudSubmitter-linux-x64-installer.run "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/linux/DeadlineCloudSubmitter-linux-x64-installer.run") | [Download for MacOS (arm64)](https://downloads.deadlinecloud.amazonaws.com/submitters/latest/macos/DeadlineCloudSubmitter-osx-installer.app.zip "https://downloads.deadlinecloud.amazonaws.com/submitters/latest/macos/DeadlineCloudSubmitter-osx-installer.app.zip") |
+
+2. (Optional) [Verify the authenticity of downloaded software](security-best-practices.md#verify-installer "security-best-practices.md#verify-installer").
 
 ### Install the Deadline Cloud
 
@@ -165,17 +165,14 @@ macOS.
 
 Windows
 
-1. If you haven't already, sign in to the AWS Management Console and open the
-   Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").
-2. From the left navigation pane, choose
-   **Downloads**.
-3. In the **Deadline Cloud monitor** section, select the latest
-   Windows file, and choose **Download**.
+1. Download the Deadline Cloud monitor installer for Windows:
+
+[Download Deadline Cloud monitor for Windows](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/DeadlineCloudMonitor_x64-setup.exe "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/DeadlineCloudMonitor_x64-setup.exe") 2. Run the downloaded installer and follow the prompts to complete the installation.
 
 To perform a silent install, use the following command:
 
 ```
-DeadlineCloudMonitor_VERSION_x64-setup.exe /S
+DeadlineCloudMonitor_x64-setup.exe /S
 ```
 
 By default the monitor is installed in
@@ -183,15 +180,16 @@ By default the monitor is installed in
 change the installation directory, use this command instead:
 
 ```
-DeadlineCloudMonitor_VERSION_x64-setup.exe /S /D={InstallDirectory}
+DeadlineCloudMonitor_x64-setup.exe /S /D={InstallDirectory}
 ```
 
 Linux (AppImage)
 
 ###### To install Deadline Cloud monitor AppImage on Debian distros
 
-1. Download the latest Deadline Cloud monitor AppImage.
-2. ###### Note
+1. Download the Deadline Cloud monitor AppImage:
+
+[Download Deadline Cloud monitor (AppImage)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage") 2. ###### Note
 
 This step is for Ubuntu 22 and up. For other versions of
 Ubuntu, skip this step.
@@ -206,15 +204,16 @@ sudo apt install libfuse2
 3. To make the AppImage executable, enter:
 
 ```
-chmod a+x deadline-cloud-monitor_`<APP_VERSION>`_amd64.AppImage
+chmod a+x deadline-cloud-monitor_amd64.AppImage
 ```
 
 Linux (Debian)
 
 ###### To install Deadline Cloud monitor Debian package on Debian distros
 
-1. Download the latest Deadline Cloud monitor Debian package.
-2. ###### Note
+1. Download the Deadline Cloud monitor Debian package:
+
+[Download Deadline Cloud monitor (.deb)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb") 2. ###### Note
 
 This step is for Ubuntu 22 and up. For other versions of
 Ubuntu, skip this step.
@@ -230,7 +229,7 @@ sudo apt install ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 
 ```
 sudo apt update
-sudo apt install ./deadline-cloud-monitor_`<APP_VERSION>`_amd64.deb
+sudo apt install ./deadline-cloud-monitor_amd64.deb
 ```
 
 4. If the install fails on packages that have unmet dependencies, fix
@@ -248,9 +247,10 @@ Linux (RPM)
 
 Linux 9
 
-1. Download the latest Deadline Cloud monitor RPM.
-2. Add the extra packages for the Enterprise Linux 9
-   repository:
+1. Download the Deadline Cloud monitor RPM:
+
+[Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Add the extra packages for the Enterprise Linux 9
+repository:
 
 ```
 sudo dnf install epel-release
@@ -259,14 +259,15 @@ sudo dnf install epel-release
 3. Install compat-openssl11 for the libssl.so.1.1 dependency:
 
 ```
-sudo dnf install compat-openssl11 deadline-cloud-monitor-`<VERSION>`-1.x86_64.rpm
+sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm
 ```
 
 ###### To install Deadline Cloud monitor RPM on Red Hat Linux 9
 
-1. Download the latest Deadline Cloud monitor RPM.
-2. Enable the CodeReady Linux Builder
-   repository:
+1. Download the Deadline Cloud monitor RPM:
+
+[Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Enable the CodeReady Linux Builder
+repository:
 
 ```
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
@@ -282,31 +283,28 @@ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noa
 4. Install compat-openssl11 for the libssl.so.1.1 dependency:
 
 ```
-sudo dnf install compat-openssl11 deadline-cloud-monitor-`<VERSION>`-1.x86_64.rpm
+sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm
 ```
 
 ###### To install Deadline Cloud monitor RPM on Rocky Linux 8, Alma
 
 Linux 8, or Red Hat Linux 8
 
-1. Download the latest Deadline Cloud monitor RPM.
-2. Install the Deadline Cloud monitor:
+1. Download the Deadline Cloud monitor RPM:
+
+[Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Install the Deadline Cloud monitor:
 
 ```
-sudo dnf install deadline-cloud-monitor-`<VERSION>`-1.x86_64.rpm
+sudo dnf install deadline-cloud-monitor.x86_64.rpm
 ```
 
 macOS (arm64)
 
-1. If you haven't already, sign in to the AWS Management Console and open the
-   Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").
-2. From the left navigation pane, choose
-   **Downloads**.
-3. In the **Deadline Cloud monitor** section, select the latest
-   macOS file, and choose **Download**.
-4. Open the downloaded file. When the window displays, select and
-   drag the Deadline Cloud monitor icon into the **Applications**
-   folder.
+1. Download the Deadline Cloud monitor installer for macOS:
+
+[Download Deadline Cloud monitor for macOS (arm64)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/Deadline Cloud Monitor aarch64.dmg "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/Deadline Cloud Monitor aarch64.dmg") 2. Open the downloaded file. When the window displays, select and
+drag the Deadline Cloud monitor icon into the **Applications**
+folder.
 
 After you complete the download, you can verify the authenticity of the downloaded
 software. You might want to do this to ensure no one has tampered with the files during
