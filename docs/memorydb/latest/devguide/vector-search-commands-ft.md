@@ -1,12 +1,11 @@
-# FT.ALIASUPDATE
+# FT.DROPINDEX
 
-Update an existing alias to point to a different physical index. This command only affects future references to the alias. Currently in-progress operations (FT.SEARCH, FT.AGGREGATE) are unaffected by this command.
+Drop an index. The index definition and associated content are deleted. Keys are unaffected.
 
 **Syntax**
 
 ```
-FT.ALIASUPDATE <alias> <index>
-
+FT.DROPINDEX <index-name>
 ```
 
 **Return**

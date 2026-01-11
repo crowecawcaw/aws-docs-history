@@ -1,110 +1,74 @@
-# Updating a subnet group
+# Deleting a subnet group
 
-You can update a subnet group's description, or modify the list of subnet IDs associated with the subnet group.
-You cannot delete a subnet ID from a subnet group if a cluster is currently using that subnet.
+If you decide that you no longer need your subnet group, you can delete it.
+You cannot delete a subnet group if it is currently in use by a cluster. You also cannot delete a subnet group on a cluster with Multi-AZ enabled if doing so leaves
+that cluster with fewer than two subnets. You must first uncheck **Multi-AZ** and then delete the subnet.
 
-The following procedures show you how to update a subnet group.
+The following procedures show you how to delete a subnet group.
 
-## Updating subnet groups (Console)
+## Deleting a subnet group (Console)
 
-###### To update a subnet group
+###### To delete a subnet group
 
 1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
 2. In the left navigation pane, choose **Subnet Groups**.
-3. In the list of subnet groups, choose the one you want to modify.
-4. **Name**, **VPCId** and **Description** fields are not modifiable.
-5. In the **Selected subnets** section click **Manage** to make any changes to the Availability Zones you need for the subnets. To save your changes, choose
-   **Save**.
+3. In the list of subnet groups,
+   choose the one you want to delete, choose **Actions** and then choose **Delete**.
 
-## Updating subnet groups (AWS CLI)
+###### Note
 
-At a command prompt, use the command `update-subnet-group` to
-update a subnet group.
+You cannot delete a default subnet group or one that is associated with any clusters. 4. The **Delete Subnet Groups** confirmation screen will appear. 5. To delete the subnet group, enter `delete` in the confirmation text box.
+
+To keep the subnet group, choose **Cancel**.
+
+## Deleting a subnet group (AWS CLI)
+
+Using the AWS CLI, call the command **delete-subnet-group** with the following
+parameter:
+
+- `--subnet-group-name` `mysubnetgroup`
 
 For Linux, macOS, or Unix:
 
 ```
-aws memorydb update-subnet-group \
-    --subnet-group-name `mysubnetgroup` \
-    --description `"New description"` \
-    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
+aws memorydb delete-subnet-group \
+    --subnet-group-name `mysubnetgroup`
 ```
 
 For Windows:
 
 ```
-aws memorydb update-subnet-group ^
-    --subnet-group-name `mysubnetgroup` ^
-    --description `"New description"` ^
-    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
+aws memorydb delete-subnet-group ^
+    --subnet-group-name `mysubnetgroup`
 ```
 
-This command should produce output similar to the following:
+For more information, see the AWS CLI topic [delete-subnet-group](../../../cli/latest/reference/memorydb/delete-subnet-group.md "../../../cli/latest/reference/memorydb/delete-subnet-group.md").
 
-```
-{
-    "SubnetGroup": {
-        "VpcId": "vpc-73cd3c17",
-        "Description": "New description",
-        "Subnets": [
-            {
-                "Identifier": "subnet-42dcf93a",
-                "AvailabilityZone": {
-                    "Name": "us-east-1a"
-                }
-            },
-            {
-                "Identifier": "subnet-48fc12a9",
-                "AvailabilityZone": {
-                    "Name": "us-east-1a"
-                }
-            }
-        ],
-        "Name": "mysubnetgroup",
-        "ARN": "arn:aws:memorydb:us-east-1:012345678912:subnetgroup/mysubnetgroup",
-    }
-}
-```
+## Deleting a subnet group (MemoryDB API)
 
-For more information, see the AWS CLI topic [update-subnet-group](../../../cli/latest/reference/memorydb/update-subnet-group.md "../../../cli/latest/reference/memorydb/update-subnet-group.md").
+Using the MemoryDB API, call `DeleteSubnetGroup` with the following
+parameter:
 
-## Updating subnet groups (MemoryDB API)
-
-Using the MemoryDB API, call `UpdateSubnetGroup` with the following
-parameters:
-
-- `SubnetGroupName=``mysubnetgroup`
-- Any other parameters whose values you want to change. This example uses
-  `Description=``New%20description`
-  to change the description of the subnet group.
+- `SubnetGroupName=`mysubnetgroup``
 
 ###### Example
 
 ```
 https://memory-db.us-east-1.amazonaws.com/
-    ?Action=UpdateSubnetGroup
-    &Description=New%20description
+    ?Action=DeleteSubnetGroup
     &SubnetGroupName=mysubnetgroup
-    &SubnetIds.member.1=subnet-42df9c3a
-    &SubnetIds.member.2=subnet-48fc21a9
     &SignatureMethod=HmacSHA256
     &SignatureVersion=4
-    &Timestamp=20141201T220302Z
-    &Version=2014-12-01
+    &Timestamp=20210801T220302Z
+    &Version=2021-01-01
     &X-Amz-Algorithm=Amazon4-HMAC-SHA256
     &X-Amz-Credential=<credential>
-    &X-Amz-Date=20141201T220302Z
-    &X-Amz-Expires=20141201T220302Z
+    &X-Amz-Date=20210801T220302Z
+    &X-Amz-Expires=20210801T220302Z
     &X-Amz-Signature=<signature>
     &X-Amz-SignedHeaders=Host
 ```
 
-###### Note
+This command produces no output.
 
-When you create a new subnet group, take note the number of available IP addresses.
-If the subnet has very few free IP addresses,
-you might be constrained as to how many more nodes you can add to the cluster.
-To resolve this issue,
-you can assign one or more subnets to a subnet group
-so that you have a sufficient number of IP addresses in your cluster's Availability Zone.
-After that, you can add more nodes to your cluster.
+For more information, see the MemoryDB API topic [DeleteSubnetGroup](../APIReference/API_DeleteSubnetGroup.md "../APIReference/API_DeleteSubnetGroup.md").
