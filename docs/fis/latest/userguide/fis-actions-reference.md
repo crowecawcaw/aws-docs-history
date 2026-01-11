@@ -1623,7 +1623,7 @@ Denies the specified traffic to the target subnets by temporarily cloning the or
 
 Blocks traffic that originates in the target subnets and is destined for the
 specified Region. Creates route tables that include all routes for the Region to isolate. To allow FIS to create these route tables,
-raise the Amazon VPC quota for `routes per route table` to 250 plus the number of routes in your existing route tables.
+raise the Amazon VPC quota for `routes per route table` to 250 (or 350 if the `region` parameter is us-east-1) plus the number of routes in your existing route tables.
 
 ###### Resource type
 

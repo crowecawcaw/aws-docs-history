@@ -224,6 +224,7 @@ The Pod container image is also available in the [AWS ECR Public Gallery](https:
 | Europe (Stockholm)        | `263175118295.dkr.ecr.eu-north-1.amazonaws.com/aws-fis-pod:0.1`     |
 | Europe (Zurich)           | `604225987275.dkr.ecr.eu-central-2.amazonaws.com/aws-fis-pod:0.1`   |
 | Middle East (Bahrain)     | `065825543785.dkr.ecr.me-south-1.amazonaws.com/aws-fis-pod:0.1`     |
+| Middle East (UAE)         | `438374459301.dkr.ecr.me-central-1.amazonaws.com/aws-fis-pod:0.1`   |
 | South America (São Paulo) | `767113787785.dkr.ecr.sa-east-1.amazonaws.com/aws-fis-pod:0.1`      |
 | AWS GovCloud (US-East)    | `246533647532.dkr.ecr.us-gov-east-1.amazonaws.com/aws-fis-pod:0.1`  |
 | AWS GovCloud (US-West)    | `246529956514.dkr.ecr.us-gov-west-1.amazonaws.com/aws-fis-pod:0.1`  |
