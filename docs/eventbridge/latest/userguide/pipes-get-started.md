@@ -3,6 +3,11 @@
 To get familiar with pipes and their capabilities, we'll use a CloudFormation template to set up an
 EventBridge pipe and associated components. Then we can explore various pipe features.
 
+###### Tip
+
+For a more comprehensive, hands-on learning experience, try the [EventBridge Pipes Workshop](https://catalog.workshops.aws/eb-pipes "https://catalog.workshops.aws/eb-pipes").
+This interactive workshop walks you through building and troubleshooting a pipe that connects DynamoDB to API Gateway with a Lambda enrichment.
+
 The template creates an EventBridge pipe that connects a stream from a DynamoDB table to an Amazon SQS
 queue. Every time a record is created or modified in the database table, the pipe sends the
 resulting event to the queue.

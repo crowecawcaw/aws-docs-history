@@ -85,6 +85,10 @@ the DLQ and the `MaximumRecordAge` controls how long the message will be visible
 to a value that is less than the source `MaximumRecordAge` so that there's adequate time between when the event gets sent to the DLQ, and when it gets automatically deleted
 by the source for you to determine why the event went to the DLQ.
 
+The `MaximumRecordAgeInSeconds` parameter applies independently of retry behavior. When polling a stream source,
+if a record's age exceeds the `MaximumRecordAgeInSeconds` value, EventBridge Pipes will not process that record, regardless of
+whether a retry situation exists. These records are sent directly to the DLQ (if configured) without any processing attempt.
+
 For Amazon MQ sources, the DLQ can be configured directly on the message broker.
 
 EventBridge Pipes does not support first-in first-out (FIFO) DLQs for stream sources.

@@ -1,6 +1,6 @@
 # Amazon Managed Streaming for Apache Kafka topic as a source in EventBridge Pipes
 
-You can use EventBridge Pipes to receive records from an [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](../../../msk/latest/developerguide/what-is-msk.md "../../../msk/latest/developerguide/what-is-msk.md") topic. You can optionally filter or enhance these records before
+You can use EventBridge Pipes to receive records from an [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](../../../msk/latest/developerguide/what-is-msk.md "../../../msk/latest/developerguide/what-is-msk.md") topic, including from the [Amazon MSK Serverless](https://aws.amazon.com/msk/features/msk-serverless/ "https://aws.amazon.com/msk/features/msk-serverless/") cluster type. You can optionally filter or enhance these records before
 sending them to one of the available destinations for processing. There are settings specific to
 Amazon MSK that you can choose when setting up a pipe. EventBridge Pipes maintains the order of the records
 from the message broker when sending that data to the destination.
