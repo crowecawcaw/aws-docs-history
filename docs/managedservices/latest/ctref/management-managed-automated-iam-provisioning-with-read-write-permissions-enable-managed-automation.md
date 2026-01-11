@@ -19,7 +19,7 @@ Enable Automated IAM provisioning with read-write permissions in the account use
 
 ### Create IAM entity or policy
 
-![](images/guiIamEntityCreateCT.png)
+![](/images/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

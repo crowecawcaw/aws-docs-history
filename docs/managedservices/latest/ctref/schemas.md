@@ -13593,8 +13593,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume1Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume1 if Volume1Type is io1, io2 or gp3. If Volume1Type is not io1, io2 or gp3, any value provided here is ignored. If Volume1Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume1 if Volume1Type is io1, io2 or gp3. If Volume1Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
         },
         "Volume1KmsKeyId": {
           "type": "string",
@@ -13608,8 +13608,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume1Size": {
           "type": "string",
-          "description": "The size for Volume1 in GiB. Gp2 = Min: 1 GiB, Max: 16384 GiB. io1 = Min: 4 GiB, Max: 16384 GiB. sc1 = Min: 500 GiB, Max: 16384 GiB. st1 = Min: 500 GiB, Max: 16384 GiB. standard = Min: 1 GiB, Max: 1024 GiB.",
-          "pattern": "^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "description": "The size for Volume1 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
+          "pattern": "^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
         },
         "Volume1Snapshot": {
           "type": "string",
@@ -13618,8 +13618,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume1Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume1 if Volume1Type is gp3. If Volume1Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume1 if Volume1Type is gp3. If Volume1Type is not gp3, any value provided here is ignored. The range is between 125 and 2000 MB/s. The default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume1Type": {
           "type": "string",
@@ -13637,8 +13637,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume2Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume2 if Volume2Type is io1, io2 or gp3. If Volume2Type is not io1, io2 or gp3, any value provided here is ignored. If Volume2Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume2 if Volume2Type is io1, io2 or gp3. If Volume2Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
         },
         "Volume2KmsKeyId": {
           "type": "string",
@@ -13652,8 +13652,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume2Size": {
           "type": "string",
-          "description": "The size for Volume2 in GiB. Gp2 = Min: 1 GiB, Max: 16384 GiB. io1 = Min: 4 GiB, Max: 16384 GiB. sc1 = Min: 500 GiB, Max: 16384 GiB. st1 = Min: 500 GiB, Max: 16384 GiB. standard = Min: 1 GiB, Max: 1024 GiB.",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "description": "The size for Volume2 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
         },
         "Volume2Snapshot": {
           "type": "string",
@@ -13662,8 +13662,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume2Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume2 if Volume2Type is gp3. If Volume2Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume2 if Volume2Type is gp3. If Volume2Type is not gp3, any value provided here is ignored. The range is between 125 and 2000 MB/s. The default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume2Type": {
           "type": "string",
@@ -13681,8 +13681,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume3Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume3 if Volume3Type is io1, io2 or gp3. If Volume3Type is not io1, io2 or gp3, any value provided here is ignored. If Volume3Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume3 if Volume3Type is io1, io2 or gp3. If Volume3Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
         },
         "Volume3KmsKeyId": {
           "type": "string",
@@ -13696,8 +13696,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume3Size": {
           "type": "string",
-          "description": "The size for Volume3 in GiB. Gp2 = Min: 1 GiB, Max: 16384 GiB. io1 = Min: 4 GiB, Max: 16384 GiB. sc1 = Min: 500 GiB, Max: 16384 GiB. st1 = Min: 500 GiB, Max: 16384 GiB. standard = Min: 1 GiB, Max: 1024 GiB.",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "description": "The size for Volume3 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
         },
         "Volume3Snapshot": {
           "type": "string",
@@ -13706,8 +13706,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume3Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume3 if Volume3Type is gp3. If Volume3Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume3 if Volume3Type is gp3. If Volume3Type is not gp3, any value provided here is ignored. The range is between 125 and 2000 MB/s. The default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume3Type": {
           "type": "string",
@@ -13725,8 +13725,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume4Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume4 if Volume4Type is io1, io2 or gp3. If Volume4Type is not io1, io2 or gp3, any value provided here is ignored. If Volume4Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume4 if Volume4Type is io1, io2 or gp3. If Volume4Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
         },
         "Volume4KmsKeyId": {
           "type": "string",
@@ -13740,8 +13740,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume4Size": {
           "type": "string",
-          "description": "The size for Volume4 in GiB. Gp2 = Min: 1 GiB, Max: 16384 GiB. io1 = Min: 4 GiB, Max: 16384 GiB. sc1 = Min: 500 GiB, Max: 16384 GiB. st1 = Min: 500 GiB, Max: 16384 GiB. standard = Min: 1 GiB, Max: 1024 GiB.",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "description": "The size for Volume4 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
         },
         "Volume4Snapshot": {
           "type": "string",
@@ -13750,8 +13750,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume4Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume4 if Volume4Type is gp3. If Volume4Type is not gp3, any value provided here is ignored. The Throughput should be between 125 and 1000. Default is 125.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume4 if Volume4Type is gp3. If Volume4Type is not gp3, any value provided here is ignored. The range is between 125 and 2000 MB/s. The default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume4Type": {
           "type": "string",
@@ -13769,8 +13769,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume5Iops": {
           "type": "string",
-          "description": "The Iops to use for Volume5 if Volume5Type is io1, io2 or gp3. If Volume5Type is not io1, io2 or gp3, any value provided here is ignored. If Volume5Type is gp3, then the Iops should be between 3000 and 16000, else it should be between 100 and 64000.",
-          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-5][0-9][0-9]{3}|[6][0-3][0-9]{3}|64000)$"
+          "description": "The Iops to use for Volume5 if Volume5Type is io1, io2 or gp3. If Volume5Type is not io1, io2 or gp3, any value provided here is ignored. The range is between 100 and 256000. Note: IOPS limits vary by volume type (io1: min 100 IOPS and max 64000 IOPS (up to 50 IOPS per GiB), io2: min 100 IOPS and max 256000 IOPS (up to 1000 IOPS per GiB), gp3: min 3000 IOPS and max 80000 IOPS).",
+          "pattern": "^$|^([1-9][0-9]{2}|[1-9][0-9]{3}|[1-9][0-9]{4}|[1-2][0-9]{5}|256000)$"
         },
         "Volume5KmsKeyId": {
           "type": "string",
@@ -13784,8 +13784,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume5Size": {
           "type": "string",
-          "description": "The size for Volume5 in GiB. Gp2 = Min: 1 GiB, Max: 16384 GiB. io1 = Min: 4 GiB, Max: 16384 GiB. sc1 = Min: 500 GiB, Max: 16384 GiB. st1 = Min: 500 GiB, Max: 16384 GiB. standard = Min: 1 GiB, Max: 1024 GiB.",
-          "pattern": "^$|^([1-9]|[1-9][0-9]{1}|[1-9][0-9]{2}|[1-9][0-9]{3}|[1][0-5][0-9]{3}||[1][6][0-3][0-8][0-4]|16384)$"
+          "description": "The size for Volume5 in GiB. Range: 1-65536 GiB. Note: Minimum sizes vary by volume type (gp2: min 1 GiB and max 16384 GiB, gp3: min 1 GiB and max 65536 GiB, io2: min 4 GiB and max 65536 GiB, io1: min 4 GiB and max 16384 GiB, st1/sc1: min 125 GiB and max 16384 GiB, standard: min 1 GiB and max 1024 GiB).",
+          "pattern": "^$|^([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65536)$"
         },
         "Volume5Snapshot": {
           "type": "string",
@@ -13794,8 +13794,8 @@ Change type schemas specify the execution input parameters for a change type.
         },
         "Volume5Throughput": {
           "type": "string",
-          "description": "The Throughput to use for Volume5 if Volume5Type is gp3. If Volume5Type is not gp3, any value provided here is ignored. Default is 125. The Throughput should be between 125 and 1000.",
-          "pattern": "^$|^([1][2][5-9]$|[1][3-9][0-9]$|[2-9][0-9][0-9]$|1000)$"
+          "description": "The Throughput to use for Volume5 if Volume5Type is gp3. If Volume5Type is not gp3, any value provided here is ignored. The range is between 125 and 2000 MB/s. The default is 125.",
+          "pattern": "^$|^(12[5-9]|1[3-9][0-9]|[2-9][0-9]{2}|1[0-9]{3}|2000)$"
         },
         "Volume5Type": {
           "type": "string",
