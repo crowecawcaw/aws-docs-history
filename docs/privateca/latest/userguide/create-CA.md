@@ -131,18 +131,11 @@ To configure **Certificate revocation options**, perform the following steps.
 
     1. Under **Certificate revocation options**,
      choose **Activate CRL distribution**.
-    2. To create an Amazon S3 bucket for your CRL entries, choose
-     **Create a new S3 bucket** and
-     type a unique bucket name. (You do not need to include the path
-     to the bucket.) Otherwise, under **S3 bucket
+    2. Under **S3 bucket
      URI**, choose an existing bucket from the list.
 
 
-    When you create a new bucket through the console, AWS Private CA
-     attempts to attach the [required
-     access policy](crl-planning.md#s3-policies "crl-planning.md#s3-policies") to the bucket, and to disable the S3
-     default Block Public Access (BPA) setting on it. If you instead
-     specify an existing bucket, you must ensure that BPA is disabled
+    When you specify an existing bucket, you must ensure that BPA is disabled
      for the account and for the bucket. Otherwise, the operation to
      create the CA fail. If the CA is created successfully, you must
      still manually attach a policy to it before you can begin
@@ -150,24 +143,6 @@ To configure **Certificate revocation options**, perform the following steps.
      [Access policies for CRLs in Amazon S3](crl-planning.md#s3-policies "crl-planning.md#s3-policies") .
      For more information, see [Adding a bucket policy using the Amazon S3
      console.](../../../AmazonS3/latest/user-guide/add-bucket-policy.md "../../../AmazonS3/latest/user-guide/add-bucket-policy.md")
-
-
-    ###### Important
-
-    An attempt to create a CA using the AWS Private CA console
-     fails if all of the following conditions apply:
-
-
-
-    	* You are setting up a CRL.
-    	* You ask AWS Private CA to create an S3 bucket
-    	 automatically.
-    	* You are enforcing BPA settings in S3.In this situation, the console creates a bucket, but
-     attempts and fails to make it publicly accessible. Check
-     your Amazon S3 settings if this occurs, disable BPA as needed,
-     and then repeat the procedure for creating a CA. For more
-     information, see [Blocking public access to your Amazon S3
-     storage](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md").
     3. Expand **CRL settings** for
      additional configuration options.
 
@@ -193,9 +168,6 @@ To configure **Certificate revocation options**, perform the following steps.
     	 For online CRLs, a validity period of 2-7 days is common.
     	 AWS Private CA tries to regenerate the CRL at the midpoint of the specified
     	 period.
-    4. Expand **S3 settings** for optional
-     configuration of **Bucket versioning** and
-     **Bucket access logging**.
 
 7.  For **Certificate revocation options**,
     choose **Turn on OCSP**.

@@ -108,8 +108,7 @@ and updates it periodically. For more information, see [Creating a bucket.](../.
 Your S3 bucket must be secured by an attached IAM permissions policy.
 Authorized users and service principals require `Put` permission to
 allow AWS Private CA to place objects in the bucket, and `Get` permission
-to retrieve them. During the console procedure for [creating](create-CA.md "create-CA.md") a CA, you can choose to let AWS Private CA create a new bucket
-and apply a default permissions policy.
+to retrieve them.
 
 ###### Note
 
