@@ -18,6 +18,7 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSConfigRemediation-RemovePrincipalStarFromS3BucketPolicy](automation-aws-remove-s3-wildcard.md "automation-aws-remove-s3-wildcard.md")
 - [AWSConfigRemediation-RestrictBucketSSLRequestsOnly](automation-aws-s3-deny-http.md "automation-aws-s3-deny-http.md")
 - [AWSSupport-TroubleshootS3PublicRead](automation-awssupport-troubleshoots3publicread.md "automation-awssupport-troubleshoots3publicread.md")
+- [AWSSupport-ConfigureS3ReplicationSameAndCrossAccount](automation-aws-configures3replicationsameandcrossaccount.md "automation-aws-configures3replicationsameandcrossaccount.md")
 - [AWSSupport-EmptyS3Bucket](automation-aws-empty-s3-bucket.md "automation-aws-empty-s3-bucket.md")
 - [AWSSupport-TroubleshootS3EventNotifications](awssupport-troubleshoot-s3-event-notifications.md "awssupport-troubleshoot-s3-event-notifications.md")
 - [AWSSupport-ContainS3Resource](automation-awssupport-contains3resource.md "automation-awssupport-contains3resource.md")

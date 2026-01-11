@@ -39,23 +39,26 @@ Default: `{{
  ssm:/aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base
  }}`
 
-Description: (Required) The ID of the Amazon Machine Image (AMI) you want to use to
-launch the management instance.
+Description: (Optional) Amazon Machine Image (AMI) id to use for launching the
+instance. By Default the instance will launch with the latest Microsoft
+Windows Server 2019 Base AMI.
 
 - DirectoryId
 
 Type: String
 
-Description: (Required) The ID of the Directory Service directory you want to manage.
-The instance is joined to the directory you specify.
+Description: (Required) The Directory Id of your Directory Service directory.
 
 - IamInstanceProfileName
 
 Type: String
 
-Description: (Required) The name you specify is applied to the IAM
-instance profile that is created by the automation and attached to the
-management instance.
+Description: (Optional) IAM instance profile name. By Default, if no
+instance profile exists with the name
+AmazonSSMDirectoryServiceInstanceProfileRole, an instance profile with
+the name AmazonSSMDirectoryServiceInstanceProfileRole will be created.
+
+Default: AmazonSSMDirectoryServiceInstanceProfileRole
 
 - InstanceType
 
@@ -80,30 +83,39 @@ Allowed values:
     + t3.xlarge
     + t3.2xlarge
 
-Description: (Required) The type of instance you want to launch.
+Description: (Optional) Type of instance to launch. Default is t3.medium.
 
 - KeyPairName
 
 Type: String
 
-Description: (Optional) The key pair to use when creating the instance. If
-you do not specify a value, no key pair is associated with the
-instance.
+Description: (Optional) Key pair to use when launching instance. Windows
+does not support ED25519 key pairs. By Default the instance is launched
+without a key pair (NoKeyPair).
+
+Default: NoKeyPair
 
 - RemoteAccessCidr
 
 Type: String
 
-Description: (Required) The CIDR block you want to allow RDP traffic (port 3389) from. The CIDR block you specify is applied to an inbound rule that's
-added to the security group created by the automation.
+Description: (Optional) Creates Security group with port for RDP (Port
+range 3389) open to IPs specified by CIDR (default is 0.0.0.0/0). If the
+security group already exists it will not be modified and rules will not
+be changed.
+
+Default: 0.0.0.0/0
 
 - SecurityGroupName
 
 Type: String
 
-Description: (Required) The name you specify is applied to the security
-group that is created by the automation and associated with the management
-instance.
+Description: (Optional) Security group name. By Default, if no security
+group exists with the name AmazonSSMDirectoryServiceSecurityGroup, a
+security group with the name AmazonSSMDirectoryServiceSecurityGroup
+will be created.
+
+Default: AmazonSSMDirectoryServiceSecurityGroup
 
 - Tags
 
@@ -111,6 +123,11 @@ Type: MapList
 
 Description: (Optional) A key-value pair you want to apply to the
 resources created by the automation.
+
+Default: `[
+ {"Key":"Description","Value":"Created by AWS Systems Manager Automation"},
+ {"Key":"Created By","Value":"AWS Systems Manager Automation"}
+ ]`
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to
