@@ -1,18 +1,13 @@
-# [OA.TI.5] Design adaptive approval workflows without compromising safety
+# [OA.TI.11] Offer optional opportunities for cross-team collaboration
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Establish approval processes and guidelines that prioritize
-speed, safety, and agility. These processes should account for factors such as risk assessment, impact analysis, and
-stakeholder engagement, while also allowing for
-feedback and improvement. Use automation and tools to
-support these processes, rather than requiring complex,
-human-driven collaboration between teams.
-
-Use data and APIs from version control systems, deployment pipelines, and
-release management tools to support automated approval processes. These tools can help
-streamline the approval process, reducing the risk of errors and delays while promoting
-agility and speed. Make all stakeholders aware of changes, and verify that they can provide input
-and feedback in a timely manner. Establish key performance indicators (KPIs) and metrics to
-measure the time it takes to submit, review, approve, and deploy changes. Use these
-metrics to drive continuous improvement in the change management process.
+Establish regular communication channels and forums to
+encourage cross-team collaboration and information sharing.
+This can include joint planning sessions, team demos, or
+cross-team retrospectives. Encourage a culture of open
+communication and collaboration across teams, sharing
+knowledge, best practices, and lessons learned. Monitor the
+effectiveness of these cross-team communication and
+collaboration opportunities and adjust the approach as needed
+based on feedback and observed outcomes.

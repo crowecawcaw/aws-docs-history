@@ -1,24 +1,34 @@
-# [OA.PPD.2] Allocate time and budget for targeted training
+# [OA.PPD.5] Recognize and reward continuous learning
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Allocate dedicated time and budget for internal and external
-training, specifically targeting areas that are necessary for
-achieving business objectives and driving transformation. This
-could include leadership training, new employee training,
-or continuous training for already
-experienced individual contributors. Identify relevant skills
-and knowledge gaps, develop a comprehensive training plan, and
-dedicate resources and time to
-complete the training. Implement feedback and evaluation
-mechanisms to measure training outcomes and identify areas for
-improvement. Exemplary organizations tend to provide financial
-support or reimbursements for costs associated with taking
-certifications or course registration fees.
+Establish measurable learning targets, including stretch
+goals, and design meaningful reward systems to encourage
+team members to meet their set targets. Regularly provide
+feedback and progress assessments, which keeps employees
+aligned with their learning goals. Emphasize the significance
+of soft skills training and how they correlate with the
+broader business and team goals. Celebrate and broadly
+acknowledge individual and team accomplishments related to
+learning and skill development to reinforce the organization's
+commitment to fostering a culture of continuous learning.
+
+Encourage individuals to pursue relevant certifications that
+align to their roles and responsibilities to validate their
+expertise and keep up to date with latest technologies and
+best practices. Consider financial incentives or
+reimbursements for successfully obtaining a certification to
+further motive team members to invest in their continued
+learning. Organizations can also host regular internal
+training sessions, workshops, or mentorship programs to
+facilitate individuals learning from one-another and help
+accelerate learning through collaboration. Exemplary
+organizations tend to introduce immersive experiential
+learning platforms that develop skills through simulation,
+hands-on problem solving, and gamification.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST01-BP03
-  Establish cloud budgets and forecasts](../cost-optimization-pillar/cost_cloud_financial_management_budget_forecast.md "../cost-optimization-pillar/cost_cloud_financial_management_budget_forecast.md")
 - [AWS Certification Paths](https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf")
-- [AWS Learning Needs Analysis](https://aws.amazon.com/training/teams/learning-needs-analysis/ "https://aws.amazon.com/training/teams/learning-needs-analysis/")
+- [AWS Ramp-Up Guide: DevOps Engineer](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf "https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf")
+- [AWS Jams](https://aws.amazon.com/professional-services/jam/ "https://aws.amazon.com/professional-services/jam/")

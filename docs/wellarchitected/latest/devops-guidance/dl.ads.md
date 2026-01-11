@@ -1,39 +1,67 @@
-# [DL.ADS.1] Test deployments in pre-production environments
+# [DL.ADS.4] Implement Incremental Feature Release Techniques
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Progressively validate software changes across multiple environments, including
-development (alpha) and testing (beta) before deploying into production. Additional staging
-environments can be introduced as needed, such as staging (gamma). These additional
-environments help to prevent the introduction of bugs in production environments, validates
-backwards compatibility, and increases the confidence in the quality of the deployment.
+Incremental feature releases gradually roll out new features
+to users, reducing risk and maintaining system stability.
+Techniques include dark launching, two-phase deployments,
+feature flags, and canary releases. These techniques enable
+safe, controlled, and iterative changes to distributed systems
+which reduces risk associated with concurrent updates and
+maintaining system stability.
 
-Each non-production deployment serves as a gate, only allowing changes to progress to
-the next stage after they pass all validations. Early issue detection and isolation prevent
-propagation to later stages or production. A controlled deployment process includes
-strategies to manage risk and support rollback if issues are identified during these test
+[Dark
+launches](https://martinfowler.com/bliki/DarkLaunching.html "https://martinfowler.com/bliki/DarkLaunching.html") allow teams to integrate and test new features
+in a live environment, without needing to make them visible to
+the entire user base. This approach allows for monitoring and
+analyzing the impact and performance of new features under
+real-world conditions, while mitigating the risk of widespread
+disruptions. Depending on system implementation and team
+preferences, dark launches can be implemented using
+versioning, A/B testing, canary releases, or most commonly,
+using feature flags.
+
+[Feature
+flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") allow developers to turn on or off certain
+features in their code base without affecting other
+functionality. This allows for testing of new features with a
+subset of users, limiting potential negative impacts. Feature
+flags provide an additional layer of control over the feature
+rollout process and can be used for A/B testing, canary
+releases, and dark launches.
+
+[Two-phase
+deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments#Two-phase_deployment_technique "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments#Two-phase_deployment_technique") complement dark launching, focusing
+primarily on managing read and write changes in a systematic
+and phased manner. Changes should first be prepared to handle
+a new update without actively implementing it (Prepare phase),
+followed by a second deployment that activates the new changes
+(Activate phase). This approach requires careful planning and
+coordination, but pays off by prioritizing data integrity and
+preventing stale records that could emerge from concurrent
+changes.
+
+The specific choice of technique, be it dark launching, two-phase deployments,
+feature flags, canary releases, or a combination, depends on your unique needs, the nature
+of the changes, the complexity of the system, and the degree of control required over the
+release process. Each of these methods offers its own advantages, and their strategic
+implementation can significantly enhance the resilience and efficiency of your
 deployments.
-
-One-box testing can be used to test backward compatibility to ensure new code changes
-coexist with and function properly with the existing code base. One-box refers to the
-testing of changes in a single unit of deployment, such as a single container or instance,
-which is configured to use production endpoints. This form of testing can be used to help
-ensure the changes interact efficiently with production endpoints of other services. This
-can be done by creating a dedicated staging environment for cross-service backward
-compatibility (zeta) testing. Services deployed to the zeta stage interact exclusively with
-production endpoints to identify potential integration issues before the code reaches the
-production stage.
 
 **Related information:**
 
-- [What
-  is Continuous Integration?](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/")
-- [What
-  is Continuous Delivery?](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
-- [Going
-  faster with continuous delivery](https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card")
-- [Automating
-  safe, hands-off deployments: Test deployments in
-  pre-production environments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments")
-- [Amazon's
-  approach to high-availability deployment](https://youtu.be/bCgD2bX1LI4 "https://youtu.be/bCgD2bX1LI4")
+- [Amazon CloudWatch Evidently](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.md")
+- [Feature
+  Flags - AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/")
+- [My
+  CI/CD pipeline is my release captain: Multiple inflight
+  releases](https://aws.amazon.com/builders-library/cicd-pipeline/#Multiple_inflight_releases "https://aws.amazon.com/builders-library/cicd-pipeline/#Multiple_inflight_releases")
+- [Ensuring
+  rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
+- [Using
+  AWS AppConfig Feature Flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/ "https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/")
+- [The
+  Only Guide to Dark Launching You'll Ever Need](https://launchdarkly.com/blog/guide-to-dark-launching/ "https://launchdarkly.com/blog/guide-to-dark-launching/")
+- [Deployment
+  Pipeline Reference Architecture: Dynamic Configuration
+  Pipeline](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html")

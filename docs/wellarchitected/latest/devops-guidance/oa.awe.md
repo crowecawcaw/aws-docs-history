@@ -1,21 +1,22 @@
-# [OA.AWE.3] Balance work schedules for diverse global teams
+# [OA.AWE.4] Provide adaptable workspaces for effective on-site collaboration
 
 **Category:** RECOMMENDED
 
-Flexible work policies for appropriate roles are recommended
-because they help organizations attract and retain skilled employees,
-while also promoting a healthy work-life balance, improving
-employee satisfaction, and facilitating global collaboration.
-Establish policies and guidelines that facilitate remote work and
-flexible schedules, while fostering communication and
-collaboration among team members across different time zones
-and locations.
+Having a flexible and reconfigurable workspace environment promotes DevOps adoption
+by allowing for customizable collaboration and communication methods that fit individual
+and team needs. When teams work in the office or use a hybrid approach that requires meeting
+in person, they require tools and equipment to support their unique ways of
+working. If your team is fully remote and does not ever meet in person in a designated
+office, this capability might not apply to your organization.
 
-Use techniques such as _follow-the-sun_ support models and
-handovers to promote seamless collaboration across different time zones. Schedule meetings
-that are convenient for all team members or record and share information if such
-scheduling is not feasible. Provide employees with the necessary technology and tools to
-effectively work remotely, while protecting company information through
-appropriate security measures. Seek feedback from employees to refine and
-improve the organization's remote work and flexible schedule policies to better meet the
-needs and preferences of its workforce.
+Evaluate the current workspace layout and identify areas that can be reconfigured to
+better support in-person collaboration. Arrange the seating of teams and team members
+working on the same products or closely collaborating teams to be in close proximity to
+each other. This arrangement improves communication, collaboration, and
+problem resolution among team members. Provide on-site collaboration tools, such as meeting
+rooms, physical and virtual whiteboards, projectors, and conferencing equipment.
+
+Keep the workplace area clean, organized, and accessible
+for all employees. Gather feedback from teams to assess the
+effectiveness of the workspace environments, and make necessary
+improvements to be sure that they meet the needs of the teams.

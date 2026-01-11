@@ -1,27 +1,46 @@
-# [AG.ACG.7] Use automated tools for scalable cost management
+# [AG.ACG.9] Integrate software provenance tracking throughout the development lifecycle
 
 **Category:** RECOMMENDED
 
-Automated cost management tools enable teams to remain agile
-and innovative while maintaining budgetary control. As
-deployment frequency increases due to DevOps improvements, it
-becomes important to put in place guardrails to control
-costs. 
+Software provenance tracking inspects the origin and evolution
+of software components throughout their lifecycle to
+understand where a piece of software originated, its
+development and update history, and its distribution.
+Provenance tracking ensures the integrity of software,
+maintains compliance, and enhances the security of the
+software supply chain throughout the development
+lifecycle. Effective provenance tracking can prevent the
+introduction of insecure components, offer early detection of
+potential vulnerabilities, and provide insights for timely
+remediation.
 
-Use automated cost tracking mechanisms, such as cost budgets
-and alerts, and tag resources for cost allocation. Use cloud
-native cost management tools to monitor and report cloud
-expenditure continuously. Ensure these tools can alert teams
-when costs are approaching or exceeding budgeted amounts, and
-where possible, consider implementing auto-remediation methods
-to optimize resource usage, apply savings plans or reserved
-instances, and decommission unused resources.
+Developers are encouraged to use the best tools for the task
+at hand, often including third-party software components.
+These third-party elements can introduce an additional layer
+of complexity and potential risk. Implementing software
+provenance tracking mitigates these risks by promoting better
+visibility into the lifecycle of software components, thereby
+increasing accountability, transparency, and trust.
+
+Provenance tracking should be integrated into all stages of
+the development lifecycle. For instance, source code
+provenance should be tracked at the time of code check-in or
+commit into Version Control Systems like Git, while the
+provenance of third-party components should be verified at the
+time of component acquisition and usage using tools like
+Software Composition Analysis (SCA). A
+[Software
+Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md") can be used as a detailed list
+of all components within your software, including the exact
+version, digital signatures, and origin of each one.
+
+Verify provenance at build and deploy time. Use digital signatures and hashing
+algorithms to verify the integrity and provenance of software artifacts as part of the
+deployment pipeline, validating the signature of an artifact against a trusted source
+before it is used. It can also be useful to check running software continuously to
+identify compromised or outdated software components post-deployment.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST02-BP05
-  Implement cost controls](../cost-optimization-pillar/cost_govern_usage_controls.md "../cost-optimization-pillar/cost_govern_usage_controls.md")
-- [Cloud
-  Financial Management](../management-and-governance-guide/cloudfinancialmanagement.md "../management-and-governance-guide/cloudfinancialmanagement.md")
-- [AWS Billing and Cost Management Conductor](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/")
-- [AWS Cost Anomaly Detection](https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/ "https://aws.amazon.com/aws-cost-management/aws-cost-anomaly-detection/")
+- [SLSA
+  specification](https://slsa.dev/spec/v1.0/ "https://slsa.dev/spec/v1.0/")

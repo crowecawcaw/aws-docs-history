@@ -1,34 +1,37 @@
-# [QA.DT.4] Detect and mitigate data issues with anomaly detection
+# [QA.DT.1] Ensure data integrity and accuracy with data quality tests
 
-**Category:** OPTIONAL
+**Category:** RECOMMENDED
 
-Data anomaly detection is a specialized form of anomaly
-detection which focuses on identifying unusual patterns or
-behaviors in data quality metrics that may indicate data
-quality issues.
+Data quality tests assess the accuracy, consistency, and overall quality of the data
+used within the application or system. These tests typically involve validating data
+against predefined rules and checking for duplicate or missing data to ensure the dataset
+remains reliable. While data quality testing might not fall under the traditional
+definitions of functional or non-functional testing, it's still an essential aspect of
+ensuring that an application or system functions correctly, as the quality of data can
+significantly impact the overall performance, user experience, and reliability of the
+software.
 
-Consider integrating machine learning algorithms and
-statistical methods into your data quality monitoring
-processes. Use tools that can detect and address data
-anomalies in real-time and incorporate them into your
-development and deployment workflows. This enables automated
-assessment of the accuracy and reliability of data processing
-and analysis, enhancing the overall performance of your
-applications and systems.
+We recommend data quality tests because they enable rapid
+software delivery and continuous improvement of data driving
+systems. Using data quality tests, teams can spend more of
+their time focusing on how data should appear rather than
+continually checking it for accuracy, streamlining the
+development and deployment process. To calculate data quality
+metrics on your dataset, define and verify data quality
+constraints, and be informed about changes in the data
+distribution. Instead of implementing checks and verification
+algorithms on your own, you can focus on describing how your
+data should look.
 
 **Related information:**
 
-- [What
-  Is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection/ "https://aws.amazon.com/what-is/anomaly-detection/")
+- [Getting
+  started with AWS Glue Data Quality from the AWSAWS Glue Data Catalog](https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-from-the-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-from-the-aws-glue-data-catalog/")
+- [Deequ
+
+* Unit Tests for Data](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ")
+
 - [Test
   data quality at scale with Deequ](https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/ "https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/")
-- [Deequ
-  anomaly detection](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/anomaly_detection_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/anomaly_detection_example.md")
-- [Amazon
-  Lookout for Metrics](https://aws.amazon.com/lookout-for-metrics/ "https://aws.amazon.com/lookout-for-metrics/")
-- [Introducing
-  Amazon Lookout for Metrics: An anomaly detection service
-  to proactively monitor the health of your business](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-lookout-for-metrics-an-anomaly-detection-service-to-proactively-monitor-the-health-of-your-business/ "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-lookout-for-metrics-an-anomaly-detection-service-to-proactively-monitor-the-health-of-your-business/")
-- [Quick Suite: ML-powered anomaly detection for
-  outliers](../../../quicksight/latest/user/anomaly-detection-function.md "../../../quicksight/latest/user/anomaly-detection-function.md")
-- [Amazon Kinesis: Detecting Data Anomalies on a Stream](../../../kinesisanalytics/latest/dev/app-anomaly-detection.md "../../../kinesisanalytics/latest/dev/app-anomaly-detection.md")
+- [How
+  to Architect Data Quality on the AWS Cloud](https://aws.amazon.com/blogs/industries/how-to-architect-data-quality-on-the-aws-cloud/ "https://aws.amazon.com/blogs/industries/how-to-architect-data-quality-on-the-aws-cloud/")

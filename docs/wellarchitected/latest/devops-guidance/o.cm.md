@@ -1,40 +1,36 @@
-# [O.CM.10] Proactively detect issues using AI/ML
+# [O.CM.1] Automate alerts for security and performance issues
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-Adopt data-driven AI/ML monitoring tools and techniques like Artificial Intelligence
-Operations (AIOps), ML-powered anomaly detection, and predictive analytics solutions, to
-detect issues and performance bottlenecks proactively—even before system performance is
-impacted.
+Alerts should automatically notify teams when there are indicators of malicious
+activity, compromise, or performance degradation. Effective alerting accelerates incident
+response times, enabling teams to quickly address and resolve issues before they can
+significantly impact system performance or security. Without automatic alerting, teams can
+suffer from delayed response times that can lead to prolonged system downtime or increased
+exposure to security threats.
 
-Choose a tool that can leverage data and analytics to
-automatically infer predictions, and begin to feed data to it
-and inject failure to test the validity of the tool. These
-tools should have access to both historical and real-time
-data. Once operational, the tool can automatically detect
-issues, predict impending resource exhaustion, detail likely
-causes, and recommend remediation actions to the team. Ensure
-that there is a feedback loop to continuously train and refine
-these models based on real-world data and incidents.
+Implement centralized alerting mechanisms to track anomalous behavior across all
+systems. Define specific conditions and thresholds that, when breached, will raise alerts.
+Verify that the alerts are delivered to the appropriate teams by email, text message, or the
+team's preferred notification system. Integrating these alerts into your centralized
+incident management systems can also help in the automatic creation of tickets, aiding
+faster resolution.
 
-Start small when setting up alerts from these tools to avoid
-alert fatigue and maintain trust in the system. As the tool
-becomes more familiar with the data patterns, teams can
-gradually increase the alerting scope. Regularly validate the
-tool's predictions by injecting failures and observing the
-responses.
+In a more advanced workflow, alerts can be integrated with automated governance
+systems to start remediation actions immediately upon detection or to gather additional
+insights that will aid investigations.
 
 **Related information:**
 
-- [Machine-Learning-Powered
-  DevOps - Amazon DevOps Guru](https://aws.amazon.com/devops-guru/ "https://aws.amazon.com/devops-guru/")
-- [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/")
-- [Continuous
-  Monitoring and Threat Detection](https://aws.amazon.com/security/continuous-monitoring-threat-detection/ "https://aws.amazon.com/security/continuous-monitoring-threat-detection/")
-- [Gaining
-  operational insights with AIOps using Amazon DevOps Guru
-  Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/f92df379-6add-4101-8b4b-38b788e1222b/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/f92df379-6add-4101-8b4b-38b788e1222b/en-US")
+- [AWS Well-Architected Performance Pillar: PERF07-BP06 Monitor
+  and alarm proactively](../performance-efficiency-pillar/perf_monitor_instances_post_launch_proactive.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_proactive.md")
+- [AWS Well-Architected Reliability Pillar: REL06-BP03 Send
+  notifications (Real-time processing and alarming)](../reliability-pillar/rel_monitor_aws_resources_notification_monitor.md "../reliability-pillar/rel_monitor_aws_resources_notification_monitor.md")
 - [What
-  Is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection "https://aws.amazon.com/what-is/anomaly-detection")
-- [What
-  Is Predictive Analytics?](https://aws.amazon.com/what-is/predictive-analytics "https://aws.amazon.com/what-is/predictive-analytics")
+  is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection/ "https://aws.amazon.com/what-is/anomaly-detection/")
+- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
+- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
+- [AWS Health Aware](https://github.com/aws-samples/aws-health-aware/ "https://github.com/aws-samples/aws-health-aware/")
+- [Amazon's
+  approach to high-availability deployment: Anomaly
+  detection](https://youtu.be/bCgD2bX1LI4?t=2493 "https://youtu.be/bCgD2bX1LI4?t=2493")

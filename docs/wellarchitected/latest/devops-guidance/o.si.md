@@ -1,45 +1,48 @@
-# [O.SI.4] Build health checks into every service
+# [O.SI.2] Centralize tooling for streamlined system instrumentation and telemetry data interpretation
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Each service within a system should be configured to include a health check endpoint
-which provides real-time insight into how the system and its dependencies are performing.
-Usually manifested as a secure and private HTTP health endpoint (for example,
-`/actuator/health`), this feature serves as a critical component in
-monitoring the health status of the overall system, generally including information such
-as operating status, versions of software running, database response time, and memory
-consumption. By offering lightweight and fast-responding feedback, they enable sustaining
-system reliability and availability, two attributes that directly impact customer
-experience and service credibility.
+Centralized observability platforms are able to offer user-friendly, self-service
+capabilities to individual teams that simplify embedding visibility into system components
+and their dependencies. These tools streamline the onboarding process and offer
+auto-instrumentation capabilities to automate the monitoring of applications.
 
-Observability, governance, and testing tools can invoke these
-health check endpoints periodically, ensuring the continuous
-evaluation of system health. However, implementing them should
-be done with precautionary measures like rate-limiting,
-thresholding, and circuit breakers to avoid overwhelming the
-system and to involve human intervention when required.
+Adopt an observability platform that provides observability to teams using the
+_X as a Service_ (XaaS) interaction mode as defined in the [Team Topologies](https://teamtopologies.com/ "https://teamtopologies.com/") book by Matthew Skelton and
+Manuel Pais. The platform needs to support ingesting the required data sources for effective
+monitoring, and provide the desired level of visibility into the system components and their
+dependencies.
 
-Integrating health check endpoints is highly recommended for
-larger, more complex systems or any environment where system
-availability and rapid issue resolution need to be
-prioritized. In systems with high interoperability, such as
-microservices architecture, the presence of health check
-endpoints in every service becomes even more critical as they
-help identify issues related to specific services in the
-system. This can significantly reduce the debugging time and
-enhance the efficiency of the development process.
+Onboarding to the platform should be easy for teams, or support auto-instrumentation
+to automatically monitor applications for a hands-off experience. This enables the
+organization to achieve real-time visibility into system data and improve the ability to
+identify and resolve issues quickly.
 
-For mission critical workloads it may be beneficial to explore
-additional mitigation strategies to prevent widespread failure
-due to faulty deployments. These strategies could include
-alerting mechanisms when overall fleet size, load, latency, or
-error rate are abnormal, and phased deployments to ensure
-thorough testing before full-scale implementation. These
-preventive deployment measures complement health check
-endpoints and can prevent a potentially flawed deployment from
-propagating throughout the entire system.
+The observability platform should offer capabilities to follow
+requests through the system, the services it interacts with,
+the state of the infrastructure that these services run on,
+and the impact of each of these on user experience. By
+understanding the entire request pathway, teams can identify
+where slowdowns or bottlenecks occur, whether this latency is
+caused by hardware or dependencies between microservices that
+weren't identified during development.
+
+As the observability platform matures, it could begin to offer other capabilities
+such as trend analysis, anomaly detection, and automated responses, ultimately aiming to
+reduce the mean time to detect ([MTTD](../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttd.md "../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttd.md")) and the mean time to resolve ([MTTR](../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttr.md "../../../whitepapers/latest/availability-and-beyond-improving-resilience/reducing-mttr.md")) any issues. This can lead to reduced downtime and improved ability to
+achieve desired business outcomes.
 
 **Related information:**
 
-- [Implementing
-  health checks](https://aws.amazon.com/builders-library/implementing-health-checks/ "https://aws.amazon.com/builders-library/implementing-health-checks/")
+- [AWS observability tools](../management-and-governance-guide/aws-observability-tools.md "../management-and-governance-guide/aws-observability-tools.md")
+- [What
+  is Amazon CloudWatch Application Insights?](../../../AmazonCloudWatch/latest/monitoring/appinsights-what-is.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-what-is.md")
+- [Integrated
+  observability partners](../management-and-governance-guide/integrated-observability-partners.md "../management-and-governance-guide/integrated-observability-partners.md")
+- [Observability
+  Access Manager](https://github.com/aws-samples/cloudwatch-obervability-access-manager-terraform "https://github.com/aws-samples/cloudwatch-obervability-access-manager-terraform")
+- [Apache
+  DevLake](https://devlake.apache.org/ "https://devlake.apache.org/")
+- [The
+  Amazon Software Development Process: Self-Service
+  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")
