@@ -11,7 +11,7 @@ using the meeting from the meeting bridge information. For more information abou
 
 1. On the left control bar, choose the **Meeting bridge information** icon (
 
-![An icon showing a lowercase letter i in a circle.](images/left-control-1.png)
+![An icon showing a lowercase letter i in a circle.](/images/chime/latest/ug/images/left-control-1.png)
 
 ), or press
 **Ctrl**
@@ -29,7 +29,7 @@ using the meeting from the meeting bridge information. For more information abou
 
 1. On the left control bar, choose the **Meeting bridge information** icon (
 
-![An icon showing a lowercase letter i in a circle.](images/left-control-1.png)
+![An icon showing a lowercase letter i in a circle.](/images/chime/latest/ug/images/left-control-1.png)
 
 ), or press
 **Ctrl**

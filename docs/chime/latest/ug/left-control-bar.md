@@ -36,7 +36,7 @@ in-meeting chat messages. For more information, see [Using in-meeting chat](meet
 
 \*\*Closed captions (
 
-![An icon of a box surrounding the letters CC.](images/left-control-4.png)
+![An icon of a box surrounding the letters CC.](/images/chime/latest/ug/images/left-control-4.png)
 
 )\*\*
 
