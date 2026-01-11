@@ -97,11 +97,12 @@ multiple times. For information about rule action behaviors, see [Using rule act
 
 ###### Sampled requests for rules in managed rule groups
 
-In the console, sampled requests are available for managed rule group rules only if they
-either don't have action overrides or if the action overrides use the most recent override configuration setting,
-`RuleActionOverrides`. Rule action overrides that use the older `ExcludedRules` setting are not available through the console.
-If you're not seeing all of the managed rule group request samples that you expect, check your protection pack (web ACL)
-JSON for overrides that use the older setting. You can download the JSON from the protection pack (web ACL)'s console page.
+The console shows metrics for rule groups with "rule inside rule
+group" specifying the rule that was triggered. You can view metrics for default
+action rulesets and rules using the most recent `RuleActionOverrides`
+setting. For rules using the older `ExcludedRules` setting, select
+the specific rule from within the ruleset from the **Sampled
+Requests** metrics rule dropdown.
 
 If you see the older settings, replace them with the new settings to start making the sampled
 requests available through the console. You can do this through the console by editing

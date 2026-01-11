@@ -94,3 +94,5 @@ leaves the policy scope, Firewall Manager follows these guidelines:
     automatically disassociated from the replicated security group when
     it leaves the policy scope. The replicated security group and its
     resources are automatically removed from protection.
+  - Firewall Manager deletes the logging configuration regardless of the resource cleanup option value
+    when a member account leaves the scope or when the policy is deleted.
