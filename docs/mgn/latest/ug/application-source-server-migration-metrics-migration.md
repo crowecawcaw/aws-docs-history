@@ -7,7 +7,7 @@ shows an aggregated overview of the application associated servers migration
 lifecycle. You can look up an individual source server **Migration lifecycle** status at the **Source
 servers** table at the bottom of the page.
 
-![Pie chart showing migration lifecycle status: 33.3% each for Ready for cutover, Ready for test, and Not ready.](images/app-9.png)
+![Pie chart showing migration lifecycle status: 33.3% each for Ready for cutover, Ready for test, and Not ready.](/images/mgn/latest/ug/images/app-9.png)
 Source server **Migration lifecycle** can have
 one of the following values:
 

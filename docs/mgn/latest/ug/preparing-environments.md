@@ -50,8 +50,9 @@ However, if you have specific requirements to use the Local Zone for the staging
     `https://mgn.`aws-region`.amazonaws.com/`. Replace `aws-region` with the
     AWS Region code you are replicating to, for example “us-east-1”
   - Dual-stack compatible Application Migration Service API endpoint at
-    `https://mgn.dualstack.`aws-region`.amazonaws.com`. Replace `aws-region` with the
-    AWS Region code you are replicating to, for example “us-east-1”
+    `https://mgn.`aws-region`.api.aws`. Replace
+    `aws-region` with the AWS Region code you are
+    replicating to, for example “us-east-1”
 
 - The source servers on which the AWS Replication Agent is installed need be able to send
   data over TCP port 1500 to the replication servers in the staging area subnet. They also need to
@@ -120,6 +121,8 @@ https://amazon-ssm-<REGION>.s3.<REGION>.amazonaws.com/
 ```
 
 ###### Note
+
+Learn more about S3 dual-stack endpoints in [Amazon S3 dual-stack endpoints](../../../AmazonS3/latest/API/dual-stack-endpoints.md#dual-stack-endpoints-description "../../../AmazonS3/latest/API/dual-stack-endpoints.md#dual-stack-endpoints-description").
 
 Agent installation and replication server components require Amazon S3 bucket for service functionality.
 

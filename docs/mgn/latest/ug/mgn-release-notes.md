@@ -7,6 +7,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 - You can now use Application Migration Service over Internet Protocol version 6 (IPv6) for both service
   communication and application migrations.
 - Added support for Rocky OS versions 9-9.6.
+- Added support for RHEL OS version 10.
 
 ## October 2025
 
