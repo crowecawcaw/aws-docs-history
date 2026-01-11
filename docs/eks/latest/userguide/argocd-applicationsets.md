@@ -9,9 +9,13 @@ ApplicationSets generate multiple Applications from templates, enabling you to d
 ## Prerequisites
 
 - An EKS cluster with the Argo CD capability created
-- Multiple target clusters registered (see [Register target clusters](argocd-register-clusters.md "argocd-register-clusters.md"))
 - Repository access configured (see [Configure repository access](argocd-configure-repositories.md "argocd-configure-repositories.md"))
 - `kubectl` configured to communicate with your cluster
+
+###### Note
+
+Multiple target clusters are not required for ApplicationSets.
+You can use generators other than the cluster generator (like list, git, or matrix generators) to deploy applications without remote clusters.
 
 ## How ApplicationSets work
 
@@ -24,6 +28,7 @@ Common generators for EKS deployments:
 - **Cluster generator** - Automatically deploy to all registered clusters
 - **Git generator** - Generate Applications from repository structure
 - **Matrix generator** - Combine generators for multi-dimensional deployments
+- **Merge generator** - Merge parameters from multiple generators
 
 For complete generator reference, see [ApplicationSet Documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/ "https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/").
 
@@ -41,14 +46,11 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: arn:aws:eks:us-west-2:111122223333:cluster/dev-cluster
-        environment: dev
+      - environment: dev
         replicas: "2"
-      - cluster: arn:aws:eks:us-west-2:111122223333:cluster/staging-cluster
-        environment: staging
+      - environment: staging
         replicas: "3"
-      - cluster: arn:aws:eks:us-west-2:111122223333:cluster/prod-cluster
-        environment: prod
+      - environment: prod
         replicas: "5"
   template:
     metadata:
@@ -60,7 +62,7 @@ spec:
         targetRevision: HEAD
         path: 'overlays/{{environment}}'
       destination:
-        server: '{{cluster}}'
+        name: '{{environment}}-cluster'
         namespace: guestbook
       syncPolicy:
         automated:
@@ -70,8 +72,8 @@ spec:
 
 ###### Note
 
-Use EKS cluster ARNs in the `server` field when targeting registered EKS clusters.
-You can also use cluster names with `destination.name` instead of `destination.server`.
+Use `destination.name` with cluster names for better readability.
+The `destination.server` field also works with EKS cluster ARNs if needed.
 
 This creates three Applications: `guestbook-dev`, `guestbook-staging`, and `guestbook-prod`.
 
@@ -110,6 +112,8 @@ This automatically creates an Application for each registered cluster.
 
 **Filter clusters**:
 
+Use `matchLabels` to include specific clusters, or `matchExpressions` to exclude clusters:
+
 ```
 spec:
   generators:
@@ -117,6 +121,9 @@ spec:
       selector:
         matchLabels:
           environment: production
+        matchExpressions:
+        - key: skip-appset
+          operator: DoesNotExist
 ```
 
 ## Git generators
@@ -151,7 +158,7 @@ spec:
         targetRevision: HEAD
         path: '{{path}}'
       destination:
-        server: arn:aws:eks:us-west-2:111122223333:cluster/my-cluster
+        name: my-cluster
         namespace: '{{path.basename}}'
       syncPolicy:
         automated:
@@ -196,51 +203,11 @@ spec:
         targetRevision: HEAD
         path: 'overlays/{{environment}}'
       destination:
-        server: '{{server}}'
+        name: '{{name}}'
         namespace: 'app-{{environment}}'
 ```
 
 For details on combining generators, see [Matrix Generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/") in the Argo CD documentation.
-
-## Progressive rollout
-
-Deploy to environments sequentially with different sync policies:
-
-```
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: progressive-rollout
-  namespace: argocd
-spec:
-  generators:
-  - list:
-      elements:
-      - environment: dev
-        autoSync: "true"
-      - environment: staging
-        autoSync: "true"
-      - environment: prod
-        autoSync: "false"
-  template:
-    metadata:
-      name: 'app-{{environment}}'
-    spec:
-      project: default
-      source:
-        repoURL: https://github.com/example/app
-        targetRevision: HEAD
-        path: 'overlays/{{environment}}'
-      destination:
-        server: arn:aws:eks:us-west-2:111122223333:cluster/{{environment}}-cluster
-        namespace: app
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: '{{autoSync}}'
-```
-
-Dev and staging sync automatically, while production requires manual approval.
 
 ## Multi-region deployment
 
@@ -256,11 +223,11 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: arn:aws:eks:us-west-2:111122223333:cluster/prod-us-west
+      - clusterName: prod-us-west
         region: us-west-2
-      - cluster: arn:aws:eks:us-east-1:111122223333:cluster/prod-us-east
+      - clusterName: prod-us-east
         region: us-east-1
-      - cluster: arn:aws:eks:eu-west-1:111122223333:cluster/prod-eu-west
+      - clusterName: prod-eu-west
         region: eu-west-1
   template:
     metadata:
@@ -276,7 +243,7 @@ spec:
           - name: region
             value: '{{region}}'
       destination:
-        server: '{{cluster}}'
+        name: '{{clusterName}}'
         namespace: app
       syncPolicy:
         automated:
@@ -312,6 +279,14 @@ kubectl delete applicationset <name> -n argocd
 
 Deleting an ApplicationSet deletes all generated Applications.
 If those Applications have `prune: true`, their resources will also be deleted from target clusters.
+
+To preserve deployed resources when deleting an ApplicationSet, set `.syncPolicy.preserveResourcesOnDeletion` to `true` in the ApplicationSet spec.
+For more information, see [Application Pruning & Resource Deletion](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Application-Deletion/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Application-Deletion/") in the Argo CD documentation.
+
+###### Important
+
+Argo CD’s ApplicationSets feature has security considerations you should be aware of before using ApplicationSets.
+For more information, see [ApplicationSet Security](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Security/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Security/") in the Argo CD documentation.
 
 ## Additional resources
 

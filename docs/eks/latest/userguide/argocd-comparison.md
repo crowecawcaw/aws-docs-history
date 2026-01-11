@@ -20,17 +20,31 @@ The EKS Capability for Argo CD is based on upstream Argo CD but differs in how i
 
 **Direct AWS service integration**: The capability provides direct integration with AWS services through the Capability Role’s IAM permissions. You can reference CodeCommit repositories, ECR Helm charts, and CodeConnections directly in Application resources without creating Repository configurations. This simplifies authentication and eliminates the need to manage separate credentials for AWS services. See [Configure repository access](argocd-configure-repositories.md "argocd-configure-repositories.md") for details.
 
-**Namespace support**: The capability initially supports deploying applications to a single namespace, which you specify when creating the capability. Support for applications in multiple namespaces may be added in future releases.
+**Namespace support**: The capability requires you to specify a single namespace where Argo CD Application, ApplicationSet, and AppProject custom resources must be created.
+
+###### Note
+
+This namespace restriction only applies to Argo CD’s own custom resources (Application, ApplicationSet, AppProject).
+Your application workloads can be deployed to any namespace in any target cluster.
+For example, if you create the capability with namespace `argocd`, all Application CRs must be created in the `argocd` namespace, but those Applications can deploy workloads to `default`, `production`, `staging`, or any other namespace.
+
+###### Note
+
+The managed capability has specific requirements for CLI usage and AppProject configuration:
+
+- When using the Argo CD CLI, specify applications with the namespace prefix: `argocd app sync namespace/appname`
+- AppProject resources must specify `.spec.sourceNamespaces` to define which namespaces the project can watch for Applications (typically set to the namespace you specified when creating the capability)
+- Resource tracking annotations use the format: `namespace_appname:group/kind:namespace/name`
 
 **Unsupported features**: The following features are not available in the managed capability:
 
 - Config Management Plugins (CMPs) for custom manifest generation
 - Custom Lua scripts for resource health assessment (built-in health checks for standard resources are supported)
 - The Notifications controller
-- Argo CD Image Updater
 - Custom SSO providers (only AWS Identity Center is supported, including third-party federated identity through AWS Identity Center)
 - UI extensions and custom banners
 - Direct access to `argocd-cm`, `argocd-params`, and other configuration ConfigMaps
+- Modifying the sync timeout (fixed at 120 seconds)
 
 **Compatibility**: Applications and ApplicationSets work identically to upstream Argo CD with no changes to your manifests. The capability uses the same Kubernetes APIs and CRDs, so tools like `kubectl` work the same way. The capability fully supports Applications and ApplicationSets, GitOps workflows with automatic sync, multi-cluster deployments, sync policies (automated, prune, self-heal), sync waves and hooks, health assessment for standard Kubernetes resources, rollback capabilities, Git repository sources (HTTPS and SSH), Helm, Kustomize, and plain YAML manifests, GitHub app credentials, projects for multi-tenancy, and resource exclusions and inclusions.
 
@@ -46,7 +60,8 @@ Install the Argo CD CLI following the [upstream installation instructions](https
 
 Configure the CLI using environment variables:
 
-1. Get the Argo CD server URL from the EKS console (under your cluster’s **Capabilities** tab), or using the AWS CLI:
+1. Get the Argo CD server URL from the EKS console (under your cluster’s **Capabilities** tab), or using the AWS CLI.
+   The `https://` prefix must be removed:
 
 ```
 export ARGOCD_SERVER=$(aws eks describe-capability \
@@ -54,7 +69,7 @@ export ARGOCD_SERVER=$(aws eks describe-capability \
   --capability-name `my-argocd` \
   --query 'capability.configuration.argoCd.serverUrl' \
   --output text \
-  --region `region-code`)
+  --region `region-code` | sed 's|^https://||')
 ```
 
 2. Generate an account token from the Argo CD UI (**Settings** → **Accounts** → **admin** → **Generate New Token**), then set it as an environment variable:
@@ -109,8 +124,8 @@ For complete Argo CD CLI documentation, see the [Argo CD CLI reference](https://
 
 You can migrate from self-managed Argo CD to the managed capability:
 
-1. Review your current Argo CD configuration for unsupported features (Notifications controller, CMPs, custom health checks)
-2. Scale your self-managed Argo CD controllers to zero replicas
+1. Review your current Argo CD configuration for unsupported features (Notifications controller, CMPs, custom health checks, UI extensions)
+2. Scale your self-managed Argo CD controllers to zero replicas to prevent conflicts
 3. Create an Argo CD capability resource on your cluster
 4. Export your existing Applications, ApplicationSets, and AppProjects
 5. Migrate repository credentials, cluster secrets, and repository credential templates (repocreds)

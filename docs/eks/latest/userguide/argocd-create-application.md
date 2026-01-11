@@ -33,14 +33,14 @@ spec:
     targetRevision: HEAD
     path: guestbook
   destination:
-    server: arn:aws:eks:us-west-2:111122223333:cluster/my-cluster
+    name: in-cluster
     namespace: default
 ```
 
-###### Important
+###### Note
 
-Use the EKS cluster ARN in the `destination.server` field, not the Kubernetes API server URL.
-The managed capability requires ARNs to identify clusters.
+Use `destination.name` with the cluster name you used when registering the cluster (like `in-cluster` for the local cluster).
+The `destination.server` field also works with EKS cluster ARNs, but using cluster names is recommended for better readability.
 
 Apply the Application:
 
@@ -89,6 +89,24 @@ spec:
       - name: image.tag
         value: v1.2.0
 ```
+
+**Helm chart with values from external Git repository** (multi-source pattern):
+
+```
+spec:
+  sources:
+  - repoURL: https://github.com/example/helm-charts
+    targetRevision: main
+    path: charts/my-app
+    helm:
+      valueFiles:
+      - $values/environments/production/values.yaml
+  - repoURL: https://github.com/example/config-repo
+    targetRevision: main
+    ref: values
+```
+
+For more information, see [Helm Value Files from External Git Repository](https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository "https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository") in the Argo CD documentation.
 
 **Helm chart from ECR**:
 
@@ -215,6 +233,23 @@ spec:
     - CreateNamespace=true
 ```
 
+**Retry configuration**:
+
+Configure retry behavior for failed syncs:
+
+```
+spec:
+  syncPolicy:
+    retry:
+      limit: 5  # Number of failed sync attempts; unlimited if less than 0
+      backoff:
+        duration: 5s  # Amount to back off (default unit: seconds, also supports "2m", "1h")
+        factor: 2  # Factor to multiply the base duration after each failed retry
+        maxDuration: 3m  # Maximum amount of time allowed for the backoff strategy
+```
+
+This is particularly useful for resources that depend on CRDs being created first, or when working with kro instances where the CRD may not be immediately available.
+
 ## Sync options
 
 Additional sync configuration:
@@ -227,6 +262,19 @@ spec:
     syncOptions:
     - CreateNamespace=true
 ```
+
+**Skip dry run for missing resources**:
+
+Useful when applying resources that depend on CRDs that don’t exist yet (like kro instances):
+
+```
+spec:
+  syncPolicy:
+    syncOptions:
+    - SkipDryRunOnMissingResource=true
+```
+
+This can also be applied to specific resources using a label on the resource itself.
 
 **Validate resources before applying**:
 
@@ -290,7 +338,7 @@ spec:
     targetRevision: develop
     path: overlays/development
   destination:
-    server: arn:aws:eks:us-west-2:111122223333:cluster/dev-cluster
+    name: dev-cluster
     namespace: my-app
 ```
 
@@ -309,7 +357,7 @@ spec:
     targetRevision: main
     path: overlays/production
   destination:
-    server: arn:aws:eks:us-west-2:111122223333:cluster/prod-cluster
+    name: prod-cluster
     namespace: my-app
   syncPolicy:
     automated:
@@ -332,7 +380,19 @@ See [Working with Argo CD](working-with-argocd.md "working-with-argocd.md") for 
 
 **Rollback Applications**:
 
-Rollback to a previous revision using the Argo CD UI or by updating the `targetRevision` in the Application spec to a previous Git commit or tag.
+Rollback to a previous revision using the Argo CD UI, the Argo CD CLI, or by updating the `targetRevision` in the Application spec to a previous Git commit or tag.
+
+Using the Argo CD CLI:
+
+```
+argocd app rollback argocd/my-app <revision-id>
+```
+
+###### Note
+
+When using the Argo CD CLI with the managed capability, specify applications with the namespace prefix: `namespace/appname`.
+
+For more information, see [argocd app rollback](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_app_rollback/ "https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_app_rollback/") in the Argo CD documentation.
 
 ## Additional resources
 

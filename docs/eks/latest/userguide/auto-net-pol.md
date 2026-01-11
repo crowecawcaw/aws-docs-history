@@ -66,9 +66,13 @@ data:
 kubectl apply -f enable-network-policy.yaml
 ```
 
-### Step 2: Enable Network Policies in Node Class
+### Step 2: Create and test network policies
 
-Before you can use network policies, you need to ensure that your Node Class is configured to support them. Follow these steps:
+Your EKS Auto Mode cluster is now configured to support Kubernetes network policies. You can test this with the [Stars demo of network policy for Amazon EKS](network-policy-stars-demo.md "network-policy-stars-demo.md").
+
+### Step 3: Adjust Network Policy Agent configuration in Node Class (Optional)
+
+You can optionally create a new Node Class to change the default behavior of the Network Policy Agent on the nodes or enable the logging of Network Policy events. To do this, follow these steps:
 
 1. Create or edit a Node Class YAML file (e.g., `nodeclass-network-policy.yaml`) with the following content:
 
@@ -76,9 +80,9 @@ Before you can use network policies, you need to ensure that your Node Class is 
 apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
-  name: network-policy-enabled
+  name: network-policy-config
 spec:
-  # Enables network policy support
+  # Optional: Changes default network policy behavior
   networkPolicy: DefaultAllow
   # Optional: Enables logging for network policy events
   networkPolicyEventLogs: Enabled
@@ -94,16 +98,10 @@ kubectl apply -f nodeclass-network-policy.yaml
 3. Verify that the Node Class has been created:
 
 ```
-kubectl get nodeclass network-policy-enabled
+kubectl get nodeclass network-policy-config
 ```
 
 4. Update your Node Pool to use this Node Class. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
-
-Once your nodes are using this Node Class, they will be able to enforce network policies. You can now proceed to create and apply network policies to control traffic within your cluster. For all the node class configuration options, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
-
-### Step 3: Create and test network policies
-
-Your EKS Auto Mode cluster is now configured to support Kubernetes network policies. You can test this with the [Stars demo of network policy for Amazon EKS](network-policy-stars-demo.md "network-policy-stars-demo.md").
 
 ## How does it work?
 

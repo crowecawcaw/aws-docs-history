@@ -39,19 +39,18 @@ You can create an Argo CD capability using the AWS Management Console, AWS CLI, 
 
 When you create an Argo CD capability:
 
-1. EKS creates the Argo CD capability service and configures it to monitor and manage resources in your cluster
+1. EKS creates the Argo CD capability service in the AWS control plane
 2. Custom Resource Definitions (CRDs) are installed in your cluster
-3. The capability assumes the IAM Capability Role you provide
-4. Argo CD begins watching for its custom resources
-5. The capability status changes from `CREATING` to `ACTIVE`
-6. The Argo CD UI becomes accessible through its endpoint
+3. Argo CD begins watching for its custom resources (Applications, ApplicationSets, AppProjects)
+4. The capability status changes from `CREATING` to `ACTIVE`
+5. The Argo CD UI becomes accessible through its URL
 
-Once active, you can create Argo CD Applications in your cluster to deploy from Git repositories.
+Once active, you can create Argo CD Applications in your cluster to deploy from your declarative sources.
 
 ## Next steps
 
 After creating the Argo CD capability:
 
-- [Working with Argo CD](working-with-argocd.md "working-with-argocd.md") - Configure repository access, register target clusters, and create Applications
 - [Argo CD concepts](argocd-concepts.md "argocd-concepts.md") - Learn about GitOps principles, sync policies, and multi-cluster patterns
+- [Working with Argo CD](working-with-argocd.md "working-with-argocd.md") - Configure repository access, register target clusters, and create Applications
 - [Argo CD considerations](argocd-considerations.md "argocd-considerations.md") - Explore multi-cluster architecture patterns and advanced configuration

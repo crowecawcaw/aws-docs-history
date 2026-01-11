@@ -385,7 +385,16 @@ You cannot use dynamic parameter references for AMI IDs in Launch Templates used
 
 ###### Important
 
-When specifying an AMI, Amazon EKS doesn’t merge any user data. Rather, you’re responsible for supplying the required `bootstrap` commands for nodes to join the cluster. If your nodes fail to join the cluster, the Amazon EKS `CreateNodegroup` and `UpdateNodegroupVersion` actions also fail.
+- When specifying an AMI, Amazon EKS does not validate the Kubernetes version embedded in your AMI against your cluster’s control plane version. You are responsible for ensuring that the Kubernetes version of your custom AMI conforms to the [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy "https://kubernetes.io/releases/version-skew-policy"):
+  - The `kubelet` version on your nodes must not be newer than your cluster version
+  - The `kubelet` version on your nodes must be equal to or up to 3 minor versions behind your cluster version (for Kubernetes version `1.28` or higher), or up to 2 minor versions behind your cluster version (for Kubernetes version `1.27` or lower)
+
+  Creating managed node groups with version skew violations may result in:
+  - Nodes failing to join the cluster
+  - Undefined behavior or API incompatibilities
+  - Cluster instability or workload failures
+
+- When specifying an AMI, Amazon EKS doesn’t merge any user data. Rather, you’re responsible for supplying the required `bootstrap` commands for nodes to join the cluster. If your nodes fail to join the cluster, the Amazon EKS `CreateNodegroup` and `UpdateNodegroupVersion` actions also fail.
 
 ## Limits and conditions when specifying an AMI ID
 

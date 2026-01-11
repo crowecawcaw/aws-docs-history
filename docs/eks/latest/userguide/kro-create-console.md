@@ -41,8 +41,13 @@ For information about capability statuses and troubleshooting, see [Working with
 
 ## Grant permissions to manage Kubernetes resources
 
-By default, kro can only create and manage ResourceGraphDefinitions and their instances.
-To allow kro to create and manage the underlying Kubernetes resources defined in your ResourceGraphDefinitions, associate the `AmazonEKSClusterAdminPolicy` access policy with the capability’s access entry.
+When you create a kro capability, an EKS Access Entry is automatically created with the `AmazonEKSKROPolicy`, which allows kro to manage ResourceGraphDefinitions and their instances.
+However, no permissions are granted by default to create the underlying Kubernetes resources (like Deployments, Services, ConfigMaps, etc.) defined in your ResourceGraphDefinitions.
+
+This intentional design follows the principle of least privilege—different ResourceGraphDefinitions require different permissions.
+You must explicitly configure the permissions kro needs based on the resources your ResourceGraphDefinitions will manage.
+
+For getting started quickly, testing, or development environments, use `AmazonEKSClusterAdminPolicy`:
 
 1. In the EKS console, navigate to your cluster’s **Access** tab.
 2. Under **Access entries**, find the entry for your kro capability role (it will have the role ARN you created earlier).
@@ -54,8 +59,9 @@ To allow kro to create and manage the underlying Kubernetes resources defined in
 
 ###### Important
 
-The `AmazonEKSClusterAdminPolicy` grants broad permissions to create and manage all Kubernetes resources and is intended to streamline getting started.
-For production use, create more restrictive RBAC policies that grant only the permissions needed for the specific resources your ResourceGraphDefinitions will manage.
+The `AmazonEKSClusterAdminPolicy` grants broad permissions to create and manage all Kubernetes resources, including the ability to create any resource type across all namespaces.
+This is convenient for development and POCs but should not be used in production.
+For production, create custom RBAC policies that grant only the permissions needed for the specific resources your ResourceGraphDefinitions will manage.
 For guidance on configuring least-privilege permissions, see [Configure kro permissions](kro-permissions.md "kro-permissions.md") and [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md").
 
 ## Verify custom resources are available

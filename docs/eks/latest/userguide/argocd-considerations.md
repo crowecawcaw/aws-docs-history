@@ -13,9 +13,6 @@ Before deploying Argo CD, consider the following:
 **Repository strategy**: Determine where your application manifests will be stored (CodeCommit, GitHub, GitLab, Bitbucket).
 Plan your repository structure and branching strategy for different environments.
 
-**Authentication method**: Decide whether to use AWS Identity Center for SSO or manage Argo CD users directly.
-SSO is recommended for production environments.
-
 **RBAC strategy**: Plan which teams or users should have admin, editor, or viewer access.
 Map these to AWS Identity Center groups or Argo CD roles.
 
@@ -36,7 +33,7 @@ For detailed information about IAM Capability Roles, trust policies, and securit
 
 When you create an Argo CD capability resource, you provide an IAM Capability Role.
 Unlike ACK, Argo CD primarily manages Kubernetes resources, not AWS resources directly.
-However, the IAM role is required for:
+However, the IAM Capability Role is required for:
 
 - Accessing private Git repositories in CodeCommit
 - Integrating with AWS Identity Center for authentication
@@ -72,27 +69,17 @@ Example:
 "Resource": "arn:aws:codecommit:us-west-2:111122223333:my-app-repo"
 ```
 
-This limits Argo CD’s access to only the repositories it needs to manage.
+This limits the Argo CD capability’s access to only the repositories it needs to manage.
 
 ### Secrets Manager integration
 
-If you’re storing repository credentials in Secrets Manager, attach a policy with read permissions:
+If you’re storing repository credentials in Secrets Manager, attach the managed policy for read access:
 
 ```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "secretsmanager:GetSecretValue",
-        "secretsmanager:DescribeSecret"
-      ],
-      "Resource": "arn:aws:secretsmanager:*:*:secret:argocd/*"
-    }
-  ]
-}
+arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess
 ```
+
+This policy includes the necessary permissions: `secretsmanager:GetSecretValue`, `secretsmanager:DescribeSecret`, and KMS decrypt permissions.
 
 ### Basic setup
 
@@ -158,7 +145,7 @@ When you register additional clusters with Argo CD:
 
 1. You create cluster secrets that reference target EKS clusters by ARN
 2. You create Applications or ApplicationSets that target different clusters
-3. Argo CD connects to each cluster to deploy applications and watch resources
+3. Argo CD connects to each cluster to deploy and watch resources
 4. You view and manage all clusters from a single Argo CD UI
 
 ### Prerequisites for multi-cluster
@@ -232,6 +219,7 @@ For production use, consider using more restrictive Kubernetes groups instead of
 
 The Argo CD managed capability can deploy to fully private EKS clusters without requiring VPC peering or specialized networking configuration.
 AWS manages connectivity between the Argo CD capability and private remote clusters automatically.
+Ensure your repository access controls and Argo CD RBAC policies are properly configured.
 
 ### Cross-account deployments
 
@@ -246,7 +234,7 @@ No additional IAM role creation or trust policy configuration is required—EKS 
 
 ## Best practices
 
-**Use declarative sources as the source of truth**: Store all your application manifests in Git repositories, Helm registries, or OCI images, enabling version control, audit trails, and collaboration.
+**Use declarative sources as the source of truth**: Store all your application manifests in declarative sources (Git repositories, Helm registries, or OCI images), enabling version control, audit trails, and collaboration.
 
 **Implement proper RBAC**: Use AWS Identity Center integration to control who can access and manage applications in Argo CD.
 Argo CD supports fine-grained access control to resources within Applications (Deployments, Pods, ConfigMaps, Secrets).
@@ -288,7 +276,7 @@ Configure sync windows to control when applications can be synced:
 - Allow syncs only during maintenance windows
 - Block syncs during business hours
 - Schedule automatic syncs for specific times
-- Use sync windows for break-glass scenarios where you need to temporarily stop all syncs
+- Use sync windows in situations where you need to make changes and stop any syncs (break-glass scenarios)
 
 ## Webhook configuration for faster sync
 
@@ -304,17 +292,12 @@ Webhooks provide several benefits:
 
 ### Webhook endpoint
 
-The Argo CD capability provides a webhook endpoint for receiving Git notifications.
-Find the webhook URL in the EKS console under your cluster’s Capabilities tab, or retrieve it using the AWS CLI:
+The webhook URL follows the pattern `${serverUrl}/api/webhook`, where `serverUrl` is your Argo CD server URL.
+
+For example, if your Argo CD server URL is `https://abc123.eks-capabilities.us-west-2.amazonaws.com`, the webhook URL is:
 
 ```
-aws eks describe-capability \
-  --cluster-name `my-cluster` \
-  --capability-name `my-argocd` \
-  --query 'capability.configuration.argoCd.webhookUrl' \
-  --output text \
-  --region `region-code`
-
+https://abc123.eks-capabilities.us-west-2.amazonaws.com/api/webhook
 ```
 
 ### Configure webhooks by Git provider
