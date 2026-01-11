@@ -14,74 +14,39 @@ Keep the following in mind when you update products:
   new product. For more information, see [Unpublish a product in AWS Data Exchange](unpublish-product.md "unpublish-product.md").
 - You can't remove data sets from a product after it is published, regardless of how
   many subscribers have subscribed to your product.
-- If you're updating the metered costs for a product that contains APIs:
-  - A metered costs price decrease appears immediately on the product detail page for
-    new subscribers.
 
-  ###### Warning
+###### To update a product, data set, or public offer details
 
-  If you undo a price decrease for metered costs, you are increasing the price for
-  metered costs. See the following point for more information about metered costs
-  price increases.
-  - A metered costs price increase will go into effect on the first day of the month,
-    90 days after the price increase is submitted for existing subscribers OR upon renewal
-    (whichever is sooner). The email is sent to existing subscribers when the price change
-    is submitted. The price increase appears on the product detail page immediately for
-    new subscribers.
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/data "https://aws.amazon.com/marketplace/management/products/data").
+2. From the left side navigation menu, choose **Build**, **Data Products**.
+3. From **Products**, select the product you want to update.
 
-  ###### Example
+###### Note
 
-  You submit a metered costs price increase on May 10. Existing subscribers
-  receive an email about the price change. The price increase goes into effect on
-  September 1.
+If your product is in a draft state, edit the product by choosing the **Request changes** action button at the top of the table and clicking **Resume product creation**. 4. From the **Request changes** action button at the top of the table:
 
-  ###### Warning
+    * If you're editing product information, choose the **Update product information**
+     option, and then follow the instructions to edit the product.
+    * If you're changing product visibility (to public, limited, or restricted), choose the **Update visibility**
+     option, and then follow the instructions to edit the product.
+    * If you're editing data sets on your product, choose the **Manage data sets**
+     option, and then choose whether you want to update existing data sets or add new ones. Follow the instructions to update your product.
 
-  You can't undo a price increase (because that action decreases the price) before
-  the price increase goes into effect for existing subscribers.
 
-###### To update a product, data set, or offer details
+    ###### Note
 
-1. Open your web browser and sign in to the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. From the left navigation pane, under **Publish data**, choose
-   **Products**.
-3. From **Products**, choose the product you want to update. Make sure
-   its status is **Published**.
-4. From **Product details**:
-   - If you're editing a public offer, choose the **Public offer**
-     tab, choose **Edit**, and then follow the instructions to edit the
-     product.
-   - If you're editing a private offer, choose the **Custom offers**
-     tab, choose the option button next to the private offer that you want to edit, choose
-     **Edit**, and then follow the instructions to edit the
-     product.
-   1. For products containing APIs with metered costs, in **Metered costs –
-      optional**, select the option button next to the **Type**
-      of metered costs that you want to edit, and then choose
-      **Edit**.
-   2. In the **Edit metered cost** dialog box, update the
-      **Price / unit** or **Description**.
-   3. Choose **Update**.
+    Choose **Update data sets** to manage any metadata around data sets including data sensitivity, data dictionaries, and samples.
+    * If you're editing a public offer, choose the **Update public offer**
+     option, and then choose the offer property you would like to edit. Follow the instructions to update your offer.
 
-   The updated metered costs appears under **Metered costs –
-   optional**.
+5. To edit a **private offer**, .
 
-5. From **Data sets**, under **Sensitive information**,
-   choose **Edit**, and then follow the instructions to edit the
-   information.
-6. From **Data evaluation**, update the data dictionary or sample by
-   selecting the option button next to the data dictionary or sample
-   **Name** and then choosing **Actions**. For more
-   information, see [Updating a data dictionary in AWS Data Exchange](update-data-dictionary.md "update-data-dictionary.md") and [Updating a sample in AWS Data Exchange](update-sample.md "update-sample.md").
-7. Configure your offer, depending on the offer type:
-   - If your product is a public offer, from **Public offer**, choose
-     **Edit**, and then follow the instructions to edit the public
-     oﬀer.
-   - If your product is a custom offer, from **Custom offers**, choose
-     **Edit**, and then follow the instructions to edit the custom
-     oﬀer.
-   - If your product is a private offer, from **Private offers**,
-     choose **Edit**, and then follow the instructions to edit the private
-     offer.
+###### To update a private offer details
 
-8. Choose **Update**.
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+2. From the left side navigation menu, choose **Sell**, **Private offers**.
+3. From **Private offers**, select the offer you want to update.
+
+###### Note
+
+If your offer is in a draft state, edit the offer by choosing the **Resume offer creation** action button at the top of the table. 4. Choose **Edit** from the action buttons on the table and follow the instructions to update your offer.

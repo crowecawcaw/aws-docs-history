@@ -23,68 +23,18 @@ times.
 
 ###### To approve a subscription request
 
-1. Open your web browser and sign in to the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. In the left navigation pane, under **Published to AWS Marketplace**,
-   choose **Verify subscriptions**.
-3. On the **Subscription verification** page, choose **View
-   pending requests**.
-4. Choose **Approve**.
-
-## Approving requests for products
-
-containing APIs
-
-You can approve a subscription request for a product containing APIs. You can also
-add custom metadata to product containing APIs that is sent in the header of each
-AWS Data Exchange request for the specific subscription. The custom metadata isn't visible to
-subscribers.
-
-###### To approve a subscription request for a product containing APIs
-
-1. Open your web browser, and sign in to the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. In the left navigation pane, under **Published to AWS Marketplace**,
-   choose **Verify subscriptions**.
-3. On the **Subscription verification** page, choose **View
-   pending requests**.
-4. Choose **Approve and add custom API metadata**.
-5. On the modal, enter the key-value pair and then choose **Approve
-   and add custom API metadata**.
-
-###### Note
-
-You can add additional key-value pairs if necessary by choosing
-**Add** and then entering an additional key-value
-pair. 6. You are returned to the **Subscription verification**
-page. A message informs you that you have successfully accepted the
-subscription request. 7. To view the custom metadata, go to **Products**, select
-your product with APIs and then select the
-**Subscriptions** tab. 8. Under **Public and custom subscriptions**, you
-can:
-
-    1. Select the subscription, and choose **View custom
-     metadata** to see the key-value pairs you added.
-    2. Select the subscription, and choose **Edit custom
-     metadata** to edit, add, or remove the key-value pairs
-     for this subscription.
-
-
-    ###### Note
-
-    If you add three or more key-value pairs, the **Custom
-     metadata for APIs** column in the **Public
-     and custom subscriptions** table displays the first
-     key-value pair, and then displays the number of key-value pairs
-     underneath the first key-value pair. For example:
-     **`keyExample-valueExample` +2
-     more**
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/data "https://aws.amazon.com/marketplace/management/products/data").
+2. From the left side navigation menu, choose **Build**, **Data Products**.
+3. At the top of the page, choose the **Subscription requests** tab.
+4. In the **Subscription requests to verify** section, choose the subscription.
+5. Choose **Approve**.
 
 ## Declining requests
 
 ###### To decline a subscription request
 
-1. Open your web browser and sign in to the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. In the left navigation pane, under **Published to AWS Marketplace**,
-   choose **Verify subscriptions**.
-3. On the **Subscription verification** page, choose **View
-   pending requests**.
-4. Choose **Decline**.
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/data "https://aws.amazon.com/marketplace/management/products/data").
+2. From the left side navigation menu, choose **Build**, **Data Products**.
+3. At the top of the page, choose the **Subscription requests** tab.
+4. In the **Subscription requests to verify** section, choose the subscription.
+5. Choose **Decline**.

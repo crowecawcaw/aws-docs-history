@@ -59,7 +59,7 @@ At a high level, this is how to list AWS Data Exchange data products on AWS Mark
 7. **(Optional) Provider publishes new revision**
    – You can update dynamic data sets over time by creating a new revision using
    the AWS Data Exchange API or console. These revisions can then be published. For more
-   information, see [Revisions](data-sets.md#revisions "data-sets.md#revisions") or [Updating products in AWS Data Exchange](updating-products.md "updating-products.md").
+   information, see [Revisions](data-sets.md#revisions "data-sets.md#revisions") or [Updating data products in AWS Marketplace Management Portal](updating-products.md "updating-products.md").
 8. **Provider reviews reports through the AWS Marketplace Management Portal**
    – Reports are available to all registered AWS Marketplace sellers and are released on a
    regular cadence (daily, weekly, or monthly). For more information, see [AWS Data Exchange provider financials on AWS Marketplace](provider-financials.md "provider-financials.md").
@@ -105,7 +105,7 @@ After you review this topic, you're ready to get started.
 - [Publishing a new product in AWS Data Exchange](publishing-products.md "publishing-products.md")
 - [Product description templates in
   AWS Data Exchange](product-description-templates.md "product-description-templates.md")
-- [Updating products in AWS Data Exchange](updating-products.md "updating-products.md")
+- [Updating data products in AWS Marketplace Management Portal](updating-products.md "updating-products.md")
 - [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md")
 - [Provider-generated notifications in
   AWS Data Exchange](provider-generated-notifications.md "provider-generated-notifications.md")

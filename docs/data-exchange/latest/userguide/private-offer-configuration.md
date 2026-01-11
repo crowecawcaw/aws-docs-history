@@ -1,69 +1,46 @@
 # Creating private offers in AWS Data Exchange
 
-AWS Data Exchange gives providers the option to create custom offers, such as private
-offers.
+AWS Data Exchange gives providers the option to create custom offers, such as private offers. For more information on private offers, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
 
-As a data provider, you can provide your data product to a subscriber at terms that
-are different from the offer terms available to the general public. For products that
-are not publicly visible, your private offers are the only terms available to customers,
-and only customers you create private offers for can see the product. Private offers
-allow you to create a custom offer for one or more AWS accounts. A private offer can
-be different from other offers in any dimension, including price, duration, payment
-schedule, data subscription agreement, or refund policy.
+As a data provider, you can provide your data product to a subscriber at terms that are different from the offer terms available to the general public. For products that are not publicly visible, your private offers are the only terms available to customers, and only customers you create private offers for can see the product. Private offers allow you to create a custom offer for one or more AWS accounts. A private offer can be different from other offers in any dimension, including price, duration, payment schedule, data subscription agreement, or refund policy.
 
-As a provider, after you have created a product, you can then create a private offer
-and make it available to a group of subscribers of your choosing. For publicly visible
-products, you must create a public offer before you can create a private offer.
+As a provider, after you have created a product, you can then create a private offer and make it available to a group of subscribers of your choosing. For publicly visible products, you must create a public offer before you can create a private offer.
 
-**To create a private offer**
+To create a private offer for a data product:
 
-1. Sign in to the AWS Management Console and open the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. From the left navigation pane of the [console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange"), choose
-   **Products**, and then choose the product for which you
-   want to make a private offer.
-3. From the **Private offer** tab, choose
-   **Create**.
-4. On the **Select Offer Type** page, select **Private
-   offer** or **Renewed private offer**, and choose
-   **Next**.
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+2. Go to the **Data Products** page and select your product.
+3. On the **Getting started** tab, select **Create offer** and **Private offer**.
+4. On the **Offer details** page, do the following:
+   1. Enter the offer name and description.
+   2. Select the renewal option.
+   3. Set the offer expiration date. Offers expire at 23:59:59 UTC on the set date.
 
-###### Note
+5. Choose **Next** twice.
+6. On the **Configure offer pricing and duration** page, specify the following:
+   1. Pricing option
+   2. Contract duration
+   3. Offer currency
+   4. Product dimension – The dimension is called `ProductAccess` and is automatically created during the product creation flow.
 
-Choose **Renewed private offer** if this is a renewal of
-an expired private offer or a pre-existing subscription that is being
-upgraded on AWS Data Exchange. If you choose this option, AWS might audit and verify
-that your offer is a renewal or upgrade. If AWS is unable to do so, then
-we may revoke the offer and entitlements to your subscribers. 5. Under **Subscriber AWS account ID**, enter the 12-digit
-account number of the account you are creating a private offer for. Because a
-single private offer can be extended to multiple accounts, you can add more than
-one account. 6. Under **Description**, provide a short description of the
-account (for example, the company name of the account). 7. Under **Pricing and duration**, provide the offer
-details, including the duration and pricing information. 8. Choose the **Specify payment schedule** check box if you want
-to distribute the **Total price** to the subscriber over
-multiple payments. You can add an **Upfront payment** that will
-be invoiced at the time of subscription. You can then choose for the subscriber
-to make additional monthly or custom payments. If you choose the
-**Monthly** option, the dates are automatically populated.
-If you choose the **Custom** option, you must enter the invoice
-dates (up to 36 payments).
+7. Choose **Next**.
+8. On the **Add buyers** page, enter the AWS account IDs for your buyers.
+9. Choose **Next**.
+
+###### Important
+
+For linked accounts to benefit from a private offer:
+
+- Include the payer AWS account ID.
+- The payer account must accept the hourly terms of the private offer first.
+- After the payer account accepts, linked accounts can then accept the private offer.
+
+89. On the **Configure legal terms and offer documents** page, add Data Subcription Agreement or use Data Exchange default, then choose **Next**.
 
 ###### Note
 
-The **Offer expiration date** is the date by which the
-subscriber must accept the offer. The private offer is no longer available
-for subscribing if it is not accepted by this date.
+You can add up to five files (legal terms, statement of work, bill of materials, pricing sheet, or addendums). The system combines these into one document.
 
-The expiration date must be before the second payment.
-
-If you need to expire an offer already created prior to the expiry date,
-you can return to the offer page, and choose **Expire**.
-This will expire the offer for all potential subscribers. 9. Provide US sales tax and use tax settings, data subscription agreement,
-auto-renewal settings, and support information. 10. Choose **Next**. If you selected **Renewed private
-offer**, you must select the check box to indicate that you
-acknowledge the terms of the renewed private offer. 11. Make sure that the information is correct, and then choose
-**Publish**.
-
-###### Note
-
-After you create the private offer, you can edit all of the fields except
-for the price and invoice dates.
+90. On the **Specify refund policy**, add the refund policy.
+91. On the **Review and create** page, verify the offer details and choose **Create offer**.
+92. After the offer appears on the **Manage private offers** page, open the **Actions** menu, choose **Copy offer URL**, and email it to the buyer.

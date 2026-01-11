@@ -27,6 +27,7 @@ selected subscribers. When you create an offer for your product, you define:
 - [Subscription verification](#offer-subscription-verification "#offer-subscription-verification")
 - [Offer auto-renewal](#offer-auto-renewal "#offer-auto-renewal")
 - [Private offers](private-offer-configuration.md "private-offer-configuration.md")
+- [Public offers](public-offer-configuration.md "public-offer-configuration.md")
 - [BYOS offers](create-byos-offers.md "create-byos-offers.md")
 - [Viewing subscriptions](view-subscriptions-for-product.md "view-subscriptions-for-product.md")
 

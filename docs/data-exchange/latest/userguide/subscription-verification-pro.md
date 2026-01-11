@@ -11,7 +11,7 @@ Justice Final Rule on Preventing Access to U.S. Sensitive Personal Data and
 Government-Related Data by Countries of Concern and Covered Persons ("DOJ Rule"),
 available [here](https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern "https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern"). You are responsible for compliance with the DOJ Rule. To support compliance, subscription verification is now enabled for all AWS Data Exchange public offers and requires subscribers to identify if they are in a Country of Concern or a Covered Person.
 
-Subscription verification gives you the ability to review a potential subscriber’s identity and approve that subscriber for your product. Approving subscription requests to your product is useful when you have restricted or regulated products, or you have products that you want to limit access to. Subscription verification is on the **Add public offer** section of the **Publish new product** page.
+Subscription verification gives you the ability to review a potential subscriber’s identity and approve that subscriber for your product. Approving subscription requests to your product is useful when you have restricted or regulated products, or you have products that you want to limit access to. Subscription verification is on the **Subscription requests** tab in **Data Products**.
 
 Potential subscribers must complete and submit a form for your review. The form requires
 the following information:
@@ -27,8 +27,8 @@ on the request form. You are solely responsible for reviewing and verifying the
 information that the subscriber provides.
 
 To view, approve, or decline all subscription verification requests for all of your
-products, in the AWS Data Exchange console, under **Published to AWS Marketplace**,
-choose **Verify subscriptions**. For more information, see [Approve or decline requests for
+products, in the AWS Marketplace Management Portal, under **Data Products**,
+choose **Subscription requests** tab. For more information, see [Approve or decline requests for
 subscription verification in AWS Data Exchange](approve-or-decline-requests.md "approve-or-decline-requests.md").
 
 ###### Note

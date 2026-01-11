@@ -4,7 +4,6 @@ After your product is published in AWS Data Exchange, it's available for all to 
 based on the product's visibility settings. You can unpublish a product if you want to achieve
 any of the following results:
 
-- Remove a product you created for the [Publishing a new product in AWS Data Exchange](publishing-products.md "publishing-products.md") exercise.
 - Clean up your resources.
 - Remove a product from the publicly listed products on AWS Data Exchange.
 - Stop subscribers from auto-renewing your product.
@@ -22,17 +21,14 @@ any of the following results:
 
 ###### To unpublish a product
 
-1. Open your web browser and sign in to the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. From the left navigation pane, under **Publish data**, choose
-   **Products**.
-3. From **Products**, choose the product you want to remove. Make sure
-   its status is **Published**.
-4. From **Product overview**, choose **Unpublish**, and
-   then follow the instructions to unpublish the product.
+1. Sign in to your seller account in the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+2. Go to the **Data Products** page and select your product.
+3. Choose **Request changes**, select **Update product visibilty**, and then select **Restricted**.
+4. Review your changes and choose **Submit**.
 
 ###### Important
 
 This action can't be undone.
-After you complete these steps, your product's status is **Unpublished**.
-An unpublished product can't be published again, but you can create a new product (with a new
+After you complete these steps, your product's status is **Restricted**.
+A restricted product can't be published again, but you can create a new product (with a new
 product ID) that has the same data sets, product details, and offer details.

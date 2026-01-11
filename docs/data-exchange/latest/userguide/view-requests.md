@@ -4,8 +4,7 @@ After you publish a public offer and receive subscription verification requests,
 
 ###### To view subscription verification requests
 
-1. Sign in to the AWS Mangement Console and open the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
-2. In the left navigation pane, under **Published to AWS Marketplace**, choose
-   **Verify subscriptions**.
-3. To view pending requests, choose **View pending requests**.
-   Choose **View history** to view all other requests.
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
+2. Choose **Products**, **Data Products**.
+3. Choose the **Subscription requests** tab.
+4. In the **Subscription requests to verify** section, choose **Request history**.
