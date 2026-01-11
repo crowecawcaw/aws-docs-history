@@ -52,8 +52,6 @@ the user pool, and how to invoke an API that's integrated with the user pool.
 
 ###### Topics
 
-- [Obtain permissions to
-  create Amazon Cognito user pool authorizers for a REST API](apigateway-user-pool-authorizer-permissions.md "apigateway-user-pool-authorizer-permissions.md")
 - [Create an Amazon Cognito user pool for a REST API](apigateway-create-cognito-user-pool.md "apigateway-create-cognito-user-pool.md")
 - [Integrate a REST API with an Amazon Cognito user
   pool](apigateway-enable-cognito-user-pool.md "apigateway-enable-cognito-user-pool.md")

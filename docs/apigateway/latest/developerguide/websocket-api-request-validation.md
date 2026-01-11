@@ -18,7 +18,7 @@ model as a fallback when no matching model is found. If there is no matching mod
 looks like `Route.ModelSelectionExpression` and evaluates to the key for
 `Route.RequestModels`.
 
-When you define a [route](../developerguide.md#apigateway-websocket-api-route-route-request "../developerguide.md#apigateway-websocket-api-route-route-request") for a WebSocket API, you can optionally specify a _model
+When you define a route for a WebSocket API, you can optionally specify a _model
 selection expression_. This expression is evaluated to select the model to
 be used for body validation when a request is received. The expression evaluates to one
 of the entries in a route's [`requestmodels`](../../../apigatewayv2/latest/api-reference/apis-apiid-routes.md#apis-apiid-routes-prop-route-requestmodels "../../../apigatewayv2/latest/api-reference/apis-apiid-routes.md#apis-apiid-routes-prop-route-requestmodels").
