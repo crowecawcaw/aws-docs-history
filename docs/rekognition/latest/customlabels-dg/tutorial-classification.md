@@ -179,7 +179,7 @@ Use the following steps to train your model. For more information, see [Training
 
 1. On the **Dataset** page, choose **Train model**.
 
-![Train model button for training a machine learning model on the dataset in the current project.](images/tutorial-train-model.jpg) 2. On the **Train model** page, choose **Train model**. The
+![Train model button for training a machine learning model on the dataset in the current project.](/images/rekognition/latest/customlabels-dg/images/tutorial-train-model.jpg) 2. On the **Train model** page, choose **Train model**. The
 Amazon Resource Name (ARN) for your project is in the **Choose
 project** edit box.
 
@@ -198,7 +198,7 @@ For information about evaluating a model, see [Improving a trained Amazon Rekogn
 
 ![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](images/get-started-training-results.jpg) 8. After viewing the test results, choose the model name to return to the model page.
 
-![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](images/get-started-image-test-results.jpg)
+![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](/images/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
 
 ## Step 8: Start your model
 

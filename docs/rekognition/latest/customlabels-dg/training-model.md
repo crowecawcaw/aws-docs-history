@@ -98,7 +98,7 @@ For more information, see
 status in the `Model Status` column, where the training's in
 progress. Training a model takes a while to complete.
 
-![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 11. After training completes, choose the model name. Training is finished when the model status is **TRAINING_COMPLETED**.
+![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](/images/rekognition/latest/customlabels-dg/images/tutorial-training-progress.jpg) 11. After training completes, choose the model name. Training is finished when the model status is **TRAINING_COMPLETED**.
 If training fails, read [Debugging a failed model training](tm-debugging.md "tm-debugging.md").
 
 ![Interface showing a trained model and status TRAINING_COMPLETED, indicating the model is ready to run.](images/get-started-choose-model.jpg) 12. Next step: Evaluate your model. For more information, [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md").
