@@ -1,16 +1,16 @@
-# `pcluster create-cluster`
+# `pcluster update-cluster`
 
-Creates an AWS ParallelCluster cluster.
+Updates an existing cluster to match the settings of a specified configuration file.
 
 ```
-pcluster create-cluster [-h]
+pcluster update-cluster [-h]
                  --cluster-configuration `CLUSTER_CONFIGURATION`
                  --cluster-name `CLUSTER_NAME`
                 [--debug]
                 [--dryrun `DRYRUN`]
+                [--force-update `FORCE_UPDATE`]
                 [--query `QUERY`]
                 [--region `REGION`]
-                [--rollback-on-failure `ROLLBACK_ON_FAILURE`]
                 [--suppress-validators `SUPPRESS_VALIDATORS` [`SUPPRESS_VALIDATORS` ...]]
                 [--validation-failure-level {`INFO`,`WARNING`,`ERROR`}]
 ```
@@ -19,7 +19,7 @@ pcluster create-cluster [-h]
 
 `-h, --help`
 
-Shows the help text for `pcluster create-cluster`.
+Shows the help text for `pcluster update-cluster`.
 
 `--cluster-configuration, -c `CLUSTER_CONFIGURATION``
 
@@ -27,12 +27,7 @@ Specifies the YAML cluster configuration file.
 
 `--cluster-name, -n `CLUSTER_NAME``
 
-Specifies the name of the cluster to be created.
-
-The name must start with an alphabetical character. The name can have up to 60 characters.
-If Slurm accounting is enabled, the name can have up to 40 characters.
-
-Valid characters: a-z, A-Z, 0-9, and - (hyphen).
+Specifies the name of the cluster.
 
 `--debug`
 
@@ -40,8 +35,12 @@ Enables debug logging.
 
 `--dryrun `DRYRUN``
 
-When `true`, the command performs validation without creating any resources. You can use this to
-validate the cluster configuration. (Defaults to `false`.)
+When `true`, performs the validation without updating the cluster and creating any resources. It can be used to validate the image
+configuration and update requirements. (Defaults to `false`.)
+
+`--force-update `FORCE_UPDATE``
+
+When `true`, forces the update by ignoring the update validation errors. (Defaults to `false`.)
 
 `--query `QUERY``
 
@@ -53,36 +52,46 @@ Specifies the AWS Region to use. The AWS Region must be specified, using the [Re
 environment variable, the `region` setting in the `[default]` section of the
 `~/.aws/config` file, or the `--region` parameter.
 
-`--rollback-on-failure
- `ROLLBACK_ON_FAILURE``
-
-When `true`, automatically initiates a cluster stack rollback on failures. (Defaults to
-`true`.)
-
-`--suppress-validators `SUPPRESS_VALIDATORS`
- [`SUPPRESS_VALIDATORS` ...]`
+`--suppress-validators  `SUPPRESS_VALIDATORS`
+ [`SUPPRESS_VALIDATORS ...`]`
 
 Identifies one or more config validators to suppress.
 
-Format: (`ALL`|type:`[A-Za-z0-9]+`)
+Format: (`ALL`|`type:[A-Za-z0-9]+`)
 
-`--validation-failure-level
- {`INFO`,`WARNING`,`ERROR`}`
+`--validation-failure-level `{INFO,WARNING,ERROR}``
 
-Specifies the minimum validation level that will cause the creation to fail. (Defaults to
-`ERROR`.)
+Specifies the level of validation failures reported for update.
 
 **Example using AWS ParallelCluster version 3.1.4:**
 
 ````
-`$` `pcluster create-cluster -c `cluster-config.yaml` -n `cluster-v3```{
+`$` `pcluster update-cluster -c `cluster-config.yaml` -n `cluster-v3` -r `us-east-1```{
  "cluster": {
  "clusterName": "cluster-v3",
- "cloudformationStackStatus": "CREATE_IN_PROGRESS",
+ "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
  "region": "us-east-1",
  "version": "3.1.4",
- "clusterStatus": "CREATE_IN_PROGRESS"
+ "clusterStatus": "UPDATE_IN_PROGRESS"
+ },
+ "changeSet": [
+ {
+ "parameter": "HeadNode.Iam.S3Access",
+ "requestedValue": {
+ "BucketName": "amzn-s3-demo-bucket1",
+ "KeyName": "output",
+ "EnableWriteAccess": false
  }
+ },
+ {
+ "parameter": "HeadNode.Iam.S3Access",
+ "currentValue": {
+ "BucketName": "amzn-s3-demo-bucket2",
+ "KeyName": "logs",
+ "EnableWriteAccess": true
+ }
+ }
+ ]
 }`
 ````
