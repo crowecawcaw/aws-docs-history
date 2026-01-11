@@ -26,10 +26,12 @@ You can negotiate and offer a private offer directly to customers for your machi
 6. On the **Configure offer pricing and duration** page, specify:
    - Pricing option
 
-   (For more information, see [Machine learning product pricing for AWS Marketplace](machine-learning-pricing.md "machine-learning-pricing.md").)
-   - Contract duration
+   (For more information, see [Private offers for ML products](private-offers-supported-product-types.md#ml-private-offers "private-offers-supported-product-types.md#ml-private-offers"))
+   - Usage or contract duration
    - Offer currency
-   - Product dimension
+   - Pricing dimensions.
+
+   (For usage pricing, the usage based rates only apply during the offer term. For contracts, the usage based rates only apply when the contract term expires and are perpetual.)
 
 ###### Note
 
