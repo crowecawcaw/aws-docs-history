@@ -62,7 +62,6 @@ following:
 ![Timeline showing SAP workload capacity allocation over 3 years with different commitment types.](images/example-timeline-of-planning-sap-on-aws-compute-commitments.png)
 _Example timeline of planning SAP on AWS compute
 commitments_
-
 **Suggestion 20.2.3 – Evaluate whether fixing compute types for
 greater discounts is appropriate**
 
