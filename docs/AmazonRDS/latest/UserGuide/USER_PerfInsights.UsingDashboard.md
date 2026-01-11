@@ -1,46 +1,27 @@
-# Analyzing Oracle execution plans using the Performance
+# Analyzing DB load by wait events
 
-Insights dashboard for Amazon RDS
+If the **Database load** chart shows a bottleneck, you can find out where the load is
+coming from. To do so, look at the top load items table below the **Database load**
+chart. Choose a particular item, like a SQL query or a user, to drill down into that item and see details about
+it.
 
-When analyzing DB load on an Oracle Database, you might want to know which plans are contributing the most to DB load.
-You can determine which plans are contributing the most to DB load by using the plan capture feature of Performance Insights.
+DB load grouped by waits and top SQL queries is the default Performance Insights dashboard view. This
+combination typically provides the most insight into performance issues. DB load grouped by waits shows if there
+are any resource or concurrency bottlenecks in the database. In this case, the **SQL** tab of the top load items table shows which queries are driving that load.
 
-###### To analyze Oracle execution plans using the console
+Your typical workflow for diagnosing performance issues is as follows:
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Performance Insights**.
-3. Choose an Oracle DB instance. The Performance Insights dashboard is displayed for that DB instance.
-4. In the **Database load (DB load)** section, choose **Plans**
-   next to **Slice by**.
+1. Review the **Database load** chart and see if there are any incidents of database load
+   exceeding the **Max CPU** line.
+2. If there is, look at the **Database load** chart and identify which wait state or
+   states are primarily responsible.
+3. Identify the digest queries causing the load by seeing which of the queries the **SQL** tab on the top load items table are contributing most to those wait states. You can
+   identify these by the **DB Load by Wait** column.
+4. Choose one of these digest queries in the **SQL** tab to expand it and see
+   the child queries that it is composed of.
+   For example, in the dashboard following, **log file sync** waits account for most of the DB load.
+   The **LGWR all worker groups** wait is also high. The **Top SQL** chart shows
+   what is causing the **log file sync** waits: frequent `COMMIT` statements. In this
+   case, committing less frequently will reduce DB load.
 
-The Average active sessions chart shows the plans used by your top SQL statements. The plan hash values appear to
-the right of the color-coded squares. Each hash value uniquely identifies a plan.
-
-![Slice by plans](images/pi-slice-by-plans.png) 5. Scroll down to the **Top SQL** tab.
-
-In the following example, the top SQL digest has two plans. You can tell that it's a digest by the question mark in
-the statement.
-
-![Choose a digest plan](images/top-sql-plans-unselected.png) 6. Choose the digest to expand it into its component statements.
-
-In the following example, the `SELECT` statement is a digest query. The component queries in the digest
-use two different plans. The colors of the plans correspond to the database load chart. The total number of
-plans in the digest is shown in the second column.
-
-![Choose a digest plan](images/pi-digest-plan.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
-query** list.
-
-You can view either one or two plans for a query at a time. The following screenshot compares the two plans in the
-digest, with hash 2032253151 and hash 1117438016. In the following example, 62% of the average active
-sessions running this digest query are using the plan on the left, whereas 38% are using the plan on the
-right.
-
-![Compare the plans side by side](images/pi-compare-plan.png)
-
-In this example, the plans differ in an important way. Step 2 in plan 2032253151 uses an index scan, whereas plan
-1117438016 uses a full table scan. For a table with a large number of rows, a query of a single row is almost
-always faster with an index scan.
-
-![Compare the plans side by side](images/pi-table-access.png) 8. (Optional) Choose **Copy** to copy the plan to the clipboard, or **Download** to
-save the plan to your hard drive.
+![log file sync errors](images/perf_insights_7.png)

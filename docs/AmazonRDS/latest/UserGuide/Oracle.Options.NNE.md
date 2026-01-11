@@ -1,37 +1,30 @@
-# Adding the NATIVE_NETWORK_ENCRYPTION option
+# Setting NNE values in the sqlnet.ora
 
-The general process for adding the `NATIVE_NETWORK_ENCRYPTION` option to a
-DB instance is the following:
+With Oracle native network encryption, you can set network encryption on the server side and client side. The
+client is the computer used to connect to the DB instance. You can specify the following client settings in the
+sqlnet.ora:
 
-1. Create a new option group, or copy or modify an existing option group.
-2. Add the option to the option group.
-3. Associate the option group with the DB instance.
-   When the option group is active, NNE is active.
+- `SQLNET.ALLOW_WEAK_CRYPTO`
+- `SQLNET.ALLOW_WEAK_CRYPTO_CLIENTS`
+- `SQLNET.CRYPTO_CHECKSUM_CLIENT`
+- `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`
+- `SQLNET.ENCRYPTION_CLIENT`
+- `SQLNET.ENCRYPTION_TYPES_CLIENT`
+  For information, see [Configuring network data encryption and integrity for Oracle servers and clients](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm") in the Oracle
+  documentation.
 
-###### To add the NATIVE_NETWORK_ENCRYPTION option to a DB instance using the
+Sometimes, the DB instance rejects a connection request from an application. For example, a rejection can occur
+when the encryption algorithms on the client and on the server don't match. To test Oracle native network
+encryption, add the following lines to the sqlnet.ora file on the client:
 
-AWS Management Console
+```
+DIAG_ADR_ENABLED=off
+TRACE_DIRECTORY_CLIENT=/tmp
+TRACE_FILE_CLIENT=nettrace
+TRACE_LEVEL_CLIENT=16
+```
 
-1. For **Engine**,
-   choose the Oracle edition that you want to use.
-   NNE is supported on all editions.
-2. For **Major engine version**,
-   choose the version of your DB instance.
-
-For more information,
-see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create"). 3. Add the **NATIVE_NETWORK_ENCRYPTION** option to the option
-group. For more information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
-
-###### Note
-
-After you add the **NATIVE_NETWORK_ENCRYPTION** option,
-you don't need to restart your DB instances. As soon as the option group is
-active, NNE is active. 4. Apply the option group to a new or existing DB instance:
-
-    * For a new DB instance, you apply the option group when you launch the instance. For more
-     information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-    * For an existing DB instance, you apply the option group by modifying the
-     instance and attaching the new option group. After you add the
-     **NATIVE\_NETWORK\_ENCRYPTION** option, you don't
-     need to restart your DB instance. As soon as the option group is active, NNE
-     is active. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+When a connection is attempted, the preceding lines generate a trace file on the client called
+`/tmp/nettrace*`. The trace file contains information about the connection. For more information
+about connection-related issues when you are using Oracle Native Network Encryption, see [About negotiating
+encryption and integrity](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12 "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12") in the Oracle Database documentation.

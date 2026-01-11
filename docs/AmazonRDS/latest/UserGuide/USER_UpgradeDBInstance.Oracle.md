@@ -1,267 +1,138 @@
-# Oracle minor version upgrades
+# Considerations for Oracle database
 
-In RDS for Oracle, a minor version upgrade is an update to a major DB engine version. In RDS, a
-minor engine version is either a Release Update (RU) or Spatial Patch Bundle (SPB). For
-example, if your DB instance runs major version Oracle Database 21c and minor version
-21.0.0.0.ru-2024-10.rur-2024-10.r1, you can upgrade your DB engine to minor version
-21.0.0.0.ru-2025-01.rur-2025-01.r1. RDS for Oracle doesn't support minor version
-downgrades.
+upgrades
 
-You can upgrade your DB engine to a minor version manually or automatically. To learn how to
-upgrade manually, see [Manually upgrading the engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual"). To learn how to configure
-automatic upgrades, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades"). Whether you
-upgrade manually or automatically, a minor version upgrade entails downtime. Consider this
-downtime when you plan your upgrades.
-
-Amazon RDS also supports upgrade rollout policy to manage automatic minor version upgrades
-across multiple database resources and AWS accounts. For more information,
-see [Using AWS Organizations upgrade rollout policy
-for automatic minor version upgrades](RDS.Maintenance.AMVU.md "RDS.Maintenance.AMVU.md").
-
-###### Important
-
-Make sure that you thoroughly test any upgrade to verify that your applications work
-correctly before applying the upgrade to your production databases. For more
-information, see [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
+Before you upgrade your Oracle instance, review the following information.
 
 ###### Topics
 
-- [Release Updates (RUs) and Spatial Patch Bundles
-  (SPBs)](#RUs-and-SPBs "#RUs-and-SPBs")
-- [Turning on automatic minor
-  version upgrades for Oracle](#oracle-minor-version-upgrade-tuning-on "#oracle-minor-version-upgrade-tuning-on")
-- [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](#oracle-minor-version-upgrade-rollout "#oracle-minor-version-upgrade-rollout")
-- [Notification of automatic minor
-  version upgrades in RDS for Oracle](#oracle-minor-version-upgrade-advance "#oracle-minor-version-upgrade-advance")
-- [When RDS schedules automatic
-  minor version upgrades in RDS for Oracle](#oracle-minor-version-upgrade-scheduled "#oracle-minor-version-upgrade-scheduled")
-- [Managing an automatic minor
-  version upgrade in RDS for Oracle](#oracle-minor-version-upgrade-managing "#oracle-minor-version-upgrade-managing")
+- [Oracle Multitenant
+  considerations](#USER_UpgradeDBInstance.Oracle.multi "#USER_UpgradeDBInstance.Oracle.multi")
+- [Option group considerations](#USER_UpgradeDBInstance.Oracle.OGPG.OG "#USER_UpgradeDBInstance.Oracle.OGPG.OG")
+- [Parameter group
+  considerations](#USER_UpgradeDBInstance.Oracle.OGPG.PG "#USER_UpgradeDBInstance.Oracle.OGPG.PG")
+- [Time zone considerations](#USER_UpgradeDBInstance.Oracle.OGPG.DST "#USER_UpgradeDBInstance.Oracle.OGPG.DST")
+- [Spatial Patch Bundle (SPB)
+  considerations](#USER_UpgradeDBInstance.Oracle.SPB "#USER_UpgradeDBInstance.Oracle.SPB")
 
-## Release Updates (RUs) and Spatial Patch Bundles
+## Oracle Multitenant
 
-(SPBs)
+considerations
 
-In RDS, a release update (RU) is a quarterly minor engine version that includes
-security fixes, bug fixes, and new features for Oracle Database. A Spatial Patch Bundle
-(SPB) is an RU engine version that includes patches designed for the Oracle Spatial
-option. For example, the SPB named 19.0.0.0.ru-2025-01.spb-1.r1 includes all patches in
-the corresponding RU 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus patches specific to
-Spatial. SPBs are supported only for Oracle Database 19c.
+The following table describes the Oracle Database architectures supported in different
+releases.
 
-When your instance is configured for automatic minor version upgrades, RUs and SPBs
-are on separate upgrade paths. Typically, an SPB is released 2–3 weeks after its
-corresponding RU. The following table shows sample minor versions for Oracle Database
-19c.
+| Oracle Database release | RDS support status | Architecture   |
+| ----------------------- | ------------------ | -------------- |
+| Oracle Database 21c     | Supported          | CDB only       |
+| Oracle Database 19c     | Supported          | CDB or non-CDB |
 
-| Standard RU upgrade path           | SPB upgrade path             |
-| ---------------------------------- | ---------------------------- |
-| 19.0.0.0.ru-2025-01.rur-2025-01.r1 | 19.0.0.0.ru-2025-01.spb-1.r1 |
-| 19.0.0.0.ru-2025-04.rur-2025-04.r1 | 19.0.0.0.ru-2025-04.spb-1.r1 |
-| 19.0.0.0.ru-2025-07.rur-2025-07.r1 | 19.0.0.0.ru-2025-07.spb-1.r1 |
-| 19.0.0.0.ru-2025-10.rur-2025-10.r1 | 19.0.0.0.ru-2025-10.spb-1.r1 |
+The following table describes supported and unsupported upgrade paths.
 
-If your DB instance is configured for automatic upgrades, your instance is on the upgrade
-path corresponding to your current version. For example, if your DB instance runs version
-19.0.0.0.ru-2025-01.rur-2025-01.r1, then when 19.0.0.0.ru-2025-04.rur-2025-04.r1 is
-released, your instance automatically upgrades to this RU. Similarly, if your DB instance runs
-19.0.0.0.ru-2025-01.spb-1.r1, then when 19.0.0.0.ru-2025-04.spb-1.r1 is released, your
-instance automatically upgrades to this SPB. An instance running
-19.0.0.0.ru-2025-01.rur-2025-01.r1, which is an RU, won't automatically upgrade to
-19.0.0.0.ru-2025-04.spb-1.r1, which is an SPB on a separate upgrade path.
+| Upgrade path   | Supported?                                                     |
+| -------------- | -------------------------------------------------------------- |
+| CDB to CDB     | Yes                                                            |
+| Non-CDB to CDB | No, but you can convert a non-CDB to a CDB and then upgrade it |
+| CDB to non-CDB | No                                                             |
 
-You can upgrade your DB instance to SPBs even if your instance doesn't use Spatial, but the
-Spatial patches apply only to Oracle Spatial. You can upgrade manually from an RU to an
-SPB at the same engine version or higher. For example, you can upgrade your instance
-from 19.0.0.0.ru-2025-01.rur-2025-01.r1 to either of the following engine
-versions:
+For more information about Oracle Multitenant in RDS for Oracle, see [Single-tenant configuration of the
+CDB architecture](Oracle.Concepts.md#Oracle.Concepts.single-tenant "Oracle.Concepts.md#Oracle.Concepts.single-tenant").
 
-- 19.0.0.0.ru-2025-01.spb-1.r1
-- 19.0.0.0.ru-2025-04.spb-1.r1
+## Option group considerations
 
-You can upgrade your instance from an SPB to an RU only if the RU is a higher
-engine version. For example, you can upgrade from SPB version
-19.0.0.0.ru-2025-04.spb-1.r1 to a higher RU version 19.0.0.0.ru-2025-07.rur-2025-07.r1
-but not to the same RU version 19.0.0.0.ru-2025-04.rur-2025-04.r1.
+If your DB instance uses a custom option group, sometimes Amazon RDS can't automatically assign a new
+option group. For example, this situation occurs when you upgrade to a new major version. In
+such cases, specify a new option group when you upgrade. We recommend that you create a new
+option group, and add the same options to it as in your existing custom option group.
 
-If your DB instance is configured for automatic minor version upgrades, and you manually
-upgrade from an RU to an SPB or from an SPB to an RU, your automatic upgrade path
-changes. Suppose that you manually upgrade from RU version
-19.0.0.0.ru-2025-01.rur-2025-01.r1 to SPB version 19.0.0.0.ru-2025-01.spb-1.r1. Your
-next automatic minor version upgrade will be to SPB version
-19.0.0.0.ru-2025-04.spb-1.r1.
+For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create") or [Copying an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy").
 
-Because SPBs function as RUs, the RDS APIs for upgrading your instance to RUs
-and SPBs are identical. The following commands demonstrate upgrading to an RU
-and to an SPB.
+If your DB instance uses a custom option group that contains the `APEX` and
+`APEX-DEV` options, you can sometimes reduce the upgrade time. To do this,
+upgrade your version of Oracle APEX at the same time as your DB instance. For more information,
+see [Upgrading the Oracle APEX
+version](Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.Upgrade "Appendix.Oracle.Options.APEX.md#Appendix.Oracle.Options.APEX.Upgrade").
 
-```
-aws rds modify-db-instance \
-    --db-instance-identifier mydbinstance \
-    --engine-version 19.0.0.0.ru-2025-01.rur-2025-01.r1
+## Parameter group
 
-aws rds modify-db-instance \
-    --db-instance-identifier mydbinstance \
-    --engine-version 19.0.0.0.ru-2025-01.spb-1.r1
-```
+considerations
 
-For more information about the Oracle Spatial option, see [How Spatial Patch Bundles (SPBs)
-work](Oracle.Options.md#Oracle.Options.Spatial.SPBs "Oracle.Options.md#Oracle.Options.Spatial.SPBs").
-For supported RUs and SPBs for Oracle Database 19c, see [Amazon RDS for
-Oracle Database 19c (19.0.0.0)](../OracleReleaseNotes/oracle-version-19-0.md "../OracleReleaseNotes/oracle-version-19-0.md").
+If your DB instance uses a custom parameter group, sometimes Amazon RDS can't automatically
+assign your DB instance a new parameter group. For example, this situation occurs when you
+upgrade to a new major version. In such cases, make sure to specify a new parameter group
+when you upgrade. We recommend that you create a new parameter group, and configure the
+parameters as in your existing custom parameter group.
 
-## Turning on automatic minor
+For more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") or [Copying a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-version upgrades for Oracle
+## Time zone considerations
 
-In an automatic minor version upgrade, RDS applies the latest available minor version
-to your Oracle database without manual intervention. An Amazon RDS for Oracle DB instance schedules
-your upgrade during the next maintenance window in the following circumstances:
+You can use the time zone option to change the _system time zone_ used
+by your Oracle DB instance. For example, you might change the time zone of a DB instance to
+be compatible with an on-premises environment, or a legacy application. The time zone option
+changes the time zone at the host level. Amazon RDS for Oracle updates the system time zone
+automatically throughout the year. For more information about the system time zone, see
+[Oracle time zone](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
 
-- Your DB instance has the **Auto minor version upgrade** option
-  turned on.
-- Your DB instance isn't already running the latest minor DB engine version.
-- Your DB instance doesn't already have a pending upgrade scheduled.
+When you create an Oracle DB instance, the database automatically sets the
+_database time zone_. The database time zone is also known as the
+Daylight Saving Time (DST) time zone. The database time zone is distinct from the system
+time zone.
 
-To learn how to turn on automatic upgrades, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades").
+Between Oracle Database releases, patch sets or individual patches may include new DST
+versions. These patches reflect the changes in transition rules for various time zone
+regions. For example, a government might change when DST takes effect. Changes to DST rules
+may affect existing data of the `TIMESTAMP WITH TIME ZONE` data type.
 
-## Using AWS Organizations upgrade rollout policy for automatic minor version upgrades
+If you upgrade an RDS for Oracle DB instance, Amazon RDS doesn't upgrade the database time zone
+file automatically. To upgrade the time zone file automatically, you can include the
+`TIMEZONE_FILE_AUTOUPGRADE` option in the option group associated with your
+DB instance during or after the engine version upgrade. For more information, see [Oracle time zone file autoupgrade](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
 
-###### Important
+Alternatively, to upgrade the database time zone file manually, create a new Oracle DB
+instance that has the desired DST patch. However, we recommend that you upgrade the database
+time zone file using the `TIMEZONE_FILE_AUTOUPGRADE` option.
 
-For RDS for Oracle, you can use the upgrade rollout policy feature for auto minor version upgrade
-to any engine versions released after January 2026. You can't use upgrade rollout policy for
-auto minor version upgrade to the October 2025 Release Update.
+After upgrading the time zone file, migrate the data from your current instance to the new
+instance. You can migrate data using several techniques, including the following:
 
-Amazon RDS for Oracle supports AWS Organizations upgrade rollout policy to manage automatic minor version upgrades
-across multiple database resources and AWS accounts. This policy helps you implement a controlled
-upgrade strategy for your Oracle DB instances by automatically upgrading databases in a specified
-order (for example, development environments before production).
+- AWS Database Migration Service
+- Oracle GoldenGate
+- Oracle Data Pump
+- Original Export/Import (desupported for general use)
 
-For more information, see [Using AWS Organizations upgrade rollout policy
-for automatic minor version upgrades](RDS.Maintenance.AMVU.md "RDS.Maintenance.AMVU.md").
+###### Note
 
-## Notification of automatic minor
+When you migrate data using Oracle Data Pump, the utility raises the error ORA-39405
+when the target time zone version is lower than the source time zone version.
 
-version upgrades in RDS for Oracle
+For more information, see [TIMESTAMP WITH TIMEZONE restrictions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-9B6C92EE-860E-43DD-9728-735B17B9DA89 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-9B6C92EE-860E-43DD-9728-735B17B9DA89") in the Oracle documentation.
 
-RDS publishes an advance notice before it begins scheduling automatic upgrades. You
-can find the notification in the **Maintenance & backups** tab of
-the database details page. The message has the following format:
+## Spatial Patch Bundle (SPB)
 
-```
-An automatic minor version upgrade to `engine` `version` will become available on `availability-date` and will be applied during a subsequent maintenance window.
-```
+considerations
 
-The `availability-date` in the advance notice is the date
-when RDS starts scheduling upgrades for DB instances in your AWS Region. It is not the date
-on which the upgrade of your DB instance is scheduled to occur. For example, if the
-`availability-date` is March 1, on this date RDS might
-schedule your upgrade for April 14.
+In RDS for Oracle, release update (RU) is a minor engine version that includes security fixes,
+bug fixes, and new features for Oracle Database. A Spatial Patch Bundle (SPB) is minor
+engine version that also includes patches designed for the Oracle Spatial option. For
+example, 19.0.0.0.ru-2025-01.spb-1.r1 is a minor engine version that contains the RU patches
+in engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus Spatial patches.
 
-You can also get the upgrade availability date by using the
-`describe-pending-maintenance-actions` command in the AWS CLI, as shown in
-the following example:
+When you upgrade your database to SPBs, consider the following:
 
-```
-aws rds describe-pending-maintenance-actions
-
-{
-    "PendingMaintenanceActions": [
-        {
-            "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:db:orclinst1",
-            "PendingMaintenanceActionDetails": [
-                {
-                    "Action": "db-upgrade",
-                    "Description": "Automatic minor version upgrade to 21.0.0.0.ru-2024-07.rur-2024-07.r1",
-                    "CurrentApplyDate": "2024-12-02T08:10:00Z",
-                    "OptInStatus": "next-maintenance"
-                }
-            ]
-        }, ...
-```
-
-The following table describes your options for each type of pending maintenance action
-message.
-
-| Pending maintenance action message                                                                                                                                         | When message appears                                                                                                             | Eligible to be applied at the next maintenance window? | Eligible to be applied immediately? | Eligible to have the opt-in undone? |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------- | ----------------------------------- |
-| An automatic minor version upgrade to<br>`engine-version` will become available on<br>`availability-date` and should be applied<br>during a subsequent maintenance window. | 4-6 weeks before automatic upgrades are scheduled.                                                                               | Yes                                                    | Yes                                 | Yes                                 |
-| Automatic minor version upgrade to<br>`engine-version`                                                                                                                     | On or after `availability-date`. RDS<br>automatically applies this upgrade in the next maintenance window of the<br>DB instance. | Yes                                                    | Yes                                 | No                                  |
-
-For more information about [describe-pending-maintenance-actions](../../../cli/latest/reference/rds/describe-pending-maintenance-actions.md "../../../cli/latest/reference/rds/describe-pending-maintenance-actions.md"), see the _AWS CLI Command
-Reference_.
-
-## When RDS schedules automatic
-
-minor version upgrades in RDS for Oracle
-
-When the availability date for automatic upgrades arrives, RDS begins scheduling
-upgrades. For most AWS Regions, RDS schedules your upgrade to the latest quarterly RU
-approximately four to six weeks after the availability date. The scheduled date varies
-depending on the AWS Region and other factors. For more information about RUs and
-RURs, see [_Amazon RDS for Oracle Release Notes_](../OracleReleaseNotes/Welcome.md "../OracleReleaseNotes/Welcome.md").
-
-When RDS schedules the upgrade, the following notification appears in the
-**Maintenance & backups** tab of the database details
-page:
-
-```
-Automatic minor version upgrade to `engine-version`
-```
-
-The preceding message indicates that RDS has scheduled the upgrade of your DB engine in
-the next maintenance window.
-
-Sometimes a new minor version becomes available before RDS applies a previous minor
-version. For example, your instance is running
-`minor-version-1` when both
-`minor-version-2` and
-`minor-version-3` are available as upgrade targets. In this
-situation, to avoid unnecessary downtime for your DB instances, RDS schedules the
-automatic minor version upgrade to the most recent version, skipping the upgrade to the
-previous version. In this example, RDS upgrades your instance from
-`minor-version-1` directly to
-`minor-version-3`.
-
-To ensure certain frequency of minor version upgrades, you can upgrade your instances
-manually instead of using the automatic upgrade mechanism. To schedule an upgrade for
-the next maintenance window, specify `--no-apply-immediately` when you
-upgrade to a minor version using `modify-db-instance`. To upgrade
-immediately, specify `--apply-immediately` instead. For more information, see
-[Manually upgrading the engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual").
-
-## Managing an automatic minor
-
-version upgrade in RDS for Oracle
-
-When a new minor version becomes available, you can upgrade your DB instance to this version
-manually. The following example upgrades the DB instance named `orclinst1`
-immediately:
-
-```
-aws rds apply-pending-maintenance-action \
-    --resource-identifier arn:aws:rds:us-east-1:123456789012:db:orclinst1 \
-    --apply-action db-upgrade \
-    --opt-in-type immediate
-```
-
-To opt out of an automatic minor version upgrade that hasn't been scheduled yet, set
-`--opt-in-type` to `undo-opt-in`, as in the following
-example:
-
-```
-aws rds apply-pending-maintenance-action \
-    --resource-identifier arn:aws:rds:us-east-1:123456789012:db:orclinst1 \
-    --apply-action db-upgrade \
-    --opt-in-type undo-opt-in
-```
-
-If RDS has already scheduled an upgrade for your DB instance, you can't use
-`apply-pending-maintenance-action` to cancel it. But you can modify your
-DB instance and turn off the automatic minor upgrade feature, which then unschedules the
-upgrade.
-
-To learn how to turn off automatic minor version upgrades, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades"). For
-more information about [apply-pending-maintenance-action](../../../cli/latest/reference/rds/apply-pending-maintenance-action.md "../../../cli/latest/reference/rds/apply-pending-maintenance-action.md"), see the _AWS CLI Command
-Reference_.
+- SPBs are supported only for Oracle Database 19c.
+- Typically, an SPB is released 2–3 weeks after its corresponding quarterly
+  RU.
+- You can upgrade your DB instance to an SPB even if the instance doesn't use the Oracle
+  Spatial option, but the Spatial patches in the engine version apply only to Oracle
+  Spatial. You can create a new instance on an SPB and install the Oracle Spatial
+  option later.
+- If you enable automatic minor version upgrade for your DB instance, your upgrade path
+  depends on whether your instance currently uses an SPB or RU. If your
+  instance uses an SPB, RDS automatically upgrades your instance to the latest SPB. If
+  your instance uses an RU, RDS automatically upgrades your instance to the
+  latest RU.
+- You can manually upgrade your DB instance from an RU to an SPB only if the SPB
+  is the same engine version or higher as your current RU.
+- You can manually upgrade your DB instance from an SPB to an RU only if the
+  RU is a higher version.

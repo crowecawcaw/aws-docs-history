@@ -129,7 +129,6 @@ The following are some limitations to using native backup and restore:
   with the RDS daily backup window, the native backup task is canceled.
 - On Multi-AZ DB instances, you can only natively restore databases that are backed up in
   the full recovery model.
-- Restoring from differential backups on Multi-AZ instances isn't supported.
 - Calling the RDS procedures for native backup and restore within a transaction isn't supported.
 - Use a symmetric encryption AWS KMS key to encrypt your backups. Amazon RDS doesn't support asymmetric KMS keys. For more
   information, see [Creating symmetric encryption KMS keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_.

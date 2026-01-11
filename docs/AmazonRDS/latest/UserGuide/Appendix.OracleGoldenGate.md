@@ -1,81 +1,143 @@
-# Oracle GoldenGate architecture
+# Working with the EXTRACT and REPLICAT utilities of
 
-The Oracle GoldenGate architecture for use with Amazon RDS consists of the following decoupled modules:
+Oracle GoldenGate
 
-Source database
+The Oracle GoldenGate utilities `EXTRACT` and `REPLICAT` work together to keep the
+source and target databases in sync via incremental transaction replication using trail
+files. All changes that occur on the source database are automatically detected by
+`EXTRACT`, then formatted and transferred to trail files on the Oracle GoldenGate
+on-premises or Amazon EC2 instance hub. After initial load is completed, the data is read from
+these files and replicated to the target database by the `REPLICAT`
+utility.
 
-Your source database can be either an on-premises Oracle database, an Oracle database on an Amazon EC2
-instance, or an Oracle database on an Amazon RDS DB instance.
+## Running the Oracle GoldenGate EXTRACT utility
 
-Oracle GoldenGate hub
+The `EXTRACT` utility retrieves, converts, and outputs data from the source
+database to trail files. The basic process is as follows:
 
-An Oracle GoldenGate hub moves transaction information from the source database to the target
-database. Your hub can be either of the following:
+1. `EXTRACT` queues transaction details to memory or to temporary disk
+   storage.
+2. The source database commits the transaction.
+3. `EXTRACT` writes the transaction details to a trail file.
+4. The trail file routes these details to the Oracle GoldenGate on-premises or the Amazon EC2
+   instance hub and then to the target database.
 
-- An Amazon EC2 instance with Oracle Database and Oracle GoldenGate installed
-- An on-premises Oracle installation
+The following steps start the `EXTRACT` utility, capture the data from
+`EXAMPLE.TABLE` in source database `OGGSOURCE`, and create the
+trail files.
 
-You can have more than one Amazon EC2 hub. We recommend that you use two hubs if you use Oracle GoldenGate for
-cross-Region replication.
+###### To run the EXTRACT utility
 
-Target database
+1. Configure the `EXTRACT` parameter file on the Oracle GoldenGate hub
+   (on-premises or Amazon EC2 instance). The following listing shows an example
+   `EXTRACT` parameter file named
+   `$GGHOME/dirprm/eabc.prm`.
 
-Your target database can be on either an Amazon RDS DB instance, an Amazon EC2 instance, or an on-premises
-location.
+```
+EXTRACT EABC
+ 
+USERID oggadm1@OGGSOURCE, PASSWORD "`my-password`"
+EXTTRAIL `/path/to/goldengate/dirdat/ab`
+ 
+IGNOREREPLICATES
+GETAPPLOPS
+TRANLOGOPTIONS EXCLUDEUSER OGGADM1
+	 
+TABLE EXAMPLE.TABLE;
+```
 
-The following sections describe common scenarios for Oracle GoldenGate on Amazon RDS.
+2. On the Oracle GoldenGate hub, log in to the source database and launch the Oracle GoldenGate command
+   line interface `ggsci`. The following example shows the format for
+   logging in.
 
-###### Topics
+```
+dblogin oggadm1@OGGSOURCE
+```
 
-- [On-premises source database and Oracle GoldenGate hub](#Appendix.OracleGoldenGate.on-prem-source-gg-hub "#Appendix.OracleGoldenGate.on-prem-source-gg-hub")
-- [On-premises source database and Amazon EC2
-  hub](#Appendix.OracleGoldenGate.on-prem-source-ec2-hub "#Appendix.OracleGoldenGate.on-prem-source-ec2-hub")
-- [Amazon RDS source database and Amazon EC2 hub](#Appendix.OracleGoldenGate.rds-source-ec2-hub "#Appendix.OracleGoldenGate.rds-source-ec2-hub")
-- [Amazon EC2 source database and Amazon EC2 hub](#Appendix.OracleGoldenGate.ec2-source-ec2-hub "#Appendix.OracleGoldenGate.ec2-source-ec2-hub")
-- [Amazon EC2 hubs in different AWS Regions](#Appendix.OracleGoldenGate.cross-region-hubs "#Appendix.OracleGoldenGate.cross-region-hubs")
+3. Add transaction data to turn on supplemental logging for the database
+   table.
 
-## On-premises source database and Oracle GoldenGate hub
+```
+add trandata EXAMPLE.TABLE
+```
 
-In this scenario, an on-premises Oracle source database and on-premises Oracle GoldenGate hub provides data
-to a target Amazon RDS DB instance.
+4. Using the `ggsci` command line, enable the `EXTRACT`
+   utility using the following commands.
 
-![Oracle GoldenGate configuration 0 using Amazon RDS](images/oracle-gg0.png)
+```
+add extract EABC tranlog, INTEGRATED tranlog, begin now
+add exttrail `/path/to/goldengate/dirdat/ab`
+   extract EABC,
+   MEGABYTES 100
+```
 
-## On-premises source database and Amazon EC2
+5. Register the `EXTRACT` utility with the database so that the
+   archive logs are not deleted. This task allows you to recover old, uncommitted
+   transactions if necessary. To register the `EXTRACT` utility with the
+   database, use the following command.
 
-hub
+```
+register EXTRACT EABC, DATABASE
+```
 
-In this scenario, an on-premises Oracle database acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data
-to a target RDS for Oracle DB instance.
+6. Start the `EXTRACT` utility with the following command.
 
-![Oracle GoldenGate configuration 1 using Amazon RDS](images/oracle-gg1.png)
+```
+start EABC
+```
 
-## Amazon RDS source database and Amazon EC2 hub
+## Running the Oracle GoldenGate REPLICAT utility
 
-In this scenario, an RDS for Oracle DB instance acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data to a
-target RDS for Oracle DB instance.
+The `REPLICAT` utility "pushes" transaction information in the trail files to the
+target database.
 
-![Oracle GoldenGate configuration 2 using Amazon RDS](images/oracle-gg2.png)
+The following steps enable and start the `REPLICAT` utility so that it can
+replicate the captured data to the table `EXAMPLE.TABLE` in target database
+`OGGTARGET`.
 
-## Amazon EC2 source database and Amazon EC2 hub
+###### To run the REPLICATE utility
 
-In this scenario, an Oracle database on an Amazon EC2 instance acts as the source database. It's connected to an Amazon EC2 instance hub. This hub
-provides data to a target RDS for Oracle DB instance.
+1. Configure the `REPLICAT` parameter file on the Oracle GoldenGate hub
+   (on-premises or EC2 instance). The following listing shows an example
+   `REPLICAT` parameter file named
+   `$GGHOME/dirprm/rabc.prm`.
 
-![Oracle GoldenGate configuration 3 using Amazon RDS](images/oracle-gg3.png)
-
-## Amazon EC2 hubs in different AWS Regions
-
-In this scenario, an Oracle database on an Amazon RDS DB instance is connected to an Amazon EC2 instance hub in the same AWS Region. The hub is
-connected to an Amazon EC2 instance hub in a different AWS Region. This second hub provides data to the target RDS for Oracle DB instance in the
-same AWS Region as the second Amazon EC2 instance hub.
-
-![Oracle GoldenGate configuration 4 using Amazon RDS](images/oracle-gg4.png)
+```
+REPLICAT RABC
+ 
+USERID oggadm1@OGGTARGET, password "`my-password`"
+ 
+ASSUMETARGETDEFS
+MAP EXAMPLE.TABLE, TARGET EXAMPLE.TABLE;
+```
 
 ###### Note
 
-Any issues that affect running Oracle GoldenGate on an on-premises environment also affect running Oracle GoldenGate
-on AWS. We strongly recommend that you monitor the Oracle GoldenGate hub to ensure that
-`EXTRACT` and `REPLICAT` are resumed if a failover occurs. Because the
-Oracle GoldenGate hub is run on an Amazon EC2 instance, Amazon RDS does not manage the Oracle GoldenGate hub and cannot
-ensure that it is running.
+Specify a password other than the prompt shown here as a security best practice. 2. Log in to the target database and launch the Oracle GoldenGate command line interface
+(`ggsci`). The following example shows the format for logging
+in.
+
+```
+dblogin userid oggadm1@OGGTARGET
+```
+
+3. Using the `ggsci` command line, add a checkpoint table. The user indicated
+   should be the Oracle GoldenGate user account, not the target table schema owner. The
+   following example creates a checkpoint table named
+   `gg_checkpoint`.
+
+```
+add checkpointtable oggadm1.oggchkpt
+```
+
+4. To enable the `REPLICAT` utility, use the following command.
+
+```
+add replicat RABC EXTTRAIL `/path/to/goldengate/dirdat/ab` CHECKPOINTTABLE oggadm1.oggchkpt
+```
+
+5. Start the `REPLICAT` utility by using the following command.
+
+```
+start RABC
+```

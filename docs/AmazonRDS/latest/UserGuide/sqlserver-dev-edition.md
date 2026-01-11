@@ -1,92 +1,38 @@
-# Working with SQL Server Developer Edition on RDS for SQL Server
-
-RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature.
-
-## Benefits
-
-You can use RDS for SQL Server Developer Edition to:
-
-- Lower costs in development and test environments while maintaining feature parity with production databases.
-- Access Enterprise Edition capabilities in non-production environments without Enterprise licensing fees.
-- Use Amazon RDS-automated management features, including backups, patching, and monitoring.
-
-###### Note
-
-SQL Server Developer Edition is licensed for development and testing purposes only and cannot be used in production environments.
-
-## Region availability
-
-RDS for SQL Server Developer Edition is available in the following AWS Regions:
-
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (Oregon)
-- US West (N. California)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Seoul)
-- Asia Pacific (Singapore)
-- Asia Pacific (Osaka)
-- Asia Pacific (Sydney)
-- Asia Pacific (Tokyo)
-- Europe (Ireland)
-- Europe (Frankfurt)
-- Europe (London)
-- Europe (Stockholm)
-- Europe (Paris)
-- Canada (Central)
-- South America (São Paulo)
-- Africa (Cape Town)
-
-## Licensing and usage
-
-SQL Server Developer Edition is licensed by Microsoft for development and test environments only. You cannot use Developer Edition as a production server. When you use SQL Server Developer Edition on Amazon RDS, you are responsible for complying with Microsoft's SQL Server Developer Edition licensing terms. You pay only for the AWS infrastructure costs - there is no additional SQL Server licensing fee. For pricing details, see [RDS for SQL Server pricing](https://aws.amazon.com/rds/sqlserver/pricing/ "https://aws.amazon.com/rds/sqlserver/pricing/").
+# Preparing a CEV for RDS for SQL Server
 
 ## Prerequisites
 
-Before using SQL Server Developer Edition on RDS for SQL Server, ensure you have the following requirements:
+Before creating a custom engine version, make sure you have completed the following prerequisites:
 
-- You must obtain the installation binaries directly from Microsoft and ensure compliance with Microsoft's licensing terms.
-- You must have access to use the following resources to create a Developer Edition DB instance:
-  - AWS account with `AmazonRDSFullAccess` and `s3:GetObject` permissions.
+### Prepare SQL Server Developer Edition installation media
 
-- An Amazon S3 bucket is required for storing installation media. You will need an ISO and cumulative update file to upload to the Amazon S3 bucket as part of CEV creation. For more information, see [Uploading installation media to an Amazon S3 bucket](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").
-- All installation media files must reside within the same Amazon S3 bucket and the same folder path within that Amazon S3 bucket in the same Region where the custom engine version is created.
+You must obtain the SQL Server Developer Edition installation media from Microsoft and prepare it for upload to S3.
 
-### Supported versions
+###### To download installation media from Microsoft
 
-Developer Edition on RDS for SQL Server supports the following versions:
+1. **Option A:** Use your [Visual Studio subscription](https://visualstudio.microsoft.com/subscriptions/ "https://visualstudio.microsoft.com/subscriptions/") to download the Developer Edition ISO. Only the English version is supported.
+2. **Option B: Using SQL Server Installer**
+   1. Download the [SQL Server Developer Edition installer](https://download.microsoft.com/download/c/c/9/cc9c6797-383c-4b24-8920-dc057c1de9d3/SQL2022-SSEI-Dev.exe "https://download.microsoft.com/download/c/c/9/cc9c6797-383c-4b24-8920-dc057c1de9d3/SQL2022-SSEI-Dev.exe").
+   2. Run the installer and choose **Download Media** to download the full ISO.
+   3. Choose **English** as the preferred language.
+   4. Choose **ISO** as the media type.
+   5. Choose **Download**.
 
-- SQL Server 2022 CU 21 (16.00.4215.2)
+###### To download cumulative updates
 
-To list all supported engine versions for Developer Edition CEV creation, use the following AWS CLI command:
+1. Visit the [Microsoft Catalog Update](https://www.catalog.update.microsoft.com/Home.aspx "https://www.catalog.update.microsoft.com/Home.aspx") page.
+2. Find a SQL Server Developer Edition supported by RDS for SQL Server, for example "SQL Server 2022 Cumulative Update".
+3. Download the latest supported CU executable file and save it to your machine.
+4. Example files: `SQLServer2022-KB5065865-x64.exe` (CU21 for SQL Server 2022)
 
-```
-aws rds describe-db-engine-versions --engine sqlserver-dev-ee --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineVersionDescription: DBEngineVersionDescription}}"
-```
+###### Important
 
-The command returns output similar to the following example:
+RDS for SQL Server only supports specific Cumulative Update (CU) versions. You must use the exact version listed in the table below. Do not use newer CU versions even if available from Microsoft, as they may not be compatible with RDS.
 
-```
-{
-    "DBEngineVersions": [
-        {
-            "Engine": "sqlserver-dev-ee",
-            "EngineVersion": "`16.00.4215.2.v1`",
-            "Status": "requires-custom-engine-version",
-            "DBEngineDescription": "Microsoft SQL Server Enterprise Developer Edition",
-            "DBEngineVersionDescription": "SQL Server 2022 16.00.4215.2.v1"
-        }
-    ]
-}
-```
+Alternatively, you can also download the required Cumulative Update (CU) file directly from the following:
 
-The engine version status as `requires_custom_engine_version` identifies template engine versions that are supported. These templates show which SQL Server versions you can import.
+The following table lists the supported SQL Server Developer Edition version and its corresponding Cumulative Update for use with RDS:
 
-## Limitations
-
-The following limitations apply to SQL Server Developer Edition on Amazon RDS:
-
-- Currently only supported on M6i and R6i instance classes.
-- Multi-AZ deployments and read replicas are not supported.
-- You must provide and manage your own SQL Server installation media.
-- Custom engine versions for SQL Server Developer Edition (sqlserver-dev-ee) cannot be shared cross-Region or cross-account.
+| SQL Server Version | Supported CU | KB Article                                                                                                                                                                                                 | Download File Name                |
+| ------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| SQL Server 2022    | `CU21`       | [KB5065865](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate21 "https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate21") | `SQLServer2022-KB5065865-x64.exe` |

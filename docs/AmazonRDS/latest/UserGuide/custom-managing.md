@@ -1,34 +1,61 @@
-# Setting the NLS_LANG value in RDS Custom for Oracle
+# Modifying an RDS Custom for SQL Server DB instance
 
-A _locale_ is a set of information addressing linguistic and cultural
-requirements that corresponds to a given language and country. To specify locale behavior
-for Oracle software, set the `NLS_LANG` environment variable on your client host.
-This variable sets the language, territory, and character set used by the client application
-in a database session.
+Modifying an RDS Custom for SQL Server DB instance is similar to doing this for Amazon RDS, but the changes that you can make are limited to the
+following:
 
-For RDS Custom for Oracle, you can set only the language in the `NLS_LANG` variable: the
-territory and character use defaults. The language is used for Oracle database messages,
-collation, day names, and month names. Each supported language has a unique name, for
-example, American, French, or German. If language is not specified, the value defaults to
-American.
+- Changing the DB instance class
+- Changing the backup retention period and backup window
+- Changing the maintenance window
+- Upgrading the DB engine version when a new version becomes available
+- Changing the allocated storage, provisioned IOPS, and storage type
+- Allowing and removing Multi-AZ deployments
+  The following limitations apply to modifying an RDS Custom for SQL Server DB instance:
 
-After you create your RDS Custom for Oracle database, you can set `NLS_LANG` on your client
-host to a language other than English. To see a list of languages supported by Oracle
-Database, log in to your RDS Custom for Oracle database and run the following query:
+- Custom DB option and parameter groups aren't supported.
+- Any storage volumes that you attach manually to your RDS Custom DB instance are outside the support perimeter.
 
-```
-SELECT VALUE FROM V$NLS_VALID_VALUES WHERE PARAMETER='LANGUAGE' ORDER BY VALUE;
-```
+For more information, see [RDS Custom support
+perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
 
-You can set `NLS_LANG` on the host command line. The following example sets the
-language to German for your client application using the Z shell on Linux.
+###### To modify an RDS Custom for SQL Server DB instance
 
-```
-export NLS_LANG=German
-```
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB instance that you want to modify.
+4. Choose **Modify**.
+5. Make the following changes as needed:
+   1. For **DB engine version**, choose the new version.
+   2. Change the value for **DB instance class**.
+      For supported classes, see
 
-Your application reads the `NLS_LANG` value when it starts and then
-communicates it to the database when it connects.
+   [DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.md "custom-reqs-limits.md") 3. Change the value for **Backup retention
+   period**. 4. For **Backup window**, set values for the
+   **Start time** and
+   **Duration**. 5. For **DB instance maintenance window**, set
+   values for the **Start day**, **Start
+   time**, and **Duration**.
 
-For more information, see [Choosing a Locale with the NLS_LANG Environment Variable](https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A "https://docs.oracle.com/en/database/oracle/oracle-database/21/nlspg/setting-up-globalization-support-environment.html#GUID-86A29834-AE29-4BA5-8A78-E19C168B690A") in the
-_Oracle Database Globalization Support Guide_.
+6. Choose **Continue**.
+7. Choose **Apply immediately** or **Apply during the next scheduled maintenance
+   window**.
+8. Choose **Modify DB instance**.
+   To modify an RDS Custom for SQL Server DB instance, use the [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") AWS CLI command. Set the following parameters as needed:
+
+- `--db-instance-class` – For supported classes, see
+
+[DB instance class support for RDS Custom for SQL Server](custom-reqs-limits.md "custom-reqs-limits.md")
+
+- `--engine-version` – The version number of the database engine to which you're
+  upgrading.
+- `--backup-retention-period` – How long to retain automated backups, from 0–35
+  days.
+- `--preferred-backup-window` – The daily time range during which automated backups are
+  created.
+- `--preferred-maintenance-window` – The weekly time range (in UTC) during which system
+  maintenance can occur.
+- `--apply-immediately` – Use `--apply-immediately` to apply the storage changes
+  immediately.
+
+Or use `--no-apply-immediately` (the default) to apply the changes during the next maintenance
+window.

@@ -1,26 +1,59 @@
-# Sending MySQL
+# Managing the Global Status
 
-log output to tables
+History for RDS for MySQL
 
-You can direct the general and slow query logs to tables on the DB instance by creating a DB parameter group
-and setting the `log_output` server parameter to `TABLE`. General queries are then logged
-to the `mysql.general_log` table, and slow queries are logged to the `mysql.slow_log`
-table. You can query the tables to access the log information. Enabling this logging increases the amount of data
-written to the database, which can degrade performance.
+###### Tip
 
-Both the general log and the slow query logs are disabled by default. In order to enable logging to tables, you
-must also set the `general_log` and `slow_query_log` server parameters to
-`1`.
+To analyze database performance, you can also use Performance Insights on Amazon RDS. For more
+information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
 
-Log tables keep growing until the respective logging activities are turned off by resetting the appropriate parameter
-to `0`. A large amount of data often accumulates over time, which can use up a considerable percentage of
-your allocated storage space. Amazon RDS doesn't allow you to truncate the log tables, but you can move their contents. Rotating a
-table saves its contents to a backup table and then creates a new empty log table. You can manually rotate the log
-tables with the following command line procedures, where the command prompt is indicated by `PROMPT>`:
+MySQL maintains many status variables that provide information about its operation.
+Their value can help you detect locking or memory issues on a DB instance. The values of
+these status variables are cumulative since last time the DB instance was started. You
+can reset most status variables to 0 by using the `FLUSH STATUS` command.
+
+To allow for monitoring of these values over time, Amazon RDS provides a set of procedures
+that will snapshot the values of these status variables over time and write them to a
+table, along with any changes since the last snapshot. This infrastructure, called
+Global Status History (GoSH), is installed on all MySQL DB instances starting with
+versions 5.5.23. GoSH is disabled by default.
+
+To enable GoSH, you first enable the event scheduler from a DB parameter group by
+setting the parameter `event_scheduler` to `ON`. For MySQL DB
+instances running MySQL 5.7, also set the parameter `show_compatibility_56`
+to `1`. For information about creating and modifying a DB parameter group,
+see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information about the side
+effects of enabling this parameter, see [show_compatibility_56](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56 "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56") in the _MySQL 5.7 Reference
+Manual_.
+
+You can then use the procedures in the following table to enable and configure GoSH.
+First connect to your MySQL DB instance, then issue the appropriate commands as shown
+following. For more information, see [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md"). For each procedure, run the following
+command and replace _`procedure-name`_:
 
 ```
-PROMPT> CALL mysql.rds_rotate_slow_log;
-PROMPT> CALL mysql.rds_rotate_general_log;
+CALL `procedure-name`;
 ```
 
-To completely remove the old data and reclaim the disk space, call the appropriate procedure twice in succession.
+The following table lists all of the procedures that you can use for _`procedure-name`_ in the previous
+command.
+
+| Procedure                                 | Description                                                                                                                                                                         |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mysql.rds_enable_gsh_collector`          | Enables GoSH to take default snapshots at intervals specified by<br>`rds_set_gsh_collector`.                                                                                        |
+| `mysql.rds_set_gsh_collector`             | Specifies the interval, in minutes, between snapshots. Default<br>value is 5.                                                                                                       |
+| `mysql.rds_disable_gsh_collector`         | Disables snapshots.                                                                                                                                                                 |
+| `mysql.rds_collect_global_status_history` | Takes a snapshot on demand.                                                                                                                                                         |
+| `mysql.rds_enable_gsh_rotation`           | Enables rotation of the contents of the<br>`mysql.rds_global_status_history` table to<br>`mysql.rds_global_status_history_old` at intervals<br>specified by `rds_set_gsh_rotation`. |
+| `mysql.rds_set_gsh_rotation`              | Specifies the interval, in days, between table rotations. Default<br>value is 7.                                                                                                    |
+| `mysql.rds_disable_gsh_rotation`          | Disables table rotation.                                                                                                                                                            |
+| `mysql.rds_rotate_global_status_history`  | Rotates the contents of the<br>`mysql.rds_global_status_history` table to<br>`mysql.rds_global_status_history_old` on demand.                                                       |
+
+When GoSH is running, you can query the tables that it writes to. For example, to
+query the hit ratio of the Innodb buffer pool, you would issue the following query:
+
+```
+select a.collection_end, a.collection_start, (( a.variable_Delta-b.variable_delta)/a.variable_delta)*100 as "HitRatio"
+    from mysql.rds_global_status_history as a join mysql.rds_global_status_history as b on a.collection_end = b.collection_end
+    where a. variable_name = 'Innodb_buffer_pool_read_requests' and b.variable_name = 'Innodb_buffer_pool_reads'
+```

@@ -1,34 +1,133 @@
-# DB instance class support for Microsoft SQL Server
+# Microsoft SQL Server features on Amazon RDS
 
-The computation and memory capacity of a DB instance is determined by its DB instance
-class. The DB instance class you need depends on your processing power and memory
-requirements. For more information, see [DB instance classes](Concepts.md "Concepts.md").
+The supported SQL Server versions on Amazon RDS include the following features. In general, a version also includes features from the
+previous versions, unless otherwise noted in the Microsoft documentation.
 
-The following list of DB instance classes supported for Microsoft SQL Server is provided here for your convenience. For the most
-current list, see the RDS console: [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+###### Topics
 
-Not all DB instance classes are available on all supported SQL Server minor versions. For example, some newer DB instance
-classes such as db.r6i aren't available on older minor versions. You can use the [describe-orderable-db-instance-options](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html") AWS CLI command to find out which DB instance classes are available for your
-SQL Server edition and version.
+- [Microsoft SQL Server 2022 features](#SQLServer.Concepts.General.FeatureSupport.2022 "#SQLServer.Concepts.General.FeatureSupport.2022")
+- [Microsoft SQL Server 2019 features](#SQLServer.Concepts.General.FeatureSupport.2019 "#SQLServer.Concepts.General.FeatureSupport.2019")
+- [Microsoft SQL Server 2017 features](#SQLServer.Concepts.General.FeatureSupport.2017 "#SQLServer.Concepts.General.FeatureSupport.2017")
+- [Microsoft SQL Server 2016 features](#SQLServer.Concepts.General.FeatureSupport.2016 "#SQLServer.Concepts.General.FeatureSupport.2016")
+- [Microsoft SQL Server 2014 end
+  of support on Amazon RDS](#SQLServer.Concepts.General.FeatureSupport.2014 "#SQLServer.Concepts.General.FeatureSupport.2014")
+- [Microsoft SQL Server 2012 end
+  of support on Amazon RDS](#SQLServer.Concepts.General.FeatureSupport.2012 "#SQLServer.Concepts.General.FeatureSupport.2012")
+- [Microsoft SQL Server 2008 R2 end
+  of support on Amazon RDS](#SQLServer.Concepts.General.FeatureSupport.2008 "#SQLServer.Concepts.General.FeatureSupport.2008")
+- [Change data capture support for Microsoft SQL Server DB instances](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md")
+- [Features not supported and features with limited support](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md")
 
-| SQL Server edition | 2022 support range                                                                                                                                                                                                                                                                                                                                                                                          | 2019 support range                                                                                                                                                                                                                                                                                                                                                                                                                                      | 2017 and 2016 support range                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enterprise Edition | `db.t3.xlarge`–`db.t3.2xlarge``db.r5.xlarge`–`db.r5.24xlarge``db.r5b.xlarge`–`db.r5b.24xlarge``db.r5d.xlarge`–`db.r5d.24xlarge``db.r6i.xlarge`–`db.r6i.32xlarge``db.r7i.xlarge`–`db.r7i.16xlarge``db.m5.xlarge`–`db.m5.24xlarge``db.m5d.xlarge`–`db.m5d.24xlarge``db.m6i.xlarge`–`db.m6i.32xlarge``db.m7i.xlarge`–`db.m7i.16xlarge``db.x2iedn.xlarge`–`db.x2iedn.32xlarge``db.z1d.xlarge`–`db.z1d.12xlarge` | `db.t3.xlarge`–`db.t3.2xlarge`<br>`db.r5.xlarge`–`db.r5.24xlarge`<br>`db.r5b.xlarge`–`db.r5b.24xlarge`<br>`db.r5d.xlarge`–`db.r5d.24xlarge`<br>`db.r6i.xlarge`–`db.r6i.32xlarge`<br>`db.r7i.xlarge`–`db.r7i.16xlarge`<br>`db.m5.xlarge`–`db.m5.24xlarge`<br>`db.m5d.xlarge`–`db.m5d.24xlarge`<br>`db.m6i.xlarge`–`db.m6i.32xlarge`<br>`db.m7i.xlarge`–`db.m7i.16xlarge`<br>`db.x2iedn.xlarge`–`db.x2iedn.32xlarge`<br>`db.z1d.xlarge`–`db.z1d.12xlarge` | `db.t3.xlarge`–`db.t3.2xlarge`<br>`db.r5.xlarge`–`db.r5.24xlarge`<br>`db.r5b.xlarge`–`db.r5b.24xlarge`<br>`db.r5d.xlarge`–`db.r5d.24xlarge`<br>`db.r6i.xlarge`–`db.r6i.32xlarge`<br>`db.r7i.xlarge`–`db.r7i.16xlarge`<br>`db.m5.xlarge`–`db.m5.24xlarge`<br>`db.m5d.xlarge`–`db.m5d.24xlarge`<br>`db.m6i.xlarge`–`db.m6i.32xlarge`<br>`db.m7i.xlarge`–`db.m7i.16xlarge`<br>`db.x2iedn.xlarge`–`db.x2iedn.32xlarge`<br>`db.z1d.xlarge`–`db.z1d.12xlarge` |
-| Standard Edition   | `db.t3.xlarge`–`db.t3.2xlarge``db.r5.large`–`db.r5.24xlarge``db.r5b.large`–`db.r5b.8xlarge``db.r5d.large`–`db.r5d.24xlarge``db.r6i.large`–`db.r6i.8xlarge``db.r7i.large`–`db.r7i.8xlarge``db.m5.large`–`db.m5.24xlarge``db.m5d.large`–`db.m5d.24xlarge``db.m6i.large`–`db.m6i.8xlarge``db.m7i.large`–`db.m7i.8xlarge``db.x2iedn.xlarge`–`db.x2iedn.8xlarge``db.z1d.large`–`db.z1d.12xlarge`                 | `db.t3.xlarge`–`db.t3.2xlarge`<br>`db.r5.large`–`db.r5.24xlarge`<br>`db.r5b.large`–`db.r5b.24xlarge`<br>`db.r5d.large`–`db.r5d.24xlarge`<br>`db.r6i.large`–`db.r6i.8xlarge`<br>`db.r7i.large`–`db.r7i.8xlarge`<br>`db.m5.large`–`db.m5.24xlarge`<br>`db.m5d.large`–`db.m5d.24xlarge`<br>`db.m6i.large`–`db.m6i.8xlarge`<br>`db.m7i.large`–`db.m7i.8xlarge`<br>`db.x2iedn.xlarge`–`db.x2iedn.32xlarge`<br>`db.z1d.large`–`db.z1d.12xlarge`               | `db.t3.xlarge`–`db.t3.2xlarge``db.r5.large`–`db.r5.24xlarge``db.r5b.large`–`db.r5b.24xlarge``db.r5d.large`–`db.r5d.24xlarge``db.r6i.large`–`db.r6i.8xlarge``db.r7i.large`–`db.r7i.8xlarge``db.m5.large`–`db.m5.24xlarge``db.m5d.large`–`db.m5d.24xlarge``db.m6i.large`–`db.m6i.8xlarge``db.m7i.large`–`db.m7i.8xlarge``db.x2iedn.xlarge`–`db.x2iedn.32xlarge``db.z1d.large`–`db.z1d.12xlarge`                                                           |
-| Web Edition        | `db.t3.small`–`db.t3.xlarge``db.r5.large`–`db.r5.4xlarge``db.r5b.large`–`db.r5b.4xlarge``db.r5d.large`–`db.r5d.4xlarge``db.r6i.large`–`db.r6i.4xlarge``db.r7i.large`–`db.r7i.4xlarge``db.m5.large`–`db.m5.4xlarge``db.m5d.large`–`db.m5d.4xlarge``db.m6i.large`–`db.m6i.4xlarge``db.m7i.large`–`db.m7i.4xlarge``db.z1d.large`–`db.z1d.13xlarge`                                                             | `db.t3.small`–`db.t3.2xlarge``db.r5.large`–`db.r5.4xlarge``db.r5b.large`–`db.r5b.4xlarge``db.r5d.large`–`db.r5d.4xlarge``db.r6i.large`–`db.r6i.4xlarge``db.r7i.large`–`db.r7i.4xlarge``db.m5.large`–`db.m5.4xlarge``db.m5d.large`–`db.m5d.4xlarge``db.m6i.large`–`db.m6i.4xlarge``db.m7i.large`–`db.m7i.4xlarge``db.z1d.large`–`db.z1d.3xlarge`                                                                                                         | `db.t3.small`–`db.t3.2xlarge``db.r5.large`–`db.r5.4xlarge``db.r5b.large`–`db.r5b.4xlarge``db.r5d.large`–`db.r5d.4xlarge``db.r6i.large`–`db.r6i.4xlarge``db.r7i.large`–`db.r7i.4xlarge``db.m5.large`–`db.m5.4xlarge``db.m5d.large`–`db.m5d.4xlarge``db.m6i.large`–`db.m6i.4xlarge``db.m7i.large`–`db.m7i.4xlarge``db.z1d.large`–`db.z1d.3xlarge`                                                                                                         |
-| Express Edition    | `db.t3.micro`–`db.t3.xlarge`                                                                                                                                                                                                                                                                                                                                                                                | `db.t3.micro`–`db.t3.xlarge`                                                                                                                                                                                                                                                                                                                                                                                                                            | `db.t3.micro`–`db.t3.xlarge`                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Developer Edition  | `db.m6i.xlarge`–`db.m6i.32xlarge``db.r6i.xlarge`–`db.r6i.32xlarge`                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+## Microsoft SQL Server 2022 features
 
-###### Note
+SQL Server 2022 includes many new features, such as the following:
 
-- Starting with the 7th generation instance class, hyper-threading is
-  disabled on RDS SQL Server for instance sizes 2xlarge and above. This
-  results in the total number of vCPUs available being half of that
-  supported by the [corresponding EC2 instance](../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md "../../../AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.md"). For example, the EC2 instance type `m7i.2xlarge` by default supports 4
-  cores and 2 threadsPerCore, resulting in a total of 8 vCPUs. In
-  contrast, the RDS for SQL Server `db.m7i.2xlarge` instance, with
-  hyper-threading disabled, results in 4 cores and 1 threadsPerCore,
-  overall 4 vCPUs.
-- Starting with the 7th generation instances, your billing provides a detailed breakdown of RDS DB instance
-  and third-party licensing fees. For more details, refer to
-  [RDS SQL Server pricing](https://aws.amazon.com/rds/sqlserver/pricing/ "https://aws.amazon.com/rds/sqlserver/pricing/").
+- Parameter Sensitive Plan Optimization – allows multiple cached plans for a single parameterized statement,
+  potentially reducing issues with parameter sniffing.
+- SQL Server Ledger – provides the ability to cryptographically prove that your data hasn't been altered without authorization.
+- Instant file initialization for transaction log file growth events – results in faster execution of log growth events up to 64MB,
+  including for databases with TDE enabled.
+- System page latch concurrency enhancements – reduces page latch contention while allocating and deallocating data pages and extents,
+  providing significant performance enhancements to `tempdb` heavy workloads.
+
+For the full list of SQL Server 2022 features, see [What's new in SQL Server 2022 (16.x)](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022?view=sql-server-ver16") in the Microsoft
+documentation.
+
+For a list of unsupported features, see [Features not supported and features with limited support](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
+
+## Microsoft SQL Server 2019 features
+
+SQL Server 2019 includes many new features, such as the following:
+
+- Accelerated database recovery (ADR) – Reduces crash recovery time after a restart or a
+  long-running transaction rollback.
+- Intelligent Query Processing (IQP):
+  - Row mode memory grant feedback – Corrects excessive grants automatically, that
+    would otherwise result in wasted memory and reduced
+    concurrency.
+  - Batch mode on rowstore – Enables batch mode execution for analytic
+    workloads without requiring columnstore indexes.
+  - Table variable deferred compilation – Improves plan quality and
+    overall performance for queries that reference table
+    variables.
+
+- Intelligent performance:
+  - `OPTIMIZE_FOR_SEQUENTIAL_KEY` index option – Improves throughput for
+    high-concurrency inserts into indexes.
+  - Improved indirect checkpoint scalability – Helps databases with
+    heavy DML workloads.
+  - Concurrent Page Free Space (PFS) updates – Enables handling as a shared latch
+    rather than an exclusive latch.
+
+- Monitoring improvements:
+  - `WAIT_ON_SYNC_STATISTICS_REFRESH` wait type – Shows accumulated
+    instance-level time spent on synchronous statistics refresh
+    operations.
+  - Database-scoped configurations – Include
+    `LIGHTWEIGHT_QUERY_PROFILING` and
+    `LAST_QUERY_PLAN_STATS`.
+  - Dynamic management functions (DMFs) – Include
+    `sys.dm_exec_query_plan_stats` and
+    `sys.dm_db_page_info`.
+
+- Verbose truncation warnings – The data truncation error message defaults to
+  include table and column names and the truncated value.
+- Resumable online index creation – In SQL Server 2017, only resumable online
+  index rebuild is supported.
+
+For the full list of SQL Server 2019 features, see [What's new in SQL Server 2019 (15.x)](https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-ver15 "https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-ver15") in the Microsoft
+documentation.
+
+For a list of unsupported features, see [Features not supported and features with limited support](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
+
+## Microsoft SQL Server 2017 features
+
+SQL Server 2017 includes many new features, such as the following:
+
+- Adaptive query processing
+- Automatic plan correction (an automatic tuning feature)
+- GraphDB
+- Resumable index rebuilds
+
+For the full list of SQL Server 2017 features, see [What's new in SQL Server 2017](https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2017 "https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2017") in the Microsoft documentation.
+
+For a list of unsupported features, see [Features not supported and features with limited support](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
+
+## Microsoft SQL Server 2016 features
+
+Amazon RDS supports the following features of SQL Server 2016:
+
+- Always Encrypted
+- JSON Support
+- Operational Analytics
+- Query Store
+- Temporal Tables
+
+For the full list of SQL Server 2016 features, see [What's new in SQL Server 2016](https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2016 "https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2016") in the Microsoft documentation.
+
+## Microsoft SQL Server 2014 end
+
+of support on Amazon RDS
+
+SQL Server 2014 has reached its end of support on Amazon RDS.
+
+RDS is upgrading all existing DB instances that are still using SQL Server 2014 to
+the latest minor version of SQL Server 2016. For more information, see [Version management in Amazon RDS](SQLServer.Concepts.General.md#SQLServer.Concepts.General.Version-Management "SQLServer.Concepts.General.md#SQLServer.Concepts.General.Version-Management").
+
+## Microsoft SQL Server 2012 end
+
+of support on Amazon RDS
+
+SQL Server 2012 has reached its end of support on Amazon RDS.
+
+RDS is upgrading all existing DB instances that are still using SQL Server 2012 to the
+latest minor version of SQL Server 2016. For more information, see [Version management in Amazon RDS](SQLServer.Concepts.General.md#SQLServer.Concepts.General.Version-Management "SQLServer.Concepts.General.md#SQLServer.Concepts.General.Version-Management").
+
+## Microsoft SQL Server 2008 R2 end
+
+of support on Amazon RDS
+
+SQL Server 2008 R2 has reached its end of support on Amazon RDS.
+
+RDS is upgrading all existing DB instances that are still using SQL Server 2008 R2 to the
+latest minor version of SQL Server 2012. For more information, see [Version management in Amazon RDS](SQLServer.Concepts.General.md#SQLServer.Concepts.General.Version-Management "SQLServer.Concepts.General.md#SQLServer.Concepts.General.Version-Management").

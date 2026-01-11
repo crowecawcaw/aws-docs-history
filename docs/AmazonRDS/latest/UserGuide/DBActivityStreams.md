@@ -1,103 +1,279 @@
-# Modifying a database activity stream for Amazon RDS
+# Monitoring Amazon RDS with Database Activity
 
-You might want to customize your Amazon RDS audit policy when your activity stream is started. If you don't want to lose time and data by
-stopping your activity stream, you can change the _audit policy state_ to either of the following settings:
+Streams
 
-**Locked (default)**
+By using Database Activity Streams, you can monitor near real-time streams of database
+activity.
 
-The audit policies in your database are read-only.
+###### Topics
 
-**Unlocked**
+- [Overview of Database Activity Streams](#DBActivityStreams.Overview "#DBActivityStreams.Overview")
+- [Configuring unified auditing for Oracle Database](DBActivityStreams.md "DBActivityStreams.md")
+- [Configuring auditing policy
+  for Amazon RDS for Microsoft SQL Server](DBActivityStreams.md "DBActivityStreams.md")
+- [Starting a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
+- [Modifying a database activity stream for Amazon RDS](DBActivityStreams.md "DBActivityStreams.md")
+- [Getting the status of a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
+- [Stopping a database activity stream](DBActivityStreams.md "DBActivityStreams.md")
+- [Monitoring database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [IAM policy examples for database activity streams](DBActivityStreams.md "DBActivityStreams.md")
 
-The audit policies in your database are read/write.
+## Overview of Database Activity Streams
 
-The basic steps are as follows:
+As an Amazon RDS database
+administrator, you need to safeguard your database and meet compliance and regulatory requirements. One strategy is to
+integrate database activity streams with your monitoring tools. In this way, you monitor and set alarms for auditing
+activity in your database.
 
-1. Modify the audit policy state to unlocked.
-2. Customize your audit policy.
-3. Modify the audit policy state to locked.
+Security threats are both external and internal. To protect against internal threats, you
+can control administrator access to data streams by configuring the Database Activity Streams
+feature. Amazon RDS DBAs don't have access to the collection,
+transmission, storage, and processing of the streams.
 
-###### To modify the audit policy state of your activity stream
+###### Contents
 
-1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. For **Actions**, choose **Modify database activity stream**.
+- [How database activity streams work](DBActivityStreams.md#DBActivityStreams.Overview.how-they-work "DBActivityStreams.md#DBActivityStreams.Overview.how-they-work")
+- [Auditing in Oracle Database
+  and Microsoft SQL Server Database](DBActivityStreams.md#DBActivityStreams.Overview.auditing "DBActivityStreams.md#DBActivityStreams.Overview.auditing")
+  - [Unified auditing in Oracle
+    Database](DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing "DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing")
+  - [Auditing in Microsoft SQL Server](DBActivityStreams.md#DBActivityStreams.Overview.SQLServer-auditing "DBActivityStreams.md#DBActivityStreams.Overview.SQLServer-auditing")
+  - [Non-native audit
+    fields for Oracle Database and SQL Server](DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing.non-native "DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing.non-native")
+  - [DB parameter
+    group override](DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing.parameter-group "DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing.parameter-group")
 
-The **Modify database activity stream: `name`** window appears, where
-`name` is your RDS instance. 4. Choose either of the following options:
+- [Asynchronous mode for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.sync-mode "DBActivityStreams.md#DBActivityStreams.Overview.sync-mode")
+- [Requirements and limitations for
+  database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements "DBActivityStreams.md#DBActivityStreams.Overview.requirements")
+- [Region and version availability](DBActivityStreams.md#DBActivityStreams.RegionVersionAvailability "DBActivityStreams.md#DBActivityStreams.RegionVersionAvailability")
+- [Supported DB instance classes for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes "DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes")
 
-**Locked**
+### How database activity streams work
 
-When you lock your audit policy, it becomes read-only. You can't edit your audit policy unless you unlock the policy or stop the
+Amazon RDS pushes activities to an
+Amazon Kinesis data stream in near real time. The Kinesis stream is created automatically. From Kinesis, you can configure AWS services such as Amazon Data Firehose
+and AWS Lambda to consume the stream and store the data.
+
+###### Important
+
+Use of the database activity streams feature in Amazon RDS is free, but Amazon Kinesis
+charges for a data stream. For more information, see [Amazon Kinesis Data Streams
+pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/").
+
+You can configure applications for compliance management to consume database activity streams. These applications can use the stream to generate alerts and audit activity on your database.
+
+Amazon RDS supports database activity streams in Multi-AZ deployments. In this case, database activity streams audit both the
+primary and standby instances.
+
+### Auditing in Oracle Database
+
+and Microsoft SQL Server Database
+
+Auditing is the monitoring and recording of configured database actions. Amazon RDS doesn't
+capture database activity by default. You create and manage audit policies in your database
+yourself.
+
+###### Topics
+
+- [Unified auditing in Oracle
+  Database](#DBActivityStreams.Overview.unified-auditing "#DBActivityStreams.Overview.unified-auditing")
+- [Auditing in Microsoft SQL Server](#DBActivityStreams.Overview.SQLServer-auditing "#DBActivityStreams.Overview.SQLServer-auditing")
+- [Non-native audit
+  fields for Oracle Database and SQL Server](#DBActivityStreams.Overview.unified-auditing.non-native "#DBActivityStreams.Overview.unified-auditing.non-native")
+- [DB parameter
+  group override](#DBActivityStreams.Overview.unified-auditing.parameter-group "#DBActivityStreams.Overview.unified-auditing.parameter-group")
+
+#### Unified auditing in Oracle
+
+Database
+
+In an Oracle database, a _unified audit policy_ is a named group of audit settings that
+you can use to audit an aspect of user behavior. A policy can be as simple as auditing the
+activities of a single user. You can also create complex audit policies that use
+conditions.
+
+An Oracle database writes audit records, including `SYS` audit records, to the
+_unified audit trail_. For example, if an error occurs during an
+`INSERT` statement, standard auditing indicates the error number and the SQL
+that was run. The audit trail resides in a read-only table in the `AUDSYS`
+schema. To access these records, query the `UNIFIED_AUDIT_TRAIL` data dictionary
+view.
+
+Typically, you configure database activity streams as follows:
+
+1. Create an Oracle Database audit policy by using the `CREATE AUDIT POLICY`
+   command.
+
+The Oracle Database generates audit records. 2. Activate the audit policy by using the `AUDIT POLICY` command. 3. Configure database activity streams.
+
+Only activities that match the Oracle Database audit policies are captured and sent to
+the Amazon Kinesis data stream. When database activity streams are enabled, an Oracle database
+administrator can't alter the audit policy or remove audit logs.
+
+To learn more about unified audit policies, see [About Auditing Activities with Unified Audit Policies and AUDIT](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-audit-policies.html#GUID-2435D929-10AD-43C7-8A6C-5133170074D0 "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-audit-policies.html#GUID-2435D929-10AD-43C7-8A6C-5133170074D0") in the
+_Oracle Database Security Guide_.
+
+#### Auditing in Microsoft SQL Server
+
+Database Activity Stream uses SQLAudit feature to audit the SQL Server database.
+
+RDS for SQL Server instance contains the following:
+
+- Server audit – The SQL server audit collects a single instance of server or
+  database-level actions, and a group of actions to monitor. The server-level audits
+  `RDS_DAS_AUDIT` and `RDS_DAS_AUDIT_CHANGES` are managed by
+  RDS.
+- Server audit specification – The server audit specification records the server-level
+  events. You can modify the `RDS_DAS_SERVER_AUDIT_SPEC` specification. This specification is linked to
+  the server audit `RDS_DAS_AUDIT`. The
+  `RDS_DAS_CHANGES_AUDIT_SPEC` specification is managed by RDS.
+- Database audit specification – The database audit specification records the
+  database-level events. You can create a database audit specification `RDS_DAS_DB_<name>` and link it
+  to `RDS_DAS_AUDIT` server audit.
+
+You can configure database activity streams by using the console or CLI. Typically, you
+configure database activity streams as follows:
+
+1. (Optional) Create a database audit specification with the `CREATE DATABASE AUDIT SPECIFICATION` command and link it to `RDS_DAS_AUDIT` server audit.
+2. (Optional) Modify the server audit specification with the `ALTER SERVER AUDIT
+SPECIFICATION` command and define the policies.
+3. Activate the database and server audit policies. For example:
+
+`ALTER DATABASE AUDIT SPECIFICATION [<Your database specification>] WITH (STATE=ON)`
+
+`ALTER SERVER AUDIT SPECIFICATION [RDS_DAS_SERVER_AUDIT_SPEC] WITH (STATE=ON)` 4. Configure database activity streams.
+
+Only activities that match the server and database audit policies are captured and sent to
+the Amazon Kinesis data stream. When database activity streams are enabled and the policies are locked, a database administrator can't alter the audit policy or remove audit logs.
+
+###### Important
+
+If the database audit specification for a specific database is enabled and the policy is in a locked state, then the
+database can't be dropped.
+
+For more information about SQL Server auditing,
+see [SQL Server Audit Components](https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver16") in the _Microsoft SQL Server
+documentation_.
+
+#### Non-native audit
+
+fields for Oracle Database and SQL Server
+
+When you start a database activity stream, every database event generates a
+corresponding activity stream event. For example, a database user might run
+`SELECT` and `INSERT` statements. The database audits these events
+and sends them to an Amazon Kinesis data stream.
+
+The events are represented in the stream as JSON objects. A JSON object contains a
+`DatabaseActivityMonitoringRecord`, which contains a
+`databaseActivityEventList` array. Predefined fields in the array include
+`class`, `clientApplication`, and `command`.
+
+By default, an activity stream doesn't include engine-native audit fields. You can
+configure Amazon RDS for Oracle and SQL Server so that it includes these extra fields in the
+`engineNativeAuditFields` JSON object.
+
+In Oracle Database, most events in the unified audit trail map to fields in the RDS data
+activity stream. For example, the `UNIFIED_AUDIT_TRAIL.SQL_TEXT` field in unified
+auditing maps to the `commandText` field in a database activity stream. However,
+Oracle Database audit fields such as `OS_USERNAME` don't map to predefined fields
+in a database activity stream.
+
+In SQL Server, most of the event's fields that are recorded by the SQLAudit map to the
+fields in RDS database activity stream. For example, the `code` field from
+`sys.fn_get_audit_file` in the audit maps to the `commandText` field
+in a database activity stream. However, SQL Server database audit fields, such as
+`permission_bitmask`, don’t map to predefined fields in a database activity
+stream.
+
+For more information about databaseActivityEventList, see [databaseActivityEventList JSON array for database activity streams](DBActivityStreams.AuditLog.md "DBActivityStreams.AuditLog.md").
+
+#### DB parameter
+
+group override
+
+Typically, you turn on unified auditing in RDS for Oracle by attaching a parameter group.
+However, Database Activity Streams require additional configuration. To improve your
+customer experience, Amazon RDS performs the following:
+
+- If you activate an activity stream, RDS for Oracle ignores the auditing parameters in the
+  parameter group.
+- If you deactivate an activity stream, RDS for Oracle stops ignoring the auditing
+  parameters.
+
+The database activity stream for SQL Server is independent of any parameters you set in the SQL Audit option.
+
+### Asynchronous mode for database activity streams
+
+Activity streams in Amazon RDS are always asynchronous. When a database session generates an activity stream event,
+the session returns to normal activities immediately. In the background, Amazon RDS makes the activity stream event into a durable record.
+
+If an error occurs in the background task, Amazon RDS generates an event. This event indicates the beginning and end of any
+time windows where activity stream event records might have been lost. Asynchronous mode favors database performance over the accuracy of the
 activity stream.
 
-**Unlocked**
+### Requirements and limitations for
 
-When you unlock your audit policy, it becomes read/write. You can edit your audit policy while the activity stream is
-started. 5. Choose **Modify DB activity stream**.
+database activity streams
 
-The status for the Amazon RDS database shows **Configuring activity
-stream**. 6. (Optional) Choose the DB instance link. Then choose the **Configuration** tab.
+In RDS, database activity streams have the
+following requirements and limitations:
 
-The **Audit policy status** field shows one of the following values:
+- Amazon Kinesis is required for database activity streams.
+- AWS Key Management Service (AWS KMS) is required for database activity streams because they are always encrypted.
+- Applying additional encryption to your Amazon Kinesis data stream is incompatible with database activity streams, which are already encrypted
+  with your AWS KMS key.
+- You create and manage audit policies yourself. Unlike Amazon Aurora, RDS for Oracle doesn't capture database activities by default.
+- You create and manage audit policies or specifications yourself. Unlike Amazon Aurora, Amazon RDS doesn't capture database activities by default.
+- In a Multi-AZ deployment, start the database activity stream only on the primary DB instance.
+  The activity stream audits both the primary and standby DB instances automatically. No
+  additional steps are required during a failover.
+- Renaming a DB instance doesn't create a new Kinesis stream.
+- CDBs aren't supported for RDS for Oracle.
+- Read replicas aren't supported.
 
-    * **Locked**
-    * **Unlocked**
-    * **Locking policy**
-    * **Unlocking policy**
+### Region and version availability
 
-To modify the activity stream state for the database instance, use the [modify-activity-stream](../../../cli/latest/reference/rds/modify-activity-stream.md "../../../cli/latest/reference/rds/modify-activity-stream.md") AWS CLI command.
+Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
+For more information on version and Region availability with database activity streams, see
+[Supported
+Regions and DB engines for database activity streams in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
-| Option                             | Required? | Description                                                                                                     |
-| ---------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
-| `--resource-arn `my-instance-ARN`` | Yes       | The Amazon Resource Name (ARN) of your RDS database instance.                                                   |
-| `--audit-policy-state`             | No        | The new state of the audit policy for the database activity stream on your instance: `locked` or<br>`unlocked`. |
+### Supported DB instance classes for database activity streams
 
-The following example unlocks the audit policy for the activity stream started on `my-instance-ARN`.
+For RDS for Oracle you can use database activity streams with the following DB instance classes:
 
-For Linux, macOS, or Unix:
+- db.m4.\*large
+- db.m5.\*large
+- db.m5d.\*large
+- db.m6i.\*large
+- db.r4.\*large
+- db.r5.\*large
+- db.r5.\*large.tpc\*.mem\*x
+- db.r5b.\*large
+- db.r5b.\*large.tpc\*.mem\*x
+- db.r5d.\*large
+- db.r6i.\*large
+- db.r6i.\*large.tpc\*.mem\*x
+- db.x2idn.\*large
+- db.x2iedn.\*large
+- db.x2iezn.\*large
+- db.z1d.\*large
 
-```
-aws rds modify-activity-stream \
-    --resource-arn `my-instance-ARN` \
-    --audit-policy-state unlocked
-```
+For RDS for SQL Server you can use database activity streams with the following DB instance classes:
 
-For Windows:
+- db.m4.\*large
+- db.m5.\*large
+- db.m5d.\*large
+- db.m6i.\*large
+- db.r4.\*large
+- db.r5.\*large
+- db.r5b.\*large
+- db.r5d.\*large
+- db.r6i.\*large
+- db.x1e.\*large
+- db.x2iedn.\*large
+- db.z1d.\*large
 
-```
-aws rds modify-activity-stream ^
-    --resource-arn `my-instance-ARN` ^
-    --audit-policy-state unlocked
-```
-
-The following example describes the instance `my-instance`. The partial sample output shows that the audit policy
-is unlocked.
-
-```
-aws rds describe-db-instances --db-instance-identifier `my-instance`
-
-{
-    "DBInstances": [
-        {
-            ...
-            "Engine": "oracle-ee",
-            ...
-            "ActivityStreamStatus": "started",
-            "ActivityStreamKmsKeyId": "ab12345e-1111-2bc3-12a3-ab1cd12345e",
-            "ActivityStreamKinesisStreamName": "aws-rds-das-db-AB1CDEFG23GHIJK4LMNOPQRST",
-            "ActivityStreamMode": "async",
-            "ActivityStreamEngineNativeAuditFieldsIncluded": true,
-            **"ActivityStreamPolicyStatus": "unlocked"**,
-            ...
-        }
-    ]
-}
-```
-
-To modify the policy state of your database activity stream, use the [ModifyActivityStream](../APIReference/API_ModifyActivityStream.md "../APIReference/API_ModifyActivityStream.md") operation.
-
-Call the action with the parameters below:
-
-- `AuditPolicyState`
-- `ResourceArn`
+For more information about instance class types, see [DB instance classes](Concepts.md "Concepts.md").

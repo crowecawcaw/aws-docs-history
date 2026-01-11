@@ -1,53 +1,76 @@
-# Connecting to your DB instance with SQL Workbench/J
+# Connecting to your DB instance with Microsoft SQL Server
 
-This example shows how to connect to a DB instance running the Microsoft SQL Server
-database engine by using the SQL Workbench/J database tool.
-To download SQL Workbench/J, see
-[SQL Workbench/J](http://www.sql-workbench.net/ "http://www.sql-workbench.net/").
+Management Studio
 
-SQL Workbench/J uses JDBC to connect to your DB instance.
-You also need the JDBC driver for SQL Server.
-To download this driver, see
-[Download Microsoft JDBC Driver for SQL Server](https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver16").
+In this procedure, you connect to your sample DB instance by using Microsoft SQL Server Management Studio (SSMS). To download
+a standalone version of this utility, see [Download SQL Server Management
+Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms "https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms") in the Microsoft documentation.
 
-###### To connect to a DB instance using SQL Workbench/J
+###### To connect to a DB instance using SSMS
 
-1. Open SQL Workbench/J. The **Select Connection Profile**
-   dialog box appears, as shown following.
+1. Start SQL Server Management Studio.
 
-![Select Connection Profile dialog](images/workbench_profile.png) 2. In the first box at the top of the dialog box, enter a name for the profile. 3. For **Driver**, choose `SQL JDBC 4.0`. 4. For **URL**, enter `jdbc:sqlserver://`,
-then enter the endpoint of your DB instance. For example, the URL value might be
-the following.
+The **Connect to Server** dialog box appears.
 
-```
-jdbc:sqlserver://sqlsvr-pdz.abcd12340.us-west-2.rds.amazonaws.com:1433
-```
+![Connect to Server dialog](images/RDSMSFTSQLConnect01.png) 2. Provide the information for your DB instance:
 
-5. For **Username**, enter the master user name for the DB
-   instance.
-6. For **Password**, enter the password for the master user.
-7. Choose the save icon in the dialog toolbar, as shown following.
+    1. For **Server type**,
+     choose **Database Engine**.
+    2. For **Server name**, enter the DNS name (endpoint) and port number of your DB instance,
+     separated by a comma.
 
-![Save the profile](images/save_example.png) 8. Choose **OK**.
-After a few moments, SQL Workbench/J connects to your DB instance.
-If you can't connect to your DB instance,
-see
-[Security group considerations](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
-and
-[Troubleshooting connections to your SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md"). 9. In the query pane, enter the following SQL query.
 
-```
-select @@VERSION
-```
+    ###### Important
 
-10. Choose the `Execute` icon in the toolbar, as shown
-    following.
+    Change the colon between the endpoint and port number to a comma.
 
-![Run the query](images/execute_example.png)
 
-The query returns the version information for your DB instance, similar to the
-following.
+    Your server name should look like the following example.
 
-```
-Microsoft SQL Server 2017 (RTM-CU22) (KB4577467) - 14.0.3356.20 (X64)
-```
+
+
+    ```
+    database-2.cg034itsfake.us-east-1.rds.amazonaws.com,1433
+    ```
+    3. For **Authentication**,
+     choose **SQL Server Authentication**.
+    4. For **Login**, enter the master user name for your DB
+     instance.
+    5. For **Password**, enter the password for your DB
+     instance.
+
+3. Choose **Connect**.
+
+After a few moments, SSMS connects to your DB instance.
+
+If you can't connect to your DB instance, see [Security group considerations](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md") and [Troubleshooting connections to your SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md"). 4. Your SQL Server DB instance comes with SQL Server's standard built-in system databases (`master`,
+`model`, `msdb`, and `tempdb`). To explore the system databases, do the following:
+
+    1. In SSMS, on the **View** menu, choose **Object Explorer**.
+    2. Expand your DB instance, expand **Databases**, and then expand **System Databases**.
+
+
+
+    ![Object Explorer displaying the system databases](images/SQL-SSMS-SystemDBs.png)
+
+5. Your SQL Server DB instance also comes with a database named
+   `rdsadmin`. Amazon RDS uses this database to store the objects that it
+   uses to manage your database. The `rdsadmin` database also includes
+   stored procedures that you can run to perform advanced tasks. For more
+   information, see [Common DBA tasks for Amazon RDS for Microsoft SQL Server](Appendix.SQLServer.md "Appendix.SQLServer.md").
+6. You can now start creating your own databases and running queries against your
+   DB instance and databases as usual. To run a test query against your DB
+   instance, do the following:
+   1. In SSMS, on the **File** menu point to
+      **New** and then choose **Query with
+      Current Connection**.
+   2. Enter the following SQL query.
+
+   ```
+   select @@VERSION
+   ```
+
+   3. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB
+      instance.
+
+   ![SQL Query Window](images/SQL-Connect-Query.png)

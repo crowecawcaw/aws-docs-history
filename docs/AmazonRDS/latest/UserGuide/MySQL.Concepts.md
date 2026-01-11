@@ -1,317 +1,714 @@
-# MySQL feature support on Amazon RDS
+# MySQL on Amazon RDS versions
 
-RDS for MySQL supports most of the features and capabilities of MySQL. Some features might have
-limited support or restricted privileges.
-
-You can filter new Amazon RDS features on the [What's
-New with Database?](https://aws.amazon.com/about-aws/whats-new/database/ "https://aws.amazon.com/about-aws/whats-new/database/") page. For **Products**, choose **Amazon
-RDS**. Then search using keywords such as `MySQL 2022`.
-
-###### Note
-
-The following lists are not exhaustive.
+For MySQL, version numbers are organized as version = X.Y.Z. In Amazon RDS terminology, X.Y
+denotes the major version, and Z is the minor version number. For Amazon RDS implementations, a
+version change is considered major if the major version number changes—for example,
+going from version 5.7 to 8.0. A version change is considered minor if only the minor
+version number changes—for example, going from version 8.0.32 to 8.0.34.
 
 ###### Topics
 
-- [MySQL feature support on Amazon RDS for MySQL major versions](#MySQL.Concepts.FeatureSupport.MajorVersions "#MySQL.Concepts.FeatureSupport.MajorVersions")
-- [Supported storage engines for RDS for MySQL](#MySQL.Concepts.Storage "#MySQL.Concepts.Storage")
-- [Using memcached and other options with MySQL on Amazon RDS](#MySQL.Concepts.General.Options "#MySQL.Concepts.General.Options")
-- [InnoDB cache warming for MySQL on Amazon RDS](#MySQL.Concepts.InnoDBCacheWarming "#MySQL.Concepts.InnoDBCacheWarming")
-- [Inclusive language changes for
-  RDS for MySQL 8.4](#mysql-8-4-inclusive-language-changes "#mysql-8-4-inclusive-language-changes")
-- [MySQL features not supported by Amazon RDS](#MySQL.Concepts.Features "#MySQL.Concepts.Features")
+- [Supported MySQL minor versions on
+  Amazon RDS](#MySQL.Concepts.VersionMgmt.Supported "#MySQL.Concepts.VersionMgmt.Supported")
+- [Supported MySQL major
+  versions on Amazon RDS](#MySQL.Concepts.VersionMgmt.ReleaseCalendar "#MySQL.Concepts.VersionMgmt.ReleaseCalendar")
+- [Amazon RDS Extended Support versions for
+  RDS for MySQL](#mysql-extended-support-releases "#mysql-extended-support-releases")
+- [Working with the
+  Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment")
+- [MySQL version 9.5 in the Database Preview environment](#mysql-preview-environment-version-9-5 "#mysql-preview-environment-version-9-5")
+- [MySQL version 9.4 in the Database Preview environment](#mysql-preview-environment-version-9-4 "#mysql-preview-environment-version-9-4")
+- [MySQL version 9.3 in the Database Preview environment](#mysql-preview-environment-version-9-3 "#mysql-preview-environment-version-9-3")
+- [Deprecated versions for
+  Amazon RDS for MySQL](#MySQL.Concepts.DeprecatedVersions "#MySQL.Concepts.DeprecatedVersions")
 
-## MySQL feature support on Amazon RDS for MySQL major versions
+## Supported MySQL minor versions on
 
-In the following sections, find information about MySQL feature support on Amazon RDS for
-MySQL major versions:
+Amazon RDS
 
-###### Topics
-
-- [MySQL 8.4 support on Amazon RDS](#MySQL.Concepts.FeatureSupport.8-4 "#MySQL.Concepts.FeatureSupport.8-4")
-
-For information about supported minor versions of Amazon RDS for MySQL, see [Supported MySQL minor versions on
-Amazon RDS](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.Supported "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.Supported").
-
-### MySQL 8.4 support on Amazon RDS
-
-Amazon RDS supports the following new features for your DB instances running MySQL
-version 8.4 or higher.
-
-- **Cryptographic library** – RDS for MySQL
-  replaced OpenSSL with AWS Libcrypto (AWS-LC), which is FIPS 140-3
-  certified. For more information, see the AWS-LC GitHub repository at
-  [https://github.com/aws/aws-lc](https://github.com/aws/aws-lc "https://github.com/aws/aws-lc").
-- **TLS changes** – RDS for MySQL only
-  supports TLS 1.2 and TLS 1.3. For more information, see [SSL/TLS support for MySQL DB instances on
-  Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md").
-- **memcached support** – The memcached
-  interface is no longer available on MySQL 8.4. For more information, see
-  [MySQL memcached support](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md").
-- **Default authentication plugin** –
-  The default authentication plugin is `caching_sha2_password`. For
-  more information, see [MySQL
-  default authentication plugin](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin").
-- **`mysqlpump` client utility**
-  – The `mysqlpump` client utility is no longer available in
-  MySQL 8.4. For more information, see [Role-based privilege model for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md") and
-  [mysqldump and mysqlpump](../../../prescriptive-guidance/latest/migration-large-mysql-mariadb-databases/mysqldump-and-mysqlpump.md "../../../prescriptive-guidance/latest/migration-large-mysql-mariadb-databases/mysqldump-and-mysqlpump.md") in the _AWS
-  Prescriptive Guidance_.
-- **Managed replication stored procedures**
-  – When using stored procedures to manage replication with a
-  replication user configured with `caching_sha2_password`, you
-  must configure TLS by specifying `SOURCE_SSL=1`.
-  `caching_sha2_password` is the default authentication plugin
-  for RDS for MySQL 8.4.
-- **Parameter behavior changes** – The
-  following parameters changed for MySQL 8.4.
-  - `innodb_dedicated_server` – This parameter is
-    now enabled by default. For more information, see [Configuring buffer pool
-    size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.md "Appendix.MySQL.CommonDBATasks.Config.Size.8.md").
-  - `innodb_buffer_pool` – The database engine now
-    calculates this parameter, but you can override this setting. For
-    more information, see [Configuring buffer pool
-    size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.md "Appendix.MySQL.CommonDBATasks.Config.Size.8.md").
-  - `innodb_redo_log_capacity` – This parameter now
-    controls the size of the redo log files. The database engine now
-    calculates this parameter, but you can override this setting. For
-    more information, see [Configuring buffer pool
-    size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.md "Appendix.MySQL.CommonDBATasks.Config.Size.8.md").
-
-- **Deprecated or removed parameters** –
-  RDS for MySQL removed the following parameters from parameter groups for MySQL
-  8.4 DB instances. The `innodb_redo_log_capacity` parameter now
-  controls the size of the redo log files.
-  - `innodb_log_file_size`
-  - `innodb_log_files_in_group`
-
-- **New default values for parameters**
-  – The following parameters have new default values for MySQL 8.4 DB
-  instances:
-  - Various MySQL community parameters related to performance changed.
-    For more information, see [What is New in MySQL 8.4 since MySQL 8.0](https://dev.mysql.com/doc/refman/8.4/en/mysql-nutshell.html "https://dev.mysql.com/doc/refman/8.4/en/mysql-nutshell.html").
-
-  We recommend that you test your application's performance on
-  RDS for MySQL 8.4 before migrating a production instance.
-  - `innodb_purge_threads` – The default value is
-    set to the formula `LEAST({DBInstanceVCPU/2},4)` to
-    prevent the InnoDB history list length from growing too large.
-  - `group_replication_exit_state_action` – The
-    default value is `OFFLINE_MODE`, which aligns with the
-    default in MySQL Community. For more information, see
-    [Considerations and
-    best practices for RDS for MySQL active-active clusters](mysql-active-active-clusters-considerations-limitations.md#mysql-active-active-clusters-considerations "mysql-active-active-clusters-considerations-limitations.md#mysql-active-active-clusters-considerations").
-  - `binlog_format` – The default value is
-    `ROW`, which aligns with the default in MySQL
-    Community. You can modify the parameter for Single-AZ DB instances
-    or Multi-AZ DB instances, but not for Multi-AZ DB clusters. Multi-AZ
-    DB clusters use semisynchronous replication, and when
-    `binlog_format` is set to `MIXED` or
-    `STATEMENT`, replication fails.
-
-- **Inclusive language changes** –
-  RDS for MySQL 8.4 includes changes from RDS for MySQL 8.0 related to keywords and
-  system schemas for inclusive language. For more information, see [Inclusive language changes for
-  RDS for MySQL 8.4](#mysql-8-4-inclusive-language-changes "#mysql-8-4-inclusive-language-changes").
-
-For a list of all MySQL 8.4 features and changes, see [What Is New in
-MySQL 8.4 since MySQL 8.0](https://dev.mysql.com/doc/refman/8.4/en/mysql-nutshell.html "https://dev.mysql.com/doc/refman/8.4/en/mysql-nutshell.html") in the MySQL documentation.
-
-For a list of unsupported features, see [MySQL features not supported by Amazon RDS](#MySQL.Concepts.Features "#MySQL.Concepts.Features").
-
-## Supported storage engines for RDS for MySQL
-
-While MySQL supports multiple storage engines with varying capabilities, not all
-of them are optimized for recovery and data durability. Amazon RDS fully supports
-the InnoDB storage engine for MySQL DB instances. Amazon RDS features such as
-Point-In-Time restore and snapshot restore require a recoverable storage engine and
-are supported for the InnoDB storage engine only. For more
-information, see [MySQL memcached support](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md").
-
-The Federated Storage Engine is currently not supported by Amazon RDS for
-MySQL.
-
-For user-created schemas, the MyISAM storage engine does not support reliable recovery and can result in
-lost or corrupt data when MySQL is restarted after a recovery, preventing
-Point-In-Time restore or snapshot restore from working as intended. However, if you
-still choose to use MyISAM with Amazon RDS, snapshots can be helpful under some
-conditions.
+Amazon RDS currently supports the following minor versions of MySQL.
 
 ###### Note
 
-System tables in the `mysql` schema can be in MyISAM storage.
+Amazon RDS Extended Support isn't available for minor versions.
 
-If you want to convert existing MyISAM tables to InnoDB tables, you can use the
-`ALTER TABLE` command (for example, `alter table TABLE_NAME engine=innodb;`). Bear in
-mind that MyISAM and InnoDB have different strengths and weaknesses, so you should
-fully evaluate the impact of making this switch on your applications before doing
-so.
+The following table shows the minor versions of MySQL 8.4 that Amazon RDS currently
+supports.
 
-MySQL 5.1, 5.5, and 5.6 are no longer supported in Amazon RDS. However, you can restore existing MySQL 5.1, 5.5, and 5.6 snapshots.
-When you restore a MySQL 5.1, 5.5, or 5.6 snapshot, the DB instance is automatically upgraded to MySQL 5.7.
+| MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
+| -------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 8.4.7                | 21 October 2025        | 13 November 2025 | 30 November 2026                 |
+| 8.4.6                | 22 July 2025           | 1 August 2025    | 30 September 2026                |
+| 8.4.5                | 15 April 2025          | 29 April 2025    | 30 September 2026                |
+| 8.4.4                | 21 January 2025        | 19 February 2025 | 31 March 2026                    |
+| 8.4.3                | 15 October 2024        | 21 November 2024 | 31 March 2026                    |
 
-## Using memcached and other options with MySQL on Amazon RDS
+The following table shows the minor versions of MySQL 8.0 that Amazon RDS currently supports.
 
-Most Amazon RDS DB engines support option groups that allow you to select
-additional features for your DB instance. RDS for MySQL DB instances support the `memcached` option,
-a simple, key-based cache. For more information about `memcached` and other options, see
-[Options for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md").
-For more information about working with option groups, see
-[Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
+###### Note
 
-## InnoDB cache warming for MySQL on Amazon RDS
+Minor versions can reach end of standard support before major versions do. For
+example, minor version 8.0.28 reached its end of standard support date on March 28, 2024
+while major version 8.0 reaches this date on July 31, 2026. RDS will support
+additional 8.0.\* minor versions that the MySQL community releases between these
+dates. We recommend that you upgrade to the latest available minor version as often as possible for all major versions.
 
-InnoDB cache warming can provide performance gains for your MySQL DB instance by
-saving the current state of the buffer pool when the DB instance is shut down, and then
-reloading the buffer pool from the saved information when the DB instance starts up.
-This bypasses the need for the buffer pool to "warm up" from normal database use and
-instead preloads the buffer pool with the pages for known common queries. The file that
-stores the saved buffer pool information only stores metadata for the pages that are in
-the buffer pool, and not the pages themselves. As a result, the file does not require
-much storage space. The file size is about 0.2 percent of the cache size. For example,
-for a 64 GiB cache, the cache warming file size is 128 MiB. For more information on
-InnoDB cache warming, see [Saving
-and restoring the buffer pool state](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html") in the MySQL documentation.
+| MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
+| -------------------- | ---------------------- | ---------------- | -------------------------------- |
+| 8.0.44               | 21 October 2025        | 13 November 2025 | 31 July 2026                     |
+| 8.0.43               | 22 July 2025           | 1 August 2025    | 31 July 2026                     |
+| 8.0.42               | 15 April 2025          | 29 April 2025    | 31 July 2026                     |
+| 8.0.41               | 21 January 2025        | 19 February 2025 | 31 March 2026                    |
+| 8.0.40               | 15 October 2024        | 13 November 2024 | 31 March 2026                    |
 
-RDS for MySQL DB instances support InnoDB cache warming. To enable InnoDB cache warming,
-set the `innodb_buffer_pool_dump_at_shutdown` and `innodb_buffer_pool_load_at_startup`
-parameters to 1 in the parameter group for your DB instance. Changing these parameter values in a parameter group will
-affect all MySQL DB instances that use that parameter group. To enable InnoDB cache warming for specific MySQL DB
-instances, you might need to create a new parameter group for those instances. For information on parameter groups, see
-[Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+The following table shows the minor versions of MySQL 5.7 that are available under
+Amazon RDS Extended Support.
 
-InnoDB cache warming primarily provides a performance benefit for DB instances that use standard storage. If
-you use PIOPS storage, you do not commonly see a significant performance benefit.
+###### Note
 
-###### Important
+Minor versions can reach end of Extended Support before major versions do. For
+example, minor version 5.7.44-RDS.20240529 reaches its end of Extended Support date in September 2025
+while major version 5.7 reaches this date on February 28, 2027. RDS will generate and release additional
+5.7.44-RDS.xxyyzz minor versions between these dates. We recommend that you upgrade to
+the latest available minor version as often as possible for all major versions.
 
-If your MySQL DB instance does not shut down normally, such as during a failover, then the buffer pool state
-will not be saved to disk. In this case, MySQL loads whatever buffer pool file is available when the DB instance
-is restarted. No harm is done, but the restored buffer pool might not reflect the most recent state
-of the buffer pool prior to the restart. To ensure that you have a recent state of the buffer pool available to
-warm the InnoDB cache on startup, we recommend that you periodically dump the buffer pool "on demand."
+| MySQL engine version  | Community release date | RDS release date  | RDS end of Extended Support date |
+| --------------------- | ---------------------- | ----------------- | -------------------------------- |
+| 5.7.44-RDS.20251212\* | Not applicable         | 12 December 2025  | 30 December 2026                 |
+| 5.7.44-RDS.20250818\* | Not applicable         | 15 September 2025 | 30 September 2026                |
+| 5.7.44-RDS.20250508\* | Not applicable         | 20 May 2025       | 30 September 2026                |
+| 5.7.44-RDS.20250213\* | Not applicable         | 12 March 2025     | 30 September 2026                |
+| 5.7.44-RDS.20250103\* | Not applicable         | 13 February 2025  | 31 March 2026                    |
 
-You can create an event to dump the buffer pool automatically and on a regular
-interval. For example, the following statement creates an event named
-`periodic_buffer_pool_dump` that dumps the buffer pool every hour.
+\* MySQL Community retired major version 5.7 and won't be releasing new minor
+versions. This is a minor version that Amazon RDS released with critical security patches and
+bug fixes for MySQL 5.7 databases that are covered under RDS Extended Support. For more
+information about these minor versions, see [Amazon RDS Extended Support versions for
+RDS for MySQL](#mysql-extended-support-releases "#mysql-extended-support-releases"). For more information about RDS Extended Support,
+see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md").
+
+You can specify any currently supported MySQL version when creating a new DB instance.
+You can specify the major version (such as MySQL 5.7), and any supported minor version
+for the specified major version. If no version is specified, Amazon RDS defaults to a
+supported version, typically the most recent version. If a major version is specified
+but a minor version is not, Amazon RDS defaults to a recent release of the major version you
+have specified. To see a list of supported versions, as well as defaults for newly
+created DB instances, run the [`describe-db-engine-versions`](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") AWS CLI command.
+
+For example, to list the supported engine versions for RDS for MySQL, run the following
+CLI command:
 
 ```
-CREATE EVENT periodic_buffer_pool_dump
-ON SCHEDULE EVERY 1 HOUR
-DO CALL mysql.rds_innodb_buffer_pool_dump_now();
+aws rds describe-db-engine-versions --engine mysql --query "*[].{Engine:Engine,EngineVersion:EngineVersion}" --output text
 ```
 
-For more information on MySQL events, see [Event
-syntax](https://dev.mysql.com/doc/refman/8.0/en/events-syntax.html "https://dev.mysql.com/doc/refman/8.0/en/events-syntax.html") in the MySQL documentation.
+The default MySQL version might vary by AWS Region. To create a DB instance with a
+specific minor version, specify the minor version during DB instance creation. You can
+determine the default minor version for an AWS Region by running the following AWS CLI
+command:
 
-### Dumping and loading the buffer pool on demand
+```
+aws rds describe-db-engine-versions --default-only --engine mysql --engine-version `major_engine_version` --region `region` --query "*[].{Engine:Engine,EngineVersion:EngineVersion}" --output text
+```
 
-You can save and load the InnoDB cache "on demand."
+Replace `major_engine_version` with the major engine version,
+and replace `region` with the AWS Region. For example, the
+following AWS CLI command returns the default MySQL minor engine version for the 5.7 major
+version and the US West (Oregon) AWS Region (us-west-2):
 
-- To dump the current state of the buffer pool to disk, call the
-  [mysql.rds_innodb_buffer_pool_dump_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_dump_now")
-  stored procedure.
-- To load the saved state of the buffer pool from disk, call the
-  [mysql.rds_innodb_buffer_pool_load_now](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_now")
-  stored procedure.
-- To cancel a load operation in progress, call the
-  [mysql.rds_innodb_buffer_pool_load_abort](mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort "mysql-stored-proc-warming.md#mysql_rds_innodb_buffer_pool_load_abort")
-  stored procedure.
+```
+aws rds describe-db-engine-versions --default-only --engine mysql --engine-version 5.7 --region us-west-2 --query "*[].{Engine:Engine,EngineVersion:EngineVersion}" --output text
+```
 
-## Inclusive language changes for
+With Amazon RDS, you control when to upgrade your MySQL instance to a new major version
+supported by Amazon RDS. You can maintain compatibility with specific MySQL versions, test
+new versions with your application before deploying in production, and perform major
+version upgrades at times that best fit your schedule.
 
-RDS for MySQL 8.4
+When automatic minor version upgrade is enabled, your DB instance will be upgraded
+automatically to new MySQL minor versions as they are supported by Amazon RDS. This patching
+occurs during your scheduled maintenance window. You can modify a DB instance to enable
+or disable automatic minor version upgrades.
 
-RDS for MySQL 8.4 includes changes from the MySQL 8.4 community edition related to
-keywords and system schemas for inclusive language. For example, the `SHOW REPLICA
- STATUS` command replaces `SHOW SLAVE STATUS`.
+If you opt out of automatically scheduled upgrades, you can manually upgrade to a
+supported minor version release by following the same procedure as you would for a major
+version update. For information, see [Upgrading
+a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
-###### Topics
+Amazon RDS currently supports the following upgrades for major versions of the MySQL
+database engine:
 
-- [Configuration parameter
-  name changes](#mysql-8-4-inclusive-language-changes-params "#mysql-8-4-inclusive-language-changes-params")
-- [Stored procedure
-  name changes](#mysql-8-4-inclusive-language-changes-sp "#mysql-8-4-inclusive-language-changes-sp")
+- MySQL 5.7 to MySQL 8.0
+- MySQL 8.0 to MySQL 8.4
 
-### Configuration parameter
+Because major version upgrades involve some compatibility risk, they do not occur
+automatically; you must make a request to modify the DB instance. You should thoroughly
+test any upgrade before upgrading your production instances. For information about
+upgrading a MySQL DB instance, see [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
-name changes
+You can test a DB instance against a new version before upgrading by creating a DB
+snapshot of your existing DB instance, restoring from the DB snapshot to create a new DB
+instance, and then initiating a version upgrade for the new DB instance. You can then
+experiment safely on the upgraded clone of your DB instance before deciding whether or
+not to upgrade your original DB instance.
 
-The following configuration parameters have new names in RDS for MySQL 8.4.
+### MySQL minor versions on
 
-For compatibility, you can check the parameter names in the `mysql` client
-by using either name. You can only use the new names when modifying values in a custom
-MySQL 8.4 parameter group. For more information, see [Default and custom parameter
-groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
+Amazon RDS
 
-| Name to be removed            | New or preferred name           |
-| ----------------------------- | ------------------------------- |
-| `init_slave`                  | `init_replica`                  |
-| `log_slave_updates`           | `log_replica_updates`           |
-| `log_slow_slave_statements`   | `log_slow_replica_statements`   |
-| `rpl_stop_slave_timeout`      | `rpl_stop_replica_timeout`      |
-| `skip_slave_start`            | `skip_replica_start`            |
-| `slave_checkpoint_group`      | `replica_checkpoint_group`      |
-| `slave_checkpoint_period`     | `replica_checkpoint_period`     |
-| `slave_compressed_protocol`   | `replica_compressed_protocol`   |
-| `slave_exec_mode`             | `replica_exec_mode`             |
-| `slave_load_tmpdir`           | `replica_load_tmpdir`           |
-| `slave_max_allowed_packet`    | `replica_max_allowed_packet`    |
-| `slave_net_timeout`           | `replica_net_timeout`           |
-| `slave_parallel_type`         | `replica_parallel_type`         |
-| `slave_parallel_workers`      | `replica_parallel_workers`      |
-| `slave_pending_jobs_size_max` | `replica_pending_jobs_size_max` |
-| `slave_preserve_commit_order` | `replica_preserve_commit_order` |
-| `slave_skip_errors`           | `replica_skip_errors`           |
-| `slave_sql_verify_checksum`   | `replica_sql_verify_checksum`   |
-| `slave_transaction_retries`   | `replica_transaction_retries`   |
-| `slave_type_conversions`      | `replica_type_conversions`      |
-| `sql_slave_skip_counter`      | `sql_replica_skip_counter`      |
+For the changes that the MySQL community made to the minor versions, see [Critical Patch Updates, Security
+Alerts and Bulletins](https://www.oracle.com/security-alerts/ "https://www.oracle.com/security-alerts/") on the Oracle website. Under **Critical Patch Update**, choose the month when Oracle released the
+minor version. And then choose the MySQL minor version under **Affected Products and Versions**.
+
+###### Minor versions
+
+- [MySQL version
+  8.4.7](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.7 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.7")
+- [MySQL version
+  8.4.6](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.6 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.6")
+- [MySQL version
+  8.4.5](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.5 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.5")
+- [MySQL version
+  8.4.4](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.4 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.4.4")
+- [MySQL
+  version 8.0.44](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.44 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.44")
+- [MySQL
+  version 8.0.43](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.43 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.43")
+- [MySQL
+  version 8.0.42](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.42 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.42")
+- [MySQL
+  version 8.0.41](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.41 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.41")
+- [MySQL
+  version 8.0.40](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.40 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.40")
+- [MySQL
+  version 8.0.39](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.39")
+- [MySQL
+  version 8.0.37](#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37 "#MySQL.Concepts.VersionMgmt.Supported.Minor.8.0.37")
+
+#### MySQL version
+
+8.4.7
+
+MySQL version 8.4.7 is now available on Amazon RDS. This release contains fixes and
+improvements added by the MySQL community and Amazon RDS.
+
+#### MySQL version
+
+8.4.6
+
+MySQL version 8.4.6 is now available on Amazon RDS. This release contains fixes and
+improvements added by the MySQL community and Amazon RDS.
+
+#### MySQL version
+
+8.4.5
+
+MySQL version 8.4.5 is now available on Amazon RDS. This release contains fixes and
+improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2025b`.
+
+#### MySQL version
+
+8.4.4
+
+MySQL version 8.4.4 is now available on Amazon RDS. This release contains fixes and
+improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2025a`.
+- Fixed a bug that caused a collation error while executing the Amazon RDS
+  stored procedures `mysql.rds_set_configuration` and
+  `mysql.rds_kill`.
+
+#### MySQL
+
+version 8.0.44
+
+MySQL version 8.0.44 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+#### MySQL
+
+version 8.0.43
+
+MySQL version 8.0.43 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+#### MySQL
+
+version 8.0.42
+
+MySQL version 8.0.42 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2025b`.
+
+#### MySQL
+
+version 8.0.41
+
+MySQL version 8.0.41 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2025a`.
+- Fixed a bug that caused a collation error while executing the Amazon RDS
+  stored procedures `mysql.rds_set_configuration` and
+  `mysql.rds_kill`.
+
+#### MySQL
+
+version 8.0.40
+
+MySQL version 8.0.40 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Fixed a bug that caused character set mismatch failures during
+  database upgrades.
+
+#### MySQL
+
+version 8.0.39
+
+MySQL version 8.0.39 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Fixed a bug that prevented `sql_log_off` from working
+  properly with the `SESSION_VARIABLES_ADMIN` privilege.
+- Fixed a bug that prevented the master user from being able to grant
+  the `SESSION_VARIABLE_ADMIN` privilege other database
+  users.
+- Fixed a bug that caused an illegal mix of collation while executing
+  RDS-provided stored procedures.
+
+#### MySQL
+
+version 8.0.37
+
+MySQL version 8.0.37 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MySQL community and Amazon RDS.
+
+**New features and enhancements**
+
+- Fixed a bug with executing an instant DDL statement followed by an
+  UPDATE that lead to an assertion failure.
+
+## Supported MySQL major
+
+versions on Amazon RDS
+
+RDS for MySQL major versions are available under standard support at least until
+community end of life for the corresponding community version. You can continue running
+a major version past its RDS end of standard support date for a fee. For more
+information, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md") and
+[Amazon RDS for MySQL pricing](https://aws.amazon.com/rds/mysql/pricing/ "https://aws.amazon.com/rds/mysql/pricing/").
+
+You can use the following dates to plan your testing and upgrade cycles.
 
 ###### Note
 
-The parameter `replica_allow_batching` isn't available because Amazon RDS doesn't support NDB clusters.
+You can also view information about support dates for major engine versions by
+using the AWS CLI or the RDS API. For more
+information, see [Viewing support dates for engine
+versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md").
 
-### Stored procedure
+| MySQL major version | Community release date | RDS release date | Community end of life date | RDS end of standard support date | RDS start of Extended Support year 1 pricing date | RDS start of Extended Support year 3 pricing date | RDS end of Extended Support date |
+| ------------------- | ---------------------- | ---------------- | -------------------------- | -------------------------------- | ------------------------------------------------- | ------------------------------------------------- | -------------------------------- |
+| MySQL 8.4           | 30 April 2024          | 21 November 2024 | 30 April 2029              | 31 July 2029                     | 1 August, 2029                                    | 1 August 2031                                     | 31 July 2032                     |
+| MySQL 8.0           | 19 April 2018          | 23 October 2018  | 30 April 2026              | 31 July 2026                     | 1 August 2026                                     | 1 August 2028                                     | 31 July 2029                     |
+| MySQL 5.7\*         | 21 October 2015        | 22 February 2016 | 31 October 2023            | 29 February 2024                 | 1 March 2024                                      | 1 March 2026                                      | 28 February 2027                 |
 
-name changes
+\* MySQL 5.7 is now only available under RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md").
 
-The following stored procedures have new names in RDS for MySQL 8.4.
+## Amazon RDS Extended Support versions for
 
-For compatibility, you can use either name in the initial RDS for MySQL 8.4 release. The
-old procedure names are to be removed in a future release. For more information, see
-[Configuring, starting, and stopping binary
-log (binlog) replication](mysql-stored-proc-replicating.md "mysql-stored-proc-replicating.md").
+RDS for MySQL
 
-| Name to be removed                                 | New or preferred name                              |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `mysql.rds_next_master_log`                        | `mysql.rds_next_source_log`                        |
-| `mysql.rds_reset_external_master`                  | `mysql.rds_reset_external_source`                  |
-| `mysql.rds_set_external_master`                    | `mysql.rds_set_external_source`                    |
-| `mysql.rds_set_external_master_with_auto_position` | `mysql.rds_set_external_source_with_auto_position` |
-| `mysql.rds_set_external_master_with_delay`         | `mysql.rds_set_external_source_with_delay`         |
-| `mysql.rds_set_master_auto_position`               | `mysql.rds_set_source_auto_position`               |
+The following content lists all releases of RDS Extended Support for RDS for MySQL versions.
 
-## MySQL features not supported by Amazon RDS
+###### Releases
 
-Amazon RDS doesn't currently support the following MySQL features:
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20251212](#mysql-extended-support-releases-version-5.7.44-RDS.20251212 "#mysql-extended-support-releases-version-5.7.44-RDS.20251212")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20250818](#mysql-extended-support-releases-version-5.7.44-RDS.20250818 "#mysql-extended-support-releases-version-5.7.44-RDS.20250818")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20250508](#mysql-extended-support-releases-version-5.7.44-20250508 "#mysql-extended-support-releases-version-5.7.44-20250508")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20250213](#mysql-extended-support-releases-version-5.7.44-20250213 "#mysql-extended-support-releases-version-5.7.44-20250213")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20250103](#mysql-extended-support-releases-version-5.7.44-20250103 "#mysql-extended-support-releases-version-5.7.44-20250103")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20240808](#mysql-extended-support-releases-version-5.7.44-20240808 "#mysql-extended-support-releases-version-5.7.44-20240808")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20240529](#mysql-extended-support-releases-version-5.7.44-20240529 "#mysql-extended-support-releases-version-5.7.44-20240529")
+- [RDS Extended Support
+  for RDS for MySQL version 5.7.44-RDS.20240408](#mysql-extended-support-releases-version-5.7.44-20240408 "#mysql-extended-support-releases-version-5.7.44-20240408")
 
-- Authentication Plugin
-- Error Logging to the System Log
-- InnoDB Tablespace Encryption
-- NDB clusters
-- Password Strength Plugin
-- Persisted system variables
-- Rewriter Query Rewrite Plugin
-- Semisynchronous replication, except for Multi-AZ DB clusters
-- Transportable tablespace
-- X Plugin
+### RDS Extended Support
 
-To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB
-instances. It also restricts access to certain system procedures and tables that require
-advanced privileges. Amazon RDS supports access to databases on a DB instance using any
-standard SQL client application. Amazon RDS doesn't allow direct host access to a DB
-instance by using Telnet, Secure Shell (SSH), or Windows Remote Desktop Connection. When
-you create a DB instance, you are assigned as _db_owner_ for
-all databases on that instance, and you have all database-level permissions except for
-those used for backups. Amazon RDS manages backups for you.
+for RDS for MySQL version 5.7.44-RDS.20251212
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20251212 is available.
+
+**Bugs fixed:**
+
+- Fixed an issue with server startup when the buffer pool size exceeded the upper limit.
+- Fixed read from `INFORMATION_SCHEMA.INNODB_LOCKS` that caused the server to exit abnormally.
+- Fixed an issue with JUnit reporting support in MySQL Test Run (MTR).
+- Fixed compilation issues when building with `-DWITH_INNODB_MEMCACHED=ON` option.
+- Fixed an issue with MySQL Test Run (MTR) execution for bug 25182306.
+
+**CVEs fixed:**
+
+- [CVE-2025-53054](https://nvd.nist.gov/vuln/detail/CVE-2025-53054 "https://nvd.nist.gov/vuln/detail/CVE-2025-53054")
+- [CVE-2025-53044](https://nvd.nist.gov/vuln/detail/CVE-2025-53044 "https://nvd.nist.gov/vuln/detail/CVE-2025-53044")
+- [CVE-2025-53045](https://nvd.nist.gov/vuln/detail/CVE-2025-53045 "https://nvd.nist.gov/vuln/detail/CVE-2025-53045")
+- [CVE-2025-53062](https://nvd.nist.gov/vuln/detail/CVE-2025-53062 "https://nvd.nist.gov/vuln/detail/CVE-2025-53062")
+- [CVE-2025-53040](https://nvd.nist.gov/vuln/detail/CVE-2025-53040 "https://nvd.nist.gov/vuln/detail/CVE-2025-53040")
+- [CVE-2025-53042](https://nvd.nist.gov/vuln/detail/CVE-2025-53042 "https://nvd.nist.gov/vuln/detail/CVE-2025-53042")
+- [CVE-2025-53067](https://nvd.nist.gov/vuln/detail/CVE-2025-53067 "https://nvd.nist.gov/vuln/detail/CVE-2025-53067")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20250818
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250818 is available.
+
+**Bugs fixed:**
+
+- Fixed an issue where the query rewrite plugin failed when the server operated with `autocommit=OFF`.
+- Fixed a permission issue that prevented Debian and Ubuntu builds from running in rootless mode.
+- Fixed missing update for bug 30875669.
+
+**CVEs fixed:**
+
+- [CVE-2025-50082](https://nvd.nist.gov/vuln/detail/CVE-2025-50082 "https://nvd.nist.gov/vuln/detail/CVE-2025-50082")
+- [CVE-2025-50083](https://nvd.nist.gov/vuln/detail/CVE-2025-50083 "https://nvd.nist.gov/vuln/detail/CVE-2025-50083")
+- [CVE-2025-50079](https://nvd.nist.gov/vuln/detail/CVE-2025-50079 "https://nvd.nist.gov/vuln/detail/CVE-2025-50079")
+- [CVE-2025-50084](https://nvd.nist.gov/vuln/detail/CVE-2025-50084 "https://nvd.nist.gov/vuln/detail/CVE-2025-50084")
+- [CVE-2025-50087](https://nvd.nist.gov/vuln/detail/CVE-2025-50087 "https://nvd.nist.gov/vuln/detail/CVE-2025-50087")
+- [CVE-2025-50091](https://nvd.nist.gov/vuln/detail/CVE-2025-50091 "https://nvd.nist.gov/vuln/detail/CVE-2025-50091")
+- [CVE-2025-50101](https://nvd.nist.gov/vuln/detail/CVE-2025-50101 "https://nvd.nist.gov/vuln/detail/CVE-2025-50101")
+- [CVE-2025-50102](https://nvd.nist.gov/vuln/detail/CVE-2025-50102 "https://nvd.nist.gov/vuln/detail/CVE-2025-50102")
+- [CVE-2025-50098](https://nvd.nist.gov/vuln/detail/CVE-2025-50098 "https://nvd.nist.gov/vuln/detail/CVE-2025-50098")
+- [CVE-2025-53023](hhttps://nvd.nist.gov/vuln/detail/CVE-2025-53023 "hhttps://nvd.nist.gov/vuln/detail/CVE-2025-53023")
+- [CVE-2025-50081](https://nvd.nist.gov/vuln/detail/CVE-2025-50081 "https://nvd.nist.gov/vuln/detail/CVE-2025-50081")
+- [CVE-2025-50085](https://nvd.nist.gov/vuln/detail/CVE-2025-50085 "https://nvd.nist.gov/vuln/detail/CVE-2025-50085")
+- [CVE-2025-50077](https://nvd.nist.gov/vuln/detail/CVE-2025-50077 "https://nvd.nist.gov/vuln/detail/CVE-2025-50077")
+- [CVE-2025-50088](https://nvd.nist.gov/vuln/detail/CVE-2025-50088 "https://nvd.nist.gov/vuln/detail/CVE-2025-50088")
+- [CVE-2025-50092](https://nvd.nist.gov/vuln/detail/CVE-2025-50092 "https://nvd.nist.gov/vuln/detail/CVE-2025-50092")
+- [CVE-2025-50099](https://nvd.nist.gov/vuln/detail/CVE-2025-50099 "https://nvd.nist.gov/vuln/detail/CVE-2025-50099")
+- [CVE-2025-50096](https://nvd.nist.gov/vuln/detail/CVE-2025-50096 "https://nvd.nist.gov/vuln/detail/CVE-2025-50096")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20250508
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250508 is available.
+
+**Bugs fixed:**
+
+- Fixed virtual index unstable after rollback when `index_id` is greater than max `uint32`.
+- Fixed Tests fails with memory issue.
+- Fixed `<COMMAND_CLASS>` is empty for `<NAME>Execute</NAME>`.
+- Fixed Compile MySQL with GCC 14 [noclose 5.7].
+
+**CVEs fixed:**
+
+- [CVE-2025-30682](https://nvd.nist.gov/vuln/detail/CVE-2025-30682 "https://nvd.nist.gov/vuln/detail/CVE-2025-30682")
+- [CVE-2025-30687](https://nvd.nist.gov/vuln/detail/CVE-2025-30687 "https://nvd.nist.gov/vuln/detail/CVE-2025-30687")
+- [CVE-2025-30688](https://nvd.nist.gov/vuln/detail/CVE-2025-30688 "https://nvd.nist.gov/vuln/detail/CVE-2025-30688")
+- [CVE-2025-21581](https://nvd.nist.gov/vuln/detail/CVE-2025-21581 "https://nvd.nist.gov/vuln/detail/CVE-2025-21581")
+- [CVE-2025-21585](https://nvd.nist.gov/vuln/detail/CVE-2025-21585 "https://nvd.nist.gov/vuln/detail/CVE-2025-21585")
+- [CVE-2025-30689](https://nvd.nist.gov/vuln/detail/CVE-2025-30689 "https://nvd.nist.gov/vuln/detail/CVE-2025-30689")
+- [CVE-2025-30722](https://nvd.nist.gov/vuln/detail/CVE-2025-30722 "https://nvd.nist.gov/vuln/detail/CVE-2025-30722")
+- [CVE-2025-21577](https://nvd.nist.gov/vuln/detail/CVE-2025-21577 "https://nvd.nist.gov/vuln/detail/CVE-2025-21577")
+- [CVE-2025-30693](https://nvd.nist.gov/vuln/detail/CVE-2025-30693 "https://nvd.nist.gov/vuln/detail/CVE-2025-30693")
+- [CVE-2025-30695](https://nvd.nist.gov/vuln/detail/CVE-2025-30695 "https://nvd.nist.gov/vuln/detail/CVE-2025-30695")
+- [CVE-2025-30703](https://nvd.nist.gov/vuln/detail/CVE-2025-30703 "https://nvd.nist.gov/vuln/detail/CVE-2025-30703")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20250213
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250213 is available.
+
+**Bugs fixed:**
+
+- Fixed InnoDB failing assertion `result != FTS_INVALID`.
+- Fixed crashing and widespread corruption of spatial indexes after `ALTER
+TABLE` operation rebuilds InnoDB table using the `INPLACE`
+  algorithm.
+- Fixed `ON DELETE CASCADE` with generated column crashes in
+  `innobase_get_computed_value`.
+- Fixed assertion failure in `row_MySQL_pad_col`.
+- Fixed an issue where online DDL causes the following error: `ERROR 1712
+(HY000): Index PRIMARY is corrupted`.
+- Fixed crashes at `Item_rollup_sum_switcher::current_arg`.
+- Fixed an issue where the database cache is not flushed on `DROP
+USER`.
+- Fixed buffer overrun in `my_print_help`.
+- Fixed an InnoDB issue where `FULLTEXT` index limits
+  `FTS_DOC_ID` to max unsigned 32-bit value.
+
+**CVEs fixed:**
+
+- [CVE-2025-21497](https://nvd.nist.gov/vuln/detail/CVE-2025-21497 "https://nvd.nist.gov/vuln/detail/CVE-2025-21497")
+- [CVE-2025-21555](https://nvd.nist.gov/vuln/detail/CVE-2025-21555 "https://nvd.nist.gov/vuln/detail/CVE-2025-21555")
+- [CVE-2025-21559](https://nvd.nist.gov/vuln/detail/CVE-2025-21559 "https://nvd.nist.gov/vuln/detail/CVE-2025-21559")
+- [CVE-2025-21490](https://nvd.nist.gov/vuln/detail/CVE-2025-21490 "https://nvd.nist.gov/vuln/detail/CVE-2025-21490")
+- [CVE-2025-21491](https://nvd.nist.gov/vuln/detail/CVE-2025-21491 "https://nvd.nist.gov/vuln/detail/CVE-2025-21491")
+- [CVE-2025-21500](https://nvd.nist.gov/vuln/detail/CVE-2025-21500 "https://nvd.nist.gov/vuln/detail/CVE-2025-21500")
+- [CVE-2025-21501](https://nvd.nist.gov/vuln/detail/CVE-2025-21501 "https://nvd.nist.gov/vuln/detail/CVE-2025-21501")
+- [CVE-2025-21540](https://nvd.nist.gov/vuln/detail/CVE-2025-21540 "https://nvd.nist.gov/vuln/detail/CVE-2025-21540")
+- [CVE-2025-21543](https://nvd.nist.gov/vuln/detail/CVE-2025-21543 "https://nvd.nist.gov/vuln/detail/CVE-2025-21543")
+- [CVE-2025-21520](https://nvd.nist.gov/vuln/detail/CVE-2025-21520 "https://nvd.nist.gov/vuln/detail/CVE-2025-21520")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20250103
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250103 is available.
+
+**Bugs fixed:**
+
+- Fixed FTS clean-up issue when dropping and adding a `FULLTEXT`
+  index in the same transaction.
+- Optimized the memory allocation timing in the MySQL client to prevent any
+  potential leaks.
+- Fixed the truncation of results at 34 bytes when using the `UNION`
+  operator.
+- Fixed potential out-of-bounds access due to `ulong bitmask` in the
+  authorization code.
+
+**CVEs fixed:**
+
+- [CVE-2024-21230](https://nvd.nist.gov/vuln/detail/CVE-2024-21230 "https://nvd.nist.gov/vuln/detail/CVE-2024-21230")
+- [CVE-2024-21201](https://nvd.nist.gov/vuln/detail/CVE-2024-21201 "https://nvd.nist.gov/vuln/detail/CVE-2024-21201")
+- [CVE-2024-21241](https://nvd.nist.gov/vuln/detail/CVE-2024-21241 "https://nvd.nist.gov/vuln/detail/CVE-2024-21241")
+- [CVE-2024-21203](https://nvd.nist.gov/vuln/detail/CVE-2024-21203 "https://nvd.nist.gov/vuln/detail/CVE-2024-21203")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20240808
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808 is available.
+
+**Bugs fixed:**
+
+- Fixed assertion failure related to dictionary column index.
+- Fixed issue with the `is_binlog_cache_empty()` function.
+- Fixed `heap-use-after-free` errors in `sql/item.cc`
+  files.
+- Fixed several spatial index issues by disabling them for
+  `index-only` reads.
+- Fixed instrumentation issue with the `LOCK_ORDER:
+CONNECTION_CONTROL` plugin.
+- Fixed threads getting stuck with the `CONNECTION_CONTROL`
+  plugin.
+- Fixed `PSI_THREAD_INFO` not updating for `PREPARED
+STATEMENTS`.
+- Fixed double processing of FTS index words with
+  `innodb_optimize_fulltext_only`.
+
+**CVEs fixed:**
+
+- [CVE-2024-21177](https://nvd.nist.gov/vuln/detail/CVE-2024-21177 "https://nvd.nist.gov/vuln/detail/CVE-2024-21177")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20240529
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529 is available.
+
+**Bugs fixed:**
+
+- Fixed `field.cc` assertion failure by implementing
+  `fix_after_pullout`.
+- Fixed a null pointer failure when returning metadata to the client for certain
+  SQL queries. These queries contained dynamic parameters and subqueries in
+  `SELECT` clauses.
+- Fixed incorrect results when using `GROUP BY` for loose index
+  scans, or scans of noncontiguous ranges of an index.
+- Fixed loss of GTID information on MySQL crash during persistence.
+- Fixed a race condition that could cause an InnoDB transaction to hang
+  indefinitely.
+- Fixed a race condition in Group Replication's certification information
+  cleanup.
+- Fixed backward index scan issue with concurrent page operations.
+- Fixed an inconsistent full-text search (FTS) state issue in concurrent
+  scenarios.
+- Fixed assertion issue with change buffer on deleting tables.
+- Unified behavior for calling `deinit` function across all plugin
+  types.
+
+**CVEs fixed:**
+
+- [CVE-2024-20963](https://nvd.nist.gov/vuln/detail/CVE-2024-20963 "https://nvd.nist.gov/vuln/detail/CVE-2024-20963")
+- [CVE-2024-20993](https://nvd.nist.gov/vuln/detail/CVE-2024-20993 "https://nvd.nist.gov/vuln/detail/CVE-2024-20993")
+- [CVE-2024-20998](https://nvd.nist.gov/vuln/detail/CVE-2024-20998 "https://nvd.nist.gov/vuln/detail/CVE-2024-20998")
+- [CVE-2024-21009](https://nvd.nist.gov/vuln/detail/CVE-2024-21009 "https://nvd.nist.gov/vuln/detail/CVE-2024-21009")
+- [CVE-2024-21054](https://nvd.nist.gov/vuln/detail/CVE-2024-21054 "https://nvd.nist.gov/vuln/detail/CVE-2024-21054")
+- [CVE-2024-21055](https://nvd.nist.gov/vuln/detail/CVE-2024-21055 "https://nvd.nist.gov/vuln/detail/CVE-2024-21055")
+- [CVE-2024-21057](https://nvd.nist.gov/vuln/detail/CVE-2024-21057 "https://nvd.nist.gov/vuln/detail/CVE-2024-21057")
+- [CVE-2024-21062](https://nvd.nist.gov/vuln/detail/CVE-2024-21062 "https://nvd.nist.gov/vuln/detail/CVE-2024-21062")
+- [CVE-2024-21008](https://nvd.nist.gov/vuln/detail/CVE-2024-21008 "https://nvd.nist.gov/vuln/detail/CVE-2024-21008")
+- [CVE-2024-21013](https://nvd.nist.gov/vuln/detail/CVE-2024-21013 "https://nvd.nist.gov/vuln/detail/CVE-2024-21013")
+- [CVE-2024-21047](https://nvd.nist.gov/vuln/detail/CVE-2024-21047 "https://nvd.nist.gov/vuln/detail/CVE-2024-21047")
+- [CVE-2024-21087](https://nvd.nist.gov/vuln/detail/CVE-2024-21087 "https://nvd.nist.gov/vuln/detail/CVE-2024-21087")
+- [CVE-2024-21096](https://nvd.nist.gov/vuln/detail/CVE-2024-21096 "https://nvd.nist.gov/vuln/detail/CVE-2024-21096")
+
+### RDS Extended Support
+
+for RDS for MySQL version 5.7.44-RDS.20240408
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240408 is available.
+
+This release contains patches for the following CVEs:
+
+- [CVE-2024-20963](https://nvd.nist.gov/vuln/detail/CVE-2024-20963 "https://nvd.nist.gov/vuln/detail/CVE-2024-20963")
+
+## Working with the
+
+Database Preview environment
+
+In July 2023, Oracle announced a new release model for MySQL. This model includes two
+types of releases: Innovation Releases and LTS releases. Amazon RDS makes MySQL Innovation
+Releases available in the RDS Preview environment. To learn more about the MySQL
+Innovation releases, see [Introducing MySQL Innovation and Long-Term Support (LTS) versions](https://blogs.oracle.com/mysql/post/introducing-mysql-innovation-and-longterm-support-lts-versions "https://blogs.oracle.com/mysql/post/introducing-mysql-innovation-and-longterm-support-lts-versions").
+
+RDS for MySQL DB instances in the Database Preview environment are functionally similar
+to other RDS for MySQL DB instances. However, you can't use the Database Preview
+environment for production workloads.
+
+Preview environments have the following limitations:
+
+- Amazon RDS deletes all DB instances 60 days after you create them, along with any
+  backups and snapshots.
+- You can only use General Purpose SSD and Provisioned IOPS SSD storage.
+- You can't get help from Support with DB instances. Instead, you can post your questions to the AWS‐managed Q&A
+  community, [AWS re:Post](https://repost.aws/tags/TAsibBK6ZeQYihN9as4S_psg/amazon-relational-database-service "https://repost.aws/tags/TAsibBK6ZeQYihN9as4S_psg/amazon-relational-database-service").
+- You can't copy a snapshot of a DB instance to a production environment.
+
+The following options are supported by the preview.
+
+- You can create DB instances using db.m6i, db.r6i, db.m6g, db.m5, db.t3,
+  db.r6g, and db.r5 DB instance classes. For more information about RDS instance
+  classes, see [DB instance classes](Concepts.md "Concepts.md").
+- You can use both single-AZ and multi-AZ deployments.
+- You can use standard MySQL dump and load functions to export databases from or
+  import databases to the Database Preview environment.
+
+### Features not supported in the
+
+Database Preview environment
+
+The following features aren't available in the Database Preview
+environment:
+
+- Cross-Region snapshot copy
+- Cross-Region read replicas
+- RDS Proxy
+
+### Creating a new DB
+
+instance in the Database Preview environment
+
+You can create a DB instance in the Database Preview environment using the
+AWS Management Console, AWS CLI, or RDS API.
+
+###### To create a DB instance in the Database Preview environment
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose **Dashboard** from the navigation
+   pane.
+3. In the **Dashboard** page, locate the
+   **Database Preview Environment** section, as
+   shown in the following image.
+
+![The Database Preview Environment section with link in the Amazon RDS console.](images/preview-environment-dashboard.png)
+
+You can navigate directly to the [Database Preview environment](https://us-east-2.console.aws.amazon.com/rds-preview/home?region=us-east-2# "https://us-east-2.console.aws.amazon.com/rds-preview/home?region=us-east-2#"). Before you can proceed,
+you must acknowledge and accept the limitations.
+
+![The Database Preview Environment Service Agreement dialog to acknowledge limitations.](images/preview-environment-console.png) 4. To create the RDS for MySQL DB instance, follow the same process that
+you would for creating any Amazon RDS DB instance. For more information,
+see the [Console](USER_CreateDBInstance.md#USER_CreateDBInstance.CON "USER_CreateDBInstance.md#USER_CreateDBInstance.CON") procedure in [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
+To create a DB instance in the Database Preview environment using the
+AWS CLI, use the following endpoint.
+
+```
+rds-preview.us-east-2.amazonaws.com
+```
+
+To create the RDS for MySQL DB instance, follow the same process that you
+would for creating any Amazon RDS DB instance. For more information, see the
+[AWS CLI](USER_CreateDBInstance.md#USER_CreateDBInstance.CLI "USER_CreateDBInstance.md#USER_CreateDBInstance.CLI") procedure in [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
+
+To create a DB instance in the Database Preview environment using the RDS
+API, use the following endpoint.
+
+```
+rds-preview.us-east-2.amazonaws.com
+```
+
+To create the RDS for MySQL DB instance, follow the same process that you
+would for creating any Amazon RDS DB instance. For more information, see the
+[RDS API](USER_CreateDBInstance.md#USER_CreateDBInstance.API "USER_CreateDBInstance.md#USER_CreateDBInstance.API") procedure in [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
+
+## MySQL version 9.5 in the Database Preview environment
+
+MySQL version 9.5 is now available in the Amazon RDS Database Preview environment. MySQL
+version 9.5 contains several improvements that are described in [Changes in
+MySQL 9.5.0](https://dev.mysql.com/doc/relnotes/mysql/9.5/en/news-9-5-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.5/en/news-9-5-0.html").
+
+For information on the Database Preview environment, see [Working with the
+Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
+Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
+
+## MySQL version 9.4 in the Database Preview environment
+
+MySQL version 9.4 is now available in the Amazon RDS Database Preview environment. MySQL
+version 9.4 contains several improvements that are described in [Changes in
+MySQL 9.4.0](https://dev.mysql.com/doc/relnotes/mysql/9.4/en/news-9-4-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.4/en/news-9-4-0.html").
+
+For information on the Database Preview environment, see [Working with the
+Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
+Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
+
+## MySQL version 9.3 in the Database Preview environment
+
+MySQL version 9.3 is now available in the Amazon RDS Database Preview environment. MySQL
+version 9.3 contains several improvements that are described in [Changes in
+MySQL 9.3.0](https://dev.mysql.com/doc/relnotes/mysql/9.3/en/news-9-3-0.html "https://dev.mysql.com/doc/relnotes/mysql/9.3/en/news-9-3-0.html").
+
+For information on the Database Preview environment, see [Working with the
+Database Preview environment](#mysql-working-with-the-database-preview-environment "#mysql-working-with-the-database-preview-environment"). To access the
+Preview Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").
+
+## Deprecated versions for
+
+Amazon RDS for MySQL
+
+Amazon RDS for MySQL version 5.1, 5.5, and 5.6 are deprecated.
+
+Amazon RDS for MySQL version 9.1 and 9.2 are deprecated in the Database Preview environment.
+
+For information about the Amazon RDS deprecation policy for MySQL, see [Amazon RDS FAQs](https://aws.amazon.com/rds/faqs/ "https://aws.amazon.com/rds/faqs/").

@@ -170,7 +170,7 @@ isn't. 5. In **Engine type**, choose **MySQL** or **PostgreSQL**. 6. For **Versi
 For information about the DB engine versions that support Multi-AZ DB clusters, see
 [Limitations of Multi-AZ DB clusters for Amazon RDS](multi-az-db-clusters-concepts.md "multi-az-db-clusters-concepts.md"). 7. In **Templates**, choose the appropriate template for your deployment. 8. In **Availability and durability**, choose **Multi-AZ DB cluster**.
 
-![Multi-AZ DB cluster choice](/images/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png) 9. In **DB cluster identifier**, enter the identifier for your DB cluster. 10. In **Master username**, enter your master user name, or keep
+![Multi-AZ DB cluster choice](images/multi-az-db-cluster-create.png) 9. In **DB cluster identifier**, enter the identifier for your DB cluster. 10. In **Master username**, enter your master user name, or keep
 the default setting. 11. Enter your master password:
 
     1. In the **Settings** section, open **Credential
