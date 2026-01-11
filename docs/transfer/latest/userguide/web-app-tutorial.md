@@ -217,7 +217,7 @@ Guide_.
      have Amazon S3 create a role. This role allows S3 Access Grants to access
      your specified location scope.
 
-![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](/images/transfer/latest/userguide/images/webapp-grants-register-new.png)
+![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](images/webapp-grants-register-new.png)
 
 Choose **Register location** to continue. 6. Select the **Grants** tab, then choose **Create
 Grant** and provide the following details.
