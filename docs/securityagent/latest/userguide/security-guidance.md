@@ -46,6 +46,8 @@ AWS Security Agent allows users to upload artifacts to provide context about the
 
 Endpoints that are specified as target URLs for pentesting will require DNS validation or HTTP validation as a measure of ownership. AWS Security Agent will ask the customer to add a TXT record to the endpoint’s DNS or expose an HTTP Route returning validation string as proof of ownership. Only after demonstrating proof of ownership will the user be able to proceed with a pentest. Requests to URLs outside of the target and allowed URLs will be blocked by the network.
 
+Customers are responsible for ensuring they have proper authorization to test all systems that may be affected by their penetration testing activities. All use of AWS Security Agent must comply with the AWS Acceptable Use Policy ([https://aws.amazon.com/aup/](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/")).
+
 #### How do users block and report any abuse using AWS Security Agent?
 
 AWS Security Agent continuously monitors requests and attempts to access URLs that are outside of the target URLs. If abuse is detected, such as attempting to use AWS Security Agent to conduct unauthorized testing on a third party endpoint, any ongoing pentests in the account will be terminated. Customers can reach out to AWS Support or their AWS account team for help.

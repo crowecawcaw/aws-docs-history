@@ -2,10 +2,6 @@
 
 If the application you want to run a penetration test on is not available on the public internet, you need to provide AWS Security Agent with a VPC configuration. AWS Security Agent will use this VPC configuration, including a VPC, subnet, and security groups, to access the application.
 
-###### Note
-
-For VPC penetration tests, VPC CIDR ranges that overlap with the 10.0.0.0/16 range are currently not supported. Additionally, if you have a VPC IP endpoint that falls within this CIDR range, it will also fail to resolve.
-
 You grant AWS Security Agent general access to a VPC from the AWS Management Console. In the Security Agent web app, users select the specific configuration for a penetration test.
 == To add a VPC in the Agent Space
 
