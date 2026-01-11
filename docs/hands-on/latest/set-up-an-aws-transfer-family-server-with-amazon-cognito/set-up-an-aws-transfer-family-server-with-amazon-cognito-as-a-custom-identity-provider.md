@@ -156,7 +156,7 @@ See Step 3 for bucket name.
 
 ```
 {
-      "Version": "2012-10-17",&TCX5-2025-waiver;
+      "Version": "2012-10-17",
       "Statement": [{
         "Effect": "Allow",
         "Action": [
