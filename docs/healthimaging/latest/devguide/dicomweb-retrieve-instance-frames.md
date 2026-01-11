@@ -58,9 +58,11 @@ curl --request GET \
 ###### Note
 
 The `transfer-syntax` UID is optional and defaults to Explicit VR Little Endian
-if not included. Supported transfer syntaxes include:
+if not included. If transcoding to ELE is not feasible (due to import with warning) then pixels
+will be returned without transcoding. Supported transfer syntaxes include:
 
     * Explicit VR Little Endian (ELE) - `1.2.840.10008.1.2.1` (default for lossless image frames)
+    * If `transfer-syntax=*` then the image frame(s) will be returned in the stored transfer syntax.
     * High-Throughput JPEG 2000 with RPCL Options Image Compression (Lossless Only) -
      `1.2.840.10008.1.2.4.202` - if the instance is stored in HealthImaging as
      `1.2.840.10008.1.2.4.202`
@@ -76,5 +78,8 @@ if not included. Supported transfer syntaxes include:
      [Transfer Syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") (which includes MPEG2, MPEG-4
      AVC/H.264 and HEVC/H.265) may be retrieved with the corresponding transfer-syntax UID. For example,
      `1.2.840.10008.1.2.4.100` if the instance is stored as MPEG2 Main Profile Main Level.
+    * You may receive a 406 `NotAcceptableException` if the requested transfer syntax cannot
+     be returned based on the stored transfer syntax, or if there are specific processing warnings for the
+     instance. If this occurs, retry the call with `transfer-syntax=*`.
 
 For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") and [Image frame decoding libraries for AWS HealthImaging](reference-libraries.md "reference-libraries.md").

@@ -14,6 +14,10 @@ Image set metadata is compressed with `gzip` and returned as a JSON object.
 Therefore, you must decompress the JSON object prior to viewing the normalized metadata.
 For more information, see [Metadata normalization](metadata-normalization.md "metadata-normalization.md").
 
+If a large image set metadata is still processing after import, a 409
+`ConflictException` may be returned. Retry the request after a few seconds once
+processing completes.
+
 Use `GetDICOMInstanceMetadata`, HealthImaging's representation of a DICOMweb
 service, to return DICOM instance metadata (`.json` file). For more
 information, see [Getting DICOM instance metadata from

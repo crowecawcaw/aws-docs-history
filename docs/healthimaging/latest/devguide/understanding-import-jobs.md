@@ -59,24 +59,25 @@ You can include up to 10,000 nested folders for a single import job.
 
     ```
     {
-        "jobSummary": {
-            "jobId": "09876543210987654321098765432109",
+    "jobSummary": {
+    "jobId": "09876543210987654321098765432109",
             "datastoreId": "12345678901234567890123456789012",
             "inputS3Uri": "s3://medical-imaging-dicom-input/dicom_input/",
             "outputS3Uri": "s3://medical-imaging-output/job_output/12345678901234567890123456789012-DicomImport-09876543210987654321098765432109/",
             "successOutputS3Uri": "s3://medical-imaging-output/job_output/12345678901234567890123456789012-DicomImport-09876543210987654321098765432109/SUCCESS/",
             "failureOutputS3Uri": "s3://medical-imaging-output/job_output/12345678901234567890123456789012-DicomImport-09876543210987654321098765432109/FAILURE/",
+            "warningsOutputS3Uri": "s3://medical-imaging-output/job_output/12345678901234567890123456789012-DicomImport-09876543210987654321098765432109/WARNING/",
             "numberOfScannedFiles": 5,
             "numberOfImportedFiles": 3,
             "numberOfFilesWithCustomerError": 2,
             "numberOfFilesWithServerError": 0,
             "numberOfGeneratedImageSets": 2,
             "imageSetsSummary": [{
-                    "imageSetId": "12345612345612345678907890789012",
+    "imageSetId": "12345612345612345678907890789012",
                     "numberOfMatchedSOPInstances": 2
                 },
                 {
-                    "imageSetId": "12345612345612345678917891789012",
+    "imageSetId": "12345612345612345678917891789012",
                     "numberOfMatchedSOPInstances": 1
                 }
             ]
@@ -104,6 +105,16 @@ You can include up to 10,000 nested folders for a single import job.
     ```
     {"inputFile":"dicom_input/invalidDicomFile1.dcm","exception":{"exceptionType":"ValidationException","message":"DICOM attribute TransferSyntaxUID does not exist"}}
     {"inputFile":"dicom_input/invalidDicomFile2.dcm","exception":{"exceptionType":"ValidationException","message":"DICOM attributes does not exist"}}
+
+    ```
+    + The `WARNING` folder holds the `warning.ndjson` file containing
+     results of all imaging files that imported successfully but with warnings. The following example shows output
+     from a `warning.ndjson` file.
+
+
+
+    ```
+    {"inputFile":"dicom_input/warningDicomFile1.dcm","importResponse":{"imageSetId":"12345612345612345678907890789012","imageSetVersion":1,"isPrimary":true,"warnings":[{"warning_reason_code":45330,"type":"InvalidOffsetTable","message":"The file was imported but contains an invalid offset table, may see issues when retrieving certain frames."}]}}
 
     ```
 

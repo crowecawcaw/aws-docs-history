@@ -22,11 +22,15 @@ GET https://dicom-medical-imaging.`region`.amazonaws.com/datastore/`datastoreId`
 | -------------------------------------------- | ------------------ | ------------------ |
 | `(0008,0016)`                                | `SOP Class UID`    |
 | `(0008,0018)`                                | `SOP Instance UID` |
+| `(0008,1196)`                                | `WarningReason`    |
 
-4. Prepare and send your request. `SearchDICOMInstances` uses a HTTP GET request
-   with [AWS Signature
-   Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol. The following example uses the `curl` command
-   line tool to search for information about DICOM instances.
+HealthImaging uses the DICOM element
+[(0008,1196)](https://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.6.html#sect_6.6.1.3.2.1.1 "https://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.6.html#sect_6.6.1.3.2.1.1")
+to persist import warning codes. The import warning codes are searchable at the instance level.
+Import warning codes may be searched with wildcard or specific warning codes. See [HealthImaging Warning Codes](reference-warning-codes.md "reference-warning-codes.md"). 4. Prepare and send your request. `SearchDICOMInstances` uses a HTTP GET request
+with [AWS Signature
+Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol. The following example uses the `curl` command
+line tool to search for information about DICOM instances.
 
 curl
 
