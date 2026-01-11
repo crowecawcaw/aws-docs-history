@@ -74,6 +74,8 @@ Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9
 
 [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
 
+[[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
+
 [[CloudFront.1] CloudFront distributions should have a default
 root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 
@@ -112,6 +114,8 @@ recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfron
 
 [[CloudFront.16] CloudFront distributions should use origin
 access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+
+[[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 
 [[CloudTrail.1] CloudTrail should be enabled and configured with at least
 one multi-Region trail that includes read and write management events](cloudtrail-controls.md#cloudtrail-1 "cloudtrail-controls.md#cloudtrail-1")
@@ -318,6 +322,12 @@ definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
 [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 
 [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
+
+[[ECS.19] ECS capacity providers should have managed termination protection enabled](ecs-controls.md#ecs-19 "ecs-controls.md#ecs-19")
+
+[[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](ecs-controls.md#ecs-20 "ecs-controls.md#ecs-20")
+
+[[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](ecs-controls.md#ecs-21 "ecs-controls.md#ecs-21")
 
 [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 

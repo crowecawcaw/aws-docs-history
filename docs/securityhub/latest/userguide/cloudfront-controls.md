@@ -549,3 +549,31 @@ is on behalf of a CloudFront distribution specified in the policy.
 
 For information about configuring OAC for an Amazon CloudFront distribution that uses a
 Lambda function URL as an origin, see [Restrict access to an AWS Lambda function URL origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.md") in the _Amazon CloudFront Developer Guide_.
+
+## [CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies
+
+**Category:** Protect > Secure access management > Access control
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::CloudFront::Distribution`
+
+**AWS Config rule:** `cloudfront-distribution-key-group-enabled`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon CloudFront distribution is configured to use trusted key groups for signed URL or signed cookie authentication. The control fails if the CloudFront
+distribution uses trusted signers, or if the distribution has no authentication configured.
+
+To use signed URLs or signed cookies, you need a signer. A signer is either a trusted key group that you create in CloudFront, or an AWS account that contains a CloudFront key pair. We recommend that you use trusted key groups because with CloudFront key groups, you don't need to use the AWS account root user to manage the public keys for CloudFront signed URLs and signed cookies.
+
+###### Note
+
+This control does not evaluate multi-tenant CloudFront distributions `(connectionMode=tenant-only)`.
+
+### Remediation
+
+For information about using trusted key groups with signed URLs and cookies, see [Using trusted key groups](../../../AmazonCloudFront/latest/DeveloperGuide/PrivateContent.md "../../../AmazonCloudFront/latest/DeveloperGuide/PrivateContent.md") in the _Amazon CloudFront Developer Guide_.

@@ -554,3 +554,89 @@ When encryption of data in transit is declared as a mount option for your EFS fi
 
 For information about enabling in-transit encryption for Amazon ECS Task Definition with EFS volumes, see [Step 5: Create a task definition](../../../AmazonECS/latest/developerguide/tutorial-efs-volumes.md#efs-task-def "../../../AmazonECS/latest/developerguide/tutorial-efs-volumes.md#efs-task-def") in the _Amazon Elastic Container Service
 Developer Guide_.
+
+## [ECS.19] ECS capacity providers should have managed termination protection enabled
+
+**Category:** Protect > Data Protection
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ECS::CapacityProvider`
+
+**AWS Config rule:** `ecs-capacity-provider-termination-check`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon ECS capacity provider has managed termination protection enabled. The control fails if managed termination protection is not enabled on an ECS capacity provider.
+
+Amazon ECS capacity providers manage the scaling of infrastructure for tasks in your clusters. When you use EC2 instances for your capacity, you use Auto Scaling group to manage the EC2 instances. Managed termination protection allows cluster auto scaling to control which instances are terminated. When you used managed termination protection, Amazon ECS only terminates EC2 instances that don't have any running Amazon ECS tasks.
+
+###### Note
+
+When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
+
+### Remediation
+
+To enable managed termination protection for an Amazon ECS capacity provider, see [Updating managed termination protection for Amazon ECS capacity providers](../../../AmazonECS/latest/developerguide/update-managed-termination-protection.md "../../../AmazonECS/latest/developerguide/update-managed-termination-protection.md") in the _Amazon Elastic Container Service
+Developer Guide_.
+
+## [ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions
+
+**Category:** Protect > Secure access management > Root user access restrictions
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ECS::TaskDefinition`
+
+**AWS Config rule:** `ecs-task-definition-linux-user-non-root`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether the latest active revision of an Amazon ECS task definition configures Linux containers to run as non-root users. The control fails if a default root user is configured or user configuration is absent for any container.
+
+When Linux containers run with root privileges, they pose several significant security risks. Root users have unrestricted access within the container. This elevated access increases the risk of container escape attacks, where an attacker could potentially break out of container isolation and access the underlying host system. If a container running as root is compromised, attackers may exploit this to access or modify host system resources, affecting other containers or the host itself. Furthermore, root access could enable privilege escalation attacks, allowing attackers to gain additional permissions beyond the container's intended scope.
+
+The user parameter in ECS task definitions can specify users in several formats, including username, user ID, username with group, or UID with group ID. It's important to be aware of these various formats when configuring task definitions to ensure no root access is inadvertently granted. Following the principle of least privilege, containers should run with the minimum required permissions using non-root users. This approach significantly reduces the potential attack surface and mitigates the impact of potential security breaches.
+
+###### Note
+
+This control only evaluates the container definitions in a task definition if the `operatingSystemFamily` is configured as `LINUX` or `operatingSystemFamily` is not configured in the task definition. The control will generate a `FAILED` finding for an evaluated task definition if any container definition in the task definition has `user` not configured or `user` configured as default root user. The default root users for `LINUX` containers are `"root"` and `"0"`.
+
+### Remediation
+
+For information about creating a new revision of an Amazon ECS Task Definition and updating the `user` parameter in the container definition, see [Updating an Amazon ECS task defintion](../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md "../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md") in the _Amazon Elastic Container Service
+Developer Guide_.
+
+## [ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions
+
+**Category:** Protect > Secure access management > Root user access restrictions
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ECS::TaskDefinition`
+
+**AWS Config rule:** `ecs-task-definition-windows-user-non-admin`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether the latest active revision of an Amazon ECS task definition configures Windows containers to run as users that are not default administrators. The control fails if a default administrator is configured as user or user configuration is absent for any container.
+
+When Windows containers run with administrator privileges, they pose several significant security risks. Administrators have unrestricted access within the container. This elevated access increases the risk of container escape attacks, where an attacker could potentially break out of container isolation and access the underlying host system.
+
+###### Note
+
+This control only evaluates the container definitions in a task definition if the `operatingSystemFamily` is configured as `WINDOWS_SERVER` or `operatingSystemFamily` is not configured in the task definition. The control will generate a `FAILED` finding for an evaluated task definition if any container definition in the task definition has `user` not configured or `user` configured as default administrator for `WINDOWS_SERVER` containers which is `"containeradministrator"`.
+
+### Remediation
+
+For information about creating a new revision of an Amazon ECS Task Definition and updating the `user` parameter in the container definition, see [Updating an Amazon ECS task defintion](../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md "../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md") in the _Amazon Elastic Container Service
+Developer Guide_.

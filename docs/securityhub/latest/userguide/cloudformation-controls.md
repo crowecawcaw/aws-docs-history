@@ -114,3 +114,31 @@ You can't directly delete a nested stack belonging with a stack that has termina
 
 To enable termination protection on a CloudFormation stack, see [Protect CloudFormation stacks from being deleted](../../../AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.md")
 in the _AWS CloudFormation User Guide_.
+
+## [CloudFormation.4] CloudFormation stacks should have associated service roles
+
+**Category:** Detect > Secure access management
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::CloudFormation::Stack`
+
+**AWS Config rule:** `cloudformation-stack-service-role-check`
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an AWS CloudFormation stack has a service role associated with it. The control fails for a CloudFormation stack if no service role is associated with it.
+
+Using service roles with CloudFormation stacks helps implement least privilege access by separating permissions between the user who creates/updates stacks and the permissions needed by CloudFormation to create/update resources. This reduces the risk of privilege escalation and helps maintain security boundaries between different operational roles.
+
+###### Note
+
+It is not possible to remove a service role attached to a stack after the stack is created. Other users that have permissions to perform operations on this stack are able to use this role, regardless of whether those users have the `iam:PassRole` permission or not. If the role includes permissions that the user shouldn't have, you can unintentionally escalate a user's permissions. Ensure that the role grants least privilege.
+
+### Remediation
+
+To associate a service role with a CloudFormation stack, see [CloudFormation service role](../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-servicerole.md")
+in the _AWS CloudFormation User Guide_.
