@@ -17,6 +17,13 @@ For high-volume matchmaking systems, we recommend using standard (non-FIFO) Amaz
 FIFO topics have lower publishing limits than standard topics, which can lead to throttling exceptions during high load.
 If you experience throttling with FIFO topics, you may lose FlexMatch notifications.
 
+###### Note
+
+Amazon GameLift Servers automatically handles Amazon SNS delivery failures and throttling with built-in retry logic. When Amazon SNS returns
+throttling errors or temporary failures, Amazon GameLift Servers retries the notification delivery with progressive delays between
+attempts. This helps ensure event notifications are delivered reliably. However, notifications may be lost if failures
+persist after all retry attempts, or for non-retryable errors such as authorization failures or missing topics.
+
 ###### Topics
 
 - [Set up EventBridge events](#match-notification-cwe "#match-notification-cwe")
