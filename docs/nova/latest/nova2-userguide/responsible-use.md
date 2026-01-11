@@ -24,11 +24,6 @@ pre-training, to the implementation of post-deployment runtime mitigations.
 - _Transparency_ - Enabling stakeholders to make informed choices
   about their engagement with an AI system
 
-###### Topics
-
-- [Guidelines](#responsible-guidelines "#responsible-guidelines")
-- [Recommendations](#responsible-recommendations "#responsible-recommendations")
-
 ## Guidelines
 
 The guidelines we use to direct our model development includes but is not limited to

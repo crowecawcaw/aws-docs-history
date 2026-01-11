@@ -2,16 +2,6 @@
 
 Web Grounding enables Amazon Nova to search the web for current information and provide responses with citations. This feature is useful for queries requiring up-to-date information beyond the model's training data.
 
-###### Topics
-
-- [How Web Grounding works](#how-web-grounding-works "#how-web-grounding-works")
-- [How to use Web Grounding](#enable-web-grounding "#enable-web-grounding")
-- [Regional availability](#web-grounding-availability "#web-grounding-availability")
-- [Response structure](#web-grounding-response-structure "#web-grounding-response-structure")
-- [Grounding safety](#web-grounding-safety "#web-grounding-safety")
-- [Error handling](#web-grounding-error-handling "#web-grounding-error-handling")
-- [Permissions required for built in tools](#permissions "#permissions")
-
 ## How Web Grounding works
 
 When Web Grounding is enabled for a prompt, the following steps are performed:

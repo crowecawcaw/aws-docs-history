@@ -6,9 +6,3 @@ applications.
 
 Effective prompt engineering involves crafting inputs that guide models to produce desired outputs. A well-crafted prompt
 provides clear instructions, relevant context and properly formatted input data.
-
-###### Topics
-
-- [What is prompt engineering](prompting-what-is.md "prompting-what-is.md")
-- [General best practices](prompting-best-practices.md "prompting-best-practices.md")
-- [Prompting multimodal inputs](prompting-multimodal.md "prompting-multimodal.md")

@@ -14,10 +14,6 @@ the following use cases:
 - When you have tight latency requirements and can benefit from smaller models that are
   tailored to a specific use case.
 
-###### Topics
-
-- [Available models](#custom-fine-tune-models "#custom-fine-tune-models")
-
 ## Available models
 
 Fine-tuning is available for the Nova 2 Lite Amazon Nova 2.0 model and

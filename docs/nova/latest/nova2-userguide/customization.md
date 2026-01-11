@@ -4,15 +4,6 @@ Amazon Nova offers the most comprehensive suite of customization options to adap
 foundation models to your specific business needs, from simple fine-tuning in Amazon Bedrock to
 advanced training pipelines in Amazon SageMaker.
 
-###### Topics
-
-- [Customization overview](#customization-overview "#customization-overview")
-- [Customization platform availability](#customization-availability "#customization-availability")
-- [Customization on Amazon Bedrock](#customization-bedrock "#customization-bedrock")
-- [Customization on SageMaker AI](#customization-sagemaker "#customization-sagemaker")
-- [Fine-tuning Amazon Nova models](customize-fine-tune.md "customize-fine-tune.md")
-- [On-demand inference on Custom Models](custom-fine-tune-odi.md "custom-fine-tune-odi.md")
-
 ## Customization overview
 
 Model customization allows you to specialize Amazon Nova models for your domain, use cases and

@@ -24,7 +24,7 @@ Applications:
 
 ## Key features
 
-These eky features distinguish Nova Embeddings:
+These key features distinguish Nova Embeddings:
 
 - Support for text, image, document image, video, and audio in a unified
   semantic space. Maximum context length is 8K tokens or 30s of video and

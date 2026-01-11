@@ -21,15 +21,6 @@ capability**. You have complete control:
 
 The following shows different levels of reasoning effort.
 
-###### Topics
-
-- [Low Effort
-  (maxReasoningeffort:"low")](#reasoning-effort-low "#reasoning-effort-low")
-- [Medium effort (maxReasoningEffort:
-  "medium")](#reasoning-effort-medium "#reasoning-effort-medium")
-- [High Effort
-  (maxReasoningeffort:"high")](#reasoning-effort-high "#reasoning-effort-high")
-
 #### Low Effort
 
 (maxReasoningeffort:"low")

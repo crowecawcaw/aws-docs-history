@@ -134,9 +134,7 @@ retrieval augmented generation (RAG).
   quality and trustworthiness of the responses. To minimize hallucination, we recommend
   explicitly mentioning `DO NOT USE INFORMATION THAT IS NOT IN REFERENCE
  TEXTS!` in your model instructions.
-  The following shows an example:
-
-###### Example Grounding prompt template
+  Prompt template
 
 ```
 System:
@@ -149,13 +147,22 @@ User: {Query}
 Resource: Search Results: {Reference texts}
 ```
 
-This table shows how grounding context can prevent the model from
+This example shows how grounding context can prevent the model from
 hallucinating.
 
-| Role   | Prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| System | In this session, the model has access to search results and a user's<br>question, your job is to answer the user's question using only information<br>from the search results. Model Instructions:<br>• DO NOT USE INFORMATION THAT IS<br>NOT IN SEARCH RESULTS!                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| User   | What were the economic impacts of the COVID-19 pandemic on the United<br>States in 2020? Resource: Search Results: In 2020, the United States<br>experienced significant economic impacts due to the COVID-19 pandemic. The<br>U.S. economy contracted by 3.5% in 2020, according to the Bureau of Economic<br>Analysis. Unemployment rates surged to 14.7% in April 2020, the highest since<br>the Great Depression, before gradually declining. Small businesses faced<br>severe challenges, with millions of firms closing permanently. Additionally,<br>consumer spending dropped sharply as people reduced non-essential expenditures<br>and saved more. Government intervention played a critical role in mitigating<br>these impacts through stimulus packages and support programs, such as the<br>Paycheck Protection Program (PPP) for small businesses and direct payments to<br>individuals. Despite these measures, the economic recovery remained uneven<br>across different sectors and regions. |
+System:
+
+```
+In this session, the model has access to search results and a user's question, your job is to answer the user's question using only information from the search results. Model Instructions:- DO NOT USE INFORMATION THAT IS NOT IN SEARCH RESULTS!
+```
+
+User:
+
+```
+What were the economic impacts of the COVID-19 pandemic on the United States in 2020?
+
+Resource: Search Results: In 2020, the United States experienced significant economic impacts due to the COVID-19 pandemic. The U.S. economy contracted by 3.5% in 2020, according to the Bureau of Economic Analysis. Unemployment rates surged to 14.7% in April 2020, the highest since the Great Depression, before gradually declining. Small businesses faced severe challenges, with millions of firms closing permanently. Additionally, consumer spending dropped sharply as people reduced non-essential expenditures and saved more. Government intervention played a critical role in mitigating these impacts through stimulus packages and support programs, such as the Paycheck Protection Program (PPP) for small businesses and direct payments to individuals. Despite these measures, the economic recovery remained uneven across different sectors and regions.
+```
 
 ### Ground using citation markers
 
@@ -227,7 +234,7 @@ Analyze my LLC's financial reports across multiple years to identify significant
 - MUST include a Key Insights bullet-pointed list at the end of each major section
 ```
 
-### Use Nova web grounding
+### Use Nova Web Grounding
 
 Instead of prompting directly for citations to ground the model in supporting text,
 Amazon Nova 2 models provide an internal web grounding tool that can be used. When enabled,
@@ -246,8 +253,7 @@ including formats like XML, JSON, Markdown, or using tool use functionality.
   For example, if the downstream parser expects specific naming conventions for keys in
   a JSON object, you should specify the response schema at the end of the prompt.
   Additionally, if you prefer responses to be in JSON format without any preamble text,
-  instruct the model accordingly. That is, explicitly state `PLEASE GENERATE ONLY THE
- JSON OUTPUT. DO NOT PROVIDE ANY PREAMBLE.` to ensure clean output.
+  instruct the model accordingly. That is, explicitly state **Please generate only the JSON output. DO NOT provide any preamble.** to ensure clean output.
 
 ###### Tip
 
@@ -263,173 +269,243 @@ including formats like XML, JSON, Markdown, or using tool use functionality.
 
 The following are examples of common formatting schemas.
 
-**JSON:**
+JSON
 
 ````
 JSON_format = """Write your response following the JSON format below:
+
 ```json
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": [{
-    "key3_1": "value_3_1 written in YYYY/MM/DD format",
-    "key3_2": "value_3_2 day of the week written in full form",
-    ...
-  }]
-}
+"key1": "value1",
+"key2": "value2",
+key3: [{
+"key3_1": "value_3_1 written in YYYY/MM/DD format",
+"key3_2": "value_3_2 day of the week written in full form",
+...}```
+"""
 ````
 
-"""
+XML
 
 ```
-
-**XML:**
-
-
-
-```
-
-ML_format = """Write your response following the XML format below:
+XML_format = """Write your response following the XML format below:
 
 <output>
     <task>"task1"</task>
     <subtask>
-        <task1_result> ( task 1 result )</task1_result>
-        <task2_result> ( task 2 result )</task2_result>
-        <task3_result> ( task 3 result )</task3_result>
+    <task1_result> ( task 1 result )</task1_result>
+    <task2_result> ( task 2 result )</task2_result>
+    <task3_result> ( task 3 result )</task3_result>
     </subtask>
     <task>"task2"</task>
     <subtask>
-        <task1_result> ( task 1 result )</task1_result>
-        <task2_result> ( task 2 result )</task2_result>
-        <task3_result> ( task 3 result )</task3_result>
+    <task1_result> ( task 1 result )</task1_result>
+    <task2_result> ( task 2 result )</task2_result>
+    <task3_result> ( task 3 result )</task3_result>
     </subtask>
 </output>
 
 """
-
 ```
 
-**Markdown:**
-
-
+Markdown
 
 ```
-
 markdown_schema = """Write your response following the markdown format below:
 
-## Introduction
 
+## Introduction
 ( 2-3 line intro)
 
 ## Design Guidance
-
 (Bulleted list of design guidance)
 
 ## Step by Step Instructions on Execution
-
-( Bulleted list of instructions with each with bold title.)
+( Bulleted list of instructions with each with bold title.
 
 ## Conclusion
-
 ( conclusion )
-"""
 
-``````
+
+"""
+```
 
 ### Prefill assistant content
 
-
 If you are producing structured output in non-reasoning mode, you can nudge the
- model's response by prefilling the assistant content.
-
+model's response by prefilling the assistant content.
 
 Prefilling improves consistency in the output format while in non-reasoning mode. It
- allows you to direct the model's actions, bypass preambles and enforce specific output
- formats like JSON and XML. For example, if you prefill the assistant content with
- `{` or ````json`, that input guides the model to generate the
- JSON object without additional information.
-
+allows you to direct the model's actions, bypass preambles and enforce specific output
+formats like JSON and XML. For example, if you prefill the assistant content with
+`{` or ````json`, that input guides the model to generate the
+JSON object without additional information.
 
 ###### Tip
 
 If you are explicitly looking for extracting JSON, a common pattern is to prefill
- with ````json` and add a stop sequence on `````. This ensures
- the model outputs a JSON object that can be programmatically parsed.
-
+with ````json` and add a stop sequence on `````. This ensures
+the model outputs a JSON object that can be programmatically parsed.
 
 ###### Example Prefill assistant content
 
 The following code demonstrates how to prefill with the API:
 
-
-``````
-
+````
 import boto3
 import json
 
 # Create a Bedrock Runtime client.
-
 client = boto3.client(
-"bedrock-runtime",
-region_name="us-east-1"
+    "bedrock-runtime",
+    region_name="us-east-1"
 )
 
 request_body = {
-"system": [
-{"text": "You write JSON objects based on the given instructions"}
-],
-"messages": [
-{
-"role": "user",
-"content": [{"text": "Provide details about the best selling full-frame cameras in past three years. Answer in JSON format with keys like name, brand, price and a summary."}]
-},
-{
-"role": "assistant",
-"content": [{"text": " Here is the JSON response: ```json"}]
-}
-],
-"inferenceConfig": {
-"maxTokens": 1000,
-}
+    "system": [
+        {"text": "You write JSON objects based on the given instructions"}
+    ],
+    "messages": [
+        {
+            "role": "user",
+            "content": [{"text": "Provide details about the best selling full-frame cameras in past three years. Answer in JSON format with keys like name, brand, price and a summary."}]
+        },
+        {
+            "role": "assistant",
+            "content": [{"text": " Here is the JSON response: ```json"}]
+        }
+    ],
+    "inferenceConfig": {
+        "maxTokens": 1000,
+    }
 }
 
 # Invoke the model and extract the response body.
-
 response = client.invoke_model(
-modelId="amazon.nova-2-lite-v1:0",
-body=json.dumps(request_body)
+    modelId="amazon.nova-2-lite-v1:0",
+    body=json.dumps(request_body)
 )
 
 model_response = json.loads(response["body"].read())
-
 ````
 
 ### Specify a tool to use for complex
- schemas
 
+schemas
 
 Another approach is to use tools to force a specific schema for the model's response
- by including the *pydantic JSON schema* in the tool use schema
- section. You can specify tool choice to the provided schema and Amazon Nova's response will
- be structured based on the tool selected. To learn more about how to leverage tool use
- see [Tool
- Use](../userguide/tool-use.md "../userguide/tool-use.md").
-
+by including the _pydantic JSON schema_ in the tool use schema
+section. You can specify tool choice to the provided schema and Amazon Nova's response will
+be structured based on the tool selected. To learn more about how to leverage tool use
+see [Tool
+Use](../userguide/tool-use.md "../userguide/tool-use.md").
 
 ### Examples
 
-
 Adding the Output Schema section with the appropriate schema makes the model
- prefer to fit that schema. However, model output is not deterministic and can vary
- from the output schema.
+prefer to fit that schema. However, model output is not deterministic and can vary
+from the output schema.
+
+Unspecific Prompt
+User:
+
+```
+Provide details about the best selling full-frame cameras in past three years.
+Answer in JSON format with keys like name, brand, price and a summary.
+```
+
+Assistant:
+
+````
+```json
+ [
+ {
+ "name": "Sony Alpha A7R IV",
+ "brand": "Sony",
+ "price": "Approximately $3,500",
+ "summary": "The Sony Alpha A7R IV is renowned for its exceptional image quality, thanks to a 61-megapixel full-frame sensor. It also features 4K video recording and a robust build, making it a favorite among professional photographers and videographers."
+ },
+ {
+ "name": "Canon EOS R5",
+ "brand": "Canon",
+ "price": "Approximately $3,900",
+ "summary": "The Canon EOS R5 combines high-resolution imaging with advanced video capabilities. It houses a 45-megapixel sensor, 8K video recording, and impressive autofocus performance, appealing to both photography and filmmaking professionals."
+ },
+ {
+ "name": "Nikon Z7 II",
+ "brand": "Nikon",
+ "price": "Approximately $2,800",
+ "summary": "The Nikon Z7 II offers a 45.7-megapixel full-frame sensor and is praised for its high resolution and excellent dynamic range. It also supports 4K video recording and features a versatile Z-mount lens system, making it a strong contender in the full-frame market."
+ },
+ {
+ "name": "Fujifilm GFX 100S",
+ "brand": "Fujifilm",
+ "price": "Approximately $7,000",
+ "summary": "While not a traditional full-frame camera, the Fujifilm GFX 100S stands out with its 102-megapixel medium format sensor. It is lauded for its stunning detail and color reproduction, though it comes at a higher price point and is aimed at specialized users."
+ }
+ ]
+````
+
+```
 
 
+Specific Prompt
+User:
 
-| Role | Unspecific Prompt | Specific Prompt |
-| --- | --- | --- |
-| User | Provide details about the best selling full-frame cameras in past three<br>years. Answer in JSON format with keys like name, brand, price and a<br>summary. | Provide details about the best selling full-frame cameras in past three<br>years. You MUST answer in JSON format only. Write your response following<br>the the format below: [{ "name": "name goes here", "brand": "brand goes<br>here", "price": "price goes here", "summary": "summary goes here" }] |
-| Assistant | ```json [ { "name": "Sony Alpha A7R IV", "brand": "Sony", "price":<br>"Approximately $3,500", "summary": "The Sony Alpha A7R IV is renowned for<br>its exceptional image quality, thanks to a 61-megapixel full-frame sensor.<br>It also features 4K video recording and a robust build, making it a favorite<br>among professional photographers and videographers." }, { "name": "Canon EOS<br>R5", "brand": "Canon", "price": "Approximately $3,900", "summary": "The<br>Canon EOS R5 combines high-resolution imaging with advanced video<br>capabilities. It houses a 45-megapixel sensor, 8K video recording, and<br>impressive autofocus performance, appealing to both photography and<br>filmmaking professionals." }, { "name": "Nikon Z7 II", "brand": "Nikon",<br>"price": "Approximately $2,800", "summary": "The Nikon Z7 II offers a<br>45.7-megapixel full-frame sensor and is praised for its high resolution and<br>excellent dynamic range. It also supports 4K video recording and features a<br>versatile Z-mount lens system, making it a strong contender in the<br>full-frame market." }, { "name": "Fujifilm GFX 100S", "brand": "Fujifilm",<br>"price": "Approximately $7,000", "summary": "While not a traditional<br>full-frame camera, the Fujifilm GFX 100S stands out with its 102-megapixel<br>medium format sensor. It is lauded for its stunning detail and color<br>reproduction, though it comes at a higher price point and is aimed at<br>specialized users." } ] ``` | [ { "name": "Nikon D850", "brand": "Nikon", "price": "$3,296.95",<br>"summary": "The Nikon D850 is a professional full-frame DSLR camera known<br>for its exceptional image quality, 45.7-megapixel resolution, 7 fps<br>continuous shooting, and 4K video capabilities." }, { "name": "Canon EOS 5D<br>Mark IV", "brand": "Canon", "price": "$3,499.00", "summary": "The Canon EOS<br>5D Mark IV is a popular full-frame DSLR appreciated for its 30.4-megapixel<br>sensor, 4K video recording, robust build quality, and reliable autofocus<br>system." }, { "name": "Sony A7R III", "brand": "Sony", "price": "$3,198.00",<br>"summary": "The Sony A7R III is a high-resolution full-frame mirrorless<br>camera renowned for its 42.4-megapixel sensor, excellent low-light<br>performance, and versatile lens compatibility." }, { "name": "Fujifilm GFX<br>100S", "brand": "Fujifilm", "price": "$5,999.99", "summary": "The Fujifilm<br>GFX 100S is a medium format mirrorless camera that stands out for its<br>102-megapixel sensor, high dynamic range, and exceptional color<br>reproduction." }, { "name": "Sony A7 III", "brand": "Sony", "price":<br>"$1,998.00", "summary": "The Sony A7 III is a full-frame mirrorless camera<br>popular among enthusiasts and professionals for its 24.2-megapixel sensor,<br>fast autofocus, and 4K video capabilities." } ] |
+
+```
+
+Provide details about the best selling full-frame cameras in past three years.
+You MUST answer in JSON format only. Write your response following the the format below:
+[{
+“name”: “name goes here”,
+“brand”: “brand goes here”,
+“price”: “price goes here“,
+"summary": "summary goes here"
+}]
+
+```
+
+Assistant:
+
+
+```
+
+[
+{
+"name": "Nikon D850",
+"brand": "Nikon",
+"price": "$3,296.95",
+"summary": "The Nikon D850 is a professional full-frame DSLR camera known for its exceptional image quality, 45.7-megapixel resolution, 7 fps continuous shooting, and 4K video capabilities."
+},
+{
+"name": "Canon EOS 5D Mark IV",
+"brand": "Canon",
+"price": "$3,499.00",
+"summary": "The Canon EOS 5D Mark IV is a popular full-frame DSLR appreciated for its 30.4-megapixel sensor, 4K video recording, robust build quality, and reliable autofocus system."
+},
+{
+"name": "Sony A7R III",
+"brand": "Sony",
+"price": "$3,198.00",
+"summary": "The Sony A7R III is a high-resolution full-frame mirrorless camera renowned for its 42.4-megapixel sensor, excellent low-light performance, and versatile lens compatibility."
+},
+{
+"name": "Fujifilm GFX 100S",
+"brand": "Fujifilm",
+"price": "$5,999.99",
+"summary": "The Fujifilm GFX 100S is a medium format mirrorless camera that stands out for its 102-megapixel sensor, high dynamic range, and exceptional color reproduction."
+},
+{
+"name": "Sony A7 III",
+"brand": "Sony",
+"price": "$1,998.00",
+"summary": "The Sony A7 III is a full-frame mirrorless camera popular among enthusiasts and professionals for its 24.2-megapixel sensor, fast autofocus, and 4K video capabilities."
+}
+]
+
+```
+
 
 Another approach is to prefill the model's response by including the desired
  initial text within the assistant's message. In this case, Amazon Nova model's
@@ -438,27 +514,145 @@ Another approach is to prefill the model's response by including the desired
 **Tip:** Prefill is only valid when reasoning is
  not enabled.
 
+User:
 
 
-| Role | Prompt |
-| --- | --- |
-| User | Provide details about the best selling full-frame cameras in past three<br>years. Your response should be in JSON format, with the following keys:<br>name, brand, year, price, summary. |
-| Assistant (Prefilling) | ```json |
-| Assistant | { "cameras": [ { "name": "Sony Alpha A7 III", "brand": "Sony", "year":<br>2018, "price": "$1999", "summary": "The Sony Alpha A7 III is a highly<br>acclaimed full-frame mirrorless camera known for its excellent image<br>quality, advanced autofocus system, and 4K video capabilities." }, { "name":<br>"Canon EOS R5", "brand": "Canon", "year": 2020, "price": "$3899", "summary":<br>"The Canon EOS R5 is a top-tier full-frame mirrorless camera that offers<br>stunning 45MP images, 8K video recording, and exceptional performance in<br>various lighting conditions." }, { "name": "Nikon Z7 II", "brand": "Nikon",<br>"year": 2020, "price": "$2999", "summary": "The Nikon Z7 II is a flagship<br>full-frame mirrorless camera with a 45.7MP sensor, superb image quality, and<br>advanced video recording features." }, { "name": "Fujifilm GFX 100S",<br>"brand": "Fujifilm", "year": 2020, "price": "$7999", "summary": "The<br>Fujifilm GFX 100S is a medium format mirrorless camera known for its<br>impressive 102MP sensor, beautiful film simulations, and versatile lens<br>options." }, { "name": "Sony Alpha A7R IV", "brand": "Sony", "year": 2019,<br>"price": "$3499", "summary": "The Sony Alpha A7R IV features a 61MP sensor,<br>excellent low-light performance, and advanced video capabilities, making it<br>a favorite among professional photographers." } ] } ``` |
+```
 
+Provide details about the best selling full-frame cameras in past three years.
+Your response should be in JSON format, with the following keys: name, brand, year, price, summary.
+
+```
+Assistant (Prefilling):
+
+
+```
+
+```json
+
+```
+
+Assistant:
+
+```
+{
+ "cameras": [
+ {
+ "name": "Sony Alpha A7 III",
+ "brand": "Sony",
+ "year": 2018,
+ "price": "$1999",
+ "summary": "The Sony Alpha A7 III is a highly acclaimed full-frame mirrorless camera known for its excellent image quality, advanced autofocus system, and 4K video capabilities."
+ },
+ {
+ "name": "Canon EOS R5",
+ "brand": "Canon",
+ "year": 2020,
+ "price": "$3899",
+ "summary": "The Canon EOS R5 is a top-tier full-frame mirrorless camera that offers stunning 45MP images, 8K video recording, and exceptional performance in various lighting conditions."
+ },
+ {
+ "name": "Nikon Z7 II",
+ "brand": "Nikon",
+ "year": 2020,
+ "price": "$2999",
+ "summary": "The Nikon Z7 II is a flagship full-frame mirrorless camera with a 45.7MP sensor, superb image quality, and advanced video recording features."
+ },
+ {
+ "name": "Fujifilm GFX 100S",
+ "brand": "Fujifilm",
+ "year": 2020,
+ "price": "$7999",
+ "summary": "The Fujifilm GFX 100S is a medium format mirrorless camera known for its impressive 102MP sensor, beautiful film simulations, and versatile lens options."
+ },
+ {
+ "name": "Sony Alpha A7R IV",
+ "brand": "Sony",
+ "year": 2019,
+ "price": "$3499",
+ "summary": "The Sony Alpha A7R IV features a 61MP sensor, excellent low-light performance, and advanced video capabilities, making it a favorite among professional photographers."
+ }
+ ]
+ }
+```
+
+```
 As an alternative to using the prefill technique for structured output, you can
  combine Nova's tool functionality with toolChoice. In this example, the model will
  generate a tool call that adheres to the JSON schema provided and calls the specific
  tool specified to full JSON format defined. For additional guidance, refer to
  Advanced Systems.
 
+User:
 
 
-| Role | Prompt |
-| --- | --- |
-| User | From the below provided Query, extract the relevant entities Query:<br>John works in BUILDING-0987 and has been in charge of product id 23564#. His<br>performance has been excellent in past years and is up for a raise. Use the<br>extract\_ner tool. |
-| ToolConfig | { "tools": [ { "toolSpec": { "name": "extract\_ner", "description":<br>"Extract all the named entities. based on provided input", "inputSchema": {<br>"json": { "type": "object", "properties": { "entities": { "type": "array",<br>"items": { "type": "object", "properties": { "name": { "type": "string",<br>"description": "The extracted entity name. This should be a name of a<br>person, place, animal or thing" }, "location": { "type": "string",<br>"description": "The extracted location name. This is a site name or a<br>building name like SITE-001 or BUILDING-003" }, "product": { "type":<br>"string", "description": "The extracted product code, this is generally a 6<br>digit alphanumeric code such as 45623#, 234567" } }, "required": [ "name",<br>"location", "product" ] } } }, "required": [ "entities" ] } } } }],<br>"toolChoice": { "tool": { "name": "extract\_ner" } } } |
+```
 
+From the below provided Query, extract the relevent entities
+
+Query:
+John works in BUILDING-0987 and have been incharge of product id 23564#. His performance have been excellent in past year and is up for a raise.
+
+Use the extract_ner tool.
+
+```
+ToolConfig:
+
+
+```
+
+{
+"tools": [
+{
+"toolSpec": {
+"name": "extract_ner",
+"description": "Extract all the named entities. based on provided input",
+"inputSchema": {
+"json": {
+"type": "object",
+"properties": {
+"entities": {
+"type": "array",
+"items": {
+"type": "object",
+"properties": {
+"name": {
+"type": "string",
+"description": "The extracted entity name. This should be a name of a person, place, animal or thing"
+},
+"location": {
+"type": "string",
+"description": "The extracted location name. This is a site name or a building name like SITE-001 or BUILDING-003"
+},
+"product": {
+"type": "string",
+"description": "The extrcted product code, this is generally a 6 digit alphanumeric code such as 45623#, 234567"
+}
+},
+"required": [
+"name",
+"location",
+"product"
+]
+}
+}
+},
+"required": [
+"entities"
+]
+}
+
+                }
+            }
+        }],
+        "toolChoice": {
+            "tool": {
+                "name": "extract_ner"
+            }
+        }
+    }
+
+```
 
 Amazon Nova 2 models have been trained on more than 200 languages and optimized for 15
  languages.
@@ -479,7 +673,7 @@ To leverage this capability for short form translations (a few sentences) you ca
 ###### Example Translation prompts
 
 
-````
+```
 
 Translate the following text into {target language}. Please output only the translated text with no prefix or introduction: {text}
 
@@ -525,7 +719,7 @@ When translating, ensure to use the correct orthography / script / writing conve
 * [Consider latency requirements](#consider-latency-requirements "#consider-latency-requirements")
 * [Use intentional wording for tool
  calling instructions](#intentional-wording-tool-calling "#intentional-wording-tool-calling")
-* [Leverage thinking Commands](#leverage-thinking-commands "#leverage-thinking-commands")
+* [Leverage "thinking" commands](#leverage-thinking-commands "#leverage-thinking-commands")
 * [Tool call ordering](#tool-call-ordering "#tool-call-ordering")
 * [Create quality tool schemas](#designing-tool-schema "#designing-tool-schema")
 * [Create sub-agents](#create-sub-agents "#create-sub-agents")
@@ -583,7 +777,7 @@ Call run_shell_command() to run shell commands
 
 ```
 
-#### Leverage thinking Commands
+#### Leverage "thinking" commands
 
 
 For all use cases where thinking is beneficial for tool calling, we recommend you
@@ -689,15 +883,15 @@ Return your plan in markdown in the following format
 Consider creating specialized sub-agents instead of a single agent with many tools
 when you encounter:
 
-- Tool count exceeds 20: Large tool sets become difficult to manage and increase
+- **Tool count exceeds 20:** Large tool sets become difficult to manage and increase
   selection errors
-- Distinct functional domains: Tools naturally cluster into separate categories
+- **Distinct functional domains:** Tools naturally cluster into separate categories
   (such as data retrieval versus processing versus reporting)
-- Complex schemas: When parameter depth exceeds 3-4 levels or tools have
+- **Complex schemas:** When parameter depth exceeds 3-4 levels or tools have
   intricate interdependencies
-- Conversation length: Workflows regularly exceed 15-20 turns may benefit from
+- **Conversation length:** Workflows regularly exceed 15-20 turns may benefit from
   specialized sub-agents
-- Performance degradation: If you observe decreased accuracy in tool selection
+- **Performance degradation:** If you observe decreased accuracy in tool selection
   or increased latency
 
 ###### Tip

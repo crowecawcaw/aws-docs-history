@@ -8,21 +8,6 @@ conversation with the Amazon Nova 2 Sonic model.
 You can access the following example in our [Nova samples GitHub
 repo](https://github.com/aws-samples/amazon-nova-samples "https://github.com/aws-samples/amazon-nova-samples").
 
-###### Topics
-
-- [State the imports and configuration](#sonic-imports-config "#sonic-imports-config")
-- [Define the SimpleNovaSonic
-  class](#sonic-define-class "#sonic-define-class")
-- [Initialize the client](#sonic-initialize-client "#sonic-initialize-client")
-- [Handle events](#sonic-handle-events "#sonic-handle-events")
-- [Start the session](#sonic-start-session "#sonic-start-session")
-- [Handle audio input](#sonic-handle-audio-input "#sonic-handle-audio-input")
-- [End the session](#sonic-end-session "#sonic-end-session")
-- [Handle responses](#sonic-handle-responses "#sonic-handle-responses")
-- [Playback audio](#sonic-playback-audio "#sonic-playback-audio")
-- [Capture audio](#sonic-capture-audio "#sonic-capture-audio")
-- [Run the main function](#sonic-run-main "#sonic-run-main")
-
 ## State the imports and configuration
 
 This section imports necessary libraries and sets audio configuration

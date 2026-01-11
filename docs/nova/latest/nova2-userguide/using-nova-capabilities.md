@@ -19,8 +19,3 @@ Before you begin, ensure you have:
 - Appropriate IAM permissions for invoking Bedrock models
 - AWS SDK installed (Boto3 for Python examples)
 - Basic familiarity with AWS services, such as Amazon S3 (for large file handling)
-
-###### Topics
-
-- [Reasoning capabilities](reasoning-capabilities.md "reasoning-capabilities.md")
-- [Multimodal understanding](using-multimodal-models.md "using-multimodal-models.md")

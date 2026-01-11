@@ -4,11 +4,6 @@ Amazon Nova models are optimized for building AI agents with Amazon Nova Act. Th
 improved tool use, better reasoning for multi-step tasks, enhanced ability to maintain context
 across complex agent workflows and support for remote MCP tools.
 
-###### Topics
-
-- [Create an agent](#create-agent "#create-agent")
-- [Invoke an agent](#invoke-agent "#invoke-agent")
-
 ## Create an agent
 
 AI agents built with Nova can orchestrate multiple tool calls, maintain context across

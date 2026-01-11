@@ -15,6 +15,30 @@ instructions in the input prompt, use delimiters such as `##Instructions##` or
  response` for the model to not regurgitate the input prompt content from these
 sections in its output.
 
-| Role | Prompt with Sectional Delimitation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| User | You're an expert Prompts creator. Your task is to create a set of diverse and<br>very complex ##PROMPTS## that will be used to test the capabilities of a language<br>model in knowledge and following instructions with constraints. Please create 10<br>##PROMPTS##. You must strictly follow ##GUIDELINES##:<br>##GUIDELINES##<br>• Generate ##PROMPTS## similar to the structure and style of the given<br>##EXAMPLE PROMPTS##. Pay close attention to the complexity and diversity of<br>##EXAMPLE PROMPTS##.<br>• Generated ##PROMPTS## must be from the ##DOMAINS## and must be with these<br>##USECASES##.<br>• Each of the ##PROMPTS## needs to be unique and very complex.<br>• Each of the ##PROMPTS## must have more than 4 sentences and 1<br>constraint.<br>• Each of the ##PROMPTS## should have at least 70 words.<br>• Each of the ##PROMPTS## should have an answer that can be written in<br>text.<br>• The length of the answer of these ##PROMPTS## must be finite and not very<br>very long.<br>• In the ##PROMPTS## you should not mention anything about writing in pages<br>or slides.<br>• Each of the ##PROMPTS## should be separated by a new line, without<br>additional formatting.<br>Generated ##PROMPTS## must be from the following ##DOMAINS##<br>##DOMAINS##<br>{domains}<br>Generated ##PROMPTS## must be for the following ##USECASES##<br>##USECASES##<br>{usecases}<br>{usecase_description}<br>##PROMPTS## |
+User:
+
+```
+You're an expert Prompts creator. Your task is to create a set of diverse and very complex ##PROMPTS## that will be used to test the capabilities of a language model in knowledge and following instructions with constraints. Please create 10 ##PROMPTS##. You must strictly follow ##GUIDELINES##:
+
+##GUIDELINES##
+- Generate ##PROMPTS## similar to the structure and style of the given ##EXAMPLE PROMPTS##. Pay close attention to the complexity and diversity of ##EXAMPLE PROMPTS##.
+- Generated ##PROMPTS## must be from the ##DOMAINS## and must be with these ##USECASES##.
+- Each of the ##PROMPTS## needs to be unique and very complex.
+- Each of the ##PROMPTS## must have more than 4 sentences and 1 constraint.
+- Each of the ##PROMPTS## should have at least 70 words.
+- Each of the ##PROMPTS## should have an answer that can be written in text.
+- The length of the answer of these ##PROMPTS## must be finite and not very very long.
+- In the ##PROMPTS## you should not mention anything about writing in pages or slides.
+- Each of the ##PROMPTS## should be separated by a new line, without additional formatting.
+
+Generated ##PROMPTS## must be from the following ##DOMAINS##
+##DOMAINS##
+{domains}
+
+Generated ##PROMPTS## must be for the following ##USECASES##
+##USECASES##
+{usecases}
+{usecase_description}
+
+##PROMPTS##
+```

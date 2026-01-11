@@ -7,16 +7,6 @@ complex inputs and generate accurate responses.
 You can build interactive chatbots, analyze documents and videos, create AI agents with
 extended reasoning and develop voice-enabled applications.
 
-###### Topics
-
-- [Key concepts](#key-concepts "#key-concepts")
-- [Amazon Nova models](#model-families "#model-families")
-- [What can you build?](#what-can-you-build "#what-can-you-build")
-- [Benefits](#benefits "#benefits")
-- [How Amazon Nova works](#how-it-works "#how-it-works")
-- [Pricing](#pricing "#pricing")
-- [Next steps](#next-steps "#next-steps")
-
 ## Key concepts
 
 Before you learn about Amazon Nova models, familiarize yourself with the following core

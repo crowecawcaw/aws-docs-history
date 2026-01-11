@@ -20,10 +20,6 @@ prerequisites:
   prefix the region in the model ID (such as
   `us`/`eu`/`jp`).
 
-###### Topics
-
-- [Explore the text playground](#getting-started-text "#getting-started-text")
-
 ## Explore the text playground
 
 The following example demonstrates how to use the text playground:

@@ -3,12 +3,6 @@
 Amazon Nova 2 introduces significant enhancements across understanding, creative and speech
 capabilities. The following sections describe the key new features and improvements.
 
-###### Topics
-
-- [New models](#whats-new-models "#whats-new-models")
-- [New features and capabilities](#whats-new-features "#whats-new-features")
-- [Next steps](#whats-new-next-steps "#whats-new-next-steps")
-
 ## New models
 
 **Nova 2 Lite**
@@ -28,17 +22,6 @@ A multimodal embedding model that processes text, image, document, video and aud
 and generates embeddings.
 
 ## New features and capabilities
-
-###### Topics
-
-- [Nova Multimodal Embeddings](#whats-new-novamme "#whats-new-novamme")
-- [Extended thinking and reasoning](#whats-new-reasoning "#whats-new-reasoning")
-- [Built-in tools](#whats-new-tools "#whats-new-tools")
-- [AI agent building](#whats-new-agents "#whats-new-agents")
-- [Improved document understanding](#whats-new-document-processing "#whats-new-document-processing")
-- [Enhanced video understanding](#whats-new-video-understanding "#whats-new-video-understanding")
-- [Model customization](#whats-new-customization "#whats-new-customization")
-- [Amazon Nova Forge](#whats-new-forge "#whats-new-forge")
 
 ### Nova Multimodal Embeddings
 

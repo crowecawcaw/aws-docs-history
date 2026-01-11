@@ -3,12 +3,6 @@
 The following sections provide guidance for image and video understanding. For audio-related
 prompting, refer to the Voice conversation prompts section.
 
-###### Topics
-
-- [General multimodal guidelines](#general-multimodal-guidelines "#general-multimodal-guidelines")
-- [Document and Image Understanding](#document-image-understanding "#document-image-understanding")
-- [Video understanding](#video-understanding "#video-understanding")
-
 ## General multimodal guidelines
 
 ### User prompts and system prompts

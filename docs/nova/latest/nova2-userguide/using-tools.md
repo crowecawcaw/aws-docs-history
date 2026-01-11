@@ -4,13 +4,6 @@ Tools extend Amazon Nova capabilities by connecting the model to external functi
 APIs, databases and code execution environments. Tool use enables Amazon Nova to access real-time
 information, perform calculations and interact with external systems.
 
-###### Topics
-
-- [Understanding the tool use workflow](#tool-workflow "#tool-workflow")
-- [Create a tool](#create-tool "#create-tool")
-- [Call a tool](#call-tool "#call-tool")
-- [Built-in system tools](#builtin-tools "#builtin-tools")
-
 ## Understanding the tool use workflow
 
 Tool use with Amazon Nova involves three key phases:
