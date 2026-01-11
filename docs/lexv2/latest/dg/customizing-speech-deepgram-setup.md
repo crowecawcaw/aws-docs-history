@@ -61,7 +61,7 @@ The following is a sample resource policy that allows Amazon Lex V2 to retrieve 
 ```
 
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17"		 	 	 ,
   "Statement": [
     {
       "Sid": "LexTrust",
