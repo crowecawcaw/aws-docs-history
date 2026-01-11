@@ -1,360 +1,126 @@
-# Using the AWS CLI to manage DynamoDB auto scaling
+# Using the AWS Management Console with DynamoDB auto scaling
 
-Instead of using the AWS Management Console, you can use the AWS Command Line Interface (AWS CLI) to manage Amazon DynamoDB auto
-scaling. The tutorial in this section demonstrates how to install and configure the AWS CLI
-for managing DynamoDB auto scaling. In this tutorial, you do the following:
-
-- Create a DynamoDB table named `TestTable`. The initial throughput settings
-  are 5 read capacity units and 5 write capacity units.
-- Create an Application Auto Scaling policy for `TestTable`. The policy seeks to maintain
-  a 50 percent target ratio between consumed write capacity and provisioned write
-  capacity. The range for this metric is between 5 and 10 write capacity units.
-  (Application Auto Scaling is not allowed to adjust the throughput beyond this range.)
-- Run a Python program to drive write traffic to `TestTable`. When the
-  target ratio exceeds 50 percent for a sustained period of time, Application Auto Scaling notifies
-  DynamoDB to adjust the throughput of `TestTable` upward to maintain the 50
-  percent target utilization.
-- Verify that DynamoDB has successfully adjusted the provisioned write capacity for
-  `TestTable`.
+When you use the AWS Management Console to create a new table, Amazon DynamoDB auto scaling is enabled for
+that table by default. You can also use the console to enable auto scaling for existing
+tables, modify auto scaling settings, or disable auto scaling.
 
 ###### Note
 
-You can also schedule your DynamoDB scaling so it happens at certain times. Learn the
-basic steps [here](../../../autoscaling/application/userguide/get-started-exercise.md "../../../autoscaling/application/userguide/get-started-exercise.md").
+For more advanced features like setting scale-in and scale-out cooldown times, use
+the AWS Command Line Interface (AWS CLI) to manage DynamoDB auto scaling. For more information, see [Using the AWS CLI to manage DynamoDB auto scaling](AutoScaling.md "AutoScaling.md").
 
 ###### Topics
 
-- [Before you begin](#AutoScaling.CLI.BeforeYouBegin "#AutoScaling.CLI.BeforeYouBegin")
-- [Step 1: Create a DynamoDB table](#AutoScaling.CLI.CreateTable "#AutoScaling.CLI.CreateTable")
-- [Step 2: Register a scalable
-  target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget")
-- [Step 3: Create a scaling
-  policy](#AutoScaling.CLI.CreateScalingPolicy "#AutoScaling.CLI.CreateScalingPolicy")
-- [Step 4: Drive write traffic to
-  TestTable](#AutoScaling.CLI.DriveTraffic "#AutoScaling.CLI.DriveTraffic")
-- [Step 5: View Application Auto Scaling actions](#AutoScaling.CLI.ViewCWAlarms "#AutoScaling.CLI.ViewCWAlarms")
-- [(Optional) Step 6: Clean up](#AutoScaling.CLI.CleanUp "#AutoScaling.CLI.CleanUp")
+- [Before you begin: Granting user permissions
+  for DynamoDB auto scaling](#AutoScaling.Permissions "#AutoScaling.Permissions")
+- [Creating a new table with auto scaling enabled](#AutoScaling.Console.NewTable "#AutoScaling.Console.NewTable")
+- [Enabling DynamoDB auto scaling on existing tables](#AutoScaling.Console.ExistingTable "#AutoScaling.Console.ExistingTable")
+- [Viewing auto scaling activities
+  on the console](#AutoScaling.Console.ViewingActivities "#AutoScaling.Console.ViewingActivities")
+- [Modifying or disabling DynamoDB auto
+  scaling settings](#AutoScaling.Console.Modifying "#AutoScaling.Console.Modifying")
 
-## Before you begin
+## Before you begin: Granting user permissions
 
-Complete the following tasks before starting the tutorial.
+for DynamoDB auto scaling
 
-### Install the
+In AWS Identity and Access Management (IAM), the AWS managed policy `DynamoDBFullAccess` provides
+the required permissions for using the DynamoDB console. However, for DynamoDB auto scaling,
+users require additional permissions.
 
-AWS CLI
+###### Important
 
-If you haven't already done so, you must install and configure the AWS CLI. To do
-this, follow these instructions in the _AWS Command Line Interface User Guide_:
+To delete an auto scaling-enabled table, `application-autoscaling:*`
+permissions are required. The AWS managed policy `DynamoDBFullAccess`
+includes such permissions.
 
-- [Installing the
-  AWS CLI](../../../cli/latest/userguide/installing.md "../../../cli/latest/userguide/installing.md")
-- [Configuring the
-  AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
+To set up a user for DynamoDB console access and DynamoDB auto scaling, create a role and
+add the **AmazonDynamoDBFullAccess** policy to that role. Then assign
+the role to a user.
 
-### Install
-
-Python
-
-Part of this tutorial requires you to run a Python program (see [Step 4: Drive write traffic to
-TestTable](#AutoScaling.CLI.DriveTraffic "#AutoScaling.CLI.DriveTraffic")). If you don't already have it
-installed, you can [download
-Python](https://www.python.org/downloads "https://www.python.org/downloads").
-
-## Step 1: Create a DynamoDB table
-
-In this step, you use the AWS CLI to create `TestTable`. The primary key
-consists of `pk` (partition key) and `sk` (sort key). Both of
-these attributes are of type `Number`. The initial throughput settings are 5
-read capacity units and 5 write capacity units.
-
-1. Use the following AWS CLI command to create the table.
-
-```
-aws dynamodb create-table \
-    --table-name TestTable \
-    --attribute-definitions \
-        AttributeName=pk,AttributeType=N \
-        AttributeName=sk,AttributeType=N \
-    --key-schema \
-        AttributeName=pk,KeyType=HASH \
-        AttributeName=sk,KeyType=RANGE \
-    --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
-```
-
-2. To check the status of the table, use the following command.
-
-```
-aws dynamodb describe-table \
-    --table-name TestTable \
-    --query "Table.[TableName,TableStatus,ProvisionedThroughput]"
-```
-
-The table is ready for use when its status is `ACTIVE`.
-
-## Step 2: Register a scalable
-
-target
-
-Next you register the table's write capacity as a scalable target with Application Auto Scaling. This
-allows Application Auto Scaling to adjust the provisioned write capacity for
-_TestTable_, but only within the range of 5–10 capacity
-units.
+## Creating a new table with auto scaling enabled
 
 ###### Note
 
-DynamoDB auto scaling requires the presence of a service linked role
-(`AWSServiceRoleForApplicationAutoScaling_DynamoDBTable`) that
-performs auto scaling actions on your behalf. This role is created automatically for
-you. For more information, see [Service-linked roles for Application Auto Scaling](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md") in the
-_Application Auto Scaling User Guide_.
+DynamoDB auto scaling requires the presence of a service-linked role (`AWSServiceRoleForApplicationAutoScaling_DynamoDBTable`) that performs auto scaling actions on your behalf. This role is created automatically for you. For more information, see [Service-linked roles for Application Auto Scaling](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md") in the*Application Auto Scaling User Guide*.
 
-1. Enter the following command to register the scalable target.
+###### To create a new table with auto scaling enabled
 
-```
-aws application-autoscaling register-scalable-target \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable" \
-    --scalable-dimension "dynamodb:table:WriteCapacityUnits" \
-    --min-capacity 5 \
-    --max-capacity 10
-```
+1. Open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. Choose **Create table**.
+3. On the **Create table** page, enter the **Table name** and primary key details.
+4. If you choose **Default settings**, auto scaling is enabled in the new table.
 
-2. To verify the registration, use the following command.
+Otherwise, choose **Customize settings** and do the following to specify custom settings for the table:
 
-```
-aws application-autoscaling describe-scalable-targets \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable"
-```
+    1. For **Table class**, keep the default selection of **DynamoDB Standard**.
+    2. For **Read/write capacity settings**, keep the default selection of **Provisioned**, then do the following:
 
-###### Note
 
-You can also register a scalable target against a global secondary index. For example, for
-a global secondary index ("test-index"), the resource ID and scalable dimension arguments are
-updated appropriately.
+    	1. For **Read capacity**, make sure **Auto scaling** is set to **On**.
+    	2. For **Write capacity**, make sure **Auto scaling** is set to **On**.
+    	3. For **Read capacity** and **Write capacity**, set your desired scaling policy for the table and, optionally, all global secondary indexes of the table.
 
-```
-aws application-autoscaling register-scalable-target \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable/index/test-index" \
-    --scalable-dimension "dynamodb:index:WriteCapacityUnits" \
-    --min-capacity 5 \
-    --max-capacity 10
-```
 
-## Step 3: Create a scaling
 
-policy
 
-In this step, you create a scaling policy for `TestTable`. The policy
-defines the details under which Application Auto Scaling can adjust your table's provisioned throughput,
-and what actions to take when it does so. You associate this policy with the scalable
-target that you defined in the previous step (write capacity units for the
-`TestTable` table).
+    		* **Minimum capacity units** – Enter your lower boundary for the auto scaling range.
+    		* **Maximum capacity units** – Enter your upper boundary for the auto scaling range.
+    		* **Target utilization** – Enter your target utilization percentage for the table.
+    	###### Note
 
-The policy contains the following elements:
+    	If you create a global secondary index for the new table, the index's capacity at time of creation will be the same as your base table's capacity. You can change the index's capacity in the table's settings after you create the table.
 
-- `PredefinedMetricSpecification`—The metric that Application Auto Scaling is
-  allowed to adjust. For DynamoDB, the following values are valid values for
-  `PredefinedMetricType`:
-  - `DynamoDBReadCapacityUtilization`
-  - `DynamoDBWriteCapacityUtilization`
+5. Choose **Create table**. This creates your table with the auto scaling parameters you specified.
 
-- `ScaleOutCooldown`—The minimum amount of time (in seconds)
-  between each Application Auto Scaling event that increases provisioned throughput. This
-  parameter allows Application Auto Scaling to continuously, but not aggressively, increase the
-  throughput in response to real-world workloads. The default setting for
-  `ScaleOutCooldown` is 0.
-- `ScaleInCooldown`—The minimum amount of time (in seconds)
-  between each Application Auto Scaling event that decreases provisioned throughput. This
-  parameter allows Application Auto Scaling to decrease the throughput gradually and predictably.
-  The default setting for `ScaleInCooldown` is 0.
-- `TargetValue`—Application Auto Scaling ensures that the ratio of consumed
-  capacity to provisioned capacity stays at or near this value. You define
-  `TargetValue` as a percentage.
+## Enabling DynamoDB auto scaling on existing tables
 
 ###### Note
 
-To further understand how `TargetValue` works, suppose that you have a
-table with a provisioned throughput setting of 200 write capacity units. You decide
-to create a scaling policy for this table, with a `TargetValue` of 70
-percent.
+DynamoDB auto scaling requires the presence of a service-linked role (`AWSServiceRoleForApplicationAutoScaling_DynamoDBTable`) that performs auto scaling actions on your behalf. This role is created automatically for you. For more information, see [Service-linked roles for Application Auto Scaling](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md").
 
-Now suppose that you begin driving write traffic to the table so that the actual
-write throughput is 150 capacity units. The consumed-to-provisioned ratio is now
-(150 / 200), or 75 percent. This ratio exceeds your target, so Application Auto Scaling increases
-the provisioned write capacity to 215 so that the ratio is (150 / 215), or 69.77
-percent—as close to your `TargetValue` as possible, but not
-exceeding it.
+###### To enable DynamoDB auto scaling for an existing table
 
-For `TestTable`, you set `TargetValue` to 50 percent. Application Auto Scaling
-adjusts the table's provisioned throughput within the range of 5–10 capacity
-units (see [Step 2: Register a scalable
-target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget")) so that the
-consumed-to-provisioned ratio remains at or near 50 percent. You set the values for
-`ScaleOutCooldown` and `ScaleInCooldown` to 60 seconds.
+1. Open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the navigation pane on the left side of the console, choose **Tables**.
+3. Choose the table on which you want to enable auto scaling, and then do the following:
+   1. Choose the **Additional settings** tab.
+   2. In the **Read/write capacity** section, choose **Edit**.
+   3. In the **Capacity mode** section, choose **Provisioned**.
+   4. In the **Table capacity** section, set **Auto scaling** to **On** for **Read capacity**, **Write capacity**, or both. For each of these, set your desired scaling policy for the table and, optionally, all global secondary indexes of the table.
+      - **Minimum capacity units** – Enter your lower boundary for the auto scaling range.
+      - **Maximum capacity units** – Enter your upper boundary for the auto scaling range.
+      - **Target utilization** – Enter your target utilization percentage for the table.
+      - **Use the same capacity read/write capacity settings for all global secondary indexes** – Choose whether global secondary indexes should use the same auto scaling policy as the base table.
 
-1. Create a file named `scaling-policy.json` with the
-   following contents.
+      ###### Note
 
-```
-{
-    "PredefinedMetricSpecification": {
-        "PredefinedMetricType": "DynamoDBWriteCapacityUtilization"
-    },
-    "ScaleOutCooldown": 60,
-    "ScaleInCooldown": 60,
-    "TargetValue": 50.0
-}
-```
+      For best performance, we recommend that you enable **Use the same read/write capacity settings for all global secondary indexes**. This option allows DynamoDB auto scaling to uniformly scale all the global secondary indexes on the base table. This includes existing global secondary indexes, and any others that you create for this table in the future.
 
-2. Use the following AWS CLI command to create the policy.
+      With this option enabled, you can't set a scaling policy on an individual global secondary index.
 
-```
-aws application-autoscaling put-scaling-policy \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable" \
-    --scalable-dimension "dynamodb:table:WriteCapacityUnits" \
-    --policy-name "MyScalingPolicy" \
-    --policy-type "TargetTrackingScaling" \
-    --target-tracking-scaling-policy-configuration file://scaling-policy.json
-```
+4. When the settings are as you want them, choose **Save**.
 
-3. In the output, note that Application Auto Scaling has created two Amazon CloudWatch alarms—one
-   each for the upper and lower boundary of the scaling target range.
-4. Use the following AWS CLI command to view more details about the scaling
-   policy.
+## Viewing auto scaling activities
 
-```
-aws application-autoscaling describe-scaling-policies \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable" \
-    --policy-name "MyScalingPolicy"
-```
+on the console
 
-5. In the output, verify that the policy settings match your specifications from
-   [Step 2: Register a scalable
-   target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget") and Step 3: Create a scaling
-   policy.
+As your application drives read and write traffic to your table, DynamoDB auto scaling
+dynamically modifies the table's throughput settings. Amazon CloudWatch keeps track of
+provisioned and consumed capacity, throttled events, latency, and other metrics for all
+of your DynamoDB tables and secondary indexes.
 
-## Step 4: Drive write traffic to
+To view these metrics in the DynamoDB console, choose the table that you want to work
+with and choose the **Monitor** tab. To create a customizable view of
+table metrics, select **View all in CloudWatch**.
 
-TestTable
+## Modifying or disabling DynamoDB auto
 
-Now you can test your scaling policy by writing data to `TestTable`. To do
-this, you run a Python program.
+scaling settings
 
-1. Create a file named `bulk-load-test-table.py` with the
-   following contents.
-
-```
-import boto3
-dynamodb = boto3.resource('dynamodb')
-
-table = dynamodb.Table("TestTable")
-
-filler = "x" * 100000
-
-i = 0
-while (i < 10):
-    j = 0
-    while (j < 10):
-        print (i, j)
-
-        table.put_item(
-            Item={
-                'pk':i,
-                'sk':j,
-                'filler':{"S":filler}
-            }
-        )
-        j += 1
-    i += 1
-```
-
-2. Enter the following command to run the program.
-
-`python bulk-load-test-table.py`
-
-The provisioned write capacity for `TestTable` is very low (5 write
-capacity units), so the program stalls occasionally due to write throttling.
-This is expected behavior.
-
-Let the program continue running while you move on to the next step.
-
-## Step 5: View Application Auto Scaling actions
-
-In this step, you view the Application Auto Scaling actions that are initiated on your behalf. You
-also verify that Application Auto Scaling has updated the provisioned write capacity for
-`TestTable`.
-
-1. Enter the following command to view the Application Auto Scaling actions.
-
-```
-aws application-autoscaling describe-scaling-activities \
-    --service-namespace dynamodb
-```
-
-Rerun this command occasionally, while the Python program is running. (It
-takes several minutes before your scaling policy is invoked.) You should
-eventually see the following output.
-
-```
-...
-{
-    "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
-    "Description": "Setting write capacity units to 10.",
-    "ResourceId": "table/TestTable",
-    "ActivityId": "0cc6fb03-2a7c-4b51-b67f-217224c6b656",
-    "StartTime": 1489088210.175,
-    "ServiceNamespace": "dynamodb",
-    "EndTime": 1489088246.85,
-    "Cause": "monitor alarm AutoScaling-table/TestTable-AlarmHigh-1bb3c8db-1b97-4353-baf1-4def76f4e1b9 in state ALARM triggered policy MyScalingPolicy",
-    "StatusMessage": "Successfully set write capacity units to 10. Change successfully fulfilled by dynamodb.",
-    "StatusCode": "Successful"
-},
-...
-```
-
-This indicates that Application Auto Scaling has issued an `UpdateTable` request to
-DynamoDB. 2. Enter the following command to verify that DynamoDB increased the table's write
-capacity.
-
-```
-aws dynamodb describe-table \
-    --table-name TestTable \
-    --query "Table.[TableName,TableStatus,ProvisionedThroughput]"
-```
-
-The `WriteCapacityUnits` should have been scaled from
-`5` to `10`.
-
-## (Optional) Step 6: Clean up
-
-In this tutorial, you created several resources. You can delete these resources if you
-no longer need them.
-
-1. Delete the scaling policy for `TestTable`.
-
-```
-aws application-autoscaling delete-scaling-policy \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable" \
-    --scalable-dimension "dynamodb:table:WriteCapacityUnits" \
-    --policy-name "MyScalingPolicy"
-```
-
-2. Deregister the scalable target.
-
-```
-aws application-autoscaling deregister-scalable-target \
-    --service-namespace dynamodb \
-    --resource-id "table/TestTable" \
-    --scalable-dimension "dynamodb:table:WriteCapacityUnits"
-```
-
-3. Delete the `TestTable` table.
-
-```
-aws dynamodb delete-table --table-name TestTable
-```
+You can use the AWS Management Console to modify your DynamoDB auto scaling settings. To do this, go
+to the **Additional settings** tab for your table, and choose
+**Edit** in the **Read/write capacity** section.
+For more information about these settings, see [Enabling DynamoDB auto scaling on existing tables](#AutoScaling.Console.ExistingTable "#AutoScaling.Console.ExistingTable").

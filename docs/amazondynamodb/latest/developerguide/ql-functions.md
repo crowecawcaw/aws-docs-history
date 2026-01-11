@@ -1,18 +1,24 @@
-# Using the MISSING function with PartiQL for DynamoDB
+# Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB
 
-Returns `TRUE` if the item does not contain the attribute specified. Only equality and inequality operators can be used with this function.
+Returns `TRUE` if the attribute at the specified path is of a particular
+data type.
 
 ## Syntax
 
 ```
- `attributename` IS | IS NOT  MISSING
+attribute_type( `attributename`, `type` )
 ```
 
 ## Arguments
 
 `attributename`
 
-(Required) The attribute name to look for.
+(Required) The attribute name to use.
+
+`type`
+
+(Required) The attribute type to check for. For a list of valid
+values, see DynamoDB [attribute_type](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions").
 
 ## Return type
 
@@ -21,5 +27,5 @@ Returns `TRUE` if the item does not contain the attribute specified. Only equali
 ## Examples
 
 ```
-SELECT * FROM Music WHERE "Awards" is MISSING
+SELECT * FROM "Music" WHERE attribute_type("Artist", 'S')
 ```

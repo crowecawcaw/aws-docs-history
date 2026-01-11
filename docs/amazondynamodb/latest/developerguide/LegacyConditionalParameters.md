@@ -1,40 +1,33 @@
-# QueryFilter (legacy)
+# ScanFilter (legacy)
 
 ###### Note
 
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
 For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
 For specific information on the new parameter replacing this one,
-[use FilterExpression instead.](#FilterExpression.instead "#FilterExpression.instead").
+[use FilterExpression instead.](#FilterExpression2.instead "#FilterExpression2.instead").
 
-In a `Query` operation, the legacy conditional parameter `QueryFilter` is a
-condition that evaluates the query results after the items are read and returns only
-the desired values.
-
-This parameter does not support attributes of type List or Map.
+In a `Scan` operation, the legacy conditional parameter `ScanFilter` is a
+condition that evaluates the scan results and returns only the desired
+values.
 
 ###### Note
 
-A `QueryFilter` is applied after the items have already
-been read; the process of filtering does not consume any additional read
-capacity units.
+This parameter does not support attributes of type List or Map.
 
-If you provide more than one condition in the `QueryFilter`
-map, then by default all of the conditions must evaluate to true. In other words,
-the conditions are combined using the `AND` operator. (You can use the
+If you specify more than one condition in the `ScanFilter` map,
+then by default all of the conditions must evaluate to true. In other words, the
+conditions are ANDed together. (You can use the
 [ConditionalOperator (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md") parameter to OR the conditions instead.
 If you do this, then at least one of the conditions must evaluate to true, rather
 than all of them.)
 
-Note that `QueryFilter` does not allow key attributes. You
-cannot define a filter condition on a partition key or a sort key.
-
-Each `QueryFilter` element consists of an attribute name to
+Each `ScanFilter` element consists of an attribute name to
 compare, along with the following:
 
 - `AttributeValueList` - One or more values to evaluate
   against the supplied attribute. The number of values in the list depends on
-  the operator specified in `ComparisonOperator`.
+  the operator specified in `ComparisonOperator` .
 
 For type Number, value comparisons are numeric.
 
@@ -43,8 +36,8 @@ on UTF-8 binary encoding. For example, `a` is greater than
 `A`, and `a` is greater than
 `B`.
 
-For type Binary, DynamoDB treats each byte of the binary data as unsigned
-when it compares binary values.
+For Binary, DynamoDB treats each byte of the binary data as unsigned when
+it compares binary values.
 
 For information on specifying data types in JSON, see [DynamoDB low-level API](Programming.md "Programming.md").
 
@@ -58,39 +51,30 @@ The following comparison operators are available:
 
 ## Use _FilterExpression_ instead – Example
 
-Suppose you wanted to query the _Music_ table and apply a
+Suppose you wanted to scan the _Music_ table and apply a
 condition to the matching items. You could use a
-`Query` request with a `QueryFilter` parameter, as in this
+`Scan` request with a `ScanFilter` parameter, as in this
 AWS CLI example:
 
 ```
-aws dynamodb query \
+aws dynamodb scan \
     --table-name Music \
-    --key-conditions '{
-        "Artist": {
-            "ComparisonOperator": "EQ",
-            "AttributeValueList": [ {"S": "No One You Know"} ]
-        }
-    }' \
-    --query-filter '{
-        "Price": {
-            "ComparisonOperator": "GT",
-            "AttributeValueList": [ {"N": "1.00"} ]
+    --scan-filter '{
+        "Genre":{
+            "AttributeValueList":[ {"S":"Rock"} ],
+            "ComparisonOperator": "EQ"
         }
     }'
-
 ```
 
 You can use a `FilterExpression` instead:
 
 ```
-aws dynamodb query \
+aws dynamodb scan \
     --table-name Music \
-    --key-condition-expression 'Artist = :a' \
-    --filter-expression 'Price > :p' \
+    --filter-expression 'Genre = :g' \
     --expression-attribute-values '{
-        ":p": {"N":"1.00"},
-        ":a": {"S":"No One You Know"}
+        ":g": {"S":"Rock"}
     }'
 
 ```

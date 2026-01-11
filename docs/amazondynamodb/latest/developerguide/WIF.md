@@ -1,105 +1,59 @@
-# Writing your app to use web identity
+# Preparing to use web identity
 
 federation
 
-To use web identity federation, your app must assume the IAM role that you
-created. From that point on, the app honors the access policy that you attached to
-the role.
+If you are an application developer and want to use web identity federation for
+your app, follow these steps:
 
-At runtime, if your app uses web identity federation, it must follow these
-steps:
+1. Sign up as a developer with a third-party identity
+   provider. The following external links provide information
+   about signing up with supported identity providers:
+   - [Login with Amazon Developer
+     Center](http://login.amazon.com/ "http://login.amazon.com/")
+   - [Registration](https://business.facebook.com/business/loginpage "https://business.facebook.com/business/loginpage") on the Facebook site
+   - [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/accounts/docs/OAuth2 "https://developers.google.com/accounts/docs/OAuth2") on the Google
+     site
 
-1. Authenticate with a third-party identity
-   provider. Your app must call the identity provider using an
-   interface that they provide. The exact way in which you authenticate the
-   user depends on the provider and on what platform your app is running.
-   Typically, if the user is not already signed in, the identity provider takes
-   care of displaying a sign-in page for that provider.
+2. Register your app with the identity
+   provider. When you do this, the provider gives you an ID that's
+   unique to your app. If you want your app to work with multiple identity
+   providers, you need to obtain an app ID from each provider.
+3. Create one or more IAM roles.
+   You need one role for each identity provider for each app. For
+   example, you might create a role that can be assumed by an app where the
+   user signed in using Login with Amazon, a second role for the same app where
+   the user has signed in using Facebook, and a third role for the app where
+   users sign in using Google.
 
-After the identity provider authenticates the user, the provider returns a
-web identity token to your app. The format of this token depends on the
-provider, but is typically a very long string of characters. 2. Obtain temporary AWS security
-credentials. To do this, your app sends a
-`AssumeRoleWithWebIdentity` request to AWS Security Token Service
-(AWS STS). This request contains the following:
+As part of the role creation process, you need to attach an IAM policy
+to the role. Your policy document should define the DynamoDB resources required
+by your app, and the permissions for accessing those resources.
+For more information, see [About Web Identity Federation](../../../IAM/latest/UserGuide/id_roles_providers_oidc.md "../../../IAM/latest/UserGuide/id_roles_providers_oidc.md") in _IAM User Guide_.
 
-    * The web identity token from the previous step
-    * The app ID from the identity provider
-    * The Amazon Resource Name (ARN) of the IAM role that you created
-     for this identity provider for this app
+###### Note
 
-AWS STS returns a set of AWS security credentials that expire after a
-certain amount of time (3,600 seconds, by default).
+As an alternative to AWS Security Token Service, you can use Amazon Cognito. Amazon Cognito is the preferred
+service for managing temporary credentials for mobile apps. For more
+information, see [Getting credentials](../../../cognito/latest/developerguide/getting-credentials.md "../../../cognito/latest/developerguide/getting-credentials.md") in the _Amazon Cognito Developer Guide._
 
-The following is a sample request and response from a
-`AssumeRoleWithWebIdentity` action in AWS STS. The web
-identity token was obtained from the Login with Amazon identity
-provider.
+## Generating an IAM policy
 
-```
-GET / HTTP/1.1
-Host: sts.amazonaws.com
-Content-Type: application/json; charset=utf-8
-URL: https://sts.amazonaws.com/?ProviderId=www.amazon.com
-&DurationSeconds=900&Action=AssumeRoleWithWebIdentity
-&Version=2011-06-15&RoleSessionName=web-identity-federation
-&RoleArn=arn:aws:iam::123456789012:role/GameRole
-&WebIdentityToken=Atza|IQEBLjAsAhQluyKqyBiYZ8-kclvGTYM81e...(remaining characters omitted)
-```
+using the DynamoDB console
 
-```
-<AssumeRoleWithWebIdentityResponse
-  xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-  <AssumeRoleWithWebIdentityResult>
-    <SubjectFromWebIdentityToken>amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE</SubjectFromWebIdentityToken>
-    <Credentials>
-      <SessionToken>AQoDYXdzEMf//////////wEa8AP6nNDwcSLnf+cHupC...(remaining characters omitted)</SessionToken>
-      <SecretAccessKey>8Jhi60+EWUUbbUShTEsjTxqQtM8UKvsM6XAjdA==</SecretAccessKey>
-      <Expiration>2013-10-01T22:14:35Z</Expiration>
-      <AccessKeyId>06198791C436IEXAMPLE</AccessKeyId>
-    </Credentials>
-    <AssumedRoleUser>
-      <Arn>arn:aws:sts::123456789012:assumed-role/GameRole/web-identity-federation</Arn>
-      <AssumedRoleId>AROAJU4SA2VW5SZRF2YMG:web-identity-federation</AssumedRoleId>
-    </AssumedRoleUser>
-  </AssumeRoleWithWebIdentityResult>
-  <ResponseMetadata>
-    <RequestId>c265ac8e-2ae4-11e3-8775-6969323a932d</RequestId>
-  </ResponseMetadata>
-</AssumeRoleWithWebIdentityResponse>
-```
+The DynamoDB console can help you create an IAM policy for use with web
+identity federation. To do this, you choose a DynamoDB table and specify the
+identity provider, actions, and attributes to be included in the policy. The
+DynamoDB console then generates a policy that you can attach to an IAM
+role.
 
-3.  Access AWS resources. The response from
-    AWS STS contains information that your app requires in order to access
-    DynamoDB resources:
+1. Sign in to the AWS Management Console and open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the navigation pane, choose **Tables**.
+3. In the list of tables, choose the table for which you want to create the IAM policy.
+4. Select the **Actions** button, and choose
+   **Create Access Control Policy**.
+5. Choose the identity provider, actions, and attributes for the policy.
 
-        * The `AccessKeyID`, `SecretAccessKey`, and
-         `SessionToken` fields contain security credentials
-         that are valid for this user and this app only.
-        * The `Expiration` field signifies the time limit for
-         these credentials, after which they are no longer valid.
-        * The `AssumedRoleId` field contains the name of a
-         session-specific IAM role that has been assumed by the app. The
-         app honors the access controls in the IAM policy document for the
-         duration of this session.
-        * The `SubjectFromWebIdentityToken` field contains the
-         unique ID that appears in an IAM policy variable for this
-         particular identity provider. The following are the IAM policy
-         variables for supported providers, and some example values for
-         them:
-
-
-
-
-        | Policy Variable | Example Value |
-        | --- | --- |
-        | `${www.amazon.com:user_id}` | `amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE` |
-        | `${graph.facebook.com:id}` | `123456789` |
-        | `${accounts.google.com:sub}` | `123456789012345678901` |
-
-    For example IAM policies where these policy variables are used, see [Example policies: Using conditions for
-    fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples "specifying-conditions.md#FGAC_DDB.Examples").
-
-For more information about how AWS STS generates temporary access credentials, see
-[Requesting Temporary
-Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md") in _IAM User Guide_.
+When the settings are as you want them, choose **Generate Policy**.
+The generated policy appears. 6. Choose **See Documentation**, and follow the steps required to attach
+the generated policy to an IAM role.
