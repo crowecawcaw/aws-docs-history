@@ -15,7 +15,7 @@ example of a critical function is the ability for customers to use remote comman
 analyzing your end-to-end monitoring dashboards for your connected mobility platform, review
 reported incidents to your Service Desk, and determine the cause of the disruption. If it is
 related to an AWS service event, find out if it is impacting a Region, or localized impact
-to a specific Availability Zone. You can use the [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") to get more detailed
+to a specific Availability Zone. You can use the [Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") to get more detailed
 information on AWS service specific events.
 
 Reference your incident management playbook to investigate the appropriate process to initiate.
