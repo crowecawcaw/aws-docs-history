@@ -1,114 +1,102 @@
-# Pre-warm an existing table for
+# Change capacity mode
 
-on-demand capacity mode in Amazon Keyspaces
+When you switch a table from provisioned capacity mode to on-demand capacity mode,
+Amazon Keyspaces makes several changes to the structure of your table and partitions. This
+process can take several minutes. During the switching period, your table delivers
+throughput that is consistent with the previously provisioned WCU and RCU amounts.
 
-Amazon Keyspaces automatically scales storage partitions based on throughput, but for new tables or new throughput
-peaks, it can take longer to allocate the required storage partitions. To insure that tables in on-demand and
-provisioned capacity mode have enough storage partitions to support the sudden higher throughput, you can
-_pre-warm_ a new or existing table.
+When you switch from on-demand capacity mode back to provisioned capacity mode,
+your table delivers throughput that is consistent with the previous peak reached
+when the table was set to on-demand capacity mode.
 
-If you anticipate a spike in peak capacity for your table that is twice
-as high as the previous peek withing the same 30 minutes, you can pre-warm the table
-to the peak capacity of the expected spike.
+The following waiting periods apply when you switch capacity modes:
 
-To pre-warm an existing on-demand table
-in Amazon Keyspaces, you can follow these steps. To pre-warm a new table, see [Pre-warm a new table for
-on-demand capacity mode in Amazon Keyspaces](ReadWriteCapacityMode.prewarming.md "ReadWriteCapacityMode.prewarming.md").
-
-Before you get started, review your [account and table quotas](quotas.md#table "quotas.md#table") for provisioned
-mode and adjust them as needed.
-
-Next review the required [waiting periods](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md") between changing capacity modes.
-Note that you'll incur costs for the provisioned capacity until the table is back in on-demand mode.
-
-Console
-
-###### How to pre-warm an existing table in on-demand mode
-
-1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
-2. Choose the table that you want to work with, and go to the **Capacity** tab.
-3. In the **Capacity settings** section, choose **Edit**.
-4. Under **Capacity mode**, change the table to
-   **Provisioned** capacity mode.
-5. In the **Read capacity** section, deselect
-   **Scale automatically**.
-
-Set the table's **Provisioned capacity units** to the expected peak value. 6. In the **Write capacity** section, choose the same settings
-as defined in the previous step for read capacity, or configure capacity
-values manually. 7. When the provisioned capacity settings are defined, choose
-**Save**. After you save changes, the table's status shows as **Updating...**
-until the capacity is provisioned. Note that for large tables, the pre-warming process can take some time,
-because the data needs to be divided across partitions. During this time, you can continue to access
-the table and expect the previously configured peak capacity to be available. 8. When the table's status turns to **Active**, you can switch the table back to
-**On-demand** capacity mode.
+- You can switch a newly created table in on-demand mode to provisioned capacity mode at any time.
+  However, you can only switch it back to on-demand mode 24 hours after the table’s creation timestamp.
+- You can switch an existing table in on-demand mode to provisioned capacity mode at any time.
+  However, you can switch capacity modes from provisioned to on-demand only once in a 24-hour period.
 
 Cassandra Query Language (CQL)
 
-###### Pre-warm an existing table for on-demand mode using CQL
+###### Change a table's throughput capacity mode using CQL
 
-1. Change the table's capacity mode to `PROVIOSIONED` and configure the read capacity
-   and write capacity based on your expected peak values.
-
-```
-
-ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PROVISIONED', 'read_capacity_units': 18000, 'write_capacity_units': 6000}};
-```
-
-2. Confirm that the table is active. The following statement is an example.
+1. To change a table's capacity mode to `PROVIOSIONED` you
+   have to configure the read capacity and write capacity units
+   based on your workloads expected peak values. the following
+   statement is an example of this. You can also run this
+   statement to adjust the read capacity or the write capacity
+   units of the table.
 
 ```
-SELECT * from system_schema_mcs.tables where keyspace_name = 'catalog' and table_name = 'book_awards';
+ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PROVISIONED', 'read_capacity_units': 6000, 'write_capacity_units': 3000}};
 ```
 
-3. When the table's status is `ACTIVE`, you can use the following statement to change
-   the capacity mode of the table to on-demand mode by setting the throughput mode to `PAY_PER_REQUEST`.
-   The following statement is an example of this.
+To configure provisioned capacity mode with auto-scaling, see
+[Configure automatic scaling on an existing table](autoscaling.md "autoscaling.md"). 2. To change
+the capacity mode of a table to on-demand mode, set the throughput mode to `PAY_PER_REQUEST`.
+The following statement is an example of this.
 
 ```
 ALTER TABLE catalog.book_awards WITH CUSTOM_PROPERTIES={'capacity_mode':{'throughput_mode': 'PAY_PER_REQUEST'}};
 ```
 
-4. You can use the following statement to confirm that the table is now in on-demand mode and see the
-   table's status.
+3. You can use the following statement to confirm the table's capacity mode.
 
 ```
 SELECT * from system_schema_mcs.tables where keyspace_name = 'catalog' and table_name = 'book_awards';
 ```
 
+A table configured with on-demand capacity mode returns the following.
+
+```
+`{
+ "capacity_mode":{
+ "last_update_to_pay_per_request_timestamp":"1727952499092",
+ "throughput_mode":"PAY_PER_REQUEST"
+ }
+}`
+```
+
+The `last_update_to_pay_per_request_timestamp` value is measured in
+milliseconds.
+
 CLI
 
-###### Pre-warm an existing table for on-demand mode using the AWS CLI
+###### Change a table's throughput capacity mode using the AWS CLI
 
-1. Change the table's capacity mode to `PROVIOSIONED` and configure the read capacity
-   and write capacity based on your expected peak values. The following command is an example of this.
+1. To change the table's capacity mode to `PROVIOSIONED`
+   you have to configure the read capacity and write capacity units
+   based on the expected peak values of your workload. The
+   following command is an example of this. You can also run this
+   command to adjust the read capacity or the write capacity units
+   of the table.
 
 ```
 aws keyspaces update-table --keyspace-name catalog --table-name book_awards
-                                    \--capacity-specification throughputMode=PROVISIONED,readCapacityUnits=18000,writeCapacityUnits=6000
+                                    \--capacity-specification throughputMode=PROVISIONED,readCapacityUnits=6000,writeCapacityUnits=3000
 ```
 
-2. Confirm that the status of the table is active and that the capacity has been provisioned. You can use the following statement.
-
-```
-aws keyspaces get-table --keyspace-name catalog --table-name book_awards
-```
-
-3. When the table's status is `ACTIVE` and the capacity has been provisioned,
-   you can use the following statement to change
-   the capacity mode of the table to on-demand mode by setting the throughput mode to `PAY_PER_REQUEST`.
-   The following statement is an example of this.
+To configure provisioned capacity mode with auto-scaling, see
+[Configure automatic scaling on an existing table](autoscaling.md "autoscaling.md"). 2. To change
+the capacity mode of a table to on-demand mode, you set the throughput mode to `PAY_PER_REQUEST`.
+The following statement is an example of this.
 
 ```
 aws keyspaces update-table --keyspace-name catalog --table-name book_awards
                                     \--capacity-specification throughputMode=PAY_PER_REQUEST
 ```
 
-4. You can use the following statement to confirm that the table is now in on-demand mode and see the
-   table's status.
+3. You can use the following command to review the capacity mode that's configured for a table.
 
 ```
 aws keyspaces get-table --keyspace-name catalog --table-name book_awards
 ```
 
-When the table is active in on-demand capacity mode,
-it's prepared to handle a similar throughput capacity as before in provisioned capacity mode.
+The output for a table in on-demand mode looks like this.
+
+```
+`"capacitySpecification": {
+ "throughputMode": "PAY_PER_REQUEST",
+ "lastUpdateToPayPerRequestTimestamp": "2024-10-03T10:48:19.092000+00:00"
+ }`
+```
