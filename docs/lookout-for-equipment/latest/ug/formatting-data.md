@@ -91,6 +91,8 @@ We recommend using `"Timestamp"` as the name for the column with the
 time-series data. For the column with data from the sensor, we recommend using a
 name that distinguishes it from other sensors.
 
+## Formatting requirements
+
 You must have a double (numerical) as the data type for your sensor data. You can only
 train your model on numeric data.
 
@@ -134,7 +136,8 @@ mind:
 
 - The valid characters that you can use in the column names of the dataset are
   A-Z, a-z, 0-9, and . \_ - (hyphen)
-  To learn more about the formats listed above, see [the ISO 86021 standard](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations "https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations").
+
+To learn more about the formats listed above, see [the ISO 86021 standard](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations "https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations").
 
 Now that your data is formatted properly, it's time to organize your files.
 
