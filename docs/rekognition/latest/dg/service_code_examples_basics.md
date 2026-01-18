@@ -18,7 +18,6 @@ SDKs.
   - [DetectLabels](example_rekognition_DetectLabels_section.md "example_rekognition_DetectLabels_section.md")
   - [DetectModerationLabels](example_rekognition_DetectModerationLabels_section.md "example_rekognition_DetectModerationLabels_section.md")
   - [DetectText](example_rekognition_DetectText_section.md "example_rekognition_DetectText_section.md")
-  - [DisassociateFaces](example_rekognition_DisassociateFaces_section.md "example_rekognition_DisassociateFaces_section.md")
   - [GetCelebrityInfo](example_rekognition_GetCelebrityInfo_section.md "example_rekognition_GetCelebrityInfo_section.md")
   - [IndexFaces](example_rekognition_IndexFaces_section.md "example_rekognition_IndexFaces_section.md")
   - [ListCollections](example_rekognition_ListCollections_section.md "example_rekognition_ListCollections_section.md")
