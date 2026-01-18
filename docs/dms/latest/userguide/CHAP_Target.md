@@ -1,400 +1,267 @@
-# Using Amazon Timestream as a target for AWS Database Migration Service
+# Using Redis OSS as a target for
 
-You can use AWS Database Migration Service to migrate data from your source database to a Amazon Timestream
-target endpoint, with support for Full Load and CDC data migrations.
+AWS Database Migration Service
 
-Amazon Timestream is a fast, scalable, and serverless time series database service built for
-high-volume data ingestion. Time series data is a sequence of data points collected over a
-time interval, and is used for measuring events that change over time. It is used to collect,
-store, and analyze metrics from IoT applications, DevOps applications, and analytics applications.
-Once you have your data in Timestream, you can visualize and identify trends and
-patterns in your data in near real-time. For information about Amazon Timestream, see [What
-is Amazon Timestream?](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md") in the _Amazon Timestream Developer Guide_.
+Redis OSS is an open-source in-memory data structure store used as a database, cache, and
+message broker. Managing data in-memory can result in read or write operations taking
+less than a millisecond, and hundreds of millions of operations performed each second. As an
+in-memory data store, Redis OSS powers the most demanding applications requiring
+sub-millisecond response times.
+
+Using AWS DMS, you can migrate data from any supported source
+database to a target Redis OSS data store with minimal downtime. For additional information about Redis OSS see, [Redis OSS Documentation](https://redis.io/documentation "https://redis.io/documentation").
+
+In addition to on-premises Redis OSS, AWS Database Migration Service supports the following:
+
+- [Amazon ElastiCache (Redis OSS)](https://aws.amazon.com/elasticache/redis/ "https://aws.amazon.com/elasticache/redis/")
+  as a target data store. ElastiCache (Redis OSS) works with your Redis OSS clients and uses the open Redis OSS data
+  format to store your data.
+- [Amazon MemoryDB](https://aws.amazon.com/memorydb/ "https://aws.amazon.com/memorydb/")
+  as a target data store. MemoryDB is compatible with Redis OSS and enables you to build
+  applications using all the Redis OSS data structures, APIs, and commands in use today.
+  For additional information about working with Redis OSS as a target for AWS DMS, see the following sections:
 
 ###### Topics
 
-- [Prerequisites for using
-  Amazon Timestream as a target for AWS Database Migration Service](#CHAP_Target.Timestream.Prerequisites "#CHAP_Target.Timestream.Prerequisites")
-- [Multithreaded full load task settings](#CHAP_Target.Timestream.FLTaskSettings "#CHAP_Target.Timestream.FLTaskSettings")
-- [Multithreaded CDC load task settings](#CHAP_Target.Timestream.CDCTaskSettings "#CHAP_Target.Timestream.CDCTaskSettings")
-- [Endpoint settings
-  when using Timestream as a target for AWS DMS](#CHAP_Target.Timestream.ConnectionAttrib "#CHAP_Target.Timestream.ConnectionAttrib")
-- [Creating and modifying an Amazon Timestream target endpoint](#CHAP_Target.Timestream.CreateModifyEndpoint "#CHAP_Target.Timestream.CreateModifyEndpoint")
-- [Using object mapping to migrate
-  data to a Timestream topic](#CHAP_Target.Timestream.ObjectMapping "#CHAP_Target.Timestream.ObjectMapping")
-- [Limitations when using Amazon Timestream
-  as a target for AWS Database Migration Service](#CHAP_Target.Timestream.Limitations "#CHAP_Target.Timestream.Limitations")
+- [Prerequisites for using a Redis OSS
+  cluster as a target for AWS DMS](#CHAP_Target.Redis.Prerequisites "#CHAP_Target.Redis.Prerequisites")
+- [Limitations when using Redis
+  as a target for AWS Database Migration Service](#CHAP_Target.Redis.Limitations "#CHAP_Target.Redis.Limitations")
+- [Migrating data from a
+  relational or non-relational database to a Redis OSS target](#CHAP_Target.Redis.Migrating "#CHAP_Target.Redis.Migrating")
+- [Specifying endpoint settings
+  for Redis OSS as a target](#CHAP_Target.Redis.EndpointSettings "#CHAP_Target.Redis.EndpointSettings")
 
-## Prerequisites for using
+## Prerequisites for using a Redis OSS
 
-Amazon Timestream as a target for AWS Database Migration Service
+cluster as a target for AWS DMS
 
-Before you set up Amazon Timestream as a target for AWS DMS, make sure that you create an IAM
-role. This role must allow AWS DMS to gain access to the data being migrated into
-Amazon Timestream. The minimum set of access permissions for the role that you use to migrate
-to Timestream is shown in the following IAM policy.
+DMS supports an on-premises Redis OSS target in a standalone configuration, or as a
+Redis OSS cluster where data is automatically _sharded_
+across multiple nodes. Sharding is the process of separating data into smaller
+chunks called shards that are spread across multiple servers or nodes. In effect, a
+shard is a data partition that contains a subset of the total data set, and serves a
+slice of the overall workload.
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowDescribeEndpoints",
- "Effect": "Allow",
- "Action": [
- "timestream:DescribeEndpoints"
- ],
- "Resource": "*"
- },
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "timestream:ListTables",
- "timestream:DescribeDatabase"
- ],
- "Resource": "arn:aws:timestream:us-east-1:123456789012:database/DATABASE_NAME"
- },
- {
- "Sid": "VisualEditor1",
- "Effect": "Allow",
- "Action": [
- "timestream:DeleteTable",
- "timestream:WriteRecords",
- "timestream:UpdateTable",
- "timestream:CreateTable"
- ],
- "Resource": "arn:aws:timestream:us-east-1:123456789012:database/DATABASE_NAME/table/TABLE_NAME"
- }
- ]
-}`
-
-```
-
-If you intend to migrate all tables, use `*` for `TABLE_NAME` in the
-example above.
-
-Note the following about using Timestream as a target:
-
-- If you intend to ingest historical data with timestamps exceeding 1 year old, we recommend to use
-  AWS DMS to write the data to Amazon S3 in a comma separated value (csv) format. Then, use Timestream’s batch
-  load to ingest the data into Timestream. For more information, see
-  [Using batch load in Timestream](../../../timestream/latest/developerguide/batch-load.md "../../../timestream/latest/developerguide/batch-load.md")
-  in the [Amazon Timestream developer guide](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md").
-- For full-load data migrations of data less than 1 year old, we recommend setting the memory store
-  retention period of the Timestream table greater than or equal to the oldest timestamp. Then, once migration completes,
-  edit the table's memory store retention to the desired value. For example, to migrate data with the oldest timestamp
-  being 2 months old, do the following:
-  - Set the Timestream target table's memory store retention to 2 months.
-  - Start the data migration using AWS DMS.
-  - Once the data migration completes, change the retention period of the target Timestream table to your desired value.
-
-We recommend estimating the memory store cost prior to the migration, using the information on the following pages:
-
-    + [Amazon Timestream pricing](https://aws.amazon.com/timestream/pricing "https://aws.amazon.com/timestream/pricing")
-    + [AWS pricing calculator](https://calculator.aws/#/addService "https://calculator.aws/#/addService")
-
-- For CDC data migrations, we recommend setting the memory store retention period of the target
-  table such that ingested data falls within the memory store retention bounds. For more information, see
-  [Writes Best Practices](../../../timestream/latest/developerguide/data-ingest.md "../../../timestream/latest/developerguide/data-ingest.md") in the [Amazon Timestream developer guide](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md").
-
-## Multithreaded full load task settings
-
-To help increase the speed of data transfer, AWS DMS supports a multithreaded full
-load migration task to a Timestream target endpoint with these task settings:
-
-- `MaxFullLoadSubTasks` – Use this option to indicate the
-  maximum number of source tables to load in parallel. DMS loads each table into
-  its corresponding Amazon Timestream target table using a dedicated subtask. The default is 8;
-  the maximum value is 49.
-- `ParallelLoadThreads` – Use this option to specify the
-  number of threads that AWS DMS uses to load each table into its Amazon Timestream target table.
-  The maximum value for a Timestream target is 32. You can ask to have this maximum
-  limit increased.
-- `ParallelLoadBufferSize` – Use this option to specify the
-  maximum number of records to store in the buffer that the parallel load threads
-  use to load data to the Amazon Timestream target. The default value is 50. The maximum value
-  is 1,000. Use this setting with `ParallelLoadThreads`.
-  `ParallelLoadBufferSize` is valid only when there is more than
-  one thread.
-- `ParallelLoadQueuesPerThread` – Use this option to specify
-  the number of queues each concurrent thread accesses to take data records out of
-  queues and generate a batch load for the target. The default is 1. However, for
-  Amazon Timestream targets of various payload sizes, the valid range is 5–512 queues
-  per thread.
-
-## Multithreaded CDC load task settings
-
-To promote CDC performance, AWS DMS supports these task settings:
-
-- `ParallelApplyThreads` – Specifies the number of concurrent
-  threads that AWS DMS uses during a CDC load to push data records to a Timestream
-  target endpoint. The default value is 0 and the maximum value is
-
-32.
-
-- `ParallelApplyBufferSize` – Specifies the maximum number of
-  records to store in each buffer queue for concurrent threads to push to a Timestream
-  target endpoint during a CDC load. The default value is 100 and the maximum
-  value is 1,000. Use this option when `ParallelApplyThreads` specifies
-  more than one thread.
-- `ParallelApplyQueuesPerThread` – Specifies the number of
-  queues that each thread accesses to take data records out of queues and generate
-  a batch load for a Timestream endpoint during CDC. The default value is 1 and the maximum
-  value is 512.
-
-## Endpoint settings
-
-when using Timestream as a target for AWS DMS
-
-You can use endpoint settings to configure your Timestream target database similar to using
-extra connection attributes. You specify the settings when you create the target
-endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
-[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
-`--timestream-settings '{"`EndpointSetting"`:
- `"value"`, `...`}'` JSON syntax.
-
-The following table shows the endpoint settings that you can use with
-Timestream as a target.
-
-| Name                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MemoryDuration`            | Set this attribute to specify the retention bound to store the data migrated in<br>Timestream's memory store. Time is measured in units<br>of hours. Timestream's memory store is optimized for high ingestion throughput and fast access.<br>Default value: 24 (hours)<br>Valid values: 1 to 8,736 (1 hour to 12 months measured in<br>hours)<br>Example: `--timestream-settings '{"MemoryDuration":<br>20}'`                                                                                                                                                                                                                                                                                                            |
-| `DatabaseName`              | Set this attribute to specify the target Timestream database name.<br>Type: string<br>Example: `--timestream-settings '{"DatabaseName":<br>"`db_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `TableName`                 | Set this attribute to specify the target Timestream table name.<br>Type: string<br>Example: `--timestream-settings '{"TableName":<br>"`table_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `MagneticDuration`          | Set this attribute to specify the magnetic duration applied to the Timestream<br>tables in days. This is the retention bound for the ingested data. Timestream deletes any timestamp<br>exceeding the retention bound. For more information, see [Storage](../../../timestream/latest/developerguide/storage.md "../../../timestream/latest/developerguide/storage.md") in the<br>[Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").<br>Example: `--timestream-settings '{"MagneticDuration":<br>"3"}'`                                                                                                                                    |
-| `CdcInsertsAndUpdates`      | Set this attribute to `true` to specify that AWS DMS only<br>applies inserts and updates, and not deletes. Timestream does not allow<br>deleting records, so if this value is `false`, AWS DMS nulls out<br>the corresponding record in the Timestream database rather than deleting it. For<br>more information, see [Limitations](#CHAP_Target.Timestream.Limitations "#CHAP_Target.Timestream.Limitations") following.<br>Default value: `false`<br>Example: `--timestream-settings '{"CdcInsertsAndUpdates": "true"}'`                                                                                                                                                                                                |
-| `EnableMagneticStoreWrites` | Set this attribute to `true` to enable magnetic store writes.<br>When this value is `false`, AWS DMS does not write records records with a<br>timestamp older than the memory store retention period of the target table, because Timestream does not<br>allow magnetic store writes by default. For more information, see [Writes Best Practices](../../../timestream/latest/developerguide/data-ingest.md "../../../timestream/latest/developerguide/data-ingest.md") in the<br>[Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").<br>Default value: `false`<br>Example: `--timestream-settings '{"EnableMagneticStoreWrites": "true"}'` |
-
-## Creating and modifying an Amazon Timestream target endpoint
-
-Once you have created an IAM role and established the minimum set of access
-permissions, you can create a Amazon Timestream target endpoint using the AWS DMS console, or by
-using the `create-endpoint` command in the [AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"),
-with the `--timestream-settings '{"`EndpointSetting"`:
- `"value"`, `...`}'` JSON
-syntax.
-
-The following examples show how to create and modify a Timestream target endpoint using the AWS CLI.
-
-**Create Timestream target endpoint command**
-
-```
-aws dms create-endpoint —endpoint-identifier timestream-target-demo
---endpoint-type target —engine-name timestream
---service-access-role-arn arn:aws:iam::123456789012:role/my-role
---timestream-settings
-{
-    "MemoryDuration": 20,
-    "DatabaseName":"db_name",
-    "MagneticDuration": 3,
-    "CdcInsertsAndUpdates": true,
-    "EnableMagneticStoreWrites": true,
-}
-
-```
-
-**Modify Timestream target endpoint command**
-
-```
-aws dms modify-endpoint —endpoint-identifier timestream-target-demo
---endpoint-type target —engine-name timestream
---service-access-role-arn arn:aws:iam::123456789012:role/my-role
---timestream-settings
-{
-    "MemoryDuration": 20,
-    "MagneticDuration": 3,
-}
-
-```
-
-## Using object mapping to migrate
-
-data to a Timestream topic
-
-AWS DMS uses table-mapping rules to map data from the source to the target Timestream
-topic. To map data to a target topic, you use a type of table-mapping rule
-called object mapping. You use object mapping to define how data records in the
-source map to the data records published to a Timestream topic.
-
-Timestream topics don't have a preset structure other than having a partition
-key.
+Since Redis OSS is a key-value NoSQL data store, the Redis OSS key naming convention
+to use when your source is a relational database, is **schema-name.table-name.primary-key**. In Redis OSS, the key and value must
+not contain the special character %. Otherwise, DMS skips the record.
 
 ###### Note
 
-You don't have to use object mapping. You can use regular table
-mapping for various transformations. However, the partition key type will follow
-these default behaviors:
+If you are using ElastiCache (Redis OSS) as a target, DMS supports _cluster mode
+enabled_ configurations only. For more information about using
+ElastiCache (Redis OSS) version 6.x or higher to create a cluster mode enabled target data store,
+see [Getting
+started](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the _Amazon ElastiCache (Redis OSS) User Guide_.
 
-- Primary Key is used as a partition key for Full Load.
-- If no parallel-apply task settings are used,
-  `schema.table` is used as a partition key for CDC.
-- If parallel-apply task settings are used, Primary key is used as
-  a partition key for CDC.
+Before you begin a database migration, launch your Redis OSS cluster with the following criteria.
 
-To create an object-mapping rule, specify `rule-type` as
-`object-mapping`. This rule specifies what type of object mapping you
-want to use. The structure for the rule is as follows.
+- Your cluster has one or more shards.
+- If you're using an ElastiCache (Redis OSS) target, ensure that your cluster doesn't use
+  IAM role-based access control. Instead, use Redis OSS Auth to authenticate users.
+- Enable Multi-AZ (Availability Zones).
+- Ensure the cluster has sufficient memory available to fit the data to be
+  migrated from your database.
+- Make sure that your target Redis OSS cluster is clear of all data before
+  starting the initial migration task.
 
-```
-{
-    "rules": [
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "`id`",
-            "rule-name": "`name`",
-            "rule-action": "`valid object-mapping rule action`",
-            "object-locator": {
-                "schema-name": "`case-sensitive schema name`",
-                "table-name": ""
-            }
-        }
-    ]
-}
-```
+You should determine your security requirements for the data migration prior to
+creating your cluster configuration. DMS supports migration to target replication
+groups regardless of their encryption configuration. But you can enable or disable
+encryption only when you create your cluster configuration.
 
-```
-{
-    "rules": [
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "1",
-            "rule-name": "timestream-map",
-            "rule-action": "map-record-to-record",
-            "target-table-name": "tablename",
-            "object-locator": {
-                "schema-name": "",
-                "table-name": ""
-            },
-            "mapping-parameters": {
-                "timestream-dimensions": [
-                    "column_name1",
-                     "column_name2"
-                ],
-                "timestream-timestamp-name": "time_column_name",
-                "timestream-multi-measure-name": "column_name1or2",
-                "timestream-hash-measure-name":  true or false,
-                "timestream-memory-duration": x,
-                "timestream-magnetic-duration": y
-            }
-        }
-    ]
-}
-
-
-```
-
-AWS DMS currently supports `map-record-to-record` and
-`map-record-to-document` as the only valid values for the
-`rule-action` parameter. The `map-record-to-record` and
-`map-record-to-document` values specify what AWS DMS does by default to
-records that aren't excluded as part of the `exclude-columns`
-attribute list. These values don't affect the attribute mappings in any way.
-
-Use `map-record-to-record` when migrating from a relational database to
-a Timestream topic. This rule type uses the
-`taskResourceId.schemaName.tableName` value from the relational
-database as the partition key in the Timestream topic and creates an attribute for each
-column in the source database. When using `map-record-to-record`, for any
-column in the source table not listed in the `exclude-columns` attribute
-list, AWS DMS creates a corresponding attribute in the target topic. This
-corresponding attribute is created regardless of whether that source column is used
-in an attribute mapping.
-
-One way to understand `map-record-to-record` is to see it in action.
-For this example, assume that you are starting with a relational database table row
-with the following structure and data.
-
-| FirstName | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateofBirth |
-| --------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
-| Randy     | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
-
-To migrate this information from a schema named `Test` to a Timestream
-topic, you create rules to map the data to the target topic. The following rule
-illustrates the mapping.
-
-```
-{
-    "rules": [
-        {
-            "rule-type": "selection",
-            "rule-id": "1",
-            "rule-name": "1",
-            "rule-action": "include",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "%"
-            }
-        },
-        {
-            "rule-type": "object-mapping",
-            "rule-id": "2",
-            "rule-name": "DefaultMapToTimestream",
-            "rule-action": "map-record-to-record",
-            "object-locator": {
-                "schema-name": "Test",
-                "table-name": "Customers"
-            }
-        }
-    ]
-}
-```
-
-Given a Timestream topic and a partition key (in this case,
-`taskResourceId.schemaName.tableName`), the following illustrates the
-resulting record format using our sample data in the Timestream target topic:
-
-```
-
-  {
-     "FirstName": "Randy",
-     "LastName": "Marsh",
-     "StoreId":  "5",
-     "HomeAddress": "221B Baker Street",
-     "HomePhone": "1234567890",
-     "WorkAddress": "31 Spooner Street, Quahog",
-     "WorkPhone": "9876543210",
-     "DateOfBirth": "02/29/1988"
-  }
-```
-
-## Limitations when using Amazon Timestream
+## Limitations when using Redis
 
 as a target for AWS Database Migration Service
 
-The following limitations apply when using Amazon Timestream as a target:
+The following limitations apply when using Redis OSS as a target:
 
-- **Dimensions and Timestamps:** Timestream uses
-  the dimensions and timestamps in the source data like a composite primary key, and also
-  does not allow you to upsert these values. This means that if you change the timestamp
-  or the dimensions for a record in the source database, the Timestream database will try to
-  create a new record. It is thus possible that if you change the dimension or timestamp of a record
-  such that they match those of another existing record,
-  then AWS DMS updates the values of the other record instead of creating a new record or updating
-  the previous corresponding record.
-- **DDL Commands:** The current release of AWS DMS only supports
-  `CREATE TABLE` and `DROP TABLE` DDL commands.
-- **Record Limitations:** Timestream has limitations for records such as record size
-  and measure size. For more information, see
-  [Quotas](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md") in the
-  [Amazon Timestream Developer Guide](../../../index.md "../../../index.md").
-- **Deleting Records and Null Values:** Timestream doesn't support deleting records.
-  To support migrating records deleted from the source, AWS DMS clears the corresponding fields in the records in the Timestream
-  target database. AWS DMS changes the values in the fields of the corresponding target record with **0** for
-  numeric fields, **null** for
-  text fields, and **false** for
-  boolean fields.
-- Timestream as a target doesn't support sources that aren't relational databases (RDBMS).
-- AWS DMS only supports Timestream as a target in the following regions:
-  - US East (N. Virginia)
-  - US East (Ohio)
-  - US West (Oregon)
-  - Europe (Ireland)
-  - Europe (Frankfurt)
-  - Asia Pacific (Sydney)
-  - Asia Pacific (Tokyo)
+- Since Redis OSS is a key-value no-sql data store, the Redis OSS key naming convention to use
+  when your source is a relational database, is `schema-name.table-name.primary-key`.
+- In Redis OSS, the key-value can't contain the special character `%`.
+  Otherwise, DMS skips the record.
+- DMS won't migrate rows that contain the `%` character.
+- DMS won't migrate fields that contain the `%` character in the field name.
+- Full LOB mode is not supported.
+- A private Certificate Authority (CA) isn’t supported when using ElastiCache (Redis OSS) as a target.
 
-- Timestream as a target doesn't support setting `TargetTablePrepMode` to `TRUNCATE_BEFORE_LOAD`.
-  We recommend using `DROP_AND_CREATE` for this setting.
+## Migrating data from a
+
+relational or non-relational database to a Redis OSS target
+
+You can migrate data from any source SQL or NoSQL data store directly to a Redis OSS
+target. Setting up and starting a migration to a Redis OSS target is similar to any full
+load and change data capture migration using the DMS console or API. To perform a
+database migration to a Redis OSS target, you do the following.
+
+- Create a replication instance to perform all the processes for the
+  migration. For more information, see [Creating a replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+- Specify a source endpoint. For more information, see [Creating source and target endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md").
+- Locate the DNS name and port number of your cluster.
+- Download a certificate bundle that you can use to verify SSL
+  connections.
+- Specify a target endpoint, as described below.
+- Create a task or set of tasks to define what tables and replication processes you
+  want to use. For more information, see [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md").
+- Migrate data from your source database to your target cluster.
+
+You begin a database migration in one of two ways:
+
+1. You can choose the AWS DMS console and perform each step there.
+2. You can use the AWS Command Line Interface (AWS CLI). For more information about
+   using the CLI with AWS DMS, see [AWS CLI for
+   AWS DMS](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md").
+
+###### To locate the DNS name and port number of your cluster
+
+- Use the following AWS CLI command to provide the
+  `replication-group-id` with the name of your
+  replication group.
+
+```
+
+aws elasticache describe-replication-groups --replication-group-id *myreplgroup*
+
+```
+
+Here, the output shows the DNS name in the `Address` attribute and the port number in the
+`Port` attribute of the primary node in the cluster.
+
+```
+ ...
+"ReadEndpoint": {
+"Port": 6379,
+"Address": "myreplgroup-
+111.1abc1d.1111.uuu1.cache.example.com"
+}
+...
+
+```
+
+If you are using MemoryDB as your target, use the following
+AWS CLI command to provide an endpoint address to your Redis OSS cluster.
+
+```
+
+aws memorydb describe-clusters --clusterid `clusterid`
+
+```
+
+###### Download a certificate bundle for use to verify SSL connections
+
+- Enter the following `wget` command at the command line. Wget is a free
+  GNU command-line utility tool used to download files from the internet.
+
+```
+
+wget https://s3.aws-api-domain/rds-downloads/rds-combined-ca-bundle.pem
+
+```
+
+Here, `*aws-api-domain*` completes the Amazon S3
+domain in your AWS Region required to access the speciﬁed S3 bucket and the
+rds-combined-ca-bundle.pem ﬁle that it provides.
+
+###### To create a target endpoint using the AWS DMS console
+
+This endpoint is for your Redis OSS target that is already running.
+
+- On the console, choose **Endpoints** from the navigation
+  pane and then choose **Create Endpoint**. The following
+  table describes the settings.
+
+| For this option           | Do this                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint type**         | Choose the \*_Target_<br>• endpoint type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Endpoint identifier**   | Enter the name of your endpoint. For example, include the<br>type of endpoint in the name, such as<br>`my-redis-target`.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Target engine**         | Choose \*_Redis OSS_<br>• as the type of<br>database engine that you want this endpoint to<br>connect.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Cluster name**          | Enter the DNS name of your Redis OSS cluster.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Port**                  | Enter the port number of your Redis OSS cluster.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **SSL security protocol** | Choose either **Plain text\*<br>• or<br>**SSL encryption**.<br>**Plain text**—This option doesn't provide<br>Transport Layer Security (TLS) encryption for traffic between endpoint and database.<br>**SSL encryption\*\*—If you choose<br>this option, enter an SSL Certificate Authority (CA)<br>certificate ARN to verify the server’s certificate and<br>make an encrypted connection.<br>For on-premises Redis OSS, DMS supports both public and<br>private Certificate Authority (CA). For ElastiCache (Redis OSS), DMS<br>supports only a public CA. |
+| **Authentication type**   | Choose the type of authentication to perform while connecting to Redis OSS. Options include,<br>**None**, **Authentication role**, and<br>**Authentication token**.<br>If you choose Authentication role, provide an **Authentication username\*<br>• and an<br>**Authentication password**.<br>If you choose Authentication token, provide an<br>**Authentication password\*<br>• only.                                                                                                                                                                    |
+| **Replication instance**  | **[Optional]\*<br>• Only if you<br>intend to test your connection, choose the name of the<br>replication instance you previously entered on the<br>**Create replication instance\*\*<br>page.                                                                                                                                                                                                                                                                                                                                                               |
+
+When you're finished providing all information for your endpoint, AWS DMS
+creates your Redis OSS target endpoint for use during database migration.
+
+For information about creating a migration task and starting your database
+migration, see [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md").
+
+## Specifying endpoint settings
+
+for Redis OSS as a target
+
+To create or modify a target endpoint, you can use the console or the
+`CreateEndpoint` or `ModifyEndpoint` API operations.
+
+For a Redis OSS target in the AWS DMS console, specify **Endpoint-specific
+settings** on the **Create endpoint** or
+**Modify endpoint** console page.
+
+When using `CreateEndpoint` and `ModifyEndpoint` API
+operations, specify request parameters for the `RedisSettings` option.
+The example following shows how to do this using the AWS CLI.
+
+```
+aws dms create-endpoint --endpoint-identifier `my-redis-target`
+--endpoint-type target --engine-name redis --redis-settings
+'{"ServerName":"`sample-test-sample.zz012zz.cluster.eee1.cache.bbbxxx.com`","Port":6379,"AuthType":"auth-token",
+ "SslSecurityProtocol":"ssl-encryption", "AuthPassword":"`notanactualpassword`"}'
+
+{
+    "Endpoint": {
+        "EndpointIdentifier": "my-redis-target",
+        "EndpointType": "TARGET",
+        "EngineName": "redis",
+        "EngineDisplayName": "Redis",
+        "TransferFiles": false,
+        "ReceiveTransferredFiles": false,
+        "Status": "active",
+        "KmsKeyId": "arn:aws:kms:us-east-1:999999999999:key/x-b188188x",
+        "EndpointArn": "arn:aws:dms:us-east-1:555555555555:endpoint:ABCDEFGHIJKLMONOPQRSTUVWXYZ",
+        "SslMode": "none",
+        "RedisSettings": {
+            "ServerName": "sample-test-sample.zz012zz.cluster.eee1.cache.bbbxxx.com",
+            "Port": 6379,
+            "SslSecurityProtocol": "ssl-encryption",
+            "AuthType": "auth-token"
+        }
+    }
+}
+
+```
+
+The `--redis-settings` parameters follow:
+
+- `ServerName`–(Required) Of type `string`,
+  specifies the Redis OSS cluster that data will be migrated to, and is in your
+  same VPC.
+- `Port`–(Required) Of type `number`, the port
+  value used to access the endpoint.
+- `SslSecurityProtocol`–(Optional) Valid values include `plaintext`
+  and `ssl-encryption`. The default is `ssl-encryption`.
+
+The `plaintext` option doesn't provide Transport Layer Security (TLS)
+encryption for traffic between endpoint and database.
+
+Use `ssl-encryption` to make an encrypted connection. `ssl-encryption`
+doesn’t require an SSL Certificate Authority (CA) ARN to verify a server’s certificate, but one can be
+identified optionally using the `SslCaCertificateArn` setting. If a certificate authority ARN
+isn't given, DMS uses the Amazon root CA.
+
+When using an on-premises Redis OSS target, you can use
+`SslCaCertificateArn` to import public or private Certificate
+Authority (CA) into DMS, and provide that ARN for server authentication. A
+private CA isn’t supported when using ElastiCache (Redis OSS) as a target.
+
+- `AuthType`–(Required) Indicates the type of
+  authentication to perform when connecting to Redis OSS. Valid values include
+  `none`, `auth-token`, and
+  `auth-role`.
+
+The `auth-token` option requires an
+"`AuthPassword`" be provided, while the
+`auth-role` option requires
+"`AuthUserName`" and
+"`AuthPassword`" be provided.

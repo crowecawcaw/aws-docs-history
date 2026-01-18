@@ -1,191 +1,53 @@
-# Saving task
+# Before
 
-settings
+image task settings
 
-You can save task settings as a JSON file in case you want to reuse the
-settings for another task. You can find tasks settings to copy to a JSON file
-under the **Overview details** section of a task.
+When writing CDC updates to a data-streaming target like Kinesis or Apache Kafka, you
+can view a source database row's original values before change by an
+update. To make this possible, AWS DMS populates a _before
+image_ of update events based on data supplied by the source
+database engine. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-###### Note
+To do so, you use the `BeforeImageSettings` parameter, which adds a
+new JSON attribute to every update operation with values collected from the
+source database system.
 
-While reusing task settings for other tasks, remove any
-`CloudWatchLogGroup` and `CloudWatchLogStream`
-attributes. Otherwise, the following error is given: **`SYSTEM ERROR
- MESSAGE:Task Settings CloudWatchLogGroup or CloudWatchLogStream cannot
- be set on create.`**
+Make sure to apply `BeforeImageSettings` only to full load plus CDC
+tasks or CDC only tasks. Full load plus CDC tasks migrate existing data and
+replicate ongoing changes. CDC only tasks replicate data changes only.
 
-For example, the following JSON file contains settings saved for a
-task.
+Don't apply `BeforeImageSettings` to tasks that are full load
+only.
 
-```
+Possible options for `BeforeImageSettings` are the
+following:
 
-{
-    "TargetMetadata": {
-        "TargetSchema": "",
-        "SupportLobs": true,
-        "FullLobMode": false,
-        "LobChunkSize": 0,
-        "LimitedSizeLobMode": true,
-        "LobMaxSize": 32,
-        "InlineLobMaxSize": 0,
-        "LoadMaxFileSize": 0,
-        "ParallelLoadThreads": 0,
-        "ParallelLoadBufferSize": 0,
-        "BatchApplyEnabled": false,
-        "TaskRecoveryTableEnabled": false,
-        "ParallelLoadQueuesPerThread": 0,
-        "ParallelApplyThreads": 0,
-        "ParallelApplyBufferSize": 0,
-        "ParallelApplyQueuesPerThread": 0
-    },
-    "FullLoadSettings": {
-        "TargetTablePrepMode": "DO_NOTHING",
-        "CreatePkAfterFullLoad": false,
-        "StopTaskCachedChangesApplied": false,
-        "StopTaskCachedChangesNotApplied": false,
-        "MaxFullLoadSubTasks": 8,
-        "TransactionConsistencyTimeout": 600,
-        "CommitRate": 10000
-    },
-    "Logging": {
-        "EnableLogging": true,
-        "LogComponents": [
-            {
-                "Id": "TRANSFORMATION",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "SOURCE_UNLOAD",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "IO",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TARGET_LOAD",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "PERFORMANCE",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "SOURCE_CAPTURE",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "SORTER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "REST_SERVER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "VALIDATOR_EXT",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TARGET_APPLY",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TASK_MANAGER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "TABLES_MANAGER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "METADATA_MANAGER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "FILE_FACTORY",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "COMMON",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "ADDONS",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "DATA_STRUCTURE",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "COMMUNICATION",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            },
-            {
-                "Id": "FILE_TRANSFER",
-                "Severity": "LOGGER_SEVERITY_DEFAULT"
-            }
-        ]
-    },
-    "ControlTablesSettings": {
-        "ControlSchema": "",
-        "HistoryTimeslotInMinutes": 5,
-        "HistoryTableEnabled": false,
-        "SuspendedTablesTableEnabled": false,
-        "StatusTableEnabled": false,
-        "FullLoadExceptionTableEnabled": false
-    },
-    "StreamBufferSettings": {
-        "StreamBufferCount": 3,
-        "StreamBufferSizeInMB": 8,
-        "CtrlStreamBufferSizeInMB": 5
-    },
-    "ChangeProcessingDdlHandlingPolicy": {
-        "HandleSourceTableDropped": true,
-        "HandleSourceTableTruncated": true,
-        "HandleSourceTableAltered": true
-    },
-    "ErrorBehavior": {
-        "DataErrorPolicy": "LOG_ERROR",
-        "DataTruncationErrorPolicy": "LOG_ERROR",
-        "DataErrorEscalationPolicy": "SUSPEND_TABLE",
-        "DataErrorEscalationCount": 0,
-        "TableErrorPolicy": "SUSPEND_TABLE",
-        "TableErrorEscalationPolicy": "STOP_TASK",
-        "TableErrorEscalationCount": 0,
-        "RecoverableErrorCount": -1,
-        "RecoverableErrorInterval": 5,
-        "RecoverableErrorThrottling": true,
-        "RecoverableErrorThrottlingMax": 1800,
-        "RecoverableErrorStopRetryAfterThrottlingMax": true,
-        "ApplyErrorDeletePolicy": "IGNORE_RECORD",
-        "ApplyErrorInsertPolicy": "LOG_ERROR",
-        "ApplyErrorUpdatePolicy": "LOG_ERROR",
-        "ApplyErrorEscalationPolicy": "LOG_ERROR",
-        "ApplyErrorEscalationCount": 0,
-        "ApplyErrorFailOnTruncationDdl": false,
-        "FullLoadIgnoreConflicts": true,
-        "FailOnTransactionConsistencyBreached": false,
-        "FailOnNoTablesCaptured": true
-    },
-    "ChangeProcessingTuning": {
-        "BatchApplyPreserveTransaction": true,
-        "BatchApplyTimeoutMin": 1,
-        "BatchApplyTimeoutMax": 30,
-        "BatchApplyMemoryLimit": 500,
-        "BatchSplitSize": 0,
-        "MinTransactionSize": 1000,
-        "CommitTimeout": 1,
-        "MemoryLimitTotal": 1024,
-        "MemoryKeepTime": 60,
-        "StatementCacheSize": 50
-    },
-    "PostProcessingRules": null,
-    "CharacterSetSettings": null,
-    "LoopbackPreventionSettings": null,
-    "BeforeImageSettings": null,
-    "FailTaskWhenCleanTaskResourceFailed": false
-}
+- `EnableBeforeImage` – Turns on before imaging when
+  set to `true`. The default is `false`.
+- `FieldName` – Assigns a name to the new JSON
+  attribute. When `EnableBeforeImage` is `true`,
+  `FieldName` is required and can't be empty.
+- `ColumnFilter` – Specifies a column to add by using
+  before imaging. To add only columns that are part of the table's
+  primary keys, use the default value, `pk-only`. To add any
+  column that has a before image value, use `all`. Note that the
+  before image doesn't support large binary object (LOB) data types such
+  as CLOB and BLOB.
+  The following shows an example of the use of
+  `BeforeImageSettings`.
 
 ```
+"BeforeImageSettings": {
+    "EnableBeforeImage": true,
+    "FieldName": "before-image",
+    "ColumnFilter": "pk-only"
+  }
+```
+
+For information on before image settings for Kinesis, including additional table
+mapping settings, see [Using a before image to view
+original values of CDC rows for a Kinesis data stream as a target](CHAP_Target.md#CHAP_Target.Kinesis.BeforeImage "CHAP_Target.md#CHAP_Target.Kinesis.BeforeImage").
+
+For information on before image settings for Kafka, including additional table
+mapping settings, see [Using a before image to view
+original values of CDC rows for Apache Kafka as a target](CHAP_Target.md#CHAP_Target.Kafka.BeforeImage "CHAP_Target.md#CHAP_Target.Kafka.BeforeImage").

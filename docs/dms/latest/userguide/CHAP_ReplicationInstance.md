@@ -1,93 +1,65 @@
-# Working with replication
+#
 
-engine versions
+Deleting a replication instance
 
-The _replication engine_ is the core AWS DMS software
-that runs on your replication instance and performs the migration tasks you specify. AWS
-periodically releases new versions of the AWS DMS replication engine software, with new
-features and performance improvements. Each version of the replication engine software
-has its own version number, to distinguish it from other versions.
+You can delete an AWS DMS replication instance when you are finished using it. If you
+have migration tasks that use the replication instance, you must stop and delete the
+tasks before deleting the replication instance.
 
-When you launch a new replication instance, it runs the latest AWS DMS engine version
-unless you specify otherwise. For more information, see [Working with an AWS DMS replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+If you close your AWS account, all AWS DMS resources and configurations associated
+with your account are deleted after two days. These resources include all replication
+instances, source and target endpoint configuration, replication tasks, and SSL
+certificates. If after two days you decide to use AWS DMS again, you recreate the
+resources you need.
 
-If you have a replication instance that is currently running, you can upgrade it to a
-more recent engine version. (AWS DMS doesn't support engine version downgrades.) For
-more information about replication engine versions, see [AWS DMS release notes](CHAP_ReleaseNotes.md "CHAP_ReleaseNotes.md").
+If your replication instance meets all the criteria for deletion, and it stays in the
+`DELETING` status for an extended period of time, contact support to troubleshoot the issue.
 
-## Upgrading the engine version using the
+To delete a replication instance, use the AWS console.
 
-console
+###### To delete a replication instance using the AWS console
 
-You can upgrade an AWS DMS replication instance using the AWS Management Console.
-
-###### To upgrade a replication instance using the console
-
-1. Open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+1. Sign in to the AWS Management Console and open the AWS DMS console at
+   [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 2. In the navigation pane, choose **Replication instances**.
-3. Choose your replication engine, and then choose
-   **Modify**.
-4. For **Engine version**, choose the version
-   number you want, and then choose **Modify**.
+3. Choose
+   the replication instance you want to delete.
+4. Choose **Delete**.
+5. In the dialog box, choose **Delete**.
+   To delete a replication instance, use the AWS CLI [`delete-replication-instance`](../../../cli/latest/reference/dms/delete-replication-instance.md "../../../cli/latest/reference/dms/delete-replication-instance.md") command with the following
+   parameter:
 
-###### Note
+- `--replication-instance-arn`
 
-We recommend that you stop all tasks before upgrading the Replication Instance.
-If you don't stop the task, AWS DMS will stop the task automatically before the upgrade. If you stop
-the task manually, you will need to start the task manually after the upgrade is complete. Upgrading the
-replication instance takes several minutes. When the instance is
-ready, its status changes to **available**.
+###### Example delete
 
-## Upgrading the engine version using the AWS CLI
-
-You can upgrade an AWS DMS replication instance using the AWS CLI, as follows.
-
-###### To upgrade a replication instance using the AWS CLI
-
-1. Determine the Amazon Resource Name (ARN) of your replication instance by
-   using the following command.
+The following AWS CLI example deletes a replication instance.
 
 ```
-aws dms describe-replication-instances \
---query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceArn,ReplicationInstanceClass]"
+aws dms delete-replication-instance \
+--replication-instance-arn `arn of my rep instance`
 ```
 
-In the output, take note of the ARN for the replication instance you want
-to upgrade, for example:
-`arn:aws:dms:us-east-1:123456789012:rep:6EFQQO6U6EDPRCPKLNPL2SCEEY` 2. Determine which replication instance versions are available by using the
-following command.
+To delete a replication instance, use the AWS DMS API [`DeleteReplicationInstance`](../APIReference/API_DeleteReplicationInstance.md "../APIReference/API_DeleteReplicationInstance.md") action with the
+following parameters:
+
+- `ReplicationInstanceArn = `arn of my rep
+  instance``
+
+###### Example delete
+
+The following code example deletes a replication instance.
 
 ```
-aws dms describe-orderable-replication-instances \
---query "OrderableReplicationInstances[*].[ReplicationInstanceClass,EngineVersion]"
+https://dms.us-west-2.amazonaws.com/
+?Action=DeleteReplicationInstance
+&DBInstanceArn=`arn of my rep instance`
+&SignatureMethod=HmacSHA256
+&SignatureVersion=4
+&Version=2014-09-01
+&X-Amz-Algorithm=AWS4-HMAC-SHA256
+&X-Amz-Credential=AKIADQKE4SARGYLE/20140425/us-east-1/dms/aws4_request
+&X-Amz-Date=20140425T192732Z
+&X-Amz-SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date
+&X-Amz-Signature=1dc9dd716f4855e9bdf188c70f1cf9f6251b070b68b81103b59ec70c3e7854b3
 ```
-
-In the output, note the engine version number or numbers that are
-available for your replication instance class. You should see this
-information in the output from step 1. 3. Upgrade the replication instance by using the following command.
-
-```
-aws dms modify-replication-instance \
---replication-instance-arn `arn` \
---engine-version `n.n.n`
-```
-
-Replace `arn` in the preceding with the actual
-replication instance ARN from the previous step.
-
-Replace `n.n.n` with the engine version number
-that you want, for example: `3.4.5`
-
-###### Note
-
-Upgrading the replication instance takes several minutes. You can view the
-replication instance status using the following command.
-
-```
-aws dms describe-replication-instances \
---query "ReplicationInstances[*].[ReplicationInstanceIdentifier,ReplicationInstanceStatus]"
-```
-
-When the replication instance is ready, its status changes to
-**available**.

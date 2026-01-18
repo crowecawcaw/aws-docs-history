@@ -1,490 +1,1011 @@
-# Using transformation rule expressions to define column content
+# Table and collection settings rules and operations
 
-To define content for new and existing columns, you can use an expression within a
-transformation rule. For example, using expressions you can add a column or
-replicate source table headers to a target. You can also use expressions to flag
-records on target tables as inserted, updated, or deleted at the source.
+Use table settings to specify any settings that you want to apply to a selected
+table or view for a specified operation. Table-settings rules are optional,
+depending on your endpoint and migration requirements.
+
+Instead of using tables and views, MongoDB and Amazon DocumentDB databases store data
+records as documents that are gathered together in _collections_. A single database for any MongoDB or Amazon DocumentDB endpoint
+is a specific set of collections identified by the database name.
+
+When migrating from a MongoDB or Amazon DocumentDB source, you work with parallel load
+settings slightly differently. In this case, consider the autosegmentation or range
+segmentation type of parallel load settings for selected collections rather than
+tables and views.
 
 ###### Topics
 
-- [Adding a column using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-adding")
-- [Flagging target records using an expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Flagging")
-- [Replicating source table headers using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Headers")
-- [Using SQLite functions to build expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite")
-- [Adding metadata to a target table using expressions](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-Metadata")
+- [Wildcards in table-settings are restricted](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Wildcards "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Wildcards")
+- [Using parallel load for selected tables, views, and collections](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad")
+- [Specifying LOB settings for a selected table or view](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB")
+- [Table-settings examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Examples "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.Examples")
+  For table-mapping rules that use the table-settings rule type, you can apply
+  the following parameters.
 
-## Adding a column using an expression
+| Parameter                        | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `rule-type`                      | `table-settings`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | A value that applies the rule to a table, view, or collection<br>specified by the selection rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `rule-id`                        | A numeric value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | A unique numeric value to identify the<br>rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `rule-name`                      | An alphanumeric value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | A unique name to identify the rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `object-locator`                 | An object with the following parameters:<br>• `schema-name` – The name of the<br>schema. For MongoDB and Amazon DocumentDB endpoints, this is the<br>name of the database holding a set of<br>collections.<br>• `table-name` – The name of the table, view, or collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | The name of a specific schema and table or view or the name of<br>a specific database and collection (no wildcards).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `parallel-load`                  | An object with the following parameters:<br>• `type` – Specifies whether parallel<br>loading is turned on.<br>If it is, this parameter also specifies the mechanism<br>to identify the table or view partitions, subpartitions,<br>or other segments to load in parallel. Partitions are<br>segments that are already defined and identified by name<br>in the source table or view.<br>For MongoDB and Amazon DocumentDB endpoints, partitions are<br>segments. AWS DMS can calculate these automatically given<br>associated autosegmentation parameters. Or you can<br>specify these manually using range segmentation<br>parameters.<br>For Oracle endpoints only, subpartitions are an<br>additional level of segments that are already defined<br>and identified by name in the source table or view. You<br>can identify other segments in the<br>`table-settings` rule by specifying<br>boundaries in the range of values for one or more table<br>or view columns.<br>• `partitions` – When `type`<br>is `partitions-list`, this value specifies<br>all the partitions to load in parallel.<br>• `subpartitions` – For Oracle<br>endpoints only, when `type` is<br>`partitions-list` this value specifies<br>all the subpartitions to load in parallel.<br>• `columns` – When `type` is<br>`ranges`, this value specifies the names<br>of columns used to identify range-based segments to load<br>in parallel.<br>• `boundaries` – When `type`<br>is `ranges`, this value specifies the values<br>of the `columns` used to identify range-based<br>segments to load in parallel.                                                                                                                                                                                                                                                                                                                                                              | A value that specifies a parallel load (multithreaded)<br>operation on the table or view identified by the<br>`object-locator` option. In this case, you can<br>load in parallel in any of these ways:<br>• By segments specified by all available partitions or<br>subpartitions.<br>• By selected partitions and subpartitions.<br>• By autosegmentation or range-based segments that you<br>specify.<br>For more information about parallel load, see [Using parallel load for selected tables, views, and collections](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad"). |
+| `type`                           | One of the following for<br>`parallel-load`:<br>• `partitions-auto` – All partitions of<br>the table or view are loaded in parallel. Every<br>partition is allocated to its own thread.<br>This is a required setting for MongoDB and Amazon DocumentDB<br>source endpoints to use the autosegmentation option of a<br>parallel full load.<br>• `subpartitions-auto` – (Oracle<br>endpoints only) All subpartitions of the table or view<br>are loaded in parallel. Every subpartition is allocated<br>to its own thread.<br>• `partitions-list` – All specified<br>partitions of the table or view are loaded in parallel.<br>For Oracle endpoints only, all specified subpartitions<br>of the table or view are loaded in parallel. Each<br>partition and subpartition that you specify is allocated<br>to its own thread. You specify the partitions and<br>subpartitions to load in parallel by partition names<br>(`partitions`) and subpartition names<br>(`subpartitions`).<br>• `ranges` – All range-specified<br>segments of the table, view, or collection are loaded in<br>parallel. Each table, view, or collection segment that<br>you identify is allocated to its own thread. You specify<br>these segments by column names (`columns`)<br>and column values (`boundaries`).<br>PostgreSQL endpoints support only this type of a<br>parallel load. MongoDB and Amazon DocumentDB as a source endpoints<br>support both this range segmentation type and the<br>autosegmentation type of a parallel full load<br>(`partitions-auto`).<br>• `none` – The table, view, or<br>collection is loaded in a single-threaded task (the<br>default), regardless of its partitions or subpartitions.<br>For more information, see [Creating a task](CHAP_Tasks.md "CHAP_Tasks.md").                                                                                                                                                                 | The mechanism to identify the table, view, or<br>collection partitions, subpartitions, or segments to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `number-of-partitions`           | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint, this parameter specifies the total<br>number of partitions (segments) used for migration. The default is<br>16.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Specifies the exact number of partitions to load<br>in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `collection-count-from-metadata` | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint and this parameter is set to<br>`true`, AWS DMS uses an estimated collection count for<br>determining the number of partitions. If this parameter is set to<br>`false`, AWS DMS uses the actual collection count. The<br>default is `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Specifies whether to use an estimate collection<br>count or the actual collection count to calculate the number of<br>partitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `max-records-skip-per-page`      | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint, this is the number of records to skip<br>at once when determining the boundaries for each partition. AWS DMS<br>uses a paginated skip approach to determine the minimum boundary for<br>a partition. The default is 10,000.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Specifies the number of records to skip at once<br>when determining the boundaries for each partition. Setting a relatively<br>large value from the default might result in cursor timeouts and task<br>failures. Setting a relatively low value from the default results in<br>more operations per page and a slower full load.                                                                                                                                                                                                                                                                                                                                                                                         |
+| `batch-size`                     | (Optional) When `type` is<br>`partitions-auto` for specified collections of a<br>MongoDB or Amazon DocumentDB endpoint, this integer value limits the number of<br>documents returned in one round-trip batch. If the batch size is<br>zero (0), the cursor uses the server-defined maximum batch size. The<br>default is 0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Specifies the maximum number of documents returned<br>in one batch. Each batch requires a round trip to the<br>server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `partitions`                     | When `type` is<br>`partitions-list`, this is an array of strings that<br>specify the names of partitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | The names of partitions to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `subpartitions`                  | (Oracle endpoints only) When `type` is<br>`partitions-list`, this is an array of strings that<br>specifies the names of subpartitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | The names of subpartitions to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `columns`                        | When `type` is `ranges`, an<br>array of strings set to the names of columns that identify<br>range-based table, view, or collection segments to load in<br>parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | The names of columns that identify range-based<br>table, view, or collection segments to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `boundaries`                     | When `type` is `ranges`, an<br>array of column-value arrays. Each column-value array contains<br>column values in the quantity and order specified by<br>`columns`. A column-value array specifies the upper<br>boundary of a table, view, or collection segment. Each additional<br>column-value array adds the upper boundary for one additional table,<br>view, or collection segment. All such range-based table, view, or<br>collection segments load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Column values that identify range-based table,<br>view, or collection partitions to load in parallel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `lob-settings`                   | An object with the following parameters:<br>• `mode` – Specifies the migration<br>handling mode for LOBs.<br>• `bulk-max-size` – Specifies the<br>maximum size of LOBs, depending on the `mode`<br>setting.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | A value that specifies LOB handling for the table<br>or view identified by the `object-locator` option. The<br>specified LOB handling overrides any task LOB settings for this<br>table or view only. For more information about using the LOB<br>settings parameters, see [Specifying LOB settings for a selected table or view](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.LOB").                                                                                                                                                                                                            |
+| `mode`                           | Specifies the migration handling for LOBs in the specified table or view using<br>the following values:<br>• `limited` – (Default) This value sets<br>migration to limited LOB mode, with all LOBs migrated<br>inline together with all other column data types in the<br>table or view. Use this value when replicating mostly<br>small LOBs (100 MB or less). Also, specify a<br>`bulk-max-size` value (zero is invalid).<br>All migrated LOBs greater than<br>`bulk-max-size` are truncated to the size<br>that you set.<br>• `unlimited` – This value sets<br>migration to full LOB mode. Use this value when all or<br>most of the LOBs that you want to replicate are larger<br>than 1 GB. If you specify a `bulk-max-size`<br>value of zero, all LOBs are migrated in<br>*standard<br>• full LOB mode. In this<br>form of `unlimited` mode, all LOBs are<br>migrated separately from other column data types using a<br>lookup from the source table or view. If you specify a<br>`bulk-max-size` value greater than zero,<br>all LOBs are migrated in<br>*combination<br>• full LOB mode. In<br>this form of `unlimited` mode, LOBs greater<br>than `bulk-max-size` are migrated using a<br>source table or view lookup, similar to standard full<br>LOB mode. Otherwise, LOBs up to and including this size<br>are migrated inline, similar to limited LOB mode. No LOB<br>is ever truncated in `unlimited` mode,<br>regardless of the form you use.<br>• `none` – All table or view LOBs are<br>migrated according to the task LOB settings.<br>For more information about the task LOB settings, see<br>[Target<br>metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").<br>For more information about how to migrate LOBs and how<br>to specify these task LOB settings, see [Setting LOB support for source databases in<br>an AWS DMS task](CHAP_Tasks.md "CHAP_Tasks.md"). | The mechanism used to migrate LOBs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `bulk-max-size`                  | The effect of this value depends on the<br>`mode`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The maximum size of LOBs in kilobyte increments.<br>Specify this option only if you need to replicate small LOBs or if<br>the target endpoint doesn't support unlimited LOB size.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-To add columns to tables using an expression in a transformation rule, use an
-`add-column` rule action and a `column` rule
-target.
+## Wildcards in table-settings are restricted
 
-The following example adds a new column to the `ITEM` table. It
-sets the new column name to `FULL_NAME`, with a data type of
-`string`, 50 characters long. The expression concatenates the
-values of two existing columns, `FIRST_NAME` and
-`LAST_NAME`, to evaluate to `FULL_NAME`. The `schema-name`,
-`table-name`, and expression parameters refer to objects in the source database
-table. `Value` and the `data-type` block refer to objects in the target database table.
+Using the percent wildcard (`"%"`) in `"table-settings"`
+rules is not supported for source databases as shown following.
 
 ```
 {
-    "rules": [
-        {
+    "rule-type": "table-settings",
+    "rule-id": "8",
+    "rule-name": "8",
+    "object-locator": {
+        "schema-name": "ipipeline-prod",
+        "table-name": "%"
+    },
+    "parallel-load": {
+        "type": "partitions-auto",
+        "number-of-partitions": 16,
+        "collection-count-from-metadata": "true",
+        "max-records-skip-per-page": 1000000,
+        "batch-size": 50000
+    }
+  }
+```
+
+If you use `"%"` in the `"table-settings"` rules as
+shown, then AWS DMS returns the exception following.
+
+```
+Error in mapping rules. Rule with ruleId = x failed validation. Exact
+schema and table name required when using table settings rule.
+```
+
+In addition, AWS recommends that you don't load a great number of large
+collections using a single task with `parallel-load`. Note that AWS DMS
+limits resource contention as well as the number of segments loaded in parallel
+by the value of the `MaxFullLoadSubTasks` task settings parameter,
+with a maximum value of 49.
+
+Instead, specify all collections for your source database for the largest
+collections by specifying each `"schema-name"` and
+`"table-name"` individually. Also, scale up your migration
+properly. For example, run multiple tasks across a sufficient number of
+replication instances to handle a great number of large collections in your
+database.
+
+## Using parallel load for selected tables, views, and collections
+
+To speed up migration and make it more efficient, you can use parallel load
+for selected relational tables, views, and collections. In other words, you can
+migrate a single segmented table, view, or collection using several threads in
+parallel. To do this, AWS DMS splits a full-load task into threads, with each
+table segment allocated to its own thread.
+
+Using this parallel-load process, you can first have multiple threads unload
+multiple tables, views, and collections in parallel from the source endpoint.
+You can then have multiple threads migrate and load the same tables, views, and
+collections in parallel to the target endpoint. For some database engines, you
+can segment the tables and views by existing partitions or subpartitions. For
+other database engines, you can have AWS DMS automatically segment collections
+according to specific parameters (autosegmentation). Otherwise, you can segment
+any table, view, or collection by ranges of column values that you
+specify.
+
+Parallel load is supported for the following source endpoints:
+
+- Oracle
+- Microsoft SQL Server
+- MySQL
+- PostgreSQL
+- IBM Db2 LUW
+- SAP Adaptive Server Enterprise (ASE)
+- MongoDB (only supports the autosegmentation and range segmentation
+  options of a parallel full load)
+- Amazon DocumentDB (only supports the autosegmentation and range segmentation
+  options of a parallel full load)
+
+For MongoDB and Amazon DocumentDB endpoints, AWS DMS supports the following data types for
+columns that are partition keys for the range segmentation option of a parallel
+full load.
+
+- Double
+- String
+- ObjectId
+- 32 bit integer
+- 64 bit integer
+
+Parallel load for use with table-setting rules are supported for the following
+target endpoints:
+
+- Oracle
+- Microsoft SQL Server
+- MySQL
+- PostgreSQL
+- Amazon S3
+- SAP Adaptive Server Enterprise (ASE)
+- Amazon Redshift
+- MongoDB (only supports the autosegmentation and range segmentation
+  options of a parallel full load)
+- Amazon DocumentDB (only supports the autosegmentation and range segmentation
+  options of a parallel full load)
+- Db2 LUW
+
+To specify the maximum number of tables and views to load in parallel, use the
+`MaxFullLoadSubTasks` task setting.
+
+To specify the maximum number of threads per table or view for the supported targets
+of a parallel-load task, define more segments using column-value boundaries.
+
+###### Important
+
+`MaxFullLoadSubTasks` controls the number of tables or
+table segments to load in parallel. `ParallelLoadThreads`
+controls the number of threads that are used by a migration task to
+execute the loads in parallel. _These settings are
+multiplicative_. As such, the total number of threads that
+are used during a full load task is approximately the result of the
+value of `ParallelLoadThreads` multiplied by the value of
+`MaxFullLoadSubTasks` (`ParallelLoadThreads`
+**\***
+`MaxFullLoadSubtasks)`.
+
+If you create tasks with a high number of Full Load sub tasks and a high number of parallel
+load threads, your task can consume too much memory and fail.
+
+To specify the maximum number of threads per table for Amazon DynamoDB, Amazon Kinesis Data Streams, Apache Kafka,
+or Amazon Elasticsearch Service targets, use the `ParallelLoadThreads` target metadata task setting.
+
+To specify the buffer size for a parallel load task when `ParallelLoadThreads` is used,
+use the `ParallelLoadBufferSize` target metadata task setting.
+
+The availability and settings of `ParallelLoadThreads` and `ParallelLoadBufferSize`
+depend on the target endpoint.
+
+For more information about the `ParallelLoadThreads`
+and `ParallelLoadBufferSize` settings, see [Target
+metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+For more information about the `MaxFullLoadSubTasks` setting, see
+[Full-load
+task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md"). For
+information specific to target endpoints, see the related topics.
+
+To use parallel load, create a table-mapping rule of type
+`table-settings` with the `parallel-load` option.
+Within the `table-settings` rule, you can specify the segmentation
+criteria for a single table, view, or collection that you want to load in
+parallel. To do so, set the `type` parameter of the
+`parallel-load` option to one of several options.
+
+How to do this depends on how you want to segment the table, view, or
+collection for parallel load:
+
+- By partitions (or segments) – Load all existing table or view
+  partitions (or segments) using the `partitions-auto` type. Or
+  load only selected partitions using the `partitions-list`
+  type with a specified partitions array.
+
+For MongoDB and Amazon DocumentDB endpoints only, load all or specified
+collections by segments that AWS DMS automatically calculates also using
+the `partitions-auto` type and additional optional
+`table-settings` parameters.
+
+- (Oracle endpoints only) By subpartitions – Load all existing
+  table or view subpartitions using the `subpartitions-auto`
+  type. Or load only selected subpartitions using the
+  `partitions-list` type with a specified
+  `subpartitions` array.
+- By segments that you define – Load table, view, or collection
+  segments that you define by using column-value boundaries. To do so, use
+  the `ranges` type with specified `columns` and
+  `boundaries` arrays.
+
+###### Note
+
+PostgreSQL endpoints support only this type of a parallel load.
+MongoDB and Amazon DocumentDB as a source endpoints support both this range
+segmentation type and the autosegmentation type of a parallel full
+load (`partitions-auto`).
+
+To identify additional tables, views, or collections to load in parallel,
+specify additional `table-settings` objects with
+`parallel-load` options.
+
+In the following procedures, you can find out how to code JSON for each
+parallel-load type, from the simplest to the most complex.
+
+###### To specify all table, view, or collection partitions, or all table or
+
+view subpartitions
+
+- Specify `parallel-load` with either the
+  `partitions-auto` type or the
+  `subpartitions-auto` type (but not both).
+
+Every table, view, or collection partition (or segment) or
+subpartition is then automatically allocated to its own thread.
+
+For some endpoints, parallel load includes partitions or subpartitions
+only if they are already defined for the table or view. For MongoDB and
+Amazon DocumentDB source endpoints, you can have AWS DMS automatically calculate the
+partitions (or segments) based on optional additional parameters. These
+include `number-of-partitions`,
+`collection-count-from-metadata`,
+`max-records-skip-per-page`, and
+`batch-size`.
+
+###### To specify selected table or view partitions, subpartitions, or
+
+both
+
+1. Specify `parallel-load` with the
+   `partitions-list` type.
+2. (Optional) Include partitions by specifying an array of partition
+   names as the value of `partitions`.
+
+Each specified partition is then allocated to its own thread.
+
+###### Important
+
+For Oracle endpoints, make sure partitions and subpartitions
+aren't overlapping when choosing them for parallel load. If you
+use overlapping partitions and subpartitions to load data in
+parallel, it duplicates entries, or it fails due to a primary key
+duplicate violation. 3. (Optional) , For Oracle endpoints only, include subpartitions by
+specifying an array of subpartition names as the value of
+`subpartitions`.
+
+Each specified subpartition is then allocated to its own
+thread.
+
+###### Note
+
+Parallel load includes partitions or subpartitions only if they
+are already defined for the table or view.
+
+You can specify table or view segments as ranges of column values. When you do
+so, be aware of these column characteristics:
+
+- Specifying indexed columns significantly improves performance.
+- You can specify up to 10 columns.
+- You can't use columns to define segment boundaries with the
+  following AWS DMS data types: DOUBLE, FLOAT, BLOB, CLOB, and NCLOB
+- Records with null values aren't replicated.
+
+###### To specify table, view, or collection segments as ranges of column
+
+values
+
+1. Specify `parallel-load` with the `ranges`
+   type.
+2. Define a boundary between table or view segments by specifying an
+   array of column names as the value of `columns`. Do this for
+   every column for which you want to define a boundary between table or
+   view segments.
+
+The order of columns is significant. The first column is the most
+significant and the last column is least significant in defining each
+boundary, as described following. 3. Define the data ranges for all the table or view segments by
+specifying a boundary array as the value of `boundaries`. A
+_boundary array_ is an array of column-value
+arrays. To do so, take the following steps:
+
+    1. Specify each element of a column-value array as a value that
+     corresponds to each column. A *column-value
+     array* represents the upper boundary of each table
+     or view segment that you want to define. Specify each column in
+     the same order that you specified that column in the
+     `columns` array.
+
+
+    Enter values for DATE columns in the format supported by the
+     source.
+    2. Specify each column-value array as the upper boundary, in
+     order, of each segment from the bottom to the next-to-top
+     segment of the table or view. If any rows exist above the top
+     boundary that you specify, these rows complete the top segment
+     of the table or view. Thus, the number of range-based segments
+     is potentially one more than the number of segment boundaries in
+     the boundary array. Each such range-based segment is allocated
+     to its own thread.
+
+
+    All of the non-null data is replicated, even if you don't
+     define data ranges for all of the columns in the table or
+     view.For example, suppose that you define three column-value arrays for
+
+columns COL1, COL2, and COL3 as follows.
+
+| COL1 | COL2 | COL3 |
+| ---- | ---- | ---- |
+| 10   | 30   | 105  |
+| 20   | 20   | 120  |
+| 100  | 12   | 99   |
+
+You have defined three segment boundaries for a possible total of four
+segments.
+
+To identify the ranges of rows to replicate for each segment, the
+replication instance applies a search to these three columns for each of
+the four segments. The search is like the following:
+
+**Segment 1**
+
+Replicate all rows where the following is true: The first
+two-column values are less than or equal to their
+corresponding **Segment 1**
+upper boundary values. Also, the values of the third column
+are less than its **Segment 1**
+upper boundary value.
+
+**Segment 2**
+
+Replicate all rows (except **Segment
+1** rows) where the following is true: The
+first two-column values are less than or equal to their
+corresponding **Segment 2**
+upper boundary values. Also, the values of the third column
+are less than its **Segment 2**
+upper boundary value.
+
+**Segment 3**
+
+Replicate all rows (except **Segment
+2** rows) where the following is true: The
+first two-column values are less than or equal to their
+corresponding **Segment 3**
+upper boundary values. Also, the values of the third column
+are less than its **Segment 3**
+upper boundary value.
+
+**Segment 4**
+
+Replicate all remaining rows (except the **Segment 1, 2, and 3** rows).
+
+In this case, the replication instance creates a
+`WHERE` clause to load each segment as
+follows:
+
+**Segment 1**
+
+`((COL1 < 10) OR ((COL1 = 10) AND (COL2 < 30))
+ OR ((COL1 = 10) AND (COL2 = 30) AND (COL3 <
+ 105)))`
+
+**Segment 2**
+
+`NOT ((COL1 < 10) OR ((COL1 = 10) AND (COL2 <
+ 30)) OR ((COL1 = 10) AND (COL2 = 30) AND (COL3 <
+ 105))) AND ((COL1 < 20) OR ((COL1 = 20) AND (COL2
+ < 20)) OR ((COL1 = 20) AND (COL2 = 20) AND (COL3 <
+ 120)))`
+
+**Segment 3**
+
+`NOT ((COL1 < 20) OR ((COL1 = 20) AND (COL2 <
+ 20)) OR ((COL1 = 20) AND (COL2 = 20) AND (COL3 <
+ 120))) AND ((COL1 < 100) OR ((COL1 = 100) AND (COL2
+ < 12)) OR ((COL1 = 100) AND (COL2 = 12) AND (COL3
+ < 99)))`
+
+**Segment 4**
+
+`NOT ((COL1 < 100) OR ((COL1 = 100) AND (COL2 <
+ 12)) OR ((COL1 = 100) AND (COL2 = 12) AND (COL3 <
+ 99)))`
+
+## Specifying LOB settings for a selected table or view
+
+You can set task LOB settings for one or more tables by creating a
+table-mapping rule of type `table-settings` with the
+`lob-settings` option for one or more `table-settings`
+objects.
+
+Specifying LOB settings for selected tables or views is supported for the
+following source endpoints:
+
+- Oracle
+- Microsoft SQL Server
+- MySQL
+- PostgreSQL
+- IBM Db2, depending on the `mode` and
+  `bulk-max-size` settings, described following
+- SAP Adaptive Server Enterprise (ASE), depending on the
+  `mode` and `bulk-max-size` settings, as
+  described following
+
+Specifying LOB settings for selected tables or views is supported for the
+following target endpoints:
+
+- Oracle
+- Microsoft SQL Server
+- MySQL
+- PostgreSQL
+- SAP ASE, depending on the `mode` and
+  `bulk-max-size` settings, as described following
+
+###### Note
+
+You can use LOB data types only with tables and views that include a
+primary key.
+
+To use LOB settings for a selected table or view, you create a table-mapping
+rule of type `table-settings` with the `lob-settings`
+option. Doing this specifies LOB handling for the table or view identified by
+the `object-locator` option. Within the `table-settings`
+rule, you can specify a `lob-settings` object with the following
+parameters:
+
+- `mode` – Specifies the mechanism for handling LOB
+  migration for the selected table or view as follows:
+
+      + `limited` – The default limited LOB mode is
+       the fastest and most efficient mode. Use this mode only if all
+       of your LOBs are small (within 100 MB in size) or the target
+       endpoint doesn't support an unlimited LOB size. Also if you
+       use `limited`, all LOBs need to be within the size
+       that you set for `bulk-max-size`.
+
+
+      In this mode for a full load task, the replication instance
+       migrates all LOBs inline together with other column data types
+       as part of main table or view storage. However, the instance
+       truncates any migrated LOB larger than your
+       `bulk-max-size` value to the specified size. For
+       a change data capture (CDC) load task, the instance migrates all
+       LOBs using a source table lookup, as in standard full LOB mode
+       (see the following).
+
+
+      ###### Note
+
+      You can migrate views for full-load tasks only.
+      + `unlimited` – The migration mechanism for
+       full LOB mode depends on the value you set for
+       `bulk-max-size` as follows:
+
+
+
+
+      	- **Standard full LOB
+      	 mode** – When you set
+      	 `bulk-max-size` to zero, the replication
+      	 instance migrates all LOBs using standard full LOB mode.
+      	 This mode requires a lookup in the source table or view
+      	 to migrate every LOB, regardless of size. This approach
+      	 typically results in a much slower migration than for
+      	 limited LOB mode. Use this mode only if all or most of
+      	 your LOBs are large (1 GB or larger).
+      	- **Combination full LOB
+      	 mode** – When you set
+      	 `bulk-max-size` to a nonzero value, this
+      	 full LOB mode uses a combination of limited LOB mode and
+      	 standard full LOB mode. That is for a full load task, if
+      	 a LOB size is within your `bulk-max-size`
+      	 value, the instance migrates the LOB inline as in
+      	 limited LOB mode. If the LOB size is greater than this
+      	 value, the instance migrates the LOB using a source
+      	 table or view lookup as in standard full LOB mode. For a
+      	 change data capture (CDC) load task, the instance
+      	 migrates all LOBs using a source table lookup, as in
+      	 standard full LOB mode (see the following). It does so
+      	 regardless of LOB size.
+
+
+      	###### Note
+
+      	You can migrate views for full-load tasks
+      	 only.
+
+
+      	This mode results in a migration speed that is a
+      	 compromise between the faster, limited LOB mode and the
+      	 slower, standard full LOB mode. Use this mode only when
+      	 you have a mix of small and large LOBs, and most of the
+      	 LOBs are small.
+
+
+      	This combination full LOB mode is available only for
+      	 the following endpoints:
+
+
+
+
+      		* IBM Db2 as source
+      		* SAP ASE as source or target
+      Regardless of the mechanism you specify for
+       `unlimited` mode, the instance migrates all LOBs
+       fully, without truncation.
+      + `none` – The replication instance migrates
+       LOBs in the selected table or view using your task LOB settings.
+       Use this option to help compare migration results with and
+       without LOB settings for the selected table or view.
+
+  If the specified table or view has LOBs included in the replication,
+  you can set the `BatchApplyEnabled` task setting to
+  `true` only when using `limited` LOB mode.
+
+In some cases, you might set `BatchApplyEnabled` to
+`true` and `BatchApplyPreserveTransaction` to
+`false`. In these cases, the instance sets
+`BatchApplyPreserveTransaction` to `true` if
+the table or view has LOBs and the source and target endpoints are
+Oracle.
+
+- `bulk-max-size` – Set this value to a zero or
+  non-zero value in kilobytes, depending on the `mode` as
+  described for the previous items. In `limited` mode, you must
+  set a nonzero value for this parameter.
+
+The instance converts LOBs to binary format. Therefore, to specify the
+largest LOB you need to replicate, multiply its size by three. For
+example, if your largest LOB is 2 MB, set `bulk-max-size` to
+6,000 (6 MB).
+
+## Table-settings examples
+
+Following, you can find some examples that demonstrate the use of table
+settings.
+
+###### Example Load a table segmented by partitions
+
+The following example loads a `SALES` table in your source more
+efficiently by loading it in parallel based on all its partitions.
+
+```
+{
+   "rules": [{
             "rule-type": "selection",
             "rule-id": "1",
             "rule-name": "1",
             "object-locator": {
-                "schema-name": "Test",
+                "schema-name": "%",
                 "table-name": "%"
             },
             "rule-action": "include"
         },
         {
-            "rule-type": "transformation",
+            "rule-type": "table-settings",
             "rule-id": "2",
             "rule-name": "2",
-            "rule-action": "add-column",
-            "rule-target": "column",
             "object-locator": {
-                "schema-name": "Test",
-                "table-name": "ITEM"
+                "schema-name": "HR",
+                "table-name": "SALES"
             },
-            "value": "FULL_NAME",
-            "expression": "$FIRST_NAME||'_'||$LAST_NAME",
-            "data-type": {
-                 "type": "string",
-                 "length": 50
+            "parallel-load": {
+                "type": "partitions-auto"
+            }
+        }
+     ]
+}
+```
+
+###### Example Load a table segmented by subpartitions
+
+The following example loads a `SALES` table in your Oracle
+source more efficiently by loading it in parallel based on all its
+subpartitions.
+
+```
+{
+   "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "HR",
+                "table-name": "SALES"
+            },
+            "parallel-load": {
+                "type": "subpartitions-auto"
+            }
+        }
+     ]
+}
+```
+
+###### Example Load a table segmented by a list of partitions
+
+The following example loads a `SALES` table in your source
+by loading it in parallel by a particular list of partitions. Here, the
+specified partitions are named after values starting with portions of
+the alphabet, for example `ABCD`, `EFGH`, and so
+on.
+
+```
+{
+    "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "HR",
+                "table-name": "SALES"
+            },
+            "parallel-load": {
+                "type": "partitions-list",
+                "partitions": [
+                    "ABCD",
+                    "EFGH",
+                    "IJKL",
+                    "MNOP",
+                    "QRST",
+                    "UVWXYZ"
+                ]
             }
         }
     ]
 }
-
 ```
 
-## Flagging target records using an expression
+###### Example Load an Oracle table segmented by a selected list of partitions and
 
-To flag records in target tables as inserted, updated, or deleted in the
-source table, use an expression in a transformation rule. The expression
-uses an `operation_indicator` function to flag records. Records
-deleted from the source aren't deleted from the target. Instead, the
-target record is flagged with a user-provided value to indicate that it was
-deleted from the source.
+subpartitions
 
-###### Note
-
-The `operation_indicator` function works only on tables
-that have a primary key on both source and target database.
-
-For example, the following transformation rule first adds a new
-`Operation` column to a target table. It then updates the
-column with the value `D` whenever a record is deleted from a
-source table.
+The following example loads a `SALES` table in your Oracle
+source by loading it in parallel by a selected list of partitions and
+subpartitions. Here, the specified partitions are named after values
+starting with portions of the alphabet, for example `ABCD`,
+`EFGH`, and so on. The specified subpartitions are named
+after values starting with numerals, for example `01234` and
+`56789`.
 
 ```
 {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%"
-      },
-      "rule-action": "add-column",
-      "value": "Operation",
-      "expression": "operation_indicator('D', 'U', 'I')",
-      "data-type": {
-        "type": "string",
-        "length": 50
-      }
+    "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "HR",
+                "table-name": "SALES"
+            },
+            "parallel-load": {
+                "type": "partitions-list",
+                "partitions": [
+                    "ABCD",
+                    "EFGH",
+                    "IJKL",
+                    "MNOP",
+                    "QRST",
+                    "UVWXYZ"
+                ],
+                "subpartitions": [
+                    "01234",
+                    "56789"
+                ]
+            }
+        }
+    ]
 }
-
 ```
 
-## Replicating source table headers using expressions
+###### Example Load a table segmented by ranges of column values
 
-By default, headers for source tables aren't replicated to the target. To
-indicate which headers to replicate, use a transformation rule with an
-expression that includes the table column header.
-
-You can use the following column headers in expressions.
-
-| Header                | Value in ongoing replication                                                                                                                                                                                                     | Value in full load                                                     | Data type          |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------ |
-| AR_H_STREAM_POSITION  | The stream position value from the source.<br>This value might be the system change number (SCN) or the<br>log sequence number (LSN), depending on the source<br>endpoint.                                                       | An empty string.                                                       | STRING             |
-| AR_H_TIMESTAMP        | A timestamp indicating the time of the<br>change.                                                                                                                                                                                | A timestamp indicating the current time data<br>arrives at the target. | DATETIME (scale=7) |
-| AR_H_COMMIT_TIMESTAMP | A timestamp indicating the time of the<br>commit.                                                                                                                                                                                | A timestamp indicating the current<br>time.                            | DATETIME (scale=7) |
-| AR_H_OPERATION        | INSERT, UPDATE, or DELETE                                                                                                                                                                                                        | INSERT                                                                 | STRING             |
-| AR_H_USER             | The user name, ID, or any other information<br>that the source provides about the user that made the<br>change. This header is supported on the SQL Server and<br>Oracle (version 11.2.0.3 and higher) source endpoints<br>only. | An empty string.                                                       | STRING             |
-| AR_H_CHANGE_SEQ       | A unique incrementing number from the source<br>database that consists of a timestamp and an auto incrementing number.<br>The value depends on the source database system.                                                       | An empty string.                                                       | STRING             |
-
-The following example adds a new column to the target by using the stream
-position value from the source. For SQL Server, the stream position value is
-the LSN for the source endpoint. For Oracle, the stream position value is
-the SCN for the source endpoint.
+The following example loads a `SALES` table in your source
+by loading it in parallel by segments specified by ranges of the
+`SALES_NO` and `REGION` column values.
 
 ```
 {
-      "rule-type": "transformation",
-     "rule-id": "2",
-      "rule-name": "2",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%"
-      },
-      "rule-action": "add-column",
-      "value": "transact_id",
-      "expression": "$AR_H_STREAM_POSITION",
-      "data-type": {
-        "type": "string",
-        "length": 50
-      }
-    }
-
+    "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "HR",
+                "table-name": "SALES"
+            },
+            "parallel-load": {
+                "type": "ranges",
+                "columns": [
+                    "SALES_NO",
+                    "REGION"
+                ],
+                "boundaries": [
+                    [
+                        "1000",
+                        "NORTH"
+                    ],
+                    [
+                        "3000",
+                        "WEST"
+                    ]
+                ]
+            }
+        }
+    ]
+}
 ```
 
-The following example adds a new column to the target that has a unique
-incrementing number from the source. This value represents a 35 digit unique
-number at task level. The first 16 digits are part of a timestamp, and the last
-19 digits are the record_id number incremented by the DBMS.
+Here, two columns are specified for the segment ranges with the names,
+`SALES_NO` and `REGION`. Two boundaries are
+specified with two sets of column values (`["1000","NORTH"]`
+and `["3000","WEST"]`).
+
+These two boundaries thus identify the following three table
+segments to load in parallel:
+
+Segment 1
+
+Rows with `SALES_NO` less than or equal to
+1,000 and `REGION` less than "NORTH". In other
+words, sales numbers up to 1,000 in the EAST region.
+
+Segment 2
+
+Rows other than **Segment 1**
+with `SALES_NO` less than or equal to 3,000 and
+`REGION` less than "WEST". In other words,
+sales numbers over 1,000 up to 3,000 in the NORTH and SOUTH
+regions.
+
+Segment 3
+
+All remaining rows other than **Segment 1** and **Segment
+2**. In other words, sales numbers over 3,000
+in the "WEST" region.
+
+###### Example Load two tables: One segmented by ranges and another segmented by
+
+partitions
+
+The following example loads a `SALES` table in parallel by
+segment boundaries that you identify. It also loads an
+`ORDERS` table in parallel by all of its partitions, as
+with previous examples.
 
 ```
 {
-"rule-type": "transformation",
-"rule-id": "2",
-"rule-name": "2",
-"rule-target": "column",
-"object-locator": {
-"schema-name": "%",
-"table-name": "%"
-},
-"rule-action": "add-column",
-"value": "transact_id",
-"expression": "$AR_H_CHANGE_SEQ",
-"data-type": {
-"type": "string",
-"length": 50
+    "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "HR",
+                "table-name": "SALES"
+            },
+            "parallel-load": {
+                "type": "ranges",
+                "columns": [
+                    "SALES_NO",
+                    "REGION"
+                ],
+                "boundaries": [
+                    [
+                        "1000",
+                        "NORTH"
+                    ],
+                    [
+                        "3000",
+                        "WEST"
+                    ]
+                ]
+            }
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "3",
+            "rule-name": "3",
+            "object-locator": {
+                "schema-name": "HR",
+                "table-name": "ORDERS"
+            },
+            "parallel-load": {
+                "type": "partitions-auto"
+            }
+        }
+    ]
 }
-}
-
 ```
 
-## Using SQLite functions to build expressions
+###### Example Load a table with LOBs using the task LOB settings
 
-You use table settings to specify any settings that you want to apply to the
-selected table or view for a specified operation. Table-settings rules are
-optional.
-
-###### Note
-
-Instead of the concept of tables and views, MongoDB and DocumentDB
-databases store data records as documents that are gathered together in
-_collections_. So then, when migrating
-from a MongoDB or DocumentDB source, consider the range segmentation type of
-parallel load settings for selected _collections_ rather than tables and views.
-
-###### Topics
-
-- [Using a CASE expression](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.CASE")
-- [Examples](#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex "#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions-SQLite.Ex")
-
-Following, you can find string functions that you can use to build
-transformation rule expressions.
-
-| String functions       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `lower(`x`)`           | The<br>`lower(`x`)`<br>function returns a copy of string<br>`x` with all<br>characters converted to lowercase. The default, built-in<br>`lower` function works for ASCII characters<br>only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `upper(`x`)`           | The<br>`upper(`x`)`<br>function returns a copy of string<br>`x` with all<br>characters converted to uppercase. The default, built-in<br>`upper` function works for ASCII characters<br>only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `ltrim(`x`,`y`)`       | The<br>`ltrim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in y from the left side of x. If there is no<br>value for y, `ltrim(x)` removes spaces from the<br>left side of x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `replace(`x``,y`,`z`)` | The<br>`replace(`x``,y`,`z`)`<br>function returns a string formed by substituting string z<br>for every occurrence of string y in string x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `rtrim(`x`,`y`)`       | The<br>`rtrim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in y from the right side of x. If there is no<br>value for y, `rtrim(x)` removes spaces from the<br>right side of x.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `substr(`x`,`y`,`z`)`  | The<br>`substr(`x`,`y`,`z`)`<br>function returns a substring of the input string<br>`x` that<br>begins with the `y`th<br>character, and which is<br>`z` characters<br>long.<br>If `z` is omitted,<br>`substr(`x`,`y`)`<br>returns all characters through the end of string<br>`x` beginning<br>with the `y`th<br>character. The leftmost character of<br>`x` is number<br>1. If `y` is negative,<br>the first character of the substring is found by counting<br>from the right rather than the left. If<br>`z` is<br>negative, then the `abs(z)` characters preceding<br>the `y`th character<br>are returned. If `x`<br>is a string, then the characters' indices refer to<br>actual UTF-8 characters. If<br>`x` is a BLOB,<br>then the indices refer to bytes. |
-| `trim(`x`,`y`)`        | The<br>`trim(`x`,`y`)`<br>function returns a string formed by removing all characters<br>that appear in `y`<br>from both sides of<br>`x`. If there is no<br>value for `y`,<br>`trim(`x`)`<br>removes spaces from both sides of<br>`x`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-
-Following, you can find LOB functions that you can use to build transformation
-rule expressions.
-
-| LOB functions         | Description                                                                                                                                                    |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hex(x)`              | The `hex` function receives a BLOB as an<br>argument and returns an uppercase hexadecimal string version<br>of the BLOB content.                               |
-| `randomblob<br>(`N`)` | The `randomblob(`N`)`<br>function returns an<br>`N`-byte BLOB that<br>contains pseudorandom bytes. If `N`<br>is less than 1, a 1-byte random BLOB is returned. |
-| `zeroblob(N)`         | The `zeroblob(`N`)`<br>function returns a BLOB that consists of<br>`N` bytes of<br>0x00.                                                                       |
-
-Following, you can find numeric functions that you can use to build
-transformation rule expressions.
-
-| Numeric functions     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `abs(`x`)`            | The `abs(`x`)`<br>function returns the absolute value of the numeric argument<br>`x`. The<br>`abs(`x`)`<br>function returns NULL if `x` is<br>NULL. The `abs(`x`)`<br>function returns 0.0 if<br>`x`<br>is a string or BLOB that can't be converted to a<br>numeric value.                                                                                                                                                                                                                                                                                                                                    |
-| `random()`            | The `random` function returns a pseudorandom<br>integer between -9,223,372,036,854,775,808 and<br>+9,223,372,036,854,775,807.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `round<br>(`x`,`y`)`  | The `round<br>(`x`,`y`)`<br>function returns a floating-point value<br>`x` rounded to<br>`y` digits to the right of the<br>decimal point. If there is no value for<br>`y`, it's assumed to be<br>0.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `max<br>(`x`,`y`...)` | The multiargument `max` function returns the<br>argument with the maximum value, or returns NULL if any<br>argument is NULL.<br>The `max` function searches its arguments from<br>left to right for an argument that defines a collating<br>function. If one is found, it uses that collating function<br>for all string comparisons. If none of the arguments to<br>`max` define a collating function, the<br>`BINARY` collating function is used. The<br>`max` function is a simple function when it<br>has two or more arguments, but it operates as an aggregate<br>function if it has a single argument. |
-| `min<br>(`x`,`y`...)` | The multiargument `min` function returns the<br>argument with the minimum value.<br>The `min` function searches its arguments from<br>left to right for an argument that defines a collating<br>function. If one is found, it uses that collating function<br>for all string comparisons. If none of the arguments to<br>`min` define a collating function, the<br>`BINARY` collating function is used. The<br>`min` function is a simple function when it<br>has two or more arguments, but it operates as an aggregate<br>function if it has a single argument.                                             |
-
-Following, you can find NULL check functions that you can use to build
-transformation rule expressions.
-
-| NULL check functions    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `coalesce (`x`,`y`...)` | The `coalesce` function returns a copy of its<br>first non-NULL argument, but it returns NULL if all<br>arguments are NULL. The coalesce function has at least two<br>arguments.                                                                                                                                                                                                                                                                                                                              |
-| `ifnull(`x`,`y`)`       | The `ifnull` function returns a copy of its<br>first non-NULL argument, but it returns NULL if both<br>arguments are NULL. The `ifnull` function has<br>exactly two arguments. The `ifnull` function is<br>the same as `coalesce` with two arguments.                                                                                                                                                                                                                                                         |
-| `nullif(`x`,`y`)`       | The<br>`nullif(`x`,`y`)`<br>function returns a copy of its first argument if the<br>arguments are different, but it returns NULL if the<br>arguments are the same.<br>The<br>`nullif(`x`,`y`)`<br>function searches its arguments from left to right for an<br>argument that defines a collating function. If one is found,<br>it uses that collating function for all string comparisons.<br>If neither argument to nullif defines a collating function,<br>then the `BINARY` collating function is<br>used. |
-
-Following, you can find date and time functions that you can use to build
-transformation rule expressions.
-
-| Date and time functions                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date(`timestring`,<br>`modifier`,<br>`modifier`...)`                  | The `date` function returns the<br>date in the format YYYY-MM-DD.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `time(`timestring`,<br>`modifier`,<br>`modifier`...)`                  | The `time` function returns the time in the<br>format HH:MM:SS.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `datetime(`timestring`,<br>`modifier`,<br>`modifier`...)`              | The `datetime` function returns the date and<br>time in the format YYYY-MM-DD HH:MM:SS.                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `julianday(`timestring`,<br>`modifier`,<br>`modifier`...)`             | The `julianday` function returns the number of<br>days since noon in Greenwich on November 24, 4714<br>B.C.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `strftime(`format`,<br>`timestring`,<br>`modifier`,<br>`modifier`...)` | The `strftime` function returns the date<br>according to the format string specified as the first<br>argument, using one of the following variables:<br>`%d`: day of month<br>`%H`: hour 00–24<br>`%f`: \*\<br>• fractional seconds SS.SSS<br>`%j`: day of year 001–366<br>`%J`: \*\<br>• Julian day number<br>`%m`: month 01–12<br>`%M`: minute 00–59<br>`%s`: seconds since 1970-01-01<br>`%S`: seconds 00–59<br>`%w`: day of week 0–6 sunday==0<br>`%W`: week of year 00–53<br>`%Y`: year 0000–9999<br>`%%`: % |
-
-Following, you can find a hash function that you can use to build
-transformation rule expressions.
-
-| Hash function      | Description                                                                                                                                                                                                                                                                                                         |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hash_sha256(`x`)` | The `hash` function generates a hash value for<br>an input column (using the SHA-256 algorithm) and returns<br>the hexadecimal value of the generated hash value.<br>To use the `hash` function in an expression,<br>add `hash_sha256(`x`)`<br>to the expression and replace<br>`x` with the<br>source column name. |
-
-### Using a CASE expression
-
-The SQLite `CASE` expression evaluates a list of conditions
-and returns an expression based on the result. Syntax is shown
-following.
-
-```
-    CASE case_expression
-     WHEN when_expression_1 THEN result_1
-     WHEN when_expression_2 THEN result_2
-     ...
-     [ ELSE result_else ]
-    END
-
-# Or
-
-     CASE
-     WHEN case_expression THEN result_1
-     WHEN case_expression THEN result_2
-     ...
-     [ ELSE result_else ]
-    END
-```
-
-### Examples
-
-###### Example of adding a new string column to the target table using a case
-
-condition
-
-The following example transformation rule adds a new string column,
-`emp_seniority`, to the target table,
-`employee`. It uses the SQLite `round`
-function on the salary column, with a case condition to check if the
-salary equals or exceeds 20,000. If it does, the column gets the value
-`SENIOR`, and anything else has the
-value `JUNIOR`.
-
-```
-  {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-action": "add-column",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "public",
-        "table-name": "employee"
-      },
-      "value": "emp_seniority",
-      "expression": " CASE WHEN round($emp_salary)>=20000 THEN ‘SENIOR’ ELSE ‘JUNIOR’ END",
-      "data-type": {
-        "type": "string",
-        "length": 50
-      }
-
-  }
-```
-
-###### Example of adding a new string column to the target table using a SUBSTR
-
-function
-
-The following example transformation rule adds a new string column using
-SQLite operators or functions to define the data in a column. This approach
-involves using SQLite functions to transform the GUID data loaded from
-Oracle to UUID format before inserting it into the Postgresql target
-table.
-
-Following rule uses the SQLite substring (SUBSTR), hexadecimal function
-(HEX), and lowercase (LOWER) functions to break the GUID data into several
-groups separated by hyphens, specifically a group of 8 digits followed by
-three groups of 4 digits followed by a group of 12 digits, for a total of 32
-digits representing the 128 bits.
-
-Here is the sample source data and output on target post processing
-through transformation rule:
-
-###### Source Table (Oracle GUID format)
-
-T_COL2
-
-```
-06F6949D234911EE80670242AC120002
-1A2B3C4D5E6F11EE80670242AC120003
-F5E4D3C2B1A011EE80670242AC120004
-```
-
-###### Target Table (PostgreSQL UUID format)
-
-T_COL2_TMP
-
-```
-06f6949d-2349-11ee-8067-0242ac120002
-1a2b3c4d-5e6f-11ee-8067-0242ac120003
-f5e4d3c2-b1a0-11ee-8067-0242ac120004
-```
+The following example loads an `ITEMS` table in your
+source, including all LOBs, using its task LOB settings. The
+`bulk-max-size` setting of 100 MB is ignored and left
+only for a quick reset to `limited` or `unlimited`
+mode.
 
 ```
 {
-  "rule-type": "transformation",
-  "rule-id": "2",
-  "rule-name": "2",
-  "rule-action": "add-column",
-  "rule-target": "column",
-  "object-locator": {
-    "schema-name": "SPORTS",
-    "table-name": "TEST_TBL_2"
-  },
-  "value": "t_col2_tmp",
-  "expression": "CASE LOWER(SUBSTR(HEX($T_COL2), 1, 8) || '-' || SUBSTR(HEX($T_COL2), 9, 4) || '-' || SUBSTR(HEX($T_COL2), 13, 4) || '-' || SUBSTR(HEX($T_COL2), 17, 4) || '-' || SUBSTR(HEX($T_COL2), 21, 12)) WHEN '----' THEN NULL ELSE LOWER(SUBSTR(HEX($T_COL2), 1, 8) || '-' || SUBSTR(HEX($T_COL2), 9, 4) || '-' || SUBSTR(HEX($T_COL2), 13, 4) || '-' || SUBSTR(HEX($T_COL2), 17, 4) || '-' || SUBSTR(HEX($T_COL2), 21, 12)) END",
-  "data-type": {
-    "type": "string",
-    "length": 60
-  }
+   "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "INV",
+                "table-name": "ITEMS"
+            },
+            "lob-settings": {
+                "mode": "none",
+                "bulk-max-size": "100000"
+            }
+        }
+     ]
 }
 ```
 
-###### Example of adding a new date column to the target table
+###### Example Load a table with LOBs using limited LOB mode
 
-The following example adds a new date column, `createdate`, to
-the target table, `employee`. When you use the SQLite date
-function `datetime`, the date is added to the newly created table
-for each row inserted.
-
-```
-  {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-action": "add-column",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "public",
-        "table-name": "employee"
-      },
-      "value": "createdate",
-      "expression": "datetime ()",
-      "data-type": {
-        "type": "datetime",
-        "precision": 6
-      }
-  }
-```
-
-###### Example of adding a new numeric column to the target table
-
-The following example adds a new numeric column,
-`rounded_emp_salary`, to the target table,
-`employee`. It uses the SQLite `round` function to
-add the rounded salary.
+The following example loads an `ITEMS` table including LOBs
+in your source using limited LOB mode (the default) with a maximum
+nontruncated size of 100 MB. Any LOBs that are larger than this size are
+truncated to 100 MB. All LOBs are loaded inline with all other column
+data types.
 
 ```
-  {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-action": "add-column",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "public",
-        "table-name": "employee"
-      },
-      "value": "rounded_emp_salary",
-      "expression": "round($emp_salary)",
-      "data-type": {
-        "type": "int8"
-      }
-  }
+{
+   "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "INV",
+                "table-name": "ITEMS"
+            },
+            "lob-settings": {
+                "bulk-max-size": "100000"
+            }
+        }
+     ]
+}
 ```
 
-###### Example of adding a new string column to the target table using the hash
+###### Example Load a table with LOBs using standard full LOB mode
 
-function
-
-The following example adds a new string column,
-`hashed_emp_number`, to the target table,
-`employee`. The SQLite
-`hash_sha256(`x`)` function
-creates hashed values on the target for the source column,
-`emp_number`.
+The following example loads an `ITEMS` table in your
+source, including all its LOBs without truncation, using standard full
+LOB mode. All LOBs, regardless of size, are loaded separately from other
+data types using a lookup for each LOB in the source table.
 
 ```
-  {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-action": "add-column",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "public",
-        "table-name": "employee"
-      },
-      "value": "hashed_emp_number",
-      "expression": "hash_sha256($emp_number)",
-      "data-type": {
-        "type": "string",
-        "length": 64
-      }
-  }
+{
+   "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "INV",
+                "table-name": "ITEMS"
+            },
+            "lob-settings": {
+                "mode": "unlimited",
+                "bulk-max-size": "0"
+            }
+        }
+     ]
+}
 ```
 
-## Adding metadata to a target table using expressions
+###### Example Load a table with LOBs using combination full LOB mode
 
-You can add the metadata information to the target table by using the
-expressions following:
-
-- `$AR_M_SOURCE_SCHEMA` – The name of the source schema.
-- `$AR_M_SOURCE_TABLE_NAME` – The name of the source table.
-- `$AR_M_SOURCE_COLUMN_NAME` – The name of a column in the source table.
-- `$AR_M_SOURCE_COLUMN_DATATYPE` – The data type of a column in the source table.
-
-###### Example
-
-of adding a column for a schema name using the schema name from the source
-
-The example following adds a new column named `schema_name` to the target by using the schema name from the source.
+The following example loads an `ITEMS` table in your
+source, including all its LOBs without truncation, using combination
+full LOB mode. All LOBs within 100 MB in size are loaded inline along
+with other data types, as in limited LOB mode. All LOBs over 100 MB in
+size are loaded separately from other data types. This separate load
+uses a lookup for each such LOB in the source table, as in standard full
+LOB mode.
 
 ```
-  {
-      "rule-type": "transformation",
-      "rule-id": "2",
-      "rule-name": "2",
-      "rule-action": "add-column",
-      "rule-target": "column",
-      "object-locator": {
-        "schema-name": "%",
-        "table-name": "%"
-      },
-      "rule-action": "add-column",
-      "value":"schema_name",
-      "expression": "$AR_M_SOURCE_SCHEMA",
-      "data-type": {
-         "type": "string",
-         "length": 50
-      }
-  }
+{
+   "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {
+                "schema-name": "%",
+                "table-name": "%"
+            },
+            "rule-action": "include"
+        },
+        {
+            "rule-type": "table-settings",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "INV",
+                "table-name": "ITEMS"
+            },
+            "lob-settings": {
+                "mode": "unlimited",
+                "bulk-max-size": "100000"
+            }
+        }
+     ]
+}
 ```
