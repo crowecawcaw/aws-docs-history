@@ -1,219 +1,164 @@
-# Aurora MySQL thread states
-
-The following are some common thread states for Aurora MySQL.
-
-**checking permissions**
-
-The thread is checking whether the server has the required privileges to run the statement.
-
-**checking query cache for query**
-
-The server is checking whether the current query is present in the query cache.
-
-**cleaned up**
-
-This is the final state of a connection whose work is complete but which hasn't been closed by the
-client. The best solution is to explicitly close the connection in code. Or you can set a lower value
-for `wait_timeout` in your parameter group.
-
-**closing tables**
-
-The thread is flushing the changed table data to disk and closing the used tables. If this isn't a
-fast operation, verify the network bandwidth consumption metrics against the instance class network
-bandwidth. Also, check that the parameter values for `table_open_cache` and
-`table_definition_cache` parameter allow for enough tables to be simultaneously open
-so that the engine doesn't need to open and close tables frequently. These parameters influence the
-memory consumption on the instance.
-
-**converting HEAP to MyISAM**
-
-The query is converting a temporary table from in-memory to on-disk. This conversion is necessary
-because the temporary tables created by MySQL in the intermediate steps of query processing grew too
-big for memory. Check the values of `tmp_table_size` and `max_heap_table_size`.
-In later versions, this thread state name is `converting HEAP to ondisk`.
-
-**converting HEAP to ondisk**
-
-The thread is converting an internal temporary table from an in-memory table to an on-disk
-table.
-
-**copy to tmp table**
-
-The thread is processing an `ALTER TABLE` statement. This state occurs after the table
-with the new structure has been created but before rows are copied into it. For a thread in this
-state, you can use the Performance Schema to obtain information about the progress of the copy
-operation.
-
-**creating sort index**
-
-Aurora MySQL is performing a sort because it can't use an existing index to satisfy the `ORDER
- BY` or `GROUP BY` clause of a query. For more information, see [creating sort index](ams-states.md "ams-states.md").
-
-**creating table**
-
-The thread is creating a permanent or temporary table.
-
-**delayed commit ok done**
-
-An asynchronous commit in Aurora MySQL has received an acknowledgement and is complete.
-
-**delayed commit ok initiated**
-
-The Aurora MySQL thread has started the async commit process but is waiting for acknowledgement. This
-is usually the genuine commit time of a transaction.
-
-**delayed send ok done**
-
-An Aurora MySQL worker thread that is tied to a connection can be freed while a response is sent to
-the client. The thread can begin other work. The state `delayed send ok` means that the
-asynchronous acknowledgement to the client completed.
-
-**delayed send ok initiated**
-
-An Aurora MySQL worker thread has sent a response asynchronously to a client and is now free to do
-work for other connections. The transaction has started an async commit process that hasn't yet been
-acknowledged.
-
-**executing**
-
-The thread has begun running a statement.
-
-**freeing items**
-
-The thread has run a command. Some freeing of items done during this state involves the query
-cache. This state is usually followed by cleaning up.
-
-**init**
-
-This state occurs before the initialization of `ALTER TABLE`, `DELETE`,
-`INSERT`, `SELECT`, or `UPDATE` statements. Actions in this
-state include flushing the binary log or InnoDB log, and some cleanup of the query cache.
-
-**Source has sent all binlog to replica; waiting for more updates**
-
-The primary node has finished its part of the replication. The thread is waiting for more queries
-to run so that it can write to the binary log (binlog).
-
-**opening tables**
-
-The thread is trying to open a table. This operation is fast unless an `ALTER TABLE` or
-a `LOCK TABLE` statement needs to finish, or it exceeds the value of
-`table_open_cache`.
-
-**optimizing**
-
-The server is performing initial optimizations for a query.
-
-**preparing**
-
-This state occurs during query optimization.
-
-**query end**
-
-This state occurs after processing a query but before the freeing items state.
-
-**removing duplicates**
-
-Aurora MySQL couldn't optimize a `DISTINCT` operation in the early stage of a query.
-Aurora MySQL must remove all duplicated rows before sending the result to the client.
-
-**searching rows for update**
-
-The thread is finding all matching rows before updating them. This stage is necessary if the
-`UPDATE` is changing the index that the engine uses to find the rows.
-
-**sending binlog event to slave**
-
-The thread read an event from the binary log and is sending it to the replica.
-
-**sending cached result to client**
-
-The server is taking the result of a query from the query cache and sending it to the
-client.
-
-**sending data**
-
-The thread is reading and processing rows for a `SELECT` statement but hasn't yet
-started sending data to the client. The process is identifying which pages contain the results
-necessary to satisfy the query. For more information, see [sending data](ams-states.md "ams-states.md").
-
-**sending to client**
-
-The server is writing a packet to the client. In earlier MySQL versions, this wait event was
-labeled `writing to net`.
-
-**starting**
-
-This is the first stage at the beginning of statement execution.
-
-**statistics**
-
-The server is calculating statistics to develop a query execution plan. If a thread is in this
-state for a long time, the server is probably disk-bound while performing other work.
-
-**storing result in query cache**
-
-The server is storing the result of a query in the query cache.
-
-**system lock**
-
-The thread has called `mysql_lock_tables`, but the thread state hasn't been updated
-since the call. This general state occurs for many reasons.
-
-**update**
-
-The thread is preparing to start updating the table.
-
-**updating**
-
-The thread is searching for rows and is updating them.
-
-**user lock**
-
-The thread issued a `GET_LOCK` call. The thread either requested an advisory lock and is
-waiting for it, or is planning to request it.
-
-**waiting for more updates**
-
-The primary node has finished its part of the replication. The thread is waiting for more queries
-to run so that it can write to the binary log (binlog).
-
-**waiting for schema metadata lock**
-
-This is a wait for a metadata lock.
-
-**waiting for stored function metadata lock**
-
-This is a wait for a metadata lock.
-
-**waiting for stored procedure metadata lock**
-
-This is a wait for a metadata lock.
-
-**waiting for table flush**
-
-The thread is executing `FLUSH TABLES` and is waiting for all threads to close their
-tables. Or the thread received notification that the underlying structure for a table changed, so it
-must reopen the table to get the new structure. To reopen the table, the thread must wait until all
-other threads have closed the table. This notification takes place if another thread has used one of
-the following statements on the table: `FLUSH TABLES`, `ALTER TABLE`,
-`RENAME TABLE`, `REPAIR TABLE`, `ANALYZE TABLE`, or
-`OPTIMIZE TABLE`.
-
-**waiting for table level lock**
-
-One session is holding a lock on a table while another session tries to acquire the same lock on
-the same table.
-
-**waiting for table metadata lock**
-
-Aurora MySQL uses metadata locking to manage concurrent access to database objects and to ensure data
-consistency. In this wait event, one session is holding a metadata lock on a table while another
-session tries to acquire the same lock on the same table. When the Performance Schema is enabled,
-this thread state is reported as the wait event
-`synch/cond/sql/MDL_context::COND_wait_status`.
-
-**writing to net**
-
-The server is writing a packet to the network. In later MySQL versions, this wait event is labeled
-`Sending to client`.
+# Aurora MySQL global status variables
+
+Aurora MySQL includes status variables from community MySQL and variables that are unique
+to Aurora. You can examine these variables to learn about what's happening inside
+the database engine. For more information about the status variables in community MySQL, see
+[Server Status Variables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html")
+in the community MySQL 8.0 documentation.
+
+You can find the current values for Aurora MySQL global status variables by using a statement such as the following:
+
+```
+show global status like '%aurora%';
+```
+
+###### Note
+
+Global status variables are cleared when the DB engine reboots.
+
+The following table describes the global status variables that Aurora MySQL uses.
+
+| Name                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AuroraDb_commits`                                           | The total number of commits since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `AuroraDb_commit_latency`                                    | The aggregate commit latency since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `AuroraDb_ddl_stmt_duration`                                 | The aggregate DDL latency since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `AuroraDb_select_stmt_duration`                              | The aggregate `SELECT` statement latency since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `AuroraDb_insert_stmt_duration`                              | The aggregate `INSERT` statement latency since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `AuroraDb_update_stmt_duration`                              | The aggregate `UPDATE` statement latency since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `AuroraDb_delete_stmt_duration`                              | The aggregate `DELETE` statement latency since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Aurora_binlog_io_cache_allocated`                           | The number of bytes allocated to the binlog I/O cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `Aurora_binlog_io_cache_read_requests`                       | The number of read requests made to the binlog I/O cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Aurora_binlog_io_cache_reads`                               | The number of read requests that were served from the binlog I/O cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `Aurora_enhanced_binlog`                                     | Indicates whether enhanced binlog is enabled or disabled for this DB instance. For more information,<br>see [Setting up enhanced binlog for Aurora MySQL](AuroraMySQL.Enhanced.md "AuroraMySQL.Enhanced.md").                                                                                                                                                                                                                                                                                                                                        |
+| `Aurora_external_connection_count`                           | The number of database connections to the DB instance, excluding RDS service connections used for<br>database health checks.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `Aurora_fast_insert_cache_hits`                              | A counter that's incremented when the cached cursor is successfully retrieved and verified. For more<br>information on the fast insert cache, see [Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance").                                                                                                                                                                                                                                       |
+| `Aurora_fast_insert_cache_misses`                            | A counter that's incremented when the cached cursor is no longer valid and Aurora performs a normal<br>index traversal. For more information on the fast insert cache, see [Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.md#Aurora.AuroraMySQL.Performance").                                                                                                                                                                                                              |
+| `Aurora_fts_cache_memory_used`                               | The amount of memory in bytes that the InnoDB full-text search<br>system is using. This variable applies to Aurora MySQL version<br>3.07 and higher.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `Aurora_fwd_master_dml_stmt_count`                           | The total number of DML statements forwarded to this writer DB instance. This variable applies to<br>Aurora MySQL version 2.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `Aurora_fwd_master_dml_stmt_duration`                        | The total duration of DML statements forwarded to this writer DB instance. This variable applies to<br>Aurora MySQL version 2.                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `Aurora_fwd_master_errors_rpc_timeout`                       | The number of times a forwarded connection failed to be established on the writer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Aurora_fwd_master_errors_session_limit`                     | The number of forwarded queries that get rejected due to `session full` on the<br>writer.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Aurora_fwd_master_errors_session_timeout`                   | The number of times a forwarding session is ended due to a timeout on the writer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Aurora_fwd_master_open_sessions`                            | The number of forwarded sessions on the writer DB instance. This variable applies to Aurora MySQL<br>version 2.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `Aurora_fwd_master_select_stmt_count`                        | The total number of `SELECT` statements forwarded to this writer DB instance. This variable<br>applies to Aurora MySQL version 2.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Aurora_fwd_master_select_stmt_duration`                     | The total duration of `SELECT` statements forwarded to this writer DB instance. This<br>variable applies to Aurora MySQL version 2.                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `Aurora_fwd_writer_dml_stmt_count`                           | The total number of DML statements forwarded to this writer DB instance. This variable applies to<br>Aurora MySQL version 3.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `Aurora_fwd_writer_dml_stmt_duration`                        | The total duration of DML statements forwarded to this writer DB instance. This variable applies to<br>Aurora MySQL version 3.                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `Aurora_fwd_writer_errors_rpc_timeout`                       | The number of times a forwarded connection failed to be established on the writer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Aurora_fwd_writer_errors_session_limit`                     | The number of forwarded queries that get rejected due to `session full` on the<br>writer.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Aurora_fwd_writer_errors_session_timeout`                   | The number of times a forwarding session is ended due to a timeout on the writer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Aurora_fwd_writer_open_sessions`                            | The number of forwarded sessions on the writer DB instance. This variable applies to Aurora MySQL<br>version 3.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `Aurora_fwd_writer_select_stmt_count`                        | The total number of `SELECT` statements forwarded to this writer DB instance. This variable<br>applies to Aurora MySQL version 3.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Aurora_fwd_writer_select_stmt_duration`                     | The total duration of `SELECT` statements forwarded to this writer DB instance. This<br>variable applies to Aurora MySQL version 3.                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `Aurora_lockmgr_buffer_pool_memory_used`                     | The amount of buffer pool memory in bytes that the Aurora MySQL lock manager is using.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `Aurora_lockmgr_memory_used`                                 | The amount of memory in bytes that the Aurora MySQL lock manager is using.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `Aurora_ml_actual_request_cnt`                               | The aggregate request count that Aurora MySQLmakes to the Aurora machine learning services across all queries run by users<br>of the DB instance. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                                                                                                                                     |
+| `Aurora_ml_actual_response_cnt`                              | The aggregate response count that Aurora MySQL receives from the Aurora machine learning services across all queries run<br>by users of the DB instance. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                                                                                                                              |
+| `Aurora_ml_cache_hit_cnt`                                    | The aggregate internal cache hit count that Aurora MySQL receives from the Aurora machine learning services across all<br>queries run by users of the DB instance. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                                                                                                                    |
+| `Aurora_ml_logical_request_cnt`                              | The number of logical requests that the DB instance has evaluated to be sent to the Aurora machine learning services<br>since the last status reset. Depending on whether batching has been used, this value can be higher than<br>`Aurora_ml_actual_request_cnt`. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                    |
+| `Aurora_ml_logical_response_cnt`                             | The aggregate response count that Aurora MySQL receives from the Aurora machine learning services across all queries run<br>by users of the DB instance. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                                                                                                                              |
+| `Aurora_ml_retry_request_cnt`                                | The number of retried requests that the DB instance has sent to the Aurora machine learning services since the last<br>status reset. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                                                                                                                                                  |
+| `Aurora_ml_single_request_cnt`                               | The aggregate count of Aurora machine learning functions that are evaluated by non-batch mode across all queries run by<br>users of the DB instance. For more information, see [Using Amazon Aurora machine learning with Aurora MySQL](mysql-ml.md "mysql-ml.md").                                                                                                                                                                                                                                                                                  |
+| `aurora_oom_avoidance_recovery_state`                        | Indicates whether Aurora out-of-memory (OOM) avoidance recovery is in the `ACTIVE` or `INACTIVE` state<br>for this DB instance.<br>This variable applies to Aurora MySQL version 3.06.0 and higher.                                                                                                                                                                                                                                                                                                                                                  |
+| `aurora_oom_reserved_mem_enter_kb`                           | Represents the threshold for entering the<br>`RESERVED` state in Aurora's OOM handling<br>mechanism.<br>When the available memory on the server falls below this<br>threshold, `aurora_oom_status` changes to<br>`RESERVED`, indicating that the server is<br>approaching a critical level of memory usage.<br>This variable applies to Aurora MySQL version 3.06.0 and higher.                                                                                                                                                                      |
+| `aurora_oom_reserved_mem_exit_kb`                            | Represents the threshold for exiting the `RESERVED`<br>state in Aurora's OOM handling mechanism.<br>When the available memory on the server rises above this<br>threshold, `aurora_oom_status` reverts to<br>`NORMAL`, indicating that the server has returned<br>to a more stable state with sufficient memory resources.<br>This variable applies to Aurora MySQL version 3.06.0 and higher.                                                                                                                                                       |
+| `aurora_oom_status`                                          | Represents the current OOM status of this DB instance. When<br>the value is `NORMAL`, it indicates that there are<br>sufficient memory resources.<br>If the value changes to `RESERVED`, it indicates<br>that the server has low available memory. Actions are taken<br>based on the `aurora_oom_response` parameter<br>configuration.<br>For more information, see [Troubleshooting out-of-memory issues for Aurora MySQL databases](AuroraMySQLOOM.md "AuroraMySQLOOM.md").<br>This variable applies to Aurora MySQL version 3.06.0 and higher.    |
+| `Aurora_pq_bytes_returned`                                   | The number of bytes for the tuple data structures transmitted to the head node during parallel<br>queries. Divide by 16,384 to compare against `Aurora_pq_pages_pushed_down`.                                                                                                                                                                                                                                                                                                                                                                        |
+| `Aurora_pq_max_concurrent_requests`                          | The maximum number of parallel query sessions that can run concurrently on this Aurora DB instance.<br>This is a fixed number that depends on the AWS DB instance class.                                                                                                                                                                                                                                                                                                                                                                             |
+| `Aurora_pq_pages_pushed_down`                                | The number of data pages (each with a fixed size of 16 KiB) where parallel query avoided a network<br>transmission to the head node.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `Aurora_pq_request_attempted`                                | The number of parallel query sessions requested. This value might represent more than one session per query, depending<br>on SQL constructs such as subqueries and joins.                                                                                                                                                                                                                                                                                                                                                                            |
+| `Aurora_pq_request_executed`                                 | The number of parallel query sessions run successfully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `Aurora_pq_request_failed`                                   | The number of parallel query sessions that returned an error to the client. In some cases, a request for a parallel<br>query might fail, for example due to a problem in the storage layer. In these cases, the query part that failed is<br>retried using the nonparallel query mechanism. If the retried query also fails, an error is returned to the client and<br>this counter is incremented.                                                                                                                                                  |
+| `Aurora_pq_request_in_progress`                              | The number of parallel query sessions currently in progress. This number applies to the particular<br>Aurora DB instance that you are connected to, not the entire Aurora DB cluster. To see if a DB instance<br>is close to its concurrency limit, compare this value to<br>`Aurora_pq_max_concurrent_requests`.                                                                                                                                                                                                                                    |
+| `Aurora_pq_request_not_chosen`                               | The number of times parallel query wasn't chosen to satisfy a query. This value is the sum of several other more<br>granular counters. An `EXPLAIN` statement can increment this counter even though the query isn't<br>actually performed.                                                                                                                                                                                                                                                                                                          |
+| `Aurora_pq_request_not_chosen_below_min_rows`                | The number of times parallel query wasn't chosen due to the number of rows in the table. An `EXPLAIN`<br>statement can increment this counter even though the query isn't actually performed.                                                                                                                                                                                                                                                                                                                                                        |
+| `Aurora_pq_request_not_chosen_column_bit`                    | The number of parallel query requests that use the nonparallel query processing path because of an<br>unsupported data type in the list of projected columns.                                                                                                                                                                                                                                                                                                                                                                                        |
+| `Aurora_pq_request_not_chosen_column_geometry`               | The number of parallel query requests that use the nonparallel query processing path because the table<br>has columns with the `GEOMETRY` data type. For information about Aurora MySQL versions that<br>remove this limitation, see [Upgrading parallel query clusters to Aurora MySQL version 3](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-pqv2 "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-pqv2").                                                                         |
+| `Aurora_pq_request_not_chosen_column_lob`                    | The number of parallel query requests that use the nonparallel query processing path because the table<br>has columns with a `LOB` data type, or `VARCHAR` columns that are stored<br>externally due to the declared length. For information about Aurora MySQL versions that remove this<br>limitation, see [Upgrading parallel query clusters to Aurora MySQL version 3](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-pqv2 "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-pqv2"). |
+| `Aurora_pq_request_not_chosen_column_virtual`                | The number of parallel query requests that use the nonparallel query processing path because the table<br>contains a virtual column.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `Aurora_pq_request_not_chosen_custom_charset`                | The number of parallel query requests that use the nonparallel query processing path because the table<br>has columns with a custom character set.                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `Aurora_pq_request_not_chosen_fast_ddl`                      | The number of parallel query requests that use the nonparallel query processing path because the table<br>is currently being altered by a fast DDL `ALTER` statement.                                                                                                                                                                                                                                                                                                                                                                                |
+| `Aurora_pq_request_not_chosen_few_pages_outside_buffer_pool` | The number of times parallel query wasn't chosen, even though less than 95 percent of the table<br>data was in the buffer pool, because there wasn't enough unbuffered table data to make parallel<br>query worthwhile.                                                                                                                                                                                                                                                                                                                              |
+| `Aurora_pq_request_not_chosen_full_text_index`               | The number of parallel query requests that use the nonparallel query processing path because the table<br>has full-text indexes.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Aurora_pq_request_not_chosen_high_buffer_pool_pct`          | The number of times parallel query wasn't chosen because a high percentage of the table data<br>(currently, greater than 95 percent) was already in the buffer pool. In these cases, the optimizer<br>determines that reading the data from the buffer pool is more efficient. An `EXPLAIN`<br>statement can increment this counter even though the query isn't actually performed.                                                                                                                                                                  |
+| `Aurora_pq_request_not_chosen_index_hint`                    | The number of parallel query requests that use the nonparallel query processing path because the query<br>includes an index hint.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Aurora_pq_request_not_chosen_innodb_table_format`           | The number of parallel query requests that use the nonparallel query processing path because the table<br>uses an unsupported InnoDB row format. Aurora parallel query only applies to the `COMPACT`,<br>`REDUNDANT`, and `DYNAMIC` row formats.                                                                                                                                                                                                                                                                                                     |
+| `Aurora_pq_request_not_chosen_long_trx`                      | The number of parallel query requests that used the nonparallel query processing path, due to the<br>query being started inside a long-running transaction. An `EXPLAIN` statement can increment<br>this counter even though the query isn't actually performed.                                                                                                                                                                                                                                                                                     |
+| `Aurora_pq_request_not_chosen_no_where_clause`               | The number of parallel query requests that use the nonparallel query processing path because the query<br>doesn't include any `WHERE` clause.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `Aurora_pq_request_not_chosen_range_scan`                    | The number of parallel query requests that use the nonparallel query processing path because the query<br>uses a range scan on an index.                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `Aurora_pq_request_not_chosen_row_length_too_long`           | The number of parallel query requests that use the nonparallel query processing path because the total<br>combined length of all the columns is too long.                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Aurora_pq_request_not_chosen_small_table`                   | The number of times parallel query wasn't chosen due to the overall size of the table, as determined by number of<br>rows and average row length. An `EXPLAIN` statement can increment this counter even though the query<br>isn't actually performed.                                                                                                                                                                                                                                                                                               |
+| `Aurora_pq_request_not_chosen_temporary_table`               | The number of parallel query requests that use the nonparallel query processing path because the query<br>refers to temporary tables that use the unsupported `MyISAM` or `memory` table<br>types.                                                                                                                                                                                                                                                                                                                                                   |
+| `Aurora_pq_request_not_chosen_tx_isolation`                  | The number of parallel query requests that use the nonparallel query processing path because query<br>uses an unsupported transaction isolation level. On reader DB instances, parallel query only applies to<br>the `REPEATABLE READ` and `READ COMMITTED` isolation levels.                                                                                                                                                                                                                                                                        |
+| `Aurora_pq_request_not_chosen_update_delete_stmts`           | The number of parallel query requests that use the nonparallel query processing path because the query<br>is part of an `UPDATE` or `DELETE` statement.                                                                                                                                                                                                                                                                                                                                                                                              |
+| `Aurora_pq_request_not_chosen_unsupported_access`            | The number of parallel query requests that use the nonparallel query processing path because the<br>`WHERE` clause doesn't meet the criteria for parallel query. This result can occur<br>if the query doesn't require a data-intensive scan, or if the query is a `DELETE` or<br>`UPDATE` statement.                                                                                                                                                                                                                                                |
+| `Aurora_pq_request_not_chosen_unsupported_storage_type`      | The number of parallel query requests that use the nonparallel query processing path because the<br>Aurora MySQL DB cluster isn't using a supported Aurora cluster storage configuration. For more<br>information, see [Limitations](aurora-mysql-parallel-query.md#aurora-mysql-parallel-query-limitations "aurora-mysql-parallel-query.md#aurora-mysql-parallel-query-limitations").<br>This parameter applies to Aurora MySQL version 3.04 and higher.                                                                                            |
+| `Aurora_pq_request_throttled`                                | The number of times parallel query wasn't chosen due to the maximum number of concurrent parallel queries already<br>running on a particular Aurora DB instance.                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Aurora_repl_bytes_received`                                 | Number of bytes replicated to an Aurora MySQL reader database instance since the last restart. For more<br>information, see [Replication with Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md").                                                                                                                                                                                                                                                                                                                                                 |
+| `Aurora_reserved_mem_exceeded_incidents`                     | The number of times since the last restart that the engine has exceeded reserved memory limits. If<br>`aurora_oom_response` is configured, this threshold defines when out-of-memory (OOM)<br>avoidance activities are triggered. For more information on the Aurora MySQL OOM response, see<br>[Troubleshooting out-of-memory issues for Aurora MySQL databases](AuroraMySQLOOM.md "AuroraMySQLOOM.md").                                                                                                                                            |
+| `aurora_temptable_max_ram_allocation`                        | The maximum amount of memory, in bytes, used at any point by<br>internal temporary tables since the last restart.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `aurora_temptable_ram_allocation`                            | The current amount of memory, in bytes, used by internal<br>temporary tables.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `Aurora_in_memory_relaylog_status`                           | The current status of in memory relay log feature, the value can be ENABLED or DISABLED.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `Aurora_in_memory_relaylog_disabled_reason`                  | Shows the reason of current in memory relay log feature status, if the feature is disabled, display a message of explanation on why the feature is disabled.                                                                                                                                                                                                                                                                                                                                                                                         |
+| `Aurora_in_memory_relaylog_fallback_count`                   | Show the total number of fallbacks of in memory relay log feature to persistent relay log mode (legacy). Fallback can be caused by either single event larger than cache size (currently 128MB) or transaction retry exceed the replica transaction retry limit replica_transaction_retries.                                                                                                                                                                                                                                                         |
+| `Aurora_in_memory_relaylog_recovery_count`                   | Shows the total number of in memory relay log recovery performed automatically. This count includes the total number of fallbacks and the number of automatic mode switch back to in memory relay log mode after the temporary fallbacks.                                                                                                                                                                                                                                                                                                            |
+| `Aurora_thread_pool_thread_count`                            | The current number of threads in the Aurora thread pool. For more information on the thread pool in<br>Aurora MySQL, see [Thread pool](AuroraMySQL.Managing.Tuning.md#AuroraMySQL.Managing.Tuning.concepts.processes.pool "AuroraMySQL.Managing.Tuning.md#AuroraMySQL.Managing.Tuning.concepts.processes.pool").                                                                                                                                                                                                                                     |
+| `Aurora_tmz_version`                                         | Denotes the current version of the time zone information used by the DB cluster. The values follow the<br>Internet Assigned Numbers Authority (IANA) format: `YYYYsuffix`, for example<br>`2022a` and `2023c`.<br>This parameter applies to Aurora MySQL version 2.12 and higher, and version 3.04 and higher.                                                                                                                                                                                                                                       |
+| `Aurora_zdr_oom_threshold`                                   | Represents the memory threshold, in kilobytes (KB), for an<br>Aurora DB instance to initiate a zero downtime restart (ZDR) to<br>recover from potential memory-related issues.                                                                                                                                                                                                                                                                                                                                                                       |
+| `server_aurora_das_running`                                  | Indicates whether Database Activity Streams (DAS) are enabled or disabled on this DB instance. For<br>more information, see [Monitoring Amazon Aurora with Database Activity<br>Streams](DBActivityStreams.md "DBActivityStreams.md").                                                                                                                                                                                                                                                                                                               |
+
+## MySQL status variables that don't apply to
+
+Aurora MySQL
+
+Because of architectural differences between Aurora MySQL and MySQL, some MySQL status variables don't apply to
+Aurora MySQL.
+
+The following MySQL status variables don't apply to Aurora MySQL. This list
+isn't exhaustive.
+
+- `innodb_buffer_pool_bytes_dirty`
+- `innodb_buffer_pool_pages_dirty`
+- `innodb_buffer_pool_pages_flushed`
+
+Aurora MySQL version 3 removes the following status variables that were in Aurora MySQL version 2:
+
+- `AuroraDb_lockmgr_bitmaps0_in_use`
+- `AuroraDb_lockmgr_bitmaps1_in_use`
+- `AuroraDb_lockmgr_bitmaps_mem_used`
+- `AuroraDb_thread_deadlocks`
+- `available_alter_table_log_entries`
+- `Aurora_lockmgr_memory_used`
+- `Aurora_missing_history_on_replica_incidents`
+- `Aurora_new_lock_manager_lock_release_cnt`
+- `Aurora_new_lock_manager_lock_release_total_duration_micro`
+- `Aurora_new_lock_manager_lock_timeout_cnt`
+- `Aurora_total_op_memory`
+- `Aurora_total_op_temp_space`
+- `Aurora_used_alter_table_log_entries`
+- `Aurora_using_new_lock_manager`
+- `Aurora_volume_bytes_allocated`
+- `Aurora_volume_bytes_left_extent`
+- `Aurora_volume_bytes_left_total`
+- `Com_alter_db_upgrade`
+- `Compression`
+- `External_threads_connected`
+- `Innodb_available_undo_logs`
+- `Last_query_cost`
+- `Last_query_partial_plans`
+- `Slave_heartbeat_period`
+- `Slave_last_heartbeat`
+- `Slave_received_heartbeats`
+- `Slave_retried_transactions`
+- `Slave_running`
+- `Time_since_zero_connections`
+
+These MySQL status variables are available in Aurora MySQL version 2, but they aren't available in Aurora MySQL version
+3:
+
+- `Innodb_redo_log_enabled`
+- `Innodb_undo_tablespaces_total`
+- `Innodb_undo_tablespaces_implicit`
+- `Innodb_undo_tablespaces_explicit`
+- `Innodb_undo_tablespaces_active`

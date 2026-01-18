@@ -1,76 +1,71 @@
-# Modifying parameters in a DB parameter group
+# Copying a DB cluster parameter group in Amazon Aurora
 
-in Amazon Aurora
+You can copy custom DB cluster parameter groups that you create. Copying a parameter group is a convenient
+solution when you have already created a DB cluster parameter group and you want to include most of the custom
+parameters and values from that group in a new DB cluster parameter group. You can copy a DB cluster parameter group by
+using the AWS CLI [copy-db-cluster-parameter-group](../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md") command or the RDS API
+[CopyDBClusterParameterGroup](../APIReference/API_CopyDBParameterGroup.md "../APIReference/API_CopyDBParameterGroup.md") operation.
 
-You can modify parameter values in a customer-created DB parameter group; you can't change the
-parameter values in a default DB parameter group. Changes to parameters in a customer-created DB parameter group
-are applied to all DB instances that are associated with the DB parameter group.
+After you copy a DB cluster parameter group, wait at least 5 minutes
+before creating a DB cluster that uses that DB cluster parameter group.
+Doing this allows Amazon RDS to fully copy the parameter group before it
+is used by the new DB cluster. You can use the **Parameter groups** page
+in the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") or the
+[describe-db-cluster-parameters](../../../cli/latest/reference/rds/describe-db-cluster-parameters.md "../../../cli/latest/reference/rds/describe-db-cluster-parameters.md")
+command to verify that your DB cluster parameter group is created.
 
-There are two types of parameters: dynamic parameters and static parameters. Changes
-to dynamic parameters are applied to the DB instance immediately without a reboot.
-Changes to static parameters are applied only after the DB instance is rebooted.
+###### Note
 
-The RDS console shows the status of the DB parameter group associated with a DB
-instance on the **Configuration** tab. For example, if the DB instance
-isn't using the latest changes to its associated DB parameter group, the RDS console
-shows the DB parameter group with a status of **pending-reboot**. To
-apply the latest parameter changes to that DB instance, manually reboot the DB
-instance.
+You can't copy a default parameter group. However, you can create a new parameter group that is based on a default
+parameter group.
 
-![Parameter change pending reboot scenario](images/db-cluster-instance-param-group.png)
+You can't copy a DB cluster parameter group to a different AWS account or AWS Region.
 
-###### To modify the parameters in a DB parameter group
+###### To copy a DB cluster parameter group
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Parameter
    groups**.
-3. In the list, choose the name of the parameter group that you want to
-   modify.
+3. In the list, choose the custom parameter group that you want to copy.
 4. For **Parameter group actions**, choose
-   **Edit**.
-5. Change the values of the parameters that you want to modify. You can
-   scroll through the parameters using the arrow keys at the top right of
-   the dialog box.
+   **Copy**.
+5. In **New DB parameter group identifier**, enter a name for the new
+   parameter group.
+6. In **Description**, enter a description for the new parameter
+   group.
+7. Choose **Copy**.
+   To copy a DB cluster parameter group, use the AWS CLI [`copy-db-cluster-parameter-group`](../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md "../../../cli/latest/reference/rds/copy-db-cluster-parameter-group.md") command with the following required parameters:
 
-You can't change values in a default parameter group. 6. Choose **Save changes**.
-To modify a DB parameter group, use the AWS CLI [`modify-db-parameter-group`](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") command with the
-following required options:
-
-- `--db-parameter-group-name`
-- `--parameters`
-  The following example modifies the `max_connections` and
-  `max_allowed_packet` values in the DB parameter group named
-  _mydbparametergroup_.
+- `--source-db-cluster-parameter-group-identifier`
+- `--target-db-cluster-parameter-group-identifier`
+- `--target-db-cluster-parameter-group-description`
+  The following example creates a new DB cluster parameter group named `mygroup2`
+  that is a copy of the DB cluster parameter group `mygroup1`.
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds modify-db-parameter-group \
-    --db-parameter-group-name `mydbparametergroup` \
-    --parameters "ParameterName=`max_connections`,ParameterValue=`250`,ApplyMethod=`immediate`" \
-                 "ParameterName=`max_allowed_packet`,ParameterValue=`1024`,ApplyMethod=`immediate`"
+aws rds copy-db-cluster-parameter-group \
+    --source-db-cluster-parameter-group-identifier `mygroup1` \
+    --target-db-cluster-parameter-group-identifier `mygroup2` \
+    --target-db-cluster-parameter-group-description `"DB parameter group 2"`
 ```
 
 For Windows:
 
 ```
-aws rds modify-db-parameter-group ^
-    --db-parameter-group-name `mydbparametergroup` ^
-    --parameters "ParameterName=`max_connections`,ParameterValue=`250`,ApplyMethod=`immediate`" ^
-                 "ParameterName=`max_allowed_packet`,ParameterValue=`1024`,ApplyMethod=`immediate`"
+aws rds copy-db-cluster-parameter-group ^
+    --source-db-cluster-parameter-group-identifier `mygroup1` ^
+    --target-db-cluster-parameter-group-identifier `mygroup2` ^
+    --target-db-cluster-parameter-group-description `"DB parameter group 2"`
 ```
 
-The command produces output like the following:
+To copy a DB cluster parameter group, use the RDS API [`CopyDBClusterParameterGroup`](../APIReference/API_CopyDBClusterParameterGroup.md "../APIReference/API_CopyDBClusterParameterGroup.md")
+operation with the following required parameters:
 
-```
-DBPARAMETERGROUP  mydbparametergroup
-```
-
-To modify a DB parameter group, use the RDS API [`ModifyDBParameterGroup`](../APIReference/API_ModifyDBParameterGroup.md "../APIReference/API_ModifyDBParameterGroup.md") operation with the following
-required parameters:
-
-- `DBParameterGroupName`
-- `Parameters`
+- `SourceDBClusterParameterGroupIdentifier`
+- `TargetDBClusterParameterGroupIdentifier`
+- `TargetDBClusterParameterGroupDescription`

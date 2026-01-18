@@ -15,3 +15,4 @@ performance for PostgreSQL workloads.
   Aurora PostgreSQL](apg-correlated-subquery.md "apg-correlated-subquery.md")
 - [Improving query performance using adaptive
   join](user-apg-adaptive-join.md "user-apg-adaptive-join.md")
+- [Using shared plan cache](apg-shared-plan-cache.md "apg-shared-plan-cache.md")

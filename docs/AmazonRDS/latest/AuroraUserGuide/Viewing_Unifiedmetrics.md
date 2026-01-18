@@ -1,6 +1,6 @@
-# Choosing the
+# Creating a custom
 
-preconfigured dashboard with Performance Insights
+dashboard with Performance Insights
 
 ###### Important
 
@@ -21,24 +21,45 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-You can view the most commonly used metrics with the preconfigured dashboard. This
-dashboard helps diagnose performance issues with a database engine and reduce the
-average recovery time from hours to minutes.
+In the new monitoring view, you can create a custom dashboard with the metrics you
+need to meet your analysis requirements.
+
+You can create a custom dashboard by selecting Performance Insights and CloudWatch metrics for your DB instance.
+You can use this custom dashboard for other DB instances of the same database
+engine type in your AWS account.
 
 ###### Note
 
-This dashboard can't be edited.
+The customized dashboard supports up to 50 metrics.
 
-###### To choose the preconfigured dashboard with Performance Insights in the navigation pane
+Use the widget settings menu to edit or delete the dashboard, and move or resize the
+widget window.
+
+###### To create a custom dashboard with Performance Insights in the navigation pane
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the left navigation pane, choose **Performance Insights**.
 3. Choose a DB instance.
-4. Scroll down to the **Metrics tab** in the window
-5. Select a preconfigured dashboard from the drop down list.
+4. Scroll down to the **Metrics tab** in the window.
+5. Select the custom dashboard from the drop down list. The following example
+   shows the custom dashboard creation.
 
-You can view the metrics for the DB instance in the dashboard. The following example
-shows a preconfigured metrics dashboard.
+![Custom metrics dashboard with no widgets yet.](images/Monitoring_custmDashbrd_addWidget.png) 6. Choose **Add widget** to open the **Add
+widget** window. You can open and view the available operating
+system (OS) metrics, database metrics, and CloudWatch metrics in the window.
 
-![Preconfigured metrics dashboard.](images/Monitoring_preconfigDashboard.png)
+The following example shows the **Add widget** window with the metrics.
+
+![The metrics options in the Add Widget window.](images/Monitoring_AddWidget.png) 7. Select the metrics that you want to view in the dashboard and choose
+**Add widget**. You can use the search field to find a
+specific metric.
+
+The selected metrics appear on your dashboard. 8. (Optional) If you want to modify or delete your dashboard, choose the
+settings icon on the upper right of the widget, and then select one of the following actions in the menu.
+
+    * **Edit** – Modify the metrics list in the window. Choose
+     **Update widget** after you select the metrics for
+     your dashboard.
+    * **Delete** – Deletes the widget. Choose
+     **Delete** in the confirmation window.

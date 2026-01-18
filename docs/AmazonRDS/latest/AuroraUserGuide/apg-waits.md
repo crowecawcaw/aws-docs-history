@@ -1,199 +1,110 @@
-# LWLock:buffer_content (BufferContent)
+# LWLock:buffer_mapping
 
-The `LWLock:buffer_content` event occurs when a session is waiting to read or
-write a data page in memory while another session has that page locked for writing. In
-Aurora PostgreSQL 13 and higher, this wait event is called `BufferContent`.
+This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer
+pool.
+
+###### Note
+
+This event appears as `LWLock:buffer_mapping` in Aurora PostgreSQL version 12 and lower, and
+`LWLock:BufferMapping` in version 13 and higher.
 
 ###### Topics
 
-- [Supported engine
-  versions](#apg-waits.lockbuffercontent.context.supported "#apg-waits.lockbuffercontent.context.supported")
-- [Context](#apg-waits.lockbuffercontent.context "#apg-waits.lockbuffercontent.context")
-- [Likely causes of increased
-  waits](#apg-waits.lockbuffercontent.causes "#apg-waits.lockbuffercontent.causes")
-- [Actions](#apg-waits.lockbuffercontent.actions "#apg-waits.lockbuffercontent.actions")
+- [Supported
+  engine versions](#apg-waits.lwl-buffer-mapping.context.supported "#apg-waits.lwl-buffer-mapping.context.supported")
+- [Context](#apg-waits.lwl-buffer-mapping.context "#apg-waits.lwl-buffer-mapping.context")
+- [Causes](#apg-waits.lwl-buffer-mapping.causes "#apg-waits.lwl-buffer-mapping.causes")
+- [Actions](#apg-waits.lwl-buffer-mapping.actions "#apg-waits.lwl-buffer-mapping.actions")
 
-## Supported engine
+## Supported
 
-versions
+engine versions
 
-This wait event information is supported for all versions of Aurora PostgreSQL.
+This wait event information is relevant for Aurora PostgreSQL version 9.6 and higher.
 
 ## Context
 
-To read or manipulate data, PostgreSQL accesses it through shared memory buffers. To
-read from the buffer, a process gets a lightweight lock (LWLock) on the buffer content
-in shared mode. To write to the buffer, it gets that lock in exclusive mode. Shared
-locks allow other processes to concurrently acquire shared locks on that content.
-Exclusive locks prevent other processes from getting any type of lock on it.
+The _shared buffer pool_ is an Aurora PostgreSQL memory area that holds
+all pages that are or were being used by processes. When a process needs a page, it
+reads the page into the shared buffer pool. The `shared_buffers` parameter
+sets the shared buffer size and reserves a memory area to store the table and index
+pages. If you change this parameter, make sure to restart the database. For more
+information, see [Shared
+buffers](AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.buffer-pool "AuroraPostgreSQL.Tuning.md#AuroraPostgreSQL.Tuning.concepts.buffer-pool").
 
-The `LWLock:buffer_content` (`BufferContent`) event indicates
-that multiple processes are attempting to get lightweight locks (LWLocks) on contents of
-a specific buffer.
+The `LWLock:buffer_mapping` wait event occurs in the following scenarios:
 
-## Likely causes of increased
+- A process searches the buffer table for a page and acquires a shared buffer mapping lock.
+- A process loads a page into the buffer pool and acquires an exclusive buffer mapping lock.
+- A process removes a page from the pool and acquires an exclusive buffer mapping lock.
 
-waits
+## Causes
 
-When the `LWLock:buffer_content` (`BufferContent`) event appears
-more than normal, possibly indicating a performance problem, typical causes include the
-following:
+When this event appears more than normal, possibly indicating a performance problem, the database is
+paging in and out of the shared buffer pool. Typical causes include the following:
 
-**Increased concurrent updates to the same data**
-
-There might be an increase in the number of concurrent sessions with
-queries that update the same buffer content. This contention can be more
-pronounced on tables with a lot of indexes.
-
-**Workload data is not in memory**
-
-When data that the active workload is processing is not in memory, these
-wait events can increase. This effect is because processes holding locks can
-keep them longer while they perform disk I/O operations.
-
-**Excessive use of foreign key constraints**
-
-Foreign key constraints can increase the amount of time a process holds
-onto a buffer content lock. This effect is because read operations require a
-shared buffer content lock on the referenced key while that key is being
-updated.
+- Large queries
+- Bloated indexes and tables
+- Full table scans
+- A shared pool size that is smaller than the working set
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event. You might
-identify `LWLock:buffer_content` (`BufferContent`) events by using
-Amazon RDS Performance Insights or by querying the view `pg_stat_activity`.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Improve in-memory
-  efficiency](#apg-waits.lockbuffercontent.actions.in-memory "#apg-waits.lockbuffercontent.actions.in-memory")
-- [Reduce usage of
-  foreign key constraints](#apg-waits.lockbuffercontent.actions.foreignkey "#apg-waits.lockbuffercontent.actions.foreignkey")
-- [Remove unused
-  indexes](#apg-waits.lockbuffercontent.actions.indexes "#apg-waits.lockbuffercontent.actions.indexes")
-- [Remove
-  duplicate indexes](#apg-waits.lockbuffercontent.actions.duplicate-indexes "#apg-waits.lockbuffercontent.actions.duplicate-indexes")
-- [Drop or
-  REINDEX invalid indexes](#apg-waits.lockbuffercontent.actions.invalid-indexes "#apg-waits.lockbuffercontent.actions.invalid-indexes")
-- [Use partial
-  indexes](#apg-waits.lockbuffercontent.actions.partial-indexes "#apg-waits.lockbuffercontent.actions.partial-indexes")
-- [Remove table and index
-  bloat](#apg-waits.lockbuffercontent.actions.bloat "#apg-waits.lockbuffercontent.actions.bloat")
+- [Monitor buffer-related metrics](#apg-waits.lwl-buffer-mapping.actions.monitor-metrics "#apg-waits.lwl-buffer-mapping.actions.monitor-metrics")
+- [Assess your indexing strategy](#apg-waits.lwl-buffer-mapping.actions.indexes "#apg-waits.lwl-buffer-mapping.actions.indexes")
+- [Reduce the number of buffers that must be
+  allocated quickly](#apg-waits.lwl-buffer-mapping.actions.buffers "#apg-waits.lwl-buffer-mapping.actions.buffers")
 
-### Improve in-memory
+### Monitor buffer-related metrics
 
-efficiency
+When `LWLock:buffer_mapping` waits spike, investigate the buffer hit ratio. You can use these
+metrics to get a better understanding of what is happening in the buffer cache. Examine the following
+metrics:
 
-To increase the chance that active workload data is in memory, partition tables or
-scale up your instance class. For information about DB instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+`BufferCacheHitRatio`
 
-Monitor the `BufferCacheHitRatio` metric, which measures the percentage
-of requests served by the buffer cache of a DB instance in your DB cluster. This
-metric provides insight into the amount of data being served from memory. A high hit
-ratio indicates that your DB instance has sufficient memory available for your
-working data set, while a low ratio suggests that your queries are frequently
-accessing data from storage.
+This Amazon CloudWatch metric measures the percentage of requests that are served by the buffer cache of
+a DB instance in your DB cluster. You might see this metric decrease in the lead-up to the
+`LWLock:buffer_mapping` wait event.
 
-The cache read hit per table and cache read hit per index under Memory setting
-section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into the tables and indexes
-cache hit ratio.
+`blks_hit`
 
-### Reduce usage of
+This Performance Insights counter metric indicates the number of blocks that were retrieved
+from the shared buffer pool. After the `LWLock:buffer_mapping` wait event appears, you
+might observe a spike in `blks_hit`.
 
-foreign key constraints
+`blks_read`
 
-Investigate workloads experiencing high numbers of
-`LWLock:buffer_content` (`BufferContent`) wait events for
-usage of foreign key constraints. Remove unnecessary foreign key constraints.
+This Performance Insights counter metric indicates the number of blocks that required I/O to be
+read into the shared buffer pool. You might observe a spike in `blks_read` in the
+lead-up to the `LWLock:buffer_mapping` wait event.
 
-### Remove unused
+### Assess your indexing strategy
 
-indexes
+To confirm that your indexing strategy is not degrading performance, check the following:
 
-For workloads experiencing high numbers of `LWLock:buffer_content`
-(`BufferContent`) wait events, identify unused indexes and remove
-them.
+Index bloat
 
-The unused indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
-the unused indexes in the database.
+Ensure that index and table bloat aren't leading to unnecessary pages being read into the
+shared buffer. If your tables contain unused rows, consider archiving the data and removing the
+rows from the tables. You can then rebuild the indexes for the resized tables.
 
-### Remove
+Indexes for frequently used queries
 
-duplicate indexes
+To determine whether you have the optimal indexes, monitor DB engine metrics in Performance
+Insights. The `tup_returned` metric shows the number of rows read. The
+`tup_fetched` metric shows the number of rows returned to the client. If
+`tup_returned` is significantly larger than `tup_fetched`, the data
+might not be properly indexed. Also, your table statistics might not be current.
 
-Identify duplicate indexes and remove them.
+### Reduce the number of buffers that must be
 
-The duplicate indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
-the duplicate indexes in the database.
+allocated quickly
 
-### Drop or
-
-REINDEX invalid indexes
-
-Invalid indexes typically occur when using `CREATE INDEX CONCURRENTLY`
-or `REINDEX CONCURRENTLY` and the command fails or is aborted.
-
-Invalid indexes can't be used for queries, though they will still be updated and
-take up disk space.
-
-The Invalid indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
-the invalid indexes in the database.
-
-### Use partial
-
-indexes
-
-Partial indexes can be leveraged to enhance query performance and reduce index
-size. A partial index is an index built over a subset of a table, with the subset
-defined by a conditional expression. As detailed in the [partial index](https://www.postgresql.org/docs/current/indexes-partial.html "https://www.postgresql.org/docs/current/indexes-partial.html") documentation,
-partial indexes can reduce the overhead of maintaining indexes, as PostgreSQL does
-not need to update the index in all cases.
-
-### Remove table and index
-
-bloat
-
-Excessive table and index bloat can negatively impact database performance.
-Bloated tables and indexes increase the active working set size, degrading in-memory
-efficiency. Additionally, bloat increases storage costs and slows query execution.
-To diagnose bloat, refer to the [Diagnosing table and index bloat](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
-Further, the Fragmentation (Bloat) section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide
-insights into tables and indexes bloat.
-
-To address table and index bloat, there are a few options:
-
-**VACUUM FULL**
-
-`VACUUM FULL` creates a new copy of the table, copying over
-only the live tuples, and then replaces the old table with the new one
-while holding an `ACCESS EXCLUSIVE` lock. This prevents any
-reading or writing to the table, which can cause an outage.
-Additionally, `VACUUM FULL` will take longer if the table is
-large.
-
-**pg_repack**
-
-The `pg_repack` is helpful in situations where `VACUUM
- FULL` might not be suitable. It creates a new table that
-contains the data of the bloated table, tracks the changes from the
-original table, and then replaces the original table with the new one.
-It doesn't lock the original table for read or write operations while
-it's building the new table. For more information, for how to use
-`pg_repack`, see [Removing bloat with pg_repack](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md") and
-[pg_repack](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/").
-
-**REINDEX**
-
-The `REINDEX` command can be leveraged to address index
-bloat. `REINDEX` writes a new version of the index without
-the dead pages or the empty or nearly-empty pages, thereby reducing the
-space consumption of the index. For detailed information about the
-[`REINDEX`](https://www.postgresql.org/docs/current/sql-reindex.html "https://www.postgresql.org/docs/current/sql-reindex.html") command, please refer to the REINDEX
-documentation.
-
-After removing bloat from tables and indexes, it may be necessary to increase the
-autovacuum frequency on those tables. Implementing aggressive autovacuum settings at
-the table level can help prevent future bloat from occurring. For more information,
-please refer to the documentation on [`Vacuuming and analyzing tables
- automatically`](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/autovacuum.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/autovacuum.md").
+To reduce the `LWLock:buffer_mapping` wait events, try to reduce the number of buffers that must
+be allocated quickly. One strategy is to perform smaller batch operations. You might be able to achieve
+smaller batches by partitioning your tables.

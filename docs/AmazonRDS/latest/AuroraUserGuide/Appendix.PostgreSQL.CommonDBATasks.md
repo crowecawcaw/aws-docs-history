@@ -1,62 +1,46 @@
-# Using pglogical to synchronize
+# Identify and resolve
 
-data across instances
+aggressive vacuum blockers in Aurora PostgreSQL
 
-All currently available Aurora PostgreSQL versions support the `pglogical`
-extension. The pglogical extension predates the functionally similar logical replication feature
-that was introduced by PostgreSQL in version 10. For more
-information, see [Overview of PostgreSQL logical
-replication with Aurora](AuroraPostgreSQL.Replication.md "AuroraPostgreSQL.Replication.md").
+In PostgreSQL, vacuuming is vital for ensuring database health as it reclaims storage and
+prevents [transaction ID wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND "https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND") issues. However, there are times when vacuuming can be
+prevented from operating as desired, which can result in performance degradation, storage bloat,
+and even impact availability of your DB instance by transaction ID wraparound. Therefore, identifying
+and resolving these issues are essential for optimal database performance and availability. Read
+[Understanding autovacuum in Amazon RDS for PostgreSQL environments](https://aws.amazon.com/blogs/database/understanding-autovacuum-in-amazon-rds-for-postgresql-environments/ "https://aws.amazon.com/blogs/database/understanding-autovacuum-in-amazon-rds-for-postgresql-environments/") to learn more
+about autovacuum.
 
-The `pglogical` extension supports logical replication between two or more
-Aurora PostgreSQL DB clusters.
-It also supports replication
-between different PostgreSQL versions, and between databases running on RDS for PostgreSQL DB
-instances and Aurora PostgreSQL DB clusters. The `pglogical` extension uses a
-publish-subscribe model to replicate changes to tables and other objects, such as sequences,
-from a publisher to a subscriber. It relies on a replication slot to ensure that changes are
-synchronized from a publisher node to a subscriber node, defined as follows.
+The `postgres_get_av_diag()` function helps identify issues that either prevent
+or delay the aggressive vacuum progress. Suggestions are provided, which may include commands to
+resolve the issue where it is identifiable or guidance for further diagnostics where the issue
+is not identifiable. Aggressive vacuum blockers are reported when the age exceeds RDS' [adaptive
+autovacuum](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.AdaptiveAutoVacuuming") threshold of 500 million transaction IDs.
 
-- The _publisher node_ is the Aurora PostgreSQL
-  DB cluster
-  that's the source of data to be replicated to other nodes. The publisher node defines
-  the tables to be replicated in a publication set.
-- The _subscriber node_ is the Aurora PostgreSQL
-  DB cluster that
-  receives WAL updates from the publisher. The subscriber creates a subscription to connect to
-  the publisher and get the decoded WAL data. When the subscriber creates the subscription,
-  the replication slot is created on the publisher node.
-  Following, you can find information about setting up the `pglogical` extension.
+**What is the age of the transaction ID?**
+
+The `age()` function for transaction IDs calculates the number of transactions
+that have occurred since the oldest unfrozen transaction ID for a database
+(`pg_database.datfrozenxid`) or table (`pg_class.relfrozenxid`). This
+value indicates database activity since the last aggressive vacuum operation and highlights the
+likely workload for upcoming VACUUM processes.
+
+**What is an aggressive vacuum?**
+
+An aggressive VACUUM operation conducts a comprehensive scan of all pages within a table,
+including those typically skipped during regular VACUUMs. This thorough scan aims to "freeze"
+transaction IDs approaching their maximum age, effectively preventing a situation known as
+[transaction ID wraparound](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND "https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND").
+
+For `postgres_get_av_diag()` to report blockers, the blocker must be at least 500
+million transactions old.
 
 ###### Topics
 
-- [Requirements and limitations for the pglogical extension](#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations "#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations")
-- [Setting up the
-  pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Setting up
-  logical replication for Aurora PostgreSQL DB cluster](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Managing logical
-  replication slots for Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-- [Parameter reference
-  for the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
-
-## Requirements and limitations for the pglogical extension
-
-All currently available releases of Aurora PostgreSQL support the
-`pglogical` extension.
-
-Both the publisher node and the subscriber node must be set up for logical
-replication.
-
-The tables that you want to replicate from a publisher to a subscriber must have the same
-names and the same schema. These tables must also contain the same columns, and the columns
-must use the same data types. Both publisher and subscriber tables must have the same primary
-keys. We recommend that you use only the PRIMARY KEY as the unique constraint.
-
-The tables on the subscriber node can have more permissive constraints than those on the
-publisher node for CHECK constraints and NOT NULL constraints.
-
-The `pglogical` extension provides features such as two-way replication that
-aren't supported by the logical replication feature built into PostgreSQL (version 10 and
-higher). For more information, see [PostgreSQL bi-directional replication using pglogical](https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/ "https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/").
+- [Installing autovacuum monitoring and diagnostic tools in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Functions
+  of postgres_get_av_diag() in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Resolving identifiable vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Resolving unidentifiable vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Resolving vacuum performance issues in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")
+- [Explanation
+  of the NOTICE messages in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.md")

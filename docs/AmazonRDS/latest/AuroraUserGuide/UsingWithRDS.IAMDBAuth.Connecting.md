@@ -1,10 +1,10 @@
 # Connecting to your DB cluster
 
-using IAM authentication and the AWS SDK for .NET
+using IAM authentication and the AWS SDK for Go
 
 You can connect to an
 Aurora MySQL or Aurora PostgreSQL DB cluster
-with the AWS SDK for .NET as described following.
+with the AWS SDK for Go as described following.
 
 ###### Prerequisites
 
@@ -19,137 +19,265 @@ The following are prerequisites for connecting to your DB cluster using IAM auth
 
 ###### Examples
 
+To run these code examples, you need the [AWS SDK for Go](http://aws.amazon.com/sdk-for-go/ "http://aws.amazon.com/sdk-for-go/"),
+found on the AWS site.
+
+Modify the values of the following variables as needed:
+
+- `dbName` – The database that you want to access
+- `dbUser` – The database account that you
+  want to access
+- `dbHost` – The endpoint of
+  the DB cluster that you want to access
+
+###### Note
+
+You cannot use a custom Route 53 DNS record or
+an Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication
+token.
+
+- `dbPort` – The port number used for connecting to your DB cluster
+- `region` – The AWS Region where the DB
+  cluster is running
+  In addition, make sure the imported libraries in the sample code exist on your system.
+
+###### Important
+
+The examples in this section use the following code to provide credentials that access a database
+from a local environment:
+
+`creds := credentials.NewEnvCredentials()`
+
+If you are accessing a database from an AWS service, such as Amazon EC2 or Amazon ECS, you can replace the code
+with the following code:
+
+`sess := session.Must(session.NewSession())`
+
+`creds := sess.Config.Credentials`
+
+If you make this change, make sure you add the following import:
+
+`"github.com/aws/aws-sdk-go/aws/session"`
+
+###### Topics
+
+- [Connecting using IAM authentication
+  and the AWS SDK for Go V2](#UsingWithRDS.IAMDBAuth.Connecting.GoV2 "#UsingWithRDS.IAMDBAuth.Connecting.GoV2")
+- [Connecting using IAM authentication
+  and the AWS SDK for Go V1.](#UsingWithRDS.IAMDBAuth.Connecting.GoV1 "#UsingWithRDS.IAMDBAuth.Connecting.GoV1")
+
+## Connecting using IAM authentication
+
+and the AWS SDK for Go V2
+
+You can connect to a DB cluster using IAM authentication
+and the AWS SDK for Go V2.
+
 The following code examples show how to generate an authentication token, and
 then use it to connect to a DB
 cluster.
 
-To run this code example, you need the [AWS SDK for .NET](http://aws.amazon.com/sdk-for-net/ "http://aws.amazon.com/sdk-for-net/"),
-found on the AWS site. The `AWSSDK.CORE` and the `AWSSDK.RDS` packages are required.
-To connect to a DB cluster,
-use the .NET database connector for the DB engine, such as MySqlConnector for MariaDB or MySQL, or Npgsql
-for PostgreSQL.
-
 This code connects to an Aurora MySQL DB cluster.
-Modify the values of the following variables as needed:
-
-- `server` – The endpoint of
-  the DB cluster that you want to
-  access
-- `user` – The database account that you
-  want to access
-- `database` – The database that you want to access
-- `port` – The port number used
-  for connecting to your DB cluster
-- `SslMode` – The SSL mode to use
-
-When you use `SslMode=Required`, the SSL connection verifies the DB
-cluster endpoint against the endpoint in
-the SSL certificate.
-
-- `SslCa` – The full path to the SSL certificate for Amazon Aurora
-
-To download a certificate, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md").
-
-###### Note
-
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
 
 ```
-using System;
-using System.Data;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-using Amazon;
+package main
 
-namespace ubuntu
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      var pwd = Amazon.RDS.Util.RDSAuthTokenGenerator.GenerateAuthToken(RegionEndpoint.USEast1, "`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`", `3306`, "`jane_doe`");
-      // for debug only Console.Write("{0}\n", pwd);  //this verifies the token is generated
+import (
+     "context"
+     "database/sql"
+     "fmt"
 
-      MySqlConnection conn = new MySqlConnection($"server=`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`;user=`jane_doe`;database=`mydB`;port=`3306`;password={pwd};SslMode=Required;SslCa=`full_path_to_ssl_certificate`");
-      conn.Open();
+     "github.com/aws/aws-sdk-go-v2/config"
+     "github.com/aws/aws-sdk-go-v2/feature/rds/auth"
+     _ "github.com/go-sql-driver/mysql"
+)
 
-      // Define a query
-      MySqlCommand sampleCommand = new MySqlCommand("SHOW DATABASES;", conn);
+func main() {
 
-      // Execute a query
-      MySqlDataReader mysqlDataRdr = sampleCommand.ExecuteReader();
+     var dbName string = "`DatabaseName`"
+     var dbUser string = "`DatabaseUser`"
+     var dbHost string = "`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`"
+     var dbPort int = `3306`
+     var dbEndpoint string = fmt.Sprintf("%s:%d", dbHost, dbPort)
+     var region string = "`us-east-1`"
 
-      // Read all rows and output the first column in each row
-      while (mysqlDataRdr.Read())
-        Console.WriteLine(mysqlDataRdr[0]);
-
-      mysqlDataRdr.Close();
-      // Close connection
-      conn.Close();
+    cfg, err := config.LoadDefaultConfig(context.TODO())
+    if err != nil {
+    	panic("configuration error: " + err.Error())
     }
-  }
+
+    authenticationToken, err := auth.BuildAuthToken(
+    	context.TODO(), dbEndpoint, region, dbUser, cfg.Credentials)
+    if err != nil {
+	    panic("failed to create authentication token: " + err.Error())
+    }
+
+    dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?tls=true&allowCleartextPasswords=true",
+        dbUser, authenticationToken, dbEndpoint, dbName,
+    )
+
+    db, err := sql.Open("mysql", dsn)
+    if err != nil {
+        panic(err)
+    }
+
+    err = db.Ping()
+    if err != nil {
+        panic(err)
+    }
 }
 ```
 
 This code connects to an Aurora PostgreSQL DB cluster.
 
-Modify the values of the following variables as needed:
+```
+package main
 
-- `Server` – The endpoint of the DB cluster that you want to access
-- `User ID` – The database account that you want to
-  access
-- `Database` – The database that you want to access
-- `Port` – The port number used for connecting to your DB
-  cluster
-- `SSL Mode` – The SSL mode to use
+import (
+     "context"
+     "database/sql"
+     "fmt"
 
-When you use `SSL Mode=Required`, the SSL connection verifies
-the DB cluster endpoint against the endpoint in the
-SSL certificate.
+     "github.com/aws/aws-sdk-go-v2/config"
+     "github.com/aws/aws-sdk-go-v2/feature/rds/auth"
+     _ "github.com/lib/pq"
+)
 
-- `Root Certificate` – The full path to the SSL certificate
-  for Amazon Aurora
+func main() {
 
-To download a certificate, see [Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md").
+     var dbName string = "`DatabaseName`"
+     var dbUser string = "`DatabaseUser`"
+     var dbHost string = "`postgresmycluster.cluster-123456789012.us-east-1.rds.amazonaws.com`"
+     var dbPort int = `5432`
+     var dbEndpoint string = fmt.Sprintf("%s:%d", dbHost, dbPort)
+     var region string = "`us-east-1`"
 
-###### Note
+    cfg, err := config.LoadDefaultConfig(context.TODO())
+    if err != nil {
+    	panic("configuration error: " + err.Error())
+    }
 
-You cannot use a custom Route 53 DNS record or an
-Aurora custom endpoint instead of the DB cluster endpoint to generate the authentication token.
+    authenticationToken, err := auth.BuildAuthToken(
+    	context.TODO(), dbEndpoint, region, dbUser, cfg.Credentials)
+    if err != nil {
+	    panic("failed to create authentication token: " + err.Error())
+    }
+
+    dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s",
+        dbHost, dbPort, dbUser, authenticationToken, dbName,
+    )
+
+    db, err := sql.Open("postgres", dsn)
+    if err != nil {
+        panic(err)
+    }
+
+    err = db.Ping()
+    if err != nil {
+        panic(err)
+    }
+}
+```
+
+If you want to connect to a DB cluster
+through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+
+## Connecting using IAM authentication
+
+and the AWS SDK for Go V1.
+
+You can connect to a DB cluster using IAM authentication
+and the AWS SDK for Go V1
+
+The following code examples show how to generate an authentication token, and
+then use it to connect to a DB
+cluster.
+
+This code connects to an Aurora MySQL DB cluster.
 
 ```
-using System;
-using Npgsql;
-using Amazon.RDS.Util;
+package main
 
-namespace ConsoleApp1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var pwd = RDSAuthTokenGenerator.GenerateAuthToken("`postgresmycluster.cluster-123456789012.us-east-1.rds.amazonaws.com`", `5432`, "`jane_doe`");
-// for debug only Console.Write("{0}\n", pwd);  //this verifies the token is generated
+import (
+    "database/sql"
+    "fmt"
+    "log"
 
-            NpgsqlConnection conn = new NpgsqlConnection($"Server=`postgresmycluster.cluster-123456789012.us-east-1.rds.amazonaws.com`;User Id=`jane_doe`;Password={pwd};Database=`mydb`;SSL Mode=Require;Root Certificate=`full_path_to_ssl_certificate`");
-            conn.Open();
+    "github.com/aws/aws-sdk-go/aws/credentials"
+    "github.com/aws/aws-sdk-go/service/rds/rdsutils"
+    _ "github.com/go-sql-driver/mysql"
+)
 
-            // Define a query
-                   NpgsqlCommand cmd = new NpgsqlCommand("select count(*) FROM pg_user", conn);
+func main() {
+    dbName := "`app`"
+    dbUser := "`jane_doe`"
+    dbHost := "`mysqlcluster.cluster-123456789012.us-east-1.rds.amazonaws.com`"
+    dbPort := `3306`
+    dbEndpoint := fmt.Sprintf("%s:%d", dbHost, dbPort)
+    region := "`us-east-1`"
 
-            // Execute a query
-            NpgsqlDataReader dr = cmd.ExecuteReader();
+    creds := credentials.NewEnvCredentials()
+    authToken, err := rdsutils.BuildAuthToken(dbEndpoint, region, dbUser, creds)
+    if err != nil {
+        panic(err)
+    }
 
-            // Read all rows and output the first column in each row
-            while (dr.Read())
-                Console.Write("{0}\n", dr[0]);
+    dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?tls=true&allowCleartextPasswords=true",
+        dbUser, authToken, dbEndpoint, dbName,
+    )
 
-            // Close connection
-            conn.Close();
-        }
+    db, err := sql.Open("mysql", dsn)
+    if err != nil {
+        panic(err)
+    }
+
+    err = db.Ping()
+    if err != nil {
+        panic(err)
+    }
+}
+```
+
+This code connects to an Aurora PostgreSQL DB cluster.
+
+```
+package main
+
+import (
+	"database/sql"
+	"fmt"
+
+	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/aws/aws-sdk-go/service/rds/rdsutils"
+	_ "github.com/lib/pq"
+)
+
+func main() {
+    dbName := "`app`"
+    dbUser := "`jane_doe`"
+    dbHost := "`postgresmycluster.cluster-123456789012.us-east-1.rds.amazonaws.com`"
+    dbPort := `5432`
+    dbEndpoint := fmt.Sprintf("%s:%d", dbHost, dbPort)
+    region := "`us-east-1`"
+
+    creds := credentials.NewEnvCredentials()
+    authToken, err := rdsutils.BuildAuthToken(dbEndpoint, region, dbUser, creds)
+    if err != nil {
+        panic(err)
+    }
+
+    dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s",
+        dbHost, dbPort, dbUser, authToken, dbName,
+    )
+
+    db, err := sql.Open("postgres", dsn)
+    if err != nil {
+        panic(err)
+    }
+
+    err = db.Ping()
+    if err != nil {
+        panic(err)
     }
 }
 ```
