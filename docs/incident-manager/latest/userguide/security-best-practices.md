@@ -114,7 +114,7 @@ AWS accounts. AWS will contact you, using this email address, about emerging sec
 issues that might affect you.
 
 AWS operational issues with broad impact are posted on the [AWS Service Health Dashboard](https://status.aws.amazon.com/ "https://status.aws.amazon.com/"). Operational
-issues are also posted to individual accounts through the AWS Health Dashboard. For more information, see
+issues are also posted to individual accounts through the Health Dashboard. For more information, see
 the [AWS Health documentation](../../../health.md "../../../health.md").
 
 ###### Related content
