@@ -16,6 +16,10 @@ Consideration the following when sharing AWS Network Firewall resources:
 - Sharing a firewall enables other AWS accounts to create VPC endpoint associations in their VPCs. Each VPC endpoint association creates a new firewall endpoint that processes traffic according to the shared firewall's policy.
 - You can't share a firewall policy that's configured to use [TLS inspection](tls-inspection-configurations.md "tls-inspection-configurations.md"). TLS inspection only works with primary VPC endpoints and same-account secondary endpoints.
 - The owner of a rule group can share a rule group that refers to a [resource group](resource-groups.md "resource-groups.md"), but can't share the resource group itself.
+- You can't share a firewall that's attached to a transit gateway via RAM. To enable
+  cross-account access for transit gateway-attached firewalls, share the transit gateway
+  itself instead. For more information, see
+  [Create a transit gateway-attached firewall](create-tgw-firewall.md "create-tgw-firewall.md").
   For additional details on shareable Network Firewall resources, see [Shareable resources](../../../ram/latest/userguide/shareable.md#shareable-network-firewall "../../../ram/latest/userguide/shareable.md#shareable-network-firewall") in the
   _AWS RAM User Guide_.
 
