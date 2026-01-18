@@ -34,7 +34,7 @@ domain.
    The following screenshot shows the location of the domain name record to
    use.
 
-   ![The DNS records in the Amplify console, including the domain name record.](images/amplify-customdomains-DNS-verification3.png) 5. Choose **Save**.
+   ![The DNS records in the Amplify console, including the domain name record.](/images/amplify/latest/userguide/images/amplify-customdomains-DNS-verification3.png) 5. Choose **Save**.
 
 6. Create the second CNAME record to point to the AWS Certificate Manager (ACM) validation server.
    A single validated ACM generates an SSL/TLS certificate for your domain.
