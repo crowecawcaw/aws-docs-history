@@ -33,6 +33,8 @@ Example Subscription Topic resource:
 
     * Trust `events.amazonaws.com` in your KMS key policy if using
      CM\_CMK datastore.
+    * If using a CM\_CMK datastore, you must add the `EventBridgeApiDestinations`
+     tag to your KMS key with the value of `true`
     * HealthLake uses OAuth to authenticate your REST Hook endpoint. Therefore, when creating
      a REST hook subscription, you must pass in a client-id, client-secret, and oAuth-endpoint-url
      in the channel.\_type.extension[\*].
@@ -44,7 +46,7 @@ Example KMS key policy if using CM_CMK datastore:
   "Sid": "AllowEventBridgeToUseKMSKey",
   "Effect": "Allow",
   "Principal": {
-    "Service": "events.amazonaws.com"
+    "Service": ["events.amazonaws.com", "healthlake.amazonaws.com"]
   },
   "Action": ["kms:GenerateDataKey*", "kms:Decrypt", "kms:DescribeKey"],
   "Resource": "*"

@@ -3,7 +3,9 @@
 Follow these steps to understand the FHIR Subscription lifecycle:
 
 1. Create a `SubscriptionTopic`
-2. Creation
+   - Create a `SubscriptionTopic` with status `"unknown"`
+
+2. Create a `Subscription`
    - Create a `Subscription` with status `"requested"`
    - HealthLake validates the `Subscription` configuration
    - `Subscription` _must_ reference an already existing topic
