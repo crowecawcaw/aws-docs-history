@@ -114,7 +114,7 @@ performance.
 The tab also features the application performance index (Apdex) score
 which indicates end users' level of satisfaction. Scores range from 0 (least
 satisfied) to 1 (most satisfied). The scores are based on application
-performance only. For more information about Apdex scores, see .
+performance only. For more information about Apdex scores, see [How CloudWatch RUM sets Apdex scores](#CloudWatch-RUM-apdex "#CloudWatch-RUM-apdex").
 
 - The **Errors** tab breaks down application issues in
   three categories: Network Errors, Crashes, and ANRs (Android)/App Hangs

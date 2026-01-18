@@ -73,9 +73,7 @@ with one of the following options:
     * **Include read-only access for Database Insights**.
      If you select this option, users in
      the monitoring account can also view Database Insights telemetry in this account. For more information, see
-     [Set up cross-account cross-region monitoring for CloudWatch Database Insights](Database-Insights-Cross-Account-Cross-Region.md "Database-Insights-Cross-Account-Cross-Region.md")
-
-    .
+     [Set up cross-account cross-region monitoring for CloudWatch Database Insights](Database-Insights-Cross-Account-Cross-Region.md "Database-Insights-Cross-Account-Cross-Region.md").
     * **Full read-only access to everything in your account**. This option enables
      the accounts that you use for sharing to create cross-account
      dashboards that include widgets that contain CloudWatch data from

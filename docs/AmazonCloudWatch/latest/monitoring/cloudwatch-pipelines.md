@@ -53,7 +53,7 @@ Be aware of the following limits that apply to CloudWatch pipelines
 Existing log class ingestion pricing for vended and custom logs are applicable. For
 example, if you ingest 30GB of custom standard class logs and process them via a pipeline
 it would cost $15/Month on logs ingestion. If you ingest and process infrequent access
-custom logs then you would pay $7.50/Month. Please refer to CloudWatch Pricing for more details
+custom logs then you would pay $7.50/Month. Please refer to [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") for more details
 on Log Data Ingestion Pricing.
 
 Ingestion of data from 3P connector sources or via an S3 bucket connector is classified
@@ -68,7 +68,7 @@ Regions.
 
 ###### Note
 
-Third-party data source collection is available in regions where OpenSearch Ingestion has API endpoints.
+Third-party data source collection is available in regions where [OpenSearch Ingestion has API endpoints](../../../general/latest/gr/opensearch-service.md "../../../general/latest/gr/opensearch-service.md").
 
 - US East (Ohio)
 - US East (N. Virginia)
