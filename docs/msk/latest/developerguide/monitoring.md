@@ -12,7 +12,7 @@ There are several ways that Amazon MSK helps you monitor the status of your Amaz
   recommendations on the best steps to take to address detected issues. This helps you
   to identify and quickly resolve disk capacity issues before they become critical.
   Amazon MSK automatically sends these alerts to the [Amazon MSK
-  console](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/"), AWS Health Dashboard, Amazon EventBridge, and email contacts for your AWS account. For
+  console](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/"), Health Dashboard, Amazon EventBridge, and email contacts for your AWS account. For
   information about storage capacity alerts, see [Use Amazon MSK storage capacity alerts](cluster-alerts.md "cluster-alerts.md").
 
 ###### Topics
