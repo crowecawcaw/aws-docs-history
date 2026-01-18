@@ -164,7 +164,6 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [AWS DataSync](list_awsdatasync.md "list_awsdatasync.md")
 - [Amazon DataZone](list_amazondatazone.md "list_amazondatazone.md")
 - [AWS Deadline Cloud](list_awsdeadlinecloud.md "list_awsdeadlinecloud.md")
-- [AWS DeepRacer](list_awsdeepracer.md "list_awsdeepracer.md")
 - [Amazon Detective](list_amazondetective.md "list_amazondetective.md")
 - [AWS Device Farm](list_awsdevicefarm.md "list_awsdevicefarm.md")
 - [AWS DevOps Agent Service](list_awsdevopsagentservice.md "list_awsdevopsagentservice.md")

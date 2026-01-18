@@ -1,6 +1,6 @@
-# Policy to grant full access to Compute Optimizer Automation for a management account of an organization
+# Policy to grant full access to Compute Optimizer Automation for standalone AWS accounts
 
-The following code example shows how to This permission-based policy grants full access to Compute Optimizer Automation for a management account of an organization
+The following code example shows how to This permission-based policy grant full access to Compute Optimizer Automation for standalone AWS accounts
 
 JSON
 
@@ -12,14 +12,7 @@ JSON
  "Effect": "Allow",
  "Action": [
  "aco-automation:*",
- "ec2:DescribeVolumes",
- "organizations:ListAccounts",
- "organizations:DescribeOrganization",
- "organizations:DescribeAccount",
- "organizations:EnableAWSServiceAccess",
- "organizations:ListDelegatedAdministrators",
- "organizations:RegisterDelegatedAdministrator",
- "organizations:DeregisterDelegatedAdministrator"
+ "ec2:DescribeVolumes"
  ],
  "Resource": "*"
  }
