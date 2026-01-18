@@ -31,7 +31,19 @@ following reasons:
    dropdown list.
 
 The parameters from the PySpark analysis template will automatically populate in the
-**Definition**. 6. Specify the supported **Worker type**
+**Definition**. 6. If the analysis template has parameters defined, under **Parameters**, provide values for the parameters:
+
+    1. For each parameter, view the **Parameter name** and **Default value** (if configured).
+    2. Enter a **Value** for each parameter you want to override.
+
+
+    ###### Note
+
+    If you don't provide a value but a default value exists, the default value will be used.###### Important
+
+Parameter values can be up to 1,000 characters and support UTF-8 encoding. All parameter values are treated as strings and passed to your user script through the context object.
+
+Ensure that your user script validates and handles parameter values safely. For more information about secure parameter handling, see [Working with parameters in PySpark analysis templates](pyspark-parameter-handling.md "pyspark-parameter-handling.md"). 7. Specify the supported **Worker type**
 and the **Number of workers**.
 
 Use the following table to determine the type and number or workers you need for
@@ -48,10 +60,10 @@ your use case.
 
 Different worker types and number of workers have associated costs. To learn more
 about the pricing, see [AWS Clean Rooms
-pricing](https://aws.amazon.com/clean-rooms/pricing/ "https://aws.amazon.com/clean-rooms/pricing/"). 7. Choose **Run**.
+pricing](https://aws.amazon.com/clean-rooms/pricing/ "https://aws.amazon.com/clean-rooms/pricing/"). 8. Choose **Run**.
 
 ###### Note
 
 You can't run the job if the member who can receive results hasn’t configured the
-job results settings. 8. Continue to adjust parameters and run your job again, or choose the
+job results settings. 9. Continue to adjust parameters and run your job again, or choose the
 **+** button to start a new job in a new tab.

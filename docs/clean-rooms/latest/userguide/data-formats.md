@@ -27,10 +27,7 @@ AWS Clean Rooms supports the following structured formats for running PySpark jo
 formats for SQL
 queries
 
-AWS Clean Rooms supports different structured formats for running SQL
-queries
-
-Spark SQL analytics engine
+AWS Clean Rooms supports the following structured formats for running SQL queries.
 
 - [Apache Iceberg
   tables](iceberg-tables.md "iceberg-tables.md")
@@ -50,7 +47,7 @@ objects.
 
 ## Supported data types
 
-AWS Clean Rooms supports different types.
+AWS Clean Rooms supports the following data types.
 
 - ARRAY
 - BIGINT

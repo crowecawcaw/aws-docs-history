@@ -2,7 +2,13 @@
 
 template
 
-**Prerequisites**
+###### Note
+
+Parameters are user-provided strings that can contain arbitrary content.
+
+- Review the code to ensure parameters are handled safely to prevent unexpected behavior in your analysis.
+- Design parameter handling to work safely regardless of what parameter values are provided at submission time.
+  **Prerequisites**
 
 Before you create a PySpark analysis template, you must have:
 
@@ -56,37 +62,53 @@ see the [AWS Clean Rooms API Reference](../apireference/Welcome.md "../apirefere
    3. (Optional) For **Libraries file**, enter the S3 bucket or
       choose **Browse S3**.
 
-8. For **Tables referenced in the definition**,
-   - If all tables referenced in the definition have been associated to the
-     collaboration:
-     - Leave the **All tables referenced in the definition have been
-       associated to the collaboration** checkbox selected.
-     - Under **Tables associated to the collaboration**, choose
-       all associated tables that are referenced in the definition.
+8. For **Parameters – optional**, if you want to add parameters to make your analysis template reusable:
+   1. Choose **Add parameter**.
+   2. Enter a **Parameter name**.
 
-   - If all tables referenced in the definition haven't been associated to the
-     collaboration:
-     - Clear the **All tables referenced in the definition have been
-       associated to the collaboration** checkbox.
-     - Under **Tables associated to the collaboration**, choose
-       all associated tables that are referenced in the definition.
-     - Under **Tables that will be associated later**, enter a
-       table name.
-     - Choose **List another table** to list another table.
+   Parameter names must start with a letter or underscore, followed by alphanumeric characters or underscores. 3. For **Type**, **STRING** is automatically selected as the only supported type for PySpark analysis templates. 4. (Optional) Enter a **Default value** for the parameter.
 
-9. For **Error message configuration**, choose one of the
-   following:
-   - **Basic error messages** – returns basic error messages
-     without exposing underlying data. Recommended for production workloads.
-   - **Detailed error messages** – returns detailed error
-     messages for faster troubleshooting. Recommended in development and testing
-     environments. May expose sensitive data, including personally identifiable
-     information (PII).
+   If you provide a default value, job runners can use this value when running jobs without explicitly providing a parameter value. 5. To add more parameters, choose **Add another parameter** and repeat the previous steps.###### Note
+
+You can define up to 50 parameters per PySpark analysis template. Each parameter value can be up to 1,000 characters. 9. For **Tables referenced in the definition**,
+
+    * If all tables referenced in the definition have been associated to the
+     collaboration:
+
+
+
+
+    	+ Leave the **All tables referenced in the definition have been
+    	 associated to the collaboration** checkbox selected.
+    	+ Under **Tables associated to the collaboration**, choose
+    	 all associated tables that are referenced in the definition.
+    * If all tables referenced in the definition haven't been associated to the
+     collaboration:
+
+
+
+
+    	+ Clear the **All tables referenced in the definition have been
+    	 associated to the collaboration** checkbox.
+    	+ Under **Tables associated to the collaboration**, choose
+    	 all associated tables that are referenced in the definition.
+    	+ Under **Tables that will be associated later**, enter a
+    	 table name.
+    	+ Choose **List another table** to list another table.
+
+10. For **Error message configuration**, choose one of the
+    following:
+    - **Basic error messages** – returns basic error messages
+      without exposing underlying data. Recommended for production workloads.
+    - **Detailed error messages** – returns detailed error
+      messages for faster troubleshooting. Recommended in development and testing
+      environments. May expose sensitive data, including personally identifiable
+      information (PII).
 
 ###### Note
 
 When using **Detailed error messages**, all data provider members
-must approve this setting for the template. 10. Specify the **Service access** permissions by selecting an
+must approve this setting for the template. 11. Specify the **Service access** permissions by selecting an
 **Existing service role name** from the dropdown list.
 
     1. The list of roles are displayed if you have permissions to list roles.
@@ -115,11 +137,11 @@ must approve this setting for the template. 10. Specify the **Service access** p
     * If you can’t modify the role policy, you receive an error message stating that
      AWS Clean Rooms couldn't find the policy for the service role.
 
-11. If you want to enable **Tags** for the configured table resource,
+12. If you want to enable **Tags** for the configured table resource,
     choose **Add new tag** and then enter the **Key** and
     **Value** pair.
-12. Choose **Create**.
-13. You are now ready to inform your collaboration member that they can [Review an analysis template](review-analysis-template.md "review-analysis-template.md"). (Optional if
+13. Choose **Create**.
+14. You are now ready to inform your collaboration member that they can [Review an analysis template](review-analysis-template.md "review-analysis-template.md"). (Optional if
     you want to query your own data.)
 
 ###### Important

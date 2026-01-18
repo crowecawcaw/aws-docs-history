@@ -27,12 +27,13 @@ def entrypoint(context)
 ```
 
 The `context` object parameter is a dictionary that provides access to
-essential Spark components and referenced tables. It contains Spark session access for
-running Spark operations and the referenced tables:
+essential Spark components, referenced tables, and analysis parameters. It contains:
 
-Spark session access is available via `context['sparkSession']`
+Spark session access via `context['sparkSession']`
 
-Referenced tables are available via `context['referencedTables']` 4. Define the results of the entrypoint function:
+Referenced tables via `context['referencedTables']`
+
+Analysis parameters via `context['analysisParameters']` (if parameters are defined in the template) 4. Define the results of the entrypoint function:
 
 ```
 return results

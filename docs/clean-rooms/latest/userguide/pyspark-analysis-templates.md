@@ -115,6 +115,7 @@ For more information about how to write Spark code, see the following:
 ###### Topics
 
 - [Creating a user script](create-user-script.md "create-user-script.md")
+- [Working with parameters in PySpark analysis templates](pyspark-parameter-handling.md "pyspark-parameter-handling.md")
 - [Creating a virtual environment
   (optional)](create-virtual-environment.md "create-virtual-environment.md")
 - [Storing a user script and virtual environment in

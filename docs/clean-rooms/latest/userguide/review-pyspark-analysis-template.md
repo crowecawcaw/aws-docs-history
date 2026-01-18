@@ -70,30 +70,38 @@ the job logs.
 6. Choose **Review**.
 7. Review the analysis rule **Overview**,
    **Definition**, and **Parameters** (if any).
-8. Validate that the shared user script and libraries are the same as those referenced
-   in the analysis template.
-   1. Create a SHA-256 hash of the files shared and compare it to the analysis
-      template hash created by AWS Clean Rooms.
 
-   You can generate a hash by navigating to the directory containing your user
-   script file and then running the following command:
+###### Note
 
-   ```
-   sha256sum your_script_filename.py
-   ```
+Parameters allow analysis runners to submit different values at submission time. If an analysis template supports parameters, review how the parameter values are used in the code of your collaboration partner to ensure it meets your requirements. 8. Validate that the shared user script and libraries are the same as those referenced
+in the analysis template.
 
-   Example output:
+    1. Create a SHA-256 hash of the files shared and compare it to the analysis
+     template hash created by AWS Clean Rooms.
 
-   ```
-   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 my_analysis.py
-   ```
 
-   2. Alternatively, you can use Amazon S3 checksum features. For more information, see
-      [Checking object integrity in Amazon
-      S3](../../../AmazonS3/latest/userguide/checking-object-integrity.md "../../../AmazonS3/latest/userguide/checking-object-integrity.md") in the _Amazon S3 User
-      Guide_.
-   3. Another alternative is to view the hashes of the executed code in the job
-      logs.
+    You can generate a hash by navigating to the directory containing your user
+     script file and then running the following command:
+
+
+
+    ```
+    sha256sum your_script_filename.py
+    ```
+
+    Example output:
+
+
+
+    ```
+    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 my_analysis.py
+    ```
+    2. Alternatively, you can use Amazon S3 checksum features. For more information, see
+     [Checking object integrity in Amazon
+     S3](../../../AmazonS3/latest/userguide/checking-object-integrity.md "../../../AmazonS3/latest/userguide/checking-object-integrity.md") in the *Amazon S3 User
+     Guide*.
+    3. Another alternative is to view the hashes of the executed code in the job
+     logs.
 
 9. Review the configured tables listed under **Tables referenced in
    definition**.
