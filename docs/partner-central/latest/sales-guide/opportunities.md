@@ -17,15 +17,3 @@ Partners can share and receive opportunities to collaborate on with AWS. These o
 | **Closed lost**          | The end customer selected another cloud provider or is not ready to move forward with the solution.                                                                                                                                    |
 
 ###### Topics
-
-- [Creating an opportunity](creating-opportunity.md "creating-opportunity.md")
-- [Cloning opportunities](cloning-opportunities.md "cloning-opportunities.md")
-- [AWS opportunity review process](opportunity-review-process.md "opportunity-review-process.md")
-- [Accepting opportunities](accepting-opportunities.md "accepting-opportunities.md")
-- [Updating next steps and opportunity stage](updating-opportunities.md "updating-opportunities.md")
-- [AWS stage visibility](stage-visibility.md "stage-visibility.md")
-- [Opportunity contacts](contact-roles.md "contact-roles.md")
-- [Creating a collaboration channel on Slack](slack-collaboration-channel.md "slack-collaboration-channel.md")
-- [Search and filter opportunities](search-filter-opportunities.md "search-filter-opportunities.md")
-- [Tagging AWS partition for opportunities](esc-aws-partition.md "esc-aws-partition.md")
-- [Bulk actions](bulk-actions.md "bulk-actions.md")

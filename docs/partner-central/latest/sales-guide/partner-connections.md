@@ -12,6 +12,3 @@ This section provides detailed instructions for the Partner Discovery and Partne
    - **Partner Connections** to send connection invitations or manage active connections and connection requests
 
 ###### Topics
-
-- [Partner Discovery](partner-discovery.md "partner-discovery.md")
-- [Partner Connections](manage-partner-connections.md "manage-partner-connections.md")

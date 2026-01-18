@@ -21,10 +21,6 @@ Leads can have the following status:
 
 ###### Topics
 
-- [Accepting a lead](#accepting-a-lead "#accepting-a-lead")
-- [Updating a lead](#updating-a-lead "#updating-a-lead")
-- [Converting a lead to an opportunity](#converting-leads "#converting-leads")
-
 ## Accepting a lead
 
 AWS Partners have the option to either accept or reject incoming lead engagements. You must accept an incoming lead before you can view all lead details including contact information.
