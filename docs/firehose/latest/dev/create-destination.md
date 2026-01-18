@@ -510,7 +510,7 @@ If you encrypt the data with AWS KMS keys, you can use either the default AWS ma
 OpenSearch Service
 
 Firehose supports Elasticsearch versions – 1.5, 2.3, 5.1, 5.3, 5.5, 5.6, as well
-as all 6.\*, 7.\*, and 8.\* versions. Firehose supports Amazon OpenSearch Service 2.x up to 2.11.
+as all 6.\*, 7.\*, and 8.\* versions. Firehose supports Amazon OpenSearch Service 2.x and 3.x.
 
 This section describes options for using OpenSearch Service for your destination.
 
