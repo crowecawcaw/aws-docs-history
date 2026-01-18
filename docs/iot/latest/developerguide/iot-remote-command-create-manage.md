@@ -22,14 +22,14 @@ Provide the following information when creating a Command:
 Provide a unique Command ID to identify the Command when running it on target devices. Optionally specify a display name, description,
 and tags for management.
 
-- ###### Payload
+- **Payload**
 
 For static Commands, provide a Payload defining device actions. Specify the
 Payload format type for correct device interpretation.
 
 For dynamic Commands, see the Payload template attribute.
 
-- ###### Payload template
+- **Payload template**
 
 For dynamic Commands, provide a payloadTemplate with placeholders and parameters.
 Optionally provide `defaultValue` and conditions. AWS IoT Device Management Commands replaces placeholders
