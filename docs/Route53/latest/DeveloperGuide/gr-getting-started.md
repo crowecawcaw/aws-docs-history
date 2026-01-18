@@ -125,7 +125,7 @@ features:
   client DNS settings to use the anycast IP addresses provided by your global resolver.
 - Set up logging for monitoring and compliance (recommended for production). Configure
   logging to Amazon CloudWatch, Amazon S3, or Amazon Data Firehose for monitoring and analysis. For more information, see
-  .
+  [Monitoring DNS activity and performance with Route 53 Global Resolver](gr-monitoring.md "gr-monitoring.md").
 - Configure private hosted zone forwarding for internal domains (required if you have
   private AWS resources). For more information, see _Working with private hosted
   zones_.
