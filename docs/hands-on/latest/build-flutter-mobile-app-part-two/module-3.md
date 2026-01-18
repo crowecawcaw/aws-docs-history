@@ -1982,7 +1982,7 @@ final router = GoRouter(
 Due to the changes in the data schema, you need to erase the app and its
 contents from the emulator or simulator.
 
-![Amplify Trips Planner animation](images/amplify-activities.gif)
+![Amplify Trips Planner animation](/images/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-activities.gif)
 
 ## Conclusion
 
