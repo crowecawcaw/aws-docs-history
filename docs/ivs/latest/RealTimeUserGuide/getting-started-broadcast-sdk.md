@@ -100,7 +100,7 @@ repositories {
 }
 
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.37.1:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.38.0:stages@aar'
 }
 ```
 
@@ -150,7 +150,7 @@ end
 
 Install the Framework Manually
 
-1. Download the latest version from [https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast-Stages.xcframework.zip").
+1. Download the latest version from [https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSBroadcast.xcframework` contains the SDK for
    both device and simulator.

@@ -15,7 +15,7 @@ your project.)
 
 Broadcast SDK (Swift Package Manager)
 
-1. Download the Package.swift file from [https://broadcast.live-video.net/1.37.0/Package.swift](https://broadcast.live-video.net/1.37.0/Package.swift "https://broadcast.live-video.net/1.37.0/Package.swift").
+1. Download the Package.swift file from [https://broadcast.live-video.net/1.38.0/Package.swift](https://broadcast.live-video.net/1.38.0/Package.swift "https://broadcast.live-video.net/1.38.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSBroadcast and
    add it to version control.
 3. Place the downloaded Package.swift file in the new directory.
@@ -74,7 +74,7 @@ pod 'AmazonIVSBroadcast/Stages'
 
 Framework Manually
 
-1. Download the latest version from [https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.37.0/AmazonIVSBroadcast-Stages.xcframework.zip").
+1. Download the latest version from [https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSBroadcast.xcframework` contains the SDK for
    both device and simulator.

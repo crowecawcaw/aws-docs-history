@@ -3,6 +3,109 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## January 13, 2026
+
+### Amazon IVS Broadcast SDK:
+
+Android 1.38.0, iOS 1.38.0 (Real-Time Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.38.0](broadcast-android.md "broadcast-android.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/android/")<br>• Layer prioritization function — Added `Priority`<br>enum to `StageVideoConfiguration.Layer` with<br>values: `VERY_LOW`, `LOW`,<br>`MEDIUM`, `HIGH`. This will<br>determine which layer is dropped first under network<br>bandwidth constraints.<br>• Faster stage reconnection after network connectivity<br>is restored.<br>• Changed the codes associated with some errors. See<br>[Mobile Broadcast SDK Error Migration Guide](#broadcast-1380-rt-sdk-error-migration "#broadcast-1380-rt-sdk-error-migration")<br>below.                                                                                                                                                                                                                                                                          |
+| [iOS Broadcast SDK<br>1.38.0](broadcast-ios.md "broadcast-ios.md")             | **Download for real-time streaming:**<br>[https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.38.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.38.0/ios/")<br>• Layer prioritization function — Added<br>`IVSLocalStageStreamLayerPriority` enum with values:<br>`VeryLow`, `Low`, `Medium`, `High`. This will determine which<br>layer is dropped first under network bandwidth<br>constraints.<br>• Faster stage reconnection after network connectivity is restored.<br>• Changed the codes associated with some errors. See<br>[Mobile Broadcast SDK Error Migration Guide](#broadcast-1380-rt-sdk-error-migration "#broadcast-1380-rt-sdk-error-migration")<br>below. |
+
+#### Broadcast SDK Size:
+
+Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 5.795 MB        | 14.070 MB         |
+| armeabi-v7a  | 5.021 MB        | 9.746 MB          |
+| x86_64       | 5.904 MB        | 14.630 MB         |
+| x86          | 6.161 MB        | 15.198 MB         |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 3.609 MB        | 8.078 MB          |
+
+#### Mobile Broadcast SDK
+
+Error Migration Guide
+
+In version 1.38.0 of the iOS and Android broadcast SDKs, the codes associated
+with some errors have changed. Previously, there was no single property that
+could be used to uniquely identify any error emitted from the SDKs. Instead, to
+understand what an error meant, a combination of the following properties needed
+to be examined:
+
+| Android                                                                                                                                                                    | iOS                                                                                                                                                                                                                                                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BroadcastException.getCode()`<br>`BroadcastException.getUid()`<br>`BroadcastException.getError()`<br>`BroadcastException.getSource()`<br>`BroadcastException.getDetail()` | `NSError.code`<br>`NSError.userInfo[IVSBroadcastUidDescriptionErrorKey]`<br>`NSError.userInfo[IVSBroadcastResultDescriptionErrorKey]`<br>`NSError.userInfo[IVSBroadcastSourceDescriptionErrorKey]`<br>`NSError.userInfo[NSLocalizedDescriptionKey]` |
+
+With version 1.38.0 and greater, `BroadcastException.getCode()`
+(Android) and `NSError.code` (iOS) return a unique ID that can be
+looked up in the public `BroadcastErrorCode` (Android) and
+`IVSBroadcastErrorCode` (iOS) enums.
+
+In addition to making `code` the unique ID for all errors, an
+additional field was added: `BroadcastException.getPlatformCode()`
+(Android) and
+`NSError.userInfo[IVSBroadcastPlatformCodeDescriptionErrorKey]`
+(iOS). If an error is caused by the underlying platform (such as a network error
+or a video encode or decode error), this field is non-zero and can be used to
+collect additional information from the platform’s documentation.
+
+##### Migrating from SDK 1.37.0 and Earlier
+
+To make every error conform to the new strategy, some existing errors had
+to change their values. Below is a guide to map existing logic to the new
+logic:
+
+- Any error where `code` was non-zero will keep the same
+  value for code; however, referencing the code through the new enum
+  constants may improve clarity. For example, comparing an error to
+  `BroadcastErrorCode.Broadcast.LatencyThresholdReached`
+  is clearer than comparing it to `20401`.
+- Any error where `UID` had a value (i.e. was not
+  `-1` on Android or `"-1"` on iOS) will now
+  have the `code` field set to what the existing
+  `UID` value was. If you have conditionals comparing
+  the `UID` field, you can keep the constants but compare
+  them against the `code` field going forward.
+- Some legacy errors did not contain a `code` or a
+  `UID` value. These were commonly matched based on the
+  `message` (Android) or `description` (iOS)
+  of the error, which is not a reliable way to identify errors because
+  of the dynamic nature of error messages. Because these errors didn’t
+  have uniquely identifying characteristics, one-to-one mappings can’t
+  be provided. However, most errors kept the same description, so it
+  is possible to continue using the same matching logic while also
+  gathering and reporting the new `code` value for future
+  app releases.
+
+As a concrete example, the error checking in the following table should be
+migrated as follows:
+
+| Before                                          | After                                                                                                                                                                                                             |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `error.code == 20401`                           | `error.code ==<br>BroadcastErrorCode.Broadcast.LatencyThresholdReached`<br>No change, but prefer comparison to the enum<br>value.                                                                                 |
+| `error.uid == 207`                              | `error.code ==<br>BroadcastErrorCode.Net.SocketRemoteHangup`<br>Compare to `code` instead of<br>`uid`.                                                                                                            |
+| `error.message.contains("IceConnectionFailed")` | `error.code ==<br>BroadcastErrorCode.RealTime.PeerConnectionIceConnectionFailed`<br>Don’t compare to `message` (or<br>`source`, or `result/detail`).<br>Instead, find the appropriate enum code to compare<br>to. |
+
+The most important part of an error is still
+`BroadcastException.getPlatformCode()` (Android) and
+`NSError.userInfo[IVSBroadcastPlatformCodeDescriptionErrorKey]`
+(iOS), but in version 1.38.0 and beyond, the `code` field
+uniquely identifies errors and allows immediate lookup of the error name and
+description in the `BroadcastErrorCode` (Android) and
+`IVSBroadcastErrorCode` (iOS) enums. As a result, other
+fields like `UID`, `source`, and `detail`
+should not be used in lookup logic; they exist only as supplemental
+information.
+
 ## December 11, 2025
 
 ### Amazon IVS Broadcast SDK:

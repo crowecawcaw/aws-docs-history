@@ -20,7 +20,7 @@ stage.
 mixed in a single video, the composite recording feature is a better fit. See [Recording](rt-recording.md "rt-recording.md") for a summary of recording IVS
 real-time-streaming content.
 
-![Recording each publisher's media in a separate file using individual particpant recording.](/images/ivs/latest/RealTimeUserGuide/images/Individual_Participant_Recording.png)
+![Recording each publisher's media in a separate file using individual particpant recording.](images/Individual_Participant_Recording.png)
 
 ## Workflow
 
