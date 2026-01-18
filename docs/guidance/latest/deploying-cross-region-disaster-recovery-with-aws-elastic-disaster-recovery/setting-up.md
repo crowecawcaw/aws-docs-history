@@ -6,7 +6,7 @@ AWS Elastic Disaster Recovery is only one part of a larger disaster recovery str
 
 If you do not have an AWS account, complete the following steps to create one.
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+1. Open https://portal.aws.amazon.com/billing/signup.
 2. Follow the online instructions.
 
 Part of the sign-up procedure involves receiving a phone call and entering a verification code on the phone keypad.
