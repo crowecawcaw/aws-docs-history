@@ -114,6 +114,10 @@ tasks:
 - It shuts down the `Worker` when record processing is
   complete.
 
+Optionally, enable catch-up mode in your Streams KCL Adapter configuration to automatically scale GetRecords API calling rate
+by 3x (default) when stream processing lag exceeds one minute (default), helping your stream consumer handle high throughput
+spikes in your table.
+
 To learn more about the KCL interface definition, see [Developing consumers using the
 Kinesis client library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") in the _Amazon Kinesis Data Streams Developer Guide_.
 

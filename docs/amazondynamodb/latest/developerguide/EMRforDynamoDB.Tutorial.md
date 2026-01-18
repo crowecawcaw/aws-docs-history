@@ -1,33 +1,73 @@
-# Step 1: Create an Amazon EC2 key
+# Step 5: Copy data to
 
-pair
+DynamoDB
 
-In this step, you will create the Amazon EC2 key pair you need to connect to an Amazon EMR
-leader node and run Hive commands.
+In this step, you will copy data from the Hive table (`hive_features`)
+to a new table in DynamoDB.
 
-1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. Choose a region (for example, `US West (Oregon)`). This should
-   be the same region in which your DynamoDB table is located.
-3. In the navigation pane, choose **Key Pairs**.
-4. Choose **Create Key Pair**.
-5. In **Key pair name**, type a name for your key pair (for
-   example, `mykeypair`), and then choose
-   **Create**.
-6. Download the private key file. The file name will end with
-   `.pem` (such as `mykeypair.pem`). Keep this
-   private key file in a safe place. You will need it to access any Amazon EMR
-   cluster that you launch with this key pair.
+1.  Open the DynamoDB console at
+    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2.  Choose **Create Table**.
+3.  On the **Create DynamoDB table** page, do the
+    following:
+    1. In **Table**, type
+       `Features`.
+    2. For **Primary key**, in the **Partition
+       key** field, type `Id`. Set the
+       data type to **Number**.
 
-###### Important
+    Clear **Use Default Settings**. For
+    **Provisioned Capacity**, type the
+    following:
 
-If you lose the key pair, you cannot connect to the leader node
-of your Amazon EMR cluster.
+        * **Read Capacity
+         Units**—`10`
+        * **Write Capacity
+         Units**—`10`Choose **Create**.
 
-For more information about key pairs, see [Amazon EC2 Key Pairs](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the
-_Amazon EC2 User Guide_.
+4.  At the Hive prompt, enter the following HiveQL statement:
+
+```
+CREATE EXTERNAL TABLE ddb_features
+    (feature_id   BIGINT,
+    feature_name  STRING,
+    feature_class STRING,
+    state_alpha   STRING,
+    prim_lat_dec  DOUBLE,
+    prim_long_dec DOUBLE,
+    elev_in_ft    BIGINT)
+STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+TBLPROPERTIES(
+    "dynamodb.table.name" = "Features",
+    "dynamodb.column.mapping"="feature_id:Id,feature_name:Name,feature_class:Class,state_alpha:State,prim_lat_dec:Latitude,prim_long_dec:Longitude,elev_in_ft:Elevation"
+);
+```
+
+You have now established a mapping between Hive and the Features table in
+DynamoDB. 5. Enter the following HiveQL statement to import data to DynamoDB:
+
+```
+INSERT OVERWRITE TABLE ddb_features
+SELECT
+    feature_id,
+    feature_name,
+    feature_class,
+    state_alpha,
+    prim_lat_dec,
+    prim_long_dec,
+    elev_in_ft
+FROM hive_features;
+```
+
+Hive will submit a MapReduce job, which will be processed by your Amazon EMR
+cluster. It will take several minutes to complete the job. 6. Verify that the data has been loaded into DynamoDB:
+
+    1. In the DynamoDB console navigation pane, choose
+     **Tables**.
+    2. Choose the Features table, and then choose the
+     **Items** tab to view the data.
 
 ###### Next step
 
-[Step 2: Launch an Amazon EMR
-cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+[Step 6: Query the data
+in the DynamoDB table](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")

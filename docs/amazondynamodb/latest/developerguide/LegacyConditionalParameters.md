@@ -1,80 +1,50 @@
-# ScanFilter (legacy)
+# AttributesToGet (legacy)
 
 ###### Note
 
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
 For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
 For specific information on the new parameter replacing this one,
-[use FilterExpression instead.](#FilterExpression2.instead "#FilterExpression2.instead").
+[Use ProjectionExpression instead](#ProjectionExpression.instead "#ProjectionExpression.instead").
 
-In a `Scan` operation, the legacy conditional parameter `ScanFilter` is a
-condition that evaluates the scan results and returns only the desired
-values.
+The legacy conditional parameter `AttributesToGet` is an array of one or more attributes to retrieve from DynamoDB. If no
+attribute names are provided, then all attributes will be returned. If any of the
+requested attributes are not found, they will not appear in the result.
 
-###### Note
+`AttributesToGet` allows you to retrieve attributes of type List or Map;
+however, it cannot retrieve individual elements within a List or a Map.
 
-This parameter does not support attributes of type List or Map.
+Note that `AttributesToGet` has no effect on provisioned
+throughput consumption. DynamoDB determines capacity units consumed based on item size,
+not on the amount of data that is returned to an application.
 
-If you specify more than one condition in the `ScanFilter` map,
-then by default all of the conditions must evaluate to true. In other words, the
-conditions are ANDed together. (You can use the
-[ConditionalOperator (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md") parameter to OR the conditions instead.
-If you do this, then at least one of the conditions must evaluate to true, rather
-than all of them.)
+## Use _ProjectionExpression_ instead – Example
 
-Each `ScanFilter` element consists of an attribute name to
-compare, along with the following:
-
-- `AttributeValueList` - One or more values to evaluate
-  against the supplied attribute. The number of values in the list depends on
-  the operator specified in `ComparisonOperator` .
-
-For type Number, value comparisons are numeric.
-
-String value comparisons for greater than, equals, or less than are based
-on UTF-8 binary encoding. For example, `a` is greater than
-`A`, and `a` is greater than
-`B`.
-
-For Binary, DynamoDB treats each byte of the binary data as unsigned when
-it compares binary values.
-
-For information on specifying data types in JSON, see [DynamoDB low-level API](Programming.md "Programming.md").
-
-- `ComparisonOperator` - A comparator for evaluating attributes. For
-  example: equals, greater than, and less than.
-
-The following comparison operators are available:
-
-`EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
- NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN`
-
-## Use _FilterExpression_ instead – Example
-
-Suppose you wanted to scan the _Music_ table and apply a
-condition to the matching items. You could use a
-`Scan` request with a `ScanFilter` parameter, as in this
-AWS CLI example:
+Suppose you wanted to retrieve an item from the _Music_ table,
+but that you only wanted to return some of the attributes. You could use a
+`GetItem` request with an `AttributesToGet` parameter, as
+in this AWS CLI example:
 
 ```
-aws dynamodb scan \
+aws dynamodb get-item \
     --table-name Music \
-    --scan-filter '{
-        "Genre":{
-            "AttributeValueList":[ {"S":"Rock"} ],
-            "ComparisonOperator": "EQ"
-        }
+    --attributes-to-get '["Artist", "Genre"]' \
+    --key '{
+        "Artist": {"S":"No One You Know"},
+        "SongTitle": {"S":"Call Me Today"}
     }'
-```
-
-You can use a `FilterExpression` instead:
 
 ```
-aws dynamodb scan \
+
+You can use a `ProjectionExpression` instead:
+
+```
+aws dynamodb get-item \
     --table-name Music \
-    --filter-expression 'Genre = :g' \
-    --expression-attribute-values '{
-        ":g": {"S":"Rock"}
+    --projection-expression "Artist, Genre" \
+    --key '{
+        "Artist": {"S":"No One You Know"},
+        "SongTitle": {"S":"Call Me Today"}
     }'
 
 ```

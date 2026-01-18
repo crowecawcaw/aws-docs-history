@@ -48,6 +48,37 @@ or scaled up/down if autoscaling is enabled.
 The requests will be logged in the CloudTrail logs of both the owner and the requestor accounts
 so that each of the two accounts can track which account accessed what data.
 
+## Share access with cross-account AWS Lambda functions
+
+**Lambda functions in account A**
+
+1. Go to the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")
+   to create an IAM role that will be used as the
+   [Lambda execution role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") for your AWS Lambda function in account A. Add the managed
+   IAM policy `AWSLambdaDynamoDBExecutionRole` which has the required DynamoDB
+   Streams and Lambda invocation permissions. This policy also grants access to all potential
+   DynamoDB Streams resources you may have access to in account A.
+2. In the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"),
+   create an AWS Lambda function to process records in a DynamoDB stream and during the setup for
+   the execution role, choose the role you created in the previous step.
+3. Provide the Lambda function execution role to the DynamoDB Streams' owner of
+   account B to configure the resource-based policy for cross-account read access.
+4. Finish setting up the Lambda function.
+
+**DynamoDB Stream in Account B**
+
+1. Get the cross-account Lambda execution role from account A that will invoke the Lambda function.
+2. On the Amazon DynamoDB console in account B, choose the table for Lambda cross-account trigger. Under the
+   **Exports and streams** tab, locate your DynamoDB stream ARN. Ensure that DynamoDB Stream status
+   is On and note the full stream ARN as you will need it for the resource policy.
+3. Under the **Permissions** tab, click the **create stream policy** button
+   to start the visual policy editor. Click the **Add new statement** button or edit the policy if one
+   already exists.
+4. Create a policy that specifies the Lambda execution role in account A as the principal and grant the required
+   DynamoDB Stream actions. Make sure to include the actions `dynamodb:DescribeStream`, `dynamodb:GetRecords`,
+   `dynamodb:GetShardIterator`, and `dynamodb:ListShards`. For more information on example resource policies for
+   DynamoDB Streams, see [DynamoDB resource-based policy examples](rbac-examples.md "rbac-examples.md").
+
 ###### Note
 
 The cross-account access of [control plane

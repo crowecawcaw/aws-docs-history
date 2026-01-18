@@ -91,14 +91,14 @@ public class StreamsRecordProcessor implements IRecordProcessor, IShutdownNotifi
    and
    `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware`
    to
-   `software.amazon.dynamodb.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor`
+   `com.amazonaws.services.dynamodbv2.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor`
    as follows:
 
 ```
 // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
 // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware;
 
-import software.amazon.dynamodb.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor
+import com.amazonaws.services.dynamodbv2.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor;
 ```
 
 2. Update import statements for the `initialize` and
