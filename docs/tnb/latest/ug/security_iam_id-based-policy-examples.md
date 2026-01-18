@@ -298,6 +298,7 @@ JSON
  "cloudformation:DeleteStack",
  "cloudformation:DescribeStackResources",
  "cloudformation:DescribeStacks",
+ "cloudformation:ListStackResources",
  "cloudformation:UpdateStack",
  "cloudformation:UpdateTerminationProtection",
  "ssm:PutParameter",

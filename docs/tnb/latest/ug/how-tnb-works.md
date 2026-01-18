@@ -46,7 +46,7 @@ as telecom-specific APIs to create a fully operational network service:
   AWS Outposts.
 - IAM to define roles.
 - AWS Organizations to control access to AWS TNB APIs.
-- AWS Health Dashboard and AWS CloudTrail to monitor health and post metrics.
+- Health Dashboard and AWS CloudTrail to monitor health and post metrics.
 
 ## AWS TNB resource quotas
 
