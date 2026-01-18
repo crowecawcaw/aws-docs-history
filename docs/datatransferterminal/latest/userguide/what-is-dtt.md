@@ -10,5 +10,5 @@ AWS Data Transfer Terminal is only available to AWS Enterprise customers at this
 
 **To access Data Transfer Terminal**:
 
-- **AWS Data Transfer Terminal console**: [https://console.aws.amazon.com/datatransferterminal](https://console.aws.amazon.com/datatransferterminal "https://console.aws.amazon.com/datatransferterminal")
+- **AWS Data Transfer Terminal console**: https://console.aws.amazon.com/datatransferterminal
 - **Data Transfer Terminal facilities**: The location of Data Transfer Terminal facilities are provided once a reservation is made in the console. For more information, see [Make a data transfer](accessing-site.md "accessing-site.md").
