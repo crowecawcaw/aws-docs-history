@@ -1,9 +1,3 @@
-# Oracle application migration and integration with third-party applications
+# Oracle database migration performance tuning
 
-Few applications are islands and your Oracle application is likely to integrate with other applications that are not themselves going to be migrated. Examples include ETL, reporting, and monitoring applications for alerts and logs. For more information, see [Script/ETL/Report Conversion](chap-oracle-postgresql.migration-process.md "chap-oracle-postgresql.migration-process.md").
-
-If these third-party applications connect directly to the Oracle database, they are going to be affected by the migration. If they are packaged applications, the vendor may offer support for Amazon RDS and Aurora PostgreSQL and if they are custom, you may need to modify them to work with the migrated application. There are a wealth of resources on the partner network which complement any solution from AWS.
-
-AWS native tools such as [Amazon Simple Notification Service](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/"), [Amazon RDS Performance Insights](https://aws.amazon.com/rds/performance-insights/ "https://aws.amazon.com/rds/performance-insights/"), [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/"), and [Amazon Relational Database Service](http://aws.amazon.com/rds "http://aws.amazon.com/rds") are already integrated with the Amazon RDS and Aurora PostgreSQL database platform and are recommended for a full picture of the ongoing performance.
-
-For more information, see [Engage with Amazon Web Services Partners](https://partners.amazonaws.com/ "https://partners.amazonaws.com/").
+Any migration is likely to slightly change the performance of individual queries in the application and in stored procedures and functions. Depending on the context, those small differences may not matter in reality. But it is a good idea to deliberately compare the performance of operations that are known to be slow in the original system because any difference in performance is likely to be greater. Such testing is usually confined to specific long running ETL jobs and reports. Other performance issues may show up during functional or load testing and will be addressed as bugs.

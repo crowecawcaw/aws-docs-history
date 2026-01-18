@@ -5,7 +5,7 @@ In this step, you create a new database user on your source PostgreSQL database 
 Use the following script to create a database user with the required permissions in your PostgreSQL source database.
 
 ```
-CREATE USER your_user WITH LOGIN PASSWORD 'your_password';
+ CREATE USER your_user WITH LOGIN PASSWORD 'your_password';
 ALTER USER your_user WITH SUPERUSER;
 GRANT SELECT ON ALL TABLES IN SCHEMA schema_name TO your_user;
 ```

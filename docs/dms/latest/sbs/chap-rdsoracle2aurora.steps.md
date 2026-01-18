@@ -1,35 +1,36 @@
-# Step 10: Verify That Your Data Migration Completed Successfully
+# Step 8: Create AWS DMS Source and Target Endpoints
 
-When the migration task completes, you can compare your task results with the expected results.
+While your replication instance is being created, you can specify the source and target database endpoints using the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). However, you can only test connectivity after the replication instance has been created, because the replication instance is used in the connection.
 
-1. On the navigation pane, choose **Tasks**.
-2. Choose your migration task (`migratehrschema`).
-3. Choose the **Table statistics** tab, shown following.
+1. Specify your connection information for the source Oracle database and the target Amazon Aurora MySQL database. The following table describes the source settings.
 
-![Table statistics tab](images/sbs-rdsor2aurora26.png) 4. Connect to the Amazon Aurora MySQL instance by using SQL Workbench/J, and then check if the database tables were successfully migrated from Oracle to Aurora MySQL by running the SQL script shown following.
+| For This Parameter      | Do This                                                                                                                                                         |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter `Orasource` (the Amazon RDS for Oracle endpoint).                                                                                                         |
+| **Source Engine**       | Choose **oracle**.                                                                                                                                              |
+| **Server name**         | Provide the Oracle DB instance name. This is the \*_Server name_<br>• you used for AWS SCT, such as "do1xa4grferti8y.cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
+| **Port**                | Enter `1521`.                                                                                                                                                   |
+| **SSL mode**            | Choose **None**.                                                                                                                                                |
+| **Username**            | Enter `oraadmin`.                                                                                                                                               |
+| **Password**            | Provide the password for the Oracle DB instance.                                                                                                                |
+| **SID**                 | Provide the Oracle database name.                                                                                                                               |
 
-```
-SELECT TABLE_NAME,TABLE_ROWS
-    FROM INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = 'HR' and TABLE_TYPE='BASE TABLE' order by 1;
-```
+The following table describes the target settings.
 
-![Table statistics tab](images/sbs-rdsor2aurora27.png) 5. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
+| For This Parameter      | Do This                                                                                                                                                                                           |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter `Aurtarget` (the Amazon Aurora MySQL endpoint).                                                                                                                                             |
+| **Target Engine**       | Choose **aurora**.                                                                                                                                                                                |
+| **Servername**          | Provide the Aurora MySQL DB instance name. This is the \*_Server name_<br>• you used for AWS SCT, such as "dmsdemo-auroracluster-1u1oyqny35jwv.cluster-cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
+| **Port**                | Enter `3306`.                                                                                                                                                                                     |
+| **SSL mode**            | Choose **None**.                                                                                                                                                                                  |
+| **Username**            | Enter `auradmin`.                                                                                                                                                                                 |
+| **Password**            | Provide the password for the Aurora MySQL DB instance.                                                                                                                                            |
 
-```
-SELECT B.DEPARTMENT_NAME,COUNT(*)
-  FROM HR.EMPLOYEES A,HR.DEPARTMENTS B
-  WHERE A.DEPARTMENT_ID=B.DEPARTMENT_ID
-  GROUP BY B.DEPARTMENT_NAME HAVING COUNT(*) > 10
-  ORDER BY 1;
-```
+The completed page should look like the following:
 
-The output from this query should be similar to the following.
+![Advanced section](images/sbs-rdsor2aurora19.5.png) 2. In order to disable foreign key checks during the initial data load, you must add the following commands to the target Aurora MySQL DB instance. In the **Advanced** section, shown following, type the following commands for **Extra connection attributes**: `initstmt=SET FOREIGN_KEY_CHECKS=0;autocommit=1`
 
-```
-department_name	count(*)
-Sales                34
-Shipping             45
-```
+The first command disables foreign key checks during a load, and the second command commits the transactions that DMS executes.
 
-Now you have successfully completed a database migration from an Amazon RDS for Oracle database instance to Amazon Aurora MySQL.
+![Advanced section](images/sbs-rdsor2aurora20.png) 3. Choose **Next**.

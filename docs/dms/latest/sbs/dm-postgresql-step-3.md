@@ -21,7 +21,7 @@ If you already created the target database, skip this step and proceed with the 
 You can use the following code example to create a database user with the required permissions.
 
 ```
-CREATE USER your_user WITH LOGIN PASSWORD 'your_password';
+ CREATE USER your_user WITH LOGIN PASSWORD 'your_password';
 GRANT USAGE ON SCHEMA schema_name TO your_user;
 GRANT CONNECT ON DATABASE db_name to your_user;
 GRANT CREATE ON DATABASE db_name TO your_user;

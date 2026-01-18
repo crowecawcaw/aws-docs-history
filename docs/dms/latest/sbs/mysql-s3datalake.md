@@ -36,7 +36,7 @@ The default **binlog_format** is “Mixed”. AWS DMS requires the “ROW” for
 AWS DMS requires binary logs to be local to the Amazon RDS for MySQL database instance. To ensure that binary logs are available to AWS DMS, you should increase the length of time that the logs remain available in the database instance host. For example, to increase log retention to 24 hours, run the following command. 24 hours are enough for this walkthrough.
 
 ```
-call mysql.rds_set_configuration('binlog retention hours', 24);
+ call mysql.rds_set_configuration('binlog retention hours', 24);
 ```
 
 ### VPC, Subnet and Network ACL configuration
@@ -144,7 +144,7 @@ To use Amazon S3 as an AWS Database Migration Service (AWS DMS) target endpoint,
 Assume role policy:
 
 ```
-{
+ {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -163,7 +163,7 @@ Assume role policy:
 Policy:
 
 ```
-{
+ {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -271,13 +271,13 @@ In the following example, a source table has a structure similar to the followin
 For this example, we insert a record into this table such as the following:
 
 ```
-INSERT INTO dms_example.users (id, name, age, birthday) VALUES (4, 'Kate', 23, 1999);
+ INSERT INTO dms_example.users (id, name, age, birthday) VALUES (4, 'Kate', 23, 1999);
 ```
 
 The generated record will look similar to the following:
 
 ```
-I, 4, Kate, 23, 1999
+ I, 4, Kate, 23, 1999
 ```
 
 To handle these changed data, you need to take the operation flag into consideration when querying the file output in the S3 bucket, or alternatively you can process those files using AWS Glue and store the output in another S3 bucket which can then be queried using Amazon Athena.
@@ -289,7 +289,7 @@ In this scenario, we’ll use the following settings:
 **Endpoint 1:**
 
 ```
-{
+ {
   "ServiceAccessRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/mysql2s3-walkthrough-dms-s3-target-access-role",
   "CsvRowDelimiter": "\\n",
   "CsvDelimiter": ",",
@@ -309,7 +309,7 @@ In this scenario, we’ll use the following settings:
 **Endpoint 2:**
 
 ```
-{
+ {
   "ServiceAccessRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/mysql2s3-walkthrough-dms-s3-target-access-role",
   "CsvRowDelimiter": "\\n",
   "CsvDelimiter": ",",
@@ -380,7 +380,7 @@ create a task that performs both full-load and CDC. To create a database migrati
 Table mappings:
 
 ```
-{
+ {
   "rules": [
     {
       "rule-type": "selection",
@@ -435,7 +435,7 @@ Table mappings:
 Task settings:
 
 ```
-{
+ {
   "TargetMetadata": {
     "SupportLobs": true,
     "LimitedSizeLobMode": true,
