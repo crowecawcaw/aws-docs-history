@@ -18,6 +18,8 @@ The following individuals and organizations contributed to this document:
 - Nadeem Bulsara, Principal Solutions Architect, Amazon Web Services
 - Cameron Smith, Sr. Solutions Architect, Amazon Web Services
 - Michael Smalley, Enterprise Support Manager, Amazon Web Services
+- Preetkumar Shah, Technical Account Manager, Amazon Web Services
+- Subha Kalia, Sr. Technical Account Manager, Amazon Web Services
 - Dakshaja Vaidya, Technical Account Manager, Amazon Web Services
 - Stewart Matzek, Sr. Technical Writer, Amazon Web Services
 - Madhuri Srinivasan, Sr. Technical Writer, Amazon Web Services
