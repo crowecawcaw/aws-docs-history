@@ -15,7 +15,7 @@ For comprehensive visibility into AWS Health event details, including affected r
 
 - The AWS Health API
 - The aws.health source in Amazon EventBridge
-- The AWS Health Dashboard
+- The Health Dashboard
   These tools provide the most detailed and real-time information about ongoing events and changes that might affect your workloads.
 
 ## Configure your AWS managed notifications subscription for AWS Health events
@@ -42,7 +42,7 @@ For more information, see [AWS managed notifications aggregation in AWS User Not
 
 Yes, trusted access with AWS User Notifications from AWS Organizations is required.
 
-Organizational trust and the associated delegated administrator privileges are assigned by service and act as guardrails against overextended permissions. Trusted access for AWS Health enables organizational view for the AWS Health Dashboard, the AWS Health APIs, AWS Health events sent through Amazon EventBridge, and notification configurations in User Notifications. Trusted access for AWS User Notifications enables aggregate notifications within AWS managed notifications. Because trusted access isn't shared, setting up delegated administrators needs to be added separately for each service.
+Organizational trust and the associated delegated administrator privileges are assigned by service and act as guardrails against overextended permissions. Trusted access for AWS Health enables organizational view for the Health Dashboard, the AWS Health APIs, AWS Health events sent through Amazon EventBridge, and notification configurations in User Notifications. Trusted access for AWS User Notifications enables aggregate notifications within AWS managed notifications. Because trusted access isn't shared, setting up delegated administrators needs to be added separately for each service.
 
 No. The current plain text AWS Health emails are disabled after the migration completes. If you use email rules to drive different workflows, we recommend that you evaluate AWS Health events sent through Amazon EventBridge as an alternative.
 

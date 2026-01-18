@@ -86,7 +86,7 @@ Resource-based policies are inline policies that are located in that service. Yo
 
 AWS Health supports resource-based conditions. You can specify which AWS Health
 events that users can view. For example, you might create a policy that only allows an
-IAM user access to specific Amazon EC2 events in the AWS Health Dashboard.
+IAM user access to specific Amazon EC2 events in the Health Dashboard.
 
 For more information, see [Resources](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources").
 

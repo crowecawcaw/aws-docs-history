@@ -9,7 +9,7 @@ fault tolerant, and scalable than traditional single or multiple data center
 infrastructures.
 
 AWS Health events are stored and replicated across multiple Availability Zones. This
-approach ensures that you can access them from the AWS Health Dashboard or the AWS Health API operations.
+approach ensures that you can access them from the Health Dashboard or the AWS Health API operations.
 You can view AWS Health events up to 90 days from when they occur.
 
 For more information about AWS Regions and Availability Zones, see [AWS Global

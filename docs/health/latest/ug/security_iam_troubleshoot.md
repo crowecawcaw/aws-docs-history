@@ -27,7 +27,7 @@ must contact your administrator for assistance. Your administrator is the person
 provided you with your user name and password.
 
 The `AccessDeniedException` error appears when a user doesn't have
-permission to use AWS Health Dashboard or the AWS Health API operations.
+permission to use Health Dashboard or the AWS Health API operations.
 
 In this case, the user's administrator must update the policy to allow the user
 access.

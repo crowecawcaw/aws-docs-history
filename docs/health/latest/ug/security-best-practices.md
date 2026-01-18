@@ -10,15 +10,15 @@ permissions
 
 Follow the principle of least privilege by using the minimum set of access policy
 permissions for your users and groups. For example, you might allow an AWS Identity and Access Management (IAM)
-user access to the AWS Health Dashboard. However, you might not allow that same user to enable or
+user access to the Health Dashboard. However, you might not allow that same user to enable or
 disable access to AWS Organizations.
 
 For more information, see [AWS Health identity-based
 policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## View the AWS Health Dashboard
+## View the Health Dashboard
 
-Check your AWS Health Dashboard often to identify events that might affect your account or
+Check your Health Dashboard often to identify events that might affect your account or
 applications. For example, you might receive an event notification about your resources,
 such as an Amazon Elastic Compute Cloud (Amazon EC2) instance that needs to be updated.
 
