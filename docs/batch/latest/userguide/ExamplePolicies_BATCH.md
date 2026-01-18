@@ -23,3 +23,4 @@ AWS Batch.
   condition keys match strings](iam-example-job-def-deny-any-image-logdriver.md "iam-example-job-def-deny-any-image-logdriver.md")
 - [Use the batch:ShareIdentifier condition key](iam-example-share-identifier.md "iam-example-share-identifier.md")
 - [Manage SageMaker AI resources with AWS Batch](iam-example-full-access-service-environment.md "iam-example-full-access-service-environment.md")
+- [Restrict job submission by resource tags](iam-example-restrict-job-submission-by-tags.md "iam-example-restrict-job-submission-by-tags.md")
