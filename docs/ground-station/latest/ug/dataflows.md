@@ -1,9 +1,15 @@
-# Set up and configure Amazon S3
+# Use cross-region data delivery
 
-You can utilize a Amazon S3 bucket to receive your downlink signals using AWS Ground Station. To create the
-destination _s3-recording-config_, you must be able to specify a Amazon S3 bucket
-and an IAM role which authorizes AWS Ground Station to write files to the bucket.
+The AWS Ground Station cross-region data delivery feature gives you the flexibility to send your data from an
+antenna to any AWS Ground Station supported AWS Region. This means you can maintain your infrastructure in a
+single AWS Region and schedule contacts on any
+[AWS Ground Station Locations](aws-ground-station-antenna-locations.md "aws-ground-station-antenna-locations.md")
+you are onboarded to.
 
-See
-[Amazon S3 Recording Config](how-it-works.md#how-it-works.config-s3-recording "how-it-works.md#how-it-works.config-s3-recording")
-for restrictions on the Amazon S3 bucket, IAM role, or AWS Ground Station config creation.
+When receiving your contact data in an Amazon S3 Bucket, AWS Ground Station will manage all delivery aspects for you.
+
+To use cross-region data delivery to an Amazon EC2 instance (using either the AWS Ground Station Agent or a dataflow endpoint),
+the _dataflow-endpoint_
+must be created in your current AWS Region and your
+_dataflow-endpoint-config_
+must specify the same region. AWS Ground Station will manage delivering the data cross-region for you.
