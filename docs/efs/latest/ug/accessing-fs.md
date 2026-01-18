@@ -48,7 +48,7 @@ single mount target created in the same Availability Zone as the file system. Ac
 system by using the EC2 instance in the `us-west2c` Availability Zone incurs data
 access charges because it is located in a different Availability Zone than the mount target.
 
-![One Zone file system with a single mount target created in the same Availability Zone.](images/efs-ec2-how-it-works-OneZone.png)
+![One Zone file system with a single mount target created in the same Availability Zone.](/images/efs/latest/ug/images/efs-ec2-how-it-works-OneZone.png)
 
 The mount target security group acts as a virtual firewall that controls the traffic. For
 example, it determines which clients can access the file system. This section explains the
