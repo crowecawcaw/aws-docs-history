@@ -99,7 +99,7 @@ A service graph is a JSON document that contains information about the services 
 your application. The X-Ray console uses the service graph to generate a visualization or _service
 map_.
 
-![Trace map](/images/xray/latest/devguide/images/scorekeep-gettingstarted-cw-servicemap-simplified.png)
+![Trace map](images/scorekeep-gettingstarted-cw-servicemap-simplified.png)
 
 For a distributed application, X-Ray combines nodes from all services that process requests with the same
 trace ID into a single service graph. The first service that the request hits adds a [tracing header](#xray-concepts-tracingheader "#xray-concepts-tracingheader") that is propagated between the front end and
