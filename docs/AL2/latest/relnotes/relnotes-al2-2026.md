@@ -1,0 +1,9 @@
+#
+
+Amazon Linux 2 release notes for 2026
+
+The following are the release notes for Amazon Linux 2 for 2026.
+
+###### Release notes
+
+- [2.0.20260109](relnotes-20260109.md "relnotes-20260109.md")
