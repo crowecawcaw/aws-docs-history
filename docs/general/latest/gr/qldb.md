@@ -13,35 +13,7 @@ The following are the service endpoints and service quotas for this service.
 
 ### QLDB resource management API
 
-| Region Name              | Region         | Endpoint                                                                | Protocol       |
-| ------------------------ | -------------- | ----------------------------------------------------------------------- | -------------- |
-| US East (Ohio)           | us-east-2      | qldb.us-east-2.amazonaws.com<br>qldb-fips.us-east-2.amazonaws.com       | HTTPS<br>HTTPS |
-| US East (N. Virginia)    | us-east-1      | qldb.us-east-1.amazonaws.com<br>qldb-fips.us-east-1.amazonaws.com       | HTTPS<br>HTTPS |
-| US West (Oregon)         | us-west-2      | qldb.us-west-2.amazonaws.com<br>qldb-fips.us-west-2.amazonaws.com       | HTTPS<br>HTTPS |
-| Asia Pacific (Seoul)     | ap-northeast-2 | qldb.ap-northeast-2.amazonaws.com                                       | HTTPS          |
-| Asia Pacific (Singapore) | ap-southeast-1 | qldb.ap-southeast-1.amazonaws.com                                       | HTTPS          |
-| Asia Pacific (Sydney)    | ap-southeast-2 | qldb.ap-southeast-2.amazonaws.com                                       | HTTPS          |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | qldb.ap-northeast-1.amazonaws.com                                       | HTTPS          |
-| Canada (Central)         | ca-central-1   | qldb.ca-central-1.amazonaws.com<br>qldb-fips.ca-central-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Frankfurt)       | eu-central-1   | qldb.eu-central-1.amazonaws.com                                         | HTTPS          |
-| Europe (Ireland)         | eu-west-1      | qldb.eu-west-1.amazonaws.com                                            | HTTPS          |
-| Europe (London)          | eu-west-2      | qldb.eu-west-2.amazonaws.com                                            | HTTPS          |
-
 ### QLDB transactional data API
-
-| Region Name              | Region         | Endpoint                                                                          | Protocol       |
-| ------------------------ | -------------- | --------------------------------------------------------------------------------- | -------------- |
-| US East (Ohio)           | us-east-2      | session.qldb.us-east-2.amazonaws.com<br>session.qldb-fips.us-east-2.amazonaws.com | HTTPS<br>HTTPS |
-| US East (N. Virginia)    | us-east-1      | session.qldb.us-east-1.amazonaws.com<br>session.qldb-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (Oregon)         | us-west-2      | session.qldb.us-west-2.amazonaws.com<br>session.qldb-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Seoul)     | ap-northeast-2 | session.qldb.ap-northeast-2.amazonaws.com                                         | HTTPS          |
-| Asia Pacific (Singapore) | ap-southeast-1 | session.qldb.ap-southeast-1.amazonaws.com                                         | HTTPS          |
-| Asia Pacific (Sydney)    | ap-southeast-2 | session.qldb.ap-southeast-2.amazonaws.com                                         | HTTPS          |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | session.qldb.ap-northeast-1.amazonaws.com                                         | HTTPS          |
-| Canada (Central)         | ca-central-1   | session.qldb.ca-central-1.amazonaws.com                                           | HTTPS          |
-| Europe (Frankfurt)       | eu-central-1   | session.qldb.eu-central-1.amazonaws.com                                           | HTTPS          |
-| Europe (Ireland)         | eu-west-1      | session.qldb.eu-west-1.amazonaws.com                                              | HTTPS          |
-| Europe (London)          | eu-west-2      | session.qldb.eu-west-2.amazonaws.com                                              | HTTPS          |
 
 ## Service quotas
 

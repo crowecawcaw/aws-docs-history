@@ -20,11 +20,6 @@ AWS Budgets API, and the AWS Price List API.
 | --------------------- | --------- | -------------------------------------------------- | -------------- |
 | US East (N. Virginia) | us-east-1 | ce.us-east-1.amazonaws.com<br>ce.us-east-1.api.aws | HTTPS<br>HTTPS |
 
-### AWS Cost and Usage Reports
-
-| Region Name | Region | Endpoint | Protocol |
-| ----------- | ------ | -------- | -------- |
-
 ### AWS Budgets
 
 | Region Name               | Region         | Endpoint                                           | Protocol       |

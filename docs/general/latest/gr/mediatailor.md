@@ -18,6 +18,7 @@ The following are the service endpoints and service quotas for this service.
 | US West (Oregon)          | us-west-2      | api.mediatailor.us-west-2.amazonaws.com<br>mediatailor.us-west-2.api.aws           | HTTPS<br>HTTPS |
 | Africa (Cape Town)        | af-south-1     | api.mediatailor.af-south-1.amazonaws.com<br>mediatailor.af-south-1.api.aws         | HTTPS<br>HTTPS |
 | Asia Pacific (Hyderabad)  | ap-south-2     | api.mediatailor.ap-south-2.amazonaws.com<br>mediatailor.ap-south-2.api.aws         | HTTPS<br>HTTPS |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | api.mediatailor.ap-southeast-5.amazonaws.com<br>mediatailor.ap-southeast-5.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Melbourne)  | ap-southeast-4 | api.mediatailor.ap-southeast-4.amazonaws.com<br>mediatailor.ap-southeast-4.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Mumbai)     | ap-south-1     | api.mediatailor.ap-south-1.amazonaws.com<br>mediatailor.ap-south-1.api.aws         | HTTPS<br>HTTPS |
 | Asia Pacific (Osaka)      | ap-northeast-3 | api.mediatailor.ap-northeast-3.amazonaws.com<br>mediatailor.ap-northeast-3.api.aws | HTTPS<br>HTTPS |
