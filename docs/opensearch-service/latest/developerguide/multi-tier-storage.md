@@ -14,7 +14,7 @@ Amazon OpenSearch Service offers two architecture options for hot/warm storage t
 
 - **UltraWarm-based Architecture**
   - Combines Amazon S3 with local instance storage
-  - Powered by UltraWarm nodes
+  - Powered by UltraWarm Instances
   - Optimized for read-only warm tier workloads
   - Available on Elasticsearch version 6.8 and above and all OpenSearch versions
   - Supports Cold Tier

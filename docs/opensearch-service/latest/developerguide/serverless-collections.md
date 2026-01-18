@@ -1,9 +1,10 @@
-# Creating and managing Amazon OpenSearch Serverless
+# Amazon OpenSearch Serverless
 
 collections
 
-You can create Amazon OpenSearch Serverless collections using the console, the AWS CLI and API, the AWS
-SDKs, and CloudFormation.
+A _collection_ in Amazon OpenSearch Serverless is a logical grouping of one
+or more indexes that represent an analytics workload. OpenSearch Serverless automatically manages and tunes
+the collection, requiring minimal manual input.
 
 ###### Topics
 

@@ -8,30 +8,40 @@ as data transfer to Amazon S3. For more information about the decoupled architec
 see [How it works](serverless-overview.md#serverless-process "serverless-overview.md#serverless-process").
 
 When you create your first collection, OpenSearch Serverless instantiates OCUs based on your redundancy
-settings. By default, redundant active replicas are enabled, which means that a total of
-four OCUs are instantiated (two for indexing and two for search) to ensure high availability
-with standby nodes in another Availability Zone. For development and testing purposes, you
-can disable the **Enable redundancy** setting for a collection, which
-eliminates the standby replicas and only instantiates two OCUs (one for indexing and one for
-search). These OCUs always exist, even when there's no indexing or search activity. All
-subsequent collections can share these OCUs (except for collections with unique AWS KMS keys,
-which instantiate their own set of OCUs). If needed, OpenSearch Serverless automatically scales out and
-adds additional OCUs as your indexing and search usage grows. When traffic on your
-collection endpoint decreases, capacity scales back down to the minimum number of OCUs
-required for your data size. For the search and time series collection, the number of OCUs
-required when idle is proportional to the data size and index count. For vectors, it depends
-on both the memory (RAM) to store vector graphs and disk space to store indices. If not in
-an idle state, OCU requirements take both of these into account.
+settings. By default, redundant active replicas are enabled, which instantiates four OCUs
+(two for indexing and two for search). This ensures high availability with standby nodes in
+another Availability Zone.
 
-Vector collections keep index data in OCU local storage. OCU RAM limits are reached faster
-than OCU disk limits, causing vector collections to be restricted by RAM space. With
-redundancy enabled, the OCU capacity scales down to a minimum of 1 OCU [0.5 OCU x 2] for
-indexing and 1 OCU [0.5 OCU x 2] for search. When you disable redundancy, your domain can
-scale down to 0.5 OCU for indexing and 0.5 OCU for search. Scaling also factors in the
-number of shards needed for your collection or index. Each OCU can support a specified
-number of shards. The number of indexes should be proportional to the shard count. The total
-number of base OCUs required is the maximum amount of your data, memory, and shards
-required. For more information, see [Amazon OpenSearch Serverless cost-effective search capabilities, at any scale](https://aws.amazon.com/blogs/big-data/amazon-opensearch-serverless-cost-effective-search-capabilities-at-any-scale/ "https://aws.amazon.com/blogs/big-data/amazon-opensearch-serverless-cost-effective-search-capabilities-at-any-scale/") on the
+For development and testing, you can disable the **Enable redundancy**
+setting for a collection. This removes standby replicas and uses only two OCUs (one for
+indexing and one for search).
+
+These OCUs always exist, even when there's no indexing or search activity. All subsequent
+collections can share these OCUs, except for collections with unique AWS KMS keys, which
+instantiate their own set of OCUs. All collections associated with a collection group can
+share the same set of OCUs. Only one type of collection (search, time series, or vector
+search) can be included in a single collection group. For more information, see [Amazon OpenSearch Serverless collection groups](serverless-collection-groups.md "serverless-collection-groups.md").
+
+OpenSearch Serverless automatically scales out and adds OCUs as your indexing and search usage grows.
+When traffic decreases, capacity scales back down to the minimum number of OCUs required for
+your data size.
+
+For search and time series collections, the number of OCUs required when idle is
+proportional to data size and index count. For vector collections, OCU requirements depend
+on memory (RAM) to store vector graphs and disk space to store indices. When not idle, OCU
+requirements account for both factors.
+
+Vector collections store index data in OCU local storage. OCU RAM limits are reached
+faster than disk limits, which restricts vector collections by RAM space.
+
+With redundancy enabled, OCU capacity scales down to a minimum of 1 OCU (0.5 OCU x 2) for
+indexing and 1 OCU (0.5 OCU x 2) for search. When you disable redundancy, your collection
+can scale down to 0.5 OCU for indexing and 0.5 OCU for search.
+
+Scaling also factors in the number of shards needed for your collection or index. Each OCU
+supports a specified number of shards, and the number of indexes should be proportional to
+the shard count. The total number of base OCUs required is the maximum of your data, memory,
+and shard requirements. For more information, see [Amazon OpenSearch Serverless cost-effective search capabilities, at any scale](https://aws.amazon.com/blogs/big-data/amazon-opensearch-serverless-cost-effective-search-capabilities-at-any-scale/ "https://aws.amazon.com/blogs/big-data/amazon-opensearch-serverless-cost-effective-search-capabilities-at-any-scale/") on the
 _AWS Big Data Blog_.
 
 For _search_ and _vector search_ collections, all

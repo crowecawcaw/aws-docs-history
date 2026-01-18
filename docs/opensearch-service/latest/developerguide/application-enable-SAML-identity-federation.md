@@ -198,8 +198,8 @@ To create your AWS Identity and Access Management role, complete the following s
 6. Select **Allow programmatic and AWS Management Console access**.
 7. Choose **Next**.
 8. In the **Permissions policies** list, select the check
-   boxes for the policy you created earlier and for
-   **OpenSearchFullAccess**.
+   boxes for policies that grant OpenSearch Service permissions, for example,
+   AWS managed policy **AmazonOpenSearchServiceFullAccess**.
 9. Choose **Next**.
 10. In the **Review** area, for **Role
     name**, enter the name of your role; for example,

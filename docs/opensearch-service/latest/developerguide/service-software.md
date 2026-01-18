@@ -48,7 +48,7 @@ deployment](managedomains-configuration-changes.md "managedomains-configuration-
 
 You can configure your domain to automatically apply optional updates during [off-peak hours](off-peak.md "off-peak.md"). When this option is turned on, OpenSearch Service waits at
 least 13 days from when an optional update is available and then schedules the update after
-72 hours (three days). You receive a console notification when the update is scheduled and
+seven days. You receive a console notification when the update is scheduled and
 you can choose to reschedule it for a later date.
 
 To turn on automatic software updates, select **Enable automatic software
@@ -64,7 +64,7 @@ Examples of required updates are Log4j Common Vulnerabilities and Exposures (CVE
 enforcement of Instance Metadata Service Version 2 (IMDSv2). The number of mandatory updates
 in a year is usually less than three.
 
-OpenSearch Service automatically schedules these updates and notifies you 72 hours (three days) before
+OpenSearch Service automatically schedules these updates and notifies you seven days before
 the scheduled update through email and a console notification. You can choose to apply the
 update immediately or reschedule it for a more appropriate date and time _within
 the allowed timeframe._ You can also schedule it during the domain's next [off-peak window](off-peak.md "off-peak.md"). If you take no action on a required update and

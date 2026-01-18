@@ -36,6 +36,13 @@ _prefix_, which is a wildcard-based matching rule such as
 create a collection that matches that name or prefix pattern, the policy and
 corresponding KMS key are automatically assigned to it.
 
+When creating a collection, you can specify an AWS KMS key in two ways: through
+security policies or directly in the `CreateCollection` request. If you
+provide a AWS KMS key as part of the `CreateCollection` request, it takes
+precedence over any matching security policies. With this approach, you have the
+flexibility to override policy-based encryption settings for specific collections
+when needed.
+
 ![Encryption policy creation process with rules and collection matching to KMS key.](images/serverless-encryption.png)
 
 Encryption policies contain the following elements:
@@ -182,6 +189,15 @@ protect a collection, OpenSearch Serverless gets permission to use the KMS key o
 principal who makes the selection. That principal, a user or role, must have the
 permissions on the KMS key that OpenSearch Serverless requires. You can provide these permissions
 in a [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") or an [IAM policy](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md").
+
+OpenSearch Serverless makes `GenerateDataKey` and `Decrypt`
+KMS API calls during maintenance operations such as autoscaling and software
+updates. You might observe these calls outside your typical traffic patterns. These
+calls are part of normal service operations and don't indicate active user traffic.
+
+OpenSearch Serverless throws a `KMSKeyInaccessibleException` when it cannot access the
+KMS key that encrypts your data at rest. This occurs when you disable or delete
+the KMS key, or revoke the grants that allow OpenSearch Serverless to use the key.
 
 At a minimum, OpenSearch Serverless requires the following permissions on a customer managed key:
 

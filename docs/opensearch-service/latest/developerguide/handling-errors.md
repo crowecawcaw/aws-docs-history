@@ -75,9 +75,9 @@ does _not_ place the cluster into a read-only state.
 Otherwise, your options are the same: use the cluster as-is or restore from a
 snapshot.
 
-In both situations, OpenSearch Service sends two events to your [AWS Health Dashboard](https://phd.aws.amazon.com/phd/home#/ "https://phd.aws.amazon.com/phd/home#/"). The first informs you of
+In both situations, OpenSearch Service sends two events to your [Health Dashboard](https://phd.aws.amazon.com/phd/home#/ "https://phd.aws.amazon.com/phd/home#/"). The first informs you of
 the loss of quorum. The second occurs after OpenSearch Service successfully restores quorum. For more
-information about using the AWS Health Dashboard, see the [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md").
+information about using the Health Dashboard, see the [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md").
 
 ## Red cluster status
 
