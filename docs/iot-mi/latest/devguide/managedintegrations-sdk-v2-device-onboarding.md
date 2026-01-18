@@ -80,6 +80,7 @@ outlines the supported onboarding methods.
 - [Zero-touch setup (ZTS)](#managedintegrations-sdk-v2-onboarding-zerotouch-flow "#managedintegrations-sdk-v2-onboarding-zerotouch-flow")
 - [User guided setup
   (UGS)](#managedintegrations-sdk-v2-onboarding-ugsflow "#managedintegrations-sdk-v2-onboarding-ugsflow")
+- [WiFi Simple Setup (WSS)](#managedintegrations-sdk-v2-onboarding-wssflow "#managedintegrations-sdk-v2-onboarding-wssflow")
 
 ### Simple setup (SS)
 
@@ -109,3 +110,13 @@ manufacturer app, or pressing buttons on both the hub and device. You can use th
 if Simple setup fails.
 
 ![The Hub SDK architecture and components for user guided setup onboarding flow.](images/updated-ugs-flow-June25.png)
+
+### WiFi Simple Setup (WSS)
+
+WiFi Simple Setup (WSS) eliminates the need for manual WiFi configuration by automatically provisioning network credentials. For WiFi-enabled devices, WSS automates WiFi credential provisioning. The end user scans the device barcode (SN and UPC) using the mobile application, activating a 15-minute setup window. When the device is powered on, it automatically discovers the provisioner's temporary network, completes cloud authentication, and securely receives WiFi credentials from the provisioner. The device then connects to the WiFi network without requiring manual password entry or network selection.
+
+If WSS is unavailable or fails (for example, no provisioner available or connection timeout), the system automatically falls back to User Guided Setup, providing a seamless user experience with manual setup guidance. For more information about WiFi Simple Setup, see [WiFi Simple Setup to onboard and operate devices](managedintegrations-sdk-v2-cookbook-wss.md "managedintegrations-sdk-v2-cookbook-wss.md").
+
+The following diagram shows the WiFi Simple Setup flow:
+
+![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](images/wifi-simple-setup-flow.png)

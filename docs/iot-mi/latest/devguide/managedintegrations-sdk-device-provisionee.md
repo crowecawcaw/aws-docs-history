@@ -151,6 +151,8 @@ process.
 The consumer of the End device SDK must implement the Wi-Fi provisioning service and the
 device can connect to a Wi-Fi network.
 
+Alternatively, the End device SDK can be built using the `IOTMI_USE_WSS_PROVISIONEE` build flag to enable WiFi Simple Setup (WSS) provisioning. WSS uses the Hub SDK's provisioner to automatically provision WiFi credentials, providing an alternative to proprietary WiFi provisioning methods. For more information, see [WiFi Simple Setup to onboard and operate devices](managedintegrations-sdk-v2-cookbook-wss.md "managedintegrations-sdk-v2-cookbook-wss.md").
+
 ## Fleet provisioning by claim
 
 Using the provisionee, the end user can provision a unique certificate and register it

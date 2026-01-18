@@ -324,34 +324,120 @@ notifications:
   ```
 
 - `DEVICE_LIFE_CYCLE`
-  - The status of the device life cycle.
 
-  ```
-  {
-        "version": "1.0.0",
-        "messageId": "8d1e311a473f44f89d821531a0907b05",
+Reflects changes in status of device life cycle (this includes onboarding status and connected/disconnected status).
+
+    + Onboarding status update event.
+
+
+
+    ```
+    {
+          "version": "1.0.0",
+          "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+          "messageType": "DEVICE_LIFE_CYCLE",
+          "source": "aws.iotmanagedintegrations",
+          "customerAccountId": "123456789012",
+          "timestamp": "2024-11-14T19:55:57.568284645Z",
+          "region": "ca-central-1",
+          "resources": [
+            "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+            ],
+          "payload": {
+            "deviceDetails": {
+              "id": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+              "arn": "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+              "createdAt": "2024-11-14T19:55:57.515841147Z",
+              "updatedAt": "2024-11-14T19:55:57.515841559Z"
+            },
+            "status": "UNCLAIMED"
+          }
+    }
+    ```
+    + Device connected status event.
+
+
+
+    ```
+    {
+        "version": "1.0",
+        "messageId": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
         "messageType": "DEVICE_LIFE_CYCLE",
         "source": "aws.iotmanagedintegrations",
         "customerAccountId": "123456789012",
         "timestamp": "2024-11-14T19:55:57.568284645Z",
         "region": "ca-central-1",
         "resources": [
-          "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/d5c280b423a042f3933eed09cf408657"
-          ],
+            "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+        ],
         "payload": {
-          "deviceDetails": {
-            "id": "d5c280b423a042f3933eed09cf408657",
-            "arn": "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/d5c280b423a042f3933eed09cf408657",
-            "createdAt": "2024-11-14T19:55:57.515841147Z",
-            "updatedAt": "2024-11-14T19:55:57.515841559Z"
-          },
-          "status": "UNCLAIMED"
+            "managedThingId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+            "managedThingArn": "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+            "clientId": "iotmi-example-client-id",
+            "timestamp": "1768000475344",
+            "eventType": "connected",
+            "sessionIdentifier": "q1w2e3r4-t5y6-u7i8-o9p0-a1s2d3f4g5h6",
+            "principalIdentifier": "z1x2c3v4b5n6m7a8s9d0f1g2h3j4k5l6p7o8i9u0y1t2r3e4w5q6a7z8x9c0v1b2",
+            "ipAddress": "192.0.2.100",
+            "versionNumber": "0"
         }
-  }
-  ```
+    }
+    ```
+    + Device disconnected status event.
+
+
+
+    ```
+    {
+        "version": "1.0",
+        "messageId": "b2n3m4a5-s6d7-f8g9-h0j1-k2l3z4x5c6v7",
+        "messageType": "DEVICE_LIFE_CYCLE",
+        "source": "aws.iotmanagedintegrations",
+        "customerAccountId": "123456789012",
+        "timestamp": "2024-11-14T19:55:57.568284645Z",
+        "region": "ca-central-1",
+        "resources": [
+            "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+        ],
+        "payload": {
+            "managedThingId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+            "managedThingArn": "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+            "clientId": "iotmi-example-client-id",
+            "timestamp": "1768000492431",
+            "eventType": "disconnected",
+            "sessionIdentifier": "p9o8i7u6-y5t4-r3e2-w1q0-m9n8b7v6c5x4",
+            "principalIdentifier": "a1s2d3f4g5h6j7k8l9z0x1c2v3b4n5m6q7w8e9r0t1y2u3i4o5p6a7s8d9f0g1h2",
+            "versionNumber": "0",
+            "disconnectReason": "CLIENT_INITIATED_DISCONNECT"
+        }
+    }
+    ```
 
 - `DEVICE_OTA`
   - A device OTA notification.
+
+  ```
+  {
+      "version": "1.0.0",
+      "messageId": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+      "messageType": "DEVICE_OTA",
+      "source": "aws.iotmanagedintegrations",
+      "customerAccountId": "123456789012",
+      "timestamp": "2024-11-14T19:55:57.568284645Z",
+      "region": "ca-central-1",
+      "resources": [
+          "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+          "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+          "arn:aws:iotmanagedintegrations:ca-central-1:123456789012:managed-thing/c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8"
+      ],
+      "payload": {
+          "operation": "CREATE_OTA",
+          "otaTaskId": "ota-job-abc123def456",
+          "status": "IN_PROGRESS",
+          "otaType": "ONE_TIME"
+      }
+  }
+  ```
 
 - `DEVICE_STATE`
   - A notification when the state of a device has been updated.
