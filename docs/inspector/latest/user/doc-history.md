@@ -95,27 +95,27 @@ To receive notifications about documentation updates, you can subscribe to an RS
 
 Amazon Inspector continuously monitors and identifies malicious packages from the NPM registry to protect your applications from supply chain attacks.
 
-**Latest Update:** 2026-01-02 22:30:00 UTC
+**Latest Update:** 2026-01-16 12:00:00 UTC
 
 ### Detection Summary
 
-- **Lifetime Total:** 191,142 malicious packages identified
-- **This Month:** 21 new malicious packages identified
-- **Last Month:** 1,090 new malicious packages identified
-- **This Week:** 65 new malicious packages identified
-- **Last Week:** 215 new malicious packages identified
+- **Lifetime Total:** 191,402 malicious packages identified
+- **This Month:** 275 new malicious packages identified
+- **Last Month:** 1,096 new malicious packages identified
+- **This Week:** 110 new malicious packages identified
+- **Last Week:** 142 new malicious packages identified
 
 ### Recent Malicious Package Reports (Last 10)
 
-| Package Name                     | MAL-ID      | Detection Date |
-| -------------------------------- | ----------- | -------------- |
-| usaa-authentication-mocks        | MAL-2026-25 | 2026-01-02     |
-| tickncook-robot                  | MAL-2026-24 | 2026-01-02     |
-| showdownxss                      | MAL-2026-23 | 2026-01-02     |
-| pkg1bate5apg1                    | MAL-2026-22 | 2026-01-02     |
-| orchestration-node-common-errors | MAL-2026-21 | 2026-01-02     |
-| kid-api                          | MAL-2026-20 | 2026-01-02     |
-| jest-config-ibm-cloud-cognitive  | MAL-2026-19 | 2026-01-02     |
-| initializers                     | MAL-2026-18 | 2026-01-02     |
-| identity-emitter                 | MAL-2026-17 | 2026-01-02     |
-| fix-cc-raiesy                    | MAL-2026-16 | 2026-01-02     |
+| Package Name           | MAL-ID       | Detection Date |
+| ---------------------- | ------------ | -------------- |
+| sparkling-router       | MAL-2026-311 | 2026-01-15     |
+| spire.officejs-externs | MAL-2026-312 | 2026-01-15     |
+| spire.officejs-fonts   | MAL-2026-313 | 2026-01-15     |
+| styled-system-old      | MAL-2026-314 | 2026-01-15     |
+| tailwind-merge-v2      | MAL-2026-315 | 2026-01-15     |
+| tailwind-merge-v3      | MAL-2026-316 | 2026-01-15     |
+| textual-sorter-lib     | MAL-2026-317 | 2026-01-15     |
+| victim-package-a       | MAL-2026-318 | 2026-01-15     |
+| vue_frontend_rpc       | MAL-2026-319 | 2026-01-15     |
+| zis-common-lib         | MAL-2026-320 | 2026-01-15     |

@@ -93,7 +93,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Ubuntu (Focal)                      | 20.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Jammy)                      | 22.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Noble Numbat)               | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
-| Ubuntu (Plucky Puffin)              | 25.04           | USN                                    | Yes                    | Yes                      |
 | Ubuntu (Questing Quokka)            | 25.10           | USN                                    | Yes                    | Yes                      |
 | Windows Server                      | 2016            | MSKB                                   | No                     | Yes                      |
 | Windows Server                      | 2019            | MSKB                                   | No                     | Yes                      |
@@ -150,7 +149,6 @@ It also specifies the vendor security advisory for each operating system.
 | Ubuntu (Focal)                      | 20.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Noble Numbat)               | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Ubuntu (Plucky Puffin)              | 25.04   | USN                                    |
 | Ubuntu (Questing Quokka)            | 25.10   | USN                                    |
 | Wolfi                               | –       | Errata CVE                             |
 
@@ -228,7 +226,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Ubuntu                   | 20.04   |
 | Ubuntu                   | 22.04   |
 | Ubuntu                   | 24.04   |
-| Ubuntu                   | 25.04   |
 | Ubuntu                   | 25.10   |
 | Wolfi Linux              | –       |
 
@@ -311,6 +308,7 @@ As a result, Amazon Inspector can stop generating findings for known CVEs.
 | Ubuntu (Lunar Lobster)              | 23.04   | January 25, 2024  |
 | Ubuntu (Mantic Minotaur)            | 23.10   | July 11, 2024     |
 | Ubuntu (Oracular Oriole)            | 24.10   | July 10, 2025     |
+| Ubuntu (Plucky Puffin)              | 25.04   | January 15, 2026  |
 | Windows Server                      | 2012    | October 10, 2023  |
 | Windows Server                      | 2012 R2 | October 10, 2023  |
 
