@@ -803,6 +803,20 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | x8aedz.24xlarge      | 15                              | 120                          |
 | x8aedz.metal-12xl    | 15                              | 120                          |
 | x8aedz.metal-24xl    | 15                              | 120                          |
+| x8i.large            | 2                               | 10                           |
+| x8i.xlarge           | 3                               | 20                           |
+| x8i.2xlarge          | 3                               | 40                           |
+| x8i.4xlarge          | 7                               | 60                           |
+| x8i.8xlarge          | 9                               | 90                           |
+| x8i.12xlarge         | 11                              | 120                          |
+| x8i.16xlarge         | 15                              | 120                          |
+| x8i.24xlarge         | 15                              | 120                          |
+| x8i.32xlarge         | 23                              | 120                          |
+| x8i.48xlarge         | 23                              | 120                          |
+| x8i.64xlarge         | 23                              | 120                          |
+| x8i.96xlarge         | 23                              | 120                          |
+| x8i.metal-48xl       | 23                              | 120                          |
+| x8i.metal-96xl       | 23                              | 120                          |
 
 ## Storage optimized
 

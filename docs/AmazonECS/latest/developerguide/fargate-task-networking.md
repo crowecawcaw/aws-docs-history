@@ -135,9 +135,13 @@ address:
 - The task or service uses Fargate platform version `1.4.0` or
   later for Linux.
 
-Amazon ECS tasks on Fargate running in a VPC in dual-stack mode need IPv4 (0.0.0.0/0) routes to an internet gateway or NAT gateway.
-For more information, see [Internet
-gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in the _Amazon VPC User Guide_.
+For Amazon ECS tasks on Fargate running in a VPC in dual-stack mode, to communicate
+with dependency services used in task launch process such as ECR, SSM and SecretManager,
+the public subnet's route table needs IPv4 (0.0.0.0/0) route to an internet gateway and
+the private subnet's route table needs IPv4 (0.0.0.0/0) route to an NAT gateway.
+For more information, see [Internet gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the _Amazon VPC User Guide_.
+
+For examples of how to configure a dual-stack VPC, see [Example dual-stack VPC configuration](../../../vpc/latest/userguide/vpc-migrate-ipv6-example.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-example.md").
 
 ## Using a VPC in IPv6-only
 

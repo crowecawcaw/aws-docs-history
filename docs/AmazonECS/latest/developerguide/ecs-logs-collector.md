@@ -10,16 +10,19 @@ The script collects general operating system logs as well as Docker and Amazon E
 agent logs, which can be helpful for troubleshooting AWS Support cases. It then compresses
 and archives the collected information into a single file that can easily be shared for
 diagnostic purposes. It also supports enabling debug mode for the Docker daemon and the
-Amazon ECS container agent on Amazon Linux variants, such as the Amazon ECS-optimized AMI. Currently, the
-Amazon ECS logs collector supports the following operating systems:
+Amazon ECS container agent on Amazon Linux variants, such as the Amazon ECS-optimized AMI.
+
+###### Note
+
+On Amazon Linux Amazon ECS-optimized AMIs version 20250909 and later, the Amazon ECS logs collector is pre-installed at `/opt/amazon/ecs/ecs-logs-collector.sh` and ready to use without downloading from GitHub. For more information, see [ECS Logs Collector](https://github.com/aws/amazon-ecs-ami?tab=readme-ov-file#ecs-logs-collector "https://github.com/aws/amazon-ecs-ami?tab=readme-ov-file#ecs-logs-collector") in the ECS-optimized AMI documentation.
+
+Currently, the Amazon ECS logs collector supports the following operating systems:
 
 - Amazon Linux
-- Red Hat Enterprise Linux 7
-- Debian 8
-- Ubuntu 14.04
-- Ubuntu 16.04
-- Ubuntu 18.04
-- Windows Server 2016
+- Red Hat Enterprise Linux
+- Ubuntu
+- Debian
+- Windows Server
 
 ###### Note
 

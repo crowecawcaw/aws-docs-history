@@ -57,7 +57,6 @@ Business or Enterprise support plan can view all Trusted Advisor checks.
 For more information, see [AWS Trusted Advisor](../../../awssupport/latest/user/getting-started.md#trusted-advisor "../../../awssupport/latest/user/getting-started.md#trusted-advisor") in the _Support User Guide_.
 
 **AWS Compute Optimizer**
-
 AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics
 of your AWS resources. It reports whether your resources are optimal, and
 generates optimization recommendations to reduce the cost and improve the

@@ -81,7 +81,7 @@ aws ec2 create-instance-event-window \
                     --name `myEventWindowName`
 ```
 
-- You can then associate the event window with specific services, clusters or all tasks in your account using EC2`associate-instance-event-window` API.
+- You can then associate the event window with specific services, clusters or all tasks in your account using EC2 `associate-instance-event-window` API.
   - For ECS service tasks
 
   ```

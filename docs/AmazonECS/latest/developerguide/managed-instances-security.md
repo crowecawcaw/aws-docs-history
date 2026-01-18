@@ -55,6 +55,60 @@ Amazon ECS Managed Instances maintains the same compliance posture as Amazon ECS
   achieve FedRAMP compliance.
 - **Customer Managed Keys** - It supports security features required for achieving compliance, such as Customer Managed Keys for encryption.
 
+## Amazon ECS Managed Instances FIPS-140 Considerations
+
+Consider the following when using FIPS-140 compliance on Amazon ECS Managed Instances:
+
+- FIPS-140-compliant Managed Instances AMIs are available in the AWS GovCloud (US)
+  Regions only.
+- Amazon ECS Managed Instances supports FIPS-140-3
+- FIPS-140 compliance is enabled by default in the AWS GovCloud (US)
+  Regions. If you need to run workloads without FIPS compliance, turn off FIPS compliance in the Managed Instances Capacity Provider configuration.
+- The `cpuArchitecture` for your tasks must be `X86_64` for FIPS-140 compliance.
+
+## Disable FIPS on Amazon ECS Managed Instances
+
+By default, Amazon ECS Managed Instances Capacity Providers in AWS GovCloud (US)
+Regions launch FIPS-compliant AMIs. You choose to disable FIPS-140 compliance when creating a new Amazon ECS Managed Instances Capacity Provider. Follow these steps to create a new Capacity Provider without FIPS compliance.
+
+1. Disable FIPS-140 compliance on Capacity Provider.
+
+```
+aws ecs create-capacity-provider \
+    --cluster `cluster-name` \
+    --name `capacity-provider-name` \
+    --managed-instances-provider '{
+        "infrastructureRoleArn": "`infrastructure-role-arn`",
+        "instanceLaunchTemplate": {
+            "ec2InstanceProfileArn": "`instance-profile-arn`",
+            "fipsEnabled": false,
+            "networkConfiguration": {
+                "subnets": ["`subnet-id`"],
+                "securityGroups": ["`security-group-id`"]
+            }
+        }
+    }'
+```
+
+2. You can optionally use ECS Exec to run the following command to verify the
+   FIPS-140 compliance status for a capacity provider.
+
+Replace `cluster-name` with the name of your cluster,
+`task-id` with the ID or ARN of your task, and
+`container-name` with the name of the container in
+your task you want to run the command against.
+
+A return value of "1" indicates that you are using FIPS.
+
+```
+aws ecs execute-command \
+    --cluster `cluster-name` \
+    --task `task-id` \
+    --container `container-name` \
+    --interactive \
+    --command "cat /proc/sys/crypto/fips_enabled"
+```
+
 ## Security considerations
 
 When using Amazon ECS Managed Instances, there are several important security considerations to understand and plan for. These considerations help you make informed decisions about your workload architecture and security requirements.

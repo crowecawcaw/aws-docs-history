@@ -87,7 +87,7 @@ limits in our notification mechanisms.
 
 You can identify tasks scheduled for retirement in the following ways:
 
-- The AWS Health Dashboard
+- The Health Dashboard
 
 AWS Health notifications can be sent through Amazon EventBridge to archival storage
 such as Amazon Simple Storage Service, take automated actions such as run an AWS Lambda function, or
@@ -165,8 +165,8 @@ your workloads on Fargate.
 
 other AWS services?
 
-AWS sends a task retirement notification to the AWS Health Dashboard and to the primary email
-contact on the AWS account. The AWS Health Dashboard provides a number of integrations into other
+AWS sends a task retirement notification to the Health Dashboard and to the primary email
+contact on the AWS account. The Health Dashboard provides a number of integrations into other
 AWS services, including EventBridge. You can use EventBridge to automate the visibility of the
 notices (For example. forwarding the message to a ChatOps tool). For more information,
 see [Solution overview: Capturing task retirement notifications](https://aws.amazon.com/blogs/containers/improving-operational-visibility-with-aws-fargate-task-retirement-notifications/ "https://aws.amazon.com/blogs/containers/improving-operational-visibility-with-aws-fargate-task-retirement-notifications/").

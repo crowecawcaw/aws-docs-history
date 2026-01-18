@@ -1579,11 +1579,6 @@ following command: `sudo docker version --format
 
 `dockerLabels`
 
-###### Note
-
-This parameter isn't supported for containers that are hosted on
-Amazon ECS Managed Instances.
-
 Type: String to string map
 
 Required: No
@@ -2596,10 +2591,6 @@ parameter maps to the `--shm-size` option to docker
 run.
 
 `tmpfs`
-
-###### Note
-
-This parameter isn't supported for tasks running on Amazon ECS Managed Instances.
 
 Type: Array of [Tmpfs](../APIReference/API_Tmpfs.md "../APIReference/API_Tmpfs.md") objects
 

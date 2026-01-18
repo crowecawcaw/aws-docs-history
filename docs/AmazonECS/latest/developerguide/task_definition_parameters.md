@@ -2176,12 +2176,6 @@ The container path, mount options, and maximum size (in
 MiB) of the tmpfs mount. This parameter maps
 to the `--tmpfs` option to docker run.
 
-###### Note
-
-If you're using tasks that use
-Fargate, the
-`tmpfs` parameter isn't supported.
-
 Type: Array of [Tmpfs](../APIReference/API_Tmpfs.md "../APIReference/API_Tmpfs.md") objects
 
 Required: No
