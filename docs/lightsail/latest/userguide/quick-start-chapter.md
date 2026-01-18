@@ -22,7 +22,7 @@ Node.js
   instance on Lightsail](amazon-lightsail-quick-start-guide-gitlab.md "amazon-lightsail-quick-start-guide-gitlab.md")
 - [Get started with Joomla! on
   Lightsail](amazon-lightsail-quick-start-guide-joomla.md "amazon-lightsail-quick-start-guide-joomla.md")
-- [Set up a LAMP stack on
+- [Deploy and manage a LAMP stack on
   Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
 - [Set up and configure Magento on
   Lightsail](amazon-lightsail-quick-start-guide-magento.md "amazon-lightsail-quick-start-guide-magento.md")

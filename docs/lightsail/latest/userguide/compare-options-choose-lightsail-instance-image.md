@@ -345,7 +345,7 @@ _Bitnami_ website.
 ## Application stacks and servers
 
 Lightsail has five application stacks and servers for a wide variety of development
-projects. Each image uses Linux/Unix (Ubuntu) as the base operating system.
+projects. Each image uses Linux/Unix as the base operating system.
 
 \***\*LAMP stack (PHP 8) packaged by Bitnami\*\***
 
@@ -359,11 +359,22 @@ for each bundled component.
 
 This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
-[Set up a LAMP stack on
+[Deploy and manage a LAMP stack on
 Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
 
 Learn more about the [Bitnami LAMP
 stack](https://bitnami.com/stack/lamp "https://bitnami.com/stack/lamp") at the _Bitnami_ website.
+
+\***\*LAMP\*\***
+
+The LAMP blueprint provides a complete production environment with PHP, Apache, and MariaDB on Linux.
+This blueprint also includes phpMyAdmin, PHP core modules, and Composer.
+
+Lightsail instances launched from LAMP will have Instance Metadata Service Version 2
+(IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
+
+[Deploy and manage a LAMP stack on
+Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
 
 \***\*Django packaged by Bitnami\*\***
 

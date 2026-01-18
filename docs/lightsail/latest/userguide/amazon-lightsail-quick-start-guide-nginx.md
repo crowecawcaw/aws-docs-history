@@ -175,7 +175,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 page
 
 Navigate to the static IP address of your instance to access the application installed on
-it or access phpMyAdmin.
+your instance.
 
 1. On your instance management page, copy the static IP address:
 
