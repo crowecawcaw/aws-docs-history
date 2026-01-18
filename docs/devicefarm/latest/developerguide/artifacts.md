@@ -18,7 +18,7 @@ Output from each test in the test run.
 
 Screen images recorded for each test in the test run.
 
-![Workflow diagram showing Project, Run, Job (device), Test suite, and Test stages in AWS Cloud.](images/hierarchy.png)
+![Workflow diagram showing Project, Run, Job (device), Test suite, and Test stages in AWS Cloud.](/images/devicefarm/latest/developerguide/images/hierarchy.png)
 
 ## Download artifacts (console)
 
