@@ -33,12 +33,9 @@ supporting hibernation.
 
 AutoStop Graphics.g4dn, GraphicsPro.g4dn, Graphics, GraphicsPro, and
 GeneralPurpose.4xlarge or GeneralPurpose.8xlarge do not support hibernation.
-Windows 11 24H2 AutoStop WorkSpaces also do not preserve state of data and programs
-when resuming from hibernation if Credential Guard is enabled, which is enabled by
-default by the Windows operating system. For these Autostop WorkSpaces, we recommend
-saving your work when you’re done using them each time. For Windows 11 24H2, you can
-consider disabling Credential Guard and Virtualization-based Security (VBS) on your
-WorkSpaces so that hibernation will preserve data when the WorkSpace stops running.
+Windows 11 24H2 AutoStop WorkSpaces do not support hibernation and the state of of applications/data
+is not preserved. We recommend saving your work when you're done using your WorkSpaces each time to
+avoid data loss.
 
 For Bring Your Own License (BYOL) AutoStop WorkSpaces, a large number of concurrent logins
 could result in significantly increased time for WorkSpaces to be available. If you expect
