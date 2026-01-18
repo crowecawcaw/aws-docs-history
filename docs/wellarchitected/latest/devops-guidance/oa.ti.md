@@ -1,13 +1,35 @@
-# [OA.TI.11] Offer optional opportunities for cross-team collaboration
+# [OA.TI.8] Simplify access to organizational information
 
 **Category:** RECOMMENDED
 
-Establish regular communication channels and forums to
-encourage cross-team collaboration and information sharing.
-This can include joint planning sessions, team demos, or
-cross-team retrospectives. Encourage a culture of open
-communication and collaboration across teams, sharing
-knowledge, best practices, and lessons learned. Monitor the
-effectiveness of these cross-team communication and
-collaboration opportunities and adjust the approach as needed
-based on feedback and observed outcomes.
+Provide internal users access to vital
+organizational information, such as details about the
+organization, objectives, analytics, employee data, policies,
+hierarchical structures, and escalation channels. One approach
+is to manage a centralized platform, like an intranet, where
+employees can swiftly locate the information they need for
+effective job performance.
+
+To improve the platform's information integrity and relevance, connect it with internal systems such as Enterprise
+Resource Planning (ERP) software, and maintain regular
+updates at the source. Include instruction and training on
+using this platform as part of the onboarding process to equip
+employees with the necessary skills for information access.
+
+Further enhance the platform with generative AI-powered
+internal research and search capabilities. This helps users
+swiftly access and interpret proprietary, complex
+documentation regarding compliance, regulations, or portfolio
+research using text summarization. Search is another method for
+faster information retrieval and classification, expediting
+access to relevant documents during review processes. Search also improves extraction of accurate answers from researched
+materials by querying a topic.
+
+**Related information:**
+
+- [Business
+  Value is IT's Primary Measure of Progress](https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/ "https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/")
+- [Amazon
+  Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
+- [Amazon Kendra](https://aws.amazon.com/kendra/ "https://aws.amazon.com/kendra/")
+- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")

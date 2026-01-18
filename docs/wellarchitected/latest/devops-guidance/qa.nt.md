@@ -1,58 +1,78 @@
-# [QA.NT.2] Validate system reliability with performance testing
+# [QA.NT.8] Practice eco-conscious development with sustainability testing
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Performance testing evaluates the responsiveness, throughput, reliability, and
-scalability of a system under a specific load. It helps ensure that the application
-performs adequately when it is subjected to both expected and peak loads without impacting
-user experience. Different performance tests should be run based on the nature of changes
-made to the system:
+Sustainability testing ensures that software products contribute to eco-conscious and
+energy-efficient practices that reflect a growing demand for environmentally responsible
+development. It is a commitment to ensuring software development not only meets
+performance expectations but also contributes positively to the organization's
+environmental goals. In specific use cases, such as internet of things (IoT) and smart
+devices, software optimizations can directly translate to energy and cost savings while
+also improving performance.
 
-- **Load testing:** Performance tests evaluating the
-  system's behavior under expected load, such as the typical number of concurrent users
-  or transactions. Integrate automated load testing into your deployment pipeline,
-  ensuring every change undergoes validation of system behavior under expected
-  scenarios.
-- **Stress testing:** Performance tests challenging the
-  system by increasing the load beyond its normal operational capacity. Stress tests
-  identify the system's breaking points, ensuring that even under extreme conditions,
-  the system maintains functionality without abrupt crashes. Schedule stress tests after
-  significant application changes, infrastructure modifications, or periodically—such as
-  once a month—to prepare for unpredictable spikes in traffic or potential DDoS attacks.
-- **Endurance testing:** Performance tests that monitor
-  system behavior over extended periods of time under a specific load. Endurance tests
-  help ensure that there are no latent issues, such as slow memory leaks or performance
-  degradation, which might occur after prolonged operations. Monitor key performance
-  indicators over time and compare against established benchmarks to identify latent
-  issues. Schedule endurance tests after significant changes to the system, especially
-  those that might introduce memory leaks or other long-term issues. Consider running
-  them periodically—such as quarterly or biannually—to ensure system health over
-  prolonged operations.
+Sustainability testing encompasses:
 
-All performance tests should be run against a test
-environment mirroring the production setup. Use tailored
-performance testing tools for your application's architecture
-and deployment environment. Regularly analyze test results
-against historical benchmarks and take proactive measures to
-counteract performance regressions.
+- **Energy efficiency**: Create sustainability tests which
+  ensure software and infrastructure minimize power consumption. For instance, [AWS Graviton processors](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/") are designed
+  for enhanced energy efficiency. They offer up to 60% less energy consumption for
+  similar performance compared to other EC2 instances. Write static analysis tests that
+  focus on improving sustainability by verifying that infrastructure as code (IaC)
+  templates are configured to use energy efficient infrastructure.
+- **Resource optimization:** Sustainable software leverages
+  hardware resources, such as memory and CPU, without waste. Sustainability tests can
+  enforce right-sizing when deploying infrastructure. For example, [Amazon EC2 Auto Scaling](https://aws.amazon.com/ec2/autoscaling/ "https://aws.amazon.com/ec2/autoscaling/") ensures compute resources
+  align with actual needs, preventing over-provisioning. Similarly, [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/ "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/") offers actionable insights into resource provisioning based
+  on actual consumption patterns.
+- **Data efficiency:** Sustainability testing can assess
+  the efficiency of data storage, transfer, and processing operations, ensuring minimal
+  energy consumption. Tools like the [AWS Customer Carbon
+  Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/") offer insights into the carbon emissions associated with
+  various AWS services, such as Amazon EC2 and Amazon S3. Teams can use these insights to make
+  informed optimizations.
+- **Lifecycle analysis:** The scope of testing extends
+  beyond immediate software performance. For instance, the [AWS Customer Carbon
+  Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/") can provide insights into how using AWS services impacts
+  carbon emissions. This information can be used to compare this usage with traditional
+  data centers. Metrics from this tool can be used to inform decisions throughout the
+  software lifecycle, ensuring that environmental impact remains minimal from inception
+  to decommissioning of resources.
+
+Sustainability testing should use data provided by profiling
+applications to measure their energy consumption, CPU usage,
+memory footprint, and data transfer volume. Tools such
+as [Amazon CodeGuru Profiler](../../../codeguru/latest/profiler-ug/what-is-codeguru-profiler.md "../../../codeguru/latest/profiler-ug/what-is-codeguru-profiler.md")
+and [SusScanner](https://github.com/awslabs/sustainability-scanner "https://github.com/awslabs/sustainability-scanner")
+can be helpful when performing analysis and promotes writing
+efficient, clean, and optimized code. Combining this data with
+suggestions from AWS Trusted Advisor and AWS Customer Carbon
+Footprint Tool can lead to writing tests which can enforce
+sustainable development practices.
+
+Sustainability testing is still an emerging quality assurance
+practice. This indicator is beneficial for organizations
+focusing on environmental impact. We think that by making
+sustainability a core part of the software development
+process, not only do we contribute to a healthier planet, but
+often, we also end up with more efficient and cost-effective
+solutions.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF01-BP07 Load test
-  your workload](../performance-efficiency-pillar/perf_performing_architecture_load_test.md "../performance-efficiency-pillar/perf_performing_architecture_load_test.md")
+- [AWS Well-Architected Performance Pillar: PERF02-BP04 Determine
+  the required configuration by right-sizing](../performance-efficiency-pillar/perf_select_compute_right_sizing.md "../performance-efficiency-pillar/perf_select_compute_right_sizing.md")
+- [AWS Well-Architected Performance Pillar: PERF02-BP06
+  Continually evaluate compute needs based on metrics](../performance-efficiency-pillar/perf_select_compute_use_metrics.md "../performance-efficiency-pillar/perf_select_compute_use_metrics.md")
 - [AWS Well-Architected Sustainability Pillar: SUS03-BP03
   Optimize areas of code that consume the most time or resources](../sustainability-pillar/sus_sus_software_a4.md "../sustainability-pillar/sus_sus_software_a4.md")
-- [AWS Well-Architected Reliability Pillar: REL07-BP04 Load test
-  your workload](../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md "../reliability-pillar/rel_adapt_to_changes_load_tested_adapt.md")
-- [AWS Well-Architected Reliability Pillar: REL12-BP04 Test
-  scaling and performance requirements](../reliability-pillar/rel_testing_resiliency_test_non_functional.md "../reliability-pillar/rel_testing_resiliency_test_non_functional.md")
-- [Ensure
-  Optimal Application Performance with Distributed Load
-  Testing on AWS](https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/ "https://aws.amazon.com/blogs/architecture/ensure-optimal-application-performance-with-distributed-load-testing-on-aws/")
-- [Stress
-  Testing Tools - AWS Fault Injection Service](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/")
-- [Find
-  Expensive Code – Amazon CodeGuru Profiler](https://aws.amazon.com/codeguru/features/ "https://aws.amazon.com/codeguru/features/")
-- [Load
-  test your applications in a CI/CD pipeline using CDK
-  pipelines and AWS Distributed Load Testing Solution](https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/ "https://aws.amazon.com/blogs/devops/load-test-applications-in-cicd-pipeline/")
+- [AWS Well-Architected Sustainability Pillar: SUS06-BP01 Adopt
+  methods that can rapidly introduce sustainability improvements](../sustainability-pillar/sus_sus_dev_a2.md "../sustainability-pillar/sus_sus_dev_a2.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST09-BP03
+  Supply resources dynamically](../cost-optimization-pillar/cost_manage_demand_resources_dynamic.md "../cost-optimization-pillar/cost_manage_demand_resources_dynamic.md")
+- [Sustainability
+  Scanner (SusScanner)](https://github.com/awslabs/sustainability-scanner "https://github.com/awslabs/sustainability-scanner")
+- [AWS Well-Architected Framework - Sustainability Pillar](../framework/sustainability.md "../framework/sustainability.md")
+- [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/")
+- [Sustainable
+  Cloud Computing](https://aws.amazon.com/sustainability/ "https://aws.amazon.com/sustainability/")
+- [Reducing
+  carbon by moving to AWS](https://www.aboutamazon.com/news/sustainability/reducing-carbon-by-moving-to-aws "https://www.aboutamazon.com/news/sustainability/reducing-carbon-by-moving-to-aws")

@@ -1,47 +1,38 @@
-# [DL.LD.7] Establish sandbox environments with spend limits
+# [DL.LD.5] Enforce coding standards before commit
 
 **Category:** RECOMMENDED
 
-Sandbox environments are dedicated spaces for developers to
-explore, experiment, and innovate with new technologies or
-ideas. Unlike development environments, which are meant for
-more structured day-to-day development, they allow more fewer controls, while ensuring no connectivity to
-internal networks or other environments.
+Identify common style, formatting, and other flaws before they
+are published to a repository. Use static code scanning tools,
+such as linters, to improve code quality and consistency
+before pushing committed code. This process can be automated
+using pre-commit hooks. Upon discovery, pushing the commit
+should ideally fail and require immediate correction by the
+developer. Automatically and consistently enforcing coding
+standards during the local development process directly
+improves the code review process by removing common errors
+before manual review.
 
-Create a comprehensive sandbox usage policy. This policy must
-set clear boundaries on the kinds of data permissible with the
-sandbox, ensuring no leakage of sensitive information or
-code. Establish rules for access controls. Some environments
-might be tailored for individual developers, while others
-could serve small teams. Rules regarding network connectivity
-should ensure that the sandbox remains isolated, preventing
-any unintended interactions with other internal networks or
-environments. Set tagging strategies which can aid in managing
-automation and cost tracking. Overall, ensure that this policy
-makes a distinction between sandbox environments and
-development environments, and lays out the use cases best
-suited for each.
-
-Educate developers on the sandbox usage policy, including
-responsible and cost-effective resource management techniques.
-Encourage shutting down or deleting unnecessary resources,
-especially when they're not in active use. Sandbox
-environments should be treated ephemerally, with automated
-governance processes managing the lifecycle to create, manage,
-clean up resources, and destroy sandbox environments as
-required.
+Select scanning tools compatible with your chosen programming
+language and customize them to uphold specific coding
+standards and styles. It is best to integrate these tools into
+pre-commit hooks, integrated development environments (IDEs),
+and continuous integration pipelines so that changes are
+consistently and continuously checked at all stages of the
+development lifecycle.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST02-BP05
-  Implement cost controls](../cost-optimization-pillar/cost_govern_usage_controls.md "../cost-optimization-pillar/cost_govern_usage_controls.md")
-- [Sandbox
-  per builder or team with spend limits](../../../whitepapers/latest/organizing-your-aws-environment/sandbox-ou.md#sandbox-per-builder-or-team-with-spend-limits "../../../whitepapers/latest/organizing-your-aws-environment/sandbox-ou.md#sandbox-per-builder-or-team-with-spend-limits")
-- [AWS Innovation Sandbox](https://aws.amazon.com/solutions/implementations/aws-innovation-sandbox/ "https://aws.amazon.com/solutions/implementations/aws-innovation-sandbox/")
-- [Cloud
-  Financial Management with AWS](https://aws.amazon.com/aws-cost-management/ "https://aws.amazon.com/aws-cost-management/")
-- [Sandbox
-  Accounts for Events](https://github.com/awslabs/sandbox-accounts-for-events "https://github.com/awslabs/sandbox-accounts-for-events")
-- [Best
-  practices for creating and managing sandbox accounts in
-  AWS](https://aws.amazon.com/blogs/mt/best-practices-creating-managing-sandbox-accounts-aws/ "https://aws.amazon.com/blogs/mt/best-practices-creating-managing-sandbox-accounts-aws/")
+- [Amazon CodeGuru Reviewer](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/")
+- [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
+- [Pre-commit](https://pre-commit.com/ "https://pre-commit.com/")
+- [Husky](https://typicode.github.io/husky/ "https://typicode.github.io/husky/")
+- [Validate
+  your AWS SAM applications with AWS CloudFormation
+  Linter](../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md "../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md")
+- [Workshop: AWS CloudFormation Workshop - Linting and-testing](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing")
+- [Blog: Use
+  Git pre-commit hooks to avoid AWS CloudFormation
+  errors](https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/ "https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/")
+- [Blog: Automate
+  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")

@@ -1,36 +1,29 @@
-# [O.CM.1] Automate alerts for security and performance issues
+# [O.CM.2] Plan for large scale events
 
 **Category:** FOUNDATIONAL
 
-Alerts should automatically notify teams when there are indicators of malicious
-activity, compromise, or performance degradation. Effective alerting accelerates incident
-response times, enabling teams to quickly address and resolve issues before they can
-significantly impact system performance or security. Without automatic alerting, teams can
-suffer from delayed response times that can lead to prolonged system downtime or increased
-exposure to security threats.
+A large scale event (LSE) is an incident that has a wide
+impact, such as service outages or major security
+incidents. Proper management of LSEs help to ensure business
+continuity, maintain customer trust, and reduce the negative
+impact of such events.
 
-Implement centralized alerting mechanisms to track anomalous behavior across all
-systems. Define specific conditions and thresholds that, when breached, will raise alerts.
-Verify that the alerts are delivered to the appropriate teams by email, text message, or the
-team's preferred notification system. Integrating these alerts into your centralized
-incident management systems can also help in the automatic creation of tickets, aiding
-faster resolution.
-
-In a more advanced workflow, alerts can be integrated with automated governance
-systems to start remediation actions immediately upon detection or to gather additional
-insights that will aid investigations.
+Prepare a detailed incident management plan, outlining the
+roles, responsibilities, and processes to be followed in the
+event of a large-scale incident. At a minimum, the plan should
+outline how teams expect to maintain availability and
+reliability of systems by having the capability to
+automatically scale resources, re-route traffic, and failover
+to backup systems when required.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF07-BP06 Monitor
-  and alarm proactively](../performance-efficiency-pillar/perf_monitor_instances_post_launch_proactive.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_proactive.md")
-- [AWS Well-Architected Reliability Pillar: REL06-BP03 Send
-  notifications (Real-time processing and alarming)](../reliability-pillar/rel_monitor_aws_resources_notification_monitor.md "../reliability-pillar/rel_monitor_aws_resources_notification_monitor.md")
-- [What
-  is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection/ "https://aws.amazon.com/what-is/anomaly-detection/")
-- [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
-- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
-- [AWS Health Aware](https://github.com/aws-samples/aws-health-aware/ "https://github.com/aws-samples/aws-health-aware/")
+- [Disaster
+  Recovery of Workloads on AWS: Recovery in the Cloud](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md")
+- [Incident
+  management](../../../whitepapers/latest/tagging-best-practices/incident-management.md "../../../whitepapers/latest/tagging-best-practices/incident-management.md")
+- [Disaster
+  recovery plan](https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts "https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts")
 - [Amazon's
-  approach to high-availability deployment: Anomaly
-  detection](https://youtu.be/bCgD2bX1LI4?t=2493 "https://youtu.be/bCgD2bX1LI4?t=2493")
+  approach to security during development: Handling a
+  security incident](https://youtu.be/NeR7FhHqDGQ?t=1962 "https://youtu.be/NeR7FhHqDGQ?t=1962")

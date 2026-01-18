@@ -1,51 +1,46 @@
-# [DL.CI.3] Ensure automated quality assurance for every build
+# [DL.CI.1] Integrate code changes regularly and frequently
 
 **Category:** FOUNDATIONAL
 
-As code changes become more frequent in a DevOps environment,
-it becomes important to reduce the time it takes to get
-feedback on those changes. Adding automated quality assurance
-(QA) tests into the continuous integration pipeline enables
-rapidly validating changes and receiving fast feedback.
+Working in small batches, characterized by regular, small changes to a code base,
+enhances software delivery performance. It reduces the time to receive feedback on changes,
+which is required to enable continuous integration. This way of working is an improvement
+over traditional phased development approaches, which often leads to delayed feedback due to
+large batches of work. By making smaller, more frequent changes, teams can uncover and fix
+bugs earlier in the development lifecycle, simplifying the process of updating, testing, and
+releasing software.
 
-Add stages to the pipeline which run pre-deployment checks to
-validate that code changes work alongside the existing code
-base. These checks should automatically trigger functional,
-non-functional, and security tests against the integrated code
-base and build artifacts.
+Features should be broken down into independent work units
+that align with the agile
+[INVEST](https://www.agilealliance.org/glossary/invest/ "https://www.agilealliance.org/glossary/invest/")
+checklist. Splitting features into small increments of value,
+ramping up the frequency of deployment, and practicing Test
+Driven Development (TDD) all contribute to ensuring small
+batch sizes. Developers should strive to integrate multiple
+small, releasable changes to the code base at least once per
+day. Techniques like
+[dark
+launching](https://martinfowler.com/bliki/DarkLaunching.html "https://martinfowler.com/bliki/DarkLaunching.html"), [branch
+by abstraction](https://trunkbaseddevelopment.com/branch-by-abstraction/ "https://trunkbaseddevelopment.com/branch-by-abstraction/"), and
+[feature
+flags](https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags") allow incomplete features to be integrated in a
+reversible way without impacting end users.
 
-_Breaking-the-build_, which stops the integration pipeline process
-due to test failures, is a powerful feedback mechanism. However, it should be used
-judiciously. Reserve breaking-the-build for critical issues, such as actual build failures,
-high severity security findings, or non-negotiable compliance findings, that demand
-immediate developer attention. Overuse can disrupt the continuous flow of development,
-leading to unforeseen delays, bottlenecks, and poor developer experience.  Instead, continue
-to provide feedback to developers in tools they already use, such as IDEs, chat clients, or
-email, and let them decide if they should stop the process.
-
-It is often more practical to automate enforcement of quality
-assurance findings as part of the continuous delivery process.
-This allows enforcement to be objectively targeted based on
-the environment to which the build is being deployed into.
-Have an exception mechanism and escalation plans prepared that
-developers can use if the continuous integration or continuous
-deployment prevent deployments which they do not agree with.
+Working in small batches requires discipline and commitment,
+but leads to improvements in speed, security, collaboration,
+and code base consistency. In mature teams, developers commit
+changes multiple times per day and merge code frequently to
+prevent accumulating large changes. These teams yield better
+collaboration and success in maintaining an up-to-date,
+releasable version of the code base.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL08-BP02 Integrate
-  functional testing as part of your deployment](../reliability-pillar/rel_tracking_change_management_functional_testing.md "../reliability-pillar/rel_tracking_change_management_functional_testing.md")
-- [AWS Well-Architected Security Pillar: SEC11-BP02 Automate
-  testing throughout the development and release lifecycle](../framework/sec_appsec_automate_testing_throughout_lifecycle.md "../framework/sec_appsec_automate_testing_throughout_lifecycle.md")
+- [What
+  is continuous integration and continuous
+  delivery/deployment?](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/what-is-continuous-integration-and-continuous-deliverydeployment.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/what-is-continuous-integration-and-continuous-deliverydeployment.md")
+- [What
+  does INVEST Stand For?](https://www.agilealliance.org/glossary/invest/ "https://www.agilealliance.org/glossary/invest/")
 - [Testing
-  stages in continuous integration and continuous
-  delivery](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/testing-stages-in-continuous-integration-and-continuous-delivery.md")
-- [Amazon's
-  approach to high-availability deployment: Release guidance
-  lifecycle](https://youtu.be/bCgD2bX1LI4?t=855 "https://youtu.be/bCgD2bX1LI4?t=855")
-- [Testing
-  software and systems at Amazon: Continuous integration and
-  deployment](https://youtu.be/o1sc3cK9bMU?t=1206 "https://youtu.be/o1sc3cK9bMU?t=1206")
-- [The
-  Amazon Software Development Process: Automated
-  Testing](https://youtu.be/52SC80SFPOw?t=1340 "https://youtu.be/52SC80SFPOw?t=1340")
+  software and systems at Amazon: Continuous Integration and
+  Deployment](https://youtu.be/o1sc3cK9bMU?t=1313 "https://youtu.be/o1sc3cK9bMU?t=1313")

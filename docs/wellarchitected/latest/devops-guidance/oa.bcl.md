@@ -1,31 +1,22 @@
-# [OA.BCL.10] Make informed decisions using data
+# [OA.BCL.1] Clarify purpose and direction to improve cognitive well-being
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Encourage teams to shift from relying solely on intuition or personal experience to
-using data to inform their decisions so that they become more objective than subjective.
-Teams should consider what to measure (and why), how to measure it, and how to effectively
-present the data for informed decision making. Provide training on data analysis and
-visualization, and aim to make data easily accessible and up-to-date. Use tools to
-collect, store, analyze, and visualize data effectively, allowing teams to make
-data-driven decisions.
+Verify that every individual feels aligned with the organizational goals and sees the
+impact of their contributions. A motivated workforce that is driven by a sense of
+purpose can lead to enhanced cognitive well-being, reduced burnout, and improved
+retention rates.
 
-Incorporate the _build-measure-learn_ feedback loop and
-_validated learning_ concepts from Eric Ries'
-[The
-Lean Startup](https://theleanstartup.com/principles "https://theleanstartup.com/principles") to enhance decision-making capabilities
-and alignment with organizational goals. Use the
-build-measure-learn loop and validated learning to make
-data-driven decisions, test assumptions, and adapt quickly to
-changing conditions to foster a culture of continuous
-learning and improvement. By partnering with customers
-throughout the innovation process, teams can better align
-their efforts with organizational objectives while remaining
-agile and responsive to evolving requirements. Doing so confirms that
-solutions are built with customer empathy, measured for
-impact, and refined through collaborative learning.
+Regularly communicate a clear strategy, and communicate the organization's business objectives it to all team
+members. Align individual goals and targets with the
+business objectives so that every member understands their
+unique role and contribution. Provide frequent updates on
+organizational progress towards achieving business goals to
+keep the team informed and involved. Implement a structured
+feedback mechanism and recognize the efforts of team members
+in contributing to the organization's success.
 
 **Related information:**
 
-- [The Lean
-  Startup Methodology](https://theleanstartup.com "https://theleanstartup.com")
+- [Amazon's
+  approach to security during development: Ownership](https://youtu.be/NeR7FhHqDGQ?t=632 "https://youtu.be/NeR7FhHqDGQ?t=632")

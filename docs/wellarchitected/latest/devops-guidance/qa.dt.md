@@ -1,37 +1,34 @@
-# [QA.DT.1] Ensure data integrity and accuracy with data quality tests
+# [QA.DT.2] Enhance understanding of data through data profiling
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Data quality tests assess the accuracy, consistency, and overall quality of the data
-used within the application or system. These tests typically involve validating data
-against predefined rules and checking for duplicate or missing data to ensure the dataset
-remains reliable. While data quality testing might not fall under the traditional
-definitions of functional or non-functional testing, it's still an essential aspect of
-ensuring that an application or system functions correctly, as the quality of data can
-significantly impact the overall performance, user experience, and reliability of the
-software.
+Use data profiling tools to examine, analyze, and understand
+the data including its content, structure, and relationships
+to identify issues such as inconsistencies, outliers, and
+missing values. By performing data profiling, teams can gain
+deeper insights into the characteristics and quality of their
+data, enabling them to make informed decisions about data
+management, data governance, and data integration strategies.
+This data is often used to enable or improve other types of
+data testing.
 
-We recommend data quality tests because they enable rapid
-software delivery and continuous improvement of data driving
-systems. Using data quality tests, teams can spend more of
-their time focusing on how data should appear rather than
-continually checking it for accuracy, streamlining the
-development and deployment process. To calculate data quality
-metrics on your dataset, define and verify data quality
-constraints, and be informed about changes in the data
-distribution. Instead of implementing checks and verification
-algorithms on your own, you can focus on describing how your
-data should look.
+To integrate data profiling into a DevOps environment,
+consider automating the process using data profiling tools
+such as
+[AWS Glue DataBrew](https://aws.amazon.com/glue/features/databrew/ "https://aws.amazon.com/glue/features/databrew/"), open-source tools, or custom scripts
+that analyze data regularly. Incorporate the profiling results
+into your data management, governance, and integration
+strategies, allowing your team to proactively address data
+quality issues and maintain consistent data standards
+throughout the development lifecycle.
 
 **Related information:**
 
-- [Getting
-  started with AWS Glue Data Quality from the AWSAWS Glue Data Catalog](https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-from-the-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/getting-started-with-aws-glue-data-quality-from-the-aws-glue-data-catalog/")
-- [Deequ
-
-* Unit Tests for Data](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ")
-
+- [Build
+  an automatic data profiling and reporting solution with
+  Amazon EMR, AWS Glue, and Quick Suite](https://aws.amazon.com/blogs/big-data/build-an-automatic-data-profiling-and-reporting-solution-with-amazon-emr-aws-glue-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/build-an-automatic-data-profiling-and-reporting-solution-with-amazon-emr-aws-glue-and-amazon-quicksight/")
 - [Test
   data quality at scale with Deequ](https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/ "https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/")
-- [How
-  to Architect Data Quality on the AWS Cloud](https://aws.amazon.com/blogs/industries/how-to-architect-data-quality-on-the-aws-cloud/ "https://aws.amazon.com/blogs/industries/how-to-architect-data-quality-on-the-aws-cloud/")
+- [Deequ
+  single column profiling](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/data_profiling_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/data_profiling_example.md")
+- [AWS Glue DataBrew](https://aws.amazon.com/glue/features/databrew/ "https://aws.amazon.com/glue/features/databrew/")
