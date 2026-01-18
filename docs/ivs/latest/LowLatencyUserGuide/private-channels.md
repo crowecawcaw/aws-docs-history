@@ -14,14 +14,18 @@ channel that has playback authorization enabled.
 
 ###### Topics
 
+- [How Session Protection
+  Works](private-channels-session-protection.md "private-channels-session-protection.md")
 - [Workflow for IVS Private Channels](private-channels-workflow.md "private-channels-workflow.md")
-- [Create or Import an IVS Playback Key](private-channels-create-key.md "private-channels-create-key.md")
-- [Enable Playback Authorization on IVS
-  Channels](private-channels-enable-playback-auth.md "private-channels-enable-playback-auth.md")
+- [Create or Import an IVS Playback
+  Key](private-channels-create-key.md "private-channels-create-key.md")
+- [Enable Playback Authorization on
+  IVS Channels](private-channels-enable-playback-auth.md "private-channels-enable-playback-auth.md")
 - [Generate and Sign IVS Playback
   Tokens](private-channels-generate-tokens.md "private-channels-generate-tokens.md")
 - [List IVS Playback Keys](private-channels-list-keys.md "private-channels-list-keys.md")
 - [Delete IVS Playback Keys](private-channels-delete-keys.md "private-channels-delete-keys.md")
-- [Get Information about IVS Playback Keys](private-channels-get-info.md "private-channels-get-info.md")
+- [Get Information about IVS Playback
+  Keys](private-channels-get-info.md "private-channels-get-info.md")
 - [Revoke IVS Viewer
   Sessions](private-channels-start-session-revocation.md "private-channels-start-session-revocation.md")

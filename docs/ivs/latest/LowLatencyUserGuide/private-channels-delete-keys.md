@@ -38,8 +38,8 @@ DeletePlaybackKeyPair operation: ResourceNotFoundException:
 
 ## API Request
 
-For usage information, see [DeletePlaybackKeyPair](../LowLatencyAPIReference/API_DeletePlaybackKeyPair.md "../LowLatencyAPIReference/API_DeletePlaybackKeyPair.md")
-in the _IVS Low-Latency Streaming API Reference_.
+For usage information, see [DeletePlaybackKeyPair](../LowLatencyAPIReference/API_DeletePlaybackKeyPair.md "../LowLatencyAPIReference/API_DeletePlaybackKeyPair.md") in the _IVS Low-Latency
+Streaming API Reference_.
 
 ```
 POST /DeletePlaybackKeyPair HTTP/1.1

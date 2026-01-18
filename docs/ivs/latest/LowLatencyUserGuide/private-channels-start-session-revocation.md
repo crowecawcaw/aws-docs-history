@@ -37,8 +37,8 @@ An error occurred (ValidationException) when calling the StartViewerSessionRevoc
 
 ## API Request
 
-For usage information, see [StartViewerSessionRevocation](../LowLatencyAPIReference/API_StartViewerSessionRevocation.md "../LowLatencyAPIReference/API_StartViewerSessionRevocation.md")
-in the _IVS Low-Latency Streaming API Reference_.
+For usage information, see [StartViewerSessionRevocation](../LowLatencyAPIReference/API_StartViewerSessionRevocation.md "../LowLatencyAPIReference/API_StartViewerSessionRevocation.md") in the _IVS
+Low-Latency Streaming API Reference_.
 
 ```
 POST /StartViewerSessionRevocation HTTP/1.1
@@ -49,5 +49,4 @@ POST /StartViewerSessionRevocation HTTP/1.1
 }
 ```
 
-There also is a [BatchStartViewerSessionRevocation](../LowLatencyAPIReference/API_BatchStartViewerSessionRevocation.md "../LowLatencyAPIReference/API_BatchStartViewerSessionRevocation.md")
-operation.
+There also is a [BatchStartViewerSessionRevocation](../LowLatencyAPIReference/API_BatchStartViewerSessionRevocation.md "../LowLatencyAPIReference/API_BatchStartViewerSessionRevocation.md") operation.

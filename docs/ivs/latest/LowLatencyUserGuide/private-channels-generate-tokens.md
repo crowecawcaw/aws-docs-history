@@ -35,7 +35,10 @@ All JWTs have three fields: header, payload, and signature.
     client; it does not restrict playback from a non-browser client.)
     This field may contain multiple origins, separated by commas.
     Wildcard domains are allowed: each origin may begin its hostname
-    with \* (example: https://\*.amazon.com). If `strict-origin-enforcement` is `true`, at most 5 domains may be specified; otherwise, there is no maximum.
+    with \* (example: https://\*.amazon.com). If
+    `strict-origin-enforcement` is `true`, at
+    most 5 domains may be specified; otherwise, there is no
+    maximum.
   - `strict-origin-enforcement` is an optional field that
     can be used to strengthen the origin restriction specified in the
     `access-control-allow-origin` field. By default, the
@@ -81,7 +84,11 @@ All JWTs have three fields: header, payload, and signature.
     (Int64). This field is meant to be provided (optionally) alongside
     `viewer-id`; it does nothing on its own. The default
     value is 0.
-  - `maximum-resolution` allows you to specify manifest filtering by resolution for a viewer session, based on viewer entitlements. For example, setting this field to `HD` means the viewer will receive a resolution less than or equal to `HD`.
+  - `maximum-resolution` allows you to specify manifest
+    filtering by resolution for a viewer session, based on viewer
+    entitlements. For example, setting this field to `HD`
+    means the viewer will receive a resolution less than or equal to
+    `HD`.
   - `exp` is a Unix UTC timestamp for when the token
     expires. This does not indicate the length of time that the stream
     can be viewed. The token is validated when the viewer initializes
@@ -143,8 +150,8 @@ channel.fbc789c1-2c56-4ce6-a30a-d99275dc4481.m3u8?token=<token>
 
 ## Node.js Example
 
-Below is one way to generate a token on the back end (via a microservice or serverless application)
-using Node.js.
+Below is one way to generate a token on the back end (via a microservice or
+serverless application) using Node.js.
 
 ```
 import jwt from "jsonwebtoken";
@@ -165,8 +172,8 @@ const getToken = () => {
 
 ```
 
-In your frontend application, you can retrieve this token and append it to the playback URL of
-the private channel, as shown below.
+In your frontend application, you can retrieve this token and append it to the
+playback URL of the private channel, as shown below.
 
 ```
 const streamUrl = `https://b37c565f6d790a14a0e78afaa6808a80.us-west-2.playback.live-video.net/api/video/v1/aws.ivs.us-west-2.123456789.channel.fbc789c1-2c56-4ce6-a30a-d99275dc4481.m3u8?token.m3u8?token=${token}`

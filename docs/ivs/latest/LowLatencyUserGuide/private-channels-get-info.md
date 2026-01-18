@@ -1,4 +1,6 @@
-# Get Information about IVS Playback Keys
+# Get Information about IVS Playback
+
+Keys
 
 Amazon IVS customers can get information about their playback key resources. It is
 important to note that the associated private key will not be available, even in the
@@ -35,8 +37,8 @@ Example response:
 
 ## API Request
 
-For usage information, see [GetPlaybackKeyPair](../LowLatencyAPIReference/API_GetPlaybackKeyPair.md "../LowLatencyAPIReference/API_GetPlaybackKeyPair.md")
-in the _IVS Low-Latency Streaming API Reference_.
+For usage information, see [GetPlaybackKeyPair](../LowLatencyAPIReference/API_GetPlaybackKeyPair.md "../LowLatencyAPIReference/API_GetPlaybackKeyPair.md") in the _IVS Low-Latency
+Streaming API Reference_.
 
 ```
 POST /GetPlaybackKeyPair HTTP/1.1
