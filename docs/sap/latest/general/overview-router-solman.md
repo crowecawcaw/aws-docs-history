@@ -10,4 +10,4 @@ When setting up the SAProuter and SAP support network connection, follow these g
 
 - Launch the instance that the SAProuter software is installed on into a public subnet of the VPC and assign it an Elastic IP address.
 - Create a specific security group for the SAProuter instance with the necessary rules to allow the required inbound and outbound access to the SAP support network.
-- Use the Secure Network Communications (SNC) type of internet connection. For more information, see [https://service.sap.com/internetconnection](https://service.sap.com/internetconnection "https://service.sap.com/internetconnection").
+- Use the Secure Network Communications (SNC) type of internet connection. For more information, see https://service.sap.com/internetconnection.

@@ -42,7 +42,7 @@ The majority of SAP solutions that run on traditional on-premises infrastructure
 
 To ensure full support of your SAP on AWS environment from SAP and AWS, you must follow the guidelines and requirements in [SAP Note 1656250](https://launchpad.support.sap.com/#/notes/1656250 "https://launchpad.support.sap.com/#/notes/1656250"). Here are the primary requirements you must follow to ensure support of your SAP on AWS environment:
 
-- Enable detailed monitoring for **Amazon CloudWatch** on each EC2 instance to ensure that the required AWS metrics are provided in one-minute intervals. For additional information on Amazon CloudWatch, see [https://aws.amazon.com/cloudwatch](https://aws.amazon.com/cloudwatch "https://aws.amazon.com/cloudwatch").
+- Enable detailed monitoring for **Amazon CloudWatch** on each EC2 instance to ensure that the required AWS metrics are provided in one-minute intervals. For additional information on Amazon CloudWatch, see https://aws.amazon.com/cloudwatch.
 - Install, configure, and run the [AWS Data Provider for SAP](data-provider-intro.md "data-provider-intro.md") on each EC2 instance. The AWS Data Provider collects the required performance and configuration data from a variety of sources, including the Amazon EC2 API, Amazon EC2 instance metadata, and Amazon CloudWatch, and shares it with SAP applications, to help monitor and improve the performance of business transations.
 - Any AWS account that you use for running SAP systems must have an [AWS support plan](https://aws.amazon.com/premiumsupport/plans "https://aws.amazon.com/premiumsupport/plans") for either Business Support or Enterprise Support.
 

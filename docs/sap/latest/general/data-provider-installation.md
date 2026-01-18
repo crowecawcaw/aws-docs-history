@@ -99,7 +99,7 @@ Use the following procedure to install DataProvider 4.3.
 
 ![Execution history tab](images/data-provider-execution.png) 12. On the **Execution ID** page, choose **Output** to see the installation results.
 
-![Example output in the user interface](images/data-provider-output.png) 13. Once the installation is completed, log in to the instance, and [http://localhost:8888/vhostmd](http://localhost:8888/vhostmd "http://localhost:8888/vhostmd") [call the endpoint] to enable the DataProvider to fetch metrics.
+![Example output in the user interface](images/data-provider-output.png) 13. Once the installation is completed, log in to the instance, and http://localhost:8888/vhostmd [call the endpoint] to enable the DataProvider to fetch metrics.
 
     * Linux example
 
@@ -128,8 +128,7 @@ Download the following file for your environment. By default the files will down
   [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm")
 - **Oracle Linux**
   [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm")
-- **Windows**
-  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe")
+- **Windows** https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe
 - **GPG Key**
   [GPG Key: https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS")
 
@@ -272,7 +271,7 @@ On Windows, the installer is delivered in the form of an NSIS (Nullsoft Scriptab
 3. Verify the installation.
    - Once the installation is complete, you can see the file in `C:\Program Files\Amazon\DataProvider` directory.
    - The installation also creates and starts a Windows service called **AWS Data Provider for SAP**.
-   - Verify that the service is running by entering [http://localhost:8888/vhostmd](http://localhost:8888/vhostmd "http://localhost:8888/vhostmd") in a web browser. The page returns metrics from AWS Data Provider for SAP if your installation is successful.
+   - Verify that the service is running by entering http://localhost:8888/vhostmd in a web browser. The page returns metrics from AWS Data Provider for SAP if your installation is successful.
 
 4. You can configure AWS Data Provider to use proxies if you do not have transparent HTTP/HTTPS access to the internet.
    1. Stop AWS Data Provider for SAP.
@@ -329,7 +328,7 @@ In order to configure proxy settings, you can place a customized `proxy.properti
 
 Amazon Simple Notification Service can notify you when new versions of AWS Data Provider Agent are released. Use the following steps to setup this subscription.
 
-1. Open [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+1. Open https://console.aws.amazon.com/sns/v3/home.
 2. Ensure that you are in **US East N. Virginia** (us-east-1) Region.
 3. In the left navigation pane, select **Subscriptions** > **Create subscription**.
 4. Add a **Topic ARN** based on the AWS Region in which you are using AWS Data Provider Agent.
@@ -352,6 +351,6 @@ Amazon Simple Notification Service can notify you when new versions of AWS Data 
 
 To unsubscribe from notifications, use the following steps.
 
-1. Open [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+1. Open https://console.aws.amazon.com/sns/v3/home.
 2. In the left navigation pane, select **Subscriptions**.
 3. Select the subscription from your list of subscriptions and choose **Delete**.

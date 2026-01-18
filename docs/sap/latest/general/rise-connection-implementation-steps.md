@@ -85,7 +85,7 @@ The Site-to-Site VPN connection consists of three key components:
 1. Virtual Private Gateway (VGW) - The router on the AWS side
 2. Customer Gateway (CGW) - The router on the customer side
 3. The S2S VPN connection that binds the VGW and CGW together over two secure IPSec tunnels in an active/passive configuration
-   For in-depth documentation on establishing the AWS Site-to-Site VPN connection, you can refer to the AWS documentation at [https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html](../../../vpn/latest/s2svpn/SetUpVPNConnections.md "../../../vpn/latest/s2svpn/SetUpVPNConnections.md").
+   For in-depth documentation on establishing the AWS Site-to-Site VPN connection, you can refer to the AWS documentation at https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html.
 
 **Prerequisites**
 
