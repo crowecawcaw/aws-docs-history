@@ -105,7 +105,7 @@ Nitro v6
 
 - **General Purpose**: M8a | M8gb | M8gn | M8i | M8i-flex
 - **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8i-flex
-- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8i-flex | X8aedz
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8i-flex | X8aedz | X8i
 - **Storage Optimized**: I8ge
 - **Accelerated Computing**: P6-B200 | P6-B300
 
@@ -152,7 +152,7 @@ Nitro v6
 
 - **General Purpose**: M8a | M8i
 - **Compute Optimized**: C8a | C8gb | C8gn | C8i
-- **Memory Optimized**: R8a | R8gb | R8gn | R8i | X8aedz
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i | X8aedz | X8i
 - **Storage Optimized**: I8ge
 
 Nitro v5

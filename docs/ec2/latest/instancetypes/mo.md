@@ -30,7 +30,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ------------------- | ----------------- | ----------------- | ----------------- | ----------------- | ---------------- |
+| --------------- | ------------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ------------------- | ----------------- | ----------------- | ----------------- | ----------------- | ---------------- | ---------------- |
 | R5              | `r5.large`               | `r5.xlarge`        | `r5.2xlarge`       | `r5.4xlarge`       | `r5.8xlarge`       | `r5.12xlarge`       | `r5.16xlarge`       | `r5.24xlarge`       | `r5.metal`        |
 | R5a             | `r5a.large`              | `r5a.xlarge`       | `r5a.2xlarge`      | `r5a.4xlarge`      | `r5a.8xlarge`      | `r5a.12xlarge`      | `r5a.16xlarge`      | `r5a.24xlarge`      |
 | R5ad            | `r5ad.large`             | `r5ad.xlarge`      | `r5ad.2xlarge`     | `r5ad.4xlarge`     | `r5ad.8xlarge`     | `r5ad.12xlarge`     | `r5ad.16xlarge`     | `r5ad.24xlarge`     |
@@ -78,6 +78,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | X2iezn          | `x2iezn.2xlarge`         | `x2iezn.4xlarge`   | `x2iezn.6xlarge`   | `x2iezn.8xlarge`   | `x2iezn.12xlarge`  | `x2iezn.metal`      |
 | X8g             | `x8g.medium`             | `x8g.large`        | `x8g.xlarge`       | `x8g.2xlarge`      | `x8g.4xlarge`      | `x8g.8xlarge`       | `x8g.12xlarge`      | `x8g.16xlarge`      | `x8g.24xlarge`    | `x8g.48xlarge`    | `x8g.metal-24xl`  | `x8g.metal-48xl`  |
 | X8aedz          | `x8aedz.large`           | `x8aedz.xlarge`    | `x8aedz.3xlarge`   | `x8aedz.6xlarge`   | `x8aedz.12xlarge`  | `x8aedz.24xlarge`   | `x8aedz.metal-12xl` | `x8aedz.metal-24xl` |
+| X8i             | `x8i.large`              | `x8i.xlarge`       | `x8i.2xlarge`      | `x8i.4xlarge`      | `x8i.8xlarge`      | `x8i.12xlarge`      | `x8i.16xlarge`      | `x8i.24xlarge`      | `x8i.32xlarge`    | `x8i.48xlarge`    | `x8i.64xlarge`    | `x8i.96xlarge`    | `x8i.metal-48xl` | `x8i.metal-96xl` |
 | z1d             | `z1d.large`              | `z1d.xlarge`       | `z1d.2xlarge`      | `z1d.3xlarge`      | `z1d.6xlarge`      | `z1d.12xlarge`      | `z1d.metal`         |
 
 ## Instance family summary
@@ -131,6 +132,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | X2iezn          | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | X8g             | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | X8aedz          | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| X8i             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | z1d             | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 
 ## Performance specifications
@@ -517,6 +519,21 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | x8aedz.24xlarge      | 3072.00      | AMD EPYC 9R05              | 96    | 96        | 1                | ✗ No         | ✗ No               |
 | x8aedz.metal-12xl    | 1536.00      | AMD EPYC 9R05              | 48    | 48        | 1                | ✗ No         | ✗ No               |
 | x8aedz.metal-24xl    | 3072.00      | AMD EPYC 9R05              | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| **X8i**              |
+| x8i.large            | 32.00        | Intel Xeon Granite Rapids  | 2     | 1         | 2                | ✗ No         | ✗ No               |
+| x8i.xlarge           | 64.00        | Intel Xeon Granite Rapids  | 4     | 2         | 2                | ✗ No         | ✗ No               |
+| x8i.2xlarge          | 128.00       | Intel Xeon Granite Rapids  | 8     | 4         | 2                | ✗ No         | ✗ No               |
+| x8i.4xlarge          | 256.00       | Intel Xeon Granite Rapids  | 16    | 8         | 2                | ✗ No         | ✗ No               |
+| x8i.8xlarge          | 512.00       | Intel Xeon Granite Rapids  | 32    | 16        | 2                | ✗ No         | ✗ No               |
+| x8i.12xlarge         | 768.00       | Intel Xeon Granite Rapids  | 48    | 24        | 2                | ✗ No         | ✗ No               |
+| x8i.16xlarge         | 1024.00      | Intel Xeon Granite Rapids  | 64    | 32        | 2                | ✗ No         | ✗ No               |
+| x8i.24xlarge         | 1536.00      | Intel Xeon Granite Rapids  | 96    | 48        | 2                | ✗ No         | ✗ No               |
+| x8i.32xlarge         | 2048.00      | Intel Xeon Granite Rapids  | 128   | 64        | 2                | ✗ No         | ✗ No               |
+| x8i.48xlarge         | 3072.00      | Intel Xeon Granite Rapids  | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| x8i.64xlarge         | 4096.00      | Intel Xeon Granite Rapids  | 256   | 128       | 2                | ✗ No         | ✗ No               |
+| x8i.96xlarge         | 6144.00      | Intel Xeon Granite Rapids  | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| x8i.metal-48xl       | 3072.00      | Intel Xeon Granite Rapids  | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| x8i.metal-96xl       | 6144.00      | Intel Xeon Granite Rapids  | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **z1d**              |
 | z1d.large            | 16.00        | Intel Xeon Platinum 8151   | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | z1d.xlarge           | 32.00        | Intel Xeon Platinum 8151   | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -530,7 +547,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 
 ###### Note
 
-R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz instance types support configurable bandwidth weightings.
+R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz, X8i instance types support configurable bandwidth weightings.
 With these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
@@ -917,6 +934,21 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | x8aedz.24xlarge      | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | x8aedz.metal-12xl    | 37.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
 | x8aedz.metal-24xl    | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| **X8i**              |
+| x8i.large 1          | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
+| x8i.xlarge 1         | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| x8i.2xlarge 1        | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| x8i.4xlarge 1        | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| x8i.8xlarge          | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
+| x8i.12xlarge         | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
+| x8i.16xlarge         | 30 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| x8i.24xlarge         | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| x8i.32xlarge         | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| x8i.48xlarge         | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| x8i.64xlarge         | 80 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| x8i.96xlarge         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| x8i.metal-48xl       | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| x8i.metal-96xl       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | **z1d**              |
 | z1d.large 1          | 0.75 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
 | z1d.xlarge 1         | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
@@ -966,7 +998,7 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 
 ###### Note
 
-- R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz virtualized instance types support configurable bandwidth weightings.
+- R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz, X8i virtualized instance types support configurable bandwidth weightings.
   With these instance types, you can optimize an instance's bandwidth for either networking performance
   or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
   instance types. Bare metal instance types are not supported. For the supported configurable weightings,
@@ -1356,6 +1388,21 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | x8aedz.24xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | x8aedz.metal-12xl    | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | x8aedz.metal-24xl    | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **X8i**              |
+| x8i.large 1          | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.xlarge 1         | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.2xlarge 1        | 2500.00 / 10000.00                  | 312.50 / 1250.00                                  | 12000.00 / 40000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.4xlarge 1        | 5000.00 / 10000.00                  | 625.00 / 1250.00                                  | 20000.00 / 40000.00                  | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.8xlarge          | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.12xlarge         | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.16xlarge         | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.24xlarge         | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.32xlarge         | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.48xlarge         | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| x8i.64xlarge         | 70000.00                            | 8750.00                                           | 320000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| x8i.96xlarge         | 80000.00                            | 10000.00                                          | 480000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| x8i.metal-48xl       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| x8i.metal-96xl       | 80000.00                            | 10000.00                                          | 480000.00                            | ✓ Yes | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **z1d**              |
 | z1d.large 1          | 800.00 / 3170.00                    | 100.00 / 396.25                                   | 3333.00 / 13333.00                   | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | z1d.xlarge 1         | 1580.00 / 3170.00                   | 197.50 / 396.25                                   | 6667.00 / 13333.00                   | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
@@ -1906,6 +1953,21 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | x8aedz.24xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | x8aedz.metal-12xl    | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | x8aedz.metal-24xl    | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **X8i**              |
+| x8i.large            | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| x8i.xlarge           | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.2xlarge          | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.4xlarge          | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.8xlarge          | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.12xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.16xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.24xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.32xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.48xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.64xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.96xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| x8i.metal-48xl       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| x8i.metal-96xl       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **z1d**              |
 | z1d.large            | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✓ Yes    | ✗ No           |
 | z1d.xlarge           | ✓ Yes          | ✓ Yes                        | ✗ No                  | ✗ No        | ✓ Yes    | ✓ Yes          |

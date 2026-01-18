@@ -201,6 +201,7 @@ allocate.
 | Running Dedicated x2iedn Hosts       | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-D0AA08B1 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-D0AA08B1") |
 | Running Dedicated x2iezn Hosts       | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-888B4496 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-888B4496") |
 | Running Dedicated x8g Hosts          | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-2CC6888D "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-2CC6888D") |
+| Running Dedicated x8i Hosts          | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-D1023B19 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-D1023B19") |
 | Running Dedicated z1d Hosts          | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-F035E935 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-F035E935") |
 
 ## Capacity Blocks quotas
