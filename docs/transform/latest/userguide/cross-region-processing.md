@@ -109,15 +109,15 @@ The following table shows the source Regions from which you can call the inferen
 
 ## AWS Transform Custom
 
-AWS Transform custom is only available in US East (N. Virginia) (us-east-1) and uses Amazon Bedrock geographic cross-region inference. This means that some of your calls might be routed to AWS Regions outside of US East in the same geographic region. You can access AWS Transform custom features only from workspaces deployed in US East.
+AWS Transform custom is available in US East (N. Virginia) (us-east-1) and Europe (Frankfurt) (eu-central-1) and uses Amazon Bedrock geographic cross-region inference. This means that some of your calls might be routed to AWS Regions outside of your source region within the same geographic region. You can access AWS Transform custom features from workspaces deployed in supported regions.
 
-| Source Region                          | Inference Destination Regions                                                           |
-| -------------------------------------- | --------------------------------------------------------------------------------------- |
-| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2) |
-| Europe (Frankfurt) (eu-central-1)      | n/a                                                                                     |
-| Europe (London) (eu-west-2)            | n/a                                                                                     |
-| Asia Pacific (Tokyo) (ap-northeast-1)  | n/a                                                                                     |
-| Asia Pacific (Sydney) (ap-southeast-2) | n/a                                                                                     |
-| Asia Pacific (Seoul) (ap-northeast-2)  | n/a                                                                                     |
-| Asia Pacific (Mumbai) (ap-south-1)     | n/a                                                                                     |
-| Canada (Central) (ca-central-1)        | n/a                                                                                     |
+| Source Region                          | Inference Destination Regions                                                                                                                                                |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US East (N. Virginia) (us-east-1)      | US East (N. Virginia) (us-east-1)US East (Ohio) (us-east-2)US West (Oregon) (us-west-2)                                                                                      |
+| Europe (Frankfurt) (eu-central-1)      | Europe (Frankfurt) (eu-central-1)Europe (Stockholm) (eu-north-1)Europe (Milan) (eu-south-1)Europe (Spain) (eu-south-2)Europe (Ireland) (eu-west-1)Europe (Paris) (eu-west-3) |
+| Europe (London) (eu-west-2)            | n/a                                                                                                                                                                          |
+| Asia Pacific (Tokyo) (ap-northeast-1)  | n/a                                                                                                                                                                          |
+| Asia Pacific (Sydney) (ap-southeast-2) | n/a                                                                                                                                                                          |
+| Asia Pacific (Seoul) (ap-northeast-2)  | n/a                                                                                                                                                                          |
+| Asia Pacific (Mumbai) (ap-south-1)     | n/a                                                                                                                                                                          |
+| Canada (Central) (ca-central-1)        | n/a                                                                                                                                                                          |

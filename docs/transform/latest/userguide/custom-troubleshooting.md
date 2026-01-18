@@ -51,10 +51,20 @@ Ensure your IAM user or role has the required `transform-custom:*` permissions.
 If you encounter connection errors, verify network access to required endpoints:
 
 - `desktop-release.transform.us-east-1.api.aws`
-- `transform-custom.us-east-1.api.aws`
+- `transform-custom.<region>.api.aws`
 - `*.s3.amazonaws.com`
 
 If working in an internet-restricted environment, update firewall rules to allowlist these URLs.
+
+**Region configuration issues:**
+
+If you encounter region-related errors:
+
+- Verify your region is supported
+- Check for environment variables that may override your configuration: `echo $AWS_REGION $AWS_DEFAULT_REGION`
+- Check your region configuration: `aws configure get region`
+- Update your region if needed: `aws configure set region <your-region>`
+- Check debug logs for region resolution details
 
 **Git issues:**
 
@@ -103,7 +113,7 @@ Please examine the [Log Locations](#custom-log-locations "#custom-log-locations"
 
 If you are using a VPN/Proxy server that leverages the `https_proxy` and `no_proxy` environment variables, consider adding the following values to your `no_proxy` environment variable value to bypass the proxy for the S3 and AWS Transform custom service endpoints, for example:
 
-`export no_proxy=.s3.amazonaws.com,.transform-custom.us-east-1.api.aws`
+`export no_proxy=.s3.amazonaws.com,.transform-custom.<region>.api.aws`
 
 If you are using an [AWS PrivateLink for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md") in your VPC,
 this may have a policy defined to restrict S3 traffic. Please ensure your S3 VPC endpoint policy allows `GetObject` and `PutObject` operations for the AWS Transform

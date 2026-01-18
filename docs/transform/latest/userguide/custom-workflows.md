@@ -297,7 +297,7 @@ You can organize transformations with tags for access control and categorization
 
 ###### Note
 
-Some of these commands require specifying the Amazon Resource Name (ARN) for a Transformation Definition. The ARN structure is: `arn:aws:transform-custom:us-east-1:<account-id>:package/<td-name>`
+Some of these commands require specifying the Amazon Resource Name (ARN) for a Transformation Definition. The ARN structure is: `arn:aws:transform-custom:<region>:<account-id>:package/<td-name>`
 
 **To list tags for a transformation:**
 

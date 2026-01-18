@@ -17,14 +17,14 @@ Guide_.
 
 ###### Note
 
-- AWS PrivateLink integration with AWS Transform custom is only available in the US East (N. Virginia) region.
+- AWS PrivateLink integration with AWS Transform custom is available in US East (N. Virginia) (us-east-1) and Europe (Frankfurt) (eu-central-1) regions.
 - You must enable AWS PrivateLink integration for Amazon S3 since AWS Transform custom makes S3 API calls. For detailed instructions, see the [AWS PrivateLink for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md") documentation. If you encounter S3 access issues while using AWS Transform custom, refer to our [troubleshooting guide](custom-troubleshooting.md#custom-s3-access-issues "custom-troubleshooting.md#custom-s3-access-issues").
 - If you are not using AWS PrivateLink Private DNS feature (see [Private DNS](../../../vpc/latest/privatelink/privatelink-access-aws-services.md#interface-endpoint-private-dns "../../../vpc/latest/privatelink/privatelink-access-aws-services.md#interface-endpoint-private-dns")), you must:
   - Configure routing to VPC interface endpoints (see the [Routing to VPC interface endpoints](../../../Route53/latest/DeveloperGuide/routing-to-vpc-interface-endpoint.md "../../../Route53/latest/DeveloperGuide/routing-to-vpc-interface-endpoint.md") documentation)
   - Set the `ATX_CUSTOM_ENDPOINT` environment variable to specify your custom domain, for example:
 
   ```
-  ATX_CUSTOM_ENDPOINT=https://transform-custom.us-east-1.api.aws atx
+  ATX_CUSTOM_ENDPOINT=https://transform-custom.<region>.api.aws atx
   ```
 
 ## Considerations for AWS Transform custom VPC

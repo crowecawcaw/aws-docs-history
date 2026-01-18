@@ -28,7 +28,7 @@ Windows native execution is not supported. AWS Transform custom will detect nati
 An internet connection with access to the following endpoints is required:
 
 - `desktop-release.transform.us-east-1.api.aws`
-- `transform-custom.us-east-1.api.aws`
+- `transform-custom.<region>.api.aws`
 - `*.s3.amazonaws.com`
 
 If you are working in an internet-restricted environment, update firewall rules to allowlist these URLs.
@@ -112,6 +112,107 @@ For more granular control, please refer to the [AWS Transform Custom IAM Service
   You can use IAM policies to control access to specific transformations or groups of transformations by specifying
   the transformation ARN in your IAM policy resource statements. Tags can be used for grouped access control.
 - AWS IAM Identity Center is required to access the AWS Transform, but is not required to use the CLI.
+
+## Configuring AWS Region
+
+AWS Transform custom is available in specific AWS regions and automatically detects your region configuration using standard AWS CLI precedence.
+
+### Supported Regions
+
+AWS Transform custom is available in the following AWS regions:
+
+- `us-east-1` (US East - N. Virginia)
+- `eu-central-1` (Europe - Frankfurt)
+
+### How Region is Determined
+
+The CLI checks these sources in priority order to determine which region to use:
+
+1. `AWS_REGION` environment variable (highest priority)
+2. `AWS_DEFAULT_REGION` environment variable
+3. Selected profile in `~/.aws/config` (via `AWS_PROFILE` environment variable)
+4. Default profile in `~/.aws/config`
+5. Default fallback to `us-east-1` if no configuration is found
+
+###### Note
+
+If `ATX_CUSTOM_ENDPOINT` is set, the region is extracted from the endpoint URL and overrides all other settings.
+
+### Setting Your Region
+
+Choose one of these methods to configure your region:
+
+**Option 1: Environment variable (recommended for temporary use):**
+
+```
+export AWS_REGION=<your-region>
+```
+
+**Option 2: AWS CLI configuration (recommended for permanent setup):**
+
+```
+aws configure set region <your-region>
+```
+
+**Option 3: Profile-specific configuration:**
+
+```
+aws configure set region <your-region> --profile your_profile_name
+export AWS_PROFILE=your_profile_name
+```
+
+**Option 4: Direct file editing:**
+
+Edit `~/.aws/config` directly:
+
+```
+[default]
+region = <your-region>
+
+[profile your_profile_name]
+region = <your-region>
+```
+
+### Verifying Your Region Configuration
+
+To check which region AWS Transform custom will use:
+
+**Check current region setting:**
+
+```
+aws configure get region
+```
+
+**Check environment variables:**
+
+```
+echo "AWS_REGION: $AWS_REGION"
+echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
+echo "AWS_PROFILE: $AWS_PROFILE"
+```
+
+**View detailed region resolution in debug logs:**
+
+```
+tail -f ~/.aws/atx/logs/debug.log
+```
+
+Example log output showing region source:
+
+```
+2026-01-07 22:34:28 [DEBUG]: Initializing FrontendServiceClient with config:
+{
+  "endpoint": "https://transform-custom.us-east-1.api.aws",
+  "region": "us-east-1",
+  "regionSource": "AWS_REGION"
+}
+```
+
+The `regionSource` field shows where the region was derived from (e.g., "aws-config (profile: default)", "AWS_REGION", "default").
+
+###### Important
+
+If your region configuration points to an unsupported region, the CLI will display a clear error message with instructions to update your configuration to a supported region.
 
 ## Running Your First Transformation
 
