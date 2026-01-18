@@ -210,7 +210,7 @@ AWS Managed Services provided for such customer-requested configurations will be
 - Resource Scheduler: Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon Relational Database Service (Amazon RDS) and Amazon EC2 Auto Scaling groups
 - Services monitored for operational events: [Supported checks](tr-supported-checks.md "tr-supported-checks.md") and Trusted Advisor, Application Load Balancer, Aurora, Amazon EC2, ELB, Amazon FSx for NetApp ONTAP, Amazon FSx
   for Windows File Server, NAT gateway (a Network Address Translation (NAT)
-  service), OpenSearch, AWS Health Dashboard, Amazon Redshift, Amazon Relational Database Service (Amazon RDS),
+  service), OpenSearch, Health Dashboard, Amazon Redshift, Amazon Relational Database Service (Amazon RDS),
   Site-to-Site VPN. To learn more about what AMS Accelerate is monitoring as part
   of a service, see [Alerts from baseline monitoring in AMS](monitoring-default-metrics.md "monitoring-default-metrics.md") .
 - Services monitored by security Config Rules: AWS Account, GuardDuty, Macie, Amazon API Gateway, AWS Certificate Manager, AWS Config,
