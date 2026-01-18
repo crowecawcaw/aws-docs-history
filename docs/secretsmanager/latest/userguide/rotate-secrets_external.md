@@ -2,12 +2,12 @@
 
 Secrets Manager has partnered with select software vendors to offer managed external secrets. This feature helps customers manage the secret lifecycle by handling rotations automatically. With managed external secrets, customers no longer need to maintain specific rotation logic for each secret stored with different partners. This will be handled by Secrets Manager.
 
-To view the list of partners onboarded with Secrets Manager, see Managed external secrets Partners.
+To view the list of partners onboarded with Secrets Manager, see [Managed external secrets Partners](mes-partners.md "mes-partners.md").
 
 ## Set Up Rotation in the Console
 
 To configure rotation for an existing managed external secret,
-created by specifying the secret type and value as specified by the respective integration partners,
+created by specifying the secret type and value as specified by the respective [integration partners](mes-partners.md "mes-partners.md"),
 use the following steps:
 
 1. Open the Secrets Manager console.
