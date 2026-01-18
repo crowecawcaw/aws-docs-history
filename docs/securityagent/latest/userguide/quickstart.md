@@ -11,7 +11,7 @@ You need access to AWS Management console to setup a new penetration test
 1. Navigate to [AWS Security Agent](https://us-east-1.console.aws.amazon.com/securityagent/ "https://us-east-1.console.aws.amazon.com/securityagent/") in the AWS Management Console.
 2. Select **Set up AWS Security Agent**
 3. Create an agent space. An agent space can be used by multiple users and should be specific for every application you want to test. Enter a name and description for your first agent space. This name appears to users in the web application. The name of the agent space should be based on the application you want to penetration test.
-4. Select **IAM Users** under _User access configuration_
+4. Select **IAM-only access** under _User access configuration_
    - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. This allows users to directly access the AWS Security Agent web application, from the AWS Console.
    - If you want to enable users without AWS Management Console Access to perform tasks such as starting a penetration test or design review, you should enable the IAM Identity Center integration.
 
@@ -63,7 +63,7 @@ This step is optional, however we recommend connecting to your GitHub account to
 
 You can create and run a penetration test only in the AWS Security Agent web application.
 
-1. Select the **Web app** tab and then **Admin access** to launch the AWS Security Agent Web Application with administrator privileges. This will only work if you had setup your agent using **IAM Users** under _User access configuration_. Alternatively, you will need to add users and create a login.
+1. Select the **Web app** tab and then **Admin access** to launch the AWS Security Agent Web Application with administrator privileges. This will only work if you had setup your agent using **IAM-only access** under _User access configuration_. Alternatively, you will need to add users and create a login.
 2. In the left sidebar, click **Penetration Test**, then select **Create your first penetration test**.
 3. Define the penetration test details:
    1. Select the domain you want to test or specify one or more paths. You can only test verified domains.

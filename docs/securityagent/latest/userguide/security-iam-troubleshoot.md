@@ -7,7 +7,7 @@ Use the following information to help you diagnose and fix common issues that yo
 If you receive an `AccessDeniedException` when calling an AWS API operation, then the IAM principal credentials that you’re using don’t have the required permissions to make that call.
 
 ```
-An error occurred (AccessDeniedException) when calling the CreateEnvironment operation:
+ An error occurred (AccessDeniedException) when calling the CreateEnvironment operation:
 User: arn:aws:iam::111122223333:user/user_name is not authorized to perform:
 securityagent:CreateEnvironment on resource: arn:aws:securityagent:region:111122223333:environment/my-env
 ```

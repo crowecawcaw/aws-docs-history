@@ -32,7 +32,7 @@ Penetration testing is the only capability in AWS Security Agent that can authen
 
 #### Can users control the scope and depth of testing to prevent unintended system impacts?
 
-AWS Security Agent allows customers to select a specific category of vulnerability to explore in an endpoint. Users can specify out-of-scope URLs to prevent AWS Security Agent from performing penetration testing against those targets. [https://docs.aws.amazon.com/securityagent/latest/userguide/perform-penetration-test.html](perform-penetration-test.md "perform-penetration-test.md")
+AWS Security Agent allows customers to select a specific category of vulnerability to explore in an endpoint. Users can specify out-of-scope URLs to prevent AWS Security Agent from performing penetration testing against those targets. https://docs.aws.amazon.com/securityagent/latest/userguide/perform-penetration-test.html
 
 #### Can AWS Security Agent itself pose a security risk?
 
@@ -46,7 +46,7 @@ AWS Security Agent allows users to upload artifacts to provide context about the
 
 Endpoints that are specified as target URLs for pentesting will require DNS validation or HTTP validation as a measure of ownership. AWS Security Agent will ask the customer to add a TXT record to the endpoint’s DNS or expose an HTTP Route returning validation string as proof of ownership. Only after demonstrating proof of ownership will the user be able to proceed with a pentest. Requests to URLs outside of the target and allowed URLs will be blocked by the network.
 
-Customers are responsible for ensuring they have proper authorization to test all systems that may be affected by their penetration testing activities. All use of AWS Security Agent must comply with the AWS Acceptable Use Policy ([https://aws.amazon.com/aup/](https://aws.amazon.com/aup/ "https://aws.amazon.com/aup/")).
+Customers are responsible for ensuring they have proper authorization to test all systems that may be affected by their penetration testing activities. All use of AWS Security Agent must comply with the AWS Acceptable Use Policy (https://aws.amazon.com/aup/).
 
 #### How do users block and report any abuse using AWS Security Agent?
 

@@ -24,7 +24,7 @@ This role needs permissions to:
 The trust policy must allow the AWS Security Agent service to assume this role:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -43,7 +43,7 @@ The trust policy must allow the AWS Security Agent service to assume this role:
 The role should include permissions for:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -83,7 +83,7 @@ This role needs permissions to access and analyze your AWS resources during pene
 The trust policy must allow the AWS Security Agent service to assume this role for penetration testing operations:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -116,7 +116,7 @@ The role should include read-only access to your AWS resources. Consider using t
 Or create a custom policy with specific permissions:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -163,7 +163,7 @@ This role needs permissions to:
 The trust policy must allow the AWS Security Agent agent service to assume this role:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -189,7 +189,7 @@ The permissions depend on your target application architecture. Here are example
 #### For API Gateway Applications
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -206,7 +206,7 @@ The permissions depend on your target application architecture. Here are example
 #### For Lambda Function URLs
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -224,7 +224,7 @@ The permissions depend on your target application architecture. Here are example
 #### For Application Load Balancer with Cognito Authentication
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
