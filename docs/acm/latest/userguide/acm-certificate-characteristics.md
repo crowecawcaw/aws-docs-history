@@ -80,7 +80,7 @@ authorities"](https://aws.amazon.com/blogs/security/amazon-introduces-dynamic-in
 
 If Amazon discontinues a root CA, the change will occur as quickly as
 needed. Amazon will use all available methods to notify AWS customers,
-including the AWS Health Dashboard, email, and outreach to technical account
+including the Health Dashboard, email, and outreach to technical account
 managers.
 
 **Firewall access for

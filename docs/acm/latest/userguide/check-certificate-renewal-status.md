@@ -3,10 +3,10 @@
 status
 
 When you have attempted to renew a certificate, ACM provides a _Renewal status_ information field in the certificate
-details. You can use the AWS Certificate Manager console, the ACM API, the AWS CLI, or the AWS Health Dashboard to
+details. You can use the AWS Certificate Manager console, the ACM API, the AWS CLI, or the Health Dashboard to
 check the renewal status of an ACM certificate. If you use the console, AWS CLI, or
 ACM API, the renewal status can have one of the four possible status values listed
-below. Similar values are displayed if you use the AWS Health Dashboard.
+below. Similar values are displayed if you use the Health Dashboard.
 
 **Pending automatic renewal**
 
@@ -89,9 +89,9 @@ Dashboard (PHD)
 
 ACM attempts to automatically renew your ACM certificate 60 days prior to
 expiration. If ACM cannot automatically renew your certificate, it sends
-certificate renewal event notices to your AWS Health Dashboard at 45 day, 30 day, 15 day, 7 day, 3
+certificate renewal event notices to your Health Dashboard at 45 day, 30 day, 15 day, 7 day, 3
 day, and 1 day intervals from expiration to inform you that you need to take action.
-The AWS Health Dashboard is part of the AWS Health service. It requires no setup and can be
+The Health Dashboard is part of the AWS Health service. It requires no setup and can be
 viewed by any user that is authenticated in your account. For more information, see
 [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md").
 
@@ -101,9 +101,9 @@ ACM writes successive renewal event notices to a single event in your PHD
 time line. Each notice overwrites the previous one until the renewal
 succeeds.
 
-###### To use the AWS Health Dashboard:
+###### To use the Health Dashboard:
 
-1. Log in to the AWS Health Dashboard at [https://phd.aws.amazon.com/phd/home#/](https://phd.aws.amazon.com/phd/home#/ "https://phd.aws.amazon.com/phd/home#/").
+1. Log in to the Health Dashboard at [https://phd.aws.amazon.com/phd/home#/](https://phd.aws.amazon.com/phd/home#/ "https://phd.aws.amazon.com/phd/home#/").
 2. Choose **Event log**.
 3. For **Filter by tags or attributes**, choose
    **Service**.
