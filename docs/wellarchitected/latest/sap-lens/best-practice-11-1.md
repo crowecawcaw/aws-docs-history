@@ -8,7 +8,7 @@ helps you to react to failures or potential failures in a timely manner.
 **Suggestion 11.1.1 – Use AWS Personal Health Dashboard and
 notifications**
 
-The [AWS Health Dashboard](https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/") gives you a personalized view of the status of the AWS services that
+The [Health Dashboard](https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/") gives you a personalized view of the status of the AWS services that
 power your applications, enabling you to quickly see when there are issues impacting your
 SAP workload. For example, in the event of a lost [Amazon Elastic Block Store (Amazon EBS)](https://aws.amazon.com/ebs/ "https://aws.amazon.com/ebs/") volume associated with one of your [Amazon EC2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/") instances.
 
