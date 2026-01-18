@@ -1,19 +1,28 @@
-# ADD_SINGLE_QUOTES
+# NEST_TO_MAP
 
-Encloses the characters in a column with single quotation marks.
+Converts user-selected columns into key-value pairs, each with a key representing the
+column name and a value representing the row value. The order of the selected column is
+not maintained while creating the resultant map. The different column data types are
+typecast to a common type that supports the data types of all columns.
 
 ###### Parameters
 
-- `sourceColumn` – The name of an existing column.
+- `sourceColumns` — List of the source columns.
+- `targetColumn` — The name of the target column.
+- `removeSourceColumns` — Contains the value
+  `true` or `false` to indicate whether or not the
+  user wants to remove the selected source columns.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "ADD_SINGLE_QUOTES",
+        "Operation": "NEST_TO_MAP",
         "Parameters": {
-            "sourceColumn": "info_url"
+            "sourceColumns": "[\"age\",\"weight_kg\",\"height_cm\"]",
+            "targetColumn": "columnName",
+            "removeSourceColumns": "true"
         }
     }
 }

@@ -1,26 +1,22 @@
-# SUBTRACT
+# STANDARD_DEVIATION
 
-Subtracts one number from another and returns the result in a new column.
+Returns the standard deviation from the selected source columns in a new column.
 
 ###### Parameters
 
-- `sourceColumn1` – The name of an existing column.
-- `value1` – A numeric value.
-- `sourceColumn2` – The name of an existing column.
-- `value2` – A numeric value.
-- `targetColumn` – The name of the new column to be
-  created.
+- `sourceColumns` – A JSON-encoded string representing a list of existing
+  columns.
+- `targetColumn` – A name for the newly created column.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "SUBTRACT",
+        "Operation": "STANDARD_DEVIATION",
         "Parameters": {
-            "sourceColumn1": "weight_kg",
-            "targetColumn": "weight_minus_10_kg",
-            "value2": "10"
+            "sourceColumns": "[\"years_in_sservice\",\"age\"]",
+            "targetColumn": "STANDARD_DEVIATION Column 1"
         }
     }
 }
