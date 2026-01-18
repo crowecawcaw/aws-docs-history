@@ -54,7 +54,7 @@ that relies on tag data.
 | -------------- | -------------------- | ------------ | ---------------- |
 | Amazon AppFlow | `AWS::AppFlow::Flow` | NA           | NA               |
 
-##
+## Amazon AppIntegrations
 
 | AWS Service                         | Resource Type Value                      | Relationship | Related Resource |
 | ----------------------------------- | ---------------------------------------- | ------------ | ---------------- |
@@ -63,16 +63,17 @@ that relies on tag data.
 
 ## Amazon API Gateway
 
-| AWS Service                      | Resource Type Value        | Relationship       | Related Resource    |
-| -------------------------------- | -------------------------- | ------------------ | ------------------- |
-| API Gateway                      | `AWS::ApiGateway::Stage`   | is contained in    | ApiGateway Rest Api |
-| is associated with               | WAFRegional WebACL         |
-| `AWS::ApiGateway::Method`        | NA                         | NA Stage           |
-| `AWS::ApiGateway::RestApi`       | contains                   | ApiGateway Stage   |
-| `AWS::ApiGateway::UsagePlan`     | NA                         | NA                 |
-| API Gateway V2                   | `AWS::ApiGatewayV2::Stage` | is contained in    | ApiGatewayV2 Api    |
-| `AWS::ApiGatewayV2::Api`         | contains                   | ApiGatewayV2 Stage |
-| `AWS::ApiGatewayV2::Integration` | NA                         | NA                 |
+| AWS Service                      | Resource Type Value           | Relationship        | Related Resource |
+| -------------------------------- | ----------------------------- | ------------------- | ---------------- |
+| API Gateway                      | `AWS::ApiGateway::DomainName` | NA                  | NA               |
+| `AWS::ApiGateway::Stage`         | is contained in               | ApiGateway Rest Api |
+| is associated with               | WAFRegional WebACL            |
+| `AWS::ApiGateway::Method`        | NA                            | NA Stage            |
+| `AWS::ApiGateway::RestApi`       | contains                      | ApiGateway Stage    |
+| `AWS::ApiGateway::UsagePlan`     | NA                            | NA                  |
+| API Gateway V2                   | `AWS::ApiGatewayV2::Stage`    | is contained in     | ApiGatewayV2 Api |
+| `AWS::ApiGatewayV2::Api`         | contains                      | ApiGatewayV2 Stage  |
+| `AWS::ApiGatewayV2::Integration` | NA                            | NA                  |
 
 To learn more about how AWS Config integrates with Amazon API Gateway, see [Monitoring API Gateway API Configuration with
 AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../../../apigateway/latest/developerguide/apigateway-config.md").
@@ -87,19 +88,15 @@ AWS Config](../../../apigateway/latest/developerguide/apigateway-config.md "../.
 
 ## Amazon Bedrock
 
-| AWS Service                   | Resource Type Value                         | Relationship | Related Resource |
-| ----------------------------- | ------------------------------------------- | ------------ | ---------------- |
-| Amazon Bedrock                | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA               |
-| `AWS::Bedrock::Guardrail`     | NA                                          | NA           |
-| `AWS::Bedrock::KnowledgeBase` | NA                                          | NA           |
-| `AWS::Bedrock::Prompt`        | NA                                          | NA           |
-
-## Amazon Bedrock AgentCore
-
-| AWS Service                      | Resource Type Value                    | Relationship | Related Resource |
-| -------------------------------- | -------------------------------------- | ------------ | ---------------- |
-| Amazon Bedrock AgentCore         | `AWS::BedrockAgentCore::BrowserCustom` | NA           | NA               |
-| `AWS::BedrockAgentCore::Runtime` | NA                                     | NA           |
+| AWS Service                                    | Resource Type Value                         | Relationship | Related Resource |
+| ---------------------------------------------- | ------------------------------------------- | ------------ | ---------------- |
+| Amazon Bedrock                                 | `AWS::Bedrock::ApplicationInferenceProfile` | NA           | NA               |
+| `AWS::Bedrock::Guardrail`                      | NA                                          | NA           |
+| `AWS::Bedrock::KnowledgeBase`                  | NA                                          | NA           |
+| `AWS::Bedrock::Prompt`                         | NA                                          | NA           |
+| `AWS::BedrockAgentCore::BrowserCustom`         | NA                                          | NA           |
+| `AWS::BedrockAgentCore::CodeInterpreterCustom` | NA                                          | NA           |
+| `AWS::BedrockAgentCore::Runtime`               | NA                                          | NA           |
 
 ## Amazon CloudFront
 
@@ -662,6 +659,7 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 | `AWS::SageMaker::ModelBiasJobDefinition`           | NA                               | NA           |
 | `AWS::SageMaker::ModelExplainabilityJobDefinition` | NA                               | NA           |
 | `AWS::SageMaker::ModelQualityJobDefinition`        | NA                               | NA           |
+| `AWS::SageMaker::MonitoringSchedule`               | NA                               | NA           |
 | `AWS::SageMaker::NotebookInstance`                 | NA                               | NA           |
 | `AWS::SageMaker::NotebookInstanceLifecycleConfig`  | NA                               | NA           |
 | `AWS::SageMaker::StudioLifecycleConfig`            | NA                               | NA           |
@@ -1067,6 +1065,7 @@ Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::Con
 | `AWS::Glue::Classifier`  | NA                  | NA           |
 | `AWS::Glue::MLTransform` | NA                  | NA           |
 | `AWS::Glue::Database`    | NA                  | NA           |
+| `AWS::Glue::Registry`    | NA                  | NA           |
 
 ## AWS Ground Station
 
@@ -1100,6 +1099,7 @@ Recording for the `AWS::Config::ConformancePackCompliance` and `AWS::Config::Con
 | `AWS::IAM::OIDCProvider`                           | NA                              | NA                          |
 | AWS Identity and Access Management Access Analyzer | `AWS::AccessAnalyzer::Analyzer` | NA                          | NA               |
 | AWS Identity and Access Management Roles Anywhere  | `AWS::RolesAnywhere::Profile`   | NA                          | NA               |
+| `AWS::RolesAnywhere::CRL`                          | NA                              | NA                          |
 | `AWS::RolesAnywhere::TrustAnchor`                  | NA                              | NA                          |
 
 AWS Config includes inline policies with the configuration details that it records. For more
@@ -1383,8 +1383,14 @@ remains trackable through the AWS Config interfaces.
 | ------------------------------------------- | ----------------------------------- | ------------ | ---------------- |
 | AWS Elemental MediaPackage                  | `AWS::MediaPackage::PackagingGroup` | NA           | NA               |
 | `AWS::MediaPackage::PackagingConfiguration` | NA                                  | NA           |
-| AWS Elemental MediaPackage V2               | `AWS::MediaPackageV2::Channel`      | NA           | NA               |
-| `AWS::MediaPackageV2::OriginEndpoint`       | NA                                  | NA           |
+
+## AWS Elemental MediaPackage V2
+
+| AWS Service                           | Resource Type Value            | Relationship | Related Resource |
+| ------------------------------------- | ------------------------------ | ------------ | ---------------- |
+| AWS Elemental MediaPackage V2         | `AWS::MediaPackageV2::Channel` | NA           | NA               |
+| `AWS::MediaPackageV2::ChannelGroup`   | NA                             | NA           |
+| `AWS::MediaPackageV2::OriginEndpoint` | NA                             | NA           |
 
 ## AWS Elemental MediaTailor
 
