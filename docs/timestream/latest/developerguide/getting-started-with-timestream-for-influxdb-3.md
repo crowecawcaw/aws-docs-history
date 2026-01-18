@@ -150,7 +150,7 @@ instance
 1. Sign in to the AWS Management Console and open the Amazon EC2 console.
 2. Choose the AWS Region where you want to create the Amazon EC2 instance.
 3. Choose Amazon EC2 Dashboard, then Launch instance.
-4. Configure your Amazon EC2 instance with appropriate settings .
+4. Configure your Amazon EC2 instance with appropriate settings.
 
 ### Step 2: Create an InfluxDB 3
 
@@ -166,16 +166,15 @@ instance
    configurations, you can select from an existing parameter group or create a new one. If
    no custom configuration is needed, simply proceed and a default parameter group will be
    automatically created for your instance.
-6. Configure your instance size and network settings. Pay special attention to the
-   network configuration. If you choose a private instance, ensure it's accessible from
-   your Amazon EC2 instance's VPC by selecting the appropriate VPC, subnets, and security groups
-   that allow connectivity between your Amazon EC2 instance and the InfluxDB instance.
-7. Choose **Create InfluxDB database**.
-8. Wait for your DB instance to become available.
+
+**Important:** If creating a private cluster, make sure you add the [required S3 policies](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md") to create your Timestream for InfluxDB cluster 6. Configure your instance size and network settings. Pay special attention to the
+network configuration. If you choose a private instance, ensure it's accessible from
+your Amazon EC2 instance's VPC by selecting the appropriate VPC, subnets, and security groups
+that allow connectivity between your Amazon EC2 instance and the InfluxDB instance. 7. Choose **Create InfluxDB database**. 8. Wait for your DB instance to become available.
 
 ### Step 3: Access the InfluxDB Explorer
 
-To access your InfluxDB instance through the InfluxDB Explorer:
+The easiest way to start interacting with your InfluxDB instance through the InfluxDB Explorer:
 
 1. Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/")
 2. For private DB instances, run the Explorer from within the same VPC (using an Amazon EC2
@@ -183,6 +182,8 @@ To access your InfluxDB instance through the InfluxDB Explorer:
 3. For publicly accessible DB instances, you can run the Explorer from any location
    with internet access.
 4. Configure the Explorer with your cluster endpoint and credentials.
+
+If you prefer using the InfluxDB 3 CLI, or APIs, please refer to [InfluxDB 3 documentation](https://docs.influxdata.com/influxdb3/enterprise/ "https://docs.influxdata.com/influxdb3/enterprise/") to find information on [writing data](https://docs.influxdata.com/influxdb3/enterprise/write-data/ "https://docs.influxdata.com/influxdb3/enterprise/write-data/"), [executing queries](https://docs.influxdata.com/influxdb3/enterprise/query-data/ "https://docs.influxdata.com/influxdb3/enterprise/query-data/"), or [Administer](https://docs.influxdata.com/influxdb3/enterprise/admin/ "https://docs.influxdata.com/influxdb3/enterprise/admin/") your InfluxDB 3 Database
 
 ### Step 4: Send Telegraf
 

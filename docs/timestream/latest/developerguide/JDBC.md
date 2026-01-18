@@ -1,84 +1,133 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Configuring the JDBC driver for Timestream for LiveAnalytics
+# Connection properties
 
-Follow the steps below to configure the JDBC driver.
+The Timestream for LiveAnalytics JDBC driver supports the following options:
 
 ###### Topics
 
-- [Timestream for LiveAnalytics JDBC driver JARs](#w2aab7c44c37b7b7 "#w2aab7c44c37b7b7")
-- [Timestream for LiveAnalytics JDBC driver class and URL format](#w2aab7c44c37b7b9 "#w2aab7c44c37b7b9")
-- [Sample application](#w2aab7c44c37b7c11 "#w2aab7c44c37b7c11")
+- [Basic authentication
+  options](#JDBC.connection-properties.basic-auth "#JDBC.connection-properties.basic-auth")
+- [Standard client info
+  option](#JDBC.connection-properties.standard-client "#JDBC.connection-properties.standard-client")
+- [Driver configuration
+  option](#JDBC.connection-properties.driver-config "#JDBC.connection-properties.driver-config")
+- [SDK option](#JDBC.connection-properties.sdk-options "#JDBC.connection-properties.sdk-options")
+- [Endpoint configuration
+  option](#JDBC.connection-properties.endpoint-config "#JDBC.connection-properties.endpoint-config")
+- [Credential provider
+  options](#JDBC.connection-properties.cred-providers "#JDBC.connection-properties.cred-providers")
+- [SAML-based authentication options
+  for Okta](#JDBC.connection-properties.okta "#JDBC.connection-properties.okta")
+- [SAML-based authentication
+  options for Azure AD](#JDBC.connection-properties.azure-ad "#JDBC.connection-properties.azure-ad")
 
-## Timestream for LiveAnalytics JDBC driver JARs
+###### Note
 
-You can obtain the Timestream for LiveAnalytics JDBC driver via direct download or by adding the driver as
-a Maven dependency.
+If none of the properties are provided, the Timestream for LiveAnalytics JDBC driver will use the
+default credentials chain to load the credentials.
 
-- _As a direct download:_. To directly download the Timestream for LiveAnalytics
-  JDBC driver, complete the following steps:
-  1.  Navigate to [https://github.com/awslabs/amazon-timestream-driver-jdbc/releases](https://github.com/awslabs/amazon-timestream-driver-jdbc/releases "https://github.com/awslabs/amazon-timestream-driver-jdbc/releases")
-  2.  You can use
-      `amazon-timestream-jdbc-1.0.1-shaded.jar`
-      directly with your business intelligence tools and
-      applications
-  3.  Download
-      `amazon-timestream-jdbc-1.0.1-javadoc.jar` to
-      a directory of your choice.
-  4.  In the directory where you have downloaded
-      `amazon-timestream-jdbc-1.0.1-javadoc.jar`,
-      run the following command to extract the Javadoc HTML files:
+###### Note
 
-  ```
-  jar -xvf amazon-timestream-jdbc-1.0.1-javadoc.jar
-  ```
+All property keys are case-sensitive.
 
-- _As a Maven dependency:_ To add the Timestream for LiveAnalytics JDBC driver as a
-  Maven dependency, complete the following steps:
-  1.  Navigate to and open your application's
-      `pom.xml` file in an editor of your
-      choice.
-  2.  Add the JDBC driver as a dependency into your application's
-      `pom.xml` file:
+## Basic authentication
 
-  ```
-  <!-- https://mvnrepository.com/artifact/software.amazon.timestream/amazon-timestream-jdbc -->
-  <dependency>
-      <groupId>software.amazon.timestream</groupId>
-      <artifactId>amazon-timestream-jdbc</artifactId>
-      <version>1.0.1</version>
-  </dependency>
-  ```
+options
 
-## Timestream for LiveAnalytics JDBC driver class and URL format
+The following table describes the available Basic Authentication options.
 
-The driver class for Timestream for LiveAnalytics JDBC driver is:
+| Option          | Description                                                                                                  | Default |
+| --------------- | ------------------------------------------------------------------------------------------------------------ | ------- |
+| AccessKeyId     | The AWS user access key id.                                                                                  | NONE    |
+| SecretAccessKey | The AWS user secret access key.                                                                              | NONE    |
+| SessionToken    | The temporary session token required to access a database with<br>multi-factor authentication (MFA) enabled. | NONE    |
 
-```
-software.amazon.timestream.jdbc.TimestreamDriver
-```
+## Standard client info
 
-The Timestream JDBC driver requires the following JDBC URL format:
+option
 
-```
-jdbc:timestream:
-```
+The following table describes the Standard Client Info Option.
 
-To specify database properties through the JDBC URL, use the following URL
-format:
+| Option          | Description                                                                                                                                                                                         | Default                                      |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| ApplicationName | The name of the application currently utilizing the<br>connection. `ApplicationName` is used for debugging<br>purposes and will not be communicated to the Timestream for LiveAnalytics<br>service. | The application name detected by the driver. |
 
-```
-jdbc:timestream://
-```
+## Driver configuration
 
-## Sample application
+option
 
-To help you get started with using Timestream for LiveAnalytics with JDBC, we've created a fully
-functional sample application in GitHub.
+The following table describes the Driver Configuration Option.
 
-1. Create a database with sample data following the instructions described
-   [here](getting-started.md#getting-started.db-w-sample-data.using-console "getting-started.md#getting-started.db-w-sample-data.using-console").
-2. Clone the GitHub repository for the [sample application for JDBC](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/jdbc "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/jdbc") following the instructions from
-   [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository").
-3. Follow the instructions in the [README](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/jdbc/README.md "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/jdbc/README.md") to get started with the sample application.
+| Option                          | Description                                                                                                                                                                                                   | Default   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| EnableMetaDataPreparedStatement | Enables Timestream for LiveAnalytics JDBC driver to return metadata for<br>`PreparedStatements`, but this will incur an<br>additional cost with Timestream for LiveAnalytics when retrieving the<br>metadata. | FALSE     |
+| Region                          | The database's region.                                                                                                                                                                                        | us-east-1 |
+
+## SDK option
+
+The following table describes the SDK Option.
+
+| Option              | Description                                                                                                                                                                                       | Default |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| RequestTimeout      | The time in milliseconds the AWS SDK will wait for a query<br>request before timing out. Non-positive value disables request<br>timeout.                                                          | 0       |
+| SocketTimeout       | The time in milliseconds the AWS SDK will wait for data to be<br>transferred over an open connection before timing out. Value<br>must be non-negative. A value of `0` disables socket<br>timeout. | 50000   |
+| MaxRetryCountClient | The maximum number of retry attempts for retryable errors with<br>5XX error codes in the SDK. The value must be<br>non-negative.                                                                  | NONE    |
+| MaxConnections      | The maximum number of allowed concurrently opened HTTP<br>connections to the Timestream for LiveAnalytics service. The value must be<br>positive.                                                 | 50      |
+
+## Endpoint configuration
+
+option
+
+The following table describes the Endpoint Configuration Option.
+
+| Option   | Description                                                | Default |
+| -------- | ---------------------------------------------------------- | ------- |
+| Endpoint | The endpoint for the Timestream for LiveAnalytics service. | NONE    |
+
+## Credential provider
+
+options
+
+The following table describes the available Credential Provider options.
+
+| Option                      | Description                                                                                                                                                                                                             | Default |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| AwsCredentialsProviderClass | One of `PropertiesFileCredentialsProvider` or<br>`InstanceProfileCredentialsProvider` to use for<br>authentication.                                                                                                     | NONE    |
+| CustomCredentialsFilePath   | The path to a properties file containing AWS security<br>credentials `accessKey` and `secretKey`.<br>This is only required if<br>`AwsCredentialsProviderClass` is specified as<br>`PropertiesFileCredentialsProvider` . | NONE    |
+
+## SAML-based authentication options
+
+for Okta
+
+The following table describes the available SAML-based authentication options for
+Okta.
+
+| Option            | Description                                                                                                                                                                                                                                                         | Default |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| IdpName           | The Identity Provider (Idp) name to use for SAML-based<br>authentication. One of `Okta` or `AzureAD`.                                                                                                                                                               | NONE    |
+| IdpHost           | The host name of the specified Idp.                                                                                                                                                                                                                                 | NONE    |
+| IdpUserName       | The user name for the specified Idp account.                                                                                                                                                                                                                        | NONE    |
+| IdpPassword       | The password for the specified Idp account.                                                                                                                                                                                                                         | NONE    |
+| OktaApplicationID | The unique Okta-provided ID associated with the Timestream for LiveAnalytics<br>application. `AppId` can be found in the<br>`entityID` field provided in the application<br>metadata. Consider the following example: `entityID =<br>http://www.okta.com//IdpAppID` | NONE    |
+| RoleARN           | The Amazon Resource Name (ARN) of the role that the caller is<br>assuming.                                                                                                                                                                                          | NONE    |
+| IdpARN            | The Amazon Resource Name (ARN) of the SAML provider in IAM<br>that describes the Idp.                                                                                                                                                                               | NONE    |
+
+## SAML-based authentication
+
+options for Azure AD
+
+The following table describes the available SAML-based authentication options for
+Azure AD.
+
+| Option           | Description                                                                                                    | Default |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
+| IdpName          | The Identity Provider (Idp) name to use for SAML-based<br>authentication. One of `Okta` or `AzureAD`<br>.      | NONE    |
+| IdpHost          | The host name of the specified Idp.                                                                            | NONE    |
+| IdpUserName      | The user name for the specified Idp account.                                                                   | NONE    |
+| IdpPassword      | The password for the specified Idp account.                                                                    | NONE    |
+| AADApplicationID | The unique id of the registered application on Azure<br>AD.                                                    | NONE    |
+| AADClientSecret  | The client secret associated with the registered application<br>on Azure AD used to authorize fetching tokens. | NONE    |
+| AADTenant        | The Azure AD Tenant ID.                                                                                        | NONE    |
+| IdpARN           | The Amazon Resource Name (ARN) of the SAML provider in IAM<br>that describes the Idp.                          | NONE    |

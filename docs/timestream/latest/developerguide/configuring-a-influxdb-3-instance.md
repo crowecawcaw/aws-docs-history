@@ -9,6 +9,9 @@ Timestream
 
 Using the AWS Management Console:
 
+**Important:** If creating a private cluster, make sure you add the
+[required S3 policies to create your Timestream for InfluxDB 3 cluster](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md")
+
 1.  Open the Amazon Timestream for InfluxDB console.
 2.  Choose **InfluxDB Databases** in the navigation pane.
 3.  Choose **Create InfluxDB 3 database.**
@@ -27,8 +30,9 @@ Using the AWS Management Console:
         2. One dedicated compactor node for storage optimization.
 
 7.  Configure cluster-level settings:
-    1. **Instance class**: Select the appropriate
-       `db.influxIOIncluded` instance size (applies to all nodes).
+    1. **Instance class**: Select the appropriate `db.influx`
+       instance size (applies to all nodes). Worth noting your bill will show
+       `db.influxIOIncluded` on your records.
     2. **Parameter group**: Choose an existing parameter group or
        create a new one for custom engine configuration.
     3. **Network configuration**: Configure VPC, subnets, and security
@@ -43,7 +47,7 @@ Using the AWS CLI:
 ```
 aws timestream-influxdb create-db-cluster \
      --name myinfluxDbinstance \
-     --db-instance-type db.influxIOIncluded.4xlarge \
+     --db-instance-type db.influx.4xlarge \
      --vpc-subnet-ids subnetid1 subnetid2 \
      --vpc-security-group-ids mysecuritygroup \
      --db-parameter-group-identifier dbparametergroupidentifier

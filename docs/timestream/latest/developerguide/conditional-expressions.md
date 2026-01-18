@@ -1,14 +1,15 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Conditional expressions
+# The NULLIF statement
 
-Timestream for LiveAnalytics supports the following conditional expressions.
+The **IF** statement evaluates a condition to be true or false and returns
+the appropriate value. Timestream supports the following two syntax representations for
+**IF**:
 
-###### Topics
+**NULLIF** returns null if `value1` equals `value2`;
+otherwise it returns `value1`. The syntax is as follows:
 
-- [The CASE statement](conditional-expressions.md "conditional-expressions.md")
-- [The IF statement](conditional-expressions.md "conditional-expressions.md")
-- [The COALESCE statement](conditional-expressions.md "conditional-expressions.md")
-- [The NULLIF statement](conditional-expressions.md "conditional-expressions.md")
-- [The TRY statement](conditional-expressions.md "conditional-expressions.md")
+```
+nullif(value1, value2)
+```

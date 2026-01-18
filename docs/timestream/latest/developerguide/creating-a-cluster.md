@@ -40,7 +40,7 @@ deployment model, and configuration settings to meet your workload requirements.
    - **DB cluster identifier**: Enter a unique name for your
      cluster.
    - **DB instance class**: Select from
-     `db.influxIOIncluded` instance classes (applies to all nodes).
+     `db.influx` instance classes (applies to all nodes).
    - **Parameter group**:
      - Select a service-defined parameter group:
        - InfluxDBv3Core (for Core single-node)
@@ -82,7 +82,7 @@ aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-influxdb3-core-cluster" \
   --db-parameter-group-identifier "InfluxDBv3Core" \
-  --db-instance-type db.influxIOIncluded.large \
+  --db-instance-type db.influx.large \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc \
   --publicly-accessible false
@@ -96,7 +96,7 @@ aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-influxdb3-enterprise-cluster" \
   --db-parameter-group-identifier "InfluxDBv3Enterprise" \
-  --db-instance-type db.influxIOIncluded.xlarge \
+  --db-instance-type db.influx.xlarge \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc \
   --publicly-accessible false \
@@ -116,7 +116,7 @@ aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-influxdb3-enterprise-single" \
   --db-parameter-group-identifier "InfluxDBv3Enterprise1Node" \
-  --db-instance-type db.influxIOIncluded.large \
+  --db-instance-type db.influx.large \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc \
   --publicly-accessible false
@@ -145,7 +145,7 @@ aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-custom-enterprise-cluster" \
   --db-parameter-group-identifier "custom-enterprise-pg" \
-  --db-instance-type db.influxIOIncluded.2xlarge \
+  --db-instance-type db.influx.2xlarge \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc
 
@@ -178,11 +178,13 @@ aws timestream-influxdb get-db-cluster
 ```
 influxdb3 query \
   --host "your-cluster-endpoint:8086" \
-  --database "my-bucket" \
-  --token "your-token" \
+  --database "my-database" \
+  --token "my-token" \
   "SHOW TABLES"
 
 ```
+
+**Please refer to [InfluxDB 3 documentation](https://docs.influxdata.com/influxdb3/enterprise/ "https://docs.influxdata.com/influxdb3/enterprise/") to find information on [writing data](https://docs.influxdata.com/influxdb3/enterprise/write-data/ "https://docs.influxdata.com/influxdb3/enterprise/write-data/"), [executing queriers](https://docs.influxdata.com/influxdb3/enterprise/query-data/ "https://docs.influxdata.com/influxdb3/enterprise/query-data/"), or [Administer](https://docs.influxdata.com/influxdb3/enterprise/admin/ "https://docs.influxdata.com/influxdb3/enterprise/admin/") your influxDB 3 Database.**
 
 **Important considerations:**
 
