@@ -78,7 +78,7 @@ By default, the installer automatically downloads the latest available version o
 In case you need to install a specific version of the RPM, you can download the RPM package of any previous version from S3 and provide the RPM package to the installer.
 
 ```
-# Download installer
+ # Download installer
 wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/<version>/install-aws-backint-agent-ase
 # Download RPM package
 wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/<version>/aws-backint-agent-ase.rpm
@@ -97,7 +97,7 @@ chmod +x install-aws-backint-agent-ase
 **Symptoms**:
 
 ```
-Error creating upload id for bucket:<bucket-name> key:<object-key>
+ Error creating upload id for bucket:<bucket-name> key:<object-key>
 error:AccessDenied: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
 is not authorized to perform: s3:PutObject on resource: "arn:aws:s3:::<bucket-name>/<object-path>"
 because no identity-based policy allows the s3:PutObject action
@@ -110,7 +110,7 @@ because no identity-based policy allows the s3:PutObject action
 1. Verify the S3 bucket policy includes the correct resource path:
 
 ```
-{
+ {
   "Effect": "Allow",
   "Action": [
     "s3:PutObjectTagging",
@@ -128,7 +128,7 @@ because no identity-based policy allows the s3:PutObject action
 3. Test permissions using AWS CLI:
 
 ```
-aws s3 cp test-file.txt s3://your-bucket-name/your-folder-name/
+ aws s3 cp test-file.txt s3://your-bucket-name/your-folder-name/
 ```
 
 **Time to Resolution**: Typically 2-5 minutes once the correct path is identified.
@@ -140,7 +140,7 @@ aws s3 cp test-file.txt s3://your-bucket-name/your-folder-name/
 **Symptoms**:
 
 ```
-ListObjects error: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
+ ListObjects error: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::<bucket-name>"
 because no identity-based policy allows the s3:ListBucket action
 ```
@@ -152,7 +152,7 @@ because no identity-based policy allows the s3:ListBucket action
 1. Add the `s3:ListBucket` permission to your IAM policy:
 
 ```
-{
+ {
   "Effect": "Allow",
   "Action": [
     "s3:ListBucket"
@@ -170,7 +170,7 @@ because no identity-based policy allows the s3:ListBucket action
 **Symptoms**:
 
 ```
-Key metadata fetch failed for bucket:<bucket-name> key:<object-key>
+ Key metadata fetch failed for bucket:<bucket-name> key:<object-key>
 error:Forbidden: Forbidden
 status code: 403
 ```
@@ -182,7 +182,7 @@ status code: 403
 1. Ensure your IAM policy includes `s3:GetObject` permission:
 
 ```
-{
+ {
   "Effect": "Allow",
   "Action": [
     "s3:GetObject"
@@ -196,7 +196,7 @@ status code: 403
 2. Verify the object exists and the path is correct using AWS CLI:
 
 ```
-aws s3 ls s3://your-bucket-name/your-folder-name/
+ aws s3 ls s3://your-bucket-name/your-folder-name/
 ```
 
 ### Backup and Restore Configuration Issues
@@ -208,7 +208,7 @@ aws s3 ls s3://your-bucket-name/your-folder-name/
 **Symptoms**:
 
 ```
-Error: Mismatch stripe count, load requested with: 2 stripes instead of 1
+ Error: Mismatch stripe count, load requested with: 2 stripes instead of 1
 ```
 
 **Root Cause**: The restore command specifies a different number of stripes than used during backup.
@@ -219,7 +219,7 @@ Error: Mismatch stripe count, load requested with: 2 stripes instead of 1
 2. Use the same stripe count for restore as was used for backup:
 
 ```
--- For single stripe backup
+ -- For single stripe backup
 LOAD DATABASE your_db FROM "awsbackint::backup_prefix"
 
 -- For multi-stripe backup
@@ -236,7 +236,7 @@ STRIPE ON "awsbackint::backup_prefix"
 **Symptoms**:
 
 ```
-Error creating named pipe for stripe 0: File exists
+ Error creating named pipe for stripe 0: File exists
 ```
 
 **Root Cause**: Previous backup attempt left temporary files that weren’t cleaned up.
@@ -246,13 +246,13 @@ Error creating named pipe for stripe 0: File exists
 1. **Immediate workaround**: Use a different backup prefix:
 
 ```
-DUMP DATABASE your_db TO "awsbackint::new_unique_prefix"
+ DUMP DATABASE your_db TO "awsbackint::new_unique_prefix"
 ```
 
 2. **Long-term solution**: Clean up temporary files from the previous attempt:
 
 ```
-# Remove temporary pipes and files from the Backint Agent working directory
+ # Remove temporary pipes and files from the Backint Agent working directory
 rm -f /sybase/shared/aws-backint-ase/pipes/<database>/<prefix>
 ```
 
@@ -267,7 +267,7 @@ rm -f /sybase/shared/aws-backint-ase/pipes/<database>/<prefix>
 **Symptoms**:
 
 ```
-Error reading config file Failed to validate config file permission,
+ Error reading config file Failed to validate config file permission,
 other users outside of group cannot have execution permission.
 ```
 
@@ -278,19 +278,19 @@ other users outside of group cannot have execution permission.
 1. Set correct permissions on the configuration file:
 
 ```
-chmod 640 /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
+ chmod 640 /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
 ```
 
 2. Ensure the file is owned by the correct user and group:
 
 ```
-chown sap_user:sap_group /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
+ chown sap_user:sap_group /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
 ```
 
 3. Verify permissions:
 
 ```
-ls -la /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
+ ls -la /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
 ```
 
 #### Missing S3 Bucket Configuration
@@ -300,7 +300,7 @@ ls -la /sybase/shared/aws-backint-agent-ase/aws-backint-agent-config.yaml
 **Symptoms**:
 
 ```
-Error: S3 Bucket Name not found in aws-backint-agent-config.yaml
+ Error: S3 Bucket Name not found in aws-backint-agent-config.yaml
 ```
 
 **Root Cause**: The configuration file is missing the S3 bucket name or has incorrect permissions.
@@ -320,7 +320,7 @@ Error: S3 Bucket Name not found in aws-backint-agent-config.yaml
 **Symptoms**:
 
 ```
-KMS.InvalidKeyUsageException: You cannot generate a data key with an asymmetric CMK
+ KMS.InvalidKeyUsageException: You cannot generate a data key with an asymmetric CMK
 ```
 
 **Root Cause**: S3 server-side encryption requires a symmetric KMS key, but an asymmetric key was specified.
@@ -331,7 +331,7 @@ KMS.InvalidKeyUsageException: You cannot generate a data key with an asymmetric 
 2. Create a new symmetric key if needed:
 
 ```
-aws kms create-key --description "S3 encryption key for SAP backups" --key-usage ENCRYPT_DECRYPT
+ aws kms create-key --description "S3 encryption key for SAP backups" --key-usage ENCRYPT_DECRYPT
 ```
 
 3. Update your S3 bucket configuration or Backint Agent configuration to use the symmetric key.
@@ -343,7 +343,7 @@ aws kms create-key --description "S3 encryption key for SAP backups" --key-usage
 **Symptoms**:
 
 ```
-AccessDenied: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
+ AccessDenied: User: arn:aws:sts::<account-id>:assumed-role/<role-name>/<instance-id>
 is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:kms:<region>:<account-id>:key/<key-id>
 with an explicit deny in an identity-based policy
 ```
@@ -355,7 +355,7 @@ with an explicit deny in an identity-based policy
 1. Add KMS permissions to your IAM policy:
 
 ```
-{
+ {
   "Effect": "Allow",
   "Action": [
     "kms:GenerateDataKey",
@@ -371,7 +371,7 @@ with an explicit deny in an identity-based policy
 3. Test KMS access:
 
 ```
-aws kms generate-data-key --key-id your-key-id --key-spec AES_256
+ aws kms generate-data-key --key-id your-key-id --key-spec AES_256
 ```
 
 ## Best Practices
@@ -387,7 +387,7 @@ aws kms generate-data-key --key-id your-key-id --key-spec AES_256
 The Backint Agent creates the following S3 path structure:
 
 ```
-<bucket-name>/<path-prefix>/<SID>/sapci_<Database_Name>_COMPLETE_<custom_prefix>_<stripe_number>/<date>_<time>/
+ <bucket-name>/<path-prefix>/<SID>/sapci_<Database_Name>_COMPLETE_<custom_prefix>_<stripe_number>/<date>_<time>/
 ```
 
 ### Restore Command Format
@@ -395,7 +395,7 @@ The Backint Agent creates the following S3 path structure:
 When restoring, use the exact path format:
 
 ```
-LOAD DATABASE <DB_NAME> FROM "awsbackint::<backup_location_without_database_prefix>"
+ LOAD DATABASE <DB_NAME> FROM "awsbackint::<backup_location_without_database_prefix>"
 ```
 
 ###### Note
@@ -407,7 +407,7 @@ Do not include the database name as a prefix in the restore path.
 Use this comprehensive IAM policy template for the Backint Agent:
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {

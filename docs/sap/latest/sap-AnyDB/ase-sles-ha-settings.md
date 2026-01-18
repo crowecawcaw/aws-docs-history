@@ -115,7 +115,7 @@ For more information, see {https---docs-aws-amazon-com-AWSEC2-latest-UserGuide-i
 The SLES STONITH resource agent (`external/ec2`) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -146,7 +146,7 @@ The SLES STONITH resource agent (`external/ec2`) requires permission to start an
 The SLES Overlay IP resource agent (`aws-vpc-move-ip`) requires permission to modify a routing entry in route tables. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -172,7 +172,7 @@ If you are using a Shared VPC, see [Shared VPC cluster resources](#shared-vpc-cl
 
 ### Assign IAM role
 
-The two cluster resource IAM policies must be assigned to an IAM role associated with your Amazon EC2 instance. If an IAM role is not associated to your instance, create a new IAM role for cluster operations. To assign the role, go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"), select your instance(s), and then choose **Actions** > **Security** > **Modify IAM role**.
+The two cluster resource IAM policies must be assigned to an IAM role associated with your Amazon EC2 instance. If an IAM role is not associated to your instance, create a new IAM role for cluster operations. To assign the role, go to https://console.aws.amazon.com/ec2/, select your instance(s), and then choose **Actions** > **Security** > **Modify IAM role**.
 
 ### Modify security groups for cluster communication
 
@@ -217,7 +217,7 @@ aws ec2 modify-instance-attribute --instance-id <i-xxxxinstidforhost2> --no-sour
 
 AWS Management Console
 
-- Ensure that the **Stop** option is checked in [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+- Ensure that the **Stop** option is checked in https://console.aws.amazon.com/ec2/.
 
 ![Change Source / destination check.](images/sles_stop_option.png)
 
@@ -395,8 +395,7 @@ systemctl enable --now chronyd.service
 systemctl status chronyd
 ```
 
-For more information, see [https://docs.aws.amazon.com/](../../../index.md "../../../index.md")
-AWSEC2/latest/UserGuide/set-time.html[Set the time for your Linux instance].
+For more information, see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html[Set the time for your Linux instance].
 
 ### AWS CLI profile
 
@@ -474,7 +473,7 @@ Add entries to the VPC route table or tables associated with the subnets of your
 
 **Modify or add a route to a route table using AWS Management Console**
 
-1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
 2. In the navigation pane, choose **Route Tables**, and select the route table associated with the subnets where your instances have been deployed.
 3. Choose **Actions**, **Edit routes**.
 4. To add a route, choose **Add route**.
@@ -618,7 +617,7 @@ In sharing VPC account, create an IAM role to delegate permissions to the EC2 in
 After the IAM role has been created, create the following IAM policy on the sharing VPC account, and attach it to an IAM role. Add or remove route table entries as needed.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -649,7 +648,7 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 **AWS STS policy**
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -665,7 +664,7 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 **STONITH policy**
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {

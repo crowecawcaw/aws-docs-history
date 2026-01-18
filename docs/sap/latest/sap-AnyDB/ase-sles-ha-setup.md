@@ -71,7 +71,7 @@ passwd hacluster
 
 ### Setup passwordless authentication between nodes
 
-For a more comprehensive and easily consumable view of cluster activity, SUSE provides additional reporting tools. Many of these tools require access to both nodes without entering a password. SUSE recommends performing this setup for root user. For more details, see _Configuration to collect cluster report as root with root SSH access between cluster nodes_ section in SUSE Documentation [https://www.suse.com/support/kb/doc/?id=000017501#:~:text=The%20hb_report%20utility%20(on%20newer,an%20incident%20to%20be%20investigated](https://www.suse.com/support/kb/doc/?id=000017501#:~:text=The%20hb_report%20utility%20(on%20newer,an%20incident%20to%20be%20investigated "https://www.suse.com/support/kb/doc/?id=000017501#:~:text=The%20hb_report%20utility%20(on%20newer,an%20incident%20to%20be%20investigated").[Usage of hb\_report for SLES HAE].
+For a more comprehensive and easily consumable view of cluster activity, SUSE provides additional reporting tools. Many of these tools require access to both nodes without entering a password. SUSE recommends performing this setup for root user. For more details, see _Configuration to collect cluster report as root with root SSH access between cluster nodes_ section in SUSE Documentation https://www.suse.com/support/kb/doc/?id=000017501#:~:text=The%20hb\_report%20utility%20(on%20newer,an%20incident%20to%20be%20investigated.[Usage of hb_report for SLES HAE].
 
 ### Create an authentication key for `corosync`
 

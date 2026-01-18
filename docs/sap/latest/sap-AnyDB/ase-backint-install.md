@@ -16,7 +16,7 @@ AWS Backint Installer (`install-aws-backint-agent-ase`) is the recommended metho
 1. Download `install-aws-backint-agent-ase` from Amazon S3.
 
 ```
-wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/latest/install-aws-backint-agent-ase
+ wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/latest/install-aws-backint-agent-ase
 ```
 
 2. Verify authenticity of installer. (See section [Verify Authenticity before Installation](#ase-backint-verify-authenticity "#ase-backint-verify-authenticity"))
@@ -34,7 +34,7 @@ Interactive mode provides a guided installation experience.
 You are asked to provide each configuration value before the installation starts.
 
 ```
-./install-aws-backint-agent-ase
+ ./install-aws-backint-agent-ase
 ```
 
 ### Silent Mode
@@ -43,7 +43,7 @@ Silent mode allows for unattended installation without user interaction.
 It requires a response file - either created manually, or by running the installer in interactive mode and selecting "Create Response File".
 
 ```
-./install-aws-backint-agent-ase \
+ ./install-aws-backint-agent-ase \
     --mode silent \
     --config-file install-aws-backint-agent-ase-response.rsp
 ```
@@ -51,7 +51,7 @@ It requires a response file - either created manually, or by running the install
 #### Example: Response File
 
 ```
-[DEFAULT]
+ [DEFAULT]
 s3_bucket = my-s3-bucket
 s3_bucket_folder = my-backup-folder
 s3_sse_kms_arn = arn:aws:kms:us-east-1:111122223333:key/1abcd9b9-ab12-1a2a-1abc-12345abc12a3
@@ -81,19 +81,19 @@ In case you want to uninstall AWS Backint Agent for SAP ASE.
 1. Remove the RPM package using the RPM package manager.
 
 ```
-rpm -e aws-backint-agent-ase
+ rpm -e aws-backint-agent-ase
 ```
 
 2. Remove the Installation directory.
 
 ```
-rm -r /sybase/shared/aws-backint-agent-ase
+ rm -r /sybase/shared/aws-backint-agent-ase
 ```
 
 3. Remove stale symbolic links in database installation directory.
 
 ```
-find <install dir>/lib -type l -xtype l -delete
+ find <install dir>/lib -type l -xtype l -delete
 ```
 
 ## Verify Authenticity before Installation
@@ -106,13 +106,13 @@ Use the AWS Backint public key to verify that the downloaded files are original 
 1. Download public key
 
 ```
-> wget https://s3.amazonaws.com/awssap-backint-agent/binary/public-key/aws-backint-agent.gpg
+ > wget https://s3.amazonaws.com/awssap-backint-agent/binary/public-key/aws-backint-agent.gpg
 ```
 
 2. Import public key into your GPG keyring
 
 ```
-> gpg --import aws-backint-agent.gpg
+ > gpg --import aws-backint-agent.gpg
 
 gpg: key 1E65925B: public key "AWS Backint Agent" imported
 gpg: Total number processed: 1
@@ -122,7 +122,7 @@ gpg: imported: 1 (RSA: 1)
 Make a note of the key value, as you will need it in the next step. In the preceding example, the key value is 1E65925B. 3. Verify fingerprint
 
 ```
-> gpg --fingerprint 1E65925B
+ > gpg --fingerprint 1E65925B
 
 pub 2048R/1E65925B 2020-03-18
 Key fingerprint = BD35 7A5F 1AE9 38A0 213A 82A8 80D8 5C5E 1E65 925B
@@ -132,7 +132,7 @@ uid [ unknown] AWS Backint Agent
 The fingerprint should be equal to the following:
 
 ```
-BD35 7A5F 1AE9 38A0 213A 82A8 80D8 5C5E 1E65 925B
+ BD35 7A5F 1AE9 38A0 213A 82A8 80D8 5C5E 1E65 925B
 ```
 
 ###### Note
@@ -141,13 +141,13 @@ If the fingerprint string doesn’t match, don’t install the agent.
 Contact Amazon Web Services. 4. Download the signature file `install-aws-backint-agent-ase.sig` of the installer.
 
 ```
-> wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/latest/install-aws-backint-agent-ase.sig
+ > wget https://s3.amazonaws.com/awssap-backint-agent-ase/binary/latest/install-aws-backint-agent-ase.sig
 ```
 
 5. Verify installer (`install-aws-backint-agent-ase`) and signature (`install-aws-backint-agent-ase.sig`).
 
 ```
-> gpg --verify \
+ > gpg --verify \
     install-aws-backint-agent-ase.sig \
     install-aws-backint-agent-ase
 ```
@@ -167,13 +167,13 @@ Follow the instructions below to verify the signature manually.
 1. Import GPG key into RPM database.
 
 ```
-> rpm --import aws-backint-agent.gpg
+ > rpm --import aws-backint-agent.gpg
 ```
 
 2. Verify the signature.
 
 ```
-> rpm -Kv aws-backint-agent-ase.rpm
+ > rpm -Kv aws-backint-agent-ase.rpm
 
 aws-backint-agent-ase.rpm:
     Header V3 RSA/SHA1 Signature, key ID 1e65925b: OK
