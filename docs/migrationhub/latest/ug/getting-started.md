@@ -54,9 +54,3 @@ SDKs for Java, .NET, and PHP wrap the underlying Migration Hub API to simplify y
 tasks. For information about downloading the SDK libraries, see [Sample Code Libraries](http://aws.amazon.com/code "http://aws.amazon.com/code").
 
 ###### Topics
-
-- [Discover on-premises resources using AWS Migration Hub
-  discovery tools](gs-new-user-discovery.md "gs-new-user-discovery.md")
-- [Migrate to AWS by using AWS Migration Hub migration
-  tools and tracking](gs-new-user-migration.md "gs-new-user-migration.md")
-- [Track the status of your migrations in AWS Migration Hub](migrate-wt-track.md "migrate-wt-track.md")
