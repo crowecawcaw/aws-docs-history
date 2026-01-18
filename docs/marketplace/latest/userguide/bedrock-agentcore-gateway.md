@@ -27,16 +27,16 @@ For more information, see [Amazon Bedrock AgentCore Developer Guide](../../../be
 
 You can enable Amazon Bedrock AgentCore Gateway integration for your SaaS API-based AI agent products in one of the following ways, depending on your product:
 
-- if you list an MCP server with OAuth authentication, you can opt-in to offer your buyers the integration with no additional requirements.
+- If you list an MCP server that supports two-legged OAuth authentication, you can opt-in to offer your buyers the integration with no additional requirements.
   The MCP server endpoint you provide as part of your listing process will be used for the integration.
-  However, you must ensure your MCP server meets the requirements listed below.
-- For all other products, you can provide an OpenAPI specification to enable the integration.
+  However, you must ensure your MCP server meets the requirements listed below. For more information, see [MCP servers targets](../../../bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md "../../../bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md").
+- For all other agents or tools, you can provide an OpenAPI specification to enable the integration.
 
 ### MCP server requirements
 
 Your MCP server must meet the following requirements:
 
-- OAuth authentication with one of following configurations:
+- Two-legged OAuth authentication with one of following configurations:
   - client id, client secret, and discovery URL
   - client id, client secret, issuer, authorization endpoint and token endpoint.
 
@@ -100,7 +100,7 @@ server with Amazon Bedrock AgentCore Gateway by completing these tasks:
    select the product to modify.
 4. From the **Request changes** dropdown list, select **Update fulfillment options**.
 5. Choose **Enable tool for Amazon Bedrock AgentCore integration**.
-6. Upload your OpenAPI specification. For OAuth enabled MCP Server products this is not required and only the MCP endpoint is required.
+6. Upload your OpenAPI specification. For two-legged OAuth enabled MCP Server products this is not required and only the MCP endpoint is required.
 7. Choose **Submit**.
 
 After you submit, the request status appears as **Under review** in the **Requests** tab. When processing completes, the status changes to **Succeeded**.

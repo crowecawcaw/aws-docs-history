@@ -111,8 +111,8 @@ account. 3. Choose your AI agent or tool details:
      - Troubleshooting common authentication issues
 
 7. (Optional) Amazon Bedrock AgentCore integration
-   - If you list an MCP server with OAuth authentication, you can enable integration with Amazon Bedrock AgentCore Gateway using your MCP server endpoint as the target.
-     For more information, see [MCP servers targets](../../../ bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md "../../../ bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md").
+   - If you list an MCP server that supports two-legged OAuth authentication, you can enable integration with Amazon Bedrock AgentCore Gateway using your MCP server endpoint as the target.
+     For more information, see [MCP server targets](../../../bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md "../../../bedrock-agentcore/latest/devguide/gateway-target-MCPservers.md").
      In this case, OpenAPI spec is not required.
    - If you list any other API-based product or MCP servers with API Key authentication, you can
      enable integration with Amazon Bedrock AgentCore by providing OpenAPI
