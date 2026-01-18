@@ -70,45 +70,31 @@ Configure additional authorization parameters based on the selected authenticati
 
 **For OAuth Client Credentials:**
 
-1. **Client ID** – Enter the client ID for your MCP server
-2. **Client Secret** – Enter the client secret for your MCP server
-3. **Exchange URL** – Enter the OAuth token exchange URL
+1. **Client ID** – Enter the client ID of the OAuth client
+2. **Client Secret** – Enter the client secret of the OAuth client
+3. **Exchange URL** – Enter the OAuth token exchange endpoint URL
 4. **Exchange Parameters** – Enter OAuth token exchange parameters for authenticating with the service
-5. **Add Scope** – Add OAuth scopes for authentication (the service will always request scope `offline_access`)
+5. **Add Scope** – Add OAuth scopes for authentication
 6. Click **Next**
 
 **For OAuth 3LO:**
 
-1. Configure the OAuth 3LO parameters as required by your MCP server
-2. The service will always request scope `offline_access`
-3. Click **Next**
+1. **Client ID** – Enter the client ID of the OAuth client
+2. **Client Secret** – Enter the client secret of the OAuth client if it’s required by your OAuth client
+3. **Exchange URL** – Enter the OAuth token exchange endpoint URL
+4. **Authorization URL** - Enter the OAuth authorization endpoint URL
+5. **Code Challenge Support** - Select this checkbox if your OAuth client supports code challenge
+6. **Add Scope** – Add OAuth scopes for authentication
+7. Click **Next**
 
 **For API Key:**
 
-1. Enter your API key
-2. Configure header name (default: "Authorization")
-3. Configure token prefix (if needed)
+1. Enter an API key name
+2. Enter the the name of the header that will contain the API key in the request
+3. Enter your API key value
 4. Click **Next**
 
-### Step 4: Authorization configuration
-
-Configure additional authorization parameters based on the selected authentication method:
-
-**For OAuth 2.0:**
-
-1. Enter Client ID and Client Secret (if not using Dynamic Client Registration)
-2. Configure scopes required for accessing your MCP server
-3. Add any additional OAuth parameters required by your server
-4. Click **Next**
-
-**For API Key or Bearer Token:**
-
-1. Enter your API key or bearer token
-2. Configure header name (default: "Authorization")
-3. Configure token prefix (if needed)
-4. Click **Next**
-
-### Step 5: Review and submit
+### Step 4: Review and submit
 
 1. Review all the MCP server configuration details
 2. Click **Submit** to complete the registration

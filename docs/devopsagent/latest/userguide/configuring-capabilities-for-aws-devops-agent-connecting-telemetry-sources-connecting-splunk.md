@@ -40,7 +40,7 @@ Establish connection to your Splunk remote MCP endpoint with account access cred
 1. Open the hamburger menu and select Settings
 2. Scroll to the Available - Telemetry section. Press Register next to Splunk
 3. Enter your Splunk MCP server details:
-   - **Server Name** - Unique identifier (e.g., my-dplunk-server)
+   - **Server Name** - Unique identifier (e.g., my-splunk-server)
    - **Endpoint URL** - Your Splunk MCP server endpoint:
 
 `https://<YOUR_SPLUNK_DEPLOYMENT_NAME>.api.scs.splunk.com/<YOUR_SPLUNK_DEPLOYMENT_NAME>/mcp/v1/`
