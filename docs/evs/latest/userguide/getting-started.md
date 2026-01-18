@@ -100,7 +100,7 @@ AWS CLI
 2. Create a VPC with a private subnet and optional public subnet in a single Availability Zone.
 
 ```
-aws ec2 create-vpc \
+ aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
   --instance-tenancy default \
   --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=evs-vpc}]'
@@ -120,7 +120,7 @@ VPC_ID=$(aws ec2 describe-vpcs \
 3. Enable DNS hostnames and DNS support.
 
 ```
-aws ec2 modify-vpc-attribute \
+ aws ec2 modify-vpc-attribute \
   --vpc-id $VPC_ID \
   --enable-dns-hostnames
 aws ec2 modify-vpc-attribute \
@@ -131,7 +131,7 @@ aws ec2 modify-vpc-attribute \
 4. Create a private subnet in the VPC.
 
 ```
-aws ec2 create-subnet \
+ aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.1.0/24 \
   --availability-zone us-west-2a \
@@ -141,7 +141,7 @@ aws ec2 create-subnet \
 5. Store the private subnet ID for use in subsequent commands.
 
 ```
-PRIVATE_SUBNET_ID=$(aws ec2 describe-subnets \
+ PRIVATE_SUBNET_ID=$(aws ec2 describe-subnets \
   --filters Name=tag:Name,Values=evs-private-subnet \
   --query 'Subnets[0].SubnetId' \
   --output text)
@@ -150,7 +150,7 @@ PRIVATE_SUBNET_ID=$(aws ec2 describe-subnets \
 6. (Optional) Create a public subnet if internet connectivity is needed.
 
 ```
-aws ec2 create-subnet \
+ aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.0.0/24 \
   --availability-zone us-west-2a \
@@ -160,7 +160,7 @@ aws ec2 create-subnet \
 7. (Optional) Store the public subnet ID for use in subsequent commands.
 
 ```
-PUBLIC_SUBNET_ID=$(aws ec2 describe-subnets \
+ PUBLIC_SUBNET_ID=$(aws ec2 describe-subnets \
   --filters Name=tag:Name,Values=evs-public-subnet \
   --query 'Subnets[0].SubnetId' \
   --output text)
@@ -169,7 +169,7 @@ PUBLIC_SUBNET_ID=$(aws ec2 describe-subnets \
 8. (Optional) Create and attach an internet gateway if the public subnet is created.
 
 ```
-aws ec2 create-internet-gateway \
+ aws ec2 create-internet-gateway \
   --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=evs-igw}]'
 
 IGW_ID=$(aws ec2 describe-internet-gateways \
@@ -185,7 +185,7 @@ aws ec2 attach-internet-gateway \
 9. (Optional) Create a NAT gateway if internet connectivity is needed.
 
 ```
-aws ec2 allocate-address \
+ aws ec2 allocate-address \
   --domain vpc \
   --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-nat-eip}]'
 
@@ -203,7 +203,7 @@ aws ec2 create-nat-gateway \
 10. Create and configure the necessary route tables.
 
 ```
-aws ec2 create-route-table \
+ aws ec2 create-route-table \
   --vpc-id $VPC_ID \
   --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=evs-private-rt}]'
 
@@ -225,7 +225,7 @@ PUBLIC_RT_ID=$(aws ec2 describe-route-tables \
 11. Add the necessary routes to the route tables.
 
 ```
-aws ec2 create-route \
+ aws ec2 create-route \
   --route-table-id $PUBLIC_RT_ID \
   --destination-cidr-block 0.0.0.0/0 \
   --gateway-id $IGW_ID
@@ -239,7 +239,7 @@ aws ec2 create-route \
 12. Associate the route tables with your subnets.
 
 ```
-aws ec2 associate-route-table \
+ aws ec2 associate-route-table \
   --route-table-id $PRIVATE_RT_ID \
   --subnet-id $PRIVATE_SUBNET_ID
 
@@ -331,7 +331,7 @@ AWS CLI
 2. Get the public scope ID from your IPAM.
 
 ```
-SCOPE_ID=$(aws ec2 describe-ipam-scopes \
+ SCOPE_ID=$(aws ec2 describe-ipam-scopes \
   --filters Name=ipam-scope-type,Values=public \
   --query 'IpamScopes[0].IpamScopeId' \
   --output text)
@@ -340,7 +340,7 @@ SCOPE_ID=$(aws ec2 describe-ipam-scopes \
 3. Create an IPAM pool in the public scope.
 
 ```
-aws ec2 create-ipam-pool \
+ aws ec2 create-ipam-pool \
   --ipam-scope-id $SCOPE_ID \
   --address-family ipv4 \
   --no-auto-import \
@@ -354,7 +354,7 @@ aws ec2 create-ipam-pool \
 4. Store the pool ID for use in subsequent commands.
 
 ```
-POOL_ID=$(aws ec2 describe-ipam-pools \
+ POOL_ID=$(aws ec2 describe-ipam-pools \
   --filters Name=tag:Name,Values=evs-hcx-public-pool \
   --query 'IpamPools[0].IpamPoolId' \
   --output text)
@@ -363,7 +363,7 @@ POOL_ID=$(aws ec2 describe-ipam-pools \
 5. Provision a CIDR block from the pool with a minimum netmask length of /28.
 
 ```
-aws ec2 provision-ipam-pool-cidr \
+ aws ec2 provision-ipam-pool-cidr \
   --ipam-pool-id $POOL_ID \
   --netmask-length 28
 ```
@@ -400,7 +400,7 @@ AWS CLI
 2. Get the IPAM pool ID that you created earlier.
 
 ```
-POOL_ID=$(aws ec2 describe-ipam-pools \
+ POOL_ID=$(aws ec2 describe-ipam-pools \
   --filters Name=tag:Name,Values=evs-hcx-public-pool \
   --query 'IpamPools[0].IpamPoolId' \
   --output text)
@@ -422,7 +422,7 @@ Manually input addresses within the IPAM pool to ensure that the EIPs that Amazo
 If you allow IPAM to choose the EIP, IPAM may allocate a EIP that Amazon EVS reserves, causing failure during EIP association to the VLAN subnet.
 
 ```
-aws ec2 allocate-address \
+ aws ec2 allocate-address \
   --domain vpc \
   --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-hcx-manager-eip}]' \
   --ipam-pool-id $POOL_ID \
@@ -468,7 +468,7 @@ AWS CLI
 2. Get the IPAM pool ID and the provisioned CIDR block.
 
 ```
-POOL_ID=$(aws ec2 describe-ipam-pools \
+ POOL_ID=$(aws ec2 describe-ipam-pools \
   --filters Name=tag:Name,Values=evs-hcx-public-pool \
   --query 'IpamPools[0].IpamPoolId' \
   --output text)
@@ -482,7 +482,7 @@ CIDR_BLOCK=$(aws ec2 get-ipam-pool-cidrs \
 3. Add the CIDR block to your VPC.
 
 ```
-aws ec2 associate-vpc-cidr-block \
+ aws ec2 associate-vpc-cidr-block \
   --vpc-id $VPC_ID \
   --cidr-block $CIDR_BLOCK
 ```
@@ -949,7 +949,7 @@ Environment deployment can take several hours.
 
 
     ```
-    aws evs create-environment \
+     aws evs create-environment \
     --environment-name testEnv \
     --vpc-id vpc-1234567890abcdef0 \
     --service-access-subnet-id subnet-01234a1b2cde1234f \
@@ -1042,7 +1042,7 @@ Environment deployment can take several hours.
 
 
     ```
-    {
+     {
         "environment": {
             "environmentId": "env-abcde12345",
             "environmentState": "CREATING",
@@ -1111,13 +1111,13 @@ Environment creation can take several hours.
 If the `environmentState` still shows `CREATING`, run the command again to refresh the output.
 
 ```
-aws evs get-environment  --environment-id env-abcde12345
+ aws evs get-environment  --environment-id env-abcde12345
 ```
 
 The following is a sample response.
 
 ```
-{
+ {
     "environment": {
         "environmentId": "env-abcde12345",
         "environmentState": "CREATED",
@@ -1181,13 +1181,13 @@ AWS CLI
 2. Identify the Amazon EVS VLAN subnet IDs.
 
 ```
-aws ec2 describe-subnets
+ aws ec2 describe-subnets
 ```
 
 3. Associate your Amazon EVS VLAN subnets with a route table in your VPC.
 
 ```
-aws ec2 associate-route-table \
+ aws ec2 associate-route-table \
 --route-table-id rtb-0123456789abcdef0 \
 --subnet-id subnet-01234a1b2cde1234f
 ```
@@ -1230,7 +1230,7 @@ AWS CLI
     - `allocation-id` - The allocation ID of the Elastic IP address.
 
     ```
-    aws evs associate-eip-to-vlan \
+     aws evs associate-eip-to-vlan \
       --environment-id "env-605uove256" \
       --vlan-name "hcx" \
       --allocation-id "eipalloc-0429268f30c4a34f7"
@@ -1239,7 +1239,7 @@ AWS CLI
     The command returns details about the VLAN, including the new EIP association:
 
     ```
-    {
+     {
         "vlan": {
             "vlanId": 80,
             "cidr": "18.97.137.0/28",
@@ -1362,13 +1362,13 @@ AWS CLI
 2. Identify the environment that contains the host to delete.
 
 ```
-aws evs list-environments
+ aws evs list-environments
 ```
 
 The following is a sample response.
 
 ```
-{
+ {
     "environmentSummaries": [
         {
             "environmentId": "env-abcde12345",
@@ -1400,7 +1400,7 @@ The following is a sample response.
 To be able to delete an environment, you must first delete all of the hosts that are contained in the environment.
 
 ```
-aws evs delete-environment-host \
+ aws evs delete-environment-host \
 --environment-id env-abcde12345 \
 --host esx01
 ```
@@ -1409,7 +1409,7 @@ aws evs delete-environment-host \
 5. Delete the environment.
 
 ```
-aws evs delete-environment --environment-id env-abcde12345
+ aws evs delete-environment --environment-id env-abcde12345
 ```
 
 ###### Note

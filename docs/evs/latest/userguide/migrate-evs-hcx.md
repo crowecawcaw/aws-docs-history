@@ -115,7 +115,7 @@ AWS CLI
 1. Run the following command, using the environment ID for your environment and the Region name that contains your resources.
 
 ```
-aws evs list-environment-vlans  --region <region-name> --environment-id env-abcde12345
+ aws evs list-environment-vlans  --region <region-name> --environment-id env-abcde12345
 ```
 
 2. In the response output, identify the VLAN with a `functionName` of `hcx` and
@@ -123,7 +123,7 @@ aws evs list-environment-vlans  --region <region-name> --environment-id env-abcd
    The following is a sample response.
 
 ```
-{
+ {
     "environmentVlans": [{
             "vlanId": 50,
             "cidr": "10.10.4.0/24",
@@ -192,7 +192,7 @@ AWS CLI
 1. Run the following command, using the HCX VLAN subnet ID in the `Values` filter.
 
 ```
-aws ec2 describe-network-acls --filters "Name=subnet-id,Values=subnet-abcdefg9876543210"
+ aws ec2 describe-network-acls --filters "Name=subnet-id,Values=subnet-abcdefg9876543210"
 ```
 
 2. Check that the correct network ACL is returned in the response.
@@ -224,14 +224,14 @@ AWS CLI
    For the HCX public VLAN subnet, you must have an associated public route table with an internet gateway as the target.
 
 ```
-aws ec2 describe-subnets
+ aws ec2 describe-subnets
 ```
 
 3. Explicitly associate your EVS VLAN subnets with a route table in your VPC.
    Below is an example command.
 
 ```
-aws ec2 associate-route-table \
+ aws ec2 associate-route-table \
 --route-table-id rtb-0123456789abcdef0 \
 --subnet-id subnet-01234a1b2cde1234f
 ```
@@ -266,14 +266,14 @@ AWS CLI
    For `environment-id`, use the unique ID for the EVS environment that contains the HCX VLAN.
 
 ```
-aws evs list-environment-vlans \
+ aws evs list-environment-vlans \
   --environment-id "env-605uove256" \
 ```
 
 The command returns details about your VLANs, including EIP associations:
 
 ```
-{
+ {
   "environmentVlans": [
     {
       "vlanId": 80,

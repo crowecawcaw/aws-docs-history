@@ -49,7 +49,7 @@ Below is a sample command.
 It is recommended to configure the LUN size to 90% of the volume size.
 
 ```
-lun create -vserver <your_svm_name> \
+ lun create -vserver <your_svm_name> \
 -path /vol/<your_volume_name>/<lun_name> \
 -size <required_datastore_capacity> \
 -ostype vmware
@@ -68,7 +68,7 @@ Below is a sample command.
 For `--initiator`, use the iSCSI adapter IQNs that you copied in the previous step.
 
 ```
-igroup create <svm_name> \
+ igroup create <svm_name> \
 -igroup <initiator_group_name> \
 -protocol iscsi \
 -ostype vmware \
@@ -78,14 +78,14 @@ igroup create <svm_name> \
 2. Confirm that the `igroup` exists.
 
 ```
-lun igroup show
+ lun igroup show
 ```
 
 3. Map the LUN to the initiator group.
    Below is a sample command.
 
 ```
-lun mapping create -vserver <svm_name> \
+ lun mapping create -vserver <svm_name> \
 -path /vol/<vol_name>/<lun_name> \
 -igroup <initiator_group_name> \
 -lun-id <scsi_lun_number_for this_datastore>
@@ -94,7 +94,7 @@ lun mapping create -vserver <svm_name> \
 4. Use the `lun show -path` command to confirm that the LUN is created, online, and mapped.
 
 ```
-lun show -path /vol/<vol_name>/<lun_name> -fields state,mapped,serial-hex
+ lun show -path /vol/<vol_name>/<lun_name> -fields state,mapped,serial-hex
 ```
 
 For more information, see [Provisioning iSCSI for Linux](../../../fsx/latest/ONTAPGuide/mount-iscsi-luns-linux.md "../../../fsx/latest/ONTAPGuide/mount-iscsi-luns-linux.md") or [Provisioning iSCSI for Windows](../../../fsx/latest/ONTAPGuide/mount-iscsi-windows.md "../../../fsx/latest/ONTAPGuide/mount-iscsi-windows.md") in the _FSx for ONTAP User Guide_.

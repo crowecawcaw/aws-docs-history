@@ -51,7 +51,7 @@ You can use the AWS CLI to check your environment status and resources.
 **To list all environments and their status**
 
 ```
-aws evs list-environments
+ aws evs list-environments
 ```
 
 ###### Tip
@@ -59,20 +59,20 @@ aws evs list-environments
 Use the `--query` parameter to filter the output. For example:
 
 ```
-aws evs list-environments --query 'Environments[*].[EnvironmentId,Status]'
+ aws evs list-environments --query 'Environments[*].[EnvironmentId,Status]'
 ```
 
 **To list environment hosts**
 
 ```
-aws evs list-environment-hosts \
+ aws evs list-environment-hosts \
     --environment-id environment-id
 ```
 
 **To list environment VLANs**
 
 ```
-aws evs list-environment-vlans \
+ aws evs list-environment-vlans \
     --environment-id environment-id
 ```
 

@@ -123,7 +123,7 @@ AWS CLI
    - `allocation-id` - The allocation ID of the Elastic IP address.
 
    ```
-   aws evs associate-eip-to-vlan \
+    aws evs associate-eip-to-vlan \
      --environment-id "env-605uove256" \
      --vlan-name "hcx" \
      --allocation-id "eipalloc-0429268f30c4a34f7"
@@ -132,7 +132,7 @@ AWS CLI
    The command returns details about the VLAN, including the new EIP association:
 
    ```
-   {
+    {
        "vlan": {
            "vlanId": 80,
            "cidr": "18.97.137.0/28",
@@ -199,7 +199,7 @@ To disassociate an Elastic IP address from a VLAN, use the example `disassociate
 Disassociating EIPs may cause a loss of internet connectivity for appliances that use public VLAN subnets.
 
 ```
-aws evs disassociate-eip-from-vlan \
+ aws evs disassociate-eip-from-vlan \
   --environment-id "env-605uove256" \
   --vlan-name "hcx" \
   --association-id "eipassoc-09e966faad7ecc58a"
@@ -208,7 +208,7 @@ aws evs disassociate-eip-from-vlan \
 The command returns details about the VLAN with the EIP association removed:
 
 ```
-{
+ {
     "vlan": {
         "vlanId": 80,
         "cidr": "18.97.137.0/28",

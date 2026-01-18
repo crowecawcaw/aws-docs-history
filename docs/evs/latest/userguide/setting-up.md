@@ -28,7 +28,7 @@ For a summary checklist of deployment prerequisites, see [Amazon EVS deployment 
 
 If you don’t have an AWS account, complete the following steps to create one.
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+1. Open https://portal.aws.amazon.com/billing/signup.
 2. Follow the online instructions.
 
 ## Create an IAM user
@@ -90,7 +90,7 @@ AWS CLI
    For the principal ARN, replace the example AWS account ID and `service-user` name with your own AWS account ID and IAM user name.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -108,7 +108,7 @@ AWS CLI
    Replace `evs-environment-role-trust-policy.json` with your trust policy file name.
 
 ```
-aws iam create-role \
+ aws iam create-role \
   --role-name myAmazonEVSEnvironmentRole \
   --assume-role-policy-document file://"evs-environment-role-trust-policy.json"
 ```
@@ -119,7 +119,7 @@ aws iam create-role \
    To view all available Amazon EVS actions, resources, and condition keys, see [Actions](../../../service-authorization/latest/reference/list_amazonelasticvmwareservice.md "../../../service-authorization/latest/reference/list_amazonelasticvmwareservice.md") in the _Service Authorization Reference_.
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::aws:policy/AmazonEVSEnvironmentPolicy \
   --role-name myAmazonEVSEnvironmentRole
 ```

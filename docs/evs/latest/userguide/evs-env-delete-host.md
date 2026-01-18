@@ -43,7 +43,7 @@ SDDC Manager UI and AWS CLI
    See example command below for reference.
 
 ```
-aws evs delete-environment-host \
+ aws evs delete-environment-host \
 --environment-id env-abcdefghij \
 --host-name my-evs-host.example.com
 ```

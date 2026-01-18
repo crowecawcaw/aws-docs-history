@@ -120,7 +120,7 @@ AWS CLI and SDDC Manager UI
    See example command below for reference.
 
 ```
-aws evs create-environment-host \
+ aws evs create-environment-host \
     --environment-id "env-abcde12345" \
     --host '{ \
         "hostName": "esxi-host-05", \
@@ -142,7 +142,7 @@ aws evs create-environment-host \
    See example command below for reference.
 
 ```
-aws evs delete-environment-host --environment-id "env-abcde12345" --host-name "esxi-host-05"
+ aws evs delete-environment-host --environment-id "env-abcde12345" --host-name "esxi-host-05"
 ```
 
 ### Troubleshooting
