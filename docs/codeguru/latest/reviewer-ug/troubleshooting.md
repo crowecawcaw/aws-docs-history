@@ -233,7 +233,7 @@ review
    - If CodeGuru Reviewer used your file in the code review, then **Success** appears
      under **Analysis configuration file**.
 
-   ![The Details section of a code review. Success appears under Analysis configuration file.](images/code-review-config-file-success.png)
+   ![The Details section of a code review. Success appears under Analysis configuration file.](/images/codeguru/latest/reviewer-ug/images/code-review-config-file-success.png)
    - If CodeGuru Reviewer found errors in your file, then **Error** appears under **Analysis configuration file** and a message
      indicating the errors appears at the top of the page.
 
