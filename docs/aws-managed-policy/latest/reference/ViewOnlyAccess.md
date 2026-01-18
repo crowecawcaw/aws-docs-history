@@ -14,13 +14,13 @@ details
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:20 UTC
-- **Edited time:** January 08, 2026, 16:34 UTC
+- **Edited time:** January 15, 2026, 18:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/ViewOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v28 (default)
+**Policy version:** v29 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -369,7 +369,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "workdocs:DescribeAvailableDirectories",
         "workdocs:DescribeInstances",
         "workmail:Describe*",
-        "workspaces:Describe*"
+        "workspaces:Describe*",
+        "xray:GetEncryptionConfig",
+        "xray:GetGroups",
+        "xray:GetSamplingRules",
+        "xray:GetSamplingStatisticSummaries",
+        "xray:GetSamplingTargets",
+        "xray:GetTraceSegmentDestination",
+        "xray:ListResourcePolicies"
       ],
       "Resource" : "*"
     },

@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 27, 2020, 19:41 UTC
-- **Edited time:** November 12, 2024, 19:22 UTC
+- **Edited time:** January 14, 2026, 20:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSThinkboxAWSPortalAdminPolicy`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -203,7 +203,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:volume/*",
         "arn:aws:ec2:*:*:vpc/*",
         "arn:aws:ec2:*:*:natgateway/*",
-        "arn:aws:ec2:*:*:elastic-ip/*"
+        "arn:aws:ec2:*:*:elastic-ip/*",
+        "arn:aws:ec2:*:*:vpc-endpoint/*"
       ]
     },
     {

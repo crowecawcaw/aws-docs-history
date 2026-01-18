@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** January 08, 2026, 16:34 UTC
+- **Edited time:** January 15, 2026, 18:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v138 (default)
+**Policy version:** v139 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -113,6 +113,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aoss:ListTagsForResource",
         "aoss:ListVpcEndpoints",
         "apigateway:GET",
+        "apigateway:GetPortal",
+        "apigateway:GetPortalProduct",
+        "apigateway:GetProductPage",
+        "apigateway:GetProductRestEndpointPage",
+        "apigateway:GetRoutingRule",
+        "apigateway:ListPortalProducts",
+        "apigateway:ListPortals",
+        "apigateway:ListProductPages",
+        "apigateway:ListProductRestEndpointPages",
+        "apigateway:ListRoutingRules",
         "appconfig:GetApplication",
         "appconfig:GetConfiguration",
         "appconfig:GetConfigurationProfile",
@@ -239,6 +249,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arc-region-switch:ListPlans",
         "arc-region-switch:ListPlansInRegion",
         "arc-region-switch:ListRoute53HealthChecks",
+        "arc-region-switch:ListRoute53HealthChecksInRegion",
         "arc-region-switch:ListTagsForResource",
         "arc-zonal-shift:GetAutoshiftObserverNotificationStatus",
         "arc-zonal-shift:GetManagedResource",
@@ -442,6 +453,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ce:ListCostAllocationTagBackfillHistory",
         "ce:ListCostAllocationTags",
         "ce:ListCostCategoryDefinitions",
+        "ce:ListCostCategoryResourceAssociations",
         "ce:ListSavingsPlansPurchaseRecommendationGeneration",
         "ce:ListTagsForResource",
         "chatbot:Describe*",
@@ -902,6 +914,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ds:List*",
         "ds:Verify*",
         "dsql:GetCluster",
+        "dsql:GetClusterPolicy",
         "dsql:GetVpcEndpointServiceName",
         "dsql:ListClusters",
         "dsql:ListTagsForResource",
@@ -1872,15 +1885,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "network-firewall:DescribeFirewall",
         "network-firewall:DescribeFirewallPolicy",
         "network-firewall:DescribeLoggingConfiguration",
+        "network-firewall:DescribeProxy",
+        "network-firewall:DescribeProxyConfiguration",
+        "network-firewall:DescribeProxyRule",
+        "network-firewall:DescribeProxyRuleGroup",
         "network-firewall:DescribeResourcePolicy",
         "network-firewall:DescribeRuleGroup",
         "network-firewall:DescribeRuleGroupMetadata",
         "network-firewall:DescribeTLSInspectionConfiguration",
         "network-firewall:ListFirewallPolicies",
         "network-firewall:ListFirewalls",
+        "network-firewall:ListProxies",
+        "network-firewall:ListProxyConfigurations",
+        "network-firewall:ListProxyRuleGroups",
         "network-firewall:ListRuleGroups",
-        "network-firewall:ListTLSInspectionConfigurations",
         "network-firewall:ListTagsForResource",
+        "network-firewall:ListTLSInspectionConfigurations",
         "networkflowmonitor:GetMonitor",
         "networkflowmonitor:GetScope",
         "networkflowmonitor:ListMonitors",
@@ -2388,8 +2408,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "servicediscovery:DiscoverInstancesRevision",
         "servicediscovery:Get*",
         "servicediscovery:List*",
-        "servicequotas:GetAWSDefaultServiceQuota",
         "servicequotas:GetAssociationForServiceQuotaTemplate",
+        "servicequotas:GetAWSDefaultServiceQuota",
         "servicequotas:GetRequestedServiceQuotaChange",
         "servicequotas:GetServiceQuota",
         "servicequotas:GetServiceQuotaIncreaseRequestFromTemplate",
@@ -2571,6 +2591,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "transfer:Describe*",
         "transfer:List*",
         "transfer:TestIdentityProvider",
+        "transform-custom:GetCampaign",
+        "transform-custom:GetKnowledgeItem",
+        "transform-custom:ListKnowledgeItems",
+        "transform-custom:ListTagsForResource",
+        "transform-custom:ListTransformationPackageMetadata",
         "translate:DescribeTextTranslationJob",
         "translate:GetParallelData",
         "translate:GetTerminology",

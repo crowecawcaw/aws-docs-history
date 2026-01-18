@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2016, 19:02 UTC
-- **Edited time:** December 16, 2024, 20:07 UTC
+- **Edited time:** January 15, 2026, 15:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess`
 
 ## Policy version
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -74,6 +74,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ssm:StartSession"
       ],
       "Resource" : "arn:aws:ecs:*:*:task/*/*"
+    },
+    {
+      "Sid" : "SSMOpenDataChannelAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssmmessages:OpenDataChannel"
+      ],
+      "Resource" : "arn:aws:ssm:*:*:session/*"
     },
     {
       "Sid" : "CodeStarConnectionsUserAccess",

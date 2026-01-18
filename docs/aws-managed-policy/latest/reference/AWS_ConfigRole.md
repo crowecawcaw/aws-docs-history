@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: September 15, 2020, 20:30 UTC
-- **Edited time:** November 21, 2025, 17:04 UTC
+- **Edited time:** January 14, 2026, 01:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWS_ConfigRole`
 
 ## Policy version
 
-**Policy version:** v42 (default)
+**Policy version:** v43 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -32,7 +32,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "AWSConfigRoleStatementID",
+      "Sid" : "AWSConfigRoleStatementID1",
       "Effect" : "Allow",
       "Action" : [
         "access-analyzer:GetAnalyzer",
@@ -951,7 +951,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iot:ListPackages",
         "iot:ListPolicies",
         "iot:ListProvisioningTemplates",
-        "iot:ListRoleAliases",
+        "iot:ListRoleAliases"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSConfigRoleStatementID2",
+      "Effect" : "Allow",
+      "Action" : [
         "iot:ListScheduledAudits",
         "iot:ListSecurityProfiles",
         "iot:ListSecurityProfilesForTarget",
@@ -1631,8 +1638,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3tables:GetTableBucket",
         "s3tables:GetTableBucketEncryption",
         "s3tables:GetTableBucketMaintenanceConfiguration",
+        "s3tables:GetTableBucketMetricsConfiguration",
         "s3tables:GetTableBucketPolicy",
+        "s3tables:GetTableBucketStorageClass",
         "s3tables:ListTableBuckets",
+        "s3tables:ListTagsForResource",
         "sagemaker:DescribeApp",
         "sagemaker:DescribeAppImageConfig",
         "sagemaker:DescribeCluster",

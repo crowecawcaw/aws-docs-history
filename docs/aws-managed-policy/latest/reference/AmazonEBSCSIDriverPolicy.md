@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: April 04, 2022, 17:24 UTC
-- **Edited time:** November 17, 2025, 17:04 UTC
+- **Edited time:** January 15, 2026, 18:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -198,7 +198,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
-        "ec2:DeleteSnapshot"
+        "ec2:DeleteSnapshot",
+        "ec2:LockSnapshot"
       ],
       "Resource" : "arn:aws:ec2:*:*:snapshot/*",
       "Condition" : {
@@ -210,7 +211,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
-        "ec2:DeleteSnapshot"
+        "ec2:DeleteSnapshot",
+        "ec2:LockSnapshot"
       ],
       "Resource" : "arn:aws:ec2:*:*:snapshot/*",
       "Condition" : {
