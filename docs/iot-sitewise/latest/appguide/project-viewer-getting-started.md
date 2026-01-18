@@ -40,7 +40,7 @@ The following procedure assumes that you are signed in the AWS IoT SiteWise Moni
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose dashboards you
+![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose the project whose dashboards you
 want to view.
 
 ![The Projects page with "Wind Farm 3" highlighted.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section of the project details page, choose
@@ -90,7 +90,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 

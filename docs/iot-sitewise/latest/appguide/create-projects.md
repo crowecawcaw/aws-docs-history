@@ -16,7 +16,7 @@ Follow this procedure to create a new project.
 
 1. In the navigation bar, choose the **Projects** icon.
 
-![The "Projects" icon in the navigation bar.](images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose **Create
+![The "Projects" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png) 2. On the **Projects** page, choose **Create
 project**
 
 ![The "Projects" page with "Create project" highlighted.](images/projects-create-project-console.png) 3. In the **Create new project** dialog box, enter a **Project

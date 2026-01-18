@@ -33,7 +33,7 @@ want to edit.
 
 ![The "Projects" page with "Wind Farm 3" highlighted.](images/projects-portal-admin-choose-project-console.png) 3. In the **Dashboards** section, choose a dashboard to edit.
 
-![The dashboards list on the project details page with a dashboard highlighted.](/images/iot-sitewise/latest/appguide/images/project-project-owner-view-dashboard-console.png) 4. In the dashboard, choose **Edit** in the upper right.
+![The dashboards list on the project details page with a dashboard highlighted.](images/project-project-owner-view-dashboard-console.png) 4. In the dashboard, choose **Edit** in the upper right.
 
 You can now rename the dashboard, or add, remove, or modify visualizations. 5. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
