@@ -79,4 +79,4 @@ In these consoles, look for resources with names that include your Amazon SageMa
 connection name.
 
 For more information about how to create a data connection and explore a connected data
-source, see .
+source, see [Adding data sources in lakehouse architecture](lakehouse-add-data.md "lakehouse-add-data.md").
