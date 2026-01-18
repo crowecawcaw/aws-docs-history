@@ -23,6 +23,8 @@ outside the business data catalog captured programmatically using the APIs.
 - [Automate lineage capture from data connections](datazone-data-lineage-automate-capture-from-data-connections.md "datazone-data-lineage-automate-capture-from-data-connections.md")
 - [Automate lineage
   capture from tools](datazone-data-lineage-automate-capture-from-tools.md "datazone-data-lineage-automate-capture-from-tools.md")
+- [Permissions required for data
+  lineage](datazone-data-lineage-permissions.md "datazone-data-lineage-permissions.md")
 - [Publishing data lineage
   programmatically](datazone-data-lineage-apis.md "datazone-data-lineage-apis.md")
 - [The importance of

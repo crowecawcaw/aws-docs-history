@@ -24,7 +24,7 @@ In some cases, the Amazon Redshift resource you want to add to your Amazon SageM
 ###### For compute resources in the same account as your Amazon SageMaker Unified Studio project, complete the following steps:
 
 1. Send the Amazon Redshift admin the project ID. This can be found on the **Project overview** page of your Amazon SageMaker Unified Studio project.
-2. The admin then adds 1 of the following tags to the Amazon Redshift cluster or workgroup that you want to add to Amazon SageMaker Unified Studio.
+2. The admin then adds 1 of the following tags to the Amazon Redshift cluster or workgroup and its namespace that you want to add to Amazon SageMaker Unified Studio.
    - Option 1: Add a tag to allow only a specific Amazon SageMaker Unified Studio project to access it: `AmazonDataZoneProject=`projectID``.
    - Option 2: Add a tag to allow all Amazon SageMaker Unified Studio projects in this account to access it: `for-use-with-all-datazone-projects=true`.
 

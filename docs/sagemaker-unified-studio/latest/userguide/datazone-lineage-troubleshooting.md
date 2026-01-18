@@ -16,8 +16,10 @@ data source configurations, and tool-specific lineage capture problems.
 - [Not seeing lineage
   for assets even though importLineage is shown as true in Amazon Redshift
   datasource](#lineage-troubleshooting-redshift-datasource "#lineage-troubleshooting-redshift-datasource")
-- [Not seeing lineage for
+- [Troubleshooting lineage for
   lineage events published from AWS Glue ETL jobs/vETL/Notebooks](#lineage-troubleshooting-glue-etl-jobs "#lineage-troubleshooting-glue-etl-jobs")
+- [Troubleshooting lineage for
+  lineage events published from EMR-S/EC2/EKS](#lineage-troubleshooting-emr "#lineage-troubleshooting-emr")
 
 ## Not seeing lineage
 
@@ -212,8 +214,21 @@ datasource
 Lineage on Amazon Redshift tables is captured by retrieving user queries
 performed on the Amazon Redshift database, from the system tables.
 
-Following are the troubleshooting steps if you don't see the lineage even
-after enabling it:
+**Lineage is not supported in the following cases:**
+
+- External Tables
+- Unload / Copy
+- Merge / Update
+- Queries that produce Lineage Events larger than 16MB
+- Datashares
+- ColumnLineage limitations:
+  - Column Lineage is not supported for queries not containing specific columns such as (select \* from tableA)
+  - Column Lineage is not supported for queries involving temp tables
+
+- Any limitations pertaining to [OpenLineageSqlParser](https://github.com/OpenLineage/OpenLineage/blob/main/integration/sql/README.md "https://github.com/OpenLineage/OpenLineage/blob/main/integration/sql/README.md") results in failure to process some
+  queries
+
+**Troubleshooting steps:**
 
 1. On the Amazon Redshift connection details, you will see the
    lineageJobId along with the job run schedule. Alternatively, you can
@@ -291,17 +306,7 @@ The response appears as follows:
    if all queries are successfully processed and response also contains
    start and end times of processed queries.
 
-Lineage is not supported in the following cases:
-
-- External Tables
-- Unload / Copy
-- Merge / Update
-- Queries that produce Lineage Events larger than 16MB
-- Datashares
-- Any limitations pertaining to [OpenLineageSqlParser](https://github.com/OpenLineage/OpenLineage/blob/main/integration/sql/README.md "https://github.com/OpenLineage/OpenLineage/blob/main/integration/sql/README.md") results in failure to process some
-  queries
-
-## Not seeing lineage for
+## Troubleshooting lineage for
 
 lineage events published from AWS Glue ETL jobs/vETL/Notebooks
 
@@ -310,102 +315,206 @@ lineage events published from AWS Glue ETL jobs/vETL/Notebooks
 - OpenLineage libraries for Spark are built into AWS Glue v5.0+
   for Spark DataFrames only. Does not support Glue
   DynamicFrames.
-- OpenLineage libraries for Spark are built into Amazon EMR v7.5+
-  and only for EMR-S.
-- Capturing lineage from Spark jobs executed on EMR on EKS and EMR
-  on EC2 are not automated but can be done by manual
-  configuration.
 - Lineage capture for Spark jobs with fine-grained permission mode
   are not supported.
-- If you are trying EMR-S outside of Amazon SageMaker Unified Studio, Amazon DataZone VPC
-  endpoint needs to be deployed for EMR-S VPC.
 - Lineage event has a size limit of 300KB.
+  **Common Issues:**
+
+- If the AWS Glue ETL is in VPC, make sure the Amazon DataZone
+  VPC endpoint is deployed in that VPC.
+- In case your domain is using a CMK, make sure that the AWS
+  Glue execution role has the appropriate KMS permissions. CMK can
+  be found via [https://docs.aws.amazon.com/datazone/latest/APIReference/API_GetDomain.html](../../../datazone/latest/APIReference/API_GetDomain.md "../../../datazone/latest/APIReference/API_GetDomain.md")
+- Failed to publish Lineage Event because payload is greater
+  than 300 kb:
+  - Add the following to Spark conf:
+
+  `"spark.openlineage.columnLineage.datasetLineageEnabled": "True"`
+  - **Important
+    Note:**
+    - Column lineage typically constitutes a
+      significant portion of the payload and enabling
+      this will efficiently generate the column lineage
+      info.
+    - Disabling it can help reduce payload size and
+      avoid validation exceptions.
+
+- Cross account lineage event submission:
+  - Follow [https://docs.aws.amazon.com/datazone/latest/userguide/working-with-associated-accounts.html](../../../datazone/latest/userguide/working-with-associated-accounts.md "../../../datazone/latest/userguide/working-with-associated-accounts.md")
+    to set up account association
+  - Ensure that RAM policy is using the latest
+    policy
+
+- When the same DataFrame is written to multiple destinations or
+  formats in sequence, Lineage SparkListener may only capture the
+  lineage for the first write operation:
+
+      + For optimization purposes, Spark's internals may reuse
+       execution plans definition for consecutive write
+       operations on the same DataFrame. This can lead to only
+       capturing first lineage event.
+
+  **Troubleshooting steps:**
 
 1. Lineage graph can only be visualized if at least one node of the graph
    is an asset. Therefore, create assets for any of the datasets (such as
    tables) involved in the job and then attempt to visualize lineage on the
    asset.
-2. **Troubleshooting steps:**
-   1. First, invoke [ListLineageEvents](../../../datazone/latest/APIReference/API_ListLineageEvents.md "../../../datazone/latest/APIReference/API_ListLineageEvents.md") to see if the lineage events were
-      submitted (refer to the linked doc to pass filters).
-   2. If no events are submitted, check AWS CloudWatch logs to see
-      if any exceptions are thrown from the Amazon DataZone Lineage
-      lib:
-      - Log groups: /aws-glue/jobs/error,
-        /aws-glue/sessions/error
-      - Make sure logging is enabled: [https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging-enable.html](../../../glue/latest/dg/monitor-continuous-logging-enable.md "../../../glue/latest/dg/monitor-continuous-logging-enable.md")
-      - Following is the AWS CloudWatch log insights
-        query:
-
-      ```
-
-      fields @timestamp, @message
-      | filter @message like /(?i)exception/ and like /(?i)datazone/
-      | sort @timestamp desc
-
-      ```
-
-   3. Enable Spark UI to see if Spark Logical Plans and Spark Confs
-      are generated properly: [https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui-jobs.html#monitor-spark-ui-jobs-cli](../../../glue/latest/dg/monitor-spark-ui-jobs.md#monitor-spark-ui-jobs-cli "../../../glue/latest/dg/monitor-spark-ui-jobs.md#monitor-spark-ui-jobs-cli")
-
-   Under Environment, all the spark configurations passed could
-   be found. Verify the following are there:
+2. First, invoke [ListLineageEvents](../../../datazone/latest/APIReference/API_ListLineageEvents.md "../../../datazone/latest/APIReference/API_ListLineageEvents.md") to see if the lineage events were
+   submitted (refer to the linked doc to pass filters).
+3. If no events are submitted, check AWS CloudWatch logs to see
+   if any exceptions are thrown from the Amazon DataZone Lineage
+   lib:
+   - Log groups: /aws-glue/jobs/error,
+     /aws-glue/sessions/error
+   - Make sure logging is enabled: [https://docs.aws.amazon.com/glue/latest/dg/monitor-continuous-logging-enable.html](../../../glue/latest/dg/monitor-continuous-logging-enable.md "../../../glue/latest/dg/monitor-continuous-logging-enable.md")
+   - Following is the AWS CloudWatch log insights query to check for exceptions:
 
    ```
 
-   spark.extraListeners  io.openlineage.spark.agent.OpenLineageSparkListener
-   spark.openlineage.transport.domainId  <domain-id>
-   spark.openlineage.transport.type  amazon_datazone_api
+   fields @timestamp, @message
+   | filter @message like /(?i)exception/ and like /(?i)datazone/
+   | sort @timestamp desc
 
    ```
 
-3. **Common Issues:**
-   - If the AWS Glue ETL is in VPC, make sure the Amazon DataZone
-     VPC endpoint is deployed in that VPC.
-   - In case your domain is using a CMK, make sure that the AWS
-     Glue execution role has the appropriate KMS permissions. CMK can
-     be found via [https://docs.aws.amazon.com/datazone/latest/APIReference/API_GetDomain.html](../../../datazone/latest/APIReference/API_GetDomain.md "../../../datazone/latest/APIReference/API_GetDomain.md")
-   - Failed to publish Lineage Event because payload is greater
-     than 300 kb:
-     - Add the following to Spark conf:
+   - Following is the AWS CloudWatch log insights query to inspect generated events:
 
-     ```
+   Pass `--conf spark.log.level=DEBUG` while submitting the spark job.
 
-     "spark.openlineage.columnLineage.datasetLineageEnabled": "true"
+   ```
 
-     ```
+   fields @timestamp, @message
+   | filter @message like /Emitting lineage completed successfully/
+   | sort @timestamp desc
 
-     - **Important
-       Note:**
-       - Column lineage typically constitutes a
-         significant portion of the payload and enabling
-         this will efficiently generate the column lineage
-         info.
-       - Disabling it can help reduce payload size and
-         avoid validation exceptions.
+   ```
 
-   - Cross account lineage event submission:
-     - Follow [https://docs.aws.amazon.com/datazone/latest/userguide/working-with-associated-accounts.html](../../../datazone/latest/userguide/working-with-associated-accounts.md "../../../datazone/latest/userguide/working-with-associated-accounts.md")
-       to set up account association
-     - Ensure that RAM policy is using the latest
-       policy
+4. Enable Spark UI to see if Spark Logical Plans and Spark Confs
+   are generated properly: [https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui-jobs.html#monitor-spark-ui-jobs-cli](../../../glue/latest/dg/monitor-spark-ui-jobs.md#monitor-spark-ui-jobs-cli "../../../glue/latest/dg/monitor-spark-ui-jobs.md#monitor-spark-ui-jobs-cli")
 
-   - When the same DataFrame is written to multiple destinations or
-     formats in sequence, Lineage SparkListener may only capture the
-     lineage for the first write operation:
-     - For optimization purposes, Spark's internals may reuse
+Under Environment, all the spark configurations passed could
+be found. Verify the following are there:
+
+```
+
+spark.extraListeners  io.openlineage.spark.agent.OpenLineageSparkListener
+spark.openlineage.transport.domainId  <domain-id>
+spark.openlineage.transport.type  amazon_datazone_api
+
+```
+
+5. After verifying lineage events are successfully processed in AWS
+   CloudWatch logs, follow the steps in [Not seeing lineage
+   graph for events published programmatically](#lineage-troubleshooting-programmatic-events "#lineage-troubleshooting-programmatic-events") to
+   troubleshoot.
+6. If you are still unable to see lineage and it doesn't fall under the
+   limitations category, reach out to AWS support by providing:
+   - Spark config parameters
+   - Lineage event from GetLineageEvent response for successfully
+     processed events to which lineage isn't visible
+   - GetAsset response
+
+## Troubleshooting lineage for
+
+lineage events published from EMR-S/EC2/EKS
+
+**Notes:**
+
+- Lineage is supported from following versions of EMR:
+  - EMR-S: 7.5+
+  - EMR-EC2: 7.11+
+  - EMR-EKS: 7.12+
+
+- Lineage capture for Spark jobs with fine-grained permission mode
+  are not supported.
+- If you are trying EMR outside of Amazon SageMaker Unified Studio, Amazon DataZone VPC
+  endpoint needs to be deployed for EMR VPC.
+- Lineage event has a size limit of 300KB.
+  **Common Issues:**
+
+- In case your domain is using a CMK, make sure that the job's
+  execution role has the appropriate KMS permissions. CMK can be
+  found via [https://docs.aws.amazon.com/datazone/latest/APIReference/API_GetDomain.html](../../../datazone/latest/APIReference/API_GetDomain.md "../../../datazone/latest/APIReference/API_GetDomain.md")
+- Failed to publish Lineage Event because payload is greater
+  than 300 kb:
+  - Add the following to Spark conf which efficiently generates the event payload:
+
+  `"spark.openlineage.columnLineage.datasetLineageEnabled": "true"`
+
+- Cross account lineage event submission:
+  - Follow [https://docs.aws.amazon.com/datazone/latest/userguide/working-with-associated-accounts.html](../../../datazone/latest/userguide/working-with-associated-accounts.md "../../../datazone/latest/userguide/working-with-associated-accounts.md")
+    to set up account association
+  - Ensure that RAM policy is using the latest
+    policy
+
+- When the same DataFrame is written to multiple destinations or
+  formats in sequence, Lineage SparkListener may only capture the
+  lineage for the first write operation:
+
+      + For optimization purposes, Spark's internals may reuse
        execution plans definition for consecutive write
        operations on the same DataFrame. This can lead to only
        capturing first lineage event.
+
+  **Troubleshooting steps:**
+
+1. Lineage graph can only be visualized if at least one node of the graph
+   is an asset. Therefore, create assets for any of the datasets (such as
+   tables) involved in the job and then attempt to visualize lineage on the
+   asset.
+2. First, invoke [ListLineageEvents](../../../datazone/latest/APIReference/API_ListLineageEvents.md "../../../datazone/latest/APIReference/API_ListLineageEvents.md") to see if the lineage events were
+   submitted (refer to the linked doc to pass filters).
+3. If no events are submitted, check AWS CloudWatch logs to see
+   if any exceptions are thrown from the Amazon DataZone Lineage
+   lib:
+   - **EC2:**
+     - You can enable provide the CloudWatch log group or log
+       destination for S3 path at the time of creating EC2
+       cluster. Refer [https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html](../../../emr/latest/ManagementGuide/emr-plan-debugging.md "../../../emr/latest/ManagementGuide/emr-plan-debugging.md")
+     - You will see logs in stderr file within
+       cluster-id/containers/application\*/ folder.
+
+   - **EKS:**
+     - You need to provide the CloudWatch log group or log
+       destination for S3 path while submitting spark job. Refer
+       [https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/getting-started.html](../../../emr/latest/EMR-on-EKS-DevelopmentGuide/getting-started.md "../../../emr/latest/EMR-on-EKS-DevelopmentGuide/getting-started.md")
+     - You will see logs in stderr file of spark_driver within
+       virtual-cluster-id/jobs/job-id/containers/\* folder.
+
+   - **EMR-S:**
+     - You can enable logs by following [https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html](../../../emr/latest/EMR-Serverless-UserGuide/logging.md "../../../emr/latest/EMR-Serverless-UserGuide/logging.md")
+     - You will see logs in stderr files of spark_driver
+
+   - Following is the AWS CloudWatch log insights query to check for exceptions:
+
+   ```
+
+   fields @timestamp, @message
+   | filter @message like /(?i)exception/ and like /(?i)datazone/
+   | sort @timestamp desc
+
+   ```
+
+   - Following is the AWS CloudWatch log insights query to inspect generated events:
+
+   Pass `--conf spark.log.level=DEBUG` while submitting the spark job.
+
+   ```
+
+   fields @timestamp, @message
+   | filter @message like /Emitting lineage completed successfully/
+   | sort @timestamp desc
+
+   ```
 
 4. After verifying lineage events are successfully processed in AWS
    CloudWatch logs, follow the steps in [Not seeing lineage
    graph for events published programmatically](#lineage-troubleshooting-programmatic-events "#lineage-troubleshooting-programmatic-events") to
    troubleshoot.
 5. If you are still unable to see lineage and it doesn't fall under the
-   limitations category, reach out to AWS support by providing:
+   limitations category, reach out to AWS Support by providing:
    - Spark config parameters
-   - Spark UI logical plan screenshots
    - Lineage event from GetLineageEvent response for successfully
      processed events to which lineage isn't visible
    - GetAsset response

@@ -7,7 +7,7 @@ capture from tools
 - [Capture
   lineage for Spark executions in Visual ETL](#datazone-data-lineage-automate-capture-from-tools-vetl "#datazone-data-lineage-automate-capture-from-tools-vetl")
 - [Capture lineage for AWS Glue Spark executions in Notebooks](#datazone-data-lineage-automate-capture-from-tools-gluenotebook "#datazone-data-lineage-automate-capture-from-tools-gluenotebook")
-- [Capture lineage EMR-S Spark executions from Notebooks](#datazone-data-lineage-automate-capture-from-tools-emrnotebook "#datazone-data-lineage-automate-capture-from-tools-emrnotebook")
+- [Capture lineage from EMR Spark executions](#datazone-data-lineage-automate-capture-from-tools-emrnotebook "#datazone-data-lineage-automate-capture-from-tools-emrnotebook")
 
 ## Capture
 
@@ -35,7 +35,7 @@ configuration.
     --conf spark.openlineage.transport.domainId={DOMAIN_ID}
     --conf spark.glue.accountId={ACCOUNT_ID}
     --conf spark.openlineage.facets.custom_environment_variables=[AWS_DEFAULT_REGION;GLUE_VERSION;GLUE_COMMAND_CRITERIA;GLUE_PYTHON_VERSION;]
-    --conf spark.openlineage.columnLineage.datasetLineageEnabled={True|False}
+    --conf spark.openlineage.columnLineage.datasetLineageEnabled=True
     --conf spark.glue.JOB_NAME={JOB_NAME}"
 }
 
@@ -75,10 +75,6 @@ To understand the parameters in detail:
 
 - OpenLineage libraries for Spark are built into AWS Glue v5.0+ for
   Spark DataFrames only. Dynamic DataFrames are not supported.
-- OpenLineage libraries for Spark are built into Amazon EMR v7.5+ and
-  only for EMR-S.
-- Capturing lineage from Spark jobs executed on EMR on EKS and EMR on
-  EC2 are not automated but can be done by manual configuration.
 - LineageEvent has a size limit of 300KB.
 
 ## Capture lineage for AWS Glue Spark executions in Notebooks
@@ -96,7 +92,7 @@ workflows.
 
 %%configure --name {COMPUTE_NAME} -f
 {
-"--conf":"spark.extraListeners=io.openlineage.spark.agent.OpenLineageSparkListener --conf spark.openlineage.transport.type=amazon_datazone_api --conf spark.openlineage.transport.domainId={DOMAIN_ID} --conf spark.glue.accountId={ACCOUNT_ID} --conf spark.openlineage.facets.custom_environment_variables=[AWS_DEFAULT_REGION;GLUE_VERSION;GLUE_COMMAND_CRITERIA;GLUE_PYTHON_VERSION;] --conf spark.glue.JOB_NAME={JOB_NAME}"
+"--conf":"spark.extraListeners=io.openlineage.spark.agent.OpenLineageSparkListener --conf spark.openlineage.transport.type=amazon_datazone_api --conf spark.openlineage.transport.domainId={DOMAIN_ID} --conf spark.glue.accountId={ACCOUNT_ID} --conf spark.openlineage.columnLineage.datasetLineageEnabled=True --conf spark.openlineage.facets.custom_environment_variables=[AWS_DEFAULT_REGION;GLUE_VERSION;GLUE_COMMAND_CRITERIA;GLUE_PYTHON_VERSION;] --conf spark.glue.JOB_NAME={JOB_NAME}"
 }
 
 ```
@@ -138,12 +134,10 @@ Here are these parameters and what they configure, in detail:
     be set to be spark.glue.JOB_NAME:
     ${projectId}.${pathToNotebook}.
 
-## Capture lineage EMR-S Spark executions from Notebooks
+## Capture lineage from EMR Spark executions
 
-EMR v7.5 and greater with Spark engine has the necessary OpenLineage libraries
-built in. They need to be added to the spark submit properties in order to be
-used especially if AWS Glue is being used as the Hive metastore. The rest of
-the spark submit properties are similar to those used in AWS Glue jobs. Be
+EMR with Spark engine has the necessary OpenLineage libraries
+built in. You need to pass the following spark parameters. Be
 sure to replace the {Domain ID} with your specific Amazon DataZone or Amazon SageMaker Unified Studio
 domain and to replace the {Account ID} with the account id where the EMR job is
 run.
@@ -156,15 +150,21 @@ run.
          "spark.extraListeners": "io.openlineage.spark.agent.OpenLineageSparkListener",
          "spark.openlineage.transport.type":"amazon_datazone_api",
          "spark.openlineage.transport.domainId":"{DOMAIN_ID}",
-         "spark.glue.accountId":"{ACCOUNT_ID}",
-         "spark.jars":"/usr/share/aws/datazone-openlineage-spark/lib/DataZoneOpenLineageSpark-1.0.jar"
+         "spark.glue.accountId":"{ACCOUNT_ID}", // needed if AWS Glue is being used as the Hive metastore
+         "spark.openlineage.columnLineage.datasetLineageEnabled":"True",
+         "spark.jars":"/usr/share/aws/datazone-openlineage-spark/lib/DataZoneOpenLineageSpark-1.0.jar" // Only needed incase of EMR-S
     }
 }
 
 ```
 
+- Lineage is supported for the following EMR versions:
+  - EMR-S: 7.5+
+  - EMR on EC2: 7.11+
+  - EMR on EKS: 7.12+
+
 - The JOB_NAME is the Spark application name that is automatically
   set
 - Replace {DOMAIN_ID} and {ACCOUNT_ID}
-- Amazon SageMaker Unified Studio VPC endpoint is deployed to EMR serverless VPC
+- Amazon SageMaker Unified Studio VPC endpoint is deployed to EMR VPC
   endpoint

@@ -28,21 +28,60 @@ storage and Amazon Athena queries. You can control storage costs by setting rete
 policies on S3 tables to automatically remove records older than your specified period. For
 more information, see [https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-record-expiration.html](../../../AmazonS3/latest/userguide/s3-tables-record-expiration.md "../../../AmazonS3/latest/userguide/s3-tables-record-expiration.md").
 
+## Requirements
+
+Before you export asset metadata from Amazon SageMaker Unified Studio, make sure that you meet the following requirements:
+
+### IAM permissions
+
+The IAM user or role that runs the export commands must have permissions to configure asset metadata export in Amazon DataZone and to create the Amazon S3 Tables resources used to store the exported metadata.
+
+The following example IAM policy shows the required permissions:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "datazone:GetDataExportConfiguration",
+                "datazone:PutDataExportConfiguration"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3tables:CreateTableBucket",
+                "s3tables:PutTableBucketPolicy"
+            ],
+             "Resource": "arn:aws:s3tables:<REGION>:<ACCOUNT_ID>:bucket/aws-sagemaker-catalog"
+        }
+    ]
+}
+```
+
+These permissions allow you to retrieve and update the asset metadata export configuration. They also allow Amazon DataZone to create the Amazon SageMaker Catalog S3 table bucket and apply the required bucket policy on your behalf, enabling DataZone to write the exported metadata.
+
+For KMS related permission requirements, see [KMS permissions for exporting asset metadata in Amazon SageMaker Unified
+Studio](../adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md "../adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md").
+
 ## Start exporting asset
 
 metadata
 
 To get started, activate dataset export by invoking the
-`PutDataExportConfiguration` API action, then access the asset table
-through S3 Tables or Amazon SageMaker Unified Studio's Data tab within 24 hours. Query using Amazon Athena,
+`PutDataExportConfiguration` API action. In response, the DataZone
+service creates an S3 table bucket named aws-sagemaker-catalog with an asset_metadata
+namespace and an empty asset table. It also schedules a daily job to export updated
+asset data. Within 24 hours, you can access the asset table through the S3 Tables
+console or the Data tab in Amazon SageMaker Unified Studio. You can query the data using Amazon Athena or
 Studio notebooks, or connect external BI tools through the S3 Tables Iceberg REST
 Catalog endpoint.
 
 Asset metadata is exported once a day around midnight local time per AWS
 region.
-
-For more information, see [KMS permissions for exporting asset metadata in Amazon SageMaker Unified
-Studio](../adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md "../adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md").
 
 Enable data export:
 
@@ -61,7 +100,7 @@ aws datazone put-data-export-configuration --encryption-configuration kmsKeyArn=
 ```
 
 For more information, see the [API
-reference documentation](../../../datazone/latest/APIReference/Welcome.md "../../../datazone/latest/APIReference/Welcome.md").
+reference documentation](../../../datazone/latest/APIReference/API_PutDataExportConfiguration.md "../../../datazone/latest/APIReference/API_PutDataExportConfiguration.md").
 
 ## Asset table schema
 

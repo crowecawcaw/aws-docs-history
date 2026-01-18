@@ -3,10 +3,6 @@
 Use MLflow in Amazon SageMaker Unified Studio to create, manage, analyze, and compare machine learning
 experiments.
 
-###### Note
-
-Amazon SageMaker AI MLflow dataplane API operations don't support AWS CloudTrail logs.
-
 For more information about MLflow, see [Machine learning experiments using MLflow](../../../sagemaker/latest/dg/mlflow.md "../../../sagemaker/latest/dg/mlflow.md")
 in the _Amazon SageMaker AI Developer Guide_.
 
