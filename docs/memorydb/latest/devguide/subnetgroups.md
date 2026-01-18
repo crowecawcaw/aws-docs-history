@@ -1,74 +1,105 @@
-# Deleting a subnet group
+# Creating a subnet group
 
-If you decide that you no longer need your subnet group, you can delete it.
-You cannot delete a subnet group if it is currently in use by a cluster. You also cannot delete a subnet group on a cluster with Multi-AZ enabled if doing so leaves
-that cluster with fewer than two subnets. You must first uncheck **Multi-AZ** and then delete the subnet.
+When you create a new subnet group, note the number of available
+IP addresses. If the subnet has very few free IP addresses, you might be
+constrained as to how many more nodes you can add to the cluster. To
+resolve this issue, you can assign one or more subnets to a subnet group
+so that you have a sufficient number of IP addresses in your cluster's
+Availability Zone. After that, you can add more nodes to your
+cluster.
 
-The following procedures show you how to delete a subnet group.
+The following procedures show you how to create a subnet group called
+`mysubnetgroup` (console), the AWS CLI, and the
+MemoryDB API.
 
-## Deleting a subnet group (Console)
+## Creating a subnet group (Console)
 
-###### To delete a subnet group
+The following procedure shows how to create a subnet group (console).
 
-1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2. In the left navigation pane, choose **Subnet Groups**.
-3. In the list of subnet groups,
-   choose the one you want to delete, choose **Actions** and then choose **Delete**.
+###### To create a subnet group (Console)
 
-###### Note
+1.  Sign in to the AWS Management Console, and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
+2.  In the left navigation pane, choose **Subnet Groups**.
+3.  Choose **Create Subnet Group**.
+4.  In the **Create Subnet Group** page,
+    do the following:
+    1. In the **Name** box,
+       type a name for your subnet group.
 
-You cannot delete a default subnet group or one that is associated with any clusters. 4. The **Delete Subnet Groups** confirmation screen will appear. 5. To delete the subnet group, enter `delete` in the confirmation text box.
+    Cluster naming constraints are as follows:
 
-To keep the subnet group, choose **Cancel**.
+        * Must contain 1–40 alphanumeric characters or hyphens.
+        * Must begin with a letter.
+        * Can't contain two consecutive hyphens.
+        * Can't end with a hyphen.
 
-## Deleting a subnet group (AWS CLI)
+    2. In the **Description** box,
+       type a description for your subnet group.
+    3. In the **VPC ID** box,
+       choose the Amazon VPC that you created. If you have not created one, choose the **Create VPC** button and follow the
+       steps to create one.
+    4. In **Selected subnets**,
+       choose the Availability Zone and ID of your private subnet,
+       and then choose **Choose**.
 
-Using the AWS CLI, call the command **delete-subnet-group** with the following
-parameter:
+5.  For **Tags**, you can optionally apply tags to search and filter your subnets or track your AWS costs.
+6.  When all the settings are as you want them, choose **Create**.
+7.  In the confirmation message that appears, choose **Close**.
 
-- `--subnet-group-name` `mysubnetgroup`
+Your new subnet group appears in the **Subnet Groups** list of
+the MemoryDB console. At the bottom of the window you can choose the subnet group to see details,
+such as all of the subnets associated with this group.
+
+## Creating a subnet group (AWS CLI)
+
+At a command prompt, use the command `create-subnet-group` to create a subnet group.
 
 For Linux, macOS, or Unix:
 
 ```
-aws memorydb delete-subnet-group \
-    --subnet-group-name `mysubnetgroup`
+aws memorydb create-subnet-group \
+    --subnet-group-name `mysubnetgroup` \
+    --description `"Testing"` \
+    --subnet-ids `subnet-53df9c3a`
 ```
 
 For Windows:
 
 ```
-aws memorydb delete-subnet-group ^
-    --subnet-group-name `mysubnetgroup`
+aws memorydb create-subnet-group ^
+    --subnet-group-name `mysubnetgroup` ^
+    --description `"Testing"` ^
+    --subnet-ids `subnet-53df9c3a`
 ```
 
-For more information, see the AWS CLI topic [delete-subnet-group](../../../cli/latest/reference/memorydb/delete-subnet-group.md "../../../cli/latest/reference/memorydb/delete-subnet-group.md").
-
-## Deleting a subnet group (MemoryDB API)
-
-Using the MemoryDB API, call `DeleteSubnetGroup` with the following
-parameter:
-
-- `SubnetGroupName=`mysubnetgroup``
-
-###### Example
+This command should produce output similar to the following:
 
 ```
-https://memory-db.us-east-1.amazonaws.com/
-    ?Action=DeleteSubnetGroup
-    &SubnetGroupName=mysubnetgroup
-    &SignatureMethod=HmacSHA256
-    &SignatureVersion=4
-    &Timestamp=20210801T220302Z
-    &Version=2021-01-01
-    &X-Amz-Algorithm=Amazon4-HMAC-SHA256
-    &X-Amz-Credential=<credential>
-    &X-Amz-Date=20210801T220302Z
-    &X-Amz-Expires=20210801T220302Z
-    &X-Amz-Signature=<signature>
-    &X-Amz-SignedHeaders=Host
+    {
+        "SubnetGroup": {
+            "Subnets": [
+                {
+                    "Identifier": "subnet-53df9c3a",
+                    "AvailabilityZone": {
+                    "Name": "us-east-1a"
+                    }
+                }
+            ],
+            "VpcId": "vpc-3cfaef47",
+            "Name": "mysubnetgroup",
+            "ARN": "arn:aws:memorydb:us-east-1:012345678912:subnetgroup/mysubnetgroup",
+            "Description": "Testing"
+        }
+    }
 ```
 
-This command produces no output.
+For more information, see the AWS CLI topic create-subnet-group.
 
-For more information, see the MemoryDB API topic [DeleteSubnetGroup](../APIReference/API_DeleteSubnetGroup.md "../APIReference/API_DeleteSubnetGroup.md").
+## Creating a subnet group (MemoryDB API)
+
+Using the MemoryDB API, call `CreateSubnetGroup` with the following
+parameters:
+
+- `SubnetGroupName=``mysubnetgroup`
+- `Description=``Testing`
+- `SubnetIds.member.1=``subnet-53df9c3a`

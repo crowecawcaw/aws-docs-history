@@ -1,13 +1,14 @@
-# FT.DROPINDEX
+# FT.EXPLAINCLI
 
-Drop an index. The index definition and associated content are deleted. Keys are unaffected.
+Same as the FT.EXPLAIN command except that the results are displayed in a different format more useful with the redis-cli.
 
 **Syntax**
 
 ```
-FT.DROPINDEX <index-name>
+FT.EXPLAINCLI <index> <query>
+
 ```
 
 **Return**
 
-Returns a simple string OK message or an error reply.
+A string containing the parsed results.

@@ -1,139 +1,136 @@
-# Managing MemoryDB Amazon SNS notifications
+# Viewing MemoryDB events
 
-You can configure MemoryDB to send notifications for important cluster events using
-Amazon Simple Notification Service (Amazon SNS). In these examples, you will configure a cluster with the Amazon
-Resource Name (ARN) of an Amazon SNS topic to receive notifications.
+MemoryDB logs events that relate to your clusters, security groups, and parameter groups.
+This information includes the date and time of the event,
+the source name and source type of the event,
+and a description of the event.
+You can easily retrieve events from the log using
+the MemoryDB console,
+the AWS CLI `describe-events` command, or
+the MemoryDB API action `DescribeEvents`.
 
-###### Note
+The following procedures show you how to view all MemoryDB events for the past 24 hours (1440 minutes).
 
-This topic assumes that you've signed up for Amazon SNS and have set up and subscribed to an
-Amazon SNS topic. For information on how to do this, see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
+## Viewing MemoryDB events (Console)
 
-## Adding an Amazon SNS topic
+The following procedure displays events using the MemoryDB console.
 
-The following sections show you how to add an Amazon SNS topic using the AWS Console, the AWS CLI, or
-the MemoryDB API.
-
-### Adding an Amazon SNS topic (Console)
-
-The following procedure shows you how to add an Amazon SNS topic for a cluster.
-
-###### Note
-
-This process can also be used to modify the Amazon SNS topic.
-
-###### To add or modify an Amazon SNS topic for a cluster (Console)
+###### To view events using the MemoryDB console
 
 1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2. In **Clusters**,
-   choose the cluster for which you want to add or modify an Amazon SNS topic ARN.
-3. Choose **Modify**.
-4. In **Modify Cluster** under **Topic for SNS Notification**, choose the SNS topic
-   you want to add, or choose **Manual ARN input**
-   and type the ARN of the Amazon SNS topic.
-5. Choose **Modify**.
+2. In the left navigation pane, choose **Events**.
 
-### Adding an Amazon SNS topic (AWS CLI)
+The _Events_ screen appears listing all available events.
+Each row of the list represents one event and displays
+the event source,
+the event type (such as cluster, parameter-group, acl, security-group or subnet group),
+the GMT time of the event, and the description of the event.
 
-To add or modify an Amazon SNS topic for a cluster,
-use the AWS CLI command `update-cluster`.
+Using the **Filter** you can specify whether you want to see all events, or
+just events of a specific type in the event list.
 
-The following code example adds an Amazon SNS topic arn to _my-cluster_.
+## Viewing MemoryDB events (AWS CLI)
 
-For Linux, macOS, or Unix:
+To generate a list of MemoryDB events using the AWS CLI,
+use the command `describe-events`.
+You can use optional parameters to control
+the type of events listed,
+the time frame of the events listed,
+the maximum number of events to list, and more.
 
-```
-aws memorydb update-cluster \
-    --cluster-name `my-cluster` \
-    --sns-topic-arn `arn:aws:sns:us-east-1:565419523791:memorydbNotifications`
-```
-
-For Windows:
+The following code lists up to 40 cluster events.
 
 ```
-aws memorydb update-cluster ^
-    --cluster-name `my-cluster` ^
-    --sns-topic-arn `arn:aws:sns:us-east-1:565419523791:memorydbNotifications`
+aws memorydb describe-events --source-type `cluster` --max-results `40`
 ```
 
-For more information,
-see [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md")
-.
-
-### Adding an Amazon SNS topic (MemoryDB API)
-
-To add or update an Amazon SNS topic for a cluster, call the
-`UpdateCluster` action with the following parameters:
-
-- `ClusterName``=my-cluster`
-- `SnsTopicArn``=arn%3Aaws%3Asns%3Aus-east-1%3A565419523791%3AmemorydbNotifications`
-
-To add or update an Amazon SNS topic for a cluster,
-call the `UpdateCluster` action.
-
-For more information,
-see [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md").
-
-## Enabling and disabling Amazon SNS notifications
-
-You can turn notifications on or off for a cluster. The following
-procedures show you how to disable Amazon SNS notifications.
-
-### Enabling and disabling Amazon SNS notifications (Console)
-
-###### To disable Amazon SNS notifications using the AWS Management Console
-
-1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2. Choose the radio button to the left of the cluster you want to modify notification for.
-3. Choose **Modify**.
-4. In **Modify Cluster** under **Topic for SNS Notification**,
-   choose _Disable Notifications_.
-5. Choose **Modify**.
-
-### Enabling and disabling Amazon SNS notifications (AWS CLI)
-
-To disable Amazon SNS notifications, use the command `update-cluster`
-with the following parameters:
-
-For Linux, macOS, or Unix:
+The following code lists all events for the past 24 hours (1440 minutes).
 
 ```
-aws memorydb update-cluster \
-    --cluster-name `my-cluster` \
-    --sns-topic-status `inactive`
+aws memorydb describe-events --duration `1440`
 ```
 
-For Windows:
+The output from the `describe-events` command looks something like this.
 
 ```
-aws memorydb update-cluster ^
-    --cluster-name `my-cluster` ^
-    --sns-topic-status `inactive`
+{
+    "Events": [
+        {
+            "Date": "2021-03-29T22:17:37.781Z",
+            "Message": "Added node 0001 in Availability Zone us-east-1a",
+            "SourceName": "memorydb01",
+            "SourceType": "cluster"
+        },
+        {
+            "Date": "2021-03-29T22:17:37.769Z",
+            "Message": "cluster created",
+            "SourceName": "memorydb01",
+            "SourceType": "cluster"
+        }
+    ]
+}
 ```
 
-### Enabling and disabling Amazon SNS notifications (MemoryDB API)
+For more information, such as available parameters and permitted parameter values, see [`describe-events`](../../../cli/latest/reference/memorydb/describe-events.md "../../../cli/latest/reference/memorydb/describe-events.md").
 
-To disable Amazon SNS notifications, call the `UpdateCluster` action with the
-following parameters:
+## Viewing MemoryDB events (MemoryDB API)
 
-- `ClusterName``=my-cluster`
-- `SnsTopicStatus``=inactive`
+To generate a list of MemoryDB events using the MemoryDB API,
+use the `DescribeEvents` action.
+You can use optional parameters to control
+the type of events listed,
+the time frame of the events listed,
+the maximum number of events to list, and more.
 
-This call returns output similar to the following:
+The following code lists the 40 most recent -cluster events.
 
 ```
 https://memory-db.us-east-1.amazonaws.com/
-    ?Action=UpdateCluster
-    &ClusterName=my-cluster
-    &SnsTopicStatus=inactive
-    &Version=2021-01-01
-    &SignatureVersion=4
-    &SignatureMethod=HmacSHA256
-    &Timestamp=20210801T220302Z
-    &X-Amz-Algorithm=Amazon4-HMAC-SHA256
-    &X-Amz-Date=20210801T220302Z
-    &X-Amz-SignedHeaders=Host
-    &X-Amz-Expires=20210801T220302Z
-    &X-Amz-Credential=<credential>
-    &X-Amz-Signature=<signature>
+   ?Action=DescribeEvents
+   &MaxResults=40
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &SourceType=cluster
+   &Timestamp=20210802T192317Z
+   &Version=2021-01-01
+   &X-Amz-Credential=<credential>
 ```
+
+The following code lists the cluster events for the past 24 hours (1440 minutes).
+
+```
+https://memory-db.us-east-1.amazonaws.com/
+   ?Action=DescribeEvents
+   &Duration=1440
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &SourceType=cluster
+   &Timestamp=20210802T192317Z
+   &Version=2021-01-01
+   &X-Amz-Credential=<credential>
+```
+
+The above actions should produce output similar to the following.
+
+```
+<DescribeEventsResponse xmlns="http://memory-db.us-east-1.amazonaws.com/doc/2021-01-01/">
+    <DescribeEventsResult>
+        <Events>
+            <Event>
+                <Message>cluster created</Message>
+                <SourceType>cluster</SourceType>
+                <Date>2021-08-02T18:22:18.202Z</Date>
+                <SourceName>my-memorydb-primary</SourceName>
+            </Event>
+
+ (...output omitted...)
+
+        </Events>
+    </DescribeEventsResult>
+    <ResponseMetadata>
+        <RequestId>e21c81b4-b9cd-11e3-8a16-7978bb24ffdf</RequestId>
+    </ResponseMetadata>
+</DescribeEventsResponse>
+```
+
+For more information, such as available parameters and permitted parameter values, see [`DescribeEvents`](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md").
