@@ -43,6 +43,10 @@ _AWS Billing User Guide_.
     plans in an organization](https://aws.amazon.com/blogs/mt/aws-partners-determine-aws-support-plans-in-organization/ "https://aws.amazon.com/blogs/mt/aws-partners-determine-aws-support-plans-in-organization/")
   - [AWS Partner-Led Support](https://aws.amazon.com/premiumsupport/partner-led-support/ "https://aws.amazon.com/premiumsupport/partner-led-support/")
 
+###### Important
+
+Before you open a support interaction or create a support case, check for events affecting your account resources by visiting your Health Dashboard at https://phd.aws.amazon.com/phd/home#/. You can verify any AWS service issues in the dashboard, though there might be a slight delay in posting incidents. If you're uncertain if there is an active incident, open a support case.
+
 ###### Topics
 
 - [Set up permissions to use AI-enhanced troubleshooting](support-interaction-perm.md "support-interaction-perm.md")

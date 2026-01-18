@@ -49,6 +49,8 @@ can be resolved quickly.
 
 ## Choosing an initial support case severity level
 
+When creating a support case make sure that the right severity is defined and that you provide as much information as possible.
+
 You might want to create a support case at the highest severity that
 your support plan allows. However, it's a best practice to choose the highest severity
 only for cases that can't be worked around or that directly affect production applications.
@@ -60,7 +62,7 @@ The following table lists the severity levels, response times, and example probl
 ###### Notes
 
 - If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can reassign your support case severity level to reflect changes to urgency and business impact. For example, you can change your support case from **System impaired** to **Production system impaired**. When you change the case severity, AWS Support receives notification and routes the case according to the new severity level. For more information, see [Changing the severity level of your support case](#change-severity-for-support-cases "#change-severity-for-support-cases").
-- If you don't have Basic Support plan, then you can't change the severity level for a support case after you create
+- If you have a Basic Support plan, then you can't change the severity level for a support case after you create
   it. If your situation changes, work with the Support agent.
 - For more information about the severity level, see the [AWS Support API Reference](../APIReference/API_SeverityLevel.md "../APIReference/API_SeverityLevel.md").
 
