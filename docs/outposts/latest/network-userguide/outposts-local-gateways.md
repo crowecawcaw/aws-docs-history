@@ -16,6 +16,7 @@ For more information, see [AWS Outposts connectivity to AWS Regions](region-conn
 - [Route table routes](manage-lgw-routes.md "manage-lgw-routes.md")
 - [VIF and VIF groups](vif-vif-groups.md "vif-vif-groups.md")
 - [CoIP pools](coip-pools.md "coip-pools.md")
+- [Routing domains](routing-domains.md "routing-domains.md")
 
 ## Local gateway basics
 
