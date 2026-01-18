@@ -13,7 +13,7 @@ See also [support restrictions for Systems Manager for SAP](supported-versions.m
 
 ## To access configuration checks
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/")
+1. Open the AWS Systems Manager console at https://console.aws.amazon.com/systems-manager/
 2. In the navigation pane, choose **Application Tools**, then choose **Application Manager**
 3. From the list of registered applications, choose the SAP application you want to evaluate
 4. Choose **Actions**, then choose **SAP Configuration Checks**
@@ -36,7 +36,7 @@ See also [support restrictions for Systems Manager for SAP](supported-versions.m
 
 ## Schedule Configuration Checks using AWS EventBridge Scheduler console
 
-1. Sign in to the AWS Management Console, then choose the following link to open the EventBridge Scheduler section of the EventBridge console: [https://console.aws.amazon.com/scheduler/home](https://console.aws.amazon.com/scheduler/home "https://console.aws.amazon.com/scheduler/home") . You can switch your AWS Region by using the AWS Management Console’s Region selector.
+1. Sign in to the AWS Management Console, then choose the following link to open the EventBridge Scheduler section of the EventBridge console: https://console.aws.amazon.com/scheduler/home . You can switch your AWS Region by using the AWS Management Console’s Region selector.
 2. On the **Schedules** page, choose **Create schedule**.
 3. On the **Specify schedule detail** page, in the **Schedule name and description** section, do the following:
    1. For **Schedule name**, enter a name for your schedule. For example, `SAPConfigurationChecksSchedule`
@@ -63,7 +63,7 @@ See also [support restrictions for Systems Manager for SAP](supported-versions.m
    1. In the AWS IAM Console, Create a new role, using a “Custom trust Policy“, and the following trust relationship:
 
    ```
-   {
+    {
        "Version": "2012-10-17",
        "Statement": [
            {

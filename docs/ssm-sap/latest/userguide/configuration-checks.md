@@ -21,19 +21,19 @@ View the list of available configuration checks to determine which checks you wi
 **Command template**
 
 ```
-aws ssm-sap list-configuration-check-definitions --region <REGION_ID>
+ aws ssm-sap list-configuration-check-definitions --region <REGION_ID>
 ```
 
 **Example command with sample values**
 
 ```
-aws ssm-sap list-configuration-check-definitions --region us-east-1
+ aws ssm-sap list-configuration-check-definitions --region us-east-1
 ```
 
 **Example JSON response**
 
 ```
-{
+ {
     "ConfigurationChecks": [
         {
             "Id": "SAP_CHECK_01",
@@ -73,7 +73,7 @@ If no configuration-check-ids are specified, all checks will be run.
 **Command template**
 
 ```
-aws ssm-sap start-configuration-checks \
+ aws ssm-sap start-configuration-checks \
 --application-id <APPLICATION_ID> \
 --configuration-check-ids <CHECK_ID> \
 --region <REGION_ID>
@@ -82,7 +82,7 @@ aws ssm-sap start-configuration-checks \
 **Example command with sample values**
 
 ```
-aws ssm-sap start-configuration-checks \
+ aws ssm-sap start-configuration-checks \
 --application-id myHanaApplication \
 --configuration-check-ids SAP_CHECK_03 \
 --region us-east-1
@@ -91,7 +91,7 @@ aws ssm-sap start-configuration-checks \
 **Example JSON response**
 
 ```
-{
+ {
     "ConfigurationCheckOperations": [
         {
             "Id": "af3142c1-f178-49e7-a390-ad047e2d518d", //(1)
@@ -113,13 +113,13 @@ The configuration checks may take several minutes to complete. Use the following
 **Command template**
 
 ```
-aws ssm-sap get-configuration-check-operation --operation-id <OPERATION_ID> --region <REGION_ID>
+ aws ssm-sap get-configuration-check-operation --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 **Example command with sample values**
 
 ```
-aws ssm-sap get-configuration-check-operation \
+ aws ssm-sap get-configuration-check-operation \
 --operation-id 6bd44104-d63c-449d-8007-6c1b471e3e5e \
 --region us-east-1
 ```
@@ -127,7 +127,7 @@ aws ssm-sap get-configuration-check-operation \
 **Example JSON response in progress**
 
 ```
-{
+ {
     "ConfigurationCheckOperation": {
         "Id": "12345678-abcd-efab-cdef-123456789abc",
         "ApplicationId": "HANA_H4H",
@@ -143,7 +143,7 @@ aws ssm-sap get-configuration-check-operation \
 **Example JSON response successful**
 
 ```
-{
+ {
     "ConfigurationCheckOperation": {
         "Id": "12345678-abcd-efab-cdef-123456789abc",
         "ApplicationId": "HANA_H4H",
@@ -176,7 +176,7 @@ View the history of configuration check operations. Each operation represents a 
 **Command template**
 
 ```
-aws ssm-sap list-configuration-check-operations \
+ aws ssm-sap list-configuration-check-operations \
 --application-id <APPLICATION_ID> \
 --region <REGION_ID> \
 --list-mode <LIST_MODE>
@@ -190,7 +190,7 @@ The `--list-mode` parameter accepts two values:
 **Example command with sample values**
 
 ```
-aws ssm-sap list-configuration-check-operations \
+ aws ssm-sap list-configuration-check-operations \
 --application-id myHanaApplication \
 --region us-east-1 \
 --list-mode LATEST_PER_CHECK
@@ -199,7 +199,7 @@ aws ssm-sap list-configuration-check-operations \
 **Example JSON response**
 
 ```
-{
+ {
     "ConfigurationCheckOperations": [
         {
             "Id": "12345678-abcd-efab-cdef-123456789abc",
@@ -267,13 +267,13 @@ list-sub-check-results provides the subcheck-ids which allow you to view the det
 **Command template**
 
 ```
-aws ssm-sap list-sub-check-results --operation-id <OPERATION_ID> --region <REGION_ID>
+ aws ssm-sap list-sub-check-results --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 **Example command with sample values**
 
 ```
-aws ssm-sap list-sub-check-results \
+ aws ssm-sap list-sub-check-results \
 --operation-id 6bd44104-d63c-449d-8007-6c1b471e3e5e \
 --region us-east-1
 ```
@@ -281,7 +281,7 @@ aws ssm-sap list-sub-check-results \
 **Example JSON response**
 
 ```
-{
+ {
     "SubCheckResults": [
         {
             "Id": "55667788-1122-3344-5566-778899aabbcc",
@@ -316,13 +316,13 @@ View the detailed results for each rule within a sub-check.
 **Command template**
 
 ```
-aws ssm-sap list-sub-check-rule-results --sub-check-result-id <SUB_CHECK_RESULT_ID> --region <REGION_ID>
+ aws ssm-sap list-sub-check-rule-results --sub-check-result-id <SUB_CHECK_RESULT_ID> --region <REGION_ID>
 ```
 
 **Example command with sample values**
 
 ```
-aws ssm-sap list-sub-check-rule-results \
+ aws ssm-sap list-sub-check-rule-results \
 --sub-check-result-id 197fad22-aa0a-4fbf-a26a-1d2f034ffa46 \
 --region us-east-1
 ```
@@ -330,7 +330,7 @@ aws ssm-sap list-sub-check-rule-results \
 **Example JSON response**
 
 ```
-{
+ {
     "RuleResults": [
         {
             "Id": "52df02e1-511d-4023-ba61-617a71c5f0c9",

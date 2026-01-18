@@ -10,7 +10,7 @@ Use the following procedure to create a VPC endpoint for AWS Systems Manager for
 
 To create a VPC endpoint:
 
-1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. For **Service category**, choose **AWS services**.

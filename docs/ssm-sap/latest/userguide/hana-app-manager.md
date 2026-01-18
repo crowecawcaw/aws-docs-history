@@ -2,7 +2,7 @@
 
 Follow along these steps to register SAP HANA database as a Systems Manager for SAP application.
 
-1. Go to [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/") > **Application Tools** > **Application Manager**.
+1. Go to https://console.aws.amazon.com/systems-manager/ > **Application Tools** > **Application Manager**.
 2. Select **Create Application** > **Enterprise Workload**.
 3. For Application type, select **SAP HANA**.
 4. In **Application details**, enter a name for the application you want to register with Application Manager.
@@ -47,7 +47,7 @@ You must on-board your Systems Manager for SAP application with Amazon CloudWatc
 
 Use the following steps to on-board your registered SAP HANA application with Application Insights.
 
-1. Open [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+1. Open https://console.aws.amazon.com/systems-manager/.
 2. Go to **Application Manager**.
 3. From the list of applications, find and select your SAP application. This opens your application details window.
 4. Go to the **Monitoring** tab > **Application Insights** > **Add an application**.

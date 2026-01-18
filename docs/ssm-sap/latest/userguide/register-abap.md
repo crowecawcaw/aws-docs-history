@@ -22,11 +22,11 @@ Note the `ApplicationId` of your registration.
 2. Use the following command to find the Amazon Resource Name (ARN) of the database.
 
 ```
-aws ssm-sap list-databases --application-id <APPLICATION_ID>
+ aws ssm-sap list-databases --application-id <APPLICATION_ID>
 ```
 
 ```
-{
+ {
     "Databases": [
         {
             "ApplicationId": "SAP_HANA_APPLICATION",
@@ -53,7 +53,7 @@ aws ssm-sap list-databases --application-id <APPLICATION_ID>
 **Command template**
 
 ```
-aws ssm-sap register-application \
+ aws ssm-sap register-application \
 --application-id <APPLICATION_ID> \
 --application-type SAP_ABAP \
 --instances <YOUR_EC2_INSTANCE_ID> \
@@ -72,7 +72,7 @@ aws ssm-sap register-application \
 **Example command with sample values**
 
 ```
-aws ssm-sap register-application
+ aws ssm-sap register-application
     --application-id "mySAPABAPApplication" \
     --application-type SAP_ABAP \
     --instances i-0307b3e5fbdc4bda1 \
@@ -85,7 +85,7 @@ aws ssm-sap register-application
 **Example JSON response**
 
 ```
-{
+ {
     "Application": {
         "Id": "mySAPABAPApplication",
         "Type": "SAP_ABAP",
@@ -105,7 +105,7 @@ aws ssm-sap register-application
 The registration may take a few minutes to complete. Use the following command to check the status of your registration. Use the `OperationId` generated when registering your SAP ABAP application in the preceding step.
 
 ```
-aws ssm-sap get-operation --operation-id <YOUR_OPERATION_ID> --region <REGION>
+ aws ssm-sap get-operation --operation-id <YOUR_OPERATION_ID> --region <REGION>
 ```
 
 ## Step 4: Verify registration
@@ -117,19 +117,19 @@ Verify the registration with [GetApplication](../../../ssmsap/latest/APIReferenc
 **Command template**
 
 ```
-aws ssm-sap get-application --application-id <APPLICATION_ID> --region <REGION>
+ aws ssm-sap get-application --application-id <APPLICATION_ID> --region <REGION>
 ```
 
 **Example to get the summary of an application**
 
 ```
-aws ssm-sap get-application --application-id mySAPABAPApplication --region us-east-1
+ aws ssm-sap get-application --application-id mySAPABAPApplication --region us-east-1
 ```
 
 **Example JSON Response**
 
 ```
-{
+ {
   "Application": {
     "Id": "mySAPABAPApplication",
     "Type": "SAP_ABAP",
@@ -155,13 +155,13 @@ Get the component summary with [GetComponent](../../../ssmsap/latest/APIReferenc
 1. Command template
 
 ```
-aws ssm-sap get-component --application-id <APPLICATION_ID> --component-id <YOUR_COMPONENT_ID_FROM_LAST_STEP> --region <REGION>
+ aws ssm-sap get-component --application-id <APPLICATION_ID> --component-id <YOUR_COMPONENT_ID_FROM_LAST_STEP> --region <REGION>
 ```
 
 2. GetComponent API output for parent component ECD-ABAP
 
 ```
-aws ssm-sap get-component \
+ aws ssm-sap get-component \
    --application-id mySAPABAPApplication \
    --component-id ECD-ABAP \
    --region us-east-1
@@ -170,7 +170,7 @@ aws ssm-sap get-component \
 **Sample JSON Output**
 
 ```
-{
+ {
     "Component": {
         "ComponentId": "ECD-ABAP",
         "Sid": "ECD",
@@ -198,7 +198,7 @@ aws ssm-sap get-component \
 3. GetComponent API output for parent component WD1-W14
 
 ```
-aws ssm-sap get-component --component-id WD1-W14\
+ aws ssm-sap get-component --component-id WD1-W14\
     --application-id mySAPABAPApplication \
     --region us-east-1
 ```
@@ -206,7 +206,7 @@ aws ssm-sap get-component --component-id WD1-W14\
 **Sample JSON Output**
 
 ```
-{
+ {
     "Component": {
         "ComponentId": "WD1-W14",
         "Sid": "WD1",
@@ -227,7 +227,7 @@ aws ssm-sap get-component --component-id WD1-W14\
 4. GetComponent API output for child component ECD-ASCS10-sapci
 
 ```
-aws ssm-sap get-component \
+ aws ssm-sap get-component \
     --component-id ECD-ASCS10-sapci --application-id mySAPABAPApplication \
     --region us-east-1
 ```
@@ -235,7 +235,7 @@ aws ssm-sap get-component \
 **Sample Output**
 
 ```
-{
+ {
     "Component": {
         "ComponentId": "ECD-ASCS10-sapci",
         "Sid": "ECD",
@@ -272,7 +272,7 @@ aws ssm-sap get-component \
 5. GetComponent API for Child Component WD1-W14-sapwd
 
 ```
-aws ssm-sap get-component \
+ aws ssm-sap get-component \
    --component-id WD1-W14-sapwd --application-id mySAPABAPApplication \
    --region us-east-1
 ```
@@ -280,7 +280,7 @@ aws ssm-sap get-component \
 **Sample Output**
 
 ```
-{
+ {
     "Component": {
         "ComponentId": "WD1-W14-sapwd",
         "Sid": "WD1",
