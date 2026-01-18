@@ -16,7 +16,7 @@ The App Runner console has three areas. From left to right:
 - Help pane – A side pane for more information. Expand it to get help about the page you're on. Or choose any
   **Info** link on a console page to get contextual help.
 
-![The App Runner console layout, showing the navigation, content, and help panes](/images/apprunner/latest/dg/images/getting-started-services.png)
+![The App Runner console layout, showing the navigation, content, and help panes](images/getting-started-services.png)
 
 ## The Services page
 
