@@ -10,7 +10,7 @@ meeting.
 1. In the left control bar, open the **More options** menu
    (
 
-![An icon showing a horizontal ellipsis.](images/left-control-6.png)
+![An icon showing a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
 
 ). 2. Choose **Disable attendee unmute**.
 To turn on attendee unmute, repeat the previous steps and choose **Enable attendee

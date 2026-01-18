@@ -13,7 +13,7 @@ during a meeting. Typically, you move the row to make featured content easier to
 
 1. In the left control bar, choose the **Media layout** icon (
 
-![An icon showing a stylized app screen with three panels.](images/left-control-5.png)
+![An icon showing a stylized app screen with three panels.](/images/chime/latest/ug/images/left-control-5.png)
 
 ). 2. Point to **Video row location**, and on the menu that appears, choose **Above featured content** or
 **Below featured content**.

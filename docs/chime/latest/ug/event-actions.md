@@ -25,7 +25,7 @@ To manage Event Mode, do the following:
 
 1. Open the **More options** menu (
 
-![An icon of a horizontal ellipsis.](images/left-control-6.png)
+![An icon of a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
 
 ), then choose **Start event mode**. 2. In the **Start event mode** dialog box, review the information about Event
 mode, then choose **Start event mode**.
@@ -34,7 +34,7 @@ mode, then choose **Start event mode**.
 
 - Open the **More options** menu (
 
-![An icon of a horizontal ellipsis.](images/left-control-6.png)
+![An icon of a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
 
 ), then choose **Stop event mode**.
 
@@ -48,7 +48,7 @@ presenter status to other attendees.
 
 1. In the left control bar, open the **More options** menu (
 
-![An icon of a horizontal ellipsis.](images/left-control-6.png)
+![An icon of a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
 
 ). Then, choose **Add event mode
 presenters**. 2. In the dialog box that appears, select one or more attendees and choose
@@ -75,7 +75,7 @@ following actions in Event Mode:
 - To turn off Event Mode, open the **More options** menu
   (
 
-![An icon showing a horizontal ellipsis.](images/left-control-6.png)
+![An icon showing a horizontal ellipsis.](/images/chime/latest/ug/images/left-control-6.png)
 
 ), then choose **Disable Event Mode**. Once you
 turn off Event Mode, attendees can mute and unmute themselves, share their screens, and

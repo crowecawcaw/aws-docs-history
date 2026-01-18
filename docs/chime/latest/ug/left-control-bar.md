@@ -36,7 +36,7 @@ in-meeting chat messages. For more information, see [Using in-meeting chat](meet
 
 \*\*Closed captions (
 
-![An icon of a box surrounding the letters CC.](/images/chime/latest/ug/images/left-control-4.png)
+![An icon of a box surrounding the letters CC.](images/left-control-4.png)
 
 )\*\*
 
@@ -45,7 +45,7 @@ Starts and stops machine-generated closed captions. You must attend meetings hos
 
 \*\*Media layout (
 
-![An icon showing a stylized app window with three panels.](images/left-control-5.png)
+![An icon showing a stylized app window with three panels.](/images/chime/latest/ug/images/left-control-5.png)
 
 )\*\*
 
