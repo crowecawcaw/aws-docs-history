@@ -266,12 +266,10 @@ To let Glue automatically refresh the materialized view for you, the role must a
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "iam:PassRole"
-      ],
-      "Resource": [
-        "arn:aws:iam::111122223333:role/materialized-view-role-name"
-      ]
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
     }
   ]
 }
