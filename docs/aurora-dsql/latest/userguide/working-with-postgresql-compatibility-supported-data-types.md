@@ -24,7 +24,7 @@ Aurora DSQL supports the following PostgreSQL numeric data types.
 | `bigint`                        | `int8`                                                      | -9223372036854775808 to +9223372036854775807                                                                                            | 8 bytes                                                          | Yes           |
 | `real`                          | `float4`                                                    | 6 decimal digits precision                                                                                                              | 4 bytes                                                          | Yes           |
 | `double precision`              | `float8`                                                    | 15 decimal digits precision                                                                                                             | 8 bytes                                                          | Yes           |
-| `numeric` [ `(``p`,<br>`s``)` ] | `decimal` [ `(``p`,<br>`s``)` ]<br>`dec`[<br>`(``p`,`s``)`] | Exact numeric of selectable precision. The maximum precision is 38 and the<br>maximum scale is 37.1 The default is `numeric<br>(18,6)`. | 8 bytes + 2 bytes per precision digit. Maximum size is 27 bytes. | No            |
+| `numeric` [ `(``p`,<br>`s``)` ] | `decimal` [ `(``p`,<br>`s``)` ]<br>`dec`[<br>`(``p`,`s``)`] | Exact numeric of selectable precision. The maximum precision is 38 and the<br>maximum scale is 37.1 The default is `numeric<br>(18,6)`. | 8 bytes + 2 bytes per precision digit. Maximum size is 27 bytes. | Yes           |
 
 1 – If you don't explicitly specify a size when you run
 `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, Aurora DSQL enforces the
@@ -117,7 +117,7 @@ within a query. For more information, see [inet in the PostgreSQL documentation]
 
 Aurora DSQL supports JSON and JSONB as runtime data types for query processing, though these cannot be used as column data types in table schemas. You can store JSON data as `text` and cast it to JSON during query execution to use PostgreSQL JSON functions and operators.
 
-Aurora DSQL supports most PostgreSQL JSON functions from [section 9.1.6 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior. Unsupported functions include aggregate functions: `json_agg`, `json_agg_strict`, `json_arrayagg`, `json_objectagg`, `json_object_agg`, `json_object_agg_strict`, `json_object_agg_unique`.
+Aurora DSQL supports most PostgreSQL JSON functions from [section 9.1.6 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior.
 
 Functions that return JSON or JSONB types may require additional casting to `text` for proper display.
 

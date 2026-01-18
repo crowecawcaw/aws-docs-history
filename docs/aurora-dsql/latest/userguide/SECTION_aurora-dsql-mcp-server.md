@@ -93,7 +93,7 @@ Configure the MCP server in your MCP client configuration ([Finding the MCP Conf
         "--database_user",
         "[your dsql username, e.g. admin]",
         "--profile",
-        "default"
+        "[your aws profile, e.g. default]"
       ],
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR"
