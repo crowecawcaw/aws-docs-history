@@ -61,7 +61,7 @@ In addition,
   AWS Health. To integrate AWS Health, see [Monitoring events
   in AWS Health with Amazon EventBridge](../../../health/latest/ug/cloudwatch-events-health.md "../../../health/latest/ug/cloudwatch-events-health.md") in the _AWS Health User
   Guide_.
-- View planned maintenance schedules on your [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status").
+- View planned maintenance schedules on your [Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status").
 
 Under rare circumstances, a planned maintenance event cannot happen as scheduled. Should
 this occur, we'll send a cancellation notification and will reschedule the event in
