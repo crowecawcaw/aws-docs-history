@@ -11,7 +11,7 @@ output bucket if the if the JSON+ option and page granularity are selected.
 
 ## Response Granularity
 
-Response granularity determines what kind of response you want to recieve from document text extraction.
+Response granularity determines what kind of response you want to receive from document text extraction.
 Each level of granularity gives you more and more separated responses, with page providing all of the text extracted together,
 and word providing each word as a separate response. The available granularity levels are:
 
@@ -382,7 +382,7 @@ text.
 
 ## Additional file format metadata JSON
 
-When you recieve your additional files from the additional file formats flag, you will get a JSON
+When you receive your additional files from the additional file formats flag, you will get a JSON
 file for any rectified images that are extracted. BDA rectifies rotated images by using a homography to
 rotate the image to be at a 90 degree angle. An example of the JSON is below:
 

@@ -123,6 +123,10 @@ The following table shows the source Regions from which you can call the inferen
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
+| af-south-1     | Commercial AWS Regions<br>af-south-1     |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
 
 To call the GLOBAL TwelveLabs Pegasus v1.2 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -204,6 +208,9 @@ The following table shows the source Regions from which you can call the inferen
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
+| me-south-1     | Commercial AWS Regions<br>me-south-1     |
 
 To call the Global Claude Sonnet 4 inference profile, specify the following inference profile ID in one of the source Regions:
 
@@ -255,13 +262,13 @@ The following table shows the source Regions from which you can call the inferen
 | eu-west-1      | Commercial AWS Regions<br>eu-west-1      |
 | eu-west-2      | Commercial AWS Regions<br>eu-west-2      |
 | eu-west-3      | Commercial AWS Regions<br>eu-west-3      |
-| me-south-1     | Commercial AWS Regions<br>me-south-1     |
-| mx-central-1   | Commercial AWS Regions<br>mx-central-1   |
 | sa-east-1      | Commercial AWS Regions<br>sa-east-1      |
 | us-east-1      | Commercial AWS Regions<br>us-east-1      |
 | us-east-2      | Commercial AWS Regions<br>us-east-2      |
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
+| me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| il-central-1   | Commercial AWS Regions<br>il-central-1   |
 
 To call the Global Cohere Embed v4 inference profile, specify the following inference profile ID in one of the source Regions:
 

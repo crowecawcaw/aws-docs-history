@@ -3,11 +3,11 @@
 sensitive information filters
 
 Amazon Bedrock Guardrails helps detect sensitive information, such as personally identifiable information
-(PIIs), in standard format in input prompts or model responses. You can also configure
-sensitive information specific to your use case or organization by defining it with
-regular expressions (regex).
+(PII), in input prompts or model responses using sensitive information filters. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
+and detects sensitive information based on the context within input prompts or model responses. You can configure by selecting from a set of built-in PIIs offered by Amazon Bedrock Guardrails specific to your use case
+or organization by defining it along with regular expressions (custom regex) that work based on pattern matching to block or mask PII data.
 
-Sensitive information detection works across both natural language and code domain,
+Sensitive information detection works across both natural language and code domains,
 including code syntax, comments, string literals, and hybrid content. This helps
 identify PII embedded in code elements such as variable names, hardcoded credentials, or
 code documentation.
@@ -17,8 +17,8 @@ guardrails detects:
 
 - **Block** — Sensitive information filter
   policies can block requests or responses that include sensitive information.
-  Examples of such applications might include general question and answer
-  applications based on public documents. If sensitive information is detected in
+  Examples of such applications might include general questions and answers
+  based on public documents. If sensitive information is detected in
   the prompt or response, the guardrail blocks all the content and returns a
   message that you configure.
 - **Mask** — Sensitive information filter
@@ -205,8 +205,8 @@ guardrails detects:
 - **Custom**
   - **Regex filter**
 
-  You can use a regular expressions to define patterns for a guardrail
-  to recognize and act upon such as serial number, or booking ID.
+  You can use regular expressions to define patterns for a guardrail
+  to recognize and act upon such as serial number, booking ID, or other custom patterns.
 
 ###### Note
 

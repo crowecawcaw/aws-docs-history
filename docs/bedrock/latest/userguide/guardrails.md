@@ -1,58 +1,54 @@
 # Detect and filter harmful content by using Amazon Bedrock Guardrails
 
-Amazon Bedrock Guardrails provides safeguards that you can configure for your generative AI applications based
-on your use cases and responsible AI policies. You can create multiple guardrails tailored
-to different use cases and apply them across multiple foundation models (FMs), providing a
-consistent user experience and standardizing safety and privacy controls across generative
-AI applications. You can use guardrails for both model prompts and responses with natural
-language.
+Amazon Bedrock Guardrails provides configurable safeguards to help you build safe generative AI applications. With comprehensive safety and privacy controls across
+foundation models (FMs), Amazon Bedrock Guardrails offers a consistent user experience to help detect and filter undesirable content and protect sensitive information that might be present in
+user inputs or model responses (excluding reasoning content blocks).
 
-You can use Amazon Bedrock Guardrails in multiple ways to help safeguard your generative AI applications. For
-example:
+You can use Amazon Bedrock Guardrails across multiple use cases and applications. Below are a few examples:
 
-- A chatbot application can use guardrails to help filter harmful user inputs and
+- A chatbot application to help filter harmful user inputs and
   toxic model responses.
-- A banking application can use guardrails to help block user queries or model
-  responses associated with seeking or providing investment advice.
+- A banking application to help block user queries or model
+  responses associated with seeking or providing illegal investment advice.
 - A call center application to summarize conversation transcripts between users and
   agents can use guardrails to redact users’ personally identifiable information (PII)
   to protect user privacy.
-  Amazon Bedrock Guardrails provides the following safeguards (also known as policies) to detect and filter
-  harmful content:
+  Amazon Bedrock Guardrails provides the following safeguards (also known as filters) to detect and filter
+  undesirable content:
 
-- **Content filters** – Detect and filter harmful
+- **Content filters** – This filter helps you detect and filter harmful
   text or image content in input prompts or model responses. Filtering is done based
   on detection of certain predefined harmful content categories: Hate, Insults,
-  Sexual, Violence, Misconduct and Prompt Attack. You also can adjust the filter
-  strength for each of these categories. These categories are supported for both Classic
+  Sexual, Violence, Misconduct and Prompt Attack. You can configure the filter
+  strength for each of these categories based on your use cases. These categories are supported for both Classic
   and Standard [tiers](guardrails-tiers.md "guardrails-tiers.md"). With Standard tier,
   detection of undesirable content is extended to protection against harmful content
   introduced within code elements including comments, variable and function names, and
   string literals.
-- **Denied topics** – Define a set of topics that
+- **Denied topics** – You can define a set of topics that
   are undesirable in the context of your application. The filter will help block them
   if detected in user queries or model responses. With [Standard tier](guardrails-tiers.md "guardrails-tiers.md"), detection of undesirable content
   is extended to protection against harmful content introduced within code elements
   including comments, variables and function names, and string literals.
-- **Word filters** – Configure filters to help
-  block undesirable words, phrases, and profanity (exact match). Such words can
-  include offensive terms, competitor names, etc.
-- **Sensitive information filters** – Configure
-  filters to help block or mask sensitive information, such as personally identifiable
-  information (PII), or custom regex in user inputs and model responses. Blocking or
+- **Word filters** – You can define a set of custom words or phrases (exact match)
+  that you want to block in the interaction between end users and generative AI applications. For example, you can block
+  profanity (use a ready-to-use option) as well as custom words such as competitor names.
+- **Sensitive information filters** – You can configure
+  this filter to help block or mask sensitive information, such as personally identifiable
+  information (PII), in user inputs and model responses. Blocking or
   masking is done based on probabilistic detection of sensitive information in
-  standard formats in entities such as SSN number, Date of Birth, address, etc. This
-  also allows configuring regular expression based detection of patterns for
-  identifiers.
-- **Contextual grounding checks** – Help detect
-  and filter hallucinations in model responses based on grounding in a source and
-  relevance to the user query.
-- **Automated Reasoning checks** – Can help you
+  in entities such as SSN number, Date of Birth, address, etc. This filter
+  also allows configuring regular expression based detection of patterns (custom regex).
+- **Contextual grounding checks** – This filter helps you detect
+  hallucinations in model responses if they are not grounded (factually inaccurate or add new information) in the source or are irrelevant to
+  to the user's query. For example, you can block or flag responses in retrieval-augmented generation (RAG) applications. If the model responses deviate
+  from the information in the retrieved source or doesn't answer the question from the user.
+- **Automated Reasoning checks** – This filter helps you
   validate the accuracy of foundation model responses against a set of logical rules.
   You can use Automated Reasoning checks to detect hallucinations, suggest
   corrections, and highlight unstated assumptions in model responses.
-  In addition to the above policies, you can also configure the messages to be returned to
-  the user if a user input or model response is in violation of the policies defined in the
+  In addition to the above filters, you can also configure the messages to be returned to
+  the user if a user input or model response is in violation of the filters defined in the
   guardrail.
 
 Experiment and benchmark with different configurations and use the built-in test window to
@@ -66,12 +62,13 @@ Guardrails can be used directly with FMs during the inference API invocation by 
 the guardrail ID and the version. Guardrails can also be used directly through the
 `ApplyGuardrail` API without invoking the foundation models. If a guardrail
 is used, it will evaluate the input prompts and the FM completions against the defined
-policies.
+filters.
 
 For retrieval augmented generation (RAG) or conversational applications, you might need to
-evaluate only the user input in the input prompt while discarding system instructions,
+evaluate only user input prompts while discarding system instructions,
 search results, conversation history, or a few short examples. To selectively evaluate a
-section of the input prompt, see [Apply tags to user input to filter content](guardrails-tagging.md "guardrails-tagging.md").
+section of the input prompt, see [Apply tags to user input to filter content](guardrails-tagging.md "guardrails-tagging.md") The ability to evaluate only a section of the input prompt is available
+through the AWS SDK and not available on the management console including the Bedrock Playground and the Bedrock Guardrails management console.
 
 ###### Topics
 

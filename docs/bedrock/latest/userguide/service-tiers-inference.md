@@ -34,32 +34,78 @@ For more information about pricing, visit the [pricing page](https://aws.amazon.
 
 Models and regions supported by the Reserved service tier:
 
-|                  |                   |                                                                                              |                |
-| ---------------- | ----------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| **Provider**     | **Model**         | **Model IDs**                                                                                | **Regions**    |
-| Anthropic        | Claude Sonnet 4.5 | global.anthropic.claude-sonnet-4-5-20250929-v1:0us.anthropic.claude-sonnet-4-5-20250929-v1:0 | ap-northeast-1 |
-| ap-northeast-2   |
-| ap-northeast-3   |
-| ap-southeast-1   |
-| ap-southeast-2   |
-| ap-south-1       |
-| ap-southeast-3   |
-| ap-south-2       |
-| ap-southeast-4   |
-| ca-central-1     |
-| Europe-west-1    |
-| Europe-central-1 |
-| Europe-central-2 |
-| Europe-north-1   |
-| Europe-south-1   |
-| Europe-south-2   |
-| Europe-west-2    |
-| Europe-west-3    |
-| sa-east-1        |
-| us-east-1        |
-| us-east-2        |
-| us-west-1        |
-| us-west-2        |
+|                |                   |                                                                                                                                          |                |
+| -------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| **Provider**   | **Model**         | **Model IDs**                                                                                                                            | **Regions**    |
+| Anthropic      | Claude Sonnet 4.5 | global.anthropic.claude-sonnet-4-5-20250929-v1:0us.anthropic.claude-sonnet-4-5-20250929-v1:0eu.anthropic.claude-sonnet-4-5-20250929-v1:0 | ap-northeast-1 |
+| ap-northeast-2 |
+| ap-northeast-3 |
+| ap-southeast-1 |
+| ap-southeast-2 |
+| ap-south-1     |
+| ap-southeast-3 |
+| ap-south-2     |
+| ap-southeast-4 |
+| ca-central-1   |
+| eu-west-1      |
+| eu-central-1   |
+| eu-central-2   |
+| eu-north-1     |
+| eu-south-1     |
+| eu-south-2     |
+| eu-west-2      |
+| eu-west-3      |
+| sa-east-1      |
+| us-east-1      |
+| us-east-2      |
+| us-west-1      |
+| us-west-2      |
+| Anthropic      | Claude Opus 4.5   | global.anthropic.claude-opus-4-5-20251101-v1:0us.anthropic.claude-opus-4-5-20251101-v1:0eu.anthropic.claude-opus-4-5-20251101-v1:0       | ap-northeast-1 |
+| ap-northeast-2 |
+| ap-northeast-3 |
+| ap-southeast-1 |
+| ap-southeast-2 |
+| ap-south-1     |
+| ap-southeast-3 |
+| ap-south-2     |
+| ap-southeast-4 |
+| ca-central-1   |
+| eu-west-1      |
+| eu-central-1   |
+| eu-central-2   |
+| eu-north-1     |
+| eu-south-1     |
+| eu-south-2     |
+| eu-west-2      |
+| eu-west-3      |
+| sa-east-1      |
+| us-east-1      |
+| us-east-2      |
+| us-west-1      |
+| us-west-2      |
+| Anthropic      | Claude Haiku 4.5  | global.anthropic.claude-haiku-4-5-20251001-v1:0us.anthropic.claude-haiku-4-5-20251001-v1:0eu.anthropic.claude-haiku-4-5-20251001-v1:0    | ap-northeast-1 |
+| ap-northeast-2 |
+| ap-northeast-3 |
+| ap-southeast-1 |
+| ap-southeast-2 |
+| ap-south-1     |
+| ap-southeast-3 |
+| ap-south-2     |
+| ap-southeast-4 |
+| ca-central-1   |
+| eu-west-1      |
+| eu-central-1   |
+| eu-central-2   |
+| eu-north-1     |
+| eu-south-1     |
+| eu-south-2     |
+| eu-west-2      |
+| eu-west-3      |
+| sa-east-1      |
+| us-east-1      |
+| us-east-2      |
+| us-west-1      |
+| us-west-2      |
 
 ###### Note
 

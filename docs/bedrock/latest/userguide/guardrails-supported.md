@@ -55,8 +55,8 @@ The following table shows model support for Amazon Bedrock Guardrails:
 
 ###### Note
 
-Amazon Bedrock Guardrails doesn't support [model reasoning](inference-reasoning.md "inference-reasoning.md")
-with Anthropic Claude 3.7 Sonnet or DeepSeek-R1.
+Amazon Bedrock Guardrails doesn't support evaluation of [reasoning content blocks](inference-reasoning.md "inference-reasoning.md")
+with supported reasoning models.
 
 For a list of all the models supported by Amazon Bedrock and their IDs, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md")
 

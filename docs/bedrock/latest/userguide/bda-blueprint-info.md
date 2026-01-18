@@ -60,7 +60,7 @@ dashes from a social security number, converting from 111-22-3333 to 111223333. 
 - Type: The data format that you want the response for the field to use. We support string,
   number, boolean, array of string, and array of numbers.
 - Confidence score: The percentage of certainty that BDA has that your extraction is
-  accurate. Audio blueprints do not return a confidence score.
+  accurate. Audio and Image blueprints do not return a confidence score.
 - Extraction Types: The type of extraction, either explict or inferred.
 - Page Number: Which page of the document that the result was found on. Audio and Video
   blueprints do not return a page number.

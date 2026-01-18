@@ -369,8 +369,7 @@ the AWS Service Terms.
 
 ###### Note
 
-This feature is currently supported on Claude Sonnet 4.5, Claude Haiku 4.5, and Claude Opus 4.5.
-Support for Claude Opus 4, Claude Opus 4.1, and Claude Sonnet 4 will be added by January 15th 2026.
+This feature is currently supported on Claude Sonnet 4/4.5, Claude Haiku 4.5, and Claude Opus 4/4.1/4.5.
 
 Automatic tool call clearing is an Anthropic Claude model capability (in beta). With this feature,
 Claude can automatically clear old tool use results as you approach token limits,

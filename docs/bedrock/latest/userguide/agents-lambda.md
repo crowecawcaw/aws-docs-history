@@ -240,7 +240,7 @@ The following list describes the response fields:
 
 ## Action group Lambda function example
 
-The following is an minimal example of how the Lambda function can be defined in Python. Select the tab corresponding to whether you defined the action group with an OpenAPI schema or with function details:
+The following is a minimal example of how the Lambda function can be defined in Python. Select the tab corresponding to whether you defined the action group with an OpenAPI schema or with function details:
 
 OpenAPI schema
 

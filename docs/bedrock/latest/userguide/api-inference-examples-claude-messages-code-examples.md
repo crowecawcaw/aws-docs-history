@@ -84,7 +84,7 @@ def main():
     except ClientError as err:
         message=err.response["Error"]["Message"]
         logger.error("A client error occurred: %s", message)
-        print("A client error occured: " +
+        print("A client error occurred: " +
             format(message))
 
 if __name__ == "__main__":
@@ -205,7 +205,7 @@ def main():
     except ClientError as err:
         message = err.response["Error"]["Message"]
         logger.error("A client error occurred: %s", message)
-        print("A client error occured: " +
+        print("A client error occurred: " +
               format(message))
 
 

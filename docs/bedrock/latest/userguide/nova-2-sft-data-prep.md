@@ -231,7 +231,7 @@ Set `reasoning_enabled: false` when you're training on straightforward tasks tha
 
 ### Generating reasoning data
 
-If your dataset lacks reasoning traces, you can create them using a reasoning-capable model like . Provide your input-output pairs to the model and capture its reasoning process to build a reasoning-augmented dataset.
+If your dataset lacks reasoning traces, you can create them using a reasoning-capable model like Nova Premier. Provide your input-output pairs to the model and capture its reasoning process to build a reasoning-augmented dataset.
 
 ### Using reasoning tokens for training
 
@@ -256,12 +256,10 @@ This helps the model develop the ability to think before answering.
 
 The following table provides guidelines for preparing your training dataset.
 
-## Dataset preparation guidelines
-
-| Guideline                    | Description                                                                                                                                                                                                                                                          |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Size and quality**         | • Recommended size: 2,000-10,000 samples<br>• Minimum samples: 200<br>• Prioritize quality over quantity. Ensure examples are accurate and well-annotated.<br>• Dataset should closely reflect your production use cases.                                            |
-| **Diversity**                | Include diverse examples that do the following:<br>• Cover the full range of expected inputs<br>• Represent different difficulty levels<br>• Include edge cases and variations<br>• Prevent overfitting to narrow patterns                                           |
-| **Output formatting**        | Clearly specify the desired output format in assistant responses. Examples include JSON structures, tables, CSV format, or custom formats specific to your application.                                                                                              |
-| **Multi-turn conversations** | • Loss is calculated only on assistant turns, not user turns.<br>• Each assistant response should be properly formatted.<br>• Maintain consistency across conversation turns.                                                                                        |
-| **Quality checklist**        | • Sufficient dataset size (2,000-10,000 samples)<br>• Diverse examples covering all use cases<br>• Clear, consistent output formatting<br>• Accurate labels and annotations<br>• Representative of production scenarios<br>• Free from contradictions or ambiguities |
+| Dataset preparation guidelines | Guideline                                                                                                                                                                                                                                                            | Description |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **Size and quality**           | • Recommended size: 2,000-10,000 samples<br>• Minimum samples: 200<br>• Prioritize quality over quantity. Ensure examples are accurate and well-annotated.<br>• Dataset should closely reflect your production use cases.                                            |
+| **Diversity**                  | Include diverse examples that do the following:<br>• Cover the full range of expected inputs<br>• Represent different difficulty levels<br>• Include edge cases and variations<br>• Prevent overfitting to narrow patterns                                           |
+| **Output formatting**          | Clearly specify the desired output format in assistant responses. Examples include JSON structures, tables, CSV format, or custom formats specific to your application.                                                                                              |
+| **Multi-turn conversations**   | • Loss is calculated only on assistant turns, not user turns.<br>• Each assistant response should be properly formatted.<br>• Maintain consistency across conversation turns.                                                                                        |
+| **Quality checklist**          | • Sufficient dataset size (2,000-10,000 samples)<br>• Diverse examples covering all use cases<br>• Clear, consistent output formatting<br>• Accurate labels and annotations<br>• Representative of production scenarios<br>• Free from contradictions or ambiguities |

@@ -1,49 +1,49 @@
 # Create your guardrail
 
-Amazon Bedrock Guardrails consists of a collection of different filtering policies that you can configure to
+Amazon Bedrock Guardrails offers filters that you can configure to
 help avoid undesirable and harmful content and remove or mask sensitive information for
 privacy protection.
 
-You can configure the following policies in a guardrail:
+You can configure the following filters with Amazon Bedrock Guardrails:
 
-- **Content filters** — Detect and filter harmful
-  text or image content in input prompts or model responses. Filtering is done based
+- **Content filters** — This filter helps you detect and filter harmful
+  text or image content in input prompts or model responses (excluding reasoning content). Filtering is done based
   on detection of certain predefined harmful content categories: Hate, Insults,
-  Sexual, Violence, Misconduct and Prompt Attack. You also can adjust the filter
-  strength for each of these categories. With [Standard tier](guardrails-tiers.md "guardrails-tiers.md"), content filters extend to the code-related
-  content.
-- **Prompt attacks** — Can help you detect and
-  filter prompt attacks and prompt injections. Helps detect prompts that are intended
-  to bypass moderation, override instructions, or generate harmful content.
+  Sexual, Violence, Misconduct and Prompt Attack. You can configure the filter
+  strength for each of these categories based on your use cases. With [Standard tier](guardrails-tiers.md "guardrails-tiers.md"), detection of undesirable content is extended to protect against harmful content within code elements including
+  comments, variable and function names, and string literals.
+- **Prompt attacks** — Offered as a category within content filters, this filter can help you detect and
+  filter prompt attacks including jailbreaks, prompt injections, and prompt leakages (Standard tier only). This capability helps you detect prompts that are intended
+  to bypass content moderation, override instructions, or generate harmful content.
 - **Denied topics** — You can define a set of
   topics to avoid within your generative AI application. For example, a banking
   assistant application can be designed to help avoid topics related to illegal
   investment advice. With [Standard tier](guardrails-tiers.md "guardrails-tiers.md"),
-  content filters extend to the code-related content.
-- **Word filters** — You can configure a set of
+  content filters extend to code domains.
+- **Word filters** — You can define a set of
   custom words or phrases (exact match) that you want to detect and block in the
   interaction between your users and generative AI applications. For example, you can
-  detect and block profanity as well as specific custom words such as competitor
+  detect and block profanity (using a ready-to-use option) as well as specific custom words such as competitor
   names, or other offensive words.
 - **Sensitive information filters** — Can help
   you detect sensitive content such as Personally Identifiable Information (PII) in
-  standard formats or custom regex entities in user inputs and FM responses. Based on
-  the use case, you can reject inputs containing sensitive information or redact them
-  in FM responses. For example, you can redact users’ personal information while
+  standard formats or custom regex entities in user inputs and FM responses. This filter is a probabilistic maching learning (ML)
+  based solution that is context dependent. It detects sensitive information based on the context within input prompts or model responses. Based on
+  your use case, you can block or mask inputs and responses containing sensitive information. For example, you can redact users’ personal information while
   generating summaries from customer and agent conversation transcripts.
 - **Contextual grounding checks** — Can help you
   detect and filter hallucinations in model responses if they are not grounded
   (factually inaccurate or add new information) in the source information or are
-  irrelevant to the user’s query. For example, you can block or flag responses in RAG
-  applications (retrieval-augmented generation), if the model responses deviate from
-  the information in the retrieved passages or doesn’t answer the question by the
+  irrelevant to the user’s query. For example, you can block or flag responses in RAG (retrieval-augmented generation)
+  applications, if the model responses deviate from
+  the information in the retrieved passages or doesn’t answer the question from the
   user.
 - **Automated reasoning checks** — Can help you
   validate that model responses adhere to logical rules and policies that you define.
   You can create policies using natural language that specify the reasoning
-  requirements, and the guardrail will evaluate whether model outputs comply with
+  requirements, and Automated reasoning checks will evaluate whether model outputs comply with
   these logical constraints. For example, you can ensure that a customer service
-  chatbot only recommends products that are actually available in inventory, or verify
+  chatbot only recommends products that are available in the inventory, or verify
   that financial advice follows regulatory compliance rules.
 
 ###### Note
