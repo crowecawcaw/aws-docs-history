@@ -70,11 +70,15 @@ How AWS Managed Services (AMS) auto-remediation works with Amazon RDS low storag
 - Before trying to extend the Amazon RDS instance storage, the automation performs several checks to ensure
   the Amazon RDS instance is in a modifiable and available, or storage-full, state.
 - Where CloudFormation stack drift is detected, remediation occurs through the Amazon RDS API.
+- Depending on the triggering event, the remediation modifies the properties
+  `MaxAllocatedStorage`, `AllocatedStorage`,
+  `Iops`, or `StorageThroughput`. Other Amazon RDS instance
+  properties are not modified. For more information, see [Settings
+  for DB instances](../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md "../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.md").
 - The remediation action does not run in the following scenarios:
   - The Amazon RDS instance status is not "available" or "storage-full".
   - The Amazon RDS instance storage is not currently modifiable (such as when the storage has been modified in the last six hours).
   - The Amazon RDS instance has auto-scaling storage enabled.
-  - The Amazon RDS instance is not a resource within a CloudFormation stack.
 
 - Remediation is limited to one expansion per six hours and no more than three expansions within a rolling fourteen day period.
 - When these scenarios occur, AMS reaches out to you with an outbound incident to determine next actions.
