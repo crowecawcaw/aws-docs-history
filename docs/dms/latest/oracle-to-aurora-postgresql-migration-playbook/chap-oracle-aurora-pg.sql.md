@@ -1,137 +1,292 @@
-# Single-row and aggregate functions
+# Oracle and PostgreSQL sequences
 
-Single-row and aggregate functions are essential SQL constructs that perform operations on individual rows or groups of rows, respectively. The following sections compare Oracle and PostgreSQL single-row and aggregate functions.
+With AWS DMS, you can manage database sequence objects across heterogeneous database platforms during migration. Sequences are unique identifiers that generate sequential numbers, often used as primary keys in tables.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                   |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | Not all functions are supported by PostgreSQL and may require to create manually. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                      | Key differences                                  |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| Four star feature compatibility | Four star automation level         | [Sequences](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.sequences "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.sequences") | Different syntax for a few options in PostgreSQL |
 
 ## Oracle usage
 
-Oracle provides two main categories of built-in SQL functions based on the number of rows used as input and generated as output.
+Sequences are database objects that serve as unique identity value generators, for example, automatically generating primary key values. Oracle treats sequences as independent objects. The same sequence can generate values for multiple tables.
 
-- Single-row functions (also known as scalar functions) return a single result for each row of the queried table or view. You can use them with a `SELECT` statement in the `WHERE` clause, the `START WITH` clause, the `CONNECT BY` clause, and the `HAVING` clause. The single-row functions are divided into groups according to data types such as `NUMERIC` functions, `CHAR` functions, and `DATETIME` functions.
-- Aggregative Functions (also known as Group functions) are used to summarize a group of values into a single result. Examples include `AVG`, `MIN`, `MAX`, `SUM`, `COUNT`, `LISTAGG`, `FIRST`, and `LAST`.
+Sequences can be configured with multiple parameters to control their value-generating behavior. For example, the `INCREMENT BY` sequence parameter defines the interval between each generated sequence value. If more than one database user is generating incremented values from the same sequence, each user may encounter gaps in the generated values that are visible to them.
 
-See the following section for a comparison of Oracle and PostgreSQL single-row functions.
+Oracle 18c introduces scalable sequences: a special class of sequences that are optimized for multiple concurrent session usage.
 
-Oracle 19 adds ability to eliminate duplicate items in `LISTAGG` function results with new `DISTINCT` keyword.
+This introduces the following new options when creating a new sequence:
 
-Oracle 19 introduces several new bitmap SQL aggregate functions (`BITMAP_BUCKET_NUMBER`, `BITMAP_BIT_POSITION` and `BITMAP_CONSTRUCT_AGG`) that help to speed up `COUNT DISTINCT` operations.
+- `SCALE` — enable the sequence scalability feature.
+  - `EXTEND` — extend in additional 6 digits offset (as default) and the maximum number of digits in the sequence (maxvalue/minvalue).
+  - `NOEXTEND` (default when using the `SCALE` option) — sequence value will be padded to the max value.
 
-For more information, see [Single-Row Functions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Single-Row-Functions.html#GUID-B93F789D-B486-49FF-B0CD-0C6181C5D85C "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Single-Row-Functions.html#GUID-B93F789D-B486-49FF-B0CD-0C6181C5D85C") and [Aggregate Functions](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Aggregate-Functions.html#GUID-62BE676BAF18-4E63-BD14-25206FEA0848 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Aggregate-Functions.html#GUID-62BE676BAF18-4E63-BD14-25206FEA0848") in _Oracle documentation_.
+- `NOSCALE` — non-scalable sequence usage.
+
+### Oracle sequence options
+
+By default, the initial and increment values for a sequence are both 1, with no upper limit.
+
+- `INCREMENT BY`: Controls the sequence interval value of the increment or decrement (if a negative value is specified). If the INCREMENT BY parameter isn’t specified during sequence creation, the value is set to 1. The increment can’t be assigned a value of 0.
+- `START WITH`: Defines the initial value of a sequence. The default value is 1.
+- `MAXVALUE` | `NOMAXVALUE`: Specifies the maximum limit for values generated by a sequence. It must be equal or greater than the START WITH parameter and must be greater in value than the `MINVALUE` parameter. The default for `NOMAXVALUE` is 1027 for an ascending sequence.
+- `MINVALUE` | `NOMINVALUE`: Specifies the minimum limit for values generated by a sequence. Must be less than or equal to the `START WITH` parameter and must be less than the `MAXVALUE` parameter. The default for `NOMINVALUE` is -1026 for a descending sequence.
+- `CYCLE` | `NOCYCLE`: Instructs a sequence to continue generating values despite reaching the maximum value or the minimum value. If the sequence reaches one of the defined ascending limits, it generates a new value according to the minimum value. If it reaches a descending limit, it generates a new value according to the maximum value. `NOCYCLE` is the default.
+- `CACHE` | `NOCACHE`: Specifies the number of sequence values to keep cached in memory for improved performance. `CACHE` has a minimum value of 2. The `NOCACHE` parameter causes a sequence to not cache values in memory. Specifying neither `CACHE` nor `NOCACHE` will cache 20 values to memory. In the event of a database failure, all unused cached sequence values are lost and gaps in sequence values may occur.
+- `SCALE` | `NOSCALE`: Enable the scalable sequences feature (described above).
+
+**Examples**
+
+Create a sequence.
+
+```
+CREATE SEQUENCE SEQ_EMP
+START WITH 100
+INCREMENT BY 1
+MAXVALUE 99999999999
+CACHE 20
+NOCYCLE;
+```
+
+Drop a sequence.
+
+```
+DROP SEQUENCE SEQ_EMP;
+```
+
+View sequences created for the current schema or user.
+
+```
+SELECT * FROM USER_SEQUENCES;
+```
+
+Use a sequence as part of an `INSERT INTO` statement.
+
+```
+CREATE TABLE EMP_SEQ_TST (COL1 NUMBER PRIMARY KEY, COL2 VARCHAR2(30));
+INSERT INTO EMP_SEQ_TST VALUES(SEQ_EMP.NEXTVAL, 'A');
+
+COL1    COL2
+100     A
+```
+
+Query the current value of a sequence.
+
+```
+SELECT SEQ_EMP.CURRVAL FROM DUAL;
+```
+
+Manually increment the value of a sequence according to the `INCREMENT BY` specification.
+
+```
+SELECT SEQ_EMP.NEXTVAL FROM DUAL;
+```
+
+Alter an existing sequence.
+
+```
+ALTER SEQUENCE SEQ_EMP MAXVALUE 1000000;
+```
+
+Create a scalable sequence.
+
+```
+CREATE SEQUENCE scale_seq
+MINVALUE 1
+MAXVALUE 9999999999
+SCALE;
+
+select scale_seq.nextval as scale_seq from dual;
+
+NEXTVAL
+1010320001
+```
+
+### Oracle 12c default values using sequences
+
+Starting with Oracle 12c, you can assign a sequence to a table column with the `CREATE TABLE` statement and specify the `NEXTVAL` configuration of the sequence.
+
+Generate `DEFAULT` values using sequences.
+
+```
+CREATE TABLE SEQ_TST ( COL1 NUMBER DEFAULT SEQ_1.NEXTVAL PRIMARY KEY, COL2 VARCHAR(30));
+INSERT INTO SEQ_TST(COL2) VALUES('A');
+
+SELECT * FROM SEQ_TST;
+
+COL1   COL2
+100    A
+```
+
+### Oracle 12c session sequences (`SESSION` or `GLOBAL`)
+
+Beginning with Oracle 12c, sequences can be created as session-level or global-level. By adding the `SESSION` parameter to a `CREATE SEQUENCE` statement, the sequence is created as a session-level sequence. Optionally, you can use the `GLOBAL` keyword to create a global sequence to provide consistent results across sessions in the database. Global sequences are the default. Session sequences return a unique range of sequence numbers only within a session.
+
+Create Oracle 12c `SESSION` and `GLOBAL` sequences.
+
+```
+CREATE SEQUENCE SESSION_SEQ SESSION;
+CREATE SEQUENCE SESSION_SEQ GLOBAL;
+```
+
+### Oracle 12c identity columns
+
+You can use sequences as an `IDENTITY` type, which automatically creates a sequence and associates it with the table column. The main difference is that there is no need to create a sequence manually; the `IDENTITY` type does that for you. An `IDENTITY` type is a sequence that can be configured.
+
+Insert records using an Oracle 12c `IDENTITY` column (explicitly or implicitly).
+
+```
+INSERT INTO IDENTITY_TST(COL2) VALUES('A');
+INSERT INTO IDENTITY_TST(COL1, COL2) VALUES(DEFAULT, 'B');
+INSERT INTO IDENTITY_TST(col1, col2) VALUES(NULL, 'C');
+
+SELECT * FROM IDENTITY_TST;
+
+COL1    COL2
+120     A
+130     B
+```
+
+For more information, see [CREATE SEQUENCE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html#GUID-E9C78A8C-615A-4757-B2A8-5E6EFB130571 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html#GUID-E9C78A8C-615A-4757-B2A8-5E6EFB130571") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL provides an extensive list of single-row and aggregation functions. Some are similar to their Oracle counterparts (by name and functionality, or under a different name but with similar functionality). Other functions can have identical names to their Oracle counterparts, but exhibit different functionality. In the following tables, the Equivalent column indicates functional equivalency.
+Sequences in PostgreSQL serve the same purpose as in Oracle; they generate numeric identifiers automatically. The PostgreSQL `CREATE SEQUENCE` command is mostly compatible with the Oracle `CREATE SEQUENCE` command. A sequence object is owned by the user that created it.
 
-**Numeric functions**
+Oracle 18c introduces scalable sequences, this feature isn’t always needed but if it and the current PostgreSQL isn’t scalable enough, you can use other solutions and services to allow high-concurrency data read (to store only sequences data), this option will require more changes in the application layer.
 
-| Oracle function  | Function definition                                                                             | PostgreSQL function | Function definition                                                                             | Equivalent |
-| ---------------- | ----------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------- | ---------- |
-| `ABS`            | Absolute value of n: `abs (-11.3) → 11.3`.                                                      | `ABS(n)`            | Absolute value of n: `abs (-11.3) → 11.3`.                                                      | Yes        |
-| `CEIL`           | Returns the smallest integer that is greater than or equal to n: `ceil (-24.9) → -24`.          | `CEIL` / `CEILING`  | Returns the smallest integer that is greater than or equal to n: `ceil (-24.9) → -24`.          | Yes        |
-| `FLOOR`          | Returns the largest integer equal to or less than n: `floor (-43.7) → -44`.                     | `FLOOR`             | Returns the largest integer equal to or less than n: `floor (-43.7) → -44`.                     | Yes        |
-| `MOD`            | Remainder of n2 divided by n1: `mod(10,3) → 1`.                                                 | `MOD`               | Remainder of n2 divided by n1: `mod(10,3) → 1`.                                                 | Yes        |
-| `ROUND`          | Returns n rounded to integer places to the right of the decimal point: `round (3.49, 1) → 3.5`. | `ROUND`             | Returns n rounded to integer places to the right of the decimal point: `round (3.49, 1) → 3.5`. | Yes        |
-| `TRUNC (Number)` | Returns n1 truncated to n2 decimal places: `trunc(13.5) → 13`.                                  | `TRUNC (Number)`    | Returns n1 truncated to n2 decimal places: `trunc(13.5) → 13`.                                  | Yes        |
-
-**Character functions**
-
-| Oracle function   | Function definition                                                                                                                                                                                    | PostgreSQL function           | Function definition                                                                                                                                                                                                                                                                  | Equivalent |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| `CONCAT`          | Returns char1 concatenated with char2: `concat('a', 1) → a1`.                                                                                                                                          | `CONCAT`                      | Concatenate the text representations of all the arguments: `concat('a', 1) → a1`.                                                                                                                                                                                                    | Partly     |
-| `LOWER` / `UPPER` | Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith') → mr. smith`.                                                                                                              | `LOWER` / `UPPER`             | Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith') → mr. smith`.                                                                                                                                                                                            | Yes        |
-| `LPAD` / `RPAD`   | Returns expr1, left or right padded to length n characters with the sequence of characters in expr2: `LPAD('Log-1',10,'-') → -----Log-1`.                                                              | `LPAD` / `RPAD`               | Returns expr1, left or right padded to length n characters with the sequence of characters in expr2: `LPAD('Log-1',10,'-') → -----Log-1`.                                                                                                                                            | Yes        |
-| `REGEXP_REPLACE`  | Search a string for a regular expression pattern: `regexp_replace('John', '[hn].', '1') → Jo1`.                                                                                                        | `REGEXP_REPLACE`              | Replace substring(s) matching a POSIX regular expression: `regexp_replace('John', '[hn].', '1') → Jo1`.                                                                                                                                                                              | Yes        |
-| `REGEXP_SUBSTR`   | Extends the functionality of the SUBSTR function by searching a string for a regular expression pattern: `REGEXP_SUBSTR('http://www.aws.-com/products','http://(+\.?){3,4}/?') → http://www.aws.com/`. | `REGEXP_MATCHES OR SUBSTRING` | Return all captured substrings resulting from matching a POSIX regular expression against the string: `REGEXP_MATCHES ('http://www.aws.com/products', '(http://+./)') → {http://www.aws.com/} OR SUBSTRING ('http://www.aws.-com/products', '(http://+./)') → http://www.aws.-com/`. | No         |
-| `REPLACE`         | Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123') → 123def`.                                                                   | `REPLACE`                     | Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123') → 123def`.                                                                                                                                                 | Yes        |
-| `LTRIM` / `RTRIM` | Removes from the left or right end of char all of the characters that appear in set: `ltrim ('zzzyaws', 'xyz') → aws`.                                                                                 | `LTRIM` / `RTRIM`             | Remove the longest string containing only characters from characters (a space by default) from the start of string: `ltrim('zzzyaws', 'xyz') → aws`.                                                                                                                                 | Yes        |
-| `SUBSTR`          | Return a portion of char, beginning at character position, substring length characters long: `substr('John Smith', 6 ,1) → S`.                                                                         | `SUBSTRING`                   | Extract substring: `substring ( 'John Smith', 6 ,1) → S `.                                                                                                                                                                                                                           | No         |
-| `TRIM`            | Trim leading or trailing characters (or both) from a character string: `trim (both 'x' FROM 'xJohnxx') → John`.                                                                                        | `TRIM`                        | Remove the longest string containing only characters from characters (a space by default) from the start, end, or both ends: `trim (both from 'yxJohnxx', 'xyz') → John`.                                                                                                            | Partly     |
-| `ASCII`           | Returns the decimal representation in the database character set of the first character of char: `ascii('a') → 97`.                                                                                    | `ASCII`                       | Returns the decimal representation in the database character set of the first character of char: `ascii('a') → 97`.                                                                                                                                                                  | Yes        |
-| `INSTR`           | Search string for substring                                                                                                                                                                            | N/A                           | Oracle `INSTR` function can be simulated using PostgreSQL built-in function.                                                                                                                                                                                                         | No         |
-| `LENGTH`          | Return the length of char: `length ('John S.') → 7`.                                                                                                                                                   | `LENGTH`                      | Return the length of char: `length ('John S.') → 7`.                                                                                                                                                                                                                                 | Yes        |
-| `REGEXP_COUNT`    | Returns the number of times, a pattern occurs in a source string.                                                                                                                                      | N/A                           | You can use the `REGEXP_COUNT` function with Amazon Redshift if necessary.                                                                                                                                                                                                           | No         |
-| `REGEXP_INSTR`    | Search a string position for a regular expression pattern.                                                                                                                                             | N/A                           | You can use the `REGEXP_INSTR` function with Amazon Redshift if necessary.                                                                                                                                                                                                           | No         |
-
-**Datetime functions**
-
-| Oracle function       | Function definition                                                                                                                                                                               | PostgreSQL function   | Function definition                                                                                                                                                                                                                                                 | Equivalent |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `ADD_MONTHS`          | Returns the date plus integer months: `add_months( sysdate,1)`                                                                                                                                    | N/A                   | PostgreSQL can implement the same functionality using the `<date>+ interval month` statement: `now () + interval '1 month'`.                                                                                                                                        | No         |
-| `CURRENT_DATE`        | Returns the current date in the session time zone: `select current_date from dual → 2017-01-01 13:01:01`.                                                                                         | `CURRENT_DATE`        | PostgreSQL CURRENT_DATE will return date with no time, use the `now()` or the `current_timestamp` function to achieve the same results: `select current_timestamp → 2017-01-01 13:01:01`.                                                                           | Partly     |
-| `CURRENT_TIMESTAMP`   | Returns the current date and time in the session time zone: `select current_timestamp from dual; → 2017-01-01 13:01:01`.                                                                          | `CURRENT_TIMESTAMP`   | Returns the current date and time in the session time zone: `select current_timestamp; → 2017-01-01 13:01:01`.                                                                                                                                                      | Yes        |
-| `EXTRACT (date part)` | Returns the value of a specified datetime field from a datetime or interval expression: `EXTRACT (YEAR FROM DATE '2017-03-07') → 2017`.                                                           | `EXTRACT (date part)` | Returns the value of a specified datetime field from a datetime or interval expression: `EXTRACT (YEAR FROM DATE '2017-03-07') → 2017`.                                                                                                                             | Yes        |
-| `LAST_DAY`            | Returns the date of the last day of the month that contains date: `LAST_DAY('05-07-2018') → 05-31-2018`.                                                                                          | N/A                   | You can use the `LAST_DAY` function with Amazon Redshift if necessary or you can create a workaround with PostgreSQL built-in functions.                                                                                                                            | No         |
-| `BETWEEN`             | Returns the number of months between dates date1 and date2: `MONTHS_BETWEEN ( sysdate, sysdate-100) → 3.25`.                                                                                      | N/A                   | As an alternative solution create a function from PostgreSQL built-in functions to achieve the same functionality. Example for a possible solution without decimal values: `DATE_PART ('month', now())<br>• DATE_PART('month', now()<br>• interval'100 days') → 3`. | No         |
-| `SYSDATE`             | Returns the current date and time set for the operating system on which the database server resides: `select sysdate from dual; → 2017-01-01 13:01:01`.                                           | `now()`               | Current date and time including fractional seconds and time zone: `select now (); → 2017-01-01 13:01:01.123456+00`.                                                                                                                                                 | No         |
-| `SYSTIMESTAMP`        | Returns the system date, including fractional seconds and time zone: `select systimestamp from dual; → 2017-01-01 13:01:01.123456 PM+00:00`.                                                      | `NOW()`               | Current date and time including fractional seconds and time zone: `select now (); → 2017-01-0113:01:01.123456+00`.                                                                                                                                                  | No         |
-| `LOCALTIMESTAMP`      | Returns the current date and time in the session time zone in a value of data type TIMESTAMP: `select localtimestamp from dual; → 01-JAN-17 10.01.10.123456 PM`.                                  | `LOCALTIMESTAMP`      | Returns the current date and time in the session time zone in a value of data type TIMESTAMP: `select localtimestamp; → 01-JAN-17 10.01.10.123456 PM`.                                                                                                              | Yes        |
-| `TO_CHAR(datetime)`   | Converts a datetime or timestamp to data type to a value of VARCHAR2 data type in the format specified by the date format: `to_char(sys-date, 'DD-MON-YYYY HH24:MI:SS'); → 01-JAN-2017 01:01:01`. | `TO_CHAR(datetime)`   | Convert time stamp to string: `TO_CHAR(now(), 'DD-MONYYYY HH24:MI:SS'); → 01-JAN-2017 01:01:01`.                                                                                                                                                                    | Yes        |
-| `TRUNC (date)`        | Returns a date with the time portion of the day truncated to the unit specified by the format model: `trunc(systimestamp); → 2017-01-01 00:00:00`.                                                | `DATE_TRUNC`          | Truncate to specified precision: `date_trunc('day', now()); → 2017-01-01 00:00:00`.                                                                                                                                                                                 | No         |
-
-**Encoding and decoding functions**
-
-| Oracle function | Function definition                                                                                                   | PostgreSQL function | Function definition                                                                                                                                                                             | Equivalent |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `DECODE`        | Compares expression to each search value one by one using the functionality of an `IF-THEN-ELSE` statement.           | `DECODE`            | PostgreSQL Decode function acts differently from Oracle, PostgreSQL decode binary data from textual representation in string and doesn’t have the functionality of an `IF-THEN-ELSE` statement. | No         |
-| `DUMP`          | Returns a `VARCHAR2` value containing the data type code, length in bytes, and internal representation of expression. | N/A                 | N/A                                                                                                                                                                                             | No         |
-| `ORA_HASH`      | Computes a hash value for a given expression.                                                                         | N/A                 | N/A                                                                                                                                                                                             | No         |
-
-**Null functions**
-
-| Oracle function | Function definition                                                                                                                                           | PostgreSQL function | Function definition                                                                                                                                                                                | Equivalent |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `CASE`          | The `CASE` statement chooses from a sequence of conditions and runs a corresponding statement: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`. | `CASE`              | The PostgreSQL `CASE` expression is a generic conditional expression, similar to if/else statements in other programming languages: `CASE WHEN condition THEN result [WHEN …​] [ELSE result] END`. | Yes        |
-| `COALESCE`      | Returns the first non-null expr in the expression list: `coalesce (null, 'a', 'b') → a`.                                                                      | `COALESCE`          | Returns the first of its arguments that isn’t null: `coalesce (null, 'a', 'b') → a`.                                                                                                               | Yes        |
-| `NULLIF`        | Compares expr1 and expr2. If they are equal, the function returns null. If they aren’t equal, the function returns expr1: `NULLIF('a', 'b') → a`.             | `NULLIF`            | Returns a null value if value1 equals value2 otherwise it returns value1: `NULLIF ('a', 'b') → a`.                                                                                                 | Yes        |
-| `NVL`           | Replace null (returned as a blank) with a string in the results of a query: `NVL (null, 'a') → a`.                                                            | `COALESCE`          | Returns the first of its arguments that isn’t null: `coalesce (null, 'a') → a`.                                                                                                                    | No         |
-| `NVL2`          | Determine the value returned by a query based on whether a specified expression is null or not null.                                                          | N/A                 | Can use the `CASE` statement instead.                                                                                                                                                              | No         |
-
-**Environment and identifier functions**
-
-| Oracle function | Function definition                                                                                                                                    | PostgreSQL function                                           | Function definition                                                                                                                                                                      | Equivalent |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `SYS_GUID`      | Generates and returns a globally unique identifier (RAW value) made up of 16 bytes: `select sys_guid() from dual → 5A280ABA8C76201EE0530-100007FF691`. | UUID_GENERATE_V1()                                            | Generates a version 1 UUID: `select uuid_generate_v1() → 90791a6-a359-11e7-a61c-12803bf1597a`.                                                                                           | No         |
-| `UID`           | Returns an integer that uniquely identifies the session user (the user who logged on): `select uid from dual → 84`                                     | N/A                                                           | Consider using the PostgreSQL current_user function along with other PostgreSQL built-in function to generate a UID.                                                                     | No         |
-| `USER`          | Returns the name of the session user: `select user from dual`.                                                                                         | `USER` / `SESSION_USER` / `CURRENT_USER` / `CURRENT_SCHEMA()` | User name or schema of current run context: `select user;` or `select current_schema();`                                                                                                 | No         |
-| `USERENV`       | Returns information about the current session using parameters: `SELECT USERENV ('LANGUAGE') "Language" FROM DUAL`                                     | N/A                                                           | For a list of all system functions, see the [PostgreSQL documentation](https://www.postgresql.org/docs/13/functions-info.html "https://www.postgresql.org/docs/13/functions-info.html"). | No         |
-
-**Conversion functions**
-
-| Oracle function              | Function definition                                                                                                                                    | PostgreSQL function | Function definition                                                                            | Equivalent |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
-| `CAST`                       | Converts one built-in data type or collection-typed value into another built-in data type or collection-typed value: `cast ('10' as int) + 1 → 11`.    | `CAST`              | Converting one data type into another: `cast ( '10' as int) + 1 → 11`.                         | Yes        |
-| `CONVERT`                    | Converts a character string from a one-character set to another: `select convert ('Ä Ê Í Õ Ø A B C D E ', 'US7ASCII', 'WE8ISO8859P1') from dual`       | N/A                 | N/A                                                                                            | No         |
-| `TO_CHAR (string / numeric)` | Converts `NCHAR`, `NVARCHAR2`, `CLOB`, or `NCLOB` data to the database character set: `select to_char ('01234') from dual → 01234`.                    | `TO_CHAR`           | Converts the first argument to the second argument: `select to_char (01234, '00000') → 01234`. | No         |
-| `TO_DATE`                    | Converts char of `CHAR`, `VARCHAR2`, `NCHAR`, or `NVARCHAR2` data type to a value of `DATE` data type: `to_date('01Jan2017','DDMonYYYY') → 01-JAN-17`. | `TO_DATE`           | Convert string to date: `to_date('01Jan2017', 'DDMonYYYY') → 2017-01-01`.                      | Partly     |
-| `TO_NUMBER`                  | Converts expr to a value of `NUMBER` data type: `to_number('01234') → 1234 or to_number('01234', '99999') → 1234`.                                     | `TO_NUMBER`         | Convert string to numeric: `to_number('01234', '99999') → 1234`.                               | Partly     |
-
-**Aggregate functions**
-
-| Oracle function | Function definition                                                                                                                                                                                         | PostgreSQL function | Function definition                                                                                                              | Equivalent |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `AVG`           | Returns average value of expression: `select avg(salary) from employees`.                                                                                                                                   | `AVG`               | Average (arithmetic mean) of all input values: `select avg(salary) from employees`.                                              | Yes        |
-| `COUNT`         | Returns the number of rows returned by the query: `select count(*) from employees`.                                                                                                                         | `COUNT`             | The number of input rows: `select count(*) from employees`.                                                                      | Yes        |
-| `LISTAGG`       | Orders data within each group specified in the `ORDER BY` clause and then concatenates the values of the measure column: `select listagg(firstname,' ,') within group (order by customerid) from customer`. | `STRING_AGG`        | Input values concatenated into a string, separated by delimiter: `select string_agg(firstname, ' ,') from customer order by 1;`. | No         |
-| `MAX`           | Returns the maximum value of expression: `select max(salary) from employees`.                                                                                                                               | `MAX`               | Returns maximum value of expression: `select max(salary) from employees`.                                                        | Yes        |
-| `MIN`           | Returns the minimum value of expression: `select min(salary) from employees`.                                                                                                                               | `MIN`               | Returns minimum value of expression: `select min(salary) from employees`.                                                        | Yes        |
-| `SUM`           | Returns the sum of values of expression: `select sum(salary) from employees`.                                                                                                                               | `SUM`               | Returns the sum of values of expression: `select sum(salary) from employees`.                                                    | Yes        |
-
-**Top-N query Oracle 12c**
-
-| Oracle function | Function definition                                                                                                    | PostgreSQL function | Function definition                                                                                                                    | Equivalent |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `FETCH`         | Retrieves rows of data from the result set of a multi-row query: `select<br>• from customer fetch first 10 rows only`. | `FETCH` or `LIMIT`  | Retrieve just a portion of the rows that are generated by the rest of the query: `select<br>• from customer fetch first 10 rows only`. | Yes        |
-
-`REGEXP_MATCH` is a new pattern matching function that was introduced in PostgreSQL 10.
+### PostgreSQL sequence synopsis
 
 ```
-SELECT REGEXP_MATCH('foobarbequebaz','bar.*que');
-regexp_match
--------------
-{barbeque}
+CREATE [ TEMPORARY | TEMP ] SEQUENCE [ IF NOT EXISTS ] name
+[ AS data_type ]
+[ INCREMENT [ BY ] increment ]
+[ MINVALUE minvalue | NO MINVALUE ] [ MAXVALUE maxvalue | NO MAXVALUE ]
+[ START [ WITH ] start ] [ CACHE cache ] [ [ NO ] CYCLE ]
+[ OWNED BY { table_name.column_name | NONE } ]
 ```
 
-For more information, see [Functions and Operators](https://www.postgresql.org/docs/13/functions.html "https://www.postgresql.org/docs/13/functions.html"), [Mathematical Functions and Operators](https://www.postgresql.org/docs/13/functions-math.html "https://www.postgresql.org/docs/13/functions-math.html"), [String Functions and Operators](https://www.postgresql.org/docs/13/functions-string.html "https://www.postgresql.org/docs/13/functions-string.html"), and [uuid-ossp Functions](https://www.postgresql.org/docs/13/uuid-ossp.html "https://www.postgresql.org/docs/13/uuid-ossp.html") in the _PostgreSQL documentation_.
+Most PostgreSQL `CREATE SEQUENCE` parameters are compatible with Oracle. Similar to Oracle 12c, in PostgreSQL you can create a sequence and use it directly as part of a `CREATE TABLE` statement.
+
+### Sequence parameters
+
+- `TEMPORARY` or `TEMP` — PostgreSQL can create a temporary sequence within a session. Once the session ends, the sequence is
+  automatically dropped.
+- `IF NOT EXISTS` — Creates a sequence even if a sequence with an identical name already exists. Replaces the existing
+  sequence.
+- `AS` — A new option in PostgreSQL 10. It is for specifying the data type of the sequence. The available options are `smallint`, `integer`, and `bigint` (default). This also determines the maximum and minimum values.
+- `INCREMENT BY` — An optional parameter with a default value of 1. Positive values generate sequence values in ascending order. Negative values generate sequence values in descending sequence.
+- `START WITH` — The same as Oracle. This is an optional parameter having a default of 1. It uses the `MINVALUE` for ascending sequences and the MAXVALUE for descending sequences.
+- `MAXVALUE` | `NO MAXVALUE` — Defaults are between 263 for ascending sequences and -1 for descending sequences.
+- `MINVALUE` | `NO MINVALUE` — Defaults are between 1 for ascending sequences and -263 for descending sequences.
+- `CYCLE` | `NO CYCLE` — If the sequence value reaches `MAXVALUE` or `MINVALUE`, the `CYCLE` parameter instructs the sequence to return to the initial value (`MINVALUE` or `MAXVALUE`). The default is `NO CYCLE`.
+- CACHE — Note that in PostgreSQL, the `NOCACHE` isn’t supported. By default, when not specifying the `CACHE` parameter, no sequence values will be pre-cached into memory, which is equivalent to the Oracle `NOCACHE` parameter. The minimum value is 1.
+- `OWNED BY` | `OWNBY NON` — Specifies that the sequence object is to be associated with a specific column in a table, which isn’t supported by Oracle. When dropping this type of sequence, an error will be returned because of the sequence/table association.
+
+**Examples**
+
+Create a sequence.
+
+```
+CREATE SEQUENCE SEQ_1 START WITH 100
+INCREMENT BY 1 MAXVALUE 99999999999 CACHE 20 NO CYCLE;
+```
+
+Identical to Oracle syntax, except for the whitespace in the `NO CYCLE` parameter.
+
+Drop a sequence.
+
+```
+DROP SEQUENCE SEQ_1;
+```
+
+View sequences created in the current schema and sequence specifications.
+
+```
+SELECT * FROM INFORMATION_SCHEMA.SEQUENCES;
+OR
+\ds
+```
+
+Use a PostgreSQL sequence as part of a `CREATE TABLE` and an `INSERT` statement.
+
+```
+CREATE TABLE SEQ_TST (COL1 NUMERIC DEFAULT NEXTVAL('SEQ_1') PRIMARY KEY, COL2 VARCHAR(30));
+
+INSERT INTO SEQ_TST (COL2) VALUES('A');
+
+SELECT * FROM SEQ_TST;
+col1   col2
+100    A
+```
+
+Use the `OWNED BY` parameter to associate the sequence with a table.
+
+```
+CREATE SEQUENCE SEQ_1 START WITH 100 INCREMENT BY 1 OWNED BY SEQ_TST.COL1;
+```
+
+Query the current value of a sequence.
+
+```
+SELECT CURRVAL('SEQ_1);
+```
+
+Manually increment a sequence value according to the `INCREMENT BY` value.
+
+```
+SELECT NEXTVAL('SEQ_1');
+OR
+SELECT SETVAL('SEQ_1', 200);
+```
+
+Alter an existing sequence.
+
+```
+ALTER SEQUENCE SEQ_1 MAXVALUE 1000000;
+```
+
+###### Note
+
+To use the `NEXTVAL` function, the `USAGE` and `UPDATE` permissions on the sequence are needed. To use `CURRVAL` and `LASTVAL` functions, the `USAGE` and `SELECT` permissions on the sequence are needed.
+
+### Generating Sequence by SERIAL Type
+
+PostgreSQL enables you to create a sequence that is similar to the `AUTO_INCREMENT` property supported by identity columns in Oracle 12c. When creating a new table, the sequence is created through the `SERIAL` data type. Other types from the same family are `SMALLSERIAL` and `BIGSERIAL`.
+
+By assigning a `SERIAL` type to a column on table creation, PostgreSQL creates a sequence using the default configuration and adds a `NOT NULL` constraint to the column. The newly created sequence behaves like a regular sequence.
+
+**Examples**
+
+Using a SERIAL Sequence.
+
+```
+CREATE TABLE SERIAL_SEQ_TST(COL1 SERIAL PRIMARY KEY, COL2 VARCHAR(10));
+
+INSERT INTO SERIAL_SEQ_TST(COL2) VALUES('A');
+SELECT * FROM SERIAL_SEQ_TST;
+
+col1   col2
+1      A
+
+\ds
+
+Schema  Name                     Type      Owner
+public  serial_seq_tst_col1_seq  sequence  pg_tst_db
+```
+
+## Summary
+
+| Parameter or feature                                | Compatibility with PostgreSQL                                                                                                              | Comments                                                    |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| Create sequence syntax                              | Full, with minor differences                                                                                                               | See Exceptions                                              |
+| `INCREMENT BY`                                      | Full                                                                                                                                       |                                                             |
+| `START WITH`                                        | Full                                                                                                                                       |                                                             |
+| `MAXVALUE` and `NOMAXVALUE`                         | Full                                                                                                                                       | Use `NO MAXVALUE`                                           |
+| `MINVALUE` and `NOMINVALUE`                         | Full                                                                                                                                       | Use `NO MINVALUE`                                           |
+| `CYCLE` and `NOCYCLE`                               | Full                                                                                                                                       | Use `NO CYCLE`                                              |
+| `CACHE` and `NOCACHE`                               | PostgreSQL doesn’t support the `NOCACHE` parameter but the default behavior is identical. The `CACHE` parameter is compatible with Oracle. |                                                             |
+| Default values using sequences in Oracle 12c        | Supported by PostgreSQL                                                                                                                    | `CREATE TABLE TBL( COL1 NUMERIC DEFAULT NEXTVAL ('SEQ_1')…` |
+| Session sequences (session or global) in Oracle 12c | Supported by PostgreSQL by using the `TEMPORARY` sequence parameter to Oracle `SESSION` sequence                                           |                                                             |
+| Oracle 12c identity columns                         | Supported by PostgreSQL by using the `SERIAL` data type as sequence                                                                        |                                                             |
+
+For more information, see [CREATE SEQUENCE](https://www.postgresql.org/docs/13/static/sql-createsequence.html "https://www.postgresql.org/docs/13/static/sql-createsequence.html"), [Sequence Manipulation Functions](https://www.postgresql.org/docs/13/static/functions-sequence.html "https://www.postgresql.org/docs/13/static/functions-sequence.html"), and [Numeric Types](https://www.postgresql.org/docs/13/static/datatype-numeric.html "https://www.postgresql.org/docs/13/static/datatype-numeric.html") in the _PostgreSQL documentation_.

@@ -1,157 +1,178 @@
-# Oracle and PostgreSQL views
+# Oracle multitenant and PostgreSQL database architecture
 
-With AWS DMS, you can create database views on source and target databases to simplify data access and transformation during migration. Views are virtual tables that derive their data from one or more underlying base tables or views. They provide a logical representation of data without duplicating or moving the base data.
+With AWS DMS, you can migrate data from Oracle multitenant databases and PostgreSQL databases to AWS. Oracle multitenant architecture refers to the capability of hosting multiple pluggable databases within a single container database. PostgreSQL utilizes a traditional database architecture where each database instance operates independently.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                          | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| Four star feature compatibility | Four star automation level         | [Views](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.views "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.views") | N/A             |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| -------------------------------- | ---------------------------------- | ------------------------- | --------------- |
+| Three star feature compatibility | N/A                                | N/A                       | N/A             |
 
 ## Oracle usage
 
-Database Views store a named SQL query in the Oracle Data Dictionary with a predefined structure. A view doesn’t store actual data and may be considered a virtual table or a logical table based on the data from one or more physical database tables.
+Oracle 12c introduces a new multitenant architecture that provides the ability to create additional independent pluggable databases under a single Oracle instance. Prior to Oracle 12c, a single Oracle database instance only supported running a single Oracle database as shown in the following diagram.
 
-**Privileges**
+![A single Oracle database instance runs a single Oracle database](images/pb-oracle-multitenant.png)
 
-A user needs the `CREATE VIEW` privilege to create a view in their own schema. A user needs the `CREATE ANY VIEW` privilege to create a view in any schema.
+Oracle 12c introduces a new multitenant container database (CDB) that supports one or more pluggable databases (PDB). The CDB can be thought of as a single superset database with multiple pluggable databases. The relationship between an Oracle instance and databases is now 1:N.
 
-The owner of a needs all the necessary privileges on the source tables or views on which the view is based (`SELECT` or `DML` privileges).
+![Multitenant container Oracle database](images/pb-multitenant-container-database.png)
 
-**CREATE (OR REPLACE) VIEW statements**
+Oracle 18c adds following multitenant related features:
 
-- `CREATE VIEW` creates a new view.
-- `CREATE OR REPLACE` overwrites an existing view and modifies the view definition without having to manually drop and recreate the original view, and without deleting the previously granted privileges.
+- DBCA PDB Clone: UI interface which allows cloning multiple pluggable databases (PDB).
+- Refreshable PDB Switchover: ability to switch roles between pluggable database clone and its original master
+- CDB Fleet Management: ability to group multiple container databases (CDB) into fleets that can be managed as a single logical database.
 
-**Oracle common view parameters**
+Oracle 19 introduced support to having more than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-| Oracle view parameter    | Description                                                                                                  |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `CREATE OR REPLACE`      | Recreate an existing view (if one exists) or create a new view.                                              |
-| `FORCE`                  | Create the view regardless of the existence of the source tables or views and regardless of view privileges. |
-| `VISIBLE` or `INVISIBLE` | Specify if a column based on the view is visible or invisible.                                               |
-| `WITH READ ONLY`         | Disable DML commands.                                                                                        |
-| `WITH CHECK OPTION`      | Specifies the level of enforcement when performing DML commands on the view.                                 |
+**Advantages of the Oracle 12c multitenant architecture**
+
+- You can use PDBs to isolate applications from one another.
+- You can use PDBs as portable collection of schemas.
+- You can clone PDBs and transport them to different CDBs/Oracle instances.
+- Management of many databases (individual PDBs) as a whole.
+- Separate security, users, permissions, and resource management for each PDB provides greater application isolation.
+- Enables a consolidated database model of many individual applications sharing a single Oracle server.
+- Provides an easier way to patch and upgrade individual clients and/or applications using PDBs.
+- Backups are supported at both a multitenant container-level as well as at an individual PDB-level (both for physical and logical backups).
+
+**The Oracle multitenant architecture**
+
+- A multitenant CDB can support one or more PDBs.
+- Each PDB contains its own copy of `SYSTEM` and application tablespaces.
+- The PDBs share the Oracle Instance memory and background processes. The use of PDBs enables consolidation of many databases and applications into individual containers under the same Oracle instance.
+- A single Root Container (CDB$ROOT) exists in a CDB and contains the Oracle Instance Redo Logs, undo tablespace (unless Oracle 12.2 local undo mode is enabled), and control files.
+- A single Seed PDB exists in a CDB and is used as a template for creating new PDBs.
+
+![Container Oracle database](images/pb-oracle-container-database.png)
+
+**CDB and PDB semantics**
+
+Container databases (CDB)
+
+- Created as part of the Oracle 12c software installation.
+- Contains the Oracle control files, its own set of system tablespaces, the instance undo tablespaces (unless Oracle 12.2 local undo mode is enabled), and the instance redo logs.
+- Holds the data dictionary for the root container and for all of the PDBs.
+
+Pluggable databases (PDB)
+
+- An independent database that exists under a CDB. Also known as a container.
+- Used to store application-specific data.
+- You can create a pluggable database from a the pdb$seed (template database) or as a clone of an existing PDB.
+- Stores metadata information specific to its own objects (data-dictionary).
+- Has its own set of application data files, system data files, and tablespaces along with temporary files to manage objects.
 
 **Examples**
 
-Views are classified as either simple or complex.
-
-A simple view is a view having a single source table with no aggregate functions. DML operations can be performed on simple views and affect the base table(s). The following example creates and updates a simple View.
+List existing PDBs created in an Oracle CDB instance.
 
 ```
-CREATE OR REPLACE VIEW VW_EMP
-AS
-SELECT EMPLOYEE_ID, LAST_NAME, EMAIL, SALARY
-FROM EMPLOYEES
-WHERE DEPARTMENT_ID BETWEEN 100 AND 130;
-UPDATE VW_EMP
-SET EMAIL=EMAIL||'.org'
-WHERE EMPLOYEE_ID=110;
+SHOW PDBS;
 
-1 row updated.
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
 ```
 
-A complex view is a view with several source tables or views containing joins, aggregate (group) functions, or an order by clause. Performing DML operations on complex views can’t be done directly, but `INSTEAD OF` triggers can be used as a workaround. The following example creates and updates a complex view.
+Provision a new PDB from the template `seed$pdb`.
 
 ```
-CREATE OR REPLACE VIEW VW_DEP
-AS
-SELECT B.DEPARTMENT_NAME, COUNT(A.EMPLOYEE_ID) AS CNT
-FROM EMPLOYEES A JOIN DEPARTMENTS B USING(DEPARTMENT_ID)
-GROUP BY B.DEPARTMENT_NAME;
-UPDATE VW_DEP
-SET CNT=CNT +1
-WHERE DEPARTMENT_NAME=90;
-
-ORA-01732: data manipulation operation not legal on this view
+CREATE PLUGGABLE DATABASE PDB2 admin USER ora_admin
+IDENTIFIED BY ora_admin FILE_NAME_CONVERT=('/pdbseed/','/pdb2/');
 ```
 
-For more information, see [CREATE VIEW](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30") in the _Oracle documentation_.
+Alter a specific PDB to the `READ/WRITE` mode and verify the change.
+
+```
+ALTER PLUGGABLE DATABASE PDB2 OPEN READ WRITE;
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+```
+
+Clone a PDB from an existing PDB.
+
+```
+CREATE PLUGGABLE DATABASE PDB3
+  FROM PDB2 FILE_NAME_CONVERT= ('/pdb2/','/pdb3/');
+
+SHOW PDBS;
+
+CON_ID  CON_NAME  OPEN MODE   RESTRICTED
+2       PDB$SEED  READ ONLY   NO
+3       PDB1      READ WRITE  NO
+4       PDB2      READ WRITE  NO
+5       PDB3      MOUNTED
+```
+
+For more information, see [Oracle Multitenant](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/index.html") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-PostgreSQL views share functionality with Oracle views. Creating a view defines a stored query based on one or more physical database tables which runs every time the view is accessed.
+Amazon Aurora PostgreSQL offers a different and simplified architecture to manage and create a multitenant database environment. You can use Aurora PostgreSQL to provide levels of functionality similar (but not identical) to those offered by Oracle PDBs by creating multiple databases under the same Aurora PostgreSQL cluster and / or using separate Aurora clusters if total isolation of workloads is required.
 
-Views with `INSTEAD INSERT` triggers can be used with `COPY` command, with this synopsis.
+You can create multiple PostgreSQL databases under a single Amazon Aurora PostgreSQL cluster.
 
-```
-COPY view FROM source;
-```
+![Aurora PostgreSQL cluster](images/pb-aurora-postgresql-cluster.png)
 
-Starting with PostgreSQL 13 it is now possible to rename view columns using `ALTER VIEW` command, this will help the DBA to avoid dropping and recreating the view in order to change a column name.
+Each Amazon Aurora cluster contains a primary instance that can accept both reads and writes for all cluster databases.
 
-The following syntax was added to the `ALTER VIEW`:
+You can create up to 15 read-only nodes providing scale-out functionality for application reads and high availability.
 
-```
-ALTER VIEW [ IF EXISTS ] name RENAME [ COLUMN ] column_name TO new_column_name
-```
+![Aurora PostgreSQL cluster storage volume](images/pb-aurora-postgresql-cluster-storage-volume.png)
 
-Prior to PostgreSQL 13 the capability was there but in order to change the view’s column name the DBA had to use the `ALTER TABLE` command.
+An Oracle CDB/Instance is a high-level equivalent to an Amazon Aurora cluster, and an Oracle Pluggable Database (PDB) is equivalent to a PostgreSQL database created inside the Amazon Aurora cluster. Not all features are comparable between Oracle 12c PDBs and Amazon Aurora.
 
-**PostgreSQL View Synopsis**
+In PostgreSQL, you can copy databases using templates. Database needs to be created or modified to have `IS_TEMPLATE` flag set to true and then new database could be created with `CREATE DATABASE <newdbname> TEMPLATE <templatedbname>`.
 
-```
-CREATE [ OR REPLACE ] [ TEMP | TEMPORARY ] [ RECURSIVE ] VIEW name [ (
-column_name [, ...] ) ]
-[ WITH ( view_option_name [= view_option_value] [, ... ] ) ]
-AS query
-[ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
-```
+Starting with Oracle 18c and 19c, you can use this feature for the following:
 
-**PostgreSQL view privileges**
+- PDB Clone
+- Refreshable PDB Switchover
+- CDB Fleet Management
+- More than one pluggable database (PDB) in a container database (CDB) in sharded environments.
 
-A Role or user must be granted `SELECT` and `DML` privileges on the base tables or views in order to create a view.
+In the AWS Cloud, these features can be achieved in many ways and each can be optimized using different services.
 
-For more information, see [GRANT](https://www.postgresql.org/docs/10/sql-grant.html "https://www.postgresql.org/docs/10/sql-grant.html") in the _PostgreSQL documentation_.
-
-**PostgreSQL view parameters**
-
-- `CREATE [OR REPLACE] VIEW` — Similar to the Oracle syntax. When you re-create an existing view, the new view must have the same column structure as generated by the original view (column names, column order and data types). As such, it is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead.
+To clone a databases inside the PostgreSQL instance, use the `TEMPLATE` option with the `CREATE DATABASE` statement. The following command copies the `emp` database to `emp_bck`.
 
 ```
-CREATE [OR REPLACE] VIEW VW_NAME AS SELECT COLUMNS FROM TABLE(s) [WHERE CONDITIONS];
-DROP VIEW [IF EXISTS] VW_NAME;
+CREATE DATABASE emp_bck TEMPLATE emp;
 ```
 
-The `IF EXISTS` parameter is optional.
+To achieve similar functionality to Refreshable PDB Switchover, it depends on the use case but there are multiple options mostly depended on the required granularity:
 
-- `WITH [ CASCADED | LOCAL ] CHECK OPTION` — DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure that new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails.
+- Databases in the same instance — you can do the failover using `CREATE DATABASE` statement when size and required downtime allow that and use an application failover to point to any of the databases.
+- Database links and replication method — database links or AWS DMS can be used to make sure there are two databases in two different instances that are in sync and have application failover to point to the other database when needed.
+- PostgreSQL logical replication provides fine-grained control over replicating and synchronizing parts of a database. For example, you can use logical replication to replicate an individual table of a database.
 
-`CHECK OPTION` can be `LOCAL` or `CASCADED`. `LOCAL` verifies against the view without a hierarchical check. `CASCADED` verifies all underlying base views using a hierarchical check.
-
-**Executing DML commands on views**
-
-PostgreSQL simple views are automatically updatable. Unlike Oracle views, no restrictions exist when performing DML operations against views. An updatable view may contain a combination of updatable and non-updatable columns. A column is updatable if it references an updatable column of the underlying base table. If not, the column is read-only and an error is raised if an `INSERT` or `UPDATE` statement is attempted on the column.
+Managing CDB is actually very similar to the AWS orchestration, as you can manage multiple Amazon RDS instances there (CDB) and databases inside (PDB), all monitored centrally and can be managed through the AWS console or AWS CLI.
 
 **Examples**
 
-Creating and updating a view without the `CHECK OPTION` parameter.
+Create a new database in PostgreSQL using the `CREATE DATABASE` statement.
 
 ```
-CREATE OR REPLACE VIEW VW_DEP AS
-SELECT DEPARTMENT_ID, DEPARTMENT_NAME,
-MANAGER_ID, LOCATION_ID FROM DEPARTMENTS
-WHERE LOCATION_ID=1700;
-
-view VW_DEP created.
-
-UPDATE VW_DEP SET LOCATION_ID=1600;
-
-21 rows updated.
+CREATE DATABASE pg_db1;
+CREATE DATABASE pg_db2;
+CREATE DATABASE pg_db3;
 ```
 
-Creating and updating a view with the `LOCAL CHECK OPTION` parameter.
+List all databases created under an Amazon Aurora PostgreSQL cluster.
 
 ```
-CREATE OR REPLACE VIEW VW_DEP AS
-SELECT DEPARTMENT_ID, DEPARTMENT_NAME,
-MANAGER_ID, LOCATION_ID FROM DEPARTMENTS
-WHERE LOCATION_ID=1700 WITH LOCAL CHECK OPTION;
+\l
 
-view VW_DEP created.
-
-UPDATE VW_DEP SET LOCATION_ID=1600;
-
-SQL Error: ERROR: new row violates check option for view "vw_dep"
+Name       Owner         Encoding  Collate      Ctype
+admindb    rds_pg_admin  UTF8      en_US.UTF-8  en_US.UTF-8
+pg_db1     rds_pg_admin  UTF8      en_US.UTF-8  en_US.UTF-8
+pg_db2     rds_pg_admin  UTF8      en_US.UTF-8  en_US.UTF-8
+pg_db3     rds_pg_admin  UTF8      en_US.UTF-8  en_US.UTF-8
+postgres   rds_pg_admin  UTF8      en_US.UTF-8  en_US.UTF-8
+rdsadmin   rdsadmin      UTF8      en_US.UTF-8  en_US.UTF-8
+template0  rdsadmin      UTF8      en_US.UTF-8  en_US.UTF-8
+template1  rds_pg_admin  UTF8      en_US.UTF-8  en_US.UTF-8
 ```
-
-For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html "https://www.postgresql.org/docs/13/tutorial-views.html") and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html "https://www.postgresql.org/docs/13/sql-createview.html") in the _PostgreSQL documentation_.
