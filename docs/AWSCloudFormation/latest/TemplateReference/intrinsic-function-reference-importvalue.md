@@ -99,7 +99,7 @@ Stack B Import
 ```
 Resources:
   WebServerInstance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
       ImageId: ami-a1b23456

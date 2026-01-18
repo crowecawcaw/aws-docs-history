@@ -151,7 +151,7 @@ In the following examples, CloudFormation triggers the
 ```
 ...
   LaunchConfig:
-    Type: "AWS::AutoScaling::LaunchConfiguration"
+    Type: AWS::AutoScaling::LaunchConfiguration
     Metadata:
       AWS::CloudFormation::Init:
 ...

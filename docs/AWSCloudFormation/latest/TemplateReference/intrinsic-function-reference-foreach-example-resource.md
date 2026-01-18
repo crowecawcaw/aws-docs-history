@@ -72,7 +72,7 @@ Resources:
     - TopicName
     - [Success, Failure, Timeout, Unknown]
     - 'SnsTopic${TopicName}':
-        Type: 'AWS::SNS::Topic'
+        Type: AWS::SNS::Topic
         Properties:
           TopicName: !Sub '${TopicName}.fifo'
           FifoTopic: true
@@ -162,7 +162,7 @@ Resources:
     - TableName
     - [Points, Score, Name, Leaderboard]
     - 'DynamoDB${TableName}':
-        Type: 'AWS::DynamoDB::Table'
+        Type: AWS::DynamoDB::Table
         Properties:
           TableName: !Ref TableName
           AttributeDefinitions:
@@ -546,18 +546,18 @@ Resources:
   - Prefix
   - [Transit, Public]
   - 'Nacl${Prefix}Subnet':
-      Type: 'AWS::EC2::NetworkAcl'
+      Type: AWS::EC2::NetworkAcl
       Properties:
         VpcId: !Ref 'VPC'
     'Fn::ForEach::LoopInner':
     - Suffix
     - [A, B, C]
     - '${Prefix}Subnet${Suffix}':
-        Type: 'AWS::EC2::Subnet'
+        Type: AWS::EC2::Subnet
         Properties:
           VpcId: !Ref 'VPC'
       'Nacl${Prefix}Subnet${Suffix}Association':
-        Type: 'AWS::EC2::SubnetNetworkAclAssociation'
+        Type: AWS::EC2::SubnetNetworkAclAssociation
         Properties:
           SubnetId: !Ref
             'Fn::Sub': '${Prefix}Subnet${Suffix}'
@@ -715,7 +715,7 @@ Resources:
   - Identifier
   - [A, B, C]
   - 'Instance${Identifier}':
-      Type: 'AWS::EC2::Instance'
+      Type: AWS::EC2::Instance
       Properties:
         InstanceType: !FindInMap [Instances, InstanceType, !Ref 'Identifier', {DefaultValue: m5.xlarge}]
         ImageId: !FindInMap [Instances, ImageId, !Ref 'Identifier', {DefaultValue: `ami-id-default`}]
@@ -862,7 +862,7 @@ Resources:
   - InstanceLogicalId
   - [InstanceA, InstanceB, InstanceC]
   - '${InstanceLogicalId}':
-      Type: 'AWS::EC2::Instance'
+      Type: AWS::EC2::Instance
       Properties:
         DisableApiTermination: true
         UserData:
@@ -1010,7 +1010,7 @@ Resources:
     - CIDR
     - !Ref IpAddresses
     - 'Subnet&{CIDR}':
-        Type: 'AWS::EC2::Subnet'
+        Type: AWS::EC2::Subnet
         Properties:
           VpcId: !Ref VPC
           CidrBlock: !Ref CIDR

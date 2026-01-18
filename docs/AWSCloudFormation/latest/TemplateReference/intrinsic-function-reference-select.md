@@ -121,7 +121,7 @@ section of the same template, as shown in the following sample snippet:
 
 ```
 Subnet0:
-  Type: "AWS::EC2::Subnet"
+  Type: AWS::EC2::Subnet
   Properties:
     VpcId: !Ref VPC
     CidrBlock: !Select [ 0, !Ref DbSubnetIpBlocks ]

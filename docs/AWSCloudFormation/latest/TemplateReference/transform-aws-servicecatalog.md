@@ -110,7 +110,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::ServiceCatalog
 Resources:
   ExampleParameter:
-    Type: 'AWS::SSM::Parameter'
+    Type: AWS::SSM::Parameter
     Properties:
       Type: String
       Value: '[[servicecatalog:provisionedproduct:SampleProvisionedProduct:SampleOutputKey]]'
@@ -121,7 +121,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::ServiceCatalog
 Resources:
   ExampleParameter:
-    Type: 'AWS::SSM::Parameter'
+    Type: AWS::SSM::Parameter
     Properties:
       Type: String
       Value: "[[servicecatalog:provisionedproduct:SampleProvisionedProduct:SampleOutputKey]]"

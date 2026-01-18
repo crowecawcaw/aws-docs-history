@@ -719,7 +719,7 @@ it updates the next batch of instances.
 
 ```
 ASG:
-  Type: 'AWS::AutoScaling::AutoScalingGroup'
+  Type: AWS::AutoScaling::AutoScalingGroup
   Properties:
     VPCZoneIdentifier:
       - `subnetIdAz1`
@@ -891,7 +891,7 @@ by the application and deployment group that are passed into the policy.
 
 ```
 Alias:
-  Type: 'AWS::Lambda::Alias'
+  Type: AWS::Lambda::Alias
   Properties:
     FunctionName: !Ref LambdaFunction
     FunctionVersion: !GetAtt FunctionVersionTwo.Version

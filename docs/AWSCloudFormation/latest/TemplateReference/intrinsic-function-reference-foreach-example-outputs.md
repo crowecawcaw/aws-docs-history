@@ -96,7 +96,7 @@ Resources:
     - Identifier
     - [A, B, C]
     - 'S3Bucket${Identifier}':
-        Type: 'AWS::S3::Bucket'
+        Type: AWS::S3::Bucket
         Properties:
           AccessControl: PublicRead
           MetricsConfigurations:

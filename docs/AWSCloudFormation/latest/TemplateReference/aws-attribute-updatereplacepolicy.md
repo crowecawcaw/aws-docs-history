@@ -81,7 +81,7 @@ deleting it.
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   myDB:
-    Type: 'AWS::RDS::DBInstance'
+    Type: AWS::RDS::DBInstance
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
     Properties: {}

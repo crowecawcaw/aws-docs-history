@@ -282,7 +282,7 @@ Mappings:
       Name: prod_log_group
 Resources:
   myLogGroup:
-    Type: 'AWS::Logs::LogGroup'
+    Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub
         - 'cloud_watch_${log_group_name}'
