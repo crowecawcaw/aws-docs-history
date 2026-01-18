@@ -107,7 +107,7 @@ A: Amazon MWAA supports an Apache Airflow patch version for a minimum of 12 mont
 
 ###### Q: Am I notified when support is ending for an Apache Airflow version on Amazon MWAA?
 
-A: Yes. If any Amazon MWAA environments in your account run the version nearing the end of support, Amazon MWAA sends out a notice through the AWS Health Dashboard with the end of support date.
+A: Yes. If any Amazon MWAA environments in your account run the version nearing the end of support, Amazon MWAA sends out a notice through the Health Dashboard with the end of support date.
 
 ###### Q: What happens on the end of support date?
 
