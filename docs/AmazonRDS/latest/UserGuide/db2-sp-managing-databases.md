@@ -42,6 +42,7 @@ These stored procedures are used in a variety of tasks. This list isn't exhausti
 - [rdsadmin.show_archive_log_retention](#db2-sp-show-archive-log-retention "#db2-sp-show-archive-log-retention")
 - [rdsadmin.list_archive_log_information](#db2-sp-list-archive-log-information "#db2-sp-list-archive-log-information")
 - [rdsadmin.fgac_command](#db2-sp-fgac-command "#db2-sp-fgac-command")
+- [rdsadmin.db2support_command](#db2-sp-db2support-command "#db2-sp-db2support-command")
 
 ## rdsadmin.create_database
 
@@ -1851,4 +1852,91 @@ db2 "call rdsadmin.fgac_command(
     ?,
     'testdb',
     'CREATE SECURITY LABEL COMPONENT treelabel  TREE(''COMPANY'' ROOT, ''HR'' UNDER ''COMPANY'', ''FINANCE'' UNDER ''COMPANY'', ''IT'' UNDER ''COMPANY'')')"
+```
+
+## rdsadmin.db2support_command
+
+Collects diagnostic information about an RDS for Db2 database and uploads it to an Amazon S3 bucket.
+
+### Syntax
+
+```
+db2 "call rdsadmin.db2support_command(
+    ?,
+    '`database_name`',
+    '`s3_bucket_name`',
+    '`s3_prefix`')"
+```
+
+### Parameters
+
+The following output parameter is required:
+
+?
+
+A parameter marker that outputs an error message. This parameter only
+accepts `?`.
+
+The following input parameters are required:
+
+`database_name`
+
+The name of the database to collect diagnostic information for. The
+data type is `varchar`.
+
+`s3_bucket_name`
+
+The name of the Amazon S3 bucket where you want to upload the diagnostic
+information. The data type is `varchar`.
+
+`s3_prefix`
+
+The prefix of the path to Amazon S3 where RDS for Db2 uploads the diagnostic
+files. The data type is `varchar`.
+
+### Usage notes
+
+This stored procedure collects diagnostic information that can help with
+troubleshooting RDS for Db2 databases and uploads the information to an Amazon S3
+bucket.
+
+The stored procedure uses the IBM
+`db2support` utility to collect diagnostic data. For more information
+about the utility, see [db2support - Problem analysis and environment collection tool command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2support-problem-analysis-environment-collection-tool "https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2support-problem-analysis-environment-collection-tool")
+in the IBM Db2 documentation.
+
+For information about checking the status of collecting diagnostic information,
+see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+
+### Examples
+
+**Example 1: Collecting diagnostic information for a
+database**
+
+The following example collects diagnostic information for a database called
+`TESTDB` and uploads it to the Amazon S3 bucket called
+`amzn-s3-demo-bucket` with the prefix
+`diagnostics/testdb`:
+
+```
+db2 "call rdsadmin.db2support_command(
+    ?,
+    'TESTDB',
+    'amzn-s3-demo-bucket',
+    'diagnostics/testdb')"
+```
+
+**Example 2: Collecting diagnostic information with a
+date-based prefix**
+
+The following example collects diagnostic information for a database called
+`MYDB` and uploads it to the Amazon S3 bucket called
+`amzn-s3-demo-bucket` with a date-based prefix:
+
+```
+db2 "call rdsadmin.db2support_command(
+    ?,
+    'MYDB',
+    'amzn-s3-demo-bucket',
+    'support/2024/01/15')"
 ```

@@ -1,27 +1,25 @@
-# Deleting files on the RDS DB instance
+# Listing files on the RDS DB instance
 
-To delete the files available on the DB instance, use the Amazon RDS stored procedure
-`msdb.dbo.rds_delete_from_filesystem` with the following parameters.
-
-| Parameter name   | Data type | Default | Required | Description                                                                                                                                            |
-| ---------------- | --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@rds_file_path` | NVARCHAR  | –       | Required | The file path of the file to delete. Absolute and relative paths are supported.                                                                        |
-| `@force_delete`  | INT       | 0       | Optional | To delete a directory, this flag must be included and set to `1`.<br>`1` = delete a directory<br>This parameter is ignored if you are deleting a file. |
-
-To delete a directory, the `@rds_file_path` must end with a backslash (`\`) and
-`@force_delete` must be set to `1`.
-
-The following example deletes the file `D:\S3\delete_me.txt`.
+To list the files available on the DB instance, use both a stored procedure and a function. First, run the following stored
+procedure to gather file details from the files in `D:\S3\`.
 
 ```
-exec msdb.dbo.rds_delete_from_filesystem
-    @rds_file_path='D:\S3\`delete_me.txt`';
+exec msdb.dbo.rds_gather_file_details;
 ```
 
-The following example deletes the directory `D:\S3\example_folder\`.
+The stored procedure returns the ID of the task. Like other tasks, this stored procedure runs asynchronously. As soon as the
+status of the task is `SUCCESS`, you can use the task ID in the `rds_fn_list_file_details` function to
+list the existing files and directories in D:\S3\, as shown following.
 
 ```
-exec msdb.dbo.rds_delete_from_filesystem
-    @rds_file_path='D:\S3\`example_folder`\',
-    @force_delete=1;
+SELECT * FROM msdb.dbo.rds_fn_list_file_details(`TASK_ID`);
 ```
+
+The `rds_fn_list_file_details` function returns a table with the following columns.
+
+| Output parameter    | Description                                                            |
+| ------------------- | ---------------------------------------------------------------------- |
+| `filepath`          | Absolute path of the file (for example, `D:\S3\mydata.csv`)            |
+| `size_in_bytes`     | File size (in bytes)                                                   |
+| `last_modified_utc` | Last modification date and time in UTC format                          |
+| `is_directory`      | Option that indicates whether the item is a directory (`true`/`false`) |

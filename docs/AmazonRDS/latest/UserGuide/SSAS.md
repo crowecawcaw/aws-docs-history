@@ -1,54 +1,34 @@
-# Changing the SSAS mode
+# Backing up an SSAS database
 
-You can change the mode in which SSAS runs, either Tabular or Multidimensional. To
-change the mode, use the AWS Management Console or the AWS CLI to modify the options settings in the
-SSAS option.
+You can create SSAS database backup files only in the `D:\S3` folder on the DB
+instance. To move the backup files to your S3 bucket, use Amazon S3.
 
-###### Important
+You can back up an SSAS database as follows:
 
-You can only use one SSAS mode at a time. Make sure to delete all of the SSAS
-databases before changing the mode, or you receive an error.
+- A domain user with the `admin` role for a particular database can use SSMS to
+  back up the database to the `D:\S3` folder.
 
-The following Amazon RDS console procedure changes the SSAS mode to Tabular and
-sets the `MAX_MEMORY` parameter to 70 percent.
+For more information, see [Adding a domain user as a database administrator](SSAS.md#SSAS.Admin "SSAS.md#SSAS.Admin").
 
-###### To modify the SSAS option
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `SSAS` option that you want to modify
-   (`ssas-se-2017` in the previous examples).
-4. Choose **Modify option**.
-5. Change the option settings:
-   1. For **Max memory**, enter `70`.
-   2. For **Mode**, choose **Tabular**.
-
-6. Choose **Modify option**.
-   The following AWS CLI example changes the SSAS mode to Tabular and sets the `MAX_MEMORY` parameter to 70
-   percent.
-
-For the CLI command to work, make sure to include all of the required
-parameters, even if you're not modifying them.
-
-###### To modify the SSAS option
-
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
+- You can use the following stored procedure. This stored procedure doesn't support
+  encryption.
 
 ```
-aws rds add-option-to-option-group \
-    --option-group-name `ssas-se-2017` \
-    --options "OptionName=SSAS,VpcSecurityGroupMemberships=`sg-12345e67`,OptionSettings=[{Name=MAX_MEMORY,Value=70},{Name=MODE,Value=Tabular}]" \
-    --apply-immediately
+exec msdb.dbo.rds_msbi_task
+@task_type='SSAS_BACKUP_DB',
+@database_name='`myssasdb`',
+@file_path='D:\S3\`ssas_db_backup`.abf',
+[@ssas_apply_compression=1],
+[@ssas_overwrite_file=1];
 ```
 
-For Windows:
+The following parameters are required:
 
-```
-aws rds add-option-to-option-group ^
-    --option-group-name `ssas-se-2017` ^
-    --options OptionName=SSAS,VpcSecurityGroupMemberships=`sg-12345e67`,OptionSettings=[{Name=MAX_MEMORY,Value=70},{Name=MODE,Value=Tabular}] ^
-    --apply-immediately
-```
+    + `@task_type` – The type of the MSBI task, in this case `SSAS_BACKUP_DB`.
+    + `@database_name` – The name of the SSAS database that you're backing up.
+    + `@file_path` – The path for the SSAS backup file. The `.abf` extension is required.
+
+The following parameters are optional:
+
+    + `@ssas_apply_compression` – Whether to apply SSAS backup compression. Valid values are 1 (Yes) and 0 (No).
+    + `@ssas_overwrite_file` – Whether to overwrite the SSAS backup file. Valid values are 1 (Yes) and 0 (No).

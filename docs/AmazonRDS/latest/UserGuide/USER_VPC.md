@@ -1,24 +1,25 @@
-# Amazon VPC and Amazon RDS
+# Updating the VPC for a DB instance
 
-Amazon Virtual Private Cloud (Amazon VPC) makes it possible for you to launch AWS
-resources, such as Amazon RDS DB instances, into a virtual private cloud (VPC).
+You can use the AWS Management Console to move your DB instance to a different VPC.
 
-When you use a VPC, you have control over your virtual networking environment. You can
-choose your own IP address range, create subnets, and configure routing and access control
-lists. There is no additional cost to run your DB instance in a VPC.
+For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). In the
+**Connectivity** section of the modify page, shown following, enter
+the new DB subnet group for **DB subnet group**. The new subnet group
+must be a subnet group in a new VPC.
 
-Accounts have a default VPC. All new DB instances are created in the
-default VPC unless you specify otherwise.
+![Modify the DB instance subnet group.](images/EC2-VPC.png)
+You can't change the VPC for a DB instance if the following conditions apply:
 
-###### Topics
-
-- [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md")
-- [Updating the VPC for a DB instance](USER_VPC.md "USER_VPC.md")
-- [Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md")
-- [Tutorial: Create a VPC for use with a
-  DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
-- [Tutorial: Create a VPC for use with a DB
-  instance (dual-stack mode)](CHAP_Tutorials.md "CHAP_Tutorials.md")
-- [Moving a DB instance not in a VPC into a VPC](USER_VPC.md "USER_VPC.md")
-  Following, you can find a discussion about VPC functionality relevant to Amazon RDS DB instances. For more information about Amazon VPC, see [Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide.md "../../../AmazonVPC/latest/GettingStartedGuide.md") and
-  [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
+- The DB instance is in multiple Availability Zones. You can convert the DB
+  instance to a single Availability Zone, move it to a new VPC, and then convert
+  it back to a Multi-AZ DB instance. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+- The DB instance has one or more read replicas. You can remove the read
+  replicas, move the DB instance to a new VPC, and then add the read replicas
+  again. For more information, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+- The DB instance is a read replica. You can promote the read replica, and then
+  move the standalone DB instance to a new VPC. For more information, see [Promoting a read replica to be a standalone
+  DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+- The subnet group in the target VPC doesn't have subnets in the DB instance's
+  the Availability Zone. You can add subnets in the DB instance's Availability
+  Zone to the DB subnet group, and then move the DB instance to the new VPC. For
+  more information, see [Working with DB subnet groups](USER_VPC.md#USER_VPC.Subnets "USER_VPC.md#USER_VPC.Subnets").

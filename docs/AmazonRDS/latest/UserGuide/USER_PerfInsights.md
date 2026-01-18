@@ -1,111 +1,172 @@
-# Logging Performance Insights calls using AWS CloudTrail
+# Turning Performance Insights on and off for Amazon RDS
 
-Performance Insights runs with AWS CloudTrail, a service that provides a record of
-actions taken by a user, role, or an AWS service in Performance Insights. CloudTrail
-captures all API calls for Performance Insights as events. This capture includes calls
-from the Amazon RDS console and from code calls to the Performance Insights API operations.
+###### Important
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
-including events for Performance Insights. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console in **Event history**.
-Using the data collected by CloudTrail, you can determine certain information. This
-information includes the request that was made to Performance Insights, the IP address
-the request was made from, who made the request, and when it was made. It also includes
-additional details.
+AWS has announced the end-of-life date for Performance Insights: June 30, 2026. After this date, Amazon RDS will no longer support the Performance Insights console experience,
+flexible retention periods (1-24 months), and their associated pricing. The Performance Insights API will continue to exist with no pricing changes. Costs for the
+Performance Insights API will appear in your AWS bill with the cost of CloudWatch Database Insights.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+We recommend that you upgrade any DB instances
+using the paid tier of Performance Insights to the Advanced mode of Database Insights before June 30, 2026.
+For information about upgrading to the Advanced mode of Database Insights, see
+[Turning on the Advanced mode of Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
-## Working with Performance Insights information in CloudTrail
+If you take no action, DB instances using Performance Insights
+will default to using the Standard mode of Database Insights. With Standard mode of Database Insights, you might lose access to performance data history beyond 7 days and might not be able to use execution plans
+and on-demand analysis features in the Amazon RDS console. After June 30, 2026 only the Advanced mode of Database Insights will support execution plans and on-demand analysis.
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-Performance Insights, that activity is recorded in a CloudTrail event along with other
-AWS service events in the CloudTrail console in **Event history**. You
-can view, search, and download recent events in your AWS account. For more
-information, see [Viewing
-Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in _AWS CloudTrail User Guide._
+With CloudWatch Database Insights, you can monitor database load for your fleet of databases and analyze and troubleshoot performance at scale.
+For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
+For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-For an ongoing record of events in your AWS account, including events for Performance
-Insights, create a trail. A _trail_ enables CloudTrail to
-deliver log files to an Amazon S3 bucket. By default, when you create a trail in the
-console, the trail applies to all AWS Regions. The trail logs events from all AWS
-Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that
-you specify. Additionally, you can configure other AWS services to further analyze
-and act upon the event data collected in CloudTrail logs. For more information, see the
-following topics in _AWS CloudTrail User Guide:_
+You can turn on Performance Insights for your DB instance or Multi-AZ DB cluster
+when you create it. If needed, you can turn it off later by modifying your
+DB instance
+from the console. Turning Performance Insights on and off
+doesn't cause downtime, a reboot, or a failover.
 
-- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS Notifications
-  for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log
-  Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log
-  Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+###### Note
 
-All Performance Insights operations are logged by CloudTrail and are documented in the [Performance Insights API
-Reference](../../../performance-insights/latest/APIReference/Welcome.md "../../../performance-insights/latest/APIReference/Welcome.md"). For example, calls to the
-`DescribeDimensionKeys` and `GetResourceMetrics`
-operations generate entries in the CloudTrail log files.
+Performance Schema is an optional performance tool used by Amazon RDS for MariaDB or MySQL. If you turn Performance Schema on or off, you need
+to reboot. If you turn Performance Insights on or off, however, you don't need to reboot. For more information,
+see [Overview of the Performance Schema for Performance Insights on Amazon RDS for MariaDB or MySQL](USER_PerfInsights.md "USER_PerfInsights.md").
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+The Performance Insights agent consumes limited CPU and memory on the DB host. When
+the DB load is high, the agent limits the performance impact by collecting data less
+frequently.
 
-- Whether the request was made with root or IAM user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
+Console
+In the console, you can turn Performance Insights on or off when you create or modify a DB instance
+or Multi-AZ DB cluster.
 
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+Turning Performance Insights on or off when creating a DB instance or Multi-AZ DB cluster
 
-## Performance Insights log file entries
+After creating a new DB instance or Multi-AZ DB cluster,
+Amazon RDS enables Performance Insights by default. To turn off Performance Insights, choose the option
+**Database Insights – Standard** and deselect the option **Enable Performance Insights**.
 
-A _trail_ is a configuration that enables delivery of
-events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one
-or more log entries. An _event_ represents a single
-request from any source. Each event includes information about the requested
-operation, the date and time of the operation, request parameters, and so on. CloudTrail
-log files aren't an ordered stack trace of the public API calls, so they
-don't appear in any specific order.
+For more information, see the following topics.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetResourceMetrics` operation.
+- To create a DB instance, follow the instructions for your DB engine in [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+- To create a Multi-AZ DB cluster, follow the instructions for your DB engine in [Creating a Multi-AZ DB cluster for Amazon RDS](create-multi-az-db-cluster.md "create-multi-az-db-cluster.md").
+
+The following screenshot shows the **Performance Insights** section.
+
+![Turn on Performance Insights during DB instance or Multi-AZ DB cluster creation with console](images/perf_insights_enabling.png)
+
+If you choose **Enable Performance Insights**, you have the following options:
+
+- **Retention** (for the Standard mode of Database Insights only) – The amount of time to retain Performance Insights data. The retention setting is **Default (7 days)**. To retain your performance
+  data for longer, specify 1–24 months. For more information about retention periods, see
+  [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").
+- **AWS KMS key** – Specify your AWS KMS key.
+  Performance Insights encrypts all potentially sensitive
+  data using your KMS key. Data is encrypted in flight and at rest.
+  For more information, see [Changing an AWS KMS
+  policy for Performance Insights](USER_PerfInsights.access-control.md "USER_PerfInsights.access-control.md").
+
+Turning Performance Insights on or off when modifying a DB instance or Multi-AZ DB cluster
+
+In the console, you can modify
+a DB instance or Multi-AZ DB cluster to manage Performance Insights.
+
+###### To manage Performance Insights for a DB instance or Multi-AZ DB cluster using the console
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose **Databases**.
+3. Choose a DB instance or Multi-AZ DB cluster,
+   and choose **Modify**.
+4. To turn on Performance Insights, select **Enable Performance Insights**. To turn off Performance Insights, choose the option
+   **Database Insights – Standard** and deselect the option **Enable Performance Insights**.
+
+If you choose **Enable Performance Insights**, you have the following options:
+
+    * **Retention** (for the Standard mode of Database Insights only) – The amount of time to retain Performance Insights data. The retention setting is **Default (7 days)**. To retain your performance
+     data for longer, specify 1–24 months. For more information about retention periods, see
+     [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").
+    * **AWS KMS key** – Specify your
+     KMS key. Performance Insights encrypts all
+     potentially sensitive data using your KMS key. Data is
+     encrypted in flight and at rest. For more information, see
+     [Encrypting Amazon RDS
+     resources](Overview.md "Overview.md").
+
+5. Choose **Continue**.
+6. For **Scheduling of Modifications**, choose Apply immediately. If you
+   choose Apply during the next scheduled maintenance window, your instance
+   ignores this setting and turns on Performance Insights
+   immediately.
+7. Choose **Modify instance**.
+
+AWS CLI
+When you use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") AWS CLI command, turn on Performance Insights by
+specifying `--enable-performance-insights` and set `--database-insights-mode` to either `advanced` or `standard`.
+To turn off Performance Insights, specify `--no-enable-performance-insights` and set `database-insights-mode` to `standard`.
+
+You can also specify these values using the following AWS CLI commands:
+
+- [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md")
+- [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md")
+- [create-db-instance-read-replica](../../../cli/latest/reference/rds/create-db-instance-read-replica.md "../../../cli/latest/reference/rds/create-db-instance-read-replica.md")
+- [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md")
+- [restore-db-instance-from-s3](../../../cli/latest/reference/rds/restore-db-instance-from-s3.md "../../../cli/latest/reference/rds/restore-db-instance-from-s3.md")
+
+When you turn on Performance Insights in the CLI, you can optionally specify the number of days to retain Performance Insights data with the
+`--performance-insights-retention-period` option. You can specify `7`, `month` \* 31 (where `month` is a number from 1–23),
+or `731`. For example, if you want to retain your performance data for 3 months, specify `93`, which is 3 \* 31. The default
+is `7` days. For more information about retention periods, see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").
+
+The following example turns on Performance Insights for `sample-db-cluster` and specifies that Performance Insights data is
+retained for 93 days (3 months).
+
+For Linux, macOS, or Unix:
 
 ```
-{
-    "eventVersion": "1.05",
-    "userIdentity": {
-        "type": "IAMUser",
-         "principalId": "AKIAIOSFODNN7EXAMPLE",
-        "arn": "arn:aws:iam::123456789012:user/johndoe",
-        "accountId": "123456789012",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
-        "userName": "johndoe"
-    },
-    "eventTime": "2019-12-18T19:28:46Z",
-    "eventSource": "pi.amazonaws.com",
-    "eventName": "GetResourceMetrics",
-    "awsRegion": "us-east-1",
-    "sourceIPAddress": "72.21.198.67",
-    "userAgent": "aws-cli/1.16.240 Python/3.7.4 Darwin/18.7.0 botocore/1.12.230",
-    "requestParameters": {
-        "identifier": "db-YTDU5J5V66X7CXSCVDFD2V3SZM",
-        "metricQueries": [
-            {
-                "metric": "os.cpuUtilization.user.avg"
-            },
-            {
-                "metric": "os.cpuUtilization.idle.avg"
-            }
-        ],
-        "startTime": "Dec 18, 2019 5:28:46 PM",
-        "periodInSeconds": 60,
-        "endTime": "Dec 18, 2019 7:28:46 PM",
-        "serviceType": "RDS"
-    },
-    "responseElements": null,
-    "requestID": "9ffbe15c-96b5-4fe6-bed9-9fccff1a0525",
-    "eventID": "08908de0-2431-4e2e-ba7b-f5424f908433",
-    "eventType": "AwsApiCall",
-    "recipientAccountId": "123456789012"
-}
+aws rds modify-db-cluster \
+	--database-insights-mode standard \
+    --db-cluster-identifier sample-db-instance \
+    --enable-performance-insights \
+    --performance-insights-retention-period 93
 ```
+
+For Windows:
+
+```
+aws rds modify-db-cluster ^
+	--database-insights-mode standard ^
+    --db-cluster-identifier sample-db-instance ^
+    --enable-performance-insights ^
+    --performance-insights-retention-period 93
+```
+
+If you specify a retention period such as 94 days, which isn't a valid value, RDS issues an error.
+
+```
+An error occurred (InvalidParameterValue) when calling the CreateDBInstance operation:
+Invalid Performance Insights retention period. Valid values are: [7, 31, 62, 93, 124, 155, 186, 217,
+248, 279, 310, 341, 372, 403, 434, 465, 496, 527, 558, 589, 620, 651, 682, 713, 731]
+```
+
+###### Note
+
+You can only toggle Performance Insights for an instance in a DB cluster where Performance Insights is not managed at the cluster level.
+
+RDS API
+When you create a new DB instance using the [CreateDBInstance](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md") operation Amazon RDS API operation, turn on Performance Insights
+by setting `EnablePerformanceInsights` to `True`. To turn off Performance Insights, set
+`EnablePerformanceInsights` to `False` and set `DatabaseInsightsMode` to `standard`.
+
+You can also specify the `EnablePerformanceInsights` value using
+the following API operations:
+
+- [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") (Multi-AZ DB cluster)
+- [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") (Multi-AZ DB cluster)
+- [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md")
+- [CreateDBInstanceReadReplica](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md")
+- [RestoreDBInstanceFromS3](../APIReference/API_RestoreDBInstanceFromS3.md "../APIReference/API_RestoreDBInstanceFromS3.md")
+
+When you turn on Performance Insights, you can optionally specify the amount of time, in days, to retain Performance Insights data with the
+`PerformanceInsightsRetentionPeriod` parameter. You can specify `7`, `month` \* 31 (where `month` is a number from 1–23),
+or `731`. For example, if you want to retain your performance data for 3 months, specify `93`, which is 3 \* 31. The default
+is `7` days. For more information about retention periods, see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md").

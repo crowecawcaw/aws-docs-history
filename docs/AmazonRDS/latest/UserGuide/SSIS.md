@@ -1,79 +1,40 @@
-# Disable and drop SSIS database
+# Monitoring the status of a deployment task
 
-Use the following steps to disable or drop SSIS databases:
+To track the status of your deployment task, call the `rds_fn_task_status`
+function. It takes two parameters. The first parameter should always be
+`NULL` because it doesn't apply to SSIS. The second parameter accepts a
+task ID.
 
-###### Topics
-
-- [Disabling SSIS](#SSIS.Disable "#SSIS.Disable")
-- [Dropping the SSISDB database](#SSIS.Drop "#SSIS.Drop")
-
-## Disabling SSIS
-
-To disable SSIS, remove the `SSIS` option from its option group.
-
-###### Important
-
-Removing the option doesn't delete the SSISDB database, so you can safely remove the
-option without losing the SSIS projects.
-
-You can re-enable the `SSIS` option after removal to reuse the SSIS
-projects that were previously deployed to the SSIS catalog.
-
-The following procedure removes the `SSIS` option.
-
-###### To remove the SSIS option from its option group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `SSIS` option (`ssis-se-2016` in
-   the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **SSIS** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
-   The following procedure removes the `SSIS` option.
-
-###### To remove the SSIS option from its option group
-
-- Run one of the following commands.
-
-For Linux, macOS, or Unix:
+To see a list of all tasks, set the first parameter to `NULL` and the second
+parameter to `0`, as shown in the following example.
 
 ```
-aws rds remove-option-from-option-group \
-    --option-group-name `ssis-se-2016` \
-    --options SSIS \
-    --apply-immediately
+SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`0`);
 ```
 
-For Windows:
+To get a specific task, set the first parameter to `NULL` and the second
+parameter to the task ID, as shown in the following example.
 
 ```
-aws rds remove-option-from-option-group ^
-    --option-group-name `ssis-se-2016` ^
-    --options SSIS ^
-    --apply-immediately
+SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`42`);
 ```
 
-## Dropping the SSISDB database
+The `rds_fn_task_status` function returns the following information.
 
-After removing the SSIS option, the SSISDB database isn't deleted. To drop the SSISDB
-database, use the `rds_drop_ssis_database` stored procedure after removing
-the SSIS option.
-
-###### To drop the SSIS database
-
-- Use the following stored procedure.
-
-```
-USE [msdb]
-GO
-EXEC dbo.rds_drop_ssis_database
-GO
-```
-
-After dropping the SSISDB database, if you re-enable the SSIS option you get a fresh SSISDB catalog.
+| Output parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `task_id`                  | The ID of the task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `task_type`                | `SSIS_DEPLOY_PROJECT`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `database_name`            | Not applicable to SSIS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `% complete`               | The progress of the task as a percentage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `duration (mins)`          | The amount of time spent on the task, in minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `lifecycle`                | The status of the task. Possible statuses are the following:<br>• `CREATED` – After you call the `msdb.dbo.rds_msbi_task` stored<br>procedure, a task is created and the status is set to `CREATED`.<br>• `IN_PROGRESS` – After a task starts, the status is set to `IN_PROGRESS`. It can take up to five<br>minutes for the status to change from `CREATED` to `IN_PROGRESS`.<br>• `SUCCESS` – After a task completes, the status is set to `SUCCESS`.<br>• `ERROR` – If a task fails, the status is set to `ERROR`. For more information about the error, see the<br>`task_info` column.<br>• `CANCEL_REQUESTED` – After you call `rds_cancel_task`, the status of the task is set to<br>`CANCEL_REQUESTED`.<br>• `CANCELLED` – After a task is successfully canceled, the status of the task is set to `CANCELLED`. |
+| `task_info`                | Additional information about the task. If an error occurs during processing, this column contains information about the error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `last_updated`             | The date and time that the task status was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `created_at`               | The date and time that the task was created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `S3_object_arn`            | Not applicable to SSIS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `overwrite_S3_backup_file` | Not applicable to SSIS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `KMS_master_key_arn`       | Not applicable to SSIS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `filepath`                 | Not applicable to SSIS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `overwrite_file`           | Not applicable to SSIS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `task_metadata`            | Metadata associated with the SSIS task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |

@@ -1,90 +1,144 @@
-# Instance store support for the tempdb database on Amazon RDS for SQL Server
+# Working with read replicas for Microsoft SQL Server in Amazon RDS
 
-An _instance store_ provides temporary block-level
-storage for your DB instance. This storage is located on disks that are physically attached
-to the host computer. These disks have Non-Volatile Memory Express (NVMe) instance storage
-that is based on solid-state drives (SSDs). This storage is optimized for low latency, very
-high random I/O performance, and high sequential read throughput.
+You usually use read replicas to configure replication between Amazon RDS DB instances. For
+general information about read replicas, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-By placing `tempdb` data files and `tempdb` log files on the instance store, you can achieve
-lower read and write latencies compared to standard storage based on Amazon EBS.
+In this section, you can find specific information about working with read replicas on Amazon RDS for SQL Server.
 
-###### Note
+- [Synchronizing database users and objects with a SQL Server read replica](SQLServer.ReadReplicas.md "SQLServer.ReadReplicas.md")
+- [Troubleshooting a SQL Server read replica problem](SQLServer.ReadReplicas.md "SQLServer.ReadReplicas.md")
 
-SQL Server database files and database log files aren't placed on the instance store.
+## Configuring read replicas for SQL Server
 
-## Enabling the instance store
+Before a DB instance can serve as a source instance for replication, you must enable
+automatic backups on the source DB instance. To do so, you set the backup retention
+period to a value other than 0. Setting this type of deployment also enforces
+that automatic backups are enabled.
 
-When RDS provisions DB instances with one of the following instance classes, the `tempdb` database is
-automatically placed onto the instance store:
+Creating a SQL Server read replica doesn't require an outage for the primary DB
+instance. Amazon RDS sets the necessary parameters and permissions for the source DB instance
+and the read replica without any service interruption. A snapshot is taken of the source
+DB instance, and this snapshot becomes the read replica. No outage occurs when you
+delete a read replica.
 
-- db.m5d
-- db.r5d
-- db.x2iedn
+You can create up to 15 read replicas from one source DB instance. For replication to operate effectively, we recommend that
+you configure each read replica with the same amount of compute and storage resources as the source DB instance. If you scale
+the source DB instance, also scale the read replicas.
 
-To enable the instance store, do one of the following:
+The SQL Server DB engine version of the source DB instance and all of its read
+replicas must be the same. Amazon RDS upgrades the primary immediately after upgrading the
+read replicas, regardless of the maintenance window. For more information about
+upgrading the DB engine version, see [Upgrades of the Microsoft SQL Server DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
-- Create a SQL Server DB instance using one of these instance types. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-- Modify an existing SQL Server DB instance to use one of them. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For a read replica to receive and apply changes from the source, it should have
+sufficient compute and storage resources. If a read replica reaches compute, network, or
+storage resource capacity, the read replica stops receiving or applying changes from its
+source. You can modify the storage and CPU resources of a read replica independently
+from its source and other read replicas.
 
-The instance store is available in all AWS Regions where one or more of these instance types are supported. For more
-information on the `db.m5d` and `db.r5d` instance classes, see [DB instance classes](Concepts.md "Concepts.md"). For more information on the instance classes supported by Amazon RDS for SQL Server,
-see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.md "SQLServer.Concepts.General.md").
+For more information about how to create a read replica, see
+[Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md").
 
-## File location and size considerations
+## Read replica limitations with SQL Server
 
-On instances without an instance store, RDS stores the `tempdb` data and log files in the
-`D:\rdsdbdata\DATA` directory. Both files start at 8 MB by default.
+The following limitations apply to SQL Server read replicas on Amazon RDS:
 
-On instances with an instance store, RDS stores the `tempdb` data and log files in the
-`T:\rdsdbdata\DATA` directory.
+- Read replicas are only available on the SQL Server Enterprise Edition (EE)
+  engine.
+- Read replicas are available for SQL Server versions 2016–2022.
+- You can create up to 15 read replicas from one source DB instance.
+  Replication might lag when your source DB instance has more than 5 read replicas.
+- Read replicas are only available for DB instances running on DB instance classes
+  with four or more vCPUs.
+- A read replica supports up to 100 databases depending on the instance class type and availability mode.
+  You must create databases on the source DB instance to
+  automatically replicate them to the read replicas.
+  You can't choose individual databases to replicate.
+  For more information,
+  see [Limitations for Microsoft SQL Server DB instances](CHAP_SQLServer.md#SQLServer.Concepts.General.FeatureSupport.Limits "CHAP_SQLServer.md#SQLServer.Concepts.General.FeatureSupport.Limits").
+- You can't drop a database from a read replica.
+  To drop a database, drop it from the source DB instance with the `rds_drop_database`
+  stored procedure.
+  For more information,
+  see [Dropping a database in an Amazon RDS for Microsoft SQL Server DB instance](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
+- If the source DB instance uses Transparent Data Encryption (TDE) to encrypt data,
+  the read replica also automatically
+  configures TDE.
 
-When `tempdb` has only one data file (`tempdb.mdf`) and one log file
-(`templog.ldf`), `templog.ldf` starts at 8 MB by default and
-`tempdb.mdf` starts at 80% or more of the instance's storage capacity. Twenty percent of the storage
-capacity or 200 GB, whichever is less, is kept free to start. Multiple `tempdb` data files split the 80% disk
-space evenly, while log files always have an 8-MB initial size.
+If the source DB instance uses a KMS key to encrypt data,
+read replicas in the same region use the same KMS key.
+For cross-region read replicas, you must specify a KMS key from the read replica’s region when creating the read replica.
+You can't change the KMS key for a read replica.
 
-For example, if you modify your DB instance class from `db.m5.2xlarge` to `db.m5d.2xlarge`, the size of
-`tempdb` data files increases from 8 MB each to 234 GB in total.
+- Read replicas have the same time zone and collation as the source DB instance,
+  regardless of Availabilty Zone they're created in.
+- The following aren't supported on Amazon RDS for SQL Server:
+  - Backup retention of read replicas
+  - Point-in-time recovery from read replicas
+  - Manual snapshots of read replicas
+  - Multi-AZ read replicas
+  - Creating read replicas of read replicas
+  - Synchronization of user logins to read replicas
 
-###### Note
+- Amazon RDS for SQL Server doesn't intervene to mitigate high replica lag between a
+  source DB instance and its read replicas. Make sure that the source DB instance
+  and its read replicas are sized properly, in terms of computing power and
+  storage, to suit their operational load.
+- You can replicate between the AWS GovCloud (US-East) and AWS GovCloud (US-West)
+  Regions, but not into or out of AWS GovCloud (US) Regions.
 
-Besides the `tempdb` data and log files on the instance store (`T:\rdsdbdata\DATA`),
-you can still create extra `tempdb` data and log files on the data volume
-(`D:\rdsdbdata\DATA`). Those files always have an 8 MB initial size.
+## Option considerations for RDS for SQL Server replicas
 
-## Backup considerations
+Before you create an RDS for SQL Server replica, consider the following requirements, restrictions, and recommendations:
 
-You might need to retain backups for long periods, incurring costs over time. The `tempdb` data and log
-blocks can change very often depending on the workload. This can greatly increase the DB snapshot size.
+- If your SQL Server replica is in the same Region as its source DB instance, make sure that it belongs
+  to the same option group as the source DB instance. Modifications to the source option group or source option
+  group membership propagate to replicas. These changes are applied to the replicas immediately after they are
+  applied to the source DB instance, regardless of the replica's maintenance window.
 
-When `tempdb` is on the instance store, snapshots don't include temporary files. This means that
-snapshot sizes are smaller and consume less of the free backup allocation compared to EBS-only storage.
+For more information about option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
 
-## Disk full errors
+- When you create a SQL Server cross-Region replica, Amazon RDS creates a dedicated option group for it.
 
-If you use all of the available space in the instance store, you might receive errors such as the following:
+You can't remove an SQL Server cross-Region replica from its dedicated option group. No other DB
+instances can use the dedicated option group for a SQL Server cross-Region replica.
 
-- **`The transaction log for database 'tempdb' is full due to 'ACTIVE_TRANSACTION'.`**
-- **`Could not allocate space for object 'dbo.SORT temporary run storage: 140738941419520' in database 'tempdb'
-because the 'PRIMARY' filegroup is full. Create disk space by deleting unneeded files, dropping objects in the
-filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the
-filegroup.`**
+The following options are replicated options. To add replicated options to a SQL Server cross-Region replica,
+add it to the source DB instance's option group. The option is also installed on all of the source DB instance's replicas.
 
-You can do one or more of the following when the instance store is full:
+    + `TDE`
 
-- Adjust your workload or the way you use `tempdb`.
-- Scale up to use a DB instance class with more NVMe storage.
-- Stop using the instance store, and use an instance class with only EBS storage.
-- Use a mixed mode by adding secondary data or log files for `tempdb` on the EBS volume.
+The following options are non-replicated options. You can add or remove non-replicated options from a dedicated option group.
 
-## Removing the instance store
+    + `MSDTC`
+    + `SQLSERVER_AUDIT`
+    + To enable the `SQLSERVER_AUDIT` option on cross-Region read replica, add the `SQLSERVER_AUDIT` option
+     on the dedicated option group on the cross-region read replica and the source instance’s option group.
+     By adding the `SQLSERVER_AUDIT` option on the source instance of SQL Server cross-Region read replica, you can
+     create Server Level Audit Object and Server Level Audit Specifications on each of the cross-Region read replicas
+     of the source instance. To allow the cross-Region read replicas access to upload the completed audit logs
+     to an Amazon S3 bucket, add the `SQLSERVER_AUDIT` option to the dedicated option group and configure the
+     option settings. The Amazon S3 bucket that you use as a target for audit files must be in the same Region as the cross-Region read replica.
+     You can modify the option setting of the `SQLSERVER_AUDIT` option for each cross region read replica independently so
+     each can access an Amazon S3 bucket in their respective Region.
 
-To remove the instance store, modify your SQL Server DB instance to use an instance type that doesn't support instance store,
-such as db.m5, db.r5, or db.x1e.
+The following options are not supported for read replicas.
 
-###### Note
+    + `SSRS`
+    + `SSAS`
+    + `SSIS`
 
-When you remove the instance store, the temporary files are moved to the `D:\rdsdbdata\DATA` directory
-and reduced in size to 8 MB.
+The following options are partially supported for cross-Region read replicas.
+
+    + `SQLSERVER_BACKUP_RESTORE`
+    + The source DB instance of a SQL Server cross-Region replica can have the `SQLSERVER_BACKUP_RESTORE` option,
+     but you can not perform native restores on the source DB instance until you delete all its cross-Region replicas.
+     Any existing native restore tasks will be cancelled during the creation of a cross-Region replica.
+     You can't add the `SQLSERVER_BACKUP_RESTORE` option to a dedicated option group.
+
+
+    For more information on native backup and restore, see [Importing and exporting SQL Server databases using native
+     backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md")
+
+When you promote a SQL Server cross-Region read replica, the promoted replica behaves the same as other SQL Server DB instances,
+including the management of its options. For more information about option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").

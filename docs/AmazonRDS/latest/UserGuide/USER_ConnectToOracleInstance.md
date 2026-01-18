@@ -1,16 +1,15 @@
-# Considerations for process architecture
+# Considerations for security groups
 
-Server processes handle user connections to an Oracle DB instance. By default, the Oracle DB instance uses
-dedicated server processes. With dedicated server processes, each server process services only one user process.
-You can optionally configure shared server processes. With shared server processes, each server process can
-service multiple user processes.
+For you to connect to your DB instance, it must be associated with a security group that contains the necessary IP addresses and network
+configuration. Your DB instance might use the default security group. If
+you assigned a default, nonconfigured security group when you created the DB instance, the firewall prevents
+connections. For information about creating a new security group, see [Controlling access with security
+groups](Overview.md "Overview.md").
 
-You might consider using shared server processes when a high number of user sessions are using too much memory
-on the server. You might also consider shared server processes when sessions connect and disconnect very often,
-resulting in performance issues. There are also disadvantages to using shared server processes. For example, they
-can strain CPU resources, and they are more complicated to configure and administer.
+After you create the new security group, you modify your DB instance to associate it
+with the security group. For more information, see
+[Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-For more information about dedicated and shared server processes, see [About dedicated and shared server
-processes](https://docs.oracle.com/database/121/ADMIN/manproc.htm#ADMIN11166 "https://docs.oracle.com/database/121/ADMIN/manproc.htm#ADMIN11166") in the Oracle documentation. For more information about configuring shared server processes
-on an RDS for Oracle DB instance, see [How do I configure Amazon RDS for Oracle database to
-work with shared servers?](https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/ "https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/") in the Knowledge Center.
+You can enhance security by using SSL to encrypt connections to your DB instance.
+For more information, see
+[Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
