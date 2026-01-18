@@ -14,7 +14,7 @@ When you configure a DLQ for a target of a rule, EventBridge sends the events wi
 invocations to the Amazon SQS queue selected.
 
 Event errors are handled in different ways. Some events are dropped or sent to a DLQ without
-any retry attempts. For example, for errors that result from missing permissions to a target, or if a target resource that no longer exists, no retry attempts will happen until action is taken to resolve the underlying issue.
+any retry attempts. For example, for errors that result from missing permissions to a target, a target resource that no longer exists, or a target that cannot be found due to an invalid address or DNS lookup failure, no retry attempts will happen until action is taken to resolve the underlying issue.
 EventBridge sends these events directly to the target DLQ, if you have specified one.
 
 When an event delivery fails, EventBridge publishes an event to Amazon CloudWatch metrics indicating that a

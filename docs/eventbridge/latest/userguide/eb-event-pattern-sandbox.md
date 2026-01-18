@@ -5,7 +5,7 @@ the Sandbox in EventBridge, however, you can quickly define an event pattern and
 to confirm the pattern matches the desired events, without having to create or edit a
 rule. Once you've got your event pattern tested, EventBridge give you the option of creating a new rule using that event pattern directly from the sandbox.
 
-For more information about event patterns, see [Amazon EventBridge event patterns](eb-event-patterns.md "eb-event-patterns.md").
+For more information about event patterns, see [Creating Amazon EventBridge event patterns](eb-event-patterns.md "eb-event-patterns.md").
 
 ###### Important
 

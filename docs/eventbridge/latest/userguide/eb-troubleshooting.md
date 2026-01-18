@@ -2,6 +2,11 @@
 
 You can use the topics in this section to troubleshoot Amazon EventBridge issues.
 
+###### Tip
+
+To verify that your event patterns match the expected events, you can use the EventBridge Sandbox to test event patterns against sample events.
+For more information, see [Testing event patterns using the EventBridge Sandbox](eb-event-pattern-sandbox.md "eb-event-pattern-sandbox.md").
+
 ###### Topics
 
 - [My rule ran but my Lambda function wasn't

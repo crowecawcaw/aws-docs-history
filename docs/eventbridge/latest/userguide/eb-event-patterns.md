@@ -1,4 +1,4 @@
-# Amazon EventBridge event patterns
+# Creating Amazon EventBridge event patterns
 
 Chances are you won't want to process every single event that gets delivered to a given
 event bus or pipe. Rather, you'll likely want to select a subset of all the events
@@ -10,6 +10,11 @@ pattern_. An event pattern defines the data EventBridge uses to determine whethe
 send the event to the target. If the event pattern matches the event, EventBridge sends the event to
 the target. Event patterns have the same structure as the events they match. An event
 pattern either matches an event or it doesn't.
+
+###### Tip
+
+You can use the EventBridge Sandbox to test event patterns against sample events before creating or updating rules.
+For more information, see [Testing event patterns using the EventBridge Sandbox](eb-event-pattern-sandbox.md "eb-event-pattern-sandbox.md").
 
 For example, consider the following event from Amazon EC2:
 

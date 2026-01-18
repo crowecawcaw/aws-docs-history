@@ -11,6 +11,10 @@ schemas so that your schemas are in logical groups. The default schema registrie
   Schema discovery.
   You can create custom registries to organize the schemas you create or upload.
 
+###### Note
+
+Exporting custom schemas from the EventBridge Schema Registry is not supported.
+
 ###### To create a custom registry
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").

@@ -2,7 +2,7 @@
 
 With EventBridge Pipes, you can filter a given source's events and process only a subset of them.
 This filtering works in the same way as filtering on an EventBridge event bus or Lambda event source mapping, by using event patterns.
-For more information about event patterns, see [Amazon EventBridge event patterns](eb-event-patterns.md "eb-event-patterns.md").
+For more information about event patterns, see [Creating Amazon EventBridge event patterns](eb-event-patterns.md "eb-event-patterns.md").
 
 A filter criteria `FilterCriteria` object is a structure that consists of a list
 of filters (`Filters`). Each filter is a structure that defines a filtering

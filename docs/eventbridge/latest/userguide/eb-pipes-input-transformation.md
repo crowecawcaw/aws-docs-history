@@ -244,3 +244,12 @@ Resulting in valid JSON with proper quotation:
 - For Lambda or Step Functions enrichments or targets, batches are delivered to the target as JSON arrays, even if the batch size is 1.
   However, input transformers will still be applied to individual records in the JSON Array, not the array as a whole.
   For more information, see [Amazon EventBridge Pipes batching and concurrency](eb-pipes-batching-concurrency.md "eb-pipes-batching-concurrency.md").
+- Input transformers and filtering can extract JSON values that have been string-encoded once,
+  but not values that have been string-encoded twice. This commonly occurs when an Amazon SNS message is sent to Amazon SQS. When Amazon SQS receives the Amazon SNS message, it stringifies the entire message.
+  When Pipes then receives this Amazon SQS message, the Amazon SNS message content appears in the `body` field and is accessible. However, if the Amazon SNS `Message` field itself
+  contains stringified JSON, that nested content is double-encoded and cannot be accessed by input transformers or filters. For example, `<$.body.TopicArn>` is accessible,
+  but `<$.body.Message.operation>` is not if the `Message` field contains stringified JSON
+  such as `"{\\\"operation\\\":\\\"UPDATE\\\",\\\"email\\\":\\\"user@example.com\\\"}"`.
+
+To work around this limitation, use an enrichment step with a Lambda function to parse the double-encoded content and extract the nested values.
+For more information about enrichment, see [Enrichment](pipes-enrichment.md "pipes-enrichment.md").

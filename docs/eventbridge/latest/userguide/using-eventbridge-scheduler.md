@@ -84,7 +84,7 @@ schedule`.
        in the _Service Authorization Reference_. For more information about source and detail-type event values, see [AWS service event metadata](../ref/events-structure.md "../ref/events-structure.md") in the _Events Reference_.>.
        - (Optional): For **Detail**, enter an event pattern to further filter the events EventBridge Scheduler sends to EventBridge.
 
-       For more information, see [Amazon EventBridge event patterns](eb-event-patterns.md "eb-event-patterns.md").
+       For more information, see [Creating Amazon EventBridge event patterns](eb-event-patterns.md "eb-event-patterns.md").
 
 8.  Choose **Next**.
 9.  On the **Settings** page, do the following:

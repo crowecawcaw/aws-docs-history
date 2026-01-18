@@ -1,4 +1,4 @@
-# Creating event patterns in EventBridge
+# Event pattern syntax
 
 To create an event pattern, you specify the fields of an event that you want the event
 pattern to match. Only specify the fields that you use for matching.
