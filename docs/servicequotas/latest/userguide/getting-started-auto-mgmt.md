@@ -6,6 +6,10 @@ allow AWS to monitor quotas in your AWS account, you need to start the Automatic
 following procedures walks through how you can start Automatic Management with either the AWS Management Console
 or AWS CLI.
 
+###### Supported quotas
+
+Not all service quotas support Automatic Management. Only quotas that have usage metrics available and are marked as adjustable can be monitored. Additionally, only a subset of these quotas support auto-adjustment. To view which quotas are supported in your account, navigate to the Automatic Management section in the Service Quotas console, which displays only the quotas that support Automatic Management in your account and region.
+
 AWS Management Console
 Use the following steps to start Automatic Management using the AWS Management Console.
 
@@ -19,7 +23,7 @@ Use the following steps to start Automatic Management using the AWS Management C
    ###### Important
 
    This starts Automatic Management for all available Service Quotas and only
-   sends notifications to the AWS Health Dashboard.
+   sends notifications to the Health Dashboard.
 
 3. Under **Automatic Management Mode**, Select
    **Notify Only**. There are two modes: Notify Only and Notify and Auto-Adjust. To learn
@@ -28,7 +32,7 @@ Use the following steps to start Automatic Management using the AWS Management C
 ###### Note
 
 Automatic Management monitors all the monitored service quotas and sends
-notifications to AWS Health Dashboard. Optionally, you can send notifications to
+notifications to Health Dashboard. Optionally, you can send notifications to
 your preferred channels in the next steps. Otherwise, choose
 **Skip to Review and Confirm** to
 continue.

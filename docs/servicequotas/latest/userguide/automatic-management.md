@@ -48,6 +48,7 @@ Configure notifications through multiple channels:
   configuration](updating-automatic-management.md "updating-automatic-management.md")
 - [Excluding service quotas from Service Quotas Automatic Management](excluding-quotas.md "excluding-quotas.md")
 - [Stopping Service Quotas Automatic Management](stopping-automatic-management.md "stopping-automatic-management.md")
+- [Service Quotas Automatic Management frequently asked questions](automatic-management-faq.md "automatic-management-faq.md")
 
 ## Service Quotas Automatic Management modes
 
@@ -69,6 +70,28 @@ Automatic Management monitors your service usage and sends these metrics to Clou
 usage for [adjustable services quotas](intro.md#intro_getting-started "intro.md#intro_getting-started") are
 greater than the [utilization threshold](#notification-thresholds "#notification-thresholds"),
 Automatic Management generates a service quota increase for that quota.
+
+#### Auto-adjust vs manual quota increase requests
+
+Auto-adjust requests are processed differently than manual quota increase requests:
+
+Auto-adjust requests
+
+- Use automated processing without creating a support case
+- Only work for quotas that support automated approval
+- May have more restrictive approval criteria
+- Do not provide detailed rejection reasons when not approved
+
+Manual requests
+
+- Go through AWS Support with human review
+- Can consider additional context and account-specific factors
+- Provide detailed feedback through the support case process
+- May be approved even when auto-adjust requests for the same quota are not
+
+###### Important
+
+Auto-adjustable status does not guarantee approval. If an auto-adjust request is not approved, you should submit a manual quota increase request through the Service Quotas console or API.
 
 ## Service Quotas Automatic Management permissions
 
