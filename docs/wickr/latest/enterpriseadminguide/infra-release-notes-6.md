@@ -1,34 +1,41 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Infrastructure 6.22 release
+# Infrastructure 6.34 release
 
-The following release notes include information for infrastructure release 6.22. For
-information on the release timeline, see [Change log](#infra-release-notes-6.22-change-log "#infra-release-notes-6.22-change-log").
+The following release notes include information for infrastructure release 6.34. For
+information on the release timeline, see [Change log](#infra-release-notes-6.34-change-log "#infra-release-notes-6.34-change-log").
 
 **Platform version**
 
-|                |               |
-| -------------- | ------------- |
-| Infrastructure | 6.22.1 (1757) |
+|                |                                                                        |
+| -------------- | ---------------------------------------------------------------------- |
+| Infrastructure | 6.34.1<br>Replicated Native Scheduler (1928)<br>Replicated KOTS (1377) |
 
 **New features**:
 
-Support for multi-region federation. Wickr Enterprise customers can now federate with
-AWS Wickr customers in AWS Canada (Central) and London regions in addition to Northern
-Virginia.
+- Global Federation is now available between AWS WickrGov networks and Wickr Enterprise
+  deployments.
+- New Wickr Enterprise infrastructure is now available for non-AWS cloud deployments and
+  on-premises deployments. This new architecture, based on Kubernetes, improves scalability and
+  fault tolerance. The deployment is tested on RKE2.
+- Network administrators can now view and manipulate usage dashboards.
+  **Changes and resolved issues**:
 
-**Changes, enhancements, and resolved issues**:
+Fixed a return error code before doLogin when device details are not found in the database,
+preventing suspended users on iOS from viewing content.
 
-New users will no longer be prompted to enter a phone number when onboarding on Android
-devices.
+**Improvements**:
+
+- Removed reference to Wickr Me in admin Global Federation options.
+- Allow a superadmin to configure password policy.
 
 ## Change log
 
-**Change log for 6.22 release and release notes**
+**Change log for 6.34 release and release notes**
 
-| Change                | Description                                   | Date               |
-| --------------------- | --------------------------------------------- | ------------------ |
-| Final release         | Final notes with Replicated build number      | September 25, 2023 |
-| Infrastructure update | Updates to address vulnerability scan results | September 25, 2023 |
-| Initial release       | Initial release of September release notes    | September 13, 2023 |
+| Change                | Description                                                                             | Date           |
+| --------------------- | --------------------------------------------------------------------------------------- | -------------- |
+| Final release         | Final notes with Replicated build number                                                | March 28, 2024 |
+| Infrastructure update | Updates to address vulnerability scan results, new features, fixes, and<br>improvements | March 26, 2024 |
+| Initial release       | Initial release of March release notes                                                  | March 20, 2024 |
