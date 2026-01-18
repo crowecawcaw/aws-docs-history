@@ -139,7 +139,7 @@ plan:** Medium
 **Related documents:**
 
 - [Amazon
-  Personal AWS Health Dashboard User Guide](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md")
+  Personal Health Dashboard User Guide](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md")
 - [AWS Internet Monitor User Guide](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.md")
 - [AWS X-Ray Developer Guide](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md")
 - [AWS DevOps Guru User Guide](../../../devops-guru/latest/userguide/welcome.md "../../../devops-guru/latest/userguide/welcome.md")
