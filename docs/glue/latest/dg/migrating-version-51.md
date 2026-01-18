@@ -42,6 +42,8 @@ This section describes new features and advantages of AWS Glue version
 
 ###### Known Issues and Limitations
 
+Note the following known issues and limitations:
+
 - Limited support for view SQL clause for creation of materialized views, query rewrite and incremental refresh.
   More details can be found in the
   [Iceberg Materialized Views feature documentation page](../../../lake-formation/latest/dg/materialized-views.md#materialized-views-considerations-limitations "../../../lake-formation/latest/dg/materialized-views.md#materialized-views-considerations-limitations")
