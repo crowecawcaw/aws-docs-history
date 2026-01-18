@@ -54,7 +54,7 @@ The dashboard has five tabs:
 
 Get more familiar with Dashboard using the live, interactive demo
 dashboard following this [Link]
-([https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace](https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace "https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace"))
+(https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace)
 
 ![Image of a AWS Marketplace SPG dashboard in Quick Sight](images/aws-marketplace-spg-pie.png)
 
@@ -75,7 +75,7 @@ CloudFormation
 1. Log in to to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](/images/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard&param_DashboardId=aws-marketplace&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard¶m_DashboardId=aws-marketplace¶m_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard&param_DashboardId=aws-marketplace&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard¶m_DashboardId=aws-marketplace¶m_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 
@@ -89,13 +89,13 @@ Alternative method to install dashboards is the [cid-cmd](https://github.com/aws
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
-pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the dashboard:
 
 ```
-cid-cmd deploy --dashboard-id aws-marketplace
+ cid-cmd deploy --dashboard-id aws-marketplace
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the
@@ -110,7 +110,7 @@ released, you can update your dashboard by running the following command
 in your command-line interface:
 
 ```
-cid-cmd update --dashboard-id aws-marketplace
+ cid-cmd update --dashboard-id aws-marketplace
 ```
 
 ## Visualizing Third-Party Software License Procurement
@@ -129,7 +129,7 @@ the **Granted and Entitled Licenses** tab, follow these steps:
   view in Amazon Athena.
 
 ```
-CREATE OR REPLACE VIEW "marketplace_licenses_grants_view" AS
+ CREATE OR REPLACE VIEW "marketplace_licenses_grants_view" AS
 SELECT DISTINCT
   lt.payer_id management_account_id
 , SPLIT_PART(lt.beneficiary, ':', 5) "subscribed_account_id"
@@ -170,13 +170,13 @@ In the SPG Dashboard, to view the AWS Marketplace Agreements in the **Marketplac
 - Run the following queries to update **terms** and **agreements** views in Amazon Athena.
 
 ```
-CREATE OR REPLACE VIEW "terms" AS
+ CREATE OR REPLACE VIEW "terms" AS
 SELECT *
 FROM optimization_data.terms
 ```
 
 ```
-CREATE OR REPLACE VIEW "agreements" AS
+ CREATE OR REPLACE VIEW "agreements" AS
 SELECT *
 FROM optimization_data.agreements
 ```

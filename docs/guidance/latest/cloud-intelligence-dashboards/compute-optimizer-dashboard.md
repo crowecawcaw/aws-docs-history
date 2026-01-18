@@ -86,14 +86,14 @@ tool.
    and install the CID CLI tool:
 
 ```
-pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the
    dashboard:
 
 ```
-cid-cmd deploy --dashboard-id compute-optimizer-dashboard
+ cid-cmd deploy --dashboard-id compute-optimizer-dashboard
 ```
 
 Please follow the instructions from the deployment wizard. More info
@@ -127,7 +127,7 @@ released, you can update your dashboard by running the following command
 in your command-line interface:
 
 ```
-cid-cmd update --dashboard-id compute-optimizer-dashboard
+ cid-cmd update --dashboard-id compute-optimizer-dashboard
 ```
 
 ## OPTIONAL STEPS
@@ -140,7 +140,7 @@ csv file upload to s3, create a table and set business_units_map view to
 select from this table.
 
 ```
-CREATE OR REPLACE VIEW business_units_map AS
+ CREATE OR REPLACE VIEW business_units_map AS
 SELECT *
 FROM
     (
@@ -158,7 +158,7 @@ CUDOS dashboard installed with account_map, you can use this view to
 SELECT from account_map.
 
 ```
-CREATE OR REPLACE VIEW business_units_map AS
+ CREATE OR REPLACE VIEW business_units_map AS
 SELECT
     account_id as account_id,
     account_name as account_name,

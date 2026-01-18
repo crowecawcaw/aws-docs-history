@@ -26,7 +26,7 @@ rate data that you can obtain from public sources.
 - Currency conversion rate file in CSV format [example.csv](samples/currency-conversion-rate.csv.md "samples/currency-conversion-rate.csv.md"), averaging currency conversion on monthly basis. For this example we use USD to GBP change rate, assuming that the CUR is in USD and we want to show it in GBP.
 
 ```
-Month,CurrencyConversionRate
+ Month,CurrencyConversionRate
 2024-02-01,0.7845326
 2024-03-01,0.79015638
 2024-04-01,0.79732566
@@ -65,7 +65,7 @@ This customization requires several manual steps:
    your Account Id.
 
 ```
-    CREATE EXTERNAL TABLE IF NOT EXISTS currencyconversionrate (
+     CREATE EXTERNAL TABLE IF NOT EXISTS currencyconversionrate (
         Month date,
         CurrencyConversionRate double
     )
@@ -141,7 +141,7 @@ This customization requires several manual steps:
 Simple Conversion
 
 ```
-switch( ${Currency},
+ switch( ${Currency},
     "$", {unblended_cost},
     "£", {unblended_cost} * {currencyconversionrate},
     NULL
@@ -151,7 +151,7 @@ switch( ${Currency},
 Multi Currency
 
 ```
-switch( ${Currency},
+ switch( ${Currency},
     "$", switch(substring(region, 1, 4), 'cn-', {unblended_cost} * {currencyconversionrate}, {unblended_cost}),
     "¥", switch(substring(region, 1, 4), 'cn-', {unblended_cost}, {unblended_cost} / {currencyconversionrate}),
     NULL
@@ -165,7 +165,7 @@ switch( ${Currency},
 Simple Conversion
 
 ```
-switch( ${Currency},
+ switch( ${Currency},
     "$", {amortized_cost},
     "£", {amortized_cost} * {currencyconversionrate},
     NULL
@@ -175,7 +175,7 @@ switch( ${Currency},
 Multi Currency
 
 ```
-switch( ${Currency},
+ switch( ${Currency},
     "$", switch(substring(region, 1, 4), 'cn-', {amortized_cost} * {currencyconversionrate}, {amortized_cost}),
     "¥", switch(substring(region, 1, 4), 'cn-', {amortized_cost}, {amortized_cost} / {currencyconversionrate}),
     NULL

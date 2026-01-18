@@ -12,12 +12,12 @@ Log on GitHub](https://github.com/awslabs/cid-framework/blob/main/data-collectio
 
 ### Step 1. [In Management/Payer Account] Deploy permissions stack
 
-1. The URL to the latest Permissions Stack CloudFormation Template is [https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml](https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml "https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml"). Copy this URL and keep it at hand, you will use it to update the current stack.
+1. The URL to the latest Permissions Stack CloudFormation Template is https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml. Copy this URL and keep it at hand, you will use it to update the current stack.
 2. Login to the Management/Payer Account. Open respective CloudFormation Stack and update it by providing the URL that you copied above.
 
 ### Step 2. [In Data Collection Account] Update Data Collection stack
 
-1. The URL to the latest Data Collection CloudFormation is [https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml](https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml "https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml"). Copy this URL and keep it at hand, you will use it to update the current Data Collection stack.
+1. The URL to the latest Data Collection CloudFormation is https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml. Copy this URL and keep it at hand, you will use it to update the current Data Collection stack.
 2. Login to the Data Collection Account. Open respective CloudFormation Stack and update it by providing the URL that you copied above.
 
 ## Update from legacy versions
@@ -54,7 +54,7 @@ To ensure full visibility of data across your organization accounts, in the para
 
 ### Step 2. [Data Collection Account] Update Data Collection stack
 
-1. The URL to the latest Data Collection CloudFormation is [https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml](https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml "https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml"). Copy this URL and keep it at hand, you will use it to update the current Data Collection stack.
+1. The URL to the latest Data Collection CloudFormation is https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml. Copy this URL and keep it at hand, you will use it to update the current Data Collection stack.
 2. Make a note of the value set on your existing Data Collection stack
    regions parameter. Previous versions of the Data Collection stack would
    have the regions in the parameter "ComputeOptimizerRegions":
@@ -111,7 +111,7 @@ collection stack. Default in legacy versions of this lab is
 You can run following commands from your AWS CloudShell
 
 ```
-curl https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-collection/source/s3_files_migration.py -o s3_files_migration.py
+ curl https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-collection/source/s3_files_migration.py -o s3_files_migration.py
 python3 s3_files_migration.py
 ```
 

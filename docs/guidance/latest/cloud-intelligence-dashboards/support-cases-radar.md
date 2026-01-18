@@ -62,13 +62,13 @@ tool.
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
-pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the dashboard:
 
 ```
-cid-cmd deploy ---dashboard-id support-cases-radar
+ cid-cmd deploy ---dashboard-id support-cases-radar
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") or `cid-cmd --help`.
@@ -88,7 +88,7 @@ released, you can update your dashboard by running the following command
 in your command-line interface:
 
 ```
-cid-cmd update --dashboard-id support-cases-radar
+ cid-cmd update --dashboard-id support-cases-radar
 ```
 
 ## Authors

@@ -94,7 +94,7 @@ leveraging various options:
 ### Example of default account map based on CUR 2.0
 
 ```
-CREATE OR REPLACE VIEW account_map AS
+ CREATE OR REPLACE VIEW account_map AS
 SELECT DISTINCT
     line_item_usage_account_id                                        account_id,
     MAX_BY(line_item_usage_account_name, line_item_usage_start_date)  account_name,
@@ -111,7 +111,7 @@ GROUP BY
 This example leverages the AWS Organization Data collected by [CID Data Collection](data-collection.md "data-collection.md") and allows you adding Account and OU level tags into account_map. Please note that you do not need to use all the fields from this example, you can adjust it to your specific business and organizational requirements.
 
 ```
-CREATE OR REPLACE VIEW "account_map" AS
+ CREATE OR REPLACE VIEW "account_map" AS
 SELECT DISTINCT
     -- Mandatory
       id account_id
@@ -134,7 +134,7 @@ SELECT DISTINCT
         ELSE ManagementAccountId
     END parent_account_name
 
-    -- Full path separated with '>'
+    -- Full path separated with ''
     , HierarchyPath as o_u_hierarchy
 
     -- Levels of OU hierarchy
@@ -146,9 +146,9 @@ SELECT DISTINCT
 
     -- Hierarchical Tags
     -- You can set on OU level and override on lower OU or set Account level Tags
-    , TRY(FILTER(HierarchyTags, x -> x.key = 'MyEnterprise')[1].value) as ou_tag_enterprise
-    , TRY(FILTER(HierarchyTags, x -> x.key = 'MyBusinessLine')[1].value) as ou_tag_business_line
-    , TRY(FILTER(HierarchyTags, x -> x.key = 'MyBusinessUnit')[1].value) as ou_tag_business_unit
+    , TRY(FILTER(HierarchyTags, x - x.key = 'MyEnterprise')[1].value) as ou_tag_enterprise
+    , TRY(FILTER(HierarchyTags, x - x.key = 'MyBusinessLine')[1].value) as ou_tag_business_line
+    , TRY(FILTER(HierarchyTags, x - x.key = 'MyBusinessUnit')[1].value) as ou_tag_business_unit
 FROM
     "optimization_data"."organization_data"
 ```
@@ -160,7 +160,7 @@ the CMDB outside of account names and you want to bring it to account
 map.
 
 ```
-CREATE OR REPLACE VIEW account_map AS
+ CREATE OR REPLACE VIEW account_map AS
 SELECT *
 FROM
   (
@@ -220,13 +220,13 @@ run the following commands:
 1. Install the tool
 
 ```
-pip3 install -U cid-cmd
+ pip3 install -U cid-cmd
 ```
 
 2. Update a dashboard and all dependency datasets
 
 ```
-cid-cmd update --force --recursive
+ cid-cmd update --force --recursive
 ```
 
 After update Amazon Quick Sight datasets will be refreshed automatically. During the refresh process you may see `Dataset changed too much` error which should disappear once datasets are fully refreshed.
@@ -236,7 +236,7 @@ See more in [update](update-dashboards.md "update-dashboards.md") documentation.
 Following command can be used for deployment if the taxonomy fields are known. Parameters `--taxonomy` and `--resource-tags` are optional. If not provided the tool with discover and propose operator to choose them.
 
 ```
-cid-cmd update --force --recursive  --resource-tags 'tag_environment' --taxonomy 'company,business_unit,tag_environment'
+ cid-cmd update --force --recursive  --resource-tags 'tag_environment' --taxonomy 'company,business_unit,tag_environment'
 ```
 
 Once dashboard is installed AND all datasets are updated, you can use

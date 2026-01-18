@@ -39,7 +39,7 @@ You can query the data to make sure that the data are identical.
 CUR 2.0
 
 ```
-SELECT
+ SELECT
     billing_period,
     sum(line_item_unblended_cost)
 FROM cid_data_export.cur2
@@ -49,7 +49,7 @@ GROUP BY 1
 Legacy CUR
 
 ```
-SELECT
+ SELECT
     concat("`year`", '`-`', "`month`") AS billing_period,
     sum(line_item_unblended_cost)
 FROM cid_cur.cur -- replace with your legacy CUR table

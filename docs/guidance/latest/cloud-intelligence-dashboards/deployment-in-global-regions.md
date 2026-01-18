@@ -139,7 +139,7 @@ You can also use following command in AWS CloudShell to create this case
 via command line (requires AWS Enterprise or OnRamp Support):
 
 ```
-aws support create-case \
+ aws support create-case \
     --subject "Backfill Data" \
     --service-code "billing" \
     --severity-code "normal" \
@@ -235,13 +235,13 @@ Alternative method to install dashboards is the
 3. Install cid-cmd tool. Run the following command and make sure you hit enter :
 
 ```
- pip3 install --upgrade cid-cmd
+  pip3 install --upgrade cid-cmd
 ```
 
 4. Deploy CUDOS Dashboard:
 
 ```
- cid-cmd deploy --dashboard-id cudos-v5
+  cid-cmd deploy --dashboard-id cudos-v5
 ```
 
 Please follow the instructions from the deployment wizard.
@@ -250,7 +250,7 @@ More info about command line options are in the
 or `cid-cmd --help`. 5. Repeat deployment command for Cost Intelligence Dashboard and KPI:
 
 ```
- cid-cmd deploy
+  cid-cmd deploy
 ```
 
 Please note that Advanced Dashboard will require Advanced [Data Collection](data-collection.md "data-collection.md")
@@ -280,7 +280,7 @@ You can check the latest Cloud Formation Stack [Here](https://aws-managed-cost-i
 1. Open CloudFormation console and identify the stack (default name is
    `Cloud-Intelligence-Dashboards`).
 2. Open the Stack and press Update button.
-3. Choose to update the template and insert this link: [https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml](https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml "https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml")
+3. Choose to update the template and insert this link: https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml
 4. Review the parameters. Please make sure to choose the right version of
    CUR in CurVersion parameter. Choose 1.0 to stay on CUR1. Choose 2.0 to
    switch all new dashboards to CUR 2. To preform a full migration please

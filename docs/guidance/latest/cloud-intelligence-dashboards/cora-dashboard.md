@@ -86,13 +86,13 @@ Alternative method to install dashboards is the [cid-cmd](https://github.com/aws
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
-pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the dashboard:
 
 ```
-cid-cmd deploy --dashboard-id cora
+ cid-cmd deploy --dashboard-id cora
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the
@@ -107,7 +107,7 @@ released, you can update your dashboard by running the following command
 in your command-line interface:
 
 ```
-cid-cmd update --dashboard-id cora
+ cid-cmd update --dashboard-id cora
 ```
 
 ## Usage Guide

@@ -77,8 +77,8 @@ CID constructs an RLS dataset from several sources.
 
 ![RLS Details](images/customizations/rls2/rls-views-details.png)
 
-1. **full_access_users** - is a view or a table that contains a list of emails of users who supposed to have a full unrestricted access to protected datasets. This view can be edited in Athena directly ([https://docs.aws.amazon.com/athena/latest/ug/views-managing.html](../../../athena/latest/ug/views-managing.md "../../../athena/latest/ug/views-managing.md")) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3). We do not recommend using individual users for this and rather prioritize user management with groups, but it can be handy on the initial setup phase. Please make sure you put exactly the same email as you have in Quick Suite.
-2. **full_access_groups** - is a view or a table that contains a list of Quick Suite Groups with users who will to have a full unrestricted access to protected datasets. This view can be edited in Athena directly ([https://docs.aws.amazon.com/athena/latest/ug/views-managing.html](../../../athena/latest/ug/views-managing.md "../../../athena/latest/ug/views-managing.md")) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3).
+1. **full_access_users** - is a view or a table that contains a list of emails of users who supposed to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3). We do not recommend using individual users for this and rather prioritize user management with groups, but it can be handy on the initial setup phase. Please make sure you put exactly the same email as you have in Quick Suite.
+2. **full_access_groups** - is a view or a table that contains a list of Quick Suite Groups with users who will to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3).
 3. **account_access** - a view or a table that has following fields:
    1. `account_id` - AWS Account Id (12 digits)
    2. `payer_id` - an AWS Management Account Id. Users and groups that have access to the `account_id` == `payer_id` will have access to all account under the AWS Organization with this management account id. The tool supports multiple AWS Organizations.
@@ -136,7 +136,7 @@ Here we will use the minimal setup for managing access from AWS Organization OU 
 5. You can validate data using following query:
 
 ```
-SELECT * FROM "organization_data"
+ SELECT * FROM "organization_data"
 ```
 
 The Data Collection is needed to collect data from local Quick Suite account and store on the local S3 bucket.
@@ -146,7 +146,7 @@ The Data Collection is needed to collect data from local Quick Suite account and
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=no¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 2. Create an inline Athena Table that simulates Data Collection organization_data, but can be edited directly in Athena to manage access.
 
 ```
-CREATE OR REPLACE VIEW "cid_cur"."organization_data" AS
+ CREATE OR REPLACE VIEW "cid_cur"."organization_data" AS
 WITH accounts AS (
   SELECT *
   FROM (
@@ -171,7 +171,7 @@ FROM accounts
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=no¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 2. Create a CSV file (ex: `file.csv`):
 
 ```
-"account_id", "payer_id", "emails", "groups"
+ "account_id", "payer_id", "emails", "groups"
 "1111111111111111", "1111111111111111", "user11@e.mail,user12@e.mail", "group11,group12"
 "2222222222222222", "1111111111111111", "user21@e.mail,user12@e.mail", ""
 "3333333333333333", "1111111111111111", "", "group31,group32"
@@ -180,14 +180,14 @@ FROM accounts
 3. Upload CSV file to an Amazon S3 Bucket. Please use an existing Bucket that Quick Suite already has access to. Example: `cid-{account-id}-data-exports` or `cid-data-{account-id}`. You can use either the web interface or the command line:
 
 ```
-account_id=$(aws sts get-caller-identity --query "Account" --output text)
+ account_id=$(aws sts get-caller-identity --query "Account" --output text)
 aws s3 cp ./file.csv s3://cid-data-${account_id}/my_accounts/file.csv
 ```
 
 4. Login to AWS Console, select Athena Service and Create a Table:
 
 ```
-CREATE EXTERNAL TABLE "cid_cur"."my_accounts" (
+ CREATE EXTERNAL TABLE "cid_cur"."my_accounts" (
     "account_id" string,
     "payer_id" string,
     "emails" string,
@@ -210,13 +210,13 @@ TBLPROPERTIES (
 5. Verify the table
 
 ```
-SELECT * FROM "cid_cur"."my_accounts"
+ SELECT * FROM "cid_cur"."my_accounts"
 ```
 
 6. Create a view that simulates organization_data table
 
 ```
-CREATE OR REPLACE VIEW "cid_cur"."organization_data" AS
+ CREATE OR REPLACE VIEW "cid_cur"."organization_data" AS
   account_id as Id,
   payer_id as ManagementAccountId,
   ARRAY[
@@ -232,13 +232,13 @@ FROM "cid_cur"."my_accounts"
 2. **Install CID-CMD Tool**:
 
 ```
-pip3 install -U cid-cmd
+ pip3 install -U cid-cmd
 ```
 
 3. **Deploy RLS Dashboard**:
 
 ```
-cid-cmd deploy --dashboard-id cid-rls
+ cid-cmd deploy --dashboard-id cid-rls
 ```
 
 4. **Verify Dashboard**: Check the dashboard in Quick Suite. Ensure the dataset updates and displays data (may take several minutes after deployment)
@@ -250,13 +250,13 @@ cid-cmd deploy --dashboard-id cid-rls
 2. **Install CID-CMD Tool** (if not already installed):
 
 ```
-pip3 install -U cid-cmd
+ pip3 install -U cid-cmd
 ```
 
 3. **Enable RLS**: Update dashboard with RLS enabled. The tool will guide you through selecting the dashboard and RLS dataset, then update all associated datasets:
 
 ```
-cid-cmd update --force --recursive --rls ENABLE
+ cid-cmd update --force --recursive --rls ENABLE
 ```
 
 4. **RLS Management Options**:
@@ -281,7 +281,7 @@ cid-cmd update --force --recursive --rls ENABLE
 Use the CID-CMD tool to enable RLS on any dashboard:
 
 ```
-cid-cmd update --force --recursive --rls ENABLE
+ cid-cmd update --force --recursive --rls ENABLE
 ```
 
 **Management Options**: \* Disable: `--rls DISABLE` \* Remove: `--rls CLEAR`
@@ -291,7 +291,7 @@ cid-cmd update --force --recursive --rls ENABLE
 Use the CID-CMD status command:
 
 ```
-cid-cmd status
+ cid-cmd status
 ```
 
 ### How can I configure mapping between user groups and business units?

@@ -65,7 +65,7 @@ Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy
    in the parameters section, we recommend to pass the Organization Root ID
    as the organizational unit parameter (OrganizationalUnitID). You can
    check it here:
-   [https://console.aws.amazon.com/organizations/v2/home/accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")
+   https://console.aws.amazon.com/organizations/v2/home/accounts
 
 ![Organization Root ID](images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
 

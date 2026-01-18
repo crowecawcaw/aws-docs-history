@@ -97,7 +97,7 @@ the following:  
 
 **Method 2**: From Quick Sight portal
 
-- Go to Quick Sight portal URL: [https://quicksight.aws.amazon.com/](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/")
+- Go to Quick Sight portal URL: https://quicksight.aws.amazon.com/
 - Enter your Quick Sight account name
 - Enter user credentials on your identity provider portal from where you would be redirected into Quick Sight
 

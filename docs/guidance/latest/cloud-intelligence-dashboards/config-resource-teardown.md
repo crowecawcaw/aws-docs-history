@@ -12,7 +12,7 @@ Follow these steps to remove the dashboard.
 4. Execute the following command to delete the dashboard:
 
 ```
-cid-cmd delete --resources cid-crcd.yaml
+ cid-cmd delete --resources cid-crcd.yaml
 ```
 
 1. When prompted:

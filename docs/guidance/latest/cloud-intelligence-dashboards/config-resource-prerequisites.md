@@ -93,7 +93,7 @@ This command will provide information about the delivery channel configuration o
 CLI command should look like this:
 
 ```
-{
+ {
     "DeliveryChannels": [
         {
             "name": "[YOUR-DELIVERY-CHANNEL-NAME]",
@@ -123,7 +123,7 @@ Here’s how you can use the AWS CLI to modify the existing settings and schedul
 2. Run the AWS CLI command `aws configservice describe-delivery-channels` and save the resulting JSON to a local file. Name it `deliveryChannel.json`. For example, your file may look like the one below.
 
 ```
-{
+ {
   "name": "default",
   "s3BucketName": "config-bucket-123456789012",
   "snsTopicARN": "arn:aws:sns:us-east-1:123456789012:config-topic",
@@ -135,7 +135,7 @@ Here’s how you can use the AWS CLI to modify the existing settings and schedul
 2. Edit the file to add the `configSnapshotDeliveryProperties` section:
 
 ```
-{
+ {
   "name": "default",
   "s3BucketName": "config-bucket-123456789012",
   "snsTopicARN": "arn:aws:sns:us-east-1:123456789012:config-topic",

@@ -67,7 +67,7 @@ Legacy CUR
 1. On the line after, `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
 ```
-   CREATE OR REPLACE VIEW "summary_view" AS
+    CREATE OR REPLACE VIEW "summary_view" AS
    SELECT
    "year"
    , "month"
@@ -85,7 +85,7 @@ Legacy CUR
 3. Double-click on the first tag that you want to add. Remove the trailing comma that is added and place a comma at the beginning of that line. It will look like this:
 
 ```
-CREATE OR REPLACE VIEW "summary_view" AS
+ CREATE OR REPLACE VIEW "summary_view" AS
 SELECT
 "year"
 , "month"
@@ -102,7 +102,7 @@ SELECT
 5. Scroll down and add the next highest number in the **GROUP BY** clause.
 
 ```
-GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
 ```
 
 6. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
@@ -118,7 +118,7 @@ CUR 2.0
 4. We’ll first confirm that we see the tags in the CUR table. Run this query to list all available Tag keys.
 
 ```
-  SELECT DISTINCT key
+   SELECT DISTINCT key
   FROM cur2
   CROSS JOIN UNNEST(map_keys(resource_tags)) AS t(key)
 ```
@@ -129,7 +129,7 @@ CUR 2.0
 8. On the line after `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
 ```
-  CREATE OR REPLACE VIEW "summary_view" AS
+   CREATE OR REPLACE VIEW "summary_view" AS
   SELECT
     split_part("billing_period", '-', 1) "year"
   , split_part("billing_period", '-', 2) "month"

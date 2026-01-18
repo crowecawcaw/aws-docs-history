@@ -64,7 +64,7 @@ You will need to create a new view `organization_map`.
 4. Create the following view:
 
 ```
-CREATE OR REPLACE VIEW "organization_map" AS
+ CREATE OR REPLACE VIEW "organization_map" AS
 SELECT "id" "account_id"
 , "name" "account_name"
 , "parent" "OU"
@@ -150,7 +150,7 @@ back if this happens.
 4. Select the entire view and replace it with this query:
 
 ```
-CREATE OR REPLACE VIEW "account_map" AS
+ CREATE OR REPLACE VIEW "account_map" AS
 SELECT DISTINCT
     id account_id
   , name account_name
@@ -192,7 +192,7 @@ Organization.
 4. Select the entire view and replace it with this query adjusted to your needs:
 
 ```
-CREATE OR REPLACE VIEW "account_map" AS
+ CREATE OR REPLACE VIEW "account_map" AS
 SELECT DISTINCT
     id account_id
   , name account_name

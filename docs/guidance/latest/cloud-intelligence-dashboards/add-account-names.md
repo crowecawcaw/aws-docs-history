@@ -31,7 +31,7 @@ After successful deployment create or update your account_map view by
 running the following query in Athena Query Editor.
 
 ```
-CREATE OR REPLACE VIEW account_map AS
+ CREATE OR REPLACE VIEW account_map AS
 SELECT DISTINCT
     "id" "account_id",
     "name" "account_name",
@@ -107,7 +107,7 @@ Run the query after the modification. Your account_map view will now
 have account names from the cost category created.
 
 ```
-CREATE OR REPLACE VIEW "account_map" AS
+ CREATE OR REPLACE VIEW "account_map" AS
 SELECT DISTINCT
 line_item_usage_account_id "account_id"
 , max_by(cost_category_accountname,line_item_usage_start_date) "account_name"
@@ -188,7 +188,7 @@ This example will show you how to create using a sample account_map csv file
 Validate rows **2-5** match your csv columns. If you removed one of the fields in the csv you will need to remove it in the query. If you added any additional fields you will need to add the attribute to the query.\*
 
 ```
-CREATE EXTERNAL TABLE +account_mapping+(
+ CREATE EXTERNAL TABLE +account_mapping+(
     +account_id+ string,
     +account_name+ string,
     +business_unit+ string,
@@ -220,7 +220,7 @@ Modify the following query with your table names:
 2. Replace **(database).(tablename)** in line 23 with your account_mapping database and table name (e.g. cid_cur.account_mapping)
 
 ```
-CREATE OR REPLACE VIEW account_map AS
+ CREATE OR REPLACE VIEW account_map AS
 SELECT DISTINCT
 a.line_item_usage_account_id "account_id"
 , b.account_name

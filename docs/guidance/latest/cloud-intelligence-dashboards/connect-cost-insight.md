@@ -61,14 +61,14 @@ Alternative method to install dashboards is the [cid-cmd](https://github.com/aws
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
-pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the
    dashboard:
 
 ```
-cid-cmd deploy --dashboard-id amazon-connect-cost-insight-dashboard
+ cid-cmd deploy --dashboard-id amazon-connect-cost-insight-dashboard
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the
@@ -83,7 +83,7 @@ released, you can update your dashboard by running the following command
 in your command-line interface:
 
 ```
-cid-cmd update --dashboard-id amazon-connect-cost-insight-dashboard
+ cid-cmd update --dashboard-id amazon-connect-cost-insight-dashboard
 ```
 
 ## Dashboard Customization
@@ -106,7 +106,7 @@ This process allows you to replace Amazon Connect instance IDs with more readabl
 You’ll find an example that you can uncomment to provide your instance ID and preferred label
 
 ```
-ifelse (
+ ifelse (
   {#connect_instance_id}="bb83be25-8c15-4696-a583-5dejlk12","EuropeProd",
 //   {#connect_instance_id}="<instance_id>","<instance_name2>",
 //   {#connect_instance_id}="<instance_id>","<instance_name3>",
