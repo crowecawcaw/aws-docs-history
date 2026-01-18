@@ -140,10 +140,10 @@ happens when my facility's network connection goes down?_ on the [AWS Outposts r
 page.
 
 If the service link is down because of an on-site power issue or the loss of network
-connectivity, the AWS Health Dashboard sends a notification to the account that owns the Outposts. Neither
+connectivity, the Health Dashboard sends a notification to the account that owns the Outposts. Neither
 you nor AWS can suppress the notification of a service link interruption, even if the
 interruption is expected. For more information, see [Getting started with your
-AWS Health Dashboard](../../../health/latest/ug/getting-started-health-dashboard.md "../../../health/latest/ug/getting-started-health-dashboard.md") in the _AWS Health User Guide_.
+Health Dashboard](../../../health/latest/ug/getting-started-health-dashboard.md "../../../health/latest/ug/getting-started-health-dashboard.md") in the _AWS Health User Guide_.
 
 In the case of a planned service maintenance that will affect network connectivity, take
 the following proactive steps to limit the impact of potential problematic scenarios:

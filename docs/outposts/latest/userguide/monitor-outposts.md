@@ -37,12 +37,12 @@ Guide](../../../vpc/latest/mirroring/what-is-traffic-mirroring.md "../../../vpc/
 
 **AWS Health Dashboard**
 
-The AWS Health Dashboard displays information and notifications that are initiated by changes in the
+The Health Dashboard displays information and notifications that are initiated by changes in the
 health of AWS resources. The information is presented in two ways: on a dashboard that
 shows recent and upcoming events organized by category, and in a full event log that shows
 all events from the past 90 days. For example, a connectivity issue on the service link
 would initiate an event that would appear on the dashboard and event log, and remain in
-the event log for 90 days. A part of the AWS Health service, AWS Health Dashboard requires no setup
+the event log for 90 days. A part of the AWS Health service, Health Dashboard requires no setup
 and can be viewed by any user that is authenticated in your account. For more information,
 see [Getting started with the
 AWS Health Dashboard](../../../health/latest/ug/getting-started-health-dashboard.md "../../../health/latest/ug/getting-started-health-dashboard.md").
