@@ -104,7 +104,8 @@ in the _Amazon SES API v2 Reference_.
 **Resource type:**
 `AWS::SES::ConfigurationSet`
 
-**AWS Configrule:** `ses-sending-tls-required`
+**AWS Config rule:**
+[ses-sending-tls-required](../../../config/latest/developerguide/ses-sending-tls-required.md "../../../config/latest/developerguide/ses-sending-tls-required.md")
 
 **Schedule type:** Change triggered
 

@@ -12,7 +12,7 @@ For more information about how to opt out, see [AI services opt-out policies](or
 ###### Note
 
 For you to use the opt-out policy, your AWS accounts must be centrally managed by AWS Organizations.
-If you haven't already created an organization for your AWS accounts, see [Creating and managing an organization](orgs_manage_org.md "orgs_manage_org.md") in the .
+If you haven't already created an organization for your AWS accounts, see [Creating and managing an organization](../../../organizations/latest/userguide/orgs_manage_org.md "../../../organizations/latest/userguide/orgs_manage_org.md") in the _AWS Organizations User Guide_.
 
 Opting out has the following effects:
 
@@ -35,4 +35,4 @@ For more information about AWS data privacy practices, see [Data Privacy FAQ](ht
 For similar opt-out procedures in other AWS security services, see:
 
 - [Opting out of using your data for service improvement](../../../guardduty/latest/ug/guardduty-opting-out-using-data.md "../../../guardduty/latest/ug/guardduty-opting-out-using-data.md") in the _Amazon GuardDuty User Guide_.
-- [Opting out of using your data for service improvement](../../../security-lake/latest/userguide/opting-out-of-using-your-data.md "../../../security-lake/latest/userguide/opting-out-of-using-your-data.md") in the _Amazon Security Lake User Guide;_.
+- [Opting out of using your data for service improvement](../../../security-lake/latest/userguide/opting-out-of-using-your-data.md "../../../security-lake/latest/userguide/opting-out-of-using-your-data.md") in the _Amazon Security Lake User Guide_.

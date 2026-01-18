@@ -2956,7 +2956,8 @@ Guide_.
 **Resource type:**
 `AWS::EC2::SnapshotBlockPublicAccess`
 
-**AWS Config rule:** `ebs-snapshot-block-public-access`
+**AWS Config rule:**
+[ebs-snapshot-block-public-access](../../../config/latest/developerguide/ebs-snapshot-block-public-access.md "../../../config/latest/developerguide/ebs-snapshot-block-public-access.md")
 
 **Schedule type:** Change triggered
 

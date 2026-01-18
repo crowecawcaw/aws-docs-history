@@ -96,6 +96,7 @@ The following controls are not supported in the US East (Ohio) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -164,6 +165,7 @@ The following controls are not supported in the US West (N. California) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -266,6 +268,7 @@ The following controls are not supported in the US West (Oregon) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[EC2.173] EC2 Spot Fleet requests with launch
   parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec2-173 "ec2-controls.md#ec2-173")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
@@ -315,6 +318,7 @@ The following controls are not supported in the Africa (Cape Town) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -456,6 +460,7 @@ The following controls are not supported in the Asia Pacific (Hong Kong) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -548,6 +553,7 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -576,6 +582,7 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -717,7 +724,6 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -774,7 +780,6 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
   CloudWatch Logs](redshiftserverless-controls.md#redshiftserverless-6 "redshiftserverless-controls.md#redshiftserverless-6")
 - [[Route53.1] Route 53 health checks should be tagged](route53-controls.md#route53-1 "route53-controls.md#route53-1")
 - [[Route53.2] Route 53 public hosted zones should log DNS queries](route53-controls.md#route53-2 "route53-controls.md#route53-2")
-- [[S3.6] S3 general purpose bucket policies should restrict access to other AWS accounts](s3-controls.md#s3-6 "s3-controls.md#s3-6")
 - [[S3.24] S3 Multi-Region Access Points should have block public access settings enabled](s3-controls.md#s3-24 "s3-controls.md#s3-24")
 - [[S3.25] S3 directory buckets should have lifecycle
   configurations](s3-controls.md#s3-25 "s3-controls.md#s3-25")
@@ -830,6 +835,7 @@ The following controls are not supported in the Asia Pacific (Jakarta) Region.
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -858,6 +864,7 @@ The following controls are not supported in the Asia Pacific (Jakarta) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeBuild.1] CodeBuild Bitbucket source repository URLs should not contain sensitive credentials](codebuild-controls.md#codebuild-1 "codebuild-controls.md#codebuild-1")
 - [[CodeBuild.2] CodeBuild project environment variables should not contain clear text credentials](codebuild-controls.md#codebuild-2 "codebuild-controls.md#codebuild-2")
@@ -931,7 +938,6 @@ The following controls are not supported in the Asia Pacific (Jakarta) Region.
 - [[ElastiCache.7] ElastiCache clusters should not use the default
   subnet group](elasticache-controls.md#elasticache-7 "elasticache-controls.md#elasticache-7")
 - [[ElasticBeanstalk.1] Elastic Beanstalk environments should have enhanced health reporting enabled](elasticbeanstalk-controls.md#elasticbeanstalk-1 "elasticbeanstalk-controls.md#elasticbeanstalk-1")
-- [[ElasticBeanstalk.2] Elastic Beanstalk managed platform updates should be enabled](elasticbeanstalk-controls.md#elasticbeanstalk-2 "elasticbeanstalk-controls.md#elasticbeanstalk-2")
 - [[EventBridge.4] EventBridge global endpoints should have event replication enabled](eventbridge-controls.md#eventbridge-4 "eventbridge-controls.md#eventbridge-4")
 - [[FraudDetector.1] Amazon Fraud Detector entity types should be tagged](frauddetector-controls.md#frauddetector-1 "frauddetector-controls.md#frauddetector-1")
 - [[FraudDetector.2] Amazon Fraud Detector labels should be tagged](frauddetector-controls.md#frauddetector-2 "frauddetector-controls.md#frauddetector-2")
@@ -1062,6 +1068,7 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1090,6 +1097,7 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -1220,6 +1228,7 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[ECS.12] ECS clusters should use Container Insights](ecs-controls.md#ecs-12 "ecs-controls.md#ecs-12")
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
+- [[ECS.19] ECS capacity providers should have managed termination protection enabled](ecs-controls.md#ecs-19 "ecs-controls.md#ecs-19")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -1369,7 +1378,6 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -1552,6 +1560,7 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1580,6 +1589,7 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -1622,8 +1632,6 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
   after a specified time period](ec2-controls.md#ec2-4 "ec2-controls.md#ec2-4")
 - [[EC2.14] Security groups should not allow ingress from
   0.0.0.0/0 or ::/0 to port 3389](ec2-controls.md#ec2-14 "ec2-controls.md#ec2-14")
-- [[EC2.18] Security groups should only allow unrestricted
-  incoming traffic for authorized ports](ec2-controls.md#ec2-18 "ec2-controls.md#ec2-18")
 - [[EC2.22] Unused Amazon EC2 security groups should be
   removed](ec2-controls.md#ec2-22 "ec2-controls.md#ec2-22")
 - [[EC2.23] Amazon EC2 Transit Gateways should not automatically
@@ -1777,7 +1785,6 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
 - [[Opensearch.11] OpenSearch domains should have at least three dedicated primary nodes](opensearch-controls.md#opensearch-11 "opensearch-controls.md#opensearch-11")
 - [[RDS.1] RDS snapshot should be private](rds-controls.md#rds-1 "rds-controls.md#rds-1")
 - [[RDS.14] Amazon Aurora clusters should have backtracking enabled](rds-controls.md#rds-14 "rds-controls.md#rds-14")
-- [[RDS.15] RDS DB clusters should be configured for multiple Availability Zones](rds-controls.md#rds-15 "rds-controls.md#rds-15")
 - [[RDS.31] RDS DB security groups should be tagged](rds-controls.md#rds-31 "rds-controls.md#rds-31")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
 - [[RDS.37] Aurora PostgreSQL DB clusters should publish logs to CloudWatch Logs](rds-controls.md#rds-37 "rds-controls.md#rds-37")
@@ -1863,6 +1870,7 @@ The following controls are not supported in the Asia Pacific (Mumbai) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
 - [[CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be
@@ -1935,12 +1943,10 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[Athena.2] Athena data catalogs should be tagged](athena-controls.md#athena-2 "athena-controls.md#athena-2")
 - [[Athena.3] Athena workgroups should be tagged](athena-controls.md#athena-3 "athena-controls.md#athena-3")
 - [[Athena.4] Athena workgroups should have logging enabled](athena-controls.md#athena-4 "athena-controls.md#athena-4")
-- [[AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
 - [[AutoScaling.2] Amazon EC2 Auto Scaling group should cover multiple Availability Zones](autoscaling-controls.md#autoscaling-2 "autoscaling-controls.md#autoscaling-2")
 - [[AutoScaling.3] Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)](autoscaling-controls.md#autoscaling-3 "autoscaling-controls.md#autoscaling-3")
 - [[AutoScaling.6] Auto Scaling groups should use multiple instance types in multiple Availability Zones](autoscaling-controls.md#autoscaling-6 "autoscaling-controls.md#autoscaling-6")
 - [[AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates](autoscaling-controls.md#autoscaling-9 "autoscaling-controls.md#autoscaling-9")
-- [[Autoscaling.5] Amazon EC2 instances launched using Auto Scaling group launch configurations should not have Public IP addresses](autoscaling-controls.md#autoscaling-5 "autoscaling-controls.md#autoscaling-5")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.2] AWS Backup recovery points should be tagged](backup-controls.md#backup-2 "backup-controls.md#backup-2")
 - [[Backup.3] AWS Backup vaults should be tagged](backup-controls.md#backup-3 "backup-controls.md#backup-3")
@@ -1951,6 +1957,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -1979,6 +1986,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -2043,10 +2051,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
 - [[EC2.4] Stopped EC2 instances should be removed
   after a specified time period](ec2-controls.md#ec2-4 "ec2-controls.md#ec2-4")
-- [[EC2.10] Amazon EC2 should be configured to use VPC endpoints
-  that are created for the Amazon EC2 service](ec2-controls.md#ec2-10 "ec2-controls.md#ec2-10")
-- [[EC2.19] Security groups should not allow unrestricted
-  access to ports with high risk](ec2-controls.md#ec2-19 "ec2-controls.md#ec2-19")
 - [[EC2.21] Network ACLs should not allow ingress from
   0.0.0.0/0 to port 22 or port 3389](ec2-controls.md#ec2-21 "ec2-controls.md#ec2-21")
 - [[EC2.22] Unused Amazon EC2 security groups should be
@@ -2108,9 +2112,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[ECR.5] ECR repositories should be encrypted with customer
   managed AWS KMS keys](ecr-controls.md#ecr-5 "ecr-controls.md#ecr-5")
-- [[ECS.1] Amazon ECS task definitions should have secure networking modes and user
-  definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
-- [[ECS.2] ECS services should not have public IP addresses assigned to them automatically](ecs-controls.md#ecs-2 "ecs-controls.md#ecs-2")
 - [[ECS.3] ECS task definitions should not share the host's process namespace](ecs-controls.md#ecs-3 "ecs-controls.md#ecs-3")
 - [[ECS.4] ECS containers should run as non-privileged](ecs-controls.md#ecs-4 "ecs-controls.md#ecs-4")
 - [[ECS.5] ECS containers should be limited to read-only access to root filesystems](ecs-controls.md#ecs-5 "ecs-controls.md#ecs-5")
@@ -2121,6 +2122,9 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
 - [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
+- [[ECS.19] ECS capacity providers should have managed termination protection enabled](ecs-controls.md#ecs-19 "ecs-controls.md#ecs-19")
+- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](ecs-controls.md#ecs-20 "ecs-controls.md#ecs-20")
+- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](ecs-controls.md#ecs-21 "ecs-controls.md#ecs-21")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -2138,11 +2142,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[EKS.8] EKS clusters should have audit logging enabled](eks-controls.md#eks-8 "eks-controls.md#eks-8")
 - [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
   provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
-- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
-  termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
-- [[ELB.7] Classic Load Balancers should have connection draining enabled](elb-controls.md#elb-7 "elb-controls.md#elb-7")
-- [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined
-  security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
 - [[ELB.10] Classic Load Balancer should span multiple Availability Zones](elb-controls.md#elb-10 "elb-controls.md#elb-10")
 - [[ELB.12] Application Load Balancer should be configured with defensive or strictest
   desync mitigation mode](elb-controls.md#elb-12 "elb-controls.md#elb-12")
@@ -2177,14 +2176,8 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[EMR.2] Amazon EMR block public access setting should be enabled](emr-controls.md#emr-2 "emr-controls.md#emr-2")
 - [[EMR.3] Amazon EMR security configurations should be encrypted at rest](emr-controls.md#emr-3 "emr-controls.md#emr-3")
 - [[EMR.4] Amazon EMR security configurations should be encrypted in transit](emr-controls.md#emr-4 "emr-controls.md#emr-4")
-- [[ES.1] Elasticsearch domains should have encryption at-rest enabled](es-controls.md#es-1 "es-controls.md#es-1")
-- [[ES.2] Elasticsearch domains should not be publicly accessible](es-controls.md#es-2 "es-controls.md#es-2")
 - [[ES.3] Elasticsearch domains should encrypt data sent between nodes](es-controls.md#es-3 "es-controls.md#es-3")
 - [[ES.4] Elasticsearch domain error logging to CloudWatch Logs should be enabled](es-controls.md#es-4 "es-controls.md#es-4")
-- [[ES.5] Elasticsearch domains should have audit logging enabled](es-controls.md#es-5 "es-controls.md#es-5")
-- [[ES.6] Elasticsearch domains should have at least three data nodes](es-controls.md#es-6 "es-controls.md#es-6")
-- [[ES.7] Elasticsearch domains should be configured with at least three dedicated master nodes](es-controls.md#es-7 "es-controls.md#es-7")
-- [[ES.8] Connections to Elasticsearch domains should be encrypted using the latest TLS security policy](es-controls.md#es-8 "es-controls.md#es-8")
 - [[ES.9] Elasticsearch domains should be tagged](es-controls.md#es-9 "es-controls.md#es-9")
 - [[EventBridge.2] EventBridge event buses should be tagged](eventbridge-controls.md#eventbridge-2 "eventbridge-controls.md#eventbridge-2")
 - [[EventBridge.3] EventBridge custom event buses should have a resource-based policy attached](eventbridge-controls.md#eventbridge-3 "eventbridge-controls.md#eventbridge-3")
@@ -2280,7 +2273,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[Kinesis.3] Kinesis streams should have an adequate data retention period](kinesis-controls.md#kinesis-3 "kinesis-controls.md#kinesis-3")
 - [[KMS.1] IAM customer managed policies should not allow decryption actions on all KMS keys](kms-controls.md#kms-1 "kms-controls.md#kms-1")
 - [[KMS.2] IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys](kms-controls.md#kms-2 "kms-controls.md#kms-2")
-- [[KMS.3] AWS KMS keys should not be deleted unintentionally](kms-controls.md#kms-3 "kms-controls.md#kms-3")
 - [[KMS.5] KMS keys should not be publicly accessible](kms-controls.md#kms-5 "kms-controls.md#kms-5")
 - [[Lambda.5] VPC Lambda functions should operate in multiple
   Availability Zones](lambda-controls.md#lambda-5 "lambda-controls.md#lambda-5")
@@ -2289,7 +2281,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -2345,15 +2336,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[PCA.1] AWS Private CA root certificate authority should be disabled](pca-controls.md#pca-1 "pca-controls.md#pca-1")
 - [[PCA.2] AWS Private CA certificate authorities should be tagged](pca-controls.md#pca-2 "pca-controls.md#pca-2")
 - [[RDS.14] Amazon Aurora clusters should have backtracking enabled](rds-controls.md#rds-14 "rds-controls.md#rds-14")
-- [[RDS.16] Aurora DB clusters should be configured to copy tags to DB
-  snapshots](rds-controls.md#rds-16 "rds-controls.md#rds-16")
-- [[RDS.17] RDS DB instances should be configured to copy tags to snapshots](rds-controls.md#rds-17 "rds-controls.md#rds-17")
 - [[RDS.18] RDS instances should be deployed in a VPC](rds-controls.md#rds-18 "rds-controls.md#rds-18")
-- [[RDS.19] Existing RDS event notification subscriptions should be configured for critical cluster events](rds-controls.md#rds-19 "rds-controls.md#rds-19")
-- [[RDS.20] Existing RDS event notification subscriptions should be configured for critical database instance events](rds-controls.md#rds-20 "rds-controls.md#rds-20")
-- [[RDS.21] An RDS event notifications subscription should be configured for critical database parameter group events](rds-controls.md#rds-21 "rds-controls.md#rds-21")
-- [[RDS.22] An RDS event notifications subscription should be configured for critical database security group events](rds-controls.md#rds-22 "rds-controls.md#rds-22")
-- [[RDS.23] RDS instances should not use a database engine default port](rds-controls.md#rds-23 "rds-controls.md#rds-23")
 - [[RDS.24] RDS Database clusters should use a custom administrator username](rds-controls.md#rds-24 "rds-controls.md#rds-24")
 - [[RDS.25] RDS database instances should use a custom administrator username](rds-controls.md#rds-25 "rds-controls.md#rds-25")
 - [[RDS.26] RDS DB instances should be protected by a backup plan](rds-controls.md#rds-26 "rds-controls.md#rds-26")
@@ -2411,7 +2394,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[S3.11] S3 general purpose buckets should have event notifications enabled](s3-controls.md#s3-11 "s3-controls.md#s3-11")
 - [[S3.12] ACLs should not be used to manage user access to S3 general purpose buckets](s3-controls.md#s3-12 "s3-controls.md#s3-12")
 - [[S3.13] S3 general purpose buckets should have Lifecycle configurations](s3-controls.md#s3-13 "s3-controls.md#s3-13")
-- [[S3.17] S3 general purpose buckets should be encrypted at rest with AWS KMS keys](s3-controls.md#s3-17 "s3-controls.md#s3-17")
 - [[S3.19] S3 access points should have block public access settings enabled](s3-controls.md#s3-19 "s3-controls.md#s3-19")
 - [[S3.20] S3 general purpose buckets should have MFA delete enabled](s3-controls.md#s3-20 "s3-controls.md#s3-20")
 - [[S3.22] S3 general purpose buckets should log object-level write events](s3-controls.md#s3-22 "s3-controls.md#s3-22")
@@ -2435,10 +2417,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
 - [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
-- [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 - [[SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully](secretsmanager-controls.md#secretsmanager-2 "secretsmanager-controls.md#secretsmanager-2")
-- [[SecretsManager.3] Remove unused Secrets Manager secrets](secretsmanager-controls.md#secretsmanager-3 "secretsmanager-controls.md#secretsmanager-3")
-- [[SecretsManager.4] Secrets Manager secrets should be rotated within a specified number of days](secretsmanager-controls.md#secretsmanager-4 "secretsmanager-controls.md#secretsmanager-4")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
@@ -2482,7 +2461,6 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 
 The following controls are not supported in the Asia Pacific (Osaka) Region.
 
-- [[ACM.1] Imported and ACM-issued certificates should be renewed after a specified time period](acm-controls.md#acm-1 "acm-controls.md#acm-1")
 - [[AppFlow.1] Amazon AppFlow flows should be tagged](appflow-controls.md#appflow-1 "appflow-controls.md#appflow-1")
 - [[AppRunner.1] App Runner services should be tagged](apprunner-controls.md#apprunner-1 "apprunner-controls.md#apprunner-1")
 - [[AppRunner.2] App Runner VPC connectors should be tagged](apprunner-controls.md#apprunner-2 "apprunner-controls.md#apprunner-2")
@@ -2518,6 +2496,7 @@ The following controls are not supported in the Asia Pacific (Osaka) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -2570,19 +2549,11 @@ The following controls are not supported in the Asia Pacific (Osaka) Region.
   to HTTPS](elb-controls.md#elb-1 "elb-controls.md#elb-1")
 - [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
   provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
-- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
-  termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
-- [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined
-  security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
-- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
-  ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
 - [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have
   automatic backups enabled](elasticache-controls.md#elasticache-1 "elasticache-controls.md#elasticache-1")
 - [[ElastiCache.7] ElastiCache clusters should not use the default
   subnet group](elasticache-controls.md#elasticache-7 "elasticache-controls.md#elasticache-7")
 - [[ElasticBeanstalk.1] Elastic Beanstalk environments should have enhanced health reporting enabled](elasticbeanstalk-controls.md#elasticbeanstalk-1 "elasticbeanstalk-controls.md#elasticbeanstalk-1")
-- [[ElasticBeanstalk.2] Elastic Beanstalk managed platform updates should be enabled](elasticbeanstalk-controls.md#elasticbeanstalk-2 "elasticbeanstalk-controls.md#elasticbeanstalk-2")
-- [[EMR.1] Amazon EMR cluster primary nodes should not have public IP addresses](emr-controls.md#emr-1 "emr-controls.md#emr-1")
 - [[FraudDetector.1] Amazon Fraud Detector entity types should be tagged](frauddetector-controls.md#frauddetector-1 "frauddetector-controls.md#frauddetector-1")
 - [[FraudDetector.2] Amazon Fraud Detector labels should be tagged](frauddetector-controls.md#frauddetector-2 "frauddetector-controls.md#frauddetector-2")
 - [[FraudDetector.3] Amazon Fraud Detector outcomes should be tagged](frauddetector-controls.md#frauddetector-3 "frauddetector-controls.md#frauddetector-3")
@@ -2683,6 +2654,7 @@ The following controls are not supported in the Asia Pacific (Seoul) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -2770,6 +2742,7 @@ The following controls are not supported in the Asia Pacific (Singapore) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[EC2.173] EC2 Spot Fleet requests with launch
   parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec2-173 "ec2-controls.md#ec2-173")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
@@ -2825,6 +2798,7 @@ The following controls are not supported in the Asia Pacific (Sydney) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[EC2.173] EC2 Spot Fleet requests with launch
   parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec2-173 "ec2-controls.md#ec2-173")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
@@ -2901,6 +2875,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -2929,6 +2904,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -3100,6 +3076,9 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
 - [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
+- [[ECS.19] ECS capacity providers should have managed termination protection enabled](ecs-controls.md#ecs-19 "ecs-controls.md#ecs-19")
+- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](ecs-controls.md#ecs-20 "ecs-controls.md#ecs-20")
+- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](ecs-controls.md#ecs-21 "ecs-controls.md#ecs-21")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -3269,7 +3248,6 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -3510,6 +3488,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -3538,6 +3517,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -3672,6 +3652,9 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
 - [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
+- [[ECS.19] ECS capacity providers should have managed termination protection enabled](ecs-controls.md#ecs-19 "ecs-controls.md#ecs-19")
+- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](ecs-controls.md#ecs-20 "ecs-controls.md#ecs-20")
+- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](ecs-controls.md#ecs-21 "ecs-controls.md#ecs-21")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -3822,7 +3805,6 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -3901,9 +3883,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
   snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
-- [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
-- [[Redshift.6] Amazon Redshift should have automatic upgrades to major versions enabled](redshift-controls.md#redshift-6 "redshift-controls.md#redshift-6")
 - [[Redshift.7] Redshift clusters should use enhanced VPC routing](redshift-controls.md#redshift-7 "redshift-controls.md#redshift-7")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
@@ -3984,7 +3964,6 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[WAF.7] AWS WAF Classic global rule groups should have at least one rule](waf-controls.md#waf-7 "waf-controls.md#waf-7")
 - [[WAF.8] AWS WAF Classic global web ACLs should have at least one rule or rule group](waf-controls.md#waf-8 "waf-controls.md#waf-8")
 - [[WAF.10] AWS WAF web ACLs should have at least one rule or rule group](waf-controls.md#waf-10 "waf-controls.md#waf-10")
-- [[WAF.11] AWS WAF web ACL logging should be enabled](waf-controls.md#waf-11 "waf-controls.md#waf-11")
 - [[WAF.12] AWS WAF rules should have CloudWatch metrics enabled](waf-controls.md#waf-12 "waf-controls.md#waf-12")
 - [[WorkSpaces.1] WorkSpaces user volumes should be encrypted at rest](workspaces-controls.md#workspaces-1 "workspaces-controls.md#workspaces-1")
 - [[WorkSpaces.2] WorkSpaces root volumes should be encrypted at rest](workspaces-controls.md#workspaces-2 "workspaces-controls.md#workspaces-2")
@@ -4023,6 +4002,7 @@ The following controls are not supported in the Asia Pacific (Tokyo) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[EC2.173] EC2 Spot Fleet requests with launch
   parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec2-173 "ec2-controls.md#ec2-173")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
@@ -4077,6 +4057,7 @@ The following controls are not supported in the Canada (Central) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -4155,6 +4136,7 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -4183,6 +4165,7 @@ The following controls are not supported in the Canada West (Calgary) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -4444,7 +4427,6 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -4569,8 +4551,6 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
-- [[SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch
-  compliance status of COMPLIANT after a patch installation](ssm-controls.md#ssm-2 "ssm-controls.md#ssm-2")
 - [[SSM.3] Amazon EC2 instances managed by Systems Manager should have an
   association compliance status of COMPLIANT](ssm-controls.md#ssm-3 "ssm-controls.md#ssm-3")
 - [[SSM.4] SSM documents should not be public](ssm-controls.md#ssm-4 "ssm-controls.md#ssm-4")
@@ -4647,6 +4627,7 @@ The following controls are not supported in the China (Beijing) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.10] CloudTrail Lake event data stores should be encrypted with customer managed AWS KMS keys](cloudtrail-controls.md#cloudtrail-10 "cloudtrail-controls.md#cloudtrail-10")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
@@ -4952,6 +4933,7 @@ The following controls are not supported in the China (Ningxia) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.10] CloudTrail Lake event data stores should be encrypted with customer managed AWS KMS keys](cloudtrail-controls.md#cloudtrail-10 "cloudtrail-controls.md#cloudtrail-10")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
@@ -5206,6 +5188,7 @@ The following controls are not supported in the Europe (Frankfurt) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[EC2.173] EC2 Spot Fleet requests with launch
   parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec2-173 "ec2-controls.md#ec2-173")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
@@ -5260,6 +5243,7 @@ The following controls are not supported in the Europe (Ireland) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -5310,6 +5294,7 @@ The following controls are not supported in the Europe (London) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[EC2.24] Amazon EC2 paravirtual instance types should not be
   used](ec2-controls.md#ec2-24 "ec2-controls.md#ec2-24")
 - [[EC2.173] EC2 Spot Fleet requests with launch
@@ -5384,6 +5369,7 @@ The following controls are not supported in the Europe (Milan) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
 - [[CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be
@@ -5529,6 +5515,7 @@ The following controls are not supported in the Europe (Paris) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
 - [[CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be
@@ -5604,6 +5591,7 @@ The following controls are not supported in the Europe (Spain) Region.
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -5632,6 +5620,7 @@ The following controls are not supported in the Europe (Spain) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -5791,7 +5780,6 @@ The following controls are not supported in the Europe (Spain) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -5839,7 +5827,6 @@ The following controls are not supported in the Europe (Spain) Region.
   deployments enabled](redshift-controls.md#redshift-18 "redshift-controls.md#redshift-18")
 - [[Route53.1] Route 53 health checks should be tagged](route53-controls.md#route53-1 "route53-controls.md#route53-1")
 - [[Route53.2] Route 53 public hosted zones should log DNS queries](route53-controls.md#route53-2 "route53-controls.md#route53-2")
-- [[S3.6] S3 general purpose bucket policies should restrict access to other AWS accounts](s3-controls.md#s3-6 "s3-controls.md#s3-6")
 - [[S3.24] S3 Multi-Region Access Points should have block public access settings enabled](s3-controls.md#s3-24 "s3-controls.md#s3-24")
 - [[S3.25] S3 directory buckets should have lifecycle
   configurations](s3-controls.md#s3-25 "s3-controls.md#s3-25")
@@ -5910,6 +5897,7 @@ The following controls are not supported in the Europe (Stockholm) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -5990,6 +5978,7 @@ The following controls are not supported in the Europe (Zurich) Region.
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -6018,6 +6007,7 @@ The following controls are not supported in the Europe (Zurich) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -6163,7 +6153,6 @@ The following controls are not supported in the Europe (Zurich) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -6268,6 +6257,7 @@ The following controls are not supported in the Israel (Tel Aviv) Region.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -6296,6 +6286,7 @@ The following controls are not supported in the Israel (Tel Aviv) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -6498,7 +6489,6 @@ The following controls are not supported in the Israel (Tel Aviv) Region.
   tracing enabled](lambda-controls.md#lambda-7 "lambda-controls.md#lambda-7")
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -6587,14 +6577,6 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[ACM.2] RSA certificates managed by ACM should use a key length of at least 2,048 bits](acm-controls.md#acm-2 "acm-controls.md#acm-2")
 - [[Account.1] Security contact information should be provided for an AWS account](account-controls.md#account-1 "account-controls.md#account-1")
 - [[Account.2] AWS accounts should be part of an AWS Organizations organization](account-controls.md#account-2 "account-controls.md#account-2")
-- [[APIGateway.1] API Gateway REST and WebSocket API execution logging
-  should be enabled](apigateway-controls.md#apigateway-1 "apigateway-controls.md#apigateway-1")
-- [[APIGateway.2] API Gateway REST API stages should be configured to use
-  SSL certificates for backend authentication](apigateway-controls.md#apigateway-2 "apigateway-controls.md#apigateway-2")
-- [[APIGateway.3] API Gateway REST API stages should have AWS X-Ray
-  tracing enabled](apigateway-controls.md#apigateway-3 "apigateway-controls.md#apigateway-3")
-- [[APIGateway.4] API Gateway should be associated with a WAF Web
-  ACL](apigateway-controls.md#apigateway-4 "apigateway-controls.md#apigateway-4")
 - [[APIGateway.8] API Gateway routes should specify an authorization
   type](apigateway-controls.md#apigateway-8 "apigateway-controls.md#apigateway-8")
 - [[APIGateway.9] Access logging should be configured for API Gateway V2
@@ -6631,6 +6613,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -6659,6 +6642,7 @@ The following controls are not supported in the Mexico (Central) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
 - [[CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
@@ -6793,6 +6777,9 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[ECS.16] ECS task sets should not automatically assign public IP addresses](ecs-controls.md#ecs-16 "ecs-controls.md#ecs-16")
 - [[ECS.17] ECS task definitions should not use host network mode](ecs-controls.md#ecs-17 "ecs-controls.md#ecs-17")
 - [[ECS.18] ECS Task Definitions should use in-transit encryption for EFS volumes](ecs-controls.md#ecs-18 "ecs-controls.md#ecs-18")
+- [[ECS.19] ECS capacity providers should have managed termination protection enabled](ecs-controls.md#ecs-19 "ecs-controls.md#ecs-19")
+- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](ecs-controls.md#ecs-20 "ecs-controls.md#ecs-20")
+- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](ecs-controls.md#ecs-21 "ecs-controls.md#ecs-21")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
@@ -6944,7 +6931,6 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.4] Amazon MQ brokers should be tagged](mq-controls.md#mq-4 "mq-controls.md#mq-4")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
@@ -7078,10 +7064,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")
 - [[SES.2] SES configuration sets should be tagged](ses-controls.md#ses-2 "ses-controls.md#ses-2")
 - [[SES.3] SES configuration sets should have TLS enabled for sending emails](ses-controls.md#ses-3 "ses-controls.md#ses-3")
-- [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 - [[SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully](secretsmanager-controls.md#secretsmanager-2 "secretsmanager-controls.md#secretsmanager-2")
-- [[SecretsManager.3] Remove unused Secrets Manager secrets](secretsmanager-controls.md#secretsmanager-3 "secretsmanager-controls.md#secretsmanager-3")
-- [[SecretsManager.4] Secrets Manager secrets should be rotated within a specified number of days](secretsmanager-controls.md#secretsmanager-4 "secretsmanager-controls.md#secretsmanager-4")
 - [[ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only](servicecatalog-controls.md#servicecatalog-1 "servicecatalog-controls.md#servicecatalog-1")
 - [[SNS.4] SNS topic access policies should not allow public access](sns-controls.md#sns-4 "sns-controls.md#sns-4")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
@@ -7113,7 +7096,6 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[WAF.7] AWS WAF Classic global rule groups should have at least one rule](waf-controls.md#waf-7 "waf-controls.md#waf-7")
 - [[WAF.8] AWS WAF Classic global web ACLs should have at least one rule or rule group](waf-controls.md#waf-8 "waf-controls.md#waf-8")
 - [[WAF.10] AWS WAF web ACLs should have at least one rule or rule group](waf-controls.md#waf-10 "waf-controls.md#waf-10")
-- [[WAF.11] AWS WAF web ACL logging should be enabled](waf-controls.md#waf-11 "waf-controls.md#waf-11")
 - [[WAF.12] AWS WAF rules should have CloudWatch metrics enabled](waf-controls.md#waf-12 "waf-controls.md#waf-12")
 - [[WorkSpaces.1] WorkSpaces user volumes should be encrypted at rest](workspaces-controls.md#workspaces-1 "workspaces-controls.md#workspaces-1")
 - [[WorkSpaces.2] WorkSpaces root volumes should be encrypted at rest](workspaces-controls.md#workspaces-2 "workspaces-controls.md#workspaces-2")
@@ -7153,6 +7135,7 @@ The following controls are not supported in the Middle East (Bahrain) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.10] CloudTrail Lake event data stores should be encrypted with customer managed AWS KMS keys](cloudtrail-controls.md#cloudtrail-10 "cloudtrail-controls.md#cloudtrail-10")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
@@ -7283,10 +7266,10 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[AppRunner.2] App Runner VPC connectors should be tagged](apprunner-controls.md#apprunner-2 "apprunner-controls.md#apprunner-2")
 - [[AppSync.1] AWS AppSync API caches should be encrypted at rest](appsync-controls.md#appsync-1 "appsync-controls.md#appsync-1")
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
-- [[AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3 "cloudformation-controls.md#cloudformation-3")
+- [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4 "cloudformation-controls.md#cloudformation-4")
 - [[CloudFront.1] CloudFront distributions should have a default
   root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
 - [[CloudFront.3] CloudFront distributions should require
@@ -7315,9 +7298,9 @@ The following controls are not supported in the Middle East (UAE) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
   publicly accessible](cloudtrail-controls.md#cloudtrail-6 "cloudtrail-controls.md#cloudtrail-6")
-- [[CloudWatch.16] CloudWatch log groups should be retained for a specified time period](cloudwatch-controls.md#cloudwatch-16 "cloudwatch-controls.md#cloudwatch-16")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -7348,7 +7331,6 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
 - [[EC2.4] Stopped EC2 instances should be removed
   after a specified time period](ec2-controls.md#ec2-4 "ec2-controls.md#ec2-4")
-- [[EC2.12] Unused Amazon EC2 EIPs should be removed](ec2-controls.md#ec2-12 "ec2-controls.md#ec2-12")
 - [[EC2.14] Security groups should not allow ingress from
   0.0.0.0/0 or ::/0 to port 3389](ec2-controls.md#ec2-14 "ec2-controls.md#ec2-14")
 - [[EC2.22] Unused Amazon EC2 security groups should be
@@ -7376,12 +7358,8 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[EC2.181] EC2 launch templates should enable encryption
   for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
-- [[ECS.1] Amazon ECS task definitions should have secure networking modes and user
-  definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
-- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
-  termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
 - [[ELB.14] Classic Load Balancer should be configured with defensive or strictest
   desync mitigation mode](elb-controls.md#elb-14 "elb-controls.md#elb-14")
 - [[ELB.17] Application and Network Load Balancers with listeners
@@ -7456,7 +7434,6 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[Keyspaces.1] Amazon Keyspaces keyspaces should be tagged](keyspaces-controls.md#keyspaces-1 "keyspaces-controls.md#keyspaces-1")
 - [[KMS.1] IAM customer managed policies should not allow decryption actions on all KMS keys](kms-controls.md#kms-1 "kms-controls.md#kms-1")
 - [[KMS.2] IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys](kms-controls.md#kms-2 "kms-controls.md#kms-2")
-- [[KMS.4] AWS KMS key rotation should be enabled](kms-controls.md#kms-4 "kms-controls.md#kms-4")
 - [[Lambda.7] Lambda functions should have AWS X-Ray active
   tracing enabled](lambda-controls.md#lambda-7 "lambda-controls.md#lambda-7")
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
@@ -7504,7 +7481,6 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SQS.2] SQS queues should be tagged](sqs-controls.md#sqs-2 "sqs-controls.md#sqs-2")
 - [[SQS.3] SQS queue access policies should not allow public access](sqs-controls.md#sqs-3 "sqs-controls.md#sqs-3")
-- [[SSM.1] Amazon EC2 instances should be managed by AWS Systems Manager](ssm-controls.md#ssm-1 "ssm-controls.md#ssm-1")
 - [[SSM.6] SSM Automation should have CloudWatch logging
   enabled](ssm-controls.md#ssm-6 "ssm-controls.md#ssm-6")
 - [[SSM.7] SSM documents should have the block public sharing
@@ -7552,6 +7528,7 @@ The following controls are not supported in the South America (São Paulo) Regio
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
   tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
@@ -7668,6 +7645,7 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudWatch.17] CloudWatch alarm actions should be activated](cloudwatch-controls.md#cloudwatch-17 "cloudwatch-controls.md#cloudwatch-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeBuild.3] CodeBuild S3 logs should be encrypted](codebuild-controls.md#codebuild-3 "codebuild-controls.md#codebuild-3")
@@ -7831,7 +7809,6 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
   Availability Zones](lambda-controls.md#lambda-5 "lambda-controls.md#lambda-5")
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
 - [[MSK.1] MSK clusters should be encrypted in transit among broker
@@ -8013,6 +7990,7 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
   recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
 - [[CloudFront.16] CloudFront distributions should use origin
   access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.17] CloudFront distributions should use trusted key groups for signed URLs and cookies](cloudfront-controls.md#cloudfront-17 "cloudfront-controls.md#cloudfront-17")
 - [[CloudWatch.17] CloudWatch alarm actions should be activated](cloudwatch-controls.md#cloudwatch-17 "cloudwatch-controls.md#cloudwatch-17")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
 - [[CodeBuild.3] CodeBuild S3 logs should be encrypted](codebuild-controls.md#codebuild-3 "codebuild-controls.md#codebuild-3")
@@ -8169,7 +8147,6 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
   Availability Zones](lambda-controls.md#lambda-5 "lambda-controls.md#lambda-5")
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
-- [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
 - [[MSK.1] MSK clusters should be encrypted in transit among broker

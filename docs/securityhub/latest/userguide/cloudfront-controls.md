@@ -559,7 +559,8 @@ Lambda function URL as an origin, see [Restrict access to an AWS Lambda function
 **Resource type:**
 `AWS::CloudFront::Distribution`
 
-**AWS Config rule:** `cloudfront-distribution-key-group-enabled`
+**AWS Config rule:**
+[cloudfront-distribution-key-group-enabled](../../../config/latest/developerguide/cloudfront-distribution-key-group-enabled.md "../../../config/latest/developerguide/cloudfront-distribution-key-group-enabled.md")
 
 **Schedule type:** Change triggered
 

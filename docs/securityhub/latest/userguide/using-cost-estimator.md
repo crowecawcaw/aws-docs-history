@@ -66,10 +66,47 @@ The estimator displays data from multiple sources, indicated by labels:
 
 ## Account-specific behavior
 
-When delegated administrator or member accounts access the cost estimator they will see an alert of **Organization usage data is not available for this account**.
-The cost estimator will open in edit mode by default in this scenario.
+The following describes how the cost estimator functions across different types accounts and configurations.
 
-When magament accounts or stand alone accounts access the cost estimator and see alerts related to Cost Explorer the cost estimator will open in edit mode by default.
+### Delegated administorator and member accounts
+
+**With cross-account access configured:**
+
+- Cost Explorer data is available with organization-wide usage.
+- Opens in view mode by default (same as management account). Can switch to edit mode to modify estimates.
+
+**Without cross-account access configured:**
+
+- Alert displays: "Organizational usage data is not available for this account".
+- Opens in edit mode by default for manual entry.
+- Click "View instructions" in alert for setup guidance.
+
+### Management account
+
+**With cross-account role created:**
+
+- "Cross-account access" section shows configured state.
+- Displays recommended policies for verification.
+- Provides link to view role in IAM console.
+
+**Without cross-account role created:**
+
+- "Cross-account access" section displays setup guide.
+- Provides step-by-step instructions with pre-populated policies.
+- Direct link to IAM console for role creation.
+
+**Unable to verify role status:**
+
+- If there is no permission to call `iam:GetRole`, the console cannot determine if you have created the necessary role.
+- Shows “Unable to verify” with corresponding error message.
+
+### Standalone account
+
+**Without cross-account role created:**
+
+- No changes to existing behavior.
+- Cost Explorer data is available when enabled.
+- Opens in view mode by default.
 
 ## Editing usage values
 
@@ -90,7 +127,7 @@ Edit mode allows you to modify dimension values and see real-time cost updates.
 
 ## Resetting the estimator
 
-This action clears all custom values and reloads default data from Cost Explorer or sample scenarios.
+This action clears all custom values and reloads default data from Cost Explorer.
 
 ###### To reset all values to defaults
 
@@ -132,6 +169,41 @@ The solution depends on your account type:
 ###### Workaround
 
 Enter custom values in edit mode.
+
+### Cross-account access not working
+
+###### Problem
+
+"Delegated administrator or member account displays "Organizational usage data is not available for this account" alert.
+
+###### Possible causes and solutions
+
+1. Cross-account role doesn't exist in management account.
+   1. **Solution:** Contact Management Account administrator to create the role.
+   2. The cost estimator provides guided setup instructions for management account users.
+
+2. Role name doesn't match exactly.
+   1. Required role name: `AwsSecurityHubCostEstimatorCrossAccountRole`.
+   2. **Solution:** Verify role name in IAM console matches exactly (case-sensitive).
+
+3. Trust policy doesn't allow your account.
+   1. **Solution:** Verify trust policy principal includes your account ID and role name.
+   2. Format: `arn:aws:iam::{YOUR_ACCOUNT_ID}:role/{YOUR_ROLE_NAME}`.
+
+4. Missing AssumeRole permission.
+   1. **Solution:** Verify your IAM principal has `sts:AssumeRole` permission.
+   2. ontact your AWS administrator to add this permission.
+
+**Workaround:**
+
+Enter custom values in edit mode to manually estimate costs without Cost Explorer data.
+
+**Getting detailed instructions**
+
+- Click "View instructions" link in the alert to open a modal with:
+  - Step-by-step setup guidance
+  - Pre-populated policy templates
+  - Troubleshooting tips specific to your error
 
 ### Permission errors
 

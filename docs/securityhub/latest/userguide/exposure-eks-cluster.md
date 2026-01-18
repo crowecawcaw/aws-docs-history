@@ -29,10 +29,9 @@ The remediation guidance provided in this topic might require additional consult
 - [Vulnerability traits for Amazon EKS clusters](exposure-eks-cluster.md#vulnerability "exposure-eks-cluster.md#vulnerability")
   - [The Amazon EKS cluster has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-eks-cluster.md#high-priority-vulnerability "exposure-eks-cluster.md#high-priority-vulnerability")
   - [The Amazon EKS cluster has a container with software vulnerabilities](exposure-eks-cluster.md#low-priority-vulnerability "exposure-eks-cluster.md#low-priority-vulnerability")
-
-- [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system-detected "exposure-eks-cluster.md#end-of-life-operating-system-detected")
-- [The Amazon EKS cluster has a container with malicious software packages](exposure-eks-cluster.md#malicious-package "exposure-eks-cluster.md#malicious-package")
-- [The EKS cluster has malicious files](exposure-eks-cluster.md#malicious-file "exposure-eks-cluster.md#malicious-file")
+  - [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system-detected "exposure-eks-cluster.md#end-of-life-operating-system-detected")
+  - [The Amazon EKS cluster has a container with malicious software packages](exposure-eks-cluster.md#malicious-package "exposure-eks-cluster.md#malicious-package")
+  - [The EKS cluster has malicious files](exposure-eks-cluster.md#malicious-file "exposure-eks-cluster.md#malicious-file")
 
 ## Misconfiguration traits for Amazon EKS clusters
 
@@ -114,7 +113,7 @@ Following security best practices, AWS recommends patching these vulnerabilities
 Update your container images to newer versions that include security fixes for the identified vulnerabilities.
 This typically involves rebuilding your container images with updated base images or dependencies, then deploying the new images to your Amazon EKS cluster.
 
-## The Amazon EKS cluster has a container with an End-Of-Life operating system
+### The Amazon EKS cluster has a container with an End-Of-Life operating system
 
 The Amazon EKS container image relies on an end-of-life operating system that is no longer supported or maintained by the original developer.
 This exposes the container to security vulnerabilities and potential attacks.
@@ -131,7 +130,7 @@ In the exposure finding, open the resource to access the affected resource.
 Before updating the operating system version in your container image, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 After updating your container image, rebuild and redeploy your containers to the Amazon EKS cluster.
 
-## The Amazon EKS cluster has a container with malicious software packages
+### The Amazon EKS cluster has a container with malicious software packages
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your Amazon EKS cluster, as attackers can execute malicious code automatically without exploiting a vulnerability.
@@ -145,7 +144,7 @@ Then, delete the pods with the compromised image.
 Update your Kubernetes deployments to use the updated container images.
 Then, deploy your changes and redeploy your pods.
 
-## The EKS cluster has malicious files
+### The EKS cluster has malicious files
 
 Malicious files contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious files pose an active and critical threat to your cluster, as attackers can execute malicious code automatically without exploiting a vulnerability.

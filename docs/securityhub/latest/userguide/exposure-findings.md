@@ -56,8 +56,8 @@ Exposure findings incorporate data from:
 
 - **Amazon GuardDuty integration** provides continuous threat detection capabilities within exposure findings. It monitors for malicious activities, potential account compromises, and behavioral anomalies. The system incorporates these threat findings into the broader exposure analysis, helping identify when threats combine with other security issues to create significant risks.
 - **Amazon Inspector** contributes crucial vulnerability assessment data to exposure findings. It provides detailed information about network reachability, software vulnerabilities, and security best practice violations. This integration helps understand how vulnerabilities might be exploited through identified attack paths.
-- **Security Hub CSPM integration** ensures that configuration compliance and security standards are considered in exposure analysis. It evaluates resources against established security controls and best practices, providing a foundation for understanding configuration-based risks.
-- enhances exposure findings with sensitive data discovery and classification capabilities. It identifies where sensitive data exists within your AWS environment and evaluates potential privacy risks, helping understand the potential impact of identified exposures.
+- **AWS Security Hub CSPM** ensures that configuration compliance and security standards are considered in exposure analysis. It evaluates resources against established security controls and best practices, providing a foundation for understanding configuration-based risks.
+- **Amazon Macie** enhances exposure findings with sensitive data discovery and classification capabilities. It identifies where sensitive data exists within your AWS environment and evaluates potential privacy risks, helping understand the potential impact of identified exposures.
 
 ## Best practices
 

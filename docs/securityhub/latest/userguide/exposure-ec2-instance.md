@@ -37,9 +37,8 @@ The remediation guidance provided in this topic might require additional consult
   - [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ec2-instance.md#high-priority-vulnerability "exposure-ec2-instance.md#high-priority-vulnerability")
   - [The Amazon EC2 instance has software vulnerabilities](exposure-ec2-instance.md#low-priority-vulnerability "exposure-ec2-instance.md#low-priority-vulnerability")
   - [The EC2 instance has an End-Of-Life operating system](exposure-ec2-instance.md#end-of-life-operating-system-detected "exposure-ec2-instance.md#end-of-life-operating-system-detected")
-
-- [The EC2 instance has malicious software packages](exposure-ec2-instance.md#malicious-package "exposure-ec2-instance.md#malicious-package")
-- [The EC2 instance has malicious files](exposure-ec2-instance.md#malicious-file "exposure-ec2-instance.md#malicious-file")
+  - [The EC2 instance has malicious software packages](exposure-ec2-instance.md#malicious-package "exposure-ec2-instance.md#malicious-package")
+  - [The EC2 instance has malicious files](exposure-ec2-instance.md#malicious-file "exposure-ec2-instance.md#malicious-file")
 
 ## Misconfiguration traits for
 
@@ -370,7 +369,7 @@ We recommend updating to a supported version of the operating system.
 In the exposure finding, open the resource to access the affected resource.
 Before updating the operating system version on your instance, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 
-## The EC2 instance has malicious software packages
+### The EC2 instance has malicious software packages
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your instance, as attackers can execute malicious code automatically without exploiting a vulnerability.
@@ -384,7 +383,7 @@ See [Package management tool](../../../linux/al2023/ug/package-management.md "..
 After removing the malicious packages, consider performing a scan to ensure that all packages that may have been installed by the malicious code have been removed.
 For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .
 
-## The EC2 instance has malicious files
+### The EC2 instance has malicious files
 
 Malicious files contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious files pose an active and critical threat to your instance, as attackers can execute malicious code automatically without exploiting a vulnerability.

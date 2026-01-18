@@ -127,9 +127,7 @@ For **Backup**, set **Snapshot retention** to a value of 7 or greater.
 
 **Schedule type:** Change triggered
 
-**Parameters:**
-
-- `loggingEnabled = true` (not customizable)
+**Parameters:** None
 
 This control checks whether an Amazon Redshift cluster has audit logging enabled.
 

@@ -40,6 +40,16 @@ chosen that configuration. This control checks for unexpected privilege escalati
 task definition has host networking enabled, and you don't choose elevated
 privileges.
 
+###### Note
+
+This control will be retired after February 16, 2026 and removed from all applicable Security Hub CSPM standards. You can refer to the following controls
+for evaluation of privileged configuration, network mode configuration, and user configuration:
+
+- [[ECS.4] ECS containers should run as non-privileged](#ecs-4 "#ecs-4")
+- [[ECS.17] ECS task definitions should not use host network mode](#ecs-17 "#ecs-17")
+- [[ECS.20] ECS Task Definitions should configure non-root users in Linux container definitions](#ecs-20 "#ecs-20")
+- [[ECS.21] ECS Task Definitions should configure non-administrator users in Windows container definitions](#ecs-21 "#ecs-21")
+
 ### Remediation
 
 For information about how to update a task definition, see [Updating a task
@@ -537,7 +547,8 @@ AWS Batch job types and to choose a secure option.
 **Resource type:**
 `AWS::ECS::TaskDefinition`
 
-**AWS Config rule:** `ecs-task-definition-efs-encryption-enabled`
+**AWS Config rule:**
+[ecs-task-definition-efs-encryption-enabled](../../../config/latest/developerguide/ecs-task-definition-efs-encryption-enabled.md "../../../config/latest/developerguide/ecs-task-definition-efs-encryption-enabled.md")
 
 **Schedule type:** Change triggered
 
@@ -564,7 +575,8 @@ Developer Guide_.
 **Resource type:**
 `AWS::ECS::CapacityProvider`
 
-**AWS Config rule:** `ecs-capacity-provider-termination-check`
+**AWS Config rule:**
+[ecs-capacity-provider-termination-check](../../../config/latest/developerguide/ecs-capacity-provider-termination-check.md "../../../config/latest/developerguide/ecs-capacity-provider-termination-check.md")
 
 **Schedule type:** Change triggered
 
@@ -592,7 +604,8 @@ Developer Guide_.
 **Resource type:**
 `AWS::ECS::TaskDefinition`
 
-**AWS Config rule:** `ecs-task-definition-linux-user-non-root`
+**AWS Config rule:**
+[ecs-task-definition-linux-user-non-root](../../../config/latest/developerguide/ecs-task-definition-linux-user-non-root.md "../../../config/latest/developerguide/ecs-task-definition-linux-user-non-root.md")
 
 **Schedule type:** Change triggered
 
@@ -622,7 +635,8 @@ Developer Guide_.
 **Resource type:**
 `AWS::ECS::TaskDefinition`
 
-**AWS Config rule:** `ecs-task-definition-windows-user-non-admin`
+**AWS Config rule:**
+[ecs-task-definition-windows-user-non-admin](../../../config/latest/developerguide/ecs-task-definition-windows-user-non-admin.md "../../../config/latest/developerguide/ecs-task-definition-windows-user-non-admin.md")
 
 **Schedule type:** Change triggered
 

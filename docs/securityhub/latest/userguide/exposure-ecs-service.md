@@ -36,8 +36,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ecs-service.md#high-priority-vulnerability "exposure-ecs-service.md#high-priority-vulnerability")
   - [The Amazon ECS service has a container with software vulnerabilities](exposure-ecs-service.md#low-priority-vulnerability "exposure-ecs-service.md#low-priority-vulnerability")
   - [The Amazon ECS service has a container with an End-Of-Life operating system](exposure-ecs-service.md#end-of-life-operating-system-detected "exposure-ecs-service.md#end-of-life-operating-system-detected")
-
-- [The Amazon ECS service has a container with malicious software packages](exposure-ecs-service.md#malicious-package "exposure-ecs-service.md#malicious-package")
+  - [The Amazon ECS service has a container with malicious software packages](exposure-ecs-service.md#malicious-package "exposure-ecs-service.md#malicious-package")
 
 ## Misconfiguration traits for Amazon ECS services
 
@@ -392,7 +391,7 @@ In the exposure finding, open the resource to access the affected resource.
 Before updating the operating system version in your container image, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image.
 
-## The Amazon ECS service has a container with malicious software packages
+### The Amazon ECS service has a container with malicious software packages
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your Amazon ECS container images, as attackers can execute malicious code automatically without exploiting a vulnerability.

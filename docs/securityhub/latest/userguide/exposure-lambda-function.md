@@ -27,6 +27,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The Lambda function is able to assume an IAM role](exposure-lambda-function.md#aws-role-access-granted "exposure-lambda-function.md#aws-role-access-granted")
   - [The IAM Role associated with the Lambda function has an Administrative access policy](exposure-lambda-function.md#administrative-access-policy "exposure-lambda-function.md#administrative-access-policy")
   - [The IAM Role associated with the Lambda function has a policy with administrative access to an AWS Service](exposure-lambda-function.md#service-admin-policy "exposure-lambda-function.md#service-admin-policy")
+  - [The Lambda function is accessible through API Gateway without authorization](exposure-lambda-function.md#api-gateway-no-authorization "exposure-lambda-function.md#api-gateway-no-authorization")
 
 - [Reachability traits for Lambda functions](exposure-lambda-function.md#lambda-function-reachability "exposure-lambda-function.md#lambda-function-reachability")
   - [The Lambda function can be publicly invoked](exposure-lambda-function.md#publicly-invocable "exposure-lambda-function.md#publicly-invocable")
@@ -34,8 +35,8 @@ The remediation guidance provided in this topic might require additional consult
 - [Vulnerability traits for Lambda functions](exposure-lambda-function.md#lambda-function-vulnerability "exposure-lambda-function.md#lambda-function-vulnerability")
   - [The Lambda function has network-exploitable software vulnerabilities](exposure-lambda-function.md#high-priority-vulnerability "exposure-lambda-function.md#high-priority-vulnerability")
   - [The Lambda function has software vulnerabilities](exposure-lambda-function.md#low-priority-vulnerability "exposure-lambda-function.md#low-priority-vulnerability")
-
-- [The Lambda function has malicious software packages](exposure-lambda-function.md#malicious-package "exposure-lambda-function.md#malicious-package")
+  - [The Lambda function has malicious software packages](exposure-lambda-function.md#malicious-package "exposure-lambda-function.md#malicious-package")
+  - [The Lambda function has code vulnerabilities](exposure-lambda-function.md#lambda-code-vulnerability "exposure-lambda-function.md#lambda-code-vulnerability")
 
 ## Misconfiguration traits for Lambda functions
 
@@ -171,6 +172,21 @@ If service-level administrative permissions are necessary for the instance, cons
      Permission boundaries establish the maximum permissions a role can have, providing guardrails for roles with administrative access.
      For more information, see [Use permissions boundaries to delegate permissions management](../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries "../../../IAM/latest/UserGuide/best-practices.md#bp-permissions-boundaries") in the *AWS Identity and Access Management User Guide*.
 
+### The Lambda function is accessible through API Gateway without authorization
+
+API Gateway methods without authorization allow any caller with access to the API Gateway to invoke the integrated Lambda function without identity verification.
+This configuration creates security risks, as callers can invoke the Lambda function without proper authorization, potentially leading to abuse of function capabilities, resource consumption, access to sensitive data, or unauthorized operations.
+While API Gateway may have network-level access controls, the lack of method-level authorization could allow free invocation of the function by any caller with network access to the API Gateway.
+Following security best practices, AWS recommends implementing appropriate authorization mechanisms for API Gateway methods that integrate with Lambda functions.
+
+###### Configure API Gateway authentication
+
+In the **Resources** tab of the exposure, click on the **Open resource** hyperlink to access the API Gateway method.
+Review the current authorization configuration and implement appropriate authentication mechanisms.
+API Gateway supports several authentication options including AWS IAM, Amazon Cognito User Pools, Lambda authorizers, and API keys.
+Choose the authentication method that best fits your security requirements and use case.
+For detailed instructions on configuring authentication, see [Controlling and managing access to a REST API in API Gateway](../../../apigateway/latest/developerguide/apigateway-control-access-to-api.md "../../../apigateway/latest/developerguide/apigateway-control-access-to-api.md") in the _API Gateway Developer Guide_.
+
 ## Reachability traits for Lambda functions
 
 Here are reachability traits for Lambda functions and suggested remediation steps.
@@ -229,7 +245,7 @@ After updating the libraries, update the Lambda function code to use the fixed v
 
 Afterwards, deploy the updated version.
 
-## The Lambda function has malicious software packages
+### The Lambda function has malicious software packages
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your Lambda function, as attackers can execute malicious code automatically without exploiting a vulnerability.
@@ -242,3 +258,23 @@ Remove the identified malicious packages from your function code and dependencie
 For functions using layers, check if the malicious packages are installed in any layers and remove them.
 Update your deployment package or container image to exclude the malicious packages, then deploy the updated version.
 For instructions, see [Deploying Lambda functions as .zip file archives](../../../lambda/latest/dg/configuration-function-zip.md "../../../lambda/latest/dg/configuration-function-zip.md") for .zip file archives or [Create a Lambda function using a container image](../../../lambda/latest/dg/images-create.md "../../../lambda/latest/dg/images-create.md") for container images.
+
+### The Lambda function has code vulnerabilities
+
+Lambda function application code contains security vulnerabilities that could be exploited by threat actors.
+Code vulnerabilities include data leaks, injection flaws, missing encryption, and weak cryptography that are identified through automated code analysis.
+These vulnerabilities pose security risks to your AWS environment, as attackers can exploit them to compromise the confidentiality, integrity, or availability of data, or to access other systems.
+Code vulnerabilities represent security weaknesses that could be chained together with other attack vectors to compromise your function.
+Following security best practices, AWS recommends addressing these code vulnerabilities to protect your function from attack.
+
+###### Update affected functions
+
+Review the **References** section in the **Vulnerability** tab of the trait.
+Amazon Inspector findings may include specific remediation guidance and code snippets showing the vulnerable code locations.
+Address the identified security issues in your function code using the provided plug-and-play code blocks or by implementing secure coding practices.
+Always review code remediation suggestions before adopting them, as you might need to edit them to ensure your code performs as intended.
+After fixing the vulnerabilities, update the Lambda function code to use the corrected version.
+For instructions, see [Updating function code](../../../lambda/latest/dg/configuration-function-zip.md#configuration-function-update "../../../lambda/latest/dg/configuration-function-zip.md#configuration-function-update") in the _AWS Lambda Developer Guide_.
+Afterwards, deploy the updated version.
+For instructions, see [Deploying Lambda functions as .zip file archives](../../../lambda/latest/dg/configuration-function-zip.md "../../../lambda/latest/dg/configuration-function-zip.md") for .zip file archives or [Create a Lambda function using a container image](../../../lambda/latest/dg/images-create.md "../../../lambda/latest/dg/images-create.md") for container images.
+For more information about Amazon Inspector code scanning, see [Amazon Inspector Lambda code scanning](../../../inspector/latest/user/scanning_resources_lambda_code.md "../../../inspector/latest/user/scanning_resources_lambda_code.md") in the _Amazon Inspector User Guide_.

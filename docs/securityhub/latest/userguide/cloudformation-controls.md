@@ -94,7 +94,8 @@ in the _AWS CloudFormation API Reference_.
 **Resource type:**
 `AWS::CloudFormation::Stack`
 
-**AWS Config rule:** `cloudformation-termination-protection-check`
+**AWS Config rule:**
+[cloudformation-termination-protection-check](../../../config/latest/developerguide/cloudformation-termination-protection-check.md "../../../config/latest/developerguide/cloudformation-termination-protection-check.md")
 
 **Schedule type:** Change triggered
 
@@ -124,7 +125,8 @@ in the _AWS CloudFormation User Guide_.
 **Resource type:**
 `AWS::CloudFormation::Stack`
 
-**AWS Config rule:** `cloudformation-stack-service-role-check`
+**AWS Config rule:**
+[cloudformation-stack-service-role-check](../../../config/latest/developerguide/cloudformation-stack-service-role-check.md "../../../config/latest/developerguide/cloudformation-stack-service-role-check.md")
 
 **Schedule type:** Change triggered
 

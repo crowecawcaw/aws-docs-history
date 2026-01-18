@@ -36,6 +36,11 @@ To stream ActiveMQ broker logs to CloudWatch Logs, see [Configuring Amazon MQ fo
 
 ## [MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled
 
+###### Important
+
+Security Hub CSPM retired this control in January 2026.
+For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md "controls-change-log.md").
+
 **Related requirements:** NIST.800-53.r5 CM-3, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/6.3.3
 
 **Category:** Identify > Vulnerability, patch, and version management

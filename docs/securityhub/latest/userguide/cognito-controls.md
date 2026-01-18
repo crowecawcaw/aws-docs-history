@@ -139,7 +139,8 @@ user pool, see [Adding user pool password requirements](../../../cognito/latest/
 **Resource type:**
 `AWS::Cognito::UserPool`
 
-**AWS Config rule:** `cognito-userpool-cust-auth-threat-full-check`
+**AWS Config rule:**
+[cognito-userpool-cust-auth-threat-full-check](../../../config/latest/developerguide/cognito-userpool-cust-auth-threat-full-check.md "../../../config/latest/developerguide/cognito-userpool-cust-auth-threat-full-check.md")
 
 **Schedule type:** Change triggered
 
@@ -166,7 +167,8 @@ user pool, see [Advanced security with threat protection](../../../cognito/lates
 **Resource type:**
 `AWS::Cognito::UserPool`
 
-**AWS Config rule:** `cognito-user-pool-mfa-enabled`
+**AWS Config rule:**
+[cognito-user-pool-mfa-enabled](../../../config/latest/developerguide/cognito-user-pool-mfa-enabled.md "../../../config/latest/developerguide/cognito-user-pool-mfa-enabled.md")
 
 **Schedule type:** Change triggered
 
@@ -196,7 +198,8 @@ user pool, see [Adding MFA to a user pool](../../../cognito/latest/developerguid
 **Resource type:**
 `AWS::Cognito::UserPool`
 
-**AWS Config rule:** `cognito-user-pool-deletion-protection-enabled`
+**AWS Config rule:**
+[cognito-user-pool-deletion-protection-enabled](../../../config/latest/developerguide/cognito-user-pool-deletion-protection-enabled.md "../../../config/latest/developerguide/cognito-user-pool-deletion-protection-enabled.md")
 
 **Schedule type:** Change triggered
 

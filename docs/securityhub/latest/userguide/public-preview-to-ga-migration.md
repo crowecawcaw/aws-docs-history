@@ -53,7 +53,7 @@ If you have not yet opted into General Availability in the Organizations managem
 To address this see the step for the Organizations Management account.
 
 Once you have successfully completed the enablement for your account all of your security service integrations will continue to work as they did in the public preview.
-If you need to make adjustments to security configurations of Organization member accounts, see Managing configuration of member accounts in an AWS Organization .
+If you need to make adjustments to security configurations of Organization member accounts, see [Managing configuration of member accounts in an AWS Organization](securityhub-v2-da-policy.md "securityhub-v2-da-policy.md") .
 
 ## Standalone accounts
 

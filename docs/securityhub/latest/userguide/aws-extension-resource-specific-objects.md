@@ -17,9 +17,8 @@ Object
 
 **OCSF status**
 
-Added to `resource_details`
-
-- See the OCSF [Device](https://schema.ocsf.io/1.6.0/objects/device "https://schema.ocsf.io/1.6.0/objects/device") object definition.
+Added to `resource_details`.
+See the OCSF [Device](https://schema.ocsf.io/1.6.0/objects/device "https://schema.ocsf.io/1.6.0/objects/device") object definition.
 
 AWS Extension adds the following attributes to this object:
 
@@ -79,9 +78,8 @@ Object
 
 **OCSF status**
 
-Added to `resource_details`
-
-- See the OCSF [Network Interface](https://schema.ocsf.io/1.6.0/objects/network_interface "https://schema.ocsf.io/1.6.0/objects/network_interface") object definition.
+Added to `resource_details`.
+See the OCSF [Network Interface](https://schema.ocsf.io/1.6.0/objects/network_interface "https://schema.ocsf.io/1.6.0/objects/network_interface") object definition.
 
 AWS Extension adds the following attributes to this object:
 
@@ -176,9 +174,8 @@ Object
 
 **OCSF status**
 
-Added to `resource_details`
-
-- See the OCSF [Database](https://schema.ocsf.io/1.6.0/objects/database "https://schema.ocsf.io/1.6.0/objects/database") object definition.
+Added to `resource_details`.
+See the OCSF [Database](https://schema.ocsf.io/1.6.0/objects/database "https://schema.ocsf.io/1.6.0/objects/database") object definition.
 
 AWS Extension adds the following attributes to this object:
 
@@ -375,9 +372,8 @@ Object
 
 **OCSF status**
 
-Added to `resource_details`
-
-- See the OCSF [Databucket](https://schema.ocsf.io/1.6.0/objects/databucket "https://schema.ocsf.io/1.6.0/objects/databucket") object definition.
+Added to `resource_details`.
+See the OCSF [Databucket](https://schema.ocsf.io/1.6.0/objects/databucket "https://schema.ocsf.io/1.6.0/objects/databucket") object definition.
 
 Note: This object is added to resource_details by the AWS Extension.
 The core OCSF Databucket object is used without additional attributes.
@@ -409,9 +405,8 @@ Object
 
 **OCSF status**
 
-Added to `resource_details`
-
-- See the OCSF [Image](https://schema.ocsf.io/1.6.0/objects/image "https://schema.ocsf.io/1.6.0/objects/image") object definition.
+Added to `resource_details`.
+See the OCSF [Image](https://schema.ocsf.io/1.6.0/objects/image "https://schema.ocsf.io/1.6.0/objects/image") object definition.
 
 AWS Extension adds the following attributes to this object:
 
@@ -496,9 +491,8 @@ Object
 
 **OCSF status**
 
-Added to `resource_details`
-
-- See the OCSF [User](https://schema.ocsf.io/1.6.0/objects/user "https://schema.ocsf.io/1.6.0/objects/user") object definition.
+Added to `resource_details`.
+See the OCSF [User](https://schema.ocsf.io/1.6.0/objects/user "https://schema.ocsf.io/1.6.0/objects/user") object definition.
 
 The user object includes the following attributes:
 
