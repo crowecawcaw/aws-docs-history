@@ -1,40 +1,19 @@
-# Amazon Aurora Parallel Query
+# Amazon RDS on Outposts
 
-Amazon Aurora Parallel Query is a feature of the Amazon Aurora database that provides faster analytical queries over your current data, without having to copy the data into a separate system. It can speed up queries by up to two orders of magnitude, while maintaining high throughput for your core transactional workload.
+###### Note
 
-While some databases can parallelize query processing across CPUs in one or a handful of servers, Parallel Query takes advantage of Aurora unique architecture to push down and parallelize query processing across thousands of CPUs in the Aurora storage layer. By offloading analytical query processing to the Aurora storage layer, Parallel Query reduces network, CPU, and buffer pool contention with the transactional workload.
+This topic is related to Amazon Relational Database Service (Amazon RDS) and isn’t supported with Amazon Aurora.
 
-## Features
+Amazon RDS on Outposts is a fully managed service that offers the same AWS infrastructure, AWS services, APIs, and tools to virtually any data center, co-location space, or on-premises facility for a truly consistent hybrid experience. Amazon RDS on Outposts is ideal for workloads that require low latency access to on-premises systems, local data processing, data residency, and migration of applications with local system inter-dependencies.
 
-**Accelerate your analytical queries**
+When you deploy Amazon RDS on Outposts, you can run Amazon RDS on premises for low latency workloads that need to be run in close proximity to your on-premises data and applications. Amazon RDS on Outposts also enables automatic backup to an AWS Region. You can manage Amazon RDS databases both in the cloud and on premises using the same AWS Management Console, APIs, and CLI. Amazon RDS on Outposts supports Microsoft SQL Server, MySQL, and PostgreSQL database engines, with support for additional database engines coming soon.
 
-In a traditional database, running analytical queries directly on the database means accepting slower query performance and risking a slowdown of your transactional workload, even when running light queries. Queries can run for several minutes to hours, depending on the size of the tables and database server instances. Queries are also slowed down by network latency, since the storage layer may have to transfer entire tables to the database server for processing.
+## How it works
 
-With Amazon Aurora Parallel Query, query processing is pushed down to the Aurora storage layer. The query gains a large amount of computing power, and it needs to transfer far less data over the network. In the meantime, the Amazon Aurora database instance can continue serving transactions with much less interruption. This way, you can run transactional and analytical workloads alongside each other in the same Aurora database, while maintaining high performance.
+Amazon RDS on Outposts enables you to run Amazon RDS in your on-premises or co-location site. You can deploy and scale an Amazon RDS database instance in Outposts just as you do in the cloud, using the AWS Management Console, APIs, or CLI. Amazon RDS databases in Outposts are encrypted at rest using AWS KMS keys. Amazon RDS automatically stores all automatic backups and manual snapshots in the AWS Region.
 
-**Query on fresh data**
+![How RDS on Outposts works](images/pb-rds-outposts-how-it-works.png)
 
-Many analytical workloads require both fresh data and good query performance. For example, operational systems such as network monitoring, cyber-security or fraud detection rely on fresh, real-time data from a transactional database, and can’t wait for it to be extracted to a analytics system.
+This option is helpful when you need to run Amazon RDS on premises for low latency workloads that need to be run in close proximity to your on-premises data and applications.
 
-By running your queries in the same database that you use for transaction processing, without degrading transaction performance, Amazon Aurora Parallel Query enables smarter operational decisions with no additional software and no changes to your queries.
-
-## Benefits of Using Parallel Query
-
-`AURlong` Parallel Query feature provides the following benefits:
-
-- Improved I/O performance, due to parallelizing physical read requests across multiple storage nodes.
-- Reduced network traffic. Amazon Aurora doesn’t transmit entire data pages from storage nodes to the head node and then filter out unnecessary rows and columns afterward. Instead, Aurora transmits compact tuples containing only the column values needed for the result set.
-- Reduced CPU usage on the head node, due to pushing down function processing, row filtering, and column projection for the WHERE clause.
-- Reduced memory pressure on the buffer pool. The pages processed by Parallel Query aren’t added to the buffer pool. This approach reduces the chance of a data-intensive scan evicting frequently used data from the buffer pool.
-- Potentially reduced data duplication in your extract, transform, and load (ETL) pipeline, by making it practical to perform long-running analytic queries on existing data.
-
-## Important notes
-
-Consider the following when using the `AURlong` Parallel Query feature:
-
-- **Table formats** — The table row format must be `COMPACT`; partitioned tables aren’t supported.
-- **Data types** — The `TEXT`, `BLOB`, and `GEOMETRY` data types aren’t supported.
-- **DDL** — The table can’t have any pending fast online DDL operations.
-- **Cost** — You can make use of Parallel Query at no extra charge. However, because it makes direct access to storage, there is a possibility that your IO cost will increase.
-
-For more information, see [Amazon Aurora Parallel Query](https://aws.amazon.com/rds/aurora/parallel-query/ "https://aws.amazon.com/rds/aurora/parallel-query/").
+For more information, see [AWS Outposts Family](https://aws.amazon.com/outposts "https://aws.amazon.com/outposts"), [Amazon RDS on Outposts](https://aws.amazon.com/rds/outposts "https://aws.amazon.com/rds/outposts"), and [Create Amazon RDS DB Instances on Outposts](https://aws.amazon.com/blogs/aws/new-create-amazon-rds-db-instances-on-aws-outposts "https://aws.amazon.com/blogs/aws/new-create-amazon-rds-db-instances-on-aws-outposts").

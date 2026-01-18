@@ -1,61 +1,67 @@
-# Oracle database links and MySQL fully-qualified table names
+# Oracle SQL Result Cache and MySQL Query Cache
 
-With AWS DMS, you can migrate data between different database platforms, including Oracle and MySQL, while preserving database links and fully-qualified table names. Oracle database links provide a way to access data in remote databases, while MySQL fully-qualified table names specify the database and table for a given object.
+With AWS DMS, you can leverage performance optimization features such as Oracle SQL Result Cache and MySQL Query Cache to improve query execution times. The Oracle SQL Result Cache stores data from previous queries, allowing faster retrieval for identical subsequent queries. MySQL Query Cache temporarily stores the text of a `SELECT` query and its corresponding result set, facilitating quicker responses to repeated queries on the same data.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                       |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | MySQL doesn’t support database links. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                   |
+| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | No automation                      | N/A                       | Syntax and option differences, similar functionality. This is off the MySQL roadmap and suggested not to be used. |
 
 ## Oracle usage
 
-Database links are schema objects used to interact with remote database objects such as tables. Common use cases for database links include selecting data from tables that reside in a remote database.
+The Oracle SQL Result Cache feature is related to the following caching categories:
 
-To use database links, Oracle net services must be installed on both the local and remote database servers to facilitate communications.
+- Global temporary tables.
+- Materialized views.
+- PL/SQL collection.
+- The `WHEN` clause.
+
+The Result Cache reduces I/O operations by skipping the fetch step of execution plans and retrieving rows from the buffer cache. This feature is most useful for data warehouse scenarios where many rows must be scanned, but the result sets contain few rows. The rows are stored in the System Global Area (SGA) and are reused when the same SQL statements are executed in the current session or other sessions.
+
+The `RESULT_CACHE_MODE` parameter controls caching and accepts the following values:
+
+- `MANUAL` — SQL results are not cached for SQL statements unless they use a hint to perform caching.
+- `FORCE` — All results are cached for SQL statements unless they use a hint to prevent caching.
+
+In Oracle Real Application Cluster (RAC) environments, each instance has its own private result cache and can’t be used by other instances.
+
+The query result cache is not compatible with scalar subquery caching.
 
 ### Examples
 
-Create a database link named `remote_db`. When creating a database link, you have the option to specify the remote database destination using a TNS Entry or to specify the full TNS Connection string.
+Cache a query when `RESULT_CACHE_MODE` is set to `MANUAL`.
 
 ```
-CREATE DATABASE LINK remote_db CONNECT TO username IDENTIFIED BY password USING 'remote';
-
-CREATE DATABASE LINK remotenoTNS CONNECT TO username IDENTIFIED BY password
-  USING '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS = (PROTOCOL = TCP)(HOST =192.168.1.1)
-  (PORT =1521)))(CONNECT_DATA =(SERVICE_NAME = orcl)))';
+SELECT /*+ RESULT_CACHE */ count(*) FROM bigdata_smallres_tbl;
 ```
 
-After the database link is created, you can use the database link directly as part of a SQL query using the database link name `@remote_db` as a suffix to the table name.
+Turn off caching when `RESULT_CACHE_MODE` is set to `FORCE` and a result cache isn’t needed.
 
 ```
-SELECT * FROM employees@remote_db;
+SELECT /*+ NO_RESULT_CACHE */ count(*) FROM bigdata_smallres_tbl;
 ```
 
-Database links also support DML commands.
-
-```
-INSERT INTO employees@remote_db
-(employee_id, last_name, email, hire_date, job_id) VALUES
-(999, 'Claus', 'sclaus@example.com', SYSDATE, 'SH_CLERK');
-
-UPDATE jobs@remote_db SET min_salary = 3000 WHERE job_id = 'SH_CLERK';
-
-DELETE FROM employees@remote_db WHERE employee_id = 999;
-```
-
-For more information, see [Managing Database Links](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-a-distributed-database.html#GUID-7B0C4627-4473-4313-88D5-FD03CA42D9EA "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-a-distributed-database.html#GUID-7B0C4627-4473-4313-88D5-FD03CA42D9EA") in the _Oracle documentation_.
+For more information, see [Configuring the Client Result Cache](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/tuning-result-cache.html#GUID-21CAA1E7-9E46-4442-9F3E-CE09EEF60D92 "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/tuning-result-cache.html#GUID-21CAA1E7-9E46-4442-9F3E-CE09EEF60D92") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Currently, MySQL doesn’t provide a direct comparable alternative for Oracle Database Links. You can use the fully-qualified names to query data from another database within the same cluster. This functionality is similar to querying data from a different schema in Oracle. If the data cannot be stored under the same MySQL Cluster, then there is no equivalent to Oracle Database Links in MySQL.
+According to the MySQL roadmap, it is recommended not to use the Query Cache.
 
-If the data can’t be placed under the same MySQL Cluster then there is no relevant equivalent to Oracle Database Links in MySQL.
+Like the Oracle Result Cache, the MySQL Query Cache reduces I/O operations by skipping the fetch step of run plans and retrieving rows from the buffer cache. It can be shared across multiple sessions.
+
+The Query Cache is deprecated as of MySQL 5.7.20 and will be removed in MySQL 8.0. For more information, see [Retiring Support for the Query Cache](https://dev.mysql.com/blog-archive/mysql-8-0-retiring-support-for-the-query-cache/ "https://dev.mysql.com/blog-archive/mysql-8-0-retiring-support-for-the-query-cache/") in the _MySQL Blog_.
 
 ### Examples
 
-Query all flight ids from the `all_flights` table in the flights database, assume that this code runs from another database.
+The following example runs a `select` statement using the Query Cache.
 
 ```
-SELECT flight_id from flights.all_flights;
+SELECT SQL_CACHE count(*) FROM bigdata_smallres_tbl;
 ```
 
-This query returns the data only if the user has permissions to the table and the database.
+The following example runs a `select` statement without using the Query Cache.
+
+```
+SELECT SQL_NO_CACHE count(*) FROM bigdata_smallres_tbl;
+```
+
+For more information, see [The MySQL Query Cache](https://dev.mysql.com/doc/refman/5.7/en/query-cache.html "https://dev.mysql.com/doc/refman/5.7/en/query-cache.html") in the _MySQL documentation_.

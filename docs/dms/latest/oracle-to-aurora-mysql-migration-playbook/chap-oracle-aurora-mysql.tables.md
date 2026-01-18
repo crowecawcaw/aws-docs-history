@@ -1,83 +1,139 @@
-# Oracle index-organized table and MySQL InnoDB clustered index
+# Oracle and MySQL triggers
 
-With AWS DMS, you can migrate databases that utilize Oracle index-organized tables and MySQL InnoDB clustered indexes.
+Triggers are database objects that encapsulate procedural logic, facilitating data validation, auditing, and maintaining referential integrity constraints. System administrators, database developers, and data engineers may require triggers to enforce business rules, log data changes, or propagate updates across related tables. The following sections provide detailed guidance on creating, managing, and testing triggers within the context of AWS DMS.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                            | Key differences                                                                            |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| Four star feature compatibility | Three star automation level        | [Indexes](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t support the index-organized tables. This is the default behavior for InnoDB. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                             |
+| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | Three star automation level        |                           | MySQL doesn’t support statement and system event triggers. Also, MySQL doesn’t support `CREATE OR REPLACE`. |
 
 ## Oracle usage
 
-In Oracle, an index-organized table (IOT) object is a special type of index/table hybrid that physically controls how data is stored at the table and index level. When you create a common database table or a heap-organized table, the data is stored unsorted, as a heap. However, when you create an index-organized table, the actual table data is stored in a B-tree index structure sorted by the primary key of each row. Each leaf block in the index structure stores both the primary key and non-key columns.
+A trigger is a named program that is stored in the database and fired when a specified event occurs. The associated event causing a trigger to run can either be tied to a specific database table, database view, database schema, or the database itself.
 
-IOTs provide performance improvements when accessing data using the primary key because table records are sorted or clustered using the primary key and physically co-located alongside the primary key.
+Triggers can be run after:
 
-### Example
+- Data Manipulation Language (DML) statements such as `DELETE`, `INSERT`, or `UPDATE`.
+- Data Definition Language (DDL) statements such as `CREATE`, `ALTER`, or `DROP`.
+- Database events and operations such as `SERVERERROR`, `LOGON`, `LOGOFF`, `STARTUP`, or `SHUTDOWN`.
 
-Create an Oracle index-organized table storing ordered data based on the primary key.
+### Trigger types
+
+- **DML** triggers can be created on tables or views and fire when inserting, updating, or deleting data. Triggers can fire before or after DML command run.
+- **INSTEAD OF** triggers can be created on a non-editable view. `INSTEAD OF` triggers provide an application-transparent method for modifying views that can’t be modified by DML statements.
+- **SYSTEM event** triggers are defined at the database or schema level including triggers that fire after specific events:
+  - User log-on and log-off.
+  - Database events such as startup or shutdown, DataGuard events, server errors.
+
+### Examples
+
+Create a trigger that runs after a row is deleted from the `PROJECTS` table, or if the primary key of a project is updated.
 
 ```
-CREATE TABLE SYSTEM_EVENTS (
-  EVENT_ID NUMBER,
-  EVENT_CODE VARCHAR2(10) NOT NULL,
-  EVENT_DESCIPTION VARCHAR2(200),
-  EVENT_TIME DATE NOT NULL,
-  CONSTRAINT PK_EVENT_ID PRIMARY KEY(EVENT_ID))
-  ORGANIZATION INDEX;
+CREATE OR REPLACE TRIGGER PROJECTS_SET_NULL
+  AFTER DELETE OR UPDATE OF PROJECTNO ON PROJECTS
+  FOR EACH ROW
+  BEGIN
+    IF UPDATING AND :OLD.PROJECTNO != :NEW.PROJECTNO OR DELETING THEN
+      UPDATE EMP SET EMP.PROJECTNO = NULL
+      WHERE EMP.PROJECTNO = :OLD.PROJECTNO;
+    END IF;
+END;
+/
 
-INSERT INTO SYSTEM_EVENTS VALUES(9, 'EVNT-A1-10', 'Critical', '01-JAN-2017');
-INSERT INTO SYSTEM_EVENTS VALUES(1, 'EVNT-C1-09', 'Warning', '01-JAN-2017');
-INSERT INTO SYSTEM_EVENTS VALUES(7, 'EVNT-E1-14', 'Critical', '01-JAN-2017');
+Trigger created.
 
-SELECT * FROM SYSTEM_EVENTS;
+DELETE FROM PROJECTS WHERE PROJECTNO=123;
 
-EVENT_ID  EVENT_CODE  EVENT_DESCIPTION  EVENT_TIM
-1         EVNT-C1-09  Warning           01-JAN-17
-7         EVNT-E1-14  Critical          01-JAN-17
-9         EVNT-A1-10  Critical          01-JAN-17
+SELECT PROJECTNO FROM EMP WHERE PROJECTNO=123;
+
+PROJECTNO
+NULL
 ```
 
-###### Note
+Create a `SYSTEM` or schema trigger on a table. The trigger fires if a `DDL DROP` command runs for an object in the `HR` schema. It prevents dropping the object and raises an application error.
 
-The records are sorted in the reverse order from which they were inserted.
+```
+CREATE OR REPLACE TRIGGER PREVENT_DROP_TRIGGER
+  BEFORE DROP ON HR.SCHEMA
+  BEGIN
+    RAISE_APPLICATION_ERROR (num => -20000,
+    msg => 'Cannot drop object');
+END;
+/
 
-For more information, see [Indexes and Index-Organized Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1") in the _Oracle documentation_.
+Trigger created.
+
+DROP TABLE HR.EMP
+
+ERROR at line 1:
+ORA-00604: error occurred at recursive SQL level 1
+ORA-20000: Cannot drop object
+ORA-06512: at line 2
+```
+
+For more information, see [CREATE TRIGGER Statement](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/CREATE-TRIGGER-statement.html#GUID-AF9E33F1-64D1-4382-A6A4-EC33C36F237B "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/CREATE-TRIGGER-statement.html#GUID-AF9E33F1-64D1-4382-A6A4-EC33C36F237B") in the _Oracle documentation_.
 
 ## MySQL usage
 
-MySQL doesn’t support index-organized tables. However it provides similar functionality using InnoDB, which is the Amazon Aurora default storage engine.
+MySQL supports triggers, but not all of the functionality provided by Oracle. Triggers are associated with users for privileges reasons and with specific tables. Triggers fire at the row level, and not at the statement level. You can modify MySQL triggers using a `FOLLOWS` or `PRECEDES` clause. Also, MySQL triggers can be chained using the `FOLLOWS` or `PRECEDES` clauses.
 
-Each InnoDB table provides a special clustered index. When you create a `PRIMARY KEY` on a table, InnoDB automatically uses it as the clustered index. This behavior is similar to index-organized tables in Oracle.
-
-The best practice is to specify a primary key for each MySQL table. If you do not specify a primary key, MySQL locates the first unique index where all key columns are specified as NOT NULL and uses it as the clustered index.
-
-If a table layout doesn’t logically provide a column or multiple columns that are unique and not null, it is recommended to explicitly add an auto-incremented column to generate unique values.
-
-###### Note
-
-If no primary key or a suitable unique index can be found, InnoDB actually creates a hidden `GEN_CLUST_INDEX` clustered index with internally generated row ID values. These auto-generated row IDs are based on a 6-byte field that increases monotonically.
-
-### Example
-
-Create a new table with a simple primary key. Because the storage engine is InnoDB, the table is created as a clustered table sorting data based on the primary key itself.
+### Syntax
 
 ```
-CREATE TABLE SYSTEM_EVENTS (
-  EVENT_ID INT PRIMARY KEY,
-  EVENT_CODE VARCHAR(10) NOT NULL,
-  EVENT_DESCIPTION VARCHAR(200),
-  EVENT_TIME DATE NOT NULL);
-
-INSERT INTO SYSTEM_EVENTS VALUES(9,'EVNT10','Critical',NOW());
-INSERT INTO SYSTEM_EVENTS VALUES(1,'EVNT09','Warning',NOW());
-INSERT INTO SYSTEM_EVENTS VALUES(7,'EVNT14','Critical',NOW());
-
-SELECT * FROM SYSTEM_EVENTS;
-
-event_id  event_code  event_desciption  event_time
-1         EVNT-C1-09  Warning           2017-01-01
-7         EVNT-E1-14  Critical          2017-01-01
-9         EVNT-A1-10  Critical          2017-01-01
+CREATE
+[DEFINER = { user | CURRENT_USER }]
+TRIGGER trigger_name
+trigger_time trigger_event
+ON tbl_name FOR EACH ROW
+[trigger_order]
+trigger_body
+trigger_time: { BEFORE | AFTER }
+trigger_event: { INSERT | UPDATE | DELETE }
+trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
 ```
 
-For more information, see [Clustered and Secondary Indexes](https://dev.mysql.com/doc/refman/5.7/en/innodb-index-types.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-index-types.html") in the _MySQL documentation_.
+### Examples
+
+Create a trigger referencing the `OLD` and `NEW` values.
+
+```
+set delimiter /
+CREATE OR REPLACE TRIGGER PROJECTS_SET_NULL
+BEFORE UPDATE ON PROJECTS
+FOR EACH ROW
+BEGIN
+IF OLD.PROJECTNO != NEW.PROJECTNO THEN
+UPDATE EMP SET EMP.PROJECTNO = NULL
+WHERE EMP.PROJECTNO = OLD.PROJECTNO;
+END IF;
+END;
+/
+set delimiter ;
+UPDATE PROJECTS WHERE PROJECTNO=123;
+SELECT PROJECTNO FROM EMP WHERE PROJECTNO=123;
+PROJECTNO
+----------
+NULL
+```
+
+Drop a trigger.
+
+```
+DROP TRIGGER PROJECTS_SET_NULL
+```
+
+## Summary
+
+| Trigger                                      | Oracle                                                                                                                                                                                                                                                                       | MySQL                                                                                                                                                                                                                |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Before update trigger, row level             | `<br>CREATE OR REPLACE TRIGGER check_update<br>BEFORE UPDATE ON projects<br>FOR EACH ROW<br>BEGIN<br>/*Trigger body*/<br>END;<br>/<br>`                                                                                                                                      | `<br>CCREATE TRIGGER check_update<br>BEFORE UPDATE ON projects<br>FOR EACH ROW<br>BEGIN<br>/*Trigger body*/<br>END;<br>/<br>`                                                                                        |
+| Before update trigger, statement level       | `<br>CREATE OR REPLACE TRIGGER check_update<br>BEFORE UPDATE ON projects<br>BEGIN<br>/*Trigger body*/<br>END;<br>/<br>`                                                                                                                                                      | Not supported                                                                                                                                                                                                        |
+| System or event trigger                      | `<br>CREATE OR REPLACE TRIGGER drop_trigger<br>BEFORE DROP ON hr.SCHEMA<br>BEGIN<br>RAISE_APPLICATION_ERROR (<br>num => -20000,<br>msg => 'Cannot drop object');<br>END;<br>/<br>`                                                                                           | Not supported                                                                                                                                                                                                        |
+| Referencing :old and :new values in triggers | Use `:NEW` and `:OLD` in trigger body:<br>`<br>CREATE OR REPLACE TRIGGER Upper-NewDeleteOld<br>BEFORE INSERT OR UPDATE<br>OF first_name ON employees<br>FOR EACH ROW<br>BEGIN<br>:NEW.first_name := UPPER(:NEW.first_name);<br>:NEW.salary := :OLD.salary;<br>END;<br>/<br>` | Use `NEW` and `OLD` in trigger body:<br>`<br>CREATE TRIGGER UpperNewDeleteOld<br>BEFORE UPDATE ON empys<br>FOR EACH ROW SET<br>NEW.first_name = UPPER(NEW.first_name),<br>NEW.salary = OLD.salary;<br>END;<br>/<br>` |
+| Database event level trigger                 | `<br>CREATE TRIGGER register_shutdown<br>ON DATABASE SHUTDOWN<br>BEGIN<br>Insert into logging values<br>('DB was shut down', sysdate);<br>commit;<br>END;<br>/<br>`                                                                                                          | Not supported                                                                                                                                                                                                        |
+| Drop a trigger                               | `<br>DROP TRIGGER last_name_change_trg;<br>`                                                                                                                                                                                                                                 | `<br>DROP TRIGGER last_name_change_trg;<br>`                                                                                                                                                                         |
+| Modify logic run by a trigger                | Can be used with create or replace<br>`<br>CREATE OR REPLACE TRIGGER<br>UpperNewDeleteOld<br>BEFORE INSERT OR UPDATE OF<br>first_name ON employees<br>FOR EACH ROW<br>BEGIN<br><<NEW CONTENT>><br>END;<br>/<br>`                                                             | Not supported                                                                                                                                                                                                        |
+| Enable a trigger                             | `<br>ALTER TRIGGER UpperNewDeleteOld<br>ENABLE;<br>`                                                                                                                                                                                                                         | Not supported. Can be achieved by setting variables for each trigger to determine if it is turned off or turned on, and then checking the variable in an `IF` statement.                                             |
+| Disable a trigger                            | `<br>ALTER TRIGGER UpperNewDeleteOld<br>DISABLE;<br>`                                                                                                                                                                                                                        | Not supported. Can be achieved by setting variables for each trigger to determine if it is turned off or turned on, and then checking the variable in an `IF` statement.                                             |
+
+For more information, see [Trigger Syntax and Examples](https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html "https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html") and [CREATE TRIGGER Statement](https://dev.mysql.com/doc/refman/5.7/en/create-trigger.html "https://dev.mysql.com/doc/refman/5.7/en/create-trigger.html") in the _MySQL documentation_.
