@@ -14,7 +14,7 @@ SPEKE requires AWS authentication through IAM roles for use with an encryptor. I
 One common implementation is for the operator or DRM platform vendor to use Amazon API Gateway in front of the key provider, and then enable AWS Identity and Access Management (AWS IAM) authorization on the API Gateway resource. You can use the following policy definition example and attach it to a new role to give permissions to the appropriate resource. In this case, the permissions are for all API Gateway resources:
 
 ```
-{
+ {
     "Version": "2012-10-17",
     "Statement": [
         {

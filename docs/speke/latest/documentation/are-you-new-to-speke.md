@@ -12,7 +12,7 @@ For an introduction to SPEKE, watch the following webcast:
 - [DASH-IF CPIX specification v2.0](https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf "https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf") – The DASH-IF Content Protection Information Exchange Format (CPIX) specification version, which this SPEKE v1.0 specification is based on.
 - [DASH-IF CPIX specification v2.3](https://dashif.org/docs/CPIX2.3/Cpix.html "https://dashif.org/docs/CPIX2.3/Cpix.html") – The DASH-IF Content Protection Information Exchange Format (CPIX) specification version, which this SPEKE v2.0 specification is based on.
 - [DASH-IF system IDs](https://dashif.org/identifiers/content_protection/ "https://dashif.org/identifiers/content_protection/") – The list of registered identifiers for DRM systems.
-- [https://github.com/awslabs/speke-reference-server](https://github.com/awslabs/speke-reference-server "https://github.com/awslabs/speke-reference-server") – Example reference key provider to use with your AWS account, to help you get started with a SPEKE implementation in AWS.
+- https://github.com/awslabs/speke-reference-server – Example reference key provider to use with your AWS account, to help you get started with a SPEKE implementation in AWS.
 
 ## Terminology
 

@@ -49,7 +49,7 @@ There are situations where the information provided in the encryption contract m
 _Example 1: one content key for all audio and video tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="ALL">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
 		<cpix:AudioFilter />
@@ -61,7 +61,7 @@ _Example 1: one content key for all audio and video tracks_
 _Example 2: one content key for all video tracks, one content key for all audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
     <cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
         <cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
         <cpix:VideoFilter />
@@ -76,7 +76,7 @@ _Example 2: one content key for all video tracks, one content key for all audio 
 _Example 3: one content key for all video tracks, unencrypted audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
 		<cpix:VideoFilter />
@@ -87,7 +87,7 @@ _Example 3: one content key for all video tracks, unencrypted audio tracks_
 _Example 4: multiple content keys for different video tracks (SD/HD), one content key for all audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -109,7 +109,7 @@ _Example 4: multiple content keys for different video tracks (SD/HD), one conten
 _Example 5: multiple content keys for different video tracks (SD/HD/UHD), one content key for all audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -136,7 +136,7 @@ _Example 5: multiple content keys for different video tracks (SD/HD/UHD), one co
 _Example 6: multiple content keys for different video tracks (SD/HD/UHD1/UHD2), one content key for all audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -168,7 +168,7 @@ _Example 6: multiple content keys for different video tracks (SD/HD/UHD1/UHD2), 
 _Example 7: multiple content keys for different video tracks (SD/HD1/HD2/UHD1/UHD2), one content key for all audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD video tracks (up to 1024x576) -->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -205,7 +205,7 @@ _Example 7: multiple content keys for different video tracks (SD/HD1/HD2/UHD1/UH
 _Example 8: multiple content keys for different video tracks (based on multiple attributes types), one content key for all audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for SD and HD video tracks-->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="SD+HD">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -230,7 +230,7 @@ _Example 8: multiple content keys for different video tracks (based on multiple 
 _Example 9: one content keys for all video tracks, multiple content keys for stereo and multichannel audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for video tracks-->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>
@@ -252,7 +252,7 @@ _Example 9: one content keys for all video tracks, multiple content keys for ste
 _Example 10: one content keys for all video tracks, multiple content keys for stereo and two types of multichannel audio tracks_
 
 ```
-<cpix:ContentKeyUsageRuleList>
+ <cpix:ContentKeyUsageRuleList>
 	<!-- Rule for video tracks-->
 	<cpix:ContentKeyUsageRule kid="98ee5596-cd3e-a20d-163a-e382420c6eff" intendedTrackType="VIDEO">
 		<cpix:KeyPeriodFilter periodId="keyPeriod_0909829f-40ff-4625-90fa-75da3e53278f"/>

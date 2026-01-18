@@ -8,7 +8,7 @@ The code examples in this specification are for illustration purposes only. You 
 
 SPEKE uses the DASH Industry Forum Content Protection Information Exchange Format (DASH-IF-CPIX) data structure definition for key exchange, with some restrictions. DASH-IF-CPIX defines a schema to provide an extensible, multi-DRM exchange from the DRM platform to the encryptor. This enables content encryption for all adaptive bitrate packaging formats at the time of content compression and packaging. Adaptive bitrate packaging formats include HLS, DASH, and MSS.
 
-For detailed information about the exchange format, see the DASH Industry Forum CPIX specification at [https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf](https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf "https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf").
+For detailed information about the exchange format, see the DASH Industry Forum CPIX specification at https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf.
 
 ###### Topics
 

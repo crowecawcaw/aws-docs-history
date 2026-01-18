@@ -5,7 +5,7 @@ The encryptor creates a new key identifier (KID) each time that it rotates keys.
 The following is an example request with the KID `11111111-1111-1111-1111-111111111111`:
 
 ```
-    <cpix:CPIX id="abc123" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke">
+     <cpix:CPIX id="abc123" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke">
       <cpix:ContentKeyList>
        <cpix:ContentKey kid="11111111-1111-1111-1111-111111111111"></cpix:ContentKey>
       </cpix:ContentKeyList>
@@ -29,7 +29,7 @@ The following is an example request with the KID `11111111-1111-1111-1111-111111
 The following response overrides the KID to `22222222-2222-2222-2222-222222222222`:
 
 ```
-     <cpix:CPIX xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke" id="abc123">
+      <cpix:CPIX xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke" id="abc123">
       <cpix:ContentKeyList>
        <cpix:ContentKey explicitIV="ASgwx9pQ2/2lnDzJsUxWcQ==" kid="22222222-2222-2222-2222-222222222222">
         <cpix:Data>
