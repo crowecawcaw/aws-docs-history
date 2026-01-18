@@ -37,6 +37,14 @@ When all of a rule's predicates are met, WLM writes a row to the [STL_WLM_RULE_A
 addition, Amazon Redshift records query metrics for currently running queries to [STV_QUERY_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md"). Metrics for
 completed queries are stored in [STL_QUERY_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md").
 
+###### Note
+
+For Amazon Redshift Serverless, you can configure query queues and monitoring rules using the `wlm_json_configuration` parameter.
+This allows you to create multiple queues with different user roles, query groups, and monitoring rules.
+For more information about configuring serverless query queues, see
+[Setting query queues](../mgmt/serverless-workgroup-query-queues.md "../mgmt/serverless-workgroup-query-queues.md")
+in the _Amazon Redshift Management Guide_.
+
 ## Defining a query monitoring
 
 rule
@@ -184,15 +192,15 @@ threshold values for defining query monitoring rules.
 
 The following table describes the metrics used in query monitoring rules for Amazon Redshift Serverless.
 
-| Metric                     | Name                             | Description                                                                                                                                                                                                                                  |
-| -------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Blocks read                | `max_query_blocks_read`          | Number of 1 MB data blocks read by the query.Valid<br>values are 0–1,048,575.                                                                                                                                                                |
-| Scan row count             | `max_scan_row_count`             | The number of rows in a scan step. The row count is the total number<br>of rows emitted before filtering rows marked for deletion (ghost rows)<br>and before applying user-defined query filters.<br>Valid values are 0–999,999,999,999,999. |
-| Query execution time       | max_query_execution_time         | Elapsed execution time for a query, in seconds.<br>Execution time doesn't include time spent waiting in a queue. If a query exceeds the set execution time, Amazon Redshift Serverless stops the query.<br>Valid values are 0–86,399.        |
-| Query queue time           | `max_query_queue_time`           | Time spent waiting in a queue, in seconds. Valid values are 0–86,399.                                                                                                                                                                        |
-| Memory to disk             | `max_query_temp_blocks_to_disk`  | Temporary disk space used to write intermediate results,<br>in 1 MB blocks.Valid values are 0–319,815,679.                                                                                                                                   |
-| Rows joined                | `max_join_row_count`             | The number of rows processed in a join step.Valid<br>values are 0–999,999,999,999,999.                                                                                                                                                       |
-| Nested loop join row count | `max_nested_loop_join_row_count` | The number or rows in a nested loop join.Valid<br>values are 0–999,999,999,999,999.                                                                                                                                                          |
+| Metric                     | WLM Predicate Name           | Name                             | Description                                                                                                                                                                                                                                  |
+| -------------------------- | ---------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Blocks read                | `query_blocks_read`          | `max_query_blocks_read`          | Number of 1 MB data blocks read by the query.Valid<br>values are 0–1,048,575.                                                                                                                                                                |
+| Scan row count             | `scan_row_count`             | `max_scan_row_count`             | The number of rows in a scan step. The row count is the total number<br>of rows emitted before filtering rows marked for deletion (ghost rows)<br>and before applying user-defined query filters.<br>Valid values are 0–999,999,999,999,999. |
+| Query execution time       | `query_execution_time`       | max_query_execution_time         | Elapsed execution time for a query, in seconds.<br>Execution time doesn't include time spent waiting in a queue. If a query exceeds the set execution time, Amazon Redshift Serverless stops the query.<br>Valid values are 0–86,399.        |
+| Query queue time           | `query_queue_time`           | `max_query_queue_time`           | Time spent waiting in a queue, in seconds. Valid values are 0–86,399.                                                                                                                                                                        |
+| Memory to disk             | `query_temp_blocks_to_disk`  | `max_query_temp_blocks_to_disk`  | Temporary disk space used to write intermediate results,<br>in 1 MB blocks.Valid values are 0–319,815,679.                                                                                                                                   |
+| Rows joined                | `join_row_count`             | `max_join_row_count`             | The number of rows processed in a join step.Valid<br>values are 0–999,999,999,999,999.                                                                                                                                                       |
+| Nested loop join row count | `nested_loop_join_row_count` | `max_nested_loop_join_row_count` | The number or rows in a nested loop join.Valid<br>values are 0–999,999,999,999,999.                                                                                                                                                          |
 
 ###### Note
 
@@ -200,6 +208,12 @@ The following table describes the metrics used in query monitoring rules for Ama
   That is, rules defined to hop when a `max_query_queue_time` predicate is met are ignored.
 - Short segment execution times can result in sampling errors with some metrics,
   such as `max_io_skew` and `max_query_cpu_usage_percent`.
+
+For Amazon Redshift Serverless, you can configure query queues and monitoring rules using the `wlm_json_configuration` parameter.
+This allows you to create multiple queues with different user roles, query groups, and monitoring rules using the metrics listed above.
+For more information about configuring serverless query queues, see
+[WLM JSON configuration structure](../mgmt/serverless-workgroup-query-queues.md#serverless-wlm-json-configuration "../mgmt/serverless-workgroup-query-queues.md#serverless-wlm-json-configuration")
+in the _Amazon Redshift Management Guide_.
 
 ## Query monitoring rules
 

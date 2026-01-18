@@ -50,8 +50,8 @@ Case-sensitive identifiers (also known as mixed-case identifiers) can contain
 both uppercase and lowercase letters. To use case-sensitive identifiers, you can
 set the configuration `enable_case_sensitive_identifier` to
 `true`. You can set this configuration for the cluster or for a
-session. For more information, see [Default parameter
-values](../mgmt/default-param-group-values.md "../mgmt/default-param-group-values.md") in the _Amazon Redshift Management Guide_ and [enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+session. For more information, see [Default parameter values](../mgmt/working-with-parameter-groups.md#default-param-group-values "../mgmt/working-with-parameter-groups.md#default-param-group-values")
+in the _Amazon Redshift Management Guide_ and [enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
 ## System column names
 

@@ -48,8 +48,11 @@ types. For example:
 create table test(col1 varchar(max));
 ```
 
-The MAX setting defines the width of the column as 4096 bytes for CHAR or
-65535 bytes for VARCHAR.
+For CHAR, MAX defines the column width as 4096 bytes.
+
+For VARCHAR, MAX defines the column width as 65,535 bytes in CREATE TABLE
+statements. For in-memory operations, VARCHAR(MAX) supports up to 16,000,000
+bytes.
 
 ## CHAR or CHARACTER
 
