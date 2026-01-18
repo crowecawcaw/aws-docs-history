@@ -156,12 +156,8 @@ In this IAM policy, the condition statement allows access to the `aws-s3-demo` b
 
 ```
 
+## Managing tags for general purpose buckets
+
 You can add or manage tags for S3 buckets using the Amazon S3 Console, the AWS Command Line Interface (CLI), the AWS SDKs, or using the S3 APIs: [TagResource](../API/API_control_TagResource.md "../API/API_control_TagResource.md"), [UntagResource](../API/API_control_UntagResource.md "../API/API_control_UntagResource.md"), and [ListTagsForResource](../API/API_control_ListTagsForResource.md "../API/API_control_ListTagsForResource.md"). For more information, see:
 
 ###### Topics
-
-- [Enabling ABAC in general purpose buckets](buckets-tagging-enable-abac.md "buckets-tagging-enable-abac.md")
-- [Creating general purpose buckets with tags](bucket-create-tag.md "bucket-create-tag.md")
-- [Adding a tag to a bucket](bucket-tag-add.md "bucket-tag-add.md")
-- [Viewing bucket tags](bucket-tag-view.md "bucket-tag-view.md")
-- [Deleting a tag from a bucket](bucket-tag-delete.md "bucket-tag-delete.md")

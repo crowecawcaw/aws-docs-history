@@ -51,7 +51,7 @@ placeholders` with your information.
   KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md")
 - [Key
   policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md")
-  You can also use the AWS KMS `PUT` key policy API operation ([PutKeyPolicy](https://amazonaws.com/kms/latest/APIReference/API_PutKeyPolicy.html "https://amazonaws.com/kms/latest/APIReference/API_PutKeyPolicy.html")) to copy the key policy to the customer managed keys that you want
+  You can also use the AWS KMS `PUT` key policy API operation ([PutKeyPolicy](../../../kms/latest/APIReference/API_PutKeyPolicy.md "../../../kms/latest/APIReference/API_PutKeyPolicy.md")) to copy the key policy to the customer managed keys that you want
   to use to encrypt the metrics exports by using the REST API, AWS CLI, and SDKs.
 
 ## Additional permissions for S3 table

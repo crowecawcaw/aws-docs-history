@@ -66,7 +66,7 @@ default `ReadWrite` session and allows the lifecycle service principal.
 
 ```
 
-**Monitoring lifecycle rules**
+### Monitoring lifecycle rules
 
 For objects stored in directory buckets, S3 Lifecycle generates AWS CloudTrail management and data event logs.
 For more information, see [CloudTrail log file examples for S3 Express One Zone](s3-express-log-files.md "s3-express-log-files.md").
@@ -74,7 +74,3 @@ For more information, see [CloudTrail log file examples for S3 Express One Zone]
 For more information about creating lifecycle configurations and troubleshooting S3 Lifecycle related issues, see the following topics:
 
 ###### Topics
-
-- [Creating and managing a Lifecycle
-  configuration for your directory bucket](directory-bucket-create-lc.md "directory-bucket-create-lc.md")
-- [Troubleshooting S3 Lifecycle issues for directory buckets](directory-buckets-lifecycle-troubleshooting.md "directory-buckets-lifecycle-troubleshooting.md")
