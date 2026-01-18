@@ -23,7 +23,7 @@ Define the recovery time to ensure that it aligns with your business objectives.
 **Simulate failure** – On `hanahost01` as `hdbadm`:
 
 ```
-hdbadm> HDB kill-9
+ hdbadm> HDB kill-9
 ```
 
 **Expected behavior** – The cluster detects the HANA process failure and triggers immediate failover to the secondary node. The secondary node is promoted to primary, taking over the workload without attempting local recovery.
@@ -36,7 +36,7 @@ hdbadm> HDB kill-9
    - See more details on how to register the secondary in [HSR Setup](sap-hana-pacemaker-sles-hana-setup-hsr.md "sap-hana-pacemaker-sles-hana-setup-hsr.md") :
 
    ```
-   hdbnsutil -sr_register --name=<site_name> --remoteHost=<primary_host> --remoteInstance=<instance_number> --mode=sync --operationMode=logreplay
+    hdbnsutil -sr_register --name=<site_name> --remoteHost=<primary_host> --remoteInstance=<instance_number> --mode=sync --operationMode=logreplay
    ```
 
 ## Test 2: Simulate a hardware failure
@@ -48,7 +48,7 @@ hdbadm> HDB kill-9
 **Simulate failure** – On `hanahost01` as `root`:
 
 ```
-# poweroff --force --force
+ # poweroff --force --force
 ```
 
 **Expected behavior** – Corosync detects the loss of node communication and Pacemaker on the surviving node initiates fencing through the fencing agent, followed by promotion of the secondary HANA instance to primary. Application connections should automatically reconnect to the new primary.
@@ -71,7 +71,7 @@ hdbadm> HDB kill-9
 **Simulate failure** – On `hanahost01` as `root`:
 
 ```
-# echo 'c' > /proc/sysrq-trigger
+ # echo 'c' > /proc/sysrq-trigger
 ```
 
 **Expected behavior** – The cluster detects node failure through lost heartbeat. The surviving node initiates fencing through the fencing agent, followed by promotion of the secondary HANA instance to primary.
@@ -99,7 +99,7 @@ hdbadm> HDB kill-9
 **Simulate failure** – On either node as root:
 
 ```
-# iptables -A INPUT -s <CIDR_of_other_subnet> -j DROP; iptables -A OUTPUT -d <CIDR_of_other_subnet> -j DROP
+ # iptables -A INPUT -s <CIDR_of_other_subnet> -j DROP; iptables -A OUTPUT -d <CIDR_of_other_subnet> -j DROP
 ```
 
 **Expected behavior** – The cluster detects the network failure and fences one of the nodes to avoid a split-brain situation. The surviving node assumes control of cluster resources.

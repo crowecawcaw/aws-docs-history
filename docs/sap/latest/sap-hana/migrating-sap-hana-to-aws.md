@@ -14,4 +14,4 @@ To access the SAP notes and Knowledge Base articles (KBA) referenced in this gui
 
 ## About this Guide
 
-This guide is part of a content series that provides detailed information about hosting, configuring, and using SAP technologies in the AWS Cloud. For the other guides in the series, ranging from overviews to advanced topics, see [https://aws.amazon.com/sap/docs/](https://aws.amazon.com/sap/docs/ "https://aws.amazon.com/sap/docs/").
+This guide is part of a content series that provides detailed information about hosting, configuring, and using SAP technologies in the AWS Cloud. For the other guides in the series, ranging from overviews to advanced topics, see https://aws.amazon.com/sap/docs/.

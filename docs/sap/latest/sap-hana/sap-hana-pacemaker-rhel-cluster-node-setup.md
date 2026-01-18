@@ -25,7 +25,7 @@ The majority maker requires a minimum EC2 instance configuration of 2 vCPUs, 2 G
 On all cluster nodes, change the password of the operating system user hacluster:
 
 ```
-# passwd hacluster
+ # passwd hacluster
 ```
 
 ## Setup Passwordless Authentication
@@ -43,7 +43,7 @@ Review the security implications for your organization, including root access co
 ## Start and Enable the pcsd service
 
 ```
-# systemctl enable pcsd --now
+ # systemctl enable pcsd --now
 ```
 
 ## Authorize the Cluster
@@ -51,7 +51,7 @@ Review the security implications for your organization, including root access co
 Run the following command to enable and start the pacemaker cluster service on both nodes:
 
 ```
-# pcs host auth <hostname_1> <hostname_2> -u hacluster -p <password>
+ # pcs host auth <hostname_1> <hostname_2> -u hacluster -p <password>
 ```
 
 - You will be prompted for the hacluster password you set earlier.
@@ -63,7 +63,7 @@ Corosync provides membership and member-communication needs for high availabilit
 Initial setup can be performed using the following command
 
 ```
-# pcs cluster setup <cluster_name> \
+ # pcs cluster setup <cluster_name> \
 <hostname_1> addr=<host_ip_1> addr=<host_additional_ip_1> \
 <hostname_2> addr=<host_ip_2> addr=<host_additional_ip_2>
 ```
@@ -87,13 +87,13 @@ The timing parameters are optimized for AWS cloud environments:
 - When scaling beyond two nodes, remove the two_node parameter from the quorum section. The timing parameters will automatically adjust using the token_coefficient feature to maintain appropriate failure detection as nodes are added.
 
 ```
-# pcs cluster config update totem token=15000
+ # pcs cluster config update totem token=15000
 ```
 
 ## Verify Configuration
 
 ```
-# pcs cluster start --all
+ # pcs cluster start --all
 ```
 
 By enabling the pacemaker service, the server automatically joins the cluster after a reboot. This ensures that your system is protected. Alternatively, you can start the pacemaker service manually on boot. You can then investigate the cause of failure.
@@ -101,13 +101,13 @@ By enabling the pacemaker service, the server automatically joins the cluster af
 Run the following command to check the status of the pacemaker service:
 
 ```
-# systemctl status pacemaker
+ # systemctl status pacemaker
 ```
 
 Example output:
 
 ```
-● pacemaker.service - Pacemaker High Availability Cluster Manager
+ ● pacemaker.service - Pacemaker High Availability Cluster Manager
      Loaded: loaded (/usr/lib/systemd/system/pacemaker.service; enabled; vendor preset: disabled)
      Active: active (running) since Mon 2025-06-02 13:27:48 AEST; 39s ago
        Docs: man:pacemakerd
@@ -129,13 +129,13 @@ Example output:
 Once the cluster service pacemaker is started, check the cluster status with pcs command, as shown in the following example:
 
 ```
-# pcs status
+ # pcs status
 ```
 
 Example output:
 
 ```
-# pcs status
+ # pcs status
 Cluster name: hana_cluster
 
 WARNINGS:
@@ -165,13 +165,13 @@ The primary (hanahost01) and secondary (hanahost02) must show up as online.
 You can find the ring status and the associated IP address of the cluster with corosync-cfgtool command, as shown in the following example:
 
 ```
-# corosync-cfgtool -s
+ # corosync-cfgtool -s
 ```
 
 Example output:
 
 ```
-Local node ID 1, transport knet
+ Local node ID 1, transport knet
 LINK ID 0 udp
         addr    = 10.2.10.1
         status:

@@ -23,7 +23,7 @@ For more information, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/User
 The Red Hat STONITH resource agent (`fence_aws`) requires permission to start and stop both the nodes of the cluster. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -54,7 +54,7 @@ The Red Hat STONITH resource agent (`fence_aws`) requires permission to start an
 The Red Hat Overlay IP resource agent (`aws-vpc-move-ip`) requires permission to modify a routing entry in route tables. Create a policy as shown in the following example. Attach this policy to the IAM role assigned to both Amazon EC2 instances in the cluster.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -97,7 +97,7 @@ In sharing VPC account, create an IAM role to delegate permissions to the EC2 in
 After the IAM role has been created, create the following IAM policy on the sharing VPC account, and attach it to an IAM role. Add or remove route table entries as needed.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -126,7 +126,7 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 **STS Policy**
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -142,7 +142,7 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
 **STONITH Policy**
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -190,7 +190,7 @@ Using either the Amazon VPC console, or an AWS CLI command add a route to the ta
 
 AWS Console
 
-1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
 2. In the navigation pane, choose **Route Tables**, then select the route table associated with your cluster node subnets.
 3. Choose **Actions** → **Edit routes**.
 4. Choose **Add route** and configure the HANA route:
@@ -215,11 +215,11 @@ The preceding steps can also be performed programmatically. We suggest performin
 For example:
 
 ```
-$ aws ec2 create-route --route-table-id <routetable_id> --destination-cidr-block <hana_overlayip>/32 --instance-id <instance_id_1>
+ $ aws ec2 create-route --route-table-id <routetable_id> --destination-cidr-block <hana_overlayip>/32 --instance-id <instance_id_1>
 ```
 
 If required for read enabled access
 
 ```
-$ aws ec2 create-route --route-table-id <routetable_id> --destination-cidr-block <readenabled_overlayip>/32 --instance-id <instance_id_2>
+ $ aws ec2 create-route --route-table-id <routetable_id> --destination-cidr-block <readenabled_overlayip>/32 --instance-id <instance_id_2>
 ```

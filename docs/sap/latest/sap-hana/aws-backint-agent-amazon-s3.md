@@ -29,7 +29,7 @@ After your SAP HANA system is successfully running on an Amazon EC2 instance, ve
 If you choose to install the AWS Backint agent using the AWS Backint installer, you can skip this step. 2. To allow your Amazon EC2 instance to access your target Amazon S3 bucket, you must create or update an inline IAM policy with the following permissions and attach it to your EC2 service role. Replace the resource names, such as the S3 bucket name, to match your resource name. You must provide the AWS Region and Amazon S3 bucket owner account ID along with the Amazon S3 bucket name.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -109,7 +109,7 @@ AWS Backint Agent must be installed on your Amazon EC2 instance. To download the
 The following policy shows an example Service control policy to permit access to service-owned resources through the resource perimeter, relevant service owned buckets are listed in the NotResource element of the policy.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -134,7 +134,7 @@ The following policy shows an example Service control policy to permit access to
 The following policy shows an example VPC endpoint policy allowing access to specific service-owned resources through a VPC endpoint. Relevant service owned buckets are listed in the Resource element of the statement.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {

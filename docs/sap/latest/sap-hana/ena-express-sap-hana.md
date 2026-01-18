@@ -26,7 +26,7 @@ You must configure some of the network related parameters at the operating syste
 
 You can also use the [check-ena-express-settings.sh](https://github.com/amzn/amzn-ec2-ena-utilities/blob/main/ena-express/check-ena-express-settings.sh "https://github.com/amzn/amzn-ec2-ena-utilities/blob/main/ena-express/check-ena-express-settings.sh") script to check the operating system prerequisites. You can run the script from AWS Systems Manager against multiple instances simultaneously. To run the script with Systems Manager, you must ensure that your system has AWS Systems Manager Agent installed. Use the following steps to run the script.
 
-1. Go to [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+1. Go to https://console.aws.amazon.com/systems-manager/.
 2. Select **Node Management** > **Run Command**.
 3. Select **Run a command**, and search for **`AWS-RunRemoteScript`**.
 4. Choose **`AWS-RunRemoteScript`**, and input the following parameters.

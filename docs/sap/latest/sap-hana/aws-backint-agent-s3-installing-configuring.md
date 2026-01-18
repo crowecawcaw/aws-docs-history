@@ -732,15 +732,15 @@ _AWS GovCloud (US-West) previous version_ – `s3://awssap-backint-agent-us-gov-
 1. Based on your AWS Region, download the agent binary tar file into a temporary location from the relevant Amazon S3 location.
 
 ```
-cd /tmp
+ cd /tmp
 ```
 
 ```
-mkdir agent_download && cd agent_download
+ mkdir agent_download && cd agent_download
 ```
 
 ```
-aws s3 cp s3://awssap-backint-agent/binary/<agent-version>/aws-backint-agent.tar.gz aws-backint-agent.tar.gz --region <us-east-1>
+ aws s3 cp s3://awssap-backint-agent/binary/<agent-version>/aws-backint-agent.tar.gz aws-backint-agent.tar.gz --region <us-east-1>
 ```
 
 The latest and previous versions of the installer can be found at the following S3 bucket locations.
@@ -771,34 +771,34 @@ The latest and previous versions of the installer can be found at the following 
 2. Extract the binary using the following command.
 
 ```
-tar -xf aws-backint-agent.tar.gz
+ tar -xf aws-backint-agent.tar.gz
 ```
 
 3. Disable scheduled data and log backups, if not already disabled as prerequisite.
 4. Backup existing agent binary using the following command. This is to ensure that you have a backup if you need to revert the agent version.
 
 ```
-cp <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent. <mmddyy>
+ cp <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent. <mmddyy>
 ```
 
 5. Copy the newly extracted agent binary using the following command.
 
 ```
-cp aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent
+ cp aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent
 ```
 
 6. Change the ownership and mode with the following commands.
 
 ```
-cd <INSTALLATION_DIR>/aws-backint-agent
+ cd <INSTALLATION_DIR>/aws-backint-agent
 ```
 
 ```
-chmod 770 aws-backint-agent
+ chmod 770 aws-backint-agent
 ```
 
 ```
-chown <sid>adm:sapsys aws-backint-agent
+ chown <sid>adm:sapsys aws-backint-agent
 ```
 
 7. Once the installation or update is complete, you can re-enable scheduled data backups and log backups.
@@ -832,7 +832,7 @@ You can test the speed of your backup and Amazon EBS usage before increasing the
 
 Amazon Simple Notification Service (Amazon SNS) can notify you when new versions of AWS Backint agent or AWS Backint installer are released. The following procedure shows how to subscribe to these notifications.
 
-1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+1. Open the Amazon SNS console at https://console.aws.amazon.com/sns/v3/home.
 2. From the Region selector in the navigation bar, choose **US East (N. Virginia)**, if it is not selected already. You must select this Region because the SNS notifications for AWS Backint agent that you are subscribing to are generated from this Region only.
 3. In the navigation pane, choose **Subscriptions**.
 4. Choose **Create subscription**.

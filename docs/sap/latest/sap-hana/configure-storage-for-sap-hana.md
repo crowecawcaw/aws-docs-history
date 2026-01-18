@@ -22,13 +22,13 @@ Identify block devices, their sizes, and associated volume IDs in order to assig
 As root, on the host, run the following:
 
 ```
-# lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
+ # lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
 ```
 
 _Example_
 
 ```
-NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS FSTYPE LABEL PATH           SERIAL
+ NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS FSTYPE LABEL PATH           SERIAL
 nvme1n1     259:0    0  2.2T  0 disk                          /dev/nvme1n1   vol-0abc123def456789a
 nvme0n1     259:1    0   50G  0 disk                          /dev/nvme0n1   vol-0xyz987uvw654321b
 ├─nvme0n1p1 259:5    0    2M  0 part                          /dev/nvme0n1p1
@@ -58,7 +58,7 @@ Tags help identify volumes in the AWS console and API commands, particularly use
 _Example_
 
 ```
-$ aws ec2 create-tags --resources vol-0abc123def456789a --tags Key=Name,Value="PRD - Hana Data Volume 1 of 2"
+ $ aws ec2 create-tags --resources vol-0abc123def456789a --tags Key=Name,Value="PRD - Hana Data Volume 1 of 2"
 ```
 
 Repeat for all volumes.
@@ -74,7 +74,7 @@ When performance requirements can be met using a single volume (including capaci
 _Example_
 
 ```
-# Create XFS filesystem with label for HANA Shared
+ # Create XFS filesystem with label for HANA Shared
 mkfs.xfs -f /dev/nvme4n1 -L HANA_SHARED
 
 # Create XFS filesystem with label for HANA Log
@@ -90,7 +90,7 @@ Logical Volume Management (LVM) manages storage in three layers: Physical Volume
 _Example_
 
 ```
-# Create physical volumes
+ # Create physical volumes
 pvcreate /dev/nvme1n1 /dev/nvme2n1
 
 # Create volume group
@@ -114,7 +114,7 @@ mkfs.xfs -L HANA_DATA /dev/vg_hana_data/lv_hana_data
 1. **Create filesystems and modify permissions**
 
 ```
-# mkdir -p /hana/data /hana/log /hana/shared
+ # mkdir -p /hana/data /hana/log /hana/shared
 # chown <sid>adm:sapsys /hana/data /hana/log /hana/shared
 # chmod 750 /hana/data /hana/log /hana/shared
 ```
@@ -128,7 +128,7 @@ Add the following entries to `/etc/fstab`:
 _Example_
 
 ```
-# SAP HANA Storage Configuration
+ # SAP HANA Storage Configuration
 /dev/disk/by-label/HANA_DATA       /hana/data       xfs    noatime,nodiratime,logbsize=256k       0  0
 /dev/disk/by-label/HANA_LOG        /hana/log        xfs    noatime,nodiratime,logbsize=256k       0  0
 /dev/disk/by-label/HANA_SHARED     /hana/shared     xfs    noatime,nodiratime,logbsize=256k       0  0
@@ -139,19 +139,19 @@ _Example_
 1. **Mount all filesytems**
 
 ```
-# mount -a
+ # mount -a
 ```
 
 2. **Verify your final configuration**
 
 ```
-# lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
+ # lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
 ```
 
 _Example_
 
 ```
-NAME                         SIZE TYPE FSTYPE      LABEL       PATH                                  SERIAL
+ NAME                         SIZE TYPE FSTYPE      LABEL       PATH                                  SERIAL
 nvme0n1                       50G disk                         /dev/nvme0n1                          vol-0xyz987uvw654321b
 ├─nvme0n1p1                    2M part                         /dev/nvme0n1p1
 ├─nvme0n1p2                   20M part vfat        EFI         /dev/nvme0n1p2

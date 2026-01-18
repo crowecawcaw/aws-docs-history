@@ -130,7 +130,7 @@ The administrative password enables you to access the file system via SSH, the O
 Get the DNS name of the management endpoint from AWS console. Sign in to the management endpoint via SSH, using the `fsxadmin` user and administrative password.
 
 ```
-ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password:
+ ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password:
 ```
 
 ### Set TCP max transfer size
@@ -138,7 +138,7 @@ ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password
 We recommend a TCP max transfer size of 262,144 for your SAP HANA workloads. Elevate the privilege level to _advanced_ and use the following command on each SVM.
 
 ```
-set advanced
+ set advanced
 nfs modify -vserver <svm> -tcp-max-xfer-size 262144
 set admin
 ```
@@ -152,7 +152,7 @@ Lease period refers to the time in which ONTAP irrevocably grants a lock to a cl
 You can change the lease time with the following command.
 
 ```
-set advanced
+ set advanced
 nfs modify -vserver <svm> -v4-lease-seconds 10
 set admin
 ```
@@ -166,7 +166,7 @@ Starting with SAP HANA 2.0 SPS4, SAP provides parameters to control failover beh
 FSx for ONTAP automatically enables a snapshot policy for volumes that take hourly snapshots. The default policy offers limited value to SAP HANA due to missing application awareness. We recommend disabling the automatic snapshots by setting the policy to none. You can disable snapshots during volume creation or by using the following command.
 
 ```
-volume modify -vserver <vserver-name> -volume <volume-name> -snapshot-policy none
+ volume modify -vserver <vserver-name> -volume <volume-name> -snapshot-policy none
 ```
 
 ### Data volume
@@ -190,7 +190,7 @@ QoS is configured by creating a QoS policy group, setting ceiling or floor perfo
 You are creating a test system, based on a snapshot from production, on the same file system as your production SAP HANA database. You want to ensure that the test system does not impact the performance of the production system. You create a QoS policy group (`qos-test`) and define an upper limit of 200 MB/s for data and log volumes (`vol-data` and `vol-log`), which share the same SVM (`svm-test`).
 
 ```
- Create QoS policy group
+  Create QoS policy group
 qos policy-group create -policy-group qos-test -vserver svm-test -is-shared false -max-throughput 200MBs
 
  Assign QoS policy group to data on log volumes

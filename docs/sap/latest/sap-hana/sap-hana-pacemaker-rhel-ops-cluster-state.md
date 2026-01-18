@@ -9,7 +9,7 @@
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services.
 
 ```
-# pcs status --full
+ # pcs status --full
 ```
 
 Note: Omit the `--full` for a more concise output if you do not need to view the node attributes.
@@ -17,7 +17,7 @@ Note: Omit the `--full` for a more concise output if you do not need to view the
 Sample output:
 
 ```
-Cluster name: hacluster
+ Cluster name: hacluster
 Cluster Summary:
   * Stack: corosync
   * Current DC: hanahost02 (version 2.1.2-4.el9_0.5-ada5c3b36e2) - partition with quorum

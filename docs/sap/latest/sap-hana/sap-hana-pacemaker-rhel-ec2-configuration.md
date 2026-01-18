@@ -19,7 +19,7 @@ The following configurations must be performed on all cluster nodes. Ensure cons
 
 The two cluster resource IAM policies must be assigned to an IAM role associated with your Amazon EC2 instance. If an IAM role is not associated to your instance, create a new IAM role for cluster operations.
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 2. Select one of your cluster nodes.
 3. In the navigation pane, choose **Actions** → **Security** → **Modify IAM role**.
 4. Choose the IAM role that contains the policies created in [Create IAM Roles and Policies for Pacemaker](sap-hana-pacemaker-rhel-infra-setup.md#iam_roles_rhel "sap-hana-pacemaker-rhel-infra-setup.md#iam_roles_rhel").
@@ -31,7 +31,7 @@ The two cluster resource IAM policies must be assigned to an IAM role associated
 The security group rules created in the AWS
 [Modify Security Groups for Cluster Communication](sap-hana-pacemaker-rhel-infra-setup.md#sg-rhel "sap-hana-pacemaker-rhel-infra-setup.md#sg-rhel") section must be assigned to your Amazon EC2 instances. If a security group is not associated with your instance, or if the required rules are not present in the assigned security group, add the security group or update the rules.
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 2. Select one of your cluster nodes.
 3. In the **Security** tab, review the security groups, ports, and source of traffic.
 4. If required, choose **Actions** → **Security** → **Change security groups**.
@@ -42,7 +42,7 @@ The security group rules created in the AWS
 You can verify the security group rules on your instances using the AWS CLI:
 
 ```
-$ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute groupSet
+ $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute groupSet
 ```
 
 ## Assign Secondary IP Addresses
@@ -54,7 +54,7 @@ These IPs are only used in cluster configurations. The secondary IPs provide the
 You can verify the secondary IP configuration on your instances using the AWS CLI:
 
 ```
-$ aws ec2 describe-instances --instance-id <instance_id> \
+ $ aws ec2 describe-instances --instance-id <instance_id> \
     --query 'Reservations[*].Instances[*].NetworkInterfaces[*].PrivateIpAddresses[*].PrivateIpAddress' \
     --output text
 ```
@@ -73,7 +73,7 @@ The following AWS Console or AWS CLI commands can be used to modify the attribut
 
 AWS Console
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 2. Select one of your cluster nodes.
 3. In the navigation pane, choose **Actions** → **Networking** → **Change source/destination check**.
 4. For Source/Destination Checking, choose **Stop** to allow traffic when the source or destination is not the instance itself.
@@ -83,7 +83,7 @@ AWS CLI
 To modify using the AWS CLI (requires appropriate configuration permissions):
 
 ```
-$ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-source-dest-check
+ $ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-source-dest-check
 ```
 
 Repeat for all nodes in the cluster.
@@ -91,13 +91,13 @@ Repeat for all nodes in the cluster.
 To confirm the value of an attribute for a particular instance, use the following command. The value `false` means source/destination checking is disabled
 
 ```
-$ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute sourceDestCheck
+ $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute sourceDestCheck
 ```
 
 The output
 
 ```
-{
+ {
     "InstanceId": "i-xxxxinstidforhost1",
     "SourceDestCheck": {
         "Value": false
@@ -113,7 +113,7 @@ The following AWS Console or CLI commands can be used to modify the attribute.
 
 AWS Console
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 2. Select one of your cluster nodes.
 3. Choose **Actions** → **Instance settings** → **Change stop protection**.
 4. Ensure **Stop protection** is not enabled.
@@ -123,7 +123,7 @@ AWS CLI
 To modify using the AWS CLI (requires appropriate configuration permissions):
 
 ```
-$ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-disable-api-stop
+ $ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-disable-api-stop
 ```
 
 Repeat this command for all nodes in the cluster.
@@ -131,13 +131,13 @@ Repeat this command for all nodes in the cluster.
 To confirm the value of an attribute for a particular instance, use the following command. The value `false` means it is possible to stop the instance using an AWS CLI.
 
 ```
-$ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute disableApiStop
+ $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute disableApiStop
 ```
 
 The output
 
 ```
-{
+ {
     "InstanceId": "i-xxxxinstidforhost1",
     "DisableApiStop": {
         "Value": false
@@ -153,7 +153,7 @@ The following AWS Console or CLI commands can be used to modify the attribute.
 
 AWS Console
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 2. Select one of your cluster nodes.
 3. Choose **Actions** → **Instance settings** → **Change auto-recovery behavior**.
 4. Select **Off** to disable auto-recovery for system status check failures.
@@ -163,7 +163,7 @@ AWS CLI
 To modify auto-recovery settings (requires appropriate configuration permissions):
 
 ```
-$ aws ec2 modify-instance-maintenance-options --instance-id <instance_id> --auto-recovery disabled
+ $ aws ec2 modify-instance-maintenance-options --instance-id <instance_id> --auto-recovery disabled
 ```
 
 Repeat this command for all nodes in the cluster.
@@ -171,13 +171,13 @@ Repeat this command for all nodes in the cluster.
 To confirm the value of an attribute for a particular instance, use the following command. The value `disabled` means autorecovery will not be attempted.
 
 ```
-$ aws ec2 describe-instances --instance-ids <instance_id> --query 'Reservations[*].Instances[*].MaintenanceOptions.AutoRecovery'
+ $ aws ec2 describe-instances --instance-ids <instance_id> --query 'Reservations[*].Instances[*].MaintenanceOptions.AutoRecovery'
 ```
 
 The output:
 
 ```
-[
+ [
     [
         "disabled"
     ]

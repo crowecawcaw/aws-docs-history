@@ -11,8 +11,6 @@ This guide provides best practices for operating SAP HANA systems that have been
 - [What is Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
   In addition, see the following SAP on AWS guides:
 
-- [https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on\_](https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on_ "https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on_")
-  AWS_Implementation_Guide.pdf[SAP on AWS Implementation and Operations Guide] provides best practices for achieving optimal performance, availability, and reliability, and lower total cost of ownership (TCO) while running SAP solutions on AWS.
-- [https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on\_](https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on_ "https://d0.awsstatic.com/enterprise-marketing/SAP/SAP_on_")
-  AWS_High_Availability_Guide_v3.2.pdf[SAP on AWS High Availability Guide] explains how to configure SAP systems on Amazon Elastic Compute Cloud (Amazon EC2) to protect your application from various single points of failure.
+- https://d0.awsstatic.com/enterprise-marketing/SAP/SAP\_on\_AWS\_Implementation\_Guide.pdf[SAP on AWS Implementation and Operations Guide] provides best practices for achieving optimal performance, availability, and reliability, and lower total cost of ownership (TCO) while running SAP solutions on AWS.
+- https://d0.awsstatic.com/enterprise-marketing/SAP/SAP\_on\_AWS\_High\_Availability\_Guide\_v3.2.pdf[SAP on AWS High Availability Guide] explains how to configure SAP systems on Amazon Elastic Compute Cloud (Amazon EC2) to protect your application from various single points of failure.
 - [SAP on AWS Backup and Recovery Guide](https://d0.awsstatic.com/enterprise-marketing/SAP/sap-hana-on-aws-high-availability-disaster-recovery-guide.pdf "https://d0.awsstatic.com/enterprise-marketing/SAP/sap-hana-on-aws-high-availability-disaster-recovery-guide.pdf") explains how to back up SAP systems running on AWS, in contrast to backing up SAP systems on traditional infrastructure.

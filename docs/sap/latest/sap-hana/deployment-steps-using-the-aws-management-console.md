@@ -39,7 +39,7 @@ AWS CLI
 Use the editor of your choice to create a .json file that contains block device mapping details similar to the following example, and save your file in a temporary directory. The example shows the block device mapping details for the x2iedn.24xlarge instance with gp3 volumes for HANA data and log. Change the details depending on instance and storage type that you intend to use for your deployment.
 
 ```
-[
+ [
 {"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":50,"VolumeType":"gp3","Iops":3000,"Throughput":125,"Encrypted":true,"DeleteOnTermination":true}},
 {"DeviceName":"/dev/sdb","Ebs":{"VolumeSize":50,"VolumeType":"gp3","Iops":3000,"Throughput":125,"Encrypted":true,"DeleteOnTermination":true}},
 {"DeviceName":"/dev/sdc","Ebs":{"VolumeSize":2300,"VolumeType":"gp3","Iops":3600,"Throughput":625,"Encrypted":true,"DeleteOnTermination":true}},
@@ -56,7 +56,7 @@ Use the editor of your choice to create a .json file that contains block device 
 
 
     ```
-    $ aws ec2 describe-images --image-ids ami-0123456789abcdef0 --query 'Images[].RootDeviceName' --output text
+     $ aws ec2 describe-images --image-ids ami-0123456789abcdef0 --query 'Images[].RootDeviceName' --output text
     ```
     * You may choose to set `DeleteOnTermination` flag to false so that Amazon EBS volumes are not deleted when you terminate your Amazon EC2 instance. This helps preserve your data from accidental termination of your Amazon EC2 instance. When you terminate the instance, you need to manually delete the Amazon EBS volumes that are associated with the terminated instance to stop incurring storage cost.
     * If you plan to deploy scale-out workloads, you can use Amazon EFS and Network File System (NFS) to mount the SAP HANA shared and backup volumes to your coordinator and subordinate nodes after deployment.
@@ -66,7 +66,7 @@ Use the editor of your choice to create a .json file that contains block device 
 Use AWS CLI to launch the Amazon EC2 instance for SAP HANA, including Amazon EBS storage, in the VPC in your target AWS Region by using the information you gathered during the preparation steps; for example:
 
 ```
-aws ec2 run-instances \
+ aws ec2 run-instances \
   --image-id ami-0123456789abcdef0 \
   --instance-type x2iedn.24xlarge \
   --count 1 \

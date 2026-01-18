@@ -52,7 +52,7 @@ The following packages and their dependencies are required for the pacemaker set
 Refer to [Vendor Support of Deployment Types](sap-hana-pacemaker-rhel-references.md#deployments-rhel "sap-hana-pacemaker-rhel-references.md#deployments-rhel") for more information on Configuration Patterns. `Mandatory*` indicates that this package is mandatory based on the Configuration Pattern.
 
 ```
-#!/bin/bash
+ #!/bin/bash
 
 # Mandatory core packages for SAP HANA HA on AWS
 mandatory_packages="pacemaker corosync pcs chrony resource-agents resource-agents-sap-hana resource-agents-cloud fence-agents-aws"
@@ -99,7 +99,7 @@ fi
 If you encounter issues installing high availability packages, verify repository access:
 
 ```
-$ sudo dnf repolist
+ $ sudo dnf repolist
 ```
 
 For BYOL (Bring Your Own License) systems, also verify subscription status using subscription-manager.
@@ -107,7 +107,7 @@ For BYOL (Bring Your Own License) systems, also verify subscription status using
 To install or update a package or packages with confirmation, use the following command:
 
 ```
-$ sudo dnf install <package_name(s)>
+ $ sudo dnf install <package_name(s)>
 ```
 
 ## Update and Check Operating System Versions
@@ -117,7 +117,7 @@ You must update and confirm versions across nodes. Apply all the latest patches 
 You can update the patches individually or update all system patches using the `dnf update` command. A clean reboot is recommended prior to setting up a cluster.
 
 ```
-$ sudo dnf update
+ $ sudo dnf update
 $ sudo reboot
 ```
 
@@ -130,7 +130,7 @@ Both systemd-journald and rsyslog are suggested for comprehensive logging. Syste
 **1. Enable and start rsyslog:**
 
 ```
-# systemctl enable --now rsyslog
+ # systemctl enable --now rsyslog
 ```
 
 ###### 2. (Optional) Configure persistent logging for systemd-journald:
@@ -138,13 +138,13 @@ Both systemd-journald and rsyslog are suggested for comprehensive logging. Syste
 If you are not using a logging agent (like the AWS CloudWatch Unified Agent or Vector) to ship logs to a centralized location, you may want to configure persistent logging to retain logs after system reboots.
 
 ```
-# mkdir -p /etc/systemd/journald.conf.d
+ # mkdir -p /etc/systemd/journald.conf.d
 ```
 
 Create `/etc/systemd/journald.conf.d/99-logstorage.conf` with:
 
 ```
-[Journal]
+ [Journal]
 Storage=persistent
 ```
 
@@ -153,7 +153,7 @@ Persistent logging requires careful storage management. Configure appropriate re
 To apply the changes, restart journald:
 
 ```
-# systemctl restart systemd-journald
+ # systemctl restart systemd-journald
 ```
 
 After enabling persistent storage, only new logs will be stored persistently. Existing logs from the current boot session will remain in volatile storage until the next reboot.
@@ -161,7 +161,7 @@ After enabling persistent storage, only new logs will be stored persistently. Ex
 **3. Verify services are running:**
 
 ```
-# systemctl status systemd-journald
+ # systemctl status systemd-journald
 # systemctl status rsyslog
 ```
 
@@ -172,14 +172,14 @@ When using Red Hat Enterprise Linux 8.6 or later, the NetworkManager cloud setup
 Run these commands on each cluster node:
 
 ```
-# systemctl disable --now nm-cloud-setup.timer
+ # systemctl disable --now nm-cloud-setup.timer
 # systemctl disable --now nm-cloud-setup
 ```
 
 Verify the services are disabled and stopped:
 
 ```
-# systemctl status nm-cloud-setup.timer
+ # systemctl status nm-cloud-setup.timer
 # systemctl status nm-cloud-setup
 ```
 
@@ -194,14 +194,14 @@ You can use Amazon Time Sync Service that is available on any instance running i
 Create or check the `/etc/chrony.d/ec2.conf` file to define the server:
 
 ```
-# Amazon EC2 time source config
+ # Amazon EC2 time source config
 server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
 ```
 
 Start the chronyd.service, using the following command:
 
 ```
-# systemctl enable --now chronyd.service
+ # systemctl enable --now chronyd.service
 # systemctl status chronyd
 ```
 
@@ -217,7 +217,7 @@ AWS CLI command.
 You should skip providing the information for the access and secret access keys. The permissions are provided through IAM roles attached to Amazon EC2 instances.
 
 ```
-# aws configure
+ # aws configure
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
 Default region name [None]: <region>
@@ -227,7 +227,7 @@ Default output format [None]:
 The profile name is `default` unless configured. If you choose to use a different name you can specify `--profile`. The name chosen in this example is cluster. It is used in the AWS resource agent definition for pacemaker. The AWS Region must be the default AWS Region of the instance.
 
 ```
-# aws configure --profile cluster
+ # aws configure --profile cluster
 AWS Access Key ID [None]:
 AWS Secret Access Key [None]:
 Default region name [None]: <region>
@@ -237,13 +237,13 @@ Default output format [None]:
 On the hosts, you can verify the available profiles using the following command:
 
 ```
-# aws configure list-profiles
+ # aws configure list-profiles
 ```
 
 And review that an assumed role is associated by querying the caller identity:
 
 ```
-# aws sts get-caller-identity --profile=<profile_name>
+ # aws sts get-caller-identity --profile=<profile_name>
 ```
 
 ## Pacemaker Proxy Settings (Optional)
@@ -253,7 +253,7 @@ If your Amazon EC2 instance has been configured to access the internet and/or AW
 Add the following lines to `/etc/sysconfig/pacemaker`:
 
 ```
-http_proxy=http://<proxyhost>:<proxyport>
+ http_proxy=http://<proxyhost>:<proxyport>
 https_proxy=http://<proxyhost>:<proxyport>
 no_proxy=127.0.0.1,localhost,169.254.169.254,fd00:ec2::254
 ```
@@ -269,7 +269,7 @@ This step is optional and only needed if you require client connectivity to the 
 To enable initial database access, manually add the Overlay IP to the primary instance (where the SAP HANA database is currently running):
 
 ```
-# ip addr add <hana_overlayip>/32 dev eth0
+ # ip addr add <hana_overlayip>/32 dev eth0
 ```
 
 - This configuration is temporary and will be lost after instance reboot
@@ -281,7 +281,7 @@ To enable initial database access, manually add the Overlay IP to the primary in
 You must ensure that all instances can resolve all hostnames in use. Add the hostnames for cluster nodes to `/etc/hosts` file on all cluster nodes. This ensures that hostnames for cluster nodes can be resolved even in case of DNS issues. See the following example for a two-node cluster:
 
 ```
-# cat /etc/hosts
+ # cat /etc/hosts
 10.2.10.1 hanahost01.example.com hanahost01
 10.2.20.1 hanahost02.example.com hanahost02
 172.16.52.1 hanahdb.example.com hanahdb

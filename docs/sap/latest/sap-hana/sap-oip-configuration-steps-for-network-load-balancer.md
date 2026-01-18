@@ -21,7 +21,7 @@ Use the following instructions to set up the Network Load Balancer to access the
 
 ## Step 1. Create the target group
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/")
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
 2. On the navigation pane, under **LOAD BALANCING**, choose **Target Groups**.
 3. Choose Create target group.
 4. For **Name**, type an easily identified target group name for the sap-ascs instance. (For example, type sap-ascs for your ASCS overlay IP address).
@@ -59,7 +59,7 @@ Use the following instructions to set up the Network Load Balancer to access the
 
 This step enables the connection to your SAP instance.
 
-1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/")
+1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/
 2. In the navigation pane, choose **Route Tables**, and select the Amazon VPC routing table where your SAP instance is deployed.
 3. Choose **Actions**, **Edit routes**.
 4. For **Destination**, specify your overlay IP address. For **Target**, specify the SAP instance Elastic Network Interface.
