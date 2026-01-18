@@ -53,7 +53,11 @@ File Gateway in AWS Storage Gateway.
         Microsoft Hyper-V.
       - **Linux KVM** – Download, deploy,
         and configure the gateway virtual machine using Linux
-        Kernel-based Virtual Machine (KVM).
+        Kernel-based Virtual Machine (KVM). Refer to the provided
+        aws-storage-gateway.xml file for suggested boot configurations.
+        UEFI boot mode with secure boot disabled (loader_secure=no) is
+        required for File Gateway 2.x, Volume Gateway 3.x, and Tape
+        Gateway 3.x.
       - **Amazon EC2** – Configure and launch
         an Amazon EC2 instance to host your gateway.
       - **Hardware appliance** – Order a
