@@ -1,26 +1,16 @@
-# Data operations
+# Generate, translate and verify PIN data
 
-After you have established an AWS Payment Cryptography key, it can be used to perform cryptographic operations.
-Different operations perform different types of activity ranging from encryption, hashing as well
-as domain specific algorithms such as CVV2 generation.
+PIN data functions allow you to generate random pins, pin verification values (PVV) and validate inbound encrypted pins against PVV or PIN Offsets.
 
-Encrypted data cannot be decrypted without the matching decryption key (the symmetric key or
-private key depending on the encryption type). Hashing and domain specific algorithms similarly cannot be verified without the
-symmetric key or public key.
-
-For information on valid key types for specific operations
-please see [Valid keys for cryptographic operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md")
+Pin translation allows you to translate a pin from one working key to another without exposing the pin in clear text as specified by PCI PIN Requirement 1.
 
 ###### Note
 
-We recommend using test data when in a non-production environment. Using production keys and data (PAN, BDK ID, etc.)
-in a non-production environment may impact your compliance scope such as for PCI DSS and PCI P2PE.
+As PIN generation and validation are typically issuer functions and PIN translation is a typical acquirer function, we recommend that you consider
+least priviledged access and set policies appropriately for your systems use case.
 
 ###### Topics
 
-- [Encrypt, Decrypt and Re-encrypt data](crypto-ops.md "crypto-ops.md")
-- [Generate and verify card data](crypto-ops-carddata.md "crypto-ops-carddata.md")
-- [Generate, translate and verify PIN data](data-operations.md "data-operations.md")
-- [Verify auth request (ARQC) cryptogram](data-operations.md "data-operations.md")
-- [Generate and verify MAC](crypto-ops-mac.md "crypto-ops-mac.md")
-- [Valid keys for cryptographic operations](crypto-ops-validkeys-ops.md "crypto-ops-validkeys-ops.md")
+- [Translate PIN data](translate-pin-data.md "translate-pin-data.md")
+- [Generate PIN data](generate-pin-data.md "generate-pin-data.md")
+- [Verify PIN data](verify-pin-data.md "verify-pin-data.md")
