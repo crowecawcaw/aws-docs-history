@@ -2,7 +2,7 @@
 
 ## Windows Server version
 
-An Amazon EKS Optimized Windows AMI is based on Windows Server 2019 and 2022 Datacenter edition on the Long-Term Servicing Channel (LTSC). The Datacenter version doesn’t have a limitation on the number of containers running on a worker node. For more information: [https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/faq](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/faq "https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/faq")
+An Amazon EKS Optimized Windows AMI is based on Windows Server 2019 and 2022 Datacenter edition on the Long-Term Servicing Channel (LTSC). The Datacenter version doesn’t have a limitation on the number of containers running on a worker node. For more information: https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/faq
 
 ### Long-Term Servicing Channel (LTSC)
 

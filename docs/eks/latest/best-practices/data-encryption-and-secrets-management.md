@@ -27,7 +27,7 @@ adding the `tls` parameter to `mountOptions` in your PV as in this
 example:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: efs-pv
@@ -52,7 +52,7 @@ encrypts data with a service managed key by default, although there is
 an option to provide your own CMK as in this example:
 
 ```
-kind: StorageClass
+ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: fsx-sc
@@ -87,7 +87,7 @@ If you have shared datasets with different POSIX file permissions or
 want to restrict access to part of the shared file system by creating
 different mount points, consider using EFS access points. To learn more
 about working with access points, see
-[https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html](../../../efs/latest/ug/efs-access-points.md "../../../efs/latest/ug/efs-access-points.md"). Today,
+https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html. Today,
 if you want to use an access point (AP) you’ll need to reference the AP
 in the PV’s `volumeHandle` parameter.
 
@@ -112,7 +112,7 @@ encryption](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/l
 referencing the secret in the `podSpec`. These secrets can either be
 mapped to an environment variable or mounted as volume. For additional
 information on creating secrets, see
-[https://kubernetes.io/docs/concepts/configuration/secret/](https://kubernetes.io/docs/concepts/configuration/secret/ "https://kubernetes.io/docs/concepts/configuration/secret/").
+https://kubernetes.io/docs/concepts/configuration/secret/.
 
 ###### Warning
 
@@ -142,7 +142,7 @@ example of a metrics filter for the Kubernetes audit log,
 use the following queries with CloudWatch Log Insights:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | stats count(*) by objectRef.name as secret
@@ -153,7 +153,7 @@ The above query will display the number of times a secret has been
 accessed within a specific timeframe.
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter verb="get" and objectRef.resource="secrets"

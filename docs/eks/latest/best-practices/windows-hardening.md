@@ -21,7 +21,7 @@ As a best practice, you should treat your Windows worker nodes as if they were e
 Disable RDP connections on Windows nodes during the deployment by passing the value **false** on the ssh property, as the example below:
 
 ```
-nodeGroups:
+ nodeGroups:
 - name: windows-ng
   instanceType: c5.xlarge
   minSize: 1
@@ -36,7 +36,7 @@ If access to the Windows node is needed, use [AWS System Manager Session Manager
 In order to use System Manager Session Manager an additional IAM policy must be applied to the IAM role used to launch the Windows worker node. Below is an example where the **AmazonSSMManagedInstanceCore** is specified in the `eksctl` cluster manifest:
 
 ```
- nodeGroups:
+  nodeGroups:
 - name: windows-ng
   instanceType: c5.xlarge
   minSize: 1
@@ -58,7 +58,7 @@ In order to use System Manager Session Manager an additional IAM policy must be 
 Amazon Inspector can be used to run CIS Benchmark assessment on the Windows worker node and it can be installed on a Windows Server Core by performing the following tasks:
 
 1. Download the following .exe file:
-   [https://inspector-agent.amazonaws.com/windows/installer/latest/AWSAgentInstall.exe](https://inspector-agent.amazonaws.com/windows/installer/latest/AWSAgentInstall.exe "https://inspector-agent.amazonaws.com/windows/installer/latest/AWSAgentInstall.exe")
+   https://inspector-agent.amazonaws.com/windows/installer/latest/AWSAgentInstall.exe
 2. Transfer the agent to the Windows worker node.
 3. Run the following command on PowerShell to install the Amazon Inspector Agent: `.\AWSAgentInstall.exe /install`
 

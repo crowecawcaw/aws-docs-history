@@ -12,7 +12,7 @@ Windows Amazon EKS optimized AMIs are built on top of Windows Server 2019 and Wi
 The following example retrieves the AMI ID for the latest Amazon EKS optimized AMI for Windows Server 2019 LTSC Core. The version number listed in the AMI name relates to the corresponding Kubernetes build it is prepared for.
 
 ```
-aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-2019-English-Core-EKS_Optimized-1.21/image_id --region us-east-1 --query "Parameter.Value" --output text
+ aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-2019-English-Core-EKS_Optimized-1.21/image_id --region us-east-1 --query "Parameter.Value" --output text
 ```
 
 Example output:
@@ -27,7 +27,7 @@ An essential step towards production environments is maintaining the same Amazon
 
 Using the same version across the Amazon EKS cluster reduces the time during troubleshooting and increases cluster consistency. [Amazon EC2 Image Builder](https://aws.amazon.com/image-builder/ "https://aws.amazon.com/image-builder/") helps create and maintain custom Amazon EKS optimized Windows AMIs to be used across an Amazon EKS cluster.
 
-Use Amazon EC2 Image Builder to select between Windows Server versions, AWS Windows Server AMI release dates, and/or OS build version. The build components step, allows you to select between existing EKS Optimized Windows Artifacts as well as the kubelet versions. For more information: [https://docs.aws.amazon.com/eks/latest/userguide/eks-custom-ami-windows.html](../userguide/eks-custom-ami-windows.md "../userguide/eks-custom-ami-windows.md")
+Use Amazon EC2 Image Builder to select between Windows Server versions, AWS Windows Server AMI release dates, and/or OS build version. The build components step, allows you to select between existing EKS Optimized Windows Artifacts as well as the kubelet versions. For more information: https://docs.aws.amazon.com/eks/latest/userguide/eks-custom-ami-windows.html
 
 ![build components](images/windows/build-components.png)
 

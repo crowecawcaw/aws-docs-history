@@ -63,7 +63,7 @@ policy that restricts all inbound and outbound traffic with in a
 namespace.
 
 ```
-apiVersion: networking.k8s.io/v1
+ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny
@@ -90,7 +90,7 @@ on additional rules, such as a rule that allows pods to query CoreDNS
 for name resolution.
 
 ```
-apiVersion: networking.k8s.io/v1
+ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-dns-access
@@ -125,7 +125,7 @@ traffic on port 80 to `app-one` from `client-one`. This helps
 minimize the attack surface and reduces the risk of unauthorized access.
 
 ```
-apiVersion: networking.k8s.io/v1
+ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-ingress-app-one
@@ -188,7 +188,7 @@ spec:
     policy does not exist.
 
 ```
-package kubernetes.admission
+ package kubernetes.admission
 import data.kubernetes.networkpolicies
 
 deny[msg] {
@@ -233,7 +233,7 @@ SDK provides support for fundamental functionalities such as inspecting
 eBPF programs and maps.
 
 ```
-sudo /opt/cni/bin/aws-eks-na-cli ebpf progs
+ sudo /opt/cni/bin/aws-eks-na-cli ebpf progs
 ```
 
 #### Log network traffic metadata
@@ -266,7 +266,7 @@ Prior to Kubernetes version 1.14 and EKS version eks.3, there were
 separate security groups configured for the EKS control plane and node
 groups. The minimum and suggested rules for the control plane and node
 group security groups can be found at
-[https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html](../userguide/sec-group-reqs.md "../userguide/sec-group-reqs.md").
+https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html.
 The minimum rules for the _control plane security group_ allows port 443
 inbound from the worker node SG. This rule is what allows the kubelets
 to communicate with the Kubernetes API server. It also includes port
@@ -310,7 +310,7 @@ You **must** create rules for inbound traffic from the cluster security group (k
 
 ###### Important
 
-Security groups for pods relies on a feature known as [ENI trunking](../../../AmazonECS/latest/developerguide/container-instance-eni.md "../../../AmazonECS/latest/developerguide/container-instance-eni.md") which was created to increase the ENI density of an EC2 instance. When a pod is assigned to an SG, a VPC controller associates a branch ENI from the node group with the pod. If there aren’t enough branch ENIs available in a node group at the time the pod is scheduled, the pod will stay in pending state. The number of branch ENIs an instance can support varies by instance type/family. See [https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html#supported-instance-types](../userguide/security-groups-for-pods.md#supported-instance-types "../userguide/security-groups-for-pods.md#supported-instance-types") for further details.
+Security groups for pods relies on a feature known as [ENI trunking](../../../AmazonECS/latest/developerguide/container-instance-eni.md "../../../AmazonECS/latest/developerguide/container-instance-eni.md") which was created to increase the ENI density of an EC2 instance. When a pod is assigned to an SG, a VPC controller associates a branch ENI from the node group with the pod. If there aren’t enough branch ENIs available in a node group at the time the pod is scheduled, the pod will stay in pending state. The number of branch ENIs an instance can support varies by instance type/family. See https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html#supported-instance-types for further details.
 
 While security groups for pods offers an AWS-native way to control
 network traffic within and outside of your cluster without the overhead
@@ -448,9 +448,9 @@ Enterprise includes a feature that allows you to map a Kubernetes
 network policy to an AWS security group, as well as DNS hostnames.
 
 You can find a list of common Kubernetes network policies at
-[https://github.com/ahmetb/kubernetes-network-policy-recipes](https://github.com/ahmetb/kubernetes-network-policy-recipes "https://github.com/ahmetb/kubernetes-network-policy-recipes"). A similar
+https://github.com/ahmetb/kubernetes-network-policy-recipes. A similar
 set of rules for Calico are available at
-[https://docs.projectcalico.org/security/calico-network-policy](https://docs.projectcalico.org/security/calico-network-policy "https://docs.projectcalico.org/security/calico-network-policy").
+https://docs.projectcalico.org/security/calico-network-policy.
 
 ### Migration to Amazon VPC CNI Network Policy Engine
 
@@ -597,7 +597,7 @@ with EKS v1.15 you can use the
 with the NLB as shown in the example below.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Service
 metadata:
   name: demo-app
@@ -704,7 +704,7 @@ ACM Private CA. Replace the `<CA_ARN>` with the value from your
 Private CA:
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -730,7 +730,7 @@ file named cluster-issuer.yaml with the following text in it, replacing
 `<CA_ARN>` and `<Region>` information with your Private CA.
 
 ```
-apiVersion: awspca.cert-manager.io/v1beta1
+ apiVersion: awspca.cert-manager.io/v1beta1
 kind: AWSPCAClusterIssuer
 metadata:
           name: demo-test-root-ca
@@ -742,7 +742,7 @@ spec:
 Deploy the Issuer you created.
 
 ```
-kubectl apply -f cluster-issuer.yaml
+ kubectl apply -f cluster-issuer.yaml
 ```
 
 Your EKS cluster is configured to request certificates from Private CA.
@@ -845,7 +845,7 @@ Certificate Signing Requests with istio-csr]
    (`preserveCertificateRequests=true`).
 
 ```
-helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-csr \
+ helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-csr \
 --set "app.certmanager.issuer.group=awspca.cert-manager.io" \
 --set "app.certmanager.issuer.kind=AWSPCAClusterIssuer" \
 --set "app.certmanager.issuer.name=<the-name-of-the-issuer-you-created>" \
@@ -866,7 +866,7 @@ helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-
    [Istio Operator](https://tetrate.io/blog/what-is-istio-operator/ "https://tetrate.io/blog/what-is-istio-operator/").
 
 ```
-apiVersion: install.istio.io/v1alpha1
+ apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
   name: istio
@@ -926,7 +926,7 @@ spec:
 9. Deploy the above custom resource you created.
 
 ```
-istioctl operator init
+ istioctl operator init
 kubectl apply -f istio-custom-config.yaml
 ```
 

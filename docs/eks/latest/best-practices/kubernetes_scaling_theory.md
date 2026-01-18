@@ -36,7 +36,7 @@ When we look at scaling numbers, such as how many pods can run on a node, we cou
 
 ###### Note
 
-[https://kubernetes.io/docs/setup/best-practices/cluster-large/](https://kubernetes.io/docs/setup/best-practices/cluster-large/ "https://kubernetes.io/docs/setup/best-practices/cluster-large/")
+https://kubernetes.io/docs/setup/best-practices/cluster-large/
 
 However, your workload is likely more complex than what was tested in a scalability test in Upstream. To ensure we can service the number of pods we want to run in production, let’s make sure that the Kubelet is "keeping up" with the Containerd runtime.
 
@@ -46,7 +46,7 @@ To oversimplify, the Kubelet is getting the status of the pods from the containe
 
 ###### Note
 
-Kubernetes is constantly evolving, this subsystem is currently undergoing changes. [https://github.com/kubernetes/enhancements/issues/3386](https://github.com/kubernetes/enhancements/issues/3386 "https://github.com/kubernetes/enhancements/issues/3386")
+Kubernetes is constantly evolving, this subsystem is currently undergoing changes. https://github.com/kubernetes/enhancements/issues/3386
 
 ![Flow](images/scalability/flow.png)
 

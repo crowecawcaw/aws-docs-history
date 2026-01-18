@@ -10,7 +10,7 @@ The GPU Utilization metric shows whether the GPU ran any work during the sample 
 
 Underutilized GPUs waste compute capacity and increase costs because workloads fail to engage all GPU components simultaneously. For AI/ML workloads on Amazon EKS, track GPU power usage as a proxy to identify actual GPU activity. GPU Utilization reports the percentage of time the GPU executes any kernel, but it does not reveal whether the Streaming Multiprocessors, memory controllers, and tensor cores are all active at the same time. Power usage exposes this gap because fully engaged hardware draws significantly more power than hardware running lightweight kernels or sitting idle between tasks. Compare power draw against the GPU’s thermal design power (TDP) to spot underutilization, then investigate whether your workload is bottlenecked by CPU preprocessing, network I/O, or inefficient batch sizes.
 
-Set up CloudWatch Container Insights on Amazon EKS to identify pods, nodes, or workloads with low GPU power consumption. This tool integrates directly with Amazon EKS and allows you to monitor GPU power consumption and adjust pod scheduling or instance types when power usage falls below your target levels. If you need advanced visualization or custom dashboards, use NVIDIA’s DCGM-Exporter with Prometheus and Grafana for Kubernetes-native monitoring. Both approaches surface key NVIDIA metrics like `nvidia_smi_power_draw` (GPU power consumption) and `nvidia_smi_temperature_gpu` (GPU temperature). For a list of metrics, explore [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.htm](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.md"). Look for patterns such as consistently low power usage during specific hours or for particular jobs. These trends help you identify where to consolidate workloads or adjust resource allocation.
+Set up CloudWatch Container Insights on Amazon EKS to identify pods, nodes, or workloads with low GPU power consumption. This tool integrates directly with Amazon EKS and allows you to monitor GPU power consumption and adjust pod scheduling or instance types when power usage falls below your target levels. If you need advanced visualization or custom dashboards, use NVIDIA’s DCGM-Exporter with Prometheus and Grafana for Kubernetes-native monitoring. Both approaches surface key NVIDIA metrics like `nvidia_smi_power_draw` (GPU power consumption) and `nvidia_smi_temperature_gpu` (GPU temperature). For a list of metrics, explore https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.htm. Look for patterns such as consistently low power usage during specific hours or for particular jobs. These trends help you identify where to consolidate workloads or adjust resource allocation.
 
 Static resource limits in Kubernetes (such as CPU, memory, and GPU counts) often lead to over-provisioning or underutilization, especially for dynamic AI/ML workloads like inference where demand fluctuates. Analyze your utilization trends and consolidate workloads onto fewer GPUs. Ensure each GPU reaches full utilization before you allocate additional ones. This approach reduces waste and lowers costs. For detailed guidance on optimizing scheduling and sharing strategies, see the [EKS Compute and Autoscaling best practices](aiml-compute.md "aiml-compute.md")
 
@@ -137,7 +137,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 This sample demonstrates how to instrument your training application to expose `gpu_memory_usage_bytes` as a histogram using the AWS-native approach. Note that your AI/ML container must be configured to emit structured logs in CloudWatch [Embedded Metrics Format (EMF)](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md") format. CloudWatch logs parses EMF and publishes the metrics. Use [aws_embedded_metrics](https://github.com/awslabs/aws-embedded-metrics-python "https://github.com/awslabs/aws-embedded-metrics-python") in your training application to send structured logs in EMF format to CloudWatch Logs, which extracts GPU metrics.
 
 ```
-from aws_embedded_metrics import metric_scope
+ from aws_embedded_metrics import metric_scope
 import torch
 import numpy as np
 
@@ -170,7 +170,7 @@ for epoch in range(20):
 This sample demonstrates how to instrument your training application to expose `gpu_memory_usage_bytes`` as a histogram using the Prometheus client library in Python.
 
 ```
-from prometheus_client import Histogram
+ from prometheus_client import Histogram
 from prometheus_client import start_http_server
 import pynvml
 
@@ -212,7 +212,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 This sample demonstrates how to create a custom histogram metric in your inference application for inference_request_duration_seconds using AWS CloudWatch Embedded Metric Format.
 
 ```
-import boto3
+ import boto3
 import time
 from aws_embedded_metrics import metric_scope, MetricsLogger
 
@@ -246,7 +246,7 @@ process_inference_request()
 This sample demonstrates how to create a custom histogram metric in your inference application for inference_request_duration_seconds using the Prometheus client library in Python:
 
 ```
-from prometheus_client import Histogram
+ from prometheus_client import Histogram
 from prometheus_client import start_http_server
 import time
 
@@ -272,7 +272,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 This sample demonstrates how to create a custom histogram metric in your inference application for token_processing_duration_seconds using AWS CloudWatch Embedded Metric Format. It uses dimensions (`set\_dimension`) with a custom `get_duration_bucket` function to categorize durations into buckets (e.g., "⇐0.01", ">1").
 
 ```
-import boto3
+ import boto3
 import time
 from aws_embedded_metrics import metric_scope, MetricsLogger
 
@@ -312,7 +312,7 @@ def process_tokens(input_text: str, model, tokenizer, metrics: MetricsLogger):
 This sample demonstrates how to create a custom histogram metric in your inference application for token_processing_duration_seconds using the Prometheus client library in Python.
 
 ```
-from prometheus_client import Histogram
+ from prometheus_client import Histogram
 from prometheus_client import start_http_server
 import time
 
@@ -338,7 +338,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 This sample demonstrates how to instrument your batch application to expose checkpoint_restore_duration_seconds as a histogram using CloudWatch Insights:
 
 ```
-import boto3
+ import boto3
 import time
 import torch
 from aws_embedded_metrics import metric_scope, MetricsLogger
@@ -368,7 +368,7 @@ def load_checkpoint(model, checkpoint_path: str, metrics: MetricsLogger):
 This sample demonstrates how to instrument your batch application to expose `checkpoint_restore_duration_seconds` as a histogram using the Prometheus client library in Python:
 
 ```
-from prometheus_client import Histogram
+ from prometheus_client import Histogram
 from prometheus_client import start_http_server
 import torch
 

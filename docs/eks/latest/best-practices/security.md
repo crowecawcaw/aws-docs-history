@@ -61,7 +61,7 @@ demarcation is between your responsibilities and the provider of the
 service (AWS).
 
 For additional information about the shared responsibility model, see
-[https://aws.amazon.com/compliance/shared-responsibility-model/](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+https://aws.amazon.com/compliance/shared-responsibility-model/
 
 ## Introduction
 

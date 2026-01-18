@@ -39,7 +39,7 @@ different container services conform.
 | HITRUST CSF                  | 1                       | 1                       | 1           | 1          |
 
 Compliance status changes over time. For the latest status, always refer
-to [https://aws.amazon.com/compliance/services-in-scope/](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+to https://aws.amazon.com/compliance/services-in-scope/.
 
 For further information about cloud accreditation models and best
 practices, see the AWS whitepaper,

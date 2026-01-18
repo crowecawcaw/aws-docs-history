@@ -26,19 +26,19 @@ IPVS offers several options for distributing traffic to backend pods. Detailed i
 Only a few steps are required to enable IPVS in your EKS cluster. The first thing you need to do is ensure your EKS worker node images have the Linux Virtual Server administration `ipvsadm` package installed. To install this package on a Fedora based image, such as Amazon Linux 2023, you can run the following command on the worker node instance.
 
 ```
-sudo dnf install -y ipvsadm
+ sudo dnf install -y ipvsadm
 ```
 
 On a Debian based image, such as Ubuntu, the installation command would look like this.
 
 ```
-sudo apt-get install ipvsadm
+ sudo apt-get install ipvsadm
 ```
 
 Next, you need to load the kernel modules for the IPVS configuration options listed above. We recommend writing these modules to a file inside of the `/etc/modules-load.d/` directory so that they survive a reboot.
 
 ```
-sudo sh -c 'cat << EOF > /etc/modules-load.d/ipvs.conf
+ sudo sh -c 'cat << EOF > /etc/modules-load.d/ipvs.conf
 ip_vs
 ip_vs_rr
 ip_vs_wrr
@@ -57,7 +57,7 @@ EOF'
 You can run the following command to load these modules on a machine that is already running.
 
 ```
-sudo modprobe ip_vs
+ sudo modprobe ip_vs
 sudo modprobe ip_vs_rr
 sudo modprobe ip_vs_wrr
 sudo modprobe ip_vs_lc
@@ -85,7 +85,7 @@ This is a disruptive change and should be performed in off-hours. We recommend m
 You can issue an AWS CLI command to enable IPVS by updating the `kube-proxy` EKS Add-on.
 
 ```
-aws eks update-addon --cluster-name $CLUSTER_NAME --addon-name kube-proxy \
+ aws eks update-addon --cluster-name $CLUSTER_NAME --addon-name kube-proxy \
   --configuration-values '{"ipvs": {"scheduler": "rr"}, "mode": "ipvs"}' \
   --resolve-conflicts OVERWRITE
 ```
@@ -93,7 +93,7 @@ aws eks update-addon --cluster-name $CLUSTER_NAME --addon-name kube-proxy \
 Or you can do this by modifying the `kube-proxy-config` ConfigMap in your cluster.
 
 ```
-kubectl -n kube-system edit cm kube-proxy-config
+ kubectl -n kube-system edit cm kube-proxy-config
 ```
 
 Find the `scheduler` setting under `ipvs` and set the value to one of the ipvs load balancing options listed above, for example: `rr` for Round Robin.
@@ -101,7 +101,7 @@ Find the `mode` setting, which defaults to `iptables`, and change the value to `
 The result of either option should look similar to the configuration below.
 
 ```
-  iptables:
+   iptables:
     masqueradeAll: false
     masqueradeBit: 14
     minSyncPeriod: 0s
@@ -123,7 +123,7 @@ The result of either option should look similar to the configuration below.
 If your worker nodes were joined to your cluster prior to making these changes, you will need to restart the kube-proxy DaemonSet.
 
 ```
-kubectl -n kube-system rollout restart ds kube-proxy
+ kubectl -n kube-system rollout restart ds kube-proxy
 ```
 
 ### Validation
@@ -131,13 +131,13 @@ kubectl -n kube-system rollout restart ds kube-proxy
 You can validate that your cluster and worker nodes are running in IPVS mode by issuing the following command on one of your worker nodes.
 
 ```
-sudo ipvsadm -L
+ sudo ipvsadm -L
 ```
 
 At a minimum, you should see a result similar to the one below, showing entries for the Kubernetes API Server service at `10.100.0.1` and the CoreDNS service at `10.100.0.10`.
 
 ```
-IP Virtual Server version 1.2.1 (size=4096)
+ IP Virtual Server version 1.2.1 (size=4096)
 Prot LocalAddress:Port Scheduler Flags
   -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
 TCP  ip-10-100-0-1.us-east-1. rr

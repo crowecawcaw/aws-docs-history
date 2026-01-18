@@ -37,7 +37,7 @@ In some cases, the EndpointSlice controller may apply a _hint_ for a different z
 Below is a code snippet on how to enable _topology aware routing_ for a Service.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Service
 metadata:
   name: orders-service
@@ -70,7 +70,7 @@ Introduced in Kubernetes 1.30 and made generally available in 1.33, [Traffic Dis
 Below is a code snippet on how to enable _traffic distribution_ for a Service.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Service
 metadata:
   name: orders-service
@@ -106,7 +106,7 @@ To run all your Pods in the same AZ, either provision the worker nodes in the sa
 **Karpenter**
 
 ```
-apiVersion: karpenter.sh/v1
+ apiVersion: karpenter.sh/v1
 kind: Provisioner
 metadata:
 name: single-az
@@ -121,7 +121,7 @@ values: ["us-west-2a"]
 **Cluster Autoscaler (CA)**
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   name: my-ca-cluster
@@ -146,7 +146,7 @@ desiredCapacity: 1
 Alternatively, if you have worker nodes running in multiple AZs, each node would have the label _[topology.kubernetes.io/zone](http://topology.kubernetes.io/zone%E2%80%9D "http://topology.kubernetes.io/zone%E2%80%9D")_ with the value of its AZ (such as us-west-2a or us-west-2b). You can utilize `nodeSelector` or `nodeAffinity` to schedule Pods to the nodes in a single AZ. For example, the following manifest file will schedule the Pod inside a node running in AZ us-west-2a.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
@@ -179,7 +179,7 @@ It’s important to note that this feature cannot be combined with topology awar
 Below is a code snippet on how to set the _internal traffic policy_ for a Service.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Service
 metadata:
   name: orders-service
@@ -219,7 +219,7 @@ In some scenarios, an isolated replica like the one depicted in the above diagra
 Using the _internal traffic policy_ in conjunction with _topology spread constraints_ can be useful to ensure that you have the right number of replicas for communicating microservices on different nodes.
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: express-test
@@ -248,7 +248,7 @@ spec:
 Another approach is to make use of Pod affinity rules when using the Service internal traffic policy. With Pod affinity, you can influence the scheduler to co-locate certain Pods because of their frequent communication. By applying strict scheduling constraints (`requiredDuringSchedulingIgnoredDuringExecution`) on certain Pods, this will give you better results for Pod co-location when the Scheduler is placing Pods on nodes.
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: graphql
@@ -330,7 +330,7 @@ _There are no hourly or data transfer costs associated with Gateway VPC Endpoint
 
 **Interface VPC Endpoints**
 
-VPC Endpoints have an [hourly charge](https://aws.amazon.com/privatelink/pricing/ "https://aws.amazon.com/privatelink/pricing/") and have an additional charge associated with data processing via the underlying ENI. Note that inter-AZ data transfer is [not charged]([https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/ "https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/")).
+VPC Endpoints have an [hourly charge](https://aws.amazon.com/privatelink/pricing/ "https://aws.amazon.com/privatelink/pricing/") and have an additional charge associated with data processing via the underlying ENI. Note that inter-AZ data transfer is [not charged](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-data-transfer-price-reduction-privatelink-transit-gateway-client-vpn-services/).
 
 The diagram below shows Pods communicating with AWS services via VPC Endpoints.
 
@@ -377,7 +377,7 @@ The Istio Destination Rules detailed above can also be applied to manage traffic
 Below is a code block example of a Destination Rule resource in Istio. As can be seen below, this resource specifies weighted configurations for incoming traffic from 3 different AZs in the `eu-west-1` region. These configurations declare that a majority of the incoming traffic (70% in this case) from a given AZ should be proxied to a destination in the same AZ from which it originates.
 
 ```
-apiVersion: networking.istio.io/v1beta1
+ apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: express-test-dr
@@ -449,14 +449,14 @@ The screenshots below are captured from a live example of this approach. The fir
 
 ![Before results](images/before-results.png)
 
-With Istio, you can verify and export the statistics of any [upstream clusters]([https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology "https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology")) and endpoints that your proxies are aware of. This can help provide a picture of the network flow as well as the share of distribution among the services of a workload. Continuing with the same example, the `orders` endpoints that the `graphql` proxy is aware of can be obtained using the following command:
+With Istio, you can verify and export the statistics of any [upstream clusters](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/intro/terminology) and endpoints that your proxies are aware of. This can help provide a picture of the network flow as well as the share of distribution among the services of a workload. Continuing with the same example, the `orders` endpoints that the `graphql` proxy is aware of can be obtained using the following command:
 
 ```
-kubectl exec -it deploy/graphql -n ecommerce -c istio-proxy -- curl localhost:15000/clusters | grep orders
+ kubectl exec -it deploy/graphql -n ecommerce -c istio-proxy -- curl localhost:15000/clusters | grep orders
 ```
 
 ```
-...
+ ...
 orders-service.ecommerce.svc.cluster.local::10.0.1.33:3003::**rq_error::0**
 orders-service.ecommerce.svc.cluster.local::10.0.1.33:3003::**rq_success::119**
 orders-service.ecommerce.svc.cluster.local::10.0.1.33:3003::**rq_timeout::0**
@@ -472,7 +472,7 @@ In this case, the `graphql` proxy is only aware of the `orders` endpoint for the
 As mentioned in a previous section above, you can co-locate frequently communicating Pods by making use of pod-affinity.
 
 ```
-...
+ ...
 spec:
 ...
   template:

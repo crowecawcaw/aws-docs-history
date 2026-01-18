@@ -11,11 +11,11 @@ The base of the Cilium install consists of the Cilium operator and Cilium agents
 Generally, the in-cluster routing configured by Cilium remains available and in-place during network disconnections, which can be confirmed by observing the in-cluster traffic flows and IP table (iptables) rules for the pod network.
 
 ```
-ip route show table all | grep cilium
+ ip route show table all | grep cilium
 ```
 
 ```
-10.86.2.0/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
+ 10.86.2.0/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
 10.86.2.64/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
 10.86.2.128/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
 10.86.2.192/26 via 10.86.3.16 dev cilium_host proto kernel src 10.86.3.16 mtu 1450
@@ -27,7 +27,7 @@ ip route show table all | grep cilium
 However, during network disconnections, the Cilium operator and Cilium agents restart due to the coupling of their health checks with the health of the connection with the Kubernetes API server. It is expected to see the following in the logs of the Cilium operator and Cilium agents during network disconnections. During the network disconnections, you can use tools such as the `crictl` CLI to observe the restarts of these components including their logs.
 
 ```
-msg="Started gops server" address="127.0.0.1:9890" subsys=gops
+ msg="Started gops server" address="127.0.0.1:9890" subsys=gops
 msg="Establishing connection to apiserver" host="https://<k8s-cluster-ip>:443" subsys=k8s-client
 msg="Establishing connection to apiserver" host="https://<k8s-cluster-ip>:443" subsys=k8s-client
 msg="Unable to contact k8s api-server" error="Get \"https://<k8s-cluster-ip>:443/api/v1/namespaces/kube-system\": dial tcp <k8s-cluster-ip>:443: i/o timeout" ipAddr="https://<k8s-cluster-ip>:443" subsys=k8s-client
@@ -55,11 +55,11 @@ In EKS clusters, kube-proxy runs as a DaemonSet on each node and is responsible 
 You can observe the kube-proxy rules with the following iptables commands. The first command shows packets going through the `PREROUTING` chain get directed to the `KUBE-SERVICES` chain.
 
 ```
-iptables -t nat -L PREROUTING
+ iptables -t nat -L PREROUTING
 ```
 
 ```
-Chain PREROUTING (policy ACCEPT)
+ Chain PREROUTING (policy ACCEPT)
 target         prot opt source      destination
 KUBE-SERVICES  all  --  anywhere    anywhere      /* kubernetes service portals */
 ```
@@ -67,40 +67,40 @@ KUBE-SERVICES  all  --  anywhere    anywhere      /* kubernetes service portals 
 Inspecting the `KUBE-SERVICES` chain we can see the rules for the various cluster services.
 
 ```
-Chain KUBE-SERVICES (2 references)
+ Chain KUBE-SERVICES (2 references)
 target                     prot opt source      destination
-KUBE-SVL-NZTS37XDTDNXGCKJ  tcp  --  anywhere    172.16.189.136  /* kube-system/hubble-peer:peer-service cluster IP **/
-KUBE-SVC-2BINP2AXJOTI3HJ5 tcp -- anywhere 172.16.62.72 /** default/metallb-webhook-service cluster IP **/
-KUBE-SVC-LRNEBRA3Z5YGJ4QC tcp -- anywhere 172.16.145.111 /** default/redis-leader cluster IP **/
-KUBE-SVC-I7SKRZYQ7PWYV5X7 tcp -- anywhere 172.16.142.147 /** kube-system/eks-extension-metrics-api:metrics-api cluster IP **/
-KUBE-SVC-JD5MR3NA4I4DYORP tcp -- anywhere 172.16.0.10 /** kube-system/kube-dns:metrics cluster IP **/
-KUBE-SVC-TCOU7JCQXEZGVUNU udp -- anywhere 172.16.0.10 /** kube-system/kube-dns:dns cluster IP **/
-KUBE-SVC-ERIFXISQEP7F7OF4 tcp -- anywhere 172.16.0.10 /** kube-system/kube-dns:dns-tcp cluster IP **/
-KUBE-SVC-ENODL3HWJ5BZY56Q tcp -- anywhere 172.16.7.26 /** default/frontend cluster IP **/
-KUBE-EXT-ENODL3HWJ5BZY56Q tcp -- anywhere <LB-IP> /** default/frontend loadbalancer IP **/
-KUBE-SVC-NPX46M4PTMTKRN6Y tcp -- anywhere 172.16.0.1 /** default/kubernetes:https cluster IP **/
-KUBE-SVC-YU5RV2YQWHLZ5XPR tcp -- anywhere 172.16.228.76 /** default/redis-follower cluster IP **/
-KUBE-NODEPORTS all -- anywhere anywhere /** kubernetes service nodeports; NOTE: this must be the last rule in this chain */
+KUBE-SVL-NZTS37XDTDNXGCKJ  tcp  --  anywhere    172.16.189.136  /* kube-system/hubble-peer:peer-service cluster IP <emphasis role="strong">/
+KUBE-SVC-2BINP2AXJOTI3HJ5  tcp  --  anywhere    172.16.62.72    /</emphasis> default/metallb-webhook-service cluster IP <emphasis role="strong">/
+KUBE-SVC-LRNEBRA3Z5YGJ4QC  tcp  --  anywhere    172.16.145.111  /</emphasis> default/redis-leader cluster IP <emphasis role="strong">/
+KUBE-SVC-I7SKRZYQ7PWYV5X7  tcp  --  anywhere    172.16.142.147  /</emphasis> kube-system/eks-extension-metrics-api:metrics-api cluster IP <emphasis role="strong">/
+KUBE-SVC-JD5MR3NA4I4DYORP  tcp  --  anywhere    172.16.0.10     /</emphasis> kube-system/kube-dns:metrics cluster IP <emphasis role="strong">/
+KUBE-SVC-TCOU7JCQXEZGVUNU  udp  --  anywhere    172.16.0.10     /</emphasis> kube-system/kube-dns:dns cluster IP <emphasis role="strong">/
+KUBE-SVC-ERIFXISQEP7F7OF4  tcp  --  anywhere    172.16.0.10     /</emphasis> kube-system/kube-dns:dns-tcp cluster IP <emphasis role="strong">/
+KUBE-SVC-ENODL3HWJ5BZY56Q  tcp  --  anywhere    172.16.7.26     /</emphasis> default/frontend cluster IP <emphasis role="strong">/
+KUBE-EXT-ENODL3HWJ5BZY56Q  tcp  --  anywhere    <LB-IP>    /</emphasis> default/frontend loadbalancer IP <emphasis role="strong">/
+KUBE-SVC-NPX46M4PTMTKRN6Y  tcp  --  anywhere    172.16.0.1      /</emphasis> default/kubernetes:https cluster IP <emphasis role="strong">/
+KUBE-SVC-YU5RV2YQWHLZ5XPR  tcp  --  anywhere    172.16.228.76   /</emphasis> default/redis-follower cluster IP <emphasis role="strong">/
+KUBE-NODEPORTS             all  --  anywhere    anywhere        /</emphasis> kubernetes service nodeports; NOTE: this must be the last rule in this chain */
 ```
 
 Inspecting the chain of the frontend service for the application we can see the pod IP addresses backing the service.
 
 ```
-iptables -t nat -L KUBE-SVC-ENODL3HWJ5BZY56Q
+ iptables -t nat -L KUBE-SVC-ENODL3HWJ5BZY56Q
 ```
 
 ```
-Chain KUBE-SVC-ENODL3HWJ5BZY56Q (2 references)
+ Chain KUBE-SVC-ENODL3HWJ5BZY56Q (2 references)
 target                     prot opt source    destination
-KUBE-SEP-EKXE7ASH7Y74BGBO  all  --  anywhere  anywhere    /* default/frontend -> 10.86.2.103:80 **/ statistic mode random probability 0.33333333349
-KUBE-SEP-GCY3OUXWSVMSEAR6 all -- anywhere anywhere /** default/frontend -> 10.86.2.179:80 **/ statistic mode random probability 0.50000000000
-KUBE-SEP-6GJJR3EF5AUP2WBU all -- anywhere anywhere /** default/frontend -> 10.86.3.47:80 */
+KUBE-SEP-EKXE7ASH7Y74BGBO  all  --  anywhere  anywhere    /* default/frontend -> 10.86.2.103:80 <emphasis role="strong">/ statistic mode random probability 0.33333333349
+KUBE-SEP-GCY3OUXWSVMSEAR6  all  --  anywhere  anywhere    /</emphasis> default/frontend -> 10.86.2.179:80 <emphasis role="strong">/ statistic mode random probability 0.50000000000
+KUBE-SEP-6GJJR3EF5AUP2WBU  all  --  anywhere  anywhere    /</emphasis> default/frontend -> 10.86.3.47:80 */
 ```
 
 The following kube-proxy log messages are expected during network disconnections as it attempts to watch the Kubernetes API server for updates to node and endpoint resources.
 
 ```
-"Unhandled Error" err="k8s.io/client-go/informers/factory.go:160: Failed to watch *v1.Node: failed to list *v1.Node: Get \"https://<k8s-endpoint>/api/v1/nodes?fieldSelector=metadata.name%3D<node-name>&resourceVersion=2241908\": dial tcp <k8s-ip>:443: i/o timeout" logger="UnhandledError"
+ "Unhandled Error" err="k8s.io/client-go/informers/factory.go:160: Failed to watch *v1.Node: failed to list *v1.Node: Get \"https://<k8s-endpoint>/api/v1/nodes?fieldSelector=metadata.name%3D<node-name>&resourceVersion=2241908\": dial tcp <k8s-ip>:443: i/o timeout" logger="UnhandledError"
 "Unhandled Error" err="k8s.io/client-go/informers/factory.go:160: Failed to watch *v1.EndpointSlice: failed to list *v1.EndpointSlice: Get \"https://<k8s-endpoint>/apis/discovery.k8s.io/v1/endpointslices?labelSelector=%21service.kubernetes.io%2Fheadless%2C%21service.kubernetes.io%2Fservice-proxy-name&resourceVersion=2242090\": dial tcp <k8s-ip>:443: i/o timeout" logger="UnhandledError"
 ```
 
@@ -111,7 +111,7 @@ By default, pods in EKS clusters use the CoreDNS cluster IP address as the name 
 The following CoreDNS log messages are expected during network disconnections as it attempts to list objects from the Kubernetes API server.
 
 ```
-Failed to watch *v1.Namespace: failed to list *v1.Namespace: Get "https://<k8s-cluster-ip>:443/api/v1/namespaces?resourceVersion=2263964": dial tcp <k8s-cluster-ip>:443: i/o timeout
+ Failed to watch *v1.Namespace: failed to list *v1.Namespace: Get "https://<k8s-cluster-ip>:443/api/v1/namespaces?resourceVersion=2263964": dial tcp <k8s-cluster-ip>:443: i/o timeout
 Failed to watch *v1.Service: failed to list *v1.Service: Get "https://<k8s-cluster-ip>:443/api/v1/services?resourceVersion=2263966": dial tcp <k8s-cluster-ip>:443: i/o timeout
 Failed to watch *v1.EndpointSlice: failed to list *v1.EndpointSlice: Get "https://<k8s-cluster-ip>:443/apis/discovery.k8s.io/v1/endpointslices?resourceVersion=2263896": dial tcp <k8s-cluster-ip>: i/o timeout
 ```

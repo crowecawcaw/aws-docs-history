@@ -26,7 +26,7 @@ The Pod specific settings are applied to all containers. If unspecified, the opt
 For example, runAsUserName setting for Pods and containers which is a Windows option is a rough equivalent of the Linux-specific runAsUser setting and in the following manifest, the pod specific security context is applied to all containers
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: run-as-username-pod-demo
@@ -44,7 +44,7 @@ spec:
 Whereas in the following, the container level security context overrides the pod level security context.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: run-as-username-container-demo
@@ -69,7 +69,7 @@ It is generally a good idea to run your containers with ContainerUser for Window
 A good example of when to use ContainerAdministrator is to set PATH. You can use the USER directive to do that, like so:
 
 ```
-USER ContainerAdministrator
+ USER ContainerAdministrator
 RUN setx /M PATH "%PATH%;C:/your/path"
 USER ContainerUser
 ```

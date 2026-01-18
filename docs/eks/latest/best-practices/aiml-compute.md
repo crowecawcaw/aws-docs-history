@@ -11,7 +11,7 @@ For AI/ML workloads sensitive to different GPU characteristics (e.g. GPU, GPU me
 For example, using GPU name node selector when using Karpenter:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: gpu-pod-example
@@ -38,7 +38,7 @@ If you decide to use the EKS Accelerated AMIs and [NVIDIA GPU operator](https://
 To verify that the NVIDIA Device Plugin is active and GPUs are correctly exposed, run:
 
 ```
-kubectl describe node | grep nvidia.com/gpu
+ kubectl describe node | grep nvidia.com/gpu
 ```
 
 This command checks if the `nvidia.com/gpu` resource is in the node’s capacity and allocatable resources. For example, a node with one GPU should show `nvidia.com/gpu: 1`. See the [Kubernetes GPU Scheduling Guide](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/ "https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/") for more information.
@@ -53,7 +53,7 @@ Accelerated compute instances are offered in different purchase models to fit sh
 The following example shows how to enable a Karpenter NodePool to provision G and P instances greater than generations 3 (e.g., p3). To learn more, see the [EKS Scalability best practices](scalability.md "scalability.md") section.
 
 ```
-- key: karpenter.k8s.aws/instance-category
+ - key: karpenter.k8s.aws/instance-category
   operator: In
   values: ["g", "p"] # Diversifies across G-series and P-series
 - key: karpenter.k8s.aws/instance-generation
@@ -103,7 +103,7 @@ For a real-time online inference workload on Spot Instances, you can configure a
 **Example**
 
 ```
-apiVersion: karpenter.sh/v1
+ apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: gpu-inference-spot
@@ -186,7 +186,7 @@ Selecting the appropriate accelerated instance and size is essential for optimiz
 If you use a GPU instance in an EKS node then it will have the `nvidia-device-plugin-daemonset` pod in the `kube-system` namespace by default. To get a quick sense of whether you are fully utilizing the GPU(s) in your instance, you can use [nvidia-smi](https://docs.nvidia.com/deploy/nvidia-smi/index.html "https://docs.nvidia.com/deploy/nvidia-smi/index.html") as shown here:
 
 ```
-kubectl exec nvidia-device-plugin-daemonset-xxxxx \
+ kubectl exec nvidia-device-plugin-daemonset-xxxxx \
   -n kube-system -- nvidia-smi \
   --query-gpu=index,power.draw,power.limit,temperature.gpu,utilization.gpu,utilization.memory,memory.free,memory.used \
   --format=csv -l 5
@@ -215,7 +215,7 @@ To enable these features in EKS, you can deploy the NVIDIA Device Plugin, which 
 For example, to enable time-slicing with the NVIDIA Device Plugin:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nvidia-device-plugin-config
@@ -235,7 +235,7 @@ data:
 For example, to use KAI Scheduler for fractional GPU allocation, deploy it alongside the NVIDIA GPU Operator and specify fractional GPU resources in the pod spec:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: fractional-gpu-pod-example
@@ -275,7 +275,7 @@ For workload sensitive to interruptions, such as processing, large-scale AI/ML p
 The `WhenEmptyOrUnderutilized` consolidation policy may terminate nodes prematurely, leading to longer execution times. For example, interruptions may delay job resumption due to pod rescheduling, data reloading, which could be costly for long-running batch inference jobs. To mitigate this, you can set the `consolidationPolicy` to `WhenEmpty` and configure a `consolidateAfter` duration, such as 1 hour, to retain nodes during workload spikes. For example:
 
 ```
-disruption:
+ disruption:
   consolidationPolicy: WhenEmpty
   consolidateAfter: 60m
 ```
@@ -291,7 +291,7 @@ We recommend setting `ttlSecondsAfterFinished` for Kubernetes jobs in Amazon EKS
 For mixed-priority AI/ML workloads on Amazon EKS, you may configure low-priority job preemption to ensure higher-priority tasks (e.g., real-time inference) receive resources promptly. Without preemption, low-priority workloads such as batch processes (e.g., batch inference, data processing), non-batch services (e.g., background tasks, cron jobs), or CPU/memory-intensive jobs (e.g., web services) can delay critical pods by occupying nodes. Preemption allows Kubernetes to evict low-priority pods when high-priority pods need resources, ensuring efficient resource allocation on nodes with GPUs, CPUs, or memory. We recommend using Kubernetes `PriorityClass` to assign priorities and `PodDisruptionBudget` to control eviction behavior.
 
 ```
-apiVersion: scheduling.k8s.io/v1
+ apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
   name: low-priority
@@ -317,7 +317,7 @@ To ensure cost-efficient and responsive compute capacity for machine learning (M
 This is an example of a diverse Karpenter [NodePool](https://karpenter.sh/docs/concepts/nodepools/ "https://karpenter.sh/docs/concepts/nodepools/") that enables launching of `g` Amazon EC2 instances where instance generation is greater than three.
 
 ```
-apiVersion: karpenter.sh/v1
+ apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: gpu-inference
@@ -359,7 +359,7 @@ spec:
 Example using static node groups for a training workload:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   name: ml-cluster
@@ -525,7 +525,7 @@ following requirements.
 1. Create a cluster configuration file named `dra-eks-cluster.yaml`:
 
 ```
----
+ ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -555,7 +555,7 @@ managedNodeGroups:
 2. Create the cluster:
 
 ```
-eksctl create cluster -f dra-eks-cluster.yaml
+ eksctl create cluster -f dra-eks-cluster.yaml
 ```
 
 #### Step 2: Deploy the NVIDIA device plugin
@@ -565,14 +565,14 @@ Deploy the NVIDIA device plugin to enable basic GPU discovery:
 1. Add the NVIDIA device plugin Helm repository:
 
 ```
-helm repo add nvidia https://nvidia.github.io/k8s-device-plugin
+ helm repo add nvidia https://nvidia.github.io/k8s-device-plugin
 helm repo update
 ```
 
 2. Create custom values for the device plugin:
 
 ```
-cat <<EOF > nvidia-device-plugin-values.yaml
+ cat <<EOF > nvidia-device-plugin-values.yaml
 gfd:
   enabled: true
 nfd:
@@ -587,7 +587,7 @@ EOF
 3. Install the NVIDIA device plug-in:
 
 ```
-helm install nvidia-device-plugin nvidia/nvidia-device-plugin \
+ helm install nvidia-device-plugin nvidia/nvidia-device-plugin \
  --namespace nvidia-device-plugin \
  --create-namespace \
  --version v0.17.1 \
@@ -599,7 +599,7 @@ helm install nvidia-device-plugin nvidia/nvidia-device-plugin \
 1. Create a `dra-driver-values.yaml` values file for the DRA driver:
 
 ```
----
+ ---
 nvidiaDriverRoot: /
 
 gpuResourcesEnabledOverride: true
@@ -634,14 +634,14 @@ kubeletPlugin:
 2. Add the NVIDIA NGC Helm repository:
 
 ```
-helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+ helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 helm repo update
 ```
 
 3. Install the NVIDIA DRA driver:
 
 ```
-helm install nvidia-dra-driver nvidia/nvidia-dra-driver-gpu \
+ helm install nvidia-dra-driver nvidia/nvidia-dra-driver-gpu \
  --version="25.3.0-rc.2" \
  --namespace nvidia-dra-driver \
  --create-namespace \
@@ -653,13 +653,13 @@ helm install nvidia-dra-driver nvidia/nvidia-dra-driver-gpu \
 1. Verify that the DRA API resources are available:
 
 ```
-kubectl api-resources | grep resource.k8s.io/v1beta1
+ kubectl api-resources | grep resource.k8s.io/v1beta1
 ```
 
 The following is the expected output:
 
 ```
-deviceclasses resource.k8s.io/v1beta1 false DeviceClass
+ deviceclasses resource.k8s.io/v1beta1 false DeviceClass
 resourceclaims resource.k8s.io/v1beta1 true ResourceClaim
 resourceclaimtemplates resource.k8s.io/v1beta1 true ResourceClaimTemplate
 resourceslices resource.k8s.io/v1beta1 false ResourceSlice
@@ -668,13 +668,13 @@ resourceslices resource.k8s.io/v1beta1 false ResourceSlice
 2. Check the available device classes:
 
 ```
-kubectl get deviceclasses
+ kubectl get deviceclasses
 ```
 
 The following is an example of expected output:
 
 ```
-NAME                                        AGE
+ NAME                                        AGE
 compute-domain-daemon.nvidia.com            4h39m
 compute-domain-default-channel.nvidia.com   4h39m
 gpu.nvidia.com                              4h39m
@@ -709,7 +709,7 @@ DRA enabled, the following actions occur:
 
 
     ```
-    kubectl get resourceslices
+     kubectl get resourceslices
     ```
 
     The following is an example of expected output:
@@ -717,7 +717,7 @@ DRA enabled, the following actions occur:
 
 
     ```
-    NAME                                                          NODE                             DRIVER                       POOL                             AGE
+     NAME                                                          NODE                             DRIVER                       POOL                             AGE
     ip-100-64-129-47.ec2.internal-compute-domain.nvidia.com-rwsts ip-100-64-129-47.ec2.internal    compute-domain.nvidia.com    ip-100-64-129-47.ec2.internal    35m
     ip-100-64-129-47.ec2.internal-gpu.nvidia.com-6kndg            ip-100-64-129-47.ec2.internal    gpu.nvidia.com               ip-100-64-129-47.ec2.internal    35m
     ```
@@ -733,7 +733,7 @@ Before proceeding, make sure you have followed [Set up dynamic resource allocati
    named `basic-gpu-claim-template.yaml`:
 
 ```
----
+ ---
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -756,19 +756,19 @@ spec:
 2. Apply the template:
 
 ```
-kubectl apply -f basic-gpu-claim-template.yaml
+ kubectl apply -f basic-gpu-claim-template.yaml
 ```
 
 3. Verify the status:
 
 ```
-kubectl get resourceclaimtemplates -n gpu-test1
+ kubectl get resourceclaimtemplates -n gpu-test1
 ```
 
 The following is example output:
 
 ```
-NAME         AGE
+ NAME         AGE
 single-gpu   9m16s
 ```
 
@@ -776,7 +776,7 @@ single-gpu   9m16s
    `basic-gpu-pod.yaml`:
 
 ```
----
+ ---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -808,45 +808,45 @@ spec:
 5. Apply and monitor the Pod:
 
 ```
-kubectl apply -f basic-gpu-pod.yaml
+ kubectl apply -f basic-gpu-pod.yaml
 ```
 
 6. Check the Pod status:
 
 ```
-kubectl get pod -n gpu-test1
+ kubectl get pod -n gpu-test1
 ```
 
 The following is example expected output:
 
 ```
-NAME      READY   STATUS    RESTARTS   AGE
+ NAME      READY   STATUS    RESTARTS   AGE
 gpu-pod   1/1     Running   0          13m
 ```
 
 7. Check the `ResourceClaim` status:
 
 ```
-kubectl get resourceclaims -n gpu-test1
+ kubectl get resourceclaims -n gpu-test1
 ```
 
 The following is example expected output:
 
 ```
-NAME                 STATE                AGE
+ NAME                 STATE                AGE
 gpu-pod-gpu0-l76cg   allocated,reserved   9m6s
 ```
 
 8. View Pod logs to see GPU information:
 
 ```
-kubectl logs gpu-pod -n gpu-test1
+ kubectl logs gpu-pod -n gpu-test1
 ```
 
 The following is example expected output:
 
 ```
-GPU 0: NVIDIA L4 (UUID: GPU-da7c24d7-c7e3-ed3b-418c-bcecc32af7c5)
+ GPU 0: NVIDIA L4 (UUID: GPU-da7c24d7-c7e3-ed3b-418c-bcecc32af7c5)
 ```
 
 Continue to [GPU optimization techniques with dynamic resource allocation](#aiml-dra-optimization "#aiml-dra-optimization") for more advanced GPU optimization techniques using DRA.
@@ -889,7 +889,7 @@ Do the following steps.
    `timeslicing-claim-template.yaml`:
 
 ```
----
+ ---
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -922,7 +922,7 @@ spec:
    `timeslicing-pod.yaml`:
 
 ```
----
+ ---
 # Pod 1 - Inference workload
 apiVersion: v1
 kind: Pod
@@ -1028,20 +1028,20 @@ spec:
 3. Apply the template and Pod:
 
 ```
-kubectl apply -f timeslicing-claim-template.yaml
+ kubectl apply -f timeslicing-claim-template.yaml
 kubectl apply -f timeslicing-pod.yaml
 ```
 
 4. Monitor resource claims:
 
 ```
-kubectl get resourceclaims -n timeslicing-gpu -w
+ kubectl get resourceclaims -n timeslicing-gpu -w
 ```
 
 The following is example output:
 
 ```
-NAME                                      STATE                AGE
+ NAME                                      STATE                AGE
 inference-pod-1-shared-gpu-claim-9p97x    allocated,reserved   21s
 training-pod-2-shared-gpu-claim-2-qghnb   pending              21s
 inference-pod-1-shared-gpu-claim-9p97x    pending              105s
@@ -1075,7 +1075,7 @@ Do the following steps.
    `mps-claim-template.yaml`:
 
 ```
----
+ ---
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -1107,7 +1107,7 @@ spec:
 2. Define a Pod using MPS with a file named `mps-pod.yaml`:
 
 ```
----
+ ---
 # Single Pod with Multiple Containers sharing GPU via MPS
 apiVersion: v1
 kind: Pod
@@ -1233,20 +1233,20 @@ spec:
 3. Apply the template and create multiple MPS Pods:
 
 ```
-kubectl apply -f mps-claim-template.yaml
+ kubectl apply -f mps-claim-template.yaml
 kubectl apply -f mps-pod.yaml
 ```
 
 4. Monitor the resource claims:
 
 ```
-kubectl get resourceclaims -n mps-gpu -w
+ kubectl get resourceclaims -n mps-gpu -w
 ```
 
 The following is example output:
 
 ```
-NAME                                             STATE                AGE
+ NAME                                             STATE                AGE
 mps-multi-container-pod-shared-gpu-claim-2p9kx   allocated,reserved   86s
 ```
 
@@ -1276,7 +1276,7 @@ leaving it underutilized by a single process.
 ##### Container1: `inference-container`
 
 ```
-root@mps-multi-container-pod:/workspace# nvidia-smi
+ root@mps-multi-container-pod:/workspace# nvidia-smi
 Wed Jul 16 21:09:30 2025
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.9     |
@@ -1302,7 +1302,7 @@ Wed Jul 16 21:09:30 2025
 ##### Container2: `training-container`
 
 ```
-root@mps-multi-container-pod:/workspace# nvidia-smi
+ root@mps-multi-container-pod:/workspace# nvidia-smi
 Wed Jul 16 21:16:00 2025
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.9     |
@@ -1365,14 +1365,14 @@ and dynamic resource allocation capabilities.
 1. Add the NVIDIA GPU Operator repository:
 
 ```
-helm repo add nvidia https://nvidia.github.io/gpu-operator
+ helm repo add nvidia https://nvidia.github.io/gpu-operator
 helm repo update
 ```
 
 2. Create a `gpu-operator-values.yaml` file:
 
 ```
-driver:
+ driver:
   enabled: false
 
 mig:
@@ -1469,7 +1469,7 @@ daemonsets:
 3. Install GPU Operator using the `gpu-operator-values.yaml` file:
 
 ```
-helm install gpu-operator nvidia/gpu-operator \
+ helm install gpu-operator nvidia/gpu-operator \
   --namespace gpu-operator \
   --create-namespace \
   --version v25.3.1 \
@@ -1490,13 +1490,13 @@ profiles:
 4. Verify the deployment Pods:
 
 ```
-kubectl get pods -n gpu-operator
+ kubectl get pods -n gpu-operator
 ```
 
 The following is example output:
 
 ```
-NAME                                                              READY   STATUS      RESTARTS        AGE
+ NAME                                                              READY   STATUS      RESTARTS        AGE
 gpu-feature-discovery-27rdq                                       1/1     Running     0               3h31m
 gpu-operator-555774698d-48brn                                     1/1     Running     0               4h8m
 nvidia-container-toolkit-daemonset-sxmh9                          1/1     Running     1 (3h32m ago)   4h1m
@@ -1515,7 +1515,7 @@ nvidia-mig-manager-zvf54                                          1/1     Runnin
    testing the MIG examples:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -1583,13 +1583,13 @@ NVIDIA GPU Operator uses the label added to nodes
 with the given profile. 6. Login to the `p4de` instance. 7. Run the following command:
 
 ```
-nvidia-smi -L
+ nvidia-smi -L
 ```
 
 You should see the following example output:
 
 ```
-[root@ip-100-64-173-145 bin]# nvidia-smi -L
+ [root@ip-100-64-173-145 bin]# nvidia-smi -L
 GPU 0: NVIDIA A100-SXM4-80GB (UUID: GPU-ab52e33c-be48-38f2-119e-b62b9935925a)
   MIG 3g.40gb     Device  0: (UUID: MIG-da972af8-a20a-5f51-849f-bc0439f7970e)
   MIG 2g.20gb     Device  1: (UUID: MIG-7f9768b7-11a6-5de9-a8aa-e9c424400da4)
@@ -1624,7 +1624,7 @@ The GPU Operator applied this configuration from your embedded MIG
 profile:
 
 ```
-p4de-half-balanced:
+ p4de-half-balanced:
   - devices: [0, 1, 2, 3]        # First 4 GPUs: MIG enabled
     mig-enabled: true
     mig-devices:
@@ -1686,7 +1686,7 @@ containers to share GPU resources with hardware-level isolation.
    `resourceclaimtemplates`:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Namespace
 metadata:
   name: mig-gpu
@@ -1749,19 +1749,19 @@ spec:
 2. Apply the three templates:
 
 ```
-kubectl apply -f mig-claim-template.yaml
+ kubectl apply -f mig-claim-template.yaml
 ```
 
 3. Run the following command:
 
 ```
-kubectl get resourceclaimtemplates -n mig-gpu
+ kubectl get resourceclaimtemplates -n mig-gpu
 ```
 
 The following is example output:
 
 ```
-NAME                  AGE
+ NAME                  AGE
 mig-large-template    71m
 mig-medium-template   71m
 mig-small-template    71m
@@ -1771,7 +1771,7 @@ mig-small-template    71m
    `resourceclaimtemplates`:
 
 ```
----
+ ---
 # ConfigMap containing Python scripts for MIG pods
 apiVersion: v1
 kind: ConfigMap
@@ -2039,13 +2039,13 @@ spec:
 5. Apply this spec, which should deploy three Pods:
 
 ```
-kubctl apply -f mig-pod.yaml
+ kubctl apply -f mig-pod.yaml
 ```
 
 These Pods should be scheduled by the DRA driver. 6. Check DRA driver Pod logs and you will see output similar to this:
 
 ```
-I0717 21:50:22.925811 1 driver.go:87] NodePrepareResource is called: number of claims: 1
+ I0717 21:50:22.925811 1 driver.go:87] NodePrepareResource is called: number of claims: 1
 I0717 21:50:22.932499 1 driver.go:129] Returning newly prepared devices for claim '933e9c72-6fd6-49c5-933c-a896407dc6d1': [&Device{RequestNames:[mig-large],PoolName:ip-100-64-173-145.ec2.internal,DeviceName:gpu-0-mig-9-4-4,CDIDeviceIDs:[k8s.gpu.nvidia.com/device=**gpu-0-mig-9-4-4**],}]
 I0717 21:50:23.186472 1 driver.go:87] NodePrepareResource is called: number of claims: 1
 I0717 21:50:23.191226 1 driver.go:129] Returning newly prepared devices for claim '61e5ddd2-8c2e-4c19-93ae-d317fecb44a4': [&Device{RequestNames:[mig-medium],PoolName:ip-100-64-173-145.ec2.internal,DeviceName:gpu-2-mig-14-0-2,CDIDeviceIDs:[k8s.gpu.nvidia.com/device=**gpu-2-mig-14-0-2**],}]
@@ -2056,13 +2056,13 @@ I0717 21:50:23.455991 1 driver.go:129] Returning newly prepared devices for clai
 7. Verify the `resourceclaims` to see the Pod status:
 
 ```
-kubectl get resourceclaims -n mig-gpu -w
+ kubectl get resourceclaims -n mig-gpu -w
 ```
 
 The following is example output:
 
 ```
-NAME                                             STATE                AGE
+ NAME                                             STATE                AGE
 mig-large-training-pod-mig-large-claim-6dpn8     pending              0s
 mig-large-training-pod-mig-large-claim-6dpn8     pending              0s
 mig-large-training-pod-mig-large-claim-6dpn8     allocated,reserved   0s
@@ -2078,7 +2078,7 @@ As you can see, all the Pods moved from pending to `allocated,reserved` by the D
 processors are running:
 
 ```
-root@ip-100-64-173-145 bin]# nvidia-smi
+ root@ip-100-64-173-145 bin]# nvidia-smi
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.158.01 Driver Version: 570.158.01 CUDA Version: 12.8 |
 |-----------------------------------------+------------------------+----------------------+
@@ -2199,7 +2199,7 @@ Do the following steps.
    `imex-compute-domain.yaml`:
 
 ```
-apiVersion: resource.nvidia.com/v1beta1
+ apiVersion: resource.nvidia.com/v1beta1
 kind: ComputeDomain
 metadata:
   name: distributed-training-domain
@@ -2214,7 +2214,7 @@ spec:
 2. Define a Pod using IMEX channels with a file named `imex-pod.yaml`:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: imex-distributed-training
@@ -2288,7 +2288,7 @@ spec:
 This requires P6e GB200 instances. 3. Deploy IMEX by applying the `ComputeDomain` and templates:
 
 ```
-kubectl apply -f imex-claim-template.yaml
+ kubectl apply -f imex-claim-template.yaml
 kubectl apply -f imex-compute-domain.yaml
 kubectl apply -f imex-pod.yaml
 ```
@@ -2296,31 +2296,31 @@ kubectl apply -f imex-pod.yaml
 4. Check the `ComputeDomain` status.
 
 ```
-kubectl get computedomain distributed-training-domain
+ kubectl get computedomain distributed-training-domain
 ```
 
 5. Monitor the IMEX daemon deployment.
 
 ```
-kubectl get pods -n nvidia-dra-driver -l resource.nvidia.com/computeDomain
+ kubectl get pods -n nvidia-dra-driver -l resource.nvidia.com/computeDomain
 ```
 
 6. Check the IMEX channels in the Pod:
 
 ```
-kubectl exec imex-distributed-training -- ls -la /dev/nvidia-caps-imex-channels/
+ kubectl exec imex-distributed-training -- ls -la /dev/nvidia-caps-imex-channels/
 ```
 
 7. View the Pod logs:
 
 ```
-kubectl logs imex-distributed-training
+ kubectl logs imex-distributed-training
 ```
 
 The following is an example of expected output:
 
 ```
-=== IMEX Channel Verification ===
+ === IMEX Channel Verification ===
 total 0
 drwxr-xr-x. 2 root root 80 Jul 8 10:45 .
 drwxr-xr-x. 6 root root 380 Jul 8 10:45 ..

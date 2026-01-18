@@ -8,7 +8,7 @@ too. On EKS, the audit logs are sent to Amazon Cloudwatch Logs. The
 audit policy for EKS is as follows:
 
 ```
-apiVersion: audit.k8s.io/v1beta1
+ apiVersion: audit.k8s.io/v1beta1
 kind: Policy
 rules:
   # Log full request and response for changes to aws-auth ConfigMap in kube-system namespace
@@ -178,7 +178,7 @@ that are managed by EKS. Instructions for enabling/disabling the control
 plane logs, which includes the logs for the Kubernetes API server, the
 controller manager, and the scheduler, along with the audit log, can be
 found here,
-[https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html#enabling-control-plane-log-export](../userguide/control-plane-logs.md#enabling-control-plane-log-export "../userguide/control-plane-logs.md#enabling-control-plane-log-export").
+https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html#enabling-control-plane-log-export.
 
 ###### Note
 
@@ -211,7 +211,7 @@ sample queries appear below:
 Lists updates to the `aws-auth` ConfigMap:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter verb in ["update", "patch"]
 | filter objectRef.resource = "configmaps" and objectRef.name = "aws-auth" and objectRef.namespace = "kube-system"
@@ -221,7 +221,7 @@ fields @timestamp, @message
 Lists creation of new or changes to validation webhooks:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | filter @logStream like "kube-apiserver-audit"
 | filter verb in ["create", "update", "patch"] and responseStatus.code = 201
 | filter objectRef.resource = "validatingwebhookconfigurations"
@@ -231,7 +231,7 @@ fields @timestamp, @message
 Lists create, update, delete operations to Roles:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter objectRef.resource="roles" and verb in ["create", "update", "patch", "delete"]
@@ -240,7 +240,7 @@ fields @timestamp, @message
 Lists create, update, delete operations to RoleBindings:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter objectRef.resource="rolebindings" and verb in ["create", "update", "patch", "delete"]
@@ -249,7 +249,7 @@ fields @timestamp, @message
 Lists create, update, delete operations to ClusterRoles:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter objectRef.resource="clusterroles" and verb in ["create", "update", "patch", "delete"]
@@ -258,7 +258,7 @@ fields @timestamp, @message
 Lists create, update, delete operations to ClusterRoleBindings:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter objectRef.resource="clusterrolebindings" and verb in ["create", "update", "patch", "delete"]
@@ -267,7 +267,7 @@ fields @timestamp, @message
 Plots unauthorized read operations against Secrets:
 
 ```
-fields @timestamp, @message
+ fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter objectRef.resource="secrets" and verb in ["get", "watch", "list"] and responseStatus.code="401"
@@ -277,7 +277,7 @@ fields @timestamp, @message
 List of failed anonymous requests:
 
 ```
-fields @timestamp, @message, sourceIPs.0
+ fields @timestamp, @message, sourceIPs.0
 | sort @timestamp desc
 | limit 100
 | filter user.username="system:anonymous" and responseStatus.code in ["401", "403"]

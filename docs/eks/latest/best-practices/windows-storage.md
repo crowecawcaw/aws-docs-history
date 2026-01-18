@@ -6,7 +6,7 @@ Before the introduction of the Container Storage Interface (CSI), all volume plu
 
 Out-of-tree volume plugins are developed independently of the Kubernetes code base, and are deployed (installed) on Kubernetes clusters as extensions. This gives vendors the ability to update drivers out-of-band, i.e. separately from the Kubernetes release cycle. This is largely possible because Kubernetes has created a storage interface or CSI that provides vendors a standard way of interfacing with k8s.
 
-You can check more about Amazon Elastic Kubernetes Services (EKS) storage classes and CSI Drivers on [https://docs.aws.amazon.com/eks/latest/userguide/storage.html](../userguide/storage.md "../userguide/storage.md")
+You can check more about Amazon Elastic Kubernetes Services (EKS) storage classes and CSI Drivers on https://docs.aws.amazon.com/eks/latest/userguide/storage.html
 
 ## In-tree Volume Plugin for Windows
 
@@ -22,13 +22,13 @@ A StorageClass provides a way for administrators to describe the "classes" of st
 You can check it by running the following command:
 
 ```
-kubectl describe storageclass gp2
+ kubectl describe storageclass gp2
 ```
 
 Output:
 
 ```
-Name:            gp2
+ Name:            gp2
 IsDefaultClass:  Yes
 Annotations:     kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"storage.k8s.io/v1","kind":"StorageClas
 ","metadata":{"annotations":{"storageclass.kubernetes.io/is-default-class":"true"},"name":"gp2"},"parameters":{"fsType"
@@ -46,7 +46,7 @@ Events:                <none>
 To create the new StorageClass to support **NTFS**, use the following manifest:
 
 ```
-kind: StorageClass
+ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: gp2-windows
@@ -60,7 +60,7 @@ volumeBindingMode: WaitForFirstConsumer
 Create the StorageClass by running the following command:
 
 ```
-kubectl apply -f NTFSStorageClass.yaml
+ kubectl apply -f NTFSStorageClass.yaml
 ```
 
 The next step is to create a Persistent Volume Claim (PVC).
@@ -74,7 +74,7 @@ Users need PersistentVolumes with different attributes, such as performance, for
 In the example below, the PVC has been created within the namespace windows.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ebs-windows-pv-claim
@@ -91,13 +91,13 @@ spec:
 Create the PVC by running the following command:
 
 ```
-kubectl apply -f persistent-volume-claim.yaml
+ kubectl apply -f persistent-volume-claim.yaml
 ```
 
 The following manifest creates a Windows Pod, setup the VolumeMount as `C:\Data` and uses the PVC as the attached storage on `C:\Data`.
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: windows-server-ltsc2019
@@ -138,7 +138,7 @@ spec:
 Test the results by accessing the Windows pod via PowerShell:
 
 ```
-kubectl exec -it podname powershell -n windows
+ kubectl exec -it podname powershell -n windows
 ```
 
 Inside the Windows Pod, run: `ls`
@@ -146,7 +146,7 @@ Inside the Windows Pod, run: `ls`
 Output:
 
 ```
-PS C:\> ls
+ PS C:\> ls
 
 
     Directory: C:\
@@ -183,7 +183,7 @@ An option is to use Amazon FSx for Windows File Server through an SMB feature ca
 In the example below, the path `G:\Directory\app-state` is an SMB share on the Windows Node.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: test-fsx

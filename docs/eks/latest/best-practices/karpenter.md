@@ -65,7 +65,7 @@ We strongly recommend that you pin well-known Amazon Machine Images (AMIs) used 
 Using `amiSelector` with an alias set to `@latest`, or using some other method that results in deploying untested AMIs as they are released, offers the risk of workload failures and downtime in your production clusters. As a result, we strongly recommend pinning tested working versions of AMIs for your production clusters while you test newer versions in non-production clusters. For example, you could set an alias in your NodeClass as follows:
 
 ```
-amiSelectorTerms
+ amiSelectorTerms
   - alias: al2023@v20240807
 ```
 
@@ -129,7 +129,7 @@ The following example shows how to avoid provisioning large Graviton
 instances.
 
 ```
-- key: node.kubernetes.io/instance-type
+ - key: node.kubernetes.io/instance-type
   operator: NotIn
   values:
   - m6g.16xlarge
@@ -171,7 +171,7 @@ you’ve created an STS VPC regional endpoint in your VPC. If not, you
 will see errors similar to those that appear below.
 
 ```
-{"level":"FATAL","time":"2024-02-29T14:28:34.392Z","logger":"controller","message":"Checking EC2 API connectivity, WebIdentityErr: failed to retrieve credentials\ncaused by: RequestError: send request failed\ncaused by: Post \"https://sts.<region>.amazonaws.com/\": dial tcp 54.239.32.126:443: i/o timeout","commit":"596ea97"}
+ {"level":"FATAL","time":"2024-02-29T14:28:34.392Z","logger":"controller","message":"Checking EC2 API connectivity, WebIdentityErr: failed to retrieve credentials\ncaused by: RequestError: send request failed\ncaused by: Post \"https://sts.<region>.amazonaws.com/\": dial tcp 54.239.32.126:443: i/o timeout","commit":"596ea97"}
 ```
 
 These changes are necessary in a private cluster because the Karpenter
@@ -186,7 +186,7 @@ template configs and an SSM parameter. If you do not have a SSM VPC
 endpoint in your VPC, it will cause the following error:
 
 ```
-{"level":"ERROR","time":"2024-02-29T14:28:12.889Z","logger":"controller","message":"Unable to hydrate the AWS launch template cache, RequestCanceled: request context canceled\ncaused by: context canceled","commit":"596ea97","tag-key":"karpenter.k8s.aws/cluster","tag-value":"eks-workshop"}
+ {"level":"ERROR","time":"2024-02-29T14:28:12.889Z","logger":"controller","message":"Unable to hydrate the AWS launch template cache, RequestCanceled: request context canceled\ncaused by: context canceled","commit":"596ea97","tag-key":"karpenter.k8s.aws/cluster","tag-value":"eks-workshop"}
 ...
 {"level":"ERROR","time":"2024-02-29T15:08:58.869Z","logger":"controller.nodeclass","message":"discovering amis from ssm, getting ssm parameter \"/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id\", RequestError: send request failed\ncaused by: Post \"https://ssm.<region>.amazonaws.com/\": dial tcp 67.220.228.252:443: i/o timeout","commit":"596ea97","ec2nodeclass":"default","query":"/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id"}
 ```
@@ -199,7 +199,7 @@ binary, but only updates that data when Karpenter is upgraded. Failed
 requests for pricing data will result in the following error messages:
 
 ```
-{"level":"ERROR","time":"2024-02-29T15:08:58.522Z","logger":"controller.pricing","message":"retreiving on-demand pricing data, RequestError: send request failed\ncaused by: Post \"https://api.pricing.<region>.amazonaws.com/\": dial tcp 18.196.224.8:443: i/o timeout; RequestError: send request failed\ncaused by: Post \"https://api.pricing.<region>.amazonaws.com/\": dial tcp 18.185.143.117:443: i/o timeout","commit":"596ea97"}
+ {"level":"ERROR","time":"2024-02-29T15:08:58.522Z","logger":"controller.pricing","message":"retreiving on-demand pricing data, RequestError: send request failed\ncaused by: Post \"https://api.pricing.<region>.amazonaws.com/\": dial tcp 18.196.224.8:443: i/o timeout; RequestError: send request failed\ncaused by: Post \"https://api.pricing.<region>.amazonaws.com/\": dial tcp 18.185.143.117:443: i/o timeout","commit":"596ea97"}
 ```
 
 Refer to this
@@ -233,7 +233,7 @@ Creating a NodePool with GPU and only allowing special workloads to run
 on these (expensive) nodes:
 
 ```
-# NodePool for GPU Instances with Taints
+ # NodePool for GPU Instances with Taints
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -277,7 +277,7 @@ spec:
 Deployment with toleration for the taint:
 
 ```
-# Deployment of GPU Workload will have tolerations defined
+ # Deployment of GPU Workload will have tolerations defined
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -295,7 +295,7 @@ include nodeAffinity. A Deployment could then use nodeSelectorTerms to
 match `billing-team`.
 
 ```
-# NodePool for regular EC2 instances
+ # NodePool for regular EC2 instances
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -341,7 +341,7 @@ spec:
 Deployment using nodeAffinity:
 
 ```
-# Deployment will have spec.affinity.nodeAffinity defined
+ # Deployment will have spec.affinity.nodeAffinity defined
 kind: Deployment
 metadata:
   name: workload-my-team
@@ -393,7 +393,7 @@ region as input parameters and provides you with a list of EC2 instances
 that satisfy those constraints.
 
 ```
-$ ec2-instance-selector --memory 4 --vcpus 2 --cpu-architecture x86_64 -r ap-southeast-1
+ $ ec2-instance-selector --memory 4 --vcpus 2 --cpu-architecture x86_64 -r ap-southeast-1
 c5.large
 c5a.large
 c5ad.large
@@ -486,7 +486,7 @@ For further information using limits with Karpenter, see
 Resource Limits](https://karpenter.sh/docs/concepts/nodepools/#speclimits "https://karpenter.sh/docs/concepts/nodepools/#speclimits") in the Karpenter documentation.
 
 ```
-spec:
+ spec:
   limits:
     cpu: 1000
     memory: 1000Gi

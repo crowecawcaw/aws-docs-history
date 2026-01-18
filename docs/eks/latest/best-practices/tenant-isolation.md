@@ -45,7 +45,7 @@ Soft multi-tenancy implemented with Namespaces does not allow you to provide ten
 
 ###### Warning
 
-With soft-multi-tenancy, tenants retain the ability to query CoreDNS for all services that run within the cluster by default. An attacker could exploit this by running dig SRV `**.**.svc.cluster.local` from any pod in the cluster. If you need to restrict access to DNS records of services that run within your clusters, consider using the Firewall or Policy plugins for CoreDNS. For additional information, see [https://github.com/coredns/policy#kubernetes-metadata-multi-tenancy-policy](https://github.com/coredns/policy#kubernetes-metadata-multi-tenancy-policy "https://github.com/coredns/policy#kubernetes-metadata-multi-tenancy-policy").
+With soft-multi-tenancy, tenants retain the ability to query CoreDNS for all services that run within the cluster by default. An attacker could exploit this by running dig SRV `**.**.svc.cluster.local` from any pod in the cluster. If you need to restrict access to DNS records of services that run within your clusters, consider using the Firewall or Policy plugins for CoreDNS. For additional information, see https://github.com/coredns/policy#kubernetes-metadata-multi-tenancy-policy.
 
 [Kiosk](https://github.com/kiosk-sh/kiosk "https://github.com/kiosk-sh/kiosk") is an open source project that
 can aid in the implementation of soft multi-tenancy. It is implemented
@@ -221,7 +221,7 @@ include [Firecracker](https://firecracker-microvm.github.io/ "https://firecracke
 
 For additional information about the effort to make Firecracker a
 supported runtime for EKS, see
-[https://threadreaderapp.com/thread/1238496944684597248.html](https://threadreaderapp.com/thread/1238496944684597248.html "https://threadreaderapp.com/thread/1238496944684597248.html").
+https://threadreaderapp.com/thread/1238496944684597248.html.
 
 ### Open Policy Agent (OPA) & Gatekeeper
 
@@ -277,7 +277,7 @@ nodes that are labeled with the following key/value:
 `node-restriction.kubernetes.io/tenant: tenants-x`.
 
 ```
-...
+ ...
 spec:
   affinity:
     nodeAffinity:
@@ -314,7 +314,7 @@ being scheduled. The below taint uses a key-value pair of
 `tenant: tenants-x`.
 
 ```
-...
+ ...
     taints:
       - key: tenant
         value: tenants-x
@@ -328,7 +328,7 @@ scheduled onto the node, the respective pod specifications must include
 a `toleration` to the taint, as seen below.
 
 ```
-...
+ ...
   tolerations:
   - effect: NoSchedule
     key: tenant
@@ -370,7 +370,7 @@ scheduling. An example OPA/Gatekeeper policy that adds a node affinity
 is seen below.
 
 ```
-apiVersion: mutations.gatekeeper.sh/v1alpha1
+ apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: Assign
 metadata:
   name: mutator-add-nodeaffinity-pod
@@ -406,7 +406,7 @@ specification, using the same matching criteria of target namespace and
 groups, kinds, and versions.
 
 ```
-apiVersion: mutations.gatekeeper.sh/v1alpha1
+ apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: Assign
 metadata:
   name: mutator-add-toleration-pod
@@ -445,7 +445,7 @@ taint. To verify this, we can see the snippets of output from two
 and get the pods in the `tenants-x` namespace.
 
 ```
-kubectl get nodes -l tenant=tenants-x
+ kubectl get nodes -l tenant=tenants-x
 NAME
 ip-10-0-11-255...
 ip-10-0-28-81...
@@ -469,7 +469,7 @@ isolated.
 An example mutated pod specification is seen below.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: tenant-test-pod

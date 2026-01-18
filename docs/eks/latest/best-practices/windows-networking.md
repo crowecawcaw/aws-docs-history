@@ -55,7 +55,7 @@ To address this issue, we leverage Direct Server Return (DSR). DSR is an impleme
 DSR is enabled by default in Windows Server SAC EKS Optimized AMIs. For Windows Server 2019 LTSC EKS Optimized AMIs, you will need to enable it during instance provisioning using the script below and by using Windows Server 2019 Full or Core as the amiFamily in the `eksctl` nodeGroup. See [eksctl custom AMI](https://eksctl.io/usage/custom-ami-support/ "https://eksctl.io/usage/custom-ami-support/") for additional information.
 
 ```
-nodeGroups:
+ nodeGroups:
 - name: windows-ng
   instanceType: c5.xlarge
   minSize: 1
@@ -68,7 +68,7 @@ nodeGroups:
 In order to utilize DSR in Windows Server 2019 and above, you will need to specify the following [**kube-proxy**](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#load-balancing-and-services "https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#load-balancing-and-services") flags during instance startup. You can do this by adjusting the userdata script associated with the [self-managed node groups Launch Template](../userguide/launch-windows-workers.md "../userguide/launch-windows-workers.md").
 
 ```
-<powershell>
+ <powershell>
 [string]$EKSBinDir = "$env:ProgramFiles\Amazon\EKS"
 [string]$EKSBootstrapScriptName = 'Start-EKSBootstrap.ps1'
 [string]$EKSBootstrapScriptFile = "$EKSBinDir\$EKSBootstrapScriptName"

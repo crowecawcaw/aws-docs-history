@@ -17,7 +17,7 @@ gain access to sensitive information bound to the host, including
 Secrets and ConfigMaps. Below is a list of the default capabilities
 assigned to containers. For additional information about each
 capability, see
-[http://man7.org/linux/man-pages/man7/capabilities.7.html](http://man7.org/linux/man-pages/man7/capabilities.7.html "http://man7.org/linux/man-pages/man7/capabilities.7.html").
+http://man7.org/linux/man-pages/man7/capabilities.7.html.
 
 `CAP_AUDIT_WRITE, CAP_CHOWN, CAP_DAC_OVERRIDE, CAP_FOWNER, CAP_FSETID, CAP_KILL, CAP_MKNOD, CAP_NET_BIND_SERVICE, CAP_NET_RAW, CAP_SETGID, CAP_SETUID, CAP_SETFCAP, CAP_SETPCAP, CAP_SYS_CHROOT`
 
@@ -198,7 +198,7 @@ These modes and the profile (restriction) levels are configured at the
 Kubernetes Namespace level, using labels, as seen in the below example.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Namespace
 metadata:
   name: policy-test
@@ -223,7 +223,7 @@ will expose the message from the failed pod(s) `.status.conditions`
 element, as seen below.
 
 ```
-...
+ ...
 status:
   conditions:
     - lastTransitionTime: "2022-01-20T01:02:08Z"
@@ -249,7 +249,7 @@ violations. A `kubectl`
 _Warning_ message is seen below.
 
 ```
-Warning: would violate PodSecurity "restricted:latest": allowPrivilegeEscalation != false (container "test" must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container "test" must set securityContext.capabilities.drop=["ALL"]), runAsNonRoot != true (pod or container "test" must set securityContext.runAsNonRoot=true), seccompProfile (pod or container "test" must set securityContext.seccompProfile.type to "RuntimeDefault" or "Localhost")
+ Warning: would violate PodSecurity "restricted:latest": allowPrivilegeEscalation != false (container "test" must set securityContext.allowPrivilegeEscalation=false), unrestricted capabilities (container "test" must set securityContext.capabilities.drop=["ALL"]), runAsNonRoot != true (pod or container "test" must set securityContext.runAsNonRoot=true), seccompProfile (pod or container "test" must set securityContext.seccompProfile.type to "RuntimeDefault" or "Localhost")
 deployment.apps/test created
 ```
 
@@ -261,7 +261,7 @@ a cumulative manner. As seen below, the multiple modes can be configured
 in a single namespace.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Namespace
 metadata:
   name: policy-test
@@ -277,7 +277,7 @@ are also provided at the pod level. In fact multiple PSA labels can use
 different profile levels, as seen below.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Namespace
 metadata:
   name: policy-test
@@ -300,7 +300,7 @@ messages; however, _enforce_ mode will not delete the pods. The warning
 messages are seen below.
 
 ```
-Warning: existing pods in namespace "policy-test" violate the new PodSecurity enforce level "restricted:latest"
+ Warning: existing pods in namespace "policy-test" violate the new PodSecurity enforce level "restricted:latest"
 Warning: test-688f68dc87-htm8x: allowPrivilegeEscalation != false, unrestricted capabilities, runAsNonRoot != true, seccompProfile
 namespace/policy-test configured
 ```
@@ -331,7 +331,7 @@ resource that gets mounted as a volume into the
 container.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: pod-security-webhook
@@ -364,7 +364,7 @@ _ValidatingWebhookConfiguration_ resource, seen below, the
 _pod-security-webhook_ namespace is also exempted from configured PSS.
 
 ```
-...
+ ...
 webhooks:
   # Audit annotations will be prefixed with this name
   - name: "pod-security-webhook.kubernetes.io"
@@ -473,7 +473,7 @@ could be better. To make the user experience better, multiple PSA modes
 (audit, enforce, warn) should be used.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Namespace
 metadata:
   name: policy-test
@@ -552,7 +552,7 @@ configure the `spec.containers.volumeMounts` as `readOnly`, for
 example:
 
 ```
-volumeMounts:
+ volumeMounts:
 - name: hostPath-volume
     readOnly: true
     mountPath: /host-path
@@ -673,7 +673,7 @@ the automatic mounting of a ServiceAccount token on a pod spec, or for
 all pods that use a particular ServiceAccount.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-no-automount
@@ -682,7 +682,7 @@ spec:
 ```
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: sa-no-automount
@@ -704,7 +704,7 @@ underlying node’s DNS resolution. See the
 docs on Pod DNS policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") for more information.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-no-service-info
@@ -722,7 +722,7 @@ consider writing to a temporary directory or attach and mount a volume.
 You can enforce this by setting the pod’s SecurityContext as follows:
 
 ```
-...
+ ...
 securityContext:
   readOnlyRootFilesystem: true
 ...

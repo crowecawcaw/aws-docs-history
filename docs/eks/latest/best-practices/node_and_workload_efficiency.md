@@ -20,7 +20,7 @@ Node selection is rarely a one-size-fits-all proposition. Often it is best to sp
 
 ###### Note
 
-Another factor to consider with very large node sizes is since CGROUPS do not hide the total number of vCPU from the containerized application. Dynamic runtimes can often spawn an unintentional number of OS threads, creating latency that is difficult to troubleshoot. For these application [CPU pinning](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy "https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy") is recommend. For a deeper exploration of topic please see the following video [https://www.youtube.com/watch?v=NqtfDy_KAqg](https://www.youtube.com/watch?v=NqtfDy_KAqg "https://www.youtube.com/watch?v=NqtfDy_KAqg")
+Another factor to consider with very large node sizes is since CGROUPS do not hide the total number of vCPU from the containerized application. Dynamic runtimes can often spawn an unintentional number of OS threads, creating latency that is difficult to troubleshoot. For these application [CPU pinning](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy "https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy") is recommend. For a deeper exploration of topic please see the following video https://www.youtube.com/watch?v=NqtfDy\_KAqg
 
 ## Node Bin-packing
 
@@ -133,7 +133,7 @@ topk(3, ((irate(node_pressure_io_stalled_seconds_total[1m])) * 100))
 
 ###### Note
 
-For more on Pressure stall metrics, see [https://facebookmicrosites.github.io/psi/docs/overview\*](https://facebookmicrosites.github.io/psi/docs/overview* "https://facebookmicrosites.github.io/psi/docs/overview*")
+For more on Pressure stall metrics, see https://facebookmicrosites.github.io/psi/docs/overview\*
 
 With these metrics we can tell if threads are waiting on CPU, or even if every thread on the box is stalled waiting on resource like memory or I/O. For example, we could see what percentage every thread on the instance was stalled waiting on I/O over the period of 1 min.
 
@@ -156,7 +156,7 @@ As an example, we can scaling on the highest of three values (see below). We sca
 This is just to show the flexibility of the auto-scaling API, we recommend against overly complex rules that can be difficult to troubleshoot in production.
 
 ```
-apiVersion: autoscaling/v2
+ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: php-apache

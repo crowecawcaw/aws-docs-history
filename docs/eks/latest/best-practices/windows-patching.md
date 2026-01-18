@@ -35,7 +35,7 @@ The output below from `docker image ls` , the size of the fluentd v1.14-windows-
 In practice, during the pull operation only the **compressed 533.05MB** will be downloaded and extracted.
 
 ```
-REPOSITORY                                                              TAG                        IMAGE ID       CREATED         SIZE
+ REPOSITORY                                                              TAG                        IMAGE ID       CREATED         SIZE
 111122223333.dkr.ecr.us-east-1.amazonaws.com/fluentd-windows-coreltsc   latest                     721afca2c725   7 weeks ago     6.96GB
 fluent/fluentd                                                          v1.14-windows-ltsc2019-1   721afca2c725   7 weeks ago     6.96GB
 amazonaws.com/eks/pause-windows                                         latest                     6392f69ae6e7   10 months ago   255MB

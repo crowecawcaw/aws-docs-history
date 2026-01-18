@@ -23,7 +23,7 @@ If you know the name and namespace of the offending pod, you can
 identify the worker node running the pod as follows:
 
 ```
-kubectl get pods <name> --namespace <namespace> -o=jsonpath='{.spec.nodeName}{"\n"}'
+ kubectl get pods <name> --namespace <namespace> -o=jsonpath='{.spec.nodeName}{"\n"}'
 ```
 
 If a [Workload
@@ -33,7 +33,7 @@ the following command to list all the pods of the Workload Resource and
 the nodes they are running on:
 
 ```
-selector=$(kubectl get deployments <name> \
+ selector=$(kubectl get deployments <name> \
  --namespace <namespace> -o json | jq -j \
 '.spec.selector.matchLabels | to_entries | .[] | "\(.key)=\(.value)"')
 
@@ -52,7 +52,7 @@ compromised. You can identify all the pods using the service account and
 nodes they are running on with the following command:
 
 ```
-kubectl get pods -o json --namespace <namespace> | \
+ kubectl get pods -o json --namespace <namespace> | \
     jq -r '.items[] |
     select(.spec.serviceAccount == "<service account name>") |
     "\(.metadata.name) \(.spec.nodeName)"'
@@ -69,7 +69,7 @@ pods using the image and nodes they are running on with the following
 command:
 
 ```
-IMAGE=<Name of the malicious/compromised image>
+ IMAGE=<Name of the malicious/compromised image>
 
 kubectl get pods -o json --all-namespaces | \
     jq -r --arg image "$IMAGE" '.items[] |
@@ -84,7 +84,7 @@ by severing all connections to the pod. The following Network Policy
 will apply to a pod with the label `app=web`.
 
 ```
-apiVersion: networking.k8s.io/v1
+ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny

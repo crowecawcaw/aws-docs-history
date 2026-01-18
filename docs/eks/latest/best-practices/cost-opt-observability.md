@@ -96,13 +96,13 @@ public static void main(String[] args) {
 In a development environment, change your log level to `DEBUG`, as this can help you debug issues or catch potential ones before they get into production.
 
 ```
-      log.setLevel(Level.DEBUG);
+       log.setLevel(Level.DEBUG);
 ```
 
 In a production environment, consider modifying your log level to `ERROR` or `FATAL`. This will output log only when your application has errors, reducing the log output and help you focus on important data about your application status.
 
 ```
-      log.setLevel(Level.ERROR);
+       log.setLevel(Level.ERROR);
 ```
 
 You can fine tune various Kubernetes components log levels. For example, if you are using [Bottlerocket](https://bottlerocket.dev/ "https://bottlerocket.dev/") as your EKS Node operating system, there are configuration settings that allow you to adjust the kubelet process log level. A snippet of this configuration setting is below. Note the default [log level](https://github.com/bottlerocket-os/bottlerocket/blob/3f716bd68728f7fd825eb45621ada0972d0badbb/README.md?plain=1#L528 "https://github.com/bottlerocket-os/bottlerocket/blob/3f716bd68728f7fd825eb45621ada0972d0badbb/README.md?plain=1#L528") of **2** which adjusts the logging verbosity of the `kubelet` process.
@@ -181,7 +181,7 @@ The first cost reduction strategy is to reduce the number of metrics you are col
 Here is an example prometheus scrape config where we are using the `relabel_config` to keep only kubelet metrics and `metric_relabel_config` to drop all container metrics.
 
 ```
-  kubernetes_sd_configs:
+   kubernetes_sd_configs:
   - role: endpoints
     namespaces:
       names:
@@ -211,13 +211,13 @@ In EKS environments with many metrics and dimensions/labels per metric (Cluster,
 In order to identify high cardinality metrics in prometheus you can run the following PROMQL query to determine which scrape targets have the highest number of metrics (cardinality):
 
 ```
-topk_max(5, max_over_time(scrape_samples_scraped[1h]))
+ topk_max(5, max_over_time(scrape_samples_scraped[1h]))
 ```
 
 and the following PROMQL query can help you determine which scrape targets have the highest metrics churn (how many new metrics series were created in a given scrape) rates :
 
 ```
-topk_max(5, max_over_time(scrape_series_added[1h]))
+ topk_max(5, max_over_time(scrape_series_added[1h]))
 ```
 
 If you are using grafana you can use Grafana Lab’s Mimirtool to analyze your grafana dashboards and prometheus rules to identify unused high-cardinality metrics. Follow [this guide](https://grafana.com/docs/grafana-cloud/account-management/billing-and-usage/control-prometheus-metrics-usage/usage-analysis-mimirtool/?pg=blog&plcmt=body-txt#analyze-and-reduce-metrics-usage-with-grafana-mimirtool "https://grafana.com/docs/grafana-cloud/account-management/billing-and-usage/control-prometheus-metrics-usage/usage-analysis-mimirtool/?pg=blog&plcmt=body-txt#analyze-and-reduce-metrics-usage-with-grafana-mimirtool") on how to use the `mimirtool analyze` and `mimirtool analyze prometheus` commands to identify active metrics which are not referenced in your dashboards.
@@ -269,7 +269,7 @@ For example, you have java application that you want to debug the traces of all 
 **Configure via the SDK to load sampling rules from a JSON document**
 
 ```
-{
+ {
 "version": 2,
   "rules": [
     {
