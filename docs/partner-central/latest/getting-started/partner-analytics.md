@@ -42,14 +42,3 @@ In addition to the preset date filters, or set a custom date range. Note that Di
 - Training and Certifications date defaults to Net New Certification is date of when Certification was awarded for first time (does not include re-certification), Net New Accreditation uses date of course completion, and Net New Training leverages the date of course completion.
 
 ###### Topics
-
-- [At a glance](partner-analytics-at-a-glance.md "partner-analytics-at-a-glance.md")
-- [Opportunity pipeline analysis](partner-analytics-opportunity-pipeline.md "partner-analytics-opportunity-pipeline.md")
-- [Lead pipeline analysis](partner-analytics-lead-pipeline.md "partner-analytics-lead-pipeline.md")
-- [Funding and investments](partner-analytics-funding.md "partner-analytics-funding.md")
-- [Resell revenue and discounts](partner-analytics-resell.md "partner-analytics-resell.md")
-- [Marketing Campaign analysis](partner-analytics-marketing.md "partner-analytics-marketing.md")
-- [Training and certifications](partner-analytics-training-certifications.md "partner-analytics-training-certifications.md")
-- [MAP Partner Performance Index (PPI)](map-partner-performance-index.md "map-partner-performance-index.md")
-- [Export (Download) Data](export-download-data.md "export-download-data.md")
-- [Data Refresh and Denominations](data-refresh-and-denominations.md "data-refresh-and-denominations.md")

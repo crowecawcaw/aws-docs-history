@@ -22,3 +22,5 @@ Once billing transfer is active, begin the account migration process. From the c
 ###### Important
 
 Ensure billing transfer is active before initiating any member account transfers. This maintains proper billing responsibility throughout the migration process.
+
+###### Topics

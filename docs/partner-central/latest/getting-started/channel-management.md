@@ -34,7 +34,3 @@ Create relationships to define how you work with each customer or downstream sel
 Add service periods to relationships to enforce minimum notice periods or fixed commitment periods on billing transfer. Partner service periods are added to govern changes to billing transfer, and must be accepted by the customer's AWS management account. 4. **Monitor billing transfer status and relationship list**
 
 Track the status of billing transfers across all program management accounts and relationships from a central location.
-
-###### Topics
-
-- [Mapping IAM roles to a channel management user](channel-management-user-mapping.md "channel-management-user-mapping.md")

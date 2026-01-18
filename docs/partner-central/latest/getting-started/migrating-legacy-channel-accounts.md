@@ -37,6 +37,3 @@ Move individual member accounts from your existing AWS Organization to a new cus
 - Longer migration timeline than full organization transfer
 
 ###### Topics
-
-- [Transferring Organization ownership](transferring-organization-ownership.md "transferring-organization-ownership.md")
-- [Transferring member accounts](transferring-member-accounts.md "transferring-member-accounts.md")
