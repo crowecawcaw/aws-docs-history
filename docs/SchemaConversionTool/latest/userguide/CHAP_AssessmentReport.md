@@ -1,17 +1,40 @@
-# Assessment report warning message
+# Using the assessment report in the AWS Schema Conversion Tool
 
-To assess the complexity of converting to another database engine, AWS SCT requires
-access to objects in your source database. When SCT can’t perform an assessment
-because problems were encountered during scanning, a warning message is issued that
-indicates overall conversion percentage is reduced.
+An important part of the AWS Schema Conversion Tool is the assessment report that it generates to estimate the
+complexity of your schema conversion. This _database migration assessment report_
+summarizes all of the schema conversion tasks and details the action items for schema that
+can't be converted to the DB engine of your target DB instance. You can view the report in
+the application or export it as a comma-separated value (CSV) or PDF file.
 
-![Assessment report warning message](images/assessment-report-warning-message.png)
-Following are reasons why AWS SCT might encounter problems during scanning:
+If you add multiple source and target databases in a single project, AWS SCT aggregates
+the reports for all conversion pairs into one database migration assessment report.
 
-- The user account connected to the database doesn’t have access to all
-  of the needed objects.
-- An object cited in the schema no longer exists in the database.
-- SCT is trying to assess an object that is encrypted.
-  For more information about SCT required security permissions and privileges for your
-  database, see [Connecting to source databases with the AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md") for the appropriate source database
-  section in this guide.
+You can use virtual target database platforms to generate an assessment report and
+understand the complexity of migration to a selected database platform. In this case,
+you don't need to connect to your target database platform. For example, you can use Babelfish
+for Aurora PostgreSQL as a virtual target database platform to create
+a database migration assessment report. For more information on virtual
+target database platforms, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
+
+The migration assessment report includes the following:
+
+- Executive summary
+- License evaluation
+- Cloud support, indicating any features in the source database not available on the
+  target.
+- Recommendations, including conversion of server objects, backup suggestions, and
+  linked server changes
+  The report also includes estimates of the amount of effort that it will take to write the
+  equivalent code for your target DB instance that can't be converted automatically.
+
+If you use AWS SCT to migrate your existing schema to an Amazon RDS DB instance, then you can
+use the report to help you analyze requirements for moving to the AWS Cloud and change
+your license type.
+
+###### Topics
+
+- [Creating an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Viewing an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Saving the assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Configuring an assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")
+- [Creating a multiserver assessment report in AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md")

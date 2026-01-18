@@ -1,32 +1,24 @@
-# Mapping to virtual targets in the AWS Schema Conversion Tool
+# Mapping new data types in the AWS Schema Conversion Tool
 
-You can see how AWS SCT converts your source database schema to any supported target
-database platform. To do so, you don't need to connect to an existing target database.
-Instead, you can choose a virtual target database platform in the right panel when
-you create a mapping rule. For more information, see [Mapping new data types in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). Make sure that you expand the
-**Servers**, **NoSQL clusters**, and
-**ETL** nodes in the right panel to see the list of virtual target
-database platforms.
+You can create multiple mapping rules in a single project. AWS SCT saves mapping rules
+as part of your project. With your project open, use the following procedure
+to add a new mapping rule.
 
-AWS SCT supports the following virtual target database platforms:
+###### To create mapping rules
 
-- Amazon Aurora MySQL-Compatible Edition
-- Amazon Aurora PostgreSQL-Compatible Edition
-- Amazon DynamoDB
-- Amazon Redshift
-- Amazon Redshift and AWS Glue
-- AWS Glue
-- AWS Glue Studio
-- Babelfish for Aurora PostgreSQL
-- MariaDB
-- Microsoft SQL Server
-- MySQL
-- Oracle
-- PostgreSQL
+1. On the **View** menu, choose **Mapping
+   view**.
+2. In the left panel, choose a schema or a database to add to the mapping rule.
+3. In the right panel, choose a target database platform for the selected
+   source schema or database.
 
-If you use Babelfish for Aurora PostgreSQL as a target database platform,
-you can only create a database migration assessment report.
-For more information, see [Using the assessment report in the AWS Schema Conversion Tool](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md").
+You can choose a virtual database platform as a target. For more information,
+see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md"). 4. Choose **Create mapping**.
 
-If you use a virtual target database platform, you can save converted code to a file.
-For more information, see [Saving your converted schema to a file](CHAP_Converting.md#CHAP_Converting.Saving "CHAP_Converting.md#CHAP_Converting.Saving").
+AWS SCT adds this new mapping rule to the
+**Server mappings** list.
+Add mapping rules for all conversion pairs. To create an assessment report or convert
+database schemas, choose **Main view** on the **View**
+menu.
+
+AWS SCT highlights in bold all schema objects that are part of a mapping rule.

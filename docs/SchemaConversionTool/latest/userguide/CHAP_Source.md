@@ -1,32 +1,40 @@
-# Connecting Azure Synapse Analytics with AWS Schema Conversion Tool
+# Connecting Greenplum Database with AWS Schema Conversion Tool
 
-You can use AWS SCT to convert schemas, code objects, and application code from Azure Synapse Analytics to Amazon Redshift.
+You can use AWS SCT to convert schemas, code objects, and application code from Greenplum Database to Amazon Redshift.
 
-## Privileges for Azure Synapse Analytics
-
-as a source database
-
-The following privileges are required for using an Azure Synapse Analytics
-data warehouse as a source:
-
-- VIEW DEFINITION
-- VIEW DATABASE STATE
-
-Apply the privileges for each database whose schema you are converting.
-
-## Connecting to Azure Synapse Analytics
-
-as a source
-
-Use the following procedure to connect to your Azure Synapse Analytics data warehouse with the AWS Schema Conversion Tool.
-
-###### To connect to an Azure Synapse Analytics data warehouse as a
+## Privileges for Greenplum Database as a
 
 source
 
-1. In the AWS Schema Conversion Tool,
-   choose **Add source**.
-2. Choose **Azure Synapse Analytics**, then choose
+The following privileges are required for using Greenplum Database as a source:
+
+- CONNECT ON DATABASE `<database_name>`
+- USAGE ON SCHEMA `<schema_name>`
+- SELECT ON `<schema_name>.<table_name>`
+- SELECT ON SEQUENCE `<schema_name>.<sequence_name>`
+
+In the preceding example, replace placeholders as following:
+
+- Replace `database_name` with
+  the name of the source database.
+- Replace `schema_name` with
+  the name of the source schema.
+- Replace `table_name` with
+  the name of the source table.
+- Replace `sequence_name` with
+  the name of the sequence name.
+
+## Connecting to Greenplum Database as a
+
+source
+
+Use the following procedure to connect to your Greenplum source database
+with AWS SCT.
+
+###### To connect to a Greenplum source database
+
+1. In the AWS Schema Conversion Tool, choose **Add source**.
+2. Choose **SAP ASE**, then choose
    **Next**.
 
 The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
@@ -43,7 +51,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     	2. Choose **Populate** to automatically fill in
     	 all values in the database connection dialog box from Secrets Manager.
     For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
-    * To enter the connection information for the Azure Synapse Analytics data warehouse manually,
+    * To enter the Greenplum source database credentials manually,
      use the following instructions:
 
 
@@ -51,27 +59,29 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
 
     | Parameter | Action |
     | --- | --- |
-    | **Server name** | Enter the Domain Name Service (DNS) name or IP address of your source database server. |
-    | **SQL pool** | Enter the name of the Azure SQL pool. |
+    | **Server name** | Enter the Domain Name System (DNS) name or IP address of your source database server. |
+    | **Server port** | Enter the port used to connect to your source database server. |
+    | **Database** | Enter the name of the Greenplum database. |
     | **User name*<br>• and **Password** | Enter the database credentials to connect to your source database server.<br>AWS SCT uses the password to connect to your source database<br>only when you choose to connect to your database in a project.<br>To guard against exposing the password for your source database,<br>AWS SCT doesn't store the password by default. If you close your<br>AWS SCT project and reopen it, you are prompted for the password<br>to connect to your source database as needed. |
-    | **Use SSL** | Choose this option to use Secure Sockets<br>Layer (SSL) to connect to your database. Provide<br>the following additional information, as<br>applicable, on the **SSL**<br>tab:<br>+ **Trust server<br>certificate**: Choose this option to<br>trust the server certificate.<br>+ **Trust store**: A trust store that you<br>set up in the **Global settings**. |
-    | **Store password** | AWS SCT creates a secure vault to store<br>SSL certificates and database passwords. By<br>turning on this option, you can store the database<br>password and connect quickly to the database<br>without entering the password. |
+    | **Use SSL** | Choose this option to use Secure Sockets Layer (SSL) to connect to<br>your database. Provide the following additional information, as<br>applicable, on the **SSL*<br>• tab:<br>+ **Verify server certificate**: Select this option<br>to verify the server certificate by using a trust store.<br>+ **Trust store**: The location of a trust<br>store containing certificates. |
+    | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database<br>passwords. By turning this option on, you can store the database password<br>and connect quickly to the database without having to enter the password. |
+    | **Greenplum Database driver path** | Enter the path to the driver to use to connect to the source<br>database. For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
-5. Choose **Test Connection** to verify that AWS SCT
-   can connect to your source database.
+5. Choose **Test Connection** to verify
+   that AWS SCT can connect to your source database.
 6. Choose **Connect** to connect to your source database.
 
-## Azure Synapse Analytics to Amazon Redshift conversion
+## Greenplum to Amazon Redshift conversion
 
 settings
 
-To edit Azure Synapse Analytics to Amazon Redshift conversion settings, choose **Settings**
+To edit Greenplum to Amazon Redshift conversion settings, choose **Settings**
 in AWS SCT, and then choose **Conversion settings**. From the upper
-list, choose **Azure Synapse**, and then choose **Azure Synapse –
-Amazon Redshift**. AWS SCT displays all available settings for Azure Synapse Analytics to Amazon Redshift
+list, choose **Greenplum**, and then choose **Greenplum –
+Amazon Redshift**. AWS SCT displays all available settings for Greenplum to Amazon Redshift
 conversion.
 
-Azure Synapse Analytics to Amazon Redshift conversion settings in AWS SCT include options for the
+Greenplum to Amazon Redshift conversion settings in AWS SCT include options for the
 following:
 
 - To limit the number of comments with action items in the converted
@@ -133,17 +143,17 @@ encoding for KEY columns**. You can select this option only
 when you select the **Use compression encoding**
 option.
 
-## Azure Synapse Analytics to Amazon Redshift conversion
+## Greenplum to Amazon Redshift conversion
 
 optimization settings
 
-To edit Azure Synapse Analytics to Amazon Redshift conversion optimization settings, choose **Settings**
+To edit Greenplum to Amazon Redshift conversion optimization settings, choose **Settings**
 in AWS SCT, and then choose **Conversion settings**. From the upper list, choose
-**Azure Synapse**, and then choose **Azure Synapse – Amazon Redshift**. In the
+**Greenplum**, and then choose **Greenplum – Amazon Redshift**. In the
 left pane, choose **Optimization strategies**. AWS SCT displays conversion
-optimization settings for Azure Synapse Analytics to Amazon Redshift conversion.
+optimization settings for Greenplum to Amazon Redshift conversion.
 
-Azure Synapse Analytics to Amazon Redshift conversion optimization settings in AWS SCT include options for the
+Greenplum to Amazon Redshift conversion optimization settings in AWS SCT include options for the
 following:
 
 - To work with automatic table optimization. To do so, select
