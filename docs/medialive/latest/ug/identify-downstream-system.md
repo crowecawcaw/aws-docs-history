@@ -34,16 +34,9 @@ When you know what your downstream systems are, return to this section.
 
 3. Make sure that MediaLive includes an _output group_ that
    supports the output format and protocol that the downstream system requires. See [Output types supported in MediaLive](outputs-supported-containers.md "outputs-supported-containers.md").
-4. If your preferred downstream system is another AWS media service, [read this for information about choosing the service](dss-compare-elemental-services.md#dss-choose-service "dss-compare-elemental-services.md#dss-choose-service").
-5. If you are
-   delivering to a Microsoft Smooth Streaming server, the setup depends on whether you want to
-   protect your content with a digital rights management (DRM) solution. DRM prevents
-   unauthorized people from accessing the content.
-   - If you don't want to implement DRM, then create a Microsoft Smooth output group.
-   - If you do want to implement DRM, you can create an HLS or MediaPackage output group
-     to send the output to AWS Elemental MediaPackage, then use AWS Elemental MediaPackage to add DRM. You will then set up
-     AWS Elemental MediaPackage to deliver to the Microsoft Smooth origin server.
-
+4. If your preferred downstream system is another AWS media service, [read this for information about choosing the service](dss-choose-service.md "dss-choose-service.md").
+5. If your downstream system supports Microsoft Smooth Streaming, see [Options for handling Microsoft Smooth
+   output](downstream-system-for-mss.md "downstream-system-for-mss.md") for options.
 6. Decide if you want to create an Archive output group in order to produce an archive file
    of the content. An archive file is a supplement to streaming; it isn't itself a streaming
    output. Typically, you create an archive file as a permanent file version of the streaming
@@ -61,3 +54,11 @@ groups:
     * One RTMP output group sending to the downstream system of a social media
      site.
     * One Archive output group as a record.
+
+###### Topics
+
+- [Choosing among the AWS media services](dss-choose-service.md "dss-choose-service.md")
+- [Choosing between the HLS output group and
+  MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md")
+- [Options for handling Microsoft Smooth
+  output](downstream-system-for-mss.md "downstream-system-for-mss.md")

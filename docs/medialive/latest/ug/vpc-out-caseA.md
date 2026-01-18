@@ -4,6 +4,7 @@ This use case applies if the MediaLive channel won't have inputs that use the
 VPC:
 
 - No MediaConnect inputs
+- No MediaConnect Router inputs
 - No CDI inputs
 - No RTMP VPC inputs
 - No RTP VPC inputs

@@ -22,7 +22,8 @@ to plan a workflow.
    that doesn't support redundancy. See [Identify resiliency requirements](plan-redundancy.md "plan-redundancy.md").
 4. Assess the source content to make sure it's compatible with MediaLive
    and with the outputs that you need to create. For example, make sure
-   that the source content has a video codec that MediaLive supports. See [Assess the upstream system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
+   that the source content has a video codec that MediaLive supports. See [Assess the upstream
+   system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
 
 After you have performed these four steps, you know whether MediaLive
 can handle your transcoding request. 5. Collect identifiers for the source content. For example, ask the

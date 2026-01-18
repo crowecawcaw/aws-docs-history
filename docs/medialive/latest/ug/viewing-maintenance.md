@@ -1,7 +1,7 @@
 # Viewing maintenance information
 
 You can view maintenance information from the MediaLive console or from the Personal Health
-Dashboard in AWS Health Dashboard.
+Dashboard in Health Dashboard.
 
 ## Viewing information on the MediaLive
 
@@ -21,7 +21,7 @@ Dashboard
 On the Personal Health Dashboard, you can view information upcoming maintenance events
 for all channels in your AWS account.
 
-1. Open the AWS Health Dashboard at
+1. Open the Health Dashboard at
    [https://phd.aws.amazon.com/phd/home#/](https://phd.aws.amazon.com/phd/ "https://phd.aws.amazon.com/phd/").
 2. In the navigation pane, choose **Your account health**, then choose
    **Other notifications**. Use the filter to find events with a title

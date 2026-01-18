@@ -26,6 +26,7 @@ configurations:
   locking.
 - Standard channels and single-pipeline channels that are configured for
   epoch locking.
+- Single-pipeline channels using linked channels.
 
 If the metric
 applies, then
@@ -33,6 +34,15 @@ applies, then
 a value of 1 means that all the eligible pairs of pipelines are synchronized. A
 value of 0 means that at least one pair of eligible pipelines is not
 synchronized.
+
+###### Note
+
+This metric also applies when you have enabled [video aligned pipeline
+locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs"). Video aligned pipeline locking is an advanced configuration
+option that uses visual signature comparison instead of embedded timecodes for
+synchronization. The PipelinesLocked metric reports the same synchronization
+status regardless of whether standard pipeline locking or video aligned pipeline
+locking is in use.
 
 If
 the metric doesn't apply, the metric is always 0.

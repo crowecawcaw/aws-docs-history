@@ -22,7 +22,9 @@ addresses only after the MediaConnect operator creates the flows. See the last s
 this procedure. 3. MediaLive always encrypts the content, therefore you must agree about the
 following encryption details:
 
-    * The encryption algorithm: AES 128, AES 192, or AES 256.
+    * The
+     encryption algorithm: AES 128, AES 192, or AES
+     256.
     * The passphrase that MediaLive and the downstream system will use to create
      the encryption and decryption keys. The passphrase can be 10 to 79
      Unicode characters, which means that spaces are allowed.

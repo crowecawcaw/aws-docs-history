@@ -17,6 +17,7 @@ to:
 | HLS                        | Both                                |
 | Link                       | AWS Cloud deployments only          |
 | MediaConnect               | AWS Cloud deployments only          |
+| MediaConnect Router        | AWS Cloud deployments only          |
 | MP4                        | Both                                |
 | RTMP Pull                  | Both                                |
 | RTMP Push                  | Both                                |

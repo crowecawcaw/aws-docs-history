@@ -16,7 +16,8 @@ To create an input, you must perform these steps:
 
 The setup you perform is different for each combination of upstream system (format and
 delivery protocol) and input type. If you haven't already done so, you must identify the
-upstream system and input type for each content source. See [Assess the upstream system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
+upstream system and input type for each content source. See [Assess the upstream
+system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
 
 ###### Topics
 
@@ -26,6 +27,7 @@ upstream system and input type for each content source. See [Assess the upstream
 - [Elemental Link input](input-create-link-device.md "input-create-link-device.md")
 - [HLS input](input-create-hls-pull.md "input-create-hls-pull.md")
 - [MediaConnect input](input-create-push-mediaconnect.md "input-create-push-mediaconnect.md")
+- [MediaConnect Router input](input-create-mediaconnect-router.md "input-create-mediaconnect-router.md")
 - [MP4 input](mp4-pull-input.md "mp4-pull-input.md")
 - [RTMP pull input](input-create-rtmp-pull.md "input-create-rtmp-pull.md")
 - [RTMP push input](input-create-rtmp-push.md "input-create-rtmp-push.md")

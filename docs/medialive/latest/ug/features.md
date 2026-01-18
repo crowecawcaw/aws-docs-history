@@ -20,9 +20,6 @@ schedule](working-with-schedule.md "working-with-schedule.md").
 - [Choosing the channel class and input
   class](class-channel-input.md "class-channel-input.md")
 - [Setting up dynamic inputs](dynamic-inputs.md "dynamic-inputs.md")
-- [Handling encrypted source content in
-  an HLS source](planning-hls-input-encrypted.md "planning-hls-input-encrypted.md")
-- [Storing an encryption or decryption passphrase](encryption-srt-password.md "encryption-srt-password.md")
 - [Working with ID3 metadata](id3-metadata.md "id3-metadata.md")
 - [Working with image overlays](working-with-image-overlay.md "working-with-image-overlay.md")
 - [Clipping the content of a file input](input-clipping.md "input-clipping.md")
@@ -44,8 +41,6 @@ schedule](working-with-schedule.md "working-with-schedule.md").
 - [Using MediaLive multiplex to create an MPTS](feature-multiplex.md "feature-multiplex.md")
 - [Creating and inserting Nielsen watermarks](feature-nielsen-watermark.md "feature-nielsen-watermark.md")
 - [Converting Nielsen watermarks to ID3](feature-nielsen-id3.md "feature-nielsen-id3.md")
-- [Choosing among AWS Elemental
-  destinations](dss-compare-elemental-services.md "dss-compare-elemental-services.md")
 - [Implementing pipeline locking](pipeline-lock.md "pipeline-lock.md")
 - [Implementing pipeline
   redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md")

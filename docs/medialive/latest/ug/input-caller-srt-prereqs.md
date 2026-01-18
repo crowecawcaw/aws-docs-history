@@ -23,10 +23,10 @@
    - The preferred latency (in milliseconds) for implementing packet
      loss and recovery. Packet recovery is a key feature of SRT.
 
-2. If the content is encrypted, you must store the passphrase that the operator
-   gave you. Someone in your organization must store the passphrase in a secret in
-   AWS Secrets Manager. For more information, see [Storing an encryption or decryption passphrase](encryption-srt-password.md "encryption-srt-password.md") .
-   The
-   result of creating the secret is an ARN that looks like this:
+2. If the content is encrypted, you must store the passphrase that the
+   operator gave you. Someone in your organization must store the passphrase in
+   a secret in AWS Secrets Manager. For more information, see [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md"). Create a secret of type
+   **Other type of secret**. The result of creating the
+   secret is an ARN that looks like this:
 
 `arn:aws:secretsmanager:`region`:123456789012:secret:`Sample-abcdef``

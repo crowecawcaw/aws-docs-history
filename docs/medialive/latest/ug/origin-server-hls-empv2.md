@@ -1,6 +1,6 @@
 # HLS output group to MediaPackage v2
 
-Follow this procedure if you [determined](dss-compare-elemental-services.md#hls-choosing-hls-vs-emp "dss-compare-elemental-services.md#hls-choosing-hls-vs-emp") that you will create an HLS output group, and will send to
+Follow this procedure if you [determined](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md") that you will create an HLS output group, and will send to
 MediaPackage v2. You and the operator of the downstream system must agree about the
 destination for the output of the HLS output group.
 

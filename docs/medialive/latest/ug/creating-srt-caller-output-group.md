@@ -44,8 +44,12 @@ In the **SRT settings** sections, complete the fields:
 ## SRT outputs
 
 The **SRT outputs** section shows the single output that is added
-by default. Choose **Add output** if you want to send the content
-to more destinations.
+by default.
+Choose
+**Add
+output**
+if you want to send the content to more
+destinations.
 
 In each output, choose the **Settings** link to show
 three subsections:
@@ -70,8 +74,12 @@ each destination.
 
 - Stream ID:
   Optional.
-- In each destination, select the secret that [you obtained from the operator of
-  Secrets Manager](srt-output-encryption-asm.md "srt-output-encryption-asm.md"). You can select the secret by its ARN or its name.
+- In each destination, select the
+  secret
+  that [you obtained from the
+  operator of Secrets Manager](srt-output-encryption-asm.md "srt-output-encryption-asm.md").
+  You can
+  select the secret by its ARN or its name.
 
 ## Output > Output settings
 

@@ -22,3 +22,32 @@ deliver identical content to two destinations on the downstream system.
 With this class, the channel contains one pipeline. For each output that you
 configure, the channel delivers content to one destination on the downstream
 system.
+
+### Linked channels for single-pipeline
+
+channels
+
+When you select **SINGLE_PIPELINE** as the channel class,
+additional fields appear for configuring linked channels. Linked channels enable
+pipeline locking for single-pipeline channels.
+
+You can configure a single-pipeline channel as either:
+
+- **Primary channel**: The owner of the
+  linked group. The primary channel establishes the linked channel
+  relationship. The primary channel does not need to be running for
+  the follower channel to function.
+- **Follower channel**: A channel that
+  participates in the linked group. You must specify the ARN of the
+  primary channel to join the linked group.
+
+Linked channels have the following requirements:
+
+- Primary and follower channels must belong to the same AWS
+  account.
+- Only one follower channel can be linked to a primary channel.
+- The follower channel must reference a valid primary channel
+  ARN.
+
+For more information about pipeline locking, see
+[Implementing pipeline locking](pipeline-lock.md "pipeline-lock.md").

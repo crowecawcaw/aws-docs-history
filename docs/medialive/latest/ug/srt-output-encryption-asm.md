@@ -7,7 +7,8 @@ steps:
    an encryption passphrase.
 2. Give the passphrase to a person in your organization who works with AWS Secrets Manager.
    That person must store the passphrase in a secret in Secrets Manager. For more
-   information, see [Storing an encryption or decryption passphrase](encryption-srt-password.md "encryption-srt-password.md") .
+   information, see [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md"). Create a secret of type
+   **Other type of secret**.
 
 Secrets Manager generates an ARN that looks like this:
 

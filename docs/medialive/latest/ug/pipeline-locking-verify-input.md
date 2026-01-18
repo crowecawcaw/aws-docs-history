@@ -16,12 +16,14 @@ another input.
 
 ## Inputs must include embedded
 
-timecode
+timecode (source timecode method)
 
-The input must include embedded timecode. These rules apply:
+When you use the source timecode pipeline locking method (the default), the
+input must include embedded timecode. These rules apply:
 
-- For both [locking modes](pipeline-locking-set-up.md#pipeline-locking-mode "pipeline-locking-set-up.md#pipeline-locking-mode"), the
-  input must have an embedded timecode.
+- When using the source timecode method, the input must have an embedded
+  timecode. This requirement applies to both pipeline locking mode and
+  epoch locking mode.
 - For epoch-locking mode, the embedded timecode must be within 2 minutes of
   epoch time. If the timecode is off by more than 2 minutes, MediaLive considers
   that the source doesn't meet the requirements for pipeline locking.
@@ -29,6 +31,36 @@ The input must include embedded timecode. These rules apply:
 MediaLive continually probes the current source for an embedded timecode. Whenever it
 doesn't detect the timecode, it temporarily suspends the attempt to lock
 pipelines.
+
+## Requirements for
+
+video aligned pipeline locking
+
+When you use video aligned pipeline locking (**Pipeline locking
+method** set to **VIDEO_ALIGNMENT**), embedded timecodes
+are not required.
+
+**Output requirements**
+
+Video aligned pipeline locking currently works only with CMAF Ingest outputs.
+
+**Input requirements**
+
+Certain input types are not compatible with video
+alignment:
+
+- File inputs (MP4_FILE, TS_FILE)
+- HLS inputs (URL_PULL with HLS content)
+- RTMP_PULL inputs
+
+When an incompatible input type is active, video aligned pipeline locking runs
+in "open loop" mode (unlocked) but continues processing. No validation error is
+raised, which supports input switching workflows where some inputs may be
+incompatible.
+
+For all other input types, video aligned pipeline locking uses visual signature
+comparison to synchronize the pipelines. Both pipelines must receive the same
+video content for successful synchronization.
 
 ## Frame rate
 

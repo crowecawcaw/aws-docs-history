@@ -16,6 +16,7 @@ The rules for editing an input in MediaLive are as follows.
 - For a MediaConnect push input, you can edit the ARNs to refer to different
   AWS Elemental MediaConnect flows. The outputs for the former ARNs will be deleted in MediaConnect, and
   new outputs (with new IDs) for the new ARNs will be created.
+- For a MediaConnect router input, you cannot edit the input. The AZ is fixed for the life of the input.
 - For a pull input, you can edit the fields in an input source.
   **Changing the input class**
 

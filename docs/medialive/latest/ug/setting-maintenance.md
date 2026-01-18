@@ -77,7 +77,7 @@ will try to perform the maintenance.
 
 Each time MediaLive reschedules the maintenance event, the new date will
 appear in the Channels list in the MediaLive console, and on the
-AWS Health Dashboard.
+Health Dashboard.
 
 During this retry period, you can change the maintenance window, but
 only if the channel is still in the maintenance event period (green

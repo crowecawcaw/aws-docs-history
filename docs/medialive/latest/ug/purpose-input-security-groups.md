@@ -4,7 +4,7 @@ In MediaLive, input security groups are used with specific _push_
 inputs where the upstream system for the source is on the public internet:
 
 - They are used for RTP inputs and RTMP push inputs that don't use a VPC.
-- They aren't used for RTP VPC inputs, RTMP VPC push inputs, MediaConnect inputs, or
+- They aren't used for RTP VPC inputs, RTMP VPC push inputs, MediaConnect inputs MediaConnect Router, or
   Elemental Link inputs. These inputs implement security in other ways.
   An input security group restricts access to the input. The group prevents unauthorized
   third parties from pushing content from the public internet to an input and to the channel

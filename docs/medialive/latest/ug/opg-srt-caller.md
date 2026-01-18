@@ -15,8 +15,8 @@ handshake is accepted, MediaLive sends (pushes) the content to the downstream sy
 The output content must be encrypted, so you must use AWS Secrets Manager to store a passphrase that
 MediaLive will use to encrypt the content.
 
-This section includes specific guidelines if you are sending the SRT output to an
-AWS Elemental MediaConnect flow.
+This section includes
+specific guidelines if you are sending the SRT output to an AWS Elemental MediaConnect flow.
 
 ###### Topics
 

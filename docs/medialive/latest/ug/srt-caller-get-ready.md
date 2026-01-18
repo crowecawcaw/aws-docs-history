@@ -15,7 +15,9 @@ channel:
   security group, which means that the same security group must be associated
   with the subnet and with the endpoint.
 
-## Considerations for MediaConnect
+## Considerations
+
+for MediaConnect
 
 You might be delivering to a MediaConnect that also uses a VPC. This means that the SRT
 output egress from the MediaLive channel is on your VPC and that the MediaConnect flow has a

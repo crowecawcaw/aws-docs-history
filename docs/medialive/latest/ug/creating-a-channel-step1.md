@@ -61,6 +61,12 @@ input details**. 5. Complete the sections:
 
     With a MediaLive Anywhere channel, you must set up the channel as a
      single-pipeline channel.
+    * If you selected **SINGLE\_PIPELINE** for channel
+     class, you can optionally configure **Linked channel
+     settings** to set up this channel as a primary or follower
+     channel for pipeline locking. See
+     [Linked channels for single-pipeline
+     channels](channel-class.md#linked-channels "channel-class.md#linked-channels").
     * In **Input specifications** and **CDI input
      specifications**, complete the fields to match your input.
      See [Input specifications settings](input-specification.md "input-specification.md").

@@ -5,7 +5,7 @@ output of your MediaPackage output group.
 
 Note that you can send to AWS Elemental MediaPackage by creating a MediaPackage output group, or by
 creating an HLS output group. See [Choosing between the HLS output group and
-MediaPackage output group](dss-compare-elemental-services.md#hls-choosing-hls-vs-emp "dss-compare-elemental-services.md#hls-choosing-hls-vs-emp") for a
+MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md") for a
 description of the differences. This section describes the first option.
 
 ###### To arrange setup of the destination

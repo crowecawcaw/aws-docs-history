@@ -15,6 +15,7 @@ class](class-channel-input.md "class-channel-input.md").
 | HLS                        | Both                |
 | Link                       | Both                |
 | MediaConnect               | Both                |
+| MediaConnect Router        | Both                |
 | MP4                        | Both                |
 | RTMP Pull                  | Both                |
 | RTMP Push                  | Both                |

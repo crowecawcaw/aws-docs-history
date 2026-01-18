@@ -17,7 +17,7 @@ The routine for maintenance is the following:
   maintenance window: a particular day of the week and a two-hour window.
   For example, Thursdays from 4:00 to 5:00 UTC.
 - When a channel needs maintenance, you receive notification in the
-  AWS Health Dashboard and by email. For more information, see [Managing maintenance
+  Health Dashboard and by email. For more information, see [Managing maintenance
   notifications](maintenance-setup-notifications.md "maintenance-setup-notifications.md").
 - When you receive a notification, you should decide if you want to
   adjust the timing of the maintenance. There are several ways to adjust

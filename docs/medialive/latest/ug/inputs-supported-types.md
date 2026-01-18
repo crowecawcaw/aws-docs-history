@@ -9,6 +9,7 @@ the sections that follow.
 - Link
 
 - MediaConnect
+- MediaConnect Router
 - MP4
 - RTMP Pull
 - RTMP Push

@@ -8,6 +8,7 @@ Some MediaLive inputs can be set up in Amazon Virtual Private Cloud (Amazon VPC)
 | HLS                        | No                                     |
 | Link                       | No                                     |
 | MediaConnect               | No                                     |
+| MediaConnect Router        | No                                     |
 | MP4                        | No                                     |
 | Transport Stream (TS) file | No                                     |
 | RTMP Pull                  | No                                     |

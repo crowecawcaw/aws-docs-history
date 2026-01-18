@@ -35,7 +35,7 @@ follows:
   mode: lock the pipelines using the Unix epoch as the
   reference.
 
-###### Configure the pipeline locking mode
+###### Configure the pipeline locking mode and method
 
 1. In the channel that you are
    creating
@@ -49,6 +49,22 @@ follows:
    mode—**PIPELINE_LOCKING** or
    **EPOCH_LOCKING**. For details about the options,
    choose the **Info** link next to the field.
+4. To configure the pipeline locking method (available only with
+   **PIPELINE_LOCKING** mode), expand
+   **Additional settings**.
+5. In **Output locking settings**, locate the
+   **Pipeline locking method** field and choose the method
+   for synchronization:
+   - **SOURCE_TIMECODE** (default): Uses embedded
+     timecodes from the input source. Requires inputs with reliable
+     embedded timecodes. See
+     [Inputs must include embedded
+     timecode (source timecode method)](pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode "pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode").
+   - **VIDEO_ALIGNMENT**: Uses visual signature
+     comparison between encoders. Does not require embedded timecodes.
+     See [Requirements for
+     video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
+     input compatibility.
 
 ## Setting up an HLS, MediaPackage, or
 

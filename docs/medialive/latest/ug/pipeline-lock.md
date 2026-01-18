@@ -1,16 +1,9 @@
 # Implementing pipeline locking
 
-You can configure
-MediaLive
-so that it
-locks the two pipelines in a standard
-channel.
-Pipeline
-locking
-ensures
-that the output from the two pipelines are frame-accurate with each other.
-Pipeline locking is
-enabled by default.
+You can configure MediaLive to use pipeline locking to synchronize outputs. Pipeline locking
+works with standard channels (which have two pipelines) and with single-pipeline channels
+using linked channels. Pipeline locking ensures that the outputs are frame-accurate with
+each other. Pipeline locking is enabled by default.
 
 When pipeline locking
 is enabled. MediaLive locks the pipelines on a best-efforts basis. When
@@ -33,6 +26,7 @@ Pipeline locking applies only to the following types of outputs:
 
 - HLS
 - MediaPackage
+- CMAF Ingest
 - Microsoft Smooth
 - SRT caller outputs that are segmented. You might have configured an SRT output
   group for segmented outputs. To verify, in an SRT caller output group, choose
@@ -51,10 +45,23 @@ Pipeline locking applies only to the following types of outputs:
 
 **Pipeline locking modes**
 
-There are two modes of pipeline locking:
+There are two output locking modes:
 
 - Pipeline locking (the default): lock the two pipelines to each other
 - Epoch locking: lock the pipelines using the Unix epoch as the reference.
+  **Pipeline locking methods**
+
+When you use pipeline locking mode, you can choose the method that MediaLive uses to
+synchronize the pipelines:
+
+- Source timecode (the default): MediaLive uses embedded timecodes from the input
+  source to synchronize the pipelines. This method works best with reliable
+  timecodes.
+- Video alignment: MediaLive uses visual signature comparison between encoders to
+  synchronize the pipelines. This method does not require embedded timecodes and
+  is useful when your input sources lack timecodes or have unreliable timecodes.
+  For more information, see [Requirements for
+  video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
 
 ###### Topics
 

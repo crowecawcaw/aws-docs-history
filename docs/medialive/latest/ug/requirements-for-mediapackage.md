@@ -4,7 +4,7 @@ AWS Elemental MediaPackage
 
 Your deployment might send outputs to AWS Elemental MediaPackage, either by creating an
 [HLS output group or by creating a
-MediaPackage output group](dss-compare-elemental-services.md#hls-choosing-hls-vs-emp "dss-compare-elemental-services.md#hls-choosing-hls-vs-emp"). (Note that both MediaLive and MediaPackage have
+MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md"). (Note that both MediaLive and MediaPackage have
 "channels"; however, they are different objects.)
 
 The user needs permissions to perform actions in MediaPackage when they use

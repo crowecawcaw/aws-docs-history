@@ -4,7 +4,7 @@ When you create a MediaLive channel, you might want to include a MediaPackage ou
 For information about the use cases for a MediaPackage output group, see [Containers, protocols,
 and downstream systems](outputs-supported-containers-downstream-systems.md "outputs-supported-containers-downstream-systems.md"). For information about
 choosing between an HLS and MediaPackage output group, see [Choosing between the HLS output group and
-MediaPackage output group](dss-compare-elemental-services.md#hls-choosing-hls-vs-emp "dss-compare-elemental-services.md#hls-choosing-hls-vs-emp").
+MediaPackage output group](hls-choosing-hls-vs-emp.md "hls-choosing-hls-vs-emp.md").
 
 ###### Topics
 
