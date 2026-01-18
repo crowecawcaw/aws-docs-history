@@ -31,10 +31,10 @@ The following list details the differences for using this service in AWS GovClou
 If you are using the Amazon Linux AMI, the AWS CLI is already installed and configured.
 
 - To connect to AWS Directory Service by using the command line or APIs, use the following [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
-  - [https://ds-fips.us-gov-west-1.amazonaws.com](https://ds-fips.us-gov-west-1.amazonaws.com "https://ds-fips.us-gov-west-1.amazonaws.com")
-  - [https://ds.us-gov-west-1.amazonaws.com](https://ds.us-gov-west-1.amazonaws.com "https://ds.us-gov-west-1.amazonaws.com")
-  - [https://ds-fips.us-gov-east-1.amazonaws.com](https://ds-fips.us-gov-east-1.amazonaws.com "https://ds-fips.us-gov-east-1.amazonaws.com")
-  - [https://ds.us-gov-east-1.amazonaws.com](https://ds.us-gov-east-1.amazonaws.com "https://ds.us-gov-east-1.amazonaws.com")
+  - https://ds-fips.us-gov-west-1.amazonaws.com
+  - https://ds.us-gov-west-1.amazonaws.com
+  - https://ds-fips.us-gov-east-1.amazonaws.com
+  - https://ds.us-gov-east-1.amazonaws.com
 
 - Automatic DNS forwarding is not enabled by default and must be configured.
 - The Directory Service Data API is not available.

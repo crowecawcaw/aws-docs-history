@@ -8,7 +8,7 @@ As an administrator, you can deactivate the device for another IAM user. This al
 
 To deactivate an MFA device for another IAM user (console)
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://signin.amazonaws-us-gov.com/iam/](https://signin.amazonaws-us-gov.com/iam/ "https://signin.amazonaws-us-gov.com/iam/")
+1. Sign in to the AWS Management Console and open the IAM console at https://signin.amazonaws-us-gov.com/iam/
 2. In the navigation pane, choose **Users**.
 3. To deactivate the MFA device for a user, choose the name of the user whose MFA you want to remove.
 4. Choose the **Security credentials** tab. Next to **Assigned MFA device**, choose **Manage**.

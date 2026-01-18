@@ -52,7 +52,7 @@ Before creating accounts in the AWS GovCloud (US) Regions from AWS Organizations
 
 ###### To create an account in the AWS GovCloud (US) Regions from AWS Organizations
 
-1. From the management account of your organization in the commercial Region, sign in to the Organizations console at [https://console.aws.amazon.com/organizations](https://console.aws.amazon.com/organizations "https://console.aws.amazon.com/organizations")
+1. From the management account of your organization in the commercial Region, sign in to the Organizations console at https://console.aws.amazon.com/organizations
 2. From the Command Line Interface (CLI), Call the [CreateGovCloudAccount](../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md "../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md") API action.
 
 ###### Accounts and roles are created as follows

@@ -7,11 +7,10 @@ Amazon Simple Storage Service (Amazon S3) is storage for the internet. You can u
 - Amazon Route 53 Private DNS for VPCs is currently not supported for Amazon S3 endpoints.
 - You cannot do a direct copy of the contents of an Amazon S3 bucket in the AWS GovCloud (US) Regions to or from another AWS Region.
 - If you use Amazon S3 policies, use the AWS GovCloud (US) Amazon Resource Name (ARN) identifier. For more information, see [Amazon Resource Names (ARNs) in AWS GovCloud (US) Regions](using-govcloud-arns.md "using-govcloud-arns.md").
-- In the AWS GovCloud (US) Regions, Amazon S3 has three endpoints. If you are processing export-controlled data, use one of the SSL endpoints. If you have FIPS requirements, use a FIPS 140-3 endpoint ([https://s3-fips.us-gov-west-1.amazonaws.com](https://s3-fips.us-gov-west-1.amazonaws.com "https://s3-fips.us-gov-west-1.amazonaws.com") or [https://s3-fips.us-gov-east-1.amazonaws.com](https://s3-fips.us-gov-east-1.amazonaws.com "https://s3-fips.us-gov-east-1.amazonaws.com")).
+- In the AWS GovCloud (US) Regions, Amazon S3 has three endpoints. If you are processing export-controlled data, use one of the SSL endpoints. If you have FIPS requirements, use a FIPS 140-3 endpoint (https://s3-fips.us-gov-west-1.amazonaws.com or https://s3-fips.us-gov-east-1.amazonaws.com).
 - Amazon S3 bucket names are unique to the AWS GovCloud (US) Regions. Bucket names in the AWS GovCloud (US) Regions are not shared across other AWS Regions.
 - Multi-factor authentication (MFA) delete is not available in the AWS GovCloud (US) Regions.
 - [Amazon S3 Transfer Acceleration](../../../AmazonS3/latest/userguide/transfer-acceleration.md "../../../AmazonS3/latest/userguide/transfer-acceleration.md") is not available in the AWS GovCloud (US) Regions.
-- Amazon S3 Storage Lens is not available in the AWS GovCloud (US) Regions.
 - Amazon S3 Object Lambda Access Points are available in the AWS GovCloud (US) Regions for SSL endpoints. Object Lambda Access Points are not available for FIPS endpoints.
 - Amazon S3 presigned URLs are available only through the AWS Command Line Interface (AWS CLI) and AWS SDKs.
 - Bucket-style aliases for your Amazon S3 Object Lambda Access Points are not available.

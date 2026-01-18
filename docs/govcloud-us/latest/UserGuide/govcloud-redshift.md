@@ -4,7 +4,7 @@ Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service 
 
 ## How Amazon Redshift differs for AWS GovCloud (US)
 
-- To connect to Amazon Redshift with SSL, you must download the Amazon Redshift certificate bundle from [https://s3.us-gov-west-1.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt](https://s3.us-gov-west-1.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt "https://s3.us-gov-west-1.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt"). For more information, see [Configure Security Options for Connections.](../../../redshift/latest/mgmt/connecting-ssl-support.md "../../../redshift/latest/mgmt/connecting-ssl-support.md")
+- To connect to Amazon Redshift with SSL, you must download the Amazon Redshift certificate bundle from https://s3.us-gov-west-1.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt. For more information, see [Configure Security Options for Connections.](../../../redshift/latest/mgmt/connecting-ssl-support.md "../../../redshift/latest/mgmt/connecting-ssl-support.md")
 - The COPY EXPLICIT_IDS parameter is not available.
 
 ## Documentation for Amazon Redshift

@@ -24,7 +24,7 @@ For the **Storage location**, choose **Use existing S3 bucket**, and specify the
 This will set a bucket policy that allows the CloudTrail service to store logs in the S3 bucket. If the automated process created an S3 bucket and enabled CloudTrail, the following policy was applied:
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {

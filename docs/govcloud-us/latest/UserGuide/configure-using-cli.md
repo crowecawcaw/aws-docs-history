@@ -6,7 +6,7 @@ Follow the directions below to create an administrator user name and password th
 
 ###### Note
 
-If you are not an AWS GovCloud (US) Customer, please visit [AWS GovCloud (US) Region Overview](https://aws.amazon.com/govcloud-us/ "https://aws.amazon.com/govcloud-us/") to find out about the AWS GovCloud (US) Region and then fill out the contact us form ([https://aws.amazon.com/govcloud-us/contact/](https://aws.amazon.com/govcloud-us/contact/ "https://aws.amazon.com/govcloud-us/contact/")) to request an AWS GovCloud (US) Account.
+If you are not an AWS GovCloud (US) Customer, please visit [AWS GovCloud (US) Region Overview](https://aws.amazon.com/govcloud-us/ "https://aws.amazon.com/govcloud-us/") to find out about the AWS GovCloud (US) Region and then fill out the contact us form (https://aws.amazon.com/govcloud-us/contact/) to request an AWS GovCloud (US) Account.
 
 ## Configure the AWS CLI
 

@@ -115,7 +115,7 @@ You can create, edit, and delete an account alias from the AWS Management Consol
 
 ###### To create, edit, or remove an account alias (console)
 
-1. Sign in to the AWS Management Console for AWS GovCloud (US) and open the IAM console at [https://console.amazonaws-us-gov.com/iam/](https://console.amazonaws-us-gov.com/iam/ "https://console.amazonaws-us-gov.com/iam/").
+1. Sign in to the AWS Management Console for AWS GovCloud (US) and open the IAM console at https://console.amazonaws-us-gov.com/iam/.
 2. In the navigation pane, choose **Dashboard**.
 3. In the **AWS account** section, find **Account Alias**, and choose **Create**. If an alias already exists, then choose **Edit**.
 4. Type the name you want to use for your alias, then choose **Save changes**.

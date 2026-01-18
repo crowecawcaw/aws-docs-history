@@ -48,7 +48,7 @@ If all administrators have forgotten or lost access to the AWS GovCloud (US) acc
 - IAM Access Analyzer policy generation is not supported in AWS GovCloud (US). To learn more, see [Using AWS Identity and Access Management Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") in the _IAM User Guide_.
 - IAM Roles Anywhere is now supported in AWS GovCloud (US). To learn more, see [Providing access for non AWS workloads](../../../IAM/latest/UserGuide/id_roles_common-scenarios_non-aws.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_non-aws.md") in the _IAM User Guide_.
 - When configuring SAML Applications for single sign on in AWS GovCloud (US), the SAML Audience and ACS links will be different than those used in the standard Regions.
-  - Application ACS URL: [https://signin.amazonaws-us-gov.com/saml](https://signin.amazonaws-us-gov.com/saml "https://signin.amazonaws-us-gov.com/saml")
+  - Application ACS URL: https://signin.amazonaws-us-gov.com/saml
   - Application SAML audience: `urn:amazon:webservices:govcloud`
 
 ## Documentation for AWS Identity and Access Management

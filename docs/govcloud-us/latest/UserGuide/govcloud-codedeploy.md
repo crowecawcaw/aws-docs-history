@@ -20,7 +20,7 @@ Use the values presented here to complete CodeDeploy procedures in the AWS GovCl
 Name of the Amazon S3 bucket containing CodeDeploy files:
 
 ```
-aws-codedeploy-us-gov-west-1
+ aws-codedeploy-us-gov-west-1
 ```
 
 ### CodeDeployAmazon S3 bucket ARN
@@ -28,7 +28,7 @@ aws-codedeploy-us-gov-west-1
 ARN of the Amazon S3 bucket containing CodeDeploy files:
 
 ```
-arn:aws-us-gov:s3:::aws-codedeploy-us-gov-west-1
+ arn:aws-us-gov:s3:::aws-codedeploy-us-gov-west-1
 ```
 
 ### wget download command
@@ -36,7 +36,7 @@ arn:aws-us-gov:s3:::aws-codedeploy-us-gov-west-1
 wget command for downloading the CodeDeploy agent on Linux and Ubuntu instances:
 
 ```
-wget https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/install
+ wget https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/install
 ```
 
 ### Sample application locations
@@ -46,13 +46,13 @@ Location of sample CodeDeploy applications:
 - Amazon Linux, Red Hat Enterprise Linux, and Ubuntu Server instances:
 
 ```
-https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/latest/SampleApp_Linux.zip
+ https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/latest/SampleApp_Linux.zip
 ```
 
 - Windows Server instances:
 
 ```
-https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/latest/SampleApp_Windows.zip
+ https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/latest/SampleApp_Windows.zip
 ```
 
 ### CloudFormation template location
@@ -60,7 +60,7 @@ https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/late
 Location of CloudFormation template for launching Amazon EC2 instance configured for CodeDeploy deployments:
 
 ```
-https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/templates/latest/CodeDeploy_SampleCF_Template.json
+ https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/templates/latest/CodeDeploy_SampleCF_Template.json
 ```
 
 ### Downloading CodeDeploy installer and updater (Windows Server)
@@ -70,13 +70,13 @@ Links for downloading CodeDeploy installer and updater for Windows Server instan
 - Installer:
 
 ```
-https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/codedeploy-agent.msi
+ https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/codedeploy-agent.msi
 ```
 
 - Updater:
 
 ```
-https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/codedeploy-agent-updater.msi
+ https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/codedeploy-agent-updater.msi
 ```
 
 For more information about AWS CodeDeploy, see the [AWS CodeDeploy documentation](https://aws.amazon.com/documentation/codedeploy/ "https://aws.amazon.com/documentation/codedeploy/").

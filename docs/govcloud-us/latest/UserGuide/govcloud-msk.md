@@ -5,7 +5,6 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed servic
 ## How Managed Streaming for Apache Kafka differs for AWS GovCloud (US)
 
 - Firehose isn’t available as a destination for broker logs in AWS GovCloud (US).
-- Amazon Managed Streaming for Apache Kafka (MSK) Connect is not available in AWS GovCloud (US).
 - Amazon Managed Streaming for Apache Kafka (MSK) Serverless is not available in AWS GovCloud (US).
 
 ## Documentation for Managed Streaming for Apache Kafka

@@ -11,9 +11,9 @@ Do not enter any export-controlled data in your support cases.
 ## How AWS Support differs for AWS GovCloud (US)
 
 - [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") is available in AWS GovCloud (US), but some AWS Trusted Advisor checks and features are not available.
-- The Service Health Dashboard for the AWS GovCloud (US) Region can be found at [http://status.aws.amazon.com/govcloud](http://status.aws.amazon.com/govcloud "http://status.aws.amazon.com/govcloud").
+- The Service Health Dashboard for the AWS GovCloud (US) Region can be found at http://status.aws.amazon.com/govcloud.
 - The AWS GovCloud (US) Regions do not have a dedicated forum area.
-- The endpoint to access AWS Support is [https://support.us-gov-west-1.amazonaws.com](https://support.us-gov-west-1.amazonaws.com "https://support.us-gov-west-1.amazonaws.com").
+- The endpoint to access AWS Support is https://support.us-gov-west-1.amazonaws.com.
 - [AWS Partner-Led Support](https://aws.amazon.com/premiumsupport/partner-led-support/) "https://aws.amazon.com/premiumsupport/partner-led-support/)") is available in all AWS Regions however Diagnostic Tools and case management are not available in AWS GovCloud (US) Regions.
 - Changing the severity level of existing support cases isn’t supported.
 
