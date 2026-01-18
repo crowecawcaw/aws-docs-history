@@ -28,13 +28,20 @@ SCIM:
 To minimize administrative overhead in both Okta and IAM Identity Center, we recommend
 that you assign and _push_ groups instead of individual
 users.
-**Objective**
+
+- Import users – Users can be imported from IAM Identity Center to Okta.
+  **Objective**
 
 In this tutorial, you will walk through setting up a SAML connection with Okta IAM Identity Center.
 Later, you will synchronize users from Okta, using SCIM. In this scenario, you manage all
 users and groups in Okta. Users sign in through the Okta portal. To verify everything is
 configured correctly, after completing the configuration steps you will sign in as an Okta
 user and verify access to AWS resources.
+
+The following features are supported when connecting Okta to IAM Identity Center through SAML:
+
+- IdP-initiated SAML sign-in – Users sign in through the Okta portal and gain access to IAM Identity Center.
+- SP-initiated SAML sign-in – Users access the AWS access portal, which redirects them to sign in through the Okta portal.
 
 ###### Note
 
@@ -410,6 +417,8 @@ resources
    **Management console** to open the
    AWS Management Console.
 6. The user is signed in to the AWS Management Console.
+
+You can also use the AWS access portal. This redirects you to sign in through the Okta portal before taking you to the AWS access portal. This path follows the SP-initiated SAML sign-in flow.
 
 ## Next steps
 
