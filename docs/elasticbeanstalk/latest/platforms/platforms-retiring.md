@@ -14,4 +14,19 @@ status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
 For more information, see
 [AL1 platform retirement FAQ](../dg/using-features.migration-al.md "../dg/using-features.migration-al.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
-_At this time, there are no retiring platform versions._
+The following sections provide information about all retiring platform versions.
+
+###### Topics
+
+- [PHP](#platforms-retiring.PHP "#platforms-retiring.PHP")
+
+## PHP
+
+Elastic Beanstalk has scheduled the following PHP platform versions for retirement.
+
+| Platform Version and _Solution Stack Name_                                           | AMI              | Language   | Composer | Proxy Server                          | End Date   |
+| ------------------------------------------------------------------------------------ | ---------------- | ---------- | -------- | ------------------------------------- | ---------- |
+| **PHP 8.1 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running PHP 8.1_ | 2023.10.20260105 | PHP 8.1.34 | 2.9.3    | nginx 1.28.0 (default), Apache 2.4.66 | 2026-03-31 |
+| **PHP 8.1 AL2 version 3.12.1**<br>_64bit Amazon Linux 2 v3.12.1 running PHP 8.1_     | 2.0.20260109     | PHP 8.1.33 | 2.9.3    | nginx 1.28.0 (default), Apache 2.4.66 | 2026-03-31 |
+
+For information about current platform versions, see [PHP](platforms-supported.md#platforms-supported.PHP "platforms-supported.md#platforms-supported.PHP").

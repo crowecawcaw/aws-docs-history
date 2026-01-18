@@ -6,9 +6,33 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## December 16, 2025 – present
+## January 15, 2026 – present
 
-The following Elastic Beanstalk platform versions for Python have been current since December 16, 2025:
+The following Elastic Beanstalk platform versions for Python have been current since January 15, 2026:
+
+| Platform Version and _Solution Stack Name_                                                   | AMI              | Language       | Package Manager | Packager | meld3 | AWS X-Ray | Proxy Server                          |
+| -------------------------------------------------------------------------------------------- | ---------------- | -------------- | --------------- | -------- | ----- | --------- | ------------------------------------- |
+| **Python 3.14 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.14_ | 2023.10.20260105 | Python 3.14.2  | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.13 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.13_ | 2023.10.20260105 | Python 3.13.11 | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.12 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.12_ | 2023.10.20260105 | Python 3.12.12 | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.11 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.11_ | 2023.10.20260105 | Python 3.11.14 | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.9 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.9_   | 2023.10.20260105 | Python 3.9.25  | pipenv 2025.0.4 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+
+## January 13, 2026 – January 14, 2026
+
+The following Elastic Beanstalk platform versions for Python were current between January 13, 2026 and January 14, 2026:
+
+| Platform Version and _Solution Stack Name_                                                   | AMI              | Language       | Package Manager | Packager | meld3 | AWS X-Ray | Proxy Server                          |
+| -------------------------------------------------------------------------------------------- | ---------------- | -------------- | --------------- | -------- | ----- | --------- | ------------------------------------- |
+| **Python 3.14 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.14_ | 2023.10.20260105 | Python 3.14.2  | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.13 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.13_ | 2023.10.20260105 | Python 3.13.11 | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.12 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.12_ | 2023.10.20260105 | Python 3.12.12 | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.11 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.11_ | 2023.10.20260105 | Python 3.11.14 | pipenv 2026.0.3 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+| **Python 3.9 AL2023 version 4.9.1**<br>_64bit Amazon Linux 2023 v4.9.1 running Python 3.9_   | 2023.10.20260105 | Python 3.9.25  | pipenv 2025.0.4 |          |       | 3.6.1     | nginx 1.28.0 (default), Apache 2.4.66 |
+
+## December 16, 2025 – January 12, 2026
+
+The following Elastic Beanstalk platform versions for Python were current between December 16, 2025 and January 12, 2026:
 
 | Platform Version and _Solution Stack Name_                                                   | AMI             | Language       | Package Manager | Packager | meld3 | AWS X-Ray | Proxy Server                          |
 | -------------------------------------------------------------------------------------------- | --------------- | -------------- | --------------- | -------- | ----- | --------- | ------------------------------------- |
