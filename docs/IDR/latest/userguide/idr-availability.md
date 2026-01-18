@@ -1,6 +1,6 @@
 # Region availability for Incident Detection and Response
 
-AWS Incident Detection and Response is currently available in English and Japanese for Enterprise Support accounts hosted in any of the following AWS Regions:
+AWS Incident Detection and Response is currently available in English, Japanese, and Mandarin for Enterprise Support accounts hosted in any of the following AWS Regions:
 
 | AWS Region                       | Name           |
 | -------------------------------- | -------------- |
