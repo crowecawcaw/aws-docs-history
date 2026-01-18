@@ -382,7 +382,7 @@ When all settings contain valid values, you can launch the cluster by running th
  "cloudformationStackStatus": "CREATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:xxx:stack/test-cluster/abcdef0-f678-890a-5abc-021345abcdef",
  "region": "eu-west-1",
- "version": "3.14.0",
+ "version": "3.14.1",
  "clusterStatus": "CREATE_IN_PROGRESS"
  },
  "validationMessages": []

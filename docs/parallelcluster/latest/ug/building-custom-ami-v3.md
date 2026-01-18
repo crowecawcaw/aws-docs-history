@@ -78,7 +78,7 @@ Build:
  "cloudformationStackStatus": "CREATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/IMAGE_ID/abcd1234-ef56-gh78-ij90-1234abcd5678",
  "region": "us-east-1",
- "version": "3.14.0"
+ "version": "3.14.1"
  }
 }`
 ```
@@ -110,7 +110,7 @@ page. The results of the preceding command are as follows:
     `# BEFORE COMPLETE
 {
  "imageConfiguration": {
- "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.14.0/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?...",
+ "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.amazonaws.com/parallelcluster/3.14.1/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?...",
  },
  "imageId": "IMAGE_ID",
  "imagebuilderImageStatus": "BUILDING",
@@ -118,10 +118,10 @@ page. The results of the preceding command are as follows:
  "cloudformationStackStatus": "CREATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/IMAGE_ID/abcd1234-ef56-gh78-ij90-1234abcd5678",
  "region": "us-east-1",
- "version": "3.14.0",
+ "version": "3.14.1",
  "cloudformationStackTags": [
  {
- "value": "3.14.0",
+ "value": "3.14.1",
  "key": "parallelcluster:version"
  },
  {
@@ -136,7 +136,7 @@ page. The results of the preceding command are as follows:
 `# AFTER COMPLETE
 {
  "imageConfiguration": {
- "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.14.0/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
+ "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.14.1/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
  },
  "imageId": "IMAGE_ID",
  "imageBuildStatus": "BUILD_COMPLETE",
@@ -155,7 +155,7 @@ page. The results of the preceding command are as follows:
  ],
  "architecture": "x86_64"
  },
- "version": "3.14.0"
+ "version": "3.14.1"
 }`
 ```
 
@@ -180,10 +180,10 @@ After running the [build-image](pcluster.md "pcluster.md") command, it's possibl
 `$` `pcluster get-image-stack-events --image-id `IMAGE_ID` --region `REGION` --query "events[0]"`
 `{
  "eventId": "ParallelClusterImage-CREATE_IN_PROGRESS-2022-04-05T21:39:24.725Z",
- "physicalResourceId": "arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-IMAGE_ID/3.14.0/1",
+ "physicalResourceId": "arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-IMAGE_ID/3.14.1/1",
  "resourceStatus": "CREATE_IN_PROGRESS",
  "resourceStatusReason": "Resource creation Initiated",
- "resourceProperties": "{\"InfrastructureConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"ImageRecipeArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/parallelclusterimage-IMAGE_ID/3.14.0\",\"DistributionConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"Tags\":{\"parallelcluster:image_name\":\"IMAGE_ID\",\"parallelcluster:image_id\":\"IMAGE_ID\"}}",
+ "resourceProperties": "{\"InfrastructureConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"ImageRecipeArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/parallelclusterimage-IMAGE_ID/3.14.1\",\"DistributionConfigurationArn\":\"arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/parallelclusterimage-abcd1234-ef56-gh78-ij90-1234abcd5678\",\"Tags\":{\"parallelcluster:image_name\":\"IMAGE_ID\",\"parallelcluster:image_id\":\"IMAGE_ID\"}}",
  "stackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/IMAGE_ID/abcd1234-ef56-gh78-ij90-1234abcd5678",
  "stackName": "IMAGE_ID",
  "logicalResourceId": "ParallelClusterImage",
@@ -199,11 +199,11 @@ monitor the Image Builder steps by using [pcluster list-image-log-streams](pclus
 `$` `pcluster list-image-log-streams --image-id `IMAGE_ID` --region `REGION` \
  --query 'logStreams[*].logStreamName'`
 
- "3.14.0/1"
+ "3.14.1/1"
 ]
 
 `$` `pcluster get-image-log-events --image-id `IMAGE_ID` --region `REGION` \
---log-stream-name 3.14.0/1 --limit 3`
+--log-stream-name 3.14.1/1 --limit 3`
 `{
  "nextToken": "f/36295977202298886557255241372854078762600452615936671762",
  "prevToken": "b/36295977196879805474012299949460899222346900769983430672",
@@ -213,7 +213,7 @@ monitor the Image Builder steps by using [pcluster list-image-log-streams](pclus
  "timestamp": "2022-04-05T22:13:26.633Z"
  },
  {
- "message": "Document arn:aws:imagebuilder:us-east-1:123456789012:component/parallelclusterimage-test-abcd1234-ef56-gh78-ij90-1234abcd5678/3.14.0/1",
+ "message": "Document arn:aws:imagebuilder:us-east-1:123456789012:component/parallelclusterimage-test-abcd1234-ef56-gh78-ij90-1234abcd5678/3.14.1/1",
  "timestamp": "2022-04-05T22:13:26.741Z"
  },
  {
@@ -230,7 +230,7 @@ Continue to check with the [describe-image](pcluster.md "pcluster.md") command u
 `$` `pcluster describe-image --image-id `IMAGE_ID` --region `REGION``
 `{
  "imageConfiguration": {
- "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.14.0/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
+ "url": "https://parallelcluster-1234abcd5678efgh-v1-do-not-delete.s3.us-east-1.amazonaws.com/parallelcluster/3.14.1/images/IMAGE_ID-abcd1234efgh5678/configs/image-config.yaml?Signature=..."
  },
  "imageId": "IMAGE_ID",
  "imageBuildStatus": "BUILD_COMPLETE",
@@ -249,7 +249,7 @@ Continue to check with the [describe-image](pcluster.md "pcluster.md") command u
  ],
  "architecture": "x86_64"
  },
- "version": "3.14.0"
+ "version": "3.14.1"
 }`
 ```
 

@@ -43,8 +43,8 @@ to support access to the Python library. The AWS ParallelCluster Python library 
 the library for versions 3.5.0 and later.
 
 The hosted zip file URL is in the format:
-`s3://`aws-region-id`-aws-parallelcluster/parallelcluster/`3.14.0`/layers/aws-parallelcluster/lambda-layer.zip`.
-(Replace `3.14.0` with the AWS ParallelCluster version you want to use in
+`s3://`aws-region-id`-aws-parallelcluster/parallelcluster/`3.14.1`/layers/aws-parallelcluster/lambda-layer.zip`.
+(Replace `3.14.1` with the AWS ParallelCluster version you want to use in
 the following step.)
 
 ### Get started accessing the AWS ParallelCluster Python library with AWS Lambda
@@ -54,7 +54,7 @@ the following step.)
 1. Log in to the AWS Management Console and navigate to the AWS Lambda console.
 2. In the navigation pane, select **Layers**, then **Create layer**.
 3. Enter a name for your layer and select **Upload a file from Amazon S3**.
-4. Enter the URL to the zip file: s3://`aws-region-id`-aws-parallelcluster/parallelcluster/`3.14.0`/layers/aws-parallelcluster/lambda-layer.zip.
+4. Enter the URL to the zip file: s3://`aws-region-id`-aws-parallelcluster/parallelcluster/`3.14.1`/layers/aws-parallelcluster/lambda-layer.zip.
 5. For **Compatible architectures**, choose the **x86_64** architecture.
 6. For **Compatible runtimes**, choose the **Python 3.12** runtime.
 7. Choose **Create**.

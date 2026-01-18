@@ -24,7 +24,7 @@ In this tutorial, you use a quick-create stack to deploy a CloudFormation templa
 Create a cluster with AWS CloudFormation
 
 1. Sign in to the AWS Management Console.
-2. Open the CloudFormation [quick-create link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.0/templates/1-click/cluster-example.yaml "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.0/templates/1-click/cluster-example.yaml")
+2. Open the CloudFormation [quick-create link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.1/templates/1-click/cluster-example.yaml "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.14.1/templates/1-click/cluster-example.yaml")
    to create the following resources in the CloudFormation console:
    - A nested CloudFormation stack with a VPC with a public and private subnet for running the cluster head node and compute nodes, respectively.
    - A nested CloudFormation stack with an AWS ParallelCluster custom resource for managing the cluster.
@@ -75,7 +75,7 @@ Parameters:
 Mappings:
   ParallelCluster:
     Constants:
-      Version: 3.14.0
+      Version: 3.14.1
 
 Resources:
   PclusterClusterProvider:

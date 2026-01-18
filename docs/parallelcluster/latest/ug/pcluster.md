@@ -1,29 +1,27 @@
-# `pcluster update-cluster`
+# `pcluster get-cluster-stack-events`
 
-Updates an existing cluster to match the settings of a specified configuration file.
+Retrieve the events associated with the stack for the specified cluster.
+
+###### Note
+
+Starting in version 3.6.0, AWS ParallelCluster uses nested stacks to create the resources associated with queues and compute resources. The
+`GetClusterStackEvents` API and the `pcluster get-cluster-stack-events` command only return the cluster main stack events.
+You can view the cluster stack events, including those related to queues and compute resources, in the CloudFormation console.
 
 ```
-pcluster update-cluster [-h]
-                 --cluster-configuration `CLUSTER_CONFIGURATION`
+pcluster get-cluster-stack-events [-h]
                  --cluster-name `CLUSTER_NAME`
                 [--debug]
-                [--dryrun `DRYRUN`]
-                [--force-update `FORCE_UPDATE`]
+                [--next-token `NEXT_TOKEN`]
                 [--query `QUERY`]
                 [--region `REGION`]
-                [--suppress-validators `SUPPRESS_VALIDATORS` [`SUPPRESS_VALIDATORS` ...]]
-                [--validation-failure-level {`INFO`,`WARNING`,`ERROR`}]
 ```
 
 ## Named arguments
 
 `-h, --help`
 
-Shows the help text for `pcluster update-cluster`.
-
-`--cluster-configuration, -c `CLUSTER_CONFIGURATION``
-
-Specifies the YAML cluster configuration file.
+Shows the help text for `pcluster get-cluster-stack-events`.
 
 `--cluster-name, -n `CLUSTER_NAME``
 
@@ -33,14 +31,9 @@ Specifies the name of the cluster.
 
 Enables debug logging.
 
-`--dryrun `DRYRUN``
+`--next-token `NEXT_TOKEN``
 
-When `true`, performs the validation without updating the cluster and creating any resources. It can be used to validate the image
-configuration and update requirements. (Defaults to `false`.)
-
-`--force-update `FORCE_UPDATE``
-
-When `true`, forces the update by ignoring the update validation errors. (Defaults to `false`.)
+The token for the next set of results.
 
 `--query `QUERY``
 
@@ -48,50 +41,24 @@ Specifies the JMESPath query to perform on the output.
 
 `--region, -r `REGION``
 
-Specifies the AWS Region to use. The AWS Region must be specified, using the [Region](cluster-configuration-file-v3.md#yaml-Region "cluster-configuration-file-v3.md#yaml-Region") setting in the cluster configuration file, the `AWS_DEFAULT_REGION`
+Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION`
 environment variable, the `region` setting in the `[default]` section of the
 `~/.aws/config` file, or the `--region` parameter.
-
-`--suppress-validators  `SUPPRESS_VALIDATORS`
- [`SUPPRESS_VALIDATORS ...`]`
-
-Identifies one or more config validators to suppress.
-
-Format: (`ALL`|`type:[A-Za-z0-9]+`)
-
-`--validation-failure-level `{INFO,WARNING,ERROR}``
-
-Specifies the level of validation failures reported for update.
 
 **Example using AWS ParallelCluster version 3.1.4:**
 
 ````
-`$` `pcluster update-cluster -c `cluster-config.yaml` -n `cluster-v3` -r `us-east-1```{
- "cluster": {
- "clusterName": "cluster-v3",
- "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
- "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
- "region": "us-east-1",
- "version": "3.1.4",
- "clusterStatus": "UPDATE_IN_PROGRESS"
- },
- "changeSet": [
- {
- "parameter": "HeadNode.Iam.S3Access",
- "requestedValue": {
- "BucketName": "amzn-s3-demo-bucket1",
- "KeyName": "output",
- "EnableWriteAccess": false
- }
- },
- {
- "parameter": "HeadNode.Iam.S3Access",
- "currentValue": {
- "BucketName": "amzn-s3-demo-bucket2",
- "KeyName": "logs",
- "EnableWriteAccess": true
- }
- }
- ]
+`$` `pcluster get-cluster-stack-events \
+ -n `cluster-v3` \
+ -r `us-east-1` \
+ --query `"events[0]"```{
+ "eventId": "1234abcd-56ef-78gh-90ij-abcd1234efgh",
+ "physicalResourceId": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
+ "resourceStatus": "CREATE_COMPLETE",
+ "stackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
+ "stackName": "cluster-v3",
+ "logicalResourceId": "cluster-v3",
+ "resourceType": "AWS::CloudFormation::Stack",
+ "timestamp": "2022-07-12T18:29:12.140Z"
 }`
 ````

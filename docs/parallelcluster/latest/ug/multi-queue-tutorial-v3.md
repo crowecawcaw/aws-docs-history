@@ -94,7 +94,7 @@ Create a cluster that's named `multi-queue-cluster` based on your configuration 
  "cloudformationStackStatus": "CREATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:123456789012:stack/multi-queue-cluster/1234567-abcd-0123-def0-abcdef0123456",
  "region": "eu-west-1",
- "version": "3.14.0",
+ "version": "3.14.1",
  "clusterStatus": "CREATE_IN_PROGRESS"
  }
 }`
@@ -111,7 +111,7 @@ To check the status of the cluster, run the following command.
  "cloudformationStackStatus": "CREATE_IN_PROGRESS",
  "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:123456789012:stack/multi-queue-cluster/1234567-abcd-0123-def0-abcdef0123456",
  "region": "eu-west-1",
- "version": "3.14.0",
+ "version": "3.14.1",
  "clusterStatus": "CREATE_IN_PROGRESS"
  }
 }`

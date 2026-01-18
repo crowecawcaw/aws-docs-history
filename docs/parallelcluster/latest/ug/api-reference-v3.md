@@ -40,7 +40,7 @@ https://`<REGION>`-aws-parallelcluster.s3.`<REGION>`.amazonaws.com/parallelclust
 
 where `<REGION>` is the AWS Region where the
 API needs to be deployed to and `<VERSION>` is
-the AWS ParallelCluster version (e.g. 3.14.0).
+the AWS ParallelCluster version (e.g. 3.14.1).
 
 AWS Lambda uses a Lambda layer interface with the [AWS ParallelCluster Python library API](pc-py-library-v3.md "pc-py-library-v3.md") to process the API invoked features.
 

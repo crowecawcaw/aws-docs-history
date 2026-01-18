@@ -12,7 +12,7 @@ Option 2: To update the existing API, run the following commands:
 ```
 `$` `REGION=`<region>``
 `$` `API_STACK_NAME=`<stack-name>``  # This needs to correspond to the existing API stack name
-`$` `VERSION=3.14.0`
+`$` `VERSION=3.14.1`
 `$` `aws cloudformation update-stack \
    --region ${REGION} \
    --stack-name ${API_STACK_NAME} \

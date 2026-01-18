@@ -221,7 +221,7 @@ is set to TERMINATE, you can update the cluster
  "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
  "cloudformationStackArn": `stack_arn`,
  "region": "us-east-1",
- "version": "3.14.0",
+ "version": "3.14.1",
  "clusterStatus": "UPDATE_IN_PROGRESS"
  },
  "changeSet": [
