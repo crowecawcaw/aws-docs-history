@@ -6,7 +6,7 @@ AWS Artifact documents.
 
 ## Prerequisites
 
-To use the features of AWS Artifact, you must have an AWS account. For setup instructions, see [Set up a new AWS account](../../../SetUp/latest/UserGuide/setup-prereqs-instructions.md "../../../SetUp/latest/UserGuide/setup-prereqs-instructions.md") in the _AWS Setup User Guide_.
+To use the features of AWS Artifact, you must have an AWS account. For setup instructions, see [Create an AWS account](../../../accounts/latest/reference/manage-acct-creating.md "../../../accounts/latest/reference/manage-acct-creating.md").
 
 ## Features
 
