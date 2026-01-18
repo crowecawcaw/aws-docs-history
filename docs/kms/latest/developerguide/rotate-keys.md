@@ -35,9 +35,8 @@ You might decide to create a new KMS key and use it in place of the original KMS
 This has the same effect as rotating the key material in an existing KMS key, so it's
 often thought of as [manually rotating the key](rotate-keys-manually.md "rotate-keys-manually.md").
 Manual rotation is a good choice when you want to rotate KMS keys that are not eligible
-for automatic or on-demand key rotation, including [asymmetric KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md"), [HMAC KMS keys](hmac.md "hmac.md"), KMS keys
-in [custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview"), and multi-Region
-KMS keys with [imported key material](importing-keys.md "importing-keys.md").
+for automatic or on-demand key rotation, including [asymmetric KMS keys](symmetric-asymmetric.md "symmetric-asymmetric.md"), [HMAC KMS keys](hmac.md "hmac.md") and KMS keys
+in [custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview").
 
 ###### Note
 

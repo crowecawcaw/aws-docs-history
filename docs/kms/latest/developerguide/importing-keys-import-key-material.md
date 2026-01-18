@@ -233,8 +233,6 @@ language.
 
 To use this example:
 
-For multi-Region keys, you can set or change the key material description only on the primary Region key. AWS KMS automatically propagates the key material description to replica Region keys.
-
 1. Replace `1234abcd-12ab-34cd-56ef-1234567890ab` with a key ID of
    the KMS key that you specified when you downloaded the public key and import token. To
    identify the KMS key, use its [key ID](concepts.md#key-id-key-id "concepts.md#key-id-key-id") or [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN"). You cannot use an [alias name](concepts.md#key-id-alias-name "concepts.md#key-id-alias-name") or [alias
@@ -284,6 +282,8 @@ omit the `valid-to` parameter from the command.
  --import-type NEW_KEY_MATERIAL \
  --key-material-description `"Q2 2025 Rotation"``
 ```
+
+6. For multi-Region keys, you can set or change the key material description only on the primary Region key. AWS KMS automatically propagates the key material description to replica Region keys.
 
 ###### Tip
 
