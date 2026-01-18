@@ -16,7 +16,8 @@ steps, as follows.
 1. The first step uses `AWS-ConfigureAwsPackage` to upgrade or
    install the latest version of the `AwsVssComponents` component package.
 2. The next step invokes `AWSEC2-PrepareVssRestore` to verify that prerequisites
-   are met and that the input parameters include a valid value for the VSS Snapshot Set ID.
+   are met and that the input parameters include a valid value for the VSS Snapshot Set ID and
+   Source Database Name.
 3. The process then creates new EBS volumes from the snapshots and attaches them to the
    instance.
 4. Finally, the process invokes `AWSEC2-RunVssRestoreForSqlDatabase`, which
@@ -81,12 +82,10 @@ this parameter to indicate a custom storage location if you've relocated the fil
 
 **AutomationAssumeRole** (string, conditional)
 
-The ARN of the IAM role for the automation to assume.
-
-- _Console:_ If this parameter is not specified, the
-  restore process uses the IAM role for the current console session.
-- _Command line:_ If this parameter is not specified, the
-  restore process uses the IAM role for your current session.
+The ARN of the IAM role that the automation assumes during execution. If not specified, the automation
+uses the IAM role that initiated the execution. For example, when starting the automation from the AWS Console
+without specifying this parameter, the automation uses your current console session's IAM role to interact with
+Amazon EC2 and SSM.
 
 **ExecutionTimeout** (string, optional)
 
@@ -183,12 +182,14 @@ action step, run the following command using the execution ID returned from
 Get-SSMAutomationExecution -AutomationExecutionId $ExecutionId | Select-Object -ExpandProperty StepExecutions | Select-Object -Property StepName, StepStatus | Out-String
 ```
 
-3. ###### Clean up unused EBS volumes after the automation execution succeeds
+3. ###### (Optional) Clean up unused EBS volumes after the automation execution succeeds
 
-The `AWSEC2-RestoreSqlServerDatabaseWithVss` automation creates
-a new EBS volume for each volume snapshot within a VSS snapshot set. These volumes are
-then attached to the target instance. The database files may not be located on all
-volumes, so you can detach and delete the unused ones.
+When volume mapping metadata is used, the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation creates new EBS volumes only from volume snapshots that contain files of the database to be restored. However, when this metadata is not used, the automation creates
+a new EBS volume for each volume snapshot within the VSS snapshot set and attaches them to the target instance.
+
+To determine if volume mapping metadata was used for your database restore operation, check the automation execution steps. In the automation execution details, examine the `PrepareForVolumeCreation` step output. If `ExecutionLog` in the `OutputPayload` says `No volume mapping found - using all snapshots`, volume mapping metadata was not used during the restore operation.
+
+If volume mapping metadata was not used for your restore operation, follow these steps to identify and clean up volumes that don't contain restored database files:
 
     1. In the **Execution detail** page, choose the
      **RunVssRestoreForSqlDatabase** step (this is the last step).

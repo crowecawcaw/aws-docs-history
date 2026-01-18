@@ -17,27 +17,33 @@ supports restoring snapshots to the original EC2 instance where the snapshots we
   see [Deployment options](create-sql-server-on-ec2-instance.md#create-sql-server-deployment-options "create-sql-server-on-ec2-instance.md#create-sql-server-deployment-options").
 - **Configure settings to save VSS metadata files** –
   To successfully initiate
-  a restore operation, the following two VSS metadata files are required. These files are
+  a restore operation, VSS metadata files are required. The following files are
   generated for each snapshot set taken during the snapshotting process.
+  - `{Snapshot set id}-{timestamp}-BCD.xml`
+  - `{Snapshot set id}-{timestamp}-SqlServerWriter.xml`
+  - `{Snapshot set id}-{timestamp}-VolumeMapping.json`
 
-      + `{Snapshot set id}-{timestamp}-BackupComponentDocument.xml`
-      + `{Snapshot set id}-{timestamp}-SqlServerWriter.xml`
+###### Note
 
-  To ensure that these files are generated, set the `SaveVssMetadata` parameter
-  to `true` when you run the command document.
+The volume mapping metadata file (`{Snapshot set id}-{timestamp}-VolumeMapping.json`) maps Windows drives to their corresponding snapshots and is used in VSS restore operations to create EBS volumes from snapshots that contains database files to be restored.
+
+To ensure that these files are generated, set the `SaveVssMetadata` parameter
+to `true` when you run the command document.
 
 - [Grant IAM permissions for the restore process](#ms-ssdb-ec2-vss-restore-iam "#ms-ssdb-ec2-vss-restore-iam").
 
 ## Grant IAM permissions for the restore process
 
-The `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook needs permission
-to perform the Amazon EC2 and Systems Manager operations that the runbook uses to restore the database. Follow
-these steps to grant the appropriate permissions.
+Executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook to restore
+databases needs permissions to perform necessary Amazon EC2 and Systems Manager operations. Follow these steps to grant
+the appropriate permissions.
 
 1. [Create an IAM policy to restore a
    SQL Server database from AWS VSS solution based snapshots](#ms-ssdb-ec2-vss-restore-iam-policy "#ms-ssdb-ec2-vss-restore-iam-policy").
 2. [Attach the IAM policy to the
-   role that's used for the automation runbook](#ms-ssdb-ec2-vss-restore-iam-policy-attach "#ms-ssdb-ec2-vss-restore-iam-policy-attach").
+   role that's used for the automation execution](#ms-ssdb-ec2-vss-restore-iam-policy-attach "#ms-ssdb-ec2-vss-restore-iam-policy-attach").
+3. [Grant IAM permissions to the invoker
+   role for starting and managing automation executions](#ms-ssdb-ec2-vss-restore-iam-policy-add "#ms-ssdb-ec2-vss-restore-iam-policy-add").
 
 ### Create an IAM policy to restore a
 
@@ -173,19 +179,21 @@ JSON
 
 ### Attach the IAM policy to the
 
-role that's used for the automation runbook
+role that's used for the automation execution
 
 You can choose from the following options to attach your policy to the role that
-Systems Manager uses for the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation
+Systems Manager uses for interacting with the Amazon EC2 and Systems Manager when executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation
 runbook.
 
 - Create a role, attach your policy, and add a PassRole policy to restrict access.
-  The automation assumes the role that's specified in the `AutomationAssumeRole`
-  parameter. Expand the `Invoke automation with an assumed role (recommended)`
-  section to see detailed steps.
-- Attach the policy to your console role. The automation uses the console role
-  that's defined for your current session. Expand the `Invoke automation with 
-current session’s console role` section to see detailed steps.
+  Use the ARN of this role for the `AutomationAssumeRole` parameter when invoking the
+  automation, and the automation execution will assume this role. Expand the `Invoke automation 
+with an assumed role (recommended)` section to see detailed steps.
+- Attach the policy to the invoker role that initiates the automation execution,
+  without specifying the `AutomationAssumeRole` parameter. For example,
+  if you start the automation execution from the AWS console, the console role acts as the
+  invoker role. Expand the `Invoke automation without an assumed role` section
+  to see detailed steps.
 
 ###### Step 1: Create the role that the automation assumes and attach your policy
 
@@ -244,9 +252,10 @@ for your role.
 11. Open the IAM console at
     [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 12. In the navigation pane, choose **Roles**, and then
-    select the role that your current console session is using. The current role
-    appears in the upper right corner of the console, where you'll see the
-    following pattern:
+    select the role that will be used to start the automation execution.
+    For example, if you will start the automation execution from console,
+    you should choose the current console role, which appears in the upper
+    right corner of the console:
 
 ```
 `role`/`user` @ `account`
@@ -259,3 +268,77 @@ for your role.
    to search for the name of the policy that you created for the database restore
    runbook. Select the check box next to the name and then choose **Add
    permissions**.
+
+### Grant IAM permissions to the invoker
+
+role for starting and managing automation executions
+
+To attach necessary permissions to the role that starts and manages the
+`AWSEC2-RestoreSqlServerDatabaseWithVss` automation executions,
+follow these steps.
+
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**, and then select
+   the role that will be used to start the automation execution.
+3. Choose **Add inline policy** from the **Add permissions** menu.
+   This opens the **Specify permissions** page.
+4. Select the **JSON** policy editor and copy the following JSON policy
+   content into the editor. The policy allows the role to:
+   - Execute the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook.
+   - Stop and send signals to an automation execution.
+   - View details about the automation execution after it has been started.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "StartVssRestoreAutomationExecution",
+ "Effect": "Allow",
+ "Action": "ssm:StartAutomationExecution",
+ "Resource": [
+ "arn:aws:ssm:*:*:document/AWSEC2-RestoreSqlServerDatabaseWithVss",
+ "arn:aws:ssm:*:*:automation-execution/*"
+ ]
+ },
+ {
+ "Sid": "ManageVssRestoreAutomationExecution",
+ "Effect": "Allow",
+ "Action": [
+ "ssm:StopAutomationExecution",
+ "ssm:GetAutomationExecution",
+ "ssm:DescribeAutomationExecutions",
+ "ssm:DescribeAutomationStepExecutions",
+ "ssm:SendAutomationSignal"
+ ],
+ "Resource": [
+ "arn:aws:ssm:*:*:automation-execution/*"
+ ]
+ }
+ ]
+}`
+
+```
+
+5. If you are to start the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation with an assume role by
+   providing a role arn to the `AutomationAssumeRole` parameter, you will need to add the following permission
+   to the above policy statements, and replace the `[AutomationAssumeRole's ARN]` placeholder with the ARN of the role created in step
+   `Invoke runbook automation with an assumed role (recommended)`. The permission allows the invoker role to pass the
+   automation assume role to Systems Manager.
+
+```
+{
+	"Action": "iam:PassRole",
+	"Effect": "Allow",
+	"Resource": [
+		"[AutomationAssumeRole's ARN]"
+	]
+}
+```
+
+6. Choose **Next** to review your policy. This opens the review and create page.
+7. On the **Review Policy** page, enter a name (for example, `VssRestoreRunSSMAutomationPolicy`) and then
+   choose **Next** to create and add the inline policy to your role.

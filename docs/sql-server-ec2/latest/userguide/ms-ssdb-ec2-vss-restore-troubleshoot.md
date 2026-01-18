@@ -27,6 +27,7 @@ classified into three main categories:
 These use the `aws:executeScript` action and include the following
 steps.
 
+- `ExtractPrepareVssRestoreOutput`
 - `PrepareForVolumeCreation`
 - `ExtractCurrIterValues`
 - `ConcatVolumeIds`
