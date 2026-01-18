@@ -74,7 +74,7 @@ _Amazon VPC User Guide_.
 
 ```
 DefaultIpv6Route:
-  Type: "AWS::EC2::Route"
+  Type: AWS::EC2::Route
   Properties:
     DestinationIpv6CidrBlock: "::/0"
     EgressOnlyInternetGatewayId:
@@ -82,17 +82,17 @@ DefaultIpv6Route:
     RouteTableId:
       Ref: "RouteTable"
 EgressOnlyInternetGateway:
-  Type: "AWS::EC2::EgressOnlyInternetGateway"
+  Type: AWS::EC2::EgressOnlyInternetGateway
   Properties:
     VpcId:
       Ref: "VPC"
 RouteTable:
-  Type: "AWS::EC2::RouteTable"
+  Type: AWS::EC2::RouteTable
   Properties:
     VpcId:
       Ref: "VPC"
 VPC:
-  Type: "AWS::EC2::VPC"
+  Type: AWS::EC2::VPC
   Properties:
     CidrBlock: "10.0.0.0/16"
 ```
@@ -317,11 +317,11 @@ For more information about elastic network interfaces, see [Elastic network inte
 ```
 Resources:
   ControlPortAddress:
-    Type: 'AWS::EC2::EIP'
+    Type: AWS::EC2::EIP
     Properties:
       Domain: vpc
   AssociateControlPort:
-    Type: 'AWS::EC2::EIPAssociation'
+    Type: AWS::EC2::EIPAssociation
     Properties:
       AllocationId:
         Fn::GetAtt:
@@ -330,11 +330,11 @@ Resources:
       NetworkInterfaceId:
         Ref: controlXface
   WebPortAddress:
-    Type: 'AWS::EC2::EIP'
+    Type: AWS::EC2::EIP
     Properties:
       Domain: vpc
   AssociateWebPort:
-    Type: 'AWS::EC2::EIPAssociation'
+    Type: AWS::EC2::EIPAssociation
     Properties:
       AllocationId:
         Fn::GetAtt:
@@ -343,7 +343,7 @@ Resources:
       NetworkInterfaceId:
         Ref: webXface
   SSHSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       VpcId:
         Ref: VpcId
@@ -354,7 +354,7 @@ Resources:
           IpProtocol: tcp
           ToPort: 22
   WebSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       VpcId:
         Ref: VpcId
@@ -365,7 +365,7 @@ Resources:
           IpProtocol: tcp
           ToPort: 80
   controlXface:
-    Type: 'AWS::EC2::NetworkInterface'
+    Type: AWS::EC2::NetworkInterface
     Properties:
       SubnetId:
         Ref: SubnetId
@@ -379,7 +379,7 @@ Resources:
         - Key: Network
           Value: Control
   webXface:
-    Type: 'AWS::EC2::NetworkInterface'
+    Type: AWS::EC2::NetworkInterface
     Properties:
       SubnetId:
         Ref: SubnetId

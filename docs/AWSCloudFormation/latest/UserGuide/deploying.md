@@ -221,7 +221,7 @@ Description: Bootstrap an EC2 instance with Apache web server using cfn-init
 Parameters:
   LatestAmiId:
     Description: The latest Amazon Linux 2 AMI from the Parameter Store
-    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
 
   InstanceType:

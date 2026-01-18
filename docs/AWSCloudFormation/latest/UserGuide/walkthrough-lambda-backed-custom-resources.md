@@ -189,7 +189,7 @@ Resources:
             }
             cfnresponse.send(event, context, cfnresponse.SUCCESS, response, "Waiter-"+id)
   CFNWaiterCustomResource:
-    Type: "AWS::CloudFormation::CustomResource"
+    Type: AWS::CloudFormation::CustomResource
     Properties:
       ServiceToken: !GetAtt CFNWaiter.Arn
       ServiceTimeout: 60
@@ -398,7 +398,7 @@ update operation if the properties are modified.
 ```
 ...
   CFNWaiterCustomResource:
-    Type: "AWS::CloudFormation::CustomResource"
+    Type: AWS::CloudFormation::CustomResource
     Properties:
       ServiceToken: !GetAtt CFNWaiter.Arn
       ServiceTimeout: 60

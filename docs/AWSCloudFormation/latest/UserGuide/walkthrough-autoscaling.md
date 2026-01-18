@@ -32,10 +32,10 @@ Parameters:
       - t3.medium
   KeyName:
     Description: Name of an existing EC2 key pair to allow SSH access to the instances
-    Type: 'AWS::EC2::KeyPair::KeyName'
+    Type: AWS::EC2::KeyPair::KeyName
   LatestAmiId:
     Description: The latest Amazon Linux 2 AMI from the Parameter Store
-    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
   OperatorEmail:
     Description: The email address to notify when there are any scaling activities
@@ -51,7 +51,7 @@ Parameters:
     Type: 'List<AWS::EC2::Subnet::Id>'
     Description: At least two public subnets in different Availability Zones in the selected VPC
   VPC:
-    Type: 'AWS::EC2::VPC::Id'
+    Type: AWS::EC2::VPC::Id
     Description: A virtual private cloud (VPC) that enables resources in public subnets to connect to the internet
 Resources:
   ELBSecurityGroup:

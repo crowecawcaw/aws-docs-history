@@ -98,7 +98,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Import test
 Resources:
   ServiceTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: Service
       AttributeDefinitions:
@@ -112,7 +112,7 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 1
   GamesTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: Games
       AttributeDefinitions:
@@ -197,7 +197,7 @@ Example YAML
 
 ```
   GamesTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     **DeletionPolicy: Retain**
     Properties:
       TableName: Games
@@ -279,7 +279,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Import test
 Resources:
   ServiceTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: Service
       AttributeDefinitions:
@@ -411,7 +411,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Import test
 Resources:
   ServiceTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: Service
       AttributeDefinitions:
@@ -425,7 +425,7 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 1
   GamesTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     DeletionPolicy: Retain
     Properties:
       TableName: Games

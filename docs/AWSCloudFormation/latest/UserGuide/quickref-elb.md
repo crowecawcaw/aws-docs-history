@@ -19,7 +19,7 @@ YAML
 ```
 Resources:
   myLoadBalancer:
-    Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
       Name: my-alb
       Type: application
@@ -31,7 +31,7 @@ Resources:
         - !Ref mySecurityGroup
 
   myHTTPlistener:
-    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
       LoadBalancerArn: !Ref myLoadBalancer
       Protocol: HTTP
@@ -41,7 +41,7 @@ Resources:
           TargetGroupArn: !Ref myTargetGroup
 
   myTargetGroup:
-    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       Name: "my-target-group"
       Protocol: HTTP
@@ -144,7 +144,7 @@ YAML
 
 ```
 myLoadBalancer:
-  Type: 'AWS::ElasticLoadBalancing::LoadBalancer'
+  Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
     AvailabilityZones:
     - "us-east-1a"
@@ -177,7 +177,7 @@ YAML
 
 ```
 myClassicLoadBalancer:
-  Type: 'AWS::ElasticLoadBalancing::LoadBalancer'
+  Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
     AvailabilityZones:
     - "us-east-1a"

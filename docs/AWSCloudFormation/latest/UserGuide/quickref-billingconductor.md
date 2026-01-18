@@ -103,7 +103,7 @@ Parameters:
     Type: Number
 Resources:
   TestPricingRule:
-    Type: 'AWS::BillingConductor::PricingRule'
+    Type: AWS::BillingConductor::PricingRule
     Properties:
       Name: 'TestPricingRule'
       Description: 'Test pricing rule created through Cloudformation. Mark everything by 10%.'
@@ -111,14 +111,14 @@ Resources:
       Scope: 'GLOBAL'
       ModifierPercentage: 10
   TestPricingPlan:
-    Type: 'AWS::BillingConductor::PricingPlan'
+    Type: AWS::BillingConductor::PricingPlan
     Properties:
       Name: 'TestPricingPlan'
       Description: 'Test pricing plan created through Cloudformation.'
       PricingRuleArns:
         - !GetAtt TestPricingRule.Arn
   TestBillingGroup:
-    Type: 'AWS::BillingConductor::BillingGroup'
+    Type: AWS::BillingConductor::BillingGroup
     Properties:
       Name: 'TestBillingGroup'
       Description: 'Test billing group created through Cloudformation with 1 linked account. The linked account is also the primary account.'
@@ -128,7 +128,7 @@ Resources:
       ComputationPreference:
         PricingPlanArn: !GetAtt TestPricingPlan.Arn
   TestFlatCustomLineItem:
-    Type: 'AWS::BillingConductor::CustomLineItem'
+    Type: AWS::BillingConductor::CustomLineItem
     Properties:
       Name: 'TestFlatCustomLineItem'
       Description: 'Test flat custom line item created through Cloudformation for a $10 charge.'
@@ -138,7 +138,7 @@ Resources:
           ChargeValue: 10
         Type: 'FEE'
   TestPercentageCustomLineItem:
-    Type: 'AWS::BillingConductor::CustomLineItem'
+    Type: AWS::BillingConductor::CustomLineItem
     Properties:
       Name: 'TestPercentageCustomLineItem'
       Description: 'Test percentage custom line item created through Cloudformation for a %10 additional charge on the overall total bill of the billing group.'

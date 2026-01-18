@@ -868,7 +868,7 @@ Parameters:
     Description: How many copies of the service task to run
 Resources:
   TaskDefinition:
-    Type: 'AWS::ECS::TaskDefinition'
+    Type: AWS::ECS::TaskDefinition
     Properties:
       Family: !Ref ServiceName
       Cpu: !Ref ContainerCpu
@@ -923,12 +923,12 @@ Resources:
           ContainerPort: !Ref ContainerPort
           TargetGroupArn: !Ref ServiceTargetGroup
   ServiceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Security group for service
       VpcId: !Ref VpcId
   ServiceTargetGroup:
-    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       HealthCheckIntervalSeconds: 6
       HealthCheckPath: /
@@ -944,7 +944,7 @@ Resources:
         - Key: deregistration_delay.timeout_seconds
           Value: 0
   PublicLoadBalancerSG:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Access to the public facing load balancer
       VpcId: !Ref VpcId
@@ -952,7 +952,7 @@ Resources:
         - CidrIp: 0.0.0.0/0
           IpProtocol: -1
   PublicLoadBalancer:
-    Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
       Scheme: internet-facing
       LoadBalancerAttributes:
@@ -962,7 +962,7 @@ Resources:
       SecurityGroups:
         - !Ref PublicLoadBalancerSG
   PublicLoadBalancerListener:
-    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
       DefaultActions:
         - Type: forward
@@ -974,13 +974,13 @@ Resources:
       Port: 80
       Protocol: HTTP
   ServiceIngressfromLoadBalancer:
-    Type: 'AWS::EC2::SecurityGroupIngress'
+    Type: AWS::EC2::SecurityGroupIngress
     Properties:
       Description: Ingress from the public ALB
       GroupId: !Ref ServiceSecurityGroup
       IpProtocol: -1
       SourceSecurityGroupId: !Ref PublicLoadBalancerSG
   LogGroup:
-    Type: 'AWS::Logs::LogGroup'
+    Type: AWS::Logs::LogGroup
 
 ```

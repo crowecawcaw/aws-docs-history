@@ -142,7 +142,7 @@ disabled at the account level.
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   S3Bucket:
-    Type: 'AWS::S3::Bucket'
+    Type: AWS::S3::Bucket
     Properties:
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
@@ -155,7 +155,7 @@ Resources:
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
   BucketPolicy:
-    Type: 'AWS::S3::BucketPolicy'
+    Type: AWS::S3::BucketPolicy
     Properties:
       PolicyDocument:
         Id: MyPolicy

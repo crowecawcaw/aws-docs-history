@@ -283,16 +283,16 @@ deployment as part of the stack update.
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   Vpc:
-    Type: 'AWS::EC2::VPC::Id'
+    Type: AWS::EC2::VPC::Id
   Subnet1:
-    Type: 'AWS::EC2::Subnet::Id'
+    Type: AWS::EC2::Subnet::Id
   Subnet2:
-    Type: 'AWS::EC2::Subnet::Id'
+    Type: AWS::EC2::Subnet::Id
 Transform:
   - 'AWS::CodeDeployBlueGreen'
 Hooks:
   CodeDeployBlueGreenHook:
-    Type: 'AWS::CodeDeploy::BlueGreen'
+    Type: AWS::CodeDeploy::BlueGreen
     Properties:
       TrafficRoutingConfig:
         Type: TimeBasedCanary
@@ -301,7 +301,7 @@ Hooks:
           BakeTimeMins: 5
       Applications:
         - Target:
-            Type: 'AWS::ECS::Service'
+            Type: AWS::ECS::Service
             LogicalID: ECSDemoService
           ECSAttributes:
             TaskDefinitions:
@@ -312,14 +312,14 @@ Hooks:
               - GreenTaskSet
             TrafficRouting:
               ProdTrafficRoute:
-                Type: 'AWS::ElasticLoadBalancingV2::Listener'
+                Type: AWS::ElasticLoadBalancingV2::Listener
                 LogicalID: ALBListenerProdTraffic
               TargetGroups:
                 - ALBTargetGroupBlue
                 - ALBTargetGroupGreen
 Resources:
   ExampleSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Security group for ec2 access
       VpcId: !Ref Vpc
@@ -337,7 +337,7 @@ Resources:
           ToPort: 22
           CidrIp: 0.0.0.0/0
   ALBTargetGroupBlue:
-    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       HealthCheckIntervalSeconds: 5
       HealthCheckPath: /
@@ -356,7 +356,7 @@ Resources:
       UnhealthyThresholdCount: 4
       VpcId: !Ref Vpc
   ALBTargetGroupGreen:
-    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       HealthCheckIntervalSeconds: 5
       HealthCheckPath: /
@@ -375,7 +375,7 @@ Resources:
       UnhealthyThresholdCount: 4
       VpcId: !Ref Vpc
   ExampleALB:
-    Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
       Scheme: internet-facing
       SecurityGroups:
@@ -389,7 +389,7 @@ Resources:
       Type: application
       IpAddressType: ipv4
   ALBListenerProdTraffic:
-    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
       DefaultActions:
         - Type: forward
@@ -401,7 +401,7 @@ Resources:
       Port: 80
       Protocol: HTTP
   ALBListenerProdRule:
-    Type: 'AWS::ElasticLoadBalancingV2::ListenerRule'
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
     Properties:
       Actions:
         - Type: forward
@@ -418,7 +418,7 @@ Resources:
       ListenerArn: !Ref ALBListenerProdTraffic
       Priority: 1
   ECSTaskExecutionRole:
-    Type: 'AWS::IAM::Role'
+    Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
         Version: 2012-10-17
@@ -431,7 +431,7 @@ Resources:
       ManagedPolicyArns:
         - 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'
   BlueTaskDefinition:
-    Type: 'AWS::ECS::TaskDefinition'
+    Type: AWS::ECS::TaskDefinition
     Properties:
       ExecutionRoleArn: !GetAtt
         - ECSTaskExecutionRole
@@ -451,17 +451,17 @@ Resources:
       Memory: '512'
       Family: ecs-demo
   ECSDemoCluster:
-    Type: 'AWS::ECS::Cluster'
+    Type: AWS::ECS::Cluster
     Properties: {}
   ECSDemoService:
-    Type: 'AWS::ECS::Service'
+    Type: AWS::ECS::Service
     Properties:
       Cluster: !Ref ECSDemoCluster
       DesiredCount: 1
       DeploymentController:
         Type: EXTERNAL
   BlueTaskSet:
-    Type: 'AWS::ECS::TaskSet'
+    Type: AWS::ECS::TaskSet
     Properties:
       Cluster: !Ref ECSDemoCluster
       LaunchType: FARGATE
@@ -484,7 +484,7 @@ Resources:
           ContainerPort: 80
           TargetGroupArn: !Ref ALBTargetGroupBlue
   PrimaryTaskSet:
-    Type: 'AWS::ECS::PrimaryTaskSet'
+    Type: AWS::ECS::PrimaryTaskSet
     Properties:
       Cluster: !Ref ECSDemoCluster
       Service: !Ref ECSDemoService

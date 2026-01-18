@@ -307,7 +307,7 @@ _Amazon EC2 User Guide_.
 
 ```
 SecurityGroup:
-  Type: 'AWS::EC2::SecurityGroup'
+  Type: AWS::EC2::SecurityGroup
   Properties:
     GroupDescription: Allow connections from specified source security group
     SecurityGroupIngress:
@@ -550,7 +550,7 @@ For more information about load balancing, see the [Elastic Load Balancing User 
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   MyELB:
-    Type: 'AWS::ElasticLoadBalancing::LoadBalancer'
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
     Properties:
       AvailabilityZones:
         - `aa-example-1a`
@@ -559,7 +559,7 @@ Resources:
           InstancePort: '80'
           Protocol: HTTP
   MyELBIngressGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: ELB ingress group
       SecurityGroupIngress:

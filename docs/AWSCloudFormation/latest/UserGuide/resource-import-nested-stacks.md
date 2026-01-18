@@ -84,7 +84,7 @@ AWS Management Console
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   ServiceTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: Service
       AttributeDefinitions:
@@ -97,7 +97,7 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 1
   MyNestedStack:
-    Type: 'AWS::CloudFormation::Stack'
+    Type: AWS::CloudFormation::Stack
     DeletionPolicy: Retain
     Properties:
       TemplateURL: >-
@@ -214,7 +214,7 @@ AWS CLI
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   ServiceTable:
-    Type: 'AWS::DynamoDB::Table'
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: Service
       AttributeDefinitions:
@@ -227,7 +227,7 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 1
   `MyNestedStack`:
-    Type: 'AWS::CloudFormation::Stack'
+    Type: AWS::CloudFormation::Stack
     DeletionPolicy: Retain
     Properties:
       TemplateURL: >-
@@ -271,7 +271,7 @@ configuration.
 **YAML**
 
 ```
-ResourceType: 'AWS::CloudFormation::Stack'
+ResourceType: AWS::CloudFormation::Stack
   LogicalResourceId: `MyNestedStack`
   ResourceIdentifier:
     StackId: >-

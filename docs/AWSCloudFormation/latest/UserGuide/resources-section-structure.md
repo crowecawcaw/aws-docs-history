@@ -263,7 +263,7 @@ Auto Scaling group, CloudFormation requires more information.
 ```
 Resources:
   MyBucket:
-    Type: 'AWS::S3::Bucket'
+    Type: AWS::S3::Bucket
     Properties:
       BucketName: `amzn-s3-demo-bucket`
 ```
@@ -321,7 +321,7 @@ resources.
 ```
 Resources:
   Ec2Instance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       SecurityGroupIds:
         - !Ref InstanceSecurityGroup
@@ -329,7 +329,7 @@ Resources:
       KeyName: MyKey
       ImageId: ami-1234567890abcdef0
   InstanceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enable SSH access via port 22
       SecurityGroupIngress:
@@ -395,9 +395,9 @@ array to specify their parameters.
 ```
 Resources:
   MyBucket:
-    Type: 'AWS::S3::Bucket'
+    Type: AWS::S3::Bucket
   MyDistribution:
-    Type: 'AWS::CloudFront::Distribution'
+    Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
         Origins:
