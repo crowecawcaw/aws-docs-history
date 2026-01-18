@@ -149,7 +149,7 @@ the first commit for a repository using the AWS CLI](how-to-create-commit.md#cre
    6. Choose **Commit changes**.To upload a file, do the following:
    - If you're uploading a file, choose the file you want to upload.
 
-   ![A view of uploading a file in the CodeCommit console](images/codecommit-commit-first-file.png)
+   ![A view of uploading a file in the CodeCommit console](/images/codecommit/latest/userguide/images/codecommit-commit-first-file.png)
    - In **Author name**, enter the name you want displayed
      to other repository users.
    - In **Email address**, enter an email address.
