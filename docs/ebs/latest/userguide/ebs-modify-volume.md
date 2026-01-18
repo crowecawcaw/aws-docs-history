@@ -19,14 +19,19 @@ volume configuration after volume modification starts. For more information, see
 
 ## Considerations
 
-- After modifying a volume, you must wait at least **six hours**
-  and ensure that the volume is in the `in-use` or `available` state before
-  you can modify the same volume.
-- Modifying an EBS volume can take from a few minutes to a few hours, depending on the
-  configuration changes being applied. An EBS volume that is 1 TiB in size can typically take
-  up to six hours to be modified. However, the same volume could take 24 hours or longer in
-  other situations. The time it takes for volumes to be modified doesn't always scale linearly.
-  Therefore, a larger volume might take less time, and a smaller volume might take more time.
+- After you initiate a volume modification, you must wait for that modification to reach the
+  `completed` state before you can initiate another modification for the same volume.
+  You can modify a volume up to four times within a rolling 24-hour period, as long as the volume
+  is in the `in-use` or `available` state, and all previous modifications
+  for that volume are `completed`. If you exceed this limit, you get an error message
+  that indicates when you can perform your next modification.
+- Volume modifications are performed on a best-effort basis, and they can take from a few
+  minutes to a few hours to complete, depending on the requested volume configuration. Typically,
+  A 1-TiB volume can take up to six hours to be modified. However, the time does not always scale
+  linearly with the volume size - a larger volume might take less time, and a smaller volume might
+  take more time.
+- Size increases take effect once the volume modification reaches the `optimizing`
+  state, which usually takes a few seconds.
 - Modification time is increased for volumes that are not fully initialized. For more
   information see [Manually initialize the volumes after creation](initalize-volume.md#ebs-initialize "initalize-volume.md#ebs-initialize").
 - If you change the volume type from `gp2` to `gp3`, and you do not specify

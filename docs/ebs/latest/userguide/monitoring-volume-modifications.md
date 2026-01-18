@@ -11,13 +11,13 @@ volume performance is no less than the target volume performance.
 
 Volume modification changes take effect as follows:
 
-- Size changes usually take a few seconds to complete and take effect after the volume
-  has transitioned to the `Optimizing` state.
-- Performance (IOPS) changes can take from a few minutes to a few hours to complete and
-  are dependent on the configuration change being made.
-- In some cases, it can take more than 24 hours for a new configuration to take effect,
-  such as when the volume has not been fully initialized. Typically, a fully used 1-TiB
-  volume takes about 6 hours to migrate to a new performance configuration.
+- Size increases take effect once the volume modification reaches the `optimizing`
+  state, which usually takes a few seconds.
+- Performance (IOPS and throughput) changes can take from a few minutes to a few hours to
+  complete, depending on the requested volume configuration. Typically, a fully used 1-TiB
+  volume can take about 6 hours to migrate to a new performance configuration. In some cases,
+  it can take more than 24 hours for a new performance configuration to take effect, such as
+  when the volume has not been fully initialized.
   The possible volume states are `creating`, `available`,
   `in-use`, `deleting`, `deleted`, and
   `error`.

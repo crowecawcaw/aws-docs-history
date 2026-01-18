@@ -27,8 +27,8 @@ Amazon EBS provides the following features and benefits:
 - **Multiple volume types** — Amazon EBS provides
   multiple volume types that allow you to optimize storage performance and cost for
   a broad range of applications. Volume types are divided into two major categories:
-  SSD-backed storage for transactional workloads, and HDD-backed storage for throughput
-  intensive workloads.
+  **SSD-backed storage** for transactional workloads, and
+  **HDD-backed storage** for throughput intensive workloads.
 - **Scalability** — You can create Amazon EBS
   volumes with capacity and performance specifications that meet your needs. As your
   needs changes, you can use Elastic Volumes operations to dynamically increase capacity
