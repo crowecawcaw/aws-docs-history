@@ -48,7 +48,7 @@ GuardDuty administrator account's invitation to join their organization. However
 be more than 50,000 accounts in your AWS organization.
 
 If you exceed the 50,000 member accounts limit, you will receive a
-notification from CloudWatch, AWS Health Dashboard, and an email to the designated
+notification from CloudWatch, Health Dashboard, and an email to the designated
 delegated GuardDuty administrator account.
 
 **A delegated GuardDuty administrator account is Regional.**

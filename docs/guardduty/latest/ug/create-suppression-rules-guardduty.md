@@ -47,7 +47,7 @@ suppression rule using the console:
    If it is a string value, type the text and press enter. Multiple values can be added in case of
    string values.
 8. Additional criteria can be added by selecting **Add Criteria** to add another
-   set of **Key**, and **Value(s)**.
+   set of **Key**, **Operator** and **Value(s)**.
 9. Select **Create suppression rule** to create and save the suppression rule.
 
 You can also create a suppression rule from an existing saved filter. For
