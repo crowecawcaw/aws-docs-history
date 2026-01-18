@@ -61,6 +61,13 @@ displays the following:
   information about changes and features in specific patches, see
   [Cluster versions
   for Amazon Redshift](cluster-versions.md "cluster-versions.md").
+- **Workgroup ARN** ‐
+  The Amazon Resource Name for the workgroup.
+- **Extra compute resources for
+  automatic optimizations** ‐
+  Whether Amazon Redshift is allocating extra compute resources to
+  perform automatic optimizations, even during periods of heavy usage.
+  For more information, see [Allocating extra compute resources for automatic database optimization](../dg/t_extra-compute-autonomics.md "../dg/t_extra-compute-autonomics.md") in the _Amazon Redshift Database Developer Guide_.
 
 The **Data access** tab contains several panels:
 

@@ -10,7 +10,7 @@ After you run a query and the results display, you can turn on
 results. You can use the following controls to define the content, structure, and
 appearance of your chart:
 
-![Plus sign icon representing an addition or new item action.](/images/redshift/latest/mgmt/images/add-plus.png)
+![Plus sign icon representing an addition or new item action.](images/add-plus.png)
 Trace
 
 Represents a set of related graphical marks in a chart. You can define
@@ -175,14 +175,14 @@ _Revenue_.
 
 The label _Revenue_ displays on the left Y axis. 10. Under **Structure**, choose
 **Traces**. 11. Choose
-![Plus sign icon representing an addition or new item action.](/images/redshift/latest/mgmt/images/add-plus.png)
+![Plus sign icon representing an addition or new item action.](images/add-plus.png)
 
 **Trace**.
 
 The trace 1 options display. 12. For **Type**, choose **Line**. 13. For **X**, choose _eventname_. 14. For **Y**, choose
 _total_qty_sold_. 15. Under **Axes To Use**, for **Y Axis**
 choose
-![Plus sign icon representing an addition or new item action.](/images/redshift/latest/mgmt/images/add-plus.png)
+![Plus sign icon representing an addition or new item action.](images/add-plus.png)
 .
 
 The **Y Axis** displays _Y2_. 16. Under **Style**, choose **Axes**. 17. Under **Titles**, choose **Y2**. 18. For **Name**, enter _Sales_. 19. Under **Lines**, choose

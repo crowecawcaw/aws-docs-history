@@ -3,131 +3,112 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing zero-ETL integrations
+# Zero-ETL integrations
 
-You can view your zero-ETL integrations from the Amazon Redshift console. Here you can view its configuration
-information and current status, and open screens to query and share data.
+Zero-ETL integration is a fully managed solution that makes transactional and operational data
+available in Amazon Redshift from multiple operational and transactional sources. With this solution,
+you can configure an integration from your source to an Amazon Redshift data warehouse. You don't need to
+maintain an extract, transform, and load (ETL) pipeline. We take care of the ETL for you by
+automating the creation and management of data replication from the data source to the Amazon Redshift
+cluster or Redshift Serverless namespace. You can continue to update and query your source data while
+simultaneously using Amazon Redshift for analytic workloads, such as reporting and dashboards.
 
-Amazon Redshift console
+With zero-ETL integration you have fresher data for analytics, AI/ML, and reporting. You get more
+accurate and timely insights for use cases like business dashboards, optimized gaming
+experience, data quality monitoring, and customer behavior analysis. You can make data-driven
+predictions with more confidence, improve customer experiences, and promote data-driven insights
+across the business.
 
-###### To view the details of a zero-ETL integration
+The following sources are currently supported for zero-ETL integrations:
 
-1. Sign in to the AWS Management Console and open the Amazon Redshift console at
-   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2. From the left navigation pane, choose either the
-   **Serverless** or **Provisioned clusters**
-   dashboard. Then, choose **Zero-ETL integrations**.
-3. Select the zero-ETL integration that you want to view. For each integration, the
-   following information is provided:
-   - **Integration ID** is the identifier returned when the
-     integration is created.
-   - **Status** can be one of the following:
-     - `Active` – The zero-ETL integration is sending transactional
-       data to the target Amazon Redshift data warehouse.
-     - `Syncing` – The zero-ETL integration has encountered a
-       recoverable error and is reseeding data. Affected tables aren’t available
-       for querying in Amazon Redshift until they finish resyncing.
-     - `Failed` – The zero-ETL integration encountered an
-       unrecoverable event or error that can't be fixed. You must delete and
-       recreate the zero-ETL integration.
-     - `Creating` – The zero-ETL integration is being created.
-     - `Deleting` – The zero-ETL integration is being deleted.
-     - `Needs attention` – The zero-ETL integration encountered an
-       event or error that requires manual intervention to resolve it. To fix the
-       issue, follow the steps in the error message.
+- Amazon Aurora MySQL (AMS)
+- Amazon Aurora PostgreSQL (APG)
+- Amazon DynamoDB
+- Amazon RDS for MySQL
+- Amazon RDS for Oracle
+- Amazon RDS for PostgreSQL
+- Oracle Database@AWS
+- Applications including Salesforce, Salesforce Marketing Cloud Account Engagement, SAP, ServiceNow, Instagram ads, Meta ads, and Zendesk
+- Self-Managed MySQL, PostgreSQL, SQL Server, and Oracle
+  To create a zero-ETL integration, you specify an integration source and an Amazon Redshift data warehouse as
+  the target. After an initial data load, the integration replicates data from the source to the
+  target data warehouse. The data becomes available in Amazon Redshift. You control the encryption of
+  your data when you create the integration source, when you create the zero-ETL integration, and when you
+  create the Amazon Redshift data warehouse. The integration monitors the health of the data pipeline and
+  recovers from issues when possible. You can create integrations from sources of the same type
+  into a single Amazon Redshift data warehouse to derive holistic insights across multiple
+  applications.
 
-   - **Source type** is the type of source data replicating to
-     the target. Types can specify other database managers, such as Aurora MySQL-Compatible Edition,
-     Amazon Aurora PostgreSQL, RDS for MySQL, and from applications (`GlueSAAS`).
-   - **Source ARN** is the ARN of the source data. For most
-     sources this is the ARN of the source database or table. For zero-ETL integration with
-     applications sources, this is the ARN of the AWS Glue connection object.
-   - **Target** is the namespace of the Amazon Redshift data warehouse
-     receiving source data.
-   - **Database** can be one of the following:
-     - `No database` – There is no destination database for
-       the integration.
-     - `Creating` – Amazon Redshift is creating the destination
-       database for the integration.
-     - `Active` – Data is being replicated from the
-       integration source to Amazon Redshift.
-     - `Error` – There is an error with the
-       integration.
-     - `Recovering` – The integration is recovering after
-       the data warehouse restarted.
-     - `Resyncing` – Amazon Redshift is resynchronizing the tables
-       in the integration.
+With the data in Amazon Redshift, you can use analytics that Amazon Redshift provides. For example, built-in
+machine learning (ML), materialized views, data sharing, and direct access to multiple data
+stores and data lakes.
+For data engineers,
+zero-ETL integration provides access to time-sensitive data that otherwise can get delayed by intermittent
+errors in complex data pipelines. You can run analytical queries and ML models on transactional
+data to derive timely insights for time-sensitive events and business decisions.
 
-   - **Target type** is the type of Amazon Redshift data
-     warehouse.
-   - **Creation date** is the date and time (UTC) when the
-     integration was created.
+You can create an Amazon Redshift event notification subscription so you can be notified when an event
+occurs for a given zero-ETL integration. To view the list of integration-related event notifications, see
+[Zero-ETL integration event notifications with
+Amazon EventBridge](integration-event-notifications.md "integration-event-notifications.md"). The simplest way to create a subscription
+is with the Amazon SNS console. For information on creating an Amazon SNS topic and subscribing to it, see
+[Getting started with
+Amazon SNS](../../../sns/latest/dg/GettingStarted.md "../../../sns/latest/dg/GettingStarted.md") in the _Amazon Simple Notification Service Developer Guide_.
 
-###### Note
+As you get started with zero-ETL integrations, consider the following concepts:
 
-To view integration details for a data warehouse, choose the details page for
-your provisioned cluster or serverless namespace and then choose the
-**Zero-ETL integrations** tab.
+- A source database is the database from where data is replicated into Amazon Redshift.
+- A target data warehouse is the Amazon Redshift provisioned cluster or Redshift Serverless workgroup where data is
+  replicated to.
+- A destination database is the database that you create from a zero-ETL integration in the target
+  data warehouse.
+  For information about system tables and views you can use to monitor your zero-ETL integrations, see
+  [Monitoring zero-ETL integrations with Amazon Redshift system
+  views](zero-etl-monitoring.md#zero-etl-monitoring-sysviews "zero-etl-monitoring.md#zero-etl-monitoring-sysviews").
 
-From the **Zero-ETL integrations** list, you can choose **Query
-data** to jump to Amazon Redshift query editor v2. The Amazon Redshift target database has the [enable_case_sensitive_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md") parameter enabled. When you write SQL, you
-might need to surround schemas, tables, and column names with double quotes
-("<name>"). For more information about querying data in your Amazon Redshift data
-warehouse, see [Querying a database using the query editor v2](query-editor-v2.md "query-editor-v2.md").
+For a list of AWS Regions that each source for zero-ETL integrations supports, see [Supported Regions for
+zero-ETL integrations](zero-etl-using.md "zero-etl-using.md").
 
-From the **Zero-ETL integrations** list, you can choose **Share
-data** to create a datashare. To create a datashare for the Amazon Redshift database,
-follow the instructions on the **Create datashare** page. Before you
-can share data in your Amazon Redshift database, you must first create a destination database.
-For more information about data sharing, see [Data sharing concepts for
-Amazon Redshift](../dg/concepts.md "../dg/concepts.md").
+For pricing information for zero-ETL integrations, see the appropriate pricing page:
 
-To refresh your integration, you can use the [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") command. Doing
-so replicates all of the data from your integration source into your destination
-database. The following example refreshes all synced and failed tables within your
-zero-ETL integration.
+- [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/")
+- [Amazon Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/")
+- [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/")
+- [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/")
+- [AWS Glue pricing](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/")
+  For more information about zero-ETL integration sources, see the following topics:
 
-```
-ALTER DATABASE sample_integration_db INTEGRATION REFRESH ALL tables;
-```
+- For Aurora zero-ETL integrations, see [Benefits](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.benefits "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.benefits"),
+  [Key
+  concepts](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.concepts "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.concepts"), [Limitations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.reqs-lims "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.reqs-lims"), [Quotas](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.quotas "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.quotas"), and
+  [Supported
+  Regions](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.regions "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.regions") of zero-ETL integrations in the _Amazon Aurora User Guide_.
+- For RDS zero-ETL integrations, see [Benefits](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.benefits "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.benefits"), [Key
+  concepts](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.concepts "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.concepts"), [Limitations](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.reqs-lims "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.reqs-lims"),
+  [Quotas](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.quotas "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.quotas"), and [Supported Regions](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.regions "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.regions")
+  of zero-ETL integrations in the _Amazon RDS User Guide_.
+- For DynamoDB zero-ETL integrations, see [DynamoDB
+  zero-ETL integration with Amazon Redshift](../../../amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.md "../../../amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.md") in the _Amazon DynamoDB Developer Guide_.
+- For zero-ETL integrations with applicatons, see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the
+  _AWS Glue Developer Guide_.
 
-AWS CLI
-To describe an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the AWS CLI, use the
-`describe-integrations` command with the following options:
+###### Topics
 
-- `integration-arn` – Specify the ARN of the DynamoDB integration
-  to describe.
-- `integration-name` – Specify an optional filter that
-  specifies one or more resources to return.
-
-The follow example describes an integration by providing the integration
-ARN.
-
-```
-`aws redshift describe-integrations`
-         `{
- "Integrations": [
- {
- "Status": "failed",
- "IntegrationArn": "arn:aws:redshift:us-east-1:123456789012:integration:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- "Errors": [
- {
- "ErrorCode": "INVALID_TABLE_PERMISSIONS",
- "ErrorMessage": "Redshift does not have sufficient access on the table key. Refer to the Amazon DynamoDB Developer Guide."
- }
- ],
- "Tags": [],
- "CreateTime": "2023-11-09T00:32:46.444Z",
- "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
- "TargetArn": "arn:aws:redshift:us-east-1:123456789012:namespace:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- "IntegrationName": "ddb-to-provisioned-02",
- "SourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/mytable"
- }
- ]
-}`
-
-```
-
-You can also filter the results of `describe-integrations` by the
-`integration-arn`, `source-arn`, `source-types`, or
-`status`. For more information, see [describe-integrations](../../../cli/latest/reference/redshift/describe-integrations.md "../../../cli/latest/reference/redshift/describe-integrations.md") in the _Amazon Redshift CLI Guide_.
+- [Considerations when using zero-ETL integrations with Amazon Redshift](zero-etl.md "zero-etl.md")
+- [Getting started with zero-ETL integrations](zero-etl-using.md "zero-etl-using.md")
+- [Creating destination databases in
+  Amazon Redshift](zero-etl-using.md "zero-etl-using.md")
+- [Querying replicated
+  data in Amazon Redshift](zero-etl-using.md "zero-etl-using.md")
+- [Viewing zero-ETL integrations](zero-etl-using.md "zero-etl-using.md")
+- [History mode](zero-etl-history-mode.md "zero-etl-history-mode.md")
+- [Sharing your data in Amazon Redshift](zero-etl-using.md "zero-etl-using.md")
+- [Monitoring zero-ETL integrations](zero-etl-monitoring.md "zero-etl-monitoring.md")
+- [Metrics for zero-ETL integrations](zero-etl-using.md "zero-etl-using.md")
+- [Modify a zero-ETL integration for
+  DynamoDB](zero-etl-managing.md "zero-etl-managing.md")
+- [Delete a zero-ETL integration for
+  DynamoDB](zero-etl-managing.md "zero-etl-managing.md")
+- [Supported Regions for
+  zero-ETL integrations](zero-etl-using.md "zero-etl-using.md")
+- [Troubleshooting zero-ETL integrations](zero-etl-using.md "zero-etl-using.md")

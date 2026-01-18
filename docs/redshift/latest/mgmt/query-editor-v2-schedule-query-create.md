@@ -16,7 +16,7 @@ uses the Amazon Redshift Data API.
 
 1. On the **Editor**
 
-![Editor](images/qev2-align-left.png)
+![Editor](/images/redshift/latest/mgmt/images/qev2-align-left.png)
 view, choose
 ![Schedule](images/qev2-calendar.png)
 

@@ -142,6 +142,10 @@ graphs (you can choose between **Query list** and
   ranges of less than 6 hours, RPU hours are shown in exact time. For
   time ranges of 6 hours or more, RPU hours are shown as
   averages.
+- **Extra compute for automatic optimizations charged seconds** –
+  This graph shows the number of RPU-seconds charged for automatic database optimizations for the selected time range.
+  You're charged for automatic optimizations when you Amazon Redshift uses extra compute resources to run them.
+  For more information, see [Allocating extra compute resources for automatic database optimization](../dg/t_extra-compute-autonomics.md "../dg/t_extra-compute-autonomics.md") .
   On the **Datashares** page, you can manage datashares
   **In my account** and **From other
   accounts**. For more information about data sharing, see [Data sharing in Amazon Redshift Serverless](serverless-datasharing.md "serverless-datasharing.md").

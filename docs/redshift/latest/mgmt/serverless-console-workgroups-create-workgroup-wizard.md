@@ -36,12 +36,14 @@ workgroup configuration, see [Workgroup properties](serverless-console-workgroup
    subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md").
 5. Choose one or more **VPC security groups**. For more
    information, see [Control traffic to resources using security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md").
-6. Under **Subnet**, specify one or more subnets to
+6. Choose whether to enable extra compute resources for automatic
+   optimizations. For more information, see [Allocating extra compute resources for automatic database optimization](../dg/t_extra-compute-autonomics.md "../dg/t_extra-compute-autonomics.md") in the _Amazon Redshift Database Developer Guide_.
+7. Under **Subnet**, specify one or more subnets to
    associate with your database. These subnets are contained in the Amazon VPC
    you chose previously and must be in three distinct Availability
    Zones. For more
    information, see [Considerations when using Amazon Redshift Serverless](serverless-usage-considerations.md "serverless-usage-considerations.md").
-7. Select the base RPU capacity that conforms with your
+8. Select the base RPU capacity that conforms with your
    requirements.
 
 ## Choose a

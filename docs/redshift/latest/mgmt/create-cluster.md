@@ -164,3 +164,10 @@ create automated snapshots.
 
 You can choose the number of days or `Indefinitely` to
 retain these snapshots.
+
+**Extra compute resources for automatic optimizations**
+
+You can choose whether to allocate extra compute
+resources to perform automatic optimizations,
+even during periods of heavy usage.
+For more information, see [Allocating extra compute resources for automatic database optimization](../dg/t_extra-compute-autonomics.md "../dg/t_extra-compute-autonomics.md") in the _Amazon Redshift Database Developer Guide_.

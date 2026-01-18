@@ -42,7 +42,7 @@ The Okta-provided unique ID associated with your Amazon Redshift application.
 
 This parameter is optional.
 
-## application_name
+## ApplicationName
 
 - Default value – None
 - Data type – String

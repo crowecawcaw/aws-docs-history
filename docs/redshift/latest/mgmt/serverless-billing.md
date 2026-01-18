@@ -96,6 +96,15 @@ ends. For more information about the Amazon Redshift Serverless free trial, see 
   change. It's charged according to storage, billed at a rate of GB / month. You
   can restore your data warehouse to specific points in the last 24 hours at a 30
   minute granularity, free of charge. For more information, see [Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
+- **Automatic optimizations run using extra compute resources** ‐
+  Amazon Redshift Serverless usually runs automatic optimization operations alongside
+  user queries. These operations are known as autonomics,
+  and you aren’t charged for them.
+
+If you enable allocating extra compute resources, Amazon Redshift will run
+autonomics when necessary even in periods of high user activity.
+In such cases, you can be billed for the time spent running
+autonomics. For more information, see [Allocating extra compute resources for automatic database optimization](../dg/t_extra-compute-autonomics.md "../dg/t_extra-compute-autonomics.md") in the _Amazon Redshift Database Developer Guide_.
 
 ### Amazon Redshift Serverless best
 

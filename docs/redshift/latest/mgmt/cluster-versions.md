@@ -72,6 +72,8 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
+- Global autonomics for clusters in the mesh, Autonomics now consider the workload of the entire mesh to optimize Vacuum, Analyze and ATO.
+- Create and refresh Materialized Views from multiple Amazon Redshift data warehouses.
 - Added support to store strings literals up to 16,000,000 bytes within the SUPER data types
 - Added GET_NUMBER_ATTRIBUTES(super_object) function that returns the total number of attributes contained within a SUPER object.
 - Release patch compatibility restrictions are enforced for table restore operations. When attempting to restore a table, the backup can only be used on clusters running the same patch version as when the backup was created, one patch version lower than the backup, or any patch version higher than the backup.

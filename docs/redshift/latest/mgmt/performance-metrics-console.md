@@ -29,6 +29,7 @@ query monitoring features on the Amazon Redshift console, watch the following vi
   performance data](performance-metrics-database-performance.md "performance-metrics-database-performance.md")
 - [Viewing workload
   concurrency and concurrency scaling data](performance-metrics-concurrency-scaling.md "performance-metrics-concurrency-scaling.md")
+- [Viewing automatic optimization data](performance-metrics-autonomics.md "performance-metrics-autonomics.md")
 - [Viewing queries and loads](performance-metrics-queries.md "performance-metrics-queries.md")
 - [Viewing and analyzing
   query details](performance-metrics-query-execution-details.md "performance-metrics-query-execution-details.md")
