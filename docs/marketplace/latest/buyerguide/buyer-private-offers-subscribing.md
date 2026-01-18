@@ -151,6 +151,5 @@ AMI
 Machine learning
 
 AMI
-Flexible payment schedule:
 
 Without flexible payment schedule:
