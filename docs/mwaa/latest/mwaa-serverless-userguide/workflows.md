@@ -40,7 +40,7 @@ CLI
 
 ```
 
-aws airflow-serverless create-workflow --name `my-workflow-name` --definition-s3-location'{"Bucket": "`my-bucket-name`", "ObjectKey": "`my-yaml-file`"}'
+aws mwaa-serverless create-workflow --name `my-workflow-name` --definition-s3-location'{"Bucket": "`my-bucket-name`", "ObjectKey": "`my-yaml-file`"}'
 
 ```
 
@@ -51,7 +51,7 @@ CLI
 
 ```
 
-aws airflow-serverless get-workflow --workflow-arn arn:aws:airflow-serverless:`us-east-1`:`111122223333`:workflow/`workflow-name`
+aws mwaa-serverless get-workflow --workflow-arn arn:aws:airflow-serverless:`us-east-1`:`111122223333`:workflow/`workflow-name`
 
 ```
 

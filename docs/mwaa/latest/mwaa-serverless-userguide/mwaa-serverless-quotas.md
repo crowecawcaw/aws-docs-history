@@ -14,6 +14,6 @@ Your AWS account has these quotas related to Amazon MWAA Serverless.
 | Maximum workflow versions per workflow   | 50         |
 | Maximum concurrent runs per account      | 100        |
 | Maximum concurrent runs per workflow     | 20         |
-| Maximum XCom data in kilobytes           | 200KB      |
-| Maximum DAG definition size in kilobytes | 50KB       |
+| Maximum XCom data in Kilobytes           | 100KB      |
+| Maximum DAG definition size in Kilobytes | 50KB       |
 | Maximum task execution timeout           | 60 minutes |
