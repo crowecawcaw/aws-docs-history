@@ -104,9 +104,7 @@ service.
 If the deployment error was related to missing permissions, review the
 [Add permissions to the token exchange service
 (TES) role](gs-add-permissions.md "gs-add-permissions.md") section to make sure that the TES
-role has the proper permissions. Then, repeat this section.
-
- 
+role has the proper permissions. Then, repeat this section. 7. **Update the secrets on the AWS IoT Greengrass Secret Manager component**
 
 ###### Important
 
