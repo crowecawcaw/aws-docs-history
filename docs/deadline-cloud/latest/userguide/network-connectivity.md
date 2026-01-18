@@ -33,6 +33,13 @@ For additional information about allowlisting domains for AWS Sign-In, see [Doma
 - `oidc.`[Region]`.amazonaws.com`
 - `assets.sso-portal.`[Region]`.amazonaws.com`
 
+The Deadline Cloud submitter requires access to the following domains to download GUI dependencies.
+
+- `pypi.python.org`
+- `pypi.org`
+- `pythonhosted.org`
+- `files.pythonhosted.org`
+
 ## Environment-specific endpoints to allowlist
 
 These domains vary depending on the specific configuration of Deadline Cloud. If additional Deadline Cloud monitors or queues are created, additional domains will need to be allowlisted.

@@ -141,8 +141,10 @@ environment](create-queue-environment.md#conda-queue-environment "create-queue-e
    submitter was installed:
 
 ```
-Windows:
+Windows (per-user installation):
    %USERPROFILE%\DeadlineCloudSubmitter\Submitters\Blender\python\
+Windows (system-wide installation):
+   %PROGRAMFILES%\DeadlineCloudSubmitter\Submitters\Blender\python\
 Linux:
    ~/DeadlineCloudSubmitter/Submitters/Blender/python/
 ```
