@@ -54,8 +54,11 @@ Volume Gateway.
         and configure the gateway virtual machine using Microsoft
         Hyper-V.
       - **Linux KVM** - Download, deploy, and
-        configure the gateway virtual machine using Linux
-        KVM.
+        configure the gateway virtual machine using Linux KVM.
+        Refer to the provided aws-storage-gateway.xml file for
+        suggested boot configurations. UEFI boot mode with secure
+        boot disabled (loader_secure=no) is required for File
+        Gateway 2.x, Volume Gateway 3.x, and Tape Gateway 3.x.
       - **Amazon EC2** - Configure and launch an Amazon EC2
         instance to host your gateway. This option is not available
         for **Stored volume** gateways.
