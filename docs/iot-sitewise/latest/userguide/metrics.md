@@ -88,33 +88,34 @@ For more information, see [Undefined, infinite, and overflow values](expression-
   23:59:59.
 - **Offset time zone** – (Optional) The time zone for the
   offset. If it isn't specified, the default offset time zone is the Universal
-  Coordinated Time (UTC).
-  - (UTC+00:00) Universal Coordinated Time
-  - (UTC+01:00) European Central Time
-  - (UTC+02:00) Eastern European
-  - (UTC03+:00) Eastern African Time
-  - (UTC+04:00) Near East Time
-  - (UTC+05:00) Pakistan Lahore Time
-  - (UTC+05:30) India Standard Time
-  - (UTC+06:00) Bangladesh Standard Time
-  - (UTC+07:00) Vietnam Standard Time
-  - (UTC+08:00) China Taiwan Time
-  - (UTC+09:00) Japan Standard Time
-  - (UTC+09:30) Australia Central Time
-  - (UTC+10:00) Australia Eastern Time
-  - (UTC+11:00) Solomon Standard Time
-  - (UTC+12:00) New Zealand Standard Time
-  - (UTC-11:00) Midway Islands Time
-  - (UTC-10:00) Hawaii Standard Time
-  - (UTC-09:00) Alaska Standard Time
-  - (UTC-08:00) Pacific Standard Time
-  - (UTC-07:00) Phoenix Standard Time
-  - (UTC-06:00) Central Standard Time
-  - (UTC-05:00) Eastern Standard Time
-  - (UTC-04:00) Puerto Rico and US Virgin Islands Time
-  - (UTC-03:00) Argentina Standard Time
-  - (UTC-02:00) South Georgia Time
-  - (UTC-01:00) Central African Time
+  Coordinated Time (UTC). See the following supported time zones.
+
+- (UTC+00:00) Universal Coordinated Time
+- (UTC+01:00) European Central Time
+- (UTC+02:00) Eastern European
+- (UTC03+:00) Eastern African Time
+- (UTC+04:00) Near East Time
+- (UTC+05:00) Pakistan Lahore Time
+- (UTC+05:30) India Standard Time
+- (UTC+06:00) Bangladesh Standard Time
+- (UTC+07:00) Vietnam Standard Time
+- (UTC+08:00) China Taiwan Time
+- (UTC+09:00) Japan Standard Time
+- (UTC+09:30) Australia Central Time
+- (UTC+10:00) Australia Eastern Time
+- (UTC+11:00) Solomon Standard Time
+- (UTC+12:00) New Zealand Standard Time
+- (UTC-11:00) Midway Islands Time
+- (UTC-10:00) Hawaii Standard Time
+- (UTC-09:00) Alaska Standard Time
+- (UTC-08:00) Pacific Standard Time
+- (UTC-07:00) Phoenix Standard Time
+- (UTC-06:00) Central Standard Time
+- (UTC-05:00) Eastern Standard Time
+- (UTC-04:00) Puerto Rico and US Virgin Islands Time
+- (UTC-03:00) Argentina Standard Time
+- (UTC-02:00) South Georgia Time
+- (UTC-01:00) Central African Time
 
 ###### Example custom time interval with an offset (console)
 
