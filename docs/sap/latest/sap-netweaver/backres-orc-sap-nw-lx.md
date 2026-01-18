@@ -15,7 +15,7 @@ You can use [AWS Backup](https://aws.amazon.com/backup "https://aws.amazon.com/b
 -
 
 ```
-aws ec2 create-image --instance-id i-1234567890abcdef0 --name "My server" --description "An AMI for my server"
+ aws ec2 create-image --instance-id i-1234567890abcdef0 --name "My server" --description "An AMI for my server"
 ```
 
 AWS provides a very simple and quick way to copy an SAP system. You can use the AWS Console Home or the AWS CLI to create a new AMI of an existing SAP system. You can then launch exact copies of the original system from the new AMI. For more details, see [Amazon Machine Images (AMI)](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md").

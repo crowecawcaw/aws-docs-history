@@ -7,7 +7,7 @@
    1. Ensure that the hostname is ⇐ 13 characters in an alphanumeric string (hyphens can also be included). This can be done at the command line using Windows PowerShell by executing the following command:
 
    ```
-   Rename-Computer <new-hostname>
+    Rename-Computer <new-hostname>
    ```
 
    2. Optionally add the server to your Active Directory domain (this can be done with [AWS Systems Manager](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-systems-manager-dx-domain/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-systems-manager-dx-domain/")).

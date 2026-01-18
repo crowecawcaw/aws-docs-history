@@ -18,7 +18,7 @@ Establish cluster communication between nodes using Corosync and configure requi
 On all cluster nodes, change the password of the operating system user hacluster:
 
 ```
-# passwd hacluster
+ # passwd hacluster
 ```
 
 ## Setup Passwordless Authentication
@@ -36,7 +36,7 @@ Review the security implications for your organization, including root access co
 On all cluster nodes, enable and start the pcsd service:
 
 ```
-# systemctl enable pcsd --now
+ # systemctl enable pcsd --now
 ```
 
 ## Authorize the Cluster
@@ -44,13 +44,13 @@ On all cluster nodes, enable and start the pcsd service:
 Run the following command to authenticate the cluster nodes. You will be prompted for the hacluster password you set earlier:
 
 ```
-# pcs host auth <hostname_1> <hostname_2> -u hacluster -p <password>
+ # pcs host auth <hostname_1> <hostname_2> -u hacluster -p <password>
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
-# pcs host auth rhxhost01 rhxhost02 -u hacluster -p <password>
+ # pcs host auth rhxhost01 rhxhost02 -u hacluster -p <password>
 ```
 
 ## Generate Corosync Configuration
@@ -58,7 +58,7 @@ Run the following command to authenticate the cluster nodes. You will be prompte
 Corosync provides membership and member-communication needs for high availability clusters. Initial setup can be performed using the following command with dual network rings for redundant communication:
 
 ```
-# pcs cluster setup <cluster_name> \
+ # pcs cluster setup <cluster_name> \
 <hostname_1> addr=<host_ip_1> addr=<host_additional_ip_1> \
 <hostname_2> addr=<host_ip_2> addr=<host_additional_ip_2>
 ```
@@ -66,7 +66,7 @@ Corosync provides membership and member-communication needs for high availabilit
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
-# pcs cluster setup myCluster rhxhost01 addr=10.1.10.1 addr=10.1.10.2 rhxhost02 addr=10.1.20.1 addr=10.1.20.2
+ # pcs cluster setup myCluster rhxhost01 addr=10.1.10.1 addr=10.1.10.2 rhxhost02 addr=10.1.20.1 addr=10.1.20.2
 Destroying cluster on hosts: 'rhxhost01', 'rhxhost02'...
 rhxhost01: Successfully destroyed cluster
 rhxhost02: Successfully destroyed cluster
@@ -87,7 +87,7 @@ Cluster has been successfully set up.
 The timing parameters are optimized for AWS cloud environments. Update the token timeout to provide reliable cluster operation while accommodating normal cloud network characteristics:
 
 ```
-# pcs cluster config update totem token=15000
+ # pcs cluster config update totem token=15000
 ```
 
 ## Start and Verify the Cluster
@@ -95,7 +95,7 @@ The timing parameters are optimized for AWS cloud environments. Update the token
 Start the cluster on all nodes:
 
 ```
-# pcs cluster start --all
+ # pcs cluster start --all
 ```
 
 ###### Note
@@ -105,13 +105,13 @@ By enabling the pacemaker service, the server automatically joins the cluster af
 Run the following command to check the cluster status:
 
 ```
-# pcs status
+ # pcs status
 ```
 
 Example output:
 
 ```
-Cluster name: myCluster
+ Cluster name: myCluster
 
 WARNINGS:
 No stonith devices and stonith-enabled is not false
@@ -139,13 +139,13 @@ Daemon Status:
 Both cluster nodes must show up as online. You can find the ring status and the associated IP addresses of the cluster with the corosync-cfgtool command:
 
 ```
-# corosync-cfgtool -s
+ # corosync-cfgtool -s
 ```
 
 Example output:
 
 ```
-Local node ID 1, transport knet
+ Local node ID 1, transport knet
 LINK ID 0 udp
         addr    = 10.1.10.114
         status:
@@ -165,7 +165,7 @@ Both network rings should report "active with no faults". If either ring is miss
 Enable pacemaker to start automatically after reboot:
 
 ```
-# pcs cluster enable --all
+ # pcs cluster enable --all
 ```
 
 Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead.
@@ -175,19 +175,19 @@ Enabling pacemaker also handles corosync through service dependencies. The clust
 **1. Check pacemaker service status:**
 
 ```
-# systemctl status pacemaker
+ # systemctl status pacemaker
 ```
 
 **2. Verify cluster status:**
 
 ```
-# pcs status
+ # pcs status
 ```
 
 _Example output_:
 
 ```
-Cluster name: myCluster
+ Cluster name: myCluster
 Cluster Summary:
   * Stack: corosync
   * Current DC: rhxhost01 (version 2.1.5+20221208.a3f44794f) - partition with quorum

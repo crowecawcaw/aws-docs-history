@@ -14,7 +14,7 @@ A review must be conducted after each failure to understand the source of failur
 - For troubleshooting cluster issues, use journalctl to examine both pacemaker and corosync logs:
 
 ```
-# journalctl -u pacemaker -u corosync --since "1 hour ago"
+ # journalctl -u pacemaker -u corosync --since "1 hour ago"
 ```
 
     + Use `--since` to specify time periods (e.g., "2 hours ago", "today")
@@ -30,7 +30,7 @@ Application based failures can be investigated in the SAP work directory.
 If failed actions are reported using the `pcs status` command, and if they have already been investigated, then you can clear the reports with the following command.
 
 ```
-# pcs resource cleanup <resource> <hostname>
+ # pcs resource cleanup <resource> <hostname>
 ```
 
 ## Restart failed nodes or pacemaker
@@ -44,13 +44,13 @@ You need to restart the instance or the pacemaker service based on your approach
 For cluster-specific issues, use `sosreport` to generate a targeted analysis of cluster components:
 
 ```
-# sosreport --batch --tmp-dir /tmp
+ # sosreport --batch --tmp-dir /tmp
 ```
 
 For quick analysis of recent events, you can use:
 
 ```
-# pcs status --full
+ # pcs status --full
 # journalctl -u pacemaker --since "1 hour ago"
 ```
 

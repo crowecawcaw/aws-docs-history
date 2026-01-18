@@ -36,13 +36,13 @@ The cluster setup relies on the following parameters.
 Run the following command on your instances to retrieve the hostname.
 
 ```
-# hostname
+ # hostname
 ```
 
 - **Amazon EC2 instance ID** – run the following command (IMDSv2 compatible) on your instances to retrieve instance metadata.
 
 ```
-# /usr/bin/curl --noproxy '*' -w "\n" -s -H "X-aws-ec2-metadata-token: $(curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")" http://169.254.169.254/latest/meta-data/instance-id
+ # /usr/bin/curl --noproxy '*' -w "\n" -s -H "X-aws-ec2-metadata-token: $(curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")" http://169.254.169.254/latest/meta-data/instance-id
 ```
 
 For more details, see [Retrieve instance metadata](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md") and [Instance identity documents](../../../AWSEC2/latest/UserGuide/instance-identity-documents.md "../../../AWSEC2/latest/UserGuide/instance-identity-documents.md").
@@ -50,7 +50,7 @@ For more details, see [Retrieve instance metadata](../../../AWSEC2/latest/UserGu
 - **Amazon EC2 subnet ID** – run the following command to retrieve the subnet ID for each of your instances.
 
 ```
-# INSTANCE_ID=i-xxxxinstidforhost1
+ # INSTANCE_ID=i-xxxxinstidforhost1
 # aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].SubnetId' --output text
 ```
 
@@ -59,7 +59,7 @@ For more details, see [describe-instances](../../../cli/latest/reference/ec2/des
 - **Route table(s) for subnets** – run the following AWS CLI commands to retrieve the route table(s) associated with both cluster node subnets.
 
 ```
-# SUBNET_ID_1=subnet-xxxxxxxxxxsubnet1
+ # SUBNET_ID_1=subnet-xxxxxxxxxxsubnet1
 # SUBNET_ID_2=subnet-xxxxxxxxxxsubnet2
 # aws ec2 describe-route-tables --filters "Name=association.subnet-id,Values=$SUBNET_ID_1,$SUBNET_ID_2" --query 'RouteTables[].RouteTableId' --output text
 ```

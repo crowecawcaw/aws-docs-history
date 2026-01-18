@@ -16,13 +16,13 @@ Modify SAP service configurations, user permissions, and system integration sett
 This is applicable to both cluster nodes. An `haclient` operating system group is created when the cluster connector package is installed. Adding the `<sid>adm` user to this group ensures that your cluster has necessary access. Run the following command as root:
 
 ```
-# usermod -a -G haclient <sid>adm
+ # usermod -a -G haclient <sid>adm
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
-# usermod -a -G haclient slxadm
+ # usermod -a -G haclient slxadm
 ```
 
 ## Modify SAP profiles for start operations and cluster hook
@@ -48,7 +48,7 @@ ENSA1
 **ASCS**
 
 ```
-#For ENSA1 (_EN)
+ #For ENSA1 (_EN)
 #Changing Restart to Start for Cluster compatibility
 #Old value: Restart_Program_XX = local $(_EN) pf=$(_PF)
 
@@ -58,7 +58,7 @@ Start_Program_XX = local $(_EN) pf=$(_PF)
 **ERS**
 
 ```
-#For ENSA1 (_ER)
+ #For ENSA1 (_ER)
 #Changing Restart to Start for Cluster compatibility
 #Old value: Restart_Program_XX = local $(_ER) pf=$(_PFL)NR=$(SCSID)
 
@@ -72,7 +72,7 @@ ENSA2
 **ASCS**
 
 ```
-#For ENSA2 (_ENQ)
+ #For ENSA2 (_ENQ)
 #Changing Restart to Start for Cluster compatibility
 #Old value: Restart_Program_XX = local $(_ENQ) pf=$(_PF)
 
@@ -82,7 +82,7 @@ Start_Program_XX = local $(_ENQ) pf=$(_PF)
 **ERS**
 
 ```
-#For ENSA2 (_ENQR)
+ #For ENSA2 (_ENQR)
 #Changing Restart to Start for Cluster compatibility
 #Old value: Restart_Program_XX = local $(_ENQR) pf=$(_PFL)NR=$(SCSID)
 
@@ -92,14 +92,14 @@ Start_Program_XX = local $(_ENQR) pf=$(_PFL) NR=$(SCSID)
 _`XX` indicates the start order. This value may be different in your install; retain the unchanged value._ 2. **Disable instance auto start in both profiles** – When an instance restarts, SAP start framework should not start ASCS and ERS automatically. Add the following parameter on both profiles to prevent an auto start:
 
 ```
-# Disable instance auto start
+ # Disable instance auto start
 Autostart = 0
 ```
 
 3. **Add cluster connector details in both profiles** – The connector integrates the SAP start and control frameworks of SAP NetWeaver with SUSE cluster to assist with maintenance and awareness of state. Add the following parameters on both profiles:
 
 ```
-# Added for Cluster Connectivity
+ # Added for Cluster Connectivity
 service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
 service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
 ```
@@ -111,13 +111,13 @@ RPM package `sap-suse-cluster-connector` has _dashes_. The executable `/usr/bin/
 **ASCS**
 
 ```
-# /usr/sap/hostctrl/exe/sapcontrol -nr <ascs_sys_nr> -function RestartService
+ # /usr/sap/hostctrl/exe/sapcontrol -nr <ascs_sys_nr> -function RestartService
 ```
 
 **ERS**
 
 ```
-# /usr/sap/hostctrl/exe/sapcontrol -nr <ers_sys_nr> -function RestartService
+ # /usr/sap/hostctrl/exe/sapcontrol -nr <ers_sys_nr> -function RestartService
 ```
 
     * *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")*:
@@ -130,7 +130,7 @@ RPM package `sap-suse-cluster-connector` has _dashes_. The executable `/usr/bin/
 
 
     ```
-    # /usr/sap/hostctrl/exe/sapcontrol -nr 00 -function RestartService
+     # /usr/sap/hostctrl/exe/sapcontrol -nr 00 -function RestartService
     ```
 
 
@@ -140,7 +140,7 @@ RPM package `sap-suse-cluster-connector` has _dashes_. The executable `/usr/bin/
 
 
     ```
-    # /usr/sap/hostctrl/exe/sapcontrol -nr 10 -function RestartService
+     # /usr/sap/hostctrl/exe/sapcontrol -nr 10 -function RestartService
     ```
 
 5. **Check integration using `sapcontrol`** – `sapcontrol` includes functions: `HACheckConfig` and `HACheckFailoverConfig`. These functions can be used to check configuration, including awareness of the cluster connector.
@@ -149,7 +149,7 @@ RPM package `sap-suse-cluster-connector` has _dashes_. The executable `/usr/bin/
 **ASCS**
 
 ```
-# /usr/sap/hostctrl/exe/sapcontrol -nr <ascs_sys_nr> -function HACheckFailoverConfig
+ # /usr/sap/hostctrl/exe/sapcontrol -nr <ascs_sys_nr> -function HACheckFailoverConfig
 ```
 
     * *Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")*:
@@ -162,7 +162,7 @@ RPM package `sap-suse-cluster-connector` has _dashes_. The executable `/usr/bin/
 
 
     ```
-    # /usr/sap/hostctrl/exe/sapcontrol -nr 00 -function HACheckFailoverConfig
+     # /usr/sap/hostctrl/exe/sapcontrol -nr 00 -function HACheckFailoverConfig
 
     10.10.2025 01:23:55
     HACheckFailoverConfig
@@ -178,14 +178,14 @@ For simple-mount architecture, enable the sapping and sappong systemd services o
 The sapping service runs before sapinit during boot and temporarily hides the `/usr/sap/sapservices` file to prevent automatic SAP instance startup. The sappong service runs after sapinit and restores the sapservices file, making it available for cluster management while maintaining compatibility with SAP management tools.
 
 ```
-# systemctl enable sapping
+ # systemctl enable sapping
 # systemctl enable sappong
 ```
 
 Verify the services are enabled:
 
 ```
-# systemctl status sapping
+ # systemctl status sapping
 # systemctl status sappong
 ```
 
@@ -209,7 +209,7 @@ For more details, see the following SAP Notes (require SAP portal access):
 You can confirm whether systemd is in place by running the following command. Systemd is in place if SAP Services (e.g., SAPSLX_00.service, SAPSLX_10.service) are listed.
 
 ```
-# systemctl list-unit-files SAP*
+ # systemctl list-unit-files SAP*
 ```
 
 If you have installed an ASCS or ERS on this host but no SAP Services are returned, the classic SysV init may be in use. In that case you can skip to section [(Alternative) Ensure ASCS and ERS SAP Services can run on either node (sysV)](#modify-sapservices-sysv-nw-sles "#modify-sapservices-sysv-nw-sles")
@@ -223,14 +223,14 @@ Register the missing ERS service on the node where you have installed ASCS.
 
 
     ```
-    # mount <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>  /usr/sap/<SID>/ERS<ers_sys_nr>
+     # mount <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>  /usr/sap/<SID>/ERS<ers_sys_nr>
     ```
     2. Register the ERS service:
 
 
 
     ```
-    # export LD_LIBRARY_PATH=/usr/sap/<SID>/ERS<ers_sys_nr>/exe
+     # export LD_LIBRARY_PATH=/usr/sap/<SID>/ERS<ers_sys_nr>/exe
     # /usr/sap/<SID>/ERS<ers_sys_nr>/exe/sapstartsrv pf=/usr/sap/<SID>/SYS/profile/<SID>_ERS<ers_sys_nr>_<ers_virt_hostname> -reg
     # systemctl start SAP<SID>_<ers_sys_nr>
     ```
@@ -239,7 +239,7 @@ Register the missing ERS service on the node where you have installed ASCS.
 
 
     ```
-    # systemctl list-unit-files SAP*
+     # systemctl list-unit-files SAP*
     UNIT FILE                    STATE   VENDOR PRESET
     SAPSLX.service            disabled disabled
     SAPSLX.service            disabled disabled
@@ -256,7 +256,7 @@ Register the missing ERS service on the node where you have installed ASCS.
 
 
     ```
-    # systemctl stop SAP<SID>_<ascs_sys_nr>.service
+     # systemctl stop SAP<SID>_<ascs_sys_nr>.service
     # systemctl disable SAP<SID>_<ascs_sys_nr>.service
     # systemctl stop SAP<SID>_<ers_sys_nr>.service
     # systemctl disable SAP<SID>_<ers_sys_nr>.service
@@ -266,7 +266,7 @@ Register the missing ERS service on the node where you have installed ASCS.
 
 
     ```
-    # umount /usr/sap/<SID>/ERS<ers_sys_nr>
+     # umount /usr/sap/<SID>/ERS<ers_sys_nr>
     ```
 
 
@@ -276,7 +276,7 @@ Register the missing ERS service on the node where you have installed ASCS.
 
 
     	```
-    	# mount <nfs.fqdn>:/SLX_ERS10  /usr/sap/SLX/ERS10
+    	 # mount <nfs.fqdn>:/SLX_ERS10  /usr/sap/SLX/ERS10
     	# export LD_LIBRARY_PATH=/usr/sap/SLX/ERS10/exe
     	# /usr/sap/SLX/ERS10/exe/sapstartsrv pf=/usr/sap/SLX/SYS/profile/SLX_ERS10_slxers -reg
     	# systemctl start SAPSLX_10
@@ -296,14 +296,14 @@ Register the missing ASCS service on the node where you have installed ERS.
 
 
     ```
-    # mount <nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr> /usr/sap/<SID>/ASCS<ascs_sys_nr>
+     # mount <nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr> /usr/sap/<SID>/ASCS<ascs_sys_nr>
     ```
     2. Register the ASCS service:
 
 
 
     ```
-    # export LD_LIBRARY_PATH=/usr/sap/<SID>/ASCS<ascs_sys_nr>/exe
+     # export LD_LIBRARY_PATH=/usr/sap/<SID>/ASCS<ascs_sys_nr>/exe
     # /usr/sap/<SID>/ASCS<ascs_sys_nr>/exe/sapstartsrv pf=/usr/sap/<SID>/SYS/profile/<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname> -reg
     # systemctl start SAP<SID>_<ascs_sys_nr>
     ```
@@ -312,7 +312,7 @@ Register the missing ASCS service on the node where you have installed ERS.
 
 
     ```
-    # systemctl list-unit-files SAP*
+     # systemctl list-unit-files SAP*
     UNIT FILE                    STATE   VENDOR PRESET
     SAPSLX00.service           disabled disabled
     SAPSLX00.service           disabled disabled
@@ -329,7 +329,7 @@ Register the missing ASCS service on the node where you have installed ERS.
 
 
     ```
-    # systemctl stop SAP<SID>_<ascs_sys_nr>.service
+     # systemctl stop SAP<SID>_<ascs_sys_nr>.service
     # systemctl disable SAP<SID>_<ascs_sys_nr>.service
     # systemctl stop SAP<SID>_<ers_sys_nr>.service
     # systemctl disable SAP<SID>_<ers_sys_nr>.service
@@ -339,7 +339,7 @@ Register the missing ASCS service on the node where you have installed ERS.
 
 
     ```
-    # umount /usr/sap/<SID>/ASCS<ascs_sys_nr>
+     # umount /usr/sap/<SID>/ASCS<ascs_sys_nr>
     ```
 
 
@@ -349,7 +349,7 @@ Register the missing ASCS service on the node where you have installed ERS.
 
 
     	```
-    	# mount <nfs.fqdn>:/SLX_ASCS00 /usr/sap/SLX/ASCS00
+    	 # mount <nfs.fqdn>:/SLX_ASCS00 /usr/sap/SLX/ASCS00
     	# export LD_LIBRARY_PATH=/usr/sap/SLX/ASCS00/exe
     	# /usr/sap/SLX/ASCS00/exe/sapstartsrv pf=/usr/sap/SLX/SYS/profile/SLX_ASCS00_slxascs -reg
     	# systemctl start SAPSLX_00
@@ -369,7 +369,7 @@ When an EC2 instance shuts down unexpectedly, Pacemaker (the cluster resource ma
 Create a systemd drop-in configuration for the `resource-agents-deps.target`, which is a systemd target that Pacemaker uses to understand external service dependencies:
 
 ```
-# mkdir -p /etc/systemd/system/resource-agents-deps.target.d/
+ # mkdir -p /etc/systemd/system/resource-agents-deps.target.d/
 # cd /etc/systemd/system/resource-agents-deps.target.d/
 
 # cat > sap_systemd_<sid>.conf <<_EOF
@@ -386,7 +386,7 @@ _EOF
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
-# cat > sap_systemd_slx.conf <<_EOF
+ # cat > sap_systemd_slx.conf <<_EOF
 [Unit]
 Requires=sapinit.service
 After=sapinit.service
@@ -404,7 +404,7 @@ This is only applicable for if systemd integration is not in place.
 To ensure that SAP instance can be managed by the cluster and also manually during planned maintenance activities, add the missing entries for ASCS and ERS `sapstartsrv` service in `/usr/sap/sapservices` file on both cluster nodes (ASCS and ERS host). Copy the missing entry from both hosts. Post-modifications, the `/usr/sap/sapservices` file looks as follows on both hosts:
 
 ```
-#!/bin/sh
+ #!/bin/sh
 LD_LIBRARY_PATH=/usr/sap/<SID>/ASCS<ascs_sys_nr>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<SID>/ASCS<ascs_sys_nr>/exe/sapstartsrv pf=/usr/sap/<SID>/SYS/profile/<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname> -D -u <sid>adm
 LD_LIBRARY_PATH=/usr/sap/<SID>/ERS<ers_sys_nr>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<SID>/ERS<ers_sys_nr>/exe/sapstartsrv pf=/usr/sap/<SID>/SYS/profile/<SID>_ERS<ers_sys_nr>_<ers_virt_hostname> -D -u <sid>adm
 ```
@@ -412,7 +412,7 @@ LD_LIBRARY_PATH=/usr/sap/<SID>/ERS<ers_sys_nr>/exe:$LD_LIBRARY_PATH; export LD_L
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
-#!/bin/sh
+ #!/bin/sh
 LD_LIBRARY_PATH=/usr/sap/SLX/ASCS00/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/SLX/ASCS00/exe/sapstartsrv pf=/usr/sap/SLX/SYS/profile/SLX_ASCS00_slxascs -D -u slxadm
 LD_LIBRARY_PATH=/usr/sap/SLX/ERS10/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/SLX/ERS10/exe/sapstartsrv pf=/usr/sap/SLX/SYS/profile/SLX_ERS10_slxers -D -u slxadm
 ```

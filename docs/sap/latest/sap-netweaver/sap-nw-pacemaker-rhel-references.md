@@ -56,13 +56,13 @@ These steps must be performed in an outage window, allowing stop/start of servic
 It might be necessary to install `sapstartsrv-resource-agents`. However, all operating system prerequisites must be checked and updated to ensure that versions are compatible. 4. Add entries for ASCS and ERS mount point on both nodes (if not already added). See [Update /etc/fstab](sap-shared-filesystems-nw-rhel.md#update-fstab-nw-rhel "sap-shared-filesystems-nw-rhel.md#update-fstab-nw-rhel") 5. Enable `sapping`/`sappong` services. See [Enable sapping and sappong Services (Simple-Mount Only)](sap-ascs-service-control-nw-rhel.md#sapping-sappong-services-nw-rhel "sap-ascs-service-control-nw-rhel.md#sapping-sappong-services-nw-rhel") 6. Align and disable `systemd` services. See [Ensure ASCS and ERS SAP Services can run on either node (systemd)](sap-ascs-service-control-nw-rhel.md#modify-sapservices-nw-rhel "sap-ascs-service-control-nw-rhel.md#modify-sapservices-nw-rhel") 7. Backup the configuration with the following command.
 
 ```
-# pcs config show >> /tmp/classic_ha_setup.txt
+ # pcs config show >> /tmp/classic_ha_setup.txt
 ```
 
 See [Prepare for Resource Creation](cluster-config-nw-rhel.md#prepare-resource-nw-rhel "cluster-config-nw-rhel.md#prepare-resource-nw-rhel") 8. _Optional_ – delete the configuration. You can edit in place but we recommend starting with a blank configuration. This ensures that latest timeout and priority parameters are in place. See [Reset Configuration](cluster-config-nw-rhel.md#reset-config-nw-rhel "cluster-config-nw-rhel.md#reset-config-nw-rhel")
 
 ```
-# pcs resource cleanup
+ # pcs resource cleanup
 # pcs config show
 ```
 

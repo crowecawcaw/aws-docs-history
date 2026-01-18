@@ -51,21 +51,21 @@ Select instances based on your workload requirements:
 - **Enhanced networking**: Verify and enable enhanced networking for improved network performance
 
 ```
-$ aws ec2 describe-instances --instance-ids i-1234567890abcdef0 --query 'Reservations[].Instances[].EnaSupport'
+ $ aws ec2 describe-instances --instance-ids i-1234567890abcdef0 --query 'Reservations[].Instances[].EnaSupport'
 ```
 
 ```
-$ aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --ena-support
+ $ aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --ena-support
 ```
 
 - **EBS optimization**: Enable EBS optimization for consistent storage performance
 
 ```
-$ aws ec2 describe-instances --instance-ids i-1234567890abcdef0 --query 'Reservations[].Instances[].EbsOptimized'
+ $ aws ec2 describe-instances --instance-ids i-1234567890abcdef0 --query 'Reservations[].Instances[].EbsOptimized'
 ```
 
 ```
-$ aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --ebs-optimized
+ $ aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --ebs-optimized
 ```
 
 - **Nitro System**: Current generation instances run on the AWS Nitro System, providing consistent performance and security
@@ -150,7 +150,7 @@ Amazon EFS provides serverless, fully elastic NFS storage that scales automatica
 1. **Create an encrypted EFS file system with recommended settings**
 
 ```
-$ aws efs create-file-system \
+ $ aws efs create-file-system \
 --creation-token SAP-TRANS-PROD \
 --backup \
 --encrypted \
@@ -171,7 +171,7 @@ Parameter Explanations:
 Create mount targets in each subnet where your SAP instances will access EFS:
 
 ```
-$ aws efs create-mount-target \
+ $ aws efs create-mount-target \
 --file-system-id fs-12345678 \
 --subnet-id subnet-12345678 \
 --security-groups sg-12345678 \
@@ -183,7 +183,7 @@ $ aws efs create-mount-target \
 Get the DNS name needed for mounting:
 
 ```
-$ aws efs describe-file-systems --creation-token SAP-TRANS-PROD --region us-west-2
+ $ aws efs describe-file-systems --creation-token SAP-TRANS-PROD --region us-west-2
 ```
 
 4. **Allocate Directories (optional)**
