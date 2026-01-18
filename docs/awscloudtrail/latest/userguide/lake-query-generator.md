@@ -31,6 +31,23 @@ in your prompts.
 This feature uses generative AI large language models (LLMs); we recommend double-checking the
 LLM response.
 
+###### Note
+
+CloudTrail will automatically select the optimal region within your geography to process inference requests while generating queries.
+This maximizes available compute resources, model availability, and delivers the best customer experience.
+Your data will remain stored only in the region where the request originated, however,
+input prompts and output results may be processed outside that region.
+All data will be transmitted encrypted across Amazon's secure network.
+
+CloudTrail will securely route your inference requests to available compute resources within the geographic area where the request originated, as follows:
+
+- Inference requests originating in the United States will be processed within the United States
+- Inference requests originating within Japan will be processed within Japan
+- Inference requests originating in Australia will be processed within Australia.
+- Inference requests originating in European Union will be processed within the European Union
+- Inference requests originating in India will be processed within India
+  To opt out of the query generation feature, you can explicitly deny or remove the `cloudtrail:GenerateQuery` action from the iam policy you are using.
+
 You can access the query generator using the CloudTrail console and AWS CLI.
 
 CloudTrail console
