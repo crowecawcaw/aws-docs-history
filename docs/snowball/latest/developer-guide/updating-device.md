@@ -3,8 +3,8 @@ secure physical transfers, or AWS Partner solutions. For edge computing, explore
 
 # Updating software on Snowball Edge devices
 
-AWS will notify you when new software is available for Snowball Edge you have. The notification is provided through email, AWS Health Dashboard, and as a CloudWatch event. The email notification is sent from Amazon Web Services, Inc. to the email address attached to the AWS account used to order the Snowball Edge device. When you receive the notification, follow the instructions in this topic and download and install the update as soon as possible to avoid
-interruption of your use of the device. For more information about AWS Health Dashboard, see [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md"). For more information about CloudWatch Events, see [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md").
+AWS will notify you when new software is available for Snowball Edge you have. The notification is provided through email, Health Dashboard, and as a CloudWatch event. The email notification is sent from Amazon Web Services, Inc. to the email address attached to the AWS account used to order the Snowball Edge device. When you receive the notification, follow the instructions in this topic and download and install the update as soon as possible to avoid
+interruption of your use of the device. For more information about Health Dashboard, see [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md"). For more information about CloudWatch Events, see [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md").
 
 You can download software updates from AWS and install them on Snowball Edge devices
 in your on-premises environments. These updates happen in the background. You can continue

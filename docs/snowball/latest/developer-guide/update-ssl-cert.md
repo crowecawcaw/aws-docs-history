@@ -8,8 +8,8 @@ update the Secure Sockets Layer (SSL) certificate on the device to avoid interru
 your use of the device. If the certificate expires, you will not be able to use the
 device and will have to return it to AWS.
 
-AWS will notify you 30 days before the SSL certificate expires for Snowball Edge you have. The notification is provided through email, AWS Health Dashboard, and as a AWS CloudTrail event. The email notification is sent from Amazon Web Services, Inc. to the email address attached to the AWS account used to order the Snowball Edge device. When you receive the notification, follow the instructions in this topic and request an update as soon as possible to avoid
-interruption of your use of the device. For more information about AWS Health Dashboard, see [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md"). For more information about CloudWatch Events, see [Working with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+AWS will notify you 30 days before the SSL certificate expires for Snowball Edge you have. The notification is provided through email, Health Dashboard, and as a AWS CloudTrail event. The email notification is sent from Amazon Web Services, Inc. to the email address attached to the AWS account used to order the Snowball Edge device. When you receive the notification, follow the instructions in this topic and request an update as soon as possible to avoid
+interruption of your use of the device. For more information about Health Dashboard, see [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md"). For more information about CloudWatch Events, see [Working with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
 
 Updating the SSL certificate is done through the Snowball Edge client. The latest version of the
 Snowball Edge client must be downloaded and installed on a computer in your
