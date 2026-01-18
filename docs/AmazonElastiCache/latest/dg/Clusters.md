@@ -1,59 +1,304 @@
-# Managing clusters in ElastiCache
+# Removing nodes from an ElastiCache cluster
 
-A _cluster_ is a collection of one or more cache nodes,
-all of which run an instance of the Valkey, Memcached, and Redis OSS engine software.
-When you create a cluster, you specify the engine and version for all of the nodes to use.
+You can delete a node from a Valkey, Memcached, or Redis OSS cluster using the AWS Management Console, the AWS CLI, or the ElastiCache API.
 
-**Valkey and Redis OSS clusters**
+###### Note
 
-The following diagram illustrates a typical Valkey or Redis OSS cluster.
-These clusters can contain a single node or up to six nodes inside a shard (API/CLI: node group),
-A single-node Valkey or Redis OSS (cluster mode disabled) cluster has no shard, and a multi-node Valkey or Redis OSS (cluster mode disabled) cluster has a single shard.
-Valkey or Redis OSS (cluster mode enabled) clusters can have up to 500 shards, with your data partitioned across the shards. The node or shard limit can be increased to a maximum of 500 per cluster if the engine version is Valkey 7.2 and higher or Redis OSS 5.0.6 and higher. For example, you can choose to configure a 500 node cluster that ranges between
-83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
-Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
-[Creating a subnet group](SubnetGroups.md "SubnetGroups.md"). For versions below 5.0.6,
-the limit is 250 per cluster.
+Each time you change the number of nodes in a Memcached cluster,
+you must re-map at least some of your keyspace so it maps to the correct node.
+For more detailed information on load balancing a Memcached cluster, see [Configuring your ElastiCache client for efficient load balancing (Memcached)](BestPractices.md "BestPractices.md").
 
-To request a limit increase, see
-[AWS Service Limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md")
-and choose the limit type **Nodes per cluster per instance type**.
+###### To remove nodes from a cluster (console)
 
-When you have multiple nodes in a Valkey or Redis OSS shard, one of the nodes is a read/write primary node.
-All other nodes in the shard are read-only replicas.
+1. Sign in to the AWS Management Console and open the ElastiCache console at
+   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
+2. From the list in the upper-right corner, choose the AWS Region of the cluster that you
+   want to remove nodes from.
+3. In the navigation pane, choose the engine running on the cluster that you want to remove
+   a node.
 
-Typical Valkey or Redis OSS clusters look as follows.
+A list of clusters running the chosen engine appears. 4. From the list of clusters, choose the cluster name from which you want to remove a node.
 
-![Image: Typical Valkey and Redis OSS Clusters](images/ElastiCache-Cluster-Redis.png)
-**Memcached clusters**
+A list of the cluster's nodes appears. 5. Choose the box to the left of the node ID for the node that you want to remove. Using the
+ElastiCache console, you can only delete one node at a time, so choosing multiple
+nodes means that you can't use the **Delete node**
+button.
 
-Typical Memcached clusters look as follows.
-Memcached clusters contain from 1 to 60 nodes,
-across which you horizontally partition your data.
+The _Delete Node_ page appears. 6. To delete the node, complete the **Delete Node** page and choose
+**Delete Node**. To keep the node, choose
+**Cancel**.
 
-![Image: Typical Memcached Cluster](images/ElastiCache-Cluster-Memcached.png)
-**Elasticache operations for Valkey, Memcached, and Redis OSS**
+###### Important
 
-Most ElastiCache operations are performed at the cluster level.
-You can set up a cluster with a specific number of nodes and
-a parameter group that controls the properties for each node.
-All nodes within a cluster are designed to be of the same node type
-and have the same parameter and security group settings.
+With Valkey or Redis OSS, if you're deleting the node results in the cluster which are no longer Multi-AZ compliant, make sure to
+first clear the **Multi-AZ** check box and then delete
+the node. If you clear the **Multi-AZ** check box, you
+can choose to enable **Auto failover**.
 
-Every cluster must have a cluster identifier.
-The cluster identifier is a customer-supplied name for the cluster.
-This identifier specifies a particular cluster when interacting with the ElastiCache API and
-AWS CLI commands.
-The cluster identifier must be unique for that customer in an AWS Region.
+| Impact of New Add and Remove Requests on Pending Requests | Scenarios | Pending Operation | New Request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Results |
+| --------------------------------------------------------- | --------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| Scenario 1                                                | Delete    | Delete            | The new delete request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to delete nodes 0002 and 0004 is issued, only nodes 0002 and 0004 will be deleted.<br>Nodes 0001, 0003, and 0007 will not be deleted.                                                                                                                                                                                                       |
+| Scenario 2                                                | Delete    | Create            | The new create request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to create a node is issued, a new node will be created and nodes 0001, 0003, and 0007<br>will not be deleted.                                                                                                                                                                                                                               |
+| Scenario 3                                                | Create    | Delete            | The new delete request, pending or immediate, replaces the pending create request.<br>For example, if there is a pending request to create two nodes and a new request<br>is issued to delete node 0003, no new nodes will be created and node 0003 will<br>be deleted.                                                                                                                                                                                                                                                |
+| Scenario 4                                                | Create    | Create            | The new create request is added to the pending create request.<br>For example, if there is a pending request to create two nodes and a new request is<br>issued to create three nodes, the new requests is added to the pending request and five<br>nodes will be created.<br>ImportantIf the new create request is set to **Apply Immediately<br>• Yes**,<br>all create requests are performed immediately.<br>If the new create request is set to **Apply Immediately<br>• No**,<br>all create requests are pending. |
 
-ElastiCache supports multiple engine versions.
-Unless you have specific reasons, we recommend using the latest version.
+To determine what operations are pending, choose the **Description** tab and
+check to see how many pending creations or deletions are shown.
+You cannot have both pending creations and pending deletions.
 
-ElastiCache clusters are designed to be accessed using an Amazon EC2 instance. If you launch your
-cluster in a virtual private cloud (VPC) based on the Amazon VPC service, you can access it from
-outside AWS. For more information, see [Accessing ElastiCache resources from outside AWS](accessing-elasticache.md#access-from-outside-aws "accessing-elasticache.md#access-from-outside-aws").
+1. Identify the IDs of the nodes that you want to remove. For more information, see [Viewing an ElastiCache cluster's details](Clusters.md "Clusters.md").
+2. Use the `decrease-replica-count` CLI operation with
+   a list of the nodes to remove, as in the following example.
 
-For a list of supported versions, see
-[Supported engines and versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions"),
-[Supported Redis OSS engine versions](engine-versions.md#supported-engine-versions.redis "engine-versions.md#supported-engine-versions.redis"), and
-[Supported ElastiCache for Memcached versions](engine-versions.md#supported-engine-versions-mc "engine-versions.md#supported-engine-versions-mc").
+To remove nodes from a cluster using the command-line interface, use the command
+`decrease-replica-count` with
+the following parameters:
+
+    * `--replication-group-id` The ID of the replication group that you want to remove
+     nodes from.
+    * `--new-replica-count` The `--new-replica-count` parameter specifies
+     the number of nodes that you want in this cluster after the
+     modification is applied.
+    * `--replicas-to-remove` A list of node IDs that you want removed from
+     this cluster.
+    * `--apply-immediately` or `--no-apply-immediately`
+     Specifies whether to remove these nodes immediately or at the next maintenance window.
+    * `--region` Specifies the AWS Region of the cluster that you want to remove
+     nodes from.
+
+###### Note
+
+You can pass only one of `--replicas-to-remove` or `--new-replica-count` parameters when calling this operation.
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache decrease-replica-count \
+    --replication-group-id `my-replication-group` \
+    --new-replica-count `2` \
+    --region `us-east-2` \
+    --apply-immediately
+```
+
+For Windows:
+
+```
+aws elasticache decrease-replica-count ^
+    --replication-group-id `my-replication-group` ^
+    --new-replica-count `3` ^
+    --region `us-east-2` ^
+    --apply-immediately
+```
+
+This operation produces output similar to the following (JSON format):
+
+```
+{
+    "ReplicationGroup": {
+        "ReplicationGroupId": "node-test",
+        "Description": "node-test"
+       },
+        "Status": "modifying",
+        "PendingModifiedValues": {},
+        "MemberClusters": [
+            "node-test-001",
+            "node-test-002",
+            "node-test-003",
+            "node-test-004",
+            "node-test-005",
+            "node-test-006"
+        ],
+        "NodeGroups": [
+            {
+                "NodeGroupId": "0001",
+                "Status": "modifying",
+                "PrimaryEndpoint": {
+                    "Address": "node-test.zzzzzz.ng.0001.usw2.cache.amazonaws.com",
+                    "Port": 6379
+                },
+                "ReaderEndpoint": {
+                    "Address": "node-test-ro.zzzzzz.ng.0001.usw2.cache.amazonaws.com",
+                    "Port": 6379
+                },
+                "NodeGroupMembers": [
+                    {
+                        "CacheClusterId": "node-test-001",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-001.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2a",
+                        "CurrentRole": "primary"
+                    },
+                    {
+                        "CacheClusterId": "node-test-002",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-002.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2c",
+                        "CurrentRole": "replica"
+                    },
+                    {
+                        "CacheClusterId": "node-test-003",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-003.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2b",
+                        "CurrentRole": "replica"
+                    },
+                    {
+                        "CacheClusterId": "node-test-004",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-004.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2c",
+                        "CurrentRole": "replica"
+                    },
+                    {
+                        "CacheClusterId": "node-test-005",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-005.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2b",
+                        "CurrentRole": "replica"
+                    },
+                    {
+                        "CacheClusterId": "node-test-006",
+                        "CacheNodeId": "0001",
+                        "ReadEndpoint": {
+                            "Address": "node-test-006.zzzzzz.0001.usw2.cache.amazonaws.com",
+                            "Port": 6379
+                        },
+                        "PreferredAvailabilityZone": "us-west-2b",
+                        "CurrentRole": "replica"
+                    }
+                ]
+            }
+        ],
+        "SnapshottingClusterId": "node-test-002",
+        "AutomaticFailover": "enabled",
+        "MultiAZ": "enabled",
+        "SnapshotRetentionLimit": 1,
+        "SnapshotWindow": "07:30-08:30",
+        "ClusterEnabled": false,
+        "CacheNodeType": "cache.r5.large",
+         "DataTiering": "disabled",
+        "TransitEncryptionEnabled": false,
+        "AtRestEncryptionEnabled": false,
+        "ARN": "arn:aws:elasticache:us-west-2:123456789012:replicationgroup:node-test"
+    }
+}
+
+```
+
+Alternatively, you could call `decrease-replica-count` and instead of passing in the `--new-replica-count`
+parameter, you could pass the `--replicas-to-remove` parameter, as shown following:
+
+For Linux, macOS, or Unix:
+
+```
+aws elasticache decrease-replica-count \
+    --replication-group-id `my-replication-group` \
+    --replicas-to-remove `node-test-003` \
+    --region `us-east-2` \
+    --apply-immediately
+```
+
+For Windows:
+
+```
+aws elasticache decrease-replica-count ^
+    --replication-group-id `my-replication-group` ^
+    --replicas-to-remove `node-test-003` ^
+    --region `us-east-2` ^
+    --apply-immediately
+```
+
+For more information, see the AWS CLI topics [`decrease-replica-count`](../../../cli/latest/reference/elasticache/decrease-replica-count.md "../../../cli/latest/reference/elasticache/decrease-replica-count.md").
+
+To remove nodes using the ElastiCache API, call the
+`DecreaseReplicaCount` API operation with the replication group Id and a list of nodes to remove, as shown:
+
+- `ReplicationGroupId` The ID of the replication group that you want to remove nodes
+  from.
+- `ReplicasToRemove` The `ReplicasToRemove` parameter specifies the number
+  of nodes that you want in this cluster after the modification is
+  applied.
+- `ApplyImmediately`
+  Specifies whether to remove these nodes immediately or at the next maintenance window.
+- `Region` Specifies the AWS Region of the cluster that you want to remove a
+  node from.
+  The following example immediately removes nodes 0004 and 0005 from the cluster my-cluster.
+
+```
+https://elasticache.us-west-2.amazonaws.com/
+    ?Action=DecreaseReplicaCount
+    &ReplicationGroupId=my-replication-group
+    &ApplyImmediately=true
+    &ReplicasToRemove=node-test-003
+    &Region us-east-2
+    &Version=2014-12-01
+    &SignatureVersion=4
+    &SignatureMethod=HmacSHA256
+    &Timestamp=20141201T220302Z
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+    &X-Amz-Date=20141201T220302Z
+    &X-Amz-SignedHeaders=Host
+    &X-Amz-Expires=20141201T220302Z
+    &X-Amz-Credential=<credential>
+    &X-Amz-Signature=<signature>
+```
+
+For more information, see ElastiCache API topic [`DecreaseReplicaCount`](../APIReference/API_DecreaseReplicaCount.md "../APIReference/API_DecreaseReplicaCount.md").
+
+To remove nodes using the ElastiCache API, call the
+`ModifyCacheCluster` API operation with the cache
+cluster ID and a list of nodes to remove, as shown:
+
+- `CacheClusterId` The ID of the cluster that you want to remove nodes
+  from.
+- `NumCacheNodes` The `NumCacheNodes` parameter specifies the number
+  of nodes that you want in this cluster after the modification is
+  applied.
+- `CacheNodeIdsToRemove.member.n`
+  The list of node IDs to remove from the cluster.
+  - `CacheNodeIdsToRemove.member.1=0004`
+  - `CacheNodeIdsToRemove.member.1=0005`
+
+- `ApplyImmediately`
+  Specifies whether to remove these nodes immediately or at the next maintenance window.
+- `Region` Specifies the AWS Region of the cluster that you want to remove a
+  node from.
+  The following example immediately removes nodes 0004 and 0005 from the cluster my-cluster.
+
+```
+https://elasticache.us-west-2.amazonaws.com/
+    ?Action=ModifyCacheCluster
+    &CacheClusterId=my-cluster
+    &ApplyImmediately=true
+    &CacheNodeIdsToRemove.member.1=0004
+    &CacheNodeIdsToRemove.member.2=0005
+    &NumCacheNodes=3
+    &Region us-east-2
+    &Version=2014-12-01
+    &SignatureVersion=4
+    &SignatureMethod=HmacSHA256
+    &Timestamp=20141201T220302Z
+    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+    &X-Amz-Date=20141201T220302Z
+    &X-Amz-SignedHeaders=Host
+    &X-Amz-Expires=20141201T220302Z
+    &X-Amz-Credential=<credential>
+    &X-Amz-Signature=<signature>
+```
+
+For more information, see ElastiCache API topic [`ModifyCacheCluster`](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md").

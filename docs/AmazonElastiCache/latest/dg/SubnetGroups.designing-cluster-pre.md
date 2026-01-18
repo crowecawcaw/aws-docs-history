@@ -436,7 +436,7 @@ The clusters screen will appear with a list that will include any existing Valke
 Valkey (cluster mode disabled) and Valkey (cluster mode enabled) clusters. Choose the cluster you created in the
 [Creating a Valkey (cluster mode disabled) cluster (Console)](#Clusters.Create.CON.valkey-gs "#Clusters.Create.CON.valkey-gs") section. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the radio button).
 
-![Image: Primary endpoint for a Valkey (cluster mode disabled) cluster](images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Valkey (cluster mode disabled) cluster](/images/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
 
 _Primary and Reader endpoints for a Valkey (cluster mode disabled) cluster_
 

@@ -1,91 +1,61 @@
-# FT.INFO
+# FT.CREATE
+
+The `FT.CREATE` command creates an empty index and initiates the backfill process. Each index consists of a number of field definitions. Each field definition specifies a field name, a field type, and a path within each indexed key to locate a value of the declared type. Some field type definitions have additional sub-type specifiers.
+
+For indexes on HASH keys, the path is the same as the hash member name. The optional `AS` clause can be used to rename the field if desired. Renaming of fields is especially useful when the member name contains special characters.
+
+For indexes on JSON keys, the path is a JSON path to the data of the declared type. Because the JSON path always contains special characters, the `AS` clause is required.
 
 **Syntax**
 
 ```
-FT.INFO <index-name>
+FT.CREATE <index-name>
+ON HASH | JSON
+[PREFIX <count> <prefix1> [<prefix2>...]]
+SCHEMA
+(<field-identifier> [AS <alias>]
+| VECTOR [HNSW|FLAT] <attr_count> [<attribute_name> <attribute_value>])
+| TAG [SEPARATOR <sep>] [CASESENSITIVE]
+| NUMERIC
+)+
+
 ```
 
-Vector search augments the [FT.INFO](https://valkey.io/commands/info/ "https://valkey.io/commands/info/") command with several additional sections of statistics and counters. A request to retrieve the section SEARCH will retrieve all of the following statistics:
+**<index-name> (required):** This is the name you give to your index. If an index with the same name exists already, an error is returned.
 
-| Key name                     | Value type                     | Description                                                                                                                                                                                                                                                                                            |
-| ---------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| index_name                   | string                         | Name of the index                                                                                                                                                                                                                                                                                      |
-| index_options                | string                         | Reserved. Currently set to "0"                                                                                                                                                                                                                                                                         |
-| index_definition             | array                          | See below for definition of these array elements.                                                                                                                                                                                                                                                      |
-| attributes                   | array of attribute information | One element in this array for each defined attribute, see below for attribute information definition.                                                                                                                                                                                                  |
-| num_docs                     | integer                        | Number of keys currently contained in the index                                                                                                                                                                                                                                                        |
-| num_terms                    | integer                        | Reserved. Currently set to "0".                                                                                                                                                                                                                                                                        |
-| record_count                 | integer                        | The sum of the "size" field for each attribute.                                                                                                                                                                                                                                                        |
-| hash_indexing_failures       | integer                        | Number of times that an attribute couldn't be converted to the declared attribute type. Despite the name this also applies to JSON keys.                                                                                                                                                               |
-| backfill_in_progress         | integer                        | If a backfill is currently in progress this will be a '1' otherwise it will be a '0'                                                                                                                                                                                                                   |
-| backfill_percent_complete    | float                          | Estimate of backfill completion, a fractional number in the range [0..1]                                                                                                                                                                                                                               |
-| mutation_queue_size          | integer                        | Number of keys waiting to update the index.                                                                                                                                                                                                                                                            |
-| recent_mutations_queue_delay | integer                        | Estimate of delay (in seconds) of index update. 0 if no updates are in progress.                                                                                                                                                                                                                       |
-| state                        | string                         | Backfill state: "ready" indicates that backfill completed successfully. "backfill_in_progress" indicates that backfill is proceeding. "backfill_paused_by_oom" means that backfilling has been paused due to a low memory condition. Once the low memory condition is resolved, backill will continue. |
+**ON HASH | JSON (optional):** Only keys that match the specified type are included in this index. If omitted, HASH is assumed.
 
-The index_definition structure is an array of key/value pairs defined as:
+**PREFIX <prefix-count> <prefix> (optional):** If this clause is specified, then only keys that begin with the same bytes as one or more of the specified prefixes will be included in this index. If this clause is omitted, all keys of the correct type will be included. A zero-length prefix would also match all keys of the correct type.
 
-| Key name      | Value type | Description                                                                                                                                           |
-| ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key_type      | string     | Either the string 'JSON' or the string 'HASH'                                                                                                         |
-| prefixes      | array      | Each element in the array is a defined prefix for the index. If no prefixes were specified when the index was create, this array will have 0 entries. |
-| default_score | string     | Reserved. Currently set to "1"                                                                                                                        |
+**Field types:**
 
-Attribute information: Attribute information is type-specific.
+- TAG: A tag field is a string that contains one or more tag values.
+  - SEPARATOR <sep> (optional): One of the characters `,.<>{}[]"':;!@#$%^&*()-+=~` used to delimit individual tags. If omitted, the default value is `,`.
+  - CASESENSITIVE (optional): If present, tag comparisons will be case-sensitive. The default is that tag comparisons are NOT case-sensitive.
 
-Numeric attributes:
+- NUMERIC: A numeric field contains a number.
+- VECTOR: A vector field contains a vector. Two vector indexing algorithms are currently supported: HNSW (Hierarchical Navigable Small World) and FLAT (brute force). Each algorithm has a set of additional attributes, some required and other optional.
 
-| Key        | Value type | Description                                                           |
-| ---------- | ---------- | --------------------------------------------------------------------- |
-| identifier | string     | Location of the attribute within a key. Hash member name or JSON path |
-| alias      | string     | Name of attribute used in query descriptions.                         |
-| type       | string     | The string "NUMERIC"                                                  |
-| size       | integer    | The number of keys with valid numeric values in this attribute.       |
+      + FLAT: The Flat algorithm provides exact answers, but has runtime proportional to the number of indexed vectors and thus may not be appropriate for large data sets.
 
-Tag attributes:
 
-| Key name      | Value type | Description                                                                                         |
-| ------------- | ---------- | --------------------------------------------------------------------------------------------------- |
-| identifier    | string     | Location of the attribute within a key. Hash member name or JSON path                               |
-| alias         | string     | Name of attribute used in query descriptions.                                                       |
-| type          | string     | The string "TAG"                                                                                    |
-| SEPARATOR     | character  | The separator character defined when the index was created                                          |
-| CASESENSITIVE | n/a        | This key has no associated value. It is present only if the attribute was created with this option. |
-| size          | integer    | The number of keys with valid tag values in this attribute                                          |
 
-Vector attributes:
 
-| Key name   | Value type | Description                                                           |
-| ---------- | ---------- | --------------------------------------------------------------------- |
-| identifier | string     | Location of the attribute within a key. Hash member name or JSON path |
-| alias      | string     | Name of attribute used in query descriptions.                         |
-| type       | string     | The string "VECTOR"                                                   |
-| index      | character  | For further description of vector index, see below.                   |
+      	- DIM <number> (required): Specifies the number of dimensions in a vector.
+      	- TYPE FLOAT32 (required): Data type, currently only FLOAT32 is supported.
+      	- DISTANCE\_METRIC [L2 | IP | COSINE] (required): Specifies the distance algorithm.
+      	- INITIAL\_CAP <size> (optional): Initial index size.
+      + HNSW: The HNSW algorithm provides approximate answers, but operates substantially faster than FLAT.
 
-Vector index description:
 
-| Key name        | Value type | Description                                               |
-| --------------- | ---------- | --------------------------------------------------------- |
-| capacity        | string     | Current capacity of index                                 |
-| dimensions      | string     | Number of elements in each vector                         |
-| distance_metric | string     | One of "COSINE", "L2" or "IP"                             |
-| size            | array      | Description of vector index, see below.                   |
-| data_type       | string     | Declared datatype. Only "FLOAT32" is currently supported. |
-| algorithm       | array      | Further description of the vector search algorithm.       |
 
-FLAT Vector search algorithm Description:
 
-| Key name   | Value type | Description                        |
-| ---------- | ---------- | ---------------------------------- |
-| name       | string     | Algorithm name: FLAT               |
-| block_size | number     | Size of a block of the FLAT index. |
+      	- DIM <number> (required): Specifies the number of dimensions in a vector.
+      	- TYPE FLOAT32 (required): Data type, currently only FLOAT32 is supported.
+      	- DISTANCE\_METRIC [L2 | IP | COSINE] (required): Specifies the distance algorithm.
+      	- INITIAL\_CAP <size> (optional): Initial index size.
+      	- M <number> (optional): Number of maximum allowed outgoing edges for each node in the graph in each layer. On the layer zero, the maximal number of outgoing edges will be 2\*M. Default is 16, the maximum is 512.
+      	- EF\_CONSTRUCTION <number> (optional): Controls the number of vectors examined during index construction. Higher values for this parameter will improve recall ratio at the expense of longer index creation times. The default value is 200. Maximum value is 4096.
+      	- EF\_RUNTIME <number> (optional): Controls the number of vectors to be examined during a query operation. The default is 10, and the max is 4096. You can set this parameter value for each query you run. Higher values increase query times, but improve query recall.
 
-HNSW Vector Index Description:
-
-| Key name        | Value type | Description                              |
-| --------------- | ---------- | ---------------------------------------- |
-| name            | string     | Algorithm name: HNSW                     |
-| m               | number     | The "M" parameter for HNSW               |
-| ef_construction | number     | The "ef_construction" parameter for HNSW |
-| ef_runtime      | number     | The "ef_runtime" parameter for HNSW.     |
+  **RESPONSE:** OK or error.

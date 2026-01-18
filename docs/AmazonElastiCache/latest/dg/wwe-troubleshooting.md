@@ -50,7 +50,7 @@ If you notice elevated latency on the client side but no corresponding increase 
 
 **Troubleshooting server-side latency**
 
-Some variability and occasional spikes should not be a cause for concern. However, if the `Average` statistic shows a sharp increase and persists, you should check the AWS Health Dashboard and your Personal Health Dashboard for more information. If necessary, consider opening a support case with Support.
+Some variability and occasional spikes should not be a cause for concern. However, if the `Average` statistic shows a sharp increase and persists, you should check the Health Dashboard and your Personal Health Dashboard for more information. If necessary, consider opening a support case with Support.
 
 Consider the following best practices and strategies to reduce latency:
 

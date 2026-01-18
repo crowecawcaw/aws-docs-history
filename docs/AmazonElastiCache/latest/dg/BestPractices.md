@@ -1,77 +1,76 @@
-# Example: Lettuce config for cluster mode disabled, TLS enabled
+# Configuring your ElastiCache client for efficient load balancing (Memcached)
 
 ###### Note
 
-Timeouts in the following example are for tests that ran SET/GET commands
-with keys and values up to 20 bytes long. The processing time can be longer when
-the commands are complex or the keys and values are larger. You should set the
-timeouts based on the use case of your application.
+This section applies to node-based multi-node Memcached clusters.
+
+To effectively use multiple ElastiCache Memcached nodes, you need to be able to spread your cache
+keys across the nodes. A simple way to load balance a cluster with
+_n_ nodes is to calculate the hash of the object's key and mod
+the result by _n_: `hash(key) mod n`. The resulting value
+(0 through _n_–1) is the number of the node where you place the object.
+
+This approach is simple and works well as long as the number of nodes
+(_n_) is constant. However, whenever you add or remove a node
+from the cluster, the number of keys that need to be moved is _(n - 1) /
+n_ (where _n_ is the new number of nodes). Thus, this
+approach results in a large number of keys being moved, which translates to a large
+number of initial cache misses, especially as the number of nodes gets large. Scaling
+from 1 to 2 nodes results in (2-1) / 2 (50 percent) of the keys being moved,
+the best case. Scaling from 9 to 10 nodes results in (10–1)/10 (90 percent) of the
+keys being moved. If you're scaling up due to a spike in traffic, you don't want to
+have a large number of cache misses. A large number of cache misses results in hits to
+the database, which is already overloaded due to the spike in traffic.
+
+The solution to this dilemma is consistent hashing. Consistent hashing uses an algorithm
+such that whenever a node is added or removed from a cluster, the number of keys that
+must be moved is roughly _1 / n_ (where _n_ is the
+new number of nodes). Scaling from 1 to 2 nodes results in 1/2 (50 percent) of the keys
+being moved, the worst case. Scaling from 9 to 10 nodes results in 1/10 (10 percent) of
+the keys being moved.
+
+As the user, you control which hashing algorithm is used for multi-node clusters. We
+recommend that you configure your clients to use consistent hashing. Fortunately, there
+are many Memcached client libraries in most popular languages that implement consistent
+hashing. Check the documentation for the library you are using to see if it supports
+consistent hashing and how to implement it.
+
+If you are working in Java, PHP, or .NET, we recommend you use one of the Amazon ElastiCache
+client libraries.
+
+## Consistent Hashing Using Java
+
+The ElastiCache Memcached Java client is based on the open-source spymemcached Java client, which
+has consistent hashing capabilities built in. The library includes a
+KetamaConnectionFactory class that implements consistent hashing. By default,
+consistent hashing is turned off in spymemcached.
+
+For more information, see the KetamaConnectionFactory documentation at
+[KetamaConnectionFactory](https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java "https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java").
+
+## Consistent hashing using PHP with Memcached
+
+The ElastiCache Memcached PHP client is a wrapper around the built-in Memcached PHP library.
+By default, consistent hashing is turned off by the Memcached PHP library.
+
+Use the following code to turn on consistent hashing.
 
 ```
-// Set DNS cache TTL
-public void setJVMProperties() {
-    java.security.Security.setProperty("networkaddress.cache.ttl", "10");
-}
-
-private static final Duration META_COMMAND_TIMEOUT = Duration.ofMillis(1000);
-private static final Duration DEFAULT_COMMAND_TIMEOUT = Duration.ofMillis(250);
-// Socket connect timeout should be lower than command timeout for Lettuce
-private static final Duration CONNECT_TIMEOUT = Duration.ofMillis(100);
-
-// Create RedisURI from the primary/reader endpoint
-clusterEndpoint = <primary/reader-endpoint> // TODO: add your node endpoint
-RedisURI redisUriStandalone =
-    RedisURI.Builder.redis(clusterEndpoint).withPort(6379).withSsl(true).withDatabase(0).build();
-
-ClientResources clientResources =
-    DefaultClientResources.builder()
-        .dnsResolver(new DirContextDnsResolver())
-        .reconnectDelay(
-            Delay.fullJitter(
-                Duration.ofMillis(100), // minimum 100 millisecond delay
-                Duration.ofSeconds(10), // maximum 10 second delay
-                100,
-                TimeUnit.MILLISECONDS)) // 100 millisecond base
-        .build();
-
-// Use a dynamic timeout for commands, to avoid timeouts during
-// slow operations.
-class DynamicTimeout extends TimeoutSource {
-     private static final Set<ProtocolKeyword> META_COMMAND_TYPES = ImmutableSet.<ProtocolKeyword>builder()
-          .add(CommandType.FLUSHDB)
-          .add(CommandType.FLUSHALL)
-          .add(CommandType.INFO)
-          .add(CommandType.KEYS)
-          .build();
-
-    private final Duration metaCommandTimeout;
-    private final Duration defaultCommandTimeout;
-
-    DynamicTimeout(Duration defaultTimeout, Duration metaTimeout)
-    {
-        defaultCommandTimeout = defaultTimeout;
-        metaCommandTimeout = metaTimeout;
-    }
-
-    @Override
-    public long getTimeout(RedisCommand<?, ?, ?> command) {
-        if (META_COMMAND_TYPES.contains(command.getType())) {
-            return metaCommandTimeout.toMillis();
-        }
-        return defaultCommandTimeout.toMillis();
-    }
-}
-
-TimeoutOptions timeoutOptions = TimeoutOptions.builder()
-    .timeoutSource(new DynamicTimeout(DEFAULT_COMMAND_TIMEOUT, META_COMMAND_TIMEOUT))
-     .build();
-
-final SocketOptions socketOptions =
-    SocketOptions.builder().connectTimeout(CONNECT_TIMEOUT).keepAlive(true).build();
-
-ClientOptions clientOptions =
-    ClientOptions.builder().timeoutOptions(timeoutOptions).socketOptions(socketOptions).build();
-
-RedisClient redisClient = RedisClient.create(clientResources, redisUriStandalone);
-redisClient.setOptions(clientOptions);
+$m = new Memcached();
+$m->setOption(Memcached::OPT_DISTRIBUTION, Memcached::DISTRIBUTION_CONSISTENT);
 ```
+
+In addition to the preceding code,
+we recommend that you also turn `memcached.sess_consistent_hash`
+on in your php.ini file.
+
+For more information, see the run-time configuration documentation for Memcached PHP at
+[http://php.net/manual/en/memcached.configuration.php](http://php.net/manual/en/memcached.configuration.php "http://php.net/manual/en/memcached.configuration.php").
+Note specifically the `memcached.sess_consistent_hash` parameter.
+
+## Consistent hashing using .NET with Memcached
+
+The ElastiCache Memcached .NET client is a wrapper around Enyim Memcached.
+By default, consistent hashing is turned on by the Enyim Memcached client.
+
+For more information, see the `memcached/locator` documentation at [https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator](https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator "https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator").

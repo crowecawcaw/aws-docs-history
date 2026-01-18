@@ -1,22 +1,20 @@
-# Using condition keys
+# Using identity-based policies (IAM policies) for Amazon ElastiCache
 
-You can specify conditions that determine how an IAM policy takes effect. In ElastiCache, you can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy.
-For more information, see [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md").
+This topic provides examples of identity-based policies in which an account
+administrator can attach permissions policies to IAM identities (that is, users, groups,
+and roles).
 
-To see a list of ElastiCache condition keys, see [Condition Keys for Amazon ElastiCache](../../../service-authorization/latest/reference/list_amazonelasticache.md#amazonelasticache-policy-keys "../../../service-authorization/latest/reference/list_amazonelasticache.md#amazonelasticache-policy-keys") in the
-_Service Authorization Reference_.
+###### Important
 
-For a list of global condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md").
+We recommend that you first read the topics that explain the basic concepts and options to
+manage access to Amazon ElastiCache resources. For more information, see [Overview of managing access permissions to your ElastiCache resources](IAM.md "IAM.md").
 
-**Using ElastiCache With AWS Global Condition Keys**
+The sections in this topic cover the following:
 
-When using [AWS Global condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") that require ElastiCache's [Principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), use an `OR` condition with _both_ Principals: `elasticache.amazonaws.com` and `ec.amazonaws.com`.
-
-###### Note
-
-If you do not add both Principals for ElastiCache, the intended “Allow” or “Deny” action will not be enforced correctly for any resource listed in your policy.
-
-Example of policy with `aws:CalledVia` global condition key:
+- [AWS managed policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md "IAM.IdentityBasedPolicies.md")
+- [Customer-managed policy
+  examples](#IAM.IdentityBasedPolicies.CustomerManagedPolicies "#IAM.IdentityBasedPolicies.CustomerManagedPolicies")
+  The following shows an example of a permissions policy when using Redis OSS.
 
 JSON
 
@@ -25,240 +23,208 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Effect": "Allow",
- "Action": "ec2:*",
- "Resource": "*",
- "Condition": {
- "ForAnyValue:StringLike": {
- "aws:CalledVia": [
- "ec.amazonaws.com",
- "elasticache.amazonaws.com"
- ]
- }
- }
- }
- ]
-}`
-
-```
-
-## Specifying Conditions: Using Condition Keys
-
-To implement fine-grained control, you write an IAM permissions policy that specifies conditions to control a set of individual parameters on certain requests. You then apply the policy to IAM users, groups, or roles that you create using the IAM console.
-
-To apply a condition, you add the condition information to the IAM policy statement. In the following example, you specify the condition that any node-based cluster created will be of node type `cache.r5.large`.
-
-###### Note
-
-- To construct `Condition` elements using condition keys of `String` type, use the case insensitive condition operators `StringEqualsIgnoreCase` or `StringNotEqualsIgnoreCase` to compare a key to a string value.
-- ElastiCache processes the input arguments for `CacheNodeType` and `CacheParameterGroupName` in a case insensitive manner. For this reason, the string condition operators `StringEqualsIgnoreCase`, and `StringNotEqualsIgnoreCase` should be used in permissions policies that reference them.
-
-The following shows an example of this permissions policy when using Valkey or Redis OSS.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
+ "Sid": "AllowClusterPermissions",
  "Effect": "Allow",
  "Action": [
+ "elasticache:CreateServerlessCache",
  "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
+ "elasticache:DescribeServerlessCaches",
+ "elasticache:DescribeReplicationGroups",
+ "elasticache:DescribeCacheClusters",
+ "elasticache:ModifyServerlessCache",
+ "elasticache:ModifyReplicationGroup",
+ "elasticache:ModifyCacheCluster"
  ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
+ "Resource": "*"
  },
  {
+ "Sid": "AllowUserToPassRole",
+ "Effect": "Allow",
+ "Action": [ "iam:PassRole" ],
+ "Resource": "arn:aws:iam::123456789012:role/EC2-roles-for-cluster"
+ }
+ ]
+}`
+
+```
+
+The following shows an example of a permissions policy when using Memcached.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [{
+ "Sid": "AllowClusterPermissions",
  "Effect": "Allow",
  "Action": [
+ "elasticache:CreateServerlessCache",
  "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
+ "elasticache:DescribeServerlessCaches",
+ "elasticache:DescribeCacheClusters",
+ "elasticache:ModifyServerlessCache",
+ "elasticache:ModifyCacheCluster"
  ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:CacheNodeType": [
- "cache.r5.large"
- ]
- }
- }
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowUserToPassRole",
+ "Effect": "Allow",
+ "Action": [ "iam:PassRole" ],
+ "Resource": "arn:aws:iam::123456789012:role/EC2-roles-for-cluster"
  }
  ]
 }`
 
 ```
 
-The following shows an example of this permissions policy when using Memcached.
+The policy has two statements:
+
+- The first statement grants permissions for the Amazon ElastiCache actions
+  (`elasticache:Create*`,
+  `elasticache:Describe*`,
+  `elasticache:Modify*`)
+- The second statement grants permissions for the IAM action
+  (`iam:PassRole`) on the IAM role name specified at the
+  end of the `Resource` value.
+  The policy doesn't specify the `Principal` element because in an
+  identity-based policy you don't specify the principal who gets the
+  permission. When you attach policy to a user, the user is the implicit principal. When
+  you attach a permissions policy to an IAM role, the principal identified in the role's
+  trust policy gets the permissions.
+
+For a table showing all of the Amazon ElastiCache API actions and the resources that they apply
+to, see [ElastiCache API permissions: Actions, resources, and conditions reference](IAM.md "IAM.md").
+
+## Customer-managed policy
+
+examples
+
+If you are not using a default policy and choose to use a custom-managed policy, ensure one
+of two things. Either you should have permissions to call
+`iam:createServiceLinkedRole` (for more information, see [Example 4: Allow a user to call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy "#create-service-linked-role-policy")). Or you should have created
+an ElastiCache service-linked role.
+
+When combined with the minimum permissions needed to use the Amazon ElastiCache console,
+the example policies in this section grant additional permissions. The examples are
+also relevant to the AWS SDKs and the AWS CLI.
+
+For instructions on setting up IAM users and groups, see [Creating Your First IAM User and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the _IAM User Guide_.
+
+###### Important
+
+Always test your IAM policies thoroughly before using them in production. Some
+ElastiCache actions that appear simple can require other actions to support them
+when you are using the ElastiCache console. For example,
+`elasticache:CreateCacheCluster` grants permissions to create
+ElastiCache clusters. However, to perform this operation, the ElastiCache console uses
+a number of `Describe` and `List` actions to populate
+console lists.
+
+###### Examples
+
+- [Example 1: Allow a user read-only access to ElastiCache resources](#example-allow-list-current-elasticache-resources "#example-allow-list-current-elasticache-resources")
+- [Example 2: Allow a user to perform common ElastiCache system administrator tasks](#example-allow-specific-elasticache-actions "#example-allow-specific-elasticache-actions")
+- [Example 3: Allow a user to access all ElastiCache API actions](#allow-unrestricted-access "#allow-unrestricted-access")
+- [Example 4: Allow a user to call IAM CreateServiceLinkedRole API](#create-service-linked-role-policy "#create-service-linked-role-policy")
+- [Example 5: Allow a user to connect to serverless cache using IAM authentication](#iam-connect-policy "#iam-connect-policy")
+
+### Example 1: Allow a user read-only access to ElastiCache resources
+
+The following policy grants permissions ElastiCache actions that allow a user to list
+resources. Typically, you attach this type of permissions policy to a managers group.
 
 JSON
 
 ```
 `{
  "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
+ "Statement":[{
+ "Sid": "ECReadOnly",
+ "Effect":"Allow",
  "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:CacheNodeType": [
- "cache.r5.large"
- ]
- }
- }
+ "elasticache:Describe*",
+ "elasticache:List*"],
+ "Resource":"*"
  }
  ]
 }`
 
 ```
 
-For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md").
+### Example 2: Allow a user to perform common ElastiCache system administrator tasks
 
-For more information on using policy condition operators, see [ElastiCache API permissions: Actions, resources, and conditions reference](IAM.md "IAM.md").
-
-## Example Policies: Using Conditions for Fine-Grained Parameter Control
-
-This section shows example policies for implementing fine-grained access control on the previously listed ElastiCache parameters.
-
-1. **elasticache:MaximumDataStorage**:   Specify the maximum data storage of a serverless cache. Using the provided conditions, the customer can not create caches that can store more than a specific amount of data.
+Common system administrator tasks include modifying resources. A system administrator may
+also want to get information about the
+ElastiCache events. The following policy grants a user permissions to perform ElastiCache actions for
+these common system administrator tasks. Typically, you attach this type of permissions
+policy to the system administrators group.
 
 JSON
 
 ```
 `{
  "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowDependentResources",
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateServerlessCache"
+ "Statement":[{
+ "Sid": "ECAllowMutations",
+ "Effect":"Allow",
+ "Action":[
+ "elasticache:Modify*",
+ "elasticache:Describe*",
+ "elasticache:ResetCacheParameterGroup"
  ],
- "Resource": [
- "arn:aws:elasticache:*:*:serverlesscachesnapshot:*",
- "arn:aws:elasticache:*:*:snapshot:*",
- "arn:aws:elasticache:*:*:usergroup:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateServerlessCache"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:serverlesscache:*"
- ],
- "Condition": {
- "NumericLessThanEquals": {
- "elasticache:MaximumDataStorage": "30"
- },
- "StringEquals": {
- "elasticache:DataStorageUnit": "GB"
- }
- }
+ "Resource":"*"
  }
  ]
 }`
 
 ```
 
-2. **elasticache:MaximumECPUPerSecond**:   Specify the maximum ECPU per second value of a serverless cache. Using the provided conditions, the customer can not create caches that can execute more than a specific number of ECPUs per second.
+### Example 3: Allow a user to access all ElastiCache API actions
+
+The following policy allows a user to access all ElastiCache actions. We recommend that
+you grant this type of permissions policy only to an administrator user.
 
 JSON
 
 ```
 `{
  "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowDependentResources",
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateServerlessCache"
+ "Statement":[{
+ "Sid": "ECAllowAll",
+ "Effect":"Allow",
+ "Action":[
+ "elasticache:*"
  ],
- "Resource": [
- "arn:aws:elasticache:*:*:serverlesscachesnapshot:*",
- "arn:aws:elasticache:*:*:snapshot:*",
- "arn:aws:elasticache:*:*:usergroup:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateServerlessCache"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:serverlesscache:*"
- ],
- "Condition": {
- "NumericLessThanEquals": {
- "elasticache:MaximumECPUPerSecond": "100000"
- }
- }
+ "Resource":"*"
  }
  ]
 }`
 
 ```
 
-3. **elasticache:CacheNodeType**:   Specify which NodeType(s) a user can create. Using the provided conditions, the customer can specify a single or a range value for a node type.
+### Example 4: Allow a user to call IAM CreateServiceLinkedRole API
+
+The following policy allows user to call the IAM `CreateServiceLinkedRole` API.
+We recommend that you grant this type of permissions policy to the user who invokes mutative ElastiCache operations.
 
 JSON
 
 ```
 `{
  "Version":"2012-10-17",
- "Statement": [
+ "Statement":[
  {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
+ "Sid":"CreateSLRAllows",
+ "Effect":"Allow",
+ "Action":[
+ "iam:CreateServiceLinkedRole"
  ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:CacheNodeType": [
- "cache.t2.micro",
- "cache.t2.medium"
- ]
+ "Resource":"*",
+ "Condition":{
+ "StringLike":{
+ "iam:AWSServiceName":"elasticache.amazonaws.com"
  }
  }
  }
@@ -267,889 +233,36 @@ JSON
 
 ```
 
-4. **elasticache:CacheNodeType**: With Memcached, specify which NodeType(s) a user can create. Using the provided conditions, the customer can specify a single or a range value for a node type.
+### Example 5: Allow a user to connect to serverless cache using IAM authentication
+
+The following policy allows any user to connect to any serverless cache using IAM authentication between 2023-04-01 and 2023-06-30.
 
 JSON
 
 ```
 `{
  "Version":"2012-10-17",
- "Statement": [
+ "Statement" :
+ [
  {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
+ "Effect" : "Allow",
+ "Action" : ["elasticache:Connect"],
+ "Resource" : [
+ "arn:aws:elasticache:us-east-1:123456789012:serverlesscache:*"
  ],
  "Condition": {
- "StringEquals": {
- "elasticache:CacheNodeType": [
- "cache.t2.micro",
- "cache.t2.medium"
+ "DateGreaterThan": {"aws:CurrentTime": "2023-04-01T00:00:00Z"},
+ "DateLessThan": {"aws:CurrentTime": "2023-06-30T23:59:59Z"}
+ }
+ },
+ {
+ "Effect" : "Allow",
+ "Action" : ["elasticache:Connect"],
+ "Resource" : [
+ "arn:aws:elasticache:us-east-1:123456789012:user:*"
  ]
- }
- }
  }
  ]
 }`
 
 ```
-
-5. **elasticache:NumNodeGroups**:   Create a replication group with fewer than 20 node groups.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "NumericLessThanEquals": {
- "elasticache:NumNodeGroups": "20"
- }
- }
- }
- ]
-}`
-
-```
-
-6. **elasticache:ReplicasPerNodeGroup**:   Specify the replicas per node between 5 and 10.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "NumericGreaterThanEquals": {
- "elasticache:ReplicasPerNodeGroup": "5"
- },
- "NumericLessThanEquals": {
- "elasticache:ReplicasPerNodeGroup": "10"
- }
- }
- }
- ]
-}`
-
-```
-
-7. **elasticache:EngineVersion**:   Specify usage of engine version 5.0.6.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:EngineVersion": "5.0.6"
- }
- }
- }
- ]
-}`
-
-```
-
-8. **elasticache:EngineVersion**:   Specify usage of Memcached engine version 1.6.6
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:EngineVersion": "1.6.6"
- }
- }
- }
- ]
-}`
-
-```
-
-9. **elasticache:EngineType**:   Specify using a Valkey or Redis OSS engine only.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:EngineType": "redis"
- }
- }
- }
- ]
-}`
-
-```
-
-10. **elasticache:AtRestEncryptionEnabled**:   Specify that replication groups would be created only with encryption enabled.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "Bool": {
- "elasticache:AtRestEncryptionEnabled": "true"
- }
- }
- }
- ]
-}`
-
-```
-
-11. **elasticache:TransitEncryptionEnabled**
-    1.  Set the `elasticache:TransitEncryptionEnabled` condition key
-        to `false` for the [CreateReplicationGroup](../APIReference/API_CreateReplicationGroup.md "../APIReference/API_CreateReplicationGroup.md") action to specify that replication groups
-        can only be created when TLS is not being used:
-
-    JSON
-
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Action": [
-     "elasticache:CreateReplicationGroup"
-     ],
-     "Resource": [
-     "arn:aws:elasticache:*:*:parametergroup:*",
-     "arn:aws:elasticache:*:*:subnetgroup:*"
-     ]
-     },
-
-     {
-     "Effect": "Allow",
-     "Action": [
-     "elasticache:CreateReplicationGroup"
-     ],
-     "Resource": [
-     "arn:aws:elasticache:*:*:replicationgroup:*"
-     ],
-     "Condition": {
-     "Bool": {
-     "elasticache:TransitEncryptionEnabled": "false"
-     }
-     }
-     }
-     ]
-    }`
-
-    ```
-
-    When the `elasticache:TransitEncryptionEnabled` condition key
-    is set to `false` in a policy for the [CreateReplicationGroup](../APIReference/API_CreateReplicationGroup.md "../APIReference/API_CreateReplicationGroup.md")
-    action, a `CreateReplicationGroup` request will be allowed only
-    if TLS is not being used (that is, if the request does not include a
-    `TransitEncryptionEnabled` parameter set to
-    `true` or a `TransitEncryptionMode` parameter
-    set to `required`. 2. Set the `elasticache:TransitEncryptionEnabled` conditon
-    key to `true` for the [CreateReplicationGroup](../APIReference/API_CreateReplicationGroup.md "../APIReference/API_CreateReplicationGroup.md") action to specify that
-    replication groups can only be created when TLS is being used:
-
-    JSON
-
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Action": [
-     "elasticache:CreateReplicationGroup"
-     ],
-     "Resource": [
-     "arn:aws:elasticache:*:*:parametergroup:*",
-     "arn:aws:elasticache:*:*:subnetgroup:*"
-     ]
-     },
-
-     {
-     "Effect": "Allow",
-     "Action": [
-     "elasticache:CreateReplicationGroup"
-     ],
-     "Resource": [
-     "arn:aws:elasticache:*:*:replicationgroup:*"
-     ],
-     "Condition": {
-     "Bool": {
-     "elasticache:TransitEncryptionEnabled": "true"
-     }
-     }
-     }
-     ]
-    }`
-
-    ```
-
-    When the `elasticache:TransitEncryptionEnabled` condition key
-    is set to `true` in a policy for the [CreateReplicationGroup](../APIReference/API_CreateReplicationGroup.md "../APIReference/API_CreateReplicationGroup.md")
-    action, a `CreateReplicationGroup` request will be allowed only
-    if the request includes a `TransitEncryptionEnabled` parameter
-    set to `true` and a `TransitEncryptionMode` parameter
-    set to `required`. 3. Set `elasticache:TransitEncryptionEnabled` to `true`
-    for the `ModifyReplicationGroup` action to specify that
-    replication groups can only be modified when TLS is being used:
-
-    JSON
-
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Action": [
-     "elasticache:ModifyReplicationGroup"
-     ],
-     "Resource": [
-     "arn:aws:elasticache:*:*:replicationgroup:*"
-     ],
-     "Condition": {
-     "BoolIfExists": {
-     "elasticache:TransitEncryptionEnabled": "true"
-     }
-     }
-     }
-     ]
-    }`
-
-    ```
-
-    When the `elasticache:TransitEncryptionEnabled` condition key
-    is set to `true` in a policy for the [ModifyReplicationGroup](../APIReference/API_ModifyReplicationGroup.md "../APIReference/API_ModifyReplicationGroup.md")
-    action, a `ModifyReplicationGroup` request will be allowed only
-    if the request includes a `TransitEncryptionMode` parameter
-    set to `required`. The `TransitEncryptionEnabled` parameter
-    set to `true` may optionally be included as well, but is
-    not needed in this case to enable TLS.
-
-12. **elasticache:AutomaticFailoverEnabled**:  
-    Specify that replication groups would be created only with automatic failover enabled.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "Bool": {
- "elasticache:AutomaticFailoverEnabled": "true"
- }
- }
- }
- ]
-}`
-
-```
-
-13. **elasticache:MultiAZEnabled**:   Specify that replication groups cannot be created with Multi-AZ disabled.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
- {
- "Effect": "Deny",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "Bool": {
- "elasticache:MultiAZEnabled": "false"
- }
- }
- }
- ]
-}`
-
-```
-
-14. **elasticache:ClusterModeEnabled**:   Specify that replication groups can only be created with cluster mode enabled.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "Bool": {
- "elasticache:ClusterModeEnabled": "true"
- }
- }
- }
- ]
-}`
-
-```
-
-15. **elasticache:AuthTokenEnabled**:   Specify that replication groups can only be created with AUTH token enabled.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "Bool": {
- "elasticache:AuthTokenEnabled": "true"
- }
- }
- }
- ]
-}`
-
-```
-
-16. **elasticache:SnapshotRetentionLimit**:   Specify the number of days (or min/max) to keep the snapshot. Below policy enforces storing backups for at least 30 days.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup",
- "elasticache:CreateServerlessCache"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*",
- "arn:aws:elasticache:*:*:serverlesscache:*"
- ],
- "Condition": {
- "NumericGreaterThanEquals": {
- "elasticache:SnapshotRetentionLimit": "30"
- }
- }
- }
- ]
-}`
-
-```
-
-17. **elasticache:KmsKeyId**:   Specify usage of customer managed AWS KMS keys.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowDependentResources",
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateServerlessCache"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:serverlesscachesnapshot:*",
- "arn:aws:elasticache:*:*:snapshot:*",
- "arn:aws:elasticache:*:*:usergroup:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateServerlessCache"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:serverlesscache:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:KmsKeyId": "my-key"
- }
- }
- }
- ]
-}`
-
-```
-
-18. **elasticache:CacheParameterGroupName**:
-      Specify a non default parameter group with specific parameters from an organization on your clusters. You could also specify a
-    naming pattern for your parameter groups or block delete on a specific parameter group name. Following is an example constraining usage of only "my-org-param-group".
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:CacheParameterGroupName": "my-org-param-group"
- }
- }
- }
- ]
-}`
-
-```
-
-19. **elasticache:CacheParameterGroupName**:
-      With Memcached, specify a non default parameter group with specific parameters from an organization on your clusters. You could also specify a
-    naming pattern for your parameter groups or block delete on a specific parameter group name. Following is an example constraining usage of only "my-org-param-group".
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
-
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
- ],
- "Condition": {
- "StringEquals": {
- "elasticache:CacheParameterGroupName": "my-org-param-group"
- }
- }
- }
- ]
-}`
-
-```
-
-20. **elasticache:CreateCacheCluster**: Denying `CreateCacheCluster` action if the request tag `Project` is missing or is not equal to `Dev`, `QA` or `Prod`.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*",
- "arn:aws:elasticache:*:*:securitygroup:*",
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ]
- },
- {
- "Effect": "Deny",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
- ],
- "Condition": {
- "Null": {
- "aws:RequestTag/Project": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:AddTagsToResource"
- ],
- "Resource": "arn:aws:elasticache:*:*:cluster:*",
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/Project": [
- "Dev",
- "Prod",
- "QA"
- ]
- }
- }
- }
- ]
-}`
-
-```
-
-21. **elasticache:CacheNodeType**:
-      Allowing `CreateCacheCluster` with `cacheNodeType` cache.r5.large or
-    cache.r6g.4xlarge and tag `Project=XYZ`.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster",
- "elasticache:CreateReplicationGroup"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
- ],
- "Condition": {
- "StringEqualsIfExists": {
- "elasticache:CacheNodeType": [
- "cache.r5.large",
- "cache.r6g.4xlarge"
- ]
- },
- "StringEquals": {
- "aws:RequestTag/Project": "XYZ"
- }
- }
- }
- ]
-}`
-
-```
-
-22. **elasticache:CacheNodeType**:
-      Allowing `CreateCacheCluster` with `cacheNodeType` cache.r5.large or
-    cache.r6g.4xlarge and tag `Project=XYZ`.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:parametergroup:*",
- "arn:aws:elasticache:*:*:subnetgroup:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:CreateCacheCluster"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:cluster:*"
- ],
- "Condition": {
- "StringEqualsIfExists": {
- "elasticache:CacheNodeType": [
- "cache.r5.large",
- "cache.r6g.4xlarge"
- ]
- },
- "StringEquals": {
- "aws:RequestTag/Project": "XYZ"
- }
- }
- }
- ]
-}`
-
-```
-
-###### Note
-
-When creating polices to enforce tags and other condition keys together, the conditional `IfExists` may be required on condition key elements due to the extra `elasticache:AddTagsToResource`
-policy requirements for creation requests with the `--tags` parameter.
