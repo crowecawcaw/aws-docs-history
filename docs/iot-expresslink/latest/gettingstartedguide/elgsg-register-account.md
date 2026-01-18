@@ -39,6 +39,32 @@ AT+CONF? Certificate pem
     under **Policy document** select **JSON**.
 11. Copy the the following into the console **Policy document**:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iot:Publish",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "iot:Subscribe",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "iot:Connect",
+ "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:client/${iot:Connection.Thing.ThingName}"
+ }
+ ]
+}`
+
+```
+
 ###### Warning
 
 The examples in this document are intended only for development environments.
