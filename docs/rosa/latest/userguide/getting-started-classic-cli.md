@@ -41,7 +41,7 @@ You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
 
    ````
    * ```
-   rosa create account-roles --classic --mode manual
+    rosa create account-roles --classic --mode manual
    ````
 
    ###### Note
@@ -64,7 +64,7 @@ You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
 
    When using the `--mode auto` defaults, the latest stable OpenShift version is installed.
    * ```
-   rosa create cluster --cluster-name <CLUSTER_NAME> --sts --mode manual
+    rosa create cluster --cluster-name <CLUSTER_NAME> --sts --mode manual
    ````
 
    ###### Important
@@ -79,7 +79,7 @@ You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
 3. Check the status of your cluster.
 
 ```
-rosa describe cluster -c <CLUSTER_NAME>
+ rosa describe cluster -c <CLUSTER_NAME>
 ```
 
 ###### Note
@@ -88,7 +88,7 @@ If the provisioning process fails or the `State` field doesn’t change to a rea
 To contact Support or Red Hat support for assistance, see [Getting ROSA support](rosa-support.md "rosa-support.md"). 4. Track the progress of the cluster creation by watching the OpenShift installer logs.
 
 ```
-rosa logs install -c <CLUSTER_NAME> --watch
+ rosa logs install -c <CLUSTER_NAME> --watch
 ```
 
 ## Configure an identity provider and grant cluster access
@@ -115,13 +115,13 @@ For instructions on how to configure each of the supported identity provider typ
 3. Using the ROSA CLI’s interactive mode, configure an identity provider for your cluster.
 
 ```
-rosa create idp --cluster=<CLUSTER_NAME> --interactive
+ rosa create idp --cluster=<CLUSTER_NAME> --interactive
 ```
 
 4. Follow the configuration prompts in the output to restrict cluster access to members of your GitHub organization.
 
 ```
-I: Interactive mode enabled.
+ I: Interactive mode enabled.
 Any optional fields can be left empty and a default will be selected.
 ? Type of identity provider: github
 ? Identity provider name: github-1
@@ -140,7 +140,7 @@ Any optional fields can be left empty and a default will be selected.
    Replace `<GITHUB_CLIENT_ID>` and `<GITHUB_CLIENT_SECRET>` with the credentials from your GitHub OAuth application.
 
 ```
-...
+ ...
 ? Client ID: <GITHUB_CLIENT_ID>
 ? Client Secret: [? for help] <GITHUB_CLIENT_SECRET>
 ? GitHub Enterprise Hostname (optional):
@@ -158,7 +158,7 @@ It might take approximately two minutes for the identity provider configuration 
 If you configured a `cluster-admin` user, you can run `oc get pods -n openshift-authentication --watch` to watch the OAuth pods redeploy with the updated configuration. 8. Verify that the identity provider is configured correctly.
 
 ```
-rosa list idps --cluster=<CLUSTER_NAME>
+ rosa list idps --cluster=<CLUSTER_NAME>
 ```
 
 ## Grant user access to a cluster
@@ -177,13 +177,13 @@ The following procedure adds a user to a GitHub organization that’s configured
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa grant user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa grant user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify that the user is listed as a member of the `cluster-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Configure `dedicated-admin` permissions
@@ -192,13 +192,13 @@ rosa list users --cluster=<CLUSTER_NAME>
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name by running the following command.
 
 ```
-rosa grant user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa grant user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify that the user is listed as a member of the `cluster-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Access a cluster through the Red Hat Hybrid Cloud Console
@@ -209,7 +209,7 @@ After you create a cluster administrator user or added a user to your configured
    Replace `<CLUSTER_NAME>` with the name of your cluster.
 
 ```
-rosa describe cluster -c <CLUSTER_NAME> | grep Console
+ rosa describe cluster -c <CLUSTER_NAME> | grep Console
 ```
 
 2. Navigate to the console URL in the output and log in.
@@ -242,7 +242,7 @@ The new application takes several minutes to deploy. 13. When the deployment is 
 A new tab in the browser opens with a message that’s similar to the following.
 
 ```
-Welcome to your Node.js application on OpenShift
+ Welcome to your Node.js application on OpenShift
 ```
 
 14. (Optional) Delete the application and clean up resources:
@@ -255,13 +255,13 @@ Welcome to your Node.js application on OpenShift
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa revoke user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa revoke user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify that the user isn’t listed as a member of the `cluster-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Revoke `dedicated-admin` permissions from a user
@@ -270,13 +270,13 @@ rosa list users --cluster=<CLUSTER_NAME>
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa revoke user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa revoke user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify that the user isn’t listed as a member of the `dedicated-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Revoke user access to a cluster
@@ -304,7 +304,7 @@ IAM roles and policies created by ROSA might be used by other ROSA clusters in t
    Replace `<CLUSTER_NAME>` with the name or ID of your cluster.
 
 ```
-rosa delete cluster --cluster=<CLUSTER_NAME> --watch
+ rosa delete cluster --cluster=<CLUSTER_NAME> --watch
 ```
 
 ###### Important
@@ -315,13 +315,13 @@ The operator IAM roles are required to clean up the resources created by the Ope
 The operators use the OIDC provider to authenticate. 2. Delete the OIDC provider that the cluster operators use to authenticate by running the following command.
 
 ```
-rosa delete oidc-provider -c <CLUSTER_ID> --mode auto
+ rosa delete oidc-provider -c <CLUSTER_ID> --mode auto
 ```
 
 3. Delete the cluster-specific operator IAM roles.
 
 ```
-rosa delete operator-roles -c <CLUSTER_ID> --mode auto
+ rosa delete operator-roles -c <CLUSTER_ID> --mode auto
 ```
 
 4. Delete the account IAM roles using the following command.
@@ -329,7 +329,7 @@ rosa delete operator-roles -c <CLUSTER_ID> --mode auto
    If you specified a custom prefix when creating the account IAM roles, specify the default `ManagedOpenShift` prefix.
 
 ```
-rosa delete account-roles --prefix <PREFIX> --mode auto
+ rosa delete account-roles --prefix <PREFIX> --mode auto
 ```
 
 5. Delete the IAM policies created by ROSA.

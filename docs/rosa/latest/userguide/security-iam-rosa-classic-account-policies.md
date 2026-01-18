@@ -18,7 +18,7 @@ This policy grants required permissions that allow the ROSA installer to manage 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -239,7 +239,7 @@ This policy grants required permissions to ROSA classic to manage Amazon EC2 and
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -299,7 +299,7 @@ This policy grants required permissions to ROSA classic to describe the EC2 inst
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -323,7 +323,7 @@ This policy grants required permissions to Red Hat site reliability engineering 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {

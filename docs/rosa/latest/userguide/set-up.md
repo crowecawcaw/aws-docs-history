@@ -24,7 +24,7 @@ The following prerequisites must be met to enable ROSA cluster creation.
   cluster with AWS STS into an enabled AWS Region that’s disabled by default, you must update the security token to version 2 for all the Regions in the AWS account with the following command.
 
 ```
-aws iam set-security-token-service-preferences --global-endpoint-token-version v2Token
+ aws iam set-security-token-service-preferences --global-endpoint-token-version v2Token
 ```
 
 For more information about enabling Regions, see link:accounts/latest/reference/manage

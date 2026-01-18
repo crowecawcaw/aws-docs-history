@@ -76,7 +76,7 @@ AWS CLI
 1. Create a VPC with a `10.0.0.0/16` CIDR block.
 
 ```
- aws ec2 create-vpc \
+  aws ec2 create-vpc \
      --cidr-block 10.0.0.0/16 \
      --query Vpc.VpcId \
      --output text
@@ -86,25 +86,25 @@ The preceding command returns the VPC ID.
 The following is an example output.
 
 ```
-vpc-1234567890abcdef0
+ vpc-1234567890abcdef0
 ```
 
 2. Store the VPC ID in an environment variable.
 
 ```
-export VPC_ID=vpc-1234567890abcdef0
+ export VPC_ID=vpc-1234567890abcdef0
 ```
 
 3. Create a `Name` tag for the VPC, using the `VPC_ID` environment variable.
 
 ```
-aws ec2 create-tags --resources $VPC_ID --tags Key=Name,Value=MyVPC
+ aws ec2 create-tags --resources $VPC_ID --tags Key=Name,Value=MyVPC
 ```
 
 4. Enable DNS hostname support on the VPC.
 
 ```
-aws ec2 modify-vpc-attribute \
+ aws ec2 modify-vpc-attribute \
     --vpc-id $VPC_ID \
     --enable-dns-hostnames
 ```
@@ -125,7 +125,7 @@ To check if an instance type is available for a given Availability Zone, use the
 `aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=location,Values=<availability_zone> --region <region> --output text | egrep "<instance_type>"`.
 
 ```
-aws ec2 create-subnet \
+ aws ec2 create-subnet \
     --vpc-id $VPC_ID \
     --cidr-block 10.0.1.0/24 \
     --availability-zone us-east-1a \
@@ -142,7 +142,7 @@ aws ec2 create-subnet \
 6. Store the public and private subnet IDs in environment variables.
 
 ```
-export PUBLIC_SUB=subnet-1234567890abcdef0
+ export PUBLIC_SUB=subnet-1234567890abcdef0
 export PRIVATE_SUB=subnet-0987654321fedcba0
 ```
 
@@ -150,7 +150,7 @@ export PRIVATE_SUB=subnet-0987654321fedcba0
    Create a route table and elastic IP address for private traffic.
 
 ```
-aws ec2 create-internet-gateway \
+ aws ec2 create-internet-gateway \
     --query InternetGateway.InternetGatewayId \
     --output text
 aws ec2 create-route-table \
@@ -170,7 +170,7 @@ aws ec2 create-route-table \
 8. Store the IDs in environment variables.
 
 ```
-export IGW=igw-1234567890abcdef0
+ export IGW=igw-1234567890abcdef0
 export PUBLIC_RT=rtb-0987654321fedcba0
 export EIP=eipalloc-0be6ecac95EXAMPLE
 export PRIVATE_RT=rtb-1234567890abcdef0
@@ -179,7 +179,7 @@ export PRIVATE_RT=rtb-1234567890abcdef0
 9. Attach the internet gateway to the VPC.
 
 ```
-aws ec2 attach-internet-gateway \
+ aws ec2 attach-internet-gateway \
     --vpc-id $VPC_ID \
     --internet-gateway-id $IGW
 ```
@@ -187,7 +187,7 @@ aws ec2 attach-internet-gateway \
 10. Associate the public route table to the public subnet, and configure traffic to route to the internet gateway.
 
 ```
-aws ec2 associate-route-table \
+ aws ec2 associate-route-table \
     --subnet-id $PUBLIC_SUB \
     --route-table-id $PUBLIC_RT
 aws ec2 create-route \
@@ -199,7 +199,7 @@ aws ec2 create-route \
 11. Create the NAT gateway and associate it with the elastic IP address to enable traffic to the private subnet.
 
 ```
-aws ec2 create-nat-gateway \
+ aws ec2 create-nat-gateway \
     --subnet-id $PUBLIC_SUB \
     --allocation-id $EIP \
     --query NatGateway.NatGatewayId \
@@ -209,7 +209,7 @@ aws ec2 create-nat-gateway \
 12. Associate the private route table to the private subnet, and configure traffic to route to the NAT gateway.
 
 ```
-aws ec2 associate-route-table \
+ aws ec2 associate-route-table \
     --subnet-id $PRIVATE_SUB \
     --route-table-id $PRIVATE_RT
 aws ec2 create-route \
@@ -241,7 +241,7 @@ For more information, see [Requirements for using AWS PrivateLink clusters](http
 
    ````
    * ```
-   rosa create account-roles --classic --mode manual
+    rosa create account-roles --classic --mode manual
    ````
 
    ###### Note
@@ -253,13 +253,13 @@ For more information, see [Requirements for using AWS PrivateLink clusters](http
    - Single-AZ
 
    ```
-   rosa create cluster --private-link --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16 --subnet-ids=<PRIVATE_SUBNET_ID>
+    rosa create cluster --private-link --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16 --subnet-ids=<PRIVATE_SUBNET_ID>
    ```
 
    - Multi-AZ
 
    ```
-   rosa create cluster --private-link --multi-az --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16
+    rosa create cluster --private-link --multi-az --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16
    ```
 
    ###### Note
@@ -269,19 +269,19 @@ For more information, see [Requirements for using AWS PrivateLink clusters](http
 3. Create the cluster operator IAM roles by following the interactive prompts.
 
 ```
-rosa create operator-roles --interactive -c <CLUSTER_NAME>
+ rosa create operator-roles --interactive -c <CLUSTER_NAME>
 ```
 
 4. Create the OpenID Connect (OIDC) provider the cluster operators use to authenticate.
 
 ```
-rosa create oidc-provider --interactive -c <CLUSTER_NAME>
+ rosa create oidc-provider --interactive -c <CLUSTER_NAME>
 ```
 
 5. Check the status of your cluster.
 
 ```
-rosa describe cluster -c <CLUSTER_NAME>
+ rosa describe cluster -c <CLUSTER_NAME>
 ```
 
 ###### Note
@@ -292,7 +292,7 @@ If provisioning fails or doesn’t show as `ready` after 40 minutes, see [Troubl
 To contact Support or Red Hat support for assistance, see [Getting ROSA support](rosa-support.md "rosa-support.md"). 6. Track the progress of the cluster creation by watching the OpenShift installer logs.
 
 ```
-rosa logs install -c <CLUSTER_NAME> --watch
+ rosa logs install -c <CLUSTER_NAME> --watch
 ```
 
 ## Configure AWS PrivateLink DNS forwarding
@@ -349,13 +349,13 @@ For instructions on how to configure each of the supported identity provider typ
 3. Using the ROSA CLI’s interactive mode, configure an identity provider for your cluster by running the following command.
 
 ```
-rosa create idp --cluster=<CLUSTER_NAME> --interactive
+ rosa create idp --cluster=<CLUSTER_NAME> --interactive
 ```
 
 4. Follow the configuration prompts in the output to restrict cluster access to members of your GitHub organization.
 
 ```
-I: Interactive mode enabled.
+ I: Interactive mode enabled.
 Any optional fields can be left empty and a default will be selected.
 ? Type of identity provider: github
 ? Identity provider name: github-1
@@ -373,7 +373,7 @@ Any optional fields can be left empty and a default will be selected.
 7. Use the information from the GitHub OAuth page to populate the remaining `rosa create idp` interactive prompts, replacing `<GITHUB_CLIENT_ID>` and `<GITHUB_CLIENT_SECRET>` with the credentials from your GitHub OAuth application.
 
 ```
-...
+ ...
 ? Client ID: <GITHUB_CLIENT_ID>
 ? Client Secret: [? for help] <GITHUB_CLIENT_SECRET>
 ? GitHub Enterprise Hostname (optional):
@@ -391,7 +391,7 @@ It might take around two minutes for the identity provider configuration to beco
 If you configured a `cluster-admin` user, you can run the `oc get pods -n openshift-authentication --watch` command to watch the OAuth pods redeploy with the updated configuration. 8. Verify the identity provider has been configured correctly.
 
 ```
-rosa list idps --cluster=<CLUSTER_NAME>
+ rosa list idps --cluster=<CLUSTER_NAME>
 ```
 
 ## Grant user access to a cluster
@@ -410,13 +410,13 @@ The following procedure adds a user to a GitHub organization that’s configured
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa grant user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa grant user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify the user is listed as a member of the `cluster-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Configure `dedicated-admin` permissions
@@ -425,13 +425,13 @@ rosa list users --cluster=<CLUSTER_NAME>
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa grant user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa grant user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify the user is listed as a member of the `cluster-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Access a cluster through the Red Hat Hybrid Cloud Console
@@ -441,7 +441,7 @@ After you created a cluster administrator user or added a user to your configure
 1. Obtain the console URL for your cluster using the following command. Replace `<CLUSTER_NAME>` with the name of your cluster.
 
 ```
-rosa describe cluster -c <CLUSTER_NAME> | grep Console
+ rosa describe cluster -c <CLUSTER_NAME> | grep Console
 ```
 
 2. Navigate to the console URL in the output and log in.
@@ -473,7 +473,7 @@ The new application takes several minutes to deploy. 13. When the deployment is 
 A new tab in the browser opens with a message that’s similar to the following.
 
 ```
-Welcome to your Node.js application on OpenShift
+ Welcome to your Node.js application on OpenShift
 ```
 
 14. (Optional) Delete the application and clean up resources.
@@ -486,13 +486,13 @@ Welcome to your Node.js application on OpenShift
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa revoke user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa revoke user cluster-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify that the user isn’t listed as a member of the `cluster-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Revoke `dedicated-admin` permissions from a user
@@ -501,13 +501,13 @@ rosa list users --cluster=<CLUSTER_NAME>
    Replace `<IDP_USER_NAME>` and `<CLUSTER_NAME>` with your user and cluster name.
 
 ```
-rosa revoke user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
+ rosa revoke user dedicated-admin --user=<IDP_USER_NAME> --cluster=<CLUSTER_NAME>
 ```
 
 2. Verify that the user isn’t listed as a member of the `dedicated-admins` group.
 
 ```
-rosa list users --cluster=<CLUSTER_NAME>
+ rosa list users --cluster=<CLUSTER_NAME>
 ```
 
 ## Revoke user access to a cluster
@@ -533,7 +533,7 @@ IAM roles and policies created by ROSA might be used by other ROSA clusters in t
 1. Delete the cluster and watch the logs. Replace `<CLUSTER_NAME>` with the name or ID of your cluster.
 
 ```
-rosa delete cluster --cluster=<CLUSTER_NAME> --watch
+ rosa delete cluster --cluster=<CLUSTER_NAME> --watch
 ```
 
 ###### Important
@@ -544,13 +544,13 @@ The operator IAM roles are required to clean up the resources created by the Ope
 The operators use the OIDC provider to authenticate. 2. Delete the OIDC provider that the cluster operators use to authenticate by running the following command.
 
 ```
-rosa delete oidc-provider -c <CLUSTER_ID> --mode auto
+ rosa delete oidc-provider -c <CLUSTER_ID> --mode auto
 ```
 
 3. Delete the cluster-specific operator IAM roles.
 
 ```
-rosa delete operator-roles -c <CLUSTER_ID> --mode auto
+ rosa delete operator-roles -c <CLUSTER_ID> --mode auto
 ```
 
 4. Delete the account IAM roles using the following command.
@@ -558,7 +558,7 @@ rosa delete operator-roles -c <CLUSTER_ID> --mode auto
    If you specified a custom prefix when creating the account IAM roles, specify the default `ManagedOpenShift` prefix.
 
 ```
-rosa delete account-roles --prefix <PREFIX> --mode auto
+ rosa delete account-roles --prefix <PREFIX> --mode auto
 ```
 
 5. Delete the IAM policies created by ROSA.

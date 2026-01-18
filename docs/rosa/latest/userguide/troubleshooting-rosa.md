@@ -20,7 +20,7 @@ To display cluster debug information, run the following ROSA CLI command.
 In the command, replace `<cluster_name>` with the name of your cluster.
 
 ```
-rosa describe cluster -c <cluster_name> --debug
+ rosa describe cluster -c <cluster_name> --debug
 ```
 
 ## ROSA cluster fails AWS service quota check during cluster creation
@@ -31,7 +31,7 @@ For more information, see [Red Hat OpenShift Service on AWS endpoints and quotas
 1. Run the following command to identify your account’s quotas.
 
 ```
-rosa verify quota
+ rosa verify quota
 ```
 
 ###### Note
@@ -48,7 +48,7 @@ This happens when [sso.redhat.com](https://sso.redhat.com "https://sso.redhat.co
 2. Copy and paste the following authentication command in the terminal.
 
 ```
-rosa login --token="<api_token>"
+ rosa login --token="<api_token>"
 ```
 
 ## Failed to create a cluster with an osdCcsAdmin error
@@ -62,19 +62,19 @@ For more information, see [Create a ROSA classic cluster using the ROSA CLI](get
 If your cluster fails to create, you might receive the following error message:
 
 ```
-Failed to create cluster: Unable to create cluster spec: Failed to get access keys for user 'osdCcsAdmin': NoSuchEntity: The user with name osdCcsAdmin cannot be found.
+ Failed to create cluster: Unable to create cluster spec: Failed to get access keys for user 'osdCcsAdmin': NoSuchEntity: The user with name osdCcsAdmin cannot be found.
 ```
 
 1. Delete the stack.
 
 ```
-rosa init --delete-stack
+ rosa init --delete-stack
 ```
 
 2. Reinitialize your account.
 
 ```
-rosa init
+ rosa init
 ```
 
 ## Next steps
