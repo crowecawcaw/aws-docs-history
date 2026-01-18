@@ -35,7 +35,7 @@ At launch (December 2, 2025), all three model IDs point to the same v1.0 model. 
 Specify the model version using the **`model_id`** parameter in your workflow definition. The following example uses **`model_id="nova-act-latest"`**:
 
 ```
-from nova_act import NovaAct, workflow
+ from nova_act import NovaAct, workflow
 
 @workflow(workflow_definition_name="<your-workflow-name-here>", model_id="nova-act-latest")
 def explore_travel_destinations():

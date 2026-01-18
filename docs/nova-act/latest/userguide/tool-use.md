@@ -15,7 +15,7 @@ To make a Python function available as a tool, you annotate it with the `@tool` 
 Below is an example of a tool defined to return a specific row from an Excel file:
 
 ```
-@tool
+ @tool
 def read_row_as_dict(file_path, row_number):
     """
     Reads a specific row from an Excel file and returns it as a dictionary
@@ -49,7 +49,7 @@ To use a tool with Nova Act, add it to the tools attribute of the Nova Act const
 To define the tools available when initializing Nova Act, pass an array of tools, like below.
 
 ```
-with NovaAct(
+ with NovaAct(
     starting_page=file_path,
     tools=[read_row_as_dict],
 )
@@ -64,7 +64,7 @@ For best performance, limit the number of tools you provide to the model in a si
 When Nova Act determines a tool is needed, it will call the tool with the appropriate arguments. Here is an example of how tool results show in the Nova Act logs:
 
 ```
-think("I need to read the data from row number 1 in the Excel file.");
+ think("I need to read the data from row number 1 in the Excel file.");
 tool({"name":"read_row_as_dict","input":{"file_path":[file_path],"row_number":1}});
 Result for tool call 'read_row_as_dict': {'First Name': 'John', 'Last Name': 'Doe', 'Email': 'jdoe@example.com'}
 ```
@@ -76,7 +76,7 @@ The Model Context Protocol (MCP) is an open standard that enables developers to 
 Below is an example using the [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server "https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server"). This example requires installing the [Strands Agents library](https://strandsagents.com/latest/ "https://strandsagents.com/latest/").
 
 ```
-from mcp import StdioServerParameters, stdio_client
+ from mcp import StdioServerParameters, stdio_client
 from strands.tools.mcp import MCPClient
 with MCPClient(
     lambda: stdio_client(
@@ -90,7 +90,7 @@ with MCPClient(
 Once the MCP is initialized, retrieve the list of available tools from the MCP server and pass them to NovaAct.
 
 ```
-with NovaAct(
+ with NovaAct(
     starting_page=file_path,
     tools=aws_docs_client.list_tools_sync(),
 )

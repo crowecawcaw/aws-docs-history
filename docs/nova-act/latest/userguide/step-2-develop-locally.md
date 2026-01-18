@@ -56,7 +56,7 @@ With API key authentication, you can develop Nova Act workflows using either the
 Example script with API key authentication:
 
 ```
-from nova_act import NovaAct
+ from nova_act import NovaAct
 import os
 
 # Browser args enables browser debugging on port 9222.
@@ -98,7 +98,7 @@ To develop workflows locally using AWS IAM authentication:
 **Example script with AWS IAM authentication (using workflow context manager)**
 
 ```
-import os
+ import os
 from nova_act import NovaAct, Workflow
 
 def main(payload):
@@ -121,7 +121,7 @@ if __name__ == "__main__":
 **Example script with AWS IAM authentication (using @workflow Python decorator to wrap your function)**
 
 ```
-from nova_act import NovaAct, workflow
+ from nova_act import NovaAct, workflow
 
 @workflow(workflow_definition_name="<your-workflow-name>", model_id="nova-act-latest")
 def search_space_destinations():

@@ -31,7 +31,7 @@ The Nova Act SDK enables you to build automation workflows quickly using Python.
 To install the SDK:
 
 ```
-pip install nova-act
+ pip install nova-act
 ```
 
 Visit the [nova-act](https://github.com/aws/nova-act "https://github.com/aws/nova-act") GitHub repository for install instructions and detailed documentation.
