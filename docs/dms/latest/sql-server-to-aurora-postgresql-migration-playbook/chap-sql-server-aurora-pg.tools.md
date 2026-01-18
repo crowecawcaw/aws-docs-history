@@ -1,42 +1,75 @@
-# Amazon Aurora Serverless v1 overview
+# AWS Schema Conversion Tool overview
 
-This topic provides conceptual information about Amazon Aurora Serverless. It introduces Aurora Serverless as an on-demand autoscaling configuration for Amazon Aurora, explaining how it automatically adjusts compute capacity based on application needs.
+You can use the AWS Schema Conversion Tool (AWS SCT) to streamline the migration of your Microsoft SQL Server 2019 database to Amazon Aurora PostgreSQL. This powerful Java utility automates the conversion of most database objects, significantly reducing manual effort in the migration process. By following the step-by-step instructions provided, you can connect to your source and target databases, analyze the schema objects, and generate a comprehensive migration assessment report. The tool offers valuable insights into potential conversion challenges and provides detailed recommendations for addressing them.
 
-Amazon Aurora Serverless version 1 (v1) is an on-demand autoscaling configuration for Amazon Aurora. An Aurora Serverless DB cluster is a DB cluster that scales compute capacity up and down based on your application’s needs. This contrasts with Aurora provisioned DB clusters, for which you manually manage capacity. Aurora Serverless v1 provides a relatively simple, cost-effective option for infrequent, intermittent, or unpredictable workloads. It is cost-effective because it automatically starts up, scales compute capacity to match your application’s usage, and shuts down when it’s not in use.
+The AWS Schema Conversion Tool (AWS SCT) is a Java utility that connects to source and target databases, scans the source database schema objects (tables, views, indexes, procedures, and so on), and converts them to target database objects.
 
-To learn more about pricing, see Serverless Pricing under MySQL-Compatible Edition or PostgreSQL-Compatible Edition on the [Amazon Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing").
+This section provides a step-by-step process for using AWS SCT to migrate an SQL Server database to an Aurora PostgreSQL database cluster. Since AWS SCT can automatically migrate most of the database objects, it greatly reduces manual effort.
 
-Aurora Serverless v1 clusters have the same kind of high-capacity, distributed, and highly available storage volume that is used by provisioned DB clusters. The cluster volume for an Aurora Serverless v1 cluster is always encrypted. You can choose the encryption key, but you can’t disable encryption. That means that you can perform the same operations on an Aurora Serverless v1 that you can on encrypted snapshots. For more information, see Aurora Serverless v1 and snapshots.
+We recommend to start every migration with the process outlined in this section and then use the rest of the Playbook to further explore manual solutions for objects that couldn’t be migrated automatically. For more information, see [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/Welcome.md "../../../SchemaConversionTool/latest/userguide/Welcome.md").
 
-Aurora Serverless v1 provides the following advantages:
+###### Note
 
-- **Simpler than provisioned**. Aurora Serverless v1 removes much of the complexity of managing DB instances and capacity.
-- **Scalable**. Aurora Serverless v1 seamlessly scales compute and memory capacity as needed, with no disruption to client connections.
-- **Cost-effective**. When you use Aurora Serverless v1, you pay only for the database resources that you consume, on a per-second basis.
-- **Highly available storage**. Aurora Serverless v1 uses the same fault-tolerant, distributed storage system with six-way replication as Aurora to protect against data loss.
+This walkthrough uses the AWS DMS Sample Database. You can download it from [GitHub](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
 
-Aurora Serverless v1 is designed for the following use cases:
+## Download the Software and Drivers
 
-- **Infrequently used applications**. You have an application that is only used for a few minutes several times for each day or week, such as a low-volume blog site. With Aurora Serverless v1, you pay for only the database resources that you consume on a per-second basis.
-- **New applications**. You’re deploying a new application and you’re unsure about the instance size you need. By using Aurora Serverless v1, you can create a database endpoint and have the database automatically scale to the capacity requirements of your application.
-- **Variable workloads**. You’re running a lightly used application, with peaks of 30 minutes to several hours a few times each day, or several times for each year. Examples are applications for human resources, budgeting, and operational reporting applications. With Aurora Serverless v1, you no longer need to provision for peak or average capacity.
-- **Unpredictable workloads**. You’re running daily workloads that have sudden and unpredictable increases in activity. An example is a traffic site that sees a surge of activity when it starts raining. With Aurora Serverless v1, your database automatically scales capacity to meet the needs of the application’s peak load and scales back down when the surge of activity is over.
-- **Development and test databases**. Your developers use databases during work hours but don’t need them on nights or weekends. With Aurora Serverless v1, your database automatically shuts down when it’s not in use.
-- **Multi-tenant applications**. With Aurora Serverless v1, you don’t have to individually manage database capacity for each application in your fleet. Aurora Serverless v1 manages individual database capacity for you.
-  This process takes almost no time and since the storage is shared between nodes Aurora can scale up or down in seconds for most workloads. The service currently has autoscaling thresholds of 1.5 minutes to scale up and 5 minutes to scale down. That means metrics must exceed the limits for 1.5 minutes to trigger a scale up or fall below the limits for 5 minutes to trigger a scale down. The cool-down period between scaling activities is 5 minutes to scale up and 15 minutes to scale down. Before scaling can happen the service has to find a “scaling point” which may take longer than anticipated if you have long-running transactions. Scaling operations are transparent to the connected clients and applications since existing connections and session state are transferred to the new nodes. The only difference with pausing and resuming is a higher latency for the first connection, typically around 25 seconds. You can find more details in the documentation.
+Download and install AWS SCT from the [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md").
 
-![How Aurora Serverless Works](images/pb-aurora-serverless.png)
+Download the [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72 "https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72") and [PostgreSQL](https://jdbc.postgresql.org/download "https://jdbc.postgresql.org/download") drivers.
 
-## How to Provision
+Find other supported drivers in the [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.JDBCDrivers "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md#CHAP_Installing.JDBCDrivers").
 
-Log in to your [Management Console](https://eu-central-1.console.aws.amazon.com/rds/home?#databases: "https://eu-central-1.console.aws.amazon.com/rds/home?#databases:"), choose **Amazon RDS** , and then choose **Create database**.
+## Configure AWS SCT
 
-On **Engine options**, for **Engine versions**, choose **Show versions that support Serverless v2**.
+1. Start AWS Schema Conversion Tool (AWS SCT).
+2. Choose **Settings** and then choose **Global settings**.
+3. On the left navigation bar, choose **Drivers**.
+4. Enter the paths for the SQL Server and PostgreSQL drivers downloaded in the first step.
 
-![Provision Serverless](images/pb-aurora-serverless-provision.png)
+![Enter the paths for the Microsoft and PostgreSQL drivers](images/pb-sql-server-aurora-pg-configure-aws-sct.png) 5. Choose **Apply** and then **OK**.
 
-Choose the capacity settings for your use case.
+## Create a New Migration Project
 
-![Serverless Capacity Settings](images/pb-aurora-serverless-capacity.png)
+1. Choose **File**, and then choose **New project wizard**. Alternatively, use the keyboard shortcut **Ctrl+W**.
+2. Enter a project name and select a location for the project files. For **Source engine**, choose **Microsoft SQL Server**, and then choose **Next**.
+3. Enter connection details for the source SQL Server database and choose **Test connection** to verify. Choose **Next**.
+4. Select the schema or database to migrate and choose **Next**.
 
-For more information, see [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless "https://aws.amazon.com/rds/aurora/serverless"), [Aurora Serverless MySQL Generally Available](https://aws.amazon.com/blogs/aws/aurora-serverless-ga/ "https://aws.amazon.com/blogs/aws/aurora-serverless-ga/"), and [Amazon Aurora PostgreSQL Serverless Now Generally Available](https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-serverless-now-generally-available "https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-serverless-now-generally-available").
+The progress bar displays the objects that AWS SCT analyzes. When AWS SCT completes the analysis, the application displays the database migration assessment report. Read the Executive summary and other sections. Note that the information on the screen is only partial. To read the full report, including details of the individual issues, choose **Save to PDF** at the top right and open the PDF document.
+
+![Assessment report](images/pb-sql-server-aurora-pg-aws-sct-assessment-report.png)
+
+Scroll down to the **Database objects with conversion actions for Amazon Aurora (PostgreSQL compatible)** section.
+
+![Assessment report conversion statistics](images/pb-sql-server-aurora-pg-aws-sct-assessment-report-conversion-statistics.png)
+
+Scroll further down to the **Detailed recommendations for Amazon Aurora (PostgreSQL compatible) migrations** section.
+
+![Assessment report detailed recommendations](images/pb-sql-server-aurora-pg-aws-sct-assessment-report-detailed-recommendations.png)
+
+Return to AWS SCT and choose **Next**. Enter the connection details for the target Aurora PostgreSQL database and choose **Finish**.
+
+When the connection is complete, AWS SCT displays the main window. In this interface, you can explore the individual issues and recommendations discovered by AWS SCT.
+
+Choose the schema, open the context (right-click) menu, and then choose **Create report** to create a report tailored for the target database type. You can view this report in AWS SCT.
+
+The progress bar updates while the report is generated.
+
+AWS SCT displays the executive summary page of the database migration assessment report.
+
+Choose **Action items**. In this window, you can investigate each issue in detail and view the suggested course of action. For each issue, drill down to view all instances of that issue.
+
+Choose the database name, open the context (right-click) menu, and choose **Convert schema**. Make sure that you uncheck the `sys` and `information_schema` system schemas. Aurora PostgreSQL already has an `information_schema` schema.
+
+This step doesn’t make any changes to the target database.
+
+On the right pane, AWS SCT displays the new virtual schema as if it exists in the target database. Drilling down into individual objects displays the actual syntax generated by AWS SCT to migrate the objects.
+
+Choose the database on the right pane, open the context (right-click) menu, and choose either **Apply to database** to automatically run the conversion script against the target database, or choose **Save as SQL** to save to an SQL file.
+
+![Apply to database](images/pb-sql-server-aurora-pg-aws-sct-apply-to-database.png)
+
+We recommend saving to an SQL file because you can verify and QA the converted code. Also, you can make the adjustments needed for objects that couldn’t be automatically converted.
+
+For more information, see the [Schema Conversion Tool user guide](../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md "../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md").

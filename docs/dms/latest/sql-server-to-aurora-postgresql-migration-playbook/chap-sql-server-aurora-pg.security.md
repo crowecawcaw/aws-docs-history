@@ -1,178 +1,102 @@
-# Column encryption for Aurora PostgreSQL
+# Transparent data encryption Aurora PostgreSQL
 
-This topic provides reference information comparing encryption and decryption capabilities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand the encryption functions available in SQL Server and their counterparts in Aurora PostgreSQL. The topic highlights the similarities in functionality while noting the differences in syntax and options. It introduces the encryption hierarchy in SQL Server and the various encryption algorithms supported by Aurora PostgreSQL.
+This topic provides reference information about data encryption capabilities in Microsoft SQL Server and Amazon Aurora PostgreSQL. You can understand how Transparent Data Encryption (TDE) works in SQL Server to protect data at rest, and how Aurora PostgreSQL offers similar functionality through Amazon RDS encryption. The topic explains the encryption mechanisms, key management, and limitations associated with these features.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                       |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                 |
+| ------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------- |
+| Four star feature compatibility | N/A                                | N/A                       | Storage level encryption managed by Amazon RDS. |
 
 ## SQL Server Usage
 
-SQL Server provides encryption and decryption functions to secure the content of individual columns. The following list identifies common encryption functions:
+Transparent data encryption (TDE) is an SQL Server feature designed to protect data at rest in the event an attacker obtains the physical media containing database files.
 
-- `EncryptByKey` and `DecryptByKey`.
-- `EncryptByCert` and `DecryptByCert`.
-- `EncryptByPassPhrase` and `DecryptByPassPhrase`.
-- `EncryptByAsymKey` and `DecryptByAsymKey`.
+TDE doesn’t require application changes and is completely transparent to users. The storage engine encrypts and decrypts data on-the-fly. Data isn’t encrypted while in memory or on the network. You can turn TDE on or off individually for each database.
 
-You can use these functions anywhere in your code; they aren’t limited to encrypting table columns. A common use case is to increase run time security by encrypting of application user security tokens passed as parameters.
+TDE encryption uses a Database Encryption Key (DEK) stored in the database boot record, making it available during database recovery. The DEK is a symmetric key signed with a server certificate from the master system database.
 
-These functions follow the general SQL Server encryption hierarchy, which in turn use the Windows Server Data Protection API.
-
-Symmetric encryption and decryption consume minimal resources. You can use them for large data sets.
-
-###### Note
-
-This section doesn’t cover Transparent Data Encryption (TDE) or Always Encrypted end-to-end encryption.
-
-### Syntax
-
-General syntax for `EncryptByKey` and `DecryptByKey`:
-
-```
-EncryptByKey ( <key GUID> , { 'text to be encrypted' }, { <use authenticator flag>}, { <authenticator> } );
-```
-
-```
-DecryptByKey ( 'Encrypted Text' , <use authenticator flag>, { <authenticator> )
-```
+In many instances, security compliance laws require TDE for data at rest.
 
 ### Examples
 
-The following examples demonstrate how to encrypt an employee Social Security Number.
+The following example demonstrates how to enable TDE for a database:
 
-Create a database master key.
+Create a master key and certificate.
+
+```
+USE master;
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MyPassword';
+CREATE CERTIFICATE TDECert WITH SUBJECT = 'TDE Certificate';
+```
+
+Create a database encryption key.
 
 ```
 USE MyDatabase;
-CREATE MASTER KEY
-ENCRYPTION BY PASSWORD = '<MyPassword>';
+CREATE DATABASE ENCRYPTION KEY
+WITH ALGORITHM = AES_128
+ENCRYPTION BY SERVER CERTIFICATE TDECert;
 ```
 
-Create a certificate and a key.
+Enable TDE.
 
 ```
-CREATE CERTIFICATE Cert01
-WITH SUBJECT = 'SSN';
+ALTER DATABASE MyDatabase SET ENCRYPTION ON;
 ```
 
-```
-CREATE SYMMETRIC KEY SSN_Key
-WITH ALGORITHM = AES_256
-ENCRYPTION BY CERTIFICATE Cert01;
-```
-
-Create an `Employees` table.
-
-```
-CREATE TABLE Employees
-(
-  EmployeeID INT PRIMARY KEY,
-  SSN_encrypted VARBINARY(128) NOT NULL
-);
-```
-
-Open the symmetric key for encryption.
-
-```
-OPEN SYMMETRIC KEY SSN_Key
-DECRYPTION BY CERTIFICATE Cert01;
-```
-
-Insert the encrypted data.
-
-```
-INSERT INTO Employees (EmployeeID, SSN_encrypted)
-VALUES
-(1, EncryptByKey(Key_GUID('SSN_Key') , '1112223333', 1, HashBytes('SHA1', CONVERT(VARBINARY, 1)));
-```
-
-```
-SELECT EmployeeID,
-CONVERT(CHAR(10), DecryptByKey(SSN, 1 , HashBytes('SHA1', CONVERT(VARBINARY, EmployeeID)))) AS SSN
-FROM Employees;
-
-EmployeeID  SSN_Encrypted              SSN
-1           0x00F983FF436E32418132...  1112223333
-```
-
-For more information, see [Encrypt a Column of Data](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15") and [Encryption Hierarchy](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Transparent data encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides encryption and decryption functions similar to SQL Server using the `pgcrypto` extension. To use this feature, you must first install the `pgcrypto` extension.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) provides the ability to encrypt data at rest (data stored in persistent storage) for new database instances. When data encryption is enabled, Amazon Relational Database Service (RDS) automatically encrypts the database server storage, automated backups, read replicas, and snapshots using the AES-256 encryption algorithm.
 
-```
-CREATE EXTENSION pgcrypto;
-```
+You can manage the keys used for Amazon Relational Database Service (Amazon RDS) encrypted instances from the Identity and Access Management (IAM) console using the AWS Key Management Service (AWS KMS). If you require full control of a key, you must manage it yourself. You can’t delete, revoke, or rotate default keys provisioned by AWS KMS.
 
-Aurora PostgreSQL supports many encryption algorithms:
+The following limitations exist for Amazon RDS encrypted instances:
 
-- MD5
-- SHA1
-- SHA224/256/384/512
-- Blowfish
-- AES
-- Raw encryption
-- PGP Symmetric encryption
-- PGP Public-Key encryption
+- You can only enable encryption for an Amazon RDS database instance when you create it, not afterward. It is possible to encrypt an existing database by creating a snapshot of the database instance and then creating an encrypted copy of the snapshot. You can restore the database from the encrypted snapshot. For more information, see [Copying a snapshot](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md") in the _Amazon Relational Database Service User Guide_.
+- Encrypted database instances can’t be modified to disable encryption.
+- Encrypted Read Replicas must be encrypted with the same key as the source database instance.
+- An unencrypted backup or snapshot can’t be restored to an encrypted database instance.
+- KMS encryption keys are specific to the region where they are created. Copying an encrypted snapshot from one region to another requires the KMS key identifier of the destination region.
 
-This section describes the use of `PGP_SYM_ENCRYPT` and `PGP_SYM_DECRYPT`, but there are many more options available. For more information, see the link and the end of this section.
+###### Note
 
-### Syntax
-
-Encrypt columns using `PGP_SYM_ENCRYPT`.
-
-```
-pgp_sym_encrypt(data text, psw text [, options text ]) returns bytea
-pgp_sym_decrypt(msg bytea, psw text [, options text ]) returns text
-```
+Disabling the key for an encrypted database instance prevents reading from, or writing to, that instance. When Amazon RDS encounters a database instance encrypted by a key to which Amazon RDS doesn’t have access, it puts the database instance into a terminal state. In this state, the database instance is no longer available and the current state of the database can’t be recovered. To restore the database instance, you must re-enable access to the encryption key for Amazon RDS and then restore the database instance from a backup.
 
 ### Examples
 
-The following examples demonstrate how to encrypt an employee’s Social Security Number.
+The following walkthrough demonstrates how to enable TDE.
 
-Create the `users` table.
+**Enable encryption**
 
-```
-CREATE TABLE users (id SERIAL, name VARCHAR(60), pass TEXT);
-```
+In the database settings, enable encryption and choose a master key. You can choose the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
 
-Insert the encrypted data.
+![Enable encryption](images/pb-sql-server-aurora-pg-enable-encryption.png)
 
-```
-INSERT INTO users (name, pass) VALUES ('John',PGP_SYM_ENCRYPT('123456', 'AES_KEY'));
-```
+**Create an encryption key**
 
-Verify the data is encrypted.
+To create your own key, browse to the Key Management Service (KMS), choose **Customer managed keys**, and create a new key.
 
-```
-SELECT * FROM users;
+Choose the key type and the key material origin, and then choose **Next**.
 
-id  name  pass
-2   John  \xc30d04070302c30d07ff8b3b12f26ad233015a72bab4d3bb73f5a80d5187b1b043149dd961da58e76440ca9eb4a5f7483cc8ce957b47e39b143cf4b1192bb39
-```
+Create alias and description, and then choose **Next**.
 
-Query using the encryption key.
+![Create alias and description](images/pb-sql-server-aurora-pg-alias-description.png)
 
-```
-SELECT name, PGP_SYM_DECRYPT(pass::bytea, 'AES_KEY') as pass
-FROM users WHERE (name LIKE '%John%');
+For **Define Key Administrative Permissions**, leave the default values and choose **Next**.
 
-name  pass
-John  123456
-```
+Make sure that you assigned the key to the relevant users who will need to interact with Amazon Aurora.
 
-Update the data.
+![Key usage permissions](images/pb-sql-server-aurora-pg-key-permissions.png)
 
-```
-UPDATE users SET (name, pass) = ('John',PGP_SYM_ENCRYPT('0000', 'AES_KEY')) WHERE id='2';
+Review and edit the key policy, and then choose **Finish**.
 
-SELECT name, PGP_SYM_DECRYPT(pass::bytea, 'AES_KEY') as pass
-  FROM users WHERE (name LIKE '%John%');
+![Key policy](images/pb-sql-server-aurora-pg-key-policy.png)
 
-name  pass
-John  0000
-```
+Now, you can set the master encryption key by using the ARN of the key that you have created or picking it from the list.
 
-For more information, see [pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html "https://www.postgresql.org/docs/13/pgcrypto.html") in the _PostgreSQL documentation_.
+![Set master encryption key](images/pb-sql-server-aurora-pg-set-master-encryption-key.png)
+
+Proceed to the finish and launch the instance.
+
+For more information, see [Specifying Amazon S3 encryption](../../../AmazonS3/latest/userguide/specifying-s3-encryption.md "../../../AmazonS3/latest/userguide/specifying-s3-encryption.md") in the _Amazon Simple Storage Service User Guide_ and [s3](../../../cli/latest/reference/s3.md "../../../cli/latest/reference/s3.md") in the _Command Line Interface Command Reference_.
