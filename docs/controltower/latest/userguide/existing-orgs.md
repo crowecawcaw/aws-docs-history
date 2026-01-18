@@ -42,7 +42,7 @@ This video (4:01) describes how to work with the **Organization**
 page in AWS Control Tower. For better viewing, select the icon at the lower right corner of the
 video to enlarge it to full screen. Captioning is available.
 
-###### Topics
+## Topics
 
 - [Register an existing organizational unit with
   AWS Control Tower](importing-existing.md "importing-existing.md")

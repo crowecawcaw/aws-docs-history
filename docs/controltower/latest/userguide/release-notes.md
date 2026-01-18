@@ -8,7 +8,8 @@ on the date on which they were officially announced to the public.
 
 ###### Topics
 
-- [January 2025 - Present](2025-all.md "2025-all.md")
+- [January 2026 - Present](2026-all.md "2026-all.md")
+- [January 2025 - December 2025](2025-all.md "2025-all.md")
 - [January - December 2024](2024-all.md "2024-all.md")
 - [January - December 2023](2023-all.md "2023-all.md")
 - [January - December 2022](2022-all.md "2022-all.md")
