@@ -1,64 +1,51 @@
-# Amazon Aurora Backtrack overview
+# Amazon Aurora Serverless v1 overview
 
-This topic provides conceptual information about Amazon Aurora 's Backtrack feature. You can use Backtrack to quickly undo mistakes or explore earlier data changes in your Aurora MySQL database clusters. The feature works by maintaining a log of changes, allowing you to rewind your database to a specific point in time within a configurable window.
+This topic provides conceptual information about Amazon Aurora Serverless. It introduces Aurora Serverless as an on-demand autoscaling configuration for Amazon Aurora, explaining how it automatically adjusts compute capacity based on application needs.
 
-We’ve all been there, you need to make a quick, seemingly simple fix to an important production database. You compose the query, give it a once-over, and let it run. Seconds later you realize that you forgot the `WHERE` clause, dropped the wrong table, or made another serious mistake, and interrupt the query, but the damage has been done. You take a deep breath, whistle through your teeth, wish that reality came with an Undo option.
+Amazon Aurora Serverless version 1 (v1) is an on-demand autoscaling configuration for Amazon Aurora. An Aurora Serverless DB cluster is a DB cluster that scales compute capacity up and down based on your application’s needs. This contrasts with Aurora provisioned DB clusters, for which you manually manage capacity. Aurora Serverless v1 provides a relatively simple, cost-effective option for infrequent, intermittent, or unpredictable workloads. It is cost-effective because it automatically starts up, scales compute capacity to match your application’s usage, and shuts down when it’s not in use.
 
-Backtracking rewinds the DB cluster to the time you specify. Backtracking isn’t a replacement for backing up your DB cluster so that you can restore it to a point in time. However, backtracking provides the following advantages over traditional backup and restore:
+To learn more about pricing, see Serverless Pricing under MySQL-Compatible Edition or PostgreSQL-Compatible Edition on the [Amazon Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing "https://aws.amazon.com/rds/aurora/pricing").
 
-- You can easily undo mistakes. If you mistakenly perform a destructive action, such as a `DELETE` without a `WHERE` clause, you can backtrack the DB cluster to a time before the destructive action with minimal interruption of service.
-- You can backtrack a DB cluster quickly. Restoring a DB cluster to a point in time launches a new DB cluster and restores it from backup data or a DB cluster snapshot, which can take hours. Backtracking a DB cluster doesn’t require a new DB cluster and rewinds the DB cluster in minutes.
-- You can explore earlier data changes. You can repeatedly backtrack a DB cluster back and forth in time to help determine when a particular data change occurred. For example, you can backtrack a DB cluster three hours and then backtrack forward in time one hour. In this case, the backtrack time is two hours before the original time.
+Aurora Serverless v1 clusters have the same kind of high-capacity, distributed, and highly available storage volume that is used by provisioned DB clusters. The cluster volume for an Aurora Serverless v1 cluster is always encrypted. You can choose the encryption key, but you can’t turn off encryption. That means that you can perform the same operations on an Aurora Serverless v1 that you can on encrypted snapshots. For more information, see Aurora Serverless v1 and snapshots.
 
-Amazon Aurora uses a distributed, log-structured storage system (read Design Considerations for High Throughput Cloud-Native Relational Databases to learn a lot more); each change to your database generates a new log record, identified by a Log Sequence Number (LSN). Enabling the backtrack feature provisions a FIFO buffer in the cluster for storage of LSNs. This allows for quick access and recovery times measured in seconds.
+Aurora Serverless v1 provides the following advantages:
 
-When you create a new Aurora MySQL DB cluster, backtracking is configured when you choose **Enable Backtrack** and specify a **Target Backtrack window** value that is greater than zero in the Backtrack section.
+- **Simpler than provisioned** — Aurora Serverless v1 removes much of the complexity of managing DB instances and capacity.
+- **Scalable** — Aurora Serverless v1 seamlessly scales compute and memory capacity as needed, with no disruption to client connections.
+- **Cost-effective** — When you use Aurora Serverless v1, you pay only for the database resources that you consume, on a per-second basis.
+- **Highly available storage** — Aurora Serverless v1 uses the same fault-tolerant, distributed storage system with six-way replication as Aurora to protect against data loss.
 
-To create a DB cluster, follow the instructions in [Creating an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md"). The following image shows the Backtrack section.
+Aurora Serverless v1 is designed for the following use cases:
 
-![How Amazon Aurora Backtrack works](images/pb-amazon-aurora-backtrack.png)
-After a production error, you can simply pause your application, open up the Aurora Console, select the cluster, and choose **Backtrack DB cluster**.
+- **Infrequently used applications** — You have an application that is only used for a few minutes several times for each day or week, such as a low-volume blog site. With Aurora Serverless v1, you pay for only the database resources that you consume on a per-second basis.
+- **New applications** — You’re deploying a new application and you’re unsure about the instance size you need. By using Aurora Serverless v1, you can create a database endpoint and have the database automatically scale to the capacity requirements of your application.
+- **Variable workloads** — You’re running a lightly used application, with peaks of 30 minutes to several hours a few times each day, or several times for each year. Examples are applications for human resources, budgeting, and operational reporting applications. With Aurora Serverless v1, you no longer need to provision for peak or average capacity.
+- **Unpredictable workloads** — You’re running daily workloads that have sudden and unpredictable increases in activity. An example is a traffic site that sees a surge of activity when it starts raining. With Aurora Serverless v1, your database automatically scales capacity to meet the needs of the application’s peak load and scales back down when the surge of activity is over.
+- **Development and test databases** — Your developers use databases during work hours but don’t need them on nights or weekends. With Aurora Serverless v1, your database automatically shuts down when it’s not in use.
+- **Multi-tenant applications** — With Aurora Serverless v1, you don’t have to individually manage database capacity for each application in your fleet. Aurora Serverless v1 manages individual database capacity for you.
+  This process takes almost no time. Because the storage is shared between nodes Aurora can scale up or down in seconds for most workloads. The service currently has autoscaling thresholds of 1.5 minutes to scale up and 5 minutes to scale down. That means metrics must exceed the limits for 1.5 minutes to trigger a scale up or fall below the limits for 5 minutes to trigger a scale down. The cool-down period between scaling activities is 5 minutes to scale up and 15 minutes to scale down. Before scaling can happen the service has to find a “scaling point” which may take longer than anticipated if you have long-running transactions. Scaling operations are transparent to the connected clients and applications since existing connections and session state are transferred to the new nodes. The only difference with pausing and resuming is a higher latency for the first connection, typically around 25 seconds. You can find more details in the documentation.
 
-Then you select **Backtrack** and choose the point in time just before your epic fail, and choose **Backtrack DB cluster**.
+![How Aurora Serverless Works](images/pb-aurora-serverless.png)
 
-![Backtrack DB cluster](images/pb-backtrack-db-cluster.png)
-Then you wait for the rewind to take place, unpause your application and proceed as if nothing had happened. When you initiate a backtrack, Aurora will pause the database, close any open connections, drop uncommitted writes, and wait for the backtrack to complete. Then it will resume normal operation and be able to accept requests. The instance state will be backtracking while the rewind is underway.
+## Amazon Aurora Serverless v2
 
-## Backtrack Window
+Amazon Aurora Serverless v2 has been architected from the ground up to support serverless DB clusters that are instantly scalable. The Aurora Serverless v2 architecture rests on a lightweight foundation that’s engineered to provide the security and isolation needed in multitenant serverless cloud environments. This foundation has very little overhead so it can respond quickly. It’s also powerful enough to meet dramatic increases in processing demand.
 
-With backtracking, there is a target backtrack window and an actual backtrack window:
+When you create your Aurora Serverless v2 DB cluster, you define its capacity as a range between minimum and maximum number of Aurora capacity units (ACUs):
 
-- The target backtrack window is the amount of time you want to be able to backtrack your DB cluster. When you enable backtracking, you specify a target backtrack window. For example, you might specify a target backtrack window of 24 hours if you want to be able to backtrack the DB cluster one day.
-- The actual backtrack window is the actual amount of time you can backtrack your DB cluster, which can be smaller than the target backtrack window. The actual backtrack window is based on your workload and the storage available for storing information about database changes, called change records.
+- **Minimum Aurora capacity units** — The smallest number of ACUs down to which your Aurora Serverless v2 DB cluster can scale.
+- **Maximum Aurora capacity units** — The largest number of ACUs up to which your Aurora Serverless v2 DB cluster can scale.
 
-As you make updates to your Aurora DB cluster with backtracking enabled, you generate change records. Aurora retains change records for the target backtrack window, and you pay an hourly rate for storing them. Both the target backtrack window and the workload on your DB cluster determine the number of change records you store. The workload is the number of changes you make to your DB cluster in a given amount of time. If your workload is heavy, you store more change records in your backtrack window than you do if your workload is light.
+Each ACU provides 2 GiB (gibibytes) of memory (RAM) and associated virtual processor (vCPU) with networking. Unlike Aurora Serverless v1, which scales by doubling ACUs each time the DB cluster reaches a threshold, Aurora Serverless v2 can increase ACUs incrementally. When your workload demand begins to reach the current resource capacity, your Aurora Serverless v2 DB cluster scales the number of ACUs. Your cluster scales ACUs in the increments required to provide the best performance for the resources consumed.
 
-You can think of your target backtrack window as the goal for the maximum amount of time you want to be able to backtrack your DB cluster. In most cases, you can backtrack the maximum amount of time that you specified. However, in some cases, the DB cluster can’t store enough change records to backtrack the maximum amount of time, and your actual backtrack window is smaller than your target. Typically, the actual backtrack window is smaller than the target when you have extremely heavy workload on your DB cluster. When your actual backtrack window is smaller than your target, we send you a notification.
+## How to Provision
 
-When backtracking is turned on for a DB cluster, and you delete a table stored in the DB cluster, Aurora keeps that table in the backtrack change records. It does this so that you can revert back to a time before you deleted the table. If you don’t have enough space in your backtrack window to store the table, the table might be removed from the backtrack change records eventually.
+Log in to your [Management Console](https://eu-central-1.console.aws.amazon.com/rds/home?#databases: "https://eu-central-1.console.aws.amazon.com/rds/home?#databases:"), choose **Amazon RDS** , and then choose **Create database**.
 
-## Backtracking Limitations
+On **Engine options**, for **Engine versions**, choose **Show versions that support Serverless v2**.
 
-The following limitations apply to backtracking:
+![Provision Serverless v2](images/pb-aurora-serverless-provision.png)
 
-- Backtracking an Aurora DB cluster is available in certain AWS Regions and for specific Aurora MySQL versions only. For more information, see Backtracking in Aurora.
-- Backtracking is only available for DB clusters that were created with the Backtrack feature enabled. You can enable the Backtrack feature when you create a new DB cluster or restore a snapshot of a DB cluster. For DB clusters that were created with the Backtrack feature enabled, you can create a clone DB cluster with the Backtrack feature enabled. Currently, you can’t perform backtracking on DB clusters that were created with the Backtrack feature turned off.
-- The limit for a backtrack window is 72 hours.
-- Backtracking affects the entire DB cluster. For example, you can’t selectively backtrack a single table or a single data update.
-- Backtracking isn’t supported with binary log (binlog) replication. Cross-Region replication must be turned off before you can configure or use backtracking.
-- You can’t backtrack a database clone to a time before that database clone was created. However, you can use the original database to backtrack to a time before the clone was created. For more information about database cloning, see Cloning an Aurora DB cluster volume.
-- Backtracking causes a brief DB instance disruption. You must stop or pause your applications before starting a backtrack operation to ensure that there are no new read or write requests. During the backtrack operation, Aurora pauses the database, closes any open connections, and drops any uncommitted reads and writes. It then waits for the backtrack operation to complete.
-- Backtracking isn’t supported for the following AWS Regions:
-  - Africa (Cape Town)
-  - China (Ningxia)
-  - Asia Pacific (Hong Kong)
-  - Europe (Milan)
-  - Europe (Stockholm)
-  - Middle East (Bahrain)
-  - South America (São Paulo)
+Choose the capacity settings for your use case.
 
-- You can’t restore a cross-region snapshot of a backtrack-enabled cluster in an AWS Region that doesn’t support backtracking.
-- You can’t use backtrack with Aurora multi-master clusters.
-- If you perform an in-place upgrade for a backtrack-enabled cluster from Aurora MySQL version 1 to version 2, you can’t backtrack to a point in time before the upgrade happened.
-
-For more information, see: [Amazon Aurora Backtrack — Turn Back Time](https://aws.amazon.com/blogs/aws/amazon-aurora-backtrack-turn-back-time "https://aws.amazon.com/blogs/aws/amazon-aurora-backtrack-turn-back-time").
+For more information, see [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless "https://aws.amazon.com/rds/aurora/serverless"), [Aurora Serverless MySQL Generally Available](https://aws.amazon.com/blogs/aws/aurora-serverless-ga/ "https://aws.amazon.com/blogs/aws/aurora-serverless-ga/"), and [Amazon Aurora PostgreSQL Serverless Now Generally Available](https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-serverless-now-generally-available "https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-serverless-now-generally-available").

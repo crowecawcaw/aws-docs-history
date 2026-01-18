@@ -1,196 +1,144 @@
-# Maintenance plans
+# Resource governor features
 
-This topic provides reference information about migrating maintenance tasks from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can understand the key differences in how routine database maintenance is handled between these two systems.
+This topic provides reference information about resource management and workload isolation capabilities in SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in how these database systems handle resource limits and workload management.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                            |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Use Amazon RDS for backups. Use SQL for table maintenance. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                       |
+| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------- |
+| One star feature compatibility | N/A                                | N/A                       | Use the resource limit for each user. |
 
 ## SQL Server Usage
 
-A _maintenance plan_ is a set of automated tasks used to optimize a database, performs regular backups, and ensure it is free of inconsistencies. Maintenance plans are implemented as SQL Server Integration Services (SSIS) packages and are run by SQL Server Agent jobs. You can run them manually or automatically at scheduled time intervals.
+SQL Server Resource Governor provides the capability to control and manage resource consumption. Administrators can specify and enforce workload limits on CPU, physical I/O, and Memory. Resource configurations are dynamic and you can change them in real time.
 
-SQL Server provides a variety of pre-configured maintenance tasks. You can create custom tasks using TSQL scripts or operating system batch files.
+In SQL Server 2019 configurable value for the `REQUEST_MAX_MEMORY_GRANT_PERCENT` option of `CREATE WORKLOAD GROUP` and `ALTER WORKLOAD GROUP` has been changed from an integer to a float data type to allow more granular control of memory limits. For more information, see [ALTER WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15") and [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
-Maintenance plans are typically used for the following tasks:
+### Use Cases
 
-- Backing up database and transaction log files.
-- Performing cleanup of database backup files in accordance with retention policies.
-- Performing database consistency checks.
-- Rebuilding or reorganizing indexes.
-- Decreasing data file size by removing empty pages (shrink a database).
-- Updating statistics to help the query optimizer obtain updated data distributions.
-- Running SQL Server Agent jobs for custom actions.
-- Running a T-SQL task.
+The following list identifies typical Resource Governor use cases:
 
-Maintenance plans can include tasks for operator notifications and history or maintenance cleanup. They can also generate reports and output the contents to a text file or the maintenance plan tables in the `msdb` database.
+- **Minimize performance bottlenecks and inconsistencies** to better support Service Level Agreements (SLA) for multiple workloads and users.
+- **Protect against runaway queries** that consume a large amount of resources or explicitly throttle I/O intensive operations. For example, consistency checks with DBCC that may bottleneck the I/O subsystem and negatively impact concurrent workloads.
+- **Allow tracking and control for resource-based pricing scenarios** to improve predictability of user charges.
 
-You can create and manage maintenance plans using the maintenance plan wizard in SQL Server Management Studio, Maintenance Plan Design Surface (provides enhanced functionality over the wizard), Management Studio Object Explorer, and T-SQL system stored procedures.
+### Concepts
 
-For more information, see [SQL Server Agent and MySQL Agent](chap-sql-server-aurora-mysql.management.md "chap-sql-server-aurora-mysql.management.md").
+The three basic concepts in Resource Governor are Resource Pools, Workload Groups, and Classification.
 
-### Deprecated DBCC Index and Table Maintenance Commands
-
-The DBCC DBREINDEX, INDEXDEFRAG, and SHOWCONTIG commands have been deprecated as of SQL Server 2008R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
-
-In place of the deprecated DBCC, SQL Server provides newer syntax alternatives as detailed in the following table.
-
-| Deprecated DBCC command | Use instead                      |
-| ----------------------- | -------------------------------- |
-| `DBCC DBREINDEX`        | `ALTER INDEX …​ REBUILD`         |
-| `DBCC INDEXDEFRAG`      | `ALTER INDEX …​ REORGANIZE`      |
-| `DBCC SHOWCONTIG`       | `sys.dm_db_index_physical_stats` |
-
-For the Aurora MySQL alternatives to these maintenance commands, see [Aurora MySQL Maintenance Plans](#chap-sql-server-aurora-mysql.management.maintenanceplans.mysql "#chap-sql-server-aurora-mysql.management.maintenanceplans.mysql").
+- **Resource Pools** represent physical resources. Two built-in resource pools, internal and default, are created when SQL Server is installed. You can create custom user-defined resource pools for specific workload types.
+- **Workload Groups** are logical containers for session requests with similar characteristics. Workload Groups allow aggregate resource monitoring of multiple sessions. Resource limit policies are defined for a Workload Group. Each Workload Group belongs to a Resource Pool.
+- **Classification** is a process that inspects incoming connections and assigns them to a specific Workload Group based on the common attributes. User-defined functions are used to implement Classification. For more information, see [User-Defined Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
 
 ### Examples
 
-Enable Agent XPs, which are turned off by default.
+Turn on the Resource Governor.
 
 ```
-EXEC [sys].[sp_configure] @configname = 'show advanced options', @configvalue = 1 RECONFIGURE ;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
+```
+
+Create a Resource Pool.
+
+```
+CREATE RESOURCE POOL ReportingWorkloadPool
+    WITH (MAX_CPU_PERCENT = 20);
 ```
 
 ```
-EXEC [sys].[sp_configure] @configname = 'agent xps', @configvalue = 1 RECONFIGURE;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 ```
 
-Create a T-SQL maintenance plan for a single index rebuild.
+Create a Workload Group.
 
 ```
-USE msdb;
+CREATE WORKLOAD GROUP ReportingWorkloadGroup USING poolAdhoc;
 ```
 
-Add the Index Maintenance `IDX1` job to SQL Server Agent.
-
 ```
-EXEC dbo.sp_add_job @job_name = N'Index Maintenance IDX1', @enabled = 1, @description = N'Optimize IDX1 for INSERT' ;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 ```
 
-Add the T-SQL job step `Rebuild IDX1 to 50 percent fill`.
+Create a classifier function.
 
 ```
-EXEC dbo.sp_add_jobstep @job_name = N'Index Maintenance IDX1', @step_name = N'Rebuild IDX1 to 50 percent fill', @subsystem = N'TSQL',
-@command = N'Use MyDatabase; ALTER INDEX IDX1 ON Shcema.Table REBUILD WITH ( FILL_FACTOR = 50), @retry_attempts = 5, @retry_interval = 5;
+CREATE FUNCTION dbo.WorkloadClassifier()
+RETURNS sysname WITH SCHEMABINDING
+AS
+BEGIN
+    RETURN (CASE
+        WHEN HOST_NAME()= 'ReportServer'
+        THEN 'ReportingWorkloadGroup'
+        ELSE 'Default'
+    END)
+END;
 ```
 
-Add a schedule to run every day at 01:00 AM.
+Register the classifier function.
 
 ```
-EXEC dbo.sp_add_schedule @schedule_name = N'Daily0100', @freq_type = 4, @freq_interval = 1, @active_start_time = 010000;
+ALTER RESOURCE GOVERNOR with (CLASSIFIER_FUNCTION = dbo.WorkloadClassifier);
 ```
 
-Associate the schedule `Daily0100` with the job index maintenance `IDX1`.
-
 ```
-EXEC sp_attach_schedule @job_name = N'Index Maintenance IDX1' @schedule_name = N'Daily0100' ;
+ALTER RESOURCE GOVERNOR RECONFIGURE;
 ```
 
-For more information, see [Maintenance Plans](https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/maintenance-plans/maintenance-plans?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Resource Governor](https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Relational Database Service (Amazon RDS) performs automated database backups by creating storage volume snapshots that back up entire instances, not individual databases.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support a server-wide, granular, resource-based, workload resource isolation and management capability similar to SQL Server Resource Governor. However, Aurora MySQL does support the feature User Resource Limit Options that you can use to achieve similar high-level functionality for limiting resource consumption of user connections.
 
-Amazon RDS creates snapshots during the backup window for individual database instances and retains snapshots in accordance with the backup retention period. You can use the snapshots to restore a database to any point in time within the backup retention period.
+You can specify User Resource Limit Options as part of the `CREATE USER` statement to place the following limits on users:
 
-###### Note
+- The number of total queries in hour an account is allowed to issue.
+- The number of updates in hour an account is allowed to issue.
+- The number of times in hour an account can establish a server connection.
+- The total number of concurrent server connections allowed for the account.
 
-The state of a database instance must be ACTIVE for automated backups to occur.
+For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
 
-You can backup database instances manually by creating an explicit database snapshot. Use the AWS console, the AWS CLI, or the AWS API to take manual snapshots.
-
-### Examples
-
-**Create a manual database snapshot using the Amazon RDS console**
-
-1. In the AWS console, choose **RDS**, and then choose **Databases**.
-2. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
-
-![Take snapshot](images/pb-sql-server-aurora-mysql-take-snapshot.png)
-
-**Restore a database from a snapshot**
-
-1. In the AWS console, choose **RDS**, and then choose **Snapshots**.
-2. Choose the snapshot to restore, and for **Actions** choose **Restore snapshot**.
-
-This action creates a new instance. 3. Enter the required configuration options in the wizard for creating a new Amazon Aurora database instance. Choose **Restore DB Instance**.
-
-You can also restore a database instance to a point-in-time. For more information, see [Backup and Restore](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md").
-
-For all other tasks, use a third-party or a custom application scheduler.
-
-**Rebuild and reorganize an index**
-
-Aurora MySQL supports the `OPTIMIZE TABLE` command, which is similar to the `REORGANIZE` option of SQL Server indexes.
+### Syntax
 
 ```
-OPTIMIZE TABLE MyTable;
+CREATE USER <User Name> ...
+WITH
+MAX_QUERIES_PER_HOUR count |
+MAX_UPDATES_PER_HOUR count |
+MAX_CONNECTIONS_PER_HOUR count |
+MAX_USER_CONNECTIONS count
 ```
 
-To perform a full table rebuild with all secondary indexes, perform a null altering action using either `ALTER TABLE <table> FORCE` or `ALTER TABLE <table> ENGINE = <current engine>`.
+### Migration Considerations
+
+Although both SQL Server Resource Manager and Aurora MySQL User Resource Limit Options provide the same basic function — limiting the amount of resources for distinct types of workloads — they differ significantly in scope and flexibility.
+
+SQL Server Resource Manager is a dynamically configured independent framework based on actual run-time resource consumption. User Resource Limit Options are defined as part of the security objects and requires application connection changes to map to limited users. To modify these limits, you must alter the user object.
+
+User Resource Limit Options don’t allow limiting workload activity based on actual resource consumption, but rather provides a quantitative limit for the number of queries or number of connections. A runaway query that consumes a large amount of resources may slow down the server.
+
+Another important difference is how exceeded resource limits are handled. SQL Server Resource Governor throttles the run; Aurora MySQL raises errors.
+
+### Example
+
+Create a resource-limited user.
 
 ```
-ALTER TABLE MyTable FORCE;
+CREATE USER 'ReportUsers'@'localhost'
+IDENTIFIED BY 'ReportPassword'
+WITH
+MAX_QUERIES_PER_HOUR 60
+MAX_UPDATES_PER_HOUR 0
+MAX_CONNECTIONS_PER_HOUR 5
+MAX_USER_CONNECTIONS 2;
 ```
-
-```
-ALTER TABLE MyTable ENGINE = InnoDB
-```
-
-### Perform Database Consistency Checks
-
-Use the `CHECK TABLE` command to perform a database consistency check.
-
-```
-CHECK TABLE <table name> [FOR UPGRADE | QUICK]
-```
-
-The `FOR UPGRADE` option checks if the table is compatible with the current version of MySQL to determine whether there have been any incompatible changes in any of the table’s data types or indexes since the table was created. The `QUICK` options doesn’t scan the rows to check for incorrect links.
-
-For routine checks of a table, use the `QUICK` option.
-
-###### Note
-
-In most cases, Aurora MySQL will find all errors in the data file. When an error is found, the table is marked as corrupted and can’t be used until it is repaired.
-
-### Converting Deprecated DBCC Index and Table Maintenance Commands
-
-| Deprecated DBCC command | Aurora MySQL equivalent |
-| ----------------------- | ----------------------- |
-| `DBCC DBREINDEX`        | `ALTER TABLE …​ FORCE`  |
-| `DBCC INDEXDEFRAG`      | `OPTIMIZE TABLE`        |
-| `DBCC SHOWCONTIG`       | `CHECK TABLE`           |
-
-### Decrease Data File Size by Removing Empty Pages
-
-Unlike SQL Server that uses a single set of files for an entire database, Aurora MySQL uses one file for each database table. Therefore you don’t need to shrink an entire database.
-
-### Update Statistics to Help the Query Optimizer Get Updated Data Distribution
-
-Aurora MySQL uses both persistent and non-persistent table statistics. Non-persistent statistics are deleted on server restart and after some operations. The statistics are then recomputed on the next table access. Therefore, different estimates could be produced when recomputing statistics leading to different choices in run plans and variations in query performance.
-
-Persistent optimizer statistics survive server restarts and provide better plan stability resulting in more consistent query performance. Persistent optimizer statistics provide the following control and flexibility options:
-
-- Set the `innodb_stats_auto_recalc` configuration option to control whether statistics are updated automatically when changes to a table cross a threshold.
-- Set the `STATS_PERSISTENT`, `STATS_AUTO_RECALC`, and `STATS_SAMPLE_PAGES` clauses with `CREATE TABLE` and `ALTER TABLE` statements to configure custom statistics settings for individual tables.
-- View optimizer statistics in the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables.
-- View the `last_update` column of the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables to see when statistics were last updated.
-- Modify the `mysql.innodb_table_stats` and `mysql.innodb_index_stats` tables to force a specific query optimization plan or to test alternative plans without modifying the database.
-
-For more information, see [Managing Statistics](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
 
 ## Summary
 
-The following table summarizes the key tasks that use SQL Server maintenance plans and a comparable Aurora MySQL solutions.
+| Feature                                   | SQL Server Resource Governor                                                 | Aurora MySQL User Resource Limit Options  | Comments                                                           |
+| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
+| Scope                                     | Dynamic workload pools and workload groups, mapped to a classifier function. | For each user.                            | Application connection strings need to use specific limited users. |
+| Limited resources                         | IO, CPU, and memory.                                                         | Number of queries, number of connections. |                                                                    |
+| Modifying limits                          | `ALTER RESOURCE POOL`                                                        | `ALTER USER`                              | Application may use a dynamic connection string.                   |
+| When resource threshold limit is reached. | Throttles and queues runs.                                                   | Raises an error.                          | Application retry logic may need to be added.                      |
 
-| Task                                                                        | SQL Server                                | Aurora MySQL                                                                             | Comments                                                                                                                     |
-| --------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Rebuild or reorganize indexes                                               | `ALTER INDEX` / `ALTER TABLE`             | `OPTIMIZE TABLE` / `ALTER TABLE`                                                         |                                                                                                                              |
-| Decrease data file size by removing empty pages                             | `DBCC SHRINKDATABASE` / `DBCC SHRINKFILE` | Files are for each table; not for each database. Rebuilding a table optimizes file size. | Not needed                                                                                                                   |
-| Update statistics to help the query optimizer get updated data distribution | `UPDATE STATISTICS` / `sp_updatestats`    | Set `innodb_stats_auto_recalc` to `ON` in the instance global parameter group.           |                                                                                                                              |
-| Perform database consistency checks                                         | `DBCC CHECKDB` / `DBCC CHECKTABLE`        | `CHECK TABLE`                                                                            |                                                                                                                              |
-| Back up the database and transaction log files                              | `BACKUP DATABASE` / `BACKUP LOG`          | Automated backups and snapshots                                                          | For more information, see [Backup and Restore](chap-sql-server-aurora-mysql.hadr.md "chap-sql-server-aurora-mysql.hadr.md"). |
-| Run SQL Server Agent jobs for custom actions                                | `sp_start_job`, `scheduled`               | Not supported                                                                            |                                                                                                                              |
-
-For more information, see [CHECK TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/check-table.html "https://dev.mysql.com/doc/refman/5.7/en/check-table.html") in the _MySQL documentation_ and [Working with backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md") in the _Amazon Relational Database Service User Guide_.
+For more information, see [CREATE USER Resource-Limit Options](https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits "https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits") and [Setting Account Resource Limits](https://dev.mysql.com/doc/refman/5.7/en/user-resources.html "https://dev.mysql.com/doc/refman/5.7/en/user-resources.html") in the _MySQL documentation_.

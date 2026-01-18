@@ -1,160 +1,241 @@
-# Managing statistics for T-SQL
+# Databases and schemas for T-SQL
 
-This topic provides reference information about statistics management in Microsoft SQL Server and Amazon Aurora MySQL, which is crucial for database performance optimization. You can understand the differences and similarities in how these two database systems handle statistics creation, storage, and maintenance.
+This topic provides reference content comparing database and schema concepts between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these two database systems differ in their approach to logical containers, security, and object hierarchies.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                              |
-| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | N/A                       | Statistics contain only density information, and only for index key columns. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                     |
+| ------------------------------ | ---------------------------------- | ------------------------- | ----------------------------------- |
+| Two star feature compatibility | Two star automation level          | N/A                       | Schema and database are synonymous. |
 
 ## SQL Server Usage
 
-Statistics objects in SQL Server are designed to support cost-based query optimizer. It uses statistics to evaluate the various plan options and choose an optimal plan for optimal query performance.
+Databases and schemas are logical containers for security and access control. Administrators can grant permissions collectively at both the databases and the schema levels. SQL Server instances provide security at three levels: individual objects, schemas (collections of objects), and databases (collections of schemas). For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
 
-Statistics are stored as BLOBs in system tables and contain histograms and other statistical information about the distribution of values in one or more columns. A histogram is created for the first column only and samples the occurrence frequency of distinct values. Statistics and histograms are collected by either scanning the entire table or by sampling only a percentage of the rows.
+###### Note
 
-You can view Statistics manually using the `DBCC SHOW_STATISTICS` statement or the more recent `sys.dm_db_stats_properties` and `sys.dm_db_stats_histogram` system views.
+In previous versions of SQL server, the term _user_ was interchangeable with the term _schema_. For backward compatibility, each database has several built-in security schemas including `guest`, `dbo`,
+`db_datareaded`, `sys`, `INFORMATION_SCHEMA`, and so on. You should migrate these schemas.
 
-SQL Server provides the capability to create filtered statistics containing a `WHERE` predicate. Filtered statistics are useful for optimizing histogram granularity by eliminating rows whose values are of less interest, for example NULLs.
+Each SQL Server instance can host and manage a collection of databases, which consist of SQL Server processes and the Master, Model, TempDB, and MSDB system databases.
 
-SQL Server can manage the collection and refresh of statistics automatically, which is the default. Use the `AUTO_CREATE_STATISTICS` and `AUTO_UPDATE_STATISTICS` database options to change the defaults.
+The most common SQL Server administrator tasks at the database level are:
 
-When a query is submitted with `AUTO_CREATE_STATISTICS` on, and the query optimizer may benefit from a statistics that doesn’t yet exist, SQL Server creates the statistics automatically. You can use the `AUTO_UPDATE_STATISTICS_ASYNC` database property to set new statistics creation to occur immediately and causing queries to wait or to run asynchronously. When run asynchronously, the triggering run can’t benefit from optimizations the optimizer may derive from it.
+- **Managing Physical Files** — Add, remove, change file growth settings, and re-size files.
+- **Managing Filegroups** — Partition schemes, object distribution, and read-only protection of tables.
+- **Managing default options**.
+- **Creating database snapshots**.
 
-After creation of a new statistics object, either automatically or explicitly using the `CREATE STATISTICS` statement, the refresh of the statistics is controlled by the `AUTO_UPDATE_STATISTICS` database option. When set to `ON`, statistics are recalculated when they are stale, which happens when significant data modifications have occurred since the last refresh.
+Unique object identifiers within an instance use three-part identifiers: `<Database name>.<Schema name>.<Object name>`.
+
+The recommended way to view the metadata of database objects, including schemas, is to use the ANSI standard Information Schema views. In most cases, these views are compatible with other ANSI compliant RDBMS.
+
+To view a list of all databases on the server, use the `sys.databases` table.
 
 ### Syntax
 
+Simplified syntax for `CREATE DATABASE`:
+
 ```
-CREATE STATISTICS <Statistics Name>
-ON <Table Name> (<Column> [,...])
-[WHERE <Filter Predicate>]
-[WITH <Statistics Options>;
+CREATE DATABASE <database name>
+[ ON [ PRIMARY ] <file specifications>[,<filegroup>]
+[ LOG ON <file specifications>
+[ WITH <options specification> ] ;
+```
+
+Simplified syntax for CREATE SCHEMA:
+
+```
+CREATE SCHEMA <schema name> | AUTHORIZATION <owner name>;
 ```
 
 ### Examples
 
-Create new statistics on multiple columns. Set to use a full scan and to not refresh.
+Add a file to a database and create a table using the new file.
 
 ```
-CREATE STATISTICS MyStatistics
-ON MyTable (Col1, Col2)
-WITH FULLSCAN, NORECOMPUTE;
+USE master;
 ```
 
-Update statistics with a 50% sampling rate.
-
 ```
-UPDATE STATISTICS MyTable(MyStatistics)
-WITH SAMPLE 50 PERCENT;
+ALTER DATABASE NewDB
+ADD FILEGROUP NewGroup;
 ```
 
-View the statistics histogram and data.
-
 ```
-DBCC SHOW_STATISTICS ('MyTable','MyStatistics');
-```
-
-Turn off automatic statistics creation for a database.
-
-```
-ALTER DATABASE MyDB SET AUTO_CREATE_STATS OFF;
+ALTER DATABASE NewDB
+ADD FILE (
+    NAME = 'NewFile',
+    FILENAME = 'D:\NewFile.ndf',
+    SIZE = 2 MB
+    )
+TO FILEGROUP NewGroup;
 ```
 
-For more information, see [Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15"), [CREATE STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15"), and [DBCC SHOW_STATISTICS (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+USE NewDB;
+```
 
-## MySQL Usage
+```
+CREATE TABLE NewTable
+(
+    Col1 INT PRIMARY KEY
+)
+ON NewGroup;
+```
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports two modes of statistics management: persistent optimizer statistics and non-persistent optimizer statistics. As the name suggests, persistent statistics are written to disk and survive service restart. Non-persistent statistics are kept in memory only and need to be recreated after service restart. It is recommended to use persistent optimizer statistics (the default for Aurora MySQL) for improved plan stability.
+```
+SELECT Name
+FROM sys.databases
+WHERE database_id > 4;
+```
 
-Statistics in Aurora MySQL are created for indexes only. Aurora MySQL doesn’t support independent statistics objects on columns that aren’t part of an index.
+Create a table within a new schema and database.
 
-Typically, administrators change the statistics management mode by setting the global parameter `innodb_stats_persistent = ON`. This option isn’t supported for Aurora MySQL because it requires server `SUPER` privileges. Therefore, control the statistics management mode by changing the behavior for individual tables using the table option `STATS_PERSISTENT = 1`. There are no column-level or statistics-level options for setting parameter values.
+```
+USE master
+```
 
-To view statistics metadata, use the `INFORMATION_SCHEMA.STATISTICS` standard view. To view detailed persistent optimizer statistics, use the `innodb_table_stats` and `innodb_index_stats` tables.
+```
+CREATE DATABASE NewDB;
+```
 
-The following image shows an example of `mysql.innodb_table_stats` content.
+```
+USE NewDB;
+```
 
-![Example of mysql innodb table stats](images/pb-sql-server-aurora-mysql-managing-statistics.png)
+```
+CREATE SCHEMA NewSchema;
+```
 
-The following image shows an example of `mysql.innodb_index_stats` content.
-
-![Example of mysql statistics](images/pb-sql-server-aurora-mysql-index-statistics.png)
-
-Automatic refresh of statistics is controlled by the global parameter `innodb_stats_auto_recalc`, which is set to `ON` in Aurora MySQL. You can set it individually for each table using the `STATS_AUTO_RECALC=1` option.
-
-To explicitly force refresh of table statistics, use the `ANALYZE TABLE` statement. It is not possible to refresh individual statistics or columns.
-
-Use the `NO_WRITE_TO_BINLOG` or its clearer alias `LOCAL` to avoid replication to replication replicas.
-
-Use `ALTER TABLE …​ ANALYZE PARTITION` to analyze one or more individual partitions. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
+```
+CREATE TABLE NewSchema.NewTable
+(
+    NewColumn VARCHAR(20) NOT NULL PRIMARY KEY
+);
+```
 
 ###### Note
 
-Amazon Relational Database Service (Amazon RDS) for MySQL 8 adds new `INFORMATION_SCHEMA.INNODB_CACHED_INDEXES` table which reports the number of index pages cached in the InnoDB buffer pool for each index.
+The preceding example uses default settings for the new database and schema.
+
+For more information, see [sys.databases (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15"), [CREATE SCHEMA (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15"), and [CREATE DATABASE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool") in the _SQL Server documentation_.
+
+## MySQL Usage
+
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports both the `CREATE SCHEMA` and `CREATE DATABASE` statements. However, in Aurora MySQL, these statements are synonymous.
+
+Unlike SQL Server, Aurora MySQL doesn’t have the concept of an instance hosting multiple databases, which in turn contain multiple schemas. Objects in Aurora MySQL are referenced as a two part name: `<schema>.<object>`. You can use the term _database_ in place of schema, but it is conceptually the same thing.
+
+###### Note
+
+This terminology conflict can lead to confusion for SQL Server database administrators unfamiliar with the Aurora MySQL concept of a database.
+
+###### Note
+
+Each database and schema in Aurora MySQL is managed as a separate set of physical files similar to an SQL Server database.
+
+Aurora MySQL doesn’t have the concept of a schema owner. Permissions must be granted explicitly. However, Aurora MySQL supports a custom default collation at the schema level, whereas SQL Server supports it at the database level only. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
 
 ### Syntax
 
-```
-ANALYZE [NO_WRITE_TO_BINLOG | LOCAL] TABLE <Table Name> [,...];
-```
+Syntax for CREATE DATABASE:
 
 ```
-CREATE TABLE ( <Table Definition> ) | ALTER TABLE <Table Name>
-STATS_PERSISTENT = <1|0>,
-STATS_AUTO_RECALC = <1|0>,
-STATS_SAMPLE_PAGES = <Statistics Sampling Size>;
+CREATE {DATABASE | SCHEMA} <database name>
+[DEFAULT] CHARACTER SET [=] <character set>|
+[DEFAULT] COLLATE [=] <collation>
 ```
 
 ### Migration Considerations
 
-Unlike SQL Server, Aurora MySQL collects only density information. It doesn’t collect detailed key distribution histograms. This difference is critical for understanding run plans and troubleshooting performance issues, which aren’t affected by individual values used by query parameters.
+Similar to SQL Server, Aurora MySQL supports the USE command to specify the default database or schema for missing object qualifiers.
 
-Statistics collection is managed at the table level. You can’t manage individual statistics objects or individual columns. In most cases, that shouldn’t pose a challenge for successful migration.
+The syntax is identical to SQL Server:
+
+```
+USE <database name>;
+```
+
+After you run the `USE` command, the default database for the calling scope is changed to the specified database.
+
+There is a relatively straightforward migration path for a class of common application architectures that use multiple databases but have all objects in a single schema (typically the default `dbo` schema) and require cross database queries. For these types of applications, create an Aurora MySQL Instance and then create multiple databases as you would in SQL Server using the `CREATE DATABASE` command.
+
+Reference all objects using a two-part name instead of a three-part name by omitting the default schema identifier. For application code using the USE command instead of a three-part identifier, no rewrite is needed other than replacing the double dot with a single dot.
+
+```
+SELECT * FROM MyDB..MyTable -> SELECT * FROM MyDB.MyTable
+```
+
+For applications using a single database and multiple schemas, the migration path is the same and requires fewer rewrites because two-part names are already being used.
+
+Applications that use multiple schemas and multiple databases will need to use multiple instances.
+
+Use the `SHOW DATABASES` command to view databases or schemas in Aurora MySQL.
+
+```
+SHOW DATABASES;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+database
+
+information_schema
+Demo
+mysql
+performance_schema
+sys
+```
+
+Aurora MySQL also supports a `CREATE DATABASE` syntax reminder command.
+
+```
+SHOW CREATE DATABASE Demo;
+```
+
+For the preceding example, the result looks as shown following.
+
+```
+Database  Create Database
+Demo      CREATE DATABASE `Demo` /*!40100 DEFAULT CHARACTER SET latin1 */
+```
 
 ### Examples
 
-Create a table with explicitly set statistics options.
+The following examples create a new table in a new database.
 
 ```
-CREATE TABLE MyTable
+CREATE DATABASE NewDatabase;
+```
+
+```
+USE NewDatabase;
+```
+
+```
+CREATE TABLE NewTable
 (
-    Col1 INT NOT NULL AUTO_INCREMENT,
-    Col2 VARCHAR(255),
-    DateCol DATETIME,
-    PRIMARY KEY (Col1),
-    INDEX IDX_DATE (DateCol)
-) ENGINE=InnoDB,
-STATS_PERSISTENT=1,
-STATS_AUTO_RECALC=1,
-STATS_SAMPLE_PAGES=25;
+    NewColumn VARCHAR(20) NOT NULL PRIMARY KEY
+);
 ```
 
-Refresh all statistics for `MyTable1` and `MyTable2`.
-
 ```
-ANALYZE TABLE MyTable1, MyTable2;
+INSERT INTO NewTable VALUES('NewValue');
 ```
 
-Change `MyTable` to use non persistent statistics.
-
 ```
-ALTER TABLE MyTable STATS_PERSISTENT=0;
+SELECT * FROM NewTable;
 ```
 
 ## Summary
 
-The following table identifies similarities, differences, and key migration considerations.
+The following table summarizes the migration path for each architecture.
 
-| Feature                     | SQL Server                                                    | Aurora MySQL                          | Comments                                                                                  |
-| --------------------------- | ------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Column statistics           | `CREATE STATISTICS`                                           | N/A                                   |                                                                                           |
-| Index statistics            | Implicit with every index                                     | Implicit with every index             | Statistics are maintained automatically for every table index.                            |
-| Refresh / update statistics | `UPDATE STATISTICS`<br>`EXECUTE sp_updatestats`               | `ANALYZE TABLE`                       | Minimal scope in Aurora MySQL is the entire table. No control over individual statistics. |
-| Auto create statistics      | `AUTO_CREATE_STATISTICS` database option                      | N/A                                   |                                                                                           |
-| Auto update statistics      | `AUTO_UPDATE_STATISTICS` database option                      | `STATS_AUTO_RECALC` table option      |                                                                                           |
-| Statistics sampling         | Use the `SAMPLE` option of `CREATE` and `UPDATE STATISTICS`   | `STATS_SAMPLE_PAGES` table option     | Can only use page number, not percentage for `STATS_SAMPLE_PAGES`.                        |
-| Full scan refresh           | Use the `FULLSCAN` option of `CREATE` and `UPDATE STATISTICS` | N/A                                   | Using a very large `STATS_SAMPLE_PAGES` may serve the same purpose.                       |
-| Non-persistent statistics   | N/A                                                           | Use `STATS_PERSISTENT=0` table option |                                                                                           |
+| Current object architecture                          | Migrate to Aurora MySQL                         | Rewrites                                                                                                                                                            |
+| ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single database, all objects in dbo schema.          | Single instance, single database or schema.     | If the code already uses two-part object notation such as `dbo.<object>`, consider creating a `dbo` schema in Aurora MySQL to minimize code changes.                |
+| Single database, objects in multiple schemas.        | Single instance, multiple databases or schemas. | No identifier hierarchy rewrites needed. Code should be compatible with respect to the object hierarchy.                                                            |
+| Multiple databases, all objects in the `dbo` schema. | Single instance, multiple databases or schemas. | Identifier rewrite is required to remove the SQL Server schema name or the default dot. Change `SELECT<br>• FROM MyDB..MyTable` to `SELECT<br>• FROM MyDB.MyTable`. |
+| Multiple databases, objects in multiple schemas.     | Multiple instances.                             | Connectivity between the instances will need to be implemented at the application level.                                                                            |
 
-For more information, see [The INFORMATION_SCHEMA STATISTICS Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-statistics-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-statistics-table.html")
-[Configuring Persistent Optimizer Statistics Parameters](https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-persistent-stats.html"), [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html"), and [Configuring Optimizer Statistics for InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-performance-optimizer-statistics.html") in the _MySQL documentation_.
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
