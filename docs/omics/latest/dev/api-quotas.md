@@ -55,7 +55,7 @@ The following table lists the workflow API operations.
 
 | Workflow API operation                                                        | Default maximum TPS | Adjustable (Yes/No) |
 | ----------------------------------------------------------------------------- | ------------------- | ------------------- |
-| StartRun                                                                      | 0.1 TPS             | Yes                 |
+| StartRun                                                                      | 1 TPS               | Yes                 |
 | CreateWorkflow                                                                | 5 TPS               | Yes                 |
 | CancelRun, DeleteRun, GetRun, GetRunTask, ListRunTasks, ListRuns              | 10 TPS              | Yes                 |
 | CreateRunGroup, DeleteRunGroup, GetRunGroup, ListRunGroups,<br>UpdateRunGroup | 10 TPS              | Yes                 |

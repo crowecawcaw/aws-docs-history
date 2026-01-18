@@ -19,7 +19,9 @@ some differences based on how each workflow engine handles specific cases:
     workflow. For call caching, if any object in the directory changes, HealthOmics recomputes all tasks that input
     the directory.
   - HealthOmics supports task-level caching, but not workflow-level caching.
+  - You can disable caching for individual tasks by using the **volatile** attribute. For more information, see [Disable task-level caching with the volatile attribute](workflow-languages-wdl.md#workflow-wdl-volatile-attribute "workflow-languages-wdl.md#workflow-wdl-volatile-attribute").
 
 - CWL
   - Constant outputs from tasks aren't explicitly visible from the manifests. HealthOmics caches constant outputs
     as intermediate files.
+  - You can control caching for individual tasks by using the [WorkReuse](https://www.commonwl.org/v1.1/Workflow.html#WorkReuse "https://www.commonwl.org/v1.1/Workflow.html#WorkReuse") feature.

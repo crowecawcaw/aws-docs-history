@@ -61,8 +61,9 @@ outcomes:
 For other scenarios that can cause non-deterministic behavior, see [Non-deterministic process inputs](https://www.nextflow.io/docs/latest/cache-and-resume.html#non-deterministic-process-inputs "https://www.nextflow.io/docs/latest/cache-and-resume.html#non-deterministic-process-inputs") on the Nextflow documentation site.
 
 If you suspect that a task produces outputs that are non-deterministic, consider using workflow engine
-features, such as cache opt-out in Nextflow, to avoid caching specific tasks that are
-non-deterministic.
+features to avoid caching specific tasks that are non-deterministic. For instructions on how to opt out
+of caching for individual tasks in each supported workflow language, see
+[Engine-specific caching features](workflow-cache-per-engine.md "workflow-cache-per-engine.md").
 
 We recommend that you thoroughly review your specific workflow and task requirements before enabling call caching
 in any environments in which ineffective call caching or different outputs than expected can present risk.

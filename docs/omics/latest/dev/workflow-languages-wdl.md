@@ -10,6 +10,7 @@ HealthOmics.
 - [Primitive types in WDL](#workflow-wdl-primitive-types "#workflow-wdl-primitive-types")
 - [Complex types in WDL](#workflow-wdl-complex-types "#workflow-wdl-complex-types")
 - [Directives in WDL](#workflow-wdl-directives "#workflow-wdl-directives")
+- [Task metadata in WDL](#workflow-wdl-task-metadata "#workflow-wdl-task-metadata")
 - [WDL workflow definition example](#wdl-example "#wdl-example")
 
 ## Implicit type conversion in WDL lenient
@@ -162,6 +163,37 @@ runtime {
 HealthOmics also supports an alias named **continueOnReturnCode**, which has
 the same capabilities as **returnCodes**. If you specify both attributes, HealthOmics uses the
 **returnCodes** value.
+
+## Task metadata in WDL
+
+HealthOmics supports the following metadata options for WDL tasks.
+
+### Disable task-level caching with the volatile attribute
+
+The **volatile** attribute allows you to disable call caching for specific tasks in your WDL workflow.
+When a task is marked as volatile, it will always execute and never use cached results, even when caching is enabled for the run.
+
+Add the **volatile** attribute to the **meta** section of your task definition:
+
+```
+task my_volatile_task {
+    meta {
+        volatile: true
+    }
+
+    input {
+        String input_file
+    }
+
+    command {
+        echo "Processing ${input_file}" > output.txt
+    }
+
+    output {
+        File result = "output.txt"
+    }
+}
+```
 
 ## WDL workflow definition example
 

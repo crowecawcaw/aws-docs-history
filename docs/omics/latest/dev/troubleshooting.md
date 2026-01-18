@@ -59,6 +59,7 @@ The following topics can help you troubleshoot issues that you encounter with ca
 
 - [Why isn’t my run saving to the cache?](#troubleshooting-did-run-cache "#troubleshooting-did-run-cache")
 - [Why isn’t a task using the cache entry?](#troubleshooting-did-run-cache "#troubleshooting-did-run-cache")
+- [Why is the call caching for a task disabled?](#troubleshooting-task-cache-disabled "#troubleshooting-task-cache-disabled")
 
 ### Why isn’t my run saving to the cache?
 
@@ -82,6 +83,14 @@ In the `/aws/omics/WorkflowLog` CloudWatch log group, open the log stream for th
    tasks. To do this, open the engine logs. If the run has a status of FAILED, the logs will be in Cloudwatch
    Log Group /aws/omics/WorkflowLog. Otherwise the engine logs can be found in the output directory of the
    run.
+
+### Why is the call caching for a task disabled?
+
+Check if the task is configured to opt out of caching using workflow engine features:
+
+- For WDL workflows: Check if the task has volatile set to `true` in the meta section
+- For Nextflow workflows: Check if the task has cache directive set to `false`
+- For CWL workflows: Check if the task has enableReuse set to `false` for the WorkReuse feature
 
 ## Troubleshooting data stores
 
