@@ -45,13 +45,13 @@ managedNodeGroups:
 ```
 
 ```
-eksctl create cluster -f cluster.yaml
+ eksctl create cluster -f cluster.yaml
 ```
 
 To create a new cluster with Windows un-managed nodegroup without using a config file, issue the following commands:
 
 ```
-eksctl create cluster --managed=false --name=windows-cluster --node-ami-family=WindowsServer2019CoreContainer
+ eksctl create cluster --managed=false --name=windows-cluster --node-ami-family=WindowsServer2019CoreContainer
 ```
 
 ## Adding Windows support to an existing Linux cluster
@@ -61,21 +61,21 @@ To enable running Windows workloads on an existing cluster with Linux nodes (`Am
 **NEW** Support for Windows managed nodegroup has been added (--managed=true or omit the flag).
 
 ```
-eksctl create nodegroup --managed=false --cluster=existing-cluster --node-ami-family=WindowsServer2019CoreContainer
+ eksctl create nodegroup --managed=false --cluster=existing-cluster --node-ami-family=WindowsServer2019CoreContainer
 eksctl create nodegroup --cluster=existing-cluster --node-ami-family=WindowsServer2019CoreContainer
 ```
 
 To ensure workloads are scheduled on the right OS, they must have a `nodeSelector` targeting the OS it must run on:
 
 ```
-# Targeting Windows
+ # Targeting Windows
   nodeSelector:
     kubernetes.io/os: windows
     kubernetes.io/arch: amd64
 ```
 
 ```
-# Targeting Linux
+ # Targeting Linux
   nodeSelector:
     kubernetes.io/os: linux
     kubernetes.io/arch: amd64

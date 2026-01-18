@@ -15,7 +15,7 @@ eksctl create addon --cluster my-cluster --name eks-pod-identity-agent
 Additionally, if using a pre-existing IAM role when creating a pod identity association, you must configure the role to trust the newly introduced EKS service principal (`pods.eks.amazonaws.com`). An example IAM trust policy can be found below:
 
 ```
-# Error: No files found with UUID: 44d1085a-03ca-431a-9774-b786a9774200
+ # Error: No files found with UUID: 44d1085a-03ca-431a-9774-b786a9774200
 ```
 
 If instead you do not provide the ARN of an existing role to the create command, `eksctl` will create one behind the scenes and configure the above trust policy.
@@ -25,7 +25,7 @@ If instead you do not provide the ARN of an existing role to the create command,
 For manipulating pod identity associations, `eksctl` has added a new field under `iam.podIdentityAssociations`, e.g.
 
 ```
-iam:
+ iam:
   podIdentityAssociations:
   - namespace: <string> #required
     serviceAccountName: <string> #required
@@ -60,7 +60,7 @@ eksctl create podidentityassociation -f config.yaml
 OR using CLI flags e.g.
 
 ```
-eksctl create podidentityassociation \
+ eksctl create podidentityassociation \
     --cluster my-cluster \
     --namespace default \
     --service-account-name s3-reader \
@@ -104,7 +104,7 @@ eksctl get podidentityassociation --cluster my-cluster --namespace default --ser
 To update the IAM role of one or more pod identity associations, either pass the new `roleARN(s)` to the config file e.g.
 
 ```
-iam:
+ iam:
   podIdentityAssociations:
     - namespace: default
       serviceAccountName: s3-reader
@@ -131,7 +131,7 @@ eksctl update podidentityassociation --cluster my-cluster --namespace default --
 To delete one or more pod identity associations, either pass `namespace(s)` and `serviceAccountName(s)` to the config file e.g.
 
 ```
-iam:
+ iam:
   podIdentityAssociations:
     - namespace: default
       serviceAccountName: s3-reader
@@ -164,7 +164,7 @@ Not all EKS Add-ons will support pod identity associations at launch. For this c
 When creating an addon that requires IAM permissions, `eksctl` will first check if either pod identity associations or IRSA settings are being explicitly configured as part of the config file, and if so, use one of those to configure the permissions for the addon. e.g.
 
 ```
-addons:
+ addons:
 - name: vpc-cni
   podIdentityAssociations:
   - serviceAccountName: aws-node
@@ -174,7 +174,7 @@ addons:
 and run
 
 ```
-eksctl create addon -f config.yaml
+ eksctl create addon -f config.yaml
 2024-05-13 15:38:58 [ℹ] pod identity associations are set for "vpc-cni" addon; will use these to configure required IAM permissions
 ```
 
@@ -185,7 +185,7 @@ Setting both pod identities and IRSA at the same time is not allowed, and will r
 For EKS Add-ons that support pod identities, `eksctl` offers the option to automatically configure any recommended IAM permissions, on addon creation. This can be achieved by simply setting `addonsConfig.autoApplyPodIdentityAssociations: true` in the config file. e.g.
 
 ```
-addonsConfig:
+ addonsConfig:
   autoApplyPodIdentityAssociations: true
 # bear in mind that if either pod identity or IRSA configuration is explicitly set in the config file,
 # or if the addon does not support pod identities,
@@ -197,26 +197,26 @@ addons:
 and run
 
 ```
-eksctl create addon -f config.yaml
+ eksctl create addon -f config.yaml
 2024-05-13 15:38:58 [ℹ] "addonsConfig.autoApplyPodIdentityAssociations" is set to true; will lookup recommended pod identity configuration for "vpc-cni" addon
 ```
 
 Equivalently, the same can be done via CLI flags e.g.
 
 ```
-eksctl create addon --cluster my-cluster --name vpc-cni --auto-apply-pod-identity-associations
+ eksctl create addon --cluster my-cluster --name vpc-cni --auto-apply-pod-identity-associations
 ```
 
 To migrate an existing addon to use pod identity with the recommended IAM policies, use
 
 ```
-addons:
+ addons:
 - name: vpc-cni
   useDefaultPodIdentityAssociations: true
 ```
 
 ```
-eksctl update addon -f config.yaml
+ eksctl update addon -f config.yaml
 ```
 
 ### Updating addons with IAM permissions
@@ -236,7 +236,7 @@ You can’t use `eksctl update podidentityassociation` (to update IAM permission
 Let’s see an example for the above, starting by analyzing the initial pod identity config for the addon:
 
 ```
-eksctl get podidentityassociation --cluster my-cluster --namespace opentelemetry-operator-system --output json
+ eksctl get podidentityassociation --cluster my-cluster --namespace opentelemetry-operator-system --output json
 [
     {
         ...
@@ -257,7 +257,7 @@ eksctl get podidentityassociation --cluster my-cluster --namespace opentelemetry
 Now use the below configuration:
 
 ```
-addons:
+ addons:
 - name: adot
   podIdentityAssociations:
 
@@ -281,7 +281,7 @@ addons:
 and run
 
 ```
-eksctl update addon -f config.yaml
+ eksctl update addon -f config.yaml
 ...
 # updating the permission policy for the first association
 2024-05-14 13:27:43 [ℹ]  updating IAM resources stack "eksctl-my-cluster-addon-adot-podidentityrole-adot-col-prom-metrics" for pod identity association "a-reaxk2uz1iknwazwj"
@@ -305,7 +305,7 @@ eksctl update addon -f config.yaml
 now check that pod identity config was updated correctly
 
 ```
-eksctl get podidentityassociation --cluster my-cluster --output json
+ eksctl get podidentityassociation --cluster my-cluster --output json
 [
     {
         ...
@@ -325,7 +325,7 @@ eksctl get podidentityassociation --cluster my-cluster --output json
 To remove all pod identity associations from an addon, `addon.PodIdentityAssociations` must be explicitly set to `[]`, e.g.
 
 ```
-addons:
+ addons:
 - name: vpc-cni
   # omitting the `podIdentityAssociations` field from the config file,
   # instead of explicitly setting it to [], will result in a validation error
@@ -335,7 +335,7 @@ addons:
 and run
 
 ```
-eksctl update addon -f config.yaml
+ eksctl update addon -f config.yaml
 ```
 
 ### Deleting addons with IAM permissions
@@ -362,7 +362,7 @@ Behind the scenes, the command will apply the following steps:
 Running the command without the `--approve` flag will only output a plan consisting of a set of tasks reflecting the steps above, e.g.
 
 ```
-[ℹ]  (plan) would migrate 2 iamserviceaccount(s) and 2 addon(s) to pod identity association(s) by executing the following tasks
+ [ℹ]  (plan) would migrate 2 iamserviceaccount(s) and 2 addon(s) to pod identity association(s) by executing the following tasks
 [ℹ]  (plan)
 
 3 sequential tasks: { install eks-pod-identity-agent addon,
@@ -410,7 +410,7 @@ To create a pod identity association with cross-account access, first set up IAM
 Once an IAM Role is configured in each account, use eksctl to create the pod identity associations:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   # The cluster name and service account name should match the target

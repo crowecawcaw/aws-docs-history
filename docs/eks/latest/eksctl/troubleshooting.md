@@ -12,7 +12,7 @@ back failed stacks to make debugging easier.
 Given a config file specifying subnets for a VPC like the following:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -37,7 +37,7 @@ placed in the right Availability zone. Check in the AWS console which is the rig
 In this example, the correct configuration for the VPC would be:
 
 ```
-vpc:
+ vpc:
   subnets:
     public:
       us-east-1a: {id: subnet-22222222}

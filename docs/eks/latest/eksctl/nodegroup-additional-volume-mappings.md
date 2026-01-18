@@ -6,7 +6,7 @@ when the nodegroup is created.
 To do this, set the field `additionalVolumes` as follows:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:

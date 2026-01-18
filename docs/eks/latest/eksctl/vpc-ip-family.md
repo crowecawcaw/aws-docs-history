@@ -12,7 +12,7 @@ The default value is `IPv4`.
 To define it, use the following example:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:

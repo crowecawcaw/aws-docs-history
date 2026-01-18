@@ -7,7 +7,7 @@ This topic covers how to create and delete EKS clusters using Eksctl. You can cr
 Create a simple cluster with the following command:
 
 ```
-eksctl create cluster
+ eksctl create cluster
 ```
 
 That will create an EKS cluster in your default region (as specified by your AWS CLI configuration) with one managed
@@ -27,7 +27,7 @@ You can create a cluster using a config file instead of flags.
 First, create `cluster.yaml` file:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -60,7 +60,7 @@ This will create a cluster as described.
 If you needed to use an existing VPC, you can use a config file like this:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -128,7 +128,7 @@ PDB policies may block node removal during cluster deletion.
 When deleting a cluster with nodegroups, Pod Disruption Budget (PDB) policies can prevent nodes from being removed successfully. For example, clusters with `aws-ebs-csi-driver` installed typically have two pods with a PDB policy allowing only one pod to be unavailable at a time, making the other pod unevictable during deletion. To successfully delete the cluster in these scenarios, use the `disable-nodegroup-eviction` flag to bypass PDB policy checks:
 
 ```
-eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction
+ eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction
 ```
 
 See the [`examples/`](https://github.com/eksctl-io/eksctl/tree/master/examples "https://github.com/eksctl-io/eksctl/tree/master/examples") directory in the eksctl GitHub repo for more sample config files.

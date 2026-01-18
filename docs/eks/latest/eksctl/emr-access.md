@@ -5,5 +5,5 @@ eksctl provides a command that creates the required RBAC resources for EMR, and 
 the role with the SLR for EMR.
 
 ```
-eksctl create iamidentitymapping --cluster dev --service-name emr-containers --namespace default
+ eksctl create iamidentitymapping --cluster dev --service-name emr-containers --namespace default
 ```

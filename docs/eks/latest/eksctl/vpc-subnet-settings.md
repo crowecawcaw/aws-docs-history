@@ -22,7 +22,7 @@ In earlier versions custom subnets had to be provided by availability zone, mean
 From `0.32.0` the identifying keys can be arbitrary.
 
 ```
-vpc:
+ vpc:
   id: "vpc-11111"
   subnets:
     public:
@@ -62,7 +62,7 @@ When specifying subnets on nodegroup configuration, use the identifying key as g
 For example:
 
 ```
-vpc:
+ vpc:
   id: "vpc-11111"
   subnets:
     public:
@@ -86,7 +86,7 @@ When placing nodegroups inside a private subnet, `privateNetworking` must be set
 on the nodegroup:
 
 ```
-vpc:
+ vpc:
   id: "vpc-11111"
   subnets:
     public:

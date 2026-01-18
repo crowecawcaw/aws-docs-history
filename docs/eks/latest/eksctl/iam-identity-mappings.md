@@ -13,25 +13,25 @@ called `aws-auth`. `eksctl` provides commands to read and edit this config map.
 **Get all identity mappings:**
 
 ```
-eksctl get iamidentitymapping --cluster <clusterName> --region=<region>
+ eksctl get iamidentitymapping --cluster <clusterName> --region=<region>
 ```
 
 **Get all identity mappings matching an arn:**
 
 ```
-eksctl get iamidentitymapping --cluster <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing-role
+ eksctl get iamidentitymapping --cluster <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing-role
 ```
 
 **Create an identity mapping:**
 
 ```
- eksctl create iamidentitymapping --cluster  <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing --group system:masters --username admin
+  eksctl create iamidentitymapping --cluster  <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing --group system:masters --username admin
 ```
 
 **Delete an identity mapping:**
 
 ```
-eksctl delete iamidentitymapping --cluster  <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing
+ eksctl delete iamidentitymapping --cluster  <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing
 ```
 
 ###### Note
@@ -42,13 +42,13 @@ more mappings matching this role are found.
 **Create an account mapping:**
 
 ```
- eksctl create iamidentitymapping --cluster  <clusterName> --region=<region> --account user-account
+  eksctl create iamidentitymapping --cluster  <clusterName> --region=<region> --account user-account
 ```
 
 **Delete an account mapping:**
 
 ```
- eksctl delete iamidentitymapping --cluster  <clusterName> --region=<region> --account user-account
+  eksctl delete iamidentitymapping --cluster  <clusterName> --region=<region> --account user-account
 ```
 
 ## Edit ConfigMap using a ClusterConfig file
@@ -56,7 +56,7 @@ more mappings matching this role are found.
 The identity mappings can also be specified in ClusterConfig:
 
 ```
----
+ ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -87,5 +87,5 @@ nodeGroups:
 ```
 
 ```
- eksctl create iamidentitymapping -f cluster-with-iamidentitymappings.yaml
+  eksctl create iamidentitymapping -f cluster-with-iamidentitymappings.yaml
 ```

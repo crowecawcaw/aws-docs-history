@@ -12,7 +12,7 @@ If you have a simple cluster with just an initial nodegroup (i.e. created with
 1. Get the name of old nodegroup:
 
 ```
- eksctl get nodegroups --cluster=<clusterName> --region=<region>
+  eksctl get nodegroups --cluster=<clusterName> --region=<region>
 ```
 
 ###### Note
@@ -24,13 +24,13 @@ You should see only one nodegroup here, if you see more - read the next section.
 2. Create a new nodegroup:
 
 ```
- eksctl create nodegroup --cluster=<clusterName> --region=<region> --name=<newNodeGroupName> --managed=false
+  eksctl create nodegroup --cluster=<clusterName> --region=<region> --name=<newNodeGroupName> --managed=false
 ```
 
 3. Delete the old nodegroup:
 
 ```
- eksctl delete nodegroup --cluster=<clusterName> --region=<region> --name=<oldNodeGroupName>
+  eksctl delete nodegroup --cluster=<clusterName> --region=<region> --name=<oldNodeGroupName>
 ```
 
 ###### Note

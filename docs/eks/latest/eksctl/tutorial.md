@@ -12,13 +12,13 @@ Complete the following steps to download and install the latest version of eksct
 2. Add the AWS tap:
 
 ```
-brew tap aws/tap
+ brew tap aws/tap
 ```
 
 3. Install eksctl
 
 ```
-brew install aws/tap/eksctl
+ brew install aws/tap/eksctl
 ```
 
 Before using eksctl, complete these configuration steps:
@@ -28,19 +28,19 @@ Before using eksctl, complete these configuration steps:
    - Install [kubectl](https://formulae.brew.sh/formula/kubernetes-cli "https://formulae.brew.sh/formula/kubernetes-cli") using Homebrew:
 
    ```
-   brew install kubernetes-cli
+    brew install kubernetes-cli
    ```
 
 2. [Configure AWS credentials](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in your environment:
 
 ```
-aws configure
+ aws configure
 ```
 
 3. Verify AWS CLI configuration:
 
 ```
-aws sts get-caller-identity
+ aws sts get-caller-identity
 ```
 
 ## Step 2: Create cluster config file
@@ -50,13 +50,13 @@ Create a cluster configuration file using these steps:
 1. Create a new file named `cluster.yaml`:
 
 ```
-touch cluster.yaml
+ touch cluster.yaml
 ```
 
 2. Add the following basic cluster configuration:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -81,7 +81,7 @@ nodeGroups:
 4. Validate the configuration file:
 
 ```
-eksctl create cluster -f cluster.yaml --dry-run
+ eksctl create cluster -f cluster.yaml --dry-run
 ```
 
 ## Step 3: Create cluster
@@ -91,26 +91,26 @@ Follow these steps to create your EKS cluster:
 1. Create the cluster using the configuration file:
 
 ```
-eksctl create cluster -f cluster.yaml
+ eksctl create cluster -f cluster.yaml
 ```
 
 2. Wait for cluster creation (this typically takes 15-20 minutes).
 3. Verify cluster creation:
 
 ```
-eksctl get cluster
+ eksctl get cluster
 ```
 
 4. Configure kubectl to use your new cluster:
 
 ```
-aws eks update-kubeconfig --name basic-cluster --region us-west-2
+ aws eks update-kubeconfig --name basic-cluster --region us-west-2
 ```
 
 5. Verify cluster connectivity:
 
 ```
-kubectl get nodes
+ kubectl get nodes
 ```
 
 Your cluster is now ready to use.
@@ -120,7 +120,7 @@ Your cluster is now ready to use.
 Remember to delete the cluster when you’re done to avoid unnecessary charges:
 
 ```
-eksctl delete cluster -f cluster.yaml
+ eksctl delete cluster -f cluster.yaml
 ```
 
 ###### Note

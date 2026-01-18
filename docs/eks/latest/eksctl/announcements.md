@@ -23,7 +23,7 @@ will export a couple of helpful environment properties and settings. This script
 The following environment properties will be at your disposal:
 
 ```
-API_SERVER_URL
+ API_SERVER_URL
 B64_CLUSTER_CA
 INSTANCE_ID
 INSTANCE_LIFECYCLE
@@ -41,7 +41,7 @@ labels to be on the node, so it can find them. When defining the override, pleas
 command:
 
 ```
-    overrideBootstrapCommand: |
+     overrideBootstrapCommand: |
       #!/bin/bash
 
       source /var/lib/cloud/scripts/eksctl/bootstrap.helper.sh
@@ -54,7 +54,7 @@ For nodegroups that have no outbound internet access, you’ll need to supply `-
 to the bootstrap script as follows:
 
 ```
-    overrideBootstrapCommand: |
+     overrideBootstrapCommand: |
       #!/bin/bash
 
       source /var/lib/cloud/scripts/eksctl/bootstrap.helper.sh

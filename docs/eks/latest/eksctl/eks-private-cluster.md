@@ -10,7 +10,7 @@ This guide describes how to create a private cluster without outbound internet a
 The only required field to create a fully-private cluster is `privateCluster.enabled`:
 
 ```
-privateCluster:
+ privateCluster:
   enabled: true
 ```
 
@@ -46,7 +46,7 @@ for each of them.
 For example, to allow private access to Autoscaling and CloudWatch logging:
 
 ```
-privateCluster:
+ privateCluster:
   enabled: true
   additionalEndpointServices:
   # For Cluster Autoscaler
@@ -63,7 +63,7 @@ If a VPC has already been created with the necessary AWS endpoints set up and li
 `eksctl` can skip creating them by providing the option `skipEndpointCreation` like this:
 
 ```
-privateCluster:
+ privateCluster:
   enabled: true
   skipEndpointCreation: true
 ```
@@ -79,7 +79,7 @@ any public subnets. The `privateNetworking` field (`nodeGroup[**].privateNetwork
 explicitly set. It is an error to leave `privateNetworking` unset in a fully-private cluster.
 
 ```
-nodeGroups:
+ nodeGroups:
 - name: ng1
   instanceType: m5.large
   desiredCapacity: 2
@@ -111,7 +111,7 @@ eksctl creates VPC endpoints in the supplied VPC and modifies route tables for t
 have an explicit route table associated with it because eksctl does not modify the main route table.
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:

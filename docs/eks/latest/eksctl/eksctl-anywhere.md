@@ -7,7 +7,7 @@ to install it.
 Once done, execute anywhere commands by running:
 
 ```
-eksctl anywhere version
+ eksctl anywhere version
 v0.5.0
 ```
 

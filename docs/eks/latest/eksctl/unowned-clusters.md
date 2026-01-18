@@ -76,7 +76,7 @@ This means that in order to create nodegroups or managed nodegroups on a cluster
 not created by `eksctl`, a config file containing VPC details must be provided. At a minimum:
 
 ```
----
+ ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 

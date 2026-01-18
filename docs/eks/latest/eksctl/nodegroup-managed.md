@@ -22,7 +22,7 @@ $ eksctl create nodegroup
 To create a new cluster with a managed nodegroup, run
 
 ```
-eksctl create cluster
+ eksctl create cluster
 ```
 
 To create multiple managed nodegroups and have more control over the configuration, a config file can be used.
@@ -32,7 +32,7 @@ To create multiple managed nodegroups and have more control over the configurati
 Managed nodegroups do not have complete feature parity with unmanaged nodegroups.
 
 ```
-# cluster.yaml
+ # cluster.yaml
 # A cluster with two managed nodegroups
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -73,7 +73,7 @@ It’s possible to have a cluster with both managed and unmanaged nodegroups. Un
 the AWS EKS console but `eksctl get nodegroup` will list both types of nodegroups.
 
 ```
-# cluster.yaml
+ # cluster.yaml
 # A cluster with an unmanaged nodegroup and two managed nodegroups.
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -117,7 +117,7 @@ managedNodeGroups:
 `volumeEncrypted`, `volumeKmsKeyID`, `volumeIOPS`, `maxPodsPerNode`, `preBootstrapCommands`, `overrideBootstrapCommand`, and `disableIMDSv1`
 
 ```
-# cluster.yaml
+ # cluster.yaml
 # A cluster with a managed nodegroup with customization.
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -149,7 +149,7 @@ If you are requesting an instance type that is only available in one zone (and t
 specification of two) make sure to add the availability zone to your node group request:
 
 ```
-# cluster.yaml
+ # cluster.yaml
 # A cluster with a managed nodegroup with "availabilityZones"
 ---
 
@@ -179,13 +179,13 @@ This can be true for instance types like [the Hpc6 family](https://aws.amazon.co
 ### Existing clusters
 
 ```
-eksctl create nodegroup --managed
+ eksctl create nodegroup --managed
 ```
 
 Tip : if you are using a `ClusterConfig` file to describe your whole cluster, describe your new managed node group in the `managedNodeGroups` field and run:
 
 ```
-eksctl create nodegroup --config-file=YOUR_CLUSTER.yaml
+ eksctl create nodegroup --config-file=YOUR_CLUSTER.yaml
 ```
 
 ## Upgrading managed nodegroups
@@ -201,20 +201,20 @@ version. You cannot roll back a nodegroup to an earlier Kubernetes version.
 To upgrade a managed nodegroup to the latest AMI release version:
 
 ```
-eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster
+ eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster
 ```
 
 The nodegroup can be upgraded to
 the latest AMI release for a specified Kubernetes version using:
 
 ```
-eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --kubernetes-version=<kubernetes-version>
+ eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --kubernetes-version=<kubernetes-version>
 ```
 
 To upgrade to a specific AMI release version instead of the latest version, pass `--release-version`:
 
 ```
-eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --release-version=1.19.6-20210310
+ eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --release-version=1.19.6-20210310
 ```
 
 ###### Note
@@ -224,7 +224,7 @@ If the managed nodes are deployed using custom AMIs, the following workflow must
 - initial deployment of the nodegroup must be done using a launch template. e.g.
 
 ```
-managedNodeGroups:
+ managedNodeGroups:
   - name: launch-template-ng
     launchTemplate:
       id: lt-1234
@@ -236,7 +236,7 @@ managedNodeGroups:
 - upgrade the nodes to the new version of the launch template. e.g.
 
 ```
-eksctl upgrade nodegroup --name nodegroup-name --cluster cluster-name --launch-template-version new-template-version
+ eksctl upgrade nodegroup --name nodegroup-name --cluster cluster-name --launch-template-version new-template-version
 ```
 
 ## Handling parallel upgrades for nodes
@@ -265,7 +265,7 @@ them through the EKS API and console.
 To view health issues for a nodegroup:
 
 ```
-eksctl utils nodegroup-health --name=managed-ng-1 --cluster=managed-cluster
+ eksctl utils nodegroup-health --name=managed-ng-1 --cluster=managed-cluster
 ```
 
 ## Managing Labels
@@ -276,19 +276,19 @@ specified via the `labels` field in eksctl during cluster or nodegroup creation.
 To set new labels or updating existing labels on a nodegroup:
 
 ```
-eksctl set labels --cluster managed-cluster --nodegroup managed-ng-1 --labels kubernetes.io/managed-by=eks,kubernetes.io/role=worker
+ eksctl set labels --cluster managed-cluster --nodegroup managed-ng-1 --labels kubernetes.io/managed-by=eks,kubernetes.io/role=worker
 ```
 
 To unset or remove labels from a nodegroup:
 
 ```
-eksctl unset labels --cluster managed-cluster --nodegroup managed-ng-1 --labels kubernetes.io/managed-by,kubernetes.io/role
+ eksctl unset labels --cluster managed-cluster --nodegroup managed-ng-1 --labels kubernetes.io/managed-by,kubernetes.io/role
 ```
 
 To view all labels set on a nodegroup:
 
 ```
-eksctl get labels --cluster managed-cluster --nodegroup managed-ng-1
+ eksctl get labels --cluster managed-cluster --nodegroup managed-ng-1
 ```
 
 ## Scaling Managed Nodegroups
@@ -297,7 +297,7 @@ eksctl get labels --cluster managed-cluster --nodegroup managed-ng-1
 the same.
 
 ```
-eksctl scale nodegroup --name=managed-ng-1 --cluster=managed-cluster --nodes=4 --nodes-min=3 --nodes-max=5
+ eksctl scale nodegroup --name=managed-ng-1 --cluster=managed-cluster --nodes=4 --nodes-min=3 --nodes-max=5
 ```
 
 ## Further information

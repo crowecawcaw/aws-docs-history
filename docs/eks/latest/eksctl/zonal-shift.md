@@ -7,7 +7,7 @@ from an impaired availability zone, ensuring new Kubernetes pods and nodes are l
 ## Creating a cluster with zonal shift enabled
 
 ```
-# zonal-shift-cluster.yaml
+ # zonal-shift-cluster.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -22,7 +22,7 @@ zonalShiftConfig:
 ```
 
 ```
-eksctl create cluster -f zonal-shift-cluster.yaml
+ eksctl create cluster -f zonal-shift-cluster.yaml
 ```
 
 ## Enabling zonal shift on an existing cluster
@@ -30,13 +30,13 @@ eksctl create cluster -f zonal-shift-cluster.yaml
 To enable or disable zonal shift on an existing cluster, run
 
 ```
-eksctl utils update-zonal-shift-config -f zonal-shift-cluster.yaml
+ eksctl utils update-zonal-shift-config -f zonal-shift-cluster.yaml
 ```
 
 or without a config file:
 
 ```
-eksctl utils update-zonal-shift-config --cluster=zonal-shift-cluster --enabled
+ eksctl utils update-zonal-shift-config --cluster=zonal-shift-cluster --enabled
 ```
 
 ## Further information

@@ -23,7 +23,7 @@ For AmazonLinux2023, since it stops using the `/etc/eks/bootstrap.sh` script for
 CLI flag examples:
 
 ```
-eksctl create cluster --node-ami=auto
+ eksctl create cluster --node-ami=auto
 
 # with a custom ami id
 eksctl create cluster --node-ami=ami-custom1234
@@ -32,7 +32,7 @@ eksctl create cluster --node-ami=ami-custom1234
 Config file example:
 
 ```
-nodeGroups:
+ nodeGroups:
   - name: ng1
     instanceType: p2.xlarge
     amiFamily: AmazonLinux2
@@ -76,13 +76,13 @@ The `--node-ami-family` can take following keywords:
 CLI flag example:
 
 ```
-eksctl create cluster --node-ami-family=AmazonLinux2
+ eksctl create cluster --node-ami-family=AmazonLinux2
 ```
 
 Config file example:
 
 ```
-nodeGroups:
+ nodeGroups:
   - name: ng1
     instanceType: m5.large
     amiFamily: AmazonLinux2
@@ -119,7 +119,7 @@ $ContainerRuntime
 Config file example:
 
 ```
-nodeGroups:
+ nodeGroups:
   - name: custom-windows
     amiFamily: WindowsServer2022FullContainer
     ami: ami-01579b74557facaf7
@@ -132,7 +132,7 @@ nodeGroups:
 For Bottlerocket nodes, the `overrideBootstrapCommand` is not supported. Instead, to designate their own bootstrap container, one should use the `bottlerocket` field as part of the configuration file. E.g.
 
 ```
-  nodeGroups:
+   nodeGroups:
   - name: bottlerocket-ng
     ami: ami-custom1234
     amiFamily: Bottlerocket

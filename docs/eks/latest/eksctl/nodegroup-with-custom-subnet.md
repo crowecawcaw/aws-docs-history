@@ -13,7 +13,7 @@ Go to the VPC’s configuration and add click on Actions->Edit CIDRs and add a n
 For example:
 
 ```
-192.168.0.0/19 -> existing CIDR
+ 192.168.0.0/19 -> existing CIDR
 + 192.169.0.0/19 -> new CIDR
 ```
 
@@ -35,7 +35,7 @@ When finished, copy the new subnet’s ID. Repeat as often as necessary.
 To create a nodegroup in the created subnet(s) run the following command:
 
 ```
-eksctl create nodegroup --cluster <cluster-name> --name my-new-subnet --subnet-ids subnet-0edeb3a04bec27141,subnet-0edeb3a04bec27142,subnet-0edeb3a04bec27143
+ eksctl create nodegroup --cluster <cluster-name> --name my-new-subnet --subnet-ids subnet-0edeb3a04bec27141,subnet-0edeb3a04bec27142,subnet-0edeb3a04bec27143
 # or for a single subnet id
 eksctl create nodegroup --cluster <cluster-name> --name my-new-subnet --subnet-ids subnet-0edeb3a04bec27141
 ```
@@ -49,7 +49,7 @@ eksctl create nodegroup -f cluster-managed.yaml
 With a configuration like this:
 
 ```
-# A simple example of ClusterConfig object with two nodegroups:
+ # A simple example of ClusterConfig object with two nodegroups:
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
