@@ -236,7 +236,7 @@ of share requests that need your attention.
 opens on the **Received requests** tab. 5. Identify the share requests that need your action by looking for
 items with a blue dot.
 
-![Screenshot of a received share request with a blue dot next to the framework name.](images/framework_sharing-blue_dot_notification-console.png) 6. (Optional) To view only requests that expire in the next 30 days,
+![Screenshot of a received share request with a blue dot next to the framework name.](/images/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png) 6. (Optional) To view only requests that expire in the next 30 days,
 find the **All statuses** dropdown list and select
 **Expiring**.
 
