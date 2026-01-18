@@ -8,7 +8,7 @@ This topic describes how to create an AWS Controllers for Kubernetes (ACK) capab
 
 ## Create the ACK capability
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name to open the cluster detail page.
 3. Choose the **Capabilities** tab.
 4. In the left navigation, choose **AWS Controllers for Kubernetes (ACK)**.
@@ -55,7 +55,7 @@ You should see a number of CRDs listed for AWS resources.
 **Using kubectl**
 
 ```
-kubectl api-resources | grep services.k8s.aws
+ kubectl api-resources | grep services.k8s.aws
 ```
 
 You should see a number of APIs listed for AWS resources.

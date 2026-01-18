@@ -32,7 +32,7 @@ Before deploying Windows nodes, be aware of the following considerations.
   To create an access entry for a Windows node:
 
   ```
-  aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/<role-name> --type EC2_Windows
+   aws eks create-access-entry --cluster-name my-cluster --principal-arn <shared id="region.arn"/>iam::111122223333:role/<role-name> --type EC2_Windows
   ```
 
 ## Prerequisites
@@ -46,21 +46,21 @@ Before deploying Windows nodes, be aware of the following considerations.
 1. If you don’t have Amazon Linux nodes in your cluster and use security groups for Pods, skip to the next step. Otherwise, confirm that the `AmazonEKSVPCResourceController` managed policy is attached to your [cluster role](cluster-iam-role.md "cluster-iam-role.md"). Replace `eksClusterRole` with your cluster role name.
 
 ```
-aws iam list-attached-role-policies --role-name eksClusterRole
+ aws iam list-attached-role-policies --role-name eksClusterRole
 ```
 
 An example output is as follows.
 
 ```
-{
+ {
     "AttachedPolicies": [
         {
             "PolicyName": "AmazonEKSClusterPolicy",
-            "PolicyArn": "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+            "PolicyArn": "<shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy"
         },
         {
             "PolicyName": "AmazonEKSVPCResourceController",
-            "PolicyArn": "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+            "PolicyArn": "<shared id="region.arn"/>iam::aws:policy/AmazonEKSVPCResourceController"
         }
     ]
 }
@@ -69,16 +69,16 @@ An example output is as follows.
 If the policy is attached, as it is in the previous output, skip the next step. 2. Attach the **[AmazonEKSVPCResourceController](../../../aws-managed-policy/latest/reference/AmazonEKSVPCResourceController.md "../../../aws-managed-policy/latest/reference/AmazonEKSVPCResourceController.md")** managed policy to your [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md"). Replace `eksClusterRole` with your cluster role name.
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
   --role-name eksClusterRole \
-  --policy-arn arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
+  --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSVPCResourceController
 ```
 
 3. Update the VPC CNI ConfigMap to enable Windows IPAM. Note, if the VPC CNI is installed on your cluster using a Helm chart or as an Amazon EKS Add-on you may not be able to directly modify the ConfigMap. For information on configuring Amazon EKS Add-ons, see [Determine fields you can customize for Amazon EKS add-ons](kubernetes-field-management.md "kubernetes-field-management.md").
    1. Create a file named `vpc-resource-controller-configmap.yaml` with the following contents.
 
    ```
-   apiVersion: v1
+    apiVersion: v1
    kind: ConfigMap
    metadata:
      name: amazon-vpc-cni
@@ -90,7 +90,7 @@ aws iam attach-role-policy \
    2. Apply the `ConfigMap` to your cluster.
 
    ```
-   kubectl apply -f vpc-resource-controller-configmap.yaml
+    kubectl apply -f vpc-resource-controller-configmap.yaml
    ```
 
 4. If your cluster has the authentication mode set to enable the `aws-auth` configmap:
@@ -98,13 +98,13 @@ aws iam attach-role-policy \
      `ConfigMap` contains a mapping for the instance role of the Windows node to include the `eks:kube-proxy-windows` RBAC permission group. You can verify by running the following command.
 
    ```
-   kubectl get configmap aws-auth -n kube-system -o yaml
+    kubectl get configmap aws-auth -n kube-system -o yaml
    ```
 
    An example output is as follows.
 
    ```
-   apiVersion: v1
+    apiVersion: v1
    kind: ConfigMap
    metadata:
      name: aws-auth
@@ -115,7 +115,7 @@ aws iam attach-role-policy \
          - system:bootstrappers
          - system:nodes
          - eks:kube-proxy-windows # This group is required for Windows DNS resolution to work
-         rolearn: arn:aws:iam::111122223333:role/eksNodeRole
+         rolearn: <shared id="region.arn"/>iam::111122223333:role/eksNodeRole
          username: system:node:{{EC2PrivateDNSName}}
    [...]
    ```
@@ -132,7 +132,7 @@ When you deploy Pods to your cluster, you need to specify the operating system t
 For Linux Pods, use the following node selector text in your manifests.
 
 ```
-nodeSelector:
+ nodeSelector:
         kubernetes.io/os: linux
         kubernetes.io/arch: amd64
 ```
@@ -140,7 +140,7 @@ nodeSelector:
 For Windows Pods, use the following node selector text in your manifests.
 
 ```
-nodeSelector:
+ nodeSelector:
         kubernetes.io/os: windows
         kubernetes.io/arch: amd64
 ```
@@ -152,7 +152,7 @@ You can deploy a [sample application](sample-deployment.md "sample-deployment.md
 In Amazon EKS, each Pod is allocated an `IPv4` address from your VPC. Due to this, the number of Pods that you can deploy to a node is constrained by the available IP addresses, even if there are sufficient resources to run more Pods on the node. Since only one elastic network interface is supported by a Windows node, by default, the maximum number of available IP addresses on a Windows node is equal to:
 
 ```
-Number of private IPv4 addresses for each interface on the node - 1
+ Number of private IPv4 addresses for each interface on the node - 1
 ```
 
 One IP address is used as the primary IP address of the network interface, so it can’t be allocated to Pods.
@@ -161,7 +161,7 @@ You can enable higher Pod density on Windows nodes by enabling IP prefix delegat
 `IPv4` prefix to the primary network interface, instead of assigning secondary `IPv4` addresses. Assigning an IP prefix increases the maximum available `IPv4` addresses on the node to:
 
 ```
-(Number of private IPv4 addresses assigned to the interface attached to the node - 1) * 16
+ (Number of private IPv4 addresses assigned to the interface attached to the node - 1) * 16
 ```
 
 With this significantly larger number of available IP addresses, available IP addresses shouldn’t limit your ability to scale the number of Pods on your nodes. For more information, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md").

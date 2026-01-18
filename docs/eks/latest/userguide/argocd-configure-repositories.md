@@ -48,14 +48,14 @@ The Capability Role must have the required IAM permissions.
 Reference CodeCommit repositories directly in Applications:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app
   namespace: argocd
 spec:
   source:
-    repoURL: https://git-codecommit.`region`.amazonaws.com/v1/repos/`repository-name`
+    repoURL: https://git-codecommit.<replaceable>region</replaceable>.amazonaws.com/v1/repos/<replaceable>repository-name</replaceable>
     targetRevision: main
     path: kubernetes/manifests
 ```
@@ -63,7 +63,7 @@ spec:
 Required Capability Role permissions:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -83,14 +83,14 @@ The repository URL format is derived from the CodeConnections connection ARN.
 The repository URL format is:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app
   namespace: argocd
 spec:
   source:
-    repoURL: https://codeconnections.`region`.amazonaws.com/git-http/`account-id`/`region`/`connection-id`/`owner`/`repository`.git
+    repoURL: https://codeconnections.<replaceable>region</replaceable>.amazonaws.com/git-http/<replaceable>account-id</replaceable>/<replaceable>region</replaceable>/<replaceable>connection-id</replaceable>/<replaceable>owner</replaceable>/<replaceable>repository</replaceable>.git
     targetRevision: main
     path: kubernetes/manifests
 ```
@@ -98,7 +98,7 @@ spec:
 Required Capability Role permissions:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -117,16 +117,16 @@ ECR stores Helm charts as OCI artifacts. Argo CD supports two ways to reference 
 **Helm format** (recommended for Helm charts):
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app-helm
   namespace: argocd
 spec:
   source:
-    repoURL: `account-id`.dkr.ecr.`region`.amazonaws.com/`repository-name`
-    targetRevision: `chart-version`
-    chart: `chart-name`
+    repoURL: <replaceable>account-id</replaceable>.dkr.ecr.<replaceable>region</replaceable>.amazonaws.com/<replaceable>repository-name</replaceable>
+    targetRevision: <replaceable>chart-version</replaceable>
+    chart: <replaceable>chart-name</replaceable>
     helm:
       valueFiles:
         - values.yaml
@@ -137,17 +137,16 @@ Note: Do not include the `oci://` prefix when using Helm format. Use the `chart`
 **OCI format** (for OCI artifacts with Kubernetes manifests):
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app-oci
   namespace: argocd
 spec:
   source:
-    repoURL: oci://`account-id`.dkr.ecr.`region`.amazonaws.com/`repository-name`
-    targetRevision: `artifact-version`
-    path: `path-to-manifests`
-
+    repoURL: oci://<replaceable>account-id</replaceable>.dkr.ecr.<replaceable>region</replaceable>.amazonaws.com/<replaceable>repository-name</replaceable>
+    targetRevision: <replaceable>artifact-version</replaceable>
+    path: <replaceable>path-to-manifests</replaceable>
 ```
 
 Note: Include the `oci://` prefix when using OCI format. Use the `path` field instead of `chart`.
@@ -155,7 +154,7 @@ Note: Include the `oci://` prefix when using OCI format. Use the `path` field in
 Required Capability Role permissions - attach the managed policy:
 
 ```
-arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+ arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```
 
 This policy includes the necessary ECR permissions: `ecr:GetAuthorizationToken`, `ecr:BatchGetImage`, and `ecr:GetDownloadUrlForLayer`.
@@ -178,7 +177,7 @@ For HTTPS repositories with personal access tokens or passwords:
 **Create the secret in Secrets Manager**:
 
 ```
-aws secretsmanager create-secret \
+ aws secretsmanager create-secret \
   --name argocd/my-repo \
   --description "GitHub credentials for Argo CD" \
   --secret-string '{"username":"your-username","token":"your-personal-access-token"}'
@@ -187,7 +186,7 @@ aws secretsmanager create-secret \
 **Optional TLS client certificate fields** (for private Git servers):
 
 ```
-aws secretsmanager create-secret \
+ aws secretsmanager create-secret \
   --name argocd/my-private-repo \
   --secret-string '{
     "username":"your-username",
@@ -204,7 +203,7 @@ The `tlsClientCertData` and `tlsClientCertKey` values must be base64 encoded.
 **Create a Repository Secret referencing Secrets Manager**:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: my-repo
@@ -225,7 +224,7 @@ For SSH-based Git access, store the private key as plaintext (not JSON):
 **Create the secret with SSH private key**:
 
 ```
-aws secretsmanager create-secret \
+ aws secretsmanager create-secret \
   --name argocd/my-repo-ssh \
   --description "SSH key for Argo CD" \
   --secret-string "-----BEGIN OPENSSH PRIVATE KEY-----
@@ -237,7 +236,7 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 **Create a Repository Secret for SSH**:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: my-repo-ssh
@@ -258,7 +257,7 @@ For GitHub App authentication with a private key:
 **Create the secret with GitHub App credentials**:
 
 ```
-aws secretsmanager create-secret \
+ aws secretsmanager create-secret \
   --name argocd/github-app \
   --description "GitHub App credentials for Argo CD" \
   --secret-string '{
@@ -275,7 +274,7 @@ The `githubAppPrivateKeySecret` value must be base64 encoded.
 **Optional field for GitHub Enterprise**:
 
 ```
-aws secretsmanager create-secret \
+ aws secretsmanager create-secret \
   --name argocd/github-enterprise-app \
   --secret-string '{
     "githubAppPrivateKeySecret":"LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQouLi4KLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0=",
@@ -288,7 +287,7 @@ aws secretsmanager create-secret \
 **Create a Repository Secret for GitHub App**:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: my-repo-github-app
@@ -310,7 +309,7 @@ This provides better UX than creating individual repository secrets for each rep
 **Create a repository credential template**:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: github-org-creds
@@ -346,7 +345,7 @@ Store credentials directly in Kubernetes using the standard Argo CD method.
 **For HTTPS with personal access token**:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: my-repo
@@ -363,7 +362,7 @@ stringData:
 **For SSH**:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: my-repo-ssh
@@ -386,7 +385,7 @@ For AWS CodeCommit, grant your IAM Capability Role CodeCommit permissions (`code
 Configure the repository:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: codecommit-repo

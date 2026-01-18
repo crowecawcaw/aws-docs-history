@@ -13,7 +13,7 @@ The Amazon EKS MCP Server is in preview release for Amazon EKS and is subject to
 ## Example
 
 ```
-{
+ {
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,

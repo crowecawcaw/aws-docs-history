@@ -30,7 +30,7 @@ After creating your Local Zone subnet, you need to define a NodeClass that refer
 For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: local-zone
@@ -48,7 +48,7 @@ In the example below, we create a NodePool that references our "local-zone" Node
 For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
 
 ```
-apiVersion: karpenter.sh/v1
+ apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: my-node-pool
@@ -88,7 +88,7 @@ For optimal control over workload placement on Local Zone nodes, use both taints
 Here’s an example of a Deployment configured to run specifically on Local Zone nodes:
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: low-latency-app
@@ -142,14 +142,14 @@ After setting up your NodeClass, NodePool, and Deployments, you should verify th
 Additionally, you can check the Kubernetes node list using `kubectl get nodes -o wide` to confirm that the nodes are joining your cluster with the correct labels and taints:
 
 ```
-kubectl get nodes -o wide
+ kubectl get nodes -o wide
 kubectl describe node <node-name> | grep -A 5 Taints
 ```
 
 You can also verify that your workload pods are scheduled on the Local Zone nodes:
 
 ```
-kubectl get pods -o wide
+ kubectl get pods -o wide
 ```
 
 This approach ensures that only workloads that specifically tolerate the Local Zone taint will be scheduled on these nodes, helping you control costs and make the most efficient use of your Local Zone resources.

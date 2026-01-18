@@ -17,10 +17,12 @@ Using Bottlerocket FIPS AMIs makes your worker nodes "FIPS ready" but not automa
 
 ## Create a managed node group with a Bottlerocket FIPS AMI
 
-The Bottlerocket FIPS AMI comes in two variants to support your workloads:
+The Bottlerocket FIPS AMI comes in four variants to support your workloads:
 
 - `BOTTLEROCKET_x86_64_FIPS`
 - `BOTTLEROCKET_ARM_64_FIPS`
+- `BOTTLEROCKET_x86_64_NVIDIA_FIPS`
+- `BOTTLEROCKET_ARM_64_NVIDIA_FIPS`
 
 To create a managed node group with a Bottlerocket FIPS AMI, choose the applicable AMI type during the creation process. For more information, see [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md").
 
@@ -35,7 +37,7 @@ The Bottlerocket FIPS AMI relies on the Amazon ECR FIPS endpoint during bootstra
 1. Create a new configuration file with the following content or incorporate the content into your existing configuration file.
 
 ```
-[default]
+ [default]
 use_fips_endpoint=false
 ```
 
@@ -43,7 +45,7 @@ use_fips_endpoint=false
 2. In your launch template’s `UserData`, add the following encoded string using TOML format:
 
 ```
-[settings.aws]
+ [settings.aws]
 config = "<your-base64-encoded-string>"
 ```
 
@@ -52,7 +54,7 @@ For other settings, see Bottlerocket’s [Description of settings](https://githu
 Here is an example of `UserData` in a launch template:
 
 ```
-[settings]
+ [settings]
 motd = "Hello from eksctl!"
 [settings.aws]
 config = "W2RlZmF1bHRdCnVzZV9maXBzX2VuZHBvaW50PWZhbHNlCg==" # Base64-encoded string.

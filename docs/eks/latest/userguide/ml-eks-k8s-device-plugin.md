@@ -27,23 +27,23 @@ The following procedure describes how to install the NVIDIA Kubernetes device pl
 1. Add the `nvdp` Helm chart repository.
 
 ```
-helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
+ helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
 ```
 
 2. Update your local Helm repository to make sure that you have the most recent charts.
 
 ```
-helm repo update
+ helm repo update
 ```
 
 3. Get the latest version of the NVIDIA Kubernetes device plugin
 
 ```
-helm search repo nvdp --devel
+ helm search repo nvdp --devel
 ```
 
 ```
-NAME                      	CHART VERSION	APP VERSION	DESCRIPTION
+ NAME                      	CHART VERSION	APP VERSION	DESCRIPTION
 nvdp/gpu-feature-discovery	0.17.4       	0.17.4     	...
 nvdp/nvidia-device-plugin 	0.17.4       	0.17.4     	...
 ```
@@ -51,32 +51,32 @@ nvdp/nvidia-device-plugin 	0.17.4       	0.17.4     	...
 4. Install the NVIDIA Kubernetes device plugin on your cluster, replacing `0.17.4` with the latest version from the command above.
 
 ```
-helm install nvdp nvdp/nvidia-device-plugin \
+ helm install nvdp nvdp/nvidia-device-plugin \
   --namespace nvidia \
   --create-namespace \
-  --version `0.17.4` \
+  --version <replaceable>0.17.4</replaceable> \
   --set gfd.enabled=true
 ```
 
 5. Verify the NVIDIA Kubernetes device plugin is running in your cluster. The output below shows the output with two nodes in the cluster.
 
 ```
-kubectl get ds -n nvidia nvdp-nvidia-device-plugin
+ kubectl get ds -n nvidia nvdp-nvidia-device-plugin
 ```
 
 ```
-NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 nvdp-nvidia-device-plugin   2         2         2       2            2           <none>          11m
 ```
 
 6. Verify that your nodes have allocatable GPUs with the following command.
 
 ```
-kubectl get nodes "-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu"
+ kubectl get nodes "-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu"
 ```
 
 ```
-NAME                                           GPU
+ NAME                                           GPU
 ip-192-168-11-225.us-west-2.compute.internal   1
 ip-192-168-24-96.us-west-2.compute.internal    1
 ```
@@ -84,7 +84,7 @@ ip-192-168-24-96.us-west-2.compute.internal    1
 7. Create a file named `nvidia-smi.yaml` with the following contents. This manifest launches a [minimal AL2023 container image](../../../linux/al2023/ug/minimal-container.md "../../../linux/al2023/ug/minimal-container.md") that runs `nvidia-smi` on a node.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: nvidia-smi
@@ -108,19 +108,19 @@ spec:
 8. Apply the manifest with the following command.
 
 ```
-kubectl apply -f nvidia-smi.yaml
+ kubectl apply -f nvidia-smi.yaml
 ```
 
 9. After the Pod has finished running, view its logs with the following command.
 
 ```
-kubectl logs nvidia-smi
+ kubectl logs nvidia-smi
 ```
 
 An example output is as follows.
 
 ```
-+-----------------------------------------------------------------------------------------+
+ +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI XXX.XXX.XX            Driver Version: XXX.XXX.XX     CUDA Version: XX.X      |
 |-----------------------------------------+------------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
@@ -156,47 +156,47 @@ The following procedure describes how to install the Neuron Kubernetes device pl
 1. Install the Neuron Kubernetes device plugin on your cluster.
 
 ```
-helm upgrade --install neuron-helm-chart oci://public.ecr.aws/neuron/neuron-helm-chart \
+ helm upgrade --install neuron-helm-chart oci://public.ecr.aws/neuron/neuron-helm-chart \
     --set "npd.enabled=false"
 ```
 
 2. Verify the Neuron Kubernetes device plugin is running in your cluster. The output below shows the output with a single Neuron node in the cluster.
 
 ```
-kubectl get ds -n kube-system neuron-device-plugin
+ kubectl get ds -n kube-system neuron-device-plugin
 ```
 
 ```
-NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 neuron-device-plugin   1         1         1       1            1           <none>          72s
 ```
 
 3. Verify that your nodes have allocatable NueronCores with the following command.
 
 ```
-kubectl get nodes "-o=custom-columns=NAME:.metadata.name,NeuronCore:.status.allocatable.aws\.amazon\.com/neuroncore"
+ kubectl get nodes "-o=custom-columns=NAME:.metadata.name,NeuronCore:.status.allocatable.aws\.amazon\.com/neuroncore"
 ```
 
 ```
-NAME                                           NeuronCore
+ NAME                                           NeuronCore
 ip-192-168-47-173.us-west-2.compute.internal   2
 ```
 
 4. Verify that your nodes have allocatable NueronDevices with the following command.
 
 ```
-kubectl get nodes "-o=custom-columns=NAME:.metadata.name,NeuronDevice:.status.allocatable.aws\.amazon\.com/neuron"
+ kubectl get nodes "-o=custom-columns=NAME:.metadata.name,NeuronDevice:.status.allocatable.aws\.amazon\.com/neuron"
 ```
 
 ```
-NAME                                           NeuronDevice
+ NAME                                           NeuronDevice
 ip-192-168-47-173.us-west-2.compute.internal   1
 ```
 
 5. Create a file named `neuron-ls.yaml` with the following contents. This manifest launches an [Neuron Monitor](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-monitor-user-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-monitor-user-guide.html") container that has the `neuron-ls` tool installed.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Pod
 metadata:
   name: neuron-ls
@@ -219,19 +219,19 @@ spec:
 6. Apply the manifest with the following command.
 
 ```
-kubectl apply -f neuron-ls.yaml
+ kubectl apply -f neuron-ls.yaml
 ```
 
 7. After the Pod has finished running, view its logs with the following command.
 
 ```
-kubectl logs neuron-ls
+ kubectl logs neuron-ls
 ```
 
 An example output is below.
 
 ```
-instance-type: inf2.xlarge
+ instance-type: inf2.xlarge
 instance-id: ...
 +--------+--------+--------+---------+
 | NEURON | NEURON | NEURON |   PCI   |

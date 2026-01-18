@@ -33,7 +33,7 @@ Enable IAM roles for service accounts by completing the following procedures:
 If you enabled the EKS VPC endpoint, the EKS OIDC service endpoint couldn’t be accessed from inside that VPC. Consequently, your operations such as creating an OIDC provider with `eksctl` in the VPC will not work and will result in a timeout when attempting to request `https://oidc.eks.`region`.amazonaws.com`. An example error message follows:
 
 ```
-server cant find oidc.eks.region.amazonaws.com: NXDOMAIN
+ server cant find oidc.eks.region.amazonaws.com: NXDOMAIN
 ```
 
 To complete this step, you can run the command outside the VPC, for example in AWS CloudShell or on a computer connected to the internet. Alternatively, you can create a split-horizon conditional resolver in the VPC, such as Route 53 Resolver to use a different resolver for the OIDC Issuer URL and not use the VPC DNS for it. For an example of conditional forwarding in CoreDNS, see the [Amazon EKS feature request](https://github.com/aws/containers-roadmap/issues/2038 "https://github.com/aws/containers-roadmap/issues/2038") on GitHub. 2. [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md "associate-service-account-role.md") – Complete this procedure for each unique set of permissions that you want an application to have. 3. [Configure Pods to use a Kubernetes service account](pod-configuration.md "pod-configuration.md") – Complete this procedure for each Pod that needs access to AWS services. 4. [Use IRSA with the AWS SDK](iam-roles-for-service-accounts-minimum-sdk.md "iam-roles-for-service-accounts-minimum-sdk.md") – Confirm that the workload uses an AWS SDK of a supported version and that the workload uses the default credential chain.

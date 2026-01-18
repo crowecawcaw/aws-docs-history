@@ -18,7 +18,7 @@ Before you can create Amazon EKS clusters, you must create an IAM role with the 
 
 You can use the following procedure to check and see if your account already has the Amazon EKS cluster role.
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. Open the IAM console at https://console.aws.amazon.com/iam/.
 2. In the left navigation pane, choose **Roles**.
 3. Search the list of roles for `AmazonEKSAutoClusterRole`. If a role that includes `AmazonEKSAutoClusterRole` doesn’t exist, then see the instructions in the next section to create the role. If a role that includes `AmazonEKSAutoClusterRole` does exist, then select the role to view the attached policies.
 4. Choose **Permissions**.
@@ -27,7 +27,7 @@ You can use the following procedure to check and see if your account already has
 7. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -54,7 +54,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 
 ### AWS Management Console
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. Open the IAM console at https://console.aws.amazon.com/iam/.
 2. Choose **Roles**, then **Create role**.
 3. Under **Trusted entity type**, select **AWS service**.
 4. From the **Use cases for other AWS services** dropdown list, choose **EKS**.
@@ -75,7 +75,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 1. Copy the following contents to a file named `cluster-trust-policy.json`.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -95,7 +95,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 2. Create the role. You can replace `AmazonEKSAutoClusterRole` with any name that you choose.
 
 ```
-aws iam create-role \
+ aws iam create-role \
   --role-name AmazonEKSAutoClusterRole \
   --assume-role-policy-document file://"cluster-trust-policy.json"
 ```
@@ -105,39 +105,39 @@ aws iam create-role \
 **AmazonEKSClusterPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy
 ```
 
 **AmazonEKSComputePolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSComputePolicy
 ```
 
 **AmazonEKSBlockStoragePolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSBlockStoragePolicy
 ```
 
 **AmazonEKSLoadBalancingPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSLoadBalancingPolicy
 ```
 
 **AmazonEKSNetworkingPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSNetworkingPolicy
 ```

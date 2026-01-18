@@ -25,7 +25,7 @@ Neuron device logical IDs must be contiguous. If a Pod requesting multiple Neuro
 You can’t use [IAM roles for service accounts](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md") with TensorFlow Serving.
 
 ```
-eksctl create cluster \
+ eksctl create cluster \
     --name inferentia \
     --region region-code \
     --nodegroup-name ng-inf1 \
@@ -43,19 +43,19 @@ eksctl create cluster \
 Note the value of the following line of the output. It’s used in a later (optional) step.
 
 ```
-[9]  adding identity "arn:aws:iam::111122223333:role/eksctl-inferentia-nodegroup-ng-in-NodeInstanceRole-FI7HIYS3BS09" to auth ConfigMap
+ [9]  adding identity "<shared id="region.arn"/>iam::111122223333:role/eksctl-inferentia-nodegroup-ng-in-NodeInstanceRole-FI7HIYS3BS09" to auth ConfigMap
 ```
 
 When launching a node group with `Inf1` instances, `eksctl` automatically installs the AWS Neuron Kubernetes device plugin. This plugin advertises Neuron devices as a system resource to the Kubernetes scheduler, which can be requested by a container. In addition to the default Amazon EKS node IAM policies, the Amazon S3 read only access policy is added so that the sample application, covered in a later step, can load a trained model from Amazon S3. 2. Make sure that all Pods have started correctly.
 
 ```
-kubectl get pods -n kube-system
+ kubectl get pods -n kube-system
 ```
 
 Abbreviated output:
 
 ```
-NAME                                   READY   STATUS    RESTARTS   AGE
+ NAME                                   READY   STATUS    RESTARTS   AGE
 [...]
 neuron-device-plugin-daemonset-6djhp   1/1     Running   0          5m
 neuron-device-plugin-daemonset-hwjsj   1/1     Running   0          5m
@@ -72,19 +72,19 @@ The number of Neuron devices allocated to your serving application can be adjust
 1. Add the `AmazonS3ReadOnlyAccess` IAM policy to the node instance role that was created in step 1 of [Create a cluster](#create-cluster-inferentia "#create-cluster-inferentia"). This is necessary so that the sample application can load a trained model from Amazon S3.
 
 ```
-aws iam attach-role-policy \
-    --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess \
+ aws iam attach-role-policy \
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonS3ReadOnlyAccess \
     --role-name eksctl-inferentia-nodegroup-ng-in-NodeInstanceRole-FI7HIYS3BS09
 ```
 
 2. Create a file named `rn50_deployment.yaml` with the following contents. Update the region-code and model path to match your desired settings. The model name is for identification purposes when a client makes a request to the TensorFlow server. This example uses a model name to match a sample ResNet50 client script that will be used in a later step for sending prediction requests.
 
 ```
-aws ecr list-images --repository-name neuron-rtd --registry-id 790709498068 --region us-west-2
+ aws ecr list-images --repository-name neuron-rtd --registry-id 790709498068 --region us-west-2
 ```
 
 ```
-kind: Deployment
+ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: eks-neuron-test
@@ -145,13 +145,13 @@ spec:
 3. Deploy the model.
 
 ```
-kubectl apply -f rn50_deployment.yaml
+ kubectl apply -f rn50_deployment.yaml
 ```
 
 4. Create a file named `rn50_service.yaml` with the following contents. The HTTP and gRPC ports are opened for accepting prediction requests.
 
 ```
-kind: Service
+ kind: Service
 apiVersion: v1
 metadata:
   name: eks-neuron-test
@@ -174,7 +174,7 @@ spec:
 5. Create a Kubernetes service for your TensorFlow model Serving application.
 
 ```
-kubectl apply -f rn50_service.yaml
+ kubectl apply -f rn50_service.yaml
 ```
 
 ## (Optional) Make predictions against your TensorFlow Serving service
@@ -182,13 +182,13 @@ kubectl apply -f rn50_service.yaml
 1. To test locally, forward the gRPC port to the `eks-neuron-test` service.
 
 ```
-kubectl port-forward service/eks-neuron-test 8500:8500 &
+ kubectl port-forward service/eks-neuron-test 8500:8500 &
 ```
 
-2. Create a Python script called `tensorflow-model-server-infer.py` with the following content. This script runs inference via gRPC, which is service framework.
+2. Create a Python script called `tensorflow-model-server-infer.py` with the following content. This script runs inference via gRPC, which is a service framework.
 
 ```
-import numpy as np
+ import numpy as np
    import grpc
    import tensorflow as tf
    from tensorflow.keras.preprocessing import image
@@ -217,11 +217,11 @@ import numpy as np
 3. Run the script to submit predictions to your service.
 
 ```
-python3 tensorflow-model-server-infer.py
+ python3 tensorflow-model-server-infer.py
 ```
 
 An example output is as follows.
 
 ```
-[[(u'n02123045', u'tabby', 0.68817204), (u'n02127052', u'lynx', 0.12701613), (u'n02123159', u'tiger_cat', 0.08736559), (u'n02124075', u'Egyptian_cat', 0.063844085), (u'n02128757', u'snow_leopard', 0.009240591)]]
+ [[(u'n02123045', u'tabby', 0.68817204), (u'n02127052', u'lynx', 0.12701613), (u'n02123159', u'tiger_cat', 0.08736559), (u'n02124075', u'Egyptian_cat', 0.063844085), (u'n02128757', u'snow_leopard', 0.009240591)]]
 ```

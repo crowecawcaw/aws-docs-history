@@ -20,7 +20,7 @@ Though many variables are changeable in the following steps, we recommend only c
 A namespace allows you to group resources in Kubernetes. For more information, see [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/ "https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/") in the Kubernetes documentation. If you plan to deploy your sample application to [Simplify compute management with AWS Fargate](fargate.md "fargate.md"), make sure that the value for `namespace` in your [Define which Pods use AWS Fargate when launched](fargate-profile.md "fargate-profile.md") is `eks-sample-app`.
 
 ```
-kubectl create namespace eks-sample-app
+ kubectl create namespace eks-sample-app
 ```
 
 ## Create a Kubernetes deployment
@@ -34,7 +34,7 @@ Create a Kubernetes deployment. This sample deployment pulls a container image f
      `nodeSelector` means that if you had Linux and Windows nodes (for example) in your cluster, the image would only be deployed to Linux nodes. For more information, see [Well-Known Labels, Annotations and Taints](https://kubernetes.io/docs/reference/labels-annotations-taints/ "https://kubernetes.io/docs/reference/labels-annotations-taints/") in the Kubernetes documentation.
 
    ```
-   apiVersion: apps/v1
+    apiVersion: apps/v1
    kind: Deployment
    metadata:
      name: eks-sample-linux-deployment
@@ -75,7 +75,7 @@ Create a Kubernetes deployment. This sample deployment pulls a container image f
 2. Apply the deployment manifest to your cluster.
 
 ```
-kubectl apply -f eks-sample-deployment.yaml
+ kubectl apply -f eks-sample-deployment.yaml
 ```
 
 ## Create a service
@@ -85,7 +85,7 @@ A service allows you to access all replicas through a single IP address or name.
 1. Save the following contents to a file named `eks-sample-service.yaml`. Kubernetes assigns the service its own IP address that is accessible only from within the cluster. To access the service from outside of your cluster, deploy the [AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md") to load balance [application](alb-ingress.md "alb-ingress.md") or [network](network-load-balancing.md "network-load-balancing.md") traffic to the service.
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Service
 metadata:
   name: eks-sample-linux-service
@@ -104,7 +104,7 @@ spec:
 2. Apply the service manifest to your cluster.
 
 ```
-kubectl apply -f eks-sample-service.yaml
+ kubectl apply -f eks-sample-service.yaml
 ```
 
 ## Review resources created
@@ -112,13 +112,13 @@ kubectl apply -f eks-sample-service.yaml
 1. View all resources that exist in the `eks-sample-app` namespace.
 
 ```
-kubectl get all -n eks-sample-app
+ kubectl get all -n eks-sample-app
 ```
 
 An example output is as follows.
 
 ```
-NAME                                               READY   STATUS    RESTARTS   AGE
+ NAME                                               READY   STATUS    RESTARTS   AGE
 pod/eks-sample-linux-deployment-65b7669776-m6qxz   1/1     Running   0          27m
 pod/eks-sample-linux-deployment-65b7669776-mmxvd   1/1     Running   0          27m
 pod/eks-sample-linux-deployment-65b7669776-qzn22   1/1     Running   0          27m
@@ -141,13 +141,13 @@ In the output, you see the service and deployment that were specified in the sam
 Kubernetes maintains the number of replicas that are specified in the manifest. If this were a production deployment and you wanted Kubernetes to horizontally scale the number of replicas or vertically scale the compute resources for the Pods, use the [Scale pod deployments with Horizontal Pod Autoscaler](horizontal-pod-autoscaler.md "horizontal-pod-autoscaler.md") and the [Adjust pod resources with Vertical Pod Autoscaler](vertical-pod-autoscaler.md "vertical-pod-autoscaler.md") to do so. 2. View the details of the deployed service.
 
 ```
-kubectl -n eks-sample-app describe service eks-sample-linux-service
+ kubectl -n eks-sample-app describe service eks-sample-linux-service
 ```
 
 An example output is as follows.
 
 ```
-Name:              eks-sample-linux-service
+ Name:              eks-sample-linux-service
 Namespace:         eks-sample-app
 Labels:            app=eks-sample-linux-app
 Annotations:       <none>
@@ -166,13 +166,13 @@ Events:            <none>
 In the previous output, the value for `IP:` is a unique IP address that can be reached from any node or Pod within the cluster, but it can’t be reached from outside of the cluster. The values for `Endpoints` are IP addresses assigned from within your VPC to the Pods that are part of the service. 3. View the details of one of the Pods listed in the output when you viewed the namespace in a previous step. Replace `776d8f8fd8-78w66` with the value returned for one of your Pods.
 
 ```
-kubectl -n eks-sample-app describe pod eks-sample-linux-deployment-65b7669776-m6qxz
+ kubectl -n eks-sample-app describe pod eks-sample-linux-deployment-65b7669776-m6qxz
 ```
 
 Abbreviated example output
 
 ```
-Name:         eks-sample-linux-deployment-65b7669776-m6qxz
+ Name:         eks-sample-linux-deployment-65b7669776-m6qxz
 Namespace:    eks-sample-app
 Priority:     0
 Node:         ip-192-168-45-132.us-west-2.compute.internal/192.168.45.132
@@ -207,19 +207,19 @@ Rather than using the command line, you can view many details about Pods, servic
 1. Run a shell on the Pod that you described in the previous step, replacing `65b7669776-m6qxz` with the ID of one of your Pods.
 
 ```
-kubectl exec -it eks-sample-linux-deployment-65b7669776-m6qxz -n eks-sample-app -- /bin/bash
+ kubectl exec -it eks-sample-linux-deployment-65b7669776-m6qxz -n eks-sample-app -- /bin/bash
 ```
 
 2. From the Pod shell, view the output from the web server that was installed with your deployment in a previous step. You only need to specify the service name. It is resolved to the service’s IP address by CoreDNS, which is deployed with an Amazon EKS cluster, by default.
 
 ```
-curl eks-sample-linux-service
+ curl eks-sample-linux-service
 ```
 
 An example output is as follows.
 
 ```
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <title>Welcome to nginx!</title>
@@ -229,13 +229,13 @@ An example output is as follows.
 3. From the Pod shell, view the DNS server for the Pod.
 
 ```
-cat /etc/resolv.conf
+ cat /etc/resolv.conf
 ```
 
 An example output is as follows.
 
 ```
-nameserver 10.100.0.10
+ nameserver 10.100.0.10
 search eks-sample-app.svc.cluster.local svc.cluster.local cluster.local us-west-2.compute.internal
 options ndots:5
 ```
@@ -243,7 +243,7 @@ options ndots:5
 In the previous output, `10.100.0.10` is automatically assigned as the `nameserver` for all Pods deployed to the cluster. 4. Disconnect from the Pod by typing `exit`. 5. Once you’re finished with the sample application, you can remove the sample namespace, service, and deployment with the following command.
 
 ```
-kubectl delete namespace eks-sample-app
+ kubectl delete namespace eks-sample-app
 ```
 
 ## Next Steps

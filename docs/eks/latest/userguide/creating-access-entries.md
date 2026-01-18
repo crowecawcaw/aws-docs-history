@@ -87,7 +87,7 @@ Instead of, or in addition to, Kubernetes authorizing the IAM principal access t
 
 
         ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2_LINUX
+         aws eks create-access-entry --cluster-name my-cluster --principal-arn <shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2_LINUX
         ```
 
         You can’t use the `--kubernetes-groups` option when you specify a type other than `STANDARD`. You can’t associate an access policy to this access entry, because its type is a value other than `STANDARD`.
@@ -96,14 +96,14 @@ Instead of, or in addition to, Kubernetes authorizing the IAM principal access t
 
 
         ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/my-role --type STANDARD --user Viewers --kubernetes-groups Viewers
+         aws eks create-access-entry --cluster-name my-cluster --principal-arn <shared id="region.arn"/>iam::111122223333:role/my-role --type STANDARD --user Viewers --kubernetes-groups Viewers
         ```
         * Create an access entry that allows an IAM user to authenticate to your cluster. This example is provided because this is possible, though IAM best practices recommend accessing your cluster using IAM *roles* that have short-term credentials, rather than IAM *users* that have long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the *IAM User Guide*.
 
 
 
         ```
-        aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:user/my-user --type STANDARD --username my-user
+         aws eks create-access-entry --cluster-name my-cluster --principal-arn <shared id="region.arn"/>iam::111122223333:user/my-user --type STANDARD --username my-user
         ```
 
         If you want this user to have more access to your cluster than the permissions in the Kubernetes API discovery roles, then you need to associate an access policy to the access entry, since the `--kubernetes-groups` option isn’t used. For more information, see [Associate access policies with access entries](access-policies.md "access-policies.md") and [API discovery roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#discovery-roles "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#discovery-roles") in the Kubernetes documentation.

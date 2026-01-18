@@ -35,7 +35,7 @@ Create a new NodePool for EKS Auto Mode with a taint. This ensures that existing
 Example node pool with taint:
 
 ```
-apiVersion: karpenter.sh/v1
+ apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: eks-auto-mode
@@ -62,7 +62,7 @@ Update the requirements for the node pool to match the Karpenter configuration y
 Identify and update the workloads you want to migrate to EKS Auto Mode. Add both tolerations and node selectors to these workloads:
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 spec:
   template:
@@ -95,7 +95,7 @@ kubectl delete nodepool <original-nodepool-name>
 If you want EKS Auto Mode to become the default for new workloads, you can remove the taint from the EKS Auto Mode NodePool:
 
 ```
-apiVersion: karpenter.sh/v1
+ apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: eks-auto-mode
@@ -114,7 +114,7 @@ spec:
 If you’ve removed the taint from the EKS Auto Mode NodePool, you can optionally remove the node selectors from your workloads, as EKS Auto Mode is now the default:
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 spec:
   template:

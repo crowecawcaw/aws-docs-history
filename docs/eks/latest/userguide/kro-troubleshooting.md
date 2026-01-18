@@ -22,7 +22,7 @@ You can view capability health and status issues in the EKS console or using the
 
 **Console**:
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name.
 3. Choose the **Observability** tab.
 4. Choose **Monitor cluster**.
@@ -31,7 +31,7 @@ You can view capability health and status issues in the EKS console or using the
 **AWS CLI**:
 
 ```
-# View capability status and health
+ # View capability status and health
 aws eks describe-capability \
   --region region-code \
   --cluster-name my-cluster \
@@ -50,7 +50,7 @@ aws eks describe-capability \
 **Verify RBAC permissions**:
 
 ```
-# Check if capability has cluster admin policy
+ # Check if capability has cluster admin policy
 kubectl get accessentry -A | grep kro
 ```
 
@@ -60,7 +60,7 @@ See [Configure kro permissions](kro-permissions.md "kro-permissions.md") for det
 **Check ResourceGraphDefinition status**:
 
 ```
-# List all RGDs
+ # List all RGDs
 kubectl get resourcegraphdefinition
 
 # Describe specific RGD
@@ -85,20 +85,17 @@ If custom resource instances exist but the underlying Kubernetes resources (Depl
 **Check instance status**:
 
 ```
-# Describe the instance (replace with your custom resource kind and name)
-kubectl describe `custom-kind`
-         `my-instance`
+ # Describe the instance (replace with your custom resource kind and name)
+kubectl describe <replaceable>custom-kind</replaceable> <replaceable>my-instance</replaceable>
 
 # View instance events
-kubectl get events --field-selector involvedObject.name=`my-instance`
+kubectl get events --field-selector involvedObject.name=<replaceable>my-instance</replaceable>
 
 # Check instance status conditions
-kubectl get `custom-kind`
-         `my-instance` -o jsonpath='{.status.conditions}'
+kubectl get <replaceable>custom-kind</replaceable> <replaceable>my-instance</replaceable> -o jsonpath='{.status.conditions}'
 
 # Check instance state
-kubectl get `custom-kind`
-         `my-instance` -o jsonpath='{.status.state}'
+kubectl get <replaceable>custom-kind</replaceable> <replaceable>my-instance</replaceable> -o jsonpath='{.status.state}'
 ```
 
 Instances have a `state` field showing high-level status:
@@ -124,7 +121,7 @@ If `Ready` is `False`, check the sub-conditions to identify which phase failed.
 The kro capability needs permissions to create the underlying Kubernetes resources defined in your ResourceGraphDefinitions.
 
 ```
-# Check if the capability has the AmazonEKSClusterAdminPolicy
+ # Check if the capability has the AmazonEKSClusterAdminPolicy
 kubectl get accessentry -A | grep kro
 ```
 
@@ -146,12 +143,11 @@ kro validates all CEL syntax, type-checks expressions against Kubernetes schemas
 **Check RGD validation status**:
 
 ```
-# Check if RGD was accepted
-kubectl get resourcegraphdefinition `my-rgd` -o jsonpath='{.status.conditions[?(@.type=="ResourceGraphAccepted")]}'
+ # Check if RGD was accepted
+kubectl get resourcegraphdefinition <replaceable>my-rgd</replaceable> -o jsonpath='{.status.conditions[?(@.type=="ResourceGraphAccepted")]}'
 
 # View detailed validation errors
-kubectl describe resourcegraphdefinition `my-rgd`
-
+kubectl describe resourcegraphdefinition <replaceable>my-rgd</replaceable>
 ```
 
 If `ResourceGraphAccepted` is `False`, the condition message contains the validation error.
@@ -159,7 +155,7 @@ If `ResourceGraphAccepted` is `False`, the condition message contains the valida
 **Example valid CEL expressions**:
 
 ```
-# Reference schema field
+ # Reference schema field
 ${schema.spec.appName}
 
 # Conditional expression
@@ -186,8 +182,8 @@ If resources aren’t being created as expected, check the dependency order and 
 **View computed creation order**:
 
 ```
-# See the order kro will create resources
-kubectl get resourcegraphdefinition `my-rgd` -o jsonpath='{.status.topologicalOrder}'
+ # See the order kro will create resources
+kubectl get resourcegraphdefinition <replaceable>my-rgd</replaceable> -o jsonpath='{.status.topologicalOrder}'
 ```
 
 This shows the computed order based on CEL expression references between resources.
@@ -195,12 +191,11 @@ This shows the computed order based on CEL expression references between resourc
 **Check resource readiness**:
 
 ```
-# View instance status to see which resources are ready
-kubectl get `custom-kind`
-         `my-instance` -o jsonpath='{.status}'
+ # View instance status to see which resources are ready
+kubectl get <replaceable>custom-kind</replaceable> <replaceable>my-instance</replaceable> -o jsonpath='{.status}'
 
 # Check specific resource status
-kubectl get deployment `my-deployment` -o jsonpath='{.status.conditions}'
+kubectl get deployment <replaceable>my-deployment</replaceable> -o jsonpath='{.status.conditions}'
 ```
 
 **Verify readyWhen conditions (if used)**:
@@ -210,7 +205,7 @@ If not specified, resources are considered ready immediately after creation.
 If you’ve defined `readyWhen` conditions, verify they correctly check for resource readiness:
 
 ```
-resources:
+ resources:
   - id: deployment
     readyWhen:
       - ${deployment.status.availableReplicas == deployment.spec.replicas}
@@ -219,8 +214,8 @@ resources:
 **Check resource events**:
 
 ```
-# View events for the underlying resources
-kubectl get events -n `namespace` --sort-by='.lastTimestamp'
+ # View events for the underlying resources
+kubectl get events -n <replaceable>namespace</replaceable> --sort-by='.lastTimestamp'
 ```
 
 ## Schema validation failures
@@ -230,12 +225,11 @@ If instances fail to create due to schema validation errors, verify the instance
 **Check validation errors**:
 
 ```
-# Attempt to create instance and view error
+ # Attempt to create instance and view error
 kubectl apply -f instance.yaml
 
 # View existing instance validation status
-kubectl describe `custom-kind`
-         `my-instance` | grep -A 5 "Validation"
+kubectl describe <replaceable>custom-kind</replaceable> <replaceable>my-instance</replaceable> | grep -A 5 "Validation"
 ```
 
 **Common validation issues**:
@@ -248,8 +242,8 @@ kubectl describe `custom-kind`
 **Review RGD schema**:
 
 ```
-# View the schema definition
-kubectl get resourcegraphdefinition `my-rgd` -o jsonpath='{.spec.schema}'
+ # View the schema definition
+kubectl get resourcegraphdefinition <replaceable>my-rgd</replaceable> -o jsonpath='{.spec.schema}'
 ```
 
 Ensure your instance provides all required fields with correct types.

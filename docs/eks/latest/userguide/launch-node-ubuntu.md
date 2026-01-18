@@ -20,7 +20,7 @@ After the nodes join the cluster, you can deploy containerized applications to t
   This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
 ```
-eksctl version
+ eksctl version
 ```
 
 For instructions on how to install or upgrade `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.NOTE: This procedure only works for clusters that were created with `eksctl`.
@@ -32,7 +32,7 @@ For instructions on how to install or upgrade `eksctl`, see [Installation](https
 To deploy a node group to AWS Outposts, AWS Wavelength, or AWS Local Zone subnets, don’t pass AWS Outposts, AWS Wavelength, or AWS Local Zone subnets when you create the cluster. You must specify the subnets in the following example. For more information see [Create a nodegroup from a config file](https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file "https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file") and [Config file schema](https://eksctl.io/usage/schema/ "https://eksctl.io/usage/schema/") in the `eksctl` documentation. Replace `region-code` with the AWS Region that your cluster is in.
 
 ```
-cat >ubuntu.yaml <<EOF
+ cat >ubuntu.yaml <<EOF
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -52,10 +52,10 @@ nodeGroups:
     amiFamily: Ubuntu2204
     iam:
        attachPolicyARNs:
-          - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-          - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-          - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
-          - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+          - <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodePolicy
+          - <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+          - <shared id="region.arn"/>iam::aws:policy/AmazonSSMManagedInstanceCore
+          - <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy
     ssh:
         allow: true
         publicKeyName: my-ec2-keypair-name
@@ -65,7 +65,7 @@ EOF
 To create an Ubuntu Pro node group, just change the `amiFamily` value to `UbuntuPro2204`. 2. Deploy your nodes with the following command.
 
 ```
-eksctl create nodegroup --config-file=ubuntu.yaml
+ eksctl create nodegroup --config-file=ubuntu.yaml
 ```
 
 An example output is as follows.
@@ -73,7 +73,7 @@ An example output is as follows.
 Several lines are output while the nodes are created. One of the last lines of output is the following example line.
 
 ```
-[✔]  created 1 nodegroup(s) in cluster "my-cluster"
+ [✔]  created 1 nodegroup(s) in cluster "my-cluster"
 ```
 
 3.  (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your Ubuntu nodes.

@@ -25,7 +25,7 @@ You can create an IAM OIDC provider for your cluster using `eksctl` or the AWS M
 Retrieve your cluster’s OIDC issuer ID and store it in a variable. Replace `<my-cluster>` with your own value.
 
 ```
-cluster_name=<my-cluster>
+ cluster_name=<my-cluster>
 oidc_id=$(aws eks describe-cluster --name $cluster_name --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)
 echo $oidc_id
 ```
@@ -33,13 +33,13 @@ echo $oidc_id
 3. Determine whether an IAM OIDC provider with your cluster’s issuer ID is already in your account.
 
 ```
-aws iam list-open-id-connect-providers | grep $oidc_id | cut -d "/" -f4
+ aws iam list-open-id-connect-providers | grep $oidc_id | cut -d "/" -f4
 ```
 
 If output is returned, then you already have an IAM OIDC provider for your cluster and you can skip the next step. If no output is returned, then you must create an IAM OIDC provider for your cluster. 4. Create an IAM OIDC identity provider for your cluster with the following command.
 
 ```
-eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
+ eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
 ```
 
 ###### Note
@@ -57,7 +57,7 @@ To complete this step, you can run the command outside the VPC, for example in A
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. In the left pane, select **Clusters**, and then select the name of your cluster on the **Clusters** page.
 3. In the **Details** section on the **Overview** tab, note the value of the **OpenID Connect provider URL**.
-4. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+4. Open the IAM console at https://console.aws.amazon.com/iam/.
 5. In the left navigation pane, choose **Identity Providers** under **Access management**. If a **Provider** is listed that matches the URL for your cluster, then you already have a provider for your cluster. If a provider isn’t listed that matches the URL for your cluster, then you must create one.
 6. To create a provider, choose **Add provider**.
 7. For **Provider type**, select **OpenID Connect**.

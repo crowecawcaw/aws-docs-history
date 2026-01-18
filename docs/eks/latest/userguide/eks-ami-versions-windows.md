@@ -11,7 +11,7 @@ The Amazon EKS optimized AMI metadata, including the AMI ID, for each variant ca
 AMIs are versioned by Kubernetes version and the release date of the AMI in the following format:
 
 ```
-k8s_major_version.k8s_minor_version-release_date
+ k8s_major_version.k8s_minor_version-release_date
 ```
 
 ###### Note
@@ -21,7 +21,7 @@ Amazon EKS managed node groups support the November 2022 and later releases of t
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
 ```
-https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/nodes/eks-ami-versions-windows.adoc.atom
+ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/nodes/eks-ami-versions-windows.adoc.atom
 ```
 
 ## Amazon EKS optimized Windows Server 2022 Core AMI

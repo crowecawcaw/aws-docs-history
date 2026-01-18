@@ -24,7 +24,7 @@ The following **Amazon-managed** components for `eks` include patches for `CVE-2
 This option is the recommended way to build your custom Windows AMIs. The Amazon EKS optimized Windows AMIs we provide are more frequently updated than the Amazon-managed build component.
 
 1. Start a new Image Builder recipe.
-   1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder](https://console.aws.amazon.com/imagebuilder "https://console.aws.amazon.com/imagebuilder").
+   1. Open the EC2 Image Builder console at https://console.aws.amazon.com/imagebuilder.
    2. In the left navigation pane, choose **Image recipes**.
    3. Choose **Create image recipe**.
 
@@ -48,7 +48,7 @@ This option is the recommended way to build your custom Windows AMIs. The Amazon
 When using an Amazon EKS optimized Windows AMI as a base isn’t viable, you can use the Amazon-managed build component instead. This option may lag behind the most recent supported Kubernetes versions.
 
 1. Start a new Image Builder recipe.
-   1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder](https://console.aws.amazon.com/imagebuilder "https://console.aws.amazon.com/imagebuilder").
+   1. Open the EC2 Image Builder console at https://console.aws.amazon.com/imagebuilder.
    2. In the left navigation pane, choose **Image recipes**.
    3. Choose **Create image recipe**.
 
@@ -80,7 +80,7 @@ When using an Amazon EKS optimized Windows AMI as a base isn’t viable, you can
 
 You can retrieve specific information regarding what is installed with each component. For example, you can verify what `kubelet` version is installed. The components go through functional testing on the Amazon EKS supported Windows operating systems versions. For more information, see [Release calendar](eks-optimized-windows-ami.md#windows-ami-release-calendar "eks-optimized-windows-ami.md#windows-ami-release-calendar"). Any other Windows OS versions that aren’t listed as supported or have reached end of support might not be compatible with the component.
 
-1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder](https://console.aws.amazon.com/imagebuilder "https://console.aws.amazon.com/imagebuilder").
+1. Open the EC2 Image Builder console at https://console.aws.amazon.com/imagebuilder.
 2. In the left navigation pane, choose **Components**.
 3. From the dropdown list to the right of the **Find components by name** search box, change **Owned by me** to **Quick start (Amazon-managed)**.
 4. In the **Find components by name** box, enter `eks`.

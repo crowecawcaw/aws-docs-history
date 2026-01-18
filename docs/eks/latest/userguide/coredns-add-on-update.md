@@ -11,19 +11,19 @@ Before you begin, review the upgrade considerations. For more information, see [
 1. See which version of the add-on is installed on your cluster. Replace `my-cluster` with your cluster name.
 
 ```
-aws eks describe-addon --cluster-name my-cluster --addon-name coredns --query "addon.addonVersion" --output text
+ aws eks describe-addon --cluster-name my-cluster --addon-name coredns --query "addon.addonVersion" --output text
 ```
 
 An example output is as follows.
 
 ```
-v1.10.1-eksbuild.13
+ v1.10.1-eksbuild.13
 ```
 
 If the version returned is the same as the version for your cluster’s Kubernetes version in the [latest version table](managing-coredns.md#coredns-versions "managing-coredns.md#coredns-versions"), then you already have the latest version installed on your cluster and don’t need to complete the rest of this procedure. If you receive an error, instead of a version number in your output, then you don’t have the Amazon EKS type of the add-on installed on your cluster. You need to [create the add-on](coredns-add-on-create.md "coredns-add-on-create.md") before you can update it with this procedure. 2. Save the configuration of your currently installed add-on.
 
 ```
-kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
+ kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
 ```
 
 3. Update your add-on using the AWS CLI. If you want to use the AWS Management Console or `eksctl` to update the add-on, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md"). Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command.
@@ -33,7 +33,7 @@ kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
    - If you’re not updating a configuration setting, remove `--configuration-values '{`"replicaCount":3`}'` from the command. If you’re updating a configuration setting, replace `"replicaCount":3` with the setting that you want to set. In this example, the number of replicas of CoreDNS is set to `3`. The value that you specify must be valid for the configuration schema. If you don’t know the configuration schema, run `aws eks describe-addon-configuration --addon-name coredns --addon-version `v1.11.3-eksbuild.1``, replacing `v1.11.3-eksbuild.1`with the version number of the add-on that you want to see the configuration for. The schema is returned in the output. If you have any existing custom configuration, want to remove it all, and set the values for all settings back to Amazon EKS defaults, remove`"replicaCount":3`from the command, so that you have empty`{}`. For more information about CoreDNS settings, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/ "https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/") in the Kubernetes documentation.
 
    ```
-   aws eks update-addon --cluster-name my-cluster --addon-name coredns --addon-version v1.11.3-eksbuild.1 \
+    aws eks update-addon --cluster-name my-cluster --addon-name coredns --addon-version v1.11.3-eksbuild.1 \
        --resolve-conflicts PRESERVE --configuration-values '{"replicaCount":3}'
    ```
 
@@ -42,7 +42,7 @@ kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
 4. Confirm that the add-on version was updated. Replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks describe-addon --cluster-name my-cluster --addon-name coredns
+ aws eks describe-addon --cluster-name my-cluster --addon-name coredns
 ```
 
 It might take several seconds for the update to complete.
@@ -50,7 +50,7 @@ It might take several seconds for the update to complete.
 An example output is as follows.
 
 ```
-{
+ {
     "addon": {
         "addonName": "coredns",
         "clusterName": "my-cluster",
@@ -59,7 +59,7 @@ An example output is as follows.
         "health": {
             "issues": []
         },
-        "addonArn": "arn:aws:eks:region:111122223333:addon/my-cluster/coredns/d2c34f06-1111-2222-1eb0-24f64ce37fa4",
+        "addonArn": "<shared id="region.arn"/>eks:region:111122223333:addon/my-cluster/coredns/d2c34f06-1111-2222-1eb0-24f64ce37fa4",
         "createdAt": "2023-03-01T16:41:32.442000+00:00",
         "modifiedAt": "2023-03-01T18:16:54.332000+00:00",
         "tags": {},

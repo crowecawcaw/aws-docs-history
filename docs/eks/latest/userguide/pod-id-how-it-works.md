@@ -25,7 +25,7 @@ In contrast, _IAM roles for service accounts_ provides a _web identity_ token th
 1. When Amazon EKS starts a new pod that uses a service account with an EKS Pod Identity association, the cluster adds the following content to the Pod manifest:
 
 ```
-    env:
+     env:
     - name: AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE
       value: "/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token"
     - name: AWS_CONTAINER_CREDENTIALS_FULL_URI

@@ -31,24 +31,24 @@ You can enable encryption in two ways:
 To automatically re-encrypt your secrets, run the following command.
 
 ```
-eksctl utils enable-secrets-encryption \
+ eksctl utils enable-secrets-encryption \
     --cluster my-cluster \
-    --key-arn arn:aws:kms:region-code:account:key/key
+    --key-arn <shared id="region.arn"/>kms:region-code:account:key/key
 ```
 
 To opt-out of automatically re-encrypting your secrets, run the following command.
 
 ```
-eksctl utils enable-secrets-encryption
+ eksctl utils enable-secrets-encryption
     --cluster my-cluster \
-    --key-arn arn:aws:kms:region-code:account:key/key \
+    --key-arn <shared id="region.arn"/>kms:region-code:account:key/key \
     --encrypt-existing-secrets=false
 ```
 
 - Add encryption to your cluster with a `kms-cluster.yaml` file.
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -56,19 +56,19 @@ metadata:
   region: region-code
 
 secretsEncryption:
-  keyARN: arn:aws:kms:region-code:account:key/key
+  keyARN: <shared id="region.arn"/>kms:region-code:account:key/key
 ```
 
 To have your secrets re-encrypt automatically, run the following command.
 
 ```
-eksctl utils enable-secrets-encryption -f kms-cluster.yaml
+ eksctl utils enable-secrets-encryption -f kms-cluster.yaml
 ```
 
 To opt out of automatically re-encrypting your secrets, run the following command.
 
 ```
-eksctl utils enable-secrets-encryption -f kms-cluster.yaml --encrypt-existing-secrets=false
+ eksctl utils enable-secrets-encryption -f kms-cluster.yaml --encrypt-existing-secrets=false
 ```
 
 AWS Management Console
@@ -89,9 +89,9 @@ AWS CLI
 
 
     ```
-    aws eks associate-encryption-config \
+     aws eks associate-encryption-config \
         --cluster-name my-cluster \
-        --encryption-config '[{"resources":["secrets"],"provider":{"keyArn":"arn:aws:kms:region-code:account:key/key"}}]'
+        --encryption-config '[{"resources":["secrets"],"provider":{"keyArn":"<shared id="region.arn"/>kms:region-code:account:key/key"}}]'
     ```
 
     An example output is as follows.
@@ -99,7 +99,7 @@ AWS CLI
 
 
     ```
-    {
+     {
       "update": {
         "id": "3141b835-8103-423a-8e68-12c2521ffa4d",
         "status": "InProgress",
@@ -107,7 +107,7 @@ AWS CLI
         "params": [
           {
             "type": "EncryptionConfig",
-            "value": "[{\"resources\":[\"secrets\"],\"provider\":{\"keyArn\":\"arn:aws:kms:region-code:account:key/key\"}}]"
+            "value": "[{\"resources\":[\"secrets\"],\"provider\":{\"keyArn\":\"<shared id="region.arn"/>kms:region-code:account:key/key\"}}]"
           }
         ],
         "createdAt": 1613754188.734,
@@ -120,7 +120,7 @@ AWS CLI
 
 
     ```
-    aws eks describe-update \
+     aws eks describe-update \
         --region region-code \
         --name my-cluster \
         --update-id 3141b835-8103-423a-8e68-12c2521ffa4d
@@ -131,7 +131,7 @@ AWS CLI
 
 
     ```
-    {
+     {
       "update": {
         "id": "3141b835-8103-423a-8e68-12c2521ffa4d",
         "status": "Successful",
@@ -139,7 +139,7 @@ AWS CLI
         "params": [
           {
             "type": "EncryptionConfig",
-            "value": "[{\"resources\":[\"secrets\"],\"provider\":{\"keyArn\":\"arn:aws:kms:region-code:account:key/key\"}}]"
+            "value": "[{\"resources\":[\"secrets\"],\"provider\":{\"keyArn\":\"<shared id="region.arn"/>kms:region-code:account:key/key\"}}]"
           }
         ],
         "createdAt": 1613754188.734>,
@@ -152,7 +152,7 @@ AWS CLI
 
 
     ```
-    aws eks describe-cluster --region region-code --name my-cluster
+     aws eks describe-cluster --region region-code --name my-cluster
     ```
 
 After you enabled encryption on your cluster, you must encrypt all existing secrets with the new key:
@@ -162,7 +162,7 @@ After you enabled encryption on your cluster, you must encrypt all existing secr
 If you use `eksctl`, running the following command is necessary only if you opt out of re-encrypting your secrets automatically.
 
 ```
-kubectl get secrets --all-namespaces -o json | kubectl annotate --overwrite -f - kms-encryption-timestamp="time value"
+ kubectl get secrets --all-namespaces -o json | kubectl annotate --overwrite -f - kms-encryption-timestamp="time value"
 ```
 
 ###### Warning

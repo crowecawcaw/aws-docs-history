@@ -14,7 +14,7 @@ Learn how to create a new documentation page. This topic includes instructions f
 4. Insert the page metadata using this template:
 
 ```
- include::../attributes.txt[]
+  include::../attributes.txt[]
 
  [.topic]
  [#unique-page-id]

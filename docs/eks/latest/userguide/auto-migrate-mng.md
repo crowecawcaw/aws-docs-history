@@ -19,7 +19,7 @@ This topic walks you through the steps to safely drain pods from your existing m
 Use the following `eksctl` CLI command to initiate draining pods from the existing managed node group instances. EKS Auto Mode will create new nodes to back the displaced pods.
 
 ```
-eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName>
+ eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName>
 ```
 
 You will need to run this command for each managed node group in your cluster.

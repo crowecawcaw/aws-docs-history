@@ -22,7 +22,7 @@ The following are prerequisites for the feature:
 An existing Amazon EKS cluster. To deploy one, see [Get started with Amazon EKS](getting-started.md "getting-started.md"). The cluster must be running one of the Kubernetes versions and platform versions listed in the following table. Note that any Kubernetes and platform versions later than those listed are also supported. You can check your current Kubernetes version by replacing `my-cluster` in the following command with the name of your cluster and then running the modified command:
 
 ```
-aws eks describe-cluster --name my-cluster --query cluster.version --output text
+ aws eks describe-cluster --name my-cluster --query cluster.version --output text
 ```
 
 | Kubernetes version | Platform version |
@@ -35,7 +35,7 @@ aws eks describe-cluster --name my-cluster --query cluster.version --output text
 To create both standard Kubernetes network policies and admin network policies, you need to run version `1.21` of the VPC CNI plugin. You can see which version that you currently have with the following command.
 
 ```
-kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
+ kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
 ```
 
 If your version is earlier than `1.21`, see [Update the Amazon VPC CNI (Amazon EKS add-on)](vpc-add-on-update.md "vpc-add-on-update.md") to upgrade to version `1.21` or later.
@@ -55,7 +55,7 @@ With the `NETWORK_POLICY_ENFORCING_MODE` variable set to `strict`, pods that use
 You can change the default network policy by setting the environment variable `NETWORK_POLICY_ENFORCING_MODE` to `strict` in the `aws-node` container of the VPC CNI `DaemonSet`.
 
 ```
-env:
+ env:
   - name: NETWORK_POLICY_ENFORCING_MODE
     value: "strict"
 ```
@@ -80,7 +80,7 @@ Use the following procedure to enable the network policy parameter for the add-o
    The following example has network policy feature enabled and metrics and health probes are set to the default port numbers:
 
    ```
-   {
+    {
        "enableNetworkPolicy": "true",
        "nodeAgent": {
            "healthProbeBindAddr": "8163",
@@ -96,7 +96,7 @@ If you have installed the Amazon VPC CNI plugin for Kubernetes through `helm`, y
 1. Run the following command to change the ports. Set the port number in the value for either key `nodeAgent.metricsBindAddr` or key `nodeAgent.healthProbeBindAddr`, respectively.
 
 ```
-helm upgrade --set nodeAgent.metricsBindAddr=8162 --set nodeAgent.healthProbeBindAddr=8163 aws-vpc-cni --namespace kube-system eks/aws-vpc-cni
+ helm upgrade --set nodeAgent.metricsBindAddr=8162 --set nodeAgent.healthProbeBindAddr=8163 aws-vpc-cni --namespace kube-system eks/aws-vpc-cni
 ```
 
 ### kubectl
@@ -105,13 +105,13 @@ helm upgrade --set nodeAgent.metricsBindAddr=8162 --set nodeAgent.healthProbeBin
    `DaemonSet` in your editor.
 
 ```
-kubectl edit daemonset -n kube-system aws-node
+ kubectl edit daemonset -n kube-system aws-node
 ```
 
 2. Replace the port numbers in the following command arguments in the `args:` in the `aws-network-policy-agent` container in the VPC CNI `aws-node` daemonset manifest.
 
 ```
-    - args:
+     - args:
             - --metrics-bind-addr=:8162
             - --health-probe-bind-addr=:8163
 ```
@@ -123,8 +123,8 @@ You can set this for an Amazon EKS add-on or self-managed add-on.
 Using the AWS CLI, you can configure the cluster to use Kubernetes network policies by running the following command. Replace `my-cluster` with the name of your cluster and the IAM role ARN with the role that you are using.
 
 ```
-aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version v1.14.0-eksbuild.3 \
-    --service-account-role-arn arn:aws:iam::123456789012:role/AmazonEKSVPCCNIRole \
+ aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version v1.14.0-eksbuild.3 \
+    --service-account-role-arn <shared id="region.arn"/>iam::123456789012:role/AmazonEKSVPCCNIRole \
     --resolve-conflicts PRESERVE --configuration-values '{"enableNetworkPolicy": "true"}'
 ```
 
@@ -140,7 +140,7 @@ To configure this using the AWS Management Console, follow the below steps:
    3. Enter the JSON key `"enableNetworkPolicy":` and value `"true"` in **Configuration values**. The resulting text must be a valid JSON object. If this key and value are the only data in the text box, surround the key and value with curly braces `{ }`. The following example shows network policy is enabled:
 
    ```
-   { "enableNetworkPolicy": "true" }
+    { "enableNetworkPolicy": "true" }
    ```
 
    The following screenshot shows an example of this scenario.
@@ -154,7 +154,7 @@ If you have installed the Amazon VPC CNI plugin for Kubernetes through `helm`, y
 1. Run the following command to enable network policy.
 
 ```
-helm upgrade --set enableNetworkPolicy=true aws-vpc-cni --namespace kube-system eks/aws-vpc-cni
+ helm upgrade --set enableNetworkPolicy=true aws-vpc-cni --namespace kube-system eks/aws-vpc-cni
 ```
 
 ###### kubectl
@@ -163,19 +163,19 @@ helm upgrade --set enableNetworkPolicy=true aws-vpc-cni --namespace kube-system 
    `ConfigMap` in your editor.
 
 ```
-kubectl edit configmap -n kube-system amazon-vpc-cni -o yaml
+ kubectl edit configmap -n kube-system amazon-vpc-cni -o yaml
 ```
 
 2. Add the following line to the `data` in the `ConfigMap`.
 
 ```
-enable-network-policy-controller: "true"
+ enable-network-policy-controller: "true"
 ```
 
 Once you’ve added the line, your `ConfigMap` should look like the following example.
 
 ```
-apiVersion: v1
+ apiVersion: v1
  kind: ConfigMap
  metadata:
   name: amazon-vpc-cni
@@ -188,7 +188,7 @@ apiVersion: v1
    `DaemonSet` in your editor.
 
 ```
-kubectl edit daemonset -n kube-system aws-node
+ kubectl edit daemonset -n kube-system aws-node
 ```
 
     1. Replace the `false` with `true` in the command argument `--enable-network-policy=false` in the `args:` in the `aws-network-policy-agent` container in the VPC CNI `aws-node` daemonset manifest.
@@ -196,7 +196,7 @@ kubectl edit daemonset -n kube-system aws-node
 
 
     ```
-         - args:
+          - args:
             - --enable-network-policy=true
     ```
 
@@ -205,13 +205,13 @@ kubectl edit daemonset -n kube-system aws-node
 After you complete the configuration, confirm that the `aws-node` pods are running on your cluster.
 
 ```
-kubectl get pods -n kube-system | grep 'aws-node\|amazon'
+ kubectl get pods -n kube-system | grep 'aws-node\|amazon'
 ```
 
 An example output is as follows.
 
 ```
-aws-node-gmqp7                                          2/2     Running   1 (24h ago)   24h
+ aws-node-gmqp7                                          2/2     Running   1 (24h ago)   24h
 aws-node-prnsh                                          2/2     Running   1 (24h ago)   24h
 ```
 

@@ -17,7 +17,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
       3. Enter the JSON key `"agent":` and value of a nested JSON object with a key `"additionalArgs":` in **Configuration values**. The resulting text must be a valid JSON object. If this key and value are the only data in the text box, surround the key and value with curly braces `{ }`. The following example shows network policy is enabled:
 
       ```
-      {
+       {
           "agent": {
               "additionalArgs": {
                   "-b": "169.254.170.23"
@@ -35,7 +35,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
    `kubectl rollout` has the following commands:
 
    ```
-   $ kubectl rollout
+    $ kubectl rollout
 
    history  -- View rollout history
    pause    -- Mark the provided resource as paused
@@ -56,7 +56,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 Run the following AWS CLI command. Replace `my-cluster` with the name of your cluster and the IAM role ARN with the role that you are using.
 
 ```
-aws eks update-addon --cluster-name my-cluster --addon-name eks-pod-identity-agent \
+ aws eks update-addon --cluster-name my-cluster --addon-name eks-pod-identity-agent \
     --resolve-conflicts PRESERVE --configuration-values '{"agent":{"additionalArgs": { "-b": "169.254.170.23"}}}'
 ```
 
@@ -67,7 +67,7 @@ Amazon EKS applies changes to the EKS Add-ons by using a _rollout_ of the Kubern
 `kubectl rollout` has the following commands:
 
 ```
-kubectl rollout
+ kubectl rollout
 
 history  -- View rollout history
 pause    -- Mark the provided resource as paused

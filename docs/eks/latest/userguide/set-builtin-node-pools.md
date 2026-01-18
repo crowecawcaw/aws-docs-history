@@ -39,7 +39,7 @@ Enabling at least one built-in NodePool is required for EKS to provision the "de
 Use the following command to enable both built-in NodePools:
 
 ```
-aws eks update-cluster-config \
+ aws eks update-cluster-config \
   --name <cluster-name> \
   --compute-config '{
     "nodeRoleArn": "<node-role-arn>",
@@ -61,7 +61,7 @@ You can modify the command to selectively enable the NodePools.
 Use the following command to disable both built-in NodePools:
 
 ```
-aws eks update-cluster-config \
+ aws eks update-cluster-config \
   --name <cluster-name> \
   --compute-config '{
   "enabled": true,

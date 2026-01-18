@@ -21,7 +21,7 @@ Applications often specify workload deployments, but they can manage any Kuberne
 Define an Application that deploys from a Git repository:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook
@@ -45,13 +45,13 @@ The `destination.server` field also works with EKS cluster ARNs, but using clust
 Apply the Application:
 
 ```
-kubectl apply -f application.yaml
+ kubectl apply -f application.yaml
 ```
 
 View the Application status:
 
 ```
-kubectl get application guestbook -n argocd
+ kubectl get application guestbook -n argocd
 ```
 
 ## Source configuration
@@ -59,7 +59,7 @@ kubectl get application guestbook -n argocd
 **Git repository**:
 
 ```
-spec:
+ spec:
   source:
     repoURL: https://github.com/example/my-app
     targetRevision: main
@@ -69,7 +69,7 @@ spec:
 **Specific Git tag or commit**:
 
 ```
-spec:
+ spec:
   source:
     targetRevision: v1.2.0  # or commit SHA
 ```
@@ -77,7 +77,7 @@ spec:
 **Helm chart**:
 
 ```
-spec:
+ spec:
   source:
     repoURL: https://github.com/example/helm-charts
     targetRevision: main
@@ -93,7 +93,7 @@ spec:
 **Helm chart with values from external Git repository** (multi-source pattern):
 
 ```
-spec:
+ spec:
   sources:
   - repoURL: https://github.com/example/helm-charts
     targetRevision: main
@@ -111,12 +111,11 @@ For more information, see [Helm Value Files from External Git Repository](https:
 **Helm chart from ECR**:
 
 ```
-spec:
+ spec:
   source:
-    repoURL: oci://`account-id`.dkr.ecr.`region`.amazonaws.com/`repository-name`
-    targetRevision: `chart-version`
-    chart: `chart-name`
-
+    repoURL: oci://<replaceable>account-id</replaceable>.dkr.ecr.<replaceable>region</replaceable>.amazonaws.com/<replaceable>repository-name</replaceable>
+    targetRevision: <replaceable>chart-version</replaceable>
+    chart: <replaceable>chart-name</replaceable>
 ```
 
 If the Capability Role has the required ECR permissions, the repository is used directly and no Repository configuration is required.
@@ -125,9 +124,9 @@ See [Configure repository access](argocd-configure-repositories.md "argocd-confi
 **Git repository from CodeCommit**:
 
 ```
-spec:
+ spec:
   source:
-    repoURL: https://git-codecommit.`region`.amazonaws.com/v1/repos/`repository-name`
+    repoURL: https://git-codecommit.<replaceable>region</replaceable>.amazonaws.com/v1/repos/<replaceable>repository-name</replaceable>
     targetRevision: main
     path: kubernetes/manifests
 ```
@@ -138,9 +137,9 @@ See [Configure repository access](argocd-configure-repositories.md "argocd-confi
 **Git repository from CodeConnections**:
 
 ```
-spec:
+ spec:
   source:
-    repoURL: https://codeconnections.`region`.amazonaws.com/git-http/`account-id`/`region`/`connection-id`/`owner`/`repository`.git
+    repoURL: https://codeconnections.<replaceable>region</replaceable>.amazonaws.com/git-http/<replaceable>account-id</replaceable>/<replaceable>region</replaceable>/<replaceable>connection-id</replaceable>/<replaceable>owner</replaceable>/<replaceable>repository</replaceable>.git
     targetRevision: main
     path: kubernetes/manifests
 ```
@@ -152,7 +151,7 @@ See [Configure repository access](argocd-configure-repositories.md "argocd-confi
 **Kustomize**:
 
 ```
-spec:
+ spec:
   source:
     repoURL: https://github.com/example/kustomize-app
     targetRevision: main
@@ -170,14 +169,14 @@ Control how Argo CD syncs applications.
 Applications require manual approval to sync:
 
 ```
-spec:
+ spec:
   syncPolicy: {}  # No automated sync
 ```
 
 Manually trigger sync:
 
 ```
-kubectl patch application guestbook -n argocd \
+ kubectl patch application guestbook -n argocd \
   --type merge \
   --patch '{"operation": {"initiatedBy": {"username": "admin"}, "sync": {}}}'
 ```
@@ -187,7 +186,7 @@ kubectl patch application guestbook -n argocd \
 Applications automatically sync when Git changes are detected:
 
 ```
-spec:
+ spec:
   syncPolicy:
     automated: {}
 ```
@@ -197,7 +196,7 @@ spec:
 Automatically revert manual changes to the cluster:
 
 ```
-spec:
+ spec:
   syncPolicy:
     automated:
       selfHeal: true
@@ -210,7 +209,7 @@ When enabled, Argo CD reverts any manual changes made directly to the cluster, e
 Automatically delete resources removed from Git:
 
 ```
-spec:
+ spec:
   syncPolicy:
     automated:
       prune: true
@@ -224,7 +223,7 @@ Use with caution in production environments.
 **Combined automated sync**:
 
 ```
-spec:
+ spec:
   syncPolicy:
     automated:
       prune: true
@@ -238,7 +237,7 @@ spec:
 Configure retry behavior for failed syncs:
 
 ```
-spec:
+ spec:
   syncPolicy:
     retry:
       limit: 5  # Number of failed sync attempts; unlimited if less than 0
@@ -257,7 +256,7 @@ Additional sync configuration:
 **Create namespace if it doesn’t exist**:
 
 ```
-spec:
+ spec:
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
@@ -268,7 +267,7 @@ spec:
 Useful when applying resources that depend on CRDs that don’t exist yet (like kro instances):
 
 ```
-spec:
+ spec:
   syncPolicy:
     syncOptions:
     - SkipDryRunOnMissingResource=true
@@ -279,7 +278,7 @@ This can also be applied to specific resources using a label on the resource its
 **Validate resources before applying**:
 
 ```
-spec:
+ spec:
   syncPolicy:
     syncOptions:
     - Validate=true
@@ -288,7 +287,7 @@ spec:
 **Apply out of sync only**:
 
 ```
-spec:
+ spec:
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true
@@ -309,7 +308,7 @@ For details, see [Sync Waves](https://argo-cd.readthedocs.io/en/stable/user-guid
 Prevent Argo CD from syncing specific fields that are managed by other controllers (like HPA managing replicas):
 
 ```
-spec:
+ spec:
   ignoreDifferences:
   - group: apps
     kind: Deployment
@@ -326,7 +325,7 @@ Deploy the same application to multiple environments:
 **Development**:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app-dev
@@ -345,7 +344,7 @@ spec:
 **Production**:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app-prod
@@ -370,7 +369,7 @@ spec:
 **View Application status**:
 
 ```
-kubectl get application my-app -n argocd
+ kubectl get application my-app -n argocd
 ```
 
 **Access the Argo CD UI**:
@@ -385,7 +384,7 @@ Rollback to a previous revision using the Argo CD UI, the Argo CD CLI, or by upd
 Using the Argo CD CLI:
 
 ```
-argocd app rollback argocd/my-app <revision-id>
+ argocd app rollback argocd/my-app <revision-id>
 ```
 
 ###### Note

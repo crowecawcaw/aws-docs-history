@@ -81,7 +81,7 @@ EKS Auto Mode also requires a Service-Linked Role, which is automatically create
 Create a trust policy that allows the Amazon EKS service to assume the role. Save the policy as `trust-policy.json`:
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -123,41 +123,41 @@ Attach the following AWS managed policies to the Cluster IAM Role to grant the n
 **AmazonEKSClusterPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy
 ```
 
 **AmazonEKSComputePolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSComputePolicy
 ```
 
 **AmazonEKSBlockStoragePolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSBlockStoragePolicy
 ```
 
 **AmazonEKSLoadBalancingPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSLoadBalancingPolicy
 ```
 
 **AmazonEKSNetworkingPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSNetworkingPolicy
 ```
 
 ## Create an EKS Auto Mode Node IAM Role
@@ -167,7 +167,7 @@ aws iam attach-role-policy \
 Create a trust policy that allows the Amazon EKS service to assume the role. Save the policy as `node-trust-policy.json`:
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -206,17 +206,17 @@ Attach the following AWS managed policies to the Node IAM Role to provide the ne
 **AmazonEKSWorkerNodeMinimalPolicy**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
 ```
 
 **AmazonEC2ContainerRegistryPullOnly**:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```
 
 ## Create an EKS Auto Mode Cluster

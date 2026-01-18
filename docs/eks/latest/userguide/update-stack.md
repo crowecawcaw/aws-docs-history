@@ -19,30 +19,30 @@ This method isn’t supported for node groups that were created with `eksctl`. I
 1. Determine the DNS provider for your cluster.
 
 ```
-kubectl get deployments -l k8s-app=kube-dns -n kube-system
+ kubectl get deployments -l k8s-app=kube-dns -n kube-system
 ```
 
 An example output is as follows. This cluster is using CoreDNS for DNS resolution, but your cluster might return `kube-dns` instead. Your output might look different depending on the version of `kubectl` that you’re using.
 
 ```
-NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+ NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 coredns   1         1         1            1           31m
 ```
 
 2. If your current deployment is running fewer than two replicas, scale out the deployment to two replicas. Replace `coredns` with `kube-dns` if your previous command output returned that instead.
 
 ```
-kubectl scale deployments/coredns --replicas=2 -n kube-system
+ kubectl scale deployments/coredns --replicas=2 -n kube-system
 ```
 
 3. (Optional) If you’re using the Kubernetes [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"), scale the deployment down to zero (0) replicas to avoid conflicting scaling actions.
 
 ```
-kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
+ kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
 ```
 
 4. Determine the instance type and desired instance count of your current node group. You enter these values later when you update the AWS CloudFormation template for the group.
-   1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+   1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
    2. In the left navigation pane, choose **Launch Configurations**, and note the instance type for your existing node launch configuration.
    3. In the left navigation pane, choose **Auto Scaling Groups**, and note the **Desired** instance count for your existing node Auto Scaling group.
 
@@ -52,7 +52,7 @@ kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
 8. For **Amazon S3 URL**, paste the following URL into the text area to ensure that you’re using the latest version of the node AWS CloudFormation template. Then, choose **Next**:
 
 ```
-https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml
+ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml
 ```
 
 9. On the **Specify stack details** page, fill out the following parameters, and choose **Next**:
@@ -70,7 +70,7 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-e
    - **NodeImageIdSSMParam** – The Amazon EC2 Systems Manager parameter of the AMI ID that you want to update to. The following value uses the latest Amazon EKS optimized AMI for Kubernetes version `1.33`.
 
    ```
-   /aws/service/eks/optimized-ami/1.33/amazon-linux-2/recommended/image_id
+    /aws/service/eks/optimized-ami/1.33/amazon-linux-2/recommended/image_id
    ```
 
    You can replace `1.33` with a [platform-version](platform-versions.md "platform-versions.md") that’s the same. Or, it should be up to one version earlier than the Kubernetes version running on your control plane. We recommend that you keep your nodes at the same version as your control plane. You can also replace `amazon-linux-2` with a different AMI type. For more information, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md").
@@ -93,13 +93,13 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-e
 The update of each node in the cluster takes several minutes. Wait for the update of all nodes to complete before performing the next steps. 12. If your cluster’s DNS provider is `kube-dns`, scale in the `kube-dns` deployment to one replica.
 
 ```
-kubectl scale deployments/kube-dns --replicas=1 -n kube-system
+ kubectl scale deployments/kube-dns --replicas=1 -n kube-system
 ```
 
 13. (Optional) If you are using the Kubernetes [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"), scale the deployment back to your desired amount of replicas.
 
 ```
-kubectl scale deployments/cluster-autoscaler --replicas=1 -n kube-system
+ kubectl scale deployments/cluster-autoscaler --replicas=1 -n kube-system
 ```
 
 14. (Optional) Verify that you’re using the latest version of the [Amazon VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni-k8s "https://github.com/aws/amazon-vpc-cni-k8s"). You might need to update your Amazon VPC CNI plugin for Kubernetes version to use the latest supported instance types. For more information, see [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").

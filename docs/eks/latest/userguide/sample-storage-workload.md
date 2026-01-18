@@ -18,14 +18,14 @@ This tutorial will guide you through deploying a sample stateful application to 
 1. Set your environment variables:
 
 ```
-export CLUSTER_NAME=my-auto-cluster
+ export CLUSTER_NAME=my-auto-cluster
 export AWS_REGION="us-west-2"
 ```
 
 2. Update your kubeconfig:
 
 ```
-aws eks update-kubeconfig --name "${CLUSTER_NAME}"
+ aws eks update-kubeconfig --name "${CLUSTER_NAME}"
 ```
 
 ## Step 2: Create the storage class
@@ -37,7 +37,7 @@ EKS Auto Mode does not create a `StorageClass` for you. You must create a `Stora
 1. Create a file named `storage-class.yaml`:
 
 ```
-apiVersion: storage.k8s.io/v1
+ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: auto-ebs-sc
@@ -53,7 +53,7 @@ parameters:
 2. Apply the `StorageClass`:
 
 ```
-kubectl apply -f storage-class.yaml
+ kubectl apply -f storage-class.yaml
 ```
 
 **Key components:**
@@ -71,7 +71,7 @@ The PVC requests storage from the `StorageClass`.
 1. Create a file named `pvc.yaml`:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: auto-ebs-claim
@@ -87,7 +87,7 @@ spec:
 2. Apply the PVC:
 
 ```
-kubectl apply -f pvc.yaml
+ kubectl apply -f pvc.yaml
 ```
 
 **Key components:**
@@ -103,7 +103,7 @@ The Deployment runs a container that writes timestamps to the persistent volume.
 1. Create a file named `deployment.yaml`:
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: inflate-stateful
@@ -140,7 +140,7 @@ spec:
 2. Apply the Deployment:
 
 ```
-kubectl apply -f deployment.yaml
+ kubectl apply -f deployment.yaml
 ```
 
 **Key components:**
@@ -155,19 +155,19 @@ kubectl apply -f deployment.yaml
 1. Check that the pod is running:
 
 ```
-kubectl get pods -l app=inflate-stateful
+ kubectl get pods -l app=inflate-stateful
 ```
 
 2. Verify the PVC is bound:
 
 ```
-kubectl get pvc auto-ebs-claim
+ kubectl get pvc auto-ebs-claim
 ```
 
 3. Check the EBS volume:
 
 ```
-# Get the PV name
+ # Get the PV name
 PV_NAME=$(kubectl get pvc auto-ebs-claim -o jsonpath='{.spec.volumeName}')
 # Describe the EBS volume
 aws ec2 describe-volumes \
@@ -177,7 +177,7 @@ aws ec2 describe-volumes \
 4. Verify data is being written:
 
 ```
-kubectl exec "$(kubectl get pods -l app=inflate-stateful \
+ kubectl exec "$(kubectl get pods -l app=inflate-stateful \
   -o=jsonpath='{.items[0].metadata.name}')" -- \
   cat /data/out.txt
 ```
@@ -187,7 +187,7 @@ kubectl exec "$(kubectl get pods -l app=inflate-stateful \
 Run the following command to remove all resources created in this tutorial:
 
 ```
-# Delete all resources in one command
+ # Delete all resources in one command
 kubectl delete deployment/inflate-stateful pvc/auto-ebs-claim storageclass/auto-ebs-sc
 ```
 
@@ -208,7 +208,7 @@ EKS Auto Mode is compatible with the Kubernetes CSI Snapshotter, also known as t
 Review the following `VolumeSnapshotClass` that references the storage capability of EKS Auto Mode.
 
 ```
-apiVersion: snapshot.storage.k8s.io/v1
+ apiVersion: snapshot.storage.k8s.io/v1
 kind: VolumeSnapshotClass
 metadata:
   name: auto-ebs-vsclass

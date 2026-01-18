@@ -30,24 +30,24 @@ If you’ve added entries to the `aws-auth`
 1. View the existing entries in your `aws-auth ConfigMap`. Replace `my-cluster` with the name of your cluster.
 
 ```
-eksctl get iamidentitymapping --cluster my-cluster
+ eksctl get iamidentitymapping --cluster my-cluster
 ```
 
 An example output is as follows.
 
 ```
 ARN                                                                                             USERNAME                                GROUPS                                                  ACCOUNT
-arn:aws:iam::111122223333:role/EKS-my-cluster-Admins                                            Admins                                  system:masters
-arn:aws:iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers                              my-namespace-Viewers                    Viewers
-arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1                                 system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
-arn:aws:iam::111122223333:user/my-user                                                          my-user
-arn:aws:iam::111122223333:role/EKS-my-cluster-fargateprofile1                                   system:node:{{SessionName}}             system:bootstrappers,system:nodes,system:node-proxier
-arn:aws:iam::111122223333:role/EKS-my-cluster-managed-ng                                        system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
+<shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-Admins                                            Admins                                  system:masters
+<shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers                              my-namespace-Viewers                    Viewers
+<shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-self-managed-ng-1                                 system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
+<shared id="region.arn"/>iam::111122223333:user/my-user                                                          my-user
+<shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-fargateprofile1                                   system:node:{{SessionName}}             system:bootstrappers,system:nodes,system:node-proxier
+<shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-managed-ng                                        system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
 ```
 
 2. [Create access entries](creating-access-entries.md "creating-access-entries.md") for any of the `ConfigMap` entries that you created returned in the previous output. When creating the access entries, make sure to specify the same values for `ARN`, `USERNAME`, `GROUPS`, and `ACCOUNT` returned in your output. In the example output, you would create access entries for all entries except the last two entries, since those entries were created by Amazon EKS for a Fargate profile and a managed node group.
 3. Delete the entries from the `ConfigMap` for any access entries that you created. If you don’t delete the entry from the `ConfigMap`, the settings for the access entry for the IAM principal ARN override the `ConfigMap` entry. Replace `111122223333` with your AWS account ID and `EKS-my-cluster-my-namespace-Viewers` with the name of the role in the entry in your `ConfigMap`. If the entry you’re removing is for an IAM user, rather than an IAM role, replace `role` with `user` and `EKS-my-cluster-my-namespace-Viewers` with the user name.
 
 ```
-eksctl delete iamidentitymapping --arn arn:aws:iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers --cluster my-cluster
+ eksctl delete iamidentitymapping --arn <shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers --cluster my-cluster
 ```

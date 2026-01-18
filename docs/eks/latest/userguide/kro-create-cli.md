@@ -16,7 +16,7 @@ This topic describes how to create a kro (Kube Resource Orchestrator) capability
 Create a trust policy file:
 
 ```
-cat > kro-trust-policy.json << 'EOF'
+ cat > kro-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -38,7 +38,7 @@ EOF
 Create the IAM role:
 
 ```
-aws iam create-role \
+ aws iam create-role \
   --role-name KROCapabilityRole \
   --assume-role-policy-document file://kro-trust-policy.json
 ```
@@ -54,9 +54,9 @@ The role is only needed to establish the trust relationship with the EKS capabil
 Create the kro capability resource on your cluster. Replace `region-code` with the AWS Region where your cluster is located (such as `us-west-2`) and `my-cluster` with your cluster name.
 
 ```
-aws eks create-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
+ aws eks create-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
   --capability-name my-kro \
   --type KRO \
   --role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/KROCapabilityRole \
@@ -79,9 +79,9 @@ If you receive an error that the cluster doesn’t exist or you don’t have per
 Wait for the capability to become active. Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks describe-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
+ aws eks describe-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
   --capability-name my-kro \
   --query 'capability.status' \
   --output text
@@ -92,9 +92,9 @@ The capability is ready when the status shows `ACTIVE`.
 You can also view the full capability details:
 
 ```
-aws eks describe-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
+ aws eks describe-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
   --capability-name my-kro
 ```
 
@@ -115,9 +115,9 @@ For getting started quickly, testing, or development environments, use `AmazonEK
 Get the capability role ARN:
 
 ```
-CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
+ CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
   --capability-name my-kro \
   --query 'capability.roleArn' \
   --output text)
@@ -126,9 +126,9 @@ CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
 Associate the cluster admin policy:
 
 ```
-aws eks associate-access-policy \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
+ aws eks associate-access-policy \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
   --principal-arn $CAPABILITY_ROLE_ARN \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
@@ -146,7 +146,7 @@ For guidance on configuring least-privilege permissions, see [Configure kro perm
 After the capability is active, verify that kro custom resources are available in your cluster:
 
 ```
-kubectl api-resources | grep kro.run
+ kubectl api-resources | grep kro.run
 ```
 
 You should see the `ResourceGraphDefinition` resource type listed.

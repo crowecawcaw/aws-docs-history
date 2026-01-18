@@ -26,7 +26,7 @@ Provides logical grouping and access control for `Application` resources. `AppPr
 Example `Application` resource:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app
@@ -59,7 +59,7 @@ After creating a `ResourceGraphDefinition` resource, you can create instances of
 Example `ResourceGraphDefinition` resource:
 
 ```
-apiVersion: kro.run/v1alpha1
+ apiVersion: kro.run/v1alpha1
 kind: ResourceGraphDefinition
 metadata:
   name: web-application
@@ -86,7 +86,7 @@ spec:
 Example `WebApplication` instance:
 
 ```
-apiVersion: v1alpha1
+ apiVersion: v1alpha1
 kind: WebApplication
 metadata:
   name: my-web-app
@@ -130,7 +130,7 @@ Examples of ACK resources:
 Example specification of a `Bucket` resource:
 
 ```
-apiVersion: s3.services.k8s.aws/v1alpha1
+ apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: my-app-bucket

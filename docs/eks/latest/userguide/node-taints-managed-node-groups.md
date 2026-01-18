@@ -22,7 +22,7 @@ Kubernetes node taints can be applied to new and existing managed node groups us
 Use the `aws eks create-nodegroup` command to create a new managed node group with taints. This example applies a taint with key `dedicated`, value `gpuGroup`, and effect `NO_SCHEDULE`.
 
 ```
-aws eks create-nodegroup \
+ aws eks create-nodegroup \
  --cli-input-json '
 {
   "clusterName": "my-cluster",
@@ -32,7 +32,7 @@ aws eks create-nodegroup \
      "subnet-abcdef01234567890",
      "subnet-021345abcdef67890"
    ],
-  "nodeRole": "arn:aws:iam::111122223333:role/AmazonEKSNodeRole",
+  "nodeRole": "<shared id="region.arn"/>iam::111122223333:role/AmazonEKSNodeRole",
   "taints": [
      {
          "key": "dedicated",
@@ -51,7 +51,7 @@ Use the [aws eks update-nodegroup-config](../../../cli/latest/reference/eks/upda
 AWS CLI command to add, remove, or replace taints for managed node groups.
 
 ```
-aws eks update-nodegroup-config
+ aws eks update-nodegroup-config
   --cluster-name my-cluster
   --nodegroup-name node-taints-example
   --taints 'removeTaints=[{key=dedicated,value=gpuGroup,effect=NO_SCHEDULE}]'

@@ -17,7 +17,7 @@ The Hybrid Nodes IAM role must have the following permissions.
 - Permissions for the kubelet to use container images from Amazon Elastic Container Registry (Amazon ECR) as defined in the
   [AmazonEC2ContainerRegistryPullOnly](../../../aws-managed-policy/latest/reference/AmazonEC2ContainerRegistryPullOnly.md "../../../aws-managed-policy/latest/reference/AmazonEC2ContainerRegistryPullOnly.md") policy.
 - If using AWS SSM, permissions for `nodeadm init` to use AWS SSM hybrid activations as defined in the
-  [aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") policy.
+  [https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") policy.
 - If using AWS SSM, permissions to use the `ssm:DeregisterManagedInstance` action and `ssm:DescribeInstanceInformation` action for `nodeadm uninstall` to deregister instances.
 - (Optional) Permissions for the Amazon EKS Pod Identity Agent to use the `eks-auth:AssumeRoleForPodIdentity` action to retrieve credentials for pods.
 
@@ -36,12 +36,12 @@ See the example below for how to create an AWS SSM hybrid activation with your H
 We recommend that you use one AWS SSM hybrid activation per EKS cluster to scope the AWS SSM `ssm:DeregisterManagedInstance` permission of the Hybrid Nodes IAM role to only be able to deregister instances that are associated with your AWS SSM hybrid activation. In the example on this page, a tag with the EKS cluster ARN is used, which can be used to map your AWS SSM hybrid activation to the EKS cluster. You can alternatively use your preferred tag and method of scoping the AWS SSM permissions based on your permission boundaries and requirements. The `REGISTRATION_LIMIT` option in the command below is an integer used to limit the number of machines that can use the AWS SSM hybrid activation (for example `10`)
 
 ```
-aws ssm create-activation \
+ aws ssm create-activation \
      --region AWS_REGION \
      --default-instance-name eks-hybrid-nodes \
      --description "Activation for EKS hybrid nodes" \
      --iam-role AmazonEKSHybridNodesRole \
-     --tags Key=EKSClusterARN,Value=arn:aws:eks:AWS_REGION:AWS_ACCOUNT_ID:cluster/CLUSTER_NAME \
+     --tags Key=EKSClusterARN,Value=<shared id="region.arn"/>eks:AWS_REGION:AWS_ACCOUNT_ID:cluster/CLUSTER_NAME \
      --registration-limit REGISTRATION_LIMIT
 ```
 
@@ -80,7 +80,7 @@ The CloudFormation stack creates the Hybrid Nodes IAM Role with the permissions 
 1. Download the AWS SSM CloudFormation template for hybrid nodes:
 
 ```
-curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/example/hybrid-ssm-cfn.yaml'
+ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/example/hybrid-ssm-cfn.yaml'
 ```
 
 2. Create a `cfn-ssm-parameters.json` with the following options:
@@ -89,7 +89,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
    3. Replace `TAG_VALUE` with the AWS SSM resource tag value you used when creating your AWS SSM hybrid activation. The combination of the tag key and tag value is used in the condition for the `ssm:DeregisterManagedInstance` to only allow the Hybrid Nodes IAM role to deregister the AWS SSM managed instances that are associated with your AWS SSM hybrid activation. If you are using the default `TAG_KEY` of `EKSClusterARN`, then pass your EKS cluster ARN as the `TAG_VALUE`. EKS cluster ARNs have the format `arn:aws:eks:AWS_REGION:AWS_ACCOUNT_ID:cluster/CLUSTER_NAME`.
 
    ```
-   {
+    {
      "Parameters": {
        "RoleName": "ROLE_NAME",
        "SSMDeregisterConditionTagKey": "TAG_KEY",
@@ -101,7 +101,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
 3. Deploy the CloudFormation stack. Replace `STACK_NAME` with your name for the CloudFormation stack.
 
 ```
-aws cloudformation deploy \
+ aws cloudformation deploy \
     --stack-name STACK_NAME \
     --template-file hybrid-ssm-cfn.yaml \
     --parameter-overrides file://cfn-ssm-parameters.json \
@@ -120,7 +120,7 @@ The CloudFormation stack creates the AWS IAM Roles Anywhere trust anchor with th
 2. Download the AWS IAM Roles Anywhere CloudFormation template for hybrid nodes
 
 ```
-curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/example/hybrid-ira-cfn.yaml'
+ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/example/hybrid-ira-cfn.yaml'
 ```
 
 3. Create a `cfn-iamra-parameters.json` with the following options:
@@ -129,7 +129,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
    3. Replace `CA_CERT_BODY` with the certificate body of your CA without line breaks. The `CA_CERT_BODY` must be in Privacy Enhanced Mail (PEM) format. If you have a CA certificate in PEM format, remove the line breaks and BEGIN CERTIFICATE and END CERTIFICATE lines before placing the CA certificate body in your `cfn-iamra-parameters.json` file.
 
    ```
-   {
+    {
      "Parameters": {
        "RoleName": "ROLE_NAME",
        "CertAttributeTrustPolicy": "CERT_ATTRIBUTE",
@@ -141,7 +141,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
 4. Deploy the CloudFormation template. Replace `STACK_NAME` with your name for the CloudFormation stack.
 
 ```
-aws cloudformation deploy \
+ aws cloudformation deploy \
     --stack-name STACK_NAME \
     --template-file hybrid-ira-cfn.yaml \
     --parameter-overrides file://cfn-iamra-parameters.json
@@ -157,7 +157,7 @@ Install and configure the AWS CLI, if you haven’t already. See [Installing or 
 1. Create a file named `eks-describe-cluster-policy.json` with the following contents:
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -174,7 +174,7 @@ Install and configure the AWS CLI, if you haven’t already. See [Installing or 
 2. Create the policy with the following command:
 
 ```
-aws iam create-policy \
+ aws iam create-policy \
     --policy-name EKSDescribeClusterPolicy \
     --policy-document file://eks-describe-cluster-policy.json
 ```
@@ -188,7 +188,7 @@ aws iam create-policy \
    4. Replace `TAG_VALUE` with the AWS SSM resource tag value you used when creating your AWS SSM hybrid activation. The combination of the tag key and tag value is used in the condition for the `ssm:DeregisterManagedInstance` to only allow the Hybrid Nodes IAM role to deregister the AWS SSM managed instances that are associated with your AWS SSM hybrid activation. If you are using the default `TAG_KEY` of `EKSClusterARN`, then pass your EKS cluster ARN as the `TAG_VALUE`. EKS cluster ARNs have the format `arn:aws:eks:AWS_REGION:AWS_ACCOUNT_ID:cluster/CLUSTER_NAME`.
 
    ```
-   {
+    {
        "Version":"2012-10-17",
        "Statement": [
            {
@@ -213,7 +213,7 @@ aws iam create-policy \
 2. Create the policy with the following command
 
 ```
-aws iam create-policy \
+ aws iam create-policy \
     --policy-name EKSHybridSSMPolicy \
     --policy-document file://eks-hybrid-ssm-policy.json
 ```
@@ -221,7 +221,7 @@ aws iam create-policy \
 3. Create a file named `eks-hybrid-ssm-trust.json`. Replace `AWS_REGION` with the AWS Region of your AWS SSM hybrid activation and `AWS_ACCOUNT_ID` with your AWS account ID.
 
 ```
-{
+ {
    "Version":"2012-10-17",
    "Statement":[
       {
@@ -247,7 +247,7 @@ aws iam create-policy \
 4. Create the role with the following command.
 
 ```
-aws iam create-role \
+ aws iam create-role \
     --role-name AmazonEKSHybridNodesRole \
     --assume-role-policy-document file://eks-hybrid-ssm-trust.json
 ```
@@ -255,30 +255,30 @@ aws iam create-role \
 5. Attach the `EKSDescribeClusterPolicy` and the `EKSHybridSSMPolicy` you created in the previous steps. Replace `AWS_ACCOUNT_ID` with your AWS account ID.
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSHybridNodesRole \
-    --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/EKSDescribeClusterPolicy
+    --policy-arn <shared id="region.arn"/>iam::AWS_ACCOUNT_ID:policy/EKSDescribeClusterPolicy
 ```
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSHybridNodesRole \
-    --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/EKSHybridSSMPolicy
+    --policy-arn <shared id="region.arn"/>iam::AWS_ACCOUNT_ID:policy/EKSHybridSSMPolicy
 ```
 
 6. Attach the `AmazonEC2ContainerRegistryPullOnly` and `AmazonSSMManagedInstanceCore`
    AWS managed policies.
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSHybridNodesRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSHybridNodesRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonSSMManagedInstanceCore
 ```
 
 **Steps for AWS IAM Roles Anywhere**
@@ -288,7 +288,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
 1. Create a file named `eks-hybrid-iamra-trust.json`. Replace `TRUST_ANCHOR ARN` with the ARN of the trust anchor you created in the [Setup AWS IAM Roles Anywhere](#hybrid-nodes-iam-roles-anywhere "#hybrid-nodes-iam-roles-anywhere") steps. The condition in this trust policy restricts the ability of AWS IAM Roles Anywhere to assume the Hybrid Nodes IAM role to exchange temporary IAM credentials only when the role session name matches the CN in the x509 certificate installed on your hybrid nodes. You can alternatively use other certificate attributes to uniquely identify your node. The certificate attribute that you use in the trust policy must correspond to the `nodeName` you set in your `nodeadm` configuration. For more information, see the [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md").
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -332,7 +332,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
 2. Create the role with the following command.
 
 ```
-aws iam create-role \
+ aws iam create-role \
     --role-name AmazonEKSHybridNodesRole \
     --assume-role-policy-document file://eks-hybrid-iamra-trust.json
 ```
@@ -340,18 +340,18 @@ aws iam create-role \
 3. Attach the `EKSDescribeClusterPolicy` you created in the previous steps. Replace `AWS_ACCOUNT_ID` with your AWS account ID.
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSHybridNodesRole \
-    --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/EKSDescribeClusterPolicy
+    --policy-arn <shared id="region.arn"/>iam::AWS_ACCOUNT_ID:policy/EKSDescribeClusterPolicy
 ```
 
 4. Attach the `AmazonEC2ContainerRegistryPullOnly`
    AWS managed policy
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
     --role-name AmazonEKSHybridNodesRole \
-    --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```
 
 ### AWS Management Console
@@ -377,7 +377,7 @@ aws iam attach-role-policy \
 4. On the **Specify permissions** page, in the **Policy editor** top right navigation, choose **JSON**. Paste the following snippet. Replace `AWS_REGION` with the AWS Region of your AWS SSM hybrid activation and replace `AWS_ACCOUNT_ID` with your AWS account ID. Replace `TAG_KEY` and `TAG_VALUE` with the AWS SSM resource tag key you used when creating your AWS SSM hybrid activation.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -411,7 +411,7 @@ aws iam attach-role-policy \
    1. In the **Trusted entity** type section, choose **Custom trust policy**. Paste the following into the Custom trust policy editor. Replace `AWS_REGION` with the AWS Region of your AWS SSM hybrid activation and `AWS_ACCOUNT_ID` with your AWS account ID.
 
    ```
-   {
+    {
       "Version":"2012-10-17",
       "Statement":[
          {
@@ -459,7 +459,7 @@ To use AWS IAM Roles Anywhere, you must set up your AWS IAM Roles Anywhere trust
    1. In the **Trusted entity type section**, choose **Custom trust policy**. Paste the following into the Custom trust policy editor. Replace `TRUST_ANCHOR ARN` with the ARN of the trust anchor you created in the [Setup AWS IAM Roles Anywhere](#hybrid-nodes-iam-roles-anywhere "#hybrid-nodes-iam-roles-anywhere") steps. The condition in this trust policy restricts the ability of AWS IAM Roles Anywhere to assume the Hybrid Nodes IAM role to exchange temporary IAM credentials only when the role session name matches the CN in the x509 certificate installed on your hybrid nodes. You can alternatively use other certificate attributes to uniquely identify your node. The certificate attribute that you use in the trust policy must correspond to the nodeName you set in your nodeadm configuration. For more information, see the [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md").
 
    ```
-   {
+    {
        "Version":"2012-10-17",
        "Statement": [
            {

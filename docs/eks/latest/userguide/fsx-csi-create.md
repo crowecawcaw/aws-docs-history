@@ -33,20 +33,20 @@ The following procedure shows you how to create an IAM role and attach the AWS m
 1. Create an IAM role and attach the AWS managed policy with the following command. Replace `my-cluster` with the name of the cluster you want to use. The command deploys an AWS CloudFormation stack that creates an IAM role and attaches the IAM policy to it.
 
 ```
-eksctl create iamserviceaccount \
+ eksctl create iamserviceaccount \
     --name fsx-csi-controller-sa \
     --namespace kube-system \
     --cluster my-cluster \
     --role-name AmazonEKS_FSx_CSI_DriverRole \
     --role-only \
-    --attach-policy-arn arn:aws:iam::aws:policy/AmazonFSxFullAccess \
+    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonFSxFullAccess \
     --approve
 ```
 
 You’ll see several lines of output as the service account is created. The last lines of output are similar to the following.
 
 ```
-[ℹ]  1 task: {
+ [ℹ]  1 task: {
     2 sequential sub-tasks: {
         create IAM role for serviceaccount "kube-system/fsx-csi-controller-sa",
         create serviceaccount "kube-system/fsx-csi-controller-sa",
@@ -70,7 +70,7 @@ We recommend that you install the Amazon FSx CSI driver through the Amazon EKS a
 Pre-existing Amazon FSx CSI driver installations in the cluster can cause add-on installation failures. When you attempt to install the Amazon EKS add-on version while a non-EKS FSx CSI Driver exists, the installation will fail due to resource conflicts. Use the `OVERWRITE` flag during installation to resolve this issue.
 
 ```
-aws eks create-addon --addon-name aws-fsx-csi-driver --cluster-name my-cluster --resolve-conflicts OVERWRITE
+ aws eks create-addon --addon-name aws-fsx-csi-driver --cluster-name my-cluster --resolve-conflicts OVERWRITE
 ```
 
 Alternatively, if you want a self-managed installation of the Amazon FSx CSI driver, see [Installation](https://github.com/kubernetes-sigs/aws-fsx-csi-driver/blob/master/docs/install.md "https://github.com/kubernetes-sigs/aws-fsx-csi-driver/blob/master/docs/install.md") on GitHub.
@@ -82,20 +82,20 @@ This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver
 1. Note the security group for your cluster. You can see it in the AWS Management Console under the **Networking** section or by using the following AWS CLI command. Replace `my-cluster` with the name of the cluster you want to use.
 
 ```
-aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId
+ aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId
 ```
 
 2. Create a security group for your Amazon FSx file system according to the criteria shown in [Amazon VPC Security Groups](../../../fsx/latest/LustreGuide/limit-access-security-groups.md#fsx-vpc-security-groups "../../../fsx/latest/LustreGuide/limit-access-security-groups.md#fsx-vpc-security-groups") in the Amazon FSx for Lustre User Guide. For the **VPC**, select the VPC of your cluster as shown under the **Networking** section. For "the security groups associated with your Lustre clients", use your cluster security group. You can leave the outbound rules alone to allow **All traffic**.
 3. Download the storage class manifest with the following command.
 
 ```
-curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/storageclass.yaml
+ curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/storageclass.yaml
 ```
 
 4. Edit the parameters section of the `storageclass.yaml` file. Replace every example value with your own values.
 
 ```
-parameters:
+ parameters:
   subnetId: subnet-0eabfaa81fb22bcaf
   securityGroupIds: sg-068000ccf82dfba88
   deploymentType: PERSISTENT_1
@@ -108,7 +108,7 @@ parameters:
   fileSystemTypeVersion: "2.12"
 ```
 
-    * **`subnetId`** – The subnet ID that the Amazon FSx for Lustre file system should be created in. Amazon FSx for Lustre isn’t supported in all Availability Zones. Open the Amazon FSx for Lustre console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/") to confirm that the subnet that you want to use is in a supported Availability Zone. The subnet can include your nodes, or can be a different subnet or VPC:
+    * **`subnetId`** – The subnet ID that the Amazon FSx for Lustre file system should be created in. Amazon FSx for Lustre isn’t supported in all Availability Zones. Open the Amazon FSx for Lustre console at https://console.aws.amazon.com/fsx/ to confirm that the subnet that you want to use is in a supported Availability Zone. The subnet can include your nodes, or can be a different subnet or VPC:
 
 
 
@@ -122,25 +122,25 @@ parameters:
 5. Create the storage class manifest.
 
 ```
-kubectl apply -f storageclass.yaml
+ kubectl apply -f storageclass.yaml
 ```
 
 An example output is as follows.
 
 ```
-storageclass.storage.k8s.io/fsx-sc created
+ storageclass.storage.k8s.io/fsx-sc created
 ```
 
 6. Download the persistent volume claim manifest.
 
 ```
-curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/claim.yaml
+ curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/claim.yaml
 ```
 
 7. (Optional) Edit the `claim.yaml` file. Change `1200Gi` to one of the following increment values, based on your storage requirements and the `deploymentType` that you selected in a previous step.
 
 ```
-storage: 1200Gi
+ storage: 1200Gi
 ```
 
     * `SCRATCH_2` and `PERSISTENT` – `1.2 TiB`, `2.4 TiB`, or increments of 2.4 TiB over 2.4 TiB.
@@ -149,25 +149,25 @@ storage: 1200Gi
 8. Create the persistent volume claim.
 
 ```
-kubectl apply -f claim.yaml
+ kubectl apply -f claim.yaml
 ```
 
 An example output is as follows.
 
 ```
-persistentvolumeclaim/fsx-claim created
+ persistentvolumeclaim/fsx-claim created
 ```
 
 9. Confirm that the file system is provisioned.
 
 ```
-kubectl describe pvc
+ kubectl describe pvc
 ```
 
 An example output is as follows.
 
 ```
-Name:          fsx-claim
+ Name:          fsx-claim
 Namespace:     default
 StorageClass:  fsx-sc
 Status:        Bound
@@ -179,32 +179,32 @@ Status:        Bound
 The `Status` may show as `Pending` for 5-10 minutes, before changing to `Bound`. Don’t continue with the next step until the `Status` is `Bound`. If the `Status` shows `Pending` for more than 10 minutes, use warning messages in the `Events` as reference for addressing any problems. 10. Deploy the sample application.
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/pod.yaml
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-fsx-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/pod.yaml
 ```
 
 11. Verify that the sample application is running.
 
 ```
-kubectl get pods
+ kubectl get pods
 ```
 
 An example output is as follows.
 
 ```
-NAME      READY   STATUS              RESTARTS   AGE
+ NAME      READY   STATUS              RESTARTS   AGE
 fsx-app   1/1     Running             0          8s
 ```
 
 12. Verify that the file system is mounted correctly by the application.
 
 ```
-kubectl exec -ti fsx-app -- df -h
+ kubectl exec -ti fsx-app -- df -h
 ```
 
 An example output is as follows.
 
 ```
-Filesystem                   Size  Used Avail Use% Mounted on
+ Filesystem                   Size  Used Avail Use% Mounted on
 overlay                       80G  4.0G   77G   5% /
 tmpfs                         64M     0   64M   0% /dev
 tmpfs                        3.8G     0  3.8G   0% /sys/fs/cgroup
@@ -219,13 +219,13 @@ tmpfs                        3.8G     0  3.8G   0% /sys/firmware
 13. Verify that data was written to the FSx for Lustre file system by the sample app.
 
 ```
-kubectl exec -it fsx-app -- ls /data
+ kubectl exec -it fsx-app -- ls /data
 ```
 
 An example output is as follows.
 
 ```
-out.txt
+ out.txt
 ```
 
 This example output shows that the sample app successfully wrote the `out.txt` file to the file system.

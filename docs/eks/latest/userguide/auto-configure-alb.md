@@ -39,7 +39,7 @@ To begin, create a workload that you want to expose to the internet. This can be
 This example uses a simple HTTP service called `service-2048` that listens on port `80`. Create this service and its deployment by applying the following manifest, `2048-deployment-service.yaml`:
 
 ```
----
+ ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -78,13 +78,13 @@ spec:
 Apply the configuration to your cluster:
 
 ```
-kubectl apply -f 2048-deployment-service.yaml
+ kubectl apply -f 2048-deployment-service.yaml
 ```
 
 The resources listed above will be created in the default namespace. You can verify this by running the following command:
 
 ```
-kubectl get all -n default
+ kubectl get all -n default
 ```
 
 ## Step 2: Create IngressClassParams
@@ -92,7 +92,7 @@ kubectl get all -n default
 Create an `IngressClassParams` object to specify AWS specific configuration options for the Application Load Balancer. In this example, we create an `IngressClassParams` resource named `alb` (which you will use in the next step) that specifies the load balancer scheme as `internet-facing` in a file called `alb-ingressclassparams.yaml`.
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: IngressClassParams
 metadata:
   name: alb
@@ -103,7 +103,7 @@ spec:
 Apply the configuration to your cluster:
 
 ```
-kubectl apply -f alb-ingressclassparams.yaml
+ kubectl apply -f alb-ingressclassparams.yaml
 ```
 
 ## Step 3: Create IngressClass
@@ -113,7 +113,7 @@ Create an `IngressClass` that references the AWS specific configuration values s
 Use the `is-default-class` annotation to control if `Ingress` resources should use this class by default.
 
 ```
-apiVersion: networking.k8s.io/v1
+ apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
   name: alb
@@ -136,7 +136,7 @@ For more information on configuration options, see [IngressClassParams Reference
 Apply the configuration to your cluster:
 
 ```
-kubectl apply -f alb-ingressclass.yaml
+ kubectl apply -f alb-ingressclass.yaml
 ```
 
 ## Step 4: Create Ingress
@@ -146,7 +146,7 @@ Create an `Ingress` resource in a file named `alb-ingress.yaml`. The purpose of 
 For more information about configuring this resource, see [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/ "https://kubernetes.io/docs/concepts/services-networking/ingress/") in the Kubernetes Documentation.
 
 ```
-apiVersion: networking.k8s.io/v1
+ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: 2048-ingress
@@ -169,7 +169,7 @@ spec:
 Apply the configuration to your cluster:
 
 ```
-kubectl apply -f alb-ingress.yaml
+ kubectl apply -f alb-ingress.yaml
 ```
 
 ## Step 5: Check Status
@@ -179,13 +179,13 @@ Use `kubectl` to find the status of the `Ingress`. It can take a few minutes for
 Use the name of the `Ingress` resource you set in the previous step. For example:
 
 ```
-kubectl get ingress 2048-ingress
+ kubectl get ingress 2048-ingress
 ```
 
 Once the resource is ready, retrieve the domain name of the load balancer.
 
 ```
-kubectl get ingress 2048-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+ kubectl get ingress 2048-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
 ```
 
 To view the service in a web browser, review the port and path specified in the `Ingress` rescue.
@@ -195,7 +195,7 @@ To view the service in a web browser, review the port and path specified in the 
 To clean up the load balancer, use the following command:
 
 ```
-kubectl delete ingress 2048-ingress
+ kubectl delete ingress 2048-ingress
 kubectl delete ingressclass alb
 kubectl delete ingressclassparams alb
 ```

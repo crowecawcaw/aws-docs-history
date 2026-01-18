@@ -17,7 +17,7 @@ Detective organizes Kubernetes and AWS data into findings such as:
 
 Before you can review findings, Detective must be enabled for at least 48 hours in the same AWS Region that your cluster is in. For more information, see [Setting up Amazon Detective](../../../detective/latest/adminguide/detective-setup.md "../../../detective/latest/adminguide/detective-setup.md") in the _Amazon Detective User Guide_.
 
-1. Open the Detective console at [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/ "https://console.aws.amazon.com/detective/").
+1. Open the Detective console at https://console.aws.amazon.com/detective/.
 2. From the left navigation pane, select **Search**.
 3. Select **Choose type** and then select **EKS cluster**.
 4. Enter the cluster name or ARN and then choose **Search**.

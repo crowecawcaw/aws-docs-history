@@ -52,7 +52,7 @@ Run the command for the type of resource that you want to see. All returned reso
 The following command returns all of the Amazon EKS created Kubernetes `ClusterRoles` on your cluster.
 
 ```
-kubectl get clusterroles | grep eks
+ kubectl get clusterroles | grep eks
 ```
 
 In addition to the `ClusterRoles` returned in the output that are prefaced with, the following `ClusterRoles` exist.
@@ -64,13 +64,13 @@ To see the specification for a `ClusterRole`, replace `eks:k8s-metrics` in the f
 `ClusterRole`.
 
 ```
-kubectl describe clusterrole eks:k8s-metrics
+ kubectl describe clusterrole eks:k8s-metrics
 ```
 
 An example output is as follows.
 
 ```
-Name:         eks:k8s-metrics
+ Name:         eks:k8s-metrics
 Labels:       <none>
 Annotations:  <none>
 PolicyRule:
@@ -88,7 +88,7 @@ PolicyRule:
 The following command returns all of the Amazon EKS created Kubernetes `ClusterRoleBindings` on your cluster.
 
 ```
-kubectl get clusterrolebindings | grep eks
+ kubectl get clusterrolebindings | grep eks
 ```
 
 In addition to the `ClusterRoleBindings` returned in the output, the following `ClusterRoleBindings` exist.
@@ -100,13 +100,13 @@ To see the specification for a `ClusterRoleBinding`, replace `eks:k8s-metrics` i
 `ClusterRoleBinding`.
 
 ```
-kubectl describe clusterrolebinding eks:k8s-metrics
+ kubectl describe clusterrolebinding eks:k8s-metrics
 ```
 
 An example output is as follows.
 
 ```
-Name:         eks:k8s-metrics
+ Name:         eks:k8s-metrics
 Labels:       <none>
 Annotations:  <none>
 Role:
@@ -123,20 +123,20 @@ Subjects:
 The following command returns all of the Amazon EKS created Kubernetes `Roles` on your cluster.
 
 ```
-kubectl get roles -n kube-system | grep eks
+ kubectl get roles -n kube-system | grep eks
 ```
 
 To see the specification for a `Role`, replace `eks:k8s-metrics` in the following command with the name of a `Role` returned in the output of the previous command. The following example returns the specification for the `eks:k8s-metrics`
 `Role`.
 
 ```
-kubectl describe role eks:k8s-metrics -n kube-system
+ kubectl describe role eks:k8s-metrics -n kube-system
 ```
 
 An example output is as follows.
 
 ```
-Name:         eks:k8s-metrics
+ Name:         eks:k8s-metrics
 Labels:       <none>
 Annotations:  <none>
 PolicyRule:
@@ -151,20 +151,20 @@ PolicyRule:
 The following command returns all of the Amazon EKS created Kubernetes `RoleBindings` on your cluster.
 
 ```
-kubectl get rolebindings -n kube-system | grep eks
+ kubectl get rolebindings -n kube-system | grep eks
 ```
 
 To see the specification for a `RoleBinding`, replace `eks:k8s-metrics` in the following command with a `RoleBinding` returned in the output of the previous command. The following example returns the specification for the `eks:k8s-metrics`
 `RoleBinding`.
 
 ```
-kubectl describe rolebinding eks:k8s-metrics -n kube-system
+ kubectl describe rolebinding eks:k8s-metrics -n kube-system
 ```
 
 An example output is as follows.
 
 ```
-Name:         eks:k8s-metrics
+ Name:         eks:k8s-metrics
 Labels:       <none>
 Annotations:  <none>
 Role:

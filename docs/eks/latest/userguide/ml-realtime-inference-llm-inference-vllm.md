@@ -23,7 +23,7 @@ For additional guidance and advanced deployment resources, check our [EKS Best P
 Before getting started, ensure you have:
 
 - An Amazon EKS cluster with the following main components: Karpenter nodepools with G5 or G6 EC2 instance family, the NVIDIA Device Plugin installed on your GPU-enabled worker nodes, and the S3 Mountpoint CSI Driver installed. To create this baseline setup, follow steps in [Best Practices Cluster Setup Guide for Real-Time Inference on Amazon EKS](ml-realtime-inference-cluster.md "ml-realtime-inference-cluster.md"), up to completing step #4.
-- A Hugging Face account. To sign up, see [https://huggingface.co/login](https://huggingface.co/login "https://huggingface.co/login").
+- A Hugging Face account. To sign up, see https://huggingface.co/login.
 
 ## Set Up Model Storage with Amazon S3
 
@@ -36,13 +36,13 @@ Other storage solutions are also available on EKS for model caching, such as EFS
 Create a unique name for a new Amazon S3 bucket that we will create later in this guide. Once created, use this same bucket name for all steps. For example:
 
 ```
-MY_BUCKET_NAME=model-store-$(date +%s)
+ MY_BUCKET_NAME=model-store-$(date +%s)
 ```
 
 Define environment variables and store them in a file:
 
 ```
-cat << EOF > .env-quickstart-vllm
+ cat << EOF > .env-quickstart-vllm
 export BUCKET_NAME=${MY_BUCKET_NAME}
 export AWS_REGION=us-east-1
 export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
@@ -52,7 +52,7 @@ EOF
 Load environment variables in your shell environment. If you close the current shell environment and open a new one, make sure to re-source environment variables using this same command:
 
 ```
-source .env-quickstart-vllm
+ source .env-quickstart-vllm
 ```
 
 ### Create an S3 bucket to store model files
@@ -60,38 +60,38 @@ source .env-quickstart-vllm
 Create an S3 bucket to store model files:
 
 ```
-aws s3 mb s3://${BUCKET_NAME} --region ${AWS_REGION}
+ aws s3 mb s3://${BUCKET_NAME} --region ${AWS_REGION}
 ```
 
 ### Download model from Hugging Face
 
 Hugging Face is one of the main model hubs for accessing LLM models. To download the Llama model, you’ll need to accept the model license and set up token authentication:
 
-1. Accept the Llama 3.1 8B Instruct model license at [https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct").
+1. Accept the Llama 3.1 8B Instruct model license at https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct.
 2. Generate an access token (go to your Profile > Settings > Access Tokens, then create a new token using Read token type).
 
 Set an environment variable with your Hugging Face token:
 
 ```
-export HF_TOKEN=your_token_here
+ export HF_TOKEN=your_token_here
 ```
 
 Install pip3 package if not already installed in your environment. Example command in Amazon Linux 2023:
 
 ```
-sudo dnf install -y python3-pip
+ sudo dnf install -y python3-pip
 ```
 
 Install the [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli "https://huggingface.co/docs/huggingface_hub/main/en/guides/cli"):
 
 ```
-pip install huggingface-hub
+ pip install huggingface-hub
 ```
 
 Download Llama-3.1-8B-Instruct model from Hugging Face (~15 GB) using the `--exclude` flag to skip the legacy PyTorch format and only download the optimized safetensors format files, which reduces download size while maintaining full compatibility with popular inference engines:
 
 ```
-huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct \
+ huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct \
   --exclude "original/*" \
   --local-dir ./llama-3.1-8b-instruct \
   --token $HF_TOKEN
@@ -100,13 +100,13 @@ huggingface-cli download meta-llama/Meta-Llama-3.1-8B-Instruct \
 Verify the downloaded files:
 
 ```
-$ ls llama-3.1-8b-instruct
+ $ ls llama-3.1-8b-instruct
 ```
 
 The expected output should look like this:
 
 ```
-LICENSE        config.json                       model-00002-of-00004.safetensors  model.safetensors.index.json  tokenizer_config.json
+ LICENSE        config.json                       model-00002-of-00004.safetensors  model.safetensors.index.json  tokenizer_config.json
 README.md      generation_config.json            model-00003-of-00004.safetensors  special_tokens_map.json
 USE_POLICY.md  model-00001-of-00004.safetensors  model-00004-of-00004.safetensors  tokenizer.json
 ```
@@ -116,20 +116,20 @@ USE_POLICY.md  model-00001-of-00004.safetensors  model-00004-of-00004.safetensor
 Enable AWS Common Runtime (CRT) for improved S3 transfer performance. The CRT-based transfer client provides enhanced throughput and reliability for large file operations:
 
 ```
-aws configure set s3.preferred_transfer_client crt
+ aws configure set s3.preferred_transfer_client crt
 ```
 
 Upload the model:
 
 ```
-aws s3 cp ./llama-3.1-8b-instruct s3://$BUCKET_NAME/llama-3.1-8b-instruct \
+ aws s3 cp ./llama-3.1-8b-instruct s3://$BUCKET_NAME/llama-3.1-8b-instruct \
   --recursive
 ```
 
 The expected output should look like this:
 
 ```
-...
+ ...
 upload: llama-3.1-8b-instruct/tokenizer.json to s3://model-store-1753EXAMPLE/llama-3.1-8b-instruct/tokenizer.json
 upload: llama-3.1-8b-instruct/model-00004-of-00004.safetensors to s3://model-store-1753890326/llama-3.1-8b-instruct/model-00004-of-00004.safetensors
 upload: llama-3.1-8b-instruct/model-00002-of-00004.safetensors to s3://model-store-1753890326/llama-3.1-8b-instruct/model-00002-of-00004.safetensors
@@ -144,7 +144,7 @@ The S3 Mountpoint CSI driver enables native integration between Kubernetes and S
 Create an IAM policy to allow the S3 mount point to read from your S3 bucket:
 
 ```
-aws iam create-policy \
+ aws iam create-policy \
   --policy-name S3BucketAccess-${BUCKET_NAME} \
   --policy-document "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\", \"s3:GetObjectVersion\", \"s3:ListBucket\", \"s3:GetBucketLocation\"], \"Resource\": [\"arn:aws:s3:::${BUCKET_NAME}\", \"arn:aws:s3:::${BUCKET_NAME}/*\"]}]}"
 ```
@@ -152,13 +152,13 @@ aws iam create-policy \
 Find the IAM role name used by the S3 Mountpoint CSI Driver by checking S3 CSI Driver service account annotations:
 
 ```
-ROLE_NAME=$(kubectl get serviceaccount s3-csi-driver-sa -n kube-system -o jsonpath='{.metadata.annotations.eks\.amazonaws\.com/role-arn}' | cut -d'/' -f2)
+ ROLE_NAME=$(kubectl get serviceaccount s3-csi-driver-sa -n kube-system -o jsonpath='{.metadata.annotations.eks\.amazonaws\.com/role-arn}' | cut -d'/' -f2)
 ```
 
 Attach your IAM policy with the S3 Mountpoint CSI role:
 
 ```
-aws iam attach-role-policy \
+ aws iam attach-role-policy \
  --role-name ${ROLE_NAME} \
  --policy-arn arn:aws:iam::${AWS_ACCOUNT_ID}:policy/S3BucketAccess-${BUCKET_NAME}
 ```
@@ -170,7 +170,7 @@ If S3 Mountpoint CSI is not installed in the cluster, follow the deployment step
 Create a Persistent Volume (PV) and Persistent Volume Claim (PVC) to provide read-only access to the S3 bucket across multiple inference pods. The ReadOnlyMany access mode ensures concurrent access to model files, while the CSI driver handles the S3 bucket mounting:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -230,7 +230,7 @@ Test your cluster’s GPU capabilities by executing the steps below to ensure po
 Deploy an Nvidia SMI test pod:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -258,12 +258,12 @@ EOF
 Review pod logs to check that GPU details are listed, similar to output below (not necessarily the same GPU model):
 
 ```
-$ kubectl wait --for=jsonpath='{.status.phase}'=Succeeded pod/gpu-nvidia-smi-test
+ $ kubectl wait --for=jsonpath='{.status.phase}'=Succeeded pod/gpu-nvidia-smi-test
 $ kubectl logs gpu-nvidia-smi-test
 ```
 
 ```
-Wed Jul 30 15:39:58 2025
+ Wed Jul 30 15:39:58 2025
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.172.08             Driver Version: 570.172.08     CUDA Version: 12.9     |
 |-----------------------------------------+------------------------+----------------------+
@@ -300,7 +300,7 @@ The serving stack determines both performance and scalability capabilities of yo
 For this deployment, we’ll use the AWS DLC for vLLM 0.9, which includes Nvidia libraries and optimized GPU performance configurations specifically tuned for transformer model inference on AWS GPU instances.
 
 ```
-image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/vllm:0.9-gpu-py312-ec2
+ image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/vllm:0.9-gpu-py312-ec2
 ```
 
 ### Apply vLLM Kubernetes manifests
@@ -310,7 +310,7 @@ There are multiple ways to deploy vLLM in EKS. This guide demonstrates vLLM depl
 Define deployment parameters through Kubernetes manifests to control resource allocation, node placement, health probes, exposing the service, etc. Configure your deployment to run a GPU-enabled pod using AWS Deep Learning Container image for vLLM. Set optimized parameters for LLM inference and expose the vLLM OpenAPI-compatible endpoint via AWS Load Balancer service:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -391,13 +391,13 @@ EOF
 Check that vLLM pod is in `Ready 1/1` state:
 
 ```
-kubectl get pod -l app=vllm-inference-app -w
+ kubectl get pod -l app=vllm-inference-app -w
 ```
 
 Expected output:
 
 ```
-NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+ NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
 vllm-inference-app-65df5fddc8-5kmjm   1/1     1            1           5m
 ```
 
@@ -408,14 +408,14 @@ It may take several minutes while the container image is pulled and vLLM loads m
 Expose the inference endpoint locally through the Kubernetes port forwarding for local development and testing. Leave this command running in a separate terminal window:
 
 ```
-export POD_NAME=$(kubectl get pod -l app=vllm-inference-app -o jsonpath='{.items[0].metadata.name}')
+ export POD_NAME=$(kubectl get pod -l app=vllm-inference-app -o jsonpath='{.items[0].metadata.name}')
 kubectl port-forward pod/$POD_NAME 8000:8000
 ```
 
 The AWS Load Balancer Controller automatically creates a Network Load Balancer that exposes vLLM service endpoint externally. Fetch the NLB endpoint by running:
 
 ```
-NLB=$(kubectl get service vllm-inference-svc -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+ NLB=$(kubectl get service vllm-inference-svc -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
 Need to install AWS Load Balancer Controller? Follow the deployment steps in [Route internet traffic with AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md").
@@ -427,11 +427,11 @@ Need to install AWS Load Balancer Controller? Follow the deployment steps in [Ro
 Validate the inference container functionality locally through the forwarded port. Send a connection request and ensure that the response includes HTTP code 200:
 
 ```
-$ curl -IX GET "http://localhost:8000/v1/models"
+ $ curl -IX GET "http://localhost:8000/v1/models"
 ```
 
 ```
-HTTP/1.1 200 OK
+ HTTP/1.1 200 OK
 date: Mon, 13 Oct 2025 23:24:57 GMT
 server: uvicorn
 content-length: 516
@@ -441,7 +441,7 @@ content-type: application/json
 Test inference capabilities and validate external connectivity by sending a completion request to the LLM via the NLB endpoint:
 
 ```
-curl -X POST "http://$NLB:80/v1/completions" \
+ curl -X POST "http://$NLB:80/v1/completions" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "/mnt/models/llama-3.1-8b-instruct",
@@ -460,14 +460,14 @@ For demonstration, this guide runs a sample chatbot application using project [n
 Run a chatbot UI as a Docker container that maps port 3000 to localhost and connects to the vLLM NLB endpoint:
 
 ```
-docker run --rm \
+ docker run --rm \
   -p 3000:3000 \
   -e VLLM_URL="http://${NLB}:80" \
   --name nextjs-vllm-ui-demo \
   ghcr.io/yoziru/nextjs-vllm-ui:latest
 ```
 
-Open your web browser and navigate to: [http://localhost:3000/](http://localhost:3000/ "http://localhost:3000/")
+Open your web browser and navigate to: http://localhost:3000/
 
 You should see the chat interface where you can interact with the Llama model.
 
@@ -497,7 +497,7 @@ This is the baseline configuration that was used to run vLLM:
 Run GuideLLM with this baseline setup to establish a performance baseline. For this test, GuideLLM is configured to generate 1 request per second, with 256-token requests and 128-token responses.
 
 ```
-guidellm benchmark \
+ guidellm benchmark \
 --target "http://${NLB}:80" \
 --processor meta-llama/Llama-3.1-8B-Instruct \
 --rate-type constant \
@@ -526,7 +526,7 @@ Adjust vLLM parameters to better utilize GPU resources and parallelization:
 Apply these changes to the running deployment using kubectl patch command:
 
 ```
-kubectl patch deployment vllm-inference-app --type='json' -p='[
+ kubectl patch deployment vllm-inference-app --type='json' -p='[
   {"op": "replace", "path": "/spec/template/spec/containers/0/args/4", "value": "--gpu-memory-utilization=0.92"},
   {"op": "replace", "path": "/spec/template/spec/containers/0/args/5", "value": "--max-model-len=4096"},
   {"op": "replace", "path": "/spec/template/spec/containers/0/args/6", "value": "--max-num-seqs=8"}
@@ -536,20 +536,20 @@ kubectl patch deployment vllm-inference-app --type='json' -p='[
 Check that vLLM pod is in `Ready 1/1` state:
 
 ```
-kubectl get pod -l app=vllm-inference-app -w
+ kubectl get pod -l app=vllm-inference-app -w
 ```
 
 Expected output:
 
 ```
-NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+ NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
 vllm-inference-app-65df5fddc8-5kmjm   1/1     1            1           5m
 ```
 
 Then run GuideLLM again using the same benchmarking values as before:
 
 ```
-guidellm benchmark \
+ guidellm benchmark \
 --target "http://${NLB}:80" \
 --processor meta-llama/Llama-3.1-8B-Instruct \
 --rate-type constant \

@@ -69,7 +69,7 @@ Map AWS Identity Center users and groups to Argo CD roles when creating or updat
 **Example role mapping**:
 
 ```
-{
+ {
   "rbacRoleMapping": {
     "ADMIN": ["AdminGroup", "alice@example.com"],
     "EDITOR": ["DeveloperGroup", "DevOpsTeam"],
@@ -90,12 +90,12 @@ An identity can be a user or a group.
 **Update role mappings**:
 
 ```
-aws eksfe update-capability \
-  --region `us-east-1` \
-  --cluster-name `cluster` \
-  --capability-name `capname` \
-  --endpoint "https://eks.`ap-northeast-2`.amazonaws.com" \
-  --role-arn "arn:aws:iam::[.replaceable]`111122223333`:role/[.replaceable]`EKSCapabilityRole`" \
+ aws eksfe update-capability \
+  --region <replaceable>us-east-1</replaceable> \
+  --cluster-name <replaceable>cluster</replaceable> \
+  --capability-name <replaceable>capname</replaceable> \
+  --endpoint "https://eks.<replaceable>ap-northeast-2</replaceable>.amazonaws.com" \
+  --role-arn "arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/[.replaceable]`EKSCapabilityRole`" \
   --configuration '{
     "argoCd": {
       "rbacRoleMappings": {
@@ -161,7 +161,7 @@ Projects provide:
 **Example project for team isolation**:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: team-a
@@ -206,7 +206,7 @@ Users with EDITOR or VIEWER roles can be restricted to specific projects.
 ADMIN users have access to all projects.
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: team-a
@@ -245,7 +245,7 @@ Find these IDs in the AWS Identity Center console or using the AWS CLI.
 **Pattern 1: Admin team with full access**
 
 ```
-{
+ {
   "rbacRoleMapping": {
     "ADMIN": ["PlatformTeam", "SRETeam"]
   }
@@ -255,7 +255,7 @@ Find these IDs in the AWS Identity Center console or using the AWS CLI.
 **Pattern 2: Developers can deploy, others can view**
 
 ```
-{
+ {
   "rbacRoleMapping": {
     "ADMIN": ["PlatformTeam"],
     "EDITOR": ["DevelopmentTeam", "DevOpsTeam"],
@@ -271,7 +271,7 @@ Find these IDs in the AWS Identity Center console or using the AWS CLI.
 3. Use project roles to restrict access to team-specific applications
 
 ```
-{
+ {
   "rbacRoleMapping": {
     "ADMIN": ["PlatformTeam"],
     "EDITOR": ["AllDevelopers"]
@@ -302,7 +302,7 @@ To use AWS services directly in Application resources (without creating Reposito
 **ECR for Helm charts**:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -322,7 +322,7 @@ To use AWS services directly in Application resources (without creating Reposito
 **CodeCommit repositories**:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -339,7 +339,7 @@ To use AWS services directly in Application resources (without creating Reposito
 **CodeConnections (GitHub, GitLab, Bitbucket)**:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {

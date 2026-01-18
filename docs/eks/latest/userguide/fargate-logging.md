@@ -28,7 +28,7 @@ In the following steps, replace every `example value` with your own values.
    1. Save the following contents to a file named `aws-observability-namespace.yaml` on your computer. The value for `name` must be `aws-observability` and the `aws-observability: enabled` label is required.
 
    ```
-   kind: Namespace
+    kind: Namespace
    apiVersion: v1
    metadata:
      name: aws-observability
@@ -39,7 +39,7 @@ In the following steps, replace every `example value` with your own values.
    2. Create the namespace.
 
    ```
-   kubectl apply -f aws-observability-namespace.yaml
+    kubectl apply -f aws-observability-namespace.yaml
    ```
 
 2. Create a `ConfigMap` with a `Fluent Conf` data value to ship container logs to a destination. Fluent Conf is Fluent Bit, which is a fast and lightweight log processor configuration language that’s used to route container logs to a log destination of your choice. For more information, see [Configuration File](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file "https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file") in the Fluent Bit documentation.
@@ -54,7 +54,7 @@ The main sections included in a typical `Fluent Conf` are `Service`, `Input`, `F
 The Fargate log router manages the `Service` and `Input` sections. It has the following `Input` section, which can’t be modified and isn’t needed in your `ConfigMap`. However, you can get insights from it, such as the memory buffer limit and the tag applied for logs.
 
 ```
-[INPUT]
+ [INPUT]
     Name tail
     Buffer_Max_Size 66KB
     DB /var/log/flb_kube.db
@@ -106,7 +106,7 @@ The following example shows you how to use the `cloudwatch_logs` plugin to send 
 
 
     ```
-    kind: ConfigMap
+     kind: ConfigMap
     apiVersion: v1
     metadata:
       name: aws-logging
@@ -148,7 +148,7 @@ The following example shows you how to use the `cloudwatch_logs` plugin to send 
 
 
     ```
-    kubectl apply -f aws-logging-cloudwatch-configmap.yaml
+     kubectl apply -f aws-logging-cloudwatch-configmap.yaml
     ```
 
 Amazon OpenSearch Service
@@ -159,7 +159,7 @@ If you want to send logs to Amazon OpenSearch Service, you can use [es](https://
 
 
     ```
-    kind: ConfigMap
+     kind: ConfigMap
     apiVersion: v1
     metadata:
       name: aws-logging
@@ -169,12 +169,12 @@ If you want to send logs to Amazon OpenSearch Service, you can use [es](https://
         [OUTPUT]
           Name  es
           Match *
-          Host  `search-example-gjxdcilagiprbglqn42jsty66y`.`region-code`.es.amazonaws.com
+          Host  <replaceable>search-example-gjxdcilagiprbglqn42jsty66y</replaceable>.<replaceable>region-code</replaceable>.es.amazonaws.com
           Port  443
-          Index `example`
-          Type  `example_type`
+          Index <replaceable>example</replaceable>
+          Type  <replaceable>example_type</replaceable>
           AWS_Auth On
-          AWS_Region `region-code`
+          AWS_Region <replaceable>region-code</replaceable>
           tls   On
     ```
     2. Apply the manifest to your cluster.
@@ -182,7 +182,7 @@ If you want to send logs to Amazon OpenSearch Service, you can use [es](https://
 
 
     ```
-    kubectl apply -f aws-logging-opensearch-configmap.yaml
+     kubectl apply -f aws-logging-opensearch-configmap.yaml
     ```
 
 Firehose
@@ -202,7 +202,7 @@ You have two output options when sending logs to Firehose:
 
 
     	```
-    	kind: ConfigMap
+    	 kind: ConfigMap
     	apiVersion: v1
     	metadata:
     	  name: aws-logging
@@ -212,7 +212,7 @@ You have two output options when sending logs to Firehose:
     	    [OUTPUT]
     	     Name  kinesis_firehose
     	     Match *
-    	     region `region-code`
+    	     region <replaceable>region-code</replaceable>
     	     delivery_stream my-stream-firehose
     	```
     	2. Apply the manifest to your cluster.
@@ -220,7 +220,7 @@ You have two output options when sending logs to Firehose:
 
 
     	```
-    	kubectl apply -f aws-logging-firehose-configmap.yaml
+    	 kubectl apply -f aws-logging-firehose-configmap.yaml
     	```
 
 3. Set up permissions for the Fargate Pod execution role to send logs to your destination.
@@ -230,14 +230,14 @@ You have two output options when sending logs to Firehose:
    Download the CloudWatch IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json "https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json") on GitHub.
 
    ```
-   curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json
+    curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/cloudwatchlogs/permissions.json
    ```
 
    Amazon OpenSearch Service
    Download the OpenSearch IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/amazon-elasticsearch/permissions.json "https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/amazon-elasticsearch/permissions.json") on GitHub.
 
    ```
-   curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/amazon-elasticsearch/permissions.json
+    curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/amazon-elasticsearch/permissions.json
    ```
 
    Make sure that OpenSearch Dashboards' access control is configured properly. The `all_access role` in OpenSearch Dashboards needs to have the Fargate Pod execution role and the IAM role mapped. The same mapping must be done for the `security_manager` role. You can add the previous mappings by selecting `Menu`, then `Security`, then `Roles`, and then select the respective roles. For more information, see [How do I troubleshoot CloudWatch Logs so that it streams to my Amazon ES domain?](https://aws.amazon.com/tr/premiumsupport/knowledge-center/es-troubleshoot-cloudwatch-logs/ "https://aws.amazon.com/tr/premiumsupport/knowledge-center/es-troubleshoot-cloudwatch-logs/").
@@ -246,22 +246,21 @@ You have two output options when sending logs to Firehose:
    Download the Firehose IAM policy to your computer. You can also [view the policy](https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json "https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json") on GitHub.
 
    ```
-   curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json
+    curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json
    ```
 
    2. Create an IAM policy from the policy file that you downloaded.
 
    ```
-   aws iam create-policy --policy-name eks-fargate-logging-policy --policy-document file://permissions.json
+    aws iam create-policy --policy-name eks-fargate-logging-policy --policy-document file://permissions.json
    ```
 
    3. Attach the IAM policy to the pod execution role specified for your Fargate profile with the following command. Replace `111122223333` with your account ID. Replace `AmazonEKSFargatePodExecutionRole` with your Pod execution role (for more information, see [Step 2: Create a Fargate Pod execution role](fargate-getting-started.md#fargate-sg-pod-execution-role "fargate-getting-started.md#fargate-sg-pod-execution-role")).
 
    ```
-   aws iam attach-role-policy \
-     --policy-arn arn:aws:iam::`111122223333`:policy/eks-fargate-logging-policy \
-     --role-name `AmazonEKSFargatePodExecutionRole`
-
+    aws iam attach-role-policy \
+     --policy-arn <shared id="region.arn"/>iam::<replaceable>111122223333</replaceable>:policy/eks-fargate-logging-policy \
+     --role-name <replaceable>AmazonEKSFargatePodExecutionRole</replaceable>
    ```
 
 ### Kubernetes filter support
@@ -269,13 +268,13 @@ You have two output options when sending logs to Firehose:
 The Fluent Bit Kubernetes filter allows you to add Kubernetes metadata to your log files. For more information about the filter, see [Kubernetes](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes "https://docs.fluentbit.io/manual/pipeline/filters/kubernetes") in the Fluent Bit documentation. You can apply a filter using the API server endpoint.
 
 ```
-filters.conf: |
+ filters.conf: |
     [FILTER]
         Name             kubernetes
         Match            kube.*
         Merge_Log           On
         Buffer_Size         0
-        Kube_Meta_Cache_TTL `300`s
+        Kube_Meta_Cache_TTL <replaceable>300</replaceable>s
 ```
 
 ###### Important
@@ -288,7 +287,7 @@ filters.conf: |
 You can optionally ship Fluent Bit process logs to Amazon CloudWatch using the following `ConfigMap`. Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion and storage costs. Replace `region-code` with the AWS Region that your cluster is in.
 
 ```
-kind: ConfigMap
+ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: aws-logging
@@ -303,7 +302,7 @@ data:
     [OUTPUT]
         Name cloudwatch
         Match kube.*
-        region `region-code`
+        region <replaceable>region-code</replaceable>
         log_group_name fluent-bit-cloudwatch
         log_stream_prefix from-fluent-bit-
         auto_create_group true
@@ -331,11 +330,11 @@ Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion
    1. Save the following contents to a file named `sample-app.yaml` on your computer.
 
    ```
-   apiVersion: apps/v1
+    apiVersion: apps/v1
    kind: Deployment
    metadata:
      name: sample-app
-     namespace: `same-namespace-as-your-fargate-profile`
+     namespace: <replaceable>same-namespace-as-your-fargate-profile</replaceable>
    spec:
      replicas: 3
      selector:
@@ -357,7 +356,7 @@ Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion
    2. Apply the manifest to the cluster.
 
    ```
-   kubectl apply -f sample-app.yaml
+    kubectl apply -f sample-app.yaml
    ```
 
 2. View the NGINX logs using the destination(s) that you configured in the `ConfigMap`.
@@ -371,7 +370,7 @@ We suggest that you plan for up to 50 MB of memory for the log router. If you ex
 To confirm whether the logging feature is enabled or disabled for some reason, such as an invalid `ConfigMap`, and why it’s invalid, check your Pod events with `kubectl describe pod `pod-name``. The output might include Pod events that clarify whether logging is enabled or not, such as the following example output.
 
 ```
-[...]
+ [...]
 Annotations:          CapacityProvisioned: 0.25vCPU 0.5GB
                       Logging: LoggingDisabled: LOGGING_CONFIGMAP_NOT_FOUND
 [...]

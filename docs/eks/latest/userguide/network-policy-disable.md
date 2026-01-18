@@ -9,24 +9,24 @@ Disable Kubernetes network policies to stop restricting Amazon EKS Pod network t
 1. List all Kubernetes network policies.
 
 ```
-kubectl get netpol -A
+ kubectl get netpol -A
 ```
 
 2. Delete each Kubernetes network policy. You must delete all network policies before disabling network policies.
 
 ```
-kubectl delete netpol <policy-name>
+ kubectl delete netpol <policy-name>
 ```
 
 3. Open the aws-node DaemonSet in your editor.
 
 ```
-kubectl edit daemonset -n kube-system aws-node
+ kubectl edit daemonset -n kube-system aws-node
 ```
 
 4. Replace the `true` with `false` in the command argument `--enable-network-policy=true` in the `args:` in the `aws-network-policy-agent` container in the VPC CNI `aws-node` daemonset manifest.
 
 ```
-     - args:
+      - args:
         - --enable-network-policy=true
 ```

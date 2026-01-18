@@ -27,7 +27,7 @@ This approach is more secure than storing credentials directly in Argo CD config
 1. Store your Git credentials in Secrets Manager. For example, to store a GitHub personal access token:
 
 ```
-aws secretsmanager create-secret \
+ aws secretsmanager create-secret \
   --name argocd/github-token \
   --secret-string '{"username":"git","password":"ghp_xxxxxxxxxxxx"}'
 ```
@@ -35,7 +35,7 @@ aws secretsmanager create-secret \
 2. Ensure the Argo CD capability role has permissions to retrieve the secret:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -71,7 +71,7 @@ If you use the default AWS managed key for Secrets Manager, this permission is s
 For customer managed KMS keys, update the `Resource` field with your specific key ARN. 3. Configure Argo CD to use the credentials from Secrets Manager. For information about syncing secrets from Secrets Manager into Kubernetes secrets that Argo CD can reference, see [Secret Management](https://argo-cd.readthedocs.io/en/stable/operator-manual/secret-management/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/secret-management/") in the Argo CD documentation. 4. Create an Argo CD repository configuration that references the secret ARN:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: Secret
 metadata:
   name: private-repo

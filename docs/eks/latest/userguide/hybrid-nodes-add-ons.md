@@ -50,11 +50,11 @@ Node-level metrics are not available for hybrid nodes because [CloudWatch Contai
 After installing the add-on by following the steps described in [Install the CloudWatch agent with the Amazon CloudWatch Observability](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.md"), the add-on manifest must be updated before the agent can run successfully on hybrid nodes. Edit the `amazoncloudwatchagents` resource on the cluster to add the `RUN_WITH_IRSA` environment variable as shown below.
 
 ```
-kubectl edit amazoncloudwatchagents -n amazon-cloudwatch cloudwatch-agent
+ kubectl edit amazoncloudwatchagents -n amazon-cloudwatch cloudwatch-agent
 ```
 
 ```
-apiVersion: v1
+ apiVersion: v1
 items:
 - apiVersion: cloudwatch.aws.amazon.com/v1alpha1
   kind: AmazonCloudWatchAgent
@@ -98,13 +98,13 @@ To install the AWS Load Balancer Controller, follow the steps at [AWS Applicatio
 For ingress with ALB, you must specify the annotations below. See [Route application and HTTP traffic with Application Load Balancers](alb-ingress.md "alb-ingress.md") for more information.
 
 ```
-alb.ingress.kubernetes.io/target-type: ip
+ alb.ingress.kubernetes.io/target-type: ip
 ```
 
 For load balancing with NLB, you must specify the annotations below. See [Route TCP and UDP traffic with Network Load Balancers](network-load-balancing.md "network-load-balancing.md") for more information.
 
 ```
-service.beta.kubernetes.io/aws-load-balancer-type: "external"
+ service.beta.kubernetes.io/aws-load-balancer-type: "external"
 service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
 ```
 
@@ -121,7 +121,7 @@ The original Amazon EKS Pod Identity Agent DaemonSet relies on the availability 
 1. To use the Pod Identity agent on Ubuntu/RHEL/Al2023 hybrid nodes, set `enableCredentialsFile: true` in the hybrid section of `nodeadm` config as shown below:
 
 ```
-apiVersion: node.eks.aws/v1alpha1
+ apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
     hybrid:
@@ -131,14 +131,14 @@ spec:
 This will configure `nodeadm` to create a credentials file to be configured on the node under `/eks-hybrid/.aws/credentials`, which will be used by `eks-pod-identity-agent` pods. This credentials file will contain temporary AWS credentials that will be refreshed periodically. 2. After you update the `nodeadm` config on _each_ node, run the following `nodeadm init` command with your `nodeConfig.yaml` to join your hybrid nodes to your Amazon EKS cluster. If your nodes have joined the cluster previous, still run the `nodeadm init` command again.
 
 ```
-nodeadm init -c file://nodeConfig.yaml
+ nodeadm init -c file://nodeConfig.yaml
 ```
 
 3. Install `eks-pod-identity-agent` with support for hybrid nodes enabled, by using either the AWS CLI or AWS Management Console.
    1. AWS CLI: From the machine that you’re using to administer the cluster, run the following command to install `eks-pod-identity-agent` with support for hybrid nodes enabled. Replace `my-cluster` with the name of your cluster.
 
    ```
-   aws eks create-addon \
+    aws eks create-addon \
        --cluster-name my-cluster \
        --addon-name eks-pod-identity-agent \
        --configuration-values '{"daemonsets":{"hybrid":{"create": true}}}'
@@ -147,7 +147,7 @@ nodeadm init -c file://nodeConfig.yaml
    2. AWS Management Console: If you are installing the Pod Identity Agent add-on through the AWS console, add the following to the optional configuration to deploy the DaemonSet that targets hybrid nodes.
 
    ```
-   {"daemonsets":{"hybrid":{"create": true}}}
+    {"daemonsets":{"hybrid":{"create": true}}}
    ```
 
 ### Bottlerocket
@@ -156,13 +156,13 @@ nodeadm init -c file://nodeConfig.yaml
    1. If you are using the SSM credential provider, your command should look like this:
 
    ```
-   eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activation-code> --region=<region> --enable-credentials-file=true
+    eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activation-code> --region=<region> --enable-credentials-file=true
    ```
 
    2. If you are using the IAM Roles Anywhere credential provider, your command should look like this:
 
    ```
-   eks-hybrid-iam-ra-setup --certificate=<certificate> --key=<private-key> --enable-credentials-file=true
+    eks-hybrid-iam-ra-setup --certificate=<certificate> --key=<private-key> --enable-credentials-file=true
    ```
 
    This will configure the bootstrap script to create a credentials file on the node under `/var/eks-hybrid/.aws/credentials`, which will be used by `eks-pod-identity-agent` pods. This credentials file will contain temporary AWS credentials that will be refreshed periodically.
@@ -171,7 +171,7 @@ nodeadm init -c file://nodeConfig.yaml
    1. AWS CLI: From the machine that you’re using to administer the cluster, run the following command to install `eks-pod-identity-agent` with support for Bottlerocket hybrid nodes enabled. Replace `my-cluster` with the name of your cluster.
 
    ```
-   aws eks create-addon \
+    aws eks create-addon \
        --cluster-name my-cluster \
        --addon-name eks-pod-identity-agent \
        --configuration-values '{"daemonsets":{"hybrid-bottlerocket":{"create": true}}}'
@@ -180,7 +180,7 @@ nodeadm init -c file://nodeConfig.yaml
    2. AWS Management Console: If you are installing the Pod Identity Agent add-on through the AWS console, add the following to the optional configuration to deploy the DaemonSet that targets Bottlerocket hybrid nodes.
 
    ```
-   {"daemonsets":{"hybrid-bottlerocket":{"create": true}}}
+    {"daemonsets":{"hybrid-bottlerocket":{"create": true}}}
    ```
 
 ## CSI snapshot controller

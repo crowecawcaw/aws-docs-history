@@ -54,7 +54,7 @@ You can enable or disable control plane logs with either the [AWS Management Con
 1. Check your AWS CLI version with the following command.
 
 ```
-aws --version
+ aws --version
 ```
 
 If your AWS CLI version is earlier than `1.16.139`, you must first update to the latest version. To install or upgrade the AWS CLI, see [Installing the AWS Command Line Interface](../../../cli/latest/userguide/installing.md "../../../cli/latest/userguide/installing.md") in the _AWS Command Line Interface User Guide_. 2. Update your cluster’s control plane log export configuration with the following AWS CLI command. Replace `my-cluster` with your cluster name and specify your desired endpoint access values.
@@ -64,7 +64,7 @@ If your AWS CLI version is earlier than `1.16.139`, you must first update to the
 The following command sends all available log types to CloudWatch Logs.
 
 ```
-aws eks update-cluster-config \
+ aws eks update-cluster-config \
     --region region-code \
     --name my-cluster \
     --logging '{"clusterLogging":[{"types":["api","audit","authenticator","controllerManager","scheduler"],"enabled":true}]}'
@@ -73,7 +73,7 @@ aws eks update-cluster-config \
 An example output is as follows.
 
 ```
-{
+ {
     "update": {
         "id": "883405c8-65c6-4758-8cee-2a7c1340a6d9",
         "status": "InProgress",
@@ -93,7 +93,7 @@ An example output is as follows.
 3. Monitor the status of your log configuration update with the following command, using the cluster name and the update ID that were returned by the previous command. Your update is complete when the status appears as `Successful`.
 
 ```
-aws eks describe-update \
+ aws eks describe-update \
     --region region-code\
     --name my-cluster \
     --update-id 883405c8-65c6-4758-8cee-2a7c1340a6d9
@@ -102,7 +102,7 @@ aws eks describe-update \
 An example output is as follows.
 
 ```
-{
+ {
     "update": {
         "id": "883405c8-65c6-4758-8cee-2a7c1340a6d9",
         "status": "Successful",

@@ -12,7 +12,7 @@ Before you can create Amazon EKS clusters, you must create an IAM role with eith
 - A custom IAM policy. The minimal permissions that follow allows the Kubernetes cluster to manage nodes, but doesn’t allow the [legacy Cloud Provider](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/#legacy-cloud-provider "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/#legacy-cloud-provider") to create load balancers with Elastic Load Balancing. Your custom IAM policy must have at least the following permissions:
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -54,7 +54,7 @@ Prior to April 16, 2020, [AmazonEKSServicePolicy](../../../aws-managed-policy/la
 
 You can use the following procedure to check and see if your account already has the Amazon EKS cluster role.
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. Open the IAM console at https://console.aws.amazon.com/iam/.
 2. In the left navigation pane, choose **Roles**.
 3. Search the list of roles for `eksClusterRole`. If a role that includes `eksClusterRole` doesn’t exist, then see [Creating the Amazon EKS cluster role](#create-service-role "#create-service-role") to create the role. If a role that includes `eksClusterRole` does exist, then select the role to view the attached policies.
 4. Choose **Permissions**.
@@ -63,7 +63,7 @@ You can use the following procedure to check and see if your account already has
 7. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -83,7 +83,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 
 AWS Management Console
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. Open the IAM console at https://console.aws.amazon.com/iam/.
 2. Choose **Roles**, then **Create role**.
 3. Under **Trusted entity type**, select **AWS service**.
 4. From the **Use cases for other AWS services** dropdown list, choose **EKS**.
@@ -98,7 +98,7 @@ AWS CLI
 1. Copy the following contents to a file named `cluster-trust-policy.json`.
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -115,7 +115,7 @@ AWS CLI
 2. Create the role. You can replace `eksClusterRole` with any name that you choose.
 
 ```
-aws iam create-role \
+ aws iam create-role \
   --role-name eksClusterRole \
   --assume-role-policy-document file://"cluster-trust-policy.json"
 ```
@@ -123,7 +123,7 @@ aws iam create-role \
 3. Attach the required IAM policy to the role.
 
 ```
-aws iam attach-role-policy \
-  --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy \
+ aws iam attach-role-policy \
+  --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy \
   --role-name eksClusterRole
 ```

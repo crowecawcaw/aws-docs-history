@@ -30,7 +30,7 @@ You can migrate from self-managed ACK to the managed capability with zero downti
 1. Update your self-managed ACK controller to use `kube-system` for leader election leases, for example:
 
 ```
-helm upgrade --install ack-s3-controller \
+ helm upgrade --install ack-s3-controller \
   oci://public.ecr.aws/aws-controllers-k8s/s3-chart \
   --namespace ack-system \
   --set leaderElection.namespace=kube-system
@@ -39,7 +39,7 @@ helm upgrade --install ack-s3-controller \
 This moves the controller’s lease to `kube-system`, allowing the managed capability to coordinate with it. 2. Create the ACK capability on your cluster (see [Create an ACK capability](create-ack-capability.md "create-ack-capability.md")) 3. The managed capability recognizes existing ACK-managed AWS resources and takes over reconciliation 4. Gradually scale down or remove self-managed controller deployments:
 
 ```
-helm uninstall ack-s3-controller --namespace ack-system
+ helm uninstall ack-s3-controller --namespace ack-system
 ```
 
 This approach allows both controllers to coexist safely during migration.

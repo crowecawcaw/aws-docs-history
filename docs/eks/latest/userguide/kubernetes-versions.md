@@ -43,7 +43,7 @@ Dates with only a month and a year are approximate and are updated with an exact
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
 ```
-https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/clusters/kubernetes-versions.adoc.atom
+ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/clusters/kubernetes-versions.adoc.atom
 ```
 
 | Kubernetes version | Upstream release  | Amazon EKS release | End of standard support | End of extended support |
@@ -72,7 +72,7 @@ aws eks describe-cluster-versions
 4. The command will return a JSON output with details about the available cluster versions. Here’s an example of the output:
 
 ```
-{
+ {
     "clusterVersions": [
         {
             "clusterVersion": "1.31",

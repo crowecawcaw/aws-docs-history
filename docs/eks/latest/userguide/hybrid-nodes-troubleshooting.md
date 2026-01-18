@@ -21,7 +21,7 @@ The following troubleshooting topics are related to installing the hybrid nodes 
 The `nodeadm install` command must be run with a user that has root or `sudo` privileges on your host. If you run `nodeadm install` with a user that does not have root or `sudo` privileges, you will see the following error in the `nodeadm` output.
 
 ```
-"msg":"Command failed","error":"must run as root"
+ "msg":"Command failed","error":"must run as root"
 ```
 
 **Unable to connect to dependencies**
@@ -29,7 +29,7 @@ The `nodeadm install` command must be run with a user that has root or `sudo` pr
 The `nodeadm install` command installs the dependencies required for hybrid nodes. The hybrid nodes dependencies include `containerd`, `kubelet`, `kubectl`, and AWS SSM or AWS IAM Roles Anywhere components. You must have access from where you are running `nodeadm install` to download these dependencies. For more information on the list of locations that you must be able to access, see [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md"). If you do not have access, you will see errors similar to the following in the `nodeadm install` output.
 
 ```
-"msg":"Command failed","error":"failed reading file from url: ...: max retries achieved for http request"
+ "msg":"Command failed","error":"failed reading file from url: ...: max retries achieved for http request"
 ```
 
 **Failed to update package manager**
@@ -37,7 +37,7 @@ The `nodeadm install` command installs the dependencies required for hybrid node
 The `nodeadm install` command runs `apt update` or `yum update` or `dnf update` before installing the hybrid nodes dependencies. If this step does not succeed you might see errors similar to the following. To remediate, you can run `apt update` or `yum update` or `dnf update` before running `nodeadm install` or you can attempt to re-run `nodeadm install`.
 
 ```
-failed to run update using package manager
+ failed to run update using package manager
 ```
 
 **Timeout or context deadline exceeded**
@@ -45,8 +45,7 @@ failed to run update using package manager
 When running `nodeadm install`, if you see issues at various stages of the install process with errors that indicate there was a timeout or context deadline exceeded, you might have a slow connection that is preventing the installation of the hybrid nodes dependencies before timeouts are met. To work around these issues, you can attempt to use the `--timeout` flag in `nodeadm` to extend the duration of the timeouts for downloading the dependencies.
 
 ```
-nodeadm install K8S_VERSION --credential-provider CREDS_PROVIDER --timeout `20m0s`
-
+ nodeadm install K8S_VERSION --credential-provider CREDS_PROVIDER --timeout <replaceable>20m0s</replaceable>
 ```
 
 ## Connecting hybrid nodes troubleshooting
@@ -58,7 +57,7 @@ The troubleshooting topics in this section are related to the process of connect
 When running `nodeadm init`, if you see errors related to `operation error` or `unsupported scheme`, check your `nodeConfig.yaml` to make sure it is properly formatted and passed to `nodeadm`. For more information on the format and options for `nodeConfig.yaml`, see [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md").
 
 ```
-"msg":"Command failed","error":"operation error ec2imds: GetRegion, request canceled, context deadline exceeded"
+ "msg":"Command failed","error":"operation error ec2imds: GetRegion, request canceled, context deadline exceeded"
 ```
 
 **Hybrid Nodes IAM role missing permissions for the `eks:DescribeCluster` action**
@@ -66,7 +65,7 @@ When running `nodeadm init`, if you see errors related to `operation error` or `
 When running `nodeadm init`, `nodeadm` attempts to gather information about your EKS cluster by calling the EKS `DescribeCluster` action. If your Hybrid Nodes IAM role does not have permission for the `eks:DescribeCluster` action, then you must pass your Kubernetes API endpoint, cluster CA bundle, and service IPv4 CIDR in the node configuration you pass to `nodeadm` when you run `nodeadm init`. For more information on the required permissions for the Hybrid Nodes IAM role, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
 
 ```
-"msg":"Command failed","error":"operation error EKS: DescribeCluster, https response error StatusCode: 403 ... AccessDeniedException"
+ "msg":"Command failed","error":"operation error EKS: DescribeCluster, https response error StatusCode: 403 ... AccessDeniedException"
 ```
 
 **Hybrid Nodes IAM role missing permissions for the `eks:ListAccessEntries` action**
@@ -74,7 +73,7 @@ When running `nodeadm init`, `nodeadm` attempts to gather information about your
 When running `nodeadm init`, `nodeadm` attempts to validate whether your EKS cluster has an access entry of type `HYBRID_LINUX` associated with the Hybrid Nodes IAM role by calling the EKS `ListAccessEntries` action. If your Hybrid Nodes IAM role does not have permission for the `eks:ListAccessEntries` action, then you must pass the `--skip cluster-access-validation` flag when you run the `nodeadm init` command. For more information on the required permissions for the Hybrid Nodes IAM role, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
 
 ```
-"msg":"Command failed","error":"operation error EKS: ListAccessEntries, https response error StatusCode: 403 ... AccessDeniedException"
+ "msg":"Command failed","error":"operation error EKS: ListAccessEntries, https response error StatusCode: 403 ... AccessDeniedException"
 ```
 
 **Node IP not in remote node network CIDR**
@@ -82,7 +81,7 @@ When running `nodeadm init`, `nodeadm` attempts to validate whether your EKS clu
 When running `nodeadm init`, you might encounter an error if the node’s IP address is not within the specified remote node network CIDRs. The error will look similar to the following example:
 
 ```
-node IP 10.18.0.1 is not in any of the remote network CIDR blocks [10.0.0.0/16 192.168.0.0/16]
+ node IP 10.18.0.1 is not in any of the remote network CIDR blocks [10.0.0.0/16 192.168.0.0/16]
 ```
 
 This example shows a node with IP 10.18.0.1 attempting to join a cluster with remote network CIDRs 10.0.0.0/16 and 192.168.0.0/16. The error occurs because 10.18.0.1 isn’t within either of the ranges.
@@ -92,7 +91,7 @@ Confirm that you’ve properly configured your `RemoteNodeNetworks` to include a
 - Run the following command in the region your cluster is located to check your `RemoteNodeNetwork` configurations. Verify that the CIDR blocks listed in the output include the IP range of your node and is the same as the CIDR blocks listed in the error message. If they do not match, confirm the cluster name and region in your `nodeConfig.yaml` match your intended cluster.
 
 ```
-aws eks describe-cluster --name `CLUSTER_NAME` --region `REGION_NAME` --query cluster.remoteNetworkConfig.remoteNodeNetworks
+ aws eks describe-cluster --name <replaceable>CLUSTER_NAME</replaceable> --region <literal>REGION_NAME</literal> --query cluster.remoteNetworkConfig.remoteNodeNetworks
 ```
 
 - Verify you’re working with the intended node:
@@ -106,7 +105,7 @@ If your node IP is still not what you expected, check the following:
   `kubelet` flag in your `nodeConfig.yaml`. For more information, see [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md"). You can view your node’s network interfaces and its IP addresses by running the following command on your node:
 
 ```
-ip addr show
+ ip addr show
 ```
 
 **Hybrid nodes are not appearing in EKS cluster**
@@ -114,11 +113,11 @@ ip addr show
 If you ran `nodeadm init` and it completed but your hybrid nodes do not appear in your cluster, there might be issues with the network connection between your hybrid nodes and the EKS control plane, you might not have the required security group permissions configured, or you might not have the required mapping of your Hybrid Nodes IAM role to Kubernetes Role-Based Access Control (RBAC). You can start the debugging process by checking the status of `kubelet` and the `kubelet` logs with the following commands. Run the following commands from the hybrid nodes that failed to join your cluster.
 
 ```
-systemctl status kubelet
+ systemctl status kubelet
 ```
 
 ```
-journalctl -u kubelet -f
+ journalctl -u kubelet -f
 ```
 
 **Unable to communicate with cluster**
@@ -126,15 +125,15 @@ journalctl -u kubelet -f
 If your hybrid node was unable to communicate with the cluster control plane, you might see logs similar to the following.
 
 ```
-"Failed to ensure lease exists, will retry" err="Get ..."
+ "Failed to ensure lease exists, will retry" err="Get ..."
 ```
 
 ```
-"Unable to register node with API server" err="Post ..."
+ "Unable to register node with API server" err="Post ..."
 ```
 
 ```
-Failed to contact API server when waiting for CSINode publishing ... dial tcp <ip address>: i/o timeout
+ Failed to contact API server when waiting for CSINode publishing ... dial tcp <ip address>: i/o timeout
 ```
 
 If you see these messages, check the following to ensure it meets the hybrid nodes requirements detailed in [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md").
@@ -148,15 +147,15 @@ If you see these messages, check the following to ensure it meets the hybrid nod
 If your hybrid node was able to communicate with the EKS control plane but was not able to register, you might see logs similar to the following. Note the key difference in the log messages below is the `Unauthorized` error. This signals that the node was not able to perform its tasks because it does not have the required permissions.
 
 ```
-"Failed to ensure lease exists, will retry" err="Unauthorized"
+ "Failed to ensure lease exists, will retry" err="Unauthorized"
 ```
 
 ```
-"Unable to register node with API server" err="Unauthorized"
+ "Unable to register node with API server" err="Unauthorized"
 ```
 
 ```
-Failed to contact API server when waiting for CSINode publishing: Unauthorized
+ Failed to contact API server when waiting for CSINode publishing: Unauthorized
 ```
 
 If you see these messages, check the following to ensure it meets the hybrid nodes requirements details in [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md") and [Prepare cluster access for hybrid nodes](hybrid-nodes-cluster-prep.md "hybrid-nodes-cluster-prep.md").
@@ -178,7 +177,7 @@ After connecting hybrid nodes to your EKS cluster, if you see that there are pen
 If you changed your `nodeadm` configuration and attempt to reregister the node with the new configuration, you might see an error that states that the hybrid profile already exists but its contents have changed. Instead of running `nodeadm init` in between configuration changes, run `nodeadm uninstall` followed by a `nodeadm install` and `nodeadm init`. This ensures a proper clean up with the changes in configuration.
 
 ```
-"msg":"Command failed","error":"hybrid profile already exists at /etc/aws/hybrid/config but its contents do not align with the expected configuration"
+ "msg":"Command failed","error":"hybrid profile already exists at /etc/aws/hybrid/config but its contents do not align with the expected configuration"
 ```
 
 **Hybrid node failed to resolve Private API**
@@ -186,7 +185,7 @@ If you changed your `nodeadm` configuration and attempt to reregister the node w
 After running `nodeadm init`, if you see an error in the `kubelet` logs that shows failures to contact the EKS Kubernetes API server because there is `no such host`, you might have to change your DNS entry for the EKS Kubernetes API endpoint in your on-premises network or at the host level. See [Forwarding inbound DNS queries to your VPC](../../../Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.md "../../../Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.md") in the _AWS Route53 documentation_.
 
 ```
-Failed to contact API server when waiting for CSINode publishing: Get ... no such host
+ Failed to contact API server when waiting for CSINode publishing: Get ... no such host
 ```
 
 **Can’t view hybrid nodes in the EKS console**
@@ -202,44 +201,41 @@ Run `nodeadm debug` from your hybrid nodes to validate networking and credential
 **Get node status**
 
 ```
-kubectl get nodes -o wide
+ kubectl get nodes -o wide
 ```
 
 **Check node conditions and events**
 
 ```
-kubectl describe node `NODE_NAME`
-
+ kubectl describe node <replaceable>NODE_NAME</replaceable>
 ```
 
 **Get pod status**
 
 ```
-kubectl get pods -A -o wide
+ kubectl get pods -A -o wide
 ```
 
 **Check pod conditions and events**
 
 ```
-kubectl describe pod `POD_NAME`
-
+ kubectl describe pod <replaceable>POD_NAME</replaceable>
 ```
 
 **Check pod logs**
 
 ```
-kubectl logs `POD_NAME`
-
+ kubectl logs <replaceable>POD_NAME</replaceable>
 ```
 
 **Check `kubectl` logs**
 
 ```
-systemctl status kubelet
+ systemctl status kubelet
 ```
 
 ```
-journalctl -u kubelet -f
+ journalctl -u kubelet -f
 ```
 
 **Pod liveness probes failing or webhooks are not working**
@@ -249,7 +245,7 @@ If applications, add-ons, or webhooks running on your hybrid nodes are not start
 A common pod log message for this scenario is shown below the following where ip-address is the Cluster IP for the Kubernetes service.
 
 ```
-dial tcp <ip-address>:443: connect: no route to host
+ dial tcp <ip-address>:443: connect: no route to host
 ```
 
 **`kubectl logs` or `kubectl exec` commands not working (`kubelet` API commands)**
@@ -259,11 +255,11 @@ If `kubectl attach`, `kubectl cp`, `kubectl exec`, `kubectl logs`, and `kubectl 
 Verify that your node IPs and pod IPs fall within the remote node network and remote pod network CIDRs configured for your cluster. Use the commands below to examine IP assignments.
 
 ```
-kubectl get nodes -o wide
+ kubectl get nodes -o wide
 ```
 
 ```
-kubectl get pods -A -o wide
+ kubectl get pods -A -o wide
 ```
 
 Compare these IPs with your configured remote network CIDRs to ensure proper routing. For network configuration requirements, see [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md").
@@ -305,7 +301,7 @@ If you are having issues running Cilium on hybrid nodes, see [the troubleshootin
 If the Cilium agents that run on each hybrid node are not starting, check the logs of the Cilium agent pods for errors. The Cilium agent requires connectivity to the EKS Kubernetes API endpoint to start. Cilium agent startup will fail if this connectivity is not correctly configured. In this case, you will see log messages similar to the following in the Cilium agent pod logs.
 
 ```
-msg="Unable to contact k8s api-server"
+ msg="Unable to contact k8s api-server"
 level=fatal msg="failed to start: Get \"https://<k8s-cluster-ip>:443/api/v1/namespaces/kube-system\": dial tcp <k8s-cluster-ip>:443: i/o timeout"
 ```
 
@@ -320,11 +316,11 @@ If you are using Cilium BGP Control Plane to advertise your pod or service addre
 If BGP is working correctly, you should your hybrid nodes with Session State `established` in the output. You might need to work with your networking team to identify the correct values for your environment’s Local AS, Peer AS, and Peer Address.
 
 ```
-cilium bgp peers
+ cilium bgp peers
 ```
 
 ```
-cilium bgp routes
+ cilium bgp routes
 ```
 
 If you are using Cilium BGP to advertise the IPs of Services with type `LoadBalancer`, you must have the same label on both your `CiliumLoadBalancerIPPool` and Service, which should be used in the selector of your `CiliumBGPAdvertisement`. An example is shown below. Note, if you are using Cilium BGP to advertise the IPs of Services with type LoadBalancer, the BGP routes might be disrupted during Cilium agent restart. For more information, see [Failure Scenarios](https://docs.cilium.io/en/latest/network/bgp-control-plane/bgp-control-plane-operation/#failure-scenarios "https://docs.cilium.io/en/latest/network/bgp-control-plane/bgp-control-plane-operation/#failure-scenarios") in the Cilium documentation.
@@ -332,7 +328,7 @@ If you are using Cilium BGP to advertise the IPs of Services with type `LoadBala
 **Service**
 
 ```
-kind: Service
+ kind: Service
 apiVersion: v1
 metadata:
   name: guestbook
@@ -350,7 +346,7 @@ spec:
 **CiliumLoadBalancerIPPool**
 
 ```
-apiVersion: cilium.io/v2alpha1
+ apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: guestbook-pool
@@ -367,7 +363,7 @@ spec:
 **CiliumBGPAdvertisement**
 
 ```
-apiVersion: cilium.io/v2alpha1
+ apiVersion: cilium.io/v2alpha1
 kind: CiliumBGPAdvertisement
 metadata:
   name: bgp-advertisements-guestbook
@@ -405,7 +401,7 @@ The table below summarizes the Calico components and whether they run on the nod
 The Calico resources that don’t run as a DaemonSet have flexible tolerations by default that enable them to be scheduled on cordoned nodes that are not ready for scheduling or running pods. You can tighten the tolerations for the non-DaemonSet Calico resources by changing your operator installation to include the following.
 
 ```
-installation:
+ installation:
   ...
   controlPlaneTolerations:
   - effect: NoExecute
@@ -449,14 +445,14 @@ installation:
 For both AWS SSM hybrid activations and AWS IAM Roles Anywhere, you can validate that credentials for the Hybrid Nodes IAM role are correctly configured on your hybrid nodes by running the following command from your hybrid nodes. Confirm the node name and Hybrid Nodes IAM Role name are what you expect.
 
 ```
-sudo aws sts get-caller-identity
+ sudo aws sts get-caller-identity
 ```
 
 ```
-{
+ {
     "UserId": "ABCDEFGHIJKLM12345678910:<node-name>",
     "Account": "<aws-account-id>",
-    "Arn": "arn:aws:sts::<aws-account-id>:assumed-role/<hybrid-nodes-iam-role/<node-name>"
+    "Arn": "<shared id="region.arn"/>sts::<aws-account-id>:assumed-role/<hybrid-nodes-iam-role/<node-name>"
 }
 ```
 
@@ -478,13 +474,13 @@ Some issues can be resolved by restarting the SSM agent. You can use the command
 **AL2023 and other operating systems**
 
 ```
-systemctl restart amazon-ssm-agent
+ systemctl restart amazon-ssm-agent
 ```
 
 **Ubuntu**
 
 ```
-systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
+ systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
 ```
 
 **Check connectivity to SSM endpoints**
@@ -492,7 +488,7 @@ systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
 Confirm you can connect to the SSM endpoints from your hybrid nodes. For a list of the SSM endpoints, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md"). Replace `us-west-2` in the command below with the AWS Region for your AWS SSM hybrid activation.
 
 ```
-ping ssm.us-west-2.amazonaws.com
+ ping ssm.us-west-2.amazonaws.com
 ```
 
 **View connection status of registered SSM instances**
@@ -500,8 +496,7 @@ ping ssm.us-west-2.amazonaws.com
 You can check the connection status of the instances that are registered with SSM hybrid activations with the following AWS CLI command. Replace the machine ID with the machine ID of your instance.
 
 ```
-aws ssm get-connection-status --target `mi-012345678abcdefgh`
-
+ aws ssm get-connection-status --target <replaceable>mi-012345678abcdefgh</replaceable>
 ```
 
 **SSM Setup CLI checksum mismatch**
@@ -509,7 +504,7 @@ aws ssm get-connection-status --target `mi-012345678abcdefgh`
 When running `nodeadm install` if you see an issue with the `ssm-setup-cli` checksum mismatch you should confirm there are not older existing SSM installations on your host. If there are older SSM installations on your host, remove them and re-run `nodeadm install` to resolve the issue.
 
 ```
-Failed to perform agent-installation/on-prem registration: error while verifying installed ssm-setup-cli checksum: checksum mismatch with latest ssm-setup-cli.
+ Failed to perform agent-installation/on-prem registration: error while verifying installed ssm-setup-cli checksum: checksum mismatch with latest ssm-setup-cli.
 ```
 
 **SSM `InvalidActivation`**
@@ -517,7 +512,7 @@ Failed to perform agent-installation/on-prem registration: error while verifying
 If you see an error registering your instance with AWS SSM, confirm the `region`, `activationCode`, and `activationId` in your `nodeConfig.yaml` are correct. The AWS Region for your EKS cluster must match the region of your SSM hybrid activation. If these values are misconfigured, you might see an error similar to the following.
 
 ```
-ERROR Registration failed due to error registering the instance with AWS SSM. InvalidActivation
+ ERROR Registration failed due to error registering the instance with <shared id="AWS"/> SSM. InvalidActivation
 ```
 
 **SSM `ExpiredTokenException`: The security token included in the request is expired**
@@ -525,7 +520,7 @@ ERROR Registration failed due to error registering the instance with AWS SSM. In
 If the SSM agent is not able to refresh credentials, you might see an `ExpiredTokenException`. In this scenario, if you are able to connect to the SSM endpoints from your hybrid nodes, you might need to restart the SSM agent to force a credential refresh.
 
 ```
-"msg":"Command failed","error":"operation error SSM: DescribeInstanceInformation, https response error StatusCode: 400, RequestID: eee03a9e-f7cc-470a-9647-73d47e4cf0be, api error ExpiredTokenException: The security token included in the request is expired"
+ "msg":"Command failed","error":"operation error SSM: DescribeInstanceInformation, https response error StatusCode: 400, RequestID: eee03a9e-f7cc-470a-9647-73d47e4cf0be, api error ExpiredTokenException: The security token included in the request is expired"
 ```
 
 **SSM error in running register machine command**
@@ -533,7 +528,7 @@ If the SSM agent is not able to refresh credentials, you might see an `ExpiredTo
 If you see an error registering the machine with SSM, you might need to re-run `nodeadm install` to make sure all of the SSM dependencies are properly installed.
 
 ```
-"error":"running register machine command: , error: fork/exec /opt/aws/ssm-setup-cli: no such file or directory"
+ "error":"running register machine command: , error: fork/exec /opt/aws/ssm-setup-cli: no such file or directory"
 ```
 
 **SSM `ActivationExpired`**
@@ -541,11 +536,11 @@ If you see an error registering the machine with SSM, you might need to re-run `
 When running `nodeadm init`, if you see an error registering the instance with SSM due to an expired activation, you need to create a new SSM hybrid activation, update your `nodeConfig.yaml` with the `activationCode` and `activationId` of your new SSM hybrid activation, and re-run `nodeadm init`.
 
 ```
-"msg":"Command failed","error":"SSM activation expired. Please use a valid activation"
+ "msg":"Command failed","error":"SSM activation expired. Please use a valid activation"
 ```
 
 ```
-ERROR Registration failed due to error registering the instance with AWS SSM. ActivationExpired
+ ERROR Registration failed due to error registering the instance with <shared id="AWS"/> SSM. ActivationExpired
 ```
 
 **SSM failed to refresh cached credentials**
@@ -553,7 +548,7 @@ ERROR Registration failed due to error registering the instance with AWS SSM. Ac
 If you see a failure to refresh cached credentials, the `/root/.aws/credentials` file might have been deleted on your host. First check your SSM hybrid activation and ensure it is active and your hybrid nodes are configured correctly to use the activation. Check the SSM agent logs at `/var/log/amazon/ssm` and re-run the `nodeadm init` command once you have resolved the issue on the SSM side.
 
 ```
-"Command failed","error":"operation error SSM: DescribeInstanceInformation, get identity: get credentials: failed to refresh cached credentials"
+ "Command failed","error":"operation error SSM: DescribeInstanceInformation, get identity: get credentials: failed to refresh cached credentials"
 ```
 
 **Clean up SSM**
@@ -561,7 +556,7 @@ If you see a failure to refresh cached credentials, the `/root/.aws/credentials`
 To remove the SSM agent from your host, you can run the following commands.
 
 ```
-dnf remove -y amazon-ssm-agent
+ dnf remove -y amazon-ssm-agent
 sudo apt remove --purge amazon-ssm-agent
 snap remove amazon-ssm-agent
 rm -rf /var/lib/amazon/ssm/Vault/Store/RegistrationKey
@@ -582,11 +577,11 @@ If you are using AWS IAM Roles Anywhere for your hybrid nodes credentials, be aw
 If you see a failure to refresh cached credentials, review the contents of `/etc/aws/hybrid/config` and confirm that IAM Roles Anywhere was configured correctly in your `nodeadm` configuration. Confirm that `/etc/iam/pki` exists. Each node must have a unique certificate and key. By default, when using IAM Roles Anywhere as the credential provider, `nodeadm` uses `/etc/iam/pki/server.pem` for the certificate location and name, and `/etc/iam/pki/server.key` for the private key. You might need to create the directories before placing the certificates and keys in the directories with `sudo mkdir -p /etc/iam/pki`. You can verify the content of your certificate with the command below.
 
 ```
-openssl x509 -text -noout -in server.pem
+ openssl x509 -text -noout -in server.pem
 ```
 
 ```
-open /etc/iam/pki/server.pem: no such file or directory
+ open /etc/iam/pki/server.pem: no such file or directory
 could not parse PEM data
 Command failed {"error": "... get identity: get credentials: failed to refresh cached credentials, process provider error: error in credential_process: exit status 1"}
 ```
@@ -596,7 +591,7 @@ Command failed {"error": "... get identity: get credentials: failed to refresh c
 In the `kubelet` logs, if you see an access denied issue for the `sts:AssumeRole` operation when using IAM Roles Anywhere, check the trust policy of your Hybrid Nodes IAM role to confirm the IAM Roles Anywhere service principal is allowed to assume the Hybrid Nodes IAM Role. Additionally confirm that the trust anchor ARN is configured properly in your Hybrid Nodes IAM role trust policy and that your Hybrid Nodes IAM role is added to your IAM Roles Anywhere profile.
 
 ```
-could not get token: AccessDenied: User: ... is not authorized to perform: sts:AssumeRole on resource: ...
+ could not get token: AccessDenied: User: ... is not authorized to perform: sts:AssumeRole on resource: ...
 ```
 
 **IAM Roles Anywhere not authorized to set `roleSessionName`**
@@ -604,7 +599,7 @@ could not get token: AccessDenied: User: ... is not authorized to perform: sts:A
 In the `kubelet` logs, if you see an access denied issue for setting the `roleSessionName`, confirm you have set `acceptRoleSessionName` to true for your IAM Roles Anywhere profile.
 
 ```
-AccessDeniedException: Not authorized to set roleSessionName
+ AccessDeniedException: Not authorized to set roleSessionName
 ```
 
 ## Operating system troubleshooting
@@ -616,7 +611,7 @@ AccessDeniedException: Not authorized to set roleSessionName
 If you are running `nodeadm install` and encounter a failure to install the hybrid nodes dependencies due to entitlement registration issues, ensure you have properly set your Red Hat username and password on your host.
 
 ```
-This system is not registered with an entitlement server
+ This system is not registered with an entitlement server
 ```
 
 ### Ubuntu
@@ -626,13 +621,13 @@ This system is not registered with an entitlement server
 If you are using Ubuntu for your operating system and IAM Roles Anywhere for your credential provider with hybrid nodes and see an issue with GLIBC not found, you can install that dependency manually to resolve the issue.
 
 ```
-GLIBC_2.32 not found (required by /usr/local/bin/aws_signing_helper)
+ GLIBC_2.32 not found (required by /usr/local/bin/aws_signing_helper)
 ```
 
 Run the following commands to install the dependency:
 
 ```
-ldd --version
+ ldd --version
 sudo apt update && apt install libc6
 sudo apt install glibc-source
 ```
@@ -642,13 +637,13 @@ sudo apt install glibc-source
 If you have the Bottlerocket admin container enabled, you can access it with SSH for advanced debugging and troubleshooting with elevated privileges. The following sections contain commands that need to be run on the context of the Bottlerocket host. Once you are on the admin container, you can run `sheltie` to get a full root shell in the Bottlerocket host.
 
 ```
-sheltie
+ sheltie
 ```
 
 You can also run the commands in the following sections from the admin container shell by prefixing each command with `sudo chroot /.bottlerocket/rootfs`.
 
 ```
-sudo chroot /.bottlerocket/rootfs <command>
+ sudo chroot /.bottlerocket/rootfs <command>
 ```
 
 **Using logdog for log collection**
@@ -656,7 +651,7 @@ sudo chroot /.bottlerocket/rootfs <command>
 Bottlerocket provides the `logdog` utility to efficiently collect logs and system information for troubleshooting purposes.
 
 ```
-logdog
+ logdog
 ```
 
 The `logdog` utility gathers logs from various locations on a Bottlerocket host and combines them into a tarball. By default, the tarball will be created at `/var/log/support/bottlerocket-logs.tar.gz`, and is accessible from host containers at `/.bottlerocket/support/bottlerocket-logs.tar.gz`.
@@ -668,26 +663,26 @@ You can check the status of the various system services such as `kubelet`, `cont
 For checking `kubelet` service status and retrieving `kubelet` logs, you can run:
 
 ```
-systemctl status kubelet
+ systemctl status kubelet
 journalctl -u kubelet -f
 ```
 
 For checking `containerd` service status and retrieving the logs for the orchestrated `containerd` instance, you can run:
 
 ```
-systemctl status containerd
+ systemctl status containerd
 journalctl -u containerd -f
 ```
 
 For checking `host-containerd` service status and retrieving the logs for the host `containerd` instance, you can run:
 
 ```
-systemctl status host-containerd
+ systemctl status host-containerd
 journalctl -u host-containerd -f
 ```
 
 For retrieving the logs for the bootstrap containers and host containers, you can run:
 
 ```
-journalctl _COMM=host-ctr -f
+ journalctl _COMM=host-ctr -f
 ```

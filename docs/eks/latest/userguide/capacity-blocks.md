@@ -37,7 +37,7 @@ Make sure the `LaunchTemplateData` includes the following:
 
 
     ```
-    NodeLaunchTemplate:
+     NodeLaunchTemplate:
       Type: "aws::EC2::LaunchTemplate"
       Properties:
         LaunchTemplateData:
@@ -63,8 +63,8 @@ Make sure the `LaunchTemplateData` includes the following:
 The following is a sample CloudFormation template that you can reference when creating one that is applicable to your workload. This example gets the `LaunchTemplateId` and `Version` of the `AWS::Amazon EC2::LaunchTemplate` resource shown in the previous step. It also gets the values for `DesiredCapacity`, `MaxSize`, `MinSize`, and `VPCZoneIdentifier` that are declared elsewhere in the same template.
 
 ```
-NodeGroup:
-  Type: "AWS::AutoScaling::AutoScalingGroup"
+ NodeGroup:
+  Type: "<shared id="AWS"/>::AutoScaling::AutoScalingGroup"
   Properties:
     DesiredCapacity: !Ref NodeAutoScalingGroupDesiredCapacity
     LaunchTemplate:

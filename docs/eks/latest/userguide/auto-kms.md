@@ -35,7 +35,7 @@ Configure your key policy with the following structure:
 This policy only includes permissions for EKS Auto Mode. The key policy may need additional permissions if other identities need to use the key or manage grants.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Id": "MyKeyPolicy",
     "Statement": [
@@ -92,7 +92,7 @@ When configuring the key policy:
 After configuring the key policy, reference the KMS key in your EKS Auto Mode NodeClass configuration:
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: my-node-class
@@ -105,7 +105,7 @@ spec:
     throughput: 125  # Range: 125-1000
 
     # KMS key for encryption
-    kmsKeyID: "arn:aws:kms:<region>:<account-id>:key/<key-id>"
+    kmsKeyID: "<shared id="region.arn"/>kms:<region>:<account-id>:key/<key-id>"
 ```
 
 Replace the placeholder values with your actual values:
@@ -124,7 +124,7 @@ You can specify the KMS key using any of the following formats:
 Apply the NodeClass configuration using kubectl:
 
 ```
-kubectl apply -f nodeclass.yaml
+ kubectl apply -f nodeclass.yaml
 ```
 
 ## Related Resources

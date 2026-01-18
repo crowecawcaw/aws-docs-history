@@ -25,7 +25,7 @@ To begin using access entries, you must change the authentication mode of the cl
 Amazon EKS begins to update the cluster, the status of the cluster changes to UPDATING, and the change is recorded in the **aws eks list-updates**.
 
 ```
-aws eks update-cluster-config --name my-cluster --access-config authenticationMode=API_AND_CONFIG_MAP
+ aws eks update-cluster-config --name my-cluster --access-config authenticationMode=API_AND_CONFIG_MAP
 ```
 
 3. Wait for the status of the cluster to return to Active. When the cluster is Active, you can follow the steps in [Create access entries](creating-access-entries.md "creating-access-entries.md") to add access to the cluster for IAM principals.

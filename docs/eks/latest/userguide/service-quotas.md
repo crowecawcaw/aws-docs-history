@@ -21,7 +21,7 @@ To work more with service quotas using the AWS Management Console, see the [Serv
 Run the following command to view your Amazon EKS quotas.
 
 ```
-aws service-quotas list-aws-default-service-quotas \
+ aws service-quotas list-aws-default-service-quotas \
     --query 'Quotas[*].{Adjustable:Adjustable,Name:QuotaName,Value:Value,Code:QuotaCode}' \
     --service-code eks \
     --output table
@@ -30,7 +30,7 @@ aws service-quotas list-aws-default-service-quotas \
 Run the following command to view your Fargate quotas.
 
 ```
-aws service-quotas list-aws-default-service-quotas \
+ aws service-quotas list-aws-default-service-quotas \
     --query 'Quotas[*].{Adjustable:Adjustable,Name:QuotaName,Value:Value,Code:QuotaCode}' \
     --service-code fargate \
     --output table

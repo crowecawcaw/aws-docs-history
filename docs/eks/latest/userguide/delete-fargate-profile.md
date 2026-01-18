@@ -21,7 +21,7 @@ You can delete a profile with any of the following tools:
 Use the following command to delete a profile from a cluster. Replace every `example value` with your own values.
 
 ```
-eksctl delete fargateprofile  --name my-profile --cluster my-cluster
+ eksctl delete fargateprofile  --name my-profile --cluster my-cluster
 ```
 
 ## AWS Management Console
@@ -41,5 +41,5 @@ eksctl delete fargateprofile  --name my-profile --cluster my-cluster
 Use the following command to delete a profile from a cluster. Replace every `example value` with your own values.
 
 ```
-aws eks delete-fargate-profile --fargate-profile-name my-profile --cluster-name my-cluster
+ aws eks delete-fargate-profile --fargate-profile-name my-profile --cluster-name my-cluster
 ```

@@ -25,9 +25,9 @@ You must apply the following configurations either in your operating system imag
 Create a file on each hybrid node called `http-proxy.conf` in the `/etc/systemd/system/containerd.service.d` directory with the following contents. Replace `proxy-domain` and `port` with the values for your environment.
 
 ```
-[Service]
-Environment="HTTP_PROXY=http://`proxy-domain:port`"
-Environment="HTTPS_PROXY=http://`proxy-domain:port`"
+ [Service]
+Environment="HTTP_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
+Environment="HTTPS_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
 Environment="NO_PROXY=localhost"
 ```
 
@@ -36,10 +36,10 @@ Environment="NO_PROXY=localhost"
 The `containerd.service.d` directory will need to be created for this file. You will need to reload systemd to pick up the configuration file without a reboot. In AL2023, the service will likely already be running when your script executes, so you will also need to restart it.
 
 ```
-mkdir -p /etc/systemd/system/containerd.service.d
+ mkdir -p /etc/systemd/system/containerd.service.d
 echo '[Service]' > /etc/systemd/system/containerd.service.d/http-proxy.conf
-echo 'Environment="HTTP_PROXY=http://`proxy-domain:port`"' >> /etc/systemd/system/containerd.service.d/http-proxy.conf
-echo 'Environment="HTTPS_PROXY=http://`proxy-domain:port`"' >> /etc/systemd/system/containerd.service.d/http-proxy.conf
+echo 'Environment="HTTP_PROXY=http://<replaceable>proxy-domain:port</replaceable>"' >> /etc/systemd/system/containerd.service.d/http-proxy.conf
+echo 'Environment="HTTPS_PROXY=http://<replaceable>proxy-domain:port</replaceable>"' >> /etc/systemd/system/containerd.service.d/http-proxy.conf
 echo 'Environment="NO_PROXY=localhost"' >> /etc/systemd/system/containerd.service.d/http-proxy.conf
 systemctl daemon-reload
 systemctl restart containerd
@@ -52,9 +52,9 @@ systemctl restart containerd
 Create a file on each hybrid node called `http-proxy.conf` in the `/etc/systemd/system/kubelet.service.d/` directory with the following content. Replace `proxy-domain` and `port` with the values for your environment.
 
 ```
-[Service]
-Environment="HTTP_PROXY=http://`proxy-domain:port`"
-Environment="HTTPS_PROXY=http://`proxy-domain:port`"
+ [Service]
+Environment="HTTP_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
+Environment="HTTPS_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
 Environment="NO_PROXY=localhost"
 ```
 
@@ -63,10 +63,10 @@ Environment="NO_PROXY=localhost"
 The `kubelet.service.d` directory must be created for this file. You will need to reload systemd to pick up the configuration file without a reboot. In AL2023, the service will likely already be running when your script executes, so you will also need to restart it.
 
 ```
-mkdir -p /etc/systemd/system/kubelet.service.d
+ mkdir -p /etc/systemd/system/kubelet.service.d
 echo '[Service]' > /etc/systemd/system/kubelet.service.d/http-proxy.conf
-echo 'Environment="HTTP_PROXY=http://`proxy-domain:port`"' >> /etc/systemd/system/kubelet.service.d/http-proxy.conf
-echo 'Environment="HTTPS_PROXY=http://`proxy-domain:port`"' >> /etc/systemd/system/kubelet.service.d/http-proxy.conf
+echo 'Environment="HTTP_PROXY=http://<replaceable>proxy-domain:port</replaceable>"' >> /etc/systemd/system/kubelet.service.d/http-proxy.conf
+echo 'Environment="HTTPS_PROXY=http://<replaceable>proxy-domain:port</replaceable>"' >> /etc/systemd/system/kubelet.service.d/http-proxy.conf
 echo 'Environment="NO_PROXY=localhost"' >> /etc/systemd/system/kubelet.service.d/http-proxy.conf
 systemctl daemon-reload
 systemctl restart kubelet
@@ -84,9 +84,9 @@ Create a file on each hybrid node called `http-proxy.conf` in the path below dep
 Populate the file with the following contents. Replace `proxy-domain` and `port` with the values for your environment.
 
 ```
-[Service]
-Environment="HTTP_PROXY=http://`proxy-domain:port`"
-Environment="HTTPS_PROXY=http://`proxy-domain:port`"
+ [Service]
+Environment="HTTP_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
+Environment="HTTPS_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
 Environment="NO_PROXY=localhost"
 ```
 
@@ -103,10 +103,10 @@ Replace the systemd service name in the restart command below depending on the o
 - Amazon Linux 2023 and Red Hat Enterprise Linux - `amazon-ssm-agent`
 
 ```
-mkdir -p `systemd-service-file-directory
+ mkdir -p <replaceable>systemd-service-file-directory
 echo '[Service]' > [.replaceable]#systemd-service-file-directory/http-proxy.conf
-echo 'Environment="HTTP_PROXY=http://[.replaceable]#proxy-domain:port`"' >> `systemd-service-file-directory/http-proxy.conf
-echo 'Environment="HTTPS_PROXY=http://[.replaceable]#proxy-domain:port`"' >> [.replaceable]#systemd-service-file-directory/http-proxy.conf
+echo 'Environment="HTTP_PROXY=http://[.replaceable]#proxy-domain:port</replaceable>"' >> <replaceable>systemd-service-file-directory/http-proxy.conf
+echo 'Environment="HTTPS_PROXY=http://[.replaceable]#proxy-domain:port</replaceable>"' >> [.replaceable]#systemd-service-file-directory/http-proxy.conf
 echo 'Environment="NO_PROXY=localhost"' >> [.replaceable]#systemd-service-file-directory/http-proxy.conf
 systemctl daemon-reload
 systemctl restart [.replaceable]#systemd-service-name
@@ -121,16 +121,15 @@ If you are using a proxy for internet access, you must configure your operating 
 1. Configure `snap` to use your proxy with the following commands:
 
 ```
-sudo snap set system proxy.https=http://`proxy-domain:port`
-sudo snap set system proxy.http=http://`proxy-domain:port`
-
+ sudo snap set system proxy.https=http://<replaceable>proxy-domain:port</replaceable>
+sudo snap set system proxy.http=http://<replaceable>proxy-domain:port</replaceable>
 ```
 
 2. To enable proxy for `apt`, create a file called `apt.conf` in the `/etc/apt/` directory. Replace proxy-domain and port with the values for your environment.
 
 ```
-Acquire::http::Proxy "http://`proxy-domain:port`";
-Acquire::https::Proxy "http://`proxy-domain:port`";
+ Acquire::http::Proxy "http://<replaceable>proxy-domain:port</replaceable>";
+Acquire::https::Proxy "http://<replaceable>proxy-domain:port</replaceable>";
 ```
 
 **Amazon Linux 2023**
@@ -138,8 +137,7 @@ Acquire::https::Proxy "http://`proxy-domain:port`";
 1. Configure `dnf` to use your proxy. Create a file `/etc/dnf/dnf.conf` with the proxy-domain and port values for your environment.
 
 ```
-proxy=http://`proxy-domain:port`
-
+ proxy=http://<replaceable>proxy-domain:port</replaceable>
 ```
 
 **Red Hat Enterprise Linux**
@@ -147,8 +145,7 @@ proxy=http://`proxy-domain:port`
 1. Configure `yum` to use your proxy. Create a file `/etc/yum.conf` with the proxy-domain and port values for your environment.
 
 ```
-proxy=http://`proxy-domain:port`
-
+ proxy=http://<replaceable>proxy-domain:port</replaceable>
 ```
 
 ### IAM Roles Anywhere proxy configuration
@@ -158,9 +155,9 @@ The IAM Roles Anywhere credential provider service is responsible for refreshing
 Create a file called `http-proxy.conf` in the `/etc/systemd/system/aws_signing_helper_update.service.d/` directory with the following content. Replace `proxy-domain` and `port` with the values for your environment.
 
 ```
-[Service]
-Environment="HTTP_PROXY=http://`proxy-domain:port`"
-Environment="HTTPS_PROXY=http://`proxy-domain:port`"
+ [Service]
+Environment="HTTP_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
+Environment="HTTPS_PROXY=http://<replaceable>proxy-domain:port</replaceable>"
 Environment="NO_PROXY=localhost"
 ```
 
@@ -175,22 +172,22 @@ Amazon EKS automatically installs `kube-proxy` on each hybrid node as a DaemonSe
 1. Edit the `kube-proxy` DaemonSet with the following command
 
 ```
-kubectl -n kube-system edit ds kube-proxy
+ kubectl -n kube-system edit ds kube-proxy
 ```
 
 This will open the `kube-proxy` DaemonSet definition on your configured editor. 2. Add the environment variables for `HTTP_PROXY` and `HTTPS_PROXY`. Note the `NODE_NAME` environment variable should already exist in your configuration. Replace `proxy-domain` and `port` with values for your environment.
 
 ```
-containers:
+ containers:
   - command:
     - kube-proxy
     - --v=2
     - --config=/var/lib/kube-proxy-config/config - --hostname-override=$(NODE_NAME)
     env:
     - name: HTTP_PROXY
-      value: http://`proxy-domain:port`
+      value: http://<replaceable>proxy-domain:port</replaceable>
     - name: HTTPS_PROXY
-      value: http://`proxy-domain:port`
+      value: http://<replaceable>proxy-domain:port</replaceable>
     - name: NODE_NAME
       valueFrom:
         fieldRef:

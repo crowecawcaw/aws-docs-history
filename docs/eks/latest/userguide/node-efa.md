@@ -42,7 +42,7 @@ The following procedure helps you create a node group with a `p4d.24xlarge` back
 1. Determine which Amazon EC2 instance types that support EFA are available in the AWS Region that you want to deploy nodes in. Replace `region-code` with the AWS Region that you want to deploy your node group in.
 
 ```
-aws ec2 describe-instance-types --region region-code \
+ aws ec2 describe-instance-types --region region-code \
     --filters Name=network-info.efa-supported,Values=true \
     --query "InstanceTypes[*].[InstanceType]" --output text
 ```
@@ -50,7 +50,7 @@ aws ec2 describe-instance-types --region region-code \
 When you deploy nodes, the instance type that you want to deploy must be available in the AWS Region that your cluster is in. 2. Determine which Availability Zones that the instance type that you want to deploy is available in. In this tutorial, the `p5.48xlarge` instance type is used and must be returned in the output for the AWS Region that you specified in the previous step. When you deploy nodes in a production cluster, replace `p5.48xlarge` with any instance type returned in the previous step.
 
 ```
-aws ec2 describe-instance-type-offerings --region region-code \
+ aws ec2 describe-instance-type-offerings --region region-code \
     --location-type availability-zone --filters Name=instance-type,Values=p4d.24xlarge,p5.48xlarge \
     --query 'InstanceTypeOfferings[*].Location' --output text
 ```
@@ -58,7 +58,7 @@ aws ec2 describe-instance-type-offerings --region region-code \
 An example output is as follows.
 
 ```
-us-west-2a    us-west-2c    us-west-2b
+ us-west-2a    us-west-2c    us-west-2b
 ```
 
 Note the Availability Zones returned for use in later steps. When you deploy nodes to a cluster, your VPC must have subnets with available IP addresses in one of the Availability Zones returned in the output. 3. Create a node group using `eksctl`. You need version `0.215.0` or later of the `eksctl` command line tool installed on your device or AWS CloudShell. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
@@ -68,7 +68,7 @@ Note the Availability Zones returned for use in later steps. When you deploy nod
 
 
     ```
-    apiVersion: eksctl.io/v1alpha5
+     apiVersion: eksctl.io/v1alpha5
     kind: ClusterConfig
 
     metadata:
@@ -97,7 +97,7 @@ Note the Availability Zones returned for use in later steps. When you deploy nod
 
 
     ```
-    eksctl create nodegroup -f efa-cluster.yaml
+     eksctl create nodegroup -f efa-cluster.yaml
     ```
 
     If you don’t have an existing cluster, you can run the following command to create a cluster and the node group.
@@ -105,7 +105,7 @@ Note the Availability Zones returned for use in later steps. When you deploy nod
 
 
     ```
-    eksctl create cluster -f efa-cluster.yaml
+     eksctl create cluster -f efa-cluster.yaml
     ```
 
     ###### Note
@@ -119,7 +119,7 @@ Bottlerocket AMI version 1.28.0 and later include official support for EFA. To u
 Here’s an example configuration:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -160,13 +160,13 @@ When you create a node group with `efaEnabled: true`, `eksctl` automatically dep
 1. Check the DaemonSet status:
 
 ```
-kubectl get daemonsets -n kube-system
+ kubectl get daemonsets -n kube-system
 ```
 
 Sample output:
 
 ```
-NAME                                  DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ NAME                                  DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 aws-efa-k8s-device-plugin-daemonset   2         2         2       2            2           <none>          6m16s
 ...
 ```
@@ -174,13 +174,13 @@ aws-efa-k8s-device-plugin-daemonset   2         2         2       2            2
 Here, the EFA device plugin DaemonSet is running on two nodes. Both are READY and AVAILABLE. 2. Next, verify the pods created by the DaemonSet:
 
 ```
-kubectl get pods -n kube-system -l name=aws-efa-k8s-device-plugin
+ kubectl get pods -n kube-system -l name=aws-efa-k8s-device-plugin
 ```
 
 Sample output:
 
 ```
-NAME                                        READY   STATUS    RESTARTS   AGE
+ NAME                                        READY   STATUS    RESTARTS   AGE
 aws-efa-k8s-device-plugin-daemonset-d68bs   1/1     Running   0          6m16s
 aws-efa-k8s-device-plugin-daemonset-w4l8t   1/1     Running   0          6m16s
 ```
@@ -190,13 +190,13 @@ The EFA device plugin pods are in a Running state, confirming that the plugin is
 You can confirm that the `vpc.amazonaws.com/efa` resource is registered with the kubelet by describing the nodes:
 
 ```
-kubectl describe nodes
+ kubectl describe nodes
 ```
 
 If the EFA resource is properly registered, you will see it listed under the node’s Capacity and Allocatable resources. For example:
 
 ```
-Capacity:
+ Capacity:
   ...
   vpc.amazonaws.com/efa:  4
 Allocatable:
@@ -226,7 +226,7 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
 
 
     ```
-    apiVersion: kubeflow.org/v2beta1
+     apiVersion: kubeflow.org/v2beta1
     kind: MPIJob
     metadata:
       name: nccl-tests
@@ -339,7 +339,7 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
 
 
     ```
-    kubectl apply -f nccl-tests.yaml
+     kubectl apply -f nccl-tests.yaml
     ```
 
     An example output is as follows.
@@ -347,7 +347,7 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
 
 
     ```
-    mpijob.kubeflow.org/nccl-tests created
+     mpijob.kubeflow.org/nccl-tests created
     ```
     3. Verify that the job started pods:
 
@@ -357,7 +357,7 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
 
 
     ```
-    kubectl get pods
+     kubectl get pods
     ```
 
     An example output is as follows.
@@ -365,7 +365,7 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
 
 
     ```
-    NAME                             READY   STATUS     RESTARTS   AGE
+     NAME                             READY   STATUS     RESTARTS   AGE
     nccl-tests-launcher-nbql9    0/1     Init:0/1   0          2m49s
     nccl-tests-worker-0          1/1     Running    0          2m49s
     nccl-tests-worker-1          1/1     Running    0          2m49s
@@ -380,7 +380,7 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
 
 
     ```
-    kubectl logs -f nccl-tests-launcher-nbql9
+     kubectl logs -f nccl-tests-launcher-nbql9
     ```
 
 If the test completed successfully, you can deploy your applications that use the Nvidia Collective Communication Library.

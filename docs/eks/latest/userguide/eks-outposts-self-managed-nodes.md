@@ -30,9 +30,9 @@ You can create a self-managed node group for local cluster with the following to
 ###### Important
 
 - Self-managed node group includes Amazon EC2 instances in your account. These instances aren’t automatically upgraded when you or Amazon EKS update the control plane version on your behalf. A self-managed node group doesn’t have any indication in the console that it needs updating. You can view the `kubelet` version installed on a node by selecting the node in the **Nodes** list on the **Overview** tab of your cluster to determine which nodes need updating. You must manually update the nodes. For more information, see [Update self-managed nodes for your cluster](update-workers.md "update-workers.md").
-- The certificates used by kubelet on your self-managed nodes are issued with one year expiration. By default certificate rotation is **not** enabled (see: [https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/#kubelet-config-k8s-io-v1beta1-KubeletConfiguration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/#kubelet-config-k8s-io-v1beta1-KubeletConfiguration "https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/#kubelet-config-k8s-io-v1beta1-KubeletConfiguration")), this means if you have a self-managed node running for more than one year, it will no longer be able to authenticate to the Kubernetes API.
+- The certificates used by kubelet on your self-managed nodes are issued with one year expiration. By default certificate rotation is **not** enabled (see: https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/#kubelet-config-k8s-io-v1beta1-KubeletConfiguration), this means if you have a self-managed node running for more than one year, it will no longer be able to authenticate to the Kubernetes API.
 - As a best practice we recommend customers to regularly update their self-managed node groups to receive CVEs and security patches from latest Amazon EKS optimized AMI. Updating AMI used in self-managed node groups also triggers re-creation of nodes and make sure they do not run into issue due to expired kubelet certificates.
-- Alternatively you can also enable client certificate rotation (see: [https://kubernetes.io/docs/tasks/tls/certificate-rotation/](https://kubernetes.io/docs/tasks/tls/certificate-rotation/ "https://kubernetes.io/docs/tasks/tls/certificate-rotation/")) when creating the self-managed node groups to make sure kubelet certificates are renewed as the current certificate approaches expiration.
+- Alternatively you can also enable client certificate rotation (see: https://kubernetes.io/docs/tasks/tls/certificate-rotation/) when creating the self-managed node groups to make sure kubelet certificates are renewed as the current certificate approaches expiration.
 
 ## `eksctl`
 
@@ -49,7 +49,7 @@ Replace `my-key` with the name of your Amazon EC2 key pair or public key. This k
 Create your node group with the following command.
 
 ```
-eksctl create nodegroup --cluster my-cluster --name al-nodes --node-type instance-type \
+ eksctl create nodegroup --cluster my-cluster --name al-nodes --node-type instance-type \
     --nodes 3 --nodes-min 1 --nodes-max 4 --managed=false \
     --node-volume-type gp2 --subnet-ids subnet-id \
     --node-ami-family AmazonLinux2023
@@ -68,7 +68,7 @@ For a complete list of all available options and defaults, see [AWS Outposts Sup
 
 
     ```
-    [✔]  created 1 nodegroup(s) in cluster "my-cluster"
+     [✔]  created 1 nodegroup(s) in cluster "my-cluster"
     ```
 
 4. (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your cluster and Linux nodes.
@@ -80,7 +80,7 @@ For a complete list of all available options and defaults, see [AWS Outposts Sup
 1. Download the latest version of the AWS CloudFormation template.
 
 ```
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/amazon-eks-outpost-nodegroup.yaml
+ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/amazon-eks-outpost-nodegroup.yaml
 ```
 
 2.  Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -137,7 +137,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/
    `ConfigMap`.
 
 ```
-kubectl describe configmap -n kube-system aws-auth
+ kubectl describe configmap -n kube-system aws-auth
 ```
 
 2.  If you are shown an `aws-auth`
@@ -148,14 +148,14 @@ kubectl describe configmap -n kube-system aws-auth
 
 
         ```
-        kubectl edit -n kube-system configmap/aws-auth
+         kubectl edit -n kube-system configmap/aws-auth
         ```
         2. Add a new `mapRoles` entry as needed. Set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure.
 
 
 
         ```
-        [...]
+         [...]
         data:
           mapRoles: |
             - rolearn: <ARN of instance role (not instance profile)>
@@ -171,25 +171,25 @@ kubectl describe configmap -n kube-system aws-auth
     1. Download the configuration map.
 
     ```
-    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
+     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
     ```
 
     2. In the `aws-auth-cm.yaml` file, set the `rolearn` to the **NodeInstanceRole** value that you recorded in the previous procedure. You can do this with a text editor, or by replacing `my-node-instance-role` and running the following command:
 
     ```
-    sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
+     sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
     ```
 
     3. Apply the configuration. This command may take a few minutes to finish.
 
     ```
-    kubectl apply -f aws-auth-cm.yaml
+     kubectl apply -f aws-auth-cm.yaml
     ```
 
 4.  Watch the status of your nodes and wait for them to reach the `Ready` status.
 
 ```
-kubectl get nodes --watch
+ kubectl get nodes --watch
 ```
 
 Enter `Ctrl`+`C` to return to a shell prompt.
@@ -207,7 +207,7 @@ To create a `gp2` storage class on your cluster, complete the following steps.
 
 
     ```
-    cat >gp2-storage-class.yaml <<EOF
+     cat >gp2-storage-class.yaml <<EOF
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
@@ -227,13 +227,13 @@ To create a `gp2` storage class on your cluster, complete the following steps.
 
 
     ```
-    kubectl apply -f gp2-storage-class.yaml
+     kubectl apply -f gp2-storage-class.yaml
     ```
 
 6. (GPU nodes only) If you chose a GPU instance type and an Amazon EKS optimized accelerated AMI, you must apply the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin "https://github.com/NVIDIA/k8s-device-plugin") as a DaemonSet on your cluster. Replace `vX.X.X` with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases "https://github.com/NVIDIA/k8s-device-plugin/releases") version before running the following command.
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
+ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
 ```
 
 **Step3: Additional actions**

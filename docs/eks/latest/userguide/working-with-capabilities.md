@@ -28,7 +28,7 @@ You can view capability status and health in the EKS console or using the AWS CL
 
 **Console**:
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name.
 3. Choose the **Capabilities** tab to view status for all capabilities.
 4. For detailed health information, choose the **Observability** tab, then **Monitor cluster**, then the **Capabilities** tab.
@@ -36,7 +36,7 @@ You can view capability status and health in the EKS console or using the AWS CL
 **AWS CLI**:
 
 ```
-aws eks describe-capability \
+ aws eks describe-capability \
   --region region-code \
   --cluster-name my-cluster \
   --capability-name my-capability-name
@@ -92,7 +92,7 @@ You can list all capability resources on a cluster.
 
 ### Console
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name to open the cluster detail page.
 3. Choose the **Capabilities** tab.
 4. View capability resources under **Managed capabilities**.
@@ -102,14 +102,13 @@ You can list all capability resources on a cluster.
 Use the `list-capabilities` command to view all capabilities on your cluster. Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks list-capabilities \
-  --region `region-code` \
-  --cluster-name `my-cluster`
-
+ aws eks list-capabilities \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable>
 ```
 
 ```
-{
+ {
     "capabilities": [
         {
             "capabilityName": "my-ack",
@@ -147,7 +146,7 @@ Get detailed information about a specific capability, including its configuratio
 
 ### Console
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name to open the cluster detail page.
 3. Choose the **Capabilities** tab.
 4. Choose the capability you want to view from **Managed capabilities**.
@@ -158,17 +157,16 @@ Get detailed information about a specific capability, including its configuratio
 Use the `describe-capability` command to view detailed information. Replace `region-code` with the AWS Region that your cluster is in, replace `my-cluster` with the name of your cluster, and replace `capability-name` with the capability name (ack, argocd, or kro).
 
 ```
-aws eks describe-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --capability-name `capability-name`
-
+ aws eks describe-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
+  --capability-name <replaceable>capability-name</replaceable>
 ```
 
 **Example output:**
 
 ```
-{
+ {
   "capability": {
     "capabilityName": "my-ack",
     "capabilityArn": "arn:aws:eks:us-west-2:111122223333:capability/my-cluster/ack/my-ack/abc123",
@@ -203,12 +201,11 @@ Updating a capability will update resource configuration and will not result in 
 Use the `update-capability` command to modify a capability:
 
 ```
-aws eks update-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --capability-name `capability-name` \
-  --role-arn arn:aws:iam::[.replaceable]`111122223333`:role/`NewCapabilityRole`
-
+ aws eks update-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
+  --capability-name <replaceable>capability-name</replaceable> \
+  --role-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/<replaceable>NewCapabilityRole</replaceable>
 ```
 
 ###### Note
@@ -236,7 +233,7 @@ You may optionally choose to retain AWS resources associated with ACK Kubernetes
 
 ### Console
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name to open the cluster detail page.
 3. Choose the **Capabilities** tab.
 4. Select the capability you want to delete from the list of **Managed capabilities**.
@@ -251,11 +248,10 @@ Use the `delete-capability` command to delete a capability resource:
 Replace `region-code` with the AWS Region that your cluster is in, replace `my-cluster` with the name of your cluster, and replace `capability-name` with the capability name to delete.
 
 ```
-aws eks delete-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --capability-name `capability-name`
-
+ aws eks delete-capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster-name <replaceable>my-cluster</replaceable> \
+  --capability-name <replaceable>capability-name</replaceable>
 ```
 
 ## Next steps

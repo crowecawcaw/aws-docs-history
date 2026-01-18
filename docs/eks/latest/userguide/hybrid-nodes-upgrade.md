@@ -34,14 +34,13 @@ _Cutover migration upgrades_ refer to the process of creating new hybrid nodes o
 4. Use the following command to mark each of the nodes that you want to remove as unschedulable. This is so that new pods aren’t scheduled or rescheduled on the nodes that you are replacing. For more information, see [kubectl cordon](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cordon/ "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cordon/") in the Kubernetes documentation. Replace `NODE_NAME` with the name of the hybrid nodes on the old Kubernetes version.
 
 ```
-kubectl cordon `NODE_NAME`
-
+ kubectl cordon <replaceable>NODE_NAME</replaceable>
 ```
 
 You can identify and cordon all of the nodes of a particular Kubernetes version (in this case, `1.28`) with the following code snippet.
 
 ```
-K8S_VERSION=1.28
+ K8S_VERSION=1.28
 for node in $(kubectl get nodes -o json | jq --arg K8S_VERSION "$K8S_VERSION" -r '.items[] | select(.status.nodeInfo.kubeletVersion | match("\($K8S_VERSION)")).metadata.name')
 do
     echo "Cordoning $node"
@@ -52,19 +51,19 @@ done
 5. If your current deployment is running fewer than two CoreDNS replicas on your hybrid nodes, scale out the deployment to at least two replicas. We recommend that you run at least two CoreDNS replicas on hybrid nodes for resiliency during normal operations.
 
 ```
-kubectl scale deployments/coredns --replicas=2 -n kube-system
+ kubectl scale deployments/coredns --replicas=2 -n kube-system
 ```
 
 6. Drain each of the hybrid nodes on the old Kubernetes version that you want to remove from your cluster with the following command. For more information on draining nodes, see [Safely Drain a Node](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/ "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/") in the Kubernetes documentation. Replace `NODE_NAME` with the name of the hybrid nodes on the old Kubernetes version.
 
 ```
-kubectl drain `NODE_NAME` --ignore-daemonsets --delete-emptydir-data
+ kubectl drain <replaceable>NODE_NAME</replaceable> --ignore-daemonsets --delete-emptydir-data
 ```
 
 You can identify and drain all of the nodes of a particular Kubernetes version (in this case, `1.28`) with the following code snippet.
 
 ```
-K8S_VERSION=1.28
+ K8S_VERSION=1.28
 for node in $(kubectl get nodes -o json | jq --arg K8S_VERSION "$K8S_VERSION" -r '.items[] | select(.status.nodeInfo.kubeletVersion | match("\($K8S_VERSION)")).metadata.name')
 do
     echo "Draining $node"
@@ -75,20 +74,19 @@ done
 7. You can use `nodeadm` to stop and remove the hybrid nodes artifacts from the host. You must run `nodeadm` with a user that has root/sudo privileges. By default, `nodeadm uninstall` will not proceed if there are pods remaining on the node. For more information see [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md").
 
 ```
-nodeadm uninstall
+ nodeadm uninstall
 ```
 
 8. With the hybrid nodes artifacts stopped and uninstalled, remove the node resource from your cluster.
 
 ```
-kubectl delete node `node-name`
-
+ kubectl delete node <replaceable>node-name</replaceable>
 ```
 
 You can identify and delete all of the nodes of a particular Kubernetes version (in this case, `1.28`) with the following code snippet.
 
 ```
-K8S_VERSION=1.28
+ K8S_VERSION=1.28
 for node in $(kubectl get nodes -o json | jq --arg K8S_VERSION "$K8S_VERSION" -r '.items[] | select(.status.nodeInfo.kubeletVersion | match("\($K8S_VERSION)")).metadata.name')
 do
     echo "Deleting $node"
@@ -105,29 +103,29 @@ The in-place upgrade process refers to using `nodeadm upgrade` to upgrade the Ku
 1. Use the following command to mark the node you are upgrading as unschedulable. This is so that new pods aren’t scheduled or rescheduled on the node that you are upgrading. For more information, see [kubectl cordon](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cordon/ "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_cordon/") in the Kubernetes documentation. Replace `NODE_NAME` with the name of the hybrid node you are upgrading
 
 ```
-kubectl cordon NODE_NAME
+ kubectl cordon NODE_NAME
 ```
 
 2. Drain the node you are upgrading with the following command. For more information on draining nodes, see [Safely Drain a Node](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/ "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/") in the Kubernetes documentation. Replace `NODE_NAME` with the name of the hybrid node you are upgrading.
 
 ```
-kubectl drain NODE_NAME --ignore-daemonsets --delete-emptydir-data
+ kubectl drain NODE_NAME --ignore-daemonsets --delete-emptydir-data
 ```
 
 3. Run `nodeadm upgrade` on the hybrid node you are upgrading. You must run `nodeadm` with a user that has root/sudo privileges. The name of the node is preserved through upgrade for both AWS SSM and AWS IAM Roles Anywhere credential providers. You cannot change credentials providers during the upgrade process. See [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md") for configuration values for `nodeConfig.yaml`. Replace `K8S_VERSION` with the target Kubernetes version you upgrading to.
 
 ```
-nodeadm upgrade K8S_VERSION -c file://nodeConfig.yaml
+ nodeadm upgrade K8S_VERSION -c file://nodeConfig.yaml
 ```
 
 4. To allow pods to be scheduled on the node after you have upgraded, type the following. Replace `NODE_NAME` with the name of the node.
 
 ```
-kubectl uncordon NODE_NAME
+ kubectl uncordon NODE_NAME
 ```
 
 5. Watch the status of your hybrid nodes and wait for your nodes to shutdown and restart on the new Kubernetes version with the Ready status.
 
 ```
-kubectl get nodes -o wide -w
+ kubectl get nodes -o wide -w
 ```

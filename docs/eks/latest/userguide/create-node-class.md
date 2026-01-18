@@ -23,7 +23,7 @@ You need `kubectl` installed and configured. For more information, see [Set up t
 Here’s an example Node Class:
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: private-compute
@@ -44,7 +44,7 @@ This NodeClass increases the amount of ephemeral storage on the node.
 Apply this configuration by using:
 
 ```
-kubectl apply -f nodeclass.yaml
+ kubectl apply -f nodeclass.yaml
 ```
 
 Next, reference the Node Class in your Node Pool configuration. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
@@ -64,7 +64,7 @@ When creating access entries for EKS Auto Mode node classes, you need to use the
 Update the following CLI commands with your cluster name, and node role ARN. The node role ARN is specified in the node class YAML.
 
 ```
-# Create the access entry for EC2 nodes
+ # Create the access entry for EC2 nodes
 aws eks create-access-entry \
   --cluster-name <cluster-name> \
   --principal-arn <node-role-arn> \
@@ -74,7 +74,7 @@ aws eks create-access-entry \
 aws eks associate-access-policy \
   --cluster-name <cluster-name> \
   --principal-arn <node-role-arn> \
-  --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy \
+  --policy-arn <shared id="region.arn"/>eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy \
   --access-scope type=cluster
 ```
 
@@ -85,7 +85,7 @@ aws eks associate-access-policy \
 Update the following CloudFormation with your cluster name, and node role ARN. The node role ARN is specified in the node class YAML.
 
 ```
-EKSAutoNodeRoleAccessEntry:
+ EKSAutoNodeRoleAccessEntry:
   Type: AWS::EKS::AccessEntry
   Properties:
     ClusterName: <cluster-name>
@@ -94,7 +94,7 @@ EKSAutoNodeRoleAccessEntry:
     AccessPolicies:
       - AccessScope:
           Type: cluster
-        PolicyArn: arn:aws:eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy
+        PolicyArn: <shared id="region.arn"/>eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy
   DependsOn: [ <cluster-name> ] # previously defined in CloudFormation
 ```
 
@@ -103,7 +103,7 @@ For information about deploying CloudFormation stacks, see [Getting started with
 ## Node Class Specification
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: my-node-class
@@ -165,7 +165,7 @@ spec:
     iops: 3000      # Range: 3000-16000
     throughput: 125 # Range: 125-1000
     # Optional KMS key for encryption
-    kmsKeyID: "arn:aws:kms:region:account:key/key-id"
+    kmsKeyID: "<shared id="region.arn"/>kms:region:account:key/key-id"
     # Accepted formats:
     # KMS Key ID
     # KMS Key ARN
@@ -242,7 +242,7 @@ Use `podSubnetSelectorTerms` when you need to:
 ### Example configuration
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: advanced-networking

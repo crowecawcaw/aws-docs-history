@@ -30,13 +30,13 @@ You can also assign `IPv6` addresses to nodes in public and private subnets. The
    - `IPv4`
 
 ```
-https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
+ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
 ```
 
 - `IPv4` and `IPv6`
 
 ```
-https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-ipv6-vpc-public-private-subnets.yaml
+ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-ipv6-vpc-public-private-subnets.yaml
 ```
 
 1. On the **Specify stack details** page, enter the parameters, and then choose **Next**.
@@ -53,7 +53,7 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-e
 5. Record the **VpcId** for the VPC that was created. You need this when you create your cluster and nodes.
 6. Record the **SubnetIds** for the subnets that were created and whether you created them as public or private subnets. You need at least two of these when you create your cluster and nodes.
 7. If you created an `IPv4` VPC, skip this step. If you created an `IPv6` VPC, you must enable the auto-assign `IPv6` address option for the public subnets that were created by the template. That setting is already enabled for the private subnets. To enable the setting, complete the following steps:
-   1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+   1. Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
    2. In the left navigation pane, choose **Subnets**
    3. Select one of your public subnets (**`stack-name`/SubnetPublic01** or **`stack-name`/SubnetPublic02** contains the word **public**) and choose **Actions**, **Edit subnet settings**.
    4. Choose the **Enable auto-assign IPv6 address** check box and then choose **Save**.
@@ -70,7 +70,7 @@ This VPC has three public subnets that are deployed into different Availability 
 5. Paste the following URL into the text area under **Amazon S3 URL** and choose **Next**:
 
 ```
-https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-sample.yaml
+ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-sample.yaml
 ```
 
 1. On the **Specify Details** page, enter the parameters, and then choose **Next**.
@@ -99,7 +99,7 @@ This VPC has three private subnets that are deployed into different Availability
 5. Paste the following URL into the text area under **Amazon S3 URL** and choose **Next**:
 
 ```
-https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-fully-private-vpc.yaml
+ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-fully-private-vpc.yaml
 ```
 
 1. On the **Specify Details** page, enter the parameters and then choose **Next**.

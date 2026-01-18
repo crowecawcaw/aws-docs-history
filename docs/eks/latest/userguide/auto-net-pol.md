@@ -51,7 +51,7 @@ To use network policies with EKS Auto Mode, you first need to enable the Network
 1. Create a file named `enable-network-policy.yaml` with the following content:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: amazon-vpc-cni
@@ -77,7 +77,7 @@ You can optionally create a new Node Class to change the default behavior of the
 1. Create or edit a Node Class YAML file (e.g., `nodeclass-network-policy.yaml`) with the following content:
 
 ```
-apiVersion: eks.amazonaws.com/v1
+ apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: network-policy-config
@@ -133,7 +133,7 @@ The `ApplicationNetworkPolicy` combines the capabilities of standard Kubernetes 
 You have a workload in your EKS Auto Mode cluster that needs to communicate with an application on-prem which is behind a load balancer with a DNS name. You could achieve this using the following network policy:
 
 ```
-apiVersion: networking.k8s.aws/v1alpha1
+ apiVersion: networking.k8s.aws/v1alpha1
 kind: ApplicationNetworkPolicy
 metadata:
   name: my-onprem-app-egress
@@ -170,7 +170,7 @@ When using a `ClusterNetworkPolicy`, the Admin tier policies are evaluated first
 You have an application in your cluster that you want to isolate from other tenant workloads. You can explicitly block cluster traffic from other namespaces to prevent network access to the sensitive workload namespace.
 
 ```
-apiVersion: networking.k8s.aws/v1alpha1
+ apiVersion: networking.k8s.aws/v1alpha1
 kind: ClusterNetworkPolicy
 metadata:
   name: protect-sensitive-workload

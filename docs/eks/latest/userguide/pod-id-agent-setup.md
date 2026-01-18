@@ -26,7 +26,7 @@ You do not need to install the EKS Pod Identity Agent on EKS Auto Mode Clusters.
 - The node role has permissions for the agent to do the `AssumeRoleForPodIdentity` action in the EKS Auth API. You can use the [AWS managed policy: AmazonEKSWorkerNodePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksworkernodepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-amazoneksworkernodepolicy") or add a custom policy similar to the following:
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -61,13 +61,13 @@ Note that you can change the image location and provide `imagePullSecrets` for E
 Enter the configuration keys and values in **Configuration values**. 8. Choose **Next**. 9. Confirm that the EKS Pod Identity Agent pods are running on your cluster.
 
 ```
-kubectl get pods -n kube-system | grep 'eks-pod-identity-agent'
+ kubectl get pods -n kube-system | grep 'eks-pod-identity-agent'
 ```
 
 An example output is as follows.
 
 ```
-eks-pod-identity-agent-gmqp7                                          1/1     Running   1 (24h ago)   24h
+ eks-pod-identity-agent-gmqp7                                          1/1     Running   1 (24h ago)   24h
 eks-pod-identity-agent-prnsh                                          1/1     Running   1 (24h ago)   24h
 ```
 
@@ -78,7 +78,7 @@ You can now use EKS Pod Identity associations in your cluster. For more informat
 1. Run the following AWS CLI command. Replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks create-addon --cluster-name my-cluster --addon-name eks-pod-identity-agent --addon-version v1.0.0-eksbuild.1
+ aws eks create-addon --cluster-name my-cluster --addon-name eks-pod-identity-agent --addon-version v1.0.0-eksbuild.1
 ```
 
 ###### Note
@@ -86,13 +86,13 @@ aws eks create-addon --cluster-name my-cluster --addon-name eks-pod-identity-age
 The EKS Pod Identity Agent doesn’t use the `service-account-role-arn` for _IAM roles for service accounts_. You must provide the EKS Pod Identity Agent with permissions in the node role. 2. Confirm that the EKS Pod Identity Agent pods are running on your cluster.
 
 ```
-kubectl get pods -n kube-system | grep 'eks-pod-identity-agent'
+ kubectl get pods -n kube-system | grep 'eks-pod-identity-agent'
 ```
 
 An example output is as follows.
 
 ```
-eks-pod-identity-agent-gmqp7                                          1/1     Running   1 (24h ago)   24h
+ eks-pod-identity-agent-gmqp7                                          1/1     Running   1 (24h ago)   24h
 eks-pod-identity-agent-prnsh                                          1/1     Running   1 (24h ago)   24h
 ```
 

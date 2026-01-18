@@ -63,7 +63,7 @@ If you’re using multiple security groups attached to worker node, exactly one 
 - The [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller "https://github.com/kubernetes-sigs/aws-load-balancer-controller") creates ALBs and the necessary supporting AWS resources whenever a Kubernetes ingress resource is created on the cluster with the `kubernetes.io/ingress.class: alb` annotation. The ingress resource configures the ALB to route HTTP or HTTPS traffic to different Pods within the cluster. To ensure that your ingress objects use the AWS Load Balancer Controller, add the following annotation to your Kubernetes ingress specification. For more information, see [Ingress specification](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/spec/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/spec/") on GitHub.
 
 ```
-annotations:
+ annotations:
     kubernetes.io/ingress.class: alb
 ```
 
@@ -72,7 +72,7 @@ annotations:
 If you’re load balancing to `IPv6` Pods, add the following annotation to your ingress spec. You can only load balance over `IPv6` to IP targets, not instance targets. Without this annotation, load balancing is over `IPv4`.
 
 ```
-alb.ingress.kubernetes.io/ip-address-type: dualstack
+ alb.ingress.kubernetes.io/ip-address-type: dualstack
 ```
 
 - The AWS Load Balancer Controller supports the following traffic modes:
@@ -95,7 +95,7 @@ You can share an application load balancer across multiple service resources usi
 To join an ingress to a group, add the following annotation to a Kubernetes ingress resource specification.
 
 ```
-alb.ingress.kubernetes.io/group.name: my-group
+ alb.ingress.kubernetes.io/group.name: my-group
 ```
 
 The group name must:
@@ -115,7 +115,7 @@ Specify an ingress group for an ingress only when all the Kubernetes users that 
 You can add an order number of your ingress resource.
 
 ```
-alb.ingress.kubernetes.io/group.order: '10'
+ alb.ingress.kubernetes.io/group.order: '10'
 ```
 
 The number can be 1-1000. The lowest number for all ingresses in the same ingress group is evaluated first. All ingresses without this annotation are evaluated with a value of zero. Duplicate rules with a higher number can overwrite rules with a lower number. By default, the rule order between ingresses within the same ingress group is determined lexicographically based namespace and name.
@@ -134,7 +134,7 @@ You can run the sample application on a cluster that has Amazon EC2 nodes, Farga
 1. If you’re not deploying to Fargate, skip this step. If you’re deploying to Fargate, create a Fargate profile. You can create the profile by running the following command or in the [AWS Management Console](fargate-profile.md#create-fargate-profile "fargate-profile.md#create-fargate-profile") using the same values for `name` and `namespace` that are in the command. Replace the example values with your own.
 
 ```
-eksctl create fargateprofile \
+ eksctl create fargateprofile \
     --cluster my-cluster \
     --region region-code \
     --name alb-sample-app \
@@ -146,7 +146,7 @@ eksctl create fargateprofile \
        - **Public**::
 
     ```
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
+     kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
     ```
 
         * **Private**::
@@ -159,7 +159,7 @@ eksctl create fargateprofile \
 
 
         	```
-        	curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
+        	 curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
         	```
         	2. Edit the file and find the line that says `alb.ingress.kubernetes.io/scheme: internet-facing`.
         	3. Change `internet-facing` to `internal` and save the file.
@@ -168,20 +168,20 @@ eksctl create fargateprofile \
 
 
         	```
-        	kubectl apply -f 2048_full.yaml
+        	 kubectl apply -f 2048_full.yaml
         	```
 
     2. If you’re deploying to Pods in a cluster that you created with the [IPv6 family](cni-ipv6.md "cni-ipv6.md"), complete the following steps.
        1. Download the manifest.
 
        ```
-       curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
+        curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
        ```
 
        2. Open the file in an editor and add the following line to the annotations in the ingress spec.
 
        ```
-       alb.ingress.kubernetes.io/ip-address-type: dualstack
+        alb.ingress.kubernetes.io/ip-address-type: dualstack
        ```
 
        3. If you’re load balancing to internal Pods, rather than internet facing Pods, change the line that says `alb.ingress.kubernetes.io/scheme: `internet-facing``to`alb.ingress.kubernetes.io/scheme: internal`
@@ -189,19 +189,19 @@ eksctl create fargateprofile \
        5. Apply the manifest to your cluster.
 
        ```
-       kubectl apply -f 2048_full.yaml
+        kubectl apply -f 2048_full.yaml
        ```
 
 3.  After a few minutes, verify that the ingress resource was created with the following command.
 
 ```
-kubectl get ingress/ingress-2048 -n game-2048
+ kubectl get ingress/ingress-2048 -n game-2048
 ```
 
 An example output is as follows.
 
 ```
-NAME           CLASS    HOSTS   ADDRESS                                                                   PORTS   AGE
+ NAME           CLASS    HOSTS   ADDRESS                                                                   PORTS   AGE
 ingress-2048   <none>   *       k8s-game2048-ingress2-xxxxxxxxxx-yyyyyyyyyy.region-code.elb.amazonaws.com   80      2m32s
 ```
 
@@ -212,7 +212,7 @@ If you created the load balancer in a private subnet, the value under `ADDRESS` 
 If your ingress wasn’t successfully created after several minutes, run the following command to view the AWS Load Balancer Controller logs. These logs might contain error messages that you can use to diagnose issues with your deployment.
 
 ```
-kubectl logs -f -n kube-system -l app.kubernetes.io/instance=aws-load-balancer-controller
+ kubectl logs -f -n kube-system -l app.kubernetes.io/instance=aws-load-balancer-controller
 ```
 
 1. If you deployed to a public subnet, open a browser and navigate to the `ADDRESS` URL from the previous command output to see the sample application. If you don’t see anything, refresh your browser and try again. If you deployed to a private subnet, then you’ll need to view the page from a device within your VPC, such as a bastion host. For more information, see [Linux Bastion Hosts on AWS](https://aws.amazon.com/quickstart/architecture/linux-bastion/ "https://aws.amazon.com/quickstart/architecture/linux-bastion/").
@@ -224,12 +224,12 @@ kubectl logs -f -n kube-system -l app.kubernetes.io/instance=aws-load-balancer-c
 
 
     ```
-    kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
+     kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
     ```
     * If you downloaded and edited the manifest, use the following command.
 
 
 
     ```
-    kubectl delete -f 2048_full.yaml
+     kubectl delete -f 2048_full.yaml
     ```

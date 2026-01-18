@@ -25,7 +25,7 @@ For development, testing, or simple use cases, grant all necessary permissions d
 **Example**: Add S3 and RDS permissions to your Capability Role with resource tagging conditions:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -159,7 +159,7 @@ ACK supports adopting existing AWS resources without recreating them, enabling z
 **Adopt an existing resource**:
 
 ```
-apiVersion: s3.services.k8s.aws/v1alpha1
+ apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: existing-bucket
@@ -212,7 +212,7 @@ This protects critical data and allows resources to outlive their Kubernetes rep
 - Resources with complex dependencies that require careful decommissioning
 
 ```
-apiVersion: rds.services.k8s.aws/v1alpha1
+ apiVersion: rds.services.k8s.aws/v1alpha1
 kind: DBInstance
 metadata:
   name: production-db

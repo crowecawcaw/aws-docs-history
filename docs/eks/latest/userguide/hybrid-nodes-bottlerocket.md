@@ -30,7 +30,7 @@ The TOML files provided below only represent the minimum required settings for i
 If you are using AWS Systems Manager as your credential provider, create a `settings.toml` file with the following content:
 
 ```
-[settings.kubernetes]
+ [settings.kubernetes]
 cluster-name = "<cluster-name>"
 api-server = "<api-server-endpoint>"
 cluster-certificate = "<cluster-certificate-authority>"
@@ -84,7 +84,7 @@ Replace the placeholders with the following values:
 - `<base64-encoded-admin-container-userdata>`: The base64-encoded contents of the Bottlerocket admin container configuration. Enabling the admin container allows you to connect to your Bottlerocket instance with SSH for system exploration and debugging. While this is not a required setting, we recommend enabling it for ease of troubleshooting. Refer to the [Bottlerocket admin container documentation](https://github.com/bottlerocket-os/bottlerocket-admin-container#authenticating-with-the-admin-container "https://github.com/bottlerocket-os/bottlerocket-admin-container#authenticating-with-the-admin-container") for more information on authenticating with the admin container. The admin container takes SSH user and key input in JSON format, for example,
 
 ```
-{
+ {
   "user": "<ssh-user>",
   "ssh": {
     "authorized-keys": [
@@ -97,7 +97,7 @@ Replace the placeholders with the following values:
 - `<base64-encoded-bootstrap-container-userdata>`: The base64-encoded contents of the Bottlerocket bootstrap container configuration. Refer to the [Bottlerocket bootstrap container documentation](https://github.com/bottlerocket-os/bottlerocket-bootstrap-container "https://github.com/bottlerocket-os/bottlerocket-bootstrap-container") for more information on its configuration. The bootstrap container is responsible for registering the instance as an AWS SSM Managed Instance and joining it as a Kubernetes node on your Amazon EKS Cluster. The user data passed into the bootstrap container takes the form of a command invocation which accepts as input the SSM hybrid activation code and ID you previously created:
 
 ```
-eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activation-code> --region=<region>
+ eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activation-code> --region=<region>
 ```
 
 ### IAM Roles Anywhere
@@ -105,7 +105,7 @@ eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activati
 If you are using AWS IAM Roles Anywhere as your credential provider, create a `settings.toml` file with the following content:
 
 ```
-[settings.kubernetes]
+ [settings.kubernetes]
 cluster-name = "<cluster-name>"
 api-server = "<api-server-endpoint>"
 cluster-certificate = "<cluster-certificate-authority>"
@@ -164,7 +164,7 @@ credential_process = aws_signing_helper credential-process --certificate /root/.
 - `<base64-encoded-admin-container-userdata>`: The base64-encoded contents of the Bottlerocket admin container configuration. Enabling the admin container allows you to connect to your Bottlerocket instance with SSH for system exploration and debugging. While this is not a required setting, we recommend enabling it for ease of troubleshooting. Refer to the [Bottlerocket admin container documentation](https://github.com/bottlerocket-os/bottlerocket-admin-container#authenticating-with-the-admin-container "https://github.com/bottlerocket-os/bottlerocket-admin-container#authenticating-with-the-admin-container") for more information on authenticating with the admin container. The admin container takes SSH user and key input in JSON format, for example,
 
 ```
-{
+ {
   "user": "<ssh-user>",
   "ssh": {
     "authorized-keys": [
@@ -177,7 +177,7 @@ credential_process = aws_signing_helper credential-process --certificate /root/.
 - `<base64-encoded-bootstrap-container-userdata>`: The base64-encoded contents of the Bottlerocket bootstrap container configuration. Refer to the [Bottlerocket bootstrap container documentation](https://github.com/bottlerocket-os/bottlerocket-bootstrap-container "https://github.com/bottlerocket-os/bottlerocket-bootstrap-container") for more information on its configuration. The bootstrap container is responsible for creating the IAM Roles Anywhere host certificate and certificate private key files on the instance. These will then be consumed by the `aws_signing_helper` to obtain temporary credentials for authenticating with your Amazon EKS cluster. The user data passed into the bootstrap container takes the form of a command invocation which accepts as input the contents of the certificate and private key you previously created:
 
 ```
-eks-hybrid-iam-ra-setup --certificate=<certificate> --key=<private-key>
+ eks-hybrid-iam-ra-setup --certificate=<certificate> --key=<private-key>
 ```
 
 ## Step 2: Provision the Bottlerocket vSphere VM with user data
@@ -187,7 +187,7 @@ Once you have constructed the TOML file, pass it as user data during vSphere VM 
 ### Creating VM for the first time
 
 ```
-govc vm.create \
+ govc vm.create \
   -on=true \
   -c=2 \
   -m=4096 \
@@ -202,7 +202,7 @@ govc vm.create \
 ### Updating user data for an existing VM
 
 ```
-govc vm.create \
+ govc vm.create \
     -on=false \
     -c=2 \
     -m=4096 \
@@ -226,7 +226,7 @@ In the above sections, the `-e guestinfo.userdata.encoding="base64"` option spec
 After the Bottlerocket instance starts, it will attempt to join your Amazon EKS cluster. You can verify the connection in the Amazon EKS console by navigating to the Compute tab for your cluster or by running the following command:
 
 ```
-kubectl get nodes
+ kubectl get nodes
 ```
 
 ###### Important

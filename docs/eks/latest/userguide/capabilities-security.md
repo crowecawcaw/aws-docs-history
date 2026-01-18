@@ -110,7 +110,7 @@ Associate pre-defined access entry policies like `AmazonEKSAdminPolicy` or `Amaz
 Create a `ClusterRoleBinding` that grants the capability’s Kubernetes user the necessary permissions:
 
 ```
-apiVersion: rbac.authorization.k8s.io/v1
+ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: kro-cluster-admin
@@ -165,7 +165,7 @@ In such cases, you should govern access to those resources appropriately.
 **Example**: Instead of `"Resource": "*"`, specify patterns for specific resources or groups of resources.
 
 ```
-"Resource": [
+ "Resource": [
   "arn:aws:s3:::my-app-*",
   "arn:aws:rds:us-west-2:111122223333:db:prod-*"
 ]
@@ -174,7 +174,7 @@ In such cases, you should govern access to those resources appropriately.
 Use IAM condition keys to further restrict access:
 
 ```
-"Condition": {
+ "Condition": {
   "StringEquals": {
     "aws:ResourceTag/Environment": "production"
   }
@@ -202,7 +202,7 @@ It is a best practice to deploy capability resources in dedicated namespaces wit
 Example: RBAC Role to work with ACK, allowing for S3 Bucket resource management in the `app-team` namespace:
 
 ```
-apiVersion: rbac.authorization.k8s.io/v1
+ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: ack-s3-manager

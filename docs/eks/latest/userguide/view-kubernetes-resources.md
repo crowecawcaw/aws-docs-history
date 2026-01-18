@@ -28,7 +28,7 @@ To view the **Resources** tab and **Nodes** section on the **Compute** tab in th
 The following example policy includes the necessary permissions for a principal to view Kubernetes resources for all clusters in your account. Replace `111122223333` with your AWS account ID.
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -66,7 +66,7 @@ View Kubernetes resources in all namespaces
 
 
     ```
-    kubectl apply -f https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-full-access.yaml
+     kubectl apply -f https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-full-access.yaml
     ```
 
 View Kubernetes resources in a specific namespace
@@ -76,7 +76,7 @@ View Kubernetes resources in a specific namespace
 
 
     ```
-    kubectl apply -f https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-restricted-access.yaml
+     kubectl apply -f https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-restricted-access.yaml
     ```
 
     If you need to change the Kubernetes group name, namespace, permissions, or any other configuration in the file, then download the file and edit it before applying it to your cluster:
@@ -89,12 +89,12 @@ View Kubernetes resources in a specific namespace
 
 
     	```
-    	curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-full-access.yaml
+    	 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-full-access.yaml
     	```
 
 
     	```
-    	curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-restricted-access.yaml
+    	 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-restricted-access.yaml
     	```
     	2. Edit the file as necessary.
     	3. Apply the manifest to your cluster with one of the following commands:
@@ -102,12 +102,12 @@ View Kubernetes resources in a specific namespace
 
 
     	```
-    	kubectl apply -f eks-console-full-access.yaml
+    	 kubectl apply -f eks-console-full-access.yaml
     	```
 
 
     	```
-    	kubectl apply -f eks-console-restricted-access.yaml
+    	 kubectl apply -f eks-console-restricted-access.yaml
     	```
 
 3. Map the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") to the Kubernetes user or group in the `aws-auth`
@@ -124,23 +124,23 @@ We recommend using `eksctl`, or another tool, to edit the `ConfigMap`. For infor
 2. View the current mappings in the `ConfigMap`. Replace `my-cluster` with the name of your cluster. Replace `region-code` with the AWS Region that your cluster is in.
 
 ```
-eksctl get iamidentitymapping --cluster my-cluster --region=region-code
+ eksctl get iamidentitymapping --cluster my-cluster --region=region-code
 ```
 
 An example output is as follows.
 
 ```
-ARN                                                                                             USERNAME                                GROUPS                          ACCOUNT
-arn:aws:iam::111122223333:role/eksctl-my-cluster-my-nodegroup-NodeInstanceRole-1XLS7754U3ZPA    system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
+ ARN                                                                                             USERNAME                                GROUPS                          ACCOUNT
+<shared id="region.arn"/>iam::111122223333:role/eksctl-my-cluster-my-nodegroup-NodeInstanceRole-1XLS7754U3ZPA    system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
 ```
 
 3. Add a mapping for a role. This example assume that you attached the IAM permissions in the first step to a role named `my-console-viewer-role`. Replace `111122223333` with your account ID.
 
 ```
-eksctl create iamidentitymapping \
+ eksctl create iamidentitymapping \
     --cluster my-cluster \
     --region=region-code \
-    --arn arn:aws:iam::111122223333:role/my-console-viewer-role \
+    --arn <shared id="region.arn"/>iam::111122223333:role/my-console-viewer-role \
     --group eks-console-dashboard-full-access-group \
     --no-duplicate-arns
 ```
@@ -152,17 +152,17 @@ The role ARN can’t include a path such as `role/my-team/developers/my-role`. T
 An example output is as follows.
 
 ```
-[...]
-2022-05-09 14:51:20 [ℹ]  adding identity "arn:aws:iam::111122223333:role/my-console-viewer-role" to auth ConfigMap
+ [...]
+2022-05-09 14:51:20 [ℹ]  adding identity "<shared id="region.arn"/>iam::111122223333:role/my-console-viewer-role" to auth ConfigMap
 ```
 
 4. Add a mapping for a user. [IAM best practices](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") recommend that you grant permissions to roles instead of users. This example assume that you attached the IAM permissions in the first step to a user named `my-user`. Replace `111122223333` with your account ID.
 
 ```
-eksctl create iamidentitymapping \
+ eksctl create iamidentitymapping \
     --cluster my-cluster \
     --region=region-code \
-    --arn arn:aws:iam::111122223333:user/my-user \
+    --arn <shared id="region.arn"/>iam::111122223333:user/my-user \
     --group eks-console-dashboard-restricted-access-group \
     --no-duplicate-arns
 ```
@@ -170,23 +170,23 @@ eksctl create iamidentitymapping \
 An example output is as follows.
 
 ```
-[...]
-2022-05-09 14:53:48 [ℹ]  adding identity "arn:aws:iam::111122223333:user/my-user" to auth ConfigMap
+ [...]
+2022-05-09 14:53:48 [ℹ]  adding identity "<shared id="region.arn"/>iam::111122223333:user/my-user" to auth ConfigMap
 ```
 
 5. View the mappings in the `ConfigMap` again.
 
 ```
-eksctl get iamidentitymapping --cluster my-cluster --region=region-code
+ eksctl get iamidentitymapping --cluster my-cluster --region=region-code
 ```
 
 An example output is as follows.
 
 ```
-ARN                                                                                             USERNAME                                GROUPS                                  ACCOUNT
-arn:aws:iam::111122223333:role/eksctl-my-cluster-my-nodegroup-NodeInstanceRole-1XLS7754U3ZPA    system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
-arn:aws:iam::111122223333:role/my-console-viewer-role                                                                                   eks-console-dashboard-full-access-group
-arn:aws:iam::111122223333:user/my-user                                                                                                  eks-console-dashboard-restricted-access-group
+ ARN                                                                                             USERNAME                                GROUPS                                  ACCOUNT
+<shared id="region.arn"/>iam::111122223333:role/eksctl-my-cluster-my-nodegroup-NodeInstanceRole-1XLS7754U3ZPA    system:node:{{EC2PrivateDNSName}}       system:bootstrappers,system:nodes
+<shared id="region.arn"/>iam::111122223333:role/my-console-viewer-role                                                                                   eks-console-dashboard-full-access-group
+<shared id="region.arn"/>iam::111122223333:user/my-user                                                                                                  eks-console-dashboard-restricted-access-group
 ```
 
 ### Edit ConfigMap manually
@@ -198,7 +198,7 @@ For more information about adding users or roles to the `aws-auth`
    `ConfigMap` for editing.
 
 ```
-kubectl edit -n kube-system configmap/aws-auth
+ kubectl edit -n kube-system configmap/aws-auth
 ```
 
 2.  Add the mappings to the `aws-auth`
@@ -213,17 +213,17 @@ kubectl edit -n kube-system configmap/aws-auth
 
 
         ```
-        apiVersion: v1
+         apiVersion: v1
         data:
         mapRoles: |
           - groups:
             - eks-console-dashboard-full-access-group
-            rolearn: arn:aws:iam::111122223333:role/my-console-viewer-role
+            rolearn: <shared id="region.arn"/>iam::111122223333:role/my-console-viewer-role
             username: my-console-viewer-role
         mapUsers: |
           - groups:
             - eks-console-dashboard-restricted-access-group
-            userarn: arn:aws:iam::111122223333:user/my-user
+            userarn: <shared id="region.arn"/>iam::111122223333:user/my-user
             username: my-user
         ```
 

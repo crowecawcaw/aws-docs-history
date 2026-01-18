@@ -31,7 +31,7 @@ If the multi-NIC feature is enabled, the VPC CNI doesn’t assign IP addresses i
 - **Custom IAM policy** - For `IPv6` clusters, create and use the following custom IAM policy for the VPC CNI. This policy is specific to multi-NIC. For more general information about using the VPC CNI with `IPv6` clusters, see [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md "cni-ipv6.md").
 
 ```
-{
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -71,7 +71,7 @@ If the multi-NIC feature is enabled, the VPC CNI doesn’t assign IP addresses i
 After the multi-NIC feature is enabled in the VPC CNI and the `aws-node` pods have restarted, you can configure each workload to be multi-homed. The following example of a YAML configuration with the required annotation:
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orders-deployment
@@ -148,7 +148,7 @@ Yes, you can use the AWS CLI or EC2 API to retrieve network information about an
 AWS CLI example:
 
 ```
-aws ec2 describe-instances --instance-ids <your-instance-id> --query "Reservations[].Instances[].EnaSupport"
+ aws ec2 describe-instances --instance-ids <your-instance-id> --query "Reservations[].Instances[].EnaSupport"
 ```
 
 Example output:

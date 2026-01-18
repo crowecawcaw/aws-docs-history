@@ -17,13 +17,13 @@ Local clusters don’t transition to a `FAILED` status. Amazon EKS attempts to r
 Local cluster issues can be discovered using the [describe-cluster](../../../cli/latest/reference/eks/describe-cluster.md "../../../cli/latest/reference/eks/describe-cluster.md") Amazon EKS AWS CLI command. Local cluster issues are surfaced by the `cluster.health` field of the `describe-cluster` command’s response. The message contained in this field includes an error code, descriptive message, and related resource IDs. This information is available through the Amazon EKS API and AWS CLI only. In the following example, replace `my-cluster` with the name of your local cluster.
 
 ```
-aws eks describe-cluster --name my-cluster --query 'cluster.health'
+ aws eks describe-cluster --name my-cluster --query 'cluster.health'
 ```
 
 An example output is as follows.
 
 ```
-{
+ {
     "issues": [
         {
             "code": "ConfigurationConflict",
@@ -120,7 +120,7 @@ The most common issues are the following:
 When the Amazon EKS control plane instances aren’t reachable through AWS Systems Manager (Systems Manager), Amazon EKS displays the following error for your cluster.
 
 ```
-Amazon EKS control plane instances are not reachable through SSM. Please verify your SSM and network configuration, and reference the EKS on Outposts troubleshooting documentation.
+ Amazon EKS control plane instances are not reachable through SSM. Please verify your SSM and network configuration, and reference the EKS on Outposts troubleshooting documentation.
 ```
 
 To resolve this issue, make sure that your VPC and subnets meet the requirements in [Create a VPC and subnets for Amazon EKS clusters on AWS Outposts](eks-outposts-vpc-subnet-requirements.md "eks-outposts-vpc-subnet-requirements.md") and that you completed the steps in [Setting up Session Manager](../../../systems-manager/latest/userguide/session-manager-getting-started.md "../../../systems-manager/latest/userguide/session-manager-getting-started.md") in the AWS Systems Manager User Guide.

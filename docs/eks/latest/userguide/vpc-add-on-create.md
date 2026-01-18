@@ -27,25 +27,25 @@ After you complete the prerequisites, use the following steps to create the add-
 1. See which version of the add-on is installed on your cluster.
 
 ```
-kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
+ kubectl describe daemonset aws-node --namespace kube-system | grep amazon-k8s-cni: | cut -d : -f 3
 ```
 
 An example output is as follows.
 
 ```
-v1.16.4-eksbuild.2
+ v1.16.4-eksbuild.2
 ```
 
 2. See which type of the add-on is installed on your cluster. Depending on the tool that you created your cluster with, you might not currently have the Amazon EKS add-on type installed on your cluster. Replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query addon.addonVersion --output text
+ aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query addon.addonVersion --output text
 ```
 
 If a version number is returned, you have the Amazon EKS type of the add-on installed on your cluster and don’t need to complete the remaining steps in this procedure. If an error is returned, you don’t have the Amazon EKS type of the add-on installed on your cluster. Complete the remaining steps of this procedure to install it. 3. Save the configuration of your currently installed add-on.
 
 ```
-kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
+ kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
 ```
 
 4. Create the add-on using the AWS CLI. If you want to use the AWS Management Console or `eksctl` to create the add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md "creating-an-add-on.md") and specify `vpc-cni` for the add-on name. Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command.
@@ -54,8 +54,8 @@ kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
    - Replace `111122223333` with your account ID and `AmazonEKSVPCCNIRole` with the name of an [existing IAM role](cni-iam-role.md#cni-iam-role-create-role "cni-iam-role.md#cni-iam-role-create-role") that you’ve created. Specifying a role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
    ```
-   aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version v1.20.3-eksbuild.1 \
-       --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
+    aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version v1.20.3-eksbuild.1 \
+       --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/AmazonEKSVPCCNIRole
    ```
 
    If you’ve applied custom settings to your current add-on that conflict with the default settings of the Amazon EKS add-on, creation might fail. If creation fails, you receive an error that can help you resolve the issue. Alternatively, you can add `--resolve-conflicts OVERWRITE` to the previous command. This allows the add-on to overwrite any existing custom settings. Once you’ve created the add-on, you can update it with your custom settings.
@@ -63,7 +63,7 @@ kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
 5. Confirm that the latest version of the add-on for your cluster’s Kubernetes version was added to your cluster. Replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query addon.addonVersion --output text
+ aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query addon.addonVersion --output text
 ```
 
 It might take several seconds for add-on creation to complete.
@@ -71,7 +71,7 @@ It might take several seconds for add-on creation to complete.
 An example output is as follows.
 
 ```
-v1.20.3-eksbuild.1
+ v1.20.3-eksbuild.1
 ```
 
 6. If you made custom settings to your original add-on, before you created the Amazon EKS add-on, use the configuration that you saved in a previous step to update the EKS add-on with your custom settings. Follow the steps in [Update the Amazon VPC CNI (Amazon EKS add-on)](vpc-add-on-update.md "vpc-add-on-update.md").

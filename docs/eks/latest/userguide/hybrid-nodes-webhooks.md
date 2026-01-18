@@ -32,11 +32,11 @@ _Mixed mode clusters_ are defined as EKS clusters that have both hybrid nodes an
 To view the mutating and validating webhooks running on your cluster, you can view the **Extensions** resource type in the **Resources** panel of the EKS console for your cluster, or you can use the following commands. EKS also reports webhook metrics in the cluster observability dashboard, see [Monitor your cluster with the observability dashboard](observability-dashboard.md "observability-dashboard.md") for more information.
 
 ```
-kubectl get mutatingwebhookconfigurations
+ kubectl get mutatingwebhookconfigurations
 ```
 
 ```
-kubectl get validatingwebhookconfigurations
+ kubectl get validatingwebhookconfigurations
 ```
 
 ### Configure Service Traffic Distribution
@@ -58,18 +58,17 @@ If you are using Cilium as your CNI, you must run the CNI with the `enable-servi
 1. Add a topology zone label for each of your hybrid nodes, for example `topology.kubernetes.io/zone: onprem`. Or, you can set the label at the `nodeadm init` phase by specifying the label in your `nodeadm` configuration, see [Node Config for customizing kubelet (Optional)](hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-kubelet "hybrid-nodes-nodeadm.md#hybrid-nodes-nodeadm-kubelet"). Note, nodes running in AWS Cloud automatically get a topology zone label applied to them that corresponds to the availability zone (AZ) of the node.
 
 ```
-kubectl label node `hybrid-node-name` topology.kubernetes.io/zone=`zone`
-
+ kubectl label node <replaceable>hybrid-node-name</replaceable> topology.kubernetes.io/zone=<replaceable>zone</replaceable>
 ```
 
 2. Add `podAntiAffinity` to the CoreDNS deployment with the topology zone key. Or, you can configure the CoreDNS deployment during installation with EKS add-ons.
 
 ```
-kubectl edit deployment coredns -n kube-system
+ kubectl edit deployment coredns -n kube-system
 ```
 
 ```
-spec:
+ spec:
   template:
     spec:
       affinity:
@@ -100,7 +99,7 @@ spec:
 3. Add the setting `trafficDistribution: PreferClose` to the `kube-dns` Service configuration to enable Service Traffic Distribution.
 
 ```
-kubectl patch svc kube-dns -n kube-system --type=merge -p '{
+ kubectl patch svc kube-dns -n kube-system --type=merge -p '{
   "spec": {
     "trafficDistribution": "PreferClose"
   }
@@ -110,15 +109,15 @@ kubectl patch svc kube-dns -n kube-system --type=merge -p '{
 4. You can confirm that Service Traffic Distribution is enabled by viewing the endpoint slices for the `kube-dns` Service. Your endpoint slices must show the `hints` for your topology zone labels, which confirms that Service Traffic Distribution is enabled. If you do not see the `hints` for each endpoint address, then Service Traffic Distribution is not enabled.
 
 ```
-kubectl get endpointslice -A | grep "kube-dns"
+ kubectl get endpointslice -A | grep "kube-dns"
 ```
 
 ```
-kubectl get endpointslice [.replaceable]`kube-dns-<id>`  -n kube-system -o yaml
+ kubectl get endpointslice [.replaceable]`kube-dns-<id>`  -n kube-system -o yaml
 ```
 
 ```
-addressType: IPv4
+ addressType: IPv4
 apiVersion: discovery.k8s.io/v1
 endpoints:
 - addresses:
@@ -153,7 +152,7 @@ See the following sections for configuring the webhooks used by these add-ons to
 To use the AWS Load Balancer Controller in a mixed mode cluster setup, you must run the controller on nodes in AWS Cloud. To do so, add the following to your Helm values configuration or specify the values by using EKS add-on configuration.
 
 ```
-affinity:
+ affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
@@ -169,11 +168,11 @@ affinity:
 The CloudWatch Observability Agent add-on has a Kubernetes Operator that uses webhooks. To run the operator on nodes in AWS Cloud in a mixed mode cluster setup, edit the CloudWatch Observability Agent operator configuration. You can’t configure the operator affinity during installation with Helm and EKS add-ons (see [containers-roadmap issue #2431](https://github.com/aws/containers-roadmap/issues/2431 "https://github.com/aws/containers-roadmap/issues/2431")).
 
 ```
-kubectl edit -n amazon-cloudwatch deployment amazon-cloudwatch-observability-controller-manager
+ kubectl edit -n amazon-cloudwatch deployment amazon-cloudwatch-observability-controller-manager
 ```
 
 ```
-spec:
+ spec:
   ...
   template:
     ...
@@ -194,7 +193,7 @@ spec:
 The AWS Distro for OpenTelemetry (ADOT) add-on has a Kubernetes Operator that uses webhooks. To run the operator on nodes in AWS Cloud in a mixed mode cluster setup, add the following to your Helm values configuration or specify the values by using EKS add-on configuration.
 
 ```
-affinity:
+ affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
@@ -208,11 +207,11 @@ affinity:
 If your pod CIDR is not routable on your on-premises network, then the ADOT collector must run on hybrid nodes to scrape the metrics from your hybrid nodes and the workloads running on them. To do so, edit the Custom Resource Definition (CRD).
 
 ```
-kubectl -n opentelemetry-operator-system edit opentelemetrycollectors.opentelemetry.io adot-col-prom-metrics
+ kubectl -n opentelemetry-operator-system edit opentelemetrycollectors.opentelemetry.io adot-col-prom-metrics
 ```
 
 ```
-spec:
+ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -227,7 +226,7 @@ spec:
 You can configure the ADOT collector to only scrape metrics from hybrid nodes and the resources running on hybrid nodes by adding the following `relabel_configs` to each `scrape_configs` in the ADOT collector CRD configuration.
 
 ```
-relabel_configs:
+ relabel_configs:
   - action: keep
     regex: hybrid
     source_labels:
@@ -237,7 +236,7 @@ relabel_configs:
 The ADOT add-on has a prerequisite requirement to install `cert-manager` for the TLS certificates used by the ADOT operator webhook. `cert-manager` also runs webhooks and you can configure it to run on nodes in AWS Cloud with the following Helm values configuration.
 
 ```
-affinity:
+ affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
@@ -283,7 +282,7 @@ startupapicheck:
 The `cert-manager` add-on runs webhooks and you can configure it to run on nodes in AWS Cloud with the following Helm values configuration.
 
 ```
-affinity:
+ affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:

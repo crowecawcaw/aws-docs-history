@@ -19,19 +19,19 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
   1.  Determine the value of your cluster’s endpoint with the following command. Replace `my-cluster` with the name of your cluster.
 
   ```
-  aws eks describe-cluster --name my-cluster --query cluster.endpoint --output text
+   aws eks describe-cluster --name my-cluster --query cluster.endpoint --output text
   ```
 
   An example output is as follows.
 
   ```
-  https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
+   https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
   ```
 
   2.  Determine the value of your cluster’s certificate authority with the following command. Replace `my-cluster` with the name of your cluster.
 
   ```
-  aws eks describe-cluster --name my-cluster --query cluster.certificateAuthority --output text
+   aws eks describe-cluster --name my-cluster --query cluster.certificateAuthority --output text
   ```
 
   The returned output is a long string. 3. Replace the values of `apiServerEndpoint` and `certificateAuthority` in the NodeConfig object with the values returned in the output from the previous commands. For more information about specifying bootstrap arguments when launching self-managed Amazon Linux 2023 nodes, see [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md") and [Create self-managed Microsoft Windows nodes](launch-windows-workers.md "launch-windows-workers.md").
@@ -41,7 +41,7 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
 
 
       ```
-      ---
+       ---
       MIME-Version: 1.0
       Content-Type: multipart/mixed; boundary="BOUNDARY"
 
@@ -70,7 +70,7 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
 
 
       ```
-      -APIServerEndpoint cluster-endpoint -Base64ClusterCA certificate-authority
+       -APIServerEndpoint cluster-endpoint -Base64ClusterCA certificate-authority
       ```
 
       For additional arguments, see [Bootstrap script configuration parameters](eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters "eks-optimized-windows-ami.md#bootstrap-script-configuration-parameters").

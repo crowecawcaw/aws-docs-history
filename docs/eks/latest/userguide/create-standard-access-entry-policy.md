@@ -47,7 +47,7 @@ The following example covers most use cases. [View the CLI reference for all con
 You will attach the access policy in the next step.
 
 ```
-aws eks create-access-entry --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --type STANDARD
+ aws eks create-access-entry --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --type STANDARD
 ```
 
 ## Step 3: Associate access policy
@@ -59,13 +59,13 @@ You need the ARN of the access policy. Review the [available access policies](ac
 ### Create policy without namespace scope
 
 ```
-aws eks associate-access-policy --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --policy-arn <access-policy-arn>
+ aws eks associate-access-policy --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --policy-arn <access-policy-arn>
 ```
 
 ### Create with namespace scope
 
 ```
-aws eks associate-access-policy --cluster-name <cluster-name> --principal-arn <iam-identity-arn> \
+ aws eks associate-access-policy --cluster-name <cluster-name> --principal-arn <iam-identity-arn> \
     --access-scope type=namespace,namespaces=my-namespace1,my-namespace2 --policy-arn <access-policy-arn>
 ```
 

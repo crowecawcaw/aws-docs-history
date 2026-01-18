@@ -103,8 +103,8 @@ Amazon EKS attaches network interfaces to the subnets in the VPC you pass during
 The network interfaces provisioned by Amazon EKS have a description of the format `Amazon EKS `your-cluster-name``. See the example below for an AWS CLI command you can use to find the IP addresses of the network interfaces that Amazon EKS provisions. Replace `VPC_ID` with the ID of the VPC you pass during cluster creation.
 
 ```
-aws ec2 describe-network-interfaces \
---query 'NetworkInterfaces[?(VpcId == `VPC_ID` && contains(Description,`Amazon EKS`))].PrivateIpAddress'
+ aws ec2 describe-network-interfaces \
+--query 'NetworkInterfaces[?(VpcId == <replaceable>VPC_ID</replaceable> && contains(Description,<literal>Amazon EKS</literal>))].PrivateIpAddress'
 ```
 
 ## AWS VPC and subnet setup
@@ -119,14 +119,13 @@ The following steps use the AWS CLI. You can also create these resources in the 
    Note: DNS resolution, which is an EKS requirement, is enabled for the VPC by default.
 
 ```
-aws ec2 create-vpc --cidr-block `VPC_CIDR`
-
+ aws ec2 create-vpc --cidr-block <replaceable>VPC_CIDR</replaceable>
 ```
 
 2. Enable DNS hostnames for your VPC. Note, DNS resolution is enabled for the VPC by default. Replace `VPC_ID` with the ID of the VPC you created in the previous step.
 
 ```
-aws ec2 modify-vpc-attribute --vpc-id `VPC_ID` --enable-dns-hostnames
+ aws ec2 modify-vpc-attribute --vpc-id <replaceable>VPC_ID</replaceable> --enable-dns-hostnames
 ```
 
 ### Step 2: Create subnets
@@ -136,18 +135,17 @@ Create at least 2 subnets. Amazon EKS uses these subnets for the cluster network
 1. You can find the availability zones for an AWS Region with the following command. Replace `us-west-2` with your region.
 
 ```
-aws ec2 describe-availability-zones \
-     --query 'AvailabilityZones[?(RegionName == `us-west-2`)].ZoneName'
+ aws ec2 describe-availability-zones \
+     --query 'AvailabilityZones[?(RegionName == <literal>us-west-2</literal>)].ZoneName'
 ```
 
 2. Create a subnet. Replace `VPC_ID` with the ID of the VPC. Replace `SUBNET_CIDR` with the CIDR block for your subnet (for example 10.0.1.0/24 ). Replace `AZ` with the availability zone where the subnet will be created (for example us-west-2a). The subnets you create must be in at least 2 different availability zones.
 
 ```
-aws ec2 create-subnet \
-    --vpc-id `VPC_ID` \
-    --cidr-block `SUBNET_CIDR` \
-    --availability-zone `AZ`
-
+ aws ec2 create-subnet \
+    --vpc-id <replaceable>VPC_ID</replaceable> \
+    --cidr-block <replaceable>SUBNET_CIDR</replaceable> \
+    --availability-zone <replaceable>AZ</replaceable>
 ```
 
 ### (Optional) Step 3: Attach VPC with Amazon VPC Transit Gateway (TGW) or AWS Direct Connect virtual private gateway (VGW)
@@ -159,11 +157,10 @@ If you are using a TGW or VGW, attach your VPC to the TGW or VGW. For more infor
 Run the following command to attach a Transit Gateway. Replace `VPC_ID` with the ID of the VPC. Replace `SUBNET_ID1` and `SUBNET_ID2` with the IDs of the subnets you created in the previous step. Replace `TGW_ID` with the ID of your TGW.
 
 ```
-aws ec2 create-transit-gateway-vpc-attachment \
-    --vpc-id `VPC_ID` \
-    --subnet-ids `SUBNET_ID1 SUBNET_ID2` \
-    --transit-gateway-id `TGW_ID`
-
+ aws ec2 create-transit-gateway-vpc-attachment \
+    --vpc-id <replaceable>VPC_ID</replaceable> \
+    --subnet-ids <replaceable>SUBNET_ID1 SUBNET_ID2</replaceable> \
+    --transit-gateway-id <replaceable>TGW_ID</replaceable>
 ```
 
 **Virtual Private Gateway**
@@ -171,10 +168,9 @@ aws ec2 create-transit-gateway-vpc-attachment \
 Run the following command to attach a Transit Gateway. Replace `VPN_ID` with the ID of your VGW. Replace `VPC_ID` with the ID of the VPC.
 
 ```
-aws ec2 attach-vpn-gateway \
-    --vpn-gateway-id `VPN_ID` \
-    --vpc-id `VPC_ID`
-
+ aws ec2 attach-vpn-gateway \
+    --vpn-gateway-id <replaceable>VPN_ID</replaceable> \
+    --vpc-id <replaceable>VPC_ID</replaceable>
 ```
 
 ### (Optional) Step 4: Create route table
@@ -182,8 +178,7 @@ aws ec2 attach-vpn-gateway \
 You can modify the main route table for the VPC or you can create a custom route table. The following steps create a custom route table with the routes to on-premises node and pod CIDRs. For more information, see [Subnet route tables](../../../vpc/latest/userguide/subnet-route-tables.md "../../../vpc/latest/userguide/subnet-route-tables.md"). Replace `VPC_ID` with the ID of the VPC.
 
 ```
-aws ec2 create-route-table --vpc-id `VPC_ID`
-
+ aws ec2 create-route-table --vpc-id <replaceable>VPC_ID</replaceable>
 ```
 
 ### Step 5: Create routes for on-premises nodes and pods
@@ -201,21 +196,19 @@ The examples below show how to create routes for your on-premises node and pod C
 **Remote node network**
 
 ```
-aws ec2 create-route \
-    --route-table-id `RT_ID` \
-    --destination-cidr-block `REMOTE_NODE_CIDR` \
-    --transit-gateway-id `TGW_ID`
-
+ aws ec2 create-route \
+    --route-table-id <replaceable>RT_ID</replaceable> \
+    --destination-cidr-block <replaceable>REMOTE_NODE_CIDR</replaceable> \
+    --transit-gateway-id <replaceable>TGW_ID</replaceable>
 ```
 
 **Remote Pod network**
 
 ```
-aws ec2 create-route \
-    --route-table-id `RT_ID` \
-    --destination-cidr-block `REMOTE_POD_CIDR` \
-    --transit-gateway-id `TGW_ID`
-
+ aws ec2 create-route \
+    --route-table-id <replaceable>RT_ID</replaceable> \
+    --destination-cidr-block <replaceable>REMOTE_POD_CIDR</replaceable> \
+    --transit-gateway-id <replaceable>TGW_ID</replaceable>
 ```
 
 ### (Optional) Step 6: Associate subnets with route table
@@ -225,8 +218,7 @@ If you created a custom route table in the previous step, associate each of the 
 Run the following command for each of the subnets you created in the previous steps. Replace `RT_ID` with the route table you created in the previous step. Replace `SUBNET_ID` with the ID of a subnet.
 
 ```
-aws ec2 associate-route-table --route-table-id `RT_ID` --subnet-id `SUBNET_ID`
-
+ aws ec2 associate-route-table --route-table-id <replaceable>RT_ID</replaceable> --subnet-id <replaceable>SUBNET_ID</replaceable>
 ```
 
 ## Cluster security group configuration
@@ -258,15 +250,14 @@ If you need to create additional security groups or modify the automatically cre
 - In the second command, replace `REMOTE_NODE_CIDR` and `REMOTE_POD_CIDR` with the values for your hybrid nodes and on-premises network.
 
 ```
-aws ec2 create-security-group \
-    --group-name `SG_NAME` \
+ aws ec2 create-security-group \
+    --group-name <replaceable>SG_NAME</replaceable> \
     --description "security group for hybrid nodes" \
-    --vpc-id `VPC_ID`
-
+    --vpc-id <replaceable>VPC_ID</replaceable>
 ```
 
 ```
-aws ec2 authorize-security-group-ingress \
-    --group-id `SG_ID` \
+ aws ec2 authorize-security-group-ingress \
+    --group-id <replaceable>SG_ID</replaceable> \
     --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 443, "ToPort": 443, "IpRanges": [{"CidrIp": "REMOTE_NODE_CIDR"}, {"CidrIp": "REMOTE_POD_CIDR"}]}]'
 ```

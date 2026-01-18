@@ -27,7 +27,7 @@ All EKS Capabilities provide health information through the EKS console and the 
 
 **Console**:
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name.
 3. Choose the **Observability** tab.
 4. Choose **Monitor cluster**.
@@ -42,7 +42,7 @@ The Capabilities tab shows:
 **AWS CLI**:
 
 ```
-aws eks describe-capability \
+ aws eks describe-capability \
   --region region-code \
   --cluster-name my-cluster \
   --capability-name my-capability-name
@@ -74,20 +74,17 @@ EKS Capabilities create and manage Kubernetes Custom Resource Definitions (CRDs)
 When troubleshooting, check the status of the resources you created:
 
 ```
-# List resources of a specific type
-kubectl get `resource-kind` -A
+ # List resources of a specific type
+kubectl get <replaceable>resource-kind</replaceable> -A
 
 # Describe a specific resource to see conditions and events
-kubectl describe `resource-kind`
-         `resource-name` -n `namespace`
+kubectl describe <replaceable>resource-kind</replaceable> <replaceable>resource-name</replaceable> -n <replaceable>namespace</replaceable>
 
 # View resource status conditions
-kubectl get `resource-kind`
-         `resource-name` -n `namespace` -o jsonpath='{.status.conditions}'
+kubectl get <replaceable>resource-kind</replaceable> <replaceable>resource-name</replaceable> -n <replaceable>namespace</replaceable> -o jsonpath='{.status.conditions}'
 
 # View events related to the resource
-kubectl get events --field-selector involvedObject.name=`resource-name` -n `namespace`
-
+kubectl get events --field-selector involvedObject.name=<replaceable>resource-name</replaceable> -n <replaceable>namespace</replaceable>
 ```
 
 Resource status conditions provide information about:
@@ -105,23 +102,23 @@ Many capability issues stem from IAM permission problems or missing cluster acce
 Verify the Capability Role has the necessary permissions:
 
 ```
-# List attached managed policies
-aws iam list-attached-role-policies --role-name `my-capability-role`
+ # List attached managed policies
+aws iam list-attached-role-policies --role-name <replaceable>my-capability-role</replaceable>
 
 # List inline policies
-aws iam list-role-policies --role-name `my-capability-role`
+aws iam list-role-policies --role-name <replaceable>my-capability-role</replaceable>
 
 # Get specific policy details
-aws iam get-role-policy --role-name `my-capability-role` --policy-name `policy-name`
+aws iam get-role-policy --role-name <replaceable>my-capability-role</replaceable> --policy-name <replaceable>policy-name</replaceable>
 
 # View the role's trust policy
-aws iam get-role --role-name `my-capability-role` --query 'Role.AssumeRolePolicyDocument'
+aws iam get-role --role-name <replaceable>my-capability-role</replaceable> --query 'Role.AssumeRolePolicyDocument'
 ```
 
 The trust policy must allow the `capabilities.eks.amazonaws.com` service principal:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -142,10 +139,9 @@ All capabilities require proper EKS Access Entries and Access Policies on the cl
 **Verify Access Entry exists**:
 
 ```
-aws eks list-access-entries \
-  --cluster-name `my-cluster` \
-  --region `region-code`
-
+ aws eks list-access-entries \
+  --cluster-name <replaceable>my-cluster</replaceable> \
+  --region <replaceable>region-code</replaceable>
 ```
 
 Look for the Capability Role ARN in the list. If missing, the capability cannot access the cluster.
@@ -153,11 +149,10 @@ Look for the Capability Role ARN in the list. If missing, the capability cannot 
 **Check Access Policies attached to the entry**:
 
 ```
-aws eks list-associated-access-policies \
-  --cluster-name `my-cluster` \
-  --principal-arn `arn:aws:iam::111122223333:role/my-capability-role` \
-  --region `region-code`
-
+ aws eks list-associated-access-policies \
+  --cluster-name <replaceable>my-cluster</replaceable> \
+  --principal-arn <replaceable>arn:aws:iam::111122223333:role/my-capability-role</replaceable> \
+  --region <replaceable>region-code</replaceable>
 ```
 
 All capabilities require appropriate Access Policies:
@@ -171,12 +166,11 @@ All capabilities require appropriate Access Policies:
 If deploying to remote clusters, verify the Capability Role has an Access Entry on each target cluster:
 
 ```
-# Check Access Entry on target cluster
+ # Check Access Entry on target cluster
 aws eks describe-access-entry \
-  --cluster-name `target-cluster` \
-  --principal-arn `arn:aws:iam::111122223333:role/argocd-capability-role` \
-  --region `region-code`
-
+  --cluster-name <replaceable>target-cluster</replaceable> \
+  --principal-arn <replaceable>arn:aws:iam::111122223333:role/argocd-capability-role</replaceable> \
+  --region <replaceable>region-code</replaceable>
 ```
 
 If the Access Entry is missing on a target cluster, Argo CD cannot deploy applications to it.
@@ -199,7 +193,7 @@ If a capability remains in `CREATING` state for longer than expected:
 1. Check the capability health for specific issues in the console (**Observability** > **Monitor cluster** > **Capabilities** tab) or using the AWS CLI:
 
 ```
-aws eks describe-capability \
+ aws eks describe-capability \
   --region region-code \
   --cluster-name my-cluster \
   --capability-name my-capability-name \

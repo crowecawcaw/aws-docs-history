@@ -8,7 +8,7 @@ The Amazon EKS Hybrid Nodes CLI (`nodeadm`) simplifies the installation, configu
 
 The `nodeadm` version for hybrid nodes differs from the `nodeadm` version used for bootstrapping Amazon EC2 instances as nodes in Amazon EKS clusters. Follow the documentation and references for the appropriate `nodeadm` version. This documentation page is for the hybrid nodes `nodeadm` version.
 
-The source code for the hybrid nodes `nodeadm` is published in the [https://github.com/aws/eks-hybrid](https://github.com/aws/eks-hybrid "https://github.com/aws/eks-hybrid")
+The source code for the hybrid nodes `nodeadm` is published in the https://github.com/aws/eks-hybrid
 GitHub repository.
 
 ###### Important
@@ -22,19 +22,19 @@ The hybrid nodes version of `nodeadm` is hosted in Amazon S3 fronted by Amazon C
 **For x86_64 hosts**
 
 ```
-curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
+ curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
 ```
 
 **For ARM hosts**
 
 ```
-curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/arm64/nodeadm'
+ curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/arm64/nodeadm'
 ```
 
 Add executable file permission to the downloaded binary on each host.
 
 ```
-chmod +x nodeadm
+ chmod +x nodeadm
 ```
 
 ## `nodeadm install`
@@ -44,7 +44,7 @@ The `nodeadm install` command is used to install the artifacts and dependencies 
 **Usage**
 
 ```
-nodeadm install [KUBERNETES_VERSION] [flags]
+ nodeadm install [KUBERNETES_VERSION] [flags]
 ```
 
 **Positional Arguments**
@@ -66,19 +66,19 @@ nodeadm install [KUBERNETES_VERSION] [flags]
 Install Kubernetes version `1.32` with AWS Systems Manager (SSM) as the credential provider
 
 ```
-nodeadm install 1.32 --credential-provider ssm
+ nodeadm install 1.32 --credential-provider ssm
 ```
 
 Install Kubernetes version `1.32` with AWS Systems Manager (SSM) as the credential provider, Docker as the containerd source, with a download timeout of 20 minutes.
 
 ```
-nodeadm install 1.32 --credential-provider ssm --containerd-source docker --timeout 20m
+ nodeadm install 1.32 --credential-provider ssm --containerd-source docker --timeout 20m
 ```
 
 Install Kubernetes version `1.32` with AWS IAM Roles Anywhere as the credential provider
 
 ```
-nodeadm install 1.32 --credential-provider iam-ra
+ nodeadm install 1.32 --credential-provider iam-ra
 ```
 
 ## `nodeadm config check`
@@ -88,7 +88,7 @@ The `nodeadm config check` command checks the provided node configuration for er
 **Usage**
 
 ```
-nodeadm config check [flags]
+ nodeadm config check [flags]
 ```
 
 **Flags**
@@ -101,7 +101,7 @@ nodeadm config check [flags]
 **Examples**
 
 ```
-nodeadm config check -c file://nodeConfig.yaml
+ nodeadm config check -c file://nodeConfig.yaml
 ```
 
 ## `nodeadm init`
@@ -111,7 +111,7 @@ The `nodeadm init` command starts and connects the hybrid node with the configur
 **Usage**
 
 ```
-nodeadm init [flags]
+ nodeadm init [flags]
 ```
 
 **Flags**
@@ -125,7 +125,7 @@ nodeadm init [flags]
 **Examples**
 
 ```
-nodeadm init -c file://nodeConfig.yaml
+ nodeadm init -c file://nodeConfig.yaml
 ```
 
 ## `nodeadm upgrade`
@@ -135,7 +135,7 @@ The `nodeadm upgrade` command upgrades all the installed artifacts to the latest
 **Usage**
 
 ```
-nodeadm upgrade [KUBERNETES_VERSION] [flags]
+ nodeadm upgrade [KUBERNETES_VERSION] [flags]
 ```
 
 **Positional Arguments**
@@ -154,11 +154,11 @@ nodeadm upgrade [KUBERNETES_VERSION] [flags]
 **Examples**
 
 ```
-nodeadm upgrade 1.32 -c file://nodeConfig.yaml
+ nodeadm upgrade 1.32 -c file://nodeConfig.yaml
 ```
 
 ```
-nodeadm upgrade 1.32 -c file://nodeConfig.yaml --timeout 20m
+ nodeadm upgrade 1.32 -c file://nodeConfig.yaml --timeout 20m
 ```
 
 ## `nodeadm uninstall`
@@ -168,7 +168,7 @@ The `nodeadm uninstall` command stops and removes the artifacts `nodeadm` instal
 **Usage**
 
 ```
-nodeadm uninstall [flags]
+ nodeadm uninstall [flags]
 ```
 
 **Flags**
@@ -182,11 +182,11 @@ nodeadm uninstall [flags]
 **Examples**
 
 ```
-nodeadm uninstall
+ nodeadm uninstall
 ```
 
 ```
-nodeadm uninstall --skip node-validation,pod-validation
+ nodeadm uninstall --skip node-validation,pod-validation
 ```
 
 ## `nodeadm debug`
@@ -203,7 +203,7 @@ If errors are found, the command’s output suggests troubleshooting steps. Cert
 **Usage**
 
 ```
-nodeadm debug [flags]
+ nodeadm debug [flags]
 ```
 
 **Flags**
@@ -217,7 +217,7 @@ nodeadm debug [flags]
 **Examples**
 
 ```
-nodeadm debug -c file://nodeConfig.yaml
+ nodeadm debug -c file://nodeConfig.yaml
 ```
 
 ## Nodeadm file locations
@@ -267,12 +267,12 @@ When running `nodeadm init`, the following files and file locations are configur
 The following is a sample `nodeConfig.yaml` when using AWS SSM hybrid activations for hybrid nodes credentials.
 
 ```
-apiVersion: node.eks.aws/v1alpha1
+ apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
   cluster:
     name:             # Name of the EKS cluster
-    region:           # AWS Region where the EKS cluster resides
+    region:           # <shared id="AWS"/> Region where the EKS cluster resides
   hybrid:
     ssm:
       activationCode: # SSM hybrid activation code
@@ -286,12 +286,12 @@ The following is a sample `nodeConfig.yaml` for AWS IAM Roles Anywhere for hybri
 When using AWS IAM Roles Anywhere as your on-premises credentials provider, the `nodeName` you use in your `nodeadm` configuration must align with the permissions you scoped for your Hybrid Nodes IAM role. For example, if your permissions for the Hybrid Nodes IAM role only allow AWS IAM Roles Anywhere to assume the role when the role session name is equal to the CN of the host certificate, then the `nodeName` in your `nodeadm` configuration must be the same as the CN of your certificates. The `nodeName` that you use can’t be longer than 64 characters. For more information, see [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
 
 ```
-apiVersion: node.eks.aws/v1alpha1
+ apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
   cluster:
     name:              # Name of the EKS cluster
-    region:            # AWS Region where the EKS cluster resides
+    region:            # <shared id="AWS"/> Region where the EKS cluster resides
   hybrid:
     iamRolesAnywhere:
       nodeName:        # Name of the node
@@ -307,12 +307,12 @@ spec:
 You can pass kubelet configuration and flags in your `nodeadm` configuration. See the example below for how to add an additional node label `abc.amazonaws.com/test-label` and config for setting `shutdownGracePeriod` to 30 seconds.
 
 ```
-apiVersion: node.eks.aws/v1alpha1
+ apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
   cluster:
     name:             # Name of the EKS cluster
-    region:           # AWS Region where the EKS cluster resides
+    region:           # <shared id="AWS"/> Region where the EKS cluster resides
   kubelet:
     config:           # Map of kubelet config and values
        shutdownGracePeriod: 30s
@@ -329,12 +329,12 @@ spec:
 You can pass custom containerd configuration in your `nodeadm` configuration. The containerd configuration for `nodeadm` accepts in-line TOML. See the example below for how to configure containerd to disable deletion of unpacked image layers in the containerd content store.
 
 ```
-apiVersion: node.eks.aws/v1alpha1
+ apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
   cluster:
     name:             # Name of the EKS cluster
-    region:           # AWS Region where the EKS cluster resides
+    region:           # <shared id="AWS"/> Region where the EKS cluster resides
   containerd:
     config: |         # Inline TOML containerd additional configuration
        [plugins."io.containerd.grpc.v1.cri".containerd]
@@ -347,7 +347,7 @@ spec:
 
 ###### Note
 
-Containerd versions 1.x and 2.x use different configuration formats. Containerd 1.x uses config version 2, while containerd 2.x uses config version 3. Although containerd 2.x remains backward compatible with config version 2, config version 3 is recommended for optimal performance. Check your containerd version with `containerd --version` or review `nodeadm` install logs. For more details on config versioning, see [https://containerd.io/releases/](https://containerd.io/releases/ "https://containerd.io/releases/")
+Containerd versions 1.x and 2.x use different configuration formats. Containerd 1.x uses config version 2, while containerd 2.x uses config version 3. Although containerd 2.x remains backward compatible with config version 2, config version 3 is recommended for optimal performance. Check your containerd version with `containerd --version` or review `nodeadm` install logs. For more details on config versioning, see https://containerd.io/releases/
 
 You can also use the containerd configuration to enable SELinux support. With SELinux enabled on containerd, ensure pods scheduled on the node have the proper securityContext and seLinuxOptions enabled. More information on configuring a security context can be found on the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/").
 
@@ -356,12 +356,12 @@ You can also use the containerd configuration to enable SELinux support. With SE
 Red Hat Enterprise Linux (RHEL) 8 and RHEL 9 have SELinux enabled by default and set to strict on the host. Amazon Linux 2023 has SELinux enabled by default and set to permissive mode. When SELinux is set to permissive mode on the host, enabling it on containerd will not block requests but will log it according to the SELinux configuration on the host.
 
 ```
-apiVersion: node.eks.aws/v1alpha1
+ apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
   cluster:
     name:             # Name of the EKS cluster
-    region:           # AWS Region where the EKS cluster resides
+    region:           # <shared id="AWS"/> Region where the EKS cluster resides
   containerd:
     config: |         # Inline TOML containerd additional configuration
        [plugins."io.containerd.grpc.v1.cri"]

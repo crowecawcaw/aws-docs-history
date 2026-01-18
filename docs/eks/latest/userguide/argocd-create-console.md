@@ -12,7 +12,7 @@ This topic describes how to create an Argo CD capability using the AWS Managemen
 
 ## Create the Argo CD capability
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name to open the cluster detail page.
 3. Choose the **Capabilities** tab.
 4. In the left navigation, choose **Argo CD**.

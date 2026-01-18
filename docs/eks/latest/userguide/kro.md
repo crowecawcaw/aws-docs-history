@@ -45,7 +45,7 @@ As part of EKS Managed Capabilities, kro is fully managed by AWS, eliminating th
 The following example shows a simple `ResourceGraphDefinition` that creates a web application with a Deployment and Service:
 
 ```
-apiVersion: kro.run/v1alpha1
+ apiVersion: kro.run/v1alpha1
 kind: ResourceGraphDefinition
 metadata:
   name: web-application

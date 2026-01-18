@@ -23,7 +23,7 @@ You can use the following tools to remove the Amazon S3 CSI add-on:
 Replace `my-cluster` with the name of your cluster, and then run the following command.
 
 ```
-eksctl delete addon --cluster my-cluster --name aws-mountpoint-s3-csi-driver --preserve
+ eksctl delete addon --cluster my-cluster --name aws-mountpoint-s3-csi-driver --preserve
 ```
 
 ## AWS Management Console
@@ -46,5 +46,5 @@ eksctl delete addon --cluster my-cluster --name aws-mountpoint-s3-csi-driver --p
 Replace `my-cluster` with the name of your cluster, and then run the following command.
 
 ```
-aws eks delete-addon --cluster-name my-cluster --addon-name aws-mountpoint-s3-csi-driver --preserve
+ aws eks delete-addon --cluster-name my-cluster --addon-name aws-mountpoint-s3-csi-driver --preserve
 ```

@@ -51,8 +51,8 @@ If your cluster uses the `IPv4` family, the permissions in the [AmazonEKS_CNI_Po
 Replace `my-cluster` with the name of your cluster and `AmazonEKSVPCCNIRole` with the name for your role. If your cluster uses the `IPv6` family, then replace `AmazonEKS_CNI_Policy` with the name of the policy that you created. This command requires that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. If you need to use a different tool to create the role, attach the policy to it, and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md "associate-service-account-role.md").
 
 ```
-eksctl create iamserviceaccount --name aws-node --namespace kube-system --cluster my-cluster --role-name AmazonEKSVPCCNIRole \
-    --role-only --attach-policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy --approve
+ eksctl create iamserviceaccount --name aws-node --namespace kube-system --cluster my-cluster --role-name AmazonEKSVPCCNIRole \
+    --role-only --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy --approve
 ```
 
 ### Update information
@@ -117,13 +117,13 @@ This add-on utilizes the IAM roles for service accounts capability of Amazon EKS
 AWS managed policy are required. You can create an IAM role and attach the managed policy to it with the following command. Replace `my-cluster` with the name of your cluster and `AmazonEKS_EBS_CSI_DriverRole` with the name for your role. This command requires that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. If you need to use a different tool or you need to use a custom [KMS key](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/") for encryption, see [Step 1: Create an IAM role](ebs-csi.md#csi-iam-role "ebs-csi.md#csi-iam-role").
 
 ```
-eksctl create iamserviceaccount \
+ eksctl create iamserviceaccount \
     --name ebs-csi-controller-sa \
     --namespace kube-system \
     --cluster my-cluster \
     --role-name AmazonEKS_EBS_CSI_DriverRole \
     --role-only \
-    --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
     --approve
 ```
 
@@ -143,7 +143,7 @@ The Amazon EKS add-on name is `aws-efs-csi-driver`.
 AWS managed policy are required. You can create an IAM role and attach the managed policy to it with the following commands. Replace `my-cluster` with the name of your cluster and `AmazonEKS_EFS_CSI_DriverRole` with the name for your role. These commands require that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. If you need to use a different tool, see [Step 1: Create an IAM role](efs-csi.md#efs-create-iam-resources "efs-csi.md#efs-create-iam-resources").
 
 ```
-export cluster_name=my-cluster
+ export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 eksctl create iamserviceaccount \
     --name efs-csi-controller-sa \
@@ -151,7 +151,7 @@ eksctl create iamserviceaccount \
     --cluster $cluster_name \
     --role-name $role_name \
     --role-only \
-    --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
+    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
     --approve
 TRUST_POLICY=$(aws iam get-role --output json --role-name $role_name --query 'Role.AssumeRolePolicyDocument' | \
     sed -e 's/efs-csi-controller-sa/efs-csi-*/' -e 's/StringEquals/StringLike/')
@@ -173,7 +173,7 @@ The Amazon EKS add-on name is `aws-fsx-csi-driver`.
 - Pre-existing Amazon FSx CSI driver installations in the cluster can cause add-on installation failures. When you attempt to install the Amazon EKS add-on version while a non-EKS FSx CSI Driver exists, the installation will fail due to resource conflicts. Use the `OVERWRITE` flag during installation to resolve this issue:
 
 ```
-aws eks create-addon --addon-name aws-fsx-csi-driver --cluster-name my-cluster --resolve-conflicts OVERWRITE
+ aws eks create-addon --addon-name aws-fsx-csi-driver --cluster-name my-cluster --resolve-conflicts OVERWRITE
 ```
 
 - The Amazon FSx CSI Driver EKS add-on requires the EKS Pod Identity agent for authentication. Without this component, the add-on will fail with the error `Amazon EKS Pod Identity agent is not installed in the cluster`, preventing volume operations. Install the Pod Identity agent before or after deploying the FSx CSI Driver add-on. For more information, see [Set up the Amazon EKS Pod Identity Agent](pod-id-agent-setup.md "pod-id-agent-setup.md").
@@ -184,13 +184,13 @@ This add-on utilizes the IAM roles for service accounts capability of Amazon EKS
 AWS managed policy are required. You can create an IAM role and attach the managed policy to it with the following command. Replace `my-cluster` with the name of your cluster and `AmazonEKS_FSx_CSI_DriverRole` with the name for your role. This command requires that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device.
 
 ```
-eksctl create iamserviceaccount \
+ eksctl create iamserviceaccount \
     --name fsx-csi-controller-sa \
     --namespace kube-system \
     --cluster my-cluster \
     --role-name AmazonEKS_FSx_CSI_DriverRole \
     --role-only \
-    --attach-policy-arn arn:aws:iam::aws:policy/AmazonFSxFullAccess \
+    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonFSxFullAccess \
     --approve
 ```
 
@@ -213,7 +213,7 @@ The IAM role that is created will require a policy that gives access to S3. Foll
 You can create an IAM role and attach your policy to it with the following commands. Replace `my-cluster` with the name of your cluster, `region-code` with the correct AWS Region code, `AmazonEKS_S3_CSI_DriverRole` with the name for your role, and `AmazonEKS_S3_CSI_DriverRole_ARN` with the role ARN. These commands require that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. For instructions on using the IAM console or AWS CLI, see [Step 2: Create an IAM role](s3-csi-create.md#s3-create-iam-role "s3-csi-create.md#s3-create-iam-role").
 
 ```
-CLUSTER_NAME=my-cluster
+ CLUSTER_NAME=my-cluster
 REGION=region-code
 ROLE_NAME=AmazonEKS_S3_CSI_DriverRole
 POLICY_ARN=AmazonEKS_S3_CSI_DriverRole_ARN
@@ -361,8 +361,7 @@ This add-on only requires IAM permissions if you’re using one of the preconfig
 
 For more information, see [Getting Started with AWS Distro for OpenTelemetry using EKS Add-Ons](https://aws-otel.github.io/docs/getting-started/adot-eks-add-on "https://aws-otel.github.io/docs/getting-started/adot-eks-add-on") in the AWS Distro for OpenTelemetry documentation.
 
-ADOT requires that the `cert-manager` add-on is deployed on the cluster as a prerequisite, otherwise this add-on won’t work if deployed directly using the [https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest "https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest")
-`cluster_addons` property. For more requirements, see [Requirements for Getting Started with AWS Distro for OpenTelemetry using EKS Add-Ons](https://aws-otel.github.io/docs/getting-started/adot-eks-add-on/requirements "https://aws-otel.github.io/docs/getting-started/adot-eks-add-on/requirements") in the AWS Distro for OpenTelemetry documentation.
+ADOT requires that the `cert-manager` add-on is deployed on the cluster as a prerequisite, otherwise this add-on won’t work if deployed directly using the https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest`cluster_addons` property. For more requirements, see [Requirements for Getting Started with AWS Distro for OpenTelemetry using EKS Add-Ons](https://aws-otel.github.io/docs/getting-started/adot-eks-add-on/requirements "https://aws-otel.github.io/docs/getting-started/adot-eks-add-on/requirements") in the AWS Distro for OpenTelemetry documentation.
 
 ## Amazon GuardDuty agent
 
@@ -392,14 +391,14 @@ This add-on uses the IAM roles for service accounts capability of Amazon EKS. Fo
 AWS managed policies are required. You can create an IAM role, attach the managed policies to it, and annotate the Kubernetes service account used by the add-on with the following command. Replace `my-cluster` with the name of your cluster and `AmazonEKS_Observability_role` with the name for your role. This command requires that you have [eksctl](https://eksctl.io "https://eksctl.io") installed on your device. If you need to use a different tool to create the role, attach the policy to it, and annotate the Kubernetes service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md "associate-service-account-role.md").
 
 ```
-eksctl create iamserviceaccount \
+ eksctl create iamserviceaccount \
     --name cloudwatch-agent \
     --namespace amazon-cloudwatch \
     --cluster my-cluster \
     --role-name AmazonEKS_Observability_Role \
     --role-only \
-    --attach-policy-arn arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess \
-    --attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
+    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/AWSXrayWriteOnlyAccess \
+    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/CloudWatchAgentServerPolicy \
     --approve
 ```
 

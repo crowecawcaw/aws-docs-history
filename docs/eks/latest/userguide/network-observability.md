@@ -54,7 +54,7 @@ You can use the `CloudWatchNetworkFlowMonitorAgentPublishPolicy`
 [AWS managed policy](../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md") with Pod Identity. This policy contains permissions for the NFM agent to send telemetry reports (metrics) to a Network Flow Monitor endpoint.
 
 ```
-{
+ {
   "Version" : "2012-10-17",
   "Statement" : [
     {
@@ -73,7 +73,7 @@ You can use the `CloudWatchNetworkFlowMonitorAgentPublishPolicy`
 The following permissions are required to enable the feature and visualize the service map and flow table in the console.
 
 ```
-{
+ {
   "Version" : "2012-10-17",
   "Statement" : [
     {
@@ -100,7 +100,7 @@ The following permissions are required to enable the feature and visualize the s
 ## Using AWS CLI, EKS API and NFM API
 
 ```
-#!/bin/bash
+ #!/bin/bash
 
 # Script to create required Network Flow Monitor resources
 set -e
@@ -177,7 +177,7 @@ If you are using Terraform to manage your AWS cloud infrastructure, you can incl
 #### NFM Scope
 
 ```
-data "aws_caller_identity" "current" {}
+ data "aws_caller_identity" "current" {}
 
 resource "aws_networkflowmonitor_scope" "example" {
   target {
@@ -199,7 +199,7 @@ resource "aws_networkflowmonitor_scope" "example" {
 #### NFM Monitor
 
 ```
-resource "aws_networkflowmonitor_monitor" "example" {
+ resource "aws_networkflowmonitor_monitor" "example" {
   monitor_name = "eks-cluster-name-monitor"
   scope_arn    = aws_networkflowmonitor_scope.example.scope_arn
 
@@ -222,7 +222,7 @@ resource "aws_networkflowmonitor_monitor" "example" {
 #### EKS add-on for NFM
 
 ```
-resource "aws_eks_addon" "example" {
+ resource "aws_eks_addon" "example" {
   cluster_name                = aws_eks_cluster.example.name
   addon_name                  = "aws-network-flow-monitoring-agent"
 }
@@ -238,10 +238,10 @@ If you are running third party (3P) tooling to monitor your EKS environment (suc
 
 ![Illustration of scraping system metrics](images/nfm-eks-metrics-workflow.png)
 
-To enable these metrics, override the following environment variables using the configuration variables during the installation process (see: [https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/ "https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/")):
+To enable these metrics, override the following environment variables using the configuration variables during the installation process (see: https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/):
 
 ```
-OPEN_METRICS:
+ OPEN_METRICS:
     Enable or disable open metrics. Disabled if not supplied
     Type: String
     Values: [“on”, “off”]

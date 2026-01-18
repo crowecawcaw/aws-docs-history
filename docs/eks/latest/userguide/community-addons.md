@@ -27,7 +27,7 @@ You can use the AWS CLI to determine the type of an Amazon EKS Add-on.
 Use the following CLI command to retrieve information about an add-on. You can replace `metrics-server` with the name of any add-on.
 
 ```
-aws eks describe-addon-versions --addon-name metrics-server
+ aws eks describe-addon-versions --addon-name metrics-server
 ```
 
 Review the CLI output for the `owner` field.
@@ -155,13 +155,13 @@ You can download the open source attributions and license information for commun
 2. Update the following command with the name and version:
 
 ```
-curl -O https://amazon-eks-docs.s3.amazonaws.com/attributions/<add-on-name>/<add-on-version>/attributions.zip
+ curl -O https://amazon-eks-docs.s3.amazonaws.com/attributions/<add-on-name>/<add-on-version>/attributions.zip
 ```
 
 For example:
 
 ```
-curl -O https://amazon-eks-docs.s3.amazonaws.com/attributions/kube-state-metrics/v2.14.0-eksbuild.1/attributions.zip
+ curl -O https://amazon-eks-docs.s3.amazonaws.com/attributions/kube-state-metrics/v2.14.0-eksbuild.1/attributions.zip
 ```
 
 3. Use the command to download the file.

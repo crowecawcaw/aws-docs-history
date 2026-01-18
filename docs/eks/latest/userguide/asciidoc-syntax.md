@@ -17,7 +17,7 @@ Every new AsciiDoc document should begin with the structure defined in [Create a
 Use headings to organize your content hierarchically:
 
 ```
-= Page/topic title (level 1)
+ = Page/topic title (level 1)
 == Section title (level 2)
 === Level 3 heading
 ==== Level 4 heading
@@ -32,7 +32,7 @@ Note: Always use sentence case for headings in AWS documentation.
 Format text to emphasize important information:
 
 ```
-Use *bold text* for UI labels.
+ Use *bold text* for UI labels.
 Use _italic text_ for introducing terms or light emphasis.
 Use `monospace text` for code, file names, and commands.
 ```
@@ -44,7 +44,7 @@ Use `monospace text` for code, file names, and commands.
 Create bulleted lists for items without a specific sequence:
 
 ```
-* First item
+ * First item
 * Second item
 ** Nested item
 ** Another nested item
@@ -56,7 +56,7 @@ Create bulleted lists for items without a specific sequence:
 Create numbered lists for sequential steps or prioritized items:
 
 ```
-. First step
+ . First step
 . Second step
 .. Substep 1
 .. Substep 2
@@ -74,7 +74,7 @@ See [Insert a link](insert-link.md "insert-link.md") for details on how to prope
 Use backticks for inline code:
 
 ```
-Use the `kubectl get pods` command to list all pods.
+ Use the `kubectl get pods` command to list all pods.
 ```
 
 ### Code blocks
@@ -82,7 +82,7 @@ Use the `kubectl get pods` command to list all pods.
 Create code blocks with syntax highlighting and support for attributes (similar to entities):
 
 ```
- [source,python,subs="verbatim,attributes"]
+  [source,python,subs="verbatim,attributes"]
  ----
  def hello_world():
      print("Hello, World!")
@@ -94,7 +94,7 @@ Create code blocks with syntax highlighting and support for attributes (similar 
 Insert images with alt text for accessibility:
 
 ```
-image::images/image-file.png[Alt text description]
+ image::images/image-file.png[Alt text description]
 ```
 
 ## Tables
@@ -102,7 +102,7 @@ image::images/image-file.png[Alt text description]
 Create tables to organize information:
 
 ```
-[%header,cols="2"]
+ [%header,cols="2"]
 |===
 |Header 1
 |Header 2
@@ -122,7 +122,7 @@ For more complex tables, see the [AsciiDoc table documentation](https://docs.asc
 Use callouts to highlight important information and admonitions:
 
 ```
-NOTE: This is a note callout for general information.
+ NOTE: This is a note callout for general information.
 
 TIP: This is a tip callout for helpful advice.
 
@@ -140,7 +140,7 @@ This is a note callout.
 Include content from other files:
 
 ```
- include::filename.adoc[]
+  include::filename.adoc[]
 ```
 
 ## Attributes (similar to entities)
@@ -148,11 +148,11 @@ Include content from other files:
 Use predefined attributes to maintain consistency. In particular, you MUST use attributes for AWS and `arn:aws:` .
 
 ```
-{aws} provides Amazon EKS as a managed Kubernetes service.
+ {aws} provides Amazon EKS as a managed Kubernetes service.
 ```
 
 ```
- [source,bash,subs="verbatim,attributes"]
+  [source,bash,subs="verbatim,attributes"]
  ----
  aws iam attach-role-policy \
      --role-name AmazonEKSAutoClusterRole \
@@ -167,7 +167,7 @@ For a list of attributes, look in the `../attributes.txt` file.
 Format step-by-step procedures:
 
 ```
-To create an Amaozon EKS cluster. do the following steps.
+ To create an Amaozon EKS cluster. do the following steps.
 
 . Sign in to the {aws} Management Console.
 . Open the Amazon EKS console.

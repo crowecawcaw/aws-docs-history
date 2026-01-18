@@ -16,7 +16,7 @@ To check your version, run `eksctl version`.
 Create a trust policy file:
 
 ```
-cat > argocd-trust-policy.json << 'EOF'
+ cat > argocd-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -38,7 +38,7 @@ EOF
 Create the IAM role:
 
 ```
-aws iam create-role \
+ aws iam create-role \
   --role-name ArgoCDCapabilityRole \
   --assume-role-policy-document file://argocd-trust-policy.json
 ```
@@ -54,7 +54,7 @@ For IAM policy examples and configuration guidance, see [Manage application secr
 Get your Identity Center instance ARN and user ID for RBAC configuration:
 
 ```
-# Get your Identity Center instance ARN
+ # Get your Identity Center instance ARN
 aws sso-admin list-instances --query 'Instances[0].InstanceArn' --output text
 
 # Get your Identity Center region
@@ -74,26 +74,26 @@ Create a file named `argocd-capability.yaml` with the following content.
 Replace the placeholder values with your cluster name, region, IAM role ARN, Identity Center instance ARN, Identity Center region, and user ID:
 
 ```
-apiVersion: eksctl.io/v1alpha5
+ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: `my-cluster`
-  region: `region-code`
+  name: <replaceable>my-cluster</replaceable>
+  region: <replaceable>region-code</replaceable>
 
 capabilities:
   - name: my-argocd
     type: ARGOCD
-    roleArn: arn:aws:iam::[.replaceable]`111122223333`:role/ArgoCDCapabilityRole
+    roleArn: arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/ArgoCDCapabilityRole
     configuration:
       argocd:
         awsIdc:
-          idcInstanceArn: `arn:aws:sso:::instance/ssoins-123abc`
-          idcRegion: `idc-region-code`
+          idcInstanceArn: <replaceable>arn:aws:sso:::instance/ssoins-123abc</replaceable>
+          idcRegion: <replaceable>idc-region-code</replaceable>
         rbacRoleMappings:
           - role: ADMIN
             identities:
-              - id: `38414300-1041-708a-01af-5422d6091e34`
+              - id: <replaceable>38414300-1041-708a-01af-5422d6091e34</replaceable>
                 type: SSO_USER
 ```
 
@@ -108,7 +108,7 @@ Available roles are `ADMIN`, `EDITOR`, and `VIEWER`.
 Apply the configuration file:
 
 ```
-eksctl create capability -f argocd-capability.yaml
+ eksctl create capability -f argocd-capability.yaml
 ```
 
 The command returns immediately, but the capability takes some time to become active.
@@ -119,9 +119,9 @@ Check the capability status.
 Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
-eksctl get capability \
-  --region `region-code` \
-  --cluster `my-cluster` \
+ eksctl get capability \
+  --region <replaceable>region-code</replaceable> \
+  --cluster <replaceable>my-cluster</replaceable> \
   --name my-argocd
 ```
 
@@ -132,7 +132,7 @@ The capability is ready when the status shows `ACTIVE`.
 After the capability is active, verify that Argo CD custom resources are available in your cluster:
 
 ```
-kubectl api-resources | grep argoproj.io
+ kubectl api-resources | grep argoproj.io
 ```
 
 You should see `Application` and `ApplicationSet` resource types listed.

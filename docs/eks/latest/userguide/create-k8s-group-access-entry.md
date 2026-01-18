@@ -39,7 +39,7 @@ This topic does not cover creating access entries for IAM identities used for Am
 After planning the access entry, use the AWS CLI to create it with the appropriate Kubernetes groups.
 
 ```
-aws eks create-access-entry --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --type STANDARD --kubernetes-groups <groups>
+ aws eks create-access-entry --cluster-name <cluster-name> --principal-arn <iam-identity-arn> --type STANDARD --kubernetes-groups <groups>
 ```
 
 Replace:

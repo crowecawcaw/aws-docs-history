@@ -23,8 +23,7 @@ Make sure you have the following:
 If you don’t already have an S3 bucket to store the logs, create one. Use the following AWS CLI command. The bucket defaults to the `private` access control list. Replace `bucket-name` with your chosen unique bucket name.
 
 ```
-aws s3api create-bucket --bucket `<bucket-name>`
-
+ aws s3api create-bucket --bucket <replaceable><bucket-name></replaceable>
 ```
 
 ## Step 2: Create pre-signed S3 URL for HTTP Put
@@ -41,7 +40,7 @@ You must use the AWS API or a SDK to create the pre-signed S3 upload URL for EKS
 2. Save the following Python code to the file `presign-upload.py`. Replace `<bucket-name>` and `<key>`. The key should end with `.tar.gz`.
 
 ```
-import boto3; print(boto3.client('s3').generate_presigned_url(
+ import boto3; print(boto3.client('s3').generate_presigned_url(
    ClientMethod='put_object',
    Params={'Bucket': '[.replaceable]`<bucket-name>`', 'Key': '[.replaceable]`<key>`'},
    ExpiresIn=[.replaceable]`1000`
@@ -51,7 +50,7 @@ import boto3; print(boto3.client('s3').generate_presigned_url(
 3. Run the script with
 
 ```
-python presign-upload.py
+ python presign-upload.py
 ```
 
 4. Note the URL output. Use this value in the next step as the `http-put-destination`.
@@ -66,20 +65,19 @@ Create a `NodeDiagnostic` manifest that uses the name of the node as the
 resource’s name, and providing a HTTP PUT URL destination.
 
 ```
-apiVersion: eks.amazonaws.com/v1alpha1
+ apiVersion: eks.amazonaws.com/v1alpha1
 kind: NodeDiagnostic
 metadata:
-    name: `<node-name>`
+    name: <replaceable><node-name></replaceable>
 spec:
     logCapture:
-        destination: `http-put-destination`
-
+        destination: <replaceable>http-put-destination</replaceable>
 ```
 
 Apply the manifest to the cluster.
 
 ```
-kubectl apply -f nodediagnostic.yaml
+ kubectl apply -f nodediagnostic.yaml
 ```
 
 You can check on the Status of the collection by describing the
@@ -91,8 +89,7 @@ You can check on the Status of the collection by describing the
 - If the status is Failure, confirm the upload URL is well-formed and not expired.
 
 ```
-kubectl describe nodediagnostics.eks.amazonaws.com/`<node-name>`
-
+ kubectl describe nodediagnostics.eks.amazonaws.com/<replaceable><node-name></replaceable>
 ```
 
 ## Step 4: Download logs from S3
@@ -100,8 +97,8 @@ kubectl describe nodediagnostics.eks.amazonaws.com/`<node-name>`
 Wait approximately one minute before attempting to download the logs. Then, use the S3 CLI to download the logs.
 
 ```
-# Once NodeDiagnostic shows Success status, download the logs
-aws s3 cp s3://`<bucket-name>`/`key` ./`<path-to-node-logs>`.tar.gz
+ # Once NodeDiagnostic shows Success status, download the logs
+aws s3 cp s3://<replaceable><bucket-name></replaceable>/<replaceable>key</replaceable> ./<replaceable><path-to-node-logs></replaceable>.tar.gz
 ```
 
 ## Step 5: Clean up NodeDiagnostic resource
@@ -111,7 +108,6 @@ aws s3 cp s3://`<bucket-name>`/`key` ./`<path-to-node-logs>`.tar.gz
   artifacts
 
 ```
-# Delete the NodeDiagnostic resource
-kubectl delete nodediagnostics.eks.amazonaws.com/`<node-name>`
-
+ # Delete the NodeDiagnostic resource
+kubectl delete nodediagnostics.eks.amazonaws.com/<replaceable><node-name></replaceable>
 ```

@@ -11,7 +11,7 @@ Before you create any network policies, all services can communicate bidirection
 1. Apply the front-end, back-end, client, and management user interface services:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/namespace.yaml
+ kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/management-ui.yaml
 kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/backend.yaml
 kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/frontend.yaml
@@ -21,7 +21,7 @@ kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d
 2. View all Pods on the cluster.
 
 ```
-kubectl get pods -A
+ kubectl get pods -A
 ```
 
 An example output is as follows.
@@ -29,7 +29,7 @@ An example output is as follows.
 In your output, you should see pods in the namespaces shown in the following output. The `NAMES` of your pods and the number of pods in the `READY` column are different than those in the following output. Don’t continue until you see pods with similar names and they all have `Running` in the `STATUS` column.
 
 ```
-NAMESPACE         NAME                                       READY   STATUS    RESTARTS   AGE
+ NAMESPACE         NAME                                       READY   STATUS    RESTARTS   AGE
 [...]
 client            client-xlffc                               1/1     Running   0          5m19s
 [...]
@@ -42,7 +42,7 @@ stars             frontend-cscnf                             1/1     Running   0
 3. To connect to the management user interface, connect to the `EXTERNAL-IP` of the service running on your cluster:
 
 ```
-kubectl get service/management-ui -n management-ui
+ kubectl get service/management-ui -n management-ui
 ```
 
 4. Open the a browser to the location from the previous step. You should see the management user interface. The **C** node is the client service, the **F** node is the front-end service, and the **B** node is the back-end service. Each node has full communication access to all other nodes, as indicated by the bold, colored lines.
@@ -50,7 +50,7 @@ kubectl get service/management-ui -n management-ui
 ![Open network policy](images/stars-default.png) 5. Apply the following network policy in both the `stars` and `client` namespaces to isolate the services from each other:
 
 ```
-kind: NetworkPolicy
+ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: default-deny
@@ -62,7 +62,7 @@ spec:
 You can use the following commands to apply the policy to both namespaces:
 
 ```
-kubectl apply -n stars -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/default-deny.yaml
+ kubectl apply -n stars -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/default-deny.yaml
 kubectl apply -n client -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/default-deny.yaml
 ```
 
@@ -70,7 +70,7 @@ kubectl apply -n client -f https://raw.githubusercontent.com/aws-samples/eks-wor
 7. Apply the following different network policies to allow the management user interface to access the services. Apply this policy to allow the UI:
 
 ```
-kind: NetworkPolicy
+ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   namespace: stars
@@ -88,7 +88,7 @@ spec:
 Apply this policy to allow the client:
 
 ```
-kind: NetworkPolicy
+ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   namespace: client
@@ -106,7 +106,7 @@ spec:
 You can use the following commands to apply both policies:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/allow-ui.yaml
+ kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/allow-ui.yaml
 kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/apply_network_policies.files/allow-ui-client.yaml
 ```
 
@@ -115,7 +115,7 @@ kubectl apply -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d
 ![UI access network policy](images/stars-no-traffic.png) 9. Apply the following network policy to allow traffic from the front-end service to the back-end service:
 
 ```
-kind: NetworkPolicy
+ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   namespace: stars
@@ -139,7 +139,7 @@ spec:
 ![Front-end to back-end policy](images/stars-front-end-back-end.png) 11. Apply the following network policy to allow traffic from the client to the front-end service:
 
 ```
-kind: NetworkPolicy
+ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   namespace: stars
@@ -163,7 +163,7 @@ spec:
 ![Final network policy](images/stars-final.png) 13. (Optional) When you are done with the demo, you can delete its resources.
 
 ```
-kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/client.yaml
+ kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/client.yaml
 kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/frontend.yaml
 kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/backend.yaml
 kubectl delete -f https://raw.githubusercontent.com/aws-samples/eks-workshop/2f9d29ed3f82ed6b083649e975a0e574fb8a4058/content/beginner/120_network-policies/calico/stars_policy_demo/create_resources.files/management-ui.yaml

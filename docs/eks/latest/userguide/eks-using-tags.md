@@ -129,7 +129,7 @@ The following examples show how to tag or untag resources using the AWS CLI.
 The following command tags an existing cluster.
 
 ```
-aws eks tag-resource --resource-arn resource_ARN --tags team=devs
+ aws eks tag-resource --resource-arn resource_ARN --tags team=devs
 ```
 
 ###### Example 2: Untag an existing cluster
@@ -137,7 +137,7 @@ aws eks tag-resource --resource-arn resource_ARN --tags team=devs
 The following command deletes a tag from an existing cluster.
 
 ```
-aws eks untag-resource --resource-arn resource_ARN --tag-keys tag_key
+ aws eks untag-resource --resource-arn resource_ARN --tag-keys tag_key
 ```
 
 ###### Example 3: List tags for a resource
@@ -145,7 +145,7 @@ aws eks untag-resource --resource-arn resource_ARN --tag-keys tag_key
 The following command lists the tags that are associated with an existing resource.
 
 ```
-aws eks list-tags-for-resource --resource-arn resource_ARN
+ aws eks list-tags-for-resource --resource-arn resource_ARN
 ```
 
 When you use some resource-creating actions, you can specify tags at the same time that you create the resource. The following actions support specifying a tag when you create a resource.

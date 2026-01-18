@@ -24,7 +24,7 @@ This prevents compatibility issues during the migration.
 1. Update your self-managed kro controller to use `kube-system` for leader election leases:
 
 ```
-helm upgrade --install kro \
+ helm upgrade --install kro \
   oci://ghcr.io/awslabs/kro/kro-chart \
   --namespace kro \
   --set leaderElection.namespace=kube-system
@@ -33,7 +33,7 @@ helm upgrade --install kro \
 This moves the controller’s lease to `kube-system`, allowing the managed capability to coordinate with it. 2. Create the kro capability on your cluster (see [Create a kro capability](create-kro-capability.md "create-kro-capability.md")) 3. The managed capability recognizes existing ResourceGraphDefinitions and instances, taking over reconciliation 4. Gradually scale down or remove self-managed kro deployments:
 
 ```
-helm uninstall kro --namespace kro
+ helm uninstall kro --namespace kro
 ```
 
 This approach allows both controllers to coexist safely during migration.

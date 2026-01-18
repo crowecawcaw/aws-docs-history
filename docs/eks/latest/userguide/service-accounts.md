@@ -23,13 +23,13 @@ If your workload is using an earlier client version, then you must update it. To
 When the API server receives requests with tokens that are greater than one hour old, it annotates the API audit log event with `annotations.authentication.k8s.io/stale-token`. The value of the annotation looks like the following example:
 
 ```
-subject: system:serviceaccount:common:fluent-bit, seconds after warning threshold: 4185802.
+ subject: system:serviceaccount:common:fluent-bit, seconds after warning threshold: 4185802.
 ```
 
 If your cluster has [control plane logging](control-plane-logs.md "control-plane-logs.md") enabled, then the annotations are in the audit logs. You can use the following [CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") query to identify all the Pods in your Amazon EKS cluster that are using stale tokens:
 
 ```
-fields @timestamp
+ fields @timestamp
 |filter @logStream like /kube-apiserver-audit/
 |filter @message like /seconds after warning threshold/
 |parse @message "subject: *, seconds after warning threshold:*\"" as subject, elapsedtime
@@ -40,7 +40,7 @@ The `subject` refers to the service account that the Pod used. The `elapsedtime`
 If the Pod is part of a deployment, the suggested way to terminate Pods while keeping high availability is to perform a roll out with the following command. Replace `my-deployment` with the name of your deployment.
 
 ```
-kubectl rollout restart deployment/my-deployment
+ kubectl rollout restart deployment/my-deployment
 ```
 
 ## Cluster add-ons

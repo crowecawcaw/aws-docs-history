@@ -23,7 +23,7 @@ The capability role must meet the following requirements:
 All capability roles must include the following trust policy:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -77,7 +77,7 @@ IAM Role Selectors enable:
 
 
     ```
-    {
+     {
       "Version": "2012-10-17",
       "Statement": [
         {
@@ -105,7 +105,7 @@ No IAM permissions required by default. Optional permissions may be needed for:
 Example policy for Secrets Manager and CodeConnections:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -134,7 +134,7 @@ For detailed Argo CD permission requirements, see [Argo CD considerations](argoc
 
 You can use the following procedure to check if your account already has a capability IAM role suitable for your use case.
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. Open the IAM console at https://console.aws.amazon.com/iam/.
 2. In the left navigation pane, choose **Roles**.
 3. Search the list of roles for your capability role name (for example, `ACKCapabilityRole` or `ArgoCDCapabilityRole`).
 4. If a role exists, select it to view the attached policies and trust relationship.
@@ -148,7 +148,7 @@ You can use the AWS Management Console or the AWS CLI to create a capability rol
 
 **AWS Management Console**
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+1. Open the IAM console at https://console.aws.amazon.com/iam/.
 2. Choose **Roles**, then **Create role**.
 3. Under **Trusted entity type**, select **Custom trust policy**.
 4. Copy and paste the [capability trust policy](#capability-trust-policy "#capability-trust-policy") into the trust policy editor.
@@ -165,7 +165,7 @@ You can use the AWS Management Console or the AWS CLI to create a capability rol
 2. Create the role. Replace `ACKCapabilityRole` with your desired role name.
 
 ```
-aws iam create-role \
+ aws iam create-role \
   --role-name ACKCapabilityRole \
   --assume-role-policy-document file://capability-trust-policy.json
 ```
@@ -175,7 +175,7 @@ aws iam create-role \
 Example for ACK with S3 permissions:
 
 ```
-aws iam put-role-policy \
+ aws iam put-role-policy \
   --role-name ACKCapabilityRole \
   --policy-name S3Management \
   --policy-document file://s3-policy.json

@@ -35,7 +35,7 @@ You need to have the `aws` CLI installed, and be logged in with sufficent permis
 The compute, block storage, and load balancing capabilities must all be enabled or disabled in the same request.
 
 ```
-aws eks update-cluster-config \
+ aws eks update-cluster-config \
  --name $CLUSTER_NAME \
  --compute-config enabled=false \
  --kubernetes-network-config '{"elasticLoadBalancing":{"enabled": false}}' \
@@ -45,12 +45,12 @@ aws eks update-cluster-config \
 You can check if a leaked EKS Auto Mode Security Group failed to be deleted after disabling EKS Auto Mode as follows:
 
 ```
-aws ec2 describe-security-groups \
+ aws ec2 describe-security-groups \
     --filters Name=tag:eks:eks-cluster-name,Values=<cluster-Name> Name=tag-key,Values=ingress.eks.amazonaws.com/resource,service.eks.amazonaws.com/resource --query "SecurityGroups[*].[GroupName]"
 ```
 
 To then delete the Security Group:
 
 ```
-aws ec2 delete-security-group --group-name=<sg-name>
+ aws ec2 delete-security-group --group-name=<sg-name>
 ```

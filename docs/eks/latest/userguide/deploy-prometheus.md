@@ -11,19 +11,19 @@ After you configure Helm for your Amazon EKS cluster, you can use it to deploy P
 1. Create a Prometheus namespace.
 
 ```
-kubectl create namespace prometheus
+ kubectl create namespace prometheus
 ```
 
 2. Add the `prometheus-community` chart repository.
 
 ```
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 ```
 
 3. Deploy Prometheus.
 
 ```
-helm upgrade -i prometheus prometheus-community/prometheus \
+ helm upgrade -i prometheus prometheus-community/prometheus \
     --namespace prometheus \
     --set alertmanager.persistence.storageClass="gp2" \
     --set server.persistentVolume.storageClass="gp2"
@@ -37,13 +37,13 @@ If you get the error `Error: rendered manifests contain a resource that already 
 4. Verify that all of the Pods in the `prometheus`namespace are in the`READY` state.
 
 ```
-kubectl get pods -n prometheus
+ kubectl get pods -n prometheus
 ```
 
 An example output is as follows.
 
 ```
-NAME                                             READY   STATUS    RESTARTS   AGE
+ NAME                                             READY   STATUS    RESTARTS   AGE
 prometheus-alertmanager-59b4c8c744-r7bgp         1/2     Running   0          48s
 prometheus-kube-state-metrics-7cfd87cf99-jkz2f   1/1     Running   0          48s
 prometheus-node-exporter-jcjqz                   1/1     Running   0          48s
@@ -56,7 +56,7 @@ prometheus-server-775957f748-mmht9               1/2     Running   0          48
 5. Use `kubectl` to port forward the Prometheus console to your local machine.
 
 ```
-kubectl --namespace=prometheus port-forward deploy/prometheus-server 9090
+ kubectl --namespace=prometheus port-forward deploy/prometheus-server 9090
 ```
 
 6. Point a web browser to `http://localhost:9090` to view the Prometheus console.

@@ -53,7 +53,7 @@ By default, `eksctl` will create a dedicated VPC for the cluster with a CIDR blo
 Check whether your AWS CLI credentials are valid and can authenticate with AWS services:
 
 ```
-aws sts get-caller-identity
+ aws sts get-caller-identity
 ```
 
 If successful, the CLI will return details about your AWS identity (UserId, Account, and Arn).
@@ -63,7 +63,7 @@ If successful, the CLI will return details about your AWS identity (UserId, Acco
 G5 instance types are not available in all regions. Check your nearest region. For example:
 
 ```
-aws ec2 describe-instance-types --instance-types g5.xlarge g5.2xlarge --region us-east-1
+ aws ec2 describe-instance-types --instance-types g5.xlarge g5.2xlarge --region us-east-1
 ```
 
 If successful, the G5 instance type is available in the region you specified.
@@ -71,7 +71,7 @@ If successful, the G5 instance type is available in the region you specified.
 The Bottlerocket AMI is not available in all regions. Check by retrieving a Bottlerocket AMI ID for your nearest region. For example:
 
 ```
-aws ssm get-parameter --name /aws/service/bottlerocket/aws-k8s-1.33/arm64/latest/image_id \
+ aws ssm get-parameter --name /aws/service/bottlerocket/aws-k8s-1.33/arm64/latest/image_id \
     --region us-east-1 --query "Parameter.Value" --output text
 ```
 
@@ -86,7 +86,7 @@ First, set the following environment variables in a new terminal window. **Note*
 Some variables (such as `${AWS_REGION}` and `${K8S_VERSION}`) are defined early in the block and then referenced in later commands for consistency and to avoid repetition. Make sure to run the commands in sequence so that these values are properly exported and available for use in subsequent definitions.
 
 ```
-export TEMPOUT="$(mktemp)"
+ export TEMPOUT="$(mktemp)"
 export K8S_VERSION=1.33
 export KARPENTER_VERSION="1.5.0"
 export AWS_REGION="us-east-1"
@@ -103,7 +103,7 @@ export ALIAS_VERSION="$(aws ssm get-parameter --name "/aws/service/eks/optimized
 Karpenter needs specific IAM roles and policies (e.g., Karpenter controller IAM role, instance profile, and policies) to manage EC2 instances as Kubernetes worker nodes. It uses these roles to perform actions like launching and terminating EC2 instances, tagging resources, and interacting with other AWS services. Create the Karpenter roles and policies using the Karpenter’s [cloudformation.yaml](https://raw.githubusercontent.com/aws/karpenter-provider-aws/v1.5.0/website/content/en/preview/getting-started/getting-started-with-karpenter/cloudformation.yaml "https://raw.githubusercontent.com/aws/karpenter-provider-aws/v1.5.0/website/content/en/preview/getting-started/getting-started-with-karpenter/cloudformation.yaml"):
 
 ```
-curl -fsSL https://raw.githubusercontent.com/aws/karpenter-provider-aws/v${KARPENTER_VERSION}/website/content/en/preview/getting-started/getting-started-with-karpenter/cloudformation.yaml > "${TEMPOUT}" \
+ curl -fsSL https://raw.githubusercontent.com/aws/karpenter-provider-aws/v${KARPENTER_VERSION}/website/content/en/preview/getting-started/getting-started-with-karpenter/cloudformation.yaml > "${TEMPOUT}" \
 && aws cloudformation deploy \
   --stack-name "Karpenter-${EKS_CLUSTER_NAME}" \
   --template-file "${TEMPOUT}" \
@@ -114,7 +114,7 @@ curl -fsSL https://raw.githubusercontent.com/aws/karpenter-provider-aws/v${KARPE
 The AWS LBC needs permission to provision and manage AWS load balancers, such as creating ALBs for Ingress resources or NLBs for services of type `LoadBalancer`. We’ll specify this permissions policy during cluster creation. During cluster creation, we will create the service account with eksctl in the ClusterConfig. Create the LBC IAM policy:
 
 ```
-aws iam create-policy \
+ aws iam create-policy \
   --policy-name AWSLoadBalancerControllerIAMPolicy \
   --policy-document "$(curl -fsSL https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy.json)"
 ```
@@ -122,7 +122,7 @@ aws iam create-policy \
 When the Mountpoint S3 CSI Driver is installed, its DaemonSet pods are configured to use a service account for execution. The Mountpoint for Mountpoint S3 CSI driver needs permission to interact with the Amazon S3 bucket you create later in this guide. We’ll specify this permissions policy during cluster creation. During cluster creation, we will create the service account with eksctl in the ClusterConfig. Create the S3 IAM policy:
 
 ```
-aws iam create-policy \
+ aws iam create-policy \
     --policy-name S3CSIDriverPolicy \
     --policy-document "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"s3:GetObject\", \"s3:PutObject\", \"s3:AbortMultipartUpload\", \"s3:DeleteObject\", \"s3:ListBucket\"], \"Resource\": [\"arn:aws:s3:::${S3_BUCKET_NAME}\", \"arn:aws:s3:::${S3_BUCKET_NAME}/*\"]}]}"
 ```
@@ -136,7 +136,7 @@ In this template, eksctl automatically creates a Kubernetes service account for 
 In the same terminal where you set your environment variables, run the following command block to create the cluster:
 
 ```
-eksctl create cluster -f - <<EOF
+ eksctl create cluster -f - <<EOF
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -207,7 +207,7 @@ This process takes several minutes to complete. If you’d like to monitor the s
 Let’s perform a few health checks to ensure the cluster is ready. When the previous command completes, view the instance types and verify that your CPU system nodes have reached the `Ready` state with the following command:
 
 ```
-kubectl get nodes -L node.kubernetes.io/instance-type
+ kubectl get nodes -L node.kubernetes.io/instance-type
 ```
 
 The expected output should look like this:
@@ -221,7 +221,7 @@ ip-192-168-7-15.ec2.internal     Ready    <none>   12m     v1.33.0-eks-802817d  
 Verify all the Pod Identity associations and how they map a role to a service account in a namespace in the cluster with the following command:
 
 ```
-eksctl get podidentityassociation --cluster ${EKS_CLUSTER_NAME} --region ${AWS_REGION}
+ eksctl get podidentityassociation --cluster ${EKS_CLUSTER_NAME} --region ${AWS_REGION}
 ```
 
 The output should show the IAM roles for Karpenter ("karpenter") and the AWS LBC ("aws-load-balancer-controller").
@@ -229,7 +229,7 @@ The output should show the IAM roles for Karpenter ("karpenter") and the AWS LBC
 Verify the DaemonSets are available:
 
 ```
-kubectl get daemonsets -n kube-system
+ kubectl get daemonsets -n kube-system
 ```
 
 The expected output should look like this:
@@ -247,7 +247,7 @@ s3-csi-node                    2       2       2     2          2         kubern
 Verify all addons are installed on the cluster:
 
 ```
-eksctl get addons --cluster ${EKS_CLUSTER_NAME} --region ${AWS_REGION}
+ eksctl get addons --cluster ${EKS_CLUSTER_NAME} --region ${AWS_REGION}
 ```
 
 The expected output should look like this:
@@ -268,7 +268,7 @@ vpc-cni                        v1.19.5-eksbuild.1   ACTIVE    0
 Install the Karpenter controller on your CPU worker nodes (`cpu-worker`) to optimize costs and conserve GPU resources. We’ll be installing it in the "kube-system" namespace and specifying the "karpenter" service account we defined during cluster creation. Additionally, this command configures the cluster name and a Spot Instance interruption queue for CPU nodes. Karpenter will use IRSA to assume this IAM role.
 
 ```
-# Logout of helm registry before pulling from public ECR
+ # Logout of helm registry before pulling from public ECR
 helm registry logout public.ecr.aws
 
 # Install Karpenter
@@ -300,7 +300,7 @@ TEST SUITE: None
 Verify that Karpenter is running:
 
 ```
-kubectl get pods -n kube-system -l app.kubernetes.io/name=karpenter
+ kubectl get pods -n kube-system -l app.kubernetes.io/name=karpenter
 ```
 
 The expected output should look like this:
@@ -322,7 +322,7 @@ In this NodePool, we set resource limits to manage the provisioning of nodes wit
 Additionally, we specify the ID of the Nvidia variant of the Bottlerocket AMI. Finally, we set a [disruption policy](https://karpenter.sh/docs/concepts/disruption/#nodepool-disruption-budgets "https://karpenter.sh/docs/concepts/disruption/#nodepool-disruption-budgets") to remove empty nodes after 30 minutes (`consolidateAfter: 30m`) and set a maximum node lifetime of 30 days (`expireAfter: 720h`) to optimize costs and maintain node health for GPU-intensive tasks. To learn more, see [Disable Karpenter Consolidation for interruption sensitive workloads](../best-practices/aiml-compute.md#_disable_karpenter_consolidation_for_interruption_sensitive_workloads "../best-practices/aiml-compute.md#_disable_karpenter_consolidation_for_interruption_sensitive_workloads"), and [Use ttlSecondsAfterFinished to Auto Clean-Up Kubernetes Jobs](../best-practices/aiml-compute.md#_use_ttlsecondsafterfinished_to_auto_clean_up_kubernetes_jobs "../best-practices/aiml-compute.md#_use_ttlsecondsafterfinished_to_auto_clean_up_kubernetes_jobs").
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -388,7 +388,7 @@ ec2nodeclass.karpenter.k8s.aws/gpu-a10g-inference-ec2 created
 Verify the NodePool is created and healthy:
 
 ```
-kubectl get nodepool gpu-a10g-inference-g5 -o yaml
+ kubectl get nodepool gpu-a10g-inference-g5 -o yaml
 ```
 
 Look for `status.conditions` like `ValidationSucceeded: True`, `NodeClassReady: True`, and `Ready: True` to confirm the NodePool is healthy.
@@ -400,7 +400,7 @@ In this NodePool, we set limits to support approximately 50 instances, aligning 
 Additionally, we specify the ID of the standard variant of the Bottlerocket AMI. Finally, we set a [disruption policy](https://karpenter.sh/docs/concepts/disruption/#nodepool-disruption-budgets "https://karpenter.sh/docs/concepts/disruption/#nodepool-disruption-budgets") to remove empty nodes after 60 minutes (`consolidateAfter: 60m`) and set a maximum node lifetime of 30 days (`expireAfter: 720h`) to optimize costs and maintain node health for GPU-intensive tasks. To learn more, see [Disable Karpenter Consolidation for interruption sensitive workloads](../best-practices/aiml-compute.md#_disable_karpenter_consolidation_for_interruption_sensitive_workloads "../best-practices/aiml-compute.md#_disable_karpenter_consolidation_for_interruption_sensitive_workloads"), and [Use ttlSecondsAfterFinished to Auto Clean-Up Kubernetes Jobs](../best-practices/aiml-compute.md#_use_ttlsecondsafterfinished_to_auto_clean_up_kubernetes_jobs "../best-practices/aiml-compute.md#_use_ttlsecondsafterfinished_to_auto_clean_up_kubernetes_jobs").
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -462,7 +462,7 @@ ec2nodeclass.karpenter.k8s.aws/cpu-inference-m7gxlarge-ec2 created
 Verify the NodePool is created and healthy:
 
 ```
-kubectl get nodepool cpu-inference-m7gxlarge -o yaml
+ kubectl get nodepool cpu-inference-m7gxlarge -o yaml
 ```
 
 Look for `status.conditions` like `ValidationSucceeded: True`, `NodeClassReady: True`, and `Ready: True` to confirm the NodePool is healthy.
@@ -476,7 +476,7 @@ You need the Nvidia Device Plugin to enable Kubernetes to expose GPU devices to 
 Karpenter acts dynamically: it provisions GPU nodes when a workload (pod) requests GPU resources. To verify that pods are able to request and use GPUs, deploy a pod that requests the `nvidia.com/gpu` resource in its limits (e.g., `nvidia.com/gpu: 1`). To learn more about these labels, see [Schedule workloads with GPU requirements using Well-Known labels](../best-practices/aiml-compute.md#_schedule_workloads_with_gpu_requirements_using_well_known_labels "../best-practices/aiml-compute.md#_schedule_workloads_with_gpu_requirements_using_well_known_labels").
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -510,13 +510,13 @@ pod/gpu-ndivia-smi created
 Give it a minute then check if the Pod has a "Pending," "ContainerCreating," "Running," then a "Completed" status:
 
 ```
-kubectl get pod gpu-nvidia-smi -w
+ kubectl get pod gpu-nvidia-smi -w
 ```
 
 Verify the node for the pod belongs to the GPU NodePool:
 
 ```
-kubectl get node $(kubectl get pod gpu-nvidia-smi -o jsonpath='{.spec.nodeName}') -o custom-columns="Name:.metadata.name,Nodepool:.metadata.labels.karpenter\.sh/nodepool"
+ kubectl get node $(kubectl get pod gpu-nvidia-smi -o jsonpath='{.spec.nodeName}') -o custom-columns="Name:.metadata.name,Nodepool:.metadata.labels.karpenter\.sh/nodepool"
 ```
 
 The expected output should look like this:
@@ -529,13 +529,13 @@ ip-192-168-83-245.ec2.internal   gpu-a10g-inference-g5
 Check the pod’s logs:
 
 ```
-kubectl logs gpu-nvidia-smi
+ kubectl logs gpu-nvidia-smi
 ```
 
 The expected output should look like this:
 
 ```
-Thu Jul 17 04:31:33 2025
+ Thu Jul 17 04:31:33 2025
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 570.148.08                 Driver Version: 570.148.08         CUDA Version: 12.9 |
 |-----------------------------------------+----------------------+----------------------+
@@ -573,13 +573,13 @@ To download the GPUNet-0 model weights In this step, you need access to NVIDIA�
 Before we start, check the Kubernetes service account permissions:
 
 ```
-kubectl get serviceaccount s3-csi-driver-sa -n kube-system -o yaml
+ kubectl get serviceaccount s3-csi-driver-sa -n kube-system -o yaml
 ```
 
 During cluster creation, we attached the S3CSIDriverPolicy to an IAM role and annotated the service account ("s3-csi-driver-sa"). The Mountpoint S3 CSI driver pods inherits the IAM role’s permissions when interacting with S3. The expected output should look like this:
 
 ```
-apiVersion: v1
+ apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
@@ -601,7 +601,7 @@ metadata:
 The S3 CSI Driver runs as a DaemonSet on all nodes. Pods use the CSI driver on those nodes to mount S3 volumes. To allow it to schedule on our GPU nodes which have taints, add a toleration to the DaemonSet:
 
 ```
-kubectl patch daemonset s3-csi-node -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/tolerations/-", "value": {"key": "nvidia.com/gpu", "operator": "Exists", "effect": "NoSchedule"}}]'
+ kubectl patch daemonset s3-csi-node -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/tolerations/-", "value": {"key": "nvidia.com/gpu", "operator": "Exists", "effect": "NoSchedule"}}]'
 ```
 
 The expected output should look like this:
@@ -617,25 +617,25 @@ In this step, you’ll create an Amazon S3 bucket, download the GPUNet-0 model w
 Create your Amazon S3 bucket:
 
 ```
-aws s3 mb s3://${S3_BUCKET_NAME} --region ${AWS_REGION}
+ aws s3 mb s3://${S3_BUCKET_NAME} --region ${AWS_REGION}
 ```
 
 Enable [S3 Versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") for the bucket, to prevent accidental deletions and overwrites from causing immediate and permanent data loss:
 
 ```
-aws s3api put-bucket-versioning --bucket ${S3_BUCKET_NAME} --versioning-configuration Status=Enabled
+ aws s3api put-bucket-versioning --bucket ${S3_BUCKET_NAME} --versioning-configuration Status=Enabled
 ```
 
 Apply a lifecycle rule to the bucket to remove overwritten or deleted object versions 14 days after they become non-current, remove expired delete markers, and remove incomplete multi-part uploads after 7 days. To learn more, see [Examples of S3 Lifecycle configurations](../../../AmazonS3/latest/userguide/lifecycle-configuration-examples.md "../../../AmazonS3/latest/userguide/lifecycle-configuration-examples.md").
 
 ```
-aws s3api put-bucket-lifecycle-configuration --bucket $S3_BUCKET_NAME --lifecycle-configuration '{"Rules":[{"ID":"LifecycleRule","Status":"Enabled","Filter":{},"Expiration":{"ExpiredObjectDeleteMarker":true},"NoncurrentVersionExpiration":{"NoncurrentDays":14},"AbortIncompleteMultipartUpload":{"DaysAfterInitiation":7}}]}'
+ aws s3api put-bucket-lifecycle-configuration --bucket $S3_BUCKET_NAME --lifecycle-configuration '{"Rules":[{"ID":"LifecycleRule","Status":"Enabled","Filter":{},"Expiration":{"ExpiredObjectDeleteMarker":true},"NoncurrentVersionExpiration":{"NoncurrentDays":14},"AbortIncompleteMultipartUpload":{"DaysAfterInitiation":7}}]}'
 ```
 
 Download the GPUNet-0 model weights from NGC. For example, on macOS:
 
 ```
-ngc registry model download-version nvidia/dle/gpunet_0_pyt_ckpt:21.12.0_amp --dest ~/downloads
+ ngc registry model download-version nvidia/dle/gpunet_0_pyt_ckpt:21.12.0_amp --dest ~/downloads
 ```
 
 ###### Note
@@ -645,7 +645,7 @@ You may need to adjust this download command for your operating system. For this
 The expected output should look like this:
 
 ```
-{
+ {
   "download_end": "2025-07-18 08:22:39",
   "download_start": "2025-07-18 08:22:33",
   "download_time": "6s",
@@ -660,19 +660,19 @@ The expected output should look like this:
 Rename the checkpoint file to match the expected naming in our application code in later steps (no extraction is needed, as it’s a standard PyTorch \*.pth.tar checkpoint containing the model state dictionary):
 
 ```
-mv ~/downloads/gpunet_0_pyt_ckpt_v21.12.0_amp/0.65ms.pth.tar gpunet-0.pth
+ mv ~/downloads/gpunet_0_pyt_ckpt_v21.12.0_amp/0.65ms.pth.tar gpunet-0.pth
 ```
 
 Enable the [AWS Common Runtime](https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/ "https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/") in the AWS CLI to optimize S3 throughput:
 
 ```
-aws configure set s3.preferred_transfer_client crt
+ aws configure set s3.preferred_transfer_client crt
 ```
 
 Upload the model weights to your S3 bucket:
 
 ```
-aws s3 cp gpunet-0.pth s3://${S3_BUCKET_NAME}/gpunet-0.pth
+ aws s3 cp gpunet-0.pth s3://${S3_BUCKET_NAME}/gpunet-0.pth
 ```
 
 The expected output should look like this:
@@ -692,7 +692,7 @@ We serve the model using FastAPI with PyTorch, loading weights from Amazon S3 at
 Create a directory for your application files such as `model-testing`, then change directories into it and add the following code to a new file named `app.py`:
 
 ```
-import os
+ import os
 import torch
 import json
 import requests
@@ -786,7 +786,7 @@ We reduce container image size by using a runtime-only PyTorch base, installing 
 In the same directory as `app.py`, create the `Dockerfile`:
 
 ```
-FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
+ FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
 
 # Install required system packages required for git cloning
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
@@ -812,13 +812,13 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
 From the same directory as your `app.py` and `Dockerfile`, build the container image for the inference application, targeting AMD64 architecture:
 
 ```
-docker build --platform linux/amd64 -t gpunet-inference-app .
+ docker build --platform linux/amd64 -t gpunet-inference-app .
 ```
 
 Set environment variables for your AWS credentials, and optionally an AWS session token. For example:
 
 ```
-export AWS_REGION="us-east-1"
+ export AWS_REGION="us-east-1"
 export AWS_ACCESS_KEY_ID=ABCEXAMPLESCUJFEIELSMUHHAZ
 export AWS_SECRET_ACCESS_KEY=123EXAMPLEMZREoQXr8XkiicsOgWDQ5TpUsq0/Z
 ```
@@ -826,7 +826,7 @@ export AWS_SECRET_ACCESS_KEY=123EXAMPLEMZREoQXr8XkiicsOgWDQ5TpUsq0/Z
 Run the container locally, injecting AWS credentials as environment variables for S3 access. For example:
 
 ```
-docker run --platform linux/amd64 -p 8080:80 \
+ docker run --platform linux/amd64 -p 8080:80 \
   -e S3_BUCKET_NAME=${S3_BUCKET_NAME} \
   -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
   -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
@@ -846,13 +846,13 @@ INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
 In a new terminal window, test the inference endpoint by sending a sample POST request with a public image URL as a query parameter:
 
 ```
-curl -X POST "http://localhost:8080/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg"
+ curl -X POST "http://localhost:8080/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg"
 ```
 
 The expected output should be a JSON response with top-5 predictions, similar to this (actual labels and probabilities may vary slightly based on the image and model precision):
 
 ```
-{"predictions":[{"label":"desk","probability":0.28885871171951294},{"label":"laptop","probability":0.24679335951805115},{"label":"notebook","probability":0.08539070934057236},{"label":"library","probability":0.030645888298749924},{"label":"monitor","probability":0.02989606373012066}]}
+ {"predictions":[{"label":"desk","probability":0.28885871171951294},{"label":"laptop","probability":0.24679335951805115},{"label":"notebook","probability":0.08539070934057236},{"label":"library","probability":0.030645888298749924},{"label":"monitor","probability":0.02989606373012066}]}
 ```
 
 Quit the application using "Ctrl + C".
@@ -864,19 +864,19 @@ In this step, we upload the container image for the GPUNet-0 model service to [A
 First, navigate back to the directory where you set your environment variables at the beginning of this guide. For example:
 
 ```
-cd ..
+ cd ..
 ```
 
 Create a repository in Amazon ECR:
 
 ```
-aws ecr create-repository --repository-name gpunet-inference-app --region ${AWS_REGION}
+ aws ecr create-repository --repository-name gpunet-inference-app --region ${AWS_REGION}
 ```
 
 Log into Amazon ECR:
 
 ```
-aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+ aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
 ```
 
 The expected output should look like this:
@@ -888,13 +888,13 @@ Login Succeeded
 Tag the image:
 
 ```
-docker tag gpunet-inference-app:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
+ docker tag gpunet-inference-app:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
 ```
 
 Push the image to your Amazon ECR repository:
 
 ```
-docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
+ docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/gpunet-inference-app:latest
 ```
 
 This last step takes several minutes to complete.
@@ -906,7 +906,7 @@ In this step, you’ll expose your real-time inference model service externally 
 First, verify the Pod Identity association for the AWS LBC, confirming that the service account is properly linked to the required IAM role:
 
 ```
-eksctl get podidentityassociation --cluster ${EKS_CLUSTER_NAME} --namespace kube-system --service-account-name aws-load-balancer-controller
+ eksctl get podidentityassociation --cluster ${EKS_CLUSTER_NAME} --namespace kube-system --service-account-name aws-load-balancer-controller
 ```
 
 The expected output should look like this:
@@ -923,31 +923,31 @@ The AWS Load Balancer Controller only supports a single security group with the 
 Export the VPC ID for your cluster:
 
 ```
-CLUSTER_VPC_ID="$(aws eks describe-cluster --name ${EKS_CLUSTER_NAME} --query cluster.resourcesVpcConfig.vpcId --output text)"
+ CLUSTER_VPC_ID="$(aws eks describe-cluster --name ${EKS_CLUSTER_NAME} --query cluster.resourcesVpcConfig.vpcId --output text)"
 ```
 
 Export the default security group for your cluster:
 
 ```
-CLUSTER_SG_ID="$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$CLUSTER_VPC_ID Name=tag-key,Values=kubernetes.io/cluster/${EKS_CLUSTER_NAME} --query 'SecurityGroups[].[GroupId]' --output text)"
+ CLUSTER_SG_ID="$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$CLUSTER_VPC_ID Name=tag-key,Values=kubernetes.io/cluster/${EKS_CLUSTER_NAME} --query 'SecurityGroups[].[GroupId]' --output text)"
 ```
 
 Add the `karpenter.sh/discovery` tag to the default cluster security group. This will allow our CPU and GPU EC2NodeClass selectors to use it:
 
 ```
-aws ec2 create-tags --resources ${CLUSTER_SG_ID} --tags Key=karpenter.sh/discovery,Value=${EKS_CLUSTER_NAME}
+ aws ec2 create-tags --resources ${CLUSTER_SG_ID} --tags Key=karpenter.sh/discovery,Value=${EKS_CLUSTER_NAME}
 ```
 
 Verify the tag was added:
 
 ```
-aws ec2 describe-security-groups --group-ids ${CLUSTER_SG_ID} --query "SecurityGroups[].Tags"
+ aws ec2 describe-security-groups --group-ids ${CLUSTER_SG_ID} --query "SecurityGroups[].Tags"
 ```
 
 Among the results, you should see the following with the tag and your cluster name. For example:
 
 ```
-{
+ {
   "Key": "karpenter.sh/discovery",
   "Value": "eks-rt-inference-us-east-1"
 }
@@ -960,19 +960,19 @@ The AWS LBC is essential for managing ingress traffic to AI/ML workloads on Amaz
 Add the AWS-owned **eks-charts** Helm chart repository:
 
 ```
-helm repo add eks https://aws.github.io/eks-charts
+ helm repo add eks https://aws.github.io/eks-charts
 ```
 
 Refresh your local Helm repositories with the most recent charts:
 
 ```
-helm repo update eks
+ helm repo update eks
 ```
 
 Deploy the AWS LBC using Helm, specifying the EKS cluster name and referencing the pre-created service account:
 
 ```
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
   --set clusterName=${EKS_CLUSTER_NAME} \
   --set serviceAccount.create=false \
@@ -982,14 +982,14 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 The expected output should look like this:
 
 ```
-NAME: aws-load-balancer-controller
+ NAME: aws-load-balancer-controller
 LAST DEPLOYED: Wed Jul 9 15:03:31 2025
 NAMESPACE: kube-system
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 NOTES:
-AWS Load Balancer controller installed!
+<shared id="AWS"/> Load Balancer controller installed!
 ```
 
 ### Mount the model in a persistent volume
@@ -1003,7 +1003,7 @@ The PV mounts the entire bucket root (no path specified in `volumeAttributes`), 
 Create a PersistentVolume (PV) resource to mount the S3 bucket containing your model weights, enabling read-only access for multiple pods without downloading files at runtime:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -1034,7 +1034,7 @@ EOF
 Create a PersistentVolumeClaim (PVC) to bind to the PV, requesting read-only access to the mounted S3 model data:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -1055,7 +1055,7 @@ EOF
 Deploy the inference application as a Kubernetes Deployment, mounting the S3-backed persistent volume for model access, applying GPU node selectors and tolerations, and setting environment variables for the model path. This Deployment sets the model path (env var of `"/models/gpunet-0.pth"`), so our application (in `app.py`) will use this path by default. With the Deployment’s volume mount at `/models` (read-only), the model download won’t trigger if the file is already present via the PVC.
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -1103,7 +1103,7 @@ EOF
 It will take a few minutes for Karpenter to provision a GPU node if one isn’t already available. Verify that the inference pod is in a "Running" state:
 
 ```
-kubectl get pods -l app=gpunet-inference-app
+ kubectl get pods -l app=gpunet-inference-app
 ```
 
 The expected output should look like this:
@@ -1118,7 +1118,7 @@ gpunet-inference-app-5d4b6c7f8-abcde        1/1     Running   0          2m
 Create a ClusterIP Service to expose the inference deployment internally within the EKS cluster, targeting the application’s port:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: v1
 kind: Service
 metadata:
@@ -1136,7 +1136,7 @@ EOF
 Create an Ingress resource to provision an internet-facing Application Load Balancer (ALB) via the AWS LBC, routing external traffic to the inference service:
 
 ```
-cat <<EOF | envsubst | kubectl apply -f -
+ cat <<EOF | envsubst | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -1162,7 +1162,7 @@ EOF
 Give it a few minutes for the Application Load Balancer (ALB) to finish provisioning. Monitor the Ingress resource status to confirm the ALB has been provisioned:
 
 ```
-kubectl get ingress gpunet-model-ingress
+ kubectl get ingress gpunet-model-ingress
 ```
 
 The expected output should look like this (with the ADDRESS field populated):
@@ -1175,7 +1175,7 @@ gpunet-model-ingress   alb     *       k8s-default-gpunetmo-183de3f819-516310036
 Extract and export the ALB hostname from the Ingress status for use in subsequent testing:
 
 ```
-export ALB_HOSTNAME=$(kubectl get ingress gpunet-model-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+ export ALB_HOSTNAME=$(kubectl get ingress gpunet-model-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
 ### Test the Model Service
@@ -1183,13 +1183,13 @@ export ALB_HOSTNAME=$(kubectl get ingress gpunet-model-ingress -o jsonpath='{.st
 Validate the exposed inference endpoint by sending a POST request with a sample image URL (e.g., from the COCO dataset), simulating real-time prediction:
 
 ```
-curl -X POST "http://${ALB_HOSTNAME}/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg"
+ curl -X POST "http://${ALB_HOSTNAME}/predict?image_url=http://images.cocodataset.org/test-stuff2017/000000024309.jpg"
 ```
 
 The expected output should be a JSON response with top-5 predictions, similar to this (actual labels and probabilities may vary slightly based on the image and model precision):
 
 ```
-{"predictions":[{"label":"desk","probability":0.2888975441455841},{"label":"laptop","probability":0.2464350312948227},{"label":"notebook","probability":0.08554483205080032},{"label":"library","probability":0.030612602829933167},{"label":"monitor","probability":0.029896672815084457}]}
+ {"predictions":[{"label":"desk","probability":0.2888975441455841},{"label":"laptop","probability":0.2464350312948227},{"label":"notebook","probability":0.08554483205080032},{"label":"library","probability":0.030612602829933167},{"label":"monitor","probability":0.029896672815084457}]}
 ```
 
 You can optionally continue testing other images in a new POST request. For example:
@@ -1212,7 +1212,7 @@ To avoid incurring future charges, you need to delete the associated CloudFormat
 Delete the CloudFormation stack using the `--wait` flag with eksctl:
 
 ```
-eksctl delete cluster --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME} --wait
+ eksctl delete cluster --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME} --wait
 ```
 
 Upon completion, you should see the following response output:

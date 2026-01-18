@@ -8,7 +8,7 @@ This topic describes how to create a kro (Kube Resource Orchestrator) capability
 
 ## Create the kro capability
 
-1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
 2. Select your cluster name to open the cluster detail page.
 3. Choose the **Capabilities** tab.
 4. In the left navigation, choose **kro (Kube Resource Orchestrator)**.
@@ -80,7 +80,7 @@ You should see the `ResourceGraphDefinition` resource type listed.
 **Using kubectl**
 
 ```
-kubectl api-resources | grep kro.run
+ kubectl api-resources | grep kro.run
 ```
 
 You should see the `ResourceGraphDefinition` resource type listed.

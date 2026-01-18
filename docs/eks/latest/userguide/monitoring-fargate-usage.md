@@ -37,7 +37,7 @@ AWS Fargate provides CloudWatch usage metrics that correspond to the AWS service
 
 Use the following steps to create a CloudWatch alarm based on the Fargate resource usage metrics.
 
-1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+1. Open the Service Quotas console at https://console.aws.amazon.com/servicequotas/.
 2. In the left navigation pane, choose **AWS services**.
 3. From the **AWS services** list, search for and select **AWS Fargate**.
 4. In the **Service quotas** list, choose the Fargate usage quota you want to create an alarm for.

@@ -27,14 +27,14 @@ AWS Identity and Access Management (IAM) isn’t available during network discon
    1. Generate a certificate signing request.
 
    ```
-   openssl req -new -newkey rsa:4096 -nodes -days 365 \
+    openssl req -new -newkey rsa:4096 -nodes -days 365 \
        -keyout admin.key -out admin.csr -subj "/CN=admin"
    ```
 
    2. Create a certificate signing request in Kubernetes.
 
    ```
-   BASE64_CSR=$(cat admin.csr | base64 -w 0)
+    BASE64_CSR=$(cat admin.csr | base64 -w 0)
    cat << EOF > admin-csr.yaml
    apiVersion: certificates.k8s.io/v1
    kind: CertificateSigningRequest
@@ -51,38 +51,38 @@ AWS Identity and Access Management (IAM) isn’t available during network discon
 2. Create a certificate signing request using `kubectl`.
 
 ```
-kubectl create -f admin-csr.yaml
+ kubectl create -f admin-csr.yaml
 ```
 
 3. Check the status of the certificate signing request.
 
 ```
-kubectl get csr admin-csr
+ kubectl get csr admin-csr
 ```
 
 An example output is as follows.
 
 ```
-NAME       AGE   REQUESTOR                       CONDITION
+ NAME       AGE   REQUESTOR                       CONDITION
 admin-csr  11m   kubernetes-admin                Pending
 ```
 
 Kubernetes created the certificate signing request. 4. Approve the certificate signing request.
 
 ```
-kubectl certificate approve admin-csr
+ kubectl certificate approve admin-csr
 ```
 
 5. Recheck the certificate signing request status for approval.
 
 ```
-kubectl get csr admin-csr
+ kubectl get csr admin-csr
 ```
 
 An example output is as follows.
 
 ```
-NAME       AGE   REQUESTOR                     CONDITION
+ NAME       AGE   REQUESTOR                     CONDITION
 admin-csr  11m   kubernetes-admin              Approved
 ```
 
@@ -90,19 +90,19 @@ admin-csr  11m   kubernetes-admin              Approved
    1. Retrieve the certificate.
 
    ```
-   kubectl get csr admin-csr -o jsonpath='{.status.certificate}' | base64 --decode > admin.crt
+    kubectl get csr admin-csr -o jsonpath='{.status.certificate}' | base64 --decode > admin.crt
    ```
 
    2. Verify the certificate.
 
    ```
-   cat admin.crt
+    cat admin.crt
    ```
 
 7. Create a cluster role binding for an `admin` user.
 
 ```
-kubectl create clusterrolebinding admin --clusterrole=cluster-admin \
+ kubectl create clusterrolebinding admin --clusterrole=cluster-admin \
     --user=admin --group=system:masters
 ```
 
@@ -111,34 +111,34 @@ kubectl create clusterrolebinding admin --clusterrole=cluster-admin \
 You can generate a `kubeconfig` file using the downloaded `admin` certificates. Replace `my-cluster` and `apiserver-endpoint` in the following commands.
 
 ```
-aws eks describe-cluster --name my-cluster \
+ aws eks describe-cluster --name my-cluster \
     --query "cluster.certificateAuthority" \
     --output text | base64 --decode > ca.crt
 ```
 
 ```
-kubectl config --kubeconfig admin.kubeconfig set-cluster my-cluster \
+ kubectl config --kubeconfig admin.kubeconfig set-cluster my-cluster \
     --certificate-authority=ca.crt --server apiserver-endpoint --embed-certs
 ```
 
 ```
-kubectl config --kubeconfig admin.kubeconfig set-credentials admin \
+ kubectl config --kubeconfig admin.kubeconfig set-credentials admin \
     --client-certificate=admin.crt --client-key=admin.key --embed-certs
 ```
 
 ```
-kubectl config --kubeconfig admin.kubeconfig set-context admin@my-cluster \
+ kubectl config --kubeconfig admin.kubeconfig set-context admin@my-cluster \
     --cluster my-cluster --user admin
 ```
 
 ```
-kubectl config --kubeconfig admin.kubeconfig use-context admin@my-cluster
+ kubectl config --kubeconfig admin.kubeconfig use-context admin@my-cluster
 ```
 
 9. View your `kubeconfig` file.
 
 ```
-kubectl get nodes --kubeconfig admin.kubeconfig
+ kubectl get nodes --kubeconfig admin.kubeconfig
 ```
 
 10. If you have services already in production on your Outpost, skip this step. If Amazon EKS is the only service running on your Outpost and the Outpost isn’t currently in production, you can simulate a network disconnect. Before you go into production with your local cluster, simulate a disconnect to make sure that you can access your cluster when it’s in a disconnected state.
@@ -149,7 +149,7 @@ kubectl get nodes --kubeconfig admin.kubeconfig
 
 
         ```
-        kubectl config use-context admin@my-cluster --kubeconfig admin.kubeconfig
+         kubectl config use-context admin@my-cluster --kubeconfig admin.kubeconfig
         ```
 
     If you notice any issues with your local clusters while they’re in a disconnected state, we recommend opening a support ticket.

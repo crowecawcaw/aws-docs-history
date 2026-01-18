@@ -22,13 +22,13 @@ You can update an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 1. Determine the current add-ons and add-on versions installed on your cluster. Replace `my-cluster` with the name of your cluster.
 
 ```
-eksctl get addon --cluster my-cluster
+ eksctl get addon --cluster my-cluster
 ```
 
 An example output is as follows.
 
 ```
-NAME        VERSION              STATUS  ISSUES  IAMROLE  UPDATE AVAILABLE
+ NAME        VERSION              STATUS  ISSUES  IAMROLE  UPDATE AVAILABLE
 coredns     v1.8.7-eksbuild.2    ACTIVE  0
 kube-proxy  v1.23.7-eksbuild.1   ACTIVE  0                v1.23.8-eksbuild.2
 vpc-cni     v1.10.4-eksbuild.1   ACTIVE  0                v1.12.0-eksbuild.1,v1.11.4-eksbuild.1,v1.11.3-eksbuild.1,v1.11.2-eksbuild.1,v1.11.0-eksbuild.1
@@ -53,7 +53,7 @@ Your output might look different, depending on which add-ons and versions that y
 
 
     	```
-    	cat >update-addon.yaml <<EOF
+    	 cat >update-addon.yaml <<EOF
     	apiVersion: eksctl.io/v1alpha5
     	kind: ClusterConfig
     	metadata:
@@ -63,7 +63,7 @@ Your output might look different, depending on which add-ons and versions that y
     	addons:
     	- name: vpc-cni
     	  version: latest
-    	  serviceAccountRoleARN: arn:aws:iam::111122223333:role/role-name
+    	  serviceAccountRoleARN: <shared id="region.arn"/>iam::111122223333:role/role-name
     	  resolveConflicts: preserve
     	EOF
     	```
@@ -73,7 +73,7 @@ Your output might look different, depending on which add-ons and versions that y
 
 
     ```
-    eksctl update addon -f update-addon.yaml
+     eksctl update addon -f update-addon.yaml
     ```
 
 For more information about updating add-ons, see [Updating addons](https://eksctl.io/usage/addons/#updating-addons "https://eksctl.io/usage/addons/#updating-addons") in the `eksctl` documentation.
@@ -111,13 +111,13 @@ For more information about updating add-ons, see [Updating addons](https://eksct
 2. See a list of installed add-ons. Replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks list-addons --cluster-name my-cluster
+ aws eks list-addons --cluster-name my-cluster
 ```
 
 An example output is as follows.
 
 ```
-{
+ {
     "addons": [
         "coredns",
         "kube-proxy",
@@ -129,26 +129,26 @@ An example output is as follows.
 3. View the current version of the add-on that you want to update. Replace `my-cluster` with your cluster name and `vpc-cni` with the name of the add-on that you want to update.
 
 ```
-aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query "addon.addonVersion" --output text
+ aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query "addon.addonVersion" --output text
 ```
 
 An example output is as follows.
 
 ```
-v1.10.4-eksbuild.1
+ v1.10.4-eksbuild.1
 ```
 
 4. Determine which versions of the add-on are available for your cluster’s version. Replace `1.33` with your cluster’s version and `vpc-cni` with the name of the add-on that you want to update.
 
 ```
-aws eks describe-addon-versions --kubernetes-version 1.33 --addon-name vpc-cni \
+ aws eks describe-addon-versions --kubernetes-version 1.33 --addon-name vpc-cni \
     --query 'addons[].addonVersions[].{Version: addonVersion, Defaultversion: compatibilities[0].defaultVersion}' --output table
 ```
 
 An example output is as follows.
 
 ```
-------------------------------------------
+ ------------------------------------------
 |          DescribeAddonVersions         |
 +-----------------+----------------------+
 | Defaultversion  |       Version        |
@@ -174,20 +174,20 @@ The version with `True` in the `Defaultversion` column is the version that the a
 
 
     ```
-    aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
-        --service-account-role-arn arn:aws:iam::111122223333:role/role-name --configuration-values '{}' --resolve-conflicts PRESERVE
+     aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
+        --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/role-name --configuration-values '{}' --resolve-conflicts PRESERVE
     ```
 
 6. Check the status of the update. Replace `my-cluster` with the name of your cluster and `vpc-cni` with the name of the add-on you’re updating.
 
 ```
-aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni
+ aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni
 ```
 
 An example output is as follows.
 
 ```
-{
+ {
     "addon": {
         "addonName": "vpc-cni",
         "clusterName": "my-cluster",

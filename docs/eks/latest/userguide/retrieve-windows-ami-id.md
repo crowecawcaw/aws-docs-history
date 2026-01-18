@@ -20,20 +20,19 @@ You can retrieve the image ID of the latest recommended Amazon EKS optimized Win
 - Replace `region-code` with an [Amazon EKS supported AWS Region](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") for which you want the AMI ID.
 
 ```
-aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-`release`-English-`installation-option`-EKS_Optimized-`kubernetes-version`/image_id \
-    --region `region-code` --query "Parameter.Value" --output text
+ aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-<replaceable>release</replaceable>-English-<replaceable>installation-option</replaceable>-EKS_Optimized-<replaceable>kubernetes-version</replaceable>/image_id \
+    --region <replaceable>region-code</replaceable> --query "Parameter.Value" --output text
 ```
 
 Here’s an example command after placeholder replacements have been made.
 
 ```
-aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-`2022`-English-`Core`-EKS_Optimized-`k8s-n-2`/image_id \
-    --region `us-west-2` --query "Parameter.Value" --output text
+ aws ssm get-parameter --name /aws/service/ami-windows-latest/Windows_Server-<replaceable>2022</replaceable>-English-<replaceable>Core</replaceable>-EKS_Optimized-<replaceable>k8s-n-2</replaceable>/image_id \
+    --region <replaceable>us-west-2</replaceable> --query "Parameter.Value" --output text
 ```
 
 An example output is as follows.
 
 ```
-ami-`1234567890abcdef0`
-
+ ami-<replaceable>1234567890abcdef0</replaceable>
 ```

@@ -26,7 +26,7 @@ Before starting this tutorial, you must install and configure the following tool
   – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the IAM User Guide. You must complete all steps in this guide as the same user. To check the current user, run the following command:
 
 ```
-aws sts get-caller-identity
+ aws sts get-caller-identity
 ```
 
 We recommend that you complete the steps in this topic in a Bash shell. If you aren’t using a Bash shell, some script commands such as line continuation characters and the way variables are set and used require adjustment for your shell. Additionally, the quoting and escaping rules for your shell might be different. For more information, see [Using quotation marks with strings in the AWS CLI](../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md "../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md") in the AWS Command Line Interface User Guide.
@@ -40,22 +40,22 @@ To get started as simply and quickly as possible, this topic includes steps to c
 1. Create an Amazon VPC with public and private subnets that meets Amazon EKS requirements. Replace `region-code` with any AWS Region that is supported by Amazon EKS. For a list of AWS Regions, see [Amazon EKS endpoints and quotas](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") in the AWS General Reference guide. You can replace `my-eks-vpc-stack` with any name you choose.
 
 ```
-aws cloudformation create-stack \
-  --region `region-code` \
+ aws cloudformation create-stack \
+  --region <replaceable>region-code</replaceable> \
   --stack-name my-eks-vpc-stack \
   --template-url https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
 ```
 
 ###### Tip
 
-For a list of all the resources the previous command creates, open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). Choose the `my-eks-vpc-stack` stack and then choose the **Resources** tab. 2. Create a cluster IAM role and attach the required Amazon EKS IAM managed policy to it. Kubernetes clusters managed by Amazon EKS make calls to other AWS services on your behalf to manage the resources that you use with the service.
+For a list of all the resources the previous command creates, open the AWS CloudFormation console at https://console.aws.amazon.com/cloudformation/. Choose the `my-eks-vpc-stack` stack and then choose the **Resources** tab. 2. Create a cluster IAM role and attach the required Amazon EKS IAM managed policy to it. Kubernetes clusters managed by Amazon EKS make calls to other AWS services on your behalf to manage the resources that you use with the service.
 
     1. Copy the following contents to a file named `eks-cluster-role-trust-policy.json`.
 
 
 
     ```
-    {
+     {
       "Version":"2012-10-17",
       "Statement": [
         {
@@ -73,7 +73,7 @@ For a list of all the resources the previous command creates, open the AWS Cloud
 
 
     ```
-    aws iam create-role \
+     aws iam create-role \
       --role-name myAmazonEKSClusterRole \
       --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
     ```
@@ -82,12 +82,12 @@ For a list of all the resources the previous command creates, open the AWS Cloud
 
 
     ```
-    aws iam attach-role-policy \
-      --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy \
+     aws iam attach-role-policy \
+      --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy \
       --role-name myAmazonEKSClusterRole
     ```
 
-3. Open the Amazon EKS console at [[eks/home#/clusters](eks/home.md#/clusters "eks/home.md#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+3. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 
 Make sure that the AWS Region shown in the upper right of your console is the AWS Region that you want to create your cluster in. If it’s not, choose the dropdown next to the AWS Region name and choose the AWS Region that you want to use. 4. Choose **Create cluster**. If you don’t see this option, then choose **Clusters** in the left navigation pane first. 5. On the **Configure cluster** page, do the following:
 
@@ -122,14 +122,13 @@ Before proceeding, be sure that your cluster creation completed successfully in 
 1. Create or update a `kubeconfig` file for your cluster. Replace `region-code` with the AWS Region that you created your cluster in. Replace `my-cluster` with the name of your cluster.
 
 ```
-aws eks update-kubeconfig --region `region-code` --name `my-cluster`
-
+ aws eks update-kubeconfig --region <replaceable>region-code</replaceable> --name <replaceable>my-cluster</replaceable>
 ```
 
 By default, the `config` file is created in `~/.kube` or the new cluster’s configuration is added to an existing `config` file in `~/.kube`. 2. Test your configuration.
 
 ```
-kubectl get svc
+ kubectl get svc
 ```
 
 ###### Note
@@ -139,7 +138,7 @@ If you receive any authorization or resource type errors, see [Unauthorized or a
 An example output is as follows.
 
 ```
-NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+ NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
 ```
 
@@ -160,7 +159,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    1. Copy the following contents to a file named `node-role-trust-policy.json`.
 
    ```
-   {
+    {
      "Version":"2012-10-17",
      "Statement": [
        {
@@ -177,7 +176,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    2. Create the node IAM role.
 
    ```
-   aws iam create-role \
+    aws iam create-role \
      --role-name myAmazonEKSNodeRole \
      --assume-role-policy-document file://"node-role-trust-policy.json"
    ```
@@ -185,18 +184,18 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    3. Attach the required managed IAM policies to the role.
 
    ```
-   aws iam attach-role-policy \
-     --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy \
+    aws iam attach-role-policy \
+     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodePolicy \
      --role-name myAmazonEKSNodeRole
    aws iam attach-role-policy \
-     --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly \
+     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryReadOnly \
      --role-name myAmazonEKSNodeRole
    aws iam attach-role-policy \
-     --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
+     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy \
      --role-name myAmazonEKSNodeRole
    ```
 
-   4. Open the Amazon EKS console at [[eks/home#/clusters](eks/home.md#/clusters "eks/home.md#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+   4. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    5. Choose the name of the cluster that you created in [Step 1: Create your Amazon EKS cluster](#eks-create-cluster "#eks-create-cluster"), such as `my-cluster`.
    6. On the **`my-cluster`** page, do the following:
    7. Choose the **Compute** tab.
@@ -228,7 +227,7 @@ You can view your nodes and Kubernetes workloads.
 After you’ve finished with the cluster and nodes that you created for this tutorial, you should delete the resources that you created. If you want to do more with this cluster before you delete the resources, see [Next steps](#gs-console-next-steps "#gs-console-next-steps").
 
 1. Delete any node groups profiles that you created.
-   1. Open the Amazon EKS console at [[eks/home#/clusters](eks/home.md#/clusters "eks/home.md#/clusters")](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+   1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, choose **Clusters**. In the list of clusters, choose `my-cluster`.
    3. Choose the **Compute** tab.
    4. If you created a node group, choose the `my-nodegroup` node group and then choose **Delete**. Enter `my-nodegroup`, and then choose **Delete**.
@@ -240,12 +239,12 @@ After you’ve finished with the cluster and nodes that you created for this tut
    3. Enter `my-cluster` and then choose **Delete**. Don’t continue until the cluster is deleted.
 
 3. Delete the VPC AWS CloudFormation stack that you created.
-   1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+   1. Open the CloudFormation console at https://console.aws.amazon.com/cloudformation/.
    2. Choose the `my-eks-vpc-stack` stack, and then choose **Delete**.
    3. In the **Delete `my-eks-vpc-stack`** confirmation dialog box, choose **Delete stack**.
 
 4. Delete the IAM roles that you created.
-   1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+   1. Open the IAM console at https://console.aws.amazon.com/iam/.
    2. In the left navigation pane, choose **Roles**.
    3. Select each role you created from the list (**`myAmazonEKSClusterRole`**, as well as `myAmazonEKSNodeRole`). Choose **Delete**, enter the requested confirmation text, then choose **Delete**.
 

@@ -31,7 +31,7 @@ This quickstart shows you the commands to create a custom AMI in your AWS accoun
 Install the required [Amazon plugin](https://developer.hashicorp.com/packer/integrations/hashicorp/amazon "https://developer.hashicorp.com/packer/integrations/hashicorp/amazon"). For example:
 
 ```
-packer plugins install github.com/hashicorp/amazon
+ packer plugins install github.com/hashicorp/amazon
 ```
 
 ### Step 1. Setup your environment
@@ -39,14 +39,14 @@ packer plugins install github.com/hashicorp/amazon
 Clone or fork the official Amazon EKS AMI repository. For example:
 
 ```
-git clone https://github.com/awslabs/amazon-eks-ami.git
+ git clone https://github.com/awslabs/amazon-eks-ami.git
 cd amazon-eks-ami
 ```
 
 Verify that Packer is installed:
 
 ```
-packer --version
+ packer --version
 ```
 
 ### Step 2. Create a custom AMI
@@ -56,7 +56,7 @@ The following are example commands for various custom AMIs.
 **Basic NVIDIA AL2 AMI:**
 
 ```
-make k8s=1.31 os_distro=al2 \
+ make k8s=1.31 os_distro=al2 \
   enable_accelerator=nvidia \
   nvidia_driver_major_version=560 \
   enable_efa=true
@@ -65,7 +65,7 @@ make k8s=1.31 os_distro=al2 \
 **Basic NVIDIA AL2023 AMI:**
 
 ```
-make k8s=1.31 os_distro=al2023 \
+ make k8s=1.31 os_distro=al2023 \
   enable_accelerator=nvidia \
   nvidia_driver_major_version=560 \
   enable_efa=true
@@ -74,7 +74,7 @@ make k8s=1.31 os_distro=al2023 \
 **STIG-Compliant Neuron AL2023 AMI:**
 
 ```
-make k8s=1.31 os_distro=al2023 \
+ make k8s=1.31 os_distro=al2023 \
   enable_accelerator=neuron \
   enable_fips=true \
   source_ami_id=ami-0abcd1234efgh5678 \
@@ -86,7 +86,7 @@ After you run these commands, Packer will do the following: \* Launch a temporar
 The expected output should look like this:
 
 ```
-==> Wait completed after 8 minutes 42 seconds
+ ==> Wait completed after 8 minutes 42 seconds
 
 ==> Builds finished. The artifacts of successful builds are:
 --> amazon-ebs: AMIs were created:
@@ -104,5 +104,5 @@ us-west-2: ami-0e139a4b1a7a9a3e9
 To view default values and additional options, run the following command:
 
 ```
-make help
+ make help
 ```

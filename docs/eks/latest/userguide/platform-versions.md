@@ -29,7 +29,7 @@ AWS recently disabled some platform versions published in June 2024. The platfor
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
 ```
-https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/clusters/platform-versions.adoc.atom
+ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/clusters/platform-versions.adoc.atom
 ```
 
 ## Kubernetes version `1.34`
@@ -249,13 +249,13 @@ The following admission controllers are enabled for all `1.29` platform versions
 7. Run the following command:
 
 ```
-aws eks describe-cluster --name my-cluster --query cluster.platformVersion
+ aws eks describe-cluster --name my-cluster --query cluster.platformVersion
 ```
 
 An example output is as follows.
 
 ```
-"eks.10"
+ "eks.10"
 ```
 
 ## Change platform version

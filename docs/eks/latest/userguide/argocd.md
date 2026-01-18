@@ -32,7 +32,7 @@ Argo CD provides three primary resource types:
 The following example shows how to create an Argo CD `Application` resource:
 
 ```
-apiVersion: argoproj.io/v1alpha1
+ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook

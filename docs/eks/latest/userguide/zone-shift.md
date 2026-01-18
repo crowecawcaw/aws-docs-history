@@ -88,7 +88,7 @@ The following diagram illustrates an EKS environment that has east-to-west traff
 The following code snippet is an example of how to set up your workload with multiple replicas in Kubernetes.
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orders
@@ -119,7 +119,7 @@ When you install [CoreDNS with Helm](https://github.com/coredns/helm/tree/master
 **CoreDNS Helm values.yaml**
 
 ```
-replicaCount: 6
+ replicaCount: 6
 topologySpreadConstraints:
   - maxSkew: 1
     topologyKey: topology.kubernetes.io/zone
@@ -132,7 +132,7 @@ topologySpreadConstraints:
 If there’s an AZ impairment, you can absorb the increased load on the CoreDNS Pods by using an autoscaling system for CoreDNS. The number of DNS instances that you will require depends on the number of workloads that are running in your cluster. CoreDNS is CPU bound, which allows it to scale based on CPU by using the [Horizontal Pod Autoscaler (HPA)](https://aws.github.io/aws-eks-best-practices/reliability/docs/application/#horizontal-pod-autoscaler-hpa "https://aws.github.io/aws-eks-best-practices/reliability/docs/application/#horizontal-pod-autoscaler-hpa"). The following is an example that you can modify to suit your needs.
 
 ```
-apiVersion: autoscaling/v1
+ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: coredns
@@ -152,7 +152,7 @@ Alternatively, EKS can manage autoscaling of the CoreDNS deployment in the EKS a
 To enable the [autoscaling configuration in the CoreDNS EKS add-on](coredns-autoscaling.md "coredns-autoscaling.md"), use the following configuration setting:
 
 ```
-{
+ {
   "autoScaling": {
     "enabled": true
   }
@@ -168,7 +168,7 @@ Typically, applications have distinct workloads that need to communicate with ea
 With [pod affinity rules](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/ "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/"), you can define relationships between workloads to influence the behavior of the Kubernetes Scheduler so that it colocates Pods on the same worker node or in the same AZ. You can also configure how strict the scheduling constraints should be.
 
 ```
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: products

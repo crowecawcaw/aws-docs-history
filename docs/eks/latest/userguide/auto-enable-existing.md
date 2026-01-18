@@ -37,7 +37,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 7. Insert the following Cluster IAM Role trust policy, and select **Update policy**
 
 ```
-{
+ {
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -87,7 +87,7 @@ Use the following commands to enable EKS Auto Mode on an existing cluster.
 The compute, block storage, and load balancing capabilities must all be enabled or disabled in the same request.
 
 ```
-aws eks update-cluster-config \
+ aws eks update-cluster-config \
  --name $CLUSTER_NAME \
  --compute-config enabled=true \
  --kubernetes-network-config '{"elasticLoadBalancing":{"enabled": true}}' \
