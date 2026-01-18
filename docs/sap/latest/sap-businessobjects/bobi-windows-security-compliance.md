@@ -6,8 +6,7 @@ The following AWS security resources help you achieve the level of security you 
 - [CIS AWS Foundations Benchmark](../../../securityhub/latest/userguide/securityhub-standards-cis.md "../../../securityhub/latest/userguide/securityhub-standards-cis.md")
 - [Introduction to AWS Security](../../../whitepapers/latest/introduction-aws-security/welcome.md "../../../whitepapers/latest/introduction-aws-security/welcome.md")
 - [Best Practices for Security, Identity, & Compliance](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/")
-- [https://d1.awsstatic.com/whitepapers/architecture/](https://d1.awsstatic.com/whitepapers/architecture/ "https://d1.awsstatic.com/whitepapers/architecture/")
-  AWS-Security-Pillar.pdf[AWS Well-Architected Framework Security Pillar]
+- https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf[AWS Well-Architected Framework Security Pillar]
 - [Network and security features for Windows and Amazon EC2](../../../AWSEC2/latest/WindowsGuide/ec2-network-and-security.md "../../../AWSEC2/latest/WindowsGuide/ec2-network-and-security.md")
 
 ## OS Hardening

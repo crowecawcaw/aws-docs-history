@@ -128,8 +128,7 @@ Finally, use the [AWS Instance Scheduler](https://aws.amazon.com/solutions/insta
 
 Just as with right sizing, we recommend customers make cost optimization an ongoing process. This is an extensive topic with many AWS services that help with budgeting, cost control and proactive cost optimization recommendations.
 
-For more details, see the [https://d1.awsstatic.com/whitepapers/architecture/](https://d1.awsstatic.com/whitepapers/architecture/ "https://d1.awsstatic.com/whitepapers/architecture/")
-AWS-Cost-Optimization-Pillar.pdf[Cost Optimization Pillar] of the AWS Well-Architected Framework and the [SAP on AWS Pricing and Optimization Guide](../general/sap-on-aws-pricing-guide.md "../general/sap-on-aws-pricing-guide.md").
+For more details, see the https://d1.awsstatic.com/whitepapers/architecture/AWS-Cost-Optimization-Pillar.pdf[Cost Optimization Pillar] of the AWS Well-Architected Framework and the [SAP on AWS Pricing and Optimization Guide](../general/sap-on-aws-pricing-guide.md "../general/sap-on-aws-pricing-guide.md").
 
 ## Automation
 
