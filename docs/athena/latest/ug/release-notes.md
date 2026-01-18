@@ -4,6 +4,7 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ######
 
+- [2026](#release-notes-2026 "#release-notes-2026")
 - [2025](#release-notes-2025 "#release-notes-2025")
 - [2024](#release-notes-2024 "#release-notes-2024")
 - [2023](#release-notes-2023 "#release-notes-2023")
@@ -13,6 +14,16 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 - [2019](#release-notes-2019 "#release-notes-2019")
 - [2018](#release-notes-2018 "#release-notes-2018")
 - [2017](#release-notes-2017 "#release-notes-2017")
+
+## Athena release notes for 2026
+
+### January 12, 2026
+
+Published on 2026-01-12
+
+Amazon Athena announces the availability of Athena SQL in the Asia Pacific (New Zealand) Region.
+
+For a complete list of the AWS services available in each AWS Region, see [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
 
 ## Athena release notes for 2025
 

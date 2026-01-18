@@ -18,7 +18,7 @@ editor, on the workgroup details page, and is available through the Athena APIs.
   version of the workgroup.
   In both cases, Athena upgrades your workgroups when a version is no longer available. Athena
   notifies you through [AWS Health Dashboard](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/") regarding when an engine version will no longer be offered. Your
-  AWS Health Dashboard notifies you about events that can affect your AWS services or account. For more
+  Health Dashboard notifies you about events that can affect your AWS services or account. For more
   information about AWS Health Dashboard, see [Getting started with the
   AWS Health Dashboard](../../../health/latest/ug/getting-started-phd.md "../../../health/latest/ug/getting-started-phd.md").
 
