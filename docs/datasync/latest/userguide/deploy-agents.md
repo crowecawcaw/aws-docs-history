@@ -163,13 +163,13 @@ as possible.
    latest DataSync Amazon Machine Image (AMI) ID for the Region where you
    want to deploy your Amazon EC2 agent.
 
-###### Basic mode agents
+Basic mode agents
 
 ```
 aws ssm get-parameter --name /aws/service/datasync/ami --region `your-region`
 ```
 
-###### Enhanced mode agents
+Enhanced mode agents
 
 ```
 aws ssm get-parameter --name /aws/service/datasync/ami/v3 --region `your-region`
