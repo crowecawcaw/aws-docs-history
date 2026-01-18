@@ -9,8 +9,6 @@ triggered, and you configure Amazon SNS to send an email with details about the 
 
 The following illustration shows the main steps of the tutorial.
 
-![Five-step process for creating and configuring AWS services, from trail creation to rule testing.](images/tutorial-cwe.png)
-
 **[Step 1: Configure a trail and event
 selector](#tutorial-cwe-step1 "#tutorial-cwe-step1")**
 
