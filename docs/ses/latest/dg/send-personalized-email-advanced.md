@@ -150,6 +150,8 @@ When you send an email to the recipients listed in the preceding example using t
 `SendBulkEmail` operation, they receive a message that resembles the example
 shown in the following image:
 
+![Preferences notification listing Sports, Travel, and Cooking as selected interests.](images/send-personalized-email-advanced-condition-interest.png)
+
 ## Using basic conditional
 
 statements
@@ -244,6 +246,8 @@ In this example, the recipient whose template data included a list of interests 
 the same email as the example shown in the previous section. The recipient whose template data
 did not include any interests, however, receives an email that resembles the example shown in
 the following image:
+
+![Email message with header "Your Preferences" and text about updating subscription preferences.](images/send-personalized-email-advanced-condition-nointerest.png)
 
 ## Creating inline
 

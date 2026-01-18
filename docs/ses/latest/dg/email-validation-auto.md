@@ -79,7 +79,6 @@ email campaigns.
 7. For **Validation threshold**, select either:
    - **SES managed** – Amazon SES automatically manages
      the threshold.
-     or
    - **High** – Only addresses with high
      delivery likelihood.
    - **Medium** – Addresses with medium
