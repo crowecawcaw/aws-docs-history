@@ -39,7 +39,7 @@ The Invoke phase for Lambda Managed Instances functions has several unique chara
 
 Error handling in Lambda Managed Instances function execution environments differs from Lambda (default):
 
-**Invoke timeouts.** When an individual invocation times out, Lambda returns a timeout error for that specific invocation but does not terminate the execution environment. Other concurrent invocations continue processing normally.
+**Invoke timeouts.** When an individual invocation times out, Lambda returns a timeout error for that invocation. However, Lambda Managed Instances does not enforce the timeout—your code will keep running. As a function developer, you are responsible for detecting and handling the timeout. The context object exposes the remaining time for the invocation, with a zero or negative value indicating a timeout. Other concurrent invocations in the execution environment continue processing normally.
 
 **Runtime worker failures.** If a runtime worker process crashes, the execution environment continues operating with the remaining healthy workers.
 

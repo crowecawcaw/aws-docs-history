@@ -111,13 +111,13 @@ list of the SDKs included with each Lambda runtime, see [Lambda runtimes](lambda
 
 ## Recursive loop notifications
 
-When Lambda stops a recursive loop, you receive notifications through the [AWS Health Dashboard](https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/") and through email. You can also use CloudWatch metrics to
+When Lambda stops a recursive loop, you receive notifications through the [Health Dashboard](https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/") and through email. You can also use CloudWatch metrics to
 monitor the number of recursive invocations that Lambda has stopped.
 
-### AWS Health Dashboard notifications
+### Health Dashboard notifications
 
-When Lambda stops a recursive invocation, the AWS Health Dashboard displays a notification on the **Your account health** page,
-under [Open and recent issues](https://health.aws.amazon.com/health/home#/account/dashboard/open-issues "https://health.aws.amazon.com/health/home#/account/dashboard/open-issues"). Note that it can take up to 3.5 hours after Lambda stops a recursive invocation before this notification is displayed. For more information about viewing account events in the AWS Health Dashboard, see [Getting started with your AWS Health Dashboard – Your account health](../../../health/latest/ug/getting-started-health-dashboard.md "../../../health/latest/ug/getting-started-health-dashboard.md")
+When Lambda stops a recursive invocation, the Health Dashboard displays a notification on the **Your account health** page,
+under [Open and recent issues](https://health.aws.amazon.com/health/home#/account/dashboard/open-issues "https://health.aws.amazon.com/health/home#/account/dashboard/open-issues"). Note that it can take up to 3.5 hours after Lambda stops a recursive invocation before this notification is displayed. For more information about viewing account events in the Health Dashboard, see [Getting started with your AWS Health Dashboard – Your account health](../../../health/latest/ug/getting-started-health-dashboard.md "../../../health/latest/ug/getting-started-health-dashboard.md")
 in the _AWS Health User Guide_.
 
 ### Email alerts

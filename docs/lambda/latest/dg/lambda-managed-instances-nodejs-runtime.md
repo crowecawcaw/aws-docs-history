@@ -129,6 +129,8 @@ Using `context.awsRequestId` provides async-safe access to the request ID for th
 
 Use `context.xRayTraceId` to access the X-Ray trace ID. This provides concurrency-safe access to the trace ID for the current request. Lambda does not support the `_X_AMZN_TRACE_ID` environment variable with Lambda Managed Instances. The X-Ray trace ID is propagated automatically when using the AWS SDK.
 
+Use `context.getRemainingTimeInMillis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
+
 ## Initialization and shutdown
 
 Function initialization occurs once per worker thread. You may see repeat log entries if your function emits logs during initialization.

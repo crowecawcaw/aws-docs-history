@@ -30,6 +30,8 @@ Use `context.aws_request_id` to access to the request ID for the current request
 
 With Python runtimes, you can use the `_X_AMZN_TRACE_ID` environment variable to access the X-Ray trace ID with Lambda Managed Instances. The X-Ray trace ID is propagated automatically when using the AWS SDK.
 
+Use `context.get_remaining_time_in_millis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
+
 ## Initialization and shutdown
 
 Function initialization occurs once per process. You may see repeat log entries if your function emits logs during initialization.

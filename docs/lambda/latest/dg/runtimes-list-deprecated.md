@@ -1,6 +1,6 @@
 # Retrieve data about Lambda functions that use a deprecated runtime
 
-When a Lambda runtime is approaching deprecation, Lambda alerts you through email and provides notifications in the AWS Health Dashboard and Trusted Advisor. These
+When a Lambda runtime is approaching deprecation, Lambda alerts you through email and provides notifications in the Health Dashboard and Trusted Advisor. These
 emails and notifications list the $LATEST versions of functions using the runtime. To list all of your function versions that use a particular
 runtime, you can use the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs.
 
