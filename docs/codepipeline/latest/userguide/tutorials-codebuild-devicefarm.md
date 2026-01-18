@@ -27,8 +27,6 @@ You can try this out using your existing Android app and test definitions, or yo
 the [sample
 app and test definitions provided by Device Farm](https://github.com/aws-samples/aws-device-farm-sample-app-for-android "https://github.com/aws-samples/aws-device-farm-sample-app-for-android").
 
-###### Note
-
 **Before you begin**
 
 1. Sign in to the AWS Device Farm console and choose **Create a new

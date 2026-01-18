@@ -27,8 +27,6 @@ For more information, see [Add a cross-Region action in CodePipeline](actions-cr
 
 You can try this out using your existing iOS app, or you can use the [sample iOS app](samples/s3-ios-test-1.md "samples/s3-ios-test-1.md").
 
-###### Note
-
 **Before you begin**
 
 1. Sign in to the AWS Device Farm console and choose **Create a new
