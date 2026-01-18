@@ -25,7 +25,7 @@ service.
 ARC uses the service-linked role named **AWSServiceRoleForZonalAutoshiftPracticeRun** to
 do the following:
 
-- Monitor customer-provided Amazon CloudWatch alarms and customer AWS Health Dashboard events for practice runs
+- Monitor customer-provided Amazon CloudWatch alarms and customer Health Dashboard events for practice runs
 - Manage practice runs (practice zonal shifts)
 
 This section describes the permissions

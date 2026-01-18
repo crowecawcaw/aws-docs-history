@@ -1,29 +1,60 @@
-# How a zonal shift works
+#
 
-When you start a zonal shift for a supported resource, traffic for the resource is moved
-away from the Availability Zone (AZ) that you've specified. ARC's supported resources
-provide integrations that mark the specified AZ as unhealthy, which results in a traffic
-shifting away from the impaired AZ.
+Starting, updating, or canceling a zonal shift
 
-**Traffic begins to shift** - When you start a zonal shift in
-ARC, you might not see traffic move out of the Availability Zone immediately. It
-can take a short time for existing, in-progress connections in the Availability Zone to
-complete, depending on client behavior and connection reuse. DNS settings and other
-factors including existing connections can complete in just a few minutes, but they may
-take longer. For more information, see [Ensuring that traffic shifts finish
-quickly](route53-arc-best-practices.md#arc-zonal-shift.existing-connections "route53-arc-best-practices.md#arc-zonal-shift.existing-connections").
+This section provides procedures for working with zonal shifts, including starting a zonal shift
+and canceling a zonal shift.
 
-**Traffic shift ends** - When a zonal shift expires or you cancel it, ARC takes steps to stop shifting traffic
-and reverses the process for starting a traffic shift. Now, the recovered AZ is recognized as available for the resource and traffic resumes flowing to the AZ.
+## Starting a zonal shift
 
-You must set all zonal shifts to expire when you start the shifts. You can initially set a zonal shift to expire in a
-maximum of three days (72 hours). However, you can update a zonal shift to set a new expiration at any time. You can also
-cancel a zonal shift before it expires, if you're ready to restore traffic to the Availability Zone.
+The steps in this section explain how to start a customer-initiated zonal shift on the Amazon Application Recovery Controller (ARC) console.
+To work with zonal shift programmatically, see the [Zonal Shift API Reference Guide](../../../arc-zonal-shift/latest/api/Welcome.md "../../../arc-zonal-shift/latest/api/Welcome.md").
 
-**When traffic does not shift away** - In specific scenarios, a zonal shift does not shift traffic from the Availability Zone. For example, say you start a zonal shift
-for a load balancer when the load balancer target groups in the AZs don't have any instances, or if all of the instances
-are unhealthy. In this scenario, the load balancer is in a fail open state and starting a zonal shift does not shift away traffic.
+In addition to starting a zonal shift in ARC, you can also start a zonal shift for a load balancer in
+the ELB console (in supported Regions). For more information, see
+[Zonal shift](../../../elasticloadbalancing/latest/application/zonal-shift.md "../../../elasticloadbalancing/latest/application/zonal-shift.md") in the
+ELB User Guide.
 
-Before you start a zonal shift for a resource, make sure that all the conditions for a
-successful zonal shift are met. AWS resources handle zonal shifts differently. For
-more information about zonal shift support, see [Supported resources](arc-zonal-shift.md "arc-zonal-shift.md").
+## To start a zonal shift
+
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Under **Multi-AZ**, choose **Zonal shift**.
+3. On the **Zonal shift** page, choose **Start zonal shift**.
+4. Select the Availability Zone that you want to shift traffic away from.
+5. Select a supported resource from the **Resources** table to shift traffic
+   away for.
+6. For **Set zonal shift expiration**, choose or enter an expiration for the zonal shift. A zonal
+   shift can set to be active initially for 1 minute or up to three days (72 hours).
+
+All zonal shifts are temporary. You must set an expiration, but you can update active shifts later to
+set a new expiration period of up to three days. 7. Enter a comment. You can update the zonal shift later to edit the comment, if you like. 8. Select the checkbox to acknowledge that starting a zonal shift will reduce available capacity for
+your application by shifting traffic away from the Availability Zone. 9. Choose **Start**.
+
+## Updating or canceling a zonal shift
+
+The steps in this section explain how to update a zonal shift that you initiate, or cancel a
+zonal shift, on the Amazon Application Recovery Controller (ARC) console.
+To work with zonal shift programmatically, see the [Zonal Shift API Reference Guide](../../../arc-zonal-shift/latest/api/Welcome.md "../../../arc-zonal-shift/latest/api/Welcome.md").
+
+You can update a zonal shift to set a new expiration, or edit or replace the comment for the zonal shift. You
+can cancel a zonal shift any time before it expires.
+
+You can cancel zonal shifts that you initiate, or zonal shifts that AWS starts for a resource for a practice run
+for zonal autoshift. To learn more about practice shifts in zonal autoshift, see
+[How zonal autoshift and practice runs work](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
+
+## To update a zonal shift
+
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Under **Multi-AZ**, choose **Zonal shift**.
+3. Select a zonal shift that you want to update, and then choose **Update zonal shift**.
+4. For **Set zonal shift expiration**, optionally select or enter an expiration.
+5. For **Comment**, optionally edit the existing comment or enter a new comment.
+6. Choose **Update**.
+
+## To cancel a zonal shift
+
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Under **Multi-AZ**, choose **Zonal shift**.
+3. Select a zonal shift that you want to cancel, and then choose **Cancel zonal shift**.
+4. On the confirmation modal dialog, choose **Confirm**.

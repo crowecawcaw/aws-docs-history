@@ -26,7 +26,7 @@ ARC has the following service-linked roles, which are described in this chapter:
   access resources and configurations to check readiness.
 - ARC uses the service-linked role named for
   autoshift practice runs, to monitor customer-provided Amazon CloudWatch alarms and customer
-  AWS Health Dashboard events, and to start practice runs.
+  Health Dashboard events, and to start practice runs.
 
 ## Service-linked role permissions for Route53RecoveryReadinessServiceRolePolicy
 

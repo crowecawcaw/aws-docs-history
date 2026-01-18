@@ -20,7 +20,7 @@ _IAM User Guide_.
 You can't attach `AWSZonalAutoshiftPracticeRunSLRPolicy` to your IAM entities.
 This policy is attached to a service-linked role that allows Amazon Application Recovery Controller (ARC) to do the following for zonal autoshift:
 
-- Monitor customer-provided Amazon CloudWatch alarms and customer AWS Health Dashboard events for practice runs
+- Monitor customer-provided Amazon CloudWatch alarms and customer Health Dashboard events for practice runs
 - Manage practice runs (practice zonal shifts)
 - Manage balanced capacity checks for practice runs and autoshifts
 
