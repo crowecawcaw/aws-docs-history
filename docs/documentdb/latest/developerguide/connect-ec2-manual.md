@@ -27,16 +27,22 @@ In this step, you will create an Amazon EC2 instance in the same Region and Amaz
 
 You must provide an Amazon EC2 key pair.
 
-If you do have an Amazon EC2 key pair:
-
-    1. Select a key pair, choose your key pair from the list.
-    2. You must already have the private key file (.pem or .ppk file) available to log in to your Amazon EC2 instance.If you do not have an Amazon EC2 key pair:
+    * If you do have an Amazon EC2 key pair:
 
 
-    1. Choose **Create new key pair**, the **Create key pair** dialog box appears.
-    2. Enter a name in the **Key pair name** field.
-    3. Choose the **Key pair type** and **Private key file format**.
-    4. Choose **Create key pair**.
+
+
+    	1. Select a key pair, choose your key pair from the list.
+    	2. You must already have the private key file (.pem or .ppk file) available to log in to your Amazon EC2 instance.
+    * If you do not have an Amazon EC2 key pair:
+
+
+
+
+    	1. Choose **Create new key pair**, the **Create key pair** dialog box appears.
+    	2. Enter a name in the **Key pair name** field.
+    	3. Choose the **Key pair type** and **Private key file format**.
+    	4. Choose **Create key pair**.
 
 ![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](images/ec2/create-key-pair.png)
 

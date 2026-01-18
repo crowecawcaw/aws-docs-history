@@ -444,9 +444,9 @@ mongoimport \
   --file export.json
 ```
 
-To perform an offline migration, use the cbexport and mongoimport tools:
-
 ##### Couchbase Server 7.0 or later
+
+To perform an offline migration, use the cbexport and mongoimport tools:
 
 ##### Couchbase bucket with default scope and default collection
 

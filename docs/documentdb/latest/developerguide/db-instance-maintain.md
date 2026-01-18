@@ -27,7 +27,7 @@ It is generally advised to choose maintenance windows that minimize the impact o
 
 ## Notifications for Amazon DocumentDB engine patches
 
-You will receive maintenance notifications for required database engine patches through health events in the AWS Health Dashboard (AHD) in the AWS console and through e-mails.
+You will receive maintenance notifications for required database engine patches through health events in the Health Dashboard (AHD) in the AWS console and through e-mails.
 When an Amazon DocumentDB engine maintenance patch becomes available in a particular AWS region, all impacted Amazon DocumentDB user accounts in the region will receive an AHD and email notification for each Amazon DocumentDB version affected by the patch.
 You can view these notifications under the **Scheduled changes** section of the AHD in the AWS console.
 The notification will have details about timing of patch availability, auto apply schedule, list of impacted clusters, and release notes.
