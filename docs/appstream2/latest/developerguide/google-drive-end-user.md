@@ -42,7 +42,7 @@ add your Google Drive account to WorkSpaces Applications.
 2. In the **My Files** dialog box, choose **Add
    Storage**.
 
-![File management interface showing Home Folder and Temporary Files with Add Storage option.](images/AddStorage.png) 3. Choose **Google Drive**.
+![File management interface showing Home Folder and Temporary Files with Add Storage option.](/images/appstream2/latest/developerguide/images/AddStorage.png) 3. Choose **Google Drive**.
 
 ![Google Drive option highlighted in the Add Storage dropdown menu.](images/AddGoogleDrive1.png) 4. Choose the domain for your Google Drive account.
 
@@ -75,4 +75,4 @@ Drive
      to download, choose the down arrow to the right of the file name,
      and choose **Download**.
 
-   ![File management interface showing PDF file with options to upload, download, and rename.](images/GoogleDrive_FileUploadDownload.png)
+   ![File management interface showing PDF file with options to upload, download, and rename.](/images/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
