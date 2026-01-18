@@ -118,25 +118,27 @@ configuration**
      AWS Load Balancer Controller before enabling browser
      access
     * **Route 53 hosted zone:**
-     Select existing zone or choose Create hosted zone
+     Select an existing hosted zone for a domain or subdomain that
+     you own. The domain or subdomain must be registered and under
+     your control to enable DNS management and SSL certificate
+     validation.
+
+
+    For more details on domain registration, see [Registering a new domain](../../../Route53/latest/DeveloperGuide/domain-register.md#domain-register-procedure-section "../../../Route53/latest/DeveloperGuide/domain-register.md#domain-register-procedure-section") in the Route 53 Developer Guide.
     * **Subdomain:** Enter
      subdomain prefix (alphanumeric and hyphens only, maximum 63
      characters)
-    * **SSL certificate:**
-
-
-
-
-    	+ **Create new
-    	 certificate** – Automatically requested
-    	 and validated from AWS Certificate Manager using
-    	 Route 53 DNS records
-    	+ **Use existing
-    	 certificate** – Select an SSL certificate
-    	 from AWS Certificate Manager
+    * **SSL certificate:** Select
+     an existing SSL certificate from AWS Certificate Manager.
+     The certificate must be valid and cover both your subdomain
+     (e.g., subdomain.domain.com) and wildcard subdomains (e.g.,
+     \*.subdomain.domain.com) to support individual space access
+     URLs.
     * **Token signing key:** Select
-     an AWS KMS asymmetric key for JWT token signing, or choose
-     Create signing key
+     an AWS KMS asymmetric key for JWT token signing. The key is
+     used to encrypt authentication tokens for secure WebUI access.
+     You can create a new asymmetric key in KMS or select an
+     existing one that your account has access to.
 
 ###### Note
 
@@ -206,7 +208,9 @@ aws eks update-addon \
    addon
 4. Paste the YAML config above in **Optional
    configuration settings**
-5. Click **Ads**
+5. Click **Next**, then review the
+   addon settings
+6. Click **Create**
 
 ##### Verify Installation
 

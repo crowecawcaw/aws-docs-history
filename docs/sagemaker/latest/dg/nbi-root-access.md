@@ -28,3 +28,23 @@ For security reasons, Rootless Docker is installed on root-disabled notebook
 instances instead of regular Docker. For more information, see
 [Run
 the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/ "https://docs.docker.com/engine/security/rootless/")
+
+## Security considerations
+
+Lifecycle configuration scripts execute with root access and inherit the full privileges
+of the notebook instance's IAM execution role. Anyone (including Administrators) who has
+permissions to create or modify lifecycle configurations and manage notebook instances can
+execute code with the execution role's credentials hence please follow below best
+practices.
+
+Best practices:
+
+- Restrict administrative access: Grant lifecycle configuration permissions only to
+  trusted administrators who understand the security implications.
+- Apply least-privilege principles: Define notebook instance execution roles with only
+  the minimum permissions required for legitimate workloads.
+- Enable monitoring: Review CloudWatch Logs regularly for lifecycle configuration executions in
+  log group `/aws/sagemaker/NotebookInstances` to detect unexpected
+  activity.
+- Implement change controls: Establish approval processes for lifecycle configuration
+  changes in production environments.

@@ -70,6 +70,14 @@ The following are best practices for using lifecycle configurations:
 We do not recommend storing sensitive information in your lifecycle
 configuration script.
 
+###### Important
+
+Lifecycle configuration scripts run with root access and the notebook
+instance's IAM execution role privileges, regardless of the root access setting
+for notebook users. Principals with permissions to create or modify lifecycle
+configurations and update notebook instances can execute code with the
+execution role's credentials. See [Control root access to a SageMaker notebook instance](nbi-root-access.md "nbi-root-access.md") for more information.
+
 - Lifecycle configurations run as the `root` user. If your script
   makes any changes within the `/home/ec2-user/SageMaker`
   directory, (for example, installing a package with `pip`), use

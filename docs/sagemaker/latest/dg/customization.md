@@ -256,6 +256,179 @@ Note that EBS volumes are bound to a particular AZ, which means workspaces can
 only be scheduled on nodes in the same AZ as their storage volume. This can lead to
 scheduling failures if cluster capacity exists but not in the correct AZ.
 
+## Additional storage
+
+SageMaker Spaces supports attaching additional storage volumes such as Amazon
+EFS, FSx for Lustre, or S3 Mountpoint to your development spaces. This allows you
+to access shared datasets, collaborate on projects, or use high-performance storage
+for your workloads.
+
+### Prerequisites
+
+Before attaching additional storage to spaces, you must:
+
+1. **Install the appropriate CSI driver
+   add-on** via [EKS add-ons](../../../eks/latest/userguide/workloads-add-ons-available-eks.md "../../../eks/latest/userguide/workloads-add-ons-available-eks.md") (Amazon EFS CSI Driver, Amazon FSx for Lustre
+   CSI Driver, or Mountpoint for Amazon S3 CSI Driver)
+2. **Set up storage resources and
+   PersistentVolumeClaims** following the CSI driver
+   documentation for your specific storage type
+3. **Ensure the PVC is available** in the
+   same namespace where you plan to create your space
+
+### Attaching storage to spaces
+
+Once you have a PersistentVolumeClaim configured, you can attach it to a
+space using either the HyperPod CLI or kubectl.
+
+**HyperPod CLI**
+
+```
+hyp create hyp-space \
+    --name my-space \
+    --display-name "My Space with FSx" \
+    --memory 8Gi \
+    --volume name=shared-fsx,mountPath=/shared,persistentVolumeClaimName=my-fsx-pvc
+```
+
+**kubectl**
+
+```
+apiVersion: workspace.jupyter.org/v1alpha1
+kind: Workspace
+metadata:
+  name: my-space
+spec:
+  displayName: "My Space with FSx"
+  desiredStatus: Running
+  volumes:
+  - name: shared-fsx
+    mountPath: /shared
+    persistentVolumeClaimName: my-fsx-pvc
+```
+
+### Multiple volumes
+
+You can attach multiple additional storage volumes to a single space by
+specifying multiple `--volume` flags with the CLI or multiple entries in the
+`volumes` array with kubectl.
+
+**HyperPod CLI**
+
+```
+hyp create hyp-space \
+    --name my-space \
+    --display-name "My Space with Multiple Storage" \
+    --memory 8Gi \
+    --volume name=shared-efs,mountPath=/shared,persistentVolumeClaimName=my-efs-pvc \
+    --volume name=datasets,mountPath=/datasets,persistentVolumeClaimName=my-s3-pvc
+```
+
+**kubectl**
+
+```
+apiVersion: workspace.jupyter.org/v1alpha1
+kind: Workspace
+metadata:
+  name: my-space
+spec:
+  displayName: "My Space with Multiple Storage"
+  desiredStatus: Running
+  volumes:
+  - name: shared-efs
+    mountPath: /shared
+    persistentVolumeClaimName: my-efs-pvc
+  - name: datasets
+    mountPath: /datasets
+    persistentVolumeClaimName: my-s3-pvc
+```
+
+## Resource configuration
+
+SageMaker Spaces allows you to configure compute resources for your development
+environments, including CPU, memory, and GPU resources to match your workload
+requirements.
+
+### GPU configuration
+
+SageMaker Spaces supports both whole GPU allocation and GPU partitioning using
+NVIDIA Multi-Instance GPU (MIG) technology. This allows you to optimize GPU
+utilization for different types of machine learning workloads.
+
+#### Whole GPU allocation
+
+**HyperPod CLI**
+
+```
+hyp create hyp-space \
+    --name gpu-space \
+    --display-name "GPU Development Space" \
+    --image public.ecr.aws/sagemaker/sagemaker-distribution:latest-gpu \
+    --memory 16Gi \
+    --gpu 1 \
+    --gpu-limit 1
+```
+
+**kubectl**
+
+```
+apiVersion: workspace.jupyter.org/v1alpha1
+kind: Workspace
+metadata:
+  name: gpu-space
+spec:
+  displayName: "GPU Development Space"
+  image: "public.ecr.aws/sagemaker/sagemaker-distribution:latest-gpu"
+  desiredStatus: Running
+  resources:
+    requests:
+      memory: "16Gi"
+      nvidia.com/gpu: "1"
+    limits:
+      memory: "16Gi"
+      nvidia.com/gpu: "1"
+```
+
+#### GPU partitioning (MIG)
+
+GPU partitioning using NVIDIA Multi-Instance GPU (MIG) technology allows
+you to partition a single GPU into smaller, isolated instances. Your
+HyperPod cluster must have GPU nodes that support MIG and have MIG profiles
+configured. For more information on setting up MIG on your HyperPod cluster,
+see [GPU partitioning using NVIDIA MIG](sagemaker-hyperpod-eks-gpu-partitioning-setup.md "sagemaker-hyperpod-eks-gpu-partitioning-setup.md").
+
+**HyperPod CLI**
+
+```
+hyp create hyp-space \
+    --name mig-space \
+    --display-name "MIG GPU Space" \
+    --image public.ecr.aws/sagemaker/sagemaker-distribution:latest-gpu \
+    --memory 8Gi \
+    --accelerator-partition-type mig-3g.20gb \
+    --accelerator-partition-count 1
+```
+
+**kubectl**
+
+```
+apiVersion: workspace.jupyter.org/v1alpha1
+kind: Workspace
+metadata:
+  name: mig-space
+spec:
+  displayName: "MIG GPU Space"
+  image: "public.ecr.aws/sagemaker/sagemaker-distribution:latest-gpu"
+  desiredStatus: Running
+  resources:
+    requests:
+      memory: "8Gi"
+      nvidia.com/mig-3g.20gb: "1"
+    limits:
+      memory: "8Gi"
+      nvidia.com/mig-3g.20gb: "1"
+```
+
 ## Lifecycle
 
 Lifecycle configuration provides startup scripts that run when a workspace is

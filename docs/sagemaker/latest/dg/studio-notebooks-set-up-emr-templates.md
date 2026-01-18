@@ -201,7 +201,7 @@ the `AllowedValues` specified in the template.
 The following illustration shows the dynamic form assembled from a CloudFormation
 Amazon EMR template to create an Amazon EMR cluster in Studio or Studio Classic.
 
-![Illustration of a dynamic form assembled from a CloudFormation Amazon EMR template to create an Amazon EMR cluster from Studio or Studio Classic.](images/studio/emr/studio-notebooks-emr-cluster-creation.png)
+![Illustration of a dynamic form assembled from a CloudFormation Amazon EMR template to create an Amazon EMR cluster from Studio or Studio Classic.](/images/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-cluster-creation.png)
 
 Visit [Launch an Amazon EMR
 cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md") to learn

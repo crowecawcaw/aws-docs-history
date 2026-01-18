@@ -68,7 +68,9 @@ Deprecation Date: April 30, 2026
 
 ###### Note
 
-To allow for enough time for customers to try out the 2025 version, SageMaker AI will support version `2024.04.2+764.pro1` until April 2026.
+While you can continue creating new domains with the older version `2024.04.2+764.pro1` until 04/30/2026
+by explicitly pinning the version when you create the domain using CLI, we strongly recommend customers to begin using the
+`2025.05` version in all domains. POSIT has ceased providing vulnerability fixes for `2024.04.2+764.pro1`.
 
 Versions `2023.03.2-547.pro5` and `2022.02.2-485.pro2` are deprecated and are no longer supported.
 We recommend updating to the latest version.
