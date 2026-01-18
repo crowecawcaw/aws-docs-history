@@ -989,18 +989,42 @@ To use the Inspector:
 
 ### Remote testing with MCP inspector
 
-You can also test your deployed server using the MCP Inspector:
+You can also test your deployed server using the MCP Inspector. First, URL-encode your agent ARN:
 
-1. Open the MCP Inspector: `npx
-@modelcontextprotocol/inspector`
+```
+export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my_mcp_server-xyz123"
+echo -n $AGENT_ARN | jq -sRr '@uri'
+```
+
+This outputs the URL-encoded ARN:
+
+```
+arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fmy_mcp_server-xyz123
+```
+
+Then connect with the MCP Inspector:
+
+1. Start the MCP Inspector:
+
+```
+npx @modelcontextprotocol/inspector
+```
+
 2. In the web interface:
    - Select "Streamable HTTP" as the transport
-   - Enter your agent's endpoint URL, which will look like:
-     `https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A`accountId`%3Aruntime%2F`runtimeName`/invocations?qualifier=DEFAULT`
-   - Make sure to URL-encode your agent runtime ARN when constructing
-     the endpoint URL. The colon (:) characters become %3A and forward
-     slashes (/) become %2F in the encoded URL.
-   - Add your Bearer token under authentication
+   - Enter your agent's endpoint URL using the encoded ARN. Make sure to use the same region as your agent's ARN:
+
+   ```
+   https://bedrock-agentcore.`REGION`.amazonaws.com/runtimes/`ENCODED_ARN`/invocations?qualifier=DEFAULT
+   ```
+
+   Example for us-west-2:
+
+   ```
+   https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fmy_mcp_server-xyz123/invocations?qualifier=DEFAULT
+   ```
+
+   - Add your Bearer token in the Authentication section with header name `Authorization` and value `Bearer `YOUR_TOKEN``
    - Click "Connect"
 
 3. Test your tools just like you did locally

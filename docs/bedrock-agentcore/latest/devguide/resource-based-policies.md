@@ -56,6 +56,54 @@ Key principles:
 - **Either Policy Can Allow**: If either identity-based or resource-based policy allows the action (and no policy denies it), access is granted
 - **Default Deny**: If no policy explicitly permits an action, access is denied
 
+### Hierarchical authorization for agent runtime and endpoint
+
+Agent endpoints are addressable access points to specific versions of an agent runtime. Each endpoint points to a particular version of the runtime configuration, with a DEFAULT endpoint automatically routing to the latest version. When authorizing runtime API operations such as `InvokeAgentRuntime`, AWS evaluates both identity-based and resource-based policies for both the agent runtime and the agent endpoint being invoked.
+
+For a request to be authorized, the following conditions must be met:
+
+- The identity-based policies attached to the calling principal must allow the action on both the agent runtime and agent endpoint resources
+- The resource-based policy on the agent runtime must allow the action (if a policy exists)
+- The resource-based policy on the agent endpoint must allow the action (if a policy exists)
+
+###### Cross-account access requirements
+
+To provide cross-account access to a principal, you must create resource-based policies granting access for **both** the agent runtime and the agent endpoint. If either resource denies access or lacks an explicit allow statement, the request will be denied.
+
+Example: Granting cross-account access requires policies on both resources:
+
+```
+// Policy for Agent Runtime
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/CrossAccountRole"
+      },
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
+      "Resource": "*"
+    }
+  ]
+}
+
+// Policy for Agent Endpoint (for the endpoint that points to this runtime)
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:role/CrossAccountRole"
+      },
+      "Action": "bedrock-agentcore:InvokeAgentRuntime",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 ### Authentication type considerations
 
 The way you write resource-based policies depends on the authentication type configured for your Agent Runtime or Gateway:

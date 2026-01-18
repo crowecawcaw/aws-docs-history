@@ -446,7 +446,7 @@ Check authentication configuration for deployed agents:
 Address common WebSocket connection problems:
 
 - Verify message format compatibility between your agent and client expectations
-- Configure message frame fragmentation or implement chunking to stay within message frame size (16 KB) and message frame rate (250 frames per second) limits to prevent connection closure
+- Configure message frame fragmentation or implement chunking to stay within message frame size (32 KB) and message frame rate (250 frames per second) limits to prevent connection closure
 
 ## My code changes aren't reflected in existing sessions
 

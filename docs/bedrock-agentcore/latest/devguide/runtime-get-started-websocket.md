@@ -662,7 +662,7 @@ Connections are automatically closed if limits are exceeded, such as message fra
 
 Message frame size exceeded
 
-Configure message frame fragmentation or implement chunking to stay below the 16KB frame size limit. Split large messages into smaller chunks before sending
+Configure message frame fragmentation or implement chunking to stay below the 32KB frame size limit. Split large messages into smaller chunks before sending
 
 Health check failures
 

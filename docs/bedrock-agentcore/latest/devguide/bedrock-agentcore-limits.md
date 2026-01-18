@@ -35,7 +35,7 @@ AgentCore Runtime:
 | Total agents per account                                            | 1,000                                                                                 | Yes           | Can be increased via support ticket                                |
 | Versions per agent                                                  | 1,000                                                                                 | Yes           | Inactive versions deleted after 45 days                            |
 | Endpoints (aliases) per agent                                       | 10                                                                                    | Yes           | Can be increased via support ticket                                |
-| Maximum size for a Docker image in an AgentCore Runtime             | 1 GB                                                                                  | No            |                                                                    |
+| Maximum size for a Docker image in an AgentCore Runtime             | 2 GB                                                                                  | No            |                                                                    |
 | Maximum size for a direct code deployment package<br>(compressed)   | 250 MB                                                                                | No            | ZIP file size limit for direct code deployment                     |
 | Maximum size for a direct code deployment package<br>(uncompressed) | 750 MB                                                                                | No            | Unzipped package size limit for direct code deployment             |
 | Maximum hardware allocation per session                             | 2vCPU/8GB                                                                             | No            | The maximum memory/CPU usage and allocation per Runtime<br>session |
@@ -52,7 +52,7 @@ The following table describes the invocation limits for AgentCore Runtime:
 | Streaming maximum duration        | 60 mins         | No    | Maximum time for streaming connections (Response streaming, WebSocket connections) |
 | Asynchronous job maximum duration | 8 hours         | No    | Maximum execution time for asynchronous jobs                                       |
 | Invocations per second            | 25 per endpoint | Yes   | Rate limit for API calls                                                           |
-| WebSocket frame size              | 16 KB           | No    | Maximum size for individual WebSocket frames                                       |
+| WebSocket frame size              | 32 KB           | No    | Maximum size for individual WebSocket frames                                       |
 
 ### Throttling limits
 
@@ -200,11 +200,11 @@ Guide_.
 The Browser tool has the following service quotas and considerations that apply to
 your account.
 
-| Browser service quotas                                    | Quota     | Default Value | Adjustable                                                 | Notes |
-| --------------------------------------------------------- | --------- | ------------- | ---------------------------------------------------------- | ----- |
-| Concurrent active sessions per account for browser and CI | 1000      | Yes           | Can be increased via support ticket                        |
-| Total Browser tool configurations per account             | 100       | Yes           | Can be increased via support ticket                        |
-| Hardware configuration per session                        | 1vCPU/4GB | No            | The maximum memory/CPU usage and configuration per account |
+| Browser service quotas                        | Quota     | Default Value | Adjustable                                                 | Notes |
+| --------------------------------------------- | --------- | ------------- | ---------------------------------------------------------- | ----- |
+| Concurrent active sessions per account        | 1000      | Yes           | Can be increased via support ticket                        |
+| Total Browser tool configurations per account | 1000      | Yes           | Can be increased via support ticket                        |
+| Hardware configuration per session            | 1vCPU/4GB | No            | The maximum memory/CPU usage and configuration per account |
 
 ### Browser Invocation Limits
 
@@ -226,8 +226,8 @@ apply to your account.
 
 | Code Interpreter service quotas                        | Quota     | Default Value | Adjustable                                                 | Notes |
 | ------------------------------------------------------ | --------- | ------------- | ---------------------------------------------------------- | ----- |
-| Concurrent active sessions per account                 | 500       | Yes           | Can be increased via support ticket                        |
-| Total Code Interpreter tool configurations per account | 100       | Yes           | Can be increased via support ticket                        |
+| Concurrent active sessions per account                 | 1000      | Yes           | Can be increased via support ticket                        |
+| Total Code Interpreter tool configurations per account | 1000      | Yes           | Can be increased via support ticket                        |
 | Hardware configuration per session                     | 2vCPU/8GB | No            | The maximum memory/CPU usage and configuration per account |
 
 ### Code Interpreter Invocation Limits
