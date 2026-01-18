@@ -34,6 +34,10 @@ following methods:
   forwards license server ports to the license server. For details on how to configure a
   license proxy instance, see [Step 2: (Optional) License proxy instance setup](#license-proxy "#license-proxy").
 
+For information about configuring license environment variables, see [Step 3: Connect a rendering application to an
+endpoint](cmf-ubl.md "cmf-ubl.md"). For a custom license server setup,
+the license server address remains localhost instead of the Amazon VPC endpoint.
+
 ###### To add required permissions to the queue role
 
 1. From the [Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"),
@@ -691,5 +695,7 @@ Resources:
      your license server or proxy instance
    - Update the **LicensePorts** with a comma-separated list of ports
      to be forwarded to the license server or proxy instance (for example 2700,2701)
+   - Add the license environment variables by replacing
+     `example_LICENSE: 2700@localhost` in the template
 
 4. Deploy the template to setup your farm with bring your own license capability.
