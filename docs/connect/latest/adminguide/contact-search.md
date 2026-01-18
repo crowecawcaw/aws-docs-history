@@ -95,13 +95,14 @@ on the next hierarchy level(s).
   searching for a subset of words within an email subject provides search results.
   For example, if you enter **inquiry**, Amazon Connect return emails with
   the subject **Customer Inquiry**.
-- Filters for [Contact Lens](analyze-conversations.md "analyze-conversations.md").
-  You can [search for Contact
-  categories](search-conversations.md#contact-category-search "search-conversations.md#contact-category-search") by specifying the full category name. Choose to search
-  using **Match any** or **Match all** or
-  **Match none**. For example, you can search contacts with
-  both "category A" and "category B," or with either one of the two
-  categories.
+- Filters for [conversation analytics](analyze-conversations.md "analyze-conversations.md").
+  You can search for contacts that have conversational analytics enabled.
+  e.g. **Conversational analytics: Voice - Agent interaction** returns contacts where the agent interaction has been analyzed by conversational analytics.
+  You can [search for Contact categories](search-conversations.md#contact-category-search "search-conversations.md#contact-category-search") by specifying the full category name. Choose to search using
+  **Match any** or **Match all** or **Match none**.
+  For example, you can search contacts with both "category A" and "category B", or with either one of the two categories.
+
+You can refer to the complete list of conversational analytics filters [here](search-conversations.md "search-conversations.md"). You can apply these filters only if your organization has enabled Contact Lens.
 
 In the **Add filter** drop-down box, the Contact Lens
 filters have **CL** next to them. You can apply these filters
@@ -121,6 +122,7 @@ list, remove the following permissions from their security profile:
      the **Contact details** page, this displays graphs that
      summarize conversational analytics.
 
+- Filters for recordings. Using the **recording** filter, you can filter for contacts with a screen recording (video) or audio recording (voice).
 - Filters for [Voice ID](voice-id.md "voice-id.md"). You can search for the
   Voice ID authentication and fraud detection status of contacts, if your
   organization has enabled Voice ID. To access this functionality, on your

@@ -4,7 +4,7 @@ Amazon Connect includes features that use AI, such as contact summarization, sem
 
 ## Amazon Bedrock
 
-Amazon Bedrock is a managed service that provides AI models from leading AI companies and Amazon. Amazon Bedrock includes a broad set of capabilities to use AI models with security and privacy. The models available on Amazon Bedrock never store, log, or share customer prompts (input) and responses (output), and never use this data to train any AWS models.
+Amazon Bedrock is a managed service that provides AI models from leading AI companies and Amazon. Amazon Bedrock includes a broad set of capabilities to use AI models with security and privacy. The models available on Amazon Bedrock never store, log, or share customer prompts (input) and responses (output), and never use this data to train these models.
 
 For more information about how Amazon Bedrock protects your data, refer to [Data Protection](../../../bedrock/latest/userguide/data-protection.md "../../../bedrock/latest/userguide/data-protection.md") in the Amazon Bedrock documentation.
 

@@ -37,6 +37,8 @@ For detailed information about the activity of agents in your contact center, us
   attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md")
 - [Apply hierarchy-based access
   control](dashboard-access-control.md "dashboard-access-control.md")
+- [Apply tag-based access
+  control](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md")
 - [Identify conferences and
   transfers](identify-conferences-transfers.md "identify-conferences-transfers.md")
 - [View a contact record in the Amazon Connect admin website](sample-ctr.md "sample-ctr.md")

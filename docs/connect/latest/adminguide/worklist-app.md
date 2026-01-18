@@ -60,3 +60,9 @@ The available filter options depend on the agent's permissions:
   contact** can view these filter options:
 
 ![Filter options for agents with 'Assign to me' for my contact permission.](images/worklist-filter-my-contact.png)
+
+## Time Range filter for contact history
+
+By default, the Worklist app displays contacts created in the last 2 weeks. To view contacts created beyond this timeframe, use the Time Range filter to select a specific date range. The Time Range filter allows you to select any date range within the past 90 days.
+
+![The Worklist app showing the Time Range filter for selecting contact history date ranges.](images/worklist-time-range-filter.png)

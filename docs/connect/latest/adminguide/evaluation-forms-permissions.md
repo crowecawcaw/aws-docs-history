@@ -40,6 +40,10 @@ form audit trail.
 - **Evaluation forms - manage calibration sessions**: Allows
   admins to create and manage calibration sessions to drive consistency and
   accuracy in how managers evaluate agent performance.
+- **Sample contacts:**: Allows
+  managers to randomly sample agents’ contacts for evaluation. For example,
+  a manager can select all agents in his hierarchy, and get 5 random contacts
+  per agent from the last week for evaluation.
   The **Admin** security profile has these permissions by default.
 
 For information about how to add more permissions to an existing security profile,

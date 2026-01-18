@@ -2,15 +2,17 @@
 
 operation
 
-This topic defines the flow block to checks whether a contact occurs within or outside
-of the hours of operation defined for the customer queue.
+This topic defines the flow block to checks whether a contact occurs within
+or outside of the defined hours of operation.
 
 ## Description
 
-- Checks whether the contact is occurring within or outside the hours of
-  operation defined by the block. If specific hours are not specified, the
-  hours for the current queue are checked.
-- Branches based on specified hours of operation.
+Set up the **Check hours of operation** flow block to determine what path a contact should take at any given time.
+
+- It checks for hours of operation defined directly on the block.
+- If none are specified, it checks the hours for the current defined on the queue.
+- It checks if the designed hours of operations are open (in hours) or closed (out of hours), and provides configuration for each branch.
+- If optionally provides a way to create additional branches for overrides related to the hours of operation, for example to play a special greeting on a holiday before taking the standard out of hours path.
 
 ## Supported channels
 
@@ -36,42 +38,35 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
 
 ## Properties
 
-The following image shows the **Properties** page of the
-**Check hours of operation** block. The block is configured for
-specific hours of operation.
+Select the **Check hours of operation** flow block to view its properties and define what path a contact should take based on the current date and time.
 
-![The properties page of the Check hours of operation block.](images/check-hours-of-operation-properties.png)
+1. Within Amazon Connect, navigate to the **Routing** menu.
+2. Select the **Flows** page.
+3. Open the desired resource.
+4. Find its **Check hours of operation** block. It has default branches:
+   1. **In hours**
+   2. **Out of hours**
+   3. **Error**
 
-You can set up multiple hours of operation so you have one for various queues. For
-instructions, see [Set the hours of operation and time zone for a
+5. Click on the flow block to optionally specify an hours of operation for this flow.
+   1. If not specified, Amazon Connect will use the hours associated with a contact's queue.
+
+6. If you wish to set up special branching for certain dates, find the **Optional branches** section.
+
+![Check hours of operation properties.](images/check-hours-of-operation-properties.png) 7. Select **Check override**. 8. Specify the name of the override that should have its own path. 9. Select **Confirm** then save your change. 10. Repeat as needed.
+
+![Check hours of operation branches.](images/check-hours-of-operation-branches.png) 11. Build out the desired flow path for each new node.
+
+For more information on standard day-of-the-week configurations, see [Set the hours of operation and time zone for a
 queue using Amazon Connect](set-hours-operation.md "set-hours-operation.md").
 
-You can set up overrides to hours of operation to indicate dates where the
-standard hours do not apply. For instructions, see [Set overrides for extended, reduced, and holiday
-hours](set-hours-operation.md#set-holiday-hours "set-hours-operation.md#set-holiday-hours").
+To learn more about overrides, see [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md").
 
-## Configuration tips
+## Agent queues
 
-- [Agent queues](concepts-queues-standard-and-agent.md "concepts-queues-standard-and-agent.md")
-  that are automatically created for each agent in your instance do not
-  include an hours of operation.
-- If you use this block to check the hours of operation for an agent queue,
-  the check fails and the contact is routed down the
-  **Error** branch.
+Agent queues that are automatically created for each agent in your instance do not include an hours of operation.
 
-## Configured block
-
-The following image shows an example of what this block looks like when it is
-configured. It is configured for **Basic Hours** of
-operation. It has three branches: **In hours**, **Out of
-Hours**, and **Error**.
-
-![A configured Check hours of operation block.](images/check-hours-of-operation-configured.png)
-
-## Related topics
-
-- [Set the hours of operation and time zone for a
-  queue using Amazon Connect](set-hours-operation.md "set-hours-operation.md")
+If you use this block to check the hours of operation for an agent queue, the check fails and the contact is routed down the **Error** branch.
 
 ## Sample flows
 

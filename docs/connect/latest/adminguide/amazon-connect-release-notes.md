@@ -19,6 +19,18 @@ In addition, you can now use flows to link a related contact to a case. For exam
 create a case via a Step-by-Step Guide, you can link that case to the main contact (e.g., voice,
 chat, email, or tasks) directly using flows.
 
+### Recurring overrides and visual calendar for hours of operation
+
+Amazon Connect now makes it easier to manage contact center operating hours for recurring events
+like holidays, maintenance windows, and promotional periods, with a visual calendar that provides at-a-glance
+visibility by day, month, or year. You can set up recurring overrides that automatically take effect weekly,
+monthly, or every other Friday, and use them to provide customers with personalized experiences, all without
+having to manually revisit configurations. For example, every January 1st you can automatically greet
+customers with "Happy New Year!" and route them to a special holiday message before checking if agents are
+available, then on January 2nd your contact center automatically returns to normal operations.
+
+For more information, see [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md").
+
 ## December 2025 Updates
 
 ### Workspace and data table resources provide business users with greater control over daily operations
@@ -1374,8 +1386,7 @@ automatically checks for overrides and provides your customers with an appropria
 such as offering a callback when the call center is closed. After an override period passes,
 your call center automatically reverts to standard hours of operation.
 
-For more information, see [Set overrides for extended, reduced, and holiday
-hours](set-hours-operation.md#set-holiday-hours "set-hours-operation.md#set-holiday-hours"). For a list of new APIs associated with this release, see
+For more information, see [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md"). For a list of new APIs associated with this release, see
 [Hours of operation actions](../APIReference/hours-of-operation-api.md "../APIReference/hours-of-operation-api.md") in the _Amazon Connect API Reference_.
 
 #### Amazon Connect supports push notifications for mobile chat on
