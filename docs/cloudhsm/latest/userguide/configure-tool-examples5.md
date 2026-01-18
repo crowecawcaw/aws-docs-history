@@ -37,6 +37,17 @@ OpenSSL Dynamic Engine
 `$` `sudo /opt/cloudhsm/bin/configure-dyn -a `<HSM IP addresses>``
 ```
 
+OpenSSL Dynamic Engine Provider
+
+###### To bootstrap a Linux EC2 instance for Client SDK 5
+
+- Use the configure tool to specify the IP address of an HSM in your
+  cluster.
+
+```
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider -a `<HSM IP addresses>``
+```
+
 Key Storage Provider (KSP)
 
 ###### To bootstrap a Windows EC2 instance for Client SDK 5
@@ -456,6 +467,16 @@ OpenSSL Dynamic Engine
 `$` `sudo /opt/cloudhsm/bin/configure-dyn --disable-key-availability-check`
 ```
 
+OpenSSL Dynamic Engine Provider
+
+###### To disable client key durability for Client SDK 5 on Linux
+
+- Use the configure tool to disable client key durability settings.
+
+```
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --disable-key-availability-check`
+```
+
 Key Storage Provider (KSP)
 
 ###### To disable client key durability for Client SDK 5 on Windows
@@ -590,22 +611,22 @@ stderr
 `$` `sudo /opt/cloudhsm/bin/configure-dyn --log-type term --log-level info`
 ````
 
-Key Storage Provider (KSP)
+OpenSSL Dynamic Engine Provider
 
 ###### Default logging location
 
 - If you do not specify a location for the file, the system writes logs to the following default location:
 
-Windows
+Linux
 
 ```
-C:\Program Files\Amazon\CloudHSM\cloudhsm-ksp.log
+stderr
 ```
 
 ###### To configure the logging level and leave other logging options set to default
 
 - ```
-  `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-level info`
+  `$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-level info`
   ```
 
 ````
@@ -613,19 +634,96 @@ C:\Program Files\Amazon\CloudHSM\cloudhsm-ksp.log
 ###### To configure file logging options
 
 * ```
-`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
 ````
 
 ###### To configure terminal logging options
 
 - ```
-  `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type term --log-level info`
+  `$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --log-type term --log-level info`
   ```
 
 ```
 
 
+Key Storage Provider (KSP)
+###### Default logging location
+
+* If you do not specify a location for the file, the system writes logs to the following default location:
+
+
+Windows
+
+
+
+```
+
+C:\Program Files\Amazon\CloudHSM\cloudhsm-ksp.log
+
+````
+
+###### To configure the logging level and leave other logging options set to default
+
+* ```
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-level info`
+````
+
+###### To configure file logging options
+
+- ```
+  `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+  ```
+
+````
+
+###### To configure terminal logging options
+
+* ```
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --log-type term --log-level info`
+````
+
 JCE provider
+
+###### Default logging location
+
+- If you do not specify a location for the file, the system writes logs to the following default location:
+
+Linux
+
+```
+/opt/cloudhsm/run/cloudhsm-jce.log
+```
+
+Windows
+
+```
+C:\Program Files\Amazon\CloudHSM\cloudhsm-jce.log
+```
+
+###### To configure the logging level and leave other logging options set to default
+
+- ```
+  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-level info`
+  ```
+
+````
+
+###### To configure file logging options
+
+* ```
+`$` `sudo /opt/cloudhsm/bin/configure-jce --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+````
+
+###### To configure terminal logging options
+
+- ```
+  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-type term --log-level info`
+  ```
+
+```
+
+
+CloudHSM CLI
 ###### Default logging location
 
 * If you do not specify a location for the file, the system writes logs to the following default location:
@@ -637,193 +735,128 @@ Linux
 
 ```
 
-/opt/cloudhsm/run/cloudhsm-jce.log
-
-```
-
-Windows
-
-
-
-```
-
-C:\Program Files\Amazon\CloudHSM\cloudhsm-jce.log
-
-````
-
-###### To configure the logging level and leave other logging options set to default
-
-* ```
-`$` `sudo /opt/cloudhsm/bin/configure-jce --log-level info`
-````
-
-###### To configure file logging options
-
-- ```
-  `$` `sudo /opt/cloudhsm/bin/configure-jce --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
-  ```
-
-````
-
-###### To configure terminal logging options
-
-* ```
-`$` `sudo /opt/cloudhsm/bin/configure-jce --log-type term --log-level info`
-````
-
-CloudHSM CLI
-
-###### Default logging location
-
-- If you do not specify a location for the file, the system writes logs to the following default location:
-
-Linux
-
-```
 /opt/cloudhsm/run/cloudhsm-cli.log
+
 ```
 
 Windows
 
+
+
 ```
+
 C:\Program Files\Amazon\CloudHSM\cloudhsm-cli.log
-```
+
+````
 
 ###### To configure the logging level and leave other logging options set to default
 
-- ```
-  `$` `sudo /opt/cloudhsm/bin/configure-cli --log-level info`
-  ```
-
+* ```
+`$` `sudo /opt/cloudhsm/bin/configure-cli --log-level info`
 ````
 
 ###### To configure file logging options
 
-* ```
-`$` `sudo /opt/cloudhsm/bin/configure-cli --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+- ```
+  `$` `sudo /opt/cloudhsm/bin/configure-cli --log-type file --log-file `<file name with path>` --log-rotation daily --log-level info`
+  ```
+
 ````
 
 ###### To configure terminal logging options
 
-- ```
-  `$` `sudo /opt/cloudhsm/bin/configure-cli --log-type term --log-level info`
-  ```
-
-```
-
+* ```
+`$` `sudo /opt/cloudhsm/bin/configure-cli --log-type term --log-level info`
+````
 
 For more information about the `log-file`, `log-level`,
- `log-rotation`,and `log-type` parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
+`log-rotation`,and `log-type` parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
 
 This example uses the `--hsm-ca-cert` parameter to update the location of the
- issuing certificate for Client SDK 5.
-
+issuing certificate for Client SDK 5.
 
 PKCS #11 library
+
 ###### To place the issuing certificate on Linux for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 ``$` sudo /opt/cloudhsm/bin/configure-pkcs11 --hsm-ca-cert `<customerCA certificate file>``
-
 ```
 
 ###### To place the issuing certificate on Windows for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-pkcs11.exe" --hsm-ca-cert `<customerCA certificate file>``
-
 ```
-
 
 OpenSSL Dynamic Engine
+
 ###### To place the issuing certificate on Linux for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 ``$` sudo /opt/cloudhsm/bin/configure-dyn --hsm-ca-cert `<customerCA certificate file>``
-
 ```
 
+OpenSSL Dynamic Engine Provider
+
+###### To place the issuing certificate on Linux for Client SDK 5
+
+- Use the configure tool to specify a location for the issuing certificate.
+
+```
+``$` sudo /opt/cloudhsm/bin/configure-openssl-provider --hsm-ca-cert `<customerCA certificate file>``
+```
 
 Key Storage Provider (KSP)
+
 ###### To place the issuing certificate on Windows for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-ksp.exe" --hsm-ca-cert `<customerCA certificate file>``
-
 ```
-
 
 JCE provider
+
 ###### To place the issuing certificate on Linux for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 ``$` sudo /opt/cloudhsm/bin/configure-jce --hsm-ca-cert `<customerCA certificate file>``
-
 ```
 
 ###### To place the issuing certificate on Windows for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe" --hsm-ca-cert `<customerCA certificate file>``
-
 ```
-
 
 CloudHSM CLI
+
 ###### To place the issuing certificate on Linux for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 ``$` sudo /opt/cloudhsm/bin/configure-cli --hsm-ca-cert `<customerCA certificate file>``
-
 ```
 
 ###### To place the issuing certificate on Windows for Client SDK 5
 
-* Use the configure tool to specify a location for the issuing certificate.
-
-
+- Use the configure tool to specify a location for the issuing certificate.
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-cli.exe" --hsm-ca-cert `<customerCA certificate file>``
-
 ```
-
 
 For more information about the `--hsm-ca-cert` parameter, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
-```

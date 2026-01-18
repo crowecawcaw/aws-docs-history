@@ -54,6 +54,10 @@ Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
 
 ###### To set up a Linux web server instance and create a CU on the HSM
 
+###### Note
+
+Many of the commands in this procedure require elevated privileges. You may need to run commands with `sudo` or as the root user depending on your system configuration.
+
 1. Install and configure the AWS CloudHSM OpenSSL Provider for Client SDK 5. For more information about
    installing the OpenSSL Provider, see [AWS CloudHSM OpenSSL Provider for Client SDK 5](openssl-provider-install.md "openssl-provider-install.md").
 2. On an EC2 Linux instance that has access to your cluster, install either NGINX or HAProxy web
@@ -66,16 +70,14 @@ Amazon Linux 2023
 
 
     ```
-    `$` `sudo yum update -y`
-    `$` `sudo yum install -y nginx`
+    `$` `yum install nginx`
     ```
     * HAProxy
 
 
 
     ```
-    `$` `sudo yum update -y`
-    `$` `sudo yum install -y haproxy`
+    `$` `yum install haproxy`
     ```
 
 RHEL 9 (9.2+)
@@ -85,16 +87,14 @@ RHEL 9 (9.2+)
 
 
     ```
-    `$` `sudo yum update -y`
-    `$` `sudo yum install -y nginx`
+    `$` `yum install nginx`
     ```
     * HAProxy
 
 
 
     ```
-    `$` `sudo yum update -y`
-    `$` `sudo yum install -y haproxy`
+    `$` `yum install haproxy`
     ```
 
 RHEL 10 (10.0+)
@@ -104,16 +104,14 @@ RHEL 10 (10.0+)
 
 
     ```
-    `$` `sudo yum update -y`
-    `$` `sudo yum install -y nginx`
+    `$` `yum install nginx`
     ```
     * HAProxy
 
 
 
     ```
-    `$` `sudo yum update -y`
-    `$` `sudo yum install -y haproxy`
+    `$` `yum install haproxy`
     ```
 
 Ubuntu 24.04
@@ -123,16 +121,14 @@ Ubuntu 24.04
 
 
     ```
-    `$` `sudo apt update`
-    `$` `sudo apt install -y nginx`
+    `$` `apt install nginx`
     ```
     * HAProxy
 
 
 
     ```
-    `$` `sudo apt update`
-    `$` `sudo apt install -y haproxy`
+    `$` `apt install haproxy`
     ```
 
 3. Use CloudHSM CLI to create a [crypto user](understanding-users.md#crypto-user-chsm-cli "understanding-users.md#crypto-user-chsm-cli"). For more information about
@@ -189,7 +185,7 @@ have a key pair generated inside the HSM, you can export it as a fake PEM file a
    with the user name of your crypto-user
 
 ```
-`Command:` `login --username `<user name>` --role crypto-user`
+`aws-cloudhsm>``login --username `<user name>` --role crypto-user`
 ```
 
 **Generate a Private Key**
@@ -206,7 +202,7 @@ a public exponent of 65537, public key label of `tls_rsa_pub`, and private key l
 --public-exponent 65537 \
 --modulus-size-bits 2048 \
 --public-label tls_rsa_pub \
---private-label tls_rsa_private
+--private-label tls_rsa_private \
 --private-attributes sign=true``{
  "error_code": 0,
  "data": {
@@ -308,7 +304,7 @@ and a private key label of `tls_ec_private`.
 `aws-cloudhsm >` `key generate-asymmetric-pair ec \
  --curve prime256v1 \
  --public-label tls_ec_pub \
- --private-label tls_ec_private
+ --private-label tls_ec_private \
  --private-attributes sign=true``{
  "error_code": 0,
  "data": {
@@ -519,7 +515,7 @@ Use this section to configure NGINX with the OpenSSL Provider.
    certificate and the fake PEM private key.
 
 ```
-`$` `sudo mkdir -p /etc/pki/nginx/private`
+`$` `mkdir -p /etc/pki/nginx/private`
 ```
 
 3. Run the following command to copy your web server certificate to the required
@@ -527,7 +523,7 @@ Use this section to configure NGINX with the OpenSSL Provider.
    web server certificate.
 
 ```
-`$` `sudo cp `<web_server.crt>` /etc/pki/nginx/server.crt`
+`$` `cp `<web_server.crt>` /etc/pki/nginx/server.crt`
 ```
 
 4. Run the following command to copy your fake PEM private key to the required location.
@@ -535,22 +531,89 @@ Use this section to configure NGINX with the OpenSSL Provider.
    file that contains your fake PEM private key.
 
 ```
-`$` `sudo cp `<web_server_fake_pem.key>` /etc/pki/nginx/private/server.key`
+`$` `cp `<web_server_fake_pem.key>` /etc/pki/nginx/private/server.key`
 ```
 
 5. Run the following command to change the file ownership so that the user named
    _nginx_ can read them.
 
 ```
-`$` `sudo chown nginx /etc/pki/nginx/server.crt /etc/pki/nginx/private/server.key`
+`$` `chown nginx /etc/pki/nginx/server.crt /etc/pki/nginx/private/server.key`
 ```
 
-6. Configure OpenSSL to use the AWS CloudHSM provider. For more information about configuring the OpenSSL Provider, see [AWS CloudHSM OpenSSL Provider for Client SDK 5](openssl-provider-install.md "openssl-provider-install.md"). Edit `/etc/ssl/openssl.cnf` and add the following sections:
+6. Configure OpenSSL to use the AWS CloudHSM provider. For more information about configuring the OpenSSL Provider, see [AWS CloudHSM OpenSSL Provider for Client SDK 5](openssl-provider-install.md "openssl-provider-install.md").
+   1. Locate your OpenSSL configuration file:
+
+   ```
+   `$` `openssl version -d`
+   ```
+
+   You should see output similar to:
+
+   ```
+   OPENSSLDIR: "/etc/pki/tls"
+   ```
+
+   The configuration file is `openssl.cnf` in this directory. 2. ###### Note
+
+   Do not modify your system's default openssl.cnf file directly. This prevents system-wide OpenSSL operations (SSH, TLS connections, and other services) from unintentionally routing through the CloudHSM provider.
+
+   Using a separate configuration file allows you to scope CloudHSM Provider usage to only specific applications that require HSM-backed cryptographic operations.
+
+   Create a new OpenSSL configuration file with the following contents:
+
+   ```
+   `$` `cat > `<example-cloudhsm-openssl.cnf>` << 'EOF'`
+   ## NOTE: This should point to the system default openssl config file.
+   # Replace /etc/pki/tls with the path to your OpenSSL configuration directory
+   .include `</etc/pki/tls>`/openssl.cnf
+
+   # Override the existing provider_section to include AWS CloudHSM OpenSSL Provider as a 3rd party OpenSSL provider
+   [provider_sect]
+   default = default_sect
+   # Include AWS CloudHSM CloudHSM OpenSSL provider
+   cloudhsm = cloudhsm_sect
+
+   [default_sect]
+   activate = 1
+
+   [cloudhsm_sect]
+   activate = 1
+   `EOF`
+   ```
+
+   3. Ensure that the `CLOUDHSM_PIN` environment variable is set with your crypto user (CU) credentials:
+
+   ```
+   `$` `export CLOUDHSM_PIN=`<username>`:`<password>``
+   ```
+
+   4. Set the `OPENSSL_CONF` environment variable to point to your updated configuration file and verify the provider is loaded:
+
+   ```
+   `$` `OPENSSL_CONF=/path/to/example-cloudhsm-openssl.cnf openssl list -providers`
+   ```
+
+   You should see both the default provider and the CloudHSM provider listed:
+
+   ```
+   OPENSSL_CONF=/path/to/example-cloudhsm-openssl.cnf openssl list -providers
+   Providers:
+     default
+       name: OpenSSL Default Provider
+       version: 3.2.2
+       status: active
+     cloudhsm
+       name: AWS CloudHSM OpenSSL Provider
+       version: 5.17.0
+       status: active
+   ```
+
 7. Run the following command to back up the `/etc/nginx/nginx.conf`
    file.
 
 ```
-`$` `sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup`
+`$` `cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup`
 ```
 
 8. Update the NGINX configuration.
@@ -722,9 +785,9 @@ server {
 
     ssl_certificate "/etc/ssl/certs/server.crt";
     ssl_certificate_key "/etc/ssl/private/server.key";
-    # It is *strongly* recommended to generate unique DH parameters for DHE ciphers for DHE ciphers
+    # It is *strongly* recommended to generate unique DH parameters for DHE ciphers
     # Generate them with: openssl dhparam -out /etc/ssl/certs/dhparams.pem 2048
-    ssl_dhparam "/etc/ssl/certs/dhparams.pem";
+    # ssl_dhparam "/etc/ssl/certs/dhparams.pem";
     ssl_session_cache shared:SSL:1m;
     ssl_session_timeout  10m;
     ssl_protocols TLSv1.2 TLSv1.3;
@@ -753,12 +816,12 @@ Save the file. 9. Back up the `systemd` configuration file, and then set the
 
 Amazon Linux 2023
 
-    1. Back up the `nginx.service` file.
+    1. Back up the `nginx.service` file:
 
 
 
     ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
+    `$` `cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
     ```
     2. Open `/lib/systemd/system/nginx.service` in a text editor. Under the [Service] section, add:
 
@@ -770,15 +833,14 @@ Amazon Linux 2023
 
 RHEL 9 (9.2+)
 
-    1. Back up the `nginx.service` file.
+    1. Back up the `nginx.service` file:
 
 
 
     ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
+    `$` `cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
     ```
-    2. Open the `/lib/systemd/system/nginx.service` file in a
-     text editor, and then under the [Service] section, add the following path:
+    2. Open `/lib/systemd/system/nginx.service` in a text editor. Under the [Service] section, add:
 
 
 
@@ -788,15 +850,14 @@ RHEL 9 (9.2+)
 
 RHEL 10 (10.0+)
 
-    1. Back up the `nginx.service` file.
+    1. Back up the `nginx.service` file:
 
 
 
     ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
+    `$` `cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
     ```
-    2. Open the `/lib/systemd/system/nginx.service` file in a
-     text editor, and then under the [Service] section, add the following path:
+    2. Open `/lib/systemd/system/nginx.service` in a text editor. Under the [Service] section, add:
 
 
 
@@ -806,15 +867,14 @@ RHEL 10 (10.0+)
 
 Ubuntu 24.04
 
-    1. Back up the `nginx.service` file.
+    1. Back up the `nginx.service` file:
 
 
 
     ```
-    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
+    `$` `cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
     ```
-    2. Open the `/lib/systemd/system/nginx.service` file in a
-     text editor, and then under the [Service] section, add the following path:
+    2. Open `/lib/systemd/system/nginx.service` in a text editor. Under the [Service] section, add:
 
 
 
@@ -827,7 +887,7 @@ Ubuntu 24.04
     - If the file exists, back up the file by running the following command:
 
     ```
-    `$` `sudo cp /etc/sysconfig/nginx /etc/sysconfig/nginx.backup`
+    `$` `cp /etc/sysconfig/nginx /etc/sysconfig/nginx.backup`
     ```
 
     - If the file doesn't exist, open a text editor, and then create a file named
@@ -840,18 +900,18 @@ As the Linux root user, open `/etc/sysconfig/nginx` file in a
 text editor. For example,
 
 ```
-sudo vi /etc/sysconfig/nginx
+vi /etc/sysconfig/nginx
 ```
 
 Add the Cryptography User (CU) credentials and the path to your OpenSSL configuration file:
 
 ```
 `CLOUDHSM_PIN=`<CU user name>`:`<password>`
-OPENSSL_CONF=`<path to my-openssl.cnf>``
+OPENSSL_CONF=`<path to example-cloudhsm-openssl.cnf>``
 ```
 
 Replace `<CU user name>` and
-`<password>` with the CU credentials. Replace `<path to my-openssl.cnf>` with the full path to the configuration file you created in [Configure OpenSSL to use the provider](openssl-provider-install.md#openssl-provider-configure-openssl "openssl-provider-install.md#openssl-provider-configure-openssl").
+`<password>` with the CU credentials. Replace `<path to example-cloudhsm-openssl.cnf>` with the full path to the configuration file you created in [To configure NGINX for OpenSSL Provider](#configure-nginx-provider "#configure-nginx-provider").
 
 Save the file.
 
@@ -861,11 +921,11 @@ the Cryptography User (CU) credentials and the path to your OpenSSL configuratio
 
 ```
 `CLOUDHSM_PIN=`<CU user name>`:`<password>`
-OPENSSL_CONF=`<path to my-openssl.cnf>``
+OPENSSL_CONF=`<path to example-cloudhsm-openssl.cnf>``
 ```
 
 Replace `<CU user name>` and
-`<password>` with the CU credentials. Replace `<path to my-openssl.cnf>` with the full path to the configuration file you created in [Configure OpenSSL to use the provider](openssl-provider-install.md#openssl-provider-configure-openssl "openssl-provider-install.md#openssl-provider-configure-openssl").
+`<password>` with the CU credentials. Replace `<path to example-cloudhsm-openssl.cnf>` with the full path to the configuration file you created in [To configure NGINX for OpenSSL Provider](#configure-nginx-provider "#configure-nginx-provider").
 
 Save the file.
 
@@ -875,11 +935,11 @@ the Cryptography User (CU) credentials and the path to your OpenSSL configuratio
 
 ```
 `CLOUDHSM_PIN=`<CU user name>`:`<password>`
-OPENSSL_CONF=`<path to my-openssl.cnf>``
+OPENSSL_CONF=`<path to example-cloudhsm-openssl.cnf>``
 ```
 
 Replace `<CU user name>` and
-`<password>` with the CU credentials. Replace `<path to my-openssl.cnf>` with the full path to the configuration file you created in [Configure OpenSSL to use the provider](openssl-provider-install.md#openssl-provider-configure-openssl "openssl-provider-install.md#openssl-provider-configure-openssl").
+`<password>` with the CU credentials. Replace `<path to example-cloudhsm-openssl.cnf>` with the full path to the configuration file you created in [To configure NGINX for OpenSSL Provider](#configure-nginx-provider "#configure-nginx-provider").
 
 Save the file.
 
@@ -889,11 +949,11 @@ the Cryptography User (CU) credentials and the path to your OpenSSL configuratio
 
 ```
 `CLOUDHSM_PIN=`<CU user name>`:`<password>`
-OPENSSL_CONF=`<path to my-openssl.cnf>``
+OPENSSL_CONF=`<path to example-cloudhsm-openssl.cnf>``
 ```
 
 Replace `<CU user name>` and
-`<password>` with the CU credentials. Replace `<path to my-openssl.cnf>` with the full path to the configuration file you created in [Configure OpenSSL to use the provider](openssl-provider-install.md#openssl-provider-configure-openssl "openssl-provider-install.md#openssl-provider-configure-openssl").
+`<password>` with the CU credentials. Replace `<path to example-cloudhsm-openssl.cnf>` with the full path to the configuration file you created in [To configure NGINX for OpenSSL Provider](#configure-nginx-provider "#configure-nginx-provider").
 
 Save the file. 12. Start the NGINX web server.
 
@@ -901,76 +961,76 @@ Amazon Linux 2023
 Stop all NGINX processes
 
 ```
-`$` `sudo systemctl stop nginx`
+`$` `systemctl stop nginx`
 ```
 
 Reload the `systemd` configuration to pick up the latest changes
 
 ```
-`$` `sudo systemctl daemon-reload`
+`$` `systemctl daemon-reload`
 ```
 
 Start NGINX
 
 ```
-`$` `sudo systemctl start nginx`
+`$` `systemctl start nginx`
 ```
 
 RHEL 9 (9.2+)
 Stop any running NGINX process
 
 ```
-`$` `sudo systemctl stop nginx`
+`$` `systemctl stop nginx`
 ```
 
 Reload the `systemd` configuration to pick up the latest changes
 
 ```
-`$` `sudo systemctl daemon-reload`
+`$` `systemctl daemon-reload`
 ```
 
 Start the NGINX process
 
 ```
-`$` `sudo systemctl start nginx`
+`$` `systemctl start nginx`
 ```
 
 RHEL 10 (10.0+)
 Stop any running NGINX process
 
 ```
-`$` `sudo systemctl stop nginx`
+`$` `systemctl stop nginx`
 ```
 
 Reload the `systemd` configuration to pick up the latest changes
 
 ```
-`$` `sudo systemctl daemon-reload`
+`$` `systemctl daemon-reload`
 ```
 
 Start the NGINX process
 
 ```
-`$` `sudo systemctl start nginx`
+`$` `systemctl start nginx`
 ```
 
 Ubuntu 24.04
 Stop any running NGINX process
 
 ```
-`$` `sudo systemctl stop nginx`
+`$` `systemctl stop nginx`
 ```
 
 Reload the `systemd` configuration to pick up the latest changes
 
 ```
-`$` `sudo systemctl daemon-reload`
+`$` `systemctl daemon-reload`
 ```
 
 Start the NGINX process
 
 ```
-`$` `sudo systemctl start nginx`
+`$` `systemctl start nginx`
 ```
 
 After you configure NGINX, go to [Verify that HTTPS uses the
@@ -982,16 +1042,16 @@ Use this section to configure HAProxy with the OpenSSL Provider. The following e
 
 ###### To configure HAProxy for OpenSSL Provider
 
-1. Create a combined certificate file for HAProxy using your certificate and CloudHSM fake PEM key:
-
-```
-`$` `cat server.crt server.key > server-combined.pem`
-```
-
-2. Back up the combined certificate file if it already exists:
+1. Back up the existing combined certificate file if it exists:
 
 ```
 `$` `cp server-combined.pem server-combined.pem.backup`
+```
+
+2. Create a combined certificate file for HAProxy using your certificate and CloudHSM fake PEM key:
+
+```
+`$` `cat server.crt server.key > server-combined.pem`
 ```
 
 3. Back up the existing HAProxy configuration:
@@ -1029,22 +1089,7 @@ backend web_servers
 
 Update the certificate path to match your file location. 5. Configure systemd to use an environment file for HAProxy. The location depends on your Linux distribution.
 
-**Amazon Linux and RHEL**
-
-Check if your HAProxy service file already has `EnvironmentFile=-/etc/sysconfig/haproxy`. If not, back up and modify the service file:
-
-```
-`$` `cp /lib/systemd/system/haproxy.service /lib/systemd/system/haproxy.service.backup`
-```
-
-Edit `/lib/systemd/system/haproxy.service` and add the following line under the [Service] section:
-
-```
-EnvironmentFile=-/etc/sysconfig/haproxy
-```
-
-**Ubuntu**
-
+Amazon Linux and RHEL
 Back up and modify the HAProxy service file:
 
 ```
@@ -1054,22 +1099,45 @@ Back up and modify the HAProxy service file:
 Edit `/lib/systemd/system/haproxy.service` and add the following line under the [Service] section:
 
 ```
-EnvironmentFile=-/etc/default/haproxy
+EnvironmentFile=/etc/sysconfig/haproxy
+```
+
+Ubuntu
+Back up and modify the HAProxy service file:
+
+```
+`$` `cp /lib/systemd/system/haproxy.service /lib/systemd/system/haproxy.service.backup`
+```
+
+Edit `/lib/systemd/system/haproxy.service` and add the following line under the [Service] section:
+
+```
+EnvironmentFile=/etc/default/haproxy
 ```
 
 6. Create the environment file in the appropriate location for your system.
 
-**Amazon Linux and RHEL**
+Amazon Linux and RHEL
+Back up the HAProxy environment file if it exists:
 
-Create `/etc/sysconfig/haproxy`:
+```
+`$` `cp /etc/sysconfig/haproxy /etc/sysconfig/haproxy.backup`
+```
+
+Create the HAProxy environment file `/etc/sysconfig/haproxy` with the following contents:
 
 ```
 CLOUDHSM_PIN=`<CU user name>`:`<password>`
 ```
 
-**Ubuntu**
+Ubuntu
+Back up the HAProxy environment file if it exists:
 
-Create `/etc/default/haproxy`:
+```
+`$` `cp /etc/default/haproxy /etc/default/haproxy.backup`
+```
+
+Create the HAProxy environment file `/etc/default/haproxy` with the following contents:
 
 ```
 CLOUDHSM_PIN=`<CU user name>`:`<password>`

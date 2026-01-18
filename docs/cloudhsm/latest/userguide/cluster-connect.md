@@ -57,6 +57,16 @@ OpenSSL Dynamic Engine
 ``$` sudo /opt/cloudhsm/bin/configure-dyn --hsm-ca-cert `<customerCA certificate file>``
 ```
 
+OpenSSL Dynamic Engine Provider
+
+###### To place the issuing certificate on Linux for Client SDK 5
+
+- Use the configure tool to specify a location for the issuing certificate.
+
+```
+``$` sudo /opt/cloudhsm/bin/configure-openssl-provider --hsm-ca-cert `<customerCA certificate file>``
+```
+
 Key Storage Provider (KSP)
 
 ###### To place the issuing certificate on Windows for Client SDK 5
@@ -180,6 +190,17 @@ OpenSSL Dynamic Engine
 
 ```
 `$` `sudo /opt/cloudhsm/bin/configure-dyn -a `<HSM IP addresses>``
+```
+
+OpenSSL Dynamic Engine Provider
+
+###### To bootstrap a Linux EC2 instance for Client SDK 5
+
+- Use the configure tool to specify the IP address of an HSM in your
+  cluster.
+
+```
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider -a `<HSM IP addresses>``
 ```
 
 Key Storage Provider (KSP)

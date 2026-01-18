@@ -14,6 +14,7 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 - [Issue: Operations can fail during backup creation](#ki-hsm2m-medium-8 "#ki-hsm2m-medium-8")
 - [Issue: Client SDK 5.8 and above do not perform automatic retries
   for HSM throttled operations in some scenarios on hsm2m.medium](#ki-hsm2m-medium-9 "#ki-hsm2m-medium-9")
+- [Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium](#ki-hsm2m-medium-10 "#ki-hsm2m-medium-10")
 
 ## Issue: Increased login latency on hsm2m.medium
 
@@ -74,3 +75,8 @@ for HSM throttled operations in some scenarios on hsm2m.medium
   Updates will be announced in our user guide's [Document history](document-history.md "document-history.md").
 - **Resolution status:** This issue has been resolved in the AWS CloudHSM Client SDK 5.16.2.
   You must upgrade to this client version or later to benefit from the fix.
+
+## Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium
+
+- **Impact:** When using AES/CBC mechanism for unwrapping keys using the AWS CloudHSM JCE provider, operations with a 16-byte zero-filled IV fails on hsm2m.medium instances, due to an added validation check that was not in hsm1.medium instances.
+- **Resolution Status:** We are working on a fix that will allow zero-byte IVs to be accepted during AES/CBC unwrap operations.

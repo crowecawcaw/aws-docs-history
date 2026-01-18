@@ -354,7 +354,7 @@ a public exponent of 65537, public key label of `tls_rsa_pub`, and private key l
 --public-exponent 65537 \
 --modulus-size-bits 2048 \
 --public-label tls_rsa_pub \
---private-label tls_rsa_private
+--private-label tls_rsa_private \
 --private-attributes sign=true``{
  "error_code": 0,
  "data": {
@@ -460,7 +460,7 @@ and a private key label of `tls_ec_private`.
 `aws-cloudhsm >` `key generate-asymmetric-pair ec \
  --curve prime256v1 \
  --public-label tls_ec_pub \
- --private-label tls_ec_private
+ --private-label tls_ec_private \
  --private-attributes sign=true``{
  "error_code": 0,
  "data": {

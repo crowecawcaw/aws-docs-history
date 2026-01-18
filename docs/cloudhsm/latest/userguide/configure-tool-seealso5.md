@@ -8,6 +8,7 @@ See the following related topics to learn more about the AWS CloudHSM Client SDK
 - [Get-HSM2Cluster](../../../powershell/latest/reference/items/Get-HSM2Cluster.md "../../../powershell/latest/reference/items/Get-HSM2Cluster.md")
   PowerShell cmdlet
 - [Bootstrap Client SDK 5](cluster-connect.md#sdk8-connect "cluster-connect.md#sdk8-connect")
+- [Bootstrap OpenSSL Provider](configure-openssl-provider.md "configure-openssl-provider.md")
 - [AWS CloudHSM VPC endpoints](cloudhsm-vpc-endpoint.md "cloudhsm-vpc-endpoint.md")
 - [Managing Client SDK 5 Key Durability
   Settings](working-client-sync.md#setting-file-sdk8 "working-client-sync.md#setting-file-sdk8")

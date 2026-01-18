@@ -73,6 +73,16 @@ OpenSSL Dynamic Engine
 `$` `sudo /opt/cloudhsm/bin/configure-dyn --disable-key-availability-check`
 ```
 
+OpenSSL Dynamic Engine Provider
+
+###### To disable client key durability for Client SDK 5 on Linux
+
+- Use the configure tool to disable client key durability settings.
+
+```
+`$` `sudo /opt/cloudhsm/bin/configure-openssl-provider --disable-key-availability-check`
+```
+
 Key Storage Provider (KSP)
 
 ###### To disable client key durability for Client SDK 5 on Windows

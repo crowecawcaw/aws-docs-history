@@ -167,7 +167,7 @@ You have installed the shared
 library for the dynamic engine at
 `/opt/cloudhsm/lib/libcloudhsm_openssl_engine.so`. 2. Bootstrap Client SDK 5. For more information about bootstrapping, see
 [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to"). 3. Set an environment variable with the credentials of a crypto user (CU). For
-information about creating CUs, see [User management with CMU](manage-hsm-users-cmu.md "manage-hsm-users-cmu.md").
+information about creating CUs, see [Create an AWS CloudHSM user with CloudHSM CLI](cloudhsm_cli-user-create.md "cloudhsm_cli-user-create.md").
 
 ```
 `$` `export CLOUDHSM_PIN=`<HSM user name>`:`<password>``

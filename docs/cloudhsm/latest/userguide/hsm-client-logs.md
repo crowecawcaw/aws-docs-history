@@ -73,6 +73,14 @@ Key Storage Provider
 C:\Program Files\Amazon\CloudHSM\cloudhsm-ksp.log
 ```
 
+OpenSSL Dynamic Engine Provider
+
+- Linux
+
+```
+stderr
+```
+
 For information on how to configure logging for Client SDK 5, see the [Client SDK 5 Configure tool](configure-tool.md "configure-tool.md")
 
 ## Client SDK 3 logging
