@@ -1,25 +1,41 @@
-# Amazon Neptune Engine Version 1.0.2.2.R6 (2021-02-19)
+# Amazon Neptune Engine Version 1.0.2.2.R4 (2020-07-23)
 
-As of 2021-02-19, engine version 1.0.2.2.R6 is being generally deployed. Please note
+As of 2020-07-23, engine version 1.0.2.2.R4 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
+
+## Improvements in This Engine Release
+
+- Improved memory usage by releasing unused memory back to the operating system
+  more frequently.
+- Also improved memory usage for SPARQL GROUP BY queries.
+- Increased the maximum time a WebSocket connection can stay open that is
+  authenticated using IAM, from 36 hours to 10 days.
+- Added the `BufferCacheHitRatio` CloudWatch metric, which can be
+  useful in diagnosing query latency and tuning instance types. See [Neptune metrics](cw-metrics.md#cw-metrics-available "cw-metrics.md#cw-metrics-available").
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a Gremlin bug where `InternalFailureException`
-  was set as the response code in certain circumstances when a
-  `ConcurrentModificationException` occurred.
-- Fixed a Gremlin bug where under certain conditions updating
-  edges or vertices could cause a transient `InternalFailureException`.
+- Fixed a bug in closing idle or expired IAM WebSocket connections.
+  Neptune now sends a close frame before closing the connection.
+- Fixed a SPARQL bug in the evaluation of queries containing nested
+  FILTER EXISTS and/or FILTER NOT EXISTS conditions.
+- Fixed a SPARQL query termination bug that caused blocked threads
+  on the server under certain extreme conditions.
+- Fixed a Gremlin bug involving Edge pathType in the `hasLabel`
+  step.
+- Fixed a Gremlin bug to handle `toV` and `fromV`
+  individually for each direction on `bothE`.
+- Fixed a Gremlin bug involving disappearing sideEffects.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.2.R6, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.2.R4, make sure that your project is compatible
 with these query-language versions:
 
-- _Gremlin version:_ `3.4.8`
+- _Gremlin version:_ `3.4.3`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.2.R6
+## Upgrade Paths to Engine Release 1.0.2.2.R4
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.0.2.2`.
@@ -28,7 +44,7 @@ You can manually upgrade any previous Neptune engine release to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.2.R6 is now generally available.
+Amazon Neptune 1.0.2.2.R4 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

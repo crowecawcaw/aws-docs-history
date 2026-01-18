@@ -75,7 +75,7 @@ this (on Windows, replace '\' with '^'):
 aws neptune create-db-instance \
   --db-instance-identifier `(an instance ID for the new writer instance)` \
   --db-cluster-identifier `(ID of the DB cluster)` \
-  --db-instance-class db.serverless
+  --db-instance-class db.serverless \
   --engine neptune
 ```
 
