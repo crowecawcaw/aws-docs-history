@@ -147,6 +147,7 @@ Nitro Enclaves has the following requirements:
   | X2iezn          | All instance types, **except**: `x2iezn.metal`      |
   | X8g             | All instance types, **except**: `x8g.medium`        | `x8g.metal-24xl`    | `x8g.metal-48xl`  |
   | X8aedz          | All instance types, **except**: `x8aedz.metal-12xl` | `x8aedz.metal-24xl` |
+  | X8i             | All instance types, **except**: `x8i.large`         | `x8i.metal-48xl`    | `x8i.metal-96xl`  |
   | z1d             | All instance types, **except**: `z1d.large`         | `z1d.metal`         |
 
   Storage optimized
