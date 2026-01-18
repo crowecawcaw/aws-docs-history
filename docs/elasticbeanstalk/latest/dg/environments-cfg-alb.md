@@ -186,7 +186,7 @@ For more information about health checks and how they influence your environment
 Select or clear the **Stickiness policy enabled** box to enable or disable sticky sessions. Use **Cookie
 duration** to configure a sticky session's duration, up to `604800` seconds.
 
-![Application Load Balancer process settings for session stickiness](images/aeb-config-alb-process-sessions.png)
+![Application Load Balancer process settings for session stickiness](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-sessions.png)
 
 ### Rules
 
@@ -269,7 +269,7 @@ You can now see your additional listener on the list.
 port**, type `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 
-![Application Load Balancer configuration example - adding admin rule](images/aeb-config-alb-rule-https-admin.png)
+![Application Load Balancer configuration example - adding admin rule](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
 
 ## Configuring an Application Load Balancer using the EB CLI
 

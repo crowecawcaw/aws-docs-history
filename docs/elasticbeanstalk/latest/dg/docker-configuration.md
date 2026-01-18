@@ -73,7 +73,7 @@ definition of your `Dockerrun.aws.json` file:
     },
 ```
 
-## Using AWS Systems Manager (SSM) Parameter Store or AWS Secrets Manager
+## Using AWS Secrets Manager
 
 Configure Elastic Beanstalk to authenticate with your private repository before deployment to enable access to your container images.
 
@@ -82,15 +82,15 @@ This approach uses the _prebuild_ phase of the Elastic Beanstalk deployment proc
 - [ebextensions](ebextensions.md "ebextensions.md") to define environment variables that store repository credentials
 - [platform hook scripts](platforms-linux-extend.md "platforms-linux-extend.md") to execute **docker login** before pulling images
 
-The hook scripts securely retrieve credentials from environment variables that are populated from AWS Systems Manager Parameter Store
-or AWS Secrets Manager. This feature requires Elastic Beanstalk Docker and ECS managed Docker platforms released on or after [March 26, 2025](../relnotes/release-2025-03-26-windows.md "../relnotes/release-2025-03-26-windows.md").
-For more details, see [environment variable configuration](AWSHowTo.secrets.md "AWSHowTo.secrets.md").
+The hook scripts retrieve a username and password from environment variables that are populated from a single AWS Secrets Manager secret in JSON format.
+This feature requires Elastic Beanstalk Docker and ECS managed Docker platforms released on or after [January 13, 2026](../relnotes/release-2026-01-13-al2023.md "../relnotes/release-2026-01-13-al2023.md").
+For more details, see [environment secrets](AWSHowTo.secrets.md "AWSHowTo.secrets.md").
 
-###### To configure Elastic Beanstalk to authenticate to your private repository with AWS Systems Manager Parameter Store or AWS Secrets Manager
+###### To configure Elastic Beanstalk to authenticate to your private repository with AWS Secrets Manager
 
 ###### Note
 
-Before proceeding, ensure you have set up your credentials in AWS Systems Manager Parameter Store or AWS Secrets Manager
+Before proceeding, ensure you have set up your credentials in AWS Secrets Manager
 and configured the necessary IAM permissions. See [Prerequisites
 to configure secrets as environment variables](AWSHowTo.secrets.md#AWSHowTo.secrets.configure-env-vars.prerequisites "AWSHowTo.secrets.md#AWSHowTo.secrets.configure-env-vars.prerequisites") for details.
 
@@ -110,54 +110,45 @@ to configure secrets as environment variables](AWSHowTo.secrets.md#AWSHowTo.secr
 ├── Dockerfile
 ```
 
-2. Use [AWS Systems Manager](../../../systems-manager/latest/userguide/getting-started.md "../../../systems-manager/latest/userguide/getting-started.md") Parameter Store
-   or [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") to save the
-   credentials of your private repository. This example shows both AWS Systems Manager Parameter Store and AWS Secrets Manager
-   but you can choose to use just one of these services.
+2. Use [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") to save the
+   credentials of your private repository as a JSON-formatted secret.
 
 ```
-aws ssm put-parameter --name USER --type SecureString --value "username"
-aws secretsmanager create-secret --name PASSWD --secret-string "passwd"
+aws secretsmanager create-secret --name repo-credentials \
+    --secret-string '{"username":"myuser","password":"mypassword"}'
 ```
 
 3. Create the following `env.config` file and place it in the `.ebextensions` directory as shown in the
-   preceding directory structure. This configuration uses the [aws:elasticbeanstalk:application:environmentsecrets](command-options-general.md#command-options-general-elasticbeanstalk-application-environmentsecrets "command-options-general.md#command-options-general-elasticbeanstalk-application-environmentsecrets") namespace to initialize the `USER` and
-   `PASSWD` Elastic Beanstalk environment variables to the values that are stored in the Systems Manager Parameter Store.
-
-###### Note
-
-Ensure the variable names `USER` and `PASSWD` match the parameter names used in the
-[put-parameter](../../../cli/latest/reference/ssm/put-parameter.md "../../../cli/latest/reference/ssm/put-parameter.md") and
-[create-secret](../../../cli/latest/reference/secretsmanager/create-secret.md "../../../cli/latest/reference/secretsmanager/create-secret.md") commands.
+   preceding directory structure. This configuration uses the [aws:elasticbeanstalk:application:environmentsecrets](command-options-general.md#command-options-general-elasticbeanstalk-application-environmentsecrets "command-options-general.md#command-options-general-elasticbeanstalk-application-environmentsecrets") namespace with [JSON key extraction](AWSHowTo.secrets.md#AWSHowTo.secrets.json "AWSHowTo.secrets.md#AWSHowTo.secrets.json")
+   to initialize the `USER` and `PASSWD` Elastic Beanstalk environment variables from individual fields in the secret.
 
 ```
 option_settings:
   aws:elasticbeanstalk:application:environmentsecrets:
-    USER: arn:aws:ssm:us-east-1:111122223333:parameter/user
-    PASSWD: arn:aws:secretsmanager:us-east-1:111122223333:passwd
+    USER: arn:aws:secretsmanager:us-east-1:111122223333:secret:repo-credentials-AbCd12:username
+    PASSWD: arn:aws:secretsmanager:us-east-1:111122223333:secret:repo-credentials-AbCd12:password
 ```
 
-4. Create the following `01login.sh` script file and place it in the following directories (also shown in the preceding directory
+4. Create the following `01login.sh` script file and place it in the following locations (also shown in the preceding directory
    structure):
-   - `.platform/confighooks/prebuild`
-   - `.platform/hooks/prebuild`
+   - `.platform/confighooks/prebuild/01login.sh`
+   - `.platform/hooks/prebuild/01login.sh`
 
 ```
-### example 01login.sh
 #!/bin/bash
 echo $PASSWD | docker login -u $USER --password-stdin
 ```
 
 The `01login.sh` script uses the environment variables configured in **Step 3**
-and securely passes the password to **docker login** via `stdin`.
+and passes the password to **docker login** via `stdin`.
 For more information about Docker authentication, see
 [docker login](https://docs.docker.com/engine/reference/commandline/login/ "https://docs.docker.com/engine/reference/commandline/login/") in the Docker documentation.
 
 ###### Notes
 
-    * Hook files can be either binary files or script files starting with a **#!** line containing their interpreter path, such as
-     **#!/bin/bash**.
-    * For more information, see [Platform hooks](platforms-linux-extend.md "platforms-linux-extend.md") in *Extending Elastic Beanstalk Linux
+    * The ECS managed Docker platform uses the native ECS syntax for referencing secrets. For more information, see
+     [Pass Secrets Manager secrets through Amazon ECS environment variables](../../../AmazonECS/latest/developerguide/secrets-envvar-secrets-manager.md "../../../AmazonECS/latest/developerguide/secrets-envvar-secrets-manager.md") in the *Amazon Elastic Container Service Developer Guide*.
+    * For more information about platform hooks, see [Platform hooks](platforms-linux-extend.md "platforms-linux-extend.md") in *Extending Elastic Beanstalk Linux
      platforms*.
 
 Once authentication is configured, Elastic Beanstalk can pull and deploy images from your private repository.

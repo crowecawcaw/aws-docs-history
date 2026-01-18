@@ -1,57 +1,42 @@
-# Creating environments in Elastic Beanstalk
+# Viewing an Elastic Beanstalk environment's event stream
 
-This chapter describes how to create and manage your Elastic Beanstalk environments. This introductory page provides an overview of updates, maintenance, and
-configurations that you'll apply over time as your application and environment evolve.
+This topic explains how to access events and notifications associated with your application.
 
-###### Environment functions
+## Viewing events with the Elastic Beanstalk console
 
-You can create and manage separate environments for development, testing, and production use, and you can [deploy any version](using-features.md "using-features.md") of your application to any environment. Environments can be long-running or
-temporary. When you terminate an environment, you can save its configuration to recreate it later.
+###### To view events with the Elastic Beanstalk console
 
-###### Application deployments
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Events**.
 
-As you develop your application, you will deploy it often, possibly to several different environments for different purposes. Elastic Beanstalk lets you [configure how deployments are performed](using-features.md "using-features.md"). You can deploy to all of the instances in your
-environment simultaneously, or split a deployment into batches with rolling deployments.
+The Events page shows a list of all events that have been recorded for the environment. You can page through the list choosing
+**<** (previous), **>** (next), or page numbers. You can filter the type of events shown by using the
+**Severity** drop-down
+list.
 
-###### Configuration changes
+## Viewing events with command line tools
 
-[Configuration changes](environments-updating.md "environments-updating.md") are processed separately from deployments, and have their own scope. For example,
-if you change the type of the EC2 instances running your application, all of the instances must be replaced. On the other hand, if you modify the
-configuration of the environment's load balancer, that change can be made in-place without interrupting service or lowering capacity. You can also apply
-configuration changes that modify the instances in your environment in batches with [rolling configuration
-updates](using-features.md "using-features.md").
+The [EB CLI](eb-cli3.md "eb-cli3.md") and [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") both provide commands for retrieving events. If you are
+managing your environment using the EB CLI, use [eb events](eb3-events.md "eb3-events.md") to print a list of events. This command also
+has a `--follow` option that continues to show new events until you press **Ctrl+C** to stop output.
 
-###### Note
+To pull events using the AWS CLI, use the `describe-events` command and specify the environment by name or ID:
 
-Modify the resources in your environment only by using Elastic Beanstalk. If you modify resources using another service's console, CLI commands, or SDKs, Elastic Beanstalk
-won't be able to accurately monitor the state of those resources, and you won't be able to save the configuration or reliably recreate the environment.
-Out-of band-changes can also cause issues when updating or terminating an environment.
+```
+$ `aws elasticbeanstalk describe-events --environment-id e-gbjzqccra3`
+{
+    "Events": [
+        {
+            "ApplicationName": "elastic-beanstalk-example",
+            "EnvironmentName": "elasticBeanstalkExa-env",
+            "Severity": "INFO",
+            "RequestId": "a4c7bfd6-2043-11e5-91e2-9114455c358a",
+            "Message": "Environment update completed successfully.",
+            "EventDate": "2015-07-01T22:52:12.639Z"
+        },
+...
+```
 
-###### Platform updates
-
-When you launch an environment, you choose a platform version. We update platforms periodically with new platform versions to provide performance
-improvements and new features. You can [update your environment to the latest platform version](using-features.platform.md "using-features.platform.md") at
-any time. See the _AWS Elastic Beanstalk Platforms_ guide for a list of [supported platforms](../platforms/platforms-supported.md "../platforms/platforms-supported.md") and a [platform version history](../platforms/platform-history.md "../platforms/platform-history.md") that includes the date ranges they were current.
-
-###### Architecture options
-
-As your application grows in complexity, you can split it into multiple components, each running in a separate environment. For long-running
-workloads, you can launch [worker environments](using-features-managing-env-tiers.md "using-features-managing-env-tiers.md") that process jobs from an Amazon Simple Queue Service (Amazon SQS)
-queue.
-
-###### Topics
-
-- [Using the Elastic Beanstalk environment management console](environments-console.md "environments-console.md")
-- [Creating an Elastic Beanstalk environment](using-features.md "using-features.md")
-- [Managing multiple Elastic Beanstalk environments as a group with the EB
-  CLI](ebcli-compose.md "ebcli-compose.md")
-- [Deploying applications to Elastic Beanstalk environments](using-features.md "using-features.md")
-- [Configuration changes](environments-updating.md "environments-updating.md")
-- [Updating your Elastic Beanstalk environment's platform version](using-features.platform.md "using-features.platform.md")
-- [Canceling environment configuration updates
-  and application deployments](using-features.rollingupdates.md "using-features.rollingupdates.md")
-- [Rebuilding Elastic Beanstalk environments](environment-management-rebuild.md "environment-management-rebuild.md")
-- [Environment types](using-features-managing-env-types.md "using-features-managing-env-types.md")
-- [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md "using-features-managing-env-tiers.md")
-- [Creating links between Elastic Beanstalk environments](environment-cfg-links.md "environment-cfg-links.md")
-- [Recovering your Elastic Beanstalk environment from an invalid state](environment-management-invalid-stack.md "environment-management-invalid-stack.md")
+For more information about the command line tools, see [Setting up the EB command line interface (EB CLI) to manage Elastic Beanstalk](eb-cli3.md "eb-cli3.md").
