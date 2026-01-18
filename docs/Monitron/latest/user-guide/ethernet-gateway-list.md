@@ -30,4 +30,4 @@ A list of all gateways associated with the project is displayed.
 
 ![Left navigation menu showing Assets, Gateways highlighted in orange, and Users options.](images/webapp_leftnav-gateways.png) 2. The gateway list appears in the right pane.
 
-![Gateway list showing status, site, type, and network details for 7 gateways.](/images/Monitron/latest/user-guide/images/webapp_gateway-list.png)
+![Gateway list showing status, site, type, and network details for 7 gateways.](images/webapp_gateway-list.png)
