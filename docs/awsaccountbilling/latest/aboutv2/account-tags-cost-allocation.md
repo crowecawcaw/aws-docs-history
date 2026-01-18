@@ -36,7 +36,7 @@ Before you can use account tags for cost allocation, ensure you have:
 
 ###### Note
 
-As a best practice, do not use “accountTag" keyword in your tag keys, as this prefix is automatically added by AWS for account tags in cost allocation reports.
+As a best practice, do not use "accountTag" keyword in your tag keys, as this prefix is automatically added by AWS for account tags in cost allocation reports.
 
 1. Navigate to AWS Organizations console
 2. Select the accounts you want to tag
