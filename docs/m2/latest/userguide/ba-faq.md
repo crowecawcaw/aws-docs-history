@@ -7,7 +7,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 ## General
 
-1. **What is the main purpose of AWS Blu Age refactoring
+1. **What is the main purpose of AWS Blu Age Refactoring
    capability?**
 
 The refactoring capability refactors legacy monolithic code into java using
@@ -27,9 +27,7 @@ AWS Blu Age currently supports the modernization of IBM z/OS mainframe applicati
 written in COBOL, PL/I, JCL (Job Control Language) and relying on CICS (Customer
 Information Control System) transaction manager, BMS (Basic Mapping Support)
 screens, IMS MFS Screens, DB2 databases, IMS databases, Flat files, GDG
-(Generation data groups) and VSAM (Virtual Storage Access Method) data files.
-For more details, see [AWS Blu
-Insights](https://bluinsights.aws/ "https://bluinsights.aws/"). 3. **What mainframe languages can AWS Blu Age
+(Generation data groups) and VSAM (Virtual Storage Access Method) data files. 3. **What mainframe languages can AWS Blu Age
 modernize?**
 
 AWS Blu Age transforms COBOL and PL/I code to Java, JCLs to Groovy, screens (BMS or
@@ -81,8 +79,7 @@ Refactor, with feature access based on your accreditation level. Start with the
 Transformation Center to assess automatic Java refactoring of your source code.
 For detailed guidance, refer to the [AWS
 Blu Insights](https://bluinsights.aws/ "https://bluinsights.aws/") documentation. After modernization, you can deploy
-applications using either managed or non-managed runtime options. For more
-information on these deployment choices, see [AWS Mainframe Modernization
+applications using runtime. For more information, see [AWS Mainframe Modernization
 documentation](ba-runtime-options.md "ba-runtime-options.md"). 10. **How to size (workload and timeline) a
 project?**
 
@@ -112,27 +109,23 @@ teams managing the code. For more information, see [AWS Blu Age Runtime high lev
 1. **Where can I find information about
    AWS Blu Age Runtime?**
 
-Refer the [Set up AWS Blu Age Runtime (non-managed)](ba-runtime-setup.md "ba-runtime-setup.md") documentation about non-managed runtime
-that details set-up process onboarding, retrieving artifacts, deployment, etc. 2. **Where can I find AWS Blu Age Runtime for Developers?**
-
-The AWS Blu Age Runtime for Developers is available in [Blu Age
-Toolbox](https://bluinsights.aws/app/bluage-toolbox/tools "https://bluinsights.aws/app/bluage-toolbox/tools") for L3 Certified individuals. 3. **Are the AWS Blu Age JAR dependencies uploaded to the client's
+Refer the [Set up AWS Blu Age Runtime](ba-runtime-setup.md "ba-runtime-setup.md") documentation runtime
+that details set-up process onboarding, retrieving artifacts, deployment, etc. 2. **Are the AWS Blu Age JAR dependencies uploaded to the client's
 Maven Repository for local development?**
 
 Libraries can be imported into EC2 using an AMI which can be used
 for configuring Development, Test & Production environment. Training
 & enablement will be given to the team to maintain/enhance the generated
-application code. For more information, see [AWS Blu Age Runtime high level architecture](ba-shared-architecture.md "ba-shared-architecture.md"). 4. **What does the term “Gapwalk” refer to in the distributed
+application code. For more information, see [AWS Blu Age Runtime high level architecture](ba-shared-architecture.md "ba-shared-architecture.md"). 3. **What does the term “Gapwalk” refer to in the distributed
 AWS Blu Age Runtime jars?**
 
-For information on Gapwalk, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md") . 5. **How to request access to the AWS Blu Age Runtime
-non-managed?**
+For information on Gapwalk, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md") . 4. **How to request access to the AWS Blu Age Runtime
+?**
 
-Follow instructions on [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") to request access to AWS Support center. 6. **What are the supported Runtimes for AWS Blu Age refactored
+The Runtime is accessible through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") on Blu Insights. 5. **What are the supported Runtimes for AWS Blu Age refactored
 applications?**
 
-To explore the full range of runtime choices for your modernized
-applications, we recommend reviewing the [Blu Age Runtime Options](ba-runtime-options.md "ba-runtime-options.md") guide. 7. **When is the AWS Blu Age Runtime
+AWS Blu Age offers a single Runtime to cater to different stages of your modernization journey and operational needs see [AWSBlu Age Runtime](ba-runtime-options.md "ba-runtime-options.md"). 6. **When is the AWS Blu Age Runtime
 used?**
 
 An AWS Blu Age Runtime is necessary to support the execution of
@@ -140,25 +133,17 @@ AWS Blu Age refactored applications. A runtime is necessary during
 AWS Blu Age-based refactoring projects for testing the refactored
 applications. Once refactoring project is over, a runtime is also
 needed for maintaining, testing, and running AWS Blu Age refactored
-applications in production. 8. **How does AWS distribute new releases for AWS Blu Age Runtime?**
+applications in production. 7. **How does AWS distribute new releases for AWS Blu Age Runtime?**
 
-For M2 Managed Runtime, updates, including patches, minor, and
-major versions, are made available in the AWS Console and AWS CLI.
-They include OS updates, engine, and dependency changes, typically
-within 30 days of general availability. AWS is responsible for
-supported components and applies updates to AWS Mainframe Modernization
-instances automatically. And it is the same case for other
-environments like Custom Runtime, Linux AMI, and on-premises. 9. **How often are new major and minor versions
+The AWS Blu Age Runtime releases are accessible through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction"). See the [AWSBlu Age release notes](ba-release-notes.md "ba-release-notes.md"). 8. **How often are new major and minor versions
 of AWS Blu Age runtime released?**
 
-New versions are released once a month or two, and customers can
-decide when and how to upgrade their runtime instances. For more information,
-see [AWS Blu Age
-versioning](ba-versioning.md "ba-versioning.md") page. 10. **How does AWS provide support for
+For more information,
+see [AWS Mainframe Modernization components lifecycle](lifecycle-m2.md "lifecycle-m2.md"). 9. **How does AWS provide support for
 AWS Blu Age Runtime?**
 
 Support is provided through AWS Support, where issues are addressed
-by raising a ticket, and the standard SLA applies. For more information, see [AWS Mainframe Modernization components lifecycle](lifecycle-m2.md "lifecycle-m2.md"). 11. **What does the AWS Mainframe Modernization AWS Blu Age Runtime entail?**
+by raising a ticket, and the standard SLA applies. For more information, see [AWS Mainframe Modernization components lifecycle](lifecycle-m2.md "lifecycle-m2.md"). 10. **What does the AWS Mainframe Modernization AWS Blu Age Runtime entail?**
 
 The AWS Blu Age Runtime includes toolbox libraries for accelerating modernization,
 facilitating cloud integrations, and improving code quality and maintainability.
@@ -171,12 +156,12 @@ flows. It modernizes legacy VSAM data sets or IMS hierarchical databases support
 using a relational database such as Amazon Aurora. It provides java replacements for
 legacy system utilities (IDCAMS, IEBGENER, DFSORT,etc), and legacy transaction
 management systems (CICS, IMS). It facilitates cloud integrations with caching
-in Amazon ElastiCache and support for AWS messaging solutions (SQS, Kinesis). 12. **Does AWS Blu Age Runtime support non-x86
+in Amazon ElastiCache and support for AWS messaging solutions (SQS, Kinesis). 11. **Does AWS Blu Age Runtime support non-x86
 computer architectures?**
 
 Currently, AWS Blu Age Runtime only support x86-based computer architectures
 and compute. AWS Blu Age Runtime doesn't support ARM-based and Graviton-based
-compute. 13. **How can customers stay informed about AWS Blu Age Runtime versions,
+compute. 12. **How can customers stay informed about AWS Blu Age Runtime versions,
 including notifications of new
 releases and access to version history and release
 notes?**
@@ -186,7 +171,7 @@ ideally every 3 months, for the latest versions and updates. Regarding access to
 version history and release notes, availability depends on the end-of-life (EOL)
 date for each major version. For detailed information on EOL dates, version
 upgrade planning, and access to historical information, see
-[AWS Blu Age lifecycle](ba-lifecycle.md "ba-lifecycle.md"). 14. **What are the main components of AWS Blu Age Runtime high-level
+[AWS Blu Age lifecycle](ba-lifecycle.md "ba-lifecycle.md"). 13. **What are the main components of AWS Blu Age Runtime high-level
 architecture?**
 
 The AWS Blu Age Runtime architecture comprises two main component types. First are Java
@@ -199,7 +184,7 @@ cross-program calls and a Scripts Registry that collects all modernized jobs
 scripts. These components work together to provide a unified REST-based entry
 point and execution framework for modernized applications. The Runtime and the
 modernized application are deployed together in an application server (e.g.
-Tomcat). 15. **How to configure the shared folder holding AWS Blu Age Runtime
+Tomcat). 14. **How to configure the shared folder holding AWS Blu Age Runtime
 artifacts?**
 
 The AWS Blu Age Runtime artifacts (jars) must be gathered in a shared folder, accessible to
@@ -214,7 +199,7 @@ classloader, as such:
 common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","${catalina.home}/shared","${catalina.home}/shared/*.jar"
 ```
 
-16. **How does AWS Blu Age Runtime handle statelessness and session
+15. **How does AWS Blu Age Runtime handle statelessness and session
     management?**
 
 AWS Blu Age Runtime implements statelessness and session management through multiple
@@ -224,7 +209,7 @@ including Amazon ElastiCache, Redis cluster, or in-memory maps. The statelessnes
 ensures that most non-transient states are stored externally in a common 'single
 source of truth', enabling high availability and horizontal scaling. This
 approach, combined with load balancing and shared sessions, allows distribution
-of user-facing dialog across multiple nodes. 17. **What role do web applications play in the AWS Blu Age Runtime
+of user-facing dialog across multiple nodes. 16. **What role do web applications play in the AWS Blu Age Runtime
 environment?**
 
 [Web applications in AWS Blu Age Runtime](ba-shared-architecture.md#ba-shared-architecture-components "ba-shared-architecture.md#ba-shared-architecture-components") serve multiple key functions. They
@@ -233,7 +218,7 @@ monitors (like JCL batches, CICS, IMS). They offer REST-based entry points
 through the `gapwalk-application.war` for triggering and controlling transactions,
 programs, and batches. Additionally, they provide emulation of OS-provided
 programs and specialized 'driver' programs that legacy applications depend on
-for accessing services like IMS DB or user dialogs through MFS. 18. **How are programs registered and managed in AWS Blu Age Runtime?**
+for accessing services like IMS DB or user dialogs through MFS. 17. **How are programs registered and managed in AWS Blu Age Runtime?**
 
 Programs in AWS Blu Age Runtime are registered through a [ProgramRegistry system](ba-shared-structure.md#ba-shared-structure-run-call "ba-shared-structure.md#ba-shared-structure-run-call") that populates during server startup. Each
 program implements the [Program](ba-shared-structure.md#ba-shared-structure-write "ba-shared-structure.md#ba-shared-structure-write") interface and is marked as a Spring component. Programs are
@@ -241,7 +226,7 @@ registered using their identifiers, with multiple entries possible if a program
 has several identifiers. The registration process is automatic and logged in
 Tomcat logs. The [ProgramRegistry](ba-shared-structure.md#ba-shared-structure-run-call "ba-shared-structure.md#ba-shared-structure-run-call") enables other programs and scripts to locate and
 call registered programs, maintaining the modularity and interconnectivity of
-the modernized system. 19. **How is configuration managed in AWS Blu Age Runtime
+the modernized system. 18. **How is configuration managed in AWS Blu Age Runtime
 applications?**
 
 Configuration in AWS Blu Age Runtime is managed through YAML files using Spring Boot
@@ -251,7 +236,7 @@ client-specific options. The system follows Spring's precedence logic, allowing
 configuration overrides through various means. Additional configuration can be
 provided through JNDI for databases and command-line parameters, offering
 flexibility in configuration management. Loggers configuration is done using
-logback xml configuration files. 20. **What role do secrets managers play in the AWS Blu Age Runtime
+logback xml configuration files. 19. **What role do secrets managers play in the AWS Blu Age Runtime
 configuration?**
 
 Secrets managers in AWS Blu Age Runtime secure sensitive configuration data like database
@@ -260,7 +245,7 @@ AWS secrets and reference them in YAML configuration files. The system
 supports different types of secrets, including database secrets that
 automatically populate all relevant fields and single-password secrets for
 password-protected resources. This approach enhances security by keeping
-sensitive data separate from application configuration. 21. **How can developers write their own programs compatible
+sensitive data separate from application configuration. 20. **How can developers write their own programs compatible
 with AWS Blu Age Runtime?**
 
 Developers can create AWS Blu Age Runtime-compatible programs by implementing the Program
@@ -269,7 +254,7 @@ Spring component, implement required methods, and be properly registered in the
 ProgramRegistry. Developers need to create companion context and configuration
 classes, handle program identifiers, and ensure proper integration with the
 Spring framework. The implementation should follow AWS Blu Age Runtime conventions for program
-structure and execution. 22. **How does AWS Blu Age Runtime handle program execution
+structure and execution. 21. **How does AWS Blu Age Runtime handle program execution
 errors?**
 
 AWS Blu Age Runtime handles program execution errors through multiple mechanisms. For batch
@@ -279,14 +264,14 @@ for technical errors, -2 for service program failures) and detailed logging in
 Tomcat logs. The system can be configured to rollback transactions on runtime
 exceptions and provides options for error notification and recovery. Error
 details are accessible through REST endpoints for monitoring and
-troubleshooting. 23. **What AWS Blu Age Runtime monitoring capabilities are available for
+troubleshooting. 22. **What AWS Blu Age Runtime monitoring capabilities are available for
 batch jobs?**
 
 AWS Blu Age Runtime provides monitoring capabilities for batch jobs through various [endpoints](ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch "ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch"). It tracks job execution status, start/end times,
 execution mode, and detailed results. The system offers [endpoints](ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch "ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch") for listing triggered scripts, retrieving job execution
 details, and monitoring currently running jobs. Metrics’ endpoints provide JVM
 statistics, session counts, and detailed batch execution metrics. The platform
-also supports pagination and time-based filtering of monitoring data. 24. **How are AWS Blu Age Runtime job execution statuses tracked and
+also supports pagination and time-based filtering of monitoring data. 23. **How are AWS Blu Age Runtime job execution statuses tracked and
 managed?**
 
 Job execution statuses are tracked through a comprehensive status system that
@@ -295,7 +280,7 @@ execution receives a unique identifier for tracking and maintains detailed
 execution information including start time, end time, caller information, and
 execution results. The system provides [REST endpoints](ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch "ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch") for querying job status, managing running jobs, and
 retrieving execution history. Status information persists in server memory and
-can be purged based on age for resource management. 25. **How does AWS Blu Age Runtime handle external system
+can be purged based on age for resource management. 24. **How does AWS Blu Age Runtime handle external system
 interactions?**
 
 The runtime handles external system interactions through various mechanisms,
@@ -305,7 +290,7 @@ emulation of legacy system interactions through specialized components, supports
 SSL/TLS for secure communications, and includes features for handling external
 file systems. The system also supports integration with external authentication
 providers and can be configured to interact with various third-party
-services. 26. **How is authentication handled in AWS Blu Age Runtime?**
+services. 25. **How is authentication handled in AWS Blu Age Runtime?**
 
 AWS Blu Age Runtime supports multiple authentication methods, with OAuth2 being the primary
 mechanism. It can integrate with identity providers like Amazon Cognito or
@@ -314,7 +299,7 @@ file named application-main.yml, where security settings, identity providers,
 and authentication methods can be defined. The system supports features like XSS
 protection, CORS, CSRF, and can be configured for both global security and
 specific endpoint security. For development, a local authentication system with
-default super admin credentials is also available. 27. **How does AWS Blu Age Runtime ensure high
+default super admin credentials is also available. 26. **How does AWS Blu Age Runtime ensure high
 availability?**
 
 AWS Blu Age Runtime ensures high availability through several mechanisms. It implements
@@ -323,48 +308,45 @@ enabling multiple application instances to work together. The system supports
 load balancing and shared sessions, allowing requests to be distributed across
 multiple nodes. For data storage, it can utilize highly available databases and
 caching systems. The architecture supports automatic fail-over and can be
-deployed across multiple availability zones for increased reliability. 28. **What component is used to reproduce CICS distributed
+deployed across multiple availability zones for increased reliability. 27. **What component is used to reproduce CICS distributed
 transactions with AWS Blu Age applications?**
 
 The AWS Blu Age Runtime provides a dedicated endpoint to allow existing JICS transactions to
 be invoked as part of a global transaction (XA support). The underlying two
-phases commit support relies on the Atomikos software component. 29. **What is the AWS Blu Age name of the classes that are used to
+phases commit support relies on the Atomikos software component. 28. **What is the AWS Blu Age name of the classes that are used to
 define specific program behavior?**
 
 Each program is bound to a dedicated Configuration class which allows to
 specify the program specific behaviors. For more information on naming and
 location conventions, see [AWS Blu Age structure of
-modernized application](ba-shared-structure.md "ba-shared-structure.md") 30. **Which encoding has the following character sequence
+modernized application](ba-shared-structure.md "ba-shared-structure.md") 29. **Which encoding has the following character sequence
 order: space, lowercase characters, uppercase characters,
 numerals?**
 
 Charsets belonging to the EBCDIC variants family (such as CP1047, CP297,
-etc). 31. **How do you operate AWS Blu Age managed
-Runtime?**
-
-With the AWS Management Console, the AWS CLI, or the AWS APIs 32. **What are the pricing dimensions for AWS Blu Age Runtime?**
+etc). 30. **What are the pricing dimensions for AWS Blu Age Runtime?**
 
 AWS Mainframe Modernization-core-hours (See [AWS Mainframe Modernization
-pricing](https://aws.amazon.com/fr/mainframe-modernization/pricing/ "https://aws.amazon.com/fr/mainframe-modernization/pricing/")). 33. **What is the mechanism used to pass raw data through HTTP
+pricing](https://aws.amazon.com/fr/mainframe-modernization/pricing/ "https://aws.amazon.com/fr/mainframe-modernization/pricing/")). 31. **What is the mechanism used to pass raw data through HTTP
 to the program endpoints?**
 
-Base64 encoded strings. 34. **How does a user launch a batch job
+Base64 encoded strings. 32. **How does a user launch a batch job
 run?**
 
-Using an HTTP call to one of the dedicated batch endpoint (see [batch endpoints documentation page](ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch "ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch")). 35. **Which AWS Blu Age Runtime endpoint is the main entry point from the
+Using an HTTP call to one of the dedicated batch endpoint (see [batch endpoints documentation page](ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch "ba-endpoints-gapwalk.md#ba-endpoints-gapwalk-batch")). 33. **Which AWS Blu Age Runtime endpoint is the main entry point from the
 main web front-end application?**
 
 ```
 /transaction
 ```
 
-36. **What does AWS Blu Age JICS stand for?**
+34. **What does AWS Blu Age JICS stand for?**
 
 The AWS Blu Age JICS is the runtime component used to support the modernization of
 CICS resources. The resources definitions are stored in a dedicated data store.
 To administer them, use either the REST API or the JICS application console. For
 information, see [Manage JICS application
-console in AWS Blu Age](ba-endpoints-jac.md "ba-endpoints-jac.md"). 37. **What AWS Blu Age Runtime caching mechanisms are
+console in AWS Blu Age](ba-endpoints-jac.md "ba-endpoints-jac.md"). 35. **What AWS Blu Age Runtime caching mechanisms are
 available?**
 
 AWS Blu Age Runtime supports multiple caching mechanisms, including Redis and EhCache. Redis
@@ -373,18 +355,18 @@ across multiple nodes. EhCache is available for standalone deployments with
 embedded volatile local caching. The system supports caching for various
 components, including Blusam data, session information, JICS resources, and
 temporary storage queues. Cache configuration can be customized for different
-use cases and performance requirements. 38. **How do we estimate the price of an AWS Mainframe Modernization AWS Blu Age Runtime
+use cases and performance requirements. 36. **How do we estimate the price of an AWS Mainframe Modernization AWS Blu Age Runtime
 deployment?**
 
 AWS provides estimates to customers based on their requirements and target
-architecture. 39. **What is the AWS Mainframe Modernization AWS Blu Age Runtime price?**
+architecture. 37. **What is the AWS Mainframe Modernization AWS Blu Age Runtime price?**
 
 AWS Mainframe Modernization offers two pricing models for AWS Blu Age: a Managed Runtime option that
 includes the runtime, compute resources, internal storage, and automation, and a
 Non-managed Runtime option that covers the AWS Blu Age runtime itself only. For
 AWS deployments, both use a pay-as-you-go pricing structure. For the most
 up-to-date and detailed pricing information, it's recommended to consult the
-official [AWS Mainframe Modernization Pricing](https://aws.amazon.com/mainframe-modernization/pricing/ "https://aws.amazon.com/mainframe-modernization/pricing/") page. 40. **What if we need to deploy an AWS Blu Age refactored
+official [AWS Mainframe Modernization Pricing](https://aws.amazon.com/mainframe-modernization/pricing/ "https://aws.amazon.com/mainframe-modernization/pricing/") page. 38. **What if we need to deploy an AWS Blu Age refactored
 application on an infrastructure not listed in the supported
 runtime?**
 
@@ -392,13 +374,12 @@ If you need to deploy an AWS Blu Age refactored application on an
 infrastructure not listed in the supported runtime, several options are
 available. First, check if your infrastructure is compatible with existing
 deployment options like Amazon EKS Anywhere or other container orchestration
-platforms. If so, you may be able to use the AWS Blu Age Runtime (non-managed).
+platforms. If so, you may be able to use the AWS Blu Age Runtime.
 For non-compatible infrastructures, we recommend consulting with an AWS
 mainframe specialist to explore custom solutions or potential adaptations. You
 can also submit a Product Feature Request (PFR) for expanded infrastructure
-support. Alternative billing options may be available for non-standard
-deployments. Contact your AWS representative to discuss your specific needs and
-the best approach for your environment. 41. **How is the AWS Blu Age Runtime licensed? Is it open
+support. Contact your AWS representative to discuss your specific needs and
+the best approach for your environment. 39. **How is the AWS Blu Age Runtime licensed? Is it open
 source?**
 
 AWS Blu Age Runtime is not open source. It's AWS IP distributed as a
@@ -415,7 +396,7 @@ cloud-native service. There are two deployment options:
      this is a managed service with Support access, you don't need the source
      code. For more details on pricing, see [AWS Mainframe Modernization Pricing page](https://aws.amazon.com/ar/mainframe-modernization/pricing/ "https://aws.amazon.com/ar/mainframe-modernization/pricing/").
 
-42. **How are changes and upgrades to AWS Blu Age frameworks
+40. **How are changes and upgrades to AWS Blu Age frameworks
     and libraries managed ?**
 
 AWS Blu Age frameworks and libraries are updated through regular code
@@ -423,9 +404,11 @@ generation and deployment processes. These updates are managed as part of the
 AWS Mainframe Modernization lifecycle, which includes version upgrades and
 support from the AWS Blu Age team or certified partners. For detailed
 information on versioning, upgrade processes, and support timelines, please
-refer to the [AWS Mainframe Modernization lifecycle documentation](lifecycle-m2.md "lifecycle-m2.md"). 43. **What are the supported version of tools (Tomcat, Postgres, Oracle, MQ, etc.) and dependencies (Spring, Angular, etc.) the AWS Blu Age Runtime uses ?**
+refer to the [AWS Mainframe Modernization lifecycle documentation](lifecycle-m2.md "lifecycle-m2.md"). 41. **What are the supported version of tools (Tomcat, Postgres, MQ, etc.) and dependencies (Spring, Angular, etc.) the AWS Blu Age Runtime uses ?**
 
-See details in [Release Notes](ba-release-notes.md "ba-release-notes.md").
+See details in [Release Notes](ba-release-notes.md "ba-release-notes.md"). 42. **What does 'Standalone' mean in the context of BAC and JAC ?**
+
+Standalone refers to a special packaging and deployment mode for BAC (Blusam Administration Console) and JAC (JICS Administration Console) that allows these web applications to run independently in their own Tomcat server, separate from your modernized application. The BAC and JAC standalone versions are available into `aws-bluage-webapps-x.y.z.zip`. BAC and JAC non-standalone versions are available into `aws-bluage-runtime-x.y.z.zip` under `webapps-consoles` folder. See [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 
 ## Data
 
@@ -537,16 +520,11 @@ infrastructure?**
 While AWS Blu Age refactored applications are not designed to run on any
 infrastructure, they offer significant flexibility in deployment options. These
 applications can be deployed on various compute platforms, including cloud
-managed services, serverless compute, and on-premises infrastructure. AWS Blu Age
-provides both managed and non-managed runtime options, allowing organizations to
-choose between fully-managed convenience and customized control based on their
-specific needs and requirements. This flexibility enables easy movement across
-supported infrastructures, making AWS Blu Age refactored applications highly adaptable
-to different deployment environments. For more details, see [AWS Blu Age Runtime options](ba-runtime-options.md "ba-runtime-options.md") documentation. 3. **Which MQ configuration does AWS Blu Age
+managed services, serverless compute, and on-premises infrastructure. 3. **Which MQ configuration does AWS Blu Age
 support?**
 
 SQS, IBM WebSphere MQ. 4. **Into which application servers can a user deploy Java
-business application logic with AWS Mainframe Modernization non-managed
+business application logic with AWS Mainframe Modernization
 runtime?**
 
 Apache Tomcat, version greater or equal to 10.1. 5. **How does the refactored application integrate with other
@@ -574,20 +552,15 @@ inherent scalability features. 7. **What happens after the source code refactori
 completed?**
 
 After source code refactoring, two main steps occur. First, the refactored
-application is built. Second, the application is deployed and monitored in
-[AWS Mainframe Modernization AWS Blu Age Runtime](tutorial-runtime-ba.md "tutorial-runtime-ba.md"). The deployment can be
-done either in an AWS-managed environment (AWS Mainframe Modernization managed runtime) where
-infrastructure is managed with automation, or in your AWS account ([AWS Mainframe Modernization AWS Blu Age non-managed Runtime](ba-runtime-setup.md "ba-runtime-setup.md")) where
-customers manage their own infrastructure. The non-managed option can be
-deployed on various platforms, including [Amazon EC2](ba-deploy-ec2.md "ba-deploy-ec2.md"), ECS on EC2 or on [Fargate](ba-deploy-container.md "ba-deploy-container.md"), EKS on EC2. 8. **How can I deploy and run an application modernized with
-AWS Blu Age on a custom Amazon Linux AMI, without using the AWS Mainframe Modernization
-(M2) managed service?**
+application is built. Second, the application is deployed. The deployment is done in your AWS account ([AWS Mainframe Modernization AWSBlu Age Runtime](ba-runtime-setup.md "ba-runtime-setup.md")) where
+customers manage their own infrastructure and deploy on various platforms, including Amazon EC2, ECS on EC2 or on Fargate, EKS on EC2. 8. **How can I deploy and run an application modernized with
+AWS Blu Age on a custom Amazon Linux AMI?**
 
 This can be achieved by deploying the application using AWS Blu Age Runtime
-(non-managed) on Amazon EC2. The process involves creating a Java/Spring
+on Amazon EC2. The process involves creating a Java/Spring
 application with a dependency on the AWS Blu Age Runtime library and deploying
 it on a custom Amazon Linux AMI. For detailed instructions on this approach,
-see [Set up AWS Blu Age Runtime (non-managed) on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md"). 9. **Is there an Amazon Machine Image (AMI) available? Is
+see [Set up AWS Blu Age Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md"). 9. **Is there an Amazon Machine Image (AMI) available? Is
 there a Docker image available?**
 
     * **AMI**: No, due to customers' needs to
@@ -603,17 +576,38 @@ there a Docker image available?**
 10. **Can customer package and run an AWS Blu Age application
     as a Docker container?**
 
-It is not possible for M2 Managed Runtime but it is for customer defined
-environment based on an Amazon Linux AMI and for on-premises or other cloud
-providers. 11. **How can I know the resource ARN of the SQS policy
-required to run AWS Blu Age non-managed if I want to scope it
-down?**
-
-To determine the specific SQS policy resource ARN for running AWS Blu Age
-non-managed with a scoped-down policy, please consult the delivery team or
-Technical Account Manager (TAM). They can provide account-specific guidance. For
-general information on SQS policies, refer to the AWS [SQS Policy](ba-infrastructure-setup.md "ba-infrastructure-setup.md") documentation. 12. **How does job scheduling work with
+Yes, refer to [Set up AWS Blu Age Runtime on container](ba-runtime-deploy-container.md "ba-runtime-deploy-container.md"). 11. **How does job scheduling work with
 batch?**
 
 It is integrated with Control-M /Stone branch or with any other Distributed
 scheduler.
+
+## Security
+
+1. **How does the application protect against SQL injection attacks?**
+
+The application implements SQL best practices throughout. All database queries use prepared statements, which effectively prevent SQL injection attacks by separating SQL code from user supplied data. This ensures that user input is always treated as data rather than executable code. 2. **What measures are in place to prevent OS command injection vulnerabilities?**
+
+AWS security teams conduct regular security reviews of AWS Blu Age Runtime. If the teams detect any anomalies such as code that could potentially allow OS command injection, AWS immediately works to resolve. This continuous monitoring ensures that the runtime remains secure against command injection threats. 3. **Is the application vulnerable to directory traversal attacks?**
+
+No. This vulnerability does not apply to the front-end Angular application. For the back-end, the application uses only one endpoint with a limited interface contract that never contains "path" or "directory" information. This design eliminates the risk of directory traversal attacks. 4. **How does the application protect against XSS attacks?**
+
+The application follows Angular security best practices as described in the official [Angular security documentation](https://angular.dev/best-practices/security "https://angular.dev/best-practices/security"). The application's nature is inherently limited in terms of UI since it corresponds to the legacy mainframe application. The application handles no URLs, dynamic scripts, or HTML generated by the back-end. This limited attack surface significantly reduces XSS risks. 5. **What protection is implemented against CSRF attacks?**
+
+The application utilizes Spring's native [CSRF support](https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html "https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html"), which provides robust protection against cross-site request forgery attacks out of the box. 6. **Can user input lead to HTTP header injection?**
+
+No. User inputs are strictly limited in length to match the legacy mainframe application format. When the back-end receives a request, it immediately formats the input according to predefined formats, which would truncate any injected content. Additionally, the application never constructs HTTP headers based on user inputs in the single endpoint used by the application, making HTTP header injection impossible. 7. **How is the application protected against clickjacking attacks?**
+
+The application performs most actions using keystrokes rather than mouse clicks, making it inherently resistant to clickjacking attacks. This design choice significantly reduces the attack surface for this type of vulnerability. 8. **Can buffer overflow attacks occur in the application?**
+
+No. User inputs are strictly limited in length to correspond with the legacy mainframe application format. When the back-end receives a request, it immediately formats the input according to the corresponding formats, preventing buffer overflow conditions from occurring. 9. **How are access control and authorization managed?**
+
+Access control determines globally whether users have rights to access the unique back-end endpoint. Once authenticated, the application code and data handle authorization controls. This ensures proper separation of concerns and secure access management. 10. **What measures prevent session hijacking?**
+
+The combined use of Spring and Angular native capabilities for session management and XSS prevention, along with adherence to framework best practices, prevents session hijacking. The application can further enhance protection by:
+
+    * **Using HTTPS**: Ensures all communication is encrypted.
+    * **Implementing Token-Based Authentication**: The application can activate this when needed.
+    * **Monitoring User Sessions**: The application can activate session monitoring and anomaly detection to identify suspicious activity.
+
+These layered security measures provide comprehensive protection against session hijacking attempts.

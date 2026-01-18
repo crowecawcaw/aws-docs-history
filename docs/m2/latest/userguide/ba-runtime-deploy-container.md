@@ -166,8 +166,7 @@ datasource:
    you created as part of the initial Infrastructure setup. Then, while creating the
    service, expand the **Networking** section,
    and configure the VPC, subnets, and security group that you created as part of the
-   initial Infrastructure setup. See, [Infrastructure setup requirements for AWS Blu Age Runtime
-   (non-managed)](ba-infrastructure-setup.md "ba-infrastructure-setup.md").
+   initial Infrastructure setup. See, [Infrastructure setup requirements for AWS Blu Age Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md") .
 
 ## Test the deployed application
 

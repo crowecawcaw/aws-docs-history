@@ -9,13 +9,11 @@ This page contains instructions for upgrading the AWS Blu Age version.
 
 ## Common upgrades
 
-In most of the cases, when upgrading the AWS Blu Age Runtime (non-managed) version, you should replace the artifacts
+In most of the cases, when upgrading the AWS Blu Age Runtime version, you should replace the artifacts
 (WARs, configuration files, scripts, etc.) of your previous version with the ones provided in the
 new one and restart your application. Make sure to perform extensive regression tests of your
 modernized applications once you upgrade. You may also contact your AWS Blu Age delivery manager for
 specific instructions applicable to your application.
-
-To upgrade the AWS Blu Age Runtime (managed) version, see [Managed runtime environments in AWS Mainframe Modernization](environments-m2.md "environments-m2.md").
 
 Some upgrades may require additional configuration to ensure compatibility. In that case,
 follow the instructions for that specific upgrade.
@@ -65,7 +63,7 @@ Due to the dependency change referenced above, references to
 The custom class `PostgreSQLDialect.java` is removed. References to it in the
 main launcher must be removed too.
 
-### Deployment (AWS Blu Age Runtime (non-managed))
+### Deployment (AWS Blu Age Runtime)
 
 **Tomcat**
 

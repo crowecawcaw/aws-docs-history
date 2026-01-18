@@ -5,14 +5,14 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 # Deploy AWS Blu Age Runtime on Amazon EC2
 
-You can learn how to set up AWS Blu Age Runtime (non-managed) on Amazon EC2, how to update the runtime
+You can learn how to set up AWS Blu Age Runtime on Amazon EC2, how to update the runtime
 version, how to monitor your deployment by using Amazon CloudWatch alarms, and how to add licensed
 dependencies with the topics in this section. These instructions are applicable when you create Amazon EC2 instances as well as when
 you use Amazon ECS on Amazon EC2 or Amazon EKS on Amazon EC2.
 
 ###### Topics
 
-- [Set up AWS Blu Age Runtime (non-managed) on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md")
+- [Set up AWS Blu Age Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md")
 - [Upgrade the AWS Blu Age Runtime on Amazon EC2](ba-runtime-maint-ec2.md "ba-runtime-maint-ec2.md")
 - [Set up AWS Blu Age Runtime (on Amazon EC2) Amazon CloudWatch alarms](ba-cw-alarms-ec2.md "ba-cw-alarms-ec2.md")
 - [Set up licensed dependencies in AWS Blu Age Runtime on

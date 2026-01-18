@@ -3,9 +3,9 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Set up AWS Blu Age Runtime (non-managed) on Amazon EC2
+# Set up AWS Blu Age Runtime on Amazon EC2
 
-This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Blu Age Runtime (non-managed)
+This topic explains how to set up and deploy the PlanetsDemo sample application using AWS Blu Age Runtime
 on Amazon EC2.
 
 ###### Topics
@@ -31,7 +31,7 @@ Throughout this guide, the Tomcat installation path is assumed to be
 `/m2-anywhere/tomcat-gapwalk/velocity`. Ensure you use this path when following the
 instructions below or adapt the following instruction to the path of your choice.
 
-- Download and extract AWS Blu Age Runtime (on Amazon EC2). Copy the contents of the velocity directory to
+- Download and extract AWS Blu Age Runtime. Copy the contents of the velocity directory to
   `/m2-anywhere/tomcat-gapwalk/velocity`. Make sure to place the
   `bluage.bin` file exactly in the location specified by CATALINA_HOME environment
   variable described under [CATALINA_HOME and CATALINA_BASE](https://tomcat.apache.org/tomcat-8.5-doc/introduction.html#CATALINA_HOME_and_CATALINA_BASE "https://tomcat.apache.org/tomcat-8.5-doc/introduction.html#CATALINA_HOME_and_CATALINA_BASE") in the Apache Tomcat documentation. For

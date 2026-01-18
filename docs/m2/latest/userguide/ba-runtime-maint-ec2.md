@@ -26,7 +26,7 @@ Before you begin, make sure you meet the following prerequisites.
 - Make sure you can connect to the Amazon EC2 instance successfully, for example, by using
   SSM.
 - Download the version of the AWS Blu Age Runtime that you want to upgrade to. For more information, see
-  [Set up AWS Blu Age Runtime (non-managed)](ba-runtime-setup.md "ba-runtime-setup.md") The framework consists of two binary files:
+  [Set up AWS Blu Age Runtime](ba-runtime-setup.md "ba-runtime-setup.md") The framework consists of two binary files:
   `aws-bluage-runtime-x.y.z.zip` and
   `aws-bluage-webapps-x.y.z.zip`.
 
@@ -65,9 +65,9 @@ systemctl stop tomcat-webapps.service
 ```
 
 7. Replace the content of `<your-tomcat-path>/shared/` with the content
-   of `aws-bluage-runtime-x.y.z/velocity/shared/`.
+   of `aws-bluage-runtime-x.y.z/shared/`.
 8. Replace `<your-tomcat-path>/webapps/gapwalk-application.war` with
-   `aws-bluage-runtime-x.y.z/velocity/webapps/gapwalk-application.war`.
+   `aws-bluage-runtime-x.y.z/webapps/gapwalk-application.war`.
 9. Replace the war files in `<your-tomcat-path>/webapps/`, namely
    `bac.war` and `jac.war`, with the same files from
    `aws-bluage-webapps-x.y.z/velocity/webapps/`.
@@ -116,7 +116,7 @@ container
 
 Complete the following steps to upgrade the AWS Blu Age Runtime.
 
-1. Rebuild your Docker image with the desired AWS Blu Age Runtime version. For instructions, see [Set up AWS Blu Age Runtime (non-managed) on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md").
+1. Rebuild your Docker image with the desired AWS Blu Age Runtime version. For instructions, see [Set up AWS Blu Age Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md").
 2. Push your Docker image to your Amazon ECR repository.
 3. Stop and restart your Amazon ECS or Amazon EKS service.
 4. Check the logs.

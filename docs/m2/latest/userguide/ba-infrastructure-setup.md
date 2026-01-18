@@ -5,10 +5,10 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 # Infrastructure setup requirements for
 
-AWS Blu Age Runtime (non-managed)
+AWS Blu Age Runtime
 
-This topic describes the minimum infrastructure configuration required to run AWS Blu Age Runtime (non-managed). The
-following procedures describe how to set up AWS Blu Age Runtime (non-managed) on your compute of choice to deploy a
+This topic describes the minimum infrastructure configuration required to run AWS Blu Age Runtime. The
+following procedures describe how to set up AWS Blu Age Runtime on your compute of choice to deploy a
 modernized application on the AWS Blu Age Runtime. The resources that you create must be in an Amazon VPC that
 has a subnet that is dedicated to your application domain.
 
@@ -92,10 +92,10 @@ To create an Amazon EC2 instance, use the following steps.
 
 1.  When the state of the Amazon EC2 instance changes to **Running**,
     connect to the instance.
-2.  Install the following software components on the instance:
+2.  Install the following software components on the instance (Refer to the versions mentioned into the [AWS Blu Age release notes](ba-release-notes.md "ba-release-notes.md")):
 
-        * Java Runtime Environment (JRE) 17.
-        * Apache Tomcat 10.
+        * Java Runtime Environment (JRE).
+        * Apache Tomcat.
         * AWS Blu Age Runtime (on Amazon EC2). Install the AWS Blu Age runtime at the root of Apache Tomcat
          installation folder (some files will be added while others will be
          overwritten).

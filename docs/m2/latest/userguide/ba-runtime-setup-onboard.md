@@ -5,6 +5,10 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 
 # Onboarding AWS Blu Age Runtime
 
+###### Note
+
+The AWS Blu Age Runtime access has transitioned from ticket-based requests to direct download through [AWS Blu Insights](https://bluinsights.aws/ "https://bluinsights.aws/"). We have introduced a new and simplified way to access Blu Age products through the [Blu Age Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") feature in AWS Blu Insights.
+
 To get started, create an [AWS Support](https://support.console.aws.amazon.com/support/home "https://support.console.aws.amazon.com/support/home") case to request onboarding to access AWS Blu Age Runtime. Include in your request your
 AWS account ID, the AWS Region that you want to use, and a compute choice, and AWS Blu Age Runtime version.
 If you aren't sure which version you need, contact your AWS Blu Age delivery manager. If you
@@ -19,10 +23,10 @@ The AWS Blu Age Runtime is available in two main varieties: Alpha pre-releases a
 which release to use, see [AWS Blu Age versioning](ba-versioning.md "ba-versioning.md"), or contact your AWS Blu Age delivery
 manager.
 
-## Regions and buckets for AWS Blu Age Runtime (non-managed)
+## Regions and buckets for AWS Blu Age Runtime
 
-We store the AWS Blu Age Runtime (non-managed) artifacts in different Amazon S3 buckets by Region and by compute choice. To
-access the bucket for your AWS Region for AWS Blu Age Runtime (non-managed), use the name listed in the following
+We store the AWS Blu Age Runtime artifacts in different Amazon S3 buckets by Region and by compute choice. To
+access the bucket for your AWS Region for AWS Blu Age Runtime, use the name listed in the following
 table.
 
 | AWS Region                | Release bucket                                           | Alpha pre-release bucket                                     |
@@ -61,7 +65,7 @@ AWS CLI command in a terminal.
 Replace `bucket-name` with the name of the bucket for your AWS Region from the
 previous table.
 
-This command returns a list of folders that correspond to different versions of the AWS Blu Age Runtime (non-managed)
+This command returns a list of folders that correspond to different versions of the AWS Blu Age Runtime
 runtime, such as the following for a Release bucket:
 
 ```
