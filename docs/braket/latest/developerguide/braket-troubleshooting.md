@@ -10,6 +10,7 @@ Use the troubleshooting information and solutions in this section to help resolv
 - [An SDK feature does not work](#braket-troubleshooting-sdk "#braket-troubleshooting-sdk")
 - [Hybrid job fails due to ServiceQuotaExceededException](#braket-jobs-quota-troubleshoot "#braket-jobs-quota-troubleshoot")
 - [Components stopped working in notebook instance](#braket-troubleshooting-notebook-issue "#braket-troubleshooting-notebook-issue")
+- [Troubleshooting Python 3.12 Upgrade](braket-troubleshooting-python312.md "braket-troubleshooting-python312.md")
 - [Troubleshooting OpenQASM](braket-troubleshooting-openqasm.md "braket-troubleshooting-openqasm.md")
 
 ## AccessDeniedException
@@ -39,7 +40,7 @@ Amazon S3 bucket path.
 
 ## An SDK feature does not work
 
-Your Python version must be 3.9 or above. For Amazon Braket Hybrid Jobs, we recommend Python 3.10.
+Your Python version must be 3.10 or above. For Amazon Braket Hybrid Jobs, we recommend Python 3.12.
 
 Verify your SDK and schemas are up-to-date. To update the SDK from the notebook or your python editor, run the following command:
 

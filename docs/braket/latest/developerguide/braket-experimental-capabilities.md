@@ -1,15 +1,30 @@
 # Explore Experimental Capabilities
 
-Experimental capabilities provide access to hardware with limited availability and emergent new features.
-For features for QuEra Aquila, you must request access directly in the Braket console to available experimental
-capabilities.
+Experimental capabilities provide access to hardware with limited availability and emergent new software features.
+These features may impact device performance beyond standard specifications.
+You can automatically enable experimental software capabilities on a per-task basis through the Amazon Braket SDK.
 
-**To request access to Experimental Capabilities for QuEra Aquila:**
+To use experimental capabilities, specify the `experimental_capabilities` parameter when you create quantum tasks.
+Set this parameter to `"ALL"` to enable all available experimental features for that task.
+The following example shows how to enable experimental capabilities when you run a circuit on a device:
 
-1. Navigate to the Amazon Braket console and select **Braket Direct**
-   in the left menu, and then navigate to the **Experimental Capabilities** section.
-2. Choose **Get Access** and fill out the requested information.
-3. Provide details about the workload and where you plan to use this capability.
+```
+from braket.aws import AwsDevice
+
+device = AwsDevice("arn:aws:braket:us-east-1::device/qpu/quera/Aquila")
+
+task = device.run(
+   circuit,
+   shots=1000,
+   experimental_capabilities="ALL"
+)
+```
+
+###### Note
+
+These features are experimental and may change without notice.
+Device performance may differ from published specifications, and results may vary from standard operations.
+You must explicitly enable experimental capabilities for each task. Tasks without this parameter will use only standard device capabilities.
 
 ###### In this section:
 

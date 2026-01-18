@@ -22,7 +22,7 @@ from Amazon Elastic Container Registry (ECR).
 
 ###### Note
 
-Only Python 3.10 is supported by default.
+Only Python 3.12 is supported by default.
 
 You can use the `@hybrid_job` decorator to annotate a function. Braket transforms
 the code inside the decorator into a Braket hybrid job [algorithm script](braket-jobs-first.md "braket-jobs-first.md").
