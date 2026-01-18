@@ -53,15 +53,10 @@ whoami` command. For more information, see [Locate your Slack URL or ID](https:/
 If you configured the authentication to connect to Amazon Quick Suite with IAM Identity Center, complete the following additional steps:
 
 1. Ensure you have an IAM Identity Center instance enabled on your AWS account.
-2. Use Microsoft Entra ID as your identity provider.
-3. Ensure that every user under your Entra ID provider configuration has an email associated with them.
-4. Set up SCIM identity propagation between the Microsoft Entra ID instance and IAM Identity Center. For detailed steps,
+2. Ensure that every user under your Entra ID or Okta provider configuration has an email associated with them.
+3. If using Entra ID, set up SCIM identity propagation between the Microsoft Entra ID instance and IAM Identity Center. For detailed steps,
    see [Configure SAML and SCIM with Microsoft Entra ID
    and IAM Identity Center](../../../singlesignon/latest/userguide/azure-ad-idp.md "../../../singlesignon/latest/userguide/azure-ad-idp.md").
-
-###### Note
-
-The Slack extension supports only Entra ID authentication with IAM Identity Center.
 
 ## Configure Slack extension
 

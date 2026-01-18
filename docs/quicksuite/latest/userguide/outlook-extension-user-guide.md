@@ -147,9 +147,6 @@ Outlook extension known limitations
 The following are known limitations of the Amazon Quick Suite Microsoft
 Outlook extension:
 
-- The Microsoft Outlook extension doesn't support
-  Amazon Quick Suite accounts that use IAM Identity Center for authentication
-  at this time.
 - The Microsoft Outlook extension is only able to access
   your current selected email (which can include your email thread). It is
   unable to answer questions across all emails/calendar events in your

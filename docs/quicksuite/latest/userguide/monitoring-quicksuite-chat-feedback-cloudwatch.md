@@ -1,6 +1,6 @@
 # Monitoring Amazon Quick Suite usage using CloudWatch Logs
 
-You can use [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") to deliver chat conversations, user feedback and agent/research hours usage in Amazon Quick Suite for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or (standard rates apply). We recommend that you set up conversation and feedback logging shortly after enabling Amazon Quick Suite AI features.
+You can use [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") to deliver chat conversations, user feedback and agent/research hours usage in Amazon Quick Suite for you to analyze. These logs can be delivered to multiple destinations, such as CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply). We recommend that you set up vended logs shortly after enabling Amazon Quick Suite AI features.
 
 The following are examples of tasks you can complete with logs from Amazon Quick Suite:
 
@@ -165,10 +165,10 @@ The following is an example of chat logs:
 
 ```
 {
-                    "status_code": "success",
-                    "namespace": "default",
-                    "user_type": "ADMIN_PRO",
-                    "conversation_id": "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
+    "status_code": "success",
+    "namespace": "default",
+    "user_type": "ADMIN_PRO",
+    "conversation_id": "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
     "system_message_id": "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
     "latency": "10000",
     "time_to_first_token": "10000",
@@ -204,16 +204,17 @@ Feedback logs capture user feedback on chat and contains below fields:
 The following is an example of feedback logs:
 
 ```
-Chat Feedback:
-                    "status_code": "success",
-                    "namespace": "default",
-                    "user_type": "ADMIN_PRO",
-                    "conversation_id": "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
+{
+    "status_code": "success",
+    "namespace": "default",
+    "user_type": "ADMIN_PRO",
+    "conversation_id": "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
     "system_message_id": "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
     "user_message_id" : "a11b2bbc-c123-3abc-a12b-12a34b5c678d",
-    "feedback_type" :"thumbsUp,thumbsDown,ease_of_use etc."
+    "feedback_type" :"Not Useful / Useful"
     "feedback_reason" : "Too wordy,Issue with sources,Other etc."
     "feedback_details" : "additional text shared by user"
+}
 ```
 
 ## Agent/Research hours Logs
@@ -229,12 +230,13 @@ This log type captures the usage logs for different agents within your Quick Sui
 The following is an example of Agent Hours logs:
 
 ```
-Agent Hours logs:
-                    "subscription_type": "ENTERPRISE",
-                    "reporting_service": "RESEARCH",
-                    "usage_group": "Included",
-                    "usage_hours": 0.3333,
-                    "service_resource_arn": "arn:aws:quicksight:eu-west-1:111222333444:research/a11b2bbc-c123-3abc-a12b-12a34b5c678d"
+{
+    "subscription_type": "ENTERPRISE",
+    "reporting_service": "RESEARCH",
+    "usage_group": "Included",
+    "usage_hours": 0.3333,
+    "service_resource_arn": "arn:aws:quicksight:eu-west-1:111222333444:research/a11b2bbc-c123-3abc-a12b-12a34b5c678d"
+}
 ```
 
 ###### Note

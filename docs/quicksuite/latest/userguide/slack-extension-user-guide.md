@@ -189,8 +189,6 @@ extension known limitations
 The following are known limitations of the Amazon Quick Suite Slack
 extension:
 
-- The Slack extension isn't supported for Amazon Quick Suite
-  accounts that use IAM Identity Center for authentication.
 - The Slack extension doesn't have access to all your
   Slack conversations. It only has access to the
   messages in Slack conversation threads where it is

@@ -164,9 +164,6 @@ Word extension known limitations
 The following are known limitations of the Amazon Quick Suite Microsoft
 Word extension:
 
-- The Microsoft Word extension doesn't support
-  Amazon Quick Suite accounts that use IAM Identity Center for
-  authentication.
 - The Microsoft Word extension can't generate visuals
   from structured data.
 - Web search isn't supported in the Microsoft Word

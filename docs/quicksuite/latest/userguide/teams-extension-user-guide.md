@@ -156,9 +156,6 @@ Teams extension known limitations
 The following are known limitations of the Amazon Quick Suite Microsoft
 Teams extension:
 
-- The Microsoft Teams extension isn't supported for
-  Amazon Quick Suite accounts that use IAM Identity Center for
-  authentication.
 - The Microsoft Teams extension doesn't have access to
   all your Microsoft Teams conversations. It only has
   access to the messages in Microsoft Teams posts where it
