@@ -1,31 +1,20 @@
-# x-amazon-apigateway-request-validators object
+# x-amazon-apigateway-request-validators.requestValidator object
 
-Defines the supported request validators for the containing API as a map between a validator name and the associated request validation rules. This extension applies to a REST API.
+Specifies the validation rules of a request validator as part of the
+[x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") map definition.
 
-| Property name            | Type                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request_validator_name` | [x-amazon-apigateway-request-validators.requestValidator object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") | Specifies the validation rules consisting of the named validator.<br>For example:<br>`<br>"basic" : {<br>"validateRequestBody" : true,<br>"validateRequestParameters" : true<br>},<br>`<br>To apply this validator to a specific method, reference the validator name (`basic`) as the value of the [x-amazon-apigateway-request-validator property](api-gateway-swagger-extensions-request-validator.md "api-gateway-swagger-extensions-request-validator.md") property. |
+| Property name               | Type      | Description                                                                              |
+| --------------------------- | --------- | ---------------------------------------------------------------------------------------- |
+| `validateRequestBody`       | `Boolean` | Specifies whether to validate the request body (`true`) or not (`false`).                |
+| `validateRequestParameters` | `Boolean` | Specifies whether to validate the required request parameters (`true`) or not (`false`). |
 
-## `x-amazon-apigateway-request-validators` example
+## `x-amazon-apigateway-request-validators.requestValidator` example
 
-The following example shows a set of request validators for an API as a map between a validator name and the associated request validation rules.
-
-OpenAPI 2.0
+The following example shows a parameter-only request validator:
 
 ```
-{
-  "swagger": "2.0",
-  ...
-  "x-amazon-apigateway-request-validators" : {
-    "basic" : {
-      "validateRequestBody" : true,
-      "validateRequestParameters" : true
-    },
-    "params-only" : {
-      "validateRequestBody" : false,
-      "validateRequestParameters" : true
-    }
-  },
-  ...
+"params-only": {
+    "validateRequestBody" : false,
+    "validateRequestParameters" : true
 }
 ```

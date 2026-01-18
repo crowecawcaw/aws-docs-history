@@ -1,34 +1,36 @@
-# x-amazon-apigateway-gateway-responses object
+# x-amazon-apigateway-gateway-responses.responseTemplates object
 
-Defines the gateway responses for an API as a string-to-[GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") map of key-value pairs. The extension applies to the root-level OpenAPI structure.
+Defines [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") mapping templates, as a string-to-string map of key-value
+pairs, for a given gateway response. For each key-value pair, the key is the content
+type. For example, "application/json" and the value is a stringified mapping template
+for simple variable substitutions. A `GatewayResponse` mapping template isn't
+processed by the [Velocity
+Template Language (VTL)](https://velocity.apache.org/engine/devel/vtl-reference.html "https://velocity.apache.org/engine/devel/vtl-reference.html") engine.
 
-| Property name  | Type                                                                                                                                                               | Description                                           |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| `responseType` | [x-amazon-apigateway-gateway-responses.gatewayResponse](api-gateway-swagger-extensions-gateway-responses.md "api-gateway-swagger-extensions-gateway-responses.md") | A `GatewayResponse` for the specified `responseType`. |
+| Property name  | Type     | Description                                                                                                                  |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `content-type` | `string` | A `GatewayResponse` body mapping template supporting only simple variable substitution to customize a gateway response body. |
 
-## x-amazon-apigateway-gateway-responses example
+## x-amazon-apigateway-gateway-responses.responseTemplates example
 
-The following API Gateway extension to OpenAPI example defines a [GatewayResponses](../api/API_GetGatewayResponses.md "../api/API_GetGatewayResponses.md") map that
-contains two [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") instances—one for the `DEFAULT_4XX`
-type and another for the `INVALID_API_KEY` type.
+The following OpenAPI extensions example shows a [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") mapping
+template to customize an API Gateway–generated error response into an app-specific
+format.
 
 ```
-{
-  "x-amazon-apigateway-gateway-responses": {
-    "DEFAULT_4XX": {
-      "responseParameters": {
-        "gatewayresponse.header.Access-Control-Allow-Origin": "'domain.com'"
-      },
+
       "responseTemplates": {
-        "application/json": "{\"message\": test 4xx b }"
+        "application/json": "{ \"message\": $context.error.messageString, \"type\":$context.error.responseType, \"statusCode\": '488' }"
       }
-    },
-    "INVALID_API_KEY": {
-      "statusCode": "429",
+```
+
+The following OpenAPI extensions example shows a [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") mapping
+template to override an API Gateway–generated error response with a static error
+message.
+
+```
+
       "responseTemplates": {
-        "application/json": "{\"message\": test forbidden }"
+        "application/json": "{ \"message\": 'API-specific errors' }"
       }
-    }
-  }
-}
 ```
