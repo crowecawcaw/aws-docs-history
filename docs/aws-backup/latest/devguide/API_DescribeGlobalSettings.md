@@ -1,8 +1,6 @@
 # DescribeGlobalSettings
 
-Describes whether the AWS account is opted in to cross-account backup.
-Returns an error if the account is not a member of an Organizations organization.
-Example: `describe-global-settings --region us-west-2`
+Describes whether the AWS account has enabled different cross-account management options, including cross-account backup, multi-party approval, and delegated administrator. Returns an error if the account is not a member of an Organizations organization. Example: `describe-global-settings --region us-west-2`
 
 ## Request Syntax
 
@@ -41,17 +39,17 @@ The following data is returned in JSON format by the service.
 
 **[GlobalSettings](#API_DescribeGlobalSettings_ResponseSyntax "#API_DescribeGlobalSettings_ResponseSyntax")**
 
-The status of the flags `isCrossAccountBackupEnabled`,
-`isMpaEnabled` ('Mpa' refers to multi-party approval), and `isDelegatedAdministratorEnabled`.
+The status of the flags `isCrossAccountBackupEnabled`, `isMpaEnabled` ('Mpa' refers to multi-party approval), and `isDelegatedAdministratorEnabled`.
+
+- `isCrossAccountBackupEnabled`: Allow accounts in your organization to copy backups to other accounts.
+- `isMpaEnabled`: Add cross-account access to your organization with the option to assign a Multi-party approval team to a logically air-gapped vault.
+- `isDelegatedAdministratorEnabled`: Allow Backup to automatically synchronize delegated administrator permissions with Organizations.
 
 Type: String to string map
 
 **[LastUpdateTime](#API_DescribeGlobalSettings_ResponseSyntax "#API_DescribeGlobalSettings_ResponseSyntax")**
 
-The date and time that the flag `isCrossAccountBackupEnabled` was last
-updated. This update is in Unix format and Coordinated Universal Time (UTC). The value of
-`LastUpdateTime` is accurate to milliseconds. For example, the value
-1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+The date and time that the supported flags were last updated. This update is in Unix format and Coordinated Universal Time (UTC). The value of `LastUpdateTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
 
 Type: Timestamp
 

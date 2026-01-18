@@ -23,6 +23,11 @@ logically air-gapped vault stores its backups in an AWS Backup service owned acc
 results in backups shown as shared outside your organization in modify attribute items in
 AWS CloudTrail logs).
 
+In the scenario where your logically air-gapped vault owning account is closed (maliciously or otherwise), you can still access backups in the vault (restore or copy them)
+via MPA until the [post-closure period](../../../accounts/latest/reference/manage-acct-closing.md#post-closure-period "../../../accounts/latest/reference/manage-acct-closing.md#post-closure-period") ends.
+After the post-closure period expires, the backups are no longer accessible. During the post-closure period, you can reference the
+[AWS Account Management documentation](../../../accounts/latest/reference/manage-acct-closing.md#what-to-expect-after-closure "../../../accounts/latest/reference/manage-acct-closing.md#what-to-expect-after-closure") to regain control of your account while working on recovery.
+
 For greater resiliency, we recommend creating cross-Region copies in logically air-gapped vaults in same or separate accounts.
 However, if you want to reduce storage costs by maintaining just a single copy, you can use
 [Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md"), after onboarding to AWS MPA.

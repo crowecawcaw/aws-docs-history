@@ -69,6 +69,22 @@ even if one or more delegated administrator accounts are configured. Delegated
 administrator accounts are member accounts with enhanced features and cannot
 override settings like a management account can. 4. Manage backup, restore, and copy jobs in all your AWS accounts.
 
+## Cross-account management settings
+
+Cross-account management allows you to enable or disable settings for managing and monitoring activities across multiple accounts within your organization.
+
+Cross-account backup
+
+Allow accounts in your organization to copy backups to other accounts.
+
+Multi-party approval
+
+Multi-party approval integration allows you to opt-in all accounts in your organization to Multi-party approval.
+
+Delegated Administrator
+
+Delegated Administrator allows Backup to automatically synchronize delegated administrator permissions with Organizations.
+
 ## Creating a management account in Organizations
 
 First, you must [create your
