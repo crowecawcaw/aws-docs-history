@@ -89,6 +89,19 @@ The following parameters are used in
   `/24` and `/64` subnets from the larger CIDR. an
   Inside CIDR block is required for attaching Connect attachments to a Core
   Network Edge.
+
+###### Note
+
+If the ranges provided do not have enough space to create a `/24`
+for IPv4 or `/64` for IPv6 block when a new edge location is added to the
+policy a policy exception will occur. Auto assigning CIDR blocks will occur whenever
+a value for this option is specified. To avoid this exception you would either need
+to increase the CIDR range provided or have this CIDR range match the CIDRS specified
+in the core network edges section per Region. Expanding the range will allow the service
+to be able to auto assign a CIDR range for a new edge location. Having the ranges match
+the core network edge locations indicates that no auto assigning needs to occur and we
+will not attempt to auto assign for any new edge locations.
+
 - `vpn-ecmp-support` — (Optional) Indicate whether the core
   network forwards traffic over multiple equal-cost routes using VPN. The
   value can either be `true` or `false`. The default is
@@ -870,7 +883,9 @@ The following parameters are used in `routing-policies`:
         - `prefix-equals` — Match specific IPv4
           or IPv6 prefixes
         - `prefix-in-cidr` — Match prefixes
-          within a CIDR range
+          within a CIDR range (prefixes that are a subset of the specified
+          prefixes will be included only. If you also want to include the prefix
+          specified you must also use the prefix-equals match condition)
         - `prefix-in-prefix-list` — Match
           prefixes defined in a managed prefix list (must be tied to an existing prefix list alias for a core network prefix list association,
           see [AWS Cloud WAN prefix list associations](cloudwan-prefix-lists.md "cloudwan-prefix-lists.md"))

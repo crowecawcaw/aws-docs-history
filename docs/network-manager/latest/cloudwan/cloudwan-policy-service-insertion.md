@@ -118,6 +118,11 @@ and north-south traffic.
   appliance, such as an Inspection VPC, and out to the Internet or to an
   on-premises location. Traffic does not re-enter the AWS cloud.
 
+###### Note
+
+If a network function group is used by a send via dual hop action it cannot be reused
+for a single hop or a send to action.
+
 ## Attachments
 
 Within a network function group you can specify a set of core network attachments
@@ -176,6 +181,10 @@ The following are the supported core network attachments:
   requires specific configuration in your policy to define which routes should be available to the network functions.
   In some situations, BGP route updates for Network Function Group route tables may take up to 30 minutes to display
   in the GetNetworkRoutes API and console. This delay does not affect the actual routing functionality.
+- **Routing Information** — When checking the routing information for a core network
+  segment with Service Insertion send to enabled you may see a 0/0 and ::/0 CIDR block route being blackholed.
+  This is expected behavior and you can confirm that those destinations point to the correct location
+  when viewing the route tab on the console or the get-network-routes API.
 
 ## Pricing
 
