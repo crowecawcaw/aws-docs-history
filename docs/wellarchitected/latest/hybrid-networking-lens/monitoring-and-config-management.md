@@ -15,12 +15,12 @@ KPIs as custom metrics for your specific needs. CloudWatch
 provides dashboards and alerts that can trigger automated actions
 on the platform.
 
-**AWS Health Dashboard**
+**Health Dashboard**
 provides alerts and remediation guidance when AWS is experiencing
 events that may impact you and The **Service
 Health Dashboard** provides public information about the
 regional availability of a service. While the Service Health
-Dashboard displays the general status of AWS services, AWS Health Dashboard gives you a personalized view into the
+Dashboard displays the general status of AWS services, Health Dashboard gives you a personalized view into the
 performance and availability of the AWS services underlying your
 AWS resources.
 

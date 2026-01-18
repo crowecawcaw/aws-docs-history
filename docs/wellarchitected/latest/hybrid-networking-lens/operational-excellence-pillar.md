@@ -105,7 +105,7 @@ you. To help you manage these events, you can leverage
 [AWS Health Dashboard](https://aws.amazon.com/premiumsupport/phd/ "https://aws.amazon.com/premiumsupport/phd/") to display
 relevant information and provide proactive notifications so
 that you can plan for scheduled activities. We recommend using
-the AWS Health Dashboard to receive notifications for
+the Health Dashboard to receive notifications for
 scheduled maintenance or events that will affect Direct
 Connect.
 
