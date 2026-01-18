@@ -19,13 +19,10 @@ your instance, group, or project. For more information, see [Turn
 off GitLab Duo with Amazon Q](https://docs.gitlab.com/ee/user/duo_amazon_q/setup.html#turn-off-gitlab-duo-with-amazon-q "https://docs.gitlab.com/ee/user/duo_amazon_q/setup.html#turn-off-gitlab-duo-with-amazon-q").
 
 Once you set up GitLab Duo with Amazon Q, you can begin using the AI capabilities of
-Amazon Q in GitLab to transform your code to Java 17, review merge requests for quality and
+Amazon Q in GitLab to review merge requests for quality and
 vulnerabilities, and suggest unit tests. You can also use the GitLab Duo Chat feature that supports
 Amazon Q to address developmental tasks, such as vulnerability explanation, troubleshoot failed
 pipelines, and code refactoring.
 
-Before you can invoke code transformation, you must have at least one
-[GitLab Runner](https://docs.gitlab.com/runner/ "https://docs.gitlab.com/runner/") available for your project
-that must be customized. For more information, see
-[Customizing a CI/CD pipeline for code transformation](gitlab-customize-runner.md "gitlab-customize-runner.md"). To learn more
+To learn more
 about how to invoke quick actions in GitLab issues and merge requests, see [GitLab Duo with Amazon Q](https://docs.gitlab.com/ee/user/duo_amazon_q/ "https://docs.gitlab.com/ee/user/duo_amazon_q/").

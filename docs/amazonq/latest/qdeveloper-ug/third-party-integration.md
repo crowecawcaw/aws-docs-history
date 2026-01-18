@@ -3,7 +3,7 @@
 Amazon Q Developer integrates with popular development platforms to enhance your software development workflows
 through specialized artificial intelligence (AI) capabilities. Supported integrations include and GitLab Duo and GitHub,
 providing AI-powered assistance throughout the development lifecycle. These integrations help streamline development by
-automating routine tasks, improving code quality, and accelerating modernization efforts.
+automating routine tasks and improving code quality.
 
 ## GitLab Duo with Amazon Q Developer
 
@@ -16,7 +16,6 @@ GitLab Duo with Amazon Q provides:
 
 - Feature development of high-level ideas with a quick action in GitLab issues
 - Code reviews for code quality, issues, and security concerns with a quick action in merge requests
-- Code modernization to latest supported Java version with a quick action in GitLab issues
 - Unit test generation with a quick action in merge requests
 - Integrated chat support for development tasks
 
@@ -25,7 +24,7 @@ Amazon Q](https://docs.gitlab.com/user/duo_amazon_q/setup/ "https://docs.gitlab.
 
 ## Amazon Q Developer for GitHub (Preview)
 
-The Amazon Q Developer integration with GitHub enables automated feature development, code reviews, and Java modernization
+The Amazon Q Developer integration with GitHub enables automated feature development and code reviews
 through specialized AI agents. When you assign a GitHub issue to Amazon Q Developer, it uses the issue and project code as context
 to generate new code and create a pull request. During the development process, you can provide feedback and Amazon Q Developer
 iterates on the suggested code, creating a collaborative development workflow.

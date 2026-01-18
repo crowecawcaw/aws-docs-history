@@ -139,43 +139,6 @@ documentation](https://docs.gitlab.com/ee/user/duo_amazon_q/index.html "https://
   request reviewer. You're also provided a merge request summary. For more information, see
   [Turn
   an idea into a merge request](https://docs.gitlab.com/ee/user/duo_amazon_q/#turn-an-idea-into-a-merge-request "https://docs.gitlab.com/ee/user/duo_amazon_q/#turn-an-idea-into-a-merge-request").
-- `/q dev` (revise) – Allows you to iterate on the proposed code
-  implementation provided by Amazon Q rather than starting again from an issue. Amazon Q reviews
-  your feedback and makes updates to the code that was originally generated. You’re also
-  provided with commit messages for each change being made. The description following each
-  iteration is updated and a comment describing the feedback is incorporated into the iteration.
-  You can then review and merge the suggestions to your code. For more information, see
-  [Make
-  code changes based on feedback](https://docs.gitlab.com/ee/user/duo_amazon_q/#make-code-changes-based-on-feedback "https://docs.gitlab.com/ee/user/duo_amazon_q/#make-code-changes-based-on-feedback").
-
-**Code transformation**
-
-- `/q transform` – Allows you to initiate the upgrade process from Java
-  Maven 8 or Java Maven 11 to Java Maven 17 project. Starting from a GitLab issue, Amazon Q analyzes
-  the code to determine the necessary Java upgrades or modernization, updates the issue,
-  automatically opens a new merge request with the proposed changes, and assigns the issue creator
-  as a reviewer. You need a [GitLab Runner](https://docs.gitlab.com/runner/ "https://docs.gitlab.com/runner/") setup to build, and it needs to be customized for code transformation.
-  For more information, [Customizing a CI/CD pipeline for code transformation](gitlab-customize-runner.md "gitlab-customize-runner.md") and
-  [Upgrade
-  Java](https://docs.gitlab.com/ee/user/duo_amazon_q/#upgrade-java "https://docs.gitlab.com/ee/user/duo_amazon_q/#upgrade-java").
-
-###### Note
-
-The source version of a Maven project needs to be identified before you can transform
-your code, so your compiler settings need to be set within a `pom.xml` file.
-Therefore, your `pom.xml` file must have a
-[source
-and target](https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html "https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html").
-
-**Unit test generation**
-
-- `/q test` – Allows you to generate unit tests for new added lines of source
-  code in your merge request. Amazon Q comments with unit test suggestions that can be added to your
-  test file. You can apply the generated tests at once or review each test individually before
-  applying. If a test file isn’t found in the merge request, Amazon Q provides the unit tests that
-  you can manually add to a test file. For more information, see
-  [Create test
-  coverage](https://docs.gitlab.com/ee/user/duo_amazon_q/#create-test-coverage "https://docs.gitlab.com/ee/user/duo_amazon_q/#create-test-coverage").
 
 **Code review**
 
