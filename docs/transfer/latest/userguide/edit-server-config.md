@@ -109,7 +109,7 @@ The migration occurred between September 2 and September 13. The actual migratio
 within this range depends on the Region of your server.
 
 ![Server details screen showing the Monitoring section..](images/edit-server-details-additional.png)
-![Server details screen showing the Tags section.](/images/transfer/latest/userguide/images/edit-server-details-monitoring.png)
+![Server details screen showing the Tags section.](images/edit-server-details-monitoring.png)
 ![Server details screen showing the Tags section.](images/edit-server-details-tags.png)
 
 ## Edit the file transfer protocols
@@ -343,7 +343,7 @@ workflow** to create one.
      executing the workflow's steps. For more information, see [IAM policies for workflows](workflow-execution-role.md "workflow-execution-role.md"). Choose
      **Save**.
 
-![The Managed workflows console section.](images/workflows-addtoserver.png) 3. Choose **Save**. You are returned to the **Server
+![The Managed workflows console section.](/images/transfer/latest/userguide/images/workflows-addtoserver.png) 3. Choose **Save**. You are returned to the **Server
 details** page.
 
 ## Change the display banners for
