@@ -340,6 +340,21 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `x8aedz.24xlarge`   | 16                               | 128                              | 384                             |
 | `x8aedz.metal-12xl` | 8                                | 64                               | 192                             |
 | `x8aedz.metal-24xl` | 16                               | 128                              | 384                             |
+| **X8i**             |
+| `x8i.large`         | 2                                | 2                                | 6                               |
+| `x8i.xlarge`        | 4                                | 4                                | 16                              |
+| `x8i.2xlarge`       | 8                                | 8                                | 32                              |
+| `x8i.4xlarge`       | 8                                | 16                               | 64                              |
+| `x8i.8xlarge`       | 8                                | 32                               | 128                             |
+| `x8i.12xlarge`      | 16                               | 64                               | 192                             |
+| `x8i.16xlarge`      | 16                               | 64                               | 256                             |
+| `x8i.24xlarge`      | 16                               | 128                              | 384                             |
+| `x8i.32xlarge`      | 16                               | 128                              | 512                             |
+| `x8i.48xlarge`      | 32                               | 128                              | 768                             |
+| `x8i.64xlarge`      | 32                               | 128                              | 1024                            |
+| `x8i.96xlarge`      | 32                               | 128                              | 1536                            |
+| `x8i.metal-48xl`    | 32                               | 128                              | 768                             |
+| `x8i.metal-96xl`    | 32                               | 128                              | 1536                            |
 
 ###### Note
 

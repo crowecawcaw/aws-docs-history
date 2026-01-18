@@ -173,7 +173,7 @@ Confirmation`. Follow the directions to confirm your
 
 notifications
 
-AWS Health sends the following email and AWS Health Dashboard notifications when capacity
+AWS Health sends the following email and Health Dashboard notifications when capacity
 utilization for Capacity Reservations in your account drops below 20 percent.
 
 - Individual notifications for each newly created Capacity Reservation that has been below
@@ -181,7 +181,7 @@ utilization for Capacity Reservations in your account drops below 20 percent.
 - A summary notification for all Capacity Reservations that have been below 20 percent
   utilization over the last 7-day period.
 
-The email notifications and AWS Health Dashboard notifications are sent to the email address
+The email notifications and Health Dashboard notifications are sent to the email address
 associated with the AWS account that owns the Capacity Reservations. The notifications include the
 following information:
 

@@ -60,7 +60,7 @@ Instance types in the following instance families support configurable bandwidth
 
 - **General purpose:** M8a, M8g, M8gd, M8i, M8i-flex
 - **Compute optimized:** C8a, C8g, C8gd, C8i, C8i-flex
-- **Memory optimized:** R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz
+- **Memory optimized:** R8a, R8g, R8gd, R8i, R8i-flex, X8g, X8aedz, X8i
 
 ## Check current bandwidth settings
 
@@ -487,6 +487,20 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | x8aedz.24xlarge   | 75.0                            | 93.75                         | 60.0                          |
 | x8aedz.metal-12xl | 37.5                            | 46.875                        | 30.0                          |
 | x8aedz.metal-24xl | 75.0                            | 93.75                         | 60.0                          |
+| x8i.large         | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.774 / 10.0                  |
+| x8i.xlarge        | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
+| x8i.2xlarge       | 3.75 / 15.0                     | 4.688 / 15.0                  | 3.125 / 12.5                  |
+| x8i.4xlarge       | 7.5 / 15.0                      | 9.375 / 15.0                  | 6.25 / 12.5                   |
+| x8i.8xlarge       | 15.0                            | 18.75                         | 12.5                          |
+| x8i.12xlarge      | 22.5                            | 28.125                        | 18.75                         |
+| x8i.16xlarge      | 30.0                            | 37.5                          | 25.0                          |
+| x8i.24xlarge      | 40.0                            | 50.0                          | 32.5                          |
+| x8i.32xlarge      | 50.0                            | 62.5                          | 40.0                          |
+| x8i.48xlarge      | 75.0                            | 93.75                         | 60.0                          |
+| x8i.64xlarge      | 80.0                            | 100.0                         | 62.5                          |
+| x8i.96xlarge      | 100.0                           | 125.0                         | 80.0                          |
+| x8i.metal-48xl    | 75.0                            | 93.75                         | 60.0                          |
+| x8i.metal-96xl    | 100.0                           | 125.0                         | 80.0                          |
 
 ## Amazon EBS performance
 
@@ -683,3 +697,17 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | x8aedz.24xlarge   | 60.0                            | 41.25                         | 75.0                          |
 | x8aedz.metal-12xl | 30.0                            | 20.625                        | 37.5                          |
 | x8aedz.metal-24xl | 60.0                            | 41.25                         | 75.0                          |
+| x8i.large         | 0.65 / 10.0                     | 0.415 / 6.25                  | 0.813 / 10.0                  |
+| x8i.xlarge        | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
+| x8i.2xlarge       | 2.5 / 10.0                      | 1.562 / 6.25                  | 3.125 / 10.0                  |
+| x8i.4xlarge       | 5.0 / 10.0                      | 3.125 / 6.25                  | 6.25 / 10.0                   |
+| x8i.8xlarge       | 10.0                            | 6.25                          | 12.5                          |
+| x8i.12xlarge      | 15.0                            | 9.375                         | 18.75                         |
+| x8i.16xlarge      | 20.0                            | 12.5                          | 25.0                          |
+| x8i.24xlarge      | 30.0                            | 20.0                          | 37.5                          |
+| x8i.32xlarge      | 40.0                            | 27.5                          | 50.0                          |
+| x8i.48xlarge      | 60.0                            | 41.25                         | 75.0                          |
+| x8i.64xlarge      | 70.0                            | 50.0                          | 87.5                          |
+| x8i.96xlarge      | 80.0                            | 55.0                          | 100.0                         |
+| x8i.metal-48xl    | 60.0                            | 41.25                         | 75.0                          |
+| x8i.metal-96xl    | 80.0                            | 55.0                          | 100.0                         |

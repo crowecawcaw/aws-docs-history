@@ -159,6 +159,11 @@ Nitro v6
 | r8i.metal-96xl        | Yes               | Yes                |
 | x8aedz.24xlarge       | Yes               | Yes                |
 | x8aedz.metal-24xl     | Yes               | Yes                |
+| x8i.48xlarge          | Yes               | Yes                |
+| x8i.64xlarge          | Yes               | Yes                |
+| x8i.96xlarge          | Yes               | Yes                |
+| x8i.metal-48xl        | Yes               | Yes                |
+| x8i.metal-96xl        | Yes               | Yes                |
 | Storage Optimized     |
 | i8ge.48xlarge         | Yes               | No                 |
 | i8ge.metal-48xl       | Yes               | No                 |

@@ -132,9 +132,9 @@ Metric values:
 - **0** – The system status check passed.
 - **1** – The system status check failed.
 
-**Events in AWS Health Dashboard**
+**Events in Health Dashboard**
 
-During automatic instance recovery attempts, AWS sends events to your AWS Health Dashboard based
+During automatic instance recovery attempts, AWS sends events to your Health Dashboard based
 on the configured recovery mechanism and its outcome:
 
 - Simplified automatic recovery
@@ -156,7 +156,7 @@ CloudWatch action based recovery.
 | ----------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
 | Configuration                             | Enabled by default on supported instances                                | Requires manual configuration of CloudWatch alarms and actions                                                      |
 | Flexibility                               | Fixed recovery behavior managed by AWS                                   | Customizable actions and conditions                                                                                 |
-| Notification                              | Basic notifications through AWS Health Dashboard                         | Customizable notifications through SNS                                                                              |
+| Notification                              | Basic notifications through Health Dashboard                             | Customizable notifications through SNS                                                                              |
 | Metal instance size                       | Excluded                                                                 | Included                                                                                                            |
 | Instance store volumes attached at launch | Not supported for instances that attach instance store volumes at launch | Supported on selected instance types. Note that data on instance store volumes is<br>lost during instance recovery. |
 | Recovery time                             | Standard recovery attempt                                                | Faster recovery attempts than simplified automatic recovery                                                         |

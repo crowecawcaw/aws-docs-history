@@ -415,6 +415,13 @@ Memory optimized
 | `x8g.metal-48xl`       | arm64        |
 | `x8aedz.24xlarge`      | x86_64       |
 | `x8aedz.metal-24xl`    | x86_64       |
+| `x8i.24xlarge`         | x86_64       |
+| `x8i.32xlarge`         | x86_64       |
+| `x8i.48xlarge`         | x86_64       |
+| `x8i.64xlarge`         | x86_64       |
+| `x8i.96xlarge`         | x86_64       |
+| `x8i.metal-48xl`       | x86_64       |
+| `x8i.metal-96xl`       | x86_64       |
 
 Accelerated computing
 

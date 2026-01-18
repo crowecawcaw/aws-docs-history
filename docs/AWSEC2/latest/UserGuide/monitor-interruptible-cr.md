@@ -19,7 +19,7 @@ If you're running instances in an interruptible reservation, you receive this no
 {
     "version": "0",
     "id": "`12345678-1234-1234-1234-123456789012`",
-    "detail-type": "EC2 Interruptible Capacity Reservation Instance Interruption Warning",
+    "detail-type": "EC2 Capacity Reservation Instance Interruption Warning",
     "source": "aws.ec2",
     "account": "[`instance owner Account ID`]",
     "time": "[`Current time in yyyy-mm-ddThh:mm:ssZ`]",
@@ -42,7 +42,7 @@ If you own the source reservation, you receive this notification when capacity r
 {
     "version": "0",
     "id": "`12345678-1234-1234-1234-123456789012`",
-    "detail-type": "EC2 Capacity Reservation Interruptible Reclamation Complete",
+    "detail-type": "EC2 Interruptible Capacity Reservation Allocation Reclamation Completed",
     "source": "aws.ec2",
     "account": "[`source Capacity Reservation Owner Account ID`]",
     "time": "[`Current time in yyyy-mm-ddThh:mm:ssZ`]",

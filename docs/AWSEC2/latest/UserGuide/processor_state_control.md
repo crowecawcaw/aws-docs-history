@@ -80,7 +80,11 @@ The following instance types provide the ability for an operating system to cont
   `c8i.xlarge` | `c8i.2xlarge` | `c8i.4xlarge` |
   `c8i.8xlarge` | `c8i.12xlarge` | `c8i.16xlarge` |
   `c8i.24xlarge` | `c8i.32xlarge` | `c8i.48xlarge` |
-  `c8i.96xlarge`
+  `c8i.96xlarge` | `x8i.large` | `x8i.xlarge` |
+  `x8i.2xlarge` | `x8i.4xlarge` | `x8i.8xlarge` |
+  `x8i.12xlarge` | `x8i.16xlarge` | `x8i.24xlarge` |
+  `x8i.32xlarge` | `x8i.48xlarge` | `x8i.48xlarge` |
+  `x8i.96xlarge`
 - Memory optimized:
   `r5.12xlarge` | `r5.24xlarge` | `r5b.12xlarge` |
   `r5d.12xlarge` | `r5d.24xlarge` | `r5n.12xlarge` |

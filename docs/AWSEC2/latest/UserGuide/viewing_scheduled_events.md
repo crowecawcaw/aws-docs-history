@@ -173,7 +173,7 @@ in JSON format.
 
 AWS Health
 You can use the AWS Health Dashboard to learn about events that can affect your
-instance. The AWS Health Dashboard organizes issues in three groups: open issues,
+instance. The Health Dashboard organizes issues in three groups: open issues,
 scheduled changes, and other notifications. The scheduled changes group
 contains items that are ongoing or upcoming.
 

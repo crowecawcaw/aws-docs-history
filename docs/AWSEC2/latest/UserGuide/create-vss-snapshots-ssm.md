@@ -92,9 +92,12 @@ set to `False`.
 **SaveVssMetadata** (string, optional)
 
 To save VSS metadata files during every snapshot, set this parameter to
-`True`. The default value is `False`. VSS Metadata files
+`True`. The default value is `False`. These files
 help provide insights into which components or writers were included in a backup
-operation, and the associated files for each component.
+operation, and the associated files and volumes for each snapshot. The metadata files
+are used when restoring a SQL database using VSS restore solution. For more information
+on how to restore a SQL database from VSS snapshots, see
+[Use an automation runbook to restore your database from AWS VSS solution snapshots](../../../sql-server-ec2/latest/userguide/ms-ssdb-ec2-restore-vss.md "../../../sql-server-ec2/latest/userguide/ms-ssdb-ec2-restore-vss.md").
 
 Metadata files have the associated snapshot set id in their names. You can find
 them at the following location on your instance:

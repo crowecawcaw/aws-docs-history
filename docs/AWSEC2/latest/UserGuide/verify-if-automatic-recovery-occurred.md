@@ -5,19 +5,19 @@ occurred
 If your instance appears to have been offline and then unexpectedly rebooted, it might
 have undergone [automatic instance
 recovery](ec2-instance-recover.md#ec2-automatic-instance-recovery-key-concepts "ec2-instance-recover.md#ec2-automatic-instance-recovery-key-concepts") in response to an underlying hardware or software issue. You can verify this
-by checking for automatic instance recovery events in your AWS Health Dashboard. You can also check whether
+by checking for automatic instance recovery events in your Health Dashboard. You can also check whether
 an underlying hardware or software issue was detected for your instance by checking the
 **StatusCheckFailed_System** Amazon CloudWatch metric.
 
-## Check for events in AWS Health Dashboard
+## Check for events in Health Dashboard
 
-When an automatic instance recovery attempt occurs, AWS sends events to your AWS Health Dashboard.
+When an automatic instance recovery attempt occurs, AWS sends events to your Health Dashboard.
 The specific event depends on the configured recovery mechanism and whether the attempt
 succeeded or failed.
 
-###### To check for automatic instance recovery events in the AWS Health Dashboard
+###### To check for automatic instance recovery events in the Health Dashboard
 
-1. Open the AWS Health Dashboard at
+1. Open the Health Dashboard at
    [https://phd.aws.amazon.com/phd/home#/](https://phd.aws.amazon.com/phd/ "https://phd.aws.amazon.com/phd/").
 2. Look for the events associated with automatic instance recovery. The presence of
    these events can confirm whether an attempt at automatic instance recovery occurred and

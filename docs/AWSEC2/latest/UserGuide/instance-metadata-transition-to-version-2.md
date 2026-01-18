@@ -307,8 +307,8 @@ Amazon EC2 console
     2. On the EC2 Dashboard, under **Account
      attributes**, choose **Data
      protection and security**.
-    3. Under**IMDS defaults**, choose
-     Manage.
+    3. Under **IMDS defaults**, choose
+     **Manage**.
     4. For **Instance metadata service** , choose
      **Enabled**.
     5. For **Metadata version**, choose

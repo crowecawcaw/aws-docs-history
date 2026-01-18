@@ -587,5 +587,5 @@ AWS Region.
 
 | Description                                               | Quota |
 | --------------------------------------------------------- | ----- |
-| In-progress (`pending`) AMI usage reports per AWS account | 100   |
+| In-progress (`pending`) AMI usage reports per AWS account | 2,000 |
 | In-progress (`pending`) AMI usage reports per AMI         | 1     |
