@@ -7,7 +7,7 @@ The guidance provides both interactive and manual deployment options. The intera
 Run the interactive deployment command:
 
 ```
-make deploy
+ make deploy
 ```
 
 The wizard guides you through three configuration steps:
@@ -15,7 +15,7 @@ The wizard guides you through three configuration steps:
 **Step 1: AWS Profile Selection**
 
 ```
-Available AWS Profiles:
+ Available AWS Profiles:
 0       default
 1       dev-account
 2       prod-account
@@ -27,7 +27,7 @@ Select profile number (0 for default): 1
 **Step 2: Deployment Stage Selection**
 
 ```
-Deployment Stage Options:
+ Deployment Stage Options:
 1. dev (cms-dev-*)
 2. prod (cms-prod-*)
 3. Custom stage name
@@ -39,7 +39,7 @@ Select deployment stage (1-3): 1
 **Step 3: Phase Selection**
 
 ```
-Deployment Options:
+ Deployment Options:
 0. Infrastructure Foundation (~5 min)
 1. Fleet Manager Interface (~15 min)
 2. Fleet Management Interface (~5 min)

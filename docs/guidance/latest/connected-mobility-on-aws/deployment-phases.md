@@ -5,7 +5,7 @@
 Deploys VPC, subnets, security groups, and ElastiCache Redis cluster.
 
 ```
-make infrastructure AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make infrastructure AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 1: Fleet Manager Interface (~15 minutes)**
@@ -13,7 +13,7 @@ make infrastructure AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Deploys IoT Core, DynamoDB tables, S3 buckets, Lambda functions, Cognito user pools, and CloudFront distribution with React UI.
 
 ```
-make phase1 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase1 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 2: Fleet Management Interface (~5 minutes)**
@@ -21,7 +21,7 @@ make phase1 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Seeds DynamoDB tables with sample fleet data and configures historical data injection.
 
 ```
-make phase2 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase2 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 3: MSK Deployment (~20 minutes)**
@@ -29,7 +29,7 @@ make phase2 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Deploys Amazon MSK cluster with VPC configuration, security groups, and KMS encryption.
 
 ```
-make phase3 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase3 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 3b: MSK Configuration (~5 minutes)**
@@ -37,7 +37,7 @@ make phase3 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Associates SCRAM secrets with MSK, creates VPC destination, and deploys IoT rule for telemetry routing.
 
 ```
-make phase3b AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase3b AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 4: Flink Deployment (~10 minutes)**
@@ -45,7 +45,7 @@ make phase3b AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Deploys 5 Flink applications: EventDriven, Enhanced, Trip, Safety, and Maintenance processors.
 
 ```
-make phase4 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase4 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 5: Flink Configuration (~8 minutes)**
@@ -53,7 +53,7 @@ make phase4 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Builds JAR from source, uploads to S3, configures applications with MSK bootstrap servers, IAM authentication, VPC settings, and starts all applications.
 
 ```
-make phase5 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase5 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phase 6: Complete Configuration (~5 minutes)**
@@ -61,7 +61,7 @@ make phase5 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Runs final integration scripts and validates end-to-end pipeline.
 
 ```
-make phase6 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make phase6 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Deploy All Phases (~63 minutes)**
@@ -69,7 +69,7 @@ make phase6 AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 Sequential deployment of all phases from 0-7.
 
 ```
-make deploy-all AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make deploy-all AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 **Phased Deployment Approach**

@@ -17,7 +17,7 @@ The MSK cluster is deployed with specific configuration optimized for IoT teleme
 One of the critical implementation details is enabling automatic topic creation, which simplifies deployment and allows Flink applications to create topics dynamically:
 
 ```
-auto.create.topics.enable=true
+ auto.create.topics.enable=true
 default.replication.factor=2
 num.partitions=3
 ```
@@ -95,7 +95,7 @@ The MSK cluster is deployed in a dedicated VPC with specific networking configur
 The cluster explicitly disables VPC connectivity for SASL authentication to use standard broker endpoints:
 
 ```
-{
+ {
   "vpc_connectivity": {
     "client_authentication": {
       "sasl": {
@@ -168,7 +168,7 @@ The cluster uses the default MSK configuration with `allow.everyone.if.no.acl.fo
 - **Production Hardening**: Should be disabled in production with explicit ACLs:
 
 ```
-# Grant IoT user write access to raw-telemetry topic
+ # Grant IoT user write access to raw-telemetry topic
 kafka-acls --bootstrap-server $BOOTSTRAP_SERVERS \
   --command-config client.properties \
   --add --allow-principal User:iot-user \
@@ -193,7 +193,7 @@ kafka-acls --bootstrap-server $BOOTSTRAP_SERVERS \
 - **SCRAM Secret Association**: After cluster creation, associate SCRAM secret manually:
 
 ```
-aws kafka batch-associate-scram-secret \
+ aws kafka batch-associate-scram-secret \
   --cluster-arn <cluster-arn> \
   --secret-arn-list <secret-arn>
 ```

@@ -5,13 +5,13 @@ After deployment completes, validate the guidance with these verification steps.
 **Check Deployment Status**
 
 ```
-make status AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
+ make status AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
 Expected output:
 
 ```
-📊 Deployment Status
+ 📊 Deployment Status
 ====================
 ├── cms-dev-infrastructure: ✅ CREATE_COMPLETE
 ├── cms-dev-storage: ✅ CREATE_COMPLETE
@@ -26,7 +26,7 @@ Expected output:
 Retrieve the CloudFront URL:
 
 ```
-aws cloudformation describe-stacks \
+ aws cloudformation describe-stacks \
   --stack-name cms-dev-ui \
   --query 'Stacks[0].Outputs[?OutputKey==`CloudFrontDistributionUrl`].OutputValue' \
   --output text \
@@ -38,7 +38,7 @@ aws cloudformation describe-stacks \
 Check that all 5 Flink applications are running:
 
 ```
-aws kinesisanalyticsv2 list-applications \
+ aws kinesisanalyticsv2 list-applications \
   --region us-east-1 \
   --profile my-profile \
   --query 'ApplicationSummaries[?contains(ApplicationName, `cms-dev-flink`)].{Name:ApplicationName,Status:ApplicationStatus}'
@@ -51,7 +51,7 @@ All applications should show ApplicationStatus: RUNNING
 Publish a compressed test message:
 
 ```
-echo '{"vehicleId":"TEST-001","timestamp":"2025-10-23T14:30:00Z","lat":40.7128,"lon":-74.0060,"speed":45}' | \
+ echo '{"vehicleId":"TEST-001","timestamp":"2025-10-23T14:30:00Z","lat":40.7128,"lon":-74.0060,"speed":45}' | \
   gzip | base64 | \
   xargs -I {} aws iot-data publish \
     --topic "fleet/test/vehicle/TEST-001/telemetry" \

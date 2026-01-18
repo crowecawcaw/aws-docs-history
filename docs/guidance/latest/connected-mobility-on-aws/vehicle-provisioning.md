@@ -35,7 +35,7 @@ Example: `fleet/delivery-fleet-123/vehicle/VIN12345/telemetry`
 The IoT Rules Engine uses SQL pattern matching to route all telemetry:
 
 ```
-SELECT * FROM 'fleet/+/vehicle/+/telemetry'
+ SELECT * FROM 'fleet/+/vehicle/+/telemetry'
 ```
 
 The `+` wildcard matches any fleet ID and vehicle ID, enabling dynamic vehicle registration without rule updates.
@@ -53,7 +53,7 @@ Vehicles authenticate using X.509 certificates:
 **Basic Certificate Setup**:
 
 ```
-# Create certificate and keys
+ # Create certificate and keys
 aws iot create-keys-and-certificate \
   --set-as-active \
   --certificate-pem-outfile vehicle-cert.pem \
@@ -71,7 +71,7 @@ aws iot attach-policy \
   A simple IoT policy grants vehicles permission to connect and publish telemetry:
 
 ```
-{
+ {
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -111,7 +111,7 @@ IoT Core authenticates to MSK using SCRAM credentials:
 **Kafka Action Configuration**:
 
 ```
-{
+ {
   "kafka": {
     "destinationArn": "<vpc-destination-arn>",
     "topic": "cms-telemetry-raw",
