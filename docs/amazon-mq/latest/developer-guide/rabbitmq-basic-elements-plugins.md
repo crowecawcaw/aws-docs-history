@@ -11,6 +11,7 @@ Amazon MQ for RabbitMQ also supports the following plugins.
 - [HTTP plugin](#rabbitmq-http-plugin "#rabbitmq-http-plugin")
 - [SSL certificate plugin](#rabbitmq-ssl-plugin "#rabbitmq-ssl-plugin")
 - [aws plugin](#rabbitmq-aws-plugin "#rabbitmq-aws-plugin")
+- [JMS Topic Exchange plugin](#rabbitmq-jms-topic-exchange-plugin "#rabbitmq-jms-topic-exchange-plugin")
 
 ## RabbitMQ management plugin
 
@@ -154,3 +155,13 @@ The [aws plugin](https://github.com/rabbitmq/rabbitmq-aws "https://github.com/ra
 community plugin, developed and maintained by Amazon MQ, provides secure retrieval of credentials and
 certificates from AWS services using AWS ARNs in RabbitMQ configuration settings. For more information
 about ARN support, see [ARN support in RabbitMQ configuration](arn-support-rabbitmq-configuration.md "arn-support-rabbitmq-configuration.md").
+
+## JMS Topic Exchange plugin
+
+The [JMS Topic Exchange Plugin](https://github.com/rabbitmq/rabbitmq-server/tree/main/deps/rabbitmq_jms_topic_exchange "https://github.com/rabbitmq/rabbitmq-server/tree/main/deps/rabbitmq_jms_topic_exchange") is
+always enabled by Amazon MQ for RabbitMQ. It works with [RabbitMQ JMS client](https://github.com/rabbitmq/rabbitmq-jms-client "https://github.com/rabbitmq/rabbitmq-jms-client") to allow new and existing
+JMS applications to connect to Amazon MQ for RabbitMQ.
+
+###### Note
+
+The JMS Topic Exchange plugin is only available for Amazon MQ for RabbitMQ version 4 and above. It is enabled by default but only activates when the RabbitMQ JMS client is used to run JMS workloads.

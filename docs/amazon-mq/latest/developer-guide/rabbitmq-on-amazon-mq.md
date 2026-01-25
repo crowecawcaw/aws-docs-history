@@ -17,6 +17,7 @@ in the _RabbitMQ Getting Started Guide_.
 - [Using HTTP authentication and authorization for Amazon MQ for RabbitMQ](rabbitmq-http-tutorial.md "rabbitmq-http-tutorial.md")
 - [Using SSL certificate authentication for Amazon MQ for RabbitMQ](rabbitmq-ssl-tutorial.md "rabbitmq-ssl-tutorial.md")
 - [Using mTLS for AMQP and management endpoints](rabbitmq-mtls-tutorial.md "rabbitmq-mtls-tutorial.md")
+- [Connecting your JMS application](rabbitmq-tutorial-jms.md "rabbitmq-tutorial-jms.md")
 
 ## Step 2: Connect a JVM-based application to your broker
 

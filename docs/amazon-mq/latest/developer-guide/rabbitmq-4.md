@@ -23,6 +23,7 @@ since classic queues are not guaranteed to be durable in all cases.
 - **Mutual TLS (mTLS):** Amazon MQ supports mutual TLS (mTLS) for RabbitMQ brokers, allowing clients to authenticate using certificates. For more information, see [mTLS configuration](configure-mtls.md "configure-mtls.md").
 - **SSL certificate authentication plugin:** The SSL authentication plugin uses client certificates from mTLS connections to authenticate users, allowing authentication using X.509 client certificates instead of username and password credentials. For more information, see [SSL certificate authentication](ssl-for-amq-for-rabbitmq.md "ssl-for-amq-for-rabbitmq.md").
 - **HTTP authentication plugin:** The HTTP authentication backend plugin allows delegating authentication and authorization to an external HTTP service. For more information, see [HTTP authentication and authorization](http-for-amq-for-rabbitmq.md "http-for-amq-for-rabbitmq.md").
+- **JMS support:** The broker now supports JMS workloads with the JMS topic exchange plugin enabled, allowing JMS applications to connect using the [RabbitMQ JMS client](https://github.com/rabbitmq/rabbitmq-jms-client "https://github.com/rabbitmq/rabbitmq-jms-client").
 
 ## The following features have been deprecated from RabbitMQ 4 on Amazon MQ
 
