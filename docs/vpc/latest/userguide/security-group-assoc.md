@@ -33,7 +33,7 @@ workloads in the VPC B subnet.
 - Amazon FSx
 - AWS PrivateLink
 - Amazon Route 53
-- ELB
+- Elastic Load Balancing
   - Application Load Balancer
   - Network Load Balancer
 

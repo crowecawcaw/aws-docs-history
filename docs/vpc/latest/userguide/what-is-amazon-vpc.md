@@ -105,7 +105,7 @@ with an IP address for connectivity. The vast majority of resources in your VPC 
 private IPv4 addresses. Resources that require direct access to the internet over IPv4,
 however, use public IPv4 addresses.
 
-Amazon VPC enables you to launch managed services, such as ELB, Amazon RDS, and Amazon EMR, without having a VPC set up beforehand. It does this by using the [default
+Amazon VPC enables you to launch managed services, such as Elastic Load Balancing, Amazon RDS, and Amazon EMR, without having a VPC set up beforehand. It does this by using the [default
 VPC](default-vpc.md "default-vpc.md") in your account if you have
 one. Any public IPv4 addresses provisioned to your account by the managed
 service will be charged. These charges will be associated with Amazon VPC service in

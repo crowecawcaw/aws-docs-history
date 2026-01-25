@@ -34,7 +34,7 @@ interface.
 You can create flow logs for network interfaces that are created by other AWS
 services, such as:
 
-- ELB
+- Elastic Load Balancing
 - Amazon RDS
 - Amazon ElastiCache
 - Amazon Redshift

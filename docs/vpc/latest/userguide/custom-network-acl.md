@@ -74,7 +74,7 @@ The client that initiates the request chooses the ephemeral port range. The rang
 depending on the client's operating system.
 
 - Many Linux kernels (including the Amazon Linux kernel) use ports 32768-61000.
-- Requests originating from ELB use ports 1024-65535.
+- Requests originating from Elastic Load Balancing use ports 1024-65535.
 - Windows operating systems through Windows Server 2003 use ports 1025-5000.
 - Windows Server 2008 and later versions use ports 49152-65535.
 - A NAT gateway uses ports 1024-65535.
@@ -98,7 +98,7 @@ range of ephemeral ports.
 
 If you create a custom network ACL, be aware of how it might affect resources that you create using other AWS services.
 
-With ELB, if the subnet for your backend instances has a network ACL in which you've
+With Elastic Load Balancing, if the subnet for your backend instances has a network ACL in which you've
 added a _deny_ rule for all traffic with a source of either
 `0.0.0.0/0` or the subnet's CIDR, your load balancer can't carry out health
 checks on the instances. For more information about the recommended network ACL rules for your
