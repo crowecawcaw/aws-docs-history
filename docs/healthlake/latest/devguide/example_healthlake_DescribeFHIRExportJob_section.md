@@ -95,6 +95,46 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        " iv_datastore_id = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6'
+        " iv_job_id = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6'
+        oo_result = lo_hll->describefhirexportjob(
+          iv_datastoreid = iv_datastore_id
+          iv_jobid = iv_job_id
+        ).
+        DATA(lo_export_job_properties) = oo_result->get_exportjobproperties( ).
+        IF lo_export_job_properties IS BOUND.
+          DATA(lv_job_status) = lo_export_job_properties->get_jobstatus( ).
+          MESSAGE |Export job status: { lv_job_status }.| TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_hllresourcenotfoundex INTO DATA(lo_notfound_ex).
+        DATA(lv_error) = |Resource not found: { lo_notfound_ex->av_err_code }-{ lo_notfound_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_notfound_ex.
+      CATCH /aws1/cx_hllvalidationex INTO DATA(lo_validation_ex).
+        lv_error = |Validation error: { lo_validation_ex->av_err_code }-{ lo_validation_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_validation_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeFHIRExportJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

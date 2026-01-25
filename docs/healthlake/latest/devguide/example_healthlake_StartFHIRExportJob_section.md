@@ -97,6 +97,56 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        " iv_job_name = 'MyExportJob'
+        " iv_output_s3_uri = 's3://my-bucket/export/output/'
+        " iv_kms_key_id = 'arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012'
+        " iv_data_access_role_arn = 'arn:aws:iam::123456789012:role/HealthLakeExportRole'
+        oo_result = lo_hll->startfhirexportjob(
+          iv_jobname = iv_job_name
+          io_outputdataconfig = NEW /aws1/cl_hlloutputdataconfig(
+            io_s3configuration = NEW /aws1/cl_hlls3configuration(
+              iv_s3uri = iv_output_s3_uri
+              iv_kmskeyid = iv_kms_key_id
+            )
+          )
+          iv_dataaccessrolearn = iv_data_access_role_arn
+          iv_datastoreid = iv_datastore_id
+        ).
+        DATA(lv_job_id) = oo_result->get_jobid( ).
+        MESSAGE |Export job started with ID { lv_job_id }.| TYPE 'I'.
+      CATCH /aws1/cx_hllvalidationex INTO DATA(lo_validation_ex).
+        DATA(lv_error) = |Validation error: { lo_validation_ex->av_err_code }-{ lo_validation_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_validation_ex.
+      CATCH /aws1/cx_hllthrottlingex INTO DATA(lo_throttling_ex).
+        lv_error = |Throttling error: { lo_throttling_ex->av_err_code }-{ lo_throttling_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_throttling_ex.
+      CATCH /aws1/cx_hllaccessdeniedex INTO DATA(lo_access_ex).
+        lv_error = |Access denied: { lo_access_ex->av_err_code }-{ lo_access_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_access_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [StartFHIRExportJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -115,6 +115,39 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        oo_result = lo_hll->listfhirdatastores( ).
+        DATA(lt_datastores) = oo_result->get_datastorepropertieslist( ).
+        DATA(lv_datastore_count) = lines( lt_datastores ).
+        MESSAGE |Found { lv_datastore_count } data store(s).| TYPE 'I'.
+      CATCH /aws1/cx_hllvalidationex INTO DATA(lo_validation_ex).
+        DATA(lv_error) = |Validation error: { lo_validation_ex->av_err_code }-{ lo_validation_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_validation_ex.
+      CATCH /aws1/cx_hllthrottlingex INTO DATA(lo_throttling_ex).
+        lv_error = |Throttling error: { lo_throttling_ex->av_err_code }-{ lo_throttling_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_throttling_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListFHIRDatastores](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 ###### Example availability
 
 Can't find what you need? Request a code example using the **Provide

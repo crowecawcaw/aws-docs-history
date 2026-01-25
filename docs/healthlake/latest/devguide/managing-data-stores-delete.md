@@ -82,6 +82,44 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        " iv_datastore_id = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6'
+        oo_result = lo_hll->deletefhirdatastore(
+          iv_datastoreid = iv_datastore_id
+        ).
+        MESSAGE 'Data store deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_hllaccessdeniedex INTO DATA(lo_access_ex).
+        DATA(lv_error) = |Access denied: { lo_access_ex->av_err_code }-{ lo_access_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_access_ex.
+      CATCH /aws1/cx_hllconflictexception INTO DATA(lo_conflict_ex).
+        lv_error = |Conflict error: { lo_conflict_ex->av_err_code }-{ lo_conflict_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_conflict_ex.
+      CATCH /aws1/cx_hllresourcenotfoundex INTO DATA(lo_notfound_ex).
+        lv_error = |Resource not found: { lo_notfound_ex->av_err_code }-{ lo_notfound_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_notfound_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteFHIRDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 ###### Example availability
 
 Can't find what you need? Request a code example using the **Provide

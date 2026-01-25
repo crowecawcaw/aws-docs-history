@@ -105,6 +105,45 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        " iv_datastore_id = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6'
+        oo_result = lo_hll->describefhirdatastore(
+          iv_datastoreid = iv_datastore_id
+        ).
+        DATA(lo_datastore_properties) = oo_result->get_datastoreproperties( ).
+        IF lo_datastore_properties IS BOUND.
+          DATA(lv_datastore_name) = lo_datastore_properties->get_datastorename( ).
+          DATA(lv_datastore_status) = lo_datastore_properties->get_datastorestatus( ).
+          MESSAGE 'Data store described successfully.' TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_hllresourcenotfoundex INTO DATA(lo_notfound_ex).
+        DATA(lv_error) = |Resource not found: { lo_notfound_ex->av_err_code }-{ lo_notfound_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_notfound_ex.
+      CATCH /aws1/cx_hllvalidationex INTO DATA(lo_validation_ex).
+        lv_error = |Validation error: { lo_validation_ex->av_err_code }-{ lo_validation_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_validation_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeFHIRDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 ###### Example availability
 
 Can't find what you need? Request a code example using the **Provide

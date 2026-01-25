@@ -181,6 +181,45 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        " iv_datastore_name = 'MyHealthLakeDataStore'
+        oo_result = lo_hll->createfhirdatastore(
+          iv_datastorename = iv_datastore_name
+          iv_datastoretypeversion = 'R4'
+        ).
+        MESSAGE 'Data store created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_hllvalidationex INTO DATA(lo_validation_ex).
+        DATA(lv_error) = |Validation error: { lo_validation_ex->av_err_code }-{ lo_validation_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_validation_ex.
+      CATCH /aws1/cx_hllinternalserverex INTO DATA(lo_internal_ex).
+        lv_error = |Internal server error: { lo_internal_ex->av_err_code }-{ lo_internal_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_internal_ex.
+      CATCH /aws1/cx_hllthrottlingex INTO DATA(lo_throttling_ex).
+        lv_error = |Throttling error: { lo_throttling_ex->av_err_code }-{ lo_throttling_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_throttling_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateFHIRDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -138,6 +138,49 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/hll#code-examples").
+
+```
+    TRY.
+        " iv_datastore_id = 'a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6'
+        IF iv_submitted_after IS NOT INITIAL.
+          oo_result = lo_hll->listfhirimportjobs(
+            iv_datastoreid = iv_datastore_id
+            iv_submittedafter = iv_submitted_after
+          ).
+        ELSE.
+          oo_result = lo_hll->listfhirimportjobs(
+            iv_datastoreid = iv_datastore_id
+          ).
+        ENDIF.
+        DATA(lt_import_jobs) = oo_result->get_importjobpropertieslist( ).
+        DATA(lv_job_count) = lines( lt_import_jobs ).
+        MESSAGE |Found { lv_job_count } import job(s).| TYPE 'I'.
+      CATCH /aws1/cx_hllvalidationex INTO DATA(lo_validation_ex).
+        DATA(lv_error) = |Validation error: { lo_validation_ex->av_err_code }-{ lo_validation_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_validation_ex.
+      CATCH /aws1/cx_hllresourcenotfoundex INTO DATA(lo_notfound_ex).
+        lv_error = |Resource not found: { lo_notfound_ex->av_err_code }-{ lo_notfound_ex->av_err_msg }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_notfound_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListFHIRImportJobs](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
