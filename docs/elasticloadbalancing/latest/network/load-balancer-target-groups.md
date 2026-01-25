@@ -257,7 +257,7 @@ group type is `alb`, these attributes always use their default values.
 
 `deregistration_delay.timeout_seconds`
 
-The amount of time for ELB to wait before changing the state of a
+The amount of time for Elastic Load Balancing to wait before changing the state of a
 deregistering target from `draining` to `unused`. The
 range is 0-3600 seconds. The default value is 300 seconds. For QUIC traffic, the value is always 300 seconds.
 
@@ -339,7 +339,7 @@ The value is `true` or `false`. The default is
 
 `target_health_state.unhealthy.draining_interval_seconds`
 
-The amount of time for ELB to wait before changing the
+The amount of time for Elastic Load Balancing to wait before changing the
 state of an unhealthy target from `unhealthy.draining` to
 `unhealthy`. The range is 0-360000 seconds. The default value is 0 seconds.
 

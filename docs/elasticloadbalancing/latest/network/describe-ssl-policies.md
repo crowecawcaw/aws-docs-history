@@ -36,7 +36,7 @@ more information, see [Update the security policy](listener-update-certificates.
   for access requests to your load balancer, enable access logging and examine the corresponding log entries.
   For more information, see [Access logs](load-balancer-access-logs.md "load-balancer-access-logs.md").
 - You can restrict which security policies are available to users across your AWS accounts and AWS Organizations
-  by using the [ELB condition keys](../userguide/security_iam_service-with-iam.md "../userguide/security_iam_service-with-iam.md")
+  by using the [Elastic Load Balancing condition keys](../userguide/security_iam_service-with-iam.md "../userguide/security_iam_service-with-iam.md")
   in your IAM and service control policies (SCPs), respectively. For more information, see [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
   in the _AWS Organizations User Guide_.
 - Policies that support only TLS 1.3 support Forward Secrecy (FS). Policies that

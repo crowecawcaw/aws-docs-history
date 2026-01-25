@@ -1,12 +1,12 @@
 # What is a Network Load Balancer?
 
-ELB automatically distributes your incoming traffic across multiple targets, such as EC2
+Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2
 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the
-health of its registered targets, and routes traffic only to the healthy targets. ELB
+health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing
 scales your load balancer as your incoming traffic changes over time. It can automatically
 scale to the vast majority of workloads.
 
-ELB supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers.
+Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers.
 You can select the type of load balancer that best suits your needs. This guide
 discusses Network Load Balancers. For more information about the other load balancers, see the
 [User Guide for Application Load Balancers](../application.md "../application.md"), the [User Guide for Gateway Load Balancers](../gateway.md "../gateway.md"), and the [User Guide for Classic Load Balancers](../classic.md "../classic.md").
@@ -42,7 +42,7 @@ request from a client, it selects a target from a target group in the default ac
 It attempts to send the request to the selected target using the protocol and port
 that you specified.
 
-When you enable an Availability Zone for the load balancer, ELB creates a load
+When you enable an Availability Zone for the load balancer, Elastic Load Balancing creates a load
 balancer node in the Availability Zone. By default, each load balancer node distributes
 traffic across the registered targets in its Availability Zone only. If you enable
 cross-zone load balancing, each load balancer node distributes traffic across the
@@ -74,7 +74,7 @@ For initial connection attempts that lack a Server ID, a flow hash algorithm bas
 source IP address, source port, destination IP address, and destination port is used. Once a Connection ID is established
 traffic for this CID gets routed to the same target for the lifetime of the CID.
 
-ELB creates a network interface for each Availability Zone you enable. Each load
+Elastic Load Balancing creates a network interface for each Availability Zone you enable. Each load
 balancer node in the Availability Zone uses this network interface to get a static IP
 address. When you create an Internet-facing load balancer, you can optionally associate
 one Elastic IP address per subnet.
@@ -85,15 +85,15 @@ The target type also affects whether the client IP addresses are preserved.
 For more information, see [Client IP preservation](edit-target-group-attributes.md#client-ip-preservation "edit-target-group-attributes.md#client-ip-preservation").
 
 You can add and remove targets from your load balancer as your needs change, without
-disrupting the overall flow of requests to your application. ELB scales your load
-balancer as traffic to your application changes over time. ELB can scale to the vast
+disrupting the overall flow of requests to your application. Elastic Load Balancing scales your load
+balancer as traffic to your application changes over time. Elastic Load Balancing can scale to the vast
 majority of workloads automatically.
 
 You can configure health checks, which are used to monitor the health of the
 registered targets so that the load balancer can send requests only to the healthy
 targets.
 
-For more information, see [How ELB works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in
+For more information, see [How Elastic Load Balancing works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in
 the _Elastic Load Balancing User Guide_.
 
 ## Benefits of migrating from a
@@ -123,15 +123,15 @@ Using a Network Load Balancer instead of a Classic Load Balancer has the followi
 
 For more information about the features supported by each load
 balancer type, see [Product comparisons](https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons "https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons")
-for ELB.
+for Elastic Load Balancing.
 
 ## Getting started
 
 To create a Network Load Balancer using the AWS Management Console, AWS CLI, or AWS CloudFormation, see
 [Create a Network Load Balancer](create-network-load-balancer.md "create-network-load-balancer.md").
 
-For demos of common load balancer configurations, see [ELB Demos](https://exampleloadbalancer.com/ "https://exampleloadbalancer.com/").
+For demos of common load balancer configurations, see [Elastic Load Balancing Demos](https://exampleloadbalancer.com/ "https://exampleloadbalancer.com/").
 
 ## Pricing
 
-For more information, see [ELB pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
+For more information, see [Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").

@@ -2,7 +2,7 @@
 
 When you enable access logging for your load balancer, you must specify the name
 of the S3 bucket where the load balancer will store the logs. The bucket must have
-a bucket policy that grants ELB permission to write to the bucket.
+a bucket policy that grants Elastic Load Balancing permission to write to the bucket.
 
 ###### Important
 

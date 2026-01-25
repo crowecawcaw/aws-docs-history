@@ -71,7 +71,7 @@ Clients can connect to the Network Load Balancer using both IPv4 addresses (for 
   the target group.
 - To support source IP preservation for UDP IPv6 listeners, ensure that
   **Enable prefix for IPv6 source NAT** is turned on.
-- When you enable dualstack mode for the Network Load Balancer, ELB provides an AAAA
+- When you enable dualstack mode for the Network Load Balancer, Elastic Load Balancing provides an AAAA
   DNS record for the Network Load Balancer. Clients that communicate with the Network Load Balancer
   using IPv4 addresses resolve the A DNS record. Clients that communicate
   with the Network Load Balancer using IPv6 addresses resolve the AAAA DNS record.
@@ -104,7 +104,7 @@ While UDP is connectionless, the load balancer maintains UDP flow state based on
 source and destination IP addresses and ports. This ensures that packets that belong to
 the same flow are consistently sent to the same target. After the idle timeout period
 elapses, the load balancer considers the incoming UDP packet as a new flow and routes it
-to a new target. ELB sets the idle timeout value for UDP flows to 120 seconds. This
+to a new target. Elastic Load Balancing sets the idle timeout value for UDP flows to 120 seconds. This
 cannot be changed.
 
 EC2 instances must respond to a new request within 30 seconds in order to establish a

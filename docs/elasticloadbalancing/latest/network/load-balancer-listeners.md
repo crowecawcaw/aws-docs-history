@@ -128,7 +128,7 @@ Note that if you need to pass encrypted traffic to the targets without the load 
 decrypting it, create a TCP listener on port 443 instead of creating a TLS listener. The
 load balancer passes the request to the target as is, without decrypting it.
 
-ELB uses a TLS negotiation configuration, known as a security policy, to negotiate
+Elastic Load Balancing uses a TLS negotiation configuration, known as a security policy, to negotiate
 TLS connections between a client and the load balancer. A security policy is a
 combination of protocols and ciphers. The protocol establishes a secure connection
 between a client and a server and ensures that all data passed between the client and

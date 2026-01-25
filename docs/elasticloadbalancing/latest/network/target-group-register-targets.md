@@ -15,7 +15,7 @@ the target. If demand increases subsequently, you can register targets that you
 deregistered with the target group again. If you need to service a target, you can
 deregister it and then register it again when servicing is complete.
 
-When you deregister a target, ELB waits until in-flight requests have completed.
+When you deregister a target, Elastic Load Balancing waits until in-flight requests have completed.
 This is known as _connection draining_. The status of a target is
 `draining` while connection draining is in progress. After deregistration
 is complete, status of the target changes to `unused`. For more information,

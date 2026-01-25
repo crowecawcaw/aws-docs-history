@@ -1,6 +1,6 @@
 # Access logs for your Network Load Balancer
 
-ELB provides access logs that capture detailed information about the TLS connections
+Elastic Load Balancing provides access logs that capture detailed information about the TLS connections
 established with your Network Load Balancer. You can use these access logs to analyze traffic patterns and
 troubleshoot issues.
 
@@ -15,8 +15,8 @@ contain information about TLS requests only. Access logs record requests on a be
 basis. We recommend that you use access logs to understand the nature of the requests,
 not as a complete accounting of all requests.
 
-Access logging is an optional feature of ELB that is disabled by default. After you
-enable access logging for your load balancer, ELB captures the logs as compressed
+Access logging is an optional feature of Elastic Load Balancing that is disabled by default. After you
+enable access logging for your load balancer, Elastic Load Balancing captures the logs as compressed
 files and stores them in the Amazon S3 bucket that you specify. You can disable access
 logging at any time.
 
@@ -31,7 +31,7 @@ regularly rotated. For more information, see [Specifying Amazon S3 encryption
 _Amazon S3 User Guide_.
 
 There is no additional charge for access logs. You are charged storage costs for Amazon S3,
-but not charged for the bandwidth used by ELB to send log files to Amazon S3. For more
+but not charged for the bandwidth used by Elastic Load Balancing to send log files to Amazon S3. For more
 information about storage costs, see [Amazon S3
 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
@@ -45,7 +45,7 @@ Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"
 
 ## Access log files
 
-ELB publishes a log file for each load balancer node every 5 minutes. Log
+Elastic Load Balancing publishes a log file for each load balancer node every 5 minutes. Log
 delivery is eventually consistent. The load balancer can deliver multiple logs for
 the same period. This usually happens if the site has high traffic.
 
