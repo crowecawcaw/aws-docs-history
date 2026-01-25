@@ -15,9 +15,9 @@ docker run amazoncorretto:8 java -version
 Output:
 
 ```
-openjdk version "1.8.0_472"
-OpenJDK Runtime Environment Corretto-8.472.08.1 (build 1.8.0_472-b08)
-OpenJDK 64-Bit Server VM Corretto-8.472.08.1 (build 25.472-b08, mixed mode)
+openjdk version "1.8.0_482"
+OpenJDK Runtime Environment Corretto-8.482.08.1 (build 1.8.0_482-b08)
+OpenJDK 64-Bit Server VM Corretto-8.482.08.1 (build 25.482-b08, mixed mode)
 ```
 
 ## Using the Corretto ECR Instance
