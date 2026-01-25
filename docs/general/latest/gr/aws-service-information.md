@@ -116,7 +116,7 @@ quotas](aws-general.md#aws-service-information "aws-general.md#aws-service-infor
 - [Amazon ECS](ecs-service.md "ecs-service.md")
 - [Amazon EKS](eks.md "eks.md")
 - [Amazon EFS](elasticfilesystem.md "elasticfilesystem.md")
-- [ELB](elb.md "elb.md")
+- [Elastic Load Balancing](elb.md "elb.md")
 - [Elastic Transcoder](elastictranscoder.md "elastictranscoder.md")
 - [Elastic Disaster Recovery](drs.md "drs.md")
 - [ElastiCache](elasticache-service.md "elasticache-service.md")

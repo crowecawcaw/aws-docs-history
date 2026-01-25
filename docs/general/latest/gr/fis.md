@@ -20,6 +20,7 @@ The following are the service endpoints and service quotas for this service.
 | Africa (Cape Town)        | af-south-1     | fis.af-south-1.amazonaws.com                                          | HTTPS          |
 | Asia Pacific (Hong Kong)  | ap-east-1      | fis.ap-east-1.amazonaws.com                                           | HTTPS          |
 | Asia Pacific (Mumbai)     | ap-south-1     | fis.ap-south-1.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Osaka)      | ap-northeast-3 | fis.ap-northeast-3.amazonaws.com                                      | HTTPS          |
 | Asia Pacific (Seoul)      | ap-northeast-2 | fis.ap-northeast-2.amazonaws.com                                      | HTTPS          |
 | Asia Pacific (Singapore)  | ap-southeast-1 | fis.ap-southeast-1.amazonaws.com                                      | HTTPS          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | fis.ap-southeast-2.amazonaws.com                                      | HTTPS          |
