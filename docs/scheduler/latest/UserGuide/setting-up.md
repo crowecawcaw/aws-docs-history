@@ -240,7 +240,7 @@ show how to create a new standard Amazon SQS queue with CloudFormation.
 
 ###### To create a new Amazon SQS queue
 
-1. Copy the following JSON CloudFormation template and save it locally as `SchedulerTargetSQS.json`.
+1. Copy the following JSON CloudFormation template and save it locally as `Scheduler-Target-SQS.json`.
 
 ```
 {
