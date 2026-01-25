@@ -155,7 +155,7 @@ Well‐Architected Framework_.
 
 You use AWS published API calls to access Amazon OpenSearch Serverless through the network. Clients
 must support Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
-For a list of supported ciphers for TLS 1.3, see [TLS protocols and ciphers](../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers "../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers") in the ELB documentation.
+For a list of supported ciphers for TLS 1.3, see [TLS protocols and ciphers](../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers "../../../elasticloadbalancing/latest/network/create-tls-listener.md#tls-protocols-ciphers") in the Elastic Load Balancing documentation.
 
 Additionally, you must sign requests using an access key ID and a secret access key
 that is associated with an IAM principal. Or you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md")

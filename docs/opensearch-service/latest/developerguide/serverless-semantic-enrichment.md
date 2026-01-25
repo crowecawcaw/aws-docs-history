@@ -243,3 +243,8 @@ collection
 7. Choose _Create_ for a new network policy or
    _Update_ for an existing network
    policy.
+
+## Index set up example
+
+For a practical example, refer to the blog post [https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/](https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/ "https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/")
+for index setup for product catalog search using automatic semantic enrichment.

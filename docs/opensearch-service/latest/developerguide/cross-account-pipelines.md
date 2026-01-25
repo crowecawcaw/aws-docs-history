@@ -103,7 +103,7 @@ pipeline in the CLI parameter for `resource-arn` and in the
 policy JSON under `Resource`, as shown.
 
 ```
-aws --region `region` osis-cross-account put-resource-policy \
+aws --region `region` osis put-resource-policy \
   --resource-arn arn:aws:osis:`region`:`pipeline-owner-account-ID`:pipeline/`pipeline-name`
   --policy '`IAM-policy`'
 ```
@@ -222,7 +222,7 @@ aws osis --region `region` create-pipeline-endpoint \
    previous command:
 
 ```
-aws osis-cross-account --region `region` list-pipeline-endpoints
+aws osis --region `region` list-pipeline-endpoints
 ```
 
 Wait for the status of the endpoint you created to transition to
@@ -255,13 +255,13 @@ account.
 2. Run the following command to list pipeline endpoints in the Region:
 
 ```
-aws osis-cross-account --region `region` list-pipeline-endpoints
+aws osis --region `region` list-pipeline-endpoints
 ```
 
 Make a note of the pipeline ID you want to delete. 3. Run the following command to delete the pipeline endpoint:
 
 ```
-aws osis-cross-account --region `region` delete-pipeline-endpoint \
+aws osis --region `region` delete-pipeline-endpoint \
   --endpoint-id '`ID`'
 ```
 
@@ -276,13 +276,13 @@ pipeline endpoint.
    Region:
 
 ```
-aws osis-cross-account --region `region` list-pipeline-endpoint-connections
+aws osis --region `region` list-pipeline-endpoint-connections
 ```
 
 Make a note of the pipeline ID you want to delete. 3. Run the following command to delete the pipeline endpoint:
 
 ```
-aws osis-cross-account --region `region` revoke-pipeline-endpoint-connections \
+aws osis --region `region` revoke-pipeline-endpoint-connections \
   --pipeline-arn `pipeline-arn` --endpoint-ids `ID`
 ```
 

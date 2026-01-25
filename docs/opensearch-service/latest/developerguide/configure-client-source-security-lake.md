@@ -41,9 +41,9 @@ steps:
 When you create a subscriber, Security Lake automatically creates two inline
 permissions policies—one for S3 and one for SQS. The policies take the
 following format:
-`AmazonSecurityLake-`amzn-s3-demo-bucket`-S3` and
-`AmazonSecurityLake-`AWSDemo`-SQS`.
-To allow your pipeline to access the subscriber sources, you must associate the
+`AmazonSecurityLake-`amzn-s3-demo-bucket`-S3`
+and `AmazonSecurityLake-`AWSDemo`-SQS`. To
+allow your pipeline to access the subscriber sources, you must associate the
 required permissions with your pipeline role.
 
 ## Configure the pipeline role

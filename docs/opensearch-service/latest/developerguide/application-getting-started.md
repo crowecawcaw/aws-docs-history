@@ -237,12 +237,13 @@ following:
      users** – All users in your organization or
      account are granted administrator permissions.
 
-7. (Optional) In the **Tags** area, apply one or more
+7. (Optional) Configure encryption settings. By default, OpenSearch UI metadata is encrypted with AWS owned keys. To use your own customer managed key (CMK) for encryption, see [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md "application-encryption-cmk.md").
+8. (Optional) In the **Tags** area, apply one or more
    tag key name/value pairs to the application.
 
 Tags are optional metadata that you assign to a resource. Tags allow
 you to categorize a resource in different ways, such as by purpose,
-owner, or environment. 8. Choose **Create**.
+owner, or environment. 9. Choose **Create**.
 
 ### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication
 
