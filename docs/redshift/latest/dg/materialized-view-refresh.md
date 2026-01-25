@@ -182,7 +182,7 @@ Consider the following when you refresh materialized views:
 - You can still refresh a materialized view explicitly using REFRESH MATERIALIZED VIEW command
   even if you haven't enabled autorefresh for the materialized
   view.
-- Amazon Redshift is supported on materialized views defined on datasharing tables and Iceberg tables.
+- Auto refresh is supported on materialized views defined on datasharing tables or Iceberg tables but not on the combination of the two.
 - For refresh status, you can check SVL_MV_REFRESH_STATUS, which records queries that were
   user-initiated or autorefreshed.
 - To run REFRESH on recompute-only materialized views, make sure that you have the CREATE
