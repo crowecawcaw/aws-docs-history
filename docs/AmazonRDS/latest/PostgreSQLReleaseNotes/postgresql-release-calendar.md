@@ -55,35 +55,35 @@ exact date when it is known.
 
 | PostgreSQL minor engine version | Community release date | RDS release date | RDS end of standard support date |
 | ------------------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 17.7                            | 13 Novemeber 2025      | 13 November 2025 | March 2027                       |
+| 17.7                            | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 17.6                            | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 17.5                            | 08 May 2025            | 08 May 2025      | September 2026                   |
-| 17.4                            | 20 February 2025       | 21 February 2025 | March 2026                       |
-| 17.3\*\*                        | 13 February 2025       | 13 February 2025 | March 2026                       |
-| 17.2                            | 21 November 2024       | 21 November 2024 | March 2026                       |
-| 17.1\*\*                        | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 16.11                           | 13 November 2026       | 13 November 2026 | March 2027                       |
+| 17.4                            | 20 February 2025       | 21 February 2025 | May 2026                         |
+| 17.3\*\*                        | 13 February 2025       | 13 February 2025 | May 2026                         |
+| 17.2                            | 21 November 2024       | 21 November 2024 | May 2026                         |
+| 17.1\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 16.11                           | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 16.10                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 16.9                            | 08 May 2025            | 08 May 2025      | September 2026                   |
-| 16.8                            | 20 February 2025       | 21 February 2025 | March 2026                       |
-| 16.7\*\*                        | 13 February 2025       | 13 February 2025 | March 2026                       |
-| 16.6                            | 21 November 2024       | 21 November 2024 | March 2026                       |
-| 16.5\*\*                        | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 15.15                           | 13 Novemeber 2026      | 13 November 2026 | March 2027                       |
+| 16.8                            | 20 February 2025       | 21 February 2025 | May 2026                         |
+| 16.7\*\*                        | 13 February 2025       | 13 February 2025 | May 2026                         |
+| 16.6                            | 21 November 2024       | 21 November 2024 | May 2026                         |
+| 16.5\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 15.15                           | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 15.14                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 15.13                           | 08 May 2025            | 08 May 2025      | September 2026                   |
-| 15.12                           | 20 February 2025       | 21 February 2025 | March 2026                       |
-| 15.11\*\*                       | 13 February 2025       | 13 February 2025 | March 2026                       |
-| 15.10                           | 21 November 2024       | 21 November 2024 | March 2026                       |
-| 15.9\*\*                        | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 14.20                           | 13 November 2025       | 13 November 2025 | March 2027                       |
-| 14.19                           | 14 August 2025         | 14 August 2025   | Septemeber 2026                  |
+| 15.12                           | 20 February 2025       | 21 February 2025 | May 2026                         |
+| 15.11\*\*                       | 13 February 2025       | 13 February 2025 | May 2026                         |
+| 15.10                           | 21 November 2024       | 21 November 2024 | May 2026                         |
+| 15.9\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 14.20                           | 13 November 2025       | 13 November 2025 | February 2027                    |
+| 14.19                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 14.18                           | 08 May 2025            | 08 May 2025      | September 2026                   |
-| 14.17                           | 20 February 2025       | 21 February 2025 | March 2026                       |
-| 14.16\*\*                       | 13 February 2025       | 13 February 2025 | March 2026                       |
-| 14.15                           | 21 November 2024       | 21 November 2024 | March 2026                       |
-| 14.14\*\*                       | 14 November 2024       | 14 November 2024 | March 2026                       |
-| 13.23                           | 13 November 2025       | 13 November 2025 | 28 February 2026                 |
+| 14.17                           | 20 February 2025       | 21 February 2025 | May 2026                         |
+| 14.16\*\*                       | 13 February 2025       | 13 February 2025 | May 2026                         |
+| 14.15                           | 21 November 2024       | 21 November 2024 | May 2026                         |
+| 14.14\*\*                       | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 13.23\*                         | 13 November 2025       | 13 November 2025 | 28 February 2026                 |
 | 13.22                           | 14 August 2025         | 14 August 2025   | 28 February 2026                 |
 | 13.21                           | 08 May 2025            | 08 May 2025      | 28 February 2026                 |
 | 13.20                           | 20 February 2025       | 21 February 2025 | 28 February 2026                 |

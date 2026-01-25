@@ -12,11 +12,24 @@ Learn about the Amazon RDS Extended Support updates below.
 ###### Minor versions
 
 - [Amazon RDS Extended Support
+  version 12.22-RDS.20251114](#postgresql-versions-version12.22-rds.20251114 "#postgresql-versions-version12.22-rds.20251114")
+- [Amazon RDS Extended Support
   version 12.22-RDS.20250814](#postgresql-versions-version12.22-rds.20250814 "#postgresql-versions-version12.22-rds.20250814")
 - [Amazon RDS Extended Support
   version 12.22-RDS.20250508](#postgresql-versions-version12.22-rds.20250508 "#postgresql-versions-version12.22-rds.20250508")
 - [Amazon RDS Extended Support
   version 12.22-RDS.20250220](#postgresql-versions-version12.22-rds.20250220 "#postgresql-versions-version12.22-rds.20250220")
+
+### Amazon RDS Extended Support
+
+version 12.22-RDS.20251114
+
+RDS Extended Support version 12.22-RDS.20251114 is now available.
+
+###### CVEs fixed:
+
+- [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817")
+- [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818")
 
 ### Amazon RDS Extended Support
 
@@ -60,6 +73,8 @@ RDS Extended Supportt version 12.22-RDS.20250220 is now available.
 ###### Minor versions
 
 - [Amazon RDS Extended Support
+  version 11.22-RDS.20251114](#postgresql-versions-version11.22-rds.20251114 "#postgresql-versions-version11.22-rds.20251114")
+- [Amazon RDS Extended Support
   version 11.22-RDS.20250814](#postgresql-versions-version11.22-rds.20250814 "#postgresql-versions-version11.22-rds.20250814")
 - [Amazon RDS Extended Support
   version 11.22-RDS.20250508](#postgresql-versions-version11.22-rds.20250508 "#postgresql-versions-version11.22-rds.20250508")
@@ -72,6 +87,17 @@ RDS Extended Supportt version 12.22-RDS.20250220 is now available.
 - [Amazon RDS Extended Support
   version 11.22-RDS.20240509](#postgresql-versions-version11.22-rds.20240509 "#postgresql-versions-version11.22-rds.20240509")
 - [Amazon RDS Extended Support version 11.22-RDS.20240418](#postgresql-versions-version11.22-rds.20240418 "#postgresql-versions-version11.22-rds.20240418")
+
+### Amazon RDS Extended Support
+
+version 11.22-RDS.20251114
+
+RDS Extended Support version 11.22-RDS.20251114 is now available.
+
+###### CVEs fixed:
+
+- [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817")
+- [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818")
 
 ### Amazon RDS Extended Support
 
