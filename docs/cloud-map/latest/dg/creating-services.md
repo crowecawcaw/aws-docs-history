@@ -80,7 +80,7 @@ to configure DNS records. You can add or remove DNS records.
     You can't use the console to configure AWS Cloud Map to
      create a Route 53 alias record when you register an
      instance. If you want AWS Cloud Map to create alias records
-     for an ELB load balancer when you register instances
+     for an Elastic Load Balancing load balancer when you register instances
      programmatically, choose **Weighted
      routing** for **Routing
      policy**.

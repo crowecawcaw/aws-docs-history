@@ -12,7 +12,7 @@ instance in this service.
 The following features are not available on the AWS Cloud Map console:
 
 - When you register a service instance using the console, you can't create an alias
-  record that routes traffic to an ELB (ELB) load balancer. When you register an instance,
+  record that routes traffic to an Elastic Load Balancing (ELB) load balancer. When you register an instance,
   you must include the `AWS_ALIAS_DNS_NAME` attribute. For more information, see
   [RegisterInstance](../api/API_RegisterInstance.md "../api/API_RegisterInstance.md") in the _AWS Cloud Map API Reference_.
 - If you register an instance using a service that includes a custom health check, you
