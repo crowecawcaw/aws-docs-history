@@ -1,38 +1,36 @@
-# API Gateway stage
+# Use stage variables for HTTP APIs in API Gateway
 
-variables reference for HTTP APIs in API Gateway
+Stage variables are key-value pairs that you can define for a stage of an
+HTTP API. They act like environment variables and can be used in your API
+setup.
 
-You can use API Gateway stage variables for HTTP APIs in the following cases.
+Stage variables are not intended to be used for sensitive data, such as credentials. To pass sensitive data to
+integrations, use an AWS Lambda authorizer. You can pass sensitive data to integrations in the output of the Lambda
+authorizer. To learn more, see [Lambda authorizer
+response format](http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format-response "http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format-response").
 
-## HTTP
+## Example – Use a stage variable to customize the HTTP integration endpoint
 
-integration URIs
+For example, you can define a stage variable, and then set its value as an HTTP
+endpoint for an HTTP proxy integration. Later, you can reference the endpoint by using
+the associated stage variable name. By doing this, you can use the same API setup with a
+different endpoint at each stage. Similarly, you can use stage variables to specify a
+different AWS Lambda function integration for each stage of your API.
 
-You can use a stage variable as part of an HTTP integration URI, as shown in
-the following examples.
+To use a stage variable to customize the HTTP integration endpoint, you must first
+set the name and value of the stage variable (for example, `url`) with a
+value of `example.com`. Next, set up an HTTP proxy integration. Instead
+of entering the endpoint's URL, you can tell API Gateway to use the stage variable value,
+`http://${stageVariables.url}`. This value tells API Gateway to
+substitute your stage variable `${}` at runtime, depending on the stage
+of your API.
 
-- A full URI without protocol – `http://${stageVariables.<variable_name>}`
-- A full domain – `http://${stageVariables.<variable_name>}/resource/operation`
-- A subdomain – `http://${stageVariables.<variable_name>}.example.com/resource/operation`
-- A path – `http://example.com/${stageVariables.<variable_name>}/bar`
-- A query string – `http://example.com/foo?q=${stageVariables.<variable_name>}`
+You can reference stage variables in a similar way to specify a Lambda function
+name or an AWS role ARN.
 
-## Lambda functions
+When specifying a Lambda function name as a stage variable value, you must configure the permissions on the
+Lambda function manually. The following [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command configures the permission for the Lambda function:
 
-You can use a stage variable in place of a Lambda function integration name or alias, as
-shown in the following examples.
-
-- `arn:aws:apigateway:<region>:lambda:path/2015-03-31/functions/arn:aws:lambda:<region>:<account_id>:function:${stageVariables.<function_variable_name>}/invocations`
-- `arn:aws:apigateway:<region>:lambda:path/2015-03-31/functions/arn:aws:lambda:<region>:<account_id>:function:<function_name>:${stageVariables.<version_variable_name>}/invocations`
-
-###### Note
-
-To use a stage variable for a Lambda function, the function must be in the same account as the API. Stage
-variables don't support cross-account Lambda functions.
-
-## AWS integration credentials
-
-You can use a stage variable as part of an AWS user or role credential ARN,
-as shown in the following example.
-
-- `arn:aws:iam::<account_id>:${stageVariables.<variable_name>}`
+```
+aws lambda add-permission --function-name arn:aws:lambda:XXXXXX:your-lambda-function-name --source-arn arn:aws:execute-api:us-east-1:YOUR_ACCOUNT_ID:api_id/*/HTTP_METHOD/resource --principal apigateway.amazonaws.com --statement-id apigateway-access --action lambda:InvokeFunction
+```
