@@ -26,7 +26,7 @@ of the worker node. The top shows icons as follows:
 - CPU and GPU icons: the software is _GPU-accelerated_.
 - CPU icon only: the software is _CPU-only_.
 
-![Status indicator, CPU and GPU usage bars, and memory usage pie chart showing system resources.](/images/elemental-cl3/latest/upgradeguide/images/upg-type-shared-png.png)
+![Status indicator, CPU and GPU usage bars, and memory usage pie chart showing system resources.](images/upg-type-shared-png.png)
 
 ## Save the latest database
 
