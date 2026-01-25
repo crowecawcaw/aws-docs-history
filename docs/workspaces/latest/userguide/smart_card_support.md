@@ -1,8 +1,7 @@
 # Smart card authentication for WorkSpaces client
 
-Smart cards are supported using the DCV for Windows and Amazon Linux 2 WorkSpaces, on Windows and macOS clients.
-WorkSpaces using the PCoIP protocol do not support smart cards. Ubuntu, Rocky Linux, and Red Hat Enterprise Linux WorkSpaces
-do not currently support smart cards on any protocol.
+Smart cards are supported using the DCV for Windows and Linux WorkSpaces, on Windows, macOS, and Ubuntu 22.04 or later clients.
+WorkSpaces using the PCoIP protocol do not support smart cards.
 
 You can use smart cards for both _pre-session authentication_ and
 _in-session authentication_. Authentication is the process of
@@ -24,7 +23,7 @@ Linux WorkSpace, you can use smart cards to authenticate yourself when running
   cards are supported. Other types of hardware or software-based smart cards might also work, but
   they haven't been fully tested for use with the DCV protocol.
 - For in-session authentication and pre-session authentication on Linux or Windows WorkSpaces, only
-  one smart card is currently allowed at a time.
+  one smart card is currently allowed at a time. Simultaneous use of multiple cards may work, but is not supported.
 - In-session authentication is available in all Regions where DCV is supported.
   Pre-session authentication is available in the following
   Regions:
@@ -36,8 +35,8 @@ Linux WorkSpace, you can use smart cards to authenticate yourself when running
   - US East (N. Virginia) Region
   - US West (Oregon) Region
 
-- Only the WorkSpaces Windows client application version 3.1.1 or later and the macOS client
-  application version 3.1.5 or later are currently supported for smart card authentication.
+- Only the WorkSpaces Windows client application version 3.1.1 or later, the macOS client
+  application version 3.1.5 or later, and Ubuntu 22.04 (or later) client application version 2024.1 or later are currently supported for smart card authentication. The WorkSpaces Ubuntu 20.04 client application is not supported for smart card authentication.
 - The WorkSpaces Windows client application 3.1.1 or later supports smart cards only when the client is
   running on a 64-bit version of Windows.
 
@@ -58,12 +57,20 @@ Linux WorkSpace, you can use smart cards to authenticate yourself when running
 After you've entered your registration code, **Insert your smart card** appears
 on the login page. If you don't see this text, verify that you've entered the correct registration code.
 If you've entered the correct registration code and you don't see this text, contact your WorkSpaces
-administrator for help. 2. If you haven't done so already, plug your smart card reader into your local machine, and then insert
+administrator for help.
+
+###### Note
+
+On some versions of WorkSpaces client application you may have to choose **Sign in** before you see **Insert your smart card**. 2. If you haven't done so already, plug your smart card reader into your local machine, and then insert
 your smart card into your smart card reader. 3. On the login page, choose **Insert your smart card**. 4. The **Certificates** dialog box appears. Select your certificate, and then choose
 **OK**. 5. The **Smart Card** dialog box appears. Enter your PIN, and then choose
-**OK**. 6. On the Windows desktop login page, choose **Sign-in options**, then choose the smart card icon.
-If you have multiple smart cards, choose the one you want to use. Enter
-your PIN again, then choose **Submit**. On the Linux login page, enter your PIN and choose **Sign In**.
+**OK**. 6. On the Windows desktop login page, choose **Sign-in options**, then choose the smart card icon. If you have multiple smart cards, choose the one you want to use. Enter your PIN again, then choose **Submit**.
+
+On the Linux login page, enter your PIN and choose **Sign In**.
+
+###### Note
+
+You may have to dismiss a lock screen before you see PIN prompt.
 
 You should be logged in to your WorkSpace. If you're unable to sign in, close and reopen the WorkSpaces client
 application, and then try again. After trying again, if you still aren't able to sign in, contact your WorkSpaces
@@ -87,16 +94,16 @@ You can use a smart card within a Linux WorkSpace, on Chrome or Firefox, to auth
 
 ###### To use your smart card with the Chrome browser
 
-1. Log in to your Linux WorkSpace using the WorkSpaces for Windows client application.
-2. Open Terminal (**Applications** > **System Tools** > **MATE Terminal**).
+1. Log in to your Linux WorkSpace using the WorkSpaces client application.
+2. Open terminal application (e.g., **GNOME Terminal** on Ubuntu, Rocky Linux, or Red Hat Enterprise Linux WorkSpaces, or **MATE Terminal** on AL2 WorkSpaces).
 3. Run the following command:
 
 ```
-cd; modutil -dbdir sql:.pki/nssdb/ -add "OpenSC" -libfile /lib64/opensc-pkcs11.so
+cd; modutil -dbdir sql:.pki/nssdb/ -add "OpenSC" -libfile `PATH`/opensc-pkcs11.so
 ```
 
-4. If Chrome is already running, close it, and then press **Enter**. When the command finishes
-   running, you should see this message:
+where `PATH` is `/usr/lib64` on RPM-based system like Rocky Linux, Red Hat Enterprise Linux, and AL2, and `/usr/lib/x86_64-linux-gnu` on Debian-based systems (Ubuntu WorkSpaces) 4. If Chrome is already running, close it, and then press **Enter**. When the command finishes
+running, you should see this message:
 
 `Module "OpenSC" added to database.`
 
@@ -114,4 +121,6 @@ pane, choose **Privacy & Security**. 3. Under **Certificates**, choose **Securit
 
 **Module Name**: `OpenSC`
 
-**Module filename**: `/lib64/opensc-pkcs11.so` 6. Choose **OK**.
+**Module filename**: ``PATH`/opensc-pkcs11.so`
+
+where `PATH` is `/usr/lib64` on RPM-based system like Rocky Linux, Red Hat Enterprise Linux, and AL2, and `/usr/lib/x86_64-linux-gnu` on Debian-based systems (Ubuntu WorkSpaces) 6. Choose **OK**.
