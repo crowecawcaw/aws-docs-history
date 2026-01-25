@@ -13,7 +13,7 @@ AWS Flat-Rate Plans is integrated with [AWS CloudTrail](../../../awscloudtrail/l
 The following example shows a CloudTrail log entry that demonstrates the action.
 
 ```
- {
+{
     "eventVersion": "1.09",
     "userIdentity": {
         "type": "AssumedRole",

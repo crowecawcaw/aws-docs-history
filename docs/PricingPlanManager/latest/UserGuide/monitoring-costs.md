@@ -63,7 +63,7 @@ Flat-rate plans appear in CUR as charge line items only. No usage metrics (reque
 **Monthly flat-rate charges (example: CloudFront)**
 
 ```
- SELECT
+SELECT
   DATE_TRUNC('month', line_item_usage_start_date) AS month,
   line_item_usage_account_id,
   line_item_usage_account_name,
@@ -77,7 +77,7 @@ ORDER BY month, total_cost DESC;
 **Charges by plan tier**
 
 ```
- SELECT
+SELECT
   line_item_usage_type AS plan_tier,
   line_item_line_item_description AS plan_description,
   COUNT(DISTINCT line_item_resource_id) AS plan_count,
@@ -92,7 +92,7 @@ ORDER BY total_cost DESC;
 **Resource-level charges**
 
 ```
- SELECT
+SELECT
   line_item_resource_id,
   line_item_usage_type AS plan_tier,
   line_item_line_item_description AS plan_description,
@@ -107,7 +107,7 @@ ORDER BY total_cost DESC;
 **Department-level charges (requires cost allocation tags)**
 
 ```
- SELECT
+SELECT
   resource_tags_user_department AS department,
   line_item_usage_type AS plan_tier,
   COUNT(DISTINCT line_item_resource_id) AS resource_count,
