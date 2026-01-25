@@ -1,139 +1,114 @@
-# Oracle and MySQL triggers
+# MySQL overall indexes summary
 
-Triggers are database objects that encapsulate procedural logic, facilitating data validation, auditing, and maintaining referential integrity constraints. System administrators, database developers, and data engineers may require triggers to enforce business rules, log data changes, or propagate updates across related tables. The following sections provide detailed guidance on creating, managing, and testing triggers within the context of AWS DMS.
+MySQL supports multiple types of indexes using different indexing algorithms that can provide performance benefits for different types of queries.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                             |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        |                           | MySQL doesn’t support statement and system event triggers. Also, MySQL doesn’t support `CREATE OR REPLACE`. |
+## Usage
 
-## Oracle usage
+The built-in MySQL index types include:
 
-A trigger is a named program that is stored in the database and fired when a specified event occurs. The associated event causing a trigger to run can either be tied to a specific database table, database view, database schema, or the database itself.
+- **B-tree** — Default indexes that you can use for equality and range for the majority of queries. These indexes can operate against all data types. You can use B-tree indexes to retrieve NULL values. B-tree index values are sorted in ascending order by default.
+- **Hash** — Hash Indexes are practical for equality operators. These types of indexes are rarely used because they aren’t transaction-safe. This type of index is supported by `MEMORY` and `NDB` storage engines.
+- **Full-text** — Full-text indexes are useful when the application needs to query large amount of text, using more complicated morphology attributes.
+- **Spatial** — This index supports objects such as `POINT` and `GEOMETRY` to run geographic-related queries.
 
-Triggers can be run after:
+###### Note
 
-- Data Manipulation Language (DML) statements such as `DELETE`, `INSERT`, or `UPDATE`.
-- Data Definition Language (DDL) statements such as `CREATE`, `ALTER`, or `DROP`.
-- Database events and operations such as `SERVERERROR`, `LOGON`, `LOGOFF`, `STARTUP`, or `SHUTDOWN`.
+Amazon Relational Database Service (Amazon RDS) for MySQL version supports descending indexes: `DESC` in an index definition is no longer ignored but causes storage of key values in descending order. Previously indexes could be scanned in reverse order but at a performance penalty. A descending index can be scanned in forward order which is more efficient. Descending indexes also make it possible for the optimizer to use multiple-column indexes when the most efficient scan order mixes ascending order for some columns and descending order for others. For more information, see [Descending Indexes](https://dev.mysql.com/doc/refman/8.0/en/descending-indexes.html "https://dev.mysql.com/doc/refman/8.0/en/descending-indexes.html") in the _MySQL documentation_.
 
-### Trigger types
-
-- **DML** triggers can be created on tables or views and fire when inserting, updating, or deleting data. Triggers can fire before or after DML command run.
-- **INSTEAD OF** triggers can be created on a non-editable view. `INSTEAD OF` triggers provide an application-transparent method for modifying views that can’t be modified by DML statements.
-- **SYSTEM event** triggers are defined at the database or schema level including triggers that fire after specific events:
-  - User log-on and log-off.
-  - Database events such as startup or shutdown, DataGuard events, server errors.
-
-### Examples
-
-Create a trigger that runs after a row is deleted from the `PROJECTS` table, or if the primary key of a project is updated.
+## CREATE INDEX synopsis
 
 ```
-CREATE OR REPLACE TRIGGER PROJECTS_SET_NULL
-  AFTER DELETE OR UPDATE OF PROJECTNO ON PROJECTS
-  FOR EACH ROW
-  BEGIN
-    IF UPDATING AND :OLD.PROJECTNO != :NEW.PROJECTNO OR DELETING THEN
-      UPDATE EMP SET EMP.PROJECTNO = NULL
-      WHERE EMP.PROJECTNO = :OLD.PROJECTNO;
-    END IF;
-END;
-/
+CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX index_name
+  [index_type]
+  ON tbl_name (key_part,...)
+  [index_option]
+  [algorithm_option | lock_option] ...
 
-Trigger created.
+key_part:
+  col_name [(length)] [ASC | DESC]
 
-DELETE FROM PROJECTS WHERE PROJECTNO=123;
+index_option:
+  KEY_BLOCK_SIZE [=] value
+  | index_type
+  | WITH PARSER parser_name
+  | COMMENT 'string'
 
-SELECT PROJECTNO FROM EMP WHERE PROJECTNO=123;
+index_type:
+  USING {BTREE | HASH}
 
-PROJECTNO
-NULL
+algorithm_option:
+  ALGORITHM [=] {DEFAULT | INPLACE | COPY}
+
+lock_option:
+  LOCK [=] {DEFAULT | NONE | SHARED | EXCLUSIVE}
 ```
 
-Create a `SYSTEM` or schema trigger on a table. The trigger fires if a `DDL DROP` command runs for an object in the `HR` schema. It prevents dropping the object and raises an application error.
+By default, the `CREATE INDEX` statement creates a B-tree index.
+
+## Examples
+
+Oracle `CREATE/DROP` index.
 
 ```
-CREATE OR REPLACE TRIGGER PREVENT_DROP_TRIGGER
-  BEFORE DROP ON HR.SCHEMA
-  BEGIN
-    RAISE_APPLICATION_ERROR (num => -20000,
-    msg => 'Cannot drop object');
-END;
-/
-
-Trigger created.
-
-DROP TABLE HR.EMP
-
-ERROR at line 1:
-ORA-00604: error occurred at recursive SQL level 1
-ORA-20000: Cannot drop object
-ORA-06512: at line 2
+CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
+DROP INDEX IDX_EMP_ID;
 ```
 
-For more information, see [CREATE TRIGGER Statement](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/CREATE-TRIGGER-statement.html#GUID-AF9E33F1-64D1-4382-A6A4-EC33C36F237B "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/CREATE-TRIGGER-statement.html#GUID-AF9E33F1-64D1-4382-A6A4-EC33C36F237B") in the _Oracle documentation_.
-
-## MySQL usage
-
-MySQL supports triggers, but not all of the functionality provided by Oracle. Triggers are associated with users for privileges reasons and with specific tables. Triggers fire at the row level, and not at the statement level. You can modify MySQL triggers using a `FOLLOWS` or `PRECEDES` clause. Also, MySQL triggers can be chained using the `FOLLOWS` or `PRECEDES` clauses.
-
-### Syntax
+MySQL `CREATE/DROP` index.
 
 ```
-CREATE
-[DEFINER = { user | CURRENT_USER }]
-TRIGGER trigger_name
-trigger_time trigger_event
-ON tbl_name FOR EACH ROW
-[trigger_order]
-trigger_body
-trigger_time: { BEFORE | AFTER }
-trigger_event: { INSERT | UPDATE | DELETE }
-trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
+CREATE UNIQUE INDEX IDX_EMP_ID ON EMPLOYEES (EMPLOYEE_ID DESC);
+DROP INDEX IDX_EMP_ID;
 ```
 
-### Examples
-
-Create a trigger referencing the `OLD` and `NEW` values.
+Oracle `ALTER INDEX …​ RENAME`.
 
 ```
-set delimiter /
-CREATE OR REPLACE TRIGGER PROJECTS_SET_NULL
-BEFORE UPDATE ON PROJECTS
-FOR EACH ROW
-BEGIN
-IF OLD.PROJECTNO != NEW.PROJECTNO THEN
-UPDATE EMP SET EMP.PROJECTNO = NULL
-WHERE EMP.PROJECTNO = OLD.PROJECTNO;
-END IF;
-END;
-/
-set delimiter ;
-UPDATE PROJECTS WHERE PROJECTNO=123;
-SELECT PROJECTNO FROM EMP WHERE PROJECTNO=123;
-PROJECTNO
-----------
-NULL
+ALTER INDEX IDX_EMP_ID RENAME TO IDX_EMP_ID_OLD;
 ```
 
-Drop a trigger.
+MySQL `ALTER INDEX …​ RENAME`.
 
 ```
-DROP TRIGGER PROJECTS_SET_NULL
+ALTER TABLE EMPLOYEES RENAME INDEX IDX_EMP_ID TO IDX_EMP_ID_OLD;
 ```
+
+Oracle `REBUILD INDEX`.
+
+```
+ALTER INDEX IDX_EMP_ID REBUILD;
+```
+
+MySQL `REINDEX (REBUILD) INDEX`.
+
+```
+ANALYZE TABLE EMPLOYEES;
+```
+
+For more information, see [CREATE INDEX Statement](https://dev.mysql.com/doc/refman/5.7/en/create-index.html "https://dev.mysql.com/doc/refman/5.7/en/create-index.html"), [ANALYZE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/analyze-table.html "https://dev.mysql.com/doc/refman/5.7/en/analyze-table.html"), and [ALTER TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html "https://dev.mysql.com/doc/refman/5.7/en/alter-table.html") in the _MySQL documentation_.
 
 ## Summary
 
-| Trigger                                      | Oracle                                                                                                                                                                                                                                                                       | MySQL                                                                                                                                                                                                                |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Before update trigger, row level             | `<br>CREATE OR REPLACE TRIGGER check_update<br>BEFORE UPDATE ON projects<br>FOR EACH ROW<br>BEGIN<br>/*Trigger body*/<br>END;<br>/<br>`                                                                                                                                      | `<br>CCREATE TRIGGER check_update<br>BEFORE UPDATE ON projects<br>FOR EACH ROW<br>BEGIN<br>/*Trigger body*/<br>END;<br>/<br>`                                                                                        |
-| Before update trigger, statement level       | `<br>CREATE OR REPLACE TRIGGER check_update<br>BEFORE UPDATE ON projects<br>BEGIN<br>/*Trigger body*/<br>END;<br>/<br>`                                                                                                                                                      | Not supported                                                                                                                                                                                                        |
-| System or event trigger                      | `<br>CREATE OR REPLACE TRIGGER drop_trigger<br>BEFORE DROP ON hr.SCHEMA<br>BEGIN<br>RAISE_APPLICATION_ERROR (<br>num => -20000,<br>msg => 'Cannot drop object');<br>END;<br>/<br>`                                                                                           | Not supported                                                                                                                                                                                                        |
-| Referencing :old and :new values in triggers | Use `:NEW` and `:OLD` in trigger body:<br>`<br>CREATE OR REPLACE TRIGGER Upper-NewDeleteOld<br>BEFORE INSERT OR UPDATE<br>OF first_name ON employees<br>FOR EACH ROW<br>BEGIN<br>:NEW.first_name := UPPER(:NEW.first_name);<br>:NEW.salary := :OLD.salary;<br>END;<br>/<br>` | Use `NEW` and `OLD` in trigger body:<br>`<br>CREATE TRIGGER UpperNewDeleteOld<br>BEFORE UPDATE ON empys<br>FOR EACH ROW SET<br>NEW.first_name = UPPER(NEW.first_name),<br>NEW.salary = OLD.salary;<br>END;<br>/<br>` |
-| Database event level trigger                 | `<br>CREATE TRIGGER register_shutdown<br>ON DATABASE SHUTDOWN<br>BEGIN<br>Insert into logging values<br>('DB was shut down', sysdate);<br>commit;<br>END;<br>/<br>`                                                                                                          | Not supported                                                                                                                                                                                                        |
-| Drop a trigger                               | `<br>DROP TRIGGER last_name_change_trg;<br>`                                                                                                                                                                                                                                 | `<br>DROP TRIGGER last_name_change_trg;<br>`                                                                                                                                                                         |
-| Modify logic run by a trigger                | Can be used with create or replace<br>`<br>CREATE OR REPLACE TRIGGER<br>UpperNewDeleteOld<br>BEFORE INSERT OR UPDATE OF<br>first_name ON employees<br>FOR EACH ROW<br>BEGIN<br><<NEW CONTENT>><br>END;<br>/<br>`                                                             | Not supported                                                                                                                                                                                                        |
-| Enable a trigger                             | `<br>ALTER TRIGGER UpperNewDeleteOld<br>ENABLE;<br>`                                                                                                                                                                                                                         | Not supported. Can be achieved by setting variables for each trigger to determine if it is turned off or turned on, and then checking the variable in an `IF` statement.                                             |
-| Disable a trigger                            | `<br>ALTER TRIGGER UpperNewDeleteOld<br>DISABLE;<br>`                                                                                                                                                                                                                        | Not supported. Can be achieved by setting variables for each trigger to determine if it is turned off or turned on, and then checking the variable in an `IF` statement.                                             |
-
-For more information, see [Trigger Syntax and Examples](https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html "https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html") and [CREATE TRIGGER Statement](https://dev.mysql.com/doc/refman/5.7/en/create-trigger.html "https://dev.mysql.com/doc/refman/5.7/en/create-trigger.html") in the _MySQL documentation_.
+| Oracle indexes types and features                   | MySQL compatibility                                                                | MySQL equivalent                                                                                                        |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| B-tree Index                                        | Supported                                                                          | B-tree Index                                                                                                            |
+| Index-organized tables                              | Supported                                                                          | Default behavior by InnoDB                                                                                              |
+| Reverse key indexes                                 | Not supported                                                                      | N/A                                                                                                                     |
+| Descending indexes                                  | Supported                                                                          | `ABS` (default) / `DESC`                                                                                                |
+| B-tree cluster indexes                              | Not supported                                                                      | N/A                                                                                                                     |
+| Unique and non-unique indexes                       | Supported                                                                          | Syntax is identical                                                                                                     |
+| Function-based indexes                              | Supported                                                                          | Use generated columns                                                                                                   |
+| Application domain indexes                          | Not supported                                                                      | N/A                                                                                                                     |
+| BITMAP index or Bitmap join indexes                 | Not supported                                                                      | N/A                                                                                                                     |
+| Composite indexes                                   | Supported                                                                          | Multicolumn indexes                                                                                                     |
+| Invisible indexes                                   | Not supported                                                                      | N/A                                                                                                                     |
+| Local and global indexes                            | Not supported                                                                      | N/A                                                                                                                     |
+| Partial indexes for partitioned tables (Oracle 12c) | Limited compatibility                                                              | Column prefix index                                                                                                     |
+| `CREATE INDEX…​` or `DROP INDEX…​`                  | Supported                                                                          | High percentage of syntax similarity                                                                                    |
+| `ALTER INDEX…​` (general definitions)               | Not supported                                                                      | N/A                                                                                                                     |
+| `ALTER INDEX…​ REBUILD`                             | Supported                                                                          | `ANALYZE TABLE`                                                                                                         |
+| `ALTER INDEX…​ REBUILD ONLINE`                      | Not supported                                                                      | N/A                                                                                                                     |
+| Index metadata                                      | `STATISTICS (Oracle USER_INDEXES)`                                                 | `<br>SELECT DISTINCT TABLE_SCHEMA,<br>TABLE_NAME, INDEX_NAME,<br>INDEX_TYPE FROM<br>INFORMATION_SCHEMA.STATISTICS;<br>` |
+| Index tablespace allocation                         | Not supported                                                                      | N/A                                                                                                                     |
+| Index parallel operations                           | Not supported                                                                      | N/A                                                                                                                     |
+| Index compression                                   | No direct equivalent to Oracle index key compression or advanced index compression | N/A                                                                                                                     |
