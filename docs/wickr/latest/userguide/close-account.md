@@ -9,7 +9,7 @@ Complete the following procedure to close a guest user account.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
 2. In the navigation pane, choose the menu icon (
-   ![Menu icon](images/icon-wickr-settings-hamburger.png)
+   ![Menu icon](/images/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)
    ), and then choose **Support**.
 3. Choose **Close Account**.
 4. In the **Close Your Account** pane that appears, choose one
