@@ -1,66 +1,71 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
 Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Clients 6.52 release
+# Clients 6.34 release
 
-The following release notes include information for clients release 6.52. For information on
-the release timeline, see [Change log](#clients-release-notes-6.52-change-log "#clients-release-notes-6.52-change-log").
+The following release notes include information for clients release 6.34. For information on
+the release timeline, see [Change log](#clients-release-notes-6.34-change-log "#clients-release-notes-6.34-change-log").
 
 **Platform versions**
 
 |                        |         |
 | ---------------------- | ------- |
-| Android                | 6.52.7  |
-| iOS                    | 6.52.15 |
-| Desktop (Mac, Windows) | 6.52.9  |
-| Linux                  | 6.52.9  |
+| Android                | 6.34.6  |
+| iOS                    | 6.34.12 |
+| Desktop (Mac, Windows) | 6.34.13 |
+| Linux                  | 6.34.11 |
 
 **Android**
 
 Changes, enhancements, and resolved issues:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- General enhancements and bug fixes.
+Fixed issue where conversations would not show as read when toggling between dashboard and
+chat view.
+
+Improvements:
+
+- Accessibility improvements
+- Added login hint to SSO. The IDP authentication page will now prepopulate email after a
+  user’s initial entry.
   **iOS**
 
-Improvements:
+Changes and resolved issues:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- General enhancements and bug fixes.
+- Fixed issue where HEIF images would not preview when sent from iOS.
+- Fixed issue where sending live location would result in message send failure
+  notification.
+  Improvements:
+
+- Accessibility improvements
+- Added login hint to SSO. The IDP authentication page will now prepopulate email after a
+  user’s initial entry.
   **Desktop**
 
-Improvements:
+Changes, enhancements, and resolved issues:
 
-- Wickr Open Access (WOA) performance and stability improvements.
-- **New User Experience Preview** is turned ON by default.
-- General enhancements and bug fixes.
+Added defensive logic to prevent corruption of User state information associated with
+WickrUser alias
 
 ###### Note
 
-Starting with the next client release (6.54), Wickr will discontinue updates and support
-for the macOS client when running version 11 (Big Sur). It's recommended that you upgrade to
-version 12 (Monterey) or above.
+**Desktop version 6.34.13 Hotfix**
 
-## Clients 6.52 (Hotfix) release
+Fixed an issue where using New User Experience with Wickr Open Access enabled resulted in
+an infinite loading loop.
 
-**Platform versions**
+Improvements:
 
-|         |        |
-| ------- | ------ |
-| Android | 6.52.8 |
-
-**Android**
-
-Changes, enhancements, and resolved issues:
-
-- Wickr Open Access (WOA) performance and stability improvements.
-- General enhancements and bug fixes.
+- Accessibility improvements
+- Added .mov and .log filetypes to preview allowlist.
+- Added login hint to SSO. The IDP authentication page will now prepopulate email after a
+  user’s initial entry.
 
 ## Change log
 
-**Change log for 6.52 release and release notes**
+**Change log for 6.34 release and release notes**
 
-| Change                                          | Description                            | Date           |
-| ----------------------------------------------- | -------------------------------------- | -------------- |
-| Android version 6.52.7 > Android version 6.52.8 | Performance and stability improvement  | April 30, 2025 |
-| Initial release                                 | Initial release of April release notes | April 10, 2025 |
+| Change                                            | Description                                                        | Date           |
+| ------------------------------------------------- | ------------------------------------------------------------------ | -------------- |
+| Desktop version 6.34.11 > Desktop version 6.34.13 | New User Experience update.                                        | April 2, 2024  |
+| Clients update                                    | Updates to address vulnerability scan results and bug fix updates. | March 28, 2024 |
+| Initial release                                   | Initial release of March release notes                             | March 20, 2024 |
