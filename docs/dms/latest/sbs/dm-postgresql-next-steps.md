@@ -18,7 +18,7 @@ After you migrate your PostgreSQL database to Amazon RDS for PostgreSQL using ho
 - Drop the replication slot and the publisher in the source database by using the following code example.
 
 ```
- SELECT pg_drop_replication_slot('migration_subscriber_{ARN}');
+SELECT pg_drop_replication_slot('migration_subscriber_{ARN}');
 DROP PUBLICATION publication_{ARN};
 ```
 
