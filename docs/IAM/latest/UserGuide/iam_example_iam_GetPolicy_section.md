@@ -435,6 +435,31 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [GetPolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/GetPolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/GetPolicy.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->getpolicy( iv_policyarn = iv_policy_arn ).
+        MESSAGE 'Retrieved policy information.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'Policy does not exist.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

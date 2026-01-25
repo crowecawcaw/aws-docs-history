@@ -455,6 +455,34 @@ def update_key(user_name, key_id, activate):
   [UpdateAccessKey](../../../goto/boto3/iam-2010-05-08/UpdateAccessKey.md "../../../goto/boto3/iam-2010-05-08/UpdateAccessKey.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        lo_iam->updateaccesskey(
+          iv_accesskeyid = iv_access_key_id
+          iv_status = iv_status
+          iv_username = iv_user_name ).
+        MESSAGE 'Access key updated successfully.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'Access key or user does not exist.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [UpdateAccessKey](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

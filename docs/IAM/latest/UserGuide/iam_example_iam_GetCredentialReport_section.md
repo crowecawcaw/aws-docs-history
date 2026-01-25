@@ -144,6 +144,37 @@ def get_credential_report():
   [GetCredentialReport](../../../goto/boto3/iam-2010-05-08/GetCredentialReport.md "../../../goto/boto3/iam-2010-05-08/GetCredentialReport.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->getcredentialreport( ).
+        MESSAGE 'Retrieved credential report.' TYPE 'I'.
+      CATCH /aws1/cx_iamcredrptnotpresen00.
+        MESSAGE 'Credential report not present.' TYPE 'E'.
+      CATCH /aws1/cx_iamcredrptexpiredex.
+        MESSAGE 'Credential report expired.' TYPE 'E'.
+      CATCH /aws1/cx_iamcredrptnotreadyex.
+        MESSAGE 'Credential report not ready.' TYPE 'E'.
+      CATCH /aws1/cx_iamservicefailureex.
+        MESSAGE 'Service failure when getting credential report.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetCredentialReport](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

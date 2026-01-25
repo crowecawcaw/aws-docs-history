@@ -672,6 +672,32 @@ end
   [ListAccessKeys](../../../goto/SdkForRubyV3/iam-2010-05-08/ListAccessKeys.md "../../../goto/SdkForRubyV3/iam-2010-05-08/ListAccessKeys.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->listaccesskeys(
+          iv_username = iv_user_name ).
+        MESSAGE 'Retrieved access key list.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'User does not exist.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListAccessKeys](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

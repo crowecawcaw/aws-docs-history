@@ -664,6 +664,33 @@ pub async fn delete_user(client: &iamClient, user: &User) -> Result<(), SdkError
   [DeleteUser](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_user")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        lo_iam->deleteuser( iv_username = iv_user_name ).
+        MESSAGE 'User deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'User does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_iamdeleteconflictex.
+        MESSAGE 'User cannot be deleted due to attached resources.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteUser](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

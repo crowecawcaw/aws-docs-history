@@ -1,6 +1,6 @@
-# Policy to grant full access to Compute Optimizer Automation for standalone AWS accounts
+# Policy to enable Automation across your organization
 
-The following code example shows how to This permission-based policy grant full access to Compute Optimizer Automation for standalone AWS accounts
+The following code example shows how to This permission-based policy enables Automation across your organization
 
 JSON
 
@@ -10,10 +10,36 @@ JSON
  "Statement": [
  {
  "Effect": "Allow",
+ "Action": "iam:CreateServiceLinkedRole",
+ "Resource": "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation",
+ "Condition": {"StringLike": {"iam:AWSServiceName": "aco-automation.amazonaws.com"}}
+ },
+ {
+ "Effect": "Allow",
  "Action": [
- "aco-automation:*",
- "ec2:DescribeVolumes"
+ "iam:PutRolePolicy",
+ "iam:AttachRolePolicy"
  ],
+ "Resource": "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:UpdateEnrollmentConfiguration",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:AssociateAccounts",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:DisassociateAccounts",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "aco-automation:ListAccounts",
  "Resource": "*"
  }
  ]

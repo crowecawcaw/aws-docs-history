@@ -1,4 +1,4 @@
-# Use `ListPolicyVersions` with a CLI
+# Use `ListPolicyVersions` with an AWS SDK or CLI
 
 The following code examples show how to use `ListPolicyVersions`.
 
@@ -93,6 +93,34 @@ CreateDate                   Document                 IsDefaultVersion          
 - For API details, see
   [ListPolicyVersions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
   in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->listpolicyversions(
+          iv_policyarn = iv_policy_arn ).
+        MESSAGE 'Retrieved policy versions list.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'Policy does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_iamservicefailureex.
+        MESSAGE 'Service failure when listing policy versions.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListPolicyVersions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

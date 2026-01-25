@@ -684,6 +684,34 @@ pub async fn create_access_key(client: &iamClient, user_name: &str) -> Result<Ac
   [CreateAccessKey](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->createaccesskey(
+          iv_username = iv_user_name ).
+        MESSAGE 'Access key created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'User does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_iamlimitexceededex.
+        MESSAGE 'Maximum number of access keys reached.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateAccessKey](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

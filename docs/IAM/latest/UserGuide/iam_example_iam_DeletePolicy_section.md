@@ -507,6 +507,33 @@ pub async fn delete_policy(client: &iamClient, policy: Policy) -> Result<(), iam
   [DeletePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.delete_policy")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        lo_iam->deletepolicy( iv_policyarn = iv_policy_arn ).
+        MESSAGE 'Policy deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'Policy does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_iamdeleteconflictex.
+        MESSAGE 'Policy cannot be deleted due to attachments.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeletePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

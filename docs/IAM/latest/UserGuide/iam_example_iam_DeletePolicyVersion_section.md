@@ -1,4 +1,4 @@
-# Use `DeletePolicyVersion` with a CLI
+# Use `DeletePolicyVersion` with an AWS SDK or CLI
 
 The following code examples show how to use `DeletePolicyVersion`.
 
@@ -76,6 +76,37 @@ Remove-IAMPolicy -PolicyArn $pol.Arn -force
 - For API details, see
   [DeletePolicyVersion](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
   in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        lo_iam->deletepolicyversion(
+          iv_policyarn = iv_policy_arn
+          iv_versionid = iv_version_id ).
+        MESSAGE 'Policy version deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'Policy or version does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_iamdeleteconflictex.
+        MESSAGE 'Cannot delete default policy version.' TYPE 'E'.
+      CATCH /aws1/cx_iamlimitexceededex.
+        MESSAGE 'Limit exceeded.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeletePolicyVersion](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

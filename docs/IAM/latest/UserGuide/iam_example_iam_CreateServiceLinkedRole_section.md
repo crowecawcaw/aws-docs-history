@@ -379,6 +379,34 @@ pub async fn create_service_linked_role(
   [CreateServiceLinkedRole](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_service_linked_role "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_service_linked_role")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->listpolicyversions(
+          iv_policyarn = iv_policy_arn ).
+        MESSAGE 'Retrieved policy versions list.' TYPE 'I'.
+      CATCH /aws1/cx_iamnosuchentityex.
+        MESSAGE 'Policy does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_iamservicefailureex.
+        MESSAGE 'Service failure when listing policy versions.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateServiceLinkedRole](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

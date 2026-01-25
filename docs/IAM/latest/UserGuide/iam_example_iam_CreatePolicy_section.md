@@ -1048,6 +1048,38 @@ pub async fn create_policy(
   [CreatePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iam#code-examples").
+
+```
+    TRY.
+        oo_result = lo_iam->createpolicy(
+          iv_policyname = iv_policy_name
+          iv_policydocument = iv_policy_document
+          iv_description = iv_description ).
+        MESSAGE 'Policy created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_iamentityalrdyexex.
+        MESSAGE 'Policy already exists.' TYPE 'E'.
+      CATCH /aws1/cx_iammalformedplydocex.
+        MESSAGE 'Policy document is malformed.' TYPE 'E'.
+      CATCH /aws1/cx_iamlimitexceededex.
+        MESSAGE 'Policy limit exceeded.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreatePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**
