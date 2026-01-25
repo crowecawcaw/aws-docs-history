@@ -28,7 +28,7 @@ VPC connectivity from AWS CodeBuild builds makes it possible to:
   isolated on a private subnet.
 - Query data in an Amazon ElastiCache cluster directly from tests.
 - Interact with internal web services hosted on Amazon EC2, Amazon ECS, or services that
-  use internal ELB.
+  use internal Elastic Load Balancing.
 - Retrieve dependencies from self-hosted, internal artifact repositories, such
   as PyPI for Python, Maven for Java, and npm for Node.js.
 - Access objects in an S3 bucket configured to allow access through an Amazon VPC
