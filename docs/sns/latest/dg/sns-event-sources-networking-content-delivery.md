@@ -3,7 +3,7 @@
 delivery services
 
 The following table describes how Amazon SNS integrates with AWS networking
-and content delivery services, such as Amazon API Gateway, Amazon CloudFront, Direct Connect, ELB, Amazon
+and content delivery services, such as Amazon API Gateway, Amazon CloudFront, Direct Connect, Elastic Load Balancing, Amazon
 Route 53, and Amazon VPC, to send notifications for events like API messages, CloudFront metric
 alarms, connection state changes, load balancer events, health check statuses, and VPC
 endpoint activities.

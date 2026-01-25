@@ -1018,6 +1018,42 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 
 ```
 
+Publish a message with attributes to a topic.
+
+```
+    TRY.
+        oo_result = lo_sns->publish(              " oo_result is returned for testing purposes. "
+          iv_topicarn = iv_topic_arn
+          iv_message = iv_message
+          it_messageattributes = it_msg_attrs ).
+        MESSAGE 'Message with attributes published to SNS topic.' TYPE 'I'.
+      CATCH /aws1/cx_snsnotfoundexception.
+        MESSAGE 'Topic does not exist.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+Publish a multi-format message to a topic.
+
+```
+    " Build JSON message structure for multi-format message
+    DATA(lv_json_message) = |\{ "default": "{ iv_default_message }", "sms": "{ iv_sms_message }", "email": "{ iv_email_message }" \}|.
+
+    TRY.
+        oo_result = lo_sns->publish(              " oo_result is returned for testing purposes. "
+          iv_topicarn = iv_topic_arn
+          iv_message = lv_json_message
+          iv_subject = iv_subject
+          iv_messagestructure = 'json' ).
+        MESSAGE 'Multi-format message published to SNS topic.' TYPE 'I'.
+      CATCH /aws1/cx_snsnotfoundexception.
+        MESSAGE 'Topic does not exist.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
 - For API details, see
   [Publish](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
   in _AWS SDK for SAP ABAP API reference_.
