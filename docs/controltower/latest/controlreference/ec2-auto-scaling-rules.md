@@ -4,7 +4,7 @@
 
 - [[CT.AUTOSCALING.PR.1] Require an Amazon EC2 Auto Scaling group to have multiple Availability Zones](#ct-autoscaling-pr-1-description "#ct-autoscaling-pr-1-description")
 - [[CT.AUTOSCALING.PR.2] Require an Amazon EC2 Auto Scaling group launch configuration to configure Amazon EC2 instances for IMDSv2](#ct-autoscaling-pr-2-description "#ct-autoscaling-pr-2-description")
-- [[CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS ELB (ELB) to have ELB health checks activated](#ct-autoscaling-pr-4-description "#ct-autoscaling-pr-4-description")
+- [[CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS Elastic Load Balancing (ELB) to have ELB health checks activated](#ct-autoscaling-pr-4-description "#ct-autoscaling-pr-4-description")
 - [[CT.AUTOSCALING.PR.5] Require that an Amazon EC2 Auto Scaling group launch configuration does not have Amazon EC2 instances with public IP addresses](#ct-autoscaling-pr-5-description "#ct-autoscaling-pr-5-description")
 - [[CT.AUTOSCALING.PR.6] Require any Amazon EC2 Auto Scaling groups to use multiple instance types](#ct-autoscaling-pr-6-description "#ct-autoscaling-pr-6-description")
 - [[CT.AUTOSCALING.PR.8] Require an Amazon EC2 Auto Scaling group to have EC2 launch templates configured](#ct-autoscaling-pr-8-description "#ct-autoscaling-pr-8-description")
@@ -507,10 +507,10 @@ Resources:
 
 ```
 
-## [CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS ELB (ELB) to have ELB health checks activated
+## [CT.AUTOSCALING.PR.4] Require an Amazon EC2 Auto Scaling group associated with an AWS Elastic Load Balancing (ELB) to have ELB health checks activated
 
 This control checks whether your Amazon EC2 Auto Scaling groups that are associated with a load balancer are using
-ELB health checks.
+Elastic Load Balancing health checks.
 
 - **Control objective:** Improve availability
 - **Implementation:** CloudFormation Guard Rule
@@ -530,7 +530,7 @@ ELB health checks.
 
 **Explanation**
 
-This configuration requirement ensures that the group can determine an instance's health based on additional tests provided by the load balancer. Using ELB health checks can help support the availability of applications that use EC2 Auto Scaling groups.
+This configuration requirement ensures that the group can determine an instance's health based on additional tests provided by the load balancer. Using Elastic Load Balancing health checks can help support the availability of applications that use EC2 Auto Scaling groups.
 
 ###### Usage considerations
 
@@ -538,13 +538,13 @@ This configuration requirement ensures that the group can determine an instance'
 
 ### Remediation for rule failure
 
-Configure Amazon EC2 Auto Scaling groups associated with an ELB to use ELB health checks.
+Configure Amazon EC2 Auto Scaling groups associated with an Elastic Load Balancing to use Elastic Load Balancing health checks.
 
 The examples that follow show how to implement this remediation.
 
 #### Auto Scaling group - Example One
 
-Auto Scaling group with a Classic Load Balancer association and ELB health checks. The example is shown in JSON and in YAML.
+Auto Scaling group with a Classic Load Balancer association and Elastic Load Balancing health checks. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -608,7 +608,7 @@ The examples that follow show how to implement this remediation.
 
 #### Auto Scaling group - Example Two
 
-Auto Scaling group with a Target Group association and ELB health checks. The example is shown in JSON and in YAML.
+Auto Scaling group with a Target Group association and Elastic Load Balancing health checks. The example is shown in JSON and in YAML.
 
 **JSON example**
 
@@ -681,7 +681,7 @@ Rule Identifier:
 
 Description:
   This control checks whether your Auto Scaling groups that are associated with a load balancer are using
-  ELB health checks.
+  Elastic Load Balancing health checks.
 
 Reports on:
   AWS::AutoScaling::AutoScalingGroup
