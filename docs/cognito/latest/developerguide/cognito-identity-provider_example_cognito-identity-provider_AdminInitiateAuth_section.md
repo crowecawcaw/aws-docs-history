@@ -339,6 +339,65 @@ class CognitoIdentityProviderWrapper:
   [AdminInitiateAuth](../../../goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+
+```
+    TRY.
+        " Set up authentication parameters
+        DATA(lt_auth_params) = VALUE /aws1/cl_cgpauthparamstype_w=>tt_authparameterstype(
+          ( VALUE /aws1/cl_cgpauthparamstype_w=>ts_authparameterstype_maprow(
+              key = 'USERNAME'
+              value = NEW /aws1/cl_cgpauthparamstype_w( iv_user_name ) ) )
+          ( VALUE /aws1/cl_cgpauthparamstype_w=>ts_authparameterstype_maprow(
+              key = 'PASSWORD'
+              value = NEW /aws1/cl_cgpauthparamstype_w( iv_password ) ) )
+        ).
+
+        " Add SECRET_HASH if provided
+        IF iv_secret_hash IS NOT INITIAL.
+          INSERT VALUE #(
+            key = 'SECRET_HASH'
+            value = NEW /aws1/cl_cgpauthparamstype_w( iv_secret_hash )
+          ) INTO TABLE lt_auth_params.
+        ENDIF.
+
+        oo_result = lo_cgp->admininitiateauth(
+          iv_userpoolid = iv_user_pool_id
+          iv_clientid = iv_client_id
+          iv_authflow = 'ADMIN_USER_PASSWORD_AUTH'
+          it_authparameters = lt_auth_params
+        ).
+
+        DATA(lv_challenge) = oo_result->get_challengename( ).
+
+        IF lv_challenge IS INITIAL.
+          MESSAGE 'User successfully signed in.' TYPE 'I'.
+        ELSE.
+          MESSAGE |Authentication challenge required: { lv_challenge }.| TYPE 'I'.
+        ENDIF.
+
+      CATCH /aws1/cx_cgpusernotfoundex INTO DATA(lo_user_ex).
+        MESSAGE |User { iv_user_name } not found.| TYPE 'E'.
+
+      CATCH /aws1/cx_cgpnotauthorizedex INTO DATA(lo_auth_ex).
+        MESSAGE 'Not authorized. Check credentials.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [AdminInitiateAuth](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

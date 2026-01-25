@@ -363,6 +363,71 @@ class CognitoIdentityProviderWrapper:
   [AdminRespondToAuthChallenge](../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+
+```
+    TRY.
+        " Build challenge responses
+        DATA(lt_challenge_responses) = VALUE /aws1/cl_cgpchallengerspstyp00=>tt_challengeresponsestype(
+          ( VALUE /aws1/cl_cgpchallengerspstyp00=>ts_challengerspstype_maprow(
+              key = 'USERNAME'
+              value = NEW /aws1/cl_cgpchallengerspstyp00( iv_user_name ) ) )
+          ( VALUE /aws1/cl_cgpchallengerspstyp00=>ts_challengerspstype_maprow(
+              key = 'SOFTWARE_TOKEN_MFA_CODE'
+              value = NEW /aws1/cl_cgpchallengerspstyp00( iv_mfa_code ) ) )
+        ).
+
+        " Add SECRET_HASH if provided
+        IF iv_secret_hash IS NOT INITIAL.
+          INSERT VALUE #(
+            key = 'SECRET_HASH'
+            value = NEW /aws1/cl_cgpchallengerspstyp00( iv_secret_hash )
+          ) INTO TABLE lt_challenge_responses.
+        ENDIF.
+
+        DATA(lo_result) = lo_cgp->adminrespondtoauthchallenge(
+          iv_userpoolid = iv_user_pool_id
+          iv_clientid = iv_client_id
+          iv_challengename = 'SOFTWARE_TOKEN_MFA'
+          it_challengeresponses = lt_challenge_responses
+          iv_session = iv_session
+        ).
+
+        oo_auth_result = lo_result->get_authenticationresult( ).
+
+        IF oo_auth_result IS BOUND.
+          MESSAGE 'MFA challenge completed successfully.' TYPE 'I'.
+        ELSE.
+          " Another challenge might be required
+          DATA(lv_next_challenge) = lo_result->get_challengename( ).
+          MESSAGE |Additional challenge required: { lv_next_challenge }.| TYPE 'I'.
+        ENDIF.
+
+      CATCH /aws1/cx_cgpcodemismatchex INTO DATA(lo_code_ex).
+        MESSAGE 'Invalid MFA code provided.' TYPE 'E'.
+
+      CATCH /aws1/cx_cgpexpiredcodeex INTO DATA(lo_expired_ex).
+        MESSAGE 'MFA code has expired.' TYPE 'E'.
+
+      CATCH /aws1/cx_cgpnotauthorizedex INTO DATA(lo_auth_ex).
+        MESSAGE 'Not authorized. Check MFA configuration.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [AdminRespondToAuthChallenge](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

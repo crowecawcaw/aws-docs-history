@@ -274,6 +274,40 @@ class CognitoIdentityProviderWrapper:
   [AssociateSoftwareToken](../../../goto/boto3/cognito-idp-2016-04-18/AssociateSoftwareToken.md "../../../goto/boto3/cognito-idp-2016-04-18/AssociateSoftwareToken.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_cgp->associatesoftwaretoken(
+          iv_session = iv_session
+        ).
+
+        ov_secret_code = lo_result->get_secretcode( ).
+
+        MESSAGE 'MFA secret code generated successfully.' TYPE 'I'.
+
+      CATCH /aws1/cx_cgpresourcenotfoundex INTO DATA(lo_ex).
+        MESSAGE 'Session not found or expired.' TYPE 'E'.
+
+      CATCH /aws1/cx_cgpnotauthorizedex INTO DATA(lo_auth_ex).
+        MESSAGE 'Not authorized to associate software token.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [AssociateSoftwareToken](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

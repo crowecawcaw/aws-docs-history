@@ -381,6 +381,40 @@ class CognitoIdentityProviderWrapper:
   [ListUsers](../../../goto/boto3/cognito-idp-2016-04-18/ListUsers.md "../../../goto/boto3/cognito-idp-2016-04-18/ListUsers.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_cgp->listusers(
+          iv_userpoolid = iv_user_pool_id
+        ).
+
+        ot_users = lo_result->get_users( ).
+
+        MESSAGE |Found { lines( ot_users ) } users in the pool.| TYPE 'I'.
+
+      CATCH /aws1/cx_cgpresourcenotfoundex INTO DATA(lo_ex).
+        MESSAGE |User pool { iv_user_pool_id } not found.| TYPE 'E'.
+
+      CATCH /aws1/cx_cgpnotauthorizedex INTO DATA(lo_auth_ex).
+        MESSAGE 'Not authorized to list users.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListUsers](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

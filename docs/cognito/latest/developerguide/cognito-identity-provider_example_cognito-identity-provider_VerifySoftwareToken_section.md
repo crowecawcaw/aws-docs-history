@@ -284,6 +284,45 @@ class CognitoIdentityProviderWrapper:
   [VerifySoftwareToken](../../../goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_cgp->verifysoftwaretoken(
+          iv_session = iv_session
+          iv_usercode = iv_user_code
+        ).
+
+        ov_status = lo_result->get_status( ).
+
+        IF ov_status = 'SUCCESS'.
+          MESSAGE 'MFA token verified successfully.' TYPE 'I'.
+        ELSE.
+          MESSAGE |MFA verification status: { ov_status }.| TYPE 'I'.
+        ENDIF.
+
+      CATCH /aws1/cx_cgpcodemismatchex INTO DATA(lo_code_ex).
+        MESSAGE 'Invalid MFA code provided.' TYPE 'E'.
+
+      CATCH /aws1/cx_cgpenbsoftwaretokmf00 INTO DATA(lo_enabled_ex).
+        MESSAGE 'Software token MFA is already enabled.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [VerifySoftwareToken](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**
