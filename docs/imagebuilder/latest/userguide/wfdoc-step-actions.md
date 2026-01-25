@@ -124,6 +124,8 @@ the image build could fail.
 
 **Default Timeout:** 60 minutes
 
+**Max Timeout:** 720 minutes
+
 **Rollback:** There is no rollback for this
 step action.
 
@@ -178,6 +180,8 @@ This step action only works for images that create AMIs.
 
 **Default Timeout:** 30 minutes
 
+**Max Timeout:** 720 minutes
+
 **Rollback:** Image Builder rolls back any Systems Manager resources
 that were created during this step.
 
@@ -221,6 +225,8 @@ your pipeline, this step action collects image scan findings reported by Amazon 
 for your test instance. This step action is not available for build workflows.
 
 **Default Timeout:** 120 minutes
+
+**Max Timeout:** 720 minutes
 
 **Rollback:** There is no rollback for this
 step action.
@@ -267,6 +273,8 @@ waits as necessary to verify that the resources have reached the correct state
 before it continues.
 
 **Default Timeout:** 720 minutes
+
+**Max Timeout:** 3 days
 
 **Rollback:** There is no rollback for this
 step action.
@@ -382,6 +390,8 @@ Command](../../../systems-manager/latest/userguide/execute-remote-commands.md ".
 
 **Default Timeout:** 720 minutes
 
+**Max Timeout:** 1 day
+
 **Rollback:** There is no rollback for this
 step action.
 
@@ -448,9 +458,10 @@ supported inputs for this step action.
 **Outputs:** The following table includes
 outputs for this step action.
 
-| Output name  | Description                             | Type   |
-| ------------ | --------------------------------------- | ------ |
-| executionArn | The ARN of the state machine execution. | String |
+| Output name  | Description                                | Type   |
+| ------------ | ------------------------------------------ | ------ |
+| executionArn | The ARN of the state machine execution.    | String |
+| output       | The output of the state machine execution. | String |
 
 **IAM permissions required**
 
@@ -504,7 +515,9 @@ it launched.
 The `waitFor` input configures the condition that satisfies the
 step completion requirement.
 
-**Default Timeout:** 60 minutes
+**Default Timeout:** 75 minutes
+
+**Max Timeout:** 720 minutes
 
 **Rollback:** For build instances, rollback
 performs the action that you've configured in your infrastructure configuration
@@ -608,35 +621,46 @@ Use the output of the step action value in the workflow document.
 
 This step action registers a new Amazon Machine Image (AMI) using the Amazon EC2 RegisterImage API. It allows you to create an AMI from an existing snapshot or set of snapshots, specifying various image attributes.
 
-**Default Timeout:** 720 minutes
+**Default Timeout:** 540 minutes
+
+**Max Timeout:** 720 minutes
 
 **Rollback:** There is no rollback for this step action.
 
 **Inputs:** The following table includes supported inputs for this step action.
 
-| Input name          | Description                                                                          | Type    | Required | Default | Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------- | ------------------------------------------------------------------------------------ | ------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| architecture        | The architecture of the AMI.                                                         | String  | No       |         | Valid values: i386, x86_64, arm64, x86_64_mac, arm64_mac                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| blockDeviceMapping  | The block device mapping entries for the AMI.                                        | Array   | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| bootMode            | The boot mode of the AMI.                                                            | String  | No       |         | Valid values: legacy-bios, uefi, uefi-preferred                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| description         | A description for the AMI.                                                           | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| enaSupport          | Whether enhanced networking with ENA is enabled.                                     | Boolean | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| imageLocation       | The location of the AMI manifest.                                                    | String  | No       |         | Required for S3-backed AMIs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| imdsSupport         | The IMDSv2 support level.                                                            | String  | No       |         | Valid values: v2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| includeSnapshotTags | Whether to include tags from the first snapshot defined in the block device mapping. | Boolean | No       | FALSE   | When set to true, tags are included as follows:<br>• Tags from the `SnapshotId` of the first EBS volume in the `blockDeviceMapping`<br>list that contains a `SnapshotId` is merged with the AMI registration tags.<br>• AMI registration tags take precedence over snapshot tags with the same key.<br>• AWS reserved tags (those with keys starting with `aws:`) are automatically excluded.<br>• If multiple EBS volumes with `SnapshotId` are defined, only tags from the<br>first EBS volume in the list that contains a `SnapshotId` is included. |
-| kernelId            | The ID of the kernel to use.                                                         | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ramdiskId           | The ID of the RAM disk to use.                                                       | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| rootDeviceName      | The device name of the root device.                                                  | String  | No       |         | Example: /dev/sda1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| sriovNetSupport     | Enhanced networking with the Intel 82599 VF interface.                               | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| tpmSupport          | TPM version support.                                                                 | String  | No       |         | Valid values: v2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| uefiData            | Base64-encoded UEFI data.                                                            | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| virtualizationType  | The virtualization type.                                                             | String  | No       |         | Valid values: hvm, paravirtual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Input name          | Description                                                                          | Type    | Required | Default | Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------ | ------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| architecture        | The architecture of the AMI.                                                         | String  | No       |         | Valid values: i386, x86_64, arm64, x86_64_mac, arm64_mac                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| blockDeviceMapping  | The block device mapping entries for the AMI.                                        | Array   | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| bootMode            | The boot mode of the AMI.                                                            | String  | No       |         | Valid values: legacy-bios, uefi, uefi-preferred                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| description         | A description for the AMI.                                                           | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| enaSupport          | Whether enhanced networking with ENA is enabled.                                     | Boolean | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| imageLocation       | The location of the AMI manifest.                                                    | String  | No       |         | Required for S3-backed AMIs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| imdsSupport         | The IMDSv2 support level.                                                            | String  | No       |         | Valid values: v2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| includeSnapshotTags | Whether to include tags from the first snapshot defined in the block device mapping. | Boolean | No       | FALSE   | When set to true, tags are included as follows:<br>• Tags from the `SnapshotId` of the first EBS volume in the `blockDeviceMapping`<br>list that contains a `SnapshotId` is merged with the output AMI tags.<br>• Output AMI tags take precedence over snapshot tags with the same key.<br>• AWS reserved tags (those with keys starting with `aws:`) are automatically excluded.<br>• If multiple EBS volumes with `SnapshotId` are defined, only tags from the<br>first EBS volume in the list that contains a `SnapshotId` is included. |
+| kernelId            | The ID of the kernel to use.                                                         | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ramdiskId           | The ID of the RAM disk to use.                                                       | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| rootDeviceName      | The device name of the root device.                                                  | String  | No       |         | Example: /dev/sda1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| sriovNetSupport     | Enhanced networking with the Intel 82599 VF interface.                               | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| tpmSupport          | TPM version support.                                                                 | String  | No       |         | Valid values: v2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| uefiData            | Base64-encoded UEFI data.                                                            | String  | No       |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| virtualizationType  | The virtualization type.                                                             | String  | No       |         | Valid values: hvm, paravirtual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 **Outputs:** The following table includes outputs for this step action.
 
 | Output name | Description                         | Type   |
 | ----------- | ----------------------------------- | ------ |
 | imageId     | The AMI ID of the registered image. | String |
+
+**IAM permissions required**
+
+Your custom execution role must have the following permissions to use this step action:
+
+###### Allow actions
+
+- `ec2:DescribeSnapshots`
+- `ec2:CreateTags`
 
 **Example**
 
@@ -702,7 +726,9 @@ This step action runs a command document for your workflow. Image Builder uses t
 For more information, see [AWS Systems Manager Run
 Command](../../../systems-manager/latest/userguide/run-command.md "../../../systems-manager/latest/userguide/run-command.md").
 
-**Default Timeout:** 12 hours
+**Default Timeout:** 720 minutes
+
+**Max Timeout:** 720 minutes
 
 **Rollback:** There is no rollback for this
 step action.
@@ -758,6 +784,8 @@ hardening and cleaning the image](https://aws.amazon.com/articles/public-ami-pub
 
 **Default Timeout:** 60 minutes
 
+**Max Timeout:** 720 minutes
+
 **Rollback:** There is no rollback for this
 step action.
 
@@ -810,6 +838,8 @@ Command](../../../systems-manager/latest/userguide/execute-remote-commands.md ".
 
 **Default Timeout:** 60 minutes
 
+**Max Timeout:** 720 minutes
+
 **Rollback:** There is no rollback for this
 step action.
 
@@ -853,6 +883,8 @@ This step action terminate the instance with the instance id that's passed in as
 
 **Default Timeout:** 30 minutes
 
+**Max Timeout:** 720 minutes
+
 **Rollback:** There is no rollback for this step action.
 
 **Inputs:** The following table includes
@@ -888,6 +920,8 @@ or invoke a Lambda function asynchronously if you provide a Lambda function name
 
 **Default Timeout:** 3 days
 
+**Max Timeout:** 7 days
+
 **Rollback:** There is no rollback for this
 step action.
 
@@ -907,6 +941,19 @@ outputs for this step action.
 | ----------- | --------------------------------------------------------------------- | --------------------------- |
 | action      | The action that the **SendWorkflowStepAction**<br>API action returns. | String (`RESUME` or `STOP`) |
 | reason      | The reason for the returned action.                                   | String                      |
+
+**IAM permissions required**
+
+Your custom execution role must have the following permissions to use this step action:
+
+###### Allow actions
+
+- `lambda:InvokeFunction`
+
+###### Specify resources
+
+- `arn:aws:lambda:`us-west-2`:`111122223333`:function:`function-name``
+- `arn:aws:lambda:`us-west-2`:`111122223333`:function:*`
 
 **Example**
 
@@ -968,7 +1015,7 @@ outputs for this step action.
 
 | Output name | Description                     | Type   |
 | ----------- | ------------------------------- | ------ |
-| Status      | Connection status of SSM Agent. | String |
+| status      | Connection status of SSM Agent. | String |
 
 **Example**
 
@@ -978,7 +1025,7 @@ Specify the step action in the workflow document.
 `- name: `WaitForInstanceAfterReboot`
  action: WaitForSSMAgent
  onFailure: Abort
- timeoutInSeconds: 900 # 15 minutes
+ timeoutInSeconds: 900
  inputs:
  instanceId.$: $.stepOutputs.LaunchStep.instanceId`
 ```

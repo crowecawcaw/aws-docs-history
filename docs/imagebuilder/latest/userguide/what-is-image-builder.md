@@ -93,16 +93,16 @@ For more information, see [Share Image Builder resources with AWS RAM](manage-sh
 
 Image Builder supports the following operating system versions:
 
-| Operating system/distribution       | Supported versions                                             |
-| ----------------------------------- | -------------------------------------------------------------- |
-| Amazon Linux                        | 2 and 2023                                                     |
-| CentOS                              | 7 and 8                                                        |
-| CentOS Stream                       | 8                                                              |
-| macOS                               | 12.x (Monterey), 13.x (Ventura), 14.x (Sonoma), 15.x (Sequoia) |
-| Red Hat Enterprise Linux (RHEL)     | 7, 8, 9, and 10                                                |
-| SUSE Linux Enterprise Server (SUSE) | 12 and 15                                                      |
-| Ubuntu                              | 18.04 LTS, 20.04 LTS, 22.04 LTS, and 24.04 LTS                 |
-| Windows Server                      | 2012 R2, 2016, 2019, 2022, and 2025                            |
+| Operating system/distribution       | Supported versions                                                           |
+| ----------------------------------- | ---------------------------------------------------------------------------- |
+| Amazon Linux                        | 2 and 2023                                                                   |
+| CentOS                              | 7 and 8                                                                      |
+| CentOS Stream                       | 8                                                                            |
+| macOS                               | 12.x (Monterey), 13.x (Ventura), 14.x (Sonoma), 15.x (Sequoia), 26.x (Tahoe) |
+| Red Hat Enterprise Linux (RHEL)     | 7, 8, 9, and 10                                                              |
+| SUSE Linux Enterprise Server (SUSE) | 12, 15 and 16                                                                |
+| Ubuntu                              | 18.04 LTS, 20.04 LTS, 22.04 LTS, and 24.04 LTS                               |
+| Windows Server                      | 2012 R2, 2016, 2019, 2022, and 2025                                          |
 
 ## Supported image formats
 

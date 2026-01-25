@@ -78,14 +78,12 @@ components. To learn more about semantic versioning for Image Builder resources,
    updates for automatically scheduled jobs. To learn more about semantic versioning for Image Builder resources, see
    [Semantic versioning in Image Builder](ibhow-semantic-versioning.md "ibhow-semantic-versioning.md").
 
-5. In the **Components** section, you must choose at
-   least one build component.
-
-In the **Build components – Amazon Linux** panel, you
-can browse through the components listed on the page. Use the pagination control
-in the upper right corner to navigate through additional components that are
-available for your base image OS. You can also search for specific components,
-or create your own build component using the Component manager.
+5. In the **Components** section, you can choose to not add any components and proceed. If you want to add components,
+   in the **Build components – Amazon Linux** panel, you
+   can browse through the components listed on the page. Use the pagination control
+   in the upper right corner to navigate through additional components that are
+   available for your base image OS. You can also search for specific components,
+   or create your own build component using the Component manager.
 
 For this tutorial, choose a component that updates Linux with the latest
 security updates, as follows:

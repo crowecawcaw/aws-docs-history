@@ -91,10 +91,8 @@ at other times to provide commands, or a command script to run when you launch
 your build instance. However, it replaces any commands that Image Builder might have
 added to ensure that Systems Manager is installed. When you do use it, make sure that the
 Systems Manager agent is preinstalled on your base image, or that you include the install
-in your user data. 6. In the **Components** section, you must choose at
-least one build component.
-
-In the **Build components** panel, choose
+in your user data. 6. In the **Components** section, you can choose to not add any components and proceed. If you want to add components,
+in the **Build components** panel, choose
 **Add build components**, and select
 `Amazon managed` from the component owner filter list. This opens
 a selection panel on the right side of the console interface where you can browse
