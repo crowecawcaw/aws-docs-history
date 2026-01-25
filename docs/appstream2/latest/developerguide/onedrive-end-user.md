@@ -43,7 +43,7 @@ your OneDrive account to WorkSpaces Applications.
 ![OneDrive option highlighted in cloud storage selection menu.](images/AddOneDrive1.png) 4. Under **Login accounts**, choose the domain for your
 OneDrive account.
 
-![Dropdown menu showing login account options with example.com highlighted.](/images/appstream2/latest/developerguide/images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
+![Dropdown menu showing login account options with example.com highlighted.](images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
 credentials for your account. 6. After your OneDrive account is added to WorkSpaces Applications, your OneDrive folder is
 displayed in **My Files**.
 
