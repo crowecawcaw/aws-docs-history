@@ -323,6 +323,35 @@ Here is an example of a properties list to pass to the function.
   [CreateAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+
+```
+    TRY.
+        oo_result = lo_ios->createassetmodel(
+          iv_assetmodelname = iv_asset_model_name
+          iv_assetmodeldescription = 'This is a sample asset model description.'
+          it_assetmodelproperties = it_properties
+        ). " oo_result is returned for testing purposes. "
+        MESSAGE 'IoT SiteWise asset model created' TYPE 'I'.
+      CATCH /aws1/cx_iosresrcalrdyexistsex.
+        MESSAGE 'Asset model already exists.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateAssetModel](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

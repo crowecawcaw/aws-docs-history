@@ -183,6 +183,33 @@ class IoTSitewiseWrapper:
   [DeleteAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/DeleteAssetModel.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+
+```
+    TRY.
+        lo_ios->deleteassetmodel(
+          iv_assetmodelid = iv_asset_model_id
+        ).
+        MESSAGE 'IoT SiteWise asset model deleted.' TYPE 'I'.
+      CATCH /aws1/cx_rt_generic.
+        MESSAGE 'Unable to delete asset model.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteAssetModel](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

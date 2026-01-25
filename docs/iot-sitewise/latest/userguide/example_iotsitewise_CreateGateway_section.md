@@ -214,6 +214,46 @@ class IoTSitewiseWrapper:
   [CreateGateway](../../../goto/boto3/iotsitewise-2019-12-02/CreateGateway.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateGateway.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ios#code-examples").
+
+```
+    TRY.
+        oo_result = lo_ios->creategateway(
+          iv_gatewayname = iv_gateway_name
+          io_gatewayplatform = NEW /aws1/cl_iosgatewayplatform(
+            io_greengrassv2 = NEW /aws1/cl_iosgreengrassv2(
+              iv_coredevicethingname = iv_core_device_thing_name
+            )
+          )
+          it_tags = VALUE /aws1/cl_iostagmap_w=>tt_tagmap(
+            (
+              VALUE /aws1/cl_iostagmap_w=>ts_tagmap_maprow(
+                key = 'Environment'
+                value = NEW /aws1/cl_iostagmap_w( 'Production' )
+              )
+            )
+          )
+        ). " oo_result is returned for testing purposes. "
+        MESSAGE 'IoT SiteWise gateway created' TYPE 'I'.
+      CATCH /aws1/cx_iosresrcalrdyexistsex.
+        MESSAGE 'Gateway already exists.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateGateway](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

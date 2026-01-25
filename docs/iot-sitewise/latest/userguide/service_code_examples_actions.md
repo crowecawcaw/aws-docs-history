@@ -20,4 +20,5 @@ For a complete list, see the
 - [DescribeAssetModel](example_iotsitewise_DescribeAssetModel_section.md "example_iotsitewise_DescribeAssetModel_section.md")
 - [DescribeGateway](example_iotsitewise_DescribeGateway_section.md "example_iotsitewise_DescribeGateway_section.md")
 - [GetAssetPropertyValue](example_iotsitewise_GetAssetPropertyValue_section.md "example_iotsitewise_GetAssetPropertyValue_section.md")
+- [ListAssetModelProperties](example_iotsitewise_ListAssetModelProperties_section.md "example_iotsitewise_ListAssetModelProperties_section.md")
 - [ListAssetModels](example_iotsitewise_ListAssetModels_section.md "example_iotsitewise_ListAssetModels_section.md")
