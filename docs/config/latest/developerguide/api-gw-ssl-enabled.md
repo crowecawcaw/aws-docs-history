@@ -4,7 +4,8 @@ Checks if a REST API stage uses an SSL certificate. The rule is NON_COMPLIANT if
 
 ###### Note
 
-This rule returns `NOT_APPLICABLE` if the [GetIntegration](../../../apigateway/latest/api/API_GetIntegration.md "../../../apigateway/latest/api/API_GetIntegration.md") API returns `AWS` as [type](../../../apigateway/latest/api/API_GetIntegration.md#apigw-GetIntegration-response-type "../../../apigateway/latest/api/API_GetIntegration.md#apigw-GetIntegration-response-type").
+This rule returns `NOT_APPLICABLE` if the [GetIntegration](../../../apigateway/latest/api/API_GetIntegration.md "../../../apigateway/latest/api/API_GetIntegration.md") API returns an integration type other than `HTTP` as [type](../../../apigateway/latest/api/API_GetIntegration.md#apigw-GetIntegration-response-type "../../../apigateway/latest/api/API_GetIntegration.md#apigw-GetIntegration-response-type").
+This rule evaluates the SSL certificate configuration in API Gateway stage settings, not the actual deployed state.
 
 **Identifier:** API_GW_SSL_ENABLED
 

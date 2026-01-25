@@ -258,3 +258,41 @@ class ConfigWrapper:
 - For API details, see
   [PutConfigRule](../../../goto/boto3/config-2014-11-12/PutConfigRule.md "../../../goto/boto3/config-2014-11-12/PutConfigRule.md")
   in _AWS SDK for Python (Boto3) API Reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples").
+
+```
+    " Create a config rule for S3 bucket public read prohibition
+    lo_cfs->putconfigrule(
+      io_configrule = NEW /aws1/cl_cfsconfigrule(
+        iv_configrulename = iv_rule_name
+        iv_description = |S3 Public Read Prohibited Bucket Rule|
+        io_scope = NEW /aws1/cl_cfsscope(
+          it_complianceresourcetypes = VALUE /aws1/cl_cfscplncresrctypes_w=>tt_complianceresourcetypes(
+            ( NEW /aws1/cl_cfscplncresrctypes_w( |AWS::S3::Bucket| ) )
+          )
+        )
+        io_source = NEW /aws1/cl_cfssource(
+          iv_owner = |AWS|
+          iv_sourceidentifier = |S3_BUCKET_PUBLIC_READ_PROHIBITED|
+        )
+        iv_inputparameters = '{}'
+        iv_configrulestate = |ACTIVE|
+      )
+    ).
+    MESSAGE 'Created AWS Config rule.' TYPE 'I'.
+
+
+```
+
+- For API details, see
+  [PutConfigRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.

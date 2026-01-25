@@ -120,3 +120,24 @@ class ConfigWrapper:
 - For API details, see
   [DeleteConfigRule](../../../goto/boto3/config-2014-11-12/DeleteConfigRule.md "../../../goto/boto3/config-2014-11-12/DeleteConfigRule.md")
   in _AWS SDK for Python (Boto3) API Reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples").
+
+```
+    lo_cfs->deleteconfigrule( iv_rule_name ).
+    MESSAGE 'Deleted AWS Config rule.' TYPE 'I'.
+
+
+```
+
+- For API details, see
+  [DeleteConfigRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.

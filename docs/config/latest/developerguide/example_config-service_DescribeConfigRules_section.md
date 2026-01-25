@@ -149,6 +149,32 @@ class ConfigWrapper:
   [DescribeConfigRules](../../../goto/boto3/config-2014-11-12/DescribeConfigRules.md "../../../goto/boto3/config-2014-11-12/DescribeConfigRules.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cfs#code-examples").
+
+```
+    DATA(lo_result) = lo_cfs->describeconfigrules(
+      it_configrulenames = VALUE /aws1/cl_cfsconfigrulenames_w=>tt_configrulenames(
+        ( NEW /aws1/cl_cfsconfigrulenames_w( iv_rule_name ) )
+      )
+    ).
+    ot_cfg_rules = lo_result->get_configrules( ).
+    MESSAGE 'Retrieved AWS Config rule data.' TYPE 'I'.
+
+
+```
+
+- For API details, see
+  [DescribeConfigRules](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS Config with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
