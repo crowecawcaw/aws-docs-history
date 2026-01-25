@@ -479,6 +479,57 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [CreateCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+
+```
+    TRY.
+        " iv_crawler_name = 'my-crawler'
+        " iv_role_arn = 'arn:aws:iam::123456789012:role/AWSGlueServiceRole-Test'
+        " iv_database_name = 'my-database'
+        " iv_table_prefix = 'test_'
+        " iv_s3_target = 's3://example-bucket/data/'
+
+        DATA(lt_s3_targets) = VALUE /aws1/cl_glus3target=>tt_s3targetlist(
+          ( NEW /aws1/cl_glus3target( iv_path = iv_s3_target ) ) ).
+
+        DATA(lo_targets) = NEW /aws1/cl_glucrawlertargets(
+          it_s3targets = lt_s3_targets ).
+
+        lo_glu->createcrawler(
+          iv_name = iv_crawler_name
+          iv_role = iv_role_arn
+          iv_databasename = iv_database_name
+          iv_tableprefix = iv_table_prefix
+          io_targets = lo_targets ).
+        MESSAGE 'Crawler created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_glualreadyexistsex.
+        MESSAGE 'Crawler already exists.' TYPE 'E'.
+      CATCH /aws1/cx_gluinvalidinputex INTO DATA(lo_invalid_ex).
+        DATA(lv_invalid_error) = lo_invalid_ex->if_message~get_longtext( ).
+        MESSAGE lv_invalid_error TYPE 'E'.
+      CATCH /aws1/cx_gluoperationtimeoutex INTO DATA(lo_timeout_ex).
+        DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
+        MESSAGE lv_timeout_error TYPE 'E'.
+      CATCH /aws1/cx_gluresrcnumlmtexcdex INTO DATA(lo_limit_ex).
+        DATA(lv_limit_error) = lo_limit_ex->if_message~get_longtext( ).
+        MESSAGE lv_limit_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateCrawler](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

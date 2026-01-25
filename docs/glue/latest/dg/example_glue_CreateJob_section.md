@@ -583,6 +583,58 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [CreateJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+
+```
+    TRY.
+        " iv_job_name = 'my-etl-job'
+        " iv_description = 'ETL job for data transformation'
+        " iv_role_arn = 'arn:aws:iam::123456789012:role/AWSGlueServiceRole-Test'
+        " iv_script_location = 's3://example-bucket/scripts/my-script.py'
+
+        DATA(lo_command) = NEW /aws1/cl_glujobcommand(
+          iv_name = 'glueetl'
+          iv_scriptlocation = iv_script_location
+          iv_pythonversion = '3' ).
+
+        lo_glu->createjob(
+          iv_name = iv_job_name
+          iv_description = iv_description
+          iv_role = iv_role_arn
+          io_command = lo_command
+          iv_glueversion = '3.0' ).
+        MESSAGE 'Job created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_glualreadyexistsex.
+        MESSAGE 'Job already exists.' TYPE 'E'.
+      CATCH /aws1/cx_gluinvalidinputex INTO DATA(lo_invalid_ex).
+        DATA(lv_invalid_error) = lo_invalid_ex->if_message~get_longtext( ).
+        MESSAGE lv_invalid_error TYPE 'E'.
+      CATCH /aws1/cx_gluinternalserviceex INTO DATA(lo_internal_ex).
+        DATA(lv_internal_error) = lo_internal_ex->if_message~get_longtext( ).
+        MESSAGE lv_internal_error TYPE 'E'.
+      CATCH /aws1/cx_gluoperationtimeoutex INTO DATA(lo_timeout_ex).
+        DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
+        MESSAGE lv_timeout_error TYPE 'E'.
+      CATCH /aws1/cx_gluresrcnumlmtexcdex INTO DATA(lo_limit_ex).
+        DATA(lv_limit_error) = lo_limit_ex->if_message~get_longtext( ).
+        MESSAGE lv_limit_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

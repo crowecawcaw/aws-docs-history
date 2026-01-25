@@ -460,6 +460,65 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [StartJobRun](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_job_run "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_job_run")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+
+```
+    TRY.
+        " iv_job_name = 'my-etl-job'
+        " iv_input_database = 'my-database'
+        " iv_input_table = 'my-table'
+        " iv_output_bucket_url = 's3://example-output-bucket/'
+
+        DATA lt_arguments TYPE /aws1/cl_glugenericmap_w=>tt_genericmap.
+        lt_arguments = VALUE #(
+          ( VALUE /aws1/cl_glugenericmap_w=>ts_genericmap_maprow(
+            key = '--input_database'
+            value = NEW /aws1/cl_glugenericmap_w( iv_value = iv_input_database ) ) )
+          ( VALUE /aws1/cl_glugenericmap_w=>ts_genericmap_maprow(
+            key = '--input_table'
+            value = NEW /aws1/cl_glugenericmap_w( iv_value = iv_input_table ) ) )
+          ( VALUE /aws1/cl_glugenericmap_w=>ts_genericmap_maprow(
+            key = '--output_bucket_url'
+            value = NEW /aws1/cl_glugenericmap_w( iv_value = iv_output_bucket_url ) ) ) ).
+
+        DATA(oo_result) = lo_glu->startjobrun(
+          iv_jobname = iv_job_name
+          it_arguments = lt_arguments ).
+        ov_job_run_id = oo_result->get_jobrunid( ).
+        MESSAGE 'Job run started successfully.' TYPE 'I'.
+      CATCH /aws1/cx_gluconcurrentrunsex00.
+        MESSAGE 'Maximum concurrent runs exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_gluentitynotfoundex.
+        MESSAGE 'Job does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_gluinvalidinputex INTO DATA(lo_invalid_ex).
+        DATA(lv_invalid_error) = lo_invalid_ex->if_message~get_longtext( ).
+        MESSAGE lv_invalid_error TYPE 'E'.
+      CATCH /aws1/cx_gluinternalserviceex INTO DATA(lo_internal_ex).
+        DATA(lv_internal_error) = lo_internal_ex->if_message~get_longtext( ).
+        MESSAGE lv_internal_error TYPE 'E'.
+      CATCH /aws1/cx_gluoperationtimeoutex INTO DATA(lo_timeout_ex).
+        DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
+        MESSAGE lv_timeout_error TYPE 'E'.
+      CATCH /aws1/cx_gluresrcnumlmtexcdex INTO DATA(lo_limit_ex).
+        DATA(lv_limit_error) = lo_limit_ex->if_message~get_longtext( ).
+        MESSAGE lv_limit_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [StartJobRun](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

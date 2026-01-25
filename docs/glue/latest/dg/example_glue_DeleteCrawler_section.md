@@ -282,6 +282,39 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [DeleteCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+
+```
+    TRY.
+        " iv_crawler_name = 'my-crawler'
+        lo_glu->deletecrawler( iv_name = iv_crawler_name ).
+        MESSAGE 'Crawler deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_glucrawlerrunningex.
+        MESSAGE 'Crawler is currently running.' TYPE 'E'.
+      CATCH /aws1/cx_gluentitynotfoundex.
+        MESSAGE 'Crawler does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_gluoperationtimeoutex INTO DATA(lo_timeout_ex).
+        DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
+        MESSAGE lv_timeout_error TYPE 'E'.
+      CATCH /aws1/cx_gluschdrtransingex.
+        MESSAGE 'Scheduler is transitioning.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteCrawler](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

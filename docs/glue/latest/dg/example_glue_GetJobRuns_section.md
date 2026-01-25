@@ -424,6 +424,42 @@ class GlueWrapper
   [GetJobRuns](../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+
+```
+    TRY.
+        " iv_job_name = 'my-etl-job'
+        oo_result = lo_glu->getjobruns( iv_jobname = iv_job_name ).
+        DATA(lt_job_runs) = oo_result->get_jobruns( ).
+        MESSAGE 'Job runs retrieved successfully.' TYPE 'I'.
+      CATCH /aws1/cx_gluentitynotfoundex.
+        MESSAGE 'Job does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_gluinvalidinputex INTO DATA(lo_invalid_ex).
+        DATA(lv_invalid_error) = lo_invalid_ex->if_message~get_longtext( ).
+        MESSAGE lv_invalid_error TYPE 'E'.
+      CATCH /aws1/cx_gluinternalserviceex INTO DATA(lo_internal_ex).
+        DATA(lv_internal_error) = lo_internal_ex->if_message~get_longtext( ).
+        MESSAGE lv_internal_error TYPE 'E'.
+      CATCH /aws1/cx_gluoperationtimeoutex INTO DATA(lo_timeout_ex).
+        DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
+        MESSAGE lv_timeout_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetJobRuns](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**
