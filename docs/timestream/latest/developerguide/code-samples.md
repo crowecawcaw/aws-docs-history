@@ -1,122 +1,215 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Delete scheduled query
+# Describe batch load task
 
-You can use the following code snippets to delete a scheduled query.
+You can use the following code snippets to describe batch load tasks.
 
 Java
 
 ```
-public void deleteScheduledQuery(String scheduledQueryArn) {
-    System.out.println("Deleting Scheduled Query");
+    public void describeBatchLoadTask(String taskId) {
+            final DescribeBatchLoadTaskResponse batchLoadTaskResponse = amazonTimestreamWrite
+                            .describeBatchLoadTask(DescribeBatchLoadTaskRequest.builder()
+                                            .taskId(taskId)
+                                            .build());
 
-    try {
-        queryClient.deleteScheduledQuery(new DeleteScheduledQueryRequest().withScheduledQueryArn(scheduledQueryArn));
-        System.out.println("Successfully deleted scheduled query");
+            System.out.println("Task id: " + batchLoadTaskResponse.batchLoadTaskDescription().taskId());
+            System.out.println("Status: " + batchLoadTaskResponse.batchLoadTaskDescription().taskStatusAsString());
+            System.out.println("Records processed: "
+                            + batchLoadTaskResponse.batchLoadTaskDescription().progressReport().recordsProcessed());
     }
-    catch (Exception e) {
-        System.out.println("Scheduled Query deletion failed: " + e);
-    }
-}
-```
-
-Java v2
-
-```
-public void deleteScheduledQuery(String scheduledQueryArn) {
-    System.out.println("Deleting Scheduled Query");
-
-    try {
-        queryClient.deleteScheduledQuery(DeleteScheduledQueryRequest.builder()
-                .scheduledQueryArn(scheduledQueryArn).build());
-        System.out.println("Successfully deleted scheduled query");
-    }
-    catch (Exception e) {
-        System.out.println("Scheduled Query deletion failed: " + e);
-    }
-}
 ```
 
 Go
 
 ```
-func (timestreamBuilder TimestreamBuilder) DeleteScheduledQuery(scheduledQueryArn string) error {
+package main
 
-     deleteScheduledQueryInput := &timestreamquery.DeleteScheduledQueryInput{
-         ScheduledQueryArn: aws.String(scheduledQueryArn),
-     }
-     _, err := timestreamBuilder.QuerySvc.DeleteScheduledQuery(deleteScheduledQueryInput)
+import (
+	"fmt"
+	"context"
+	"log"
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/timestreamwrite"
+)
 
-     if err != nil {
-         fmt.Println("Error:")
-         if aerr, ok := err.(awserr.Error); ok {
-             switch aerr.Code() {
-             case timestreamquery.ErrCodeResourceNotFoundException:
-                 fmt.Println(timestreamquery.ErrCodeResourceNotFoundException, aerr.Error())
-             default:
-                 fmt.Printf("Error: %s", aerr.Error())
-             }
-         } else {
-             fmt.Printf("Error: %s", err.Error())
-         }
-         return err
-     } else {
-         fmt.Println("DeleteScheduledQuery is successful")
-         return nil
-     }
- }
+func main() {
+	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+		if service == timestreamwrite.ServiceID && region == "us-west-2" {
+		    return aws.Endpoint{
+		        PartitionID:   "aws",
+		        URL:           <URL>,
+		        SigningRegion: "us-west-2",
+		    }, nil
+		}
+		return aws.Endpoint{}, &aws.EndpointNotFoundError{}
+	})
+
+	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver), config.WithRegion("us-west-2"))
+
+	if err != nil {
+  		log.Fatalf("failed to load configuration, %v", err)
+	}
+
+	client := timestreamwrite.NewFromConfig(cfg)
+
+	response, err := client.DescribeBatchLoadTask(context.TODO(), &timestreamwrite.DescribeBatchLoadTaskInput{
+		TaskId: aws.String("<TaskId>"),
+	})
+
+	fmt.Println(aws.ToString(response.BatchLoadTaskDescription.TaskId))
+}
+
 ```
 
 Python
 
 ```
-def delete_scheduled_query(self, scheduled_query_arn):
-    print("\nDeleting Scheduled Query")
+import boto3
+from botocore.config import Config
+
+INGEST_ENDPOINT="`<url>`"
+REGION="us-west-2"
+HT_TTL_HOURS = 24
+CT_TTL_DAYS = 7
+TASK_ID = "`<task id>`"
+
+def describe_batch_load_task(client, task_id):
     try:
-        self.query_client.delete_scheduled_query(ScheduledQueryArn=scheduled_query_arn)
-        print("Successfully deleted scheduled query :", scheduled_query_arn)
+        result = client.describe_batch_load_task(TaskId=task_id)
+        print("Successfully described batch load task: ", result)
     except Exception as err:
-        print("Scheduled Query deletion failed:", err)
-        raise err
+        print("Describe batch load task job failed:", err)
+
+
+if __name__ == '__main__':
+    session = boto3.Session()
+
+    write_client = session.client('timestream-write', \
+        endpoint_url=INGEST_ENDPOINT, region_name=REGION, \
+        config=Config(read_timeout=20, max_pool_connections = 5000, retries={'max_attempts': 10}))
+
+    describe_batch_load_task(write_client, TASK_ID)
+
 ```
 
 Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+
+For API details, see [Class DescribeBatchLoadCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.md") and [DescribeBatchLoadTask](API_DescribeBatchLoadTask.md "API_DescribeBatchLoadTask.md").
 
 ```
-async function deleteScheduleQuery(scheduledQueryArn) {
-     console.log("Deleting Scheduled Query");
-     const params = {
-         ScheduledQueryArn: scheduledQueryArn
-     }
-     try {
-         await queryClient.deleteScheduledQuery(params).promise();
-         console.log("Successfully deleted scheduled query");
-     } catch (err) {
-         console.log("Scheduled Query deletion failed: ", err);
-     }
- }
+import { TimestreamWriteClient, DescribeBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write";
+const writeClient = new TimestreamWriteClient({ region: "`<region>`", endpoint: "`<endpoint>`" });
+
+const params = {
+    TaskId: "`<TaskId>`"
+};
+
+const command = new DescribeBatchLoadTaskCommand(params);
+
+try {
+    const data = await writeClient.send(command);
+    console.log(`Batch load task has id ` + data.BatchLoadTaskDescription.TaskId);
+} catch (error) {
+    if (error.code === 'ResourceNotFoundException') {
+        console.log("Batch load task doesn't exist.");
+    } else {
+        console.log("Describe batch load task failed.", error);
+        throw error;
+    }
+}
 ```
 
 .NET
 
 ```
-private async Task DeleteScheduledQuery(string scheduledQueryArn)
- {
-     try
-     {
-         Console.WriteLine("Deleting Scheduled Query");
-         await _amazonTimestreamQuery.DeleteScheduledQueryAsync(new DeleteScheduledQueryRequest()
-         {
-             ScheduledQueryArn = scheduledQueryArn
-         });
-         Console.WriteLine($"Successfully deleted scheduled query : {scheduledQueryArn}");
-     }
-     catch (Exception e)
-     {
-         Console.WriteLine($"Scheduled Query deletion failed: {e}");
-         throw;
-     }
- }
+using System;
+using System.IO;
+using System.Collections.Generic;
+using Amazon.TimestreamWrite;
+using Amazon.TimestreamWrite.Model;
+using System.Threading.Tasks;
+
+namespace TimestreamDotNetSample
+{
+    public class DescribeBatchLoadTaskExample
+    {
+        private readonly AmazonTimestreamWriteClient writeClient;
+
+        public DescribeBatchLoadTaskExample(AmazonTimestreamWriteClient writeClient)
+        {
+            this.writeClient = writeClient;
+        }
+
+        public async Task DescribeBatchLoadTask(String taskId)
+        {
+            try
+            {
+                var describeBatchLoadTaskRequest = new DescribeBatchLoadTaskRequest
+                {
+                    TaskId = taskId
+                };
+                DescribeBatchLoadTaskResponse response = await writeClient.DescribeBatchLoadTaskAsync(describeBatchLoadTaskRequest);
+                Console.WriteLine($"Task has id:{response.BatchLoadTaskDescription.TaskId}");
+            }
+            catch (ResourceNotFoundException)
+            {
+                Console.WriteLine("Batch load task does not exist.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Describe batch load task failed:" + e.ToString());
+            }
+        }
+    }
+}
+
+```
+
+```
+using Amazon.TimestreamWrite;
+using Amazon.TimestreamWrite.Model;
+using Amazon;
+using Amazon.TimestreamQuery;
+using System.Threading.Tasks;
+using System;
+using CommandLine;
+static class Constants
+{
+
+}
+namespace TimestreamDotNetSample
+{
+    class MainClass
+    {
+        public class Options
+        {
+
+        }
+        public static void Main(string[] args)
+        {
+            Parser.Default.ParseArguments<Options>(args)
+                .WithParsed<Options>(o => {
+                    MainAsync().GetAwaiter().GetResult();
+                });
+        }
+
+        static async Task MainAsync()
+        {
+            var writeClientConfig = new AmazonTimestreamWriteConfig
+            {
+                ServiceURL =  "<service URL>",
+                Timeout = TimeSpan.FromSeconds(20),
+                MaxErrorRetry = 10
+            };
+
+            var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
+            var example = new DescribeBatchLoadTaskExample(writeClient);
+            await example.DescribeBatchLoadTask("<batch load task id>");
+        }
+    }
+}
 ```

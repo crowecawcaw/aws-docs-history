@@ -60,10 +60,6 @@ deployment model, and configuration settings to meet your workload requirements.
      - **No**: Cluster only accessible within VPC.
 
 9. (Optional) Configure additional settings 
-   - **Log exports**: Enable export to CloudWatch Logs.
-   - **Maintenance window**: Set preferred maintenance schedule.
-   - **Backup retention period**: Configure automated backup
-     retention.
    - **Tags**: Add metadata tags for organization and billing.
 
 10. Review and create
