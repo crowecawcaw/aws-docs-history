@@ -416,10 +416,10 @@ NetApp ONTAP. For more information, see [Amazon FSx for NetApp ONTAP](https://aw
 
 ### Elastic Load Balancing
 
-ELB can be deployed as an optional component to load balance internet or
+Elastic Load Balancing can be deployed as an optional component to load balance internet or
 intranet traffic between one or more SAP Web Dispatcher instances. Launch Wizard for SAP
 supports both Application Load Balancer and Network Load Balancer resources. For more information, see [What is
-ELB?](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md") in the Elastic Load Balancing User Guide.
+Elastic Load Balancing?](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md") in the Elastic Load Balancing User Guide.
 
 ### AWS Systems Manager for SAP
 
