@@ -13,7 +13,7 @@ Read more about Using EKS encryption provider support for defense-in-depth post 
 ## Creating a cluster with KMS encryption enabled
 
 ```
- # kms-cluster.yaml
+# kms-cluster.yaml
 # A cluster with KMS encryption enabled
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -33,7 +33,7 @@ secretsEncryption:
 ```
 
 ```
- eksctl create cluster -f kms-cluster.yaml
+eksctl create cluster -f kms-cluster.yaml
 ```
 
 ## Enabling KMS encryption on an existing cluster
@@ -41,20 +41,20 @@ secretsEncryption:
 To enable KMS encryption on a cluster that doesn’t already have it enabled, run
 
 ```
- eksctl utils enable-secrets-encryption -f kms-cluster.yaml
+eksctl utils enable-secrets-encryption -f kms-cluster.yaml
 ```
 
 or without a config file:
 
 ```
- eksctl utils enable-secrets-encryption --cluster=kms-cluster --key-arn=arn:aws:kms:us-west-2:<account>:key/<key> --region=<region>
+eksctl utils enable-secrets-encryption --cluster=kms-cluster --key-arn=arn:aws:kms:us-west-2:<account>:key/<key> --region=<region>
 ```
 
 In addition to enabling KMS encryption on the EKS cluster, eksctl also re-encrypts all existing Kubernetes secrets using the new KMS key
 by updating them with the annotation `eksctl.io/kms-encryption-timestamp`. This behaviour can be disabled by passing `--encrypt-existing-secrets=false`, as in:
 
 ```
- eksctl utils enable-secrets-encryption --cluster=kms-cluster --key-arn=arn:aws:kms:us-west-2:<account>:key/<key> --encrypt-existing-secrets=false --region=<region>
+eksctl utils enable-secrets-encryption --cluster=kms-cluster --key-arn=arn:aws:kms:us-west-2:<account>:key/<key> --encrypt-existing-secrets=false --region=<region>
 ```
 
 If a cluster already has KMS encryption enabled, eksctl will proceed to re-encrypting all existing secrets.

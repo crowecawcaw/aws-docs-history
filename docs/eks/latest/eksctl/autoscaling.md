@@ -5,7 +5,7 @@
 You can create a cluster (or nodegroup in an existing cluster) with IAM role that will allow use of [cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"):
 
 ```
- eksctl create cluster --asg-access
+eksctl create cluster --asg-access
 ```
 
 This flag also sets `k8s.io/cluster-autoscaler/enabled`
@@ -16,7 +16,7 @@ Once the cluster is running, you will need to install [Cluster Autoscaler](https
 You should also add the following to your managed or unmanaged nodegroup definition(s) to add the tags required for the Cluster Autoscaler to scale the nodegroup:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng1-public
     iam:
       withAddonPolicies:
@@ -34,7 +34,7 @@ definitions. For example, given a nodegroup with the following labels and
 taints:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng1-public
     ...
     labels:
@@ -48,7 +48,7 @@ taints:
 You would need to add the following ASG tags:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng1-public
     ...
     labels:
@@ -63,7 +63,7 @@ You would need to add the following ASG tags:
 For both managed and unmanaged nodegroups, this can be done automatically by setting `propagateASGTags` to `true`, which will add the labels and taints as tags to the Auto Scaling group:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng1-public
     ...
     labels:
@@ -91,7 +91,7 @@ If you meet all of the above requirements (and possibly others) then you should 
 BEFORE:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng1-public
     instanceType: m5.xlarge
     # availabilityZones: ["eu-west-2a", "eu-west-2b"]
@@ -100,7 +100,7 @@ BEFORE:
 AFTER:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng1-public-2a
     instanceType: m5.xlarge
     availabilityZones: ["eu-west-2a"]

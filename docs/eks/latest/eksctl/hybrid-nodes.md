@@ -19,7 +19,7 @@ EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-pre
 Example config file:
 
 ```
- remoteNetworkConfig:
+remoteNetworkConfig:
   vpcGatewayID: tgw-xxxx # either VGW or TGW to be attached to your VPC
   remoteNodeNetworks:
     # eksctl will create, behind the scenes, SG rules, routes, and a VPC gateway attachment,
@@ -41,7 +41,7 @@ EKS Hybrid Nodes use the AWS IAM Authenticator and temporary IAM credentials pro
 to authenticate with the EKS cluster. Similar to the self-managed nodegroups, if not otherwise provided, eksctl will create for you a Hybrid Nodes IAM Role to be assumed by the remote nodes. Additioanlly, when using IAM Roles Anywhere as your credentials provider, eksctl will setup a profile, and trust anchor based on a given certificate authority bundle (`iam.caBundleCert`) e.g.
 
 ```
- remoteNetworkConfig:
+remoteNetworkConfig:
   iam:
     # the provider for temporary IAM credentials. Default is SSM.
     provider: IRA
@@ -54,7 +54,7 @@ to authenticate with the EKS cluster. Similar to the self-managed nodegroups, if
 The ARN of the Hybrid Nodes Role created by eksctl is needed later in the process of joining your remote nodes to the cluster, to setup `NodeConfig` for `nodeadm`, and to create activations (if using SSM). To fetch it, use:
 
 ```
- aws cloudformation describe-stacks \
+aws cloudformation describe-stacks \
   --stack-name eksctl-<CLUSTER_NAME>-cluster \
   --query 'Stacks[].Outputs[?OutputKey==`RemoteNodesRoleARN`].[OutputValue]' \
   --output text
@@ -65,7 +65,7 @@ Similarly, if using IAM Roles Anywhere, you can fetch the ARN of the trust ancho
 If you have a pre-existing IAM Roles Anywhere configuration in place, or you are using SSM, you can provide a IAM Role for Hybrid nodes via `remoteNetworkConfig.iam.roleARN`. Bear in mind that in this scenario, eksctl won’t create the trust anchor and anywhere profile for you. e.g.
 
 ```
- remoteNetworkConfig:
+remoteNetworkConfig:
   iam:
     roleARN: arn:aws:iam::000011112222:role/HybridNodesRole
 ```
@@ -73,7 +73,7 @@ If you have a pre-existing IAM Roles Anywhere configuration in place, or you are
 To map the role to a Kubernetes identity and authorise the remote nodes to join the EKS cluster, eksctl creates an access entry with Hybrid Nodes IAM Role as principal ARN and of type `HYBRID_LINUX`. i.e.
 
 ```
- eksctl get accessentry --cluster my-cluster --principal-arn arn:aws:iam::000011112222:role/eksctl-my-cluster-clust-HybridNodesSSMRole-XiIAg0d29PkO --output json
+eksctl get accessentry --cluster my-cluster --principal-arn arn:aws:iam::000011112222:role/eksctl-my-cluster-clust-HybridNodesSSMRole-XiIAg0d29PkO --output json
 [
     {
         "principalARN": "arn:aws:iam::000011112222:role/eksctl-my-cluster-clust-HybridNodesSSMRole-XiIAg0d29PkO",

@@ -11,7 +11,7 @@ such as compute autoscaling, pod and service networking, application load balanc
 `eksctl` has added a new `autoModeConfig` field to enable and configure Auto Mode. The shape of the `autoModeConfig` field is
 
 ```
- autoModeConfig:
+autoModeConfig:
     # defaults to false
     enabled: boolean
     # optional, defaults to [general-purpose, system].
@@ -29,7 +29,7 @@ enabling management of data plane components like compute, storage and networkin
 To create an EKS cluster with Auto Mode enabled, set `autoModeConfig.enabled: true`, as in
 
 ```
- # auto-mode-cluster.yaml
+# auto-mode-cluster.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
@@ -41,14 +41,14 @@ autoModeConfig:
 ```
 
 ```
- eksctl create cluster -f auto-mode-cluster.yaml
+eksctl create cluster -f auto-mode-cluster.yaml
 ```
 
 eksctl creates a node role to use for nodes launched by Auto Mode. eksctl also creates the `general-purpose` and `system` node pools.
 To disable creation of the default node pools, e.g., to configure your own node pools that use a different set of subnets, set `nodePools: []`, as in
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
     name: auto-mode-cluster
@@ -64,7 +64,7 @@ autoModeConfig:
 To update an existing EKS cluster to use Auto Mode, run
 
 ```
- # cluster.yaml
+# cluster.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
@@ -76,7 +76,7 @@ autoModeConfig:
 ```
 
 ```
- eksctl update auto-mode-config -f cluster.yaml
+eksctl update auto-mode-config -f cluster.yaml
 ```
 
 ###### Note
@@ -89,7 +89,7 @@ To use private subnets for worker nodes launched by Auto Mode, [update the clust
 To disable Auto Mode, set `autoModeConfig.enabled: false` and run
 
 ```
- # cluster.yaml
+# cluster.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
@@ -101,7 +101,7 @@ autoModeConfig:
 ```
 
 ```
- eksctl update auto-mode-config -f cluster.yaml
+eksctl update auto-mode-config -f cluster.yaml
 ```
 
 ## Further information

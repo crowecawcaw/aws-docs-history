@@ -11,7 +11,7 @@ daemons; and kicks in eviction of pods when there is less than `200Mi` of memory
 root filesystem.
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:

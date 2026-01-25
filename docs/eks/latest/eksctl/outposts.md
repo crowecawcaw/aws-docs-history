@@ -11,7 +11,7 @@ AWS Outposts by setting `nodeGroup.outpostARN` for new nodegroups to
 create nodegroups on Outposts, as in:
 
 ```
- # extended-cluster.yaml
+# extended-cluster.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -31,7 +31,7 @@ nodeGroups:
 ```
 
 ```
- eksctl create nodegroup -f extended-cluster.yaml
+eksctl create nodegroup -f extended-cluster.yaml
 ```
 
 In this setup, the EKS control plane runs in an AWS region while
@@ -44,7 +44,7 @@ Customers with a pre-existing VPC are required to create the subnets on
 Outposts and pass them in `nodeGroup.subnets`, as in:
 
 ```
- # extended-cluster-vpc.yaml
+# extended-cluster-vpc.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -96,7 +96,7 @@ To create the EKS control plane and nodegroups on AWS Outposts, set
 `outpost.controlPlaneOutpostARN` to the Outpost ARN, as in:
 
 ```
- # outpost.yaml
+# outpost.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -113,7 +113,7 @@ outpost:
 ```
 
 ```
- eksctl create cluster -f outpost.yaml
+eksctl create cluster -f outpost.yaml
 ```
 
 This instructs eksctl to create the EKS control plane and subnets on the
@@ -126,7 +126,7 @@ and will be unable to create nodegroups. Therefore, if the
 command must be run with `--without-nodegroup`, as in:
 
 ```
- eksctl create cluster -f outpost.yaml --without-nodegroup
+eksctl create cluster -f outpost.yaml --without-nodegroup
 ```
 
 It is the customer’s responsibility to associate the eksctl-created VPC
@@ -147,7 +147,7 @@ Outpost. You can optionally specify the Outpost ARN for the nodegroup in
 ARN.
 
 ```
- # outpost-fully-private.yaml
+# outpost-fully-private.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -167,7 +167,7 @@ outpost:
 ```
 
 ```
- # outpost.yaml
+# outpost.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -192,7 +192,7 @@ Customers with an existing VPC can create local clusters on AWS Outposts
 by specifying the subnet configuration in `vpc.subnets`, as in:
 
 ```
- # outpost-existing-vpc.yaml
+# outpost-existing-vpc.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -220,7 +220,7 @@ outpost:
 ```
 
 ```
- eksctl create cluster -f outpost-existing-vpc.yaml
+eksctl create cluster -f outpost-existing-vpc.yaml
 ```
 
 The subnets must exist on the Outpost specified in

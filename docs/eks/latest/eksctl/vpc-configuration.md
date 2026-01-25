@@ -96,7 +96,7 @@ eksctl create cluster \
 or use the following equivalent config file:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -132,7 +132,7 @@ eksctl create cluster \
 or use the following equivalent config file:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -163,7 +163,7 @@ eksctl create cluster \
 ```
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -201,7 +201,7 @@ If you wish to provide your own custom security group instead, you may override 
 field in the config file:
 
 ```
- vpc:
+vpc:
   sharedNodeSecurityGroup: sg-0123456789
 ```
 
@@ -213,7 +213,7 @@ If you wish to manage the security group rules yourself, you may prevent `eksctl
 by setting `manageSharedNodeSecurityGroupRules` to `false` in the config file:
 
 ```
- vpc:
+vpc:
   sharedNodeSecurityGroup: sg-0123456789
   manageSharedNodeSecurityGroupRules: false
 ```
@@ -227,7 +227,7 @@ an AZ is down, nodes in the other AZs will still be able to communicate to the I
 It can be specified through the `--vpc-nat-mode` CLI flag or in the cluster config file like the example below:
 
 ```
- vpc:
+vpc:
   nat:
     gateway: HighlyAvailable # other options: Disable, Single (default)
 ```

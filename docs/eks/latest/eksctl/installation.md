@@ -25,7 +25,7 @@ The IAM account used for EKS cluster creation should have these minimal access l
 To download the latest release, run:
 
 ```
- # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
 ARCH=amd64
 PLATFORM=$(uname -s)_$ARCH
 
@@ -56,21 +56,21 @@ Optionally, verify the checksum:
 2. Use Command Prompt to manually compare `CertUtil`'s output to the checksum file downloaded.
 
 ```
-   REM Replace amd64 with armv6, armv7 or arm64
+  REM Replace amd64 with armv6, armv7 or arm64
   CertUtil -hashfile eksctl_Windows_amd64.zip SHA256
 ```
 
 3. Using PowerShell to automate the verification using the `-eq` operator to get a `True` or `False` result:
 
 ```
- # Replace amd64 with armv6, armv7 or arm64
+# Replace amd64 with armv6, armv7 or arm64
  (Get-FileHash -Algorithm SHA256 .\eksctl_Windows_amd64.zip).Hash -eq ((Get-Content .\eksctl_checksums.txt) -match 'eksctl_Windows_amd64.zip' -split ' ')[0]
 ```
 
 ### Using Git Bash:
 
 ```
- # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
 ARCH=amd64
 PLATFORM=windows_$ARCH
 
@@ -100,13 +100,13 @@ For more information about the Homebrew tap, see the [project on Github](https:/
 2. Add the AWS tap
 
 ```
- brew tap aws/tap
+brew tap aws/tap
 ```
 
 3. Install eksctl
 
 ```
- brew install aws/tap/eksctl
+brew install aws/tap/eksctl
 ```
 
 ## Docker
@@ -114,7 +114,7 @@ For more information about the Homebrew tap, see the [project on Github](https:/
 For every release and RC a container image is pushed to ECR repository `public.ecr.aws/eksctl/eksctl`. Learn more about the usage on [ECR Public Gallery - eksctl](https://gallery.ecr.aws/eksctl/eksctl "https://gallery.ecr.aws/eksctl/eksctl"). For example,
 
 ```
- docker run --rm -it public.ecr.aws/eksctl/eksctl version
+docker run --rm -it public.ecr.aws/eksctl/eksctl version
 ```
 
 ## Shell Completion
@@ -124,7 +124,7 @@ For every release and RC a container image is pushed to ECR repository `public.e
 To enable bash completion, run the following, or put it in `~/.bashrc` or `~/.profile`:
 
 ```
- . <(eksctl completion bash)
+. <(eksctl completion bash)
 ```
 
 ### Zsh
@@ -132,20 +132,20 @@ To enable bash completion, run the following, or put it in `~/.bashrc` or `~/.pr
 For zsh completion, please run:
 
 ```
- mkdir -p ~/.zsh/completion/
+mkdir -p ~/.zsh/completion/
 eksctl completion zsh > ~/.zsh/completion/_eksctl
 ```
 
 and put the following in `~/.zshrc`:
 
 ```
- fpath=($fpath ~/.zsh/completion)
+fpath=($fpath ~/.zsh/completion)
 ```
 
 Note if you’re not running a distribution like oh-my-zsh you may first have to enable autocompletion (and put in `~/.zshrc` to make it persistent):
 
 ```
- autoload -U compinit
+autoload -U compinit
 compinit
 ```
 
@@ -154,7 +154,7 @@ compinit
 The below commands can be used for fish auto completion:
 
 ```
- mkdir -p ~/.config/fish/completions
+mkdir -p ~/.config/fish/completions
 eksctl completion fish > ~/.config/fish/completions/eksctl.fish
 ```
 
@@ -164,7 +164,7 @@ The below command can be referred for setting it up. Please note that the path m
 system settings.
 
 ```
- eksctl completion powershell > C:\Users\Documents\WindowsPowerShell\Scripts\eksctl.ps1
+eksctl completion powershell > C:\Users\Documents\WindowsPowerShell\Scripts\eksctl.ps1
 ```
 
 ## Updates

@@ -14,7 +14,7 @@ applications on AWS.
 You can add a cluster with Fargate support with:
 
 ```
- eksctl create cluster --fargate
+eksctl create cluster --fargate
 [ℹ]  eksctl version 0.11.0
 [ℹ]  using region ap-northeast-1
 [ℹ]  setting availability zones to [ap-northeast-1a ap-northeast-1d ap-northeast-1c]
@@ -71,7 +71,7 @@ The Fargate profile that was created can be checked with the following
 command:
 
 ```
- eksctl get fargateprofile --cluster ridiculous-painting-1574859263 -o yaml
+eksctl get fargateprofile --cluster ridiculous-painting-1574859263 -o yaml
 - name: fp-default
   podExecutionRoleARN: arn:aws:iam::123456789012:role/eksctl-ridiculous-painting-1574859263-ServiceRole-EIFQOH0S1GE7
   selectors:
@@ -96,7 +96,7 @@ on Fargate. All pods in the `dev` namespace that also have the label
 scheduled on the node in `ng-1`.
 
 ```
- # An example of ClusterConfig with a normal nodegroup and a Fargate profile.
+# An example of ClusterConfig with a normal nodegroup and a Fargate profile.
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -130,7 +130,7 @@ fargateProfiles:
 ```
 
 ```
- eksctl create cluster -f cluster-fargate.yaml
+eksctl create cluster -f cluster-fargate.yaml
 [ℹ]  eksctl version 0.11.0
 [ℹ]  using region ap-northeast-1
 [ℹ]  setting availability zones to [ap-northeast-1c ap-northeast-1a ap-northeast-1d]
@@ -197,7 +197,7 @@ for example, create a namespace called `dev` and deploy the workload
 there:
 
 ```
- kubectl create namespace dev
+kubectl create namespace dev
 namespace/dev created
 
 kubectl run nginx --image=nginx --restart=Never --namespace dev
@@ -237,7 +237,7 @@ If the existing was created with a version of `eksctl` prior to 0.11.0, you will
 cluster` before creating the Fargate profile.
 
 ```
- eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster
+eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster
 [ℹ]  creating Fargate profile "fp-9bfc77ad" on EKS cluster "fargate-example-cluster"
 [ℹ]  created Fargate profile "fp-9bfc77ad" on EKS cluster "fargate-example-cluster"
 ```
@@ -246,7 +246,7 @@ You can also specify the name of the Fargate profile to be created. This
 name must not start with the prefix `eks-`.
 
 ```
- eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster --name fp-development
+eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster --name fp-development
 [ℹ]  created Fargate profile "fp-development" on EKS cluster "fargate-example-cluster"
 ```
 
@@ -255,7 +255,7 @@ Fargate profile with a simple selector. For more complex selectors, for
 example with more namespaces, eksctl supports using a config file:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -282,7 +282,7 @@ fargateProfiles:
 ```
 
 ```
- eksctl create fargateprofile -f fargate-example-cluster.yaml
+eksctl create fargateprofile -f fargate-example-cluster.yaml
 [ℹ]  creating Fargate profile "fp-default" on EKS cluster "fargate-example-cluster"
 [ℹ]  created Fargate profile "fp-default" on EKS cluster "fargate-example-cluster"
 [ℹ]  creating Fargate profile "fp-dev" on EKS cluster "fargate-example-cluster"
@@ -294,7 +294,7 @@ fargateProfiles:
 To see existing Fargate profiles in a cluster:
 
 ```
- eksctl get fargateprofile --cluster fargate-example-cluster
+eksctl get fargateprofile --cluster fargate-example-cluster
 NAME         SELECTOR_NAMESPACE  SELECTOR_LABELS  POD_EXECUTION_ROLE_ARN                                                                   SUBNETS
 fp-9bfc77ad  dev                 <none>           arn:aws:iam::123456789012:role/eksctl-fargate-example-cluster-ServiceRole-1T5F78E5FSH79  subnet-00adf1d8c99f83381,subnet-04affb163ffab17d4,subnet-035b34379d5ef5473
 ```
@@ -302,7 +302,7 @@ fp-9bfc77ad  dev                 <none>           arn:aws:iam::123456789012:role
 And to see them in `yaml` format:
 
 ```
- eksctl get fargateprofile --cluster fargate-example-cluster -o yaml
+eksctl get fargateprofile --cluster fargate-example-cluster -o yaml
 - name: fp-9bfc77ad
   podExecutionRoleARN: arn:aws:iam::123456789012:role/eksctl-fargate-example-cluster-ServiceRole-1T5F78E5FSH79
   selectors:
@@ -316,7 +316,7 @@ And to see them in `yaml` format:
 Or in `json` format:
 
 ```
- eksctl get fargateprofile --cluster fargate-example-cluster -o json
+eksctl get fargateprofile --cluster fargate-example-cluster -o json
 [
     {
         "name": "fp-9bfc77ad",
@@ -341,7 +341,7 @@ the `eksctl delete fargateprofile` command like in the following
 example:
 
 ```
- eksctl delete fargateprofile --cluster fargate-example-cluster --name fp-9bfc77ad --wait
+eksctl delete fargateprofile --cluster fargate-example-cluster --name fp-9bfc77ad --wait
 2019-11-27T19:04:26+09:00 [ℹ]  deleting Fargate profile "fp-9bfc77ad"
   ClusterName: "fargate-example-cluster",
   FargateProfileName: "fp-9bfc77ad"

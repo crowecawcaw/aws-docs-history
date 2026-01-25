@@ -11,13 +11,13 @@ managed Kubernetes control plane and your VPC.
 To update the subnets used by the EKS control plane, run:
 
 ```
- eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-subnet-ids=subnet-1234,subnet-5678
+eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-subnet-ids=subnet-1234,subnet-5678
 ```
 
 To update the setting using a config file:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   name: cluster
@@ -28,7 +28,7 @@ vpc:
 ```
 
 ```
- eksctl utils update-cluster-vpc-config -f config.yaml
+eksctl utils update-cluster-vpc-config -f config.yaml
 ```
 
 Without the `--approve` flag, eksctl only logs the proposed changes. Once you are satisfied with the proposed changes, rerun the command with
@@ -40,13 +40,13 @@ To manage traffic between the control plane and worker nodes, EKS supports passi
 provisioned by EKS. To update the security groups for the EKS control plane, run:
 
 ```
- eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-security-group-ids=sg-1234,sg-5678
+eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-security-group-ids=sg-1234,sg-5678
 ```
 
 To update the setting using a config file:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   name: cluster
@@ -57,19 +57,19 @@ vpc:
 ```
 
 ```
- eksctl utils update-cluster-vpc-config -f config.yaml
+eksctl utils update-cluster-vpc-config -f config.yaml
 ```
 
 To update both control plane subnets and security groups for a cluster, run:
 
 ```
- eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-subnet-ids=<> --control-plane-security-group-ids=<>
+eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-subnet-ids=<> --control-plane-security-group-ids=<>
 ```
 
 To update both fields using a config file:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   name: cluster
@@ -81,7 +81,7 @@ vpc:
 ```
 
 ```
- eksctl utils update-cluster-vpc-config -f config.yaml
+eksctl utils update-cluster-vpc-config -f config.yaml
 ```
 
 For a complete example, refer to [cluster-subnets-sgs.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/38-cluster-subnets-sgs.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/38-cluster-subnets-sgs.yaml").

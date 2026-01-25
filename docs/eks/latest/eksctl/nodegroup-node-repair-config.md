@@ -8,19 +8,19 @@ and unhealthy worker nodes are replaced or rebooted in response.
 To create a cluster with a managed nodegroup using node repair, pass the `--enable-node-repair` flag:
 
 ```
- eksctl create cluster --enable-node-repair
+eksctl create cluster --enable-node-repair
 ```
 
 To create a managed nodegroup using node repair on an existing cluster:
 
 ```
- eksctl create nodegroup --cluster=<clusterName> --enable-node-repair
+eksctl create nodegroup --cluster=<clusterName> --enable-node-repair
 ```
 
 To create a cluster with a managed nodegroup using node repair via a config file:
 
 ```
- # node-repair-nodegroup-cluster.yaml
+# node-repair-nodegroup-cluster.yaml
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -36,7 +36,7 @@ managedNodeGroups:
 ```
 
 ```
- eksctl create cluster -f node-repair-nodegroup-cluster.yaml
+eksctl create cluster -f node-repair-nodegroup-cluster.yaml
 ```
 
 ## Further information

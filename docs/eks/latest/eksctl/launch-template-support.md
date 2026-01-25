@@ -6,7 +6,7 @@ This enables multiple customization options for nodegroups including providing c
 ## Creating managed nodegroups using a provided launch template
 
 ```
- # managed-cluster.yaml
+# managed-cluster.yaml
 # A cluster with two managed nodegroups
 ---
 apiVersion: eksctl.io/v1alpha5
@@ -38,7 +38,7 @@ managedNodeGroups:
 ## Upgrading a managed nodegroup to use a different launch template version
 
 ```
- eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --launch-template-version=3
+eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --launch-template-version=3
 ```
 
 ###### Note
@@ -48,7 +48,7 @@ If a launch template is using a custom AMI, then the new version should also use
 If a launch template is not using a custom AMI, the Kubernetes version to upgrade to can also be specified:
 
 ```
- eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --launch-template-version=3 --kubernetes-version=1.17
+eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --launch-template-version=3 --kubernetes-version=1.17
 ```
 
 ## Notes on custom AMI and launch template support

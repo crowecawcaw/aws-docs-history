@@ -6,7 +6,7 @@ is the equivalent of the `--cluster-dns` flag for the `kubelet`.
 The first, is through the `clusterDNS` field. Config files accepts a `string` field called `clusterDNS` with the IP address of the DNS server to use. This will be passed to the `kubelet` that in turn will pass it to the pods through the `/etc/resolv.conf` file. For more information, see the [schema](https://geoffcline.github.io/eksctl-schema-demo/ "https://geoffcline.github.io/eksctl-schema-demo/") of the config file.
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -22,7 +22,7 @@ Note that this configuration only accepts one IP address. To specify more than o
 [kubeletExtraConfig parameter](customizing-the-kubelet.md "customizing-the-kubelet.md"):
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:

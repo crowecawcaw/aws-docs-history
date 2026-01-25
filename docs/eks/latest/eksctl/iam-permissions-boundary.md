@@ -5,7 +5,7 @@ A [permissions boundary](../../../IAM/latest/UserGuide/access_policies_boundarie
 You can provide your permissions boundary so that all identity-based entities created by eksctl are created within that boundary. This example demonstrates how a permissions boundary can be provided to the various identity-based entities that are created by eksctl:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -40,7 +40,7 @@ Please note that when you create a cluster with OIDC enabled eksctl will automat
 you would like to add a permission boundary to it then you must specify the `iamserviceaccount` in your config file manually:
 
 ```
- iam:
+iam:
   serviceAccounts:
     - metadata:
         name: aws-node

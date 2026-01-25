@@ -34,13 +34,13 @@ IAM Roles for Service Accounts require Kubernetes version 1.13 or above.
 The IAM OIDC Provider is not enabled by default, you can use the following command to enable it, or use config file (see below):
 
 ```
- eksctl utils associate-iam-oidc-provider --cluster=<clusterName>
+eksctl utils associate-iam-oidc-provider --cluster=<clusterName>
 ```
 
 Once you have the IAM OIDC Provider associated with the cluster, to create a IAM role bound to a service account, run:
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --namespace=<serviceAccountNamespace> --attach-policy-arn=<policyARN>
+eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --namespace=<serviceAccountNamespace> --attach-policy-arn=<policyARN>
 ```
 
 ###### Note
@@ -50,13 +50,13 @@ You can specify `--attach-policy-arn` multiple times to use more than one policy
 More specifically, you can create a service account with read-only access to S3 by running:
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=s3-read-only --attach-policy-arn=arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+eksctl create iamserviceaccount --cluster=<clusterName> --name=s3-read-only --attach-policy-arn=arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
 ```
 
 By default, it will be created in `default` namespace, but you can specify any other namespace, e.g.:
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=s3-read-only --namespace=s3-app --attach-policy-arn=arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+eksctl create iamserviceaccount --cluster=<clusterName> --name=s3-read-only --namespace=s3-app --attach-policy-arn=arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
 ```
 
 ###### Note
@@ -68,26 +68,26 @@ If you have service account already created in the cluster (without an IAM Role)
 Custom tagging may also be applied to the IAM Role by specifying `--tags`:
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --tags "Owner=John Doe,Team=Some Team"
+eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --tags "Owner=John Doe,Team=Some Team"
 ```
 
 CloudFormation will generate a role name that includes a random string. If you prefer a predetermined role name you can specify `--role-name`:
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --role-name "custom-role-name"
+eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --role-name "custom-role-name"
 ```
 
 When the service account is created and managed by some other tool, such as helm, use `--role-only` to prevent conflicts.
 The other tool is then responsible for maintaining the role ARN annotation. Note that `--override-existing-serviceaccounts` has no effect on `roleOnly`/`--role-only` service accounts, the role will always be created.
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --role-only --role-name=<customRoleName>
+eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --role-only --role-name=<customRoleName>
 ```
 
 When you have an existing role which you want to use with a service account, you can provide the `--attach-role-arn` flag instead of providing the policies. To ensure the role can only be assumed by the specified service account, you should set a [here](../userguide/access-policies.md#access-policy-permissions "../userguide/access-policies.md#access-policy-permissions") relationship policy document].
 
 ```
- eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --attach-role-arn=<customRoleARN>
+eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --attach-role-arn=<customRoleARN>
 ```
 
 To update a service accounts roles permissions you can run `eksctl update iamserviceaccount`.
@@ -110,7 +110,7 @@ And the `eksctl delete iamserviceaccount` command supports `--only-missing` as w
 IAM service accounts are scoped within a namespace, i.e. two service accounts with the same name may exist in different namespaces. Thus, to uniquely define a service account as part of `--include`, `--exclude` flags, you will need to pass the name string in the `namespace/name` format. E.g.
 
 ```
- eksctl create iamserviceaccount --config-file=<path> --include backend-apps/s3-reader
+eksctl create iamserviceaccount --config-file=<path> --include backend-apps/s3-reader
 ```
 
 The option to enable `wellKnownPolicies` is included for using IRSA with well-known
@@ -123,7 +123,7 @@ Supported well-known policies and other properties of `serviceAccounts` are docu
 You use the following config example with `eksctl create cluster`:
 
 ```
- # An example of ClusterConfig with IAMServiceAccounts:
+# An example of ClusterConfig with IAMServiceAccounts:
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -177,7 +177,7 @@ nodeGroups:
 If you create a cluster without these fields set, you can use the following commands to enable all you need:
 
 ```
- eksctl utils associate-iam-oidc-provider --config-file=<path>
+eksctl utils associate-iam-oidc-provider --config-file=<path>
 eksctl create iamserviceaccount --config-file=<path>
 ```
 

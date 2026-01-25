@@ -8,7 +8,7 @@ ClusterConfig file containing a nodegroup representing the CLI options and the i
 matched by the instance selector resource criteria.
 
 ```
- eksctl create cluster --name development --dry-run
+eksctl create cluster --name development --dry-run
 
 
 apiVersion: eksctl.io/v1alpha5
@@ -80,7 +80,7 @@ vpc:
 The generated ClusterConfig can then be passed to `eksctl create cluster`:
 
 ```
- eksctl create cluster -f generated-cluster.yaml
+eksctl create cluster -f generated-cluster.yaml
 ```
 
 When a ClusterConfig file is passed with `--dry-run`, eksctl will output a ClusterConfig file containing the values set in the file.
@@ -92,13 +92,13 @@ There are certain one-off options that cannot be represented in the `ClusterConf
 It is expected that:
 
 ```
- eksctl create cluster --<options...> --dry-run > config.yaml
+eksctl create cluster --<options...> --dry-run > config.yaml
 ```
 
 followed by:
 
 ```
- eksctl create cluster -f config.yaml
+eksctl create cluster -f config.yaml
 ```
 
 would be equivalent to running the first command without `--dry-run`.

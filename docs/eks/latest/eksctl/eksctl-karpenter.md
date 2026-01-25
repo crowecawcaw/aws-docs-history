@@ -7,7 +7,7 @@ Karpenter itself using Helm. We currently support installing versions `0.28.0+`.
 The following cluster configuration outlines a typical Karpenter installation:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -33,7 +33,7 @@ The version is Karpenter’s version as it can be found in their Helm Repository
 to be set:
 
 ```
- karpenter:
+karpenter:
   version: '1.2.1'
   createServiceAccount: true # default is false
   defaultInstanceProfile: 'KarpenterNodeInstanceProfile' # default is to use the IAM instance profile created by eksctl
@@ -48,7 +48,7 @@ to start adding nodes to the cluster.
 The NodePool’s `nodeClassRef` section must match the name of an `EC2NodeClass`. For example:
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: example
@@ -80,7 +80,7 @@ spec:
 ```
 
 ```
- apiVersion: karpenter.k8s.aws/v1
+apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:
   name: example

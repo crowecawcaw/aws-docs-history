@@ -3,7 +3,7 @@
 To apply [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/") to a specific nodegroup use the `taints` config section like this:
 
 ```
-     taints:
+    taints:
       - key: your.domain.com/db
         value: "true"
         effect: NoSchedule

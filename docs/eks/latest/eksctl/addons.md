@@ -17,7 +17,7 @@ Eksctl provides more flexibility for managing cluster addons:
 In your config file, you can specify the addons you want and (if required) the role or policies to attach to them:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
   name: example-cluster
@@ -68,21 +68,21 @@ attached.
 You can then either have these addons created during the cluster creation process:
 
 ```
- eksctl create cluster -f config.yaml
+eksctl create cluster -f config.yaml
 ```
 
 Or create the addons explicitly after cluster creation using the config file or CLI flags:
 
 ```
- eksctl create addon -f config.yaml
+eksctl create addon -f config.yaml
 ```
 
 ```
- eksctl create addon --name vpc-cni --version 1.7.5 --service-account-role-arn <role-arn>
+eksctl create addon --name vpc-cni --version 1.7.5 --service-account-role-arn <role-arn>
 ```
 
 ```
- eksctl create addon --name aws-ebs-csi-driver --namespace-config 'namespace=custom-namespace'
+eksctl create addon --name aws-ebs-csi-driver --namespace-config 'namespace=custom-namespace'
 ```
 
 ###### Tip
@@ -92,7 +92,7 @@ Use the `--namespace-config` flag to deploy addons to a custom namespace instead
 During addon creation, if a self-managed version of the addon already exists on the cluster, you can choose how potential `configMap` conflicts shall be resolved by setting `resolveConflicts` option via the config file, e.g.
 
 ```
- addons:
+addons:
 - name: vpc-cni
   attachPolicyARNs:
     - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
@@ -110,13 +110,13 @@ For addon create, the `resolveConflicts` field supports three distinct values:
 You can see what addons are enabled in your cluster by running:
 
 ```
- eksctl get addons --cluster <cluster-name>
+eksctl get addons --cluster <cluster-name>
 ```
 
 or
 
 ```
- eksctl get addons -f config.yaml
+eksctl get addons -f config.yaml
 ```
 
 ## Setting the addon’s version
@@ -132,21 +132,21 @@ See the section below on how to discover available addons and their versions.
 You can discover what addons are available to install on your cluster by running:
 
 ```
- eksctl utils describe-addon-versions --cluster <cluster-name>
+eksctl utils describe-addon-versions --cluster <cluster-name>
 ```
 
 This will discover your cluster’s kubernetes version and filter on that. Alternatively if you want to see what
 addons are available for a particular kubernetes version you can run:
 
 ```
- eksctl utils describe-addon-versions --kubernetes-version <version>
+eksctl utils describe-addon-versions --kubernetes-version <version>
 ```
 
 You can also discover addons by filtering on their `type`, `owner` and/or `publisher`.
 For e.g., to see addons for a particular owner and type you can run:
 
 ```
- eksctl utils describe-addon-versions --kubernetes-version 1.22 --types "infra-management, policy-management" --owners "aws-marketplace"
+eksctl utils describe-addon-versions --kubernetes-version 1.22 --types "infra-management, policy-management" --owners "aws-marketplace"
 ```
 
 The `types`, `owners` and `publishers` flags are optional and can be specified together or individually to filter the results.
@@ -156,7 +156,7 @@ The `types`, `owners` and `publishers` flags are optional and can be specified t
 After discovering the addon and version, you can view the customization options by fetching its JSON configuration schema.
 
 ```
- eksctl utils describe-addon-configuration --name vpc-cni --version v1.12.0-eksbuild.1
+eksctl utils describe-addon-configuration --name vpc-cni --version v1.12.0-eksbuild.1
 ```
 
 This returns a JSON schema of the various options available for this addon.
@@ -168,14 +168,14 @@ This returns a JSON schema of the various options available for this addon.
 For eg.,
 
 ```
- addons:
+addons:
 - name: coredns
   configurationValues: |-
     replicaCount: 2
 ```
 
 ```
- addons:
+addons:
 - name: coredns
   version: latest
   configurationValues: "{\"replicaCount\":3}"
@@ -194,11 +194,11 @@ As in this scenario we want to modify these values, we'd set `resolveConflicts: 
 Additionally, the get command will now also retrieve `ConfigurationValues` for the addon. e.g.
 
 ```
- eksctl get addon --cluster my-cluster --output yaml
+eksctl get addon --cluster my-cluster --output yaml
 ```
 
 ```
- - ConfigurationValues: '{"replicaCount":3}'
+- ConfigurationValues: '{"replicaCount":3}'
   IAMRole: ""
   Issues: null
   Name: coredns
@@ -214,7 +214,7 @@ A custom namespace can be provided in the configuration file during the creation
 ### Using config file
 
 ```
- addons:
+addons:
   - name: aws-ebs-csi-driver
     version: latest
     namespaceConfig:
@@ -226,13 +226,13 @@ A custom namespace can be provided in the configuration file during the creation
 Alternatively, you can specify a custom namespace using the `--namespace-config` flag:
 
 ```
- eksctl create addon --cluster my-cluster --name aws-ebs-csi-driver --namespace-config 'namespace=custom-namespace'
+eksctl create addon --cluster my-cluster --name aws-ebs-csi-driver --namespace-config 'namespace=custom-namespace'
 ```
 
 The get command will also retrieve the namespace value for the addon
 
 ```
- - ConfigurationValues: ""
+- ConfigurationValues: ""
   IAMRole: ""
   Issues: null
   Name: aws-ebs-csi-driver
@@ -249,11 +249,11 @@ The get command will also retrieve the namespace value for the addon
 You can update your addons to newer versions and change what policies are attached by running:
 
 ```
- eksctl update addon -f config.yaml
+eksctl update addon -f config.yaml
 ```
 
 ```
- eksctl update addon --name vpc-cni --version 1.8.0 --service-account-role-arn <new-role>
+eksctl update addon --name vpc-cni --version 1.8.0 --service-account-role-arn <new-role>
 ```
 
 ###### Note
@@ -263,7 +263,7 @@ The namespace configuration cannot be updated once an addon is created. The `--n
 Similarly to addon creation, When updating an addon, you have full control over the config changes that you may have previously applied on that add-on’s `configMap`. Specifically, you can preserve, or overwrite them. This optional functionality is available via the same config file field `resolveConflicts`. e.g.,
 
 ```
- addons:
+addons:
 - name: vpc-cni
   attachPolicyARNs:
     - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
@@ -281,7 +281,7 @@ For addon update, the `resolveConflicts` field accepts three distinct values:
 You can delete an addon by running:
 
 ```
- eksctl delete addon --cluster <cluster-name> --name <addon-name>
+eksctl delete addon --cluster <cluster-name> --name <addon-name>
 ```
 
 This will delete the addon and any IAM roles associated to it.
@@ -295,19 +295,19 @@ To disable this behavior in order to use other CNI plugins like Cilium and Calic
 without any default networking addons. To create such a cluster, set `addonsConfig.disableDefaultAddons`, as in:
 
 ```
- addonsConfig:
+addonsConfig:
   disableDefaultAddons: true
 ```
 
 ```
- eksctl create cluster -f cluster.yaml
+eksctl create cluster -f cluster.yaml
 ```
 
 To create a cluster with only CoreDNS and kube-proxy and not VPC CNI, specify the addons explicitly in `addons`
 and set `addonsConfig.disableDefaultAddons`, as in:
 
 ```
- addonsConfig:
+addonsConfig:
   disableDefaultAddons: true
 addons:
   - name: kube-proxy
@@ -315,7 +315,7 @@ addons:
 ```
 
 ```
- eksctl create cluster -f cluster.yaml
+eksctl create cluster -f cluster.yaml
 ```
 
 As part of this change, eksctl now installs default addons as EKS addons instead of self-managed addons during cluster creation

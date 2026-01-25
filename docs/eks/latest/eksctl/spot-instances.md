@@ -12,19 +12,19 @@ and EBS volumes.
 To create a cluster with a managed nodegroup using Spot instances, pass the `--spot` flag and an optional list of instance types:
 
 ```
- eksctl create cluster --spot --instance-types=c3.large,c4.large,c5.large
+eksctl create cluster --spot --instance-types=c3.large,c4.large,c5.large
 ```
 
 To create a managed nodegroup using Spot instances on an existing cluster:
 
 ```
- eksctl create nodegroup --cluster=<clusterName> --spot --instance-types=c3.large,c4.large,c5.large
+eksctl create nodegroup --cluster=<clusterName> --spot --instance-types=c3.large,c4.large,c5.large
 ```
 
 To create Spot instances using managed nodegroups via a config file:
 
 ```
- # spot-cluster.yaml
+# spot-cluster.yaml
 
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -49,7 +49,7 @@ managedNodeGroups:
 ```
 
 ```
- eksctl create cluster -f spot-cluster.yaml
+eksctl create cluster -f spot-cluster.yaml
 ```
 
 ###### Note
@@ -69,7 +69,7 @@ is used to configure Spot instances. [See below](#spot-unmanaged "#spot-unmanage
 Here is an example of a nodegroup that uses 50% spot instances and 50% on demand instances:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng-1
     minSize: 2
     maxSize: 5
@@ -86,7 +86,7 @@ Note that the `nodeGroups.X.instanceType` field shouldn’t be set when using th
 This example uses GPU instances:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng-gpu
     instanceType: mixed
     desiredCapacity: 1
@@ -101,7 +101,7 @@ This example uses GPU instances:
 This example uses the capacity-optimized spot allocation strategy:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng-capacity-optimized
     minSize: 2
     maxSize: 5
@@ -116,7 +116,7 @@ This example uses the capacity-optimized spot allocation strategy:
 This example uses the capacity-optimized-prioritized spot allocation strategy:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng-capacity-optimized-prioritized
     minSize: 2
     maxSize: 5
@@ -135,7 +135,7 @@ Note that the `spotInstancePools` field shouldn’t be set when using the `spotA
 Here is a minimal example:
 
 ```
- nodeGroups:
+nodeGroups:
   - name: ng-1
     instancesDistribution:
       instanceTypes: ["t3.small", "t3.medium"] # At least one instance type should be specified

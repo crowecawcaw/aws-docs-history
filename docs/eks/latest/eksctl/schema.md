@@ -9,7 +9,7 @@ You can use a yaml file to create a cluster. [View the schema reference.](https:
 For example:
 
 ```
- eksctl create cluster -f cluster.yaml
+eksctl create cluster -f cluster.yaml
 ```
 
 [The schema reference for this file is available on GitHub.](https://schema.eksctl.io/ "https://schema.eksctl.io/")
