@@ -210,6 +210,7 @@ The Pod container image is also available in the [AWS ECR Public Gallery](https:
 | Africa (Cape Town)        | `056821267933.dkr.ecr.af-south-1.amazonaws.com/aws-fis-pod:0.1`     |
 | Asia Pacific (Hong Kong)  | `246405402639.dkr.ecr.ap-east-1.amazonaws.com/aws-fis-pod:0.1`      |
 | Asia Pacific (Mumbai)     | `524781661239.dkr.ecr.ap-south-1.amazonaws.com/aws-fis-pod:0.1`     |
+| Asia Pacific (Osaka)      | `148336246925.dkr.ecr.ap-northeast-3.amazonaws.com/aws-fis-pod:0.1` |
 | Asia Pacific (Seoul)      | `526524659354.dkr.ecr.ap-northeast-2.amazonaws.com/aws-fis-pod:0.1` |
 | Asia Pacific (Singapore)  | `316401638346.dkr.ecr.ap-southeast-1.amazonaws.com/aws-fis-pod:0.1` |
 | Asia Pacific (Sydney)     | `488104106298.dkr.ecr.ap-southeast-2.amazonaws.com/aws-fis-pod:0.1` |
