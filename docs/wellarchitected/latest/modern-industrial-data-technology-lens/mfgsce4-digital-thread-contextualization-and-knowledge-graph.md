@@ -118,7 +118,7 @@ orchestration,
 
 [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/ "https://aws.amazon.com/ecr/") for managing container images,
 
-[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") for efficient traffic distribution,
+[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") for efficient traffic distribution,
 
 [Amazon Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/")  for DNS, and
 
