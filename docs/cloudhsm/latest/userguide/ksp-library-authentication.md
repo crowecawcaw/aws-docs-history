@@ -83,3 +83,7 @@ For example:
 ```
 setx /m CLOUDHSM_PIN test_user:password123
 ```
+
+###### Note
+
+When setting CLOUDHSM_PIN environment variables, you must escape any special characters that may be interpreted by your shell.

@@ -242,6 +242,10 @@ System.setProperty("HSM_PASSWORD","`<password>`");
 - **Environment variables** – Set credentials as
   environment variables.
 
+###### Note
+
+When setting environment variables, you must escape any special characters that may be interpreted by your shell.
+
 Linux
 
 ```

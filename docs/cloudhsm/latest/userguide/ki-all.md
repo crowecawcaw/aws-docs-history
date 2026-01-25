@@ -28,6 +28,7 @@ key_mgmt_util command line tool, the PKCS #11 SDK, the JCE SDK, or the OpenSSL S
 - [Issue: You receive the error "Failed to create cert/key from provided pfx file. Error: NotPkcs8"](#ki-all-11 "#ki-all-11")
 - [Issue: ECDSA signing fails with "invalid mechanism" error starting with SDK 5.16](#ki-all-12 "#ki-all-12")
 - [Issue: Signing operations with prehashed data do not properly clear session tokens in interactive mode](#ki-all-13 "#ki-all-13")
+- [Issue: CloudHSM client library's default client certificate expires on Jan 31, 2026](#ki-all-14 "#ki-all-14")
 
 ## Issue: AES key wrapping uses PKCS #5 padding instead of providing a
 
@@ -203,3 +204,8 @@ sudo /opt/cloudhsm/bin/configure-cli --enable-ecdsa-with-weak-hash-function
   token cleanup after each operation.
 - **Resolution status:** This issue has been resolved in CloudHSM SDK 5.16.2.
   Upgrade to version 5.16.2 or later to benefit from the fix.
+
+## Issue: CloudHSM client library's default client certificate expires on Jan 31, 2026
+
+- **Impact:** There is no impact to customers beyond Jan 31, 2026. All communications between the client and HSM are secured by client-HSM TLS as described [here](client-end-to-end-encryption.md "client-end-to-end-encryption.md"). The client-HSM TLS uses customer owned/managed certificates which are configured by the customer during cluster initialization.
+- **Resolution status:** Resolved.

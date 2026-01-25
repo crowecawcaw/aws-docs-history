@@ -7,19 +7,23 @@ users](manage-hsm-users.md "manage-hsm-users.md") and [use the HSM](use-hsm.md "
 ###### Important
 
 Before you can activate the cluster, you must first copy the issuing certificate to the default location for the platform on each EC2 instance that connects to the cluster
-(you create the issuing certificate when you initialize the cluster).
+(you create the issuing certificate when you initialize the cluster). Use the appropriate certificate file based on the approach you chose during cluster initialization:
 
-Linux
-
-```
-/opt/cloudhsm/etc/`customerCA.crt`
-```
-
-Windows
+- **If you chose Option A (single self-signed certificate):** Copy `customerRootCA.crt`
+- **If you chose Option B (certificate chain):** Copy `chainCA.crt`
+  **Linux location:**
 
 ```
-C:\ProgramData\Amazon\CloudHSM\`customerCA.crt`
+/opt/cloudhsm/etc/``<customerRootCA.crt OR chainCA.crt>``
 ```
+
+**Windows location:**
+
+```
+C:\ProgramData\Amazon\CloudHSM\``<customerRootCA.crt OR chainCA.crt>``
+```
+
+After copying the certificate file, edit the `/opt/cloudhsm/etc/cloudhsm-cli.cfg` file to ensure the certificate file name matches the name of the CA certificate you copied.
 
 After placing the issuing certificate, install CloudHSM CLI and run the [cluster activate](cloudhsm_cli-cluster-activate.md "cloudhsm_cli-cluster-activate.md") command on your first HSM.
 You will notice the admin account on the first HSM in your cluster has the [unactivated-admin](understanding-users.md "understanding-users.md") role.

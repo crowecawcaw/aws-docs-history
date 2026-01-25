@@ -178,7 +178,9 @@ information about creating CUs, see [Create an AWS CloudHSM user with CloudHSM C
 Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
 storing the credentials of the CU. In Client SDK 3 you store the CU credentials in the
 `n3fips_password` environment variable. Client SDK 5 supports both
-environment variables, but we recommend using `CLOUDHSM_PIN`. 4. Connect your installation of OpenSSL Dynamic Engine to the cluster. For more information, see [Connect to the Cluster](cluster-connect.md "cluster-connect.md"). 5. Bootstrap the Client SDK 5. For more information, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
+environment variables, but we recommend using `CLOUDHSM_PIN`.
+
+When setting `CLOUDHSM_PIN` environment variables, you must escape any special characters that may be interpreted by your shell. 4. Connect your installation of OpenSSL Dynamic Engine to the cluster. For more information, see [Connect to the Cluster](cluster-connect.md "cluster-connect.md"). 5. Bootstrap the Client SDK 5. For more information, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
 
 ## Verify the OpenSSL Dynamic Engine for Client SDK 5
 

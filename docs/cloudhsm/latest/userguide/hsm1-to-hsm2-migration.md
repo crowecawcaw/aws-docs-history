@@ -6,12 +6,16 @@ the prerequisites, migration process, and rollback procedures.
 Before starting the migration, make sure your application follows the recommendations in [Architect your cluster for high availability](bp-cluster-management.md#bp-high-availability "bp-cluster-management.md#bp-high-availability").
 This helps avoid downtime during the process.
 
+###### Note
+
+Automatic migrations to hsm2m.medium will begin on January 20th, 2026.
+
 ## Overview of the hsm1.medium to hsm2m.medium migration process
 
 You can start the migration using the AWS CloudHSM Console, the AWS CLI, or the AWS CloudHSM API. No
 matter where you initiate it, the AWS CloudHSM cluster migration uses the
-`modify-cluster` API endpoint. Once the migration starts, your entire cluster
-enters a limited-write mode. For more information, see [Cluster limited-write mode](#migration-limited-write-mode "#migration-limited-write-mode").
+`modify-cluster` API endpoint. Alternatively, AWS CloudHSM will automatically migrate cluster on your behalf.
+Once the migration starts, your entire cluster enters a limited-write mode. For more information, see [Cluster limited-write mode](#migration-limited-write-mode "#migration-limited-write-mode").
 
 To minimize impact, AWS CloudHSM changes HSMs from hsm1.medium to hsm2m.medium one at a time. The replacement HSMs maintain the same IP addresses,
 thereby requiring no configuration changes during or after migration.
@@ -61,7 +65,7 @@ The previous restriction which prevented customers with token key workloads from
 
 ## Cluster limited-write mode
 
-When you start the cluster migration, it enters a limited-write mode. Operations that can change the HSM state are rejected. All read operations remain unaffected.
+When your cluster starts migration, it enters a limited-write mode. Operations that can change the HSM state are rejected. All read operations remain unaffected.
 
 During migration, your application receives an error from the HSM when attempting these operations:
 

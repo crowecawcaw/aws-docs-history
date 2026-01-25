@@ -49,4 +49,6 @@ The following table defines the `Opcode` values in an AWS CloudHSM audit log.
 | `CN_GEN_KEY_ENC_KEY`                                                        | Generate a key encryption key (KEK)                                                                          |
 | `CN_GEN_PSWD_ENC_KEY (0x1d)`                                                | Generate a password encryption key (PEK)                                                                     |
 | **HSM crypto commands**                                                     |
-| `CN_FIPS_RAND`                                                              | Generate a FIPS-compliant random number                                                                      |
+| `CN_FIPS_RAND`                                                              | Generate a FIPS-compliant random number[1](#hsm-audit-log-note-1 "#hsm-audit-log-note-1")                    |
+
+[1] Only gets logged for hsm1.medium clusters.

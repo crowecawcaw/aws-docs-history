@@ -362,4 +362,4 @@ use.
 You now have a website that is secured with HTTPS. The private key for the web server is
 stored in an HSM in your AWS CloudHSM cluster.
 
-To add a load balancer, see [Add a load balancer with ELB for AWS CloudHSM(optional)](third-offload-add-lb.md "third-offload-add-lb.md").
+To add a load balancer, see [Add a load balancer with Elastic Load Balancing for AWS CloudHSM(optional)](third-offload-add-lb.md "third-offload-add-lb.md").
