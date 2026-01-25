@@ -305,7 +305,7 @@ typically done by updating the container image. You can use `kubectl`
 to update a Deployment like this:
 
 ```
- kubectl --record deployment.apps/nginx-deployment set image nginx-deployment nginx=nginx:1.16.1
+kubectl --record deployment.apps/nginx-deployment set image nginx-deployment nginx=nginx:1.16.1
 ```
 
 The `--record` argument record the changes to the Deployment and helps

@@ -127,7 +127,7 @@ Third party tools like [kubecost](https://kubecost.com/ "https://kubecost.com/")
 Deploying kubecost using Helm 3:
 
 ```
- $ curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+$ curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 $ helm version --short
 v3.2.1+gfe51cd1
 $ helm repo add stable https://kubernetes-charts.storage.googleapis.com/

@@ -13,7 +13,7 @@ Note that [Amazon S3 Express One Zone](https://aws.amazon.com/s3/storage-classes
 To [configure default bucket encryption on an S3 directory bucket](../../../AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.md "../../../AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.md"), use the AWS CLI, and specify the KMS key ID or ARN, not the alias, as in the following example:
 
 ```
- aws s3api put-bucket-encryption --bucket my-directory-bucket --server-side-encryption-configuration \
+aws s3api put-bucket-encryption --bucket my-directory-bucket --server-side-encryption-configuration \
    '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "aws:kms", "KMSMasterKeyID": "1234abcd-12ab-34cd-56ef-1234567890ab"}}]}'
 ```
 

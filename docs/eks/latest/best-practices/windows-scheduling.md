@@ -24,7 +24,7 @@ For example: `--register-with-taints='os=windows:NoSchedule'`
 If you are using EKS, eksctl offers ways to apply taints through clusterConfig:
 
 ```
- NodeGroups:
+NodeGroups:
   - name: windows-ng
     amiFamily: WindowsServer2022FullContainer
     ...
@@ -37,7 +37,7 @@ If you are using EKS, eksctl offers ways to apply taints through clusterConfig:
 Adding a taint to all Windows nodes, the scheduler will not schedule pods on those nodes unless they tolerate the taint. Pod manifest example:
 
 ```
- nodeSelector:
+nodeSelector:
     kubernetes.io/os: windows
 tolerations:
     - key: "os"
@@ -64,13 +64,13 @@ It’s important to note that Windows Server is moving to the Long-Term Servicin
 It is possible to check the OS build version through the following command:
 
 ```
- kubectl get nodes -o wide
+kubectl get nodes -o wide
 ```
 
 The KERNEL-VERSION output matches the Windows OS build version.
 
 ```
- NAME                          STATUS   ROLES    AGE   VERSION                INTERNAL-IP   EXTERNAL-IP     OS-IMAGE                         KERNEL-VERSION                  CONTAINER-RUNTIME
+NAME                          STATUS   ROLES    AGE   VERSION                INTERNAL-IP   EXTERNAL-IP     OS-IMAGE                         KERNEL-VERSION                  CONTAINER-RUNTIME
 ip-10-10-2-235.ec2.internal   Ready    <none>   23m   v1.24.7-eks-fb459a0    10.10.2.235   3.236.30.157    Windows Server 2022 Datacenter   10.0.20348.1607                 containerd://1.6.6
 ip-10-10-31-27.ec2.internal   Ready    <none>   23m   v1.24.7-eks-fb459a0    10.10.31.27   44.204.218.24   Windows Server 2019 Datacenter   10.0.17763.4131                 containerd://1.6.6
 ip-10-10-7-54.ec2.internal    Ready    <none>   31m   v1.24.11-eks-a59e1f0   10.10.7.54    3.227.8.172     Amazon Linux 2                   5.10.173-154.642.amzn2.x86_64   containerd://1.6.19
@@ -79,7 +79,7 @@ ip-10-10-7-54.ec2.internal    Ready    <none>   31m   v1.24.11-eks-a59e1f0   10.
 The example below applies an additional nodeSelector to the pod manifest in order to match the correct Windows-build version when running different Windows node groups OS versions.
 
 ```
- nodeSelector:
+nodeSelector:
     kubernetes.io/os: windows
     node.kubernetes.io/windows-build: '10.0.20348'
 tolerations:
@@ -96,7 +96,7 @@ You can also make use of RuntimeClass to simplify the process of using taints an
 Create a RuntimeClass by running the following manifest:
 
 ```
- apiVersion: node.k8s.io/v1beta1
+apiVersion: node.k8s.io/v1beta1
 kind: RuntimeClass
 metadata:
   name: windows-2022
@@ -116,7 +116,7 @@ scheduling:
 Once the Runtimeclass is created, assign it using as a Spec on the Pod manifest:
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: iis-2022

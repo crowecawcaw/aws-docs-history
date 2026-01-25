@@ -95,7 +95,7 @@ When creating a new page, you need to set the page ID in the source file. The pa
 2. At the top of the file, add the following line. It should be above the first heading.
 
 ```
- [#my-new-page]
+[#my-new-page]
 ```
 
 Replace `my-new-page` with the page ID for your new page. 3. Save the file.
@@ -176,7 +176,7 @@ image::eks-data-plane-connectivity.jpeg[Network diagram]
 ### Basic Formatting
 
 ```
- *bold text*
+*bold text*
 _italic text_
 `monospace text`
 ```
@@ -184,7 +184,7 @@ _italic text_
 ### Headers
 
 ```
- = Document Title (Header 1)
+= Document Title (Header 1)
 == Header 2
 === Header 3
 ==== Header 4
@@ -197,7 +197,7 @@ _italic text_
 Unordered Lists:
 
 ```
- - Item 1
+- Item 1
 - Item 2
 -- Subitem 2.1
 -- Subitem 2.2
@@ -207,7 +207,7 @@ Unordered Lists:
 Ordered Lists:
 
 ```
- . First item
+. First item
 . Second item
 .. Subitem 2.1
 .. Subitem 2.2
@@ -217,7 +217,7 @@ Ordered Lists:
 ### Links
 
 ```
- External link:  https://example.com[Link text]
+External link:  https://example.com[Link text]
 Internal link: <<page-id>>
 Internal link: xref:page-id[Link text]
 ```
@@ -225,13 +225,13 @@ Internal link: xref:page-id[Link text]
 ### Images
 
 ```
- image::image-file.jpg[Alt text]
+image::image-file.jpg[Alt text]
 ```
 
 ### Code Blocks
 
 ```
-  [source,python]
+ [source,python]
  ----
  def hello_world():
      print("Hello, World!")
@@ -243,7 +243,7 @@ Internal link: xref:page-id[Link text]
 [Learn how to build a basic table.](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/ "https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/")
 
 ```
- [cols="1,1"]
+[cols="1,1"]
 |===
 |Cell in column 1, row 1
 |Cell in column 2, row 1
@@ -259,7 +259,7 @@ Internal link: xref:page-id[Link text]
 ### Admonitions
 
 ```
- NOTE: This is a note admonition.
+NOTE: This is a note admonition.
 
 WARNING: This is a warning admonition.
 
@@ -279,5 +279,5 @@ This is a note admonition.
 ### Includes
 
 ```
-  include::filename.adoc[]
+ include::filename.adoc[]
 ```

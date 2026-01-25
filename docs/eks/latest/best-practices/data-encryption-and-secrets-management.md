@@ -27,7 +27,7 @@ adding the `tls` parameter to `mountOptions` in your PV as in this
 example:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: efs-pv
@@ -52,7 +52,7 @@ encrypts data with a service managed key by default, although there is
 an option to provide your own CMK as in this example:
 
 ```
- kind: StorageClass
+kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: fsx-sc
@@ -142,7 +142,7 @@ example of a metrics filter for the Kubernetes audit log,
 use the following queries with CloudWatch Log Insights:
 
 ```
- fields @timestamp, @message
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | stats count(*) by objectRef.name as secret
@@ -153,7 +153,7 @@ The above query will display the number of times a secret has been
 accessed within a specific timeframe.
 
 ```
- fields @timestamp, @message
+fields @timestamp, @message
 | sort @timestamp desc
 | limit 100
 | filter verb="get" and objectRef.resource="secrets"

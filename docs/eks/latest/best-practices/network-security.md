@@ -63,7 +63,7 @@ policy that restricts all inbound and outbound traffic with in a
 namespace.
 
 ```
- apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny
@@ -90,7 +90,7 @@ on additional rules, such as a rule that allows pods to query CoreDNS
 for name resolution.
 
 ```
- apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-dns-access
@@ -125,7 +125,7 @@ traffic on port 80 to `app-one` from `client-one`. This helps
 minimize the attack surface and reduces the risk of unauthorized access.
 
 ```
- apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-ingress-app-one
@@ -188,7 +188,7 @@ spec:
     policy does not exist.
 
 ```
- package kubernetes.admission
+package kubernetes.admission
 import data.kubernetes.networkpolicies
 
 deny[msg] {
@@ -233,7 +233,7 @@ SDK provides support for fundamental functionalities such as inspecting
 eBPF programs and maps.
 
 ```
- sudo /opt/cni/bin/aws-eks-na-cli ebpf progs
+sudo /opt/cni/bin/aws-eks-na-cli ebpf progs
 ```
 
 #### Log network traffic metadata
@@ -597,7 +597,7 @@ with EKS v1.15 you can use the
 with the NLB as shown in the example below.
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: demo-app
@@ -704,7 +704,7 @@ ACM Private CA. Replace the `<CA_ARN>` with the value from your
 Private CA:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -730,7 +730,7 @@ file named cluster-issuer.yaml with the following text in it, replacing
 `<CA_ARN>` and `<Region>` information with your Private CA.
 
 ```
- apiVersion: awspca.cert-manager.io/v1beta1
+apiVersion: awspca.cert-manager.io/v1beta1
 kind: AWSPCAClusterIssuer
 metadata:
           name: demo-test-root-ca
@@ -742,7 +742,7 @@ spec:
 Deploy the Issuer you created.
 
 ```
- kubectl apply -f cluster-issuer.yaml
+kubectl apply -f cluster-issuer.yaml
 ```
 
 Your EKS cluster is configured to request certificates from Private CA.
@@ -845,7 +845,7 @@ Certificate Signing Requests with istio-csr]
    (`preserveCertificateRequests=true`).
 
 ```
- helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-csr \
+helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-csr \
 --set "app.certmanager.issuer.group=awspca.cert-manager.io" \
 --set "app.certmanager.issuer.kind=AWSPCAClusterIssuer" \
 --set "app.certmanager.issuer.name=<the-name-of-the-issuer-you-created>" \
@@ -866,7 +866,7 @@ Certificate Signing Requests with istio-csr]
    [Istio Operator](https://tetrate.io/blog/what-is-istio-operator/ "https://tetrate.io/blog/what-is-istio-operator/").
 
 ```
- apiVersion: install.istio.io/v1alpha1
+apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
   name: istio
@@ -926,7 +926,7 @@ spec:
 9. Deploy the above custom resource you created.
 
 ```
- istioctl operator init
+istioctl operator init
 kubectl apply -f istio-custom-config.yaml
 ```
 

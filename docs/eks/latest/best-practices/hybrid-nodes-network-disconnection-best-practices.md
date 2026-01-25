@@ -11,7 +11,7 @@ When architecting applications, consider your failure domains and the effects of
 Kubernetes evaluates zonal information for nodes that are disconnected from the Kubernetes control plane when determining whether to move pods to other nodes. If all nodes in a zone are unreachable, Kubernetes cancels pod evictions for the nodes in that zone. As a best practice, if you have a deployment with nodes running in multiple data centers or physical locations, assign a zone to each node based on its data center or physical location. When you run EKS with nodes in the cloud, this zone label is automatically applied by the AWS cloud-controller-manager. However, a cloud-controller-manager is not used with hybrid nodes, so you can pass this information through your kubelet configuration. An example of how to configure a zone in your node configuration for hybrid nodes is shown below. The configuration is passed when you connect your hybrid nodes to your cluster with the hybrid nodes CLI (`nodeadm`). For more information on the `topology.kubernetes.io/zone` label, see the [Kubernetes documentation](https://kubernetes.io/docs/reference/labels-annotations-taints/#topologykubernetesiozone "https://kubernetes.io/docs/reference/labels-annotations-taints/#topologykubernetesiozone"). For more information on the hybrid nodes CLI, see the [Hybrid Nodes nodeadm reference](../userguide/hybrid-nodes-nodeadm.md "../userguide/hybrid-nodes-nodeadm.md").
 
 ```
- apiVersion: node.eks.aws/v1alpha1
+apiVersion: node.eks.aws/v1alpha1
 kind: NodeConfig
 spec:
   cluster:
@@ -50,31 +50,31 @@ To prepare for network disconnections between hybrid nodes and the EKS control p
 List pods running on the host:
 
 ```
- crictl pods
+crictl pods
 ```
 
 List containers running on the host:
 
 ```
- crictl ps
+crictl ps
 ```
 
 List images running on the host:
 
 ```
- crictl images
+crictl images
 ```
 
 Get logs of a container running on the host:
 
 ```
- crictl logs CONTAINER_NAME
+crictl logs CONTAINER_NAME
 ```
 
 Get statistics of pods running on the host:
 
 ```
- crictl statsp
+crictl statsp
 ```
 
 ## Application network traffic
@@ -96,7 +96,7 @@ There are options to tune pod failover behavior during network disconnections fo
 An example of how to configure a Deployment with `tolerationSeconds` for the unreachable taint is shown below. In the example, `tolerationSeconds` is set to `1800` (30 minutes), which means pods running on unreachable nodes will only be evicted if the network disconnection lasts longer than 30 minutes.
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
 ...

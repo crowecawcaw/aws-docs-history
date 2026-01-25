@@ -9,7 +9,7 @@ For distributed training workloads on Amazon EKS with high inter-node communicat
 For example, using Karpenter:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: ml-workload
@@ -38,7 +38,7 @@ While prefix delegation is crucial for optimizing IP usage in environments with 
 To enable prefix delegation:
 
 ```
- kubectl set env daemonset/aws-node -n kube-system ENABLE_PREFIX_DELEGATION=true
+kubectl set env daemonset/aws-node -n kube-system ENABLE_PREFIX_DELEGATION=true
 ```
 
 Ensure proper planning for VPC subnets to avoid IP address exhaustion, especially in large deployments, and manage CIDR blocks to avoid overlaps across VPCs. To learn more, see [Optimizing IP Address Utilization](ip-opt.md "ip-opt.md") and [Assign more IP addresses to Amazon EKS nodes with prefixes](ip-opt.md#_plan_for_growth "ip-opt.md#_plan_for_growth").

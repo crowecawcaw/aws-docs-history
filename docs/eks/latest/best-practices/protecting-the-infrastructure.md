@@ -118,7 +118,7 @@ The following IAM policy contains the minimal set of permissions to
 enable node access via SSM Systems Manager.
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -156,7 +156,7 @@ With this policy in place and the
 Manager plugin](../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md "../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md") installed, you can then run
 
 ```
- aws ssm start-session --target [INSTANCE_ID_OF_EKS_NODE]
+aws ssm start-session --target [INSTANCE_ID_OF_EKS_NODE]
 ```
 
 to access the node.
@@ -252,7 +252,7 @@ a full list of default, labels see the
 file.
 
 ```
- docker container run -it \
+docker container run -it \
   -v /var/lib/docker/image/overlay2/repositories.json:/host/repositories.json \
   centos:7 cat /host/repositories.json
 # cat: /host/repositories.json: Permission denied
@@ -272,7 +272,7 @@ will needed to specify `:z` or `:Z` at the end.
   read/write
 
 ```
- ls -Z /var/lib/misc
+ls -Z /var/lib/misc
 # -rw-r--r--. root root system_u:object_r:var_lib_t:s0   postfix.aliasesdb-stamp
 
 docker container run -it \
@@ -284,7 +284,7 @@ ls -Z /var/lib/misc
 ```
 
 ```
- docker container run -it \
+docker container run -it \
   -v /var/log:/host/var/log:Z \
   fluentbit:latest
 ```
@@ -297,7 +297,7 @@ will be able to access the volume. If you need strict isolation, set a
 different MCS label for each pod.
 
 ```
- securityContext:
+securityContext:
   seLinuxOptions:
     # Provide a unique MCS label per container
     # You can specify user, role, and type also

@@ -189,7 +189,7 @@ Credentials Provider](../../../sdkref/latest/guide/feature-process-credentials.m
 configuring a profile, such as:
 
 ```
- # Content of the AWS Config file
+# Content of the AWS Config file
 [profile account_b_role]
 source_profile = account_a_role
 role_arn = arn:aws:iam::444455556666:role/account-b-role
@@ -201,7 +201,7 @@ credential_process = /eks-credential-processrole.sh
 The source of the script called by credential_process:
 
 ```
- #!/bin/bash
+#!/bin/bash
 # Content of the eks-credential-processrole.sh
 # This will retreive the credential from the pod identities agent,
 # and return it to the AWS SDK when referenced in a profile
@@ -214,7 +214,7 @@ pod spec. EKS Pod identity webhook does not override if the env vars
 already exists in the pod spec.
 
 ```
- # Snippet of the PodSpec
+# Snippet of the PodSpec
 containers:
   - name: container-name
     image: container-image:version
@@ -257,7 +257,7 @@ assume a role if the `kubernetes-service-account`, `eks-cluster-arn`
 and `kubernetes-namespace` tags all have the expected value.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

@@ -277,7 +277,7 @@ nodes that are labeled with the following key/value:
 `node-restriction.kubernetes.io/tenant: tenants-x`.
 
 ```
- ...
+...
 spec:
   affinity:
     nodeAffinity:
@@ -314,7 +314,7 @@ being scheduled. The below taint uses a key-value pair of
 `tenant: tenants-x`.
 
 ```
- ...
+...
     taints:
       - key: tenant
         value: tenants-x
@@ -328,7 +328,7 @@ scheduled onto the node, the respective pod specifications must include
 a `toleration` to the taint, as seen below.
 
 ```
- ...
+...
   tolerations:
   - effect: NoSchedule
     key: tenant
@@ -370,7 +370,7 @@ scheduling. An example OPA/Gatekeeper policy that adds a node affinity
 is seen below.
 
 ```
- apiVersion: mutations.gatekeeper.sh/v1alpha1
+apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: Assign
 metadata:
   name: mutator-add-nodeaffinity-pod
@@ -406,7 +406,7 @@ specification, using the same matching criteria of target namespace and
 groups, kinds, and versions.
 
 ```
- apiVersion: mutations.gatekeeper.sh/v1alpha1
+apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: Assign
 metadata:
   name: mutator-add-toleration-pod
@@ -445,7 +445,7 @@ taint. To verify this, we can see the snippets of output from two
 and get the pods in the `tenants-x` namespace.
 
 ```
- kubectl get nodes -l tenant=tenants-x
+kubectl get nodes -l tenant=tenants-x
 NAME
 ip-10-0-11-255...
 ip-10-0-28-81...
@@ -469,7 +469,7 @@ isolated.
 An example mutated pod specification is seen below.
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: tenant-test-pod

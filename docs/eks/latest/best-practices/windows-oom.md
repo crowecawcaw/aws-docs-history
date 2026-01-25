@@ -15,7 +15,7 @@ On Windows nodes, a best practice is to reserve at least 2GB of memory for the O
 Following the [Amazon EKS Self-managed Windows nodes](../userguide/launch-windows-workers.md "../userguide/launch-windows-workers.md") documentation, use the CloudFormation template to launch a new Windows node group with customizations to kubelet configuration. The CloudFormation has an element called `BootstrapArguments` which is the same as `KubeletExtraArgs`. Use with the following flags and values:
 
 ```
- --kube-reserved memory=0.5Gi,ephemeral-storage=1Gi --system-reserved memory=1.5Gi,ephemeral-storage=1Gi --eviction-hard memory.available<200Mi,nodefs.available<10%"
+--kube-reserved memory=0.5Gi,ephemeral-storage=1Gi --system-reserved memory=1.5Gi,ephemeral-storage=1Gi --eviction-hard memory.available<200Mi,nodefs.available<10%"
 ```
 
 If eksctl is the deployment tool, check the following documentation to customize the kubelet configuration https://eksctl.io/usage/customizing-the-kubelet/
@@ -29,7 +29,7 @@ It is essential for you to know the minimum amount of memory required by your Wi
 In the example below, when the Kubernetes scheduler tries to place a pod on a node, the pod’s requests are used to determine which node has sufficient resources available for scheduling.
 
 ```
-  spec:
+ spec:
   - name: iis
     image: mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019
     resources:

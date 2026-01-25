@@ -23,7 +23,7 @@ The windows_exporter will expose all metrics from enabled collectors by default.
 The default install steps for Windows include downloading and starting the exporter as a service during the bootstrapping process with arguments, such as the collectors you want to filter.
 
 ```
- > Powershell Invoke-WebRequest https://github.com/prometheus-community/windows_exporter/releases/download/v0.13.0/windows_exporter-0.13.0-amd64.msi -OutFile <DOWNLOADPATH>
+> Powershell Invoke-WebRequest https://github.com/prometheus-community/windows_exporter/releases/download/v0.13.0/windows_exporter-0.13.0-amd64.msi -OutFile <DOWNLOADPATH>
 
 > msiexec /i <DOWNLOADPATH> ENABLED_COLLECTORS="cpu,cs,logical_disk,net,os,system,container,memory"
 ```
@@ -32,7 +32,7 @@ By default, the metrics can be scraped at the /metrics endpoint on port 9182.
 At this point, Prometheus can consume the metrics by adding the following scrape_config to the Prometheus configuration
 
 ```
- scrape_configs:
+scrape_configs:
     - job_name: "prometheus"
       static_configs:
         - targets: ['localhost:9090']
@@ -46,7 +46,7 @@ At this point, Prometheus can consume the metrics by adding the following scrape
 Prometheus configuration is reloaded using
 
 ```
- > ps aux | grep prometheus
+> ps aux | grep prometheus
 > kill HUP <PID>
 ```
 
@@ -57,7 +57,7 @@ The ServiceMonitor, which declaratively specifies how groups of Kubernetes servi
 In order to leverage the ServiceMonitor, create an Endpoint object pointing to specific Windows targets, a headless service and a ServiceMontor for the Windows nodes.
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Endpoints
 metadata:
   labels:

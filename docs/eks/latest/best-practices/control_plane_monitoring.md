@@ -150,7 +150,7 @@ Here we see the errors from the scheduler saying the pod did not deploy because 
 Audit logging must be turned on the control plane to enable this function. It is also a best practice to limit the log retention as to not drive up cost over time unnecessarily. An example for turning on all logging functions using the EKSCTL tool below.
 
 ```
- cloudWatch:
+cloudWatch:
   clusterLogging:
     enableTypes: ["*"]
     logRetentionInDays: 10
@@ -161,7 +161,7 @@ Audit logging must be turned on the control plane to enable this function. It is
 Kube Controller Manager, like all other controllers, has limits on how many operations it can do at once. Let’s review what some of those flags are by looking at a KOPS configuration where we can set these parameters.
 
 ```
-   kubeControllerManager:
+  kubeControllerManager:
     concurrentEndpointSyncs: 5
     concurrentReplicasetSyncs: 5
     concurrentNamespaceSyncs: 10
@@ -180,14 +180,14 @@ These controllers have queues that fill up during times of high churn on a clust
 We have two different ways of addressing such a situation. If running self managed we could simply increase the concurrent goroutines, however this would have an impact on etcd by processing more data in the KCM. The other option would be to reduce the number of replicaset objects using `.spec.revisionHistoryLimit` on the deployment to reduce the number of replicaset objects we can rollback, thus reducing the pressure on this controller.
 
 ```
- spec:
+spec:
   revisionHistoryLimit: 2
 ```
 
 Other Kubernetes features can be tuned or turned off to reduce pressure in high churn rate systems. For example, if the application in our pods doesn’t need to speak to the k8s API directly then turning off the projected secret into those pods would decrease the load on ServiceaccountTokenSyncs. This is the more desirable way to address such issues if possible.
 
 ```
- kind: Pod
+kind: Pod
 spec:
   automountServiceAccountToken: false
 ```
@@ -231,7 +231,7 @@ etcd uses a memory mapped file to store key value pairs efficiently. There is a 
 There are a couple user related items we can do to limit the number of objects in Kubernetes and thus reduce the impact of both the compaction and de-fragmentation process. For example, Helm keeps a high `revisionHistoryLimit`. This keeps older objects such as ReplicaSets on the system to be able to do rollbacks. By setting the history limits down to 2 we can reduce the number of objects (like ReplicaSets) from ten to two which in turn would put less load on the system.
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 spec:
   revisionHistoryLimit: 2

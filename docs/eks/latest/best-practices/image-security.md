@@ -22,14 +22,14 @@ curl that can be used for nefarious purposes. You can find the files
 with SETUID and SETGID bits with the following command:
 
 ```
- find / -perm /6000 -type f -exec ls -ld {} \;
+find / -perm /6000 -type f -exec ls -ld {} \;
 ```
 
 To remove the special permissions from these files, add the following
 directive to your container image:
 
 ```
- RUN find / -xdev -perm /6000 -type f -exec chmod a-s {} \; || true
+RUN find / -xdev -perm /6000 -type f -exec chmod a-s {} \; || true
 ```
 
 Colloquially, this is known as de-fanging your image.
@@ -188,7 +188,7 @@ team-a/ while those for team B can use the team-b/ prefix. The policy to
 restrict access might look like the following:
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -235,7 +235,7 @@ following policy allows all AWS principles in your account to perform
 all actions against your and only your ECR repositories:
 
 ```
- {
+{
   "Statement": [
     {
       "Sid": "LimitECRAccess",
@@ -354,7 +354,7 @@ With languages like Go, you can create a static linked binary and
 reference it in your Dockerfile as in this example:
 
 ```
- ############################
+############################
 # STEP 1 build executable binary
 ############################
 FROM golang:alpine AS builder# Install git.
@@ -457,7 +457,7 @@ Be aware that these commands may be different for each package manager.
 For example:
 
 ```
- RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     curl \
     git \
     libsqlite3-dev \

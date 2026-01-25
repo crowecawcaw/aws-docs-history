@@ -109,7 +109,7 @@ nodegroups of the cluster using tags (for example
 `k8s.io/cluster-autoscaler/<cluster-name>`).
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

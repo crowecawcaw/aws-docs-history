@@ -53,7 +53,7 @@ container runtime’s default seccomp profile by adding the following to
 the `securityContext` section of the Pod spec:
 
 ```
- securityContext:
+securityContext:
   seccompProfile:
     type: RuntimeDefault
 ```

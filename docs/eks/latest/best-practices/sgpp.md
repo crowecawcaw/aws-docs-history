@@ -111,11 +111,11 @@ Ensure that `terminationGracePeriodSeconds` is non-zero in your Pod specificatio
 Security groups for Pods that run on Fargate work very similarly to Pods that run on EC2 worker nodes. For example, you have to create the security group before referencing it in the SecurityGroupPolicy you associate with your Fargate Pod. By default, the [cluster security group](../userguide/sec-group-reqs.md "../userguide/sec-group-reqs.md") is assiged to all Fargate Pods when you don’t explicitly assign a SecurityGroupPolicy to a Fargate Pod. For simplicity’s sake, you may want to add the cluster security group to a Fagate Pod’s SecurityGroupPolicy otherwise you will have to add the minimum security group rules to your security group. You can find the cluster security group using the describe-cluster API.
 
 ```
-  aws eks describe-cluster --name CLUSTER_NAME --query 'cluster.resourcesVpcConfig.clusterSecurityGroupId'
+ aws eks describe-cluster --name CLUSTER_NAME --query 'cluster.resourcesVpcConfig.clusterSecurityGroupId'
 ```
 
 ```
- cat >my-fargate-sg-policy.yaml <<EOF
+cat >my-fargate-sg-policy.yaml <<EOF
 apiVersion: vpcresources.k8s.aws/v1beta1
 kind: SecurityGroupPolicy
 metadata:
@@ -137,17 +137,17 @@ The minimum security group rules are listed [here](../userguide/sec-group-reqs.m
 You can use the below commands to find the security groups applied to a Fargate Pod.
 
 ```
- kubectl get pod FARGATE_POD -o jsonpath='{.metadata.annotations.fargate\.amazonaws\.com/pod-sg}{"\n"}'
+kubectl get pod FARGATE_POD -o jsonpath='{.metadata.annotations.fargate\.amazonaws\.com/pod-sg}{"\n"}'
 ```
 
 Note down the eniId from above command.
 
 ```
- aws ec2 describe-network-interfaces --network-interface-ids ENI_ID --query 'NetworkInterfaces[*].Groups[*]'
+aws ec2 describe-network-interfaces --network-interface-ids ENI_ID --query 'NetworkInterfaces[*].Groups[*]'
 ```
 
 Existing Fargate pods must be deleted and recreated in order for new security groups to be applied. For instance, the following command initiates the deployment of the example-app. To update specific pods, you can change the namespace and deployment name in the below command.
 
 ```
- kubectl rollout restart -n example-ns deployment example-pod
+kubectl rollout restart -n example-ns deployment example-pod
 ```

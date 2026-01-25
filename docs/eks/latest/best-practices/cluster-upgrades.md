@@ -330,7 +330,7 @@ To verify that the IAM role is available and has the correct assume role
 policy in your account you can run the following commands:
 
 ```
- CLUSTER=<cluster name>
+CLUSTER=<cluster name>
 ROLE_ARN=$(aws eks describe-cluster --name ${CLUSTER} \
   --query 'cluster.roleArn' --output text)
 aws iam get-role --role-name ${ROLE_ARN##*/} \

@@ -48,7 +48,7 @@ You can [Install the FSx for Lustre CSI driver](../userguide/fsx-csi.md "../user
 Persistent Volume (PV) definition for an FSx for Lustre file system, using Static Provisioning (where the FSx instance has already been provisioned).
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: fsx-pv
@@ -74,7 +74,7 @@ spec:
 Persistent Volume Claim definition for PV called `fsx-pv`:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: fsx-claim
@@ -93,7 +93,7 @@ spec:
 Configure a pod to use an Persistent Volume Claim of `fsx-claim`:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: fsx-app
@@ -121,7 +121,7 @@ For complete examples, see the [FSx for Lustre Driver Examples in GitHub](https:
 Partial example of a Pod deployment YAML with CSI Driver:
 
 ```
- # CSI driver dynamically mounts the S3 bucket for each pod
+# CSI driver dynamically mounts the S3 bucket for each pod
 
 volumes:
   - name: s3-mount
@@ -183,7 +183,7 @@ Examples:
 A Storage Class (SC) definition for an FSx for OpenZFS volume, used to create a child volume of the root volume ($ROOT\_VOL\_ID) on an existing file system and export the volume to the VPC CIDR ($VPC_CIDR) using the NFS v4.2 protocol.
 
 ```
- apiVersion: storage.k8s.io/v1
+apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: fsxz-vol-sc
@@ -212,7 +212,7 @@ mountOptions:
 A dynamically created Persistent Volume Claim (PVC) against the fsxz-vol-sc created above. **Note**, the storage capacity allocated is 1Gi, this is required for FSx for OpenZFS volumes as noted in the [CSI driver FAQ](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/blob/main/docs/FAQ.md "https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/blob/main/docs/FAQ.md"). The volume will be provided the full capacity provisioned to the file system with this configuration. If the volume capacity needs to be restricted you can do so using user or group quotas.
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: dynamic-vol-pvc
@@ -229,7 +229,7 @@ spec:
 Configure a pod to mount a volume using the Persistent Volume Claim (PVC) of dynamic-vol-pvc:
 
 ```
- kind: Pod
+kind: Pod
 apiVersion: v1
 metadata:
   name: fsx-app
