@@ -1,12 +1,12 @@
 # Deploy Docker Containers on Amazon ECS
 
-|                      |                                                                                                                                                                                                                                                                   |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AWS experience**   | Beginner                                                                                                                                                                                                                                                          |
-| **Time to complete** | 10 minutes                                                                                                                                                                                                                                                        |
-| **Cost to complete** | Cost will vary by region, and will be around $0.004 / hour of running the container                                                                                                                                                                               |
-| **Services used**    | [Amazon ECS](https://aws.amazon.com/ecs/ "https://aws.amazon.com/ecs/")<br>[AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")<br>[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") |
-| **Last updated**     | August 11, 2022                                                                                                                                                                                                                                                   |
+|                      |                                                                                                                                                                                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **AWS experience**   | Beginner                                                                                                                                                                                                                                                                             |
+| **Time to complete** | 10 minutes                                                                                                                                                                                                                                                                           |
+| **Cost to complete** | Cost will vary by region, and will be around $0.004 / hour of running the container                                                                                                                                                                                                  |
+| **Services used**    | [Amazon ECS](https://aws.amazon.com/ecs/ "https://aws.amazon.com/ecs/")<br>[AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")<br>[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") |
+| **Last updated**     | August 11, 2022                                                                                                                                                                                                                                                                      |
 
 ## Overview
 
@@ -82,7 +82,7 @@ Service options come preloaded with default configuration values.
 
 **Load balancing:** You have the
 option to use a load balancer with your service. Amazon ECS can
-create an ELB (ELB) load balancer to distribute
+create an Elastic Load Balancing (ELB) load balancer to distribute
 the traffic across the container instances your task is launched
 on.
 
