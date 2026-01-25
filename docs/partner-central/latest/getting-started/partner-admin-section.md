@@ -1,4 +1,4 @@
-# Under Partner admin
+# Partner admin
 
 - **Program applications:** Redirects to legacy Partner Central experience. Apply for APN programs or manage active program applications.
 - **Business plan:** Redirects to legacy Partner Central experience. Create and share joint business plans with AWS.

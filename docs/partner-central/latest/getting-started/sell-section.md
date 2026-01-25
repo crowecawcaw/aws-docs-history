@@ -1,4 +1,4 @@
-# Under Sell
+# Sell
 
 - **Leads:** Native in the AWS Console. [Receive leads shared from AWS](../sales-guide/leads.md "../sales-guide/leads.md") and convert them to co-sell opportunities.
 - **Opportunities:** Native in the AWS Console. Accept and share opportunity invitations from AWS or other AWS Partners. [Actively manage sales opportunities through the sales pipeline](../sales-guide/opportunities.md "../sales-guide/opportunities.md").

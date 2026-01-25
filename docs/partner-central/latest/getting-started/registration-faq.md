@@ -1,4 +1,4 @@
-# Frequently Asked Questions (FAQs)
+# Registration FAQs
 
 ## Our organization has multiple AWS account IDs. How do I know which AWS account ID to use?
 
@@ -6,7 +6,7 @@ Use an AWS account that can serve as the primary account for managing AWS-relate
 
 ## How do I know if my company has a AWS Partner Central account?
 
-During the registration process, your registration business validation will fail if a company with the same Legal business name and details exists in our database. Contact [Partner Central Support](https://partnercentral.awspartner.com/partnercentral2/s/support "https://partnercentral.awspartner.com/partnercentral2/s/support") if you need to merge or consolidate APN accounts.
+During the registration process, your registration business validation will fail if a company with the same Legal business name and details exists in our database. Contact [Partner Central Support](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US") if you need to merge or consolidate APN accounts.
 
 ## How do I know if I am a root user?
 
@@ -35,3 +35,14 @@ AWS accepts most government-issued IDs, but some restrictions may apply based on
 ## How do I cancel?
 
 Contact [Partner Central Support](https://partnercentral.awspartner.com/partnercentral2/s/support "https://partnercentral.awspartner.com/partnercentral2/s/support") to deactivate an existing account.
+
+## Why does my account summary on the dashboard of AWS Partner Central show "Not Registered" even though I've already registered with the APN?
+
+If you have an AWS Marketplace account and see a "Not Registered" message in AWS Partner Central in the Console, this means you haven't completed your migration from the legacy Partner Central experience.
+
+###### Important
+
+Do not create a new profile or register again. Creating a new registration will replace all of your historical partner data.
+
+**What should I do?**
+Work with your IT administrator to schedule your migration from legacy Partner Central to the new AWS Partner Central in the Console. This will preserve all of your existing partner history and data.

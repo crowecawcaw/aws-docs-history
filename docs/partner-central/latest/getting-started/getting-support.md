@@ -8,7 +8,19 @@ If Amazon Q does not respond with the information you need, you can create a cas
 
 ## Support
 
-In AWS Partner Central, choose Support, Contact Support to submit new cases, view your case history, or correspond with AWS Partner Support.
+In AWS Partner Central, in the left-side navigation panel you will see three options for getting support: [Partner Central support](https://partnercentral.awspartner.com/partnercentral2/s/newsupportcase "https://partnercentral.awspartner.com/partnercentral2/s/newsupportcase"), [Marketplace support](https://aws.amazon.com/marketplace/management/contact-us/?form=true "https://aws.amazon.com/marketplace/management/contact-us/?form=true"), and [Marketplace refund support](https://aws.amazon.com/marketplace/management/support "https://aws.amazon.com/marketplace/management/support"). If you are unable to log into your account, you can file a ticket to the APN Support team [here](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US").
+
+For support for any AWS Partner Network related queries, choose [Partner Central support](https://partnercentral.awspartner.com/partnercentral2/s/newsupportcase "https://partnercentral.awspartner.com/partnercentral2/s/newsupportcase"). This will re-direct to the legacy Partner Central experience, where users can submit a ticket directly to the APN Support team. See details below.
+
+For support on AWS Marketplace listings and other Marketplace-related queries, choose [Marketplace support](https://aws.amazon.com/marketplace/management/contact-us/?form=true "https://aws.amazon.com/marketplace/management/contact-us/?form=true"). This will re-direct to the AWS Marketplace Management Portal page where users can submit a ticket directly to the Marketplace support team.
+
+For support specifically on refund related to AWS Marketplace listings, choose [Marketplace refund support](https://aws.amazon.com/marketplace/management/support "https://aws.amazon.com/marketplace/management/support").
+
+###### Note
+
+The AWS Console includes a support option in the upper right-hand corner of the global navigation. However, this directs users to the general AWS Support channel. For the fastest response to APN, Partner Central, or Marketplace inquiries, this support channel is not recommended.
+
+## Partner Central support
 
 AWS Partner Support is a case-management feature for partners to engage with APN Support. On the Partner Support page, you can open a new case, review your open and previous cases, and read articles related to common issues, questions, and concerns posed by other users. You can track correspondence on open cases, respond directly from AWS Partner Central, and upload files to help you communicate your issues with AWS Partner support.
 

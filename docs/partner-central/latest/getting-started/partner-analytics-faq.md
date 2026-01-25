@@ -30,7 +30,7 @@ Partner Referrals Approval Rate metrics are calculated based on the date opportu
 
 AWS Stage reflects AWS record keeping in the AWS Seller CRM, while the overall Stage value reflects the opportunity stage in the ACE Opportunities Page. If these two values are different for an opportunity Closed at least 48 hours earlier, please reach out to the AWS Partner Development team to resolve any operational/record-keeping discrepancies. For Open opportunities, some difference in status recording may be expected due to different systems being updated at different times with manual input.
 
-## AWS Co-sell recommendation score FAQS
+## AWS Co-sell recommendation score FAQs
 
 ### How do I see AWS Co-Sell Recommendation Scores on Partner Analytics?
 

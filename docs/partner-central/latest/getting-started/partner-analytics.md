@@ -4,13 +4,13 @@ Partner Analytics includes 8 dashboards that let you filter, sort, and drill dow
 
 The 8 dashboards are:
 
-- **At a Glance:** Comprehensive visualization of cross-functional KPIs and critical success metrics aggregated from core operational domains.
-- **Opportunities:** Quantitative analysis of AWS and Partner-referred opportunity flows, featuring pipeline velocity metrics, revenue forecasting models, and statistical conversion analytics.
-- **Leads:** Systematic tracking of lead acquisition and progression, with granular conversion rate analysis and source attribution metrics.
-- **Investments:** Data-driven insights into funding utilization, including claim metrics and hierarchical analysis of funding source distribution.
-- **Channel:** Multi-dimensional analysis of incentive programs across Solution Provider and Distribution frameworks, incorporating CEI benefit utilization and discount mechanism performance across public sector and growth segments.
-- **Marketing Campaigns:** Granular examination of AWS marketing initiative efficacy, with integrated lead-to-opportunity conversion modeling and funnel progression metrics.
-- **Training and Certifications:** Quantitative assessment of organizational capability development, tracking certifications, accreditation completion rates, and training program progression metrics.
+- [At a Glance:](partner-analytics-at-a-glance.md "partner-analytics-at-a-glance.md") Comprehensive visualization of cross-functional KPIs and critical success metrics aggregated from core operational domains.
+- [Opportunities:](partner-analytics-opportunity-pipeline.md "partner-analytics-opportunity-pipeline.md") Quantitative analysis of AWS and Partner-referred opportunity flows, featuring pipeline velocity metrics, revenue forecasting models, and statistical conversion analytics.
+- [Leads:](partner-analytics-lead-pipeline.md "partner-analytics-lead-pipeline.md") Systematic tracking of lead acquisition and progression, with granular conversion rate analysis and source attribution metrics.
+- [Investments:](partner-analytics-funding.md "partner-analytics-funding.md") Data-driven insights into funding utilization, including claim metrics and hierarchical analysis of funding source distribution.
+- [Channel:](partner-analytics-resell.md "partner-analytics-resell.md") Multi-dimensional analysis of incentive programs across Solution Provider and Distribution frameworks, incorporating CEI benefit utilization and discount mechanism performance across public sector and growth segments.
+- [Marketing Campaigns:](partner-analytics-marketing.md "partner-analytics-marketing.md") Granular examination of AWS marketing initiative efficacy, with integrated lead-to-opportunity conversion modeling and funnel progression metrics.
+- [Training and Certifications:](partner-analytics-training-certifications.md "partner-analytics-training-certifications.md") Quantitative assessment of organizational capability development, tracking certifications, accreditation completion rates, and training program progression metrics.
 
 ## Navigating the Partner Insights dashboards
 
@@ -40,5 +40,3 @@ In addition to the preset date filters, or set a custom date range. Note that Di
 - The Investments date defaults to Issued Credit and Redeemed Credit – Promotion Creation Date (the date on which a credit code was generated). All Cash KPIs and Approved Credit – Pre-Approved Date. Discounts follow the billing period.
 - The Marketing Campaigns date defaults to campaign-associated data, the Opportunity metrics leverage Opportunity date, the Pipeline reflects Opportunity created date for AO, approval date for PO, the revenue uses Opportunity launch date, and Campaign-associated Leads metrics use Lead date.
 - Training and Certifications date defaults to Net New Certification is date of when Certification was awarded for first time (does not include re-certification), Net New Accreditation uses date of course completion, and Net New Training leverages the date of course completion.
-
-###### Topics

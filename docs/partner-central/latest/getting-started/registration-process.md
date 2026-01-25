@@ -17,3 +17,7 @@ If your organization already has single sign-on set up to the AWS Console, you w
 
 1. Once you have successfully logged into the AWS Console home page, navigate to "AWS Partner Central" by using the console navigation or using the console search.
 2. Choose AWS Partner Central to go to the AWS Partner Central service page and choose **Get started**.
+
+###### Important
+
+If you are unable to complete the registration process and require support, contact APN Support Team through [this external link](https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US "https://www.apn-portal.com/knowledgebase/?cu=1&fs=ContactUs&l=en_US").

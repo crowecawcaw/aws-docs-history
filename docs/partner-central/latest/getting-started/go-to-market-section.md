@@ -1,4 +1,4 @@
-# Under Go to Market
+# Go to Market
 
 - **Marketing Central:** Redirects to AWS Marketing Central. Manage joint marketing campaign assets and resources.
 - **Case studies:** Redirects to legacy Partner Central experience. Create and manage case studies to showcase customer wins.

@@ -26,7 +26,3 @@ There are 4 possible actions to take in this dashboard:
 - **Create Fund Request** — Allows a Partner to submit a Fund Request with a dropdown by program
 - **Cancel Fund Request** — Allows a Partner to Delete a Fund Request from their dashboard
 - **View Details** — Allows a partner to view specific details of a selected fund request
-
-## AWS Partner Funding Benefits
-
-This section shows all the Funding Programs that the Partner user has access to. If the blue **Create fund request** button is grayed out, the system has determined that the Partner account is not currently eligible for this type of funding due to Partner Path status or the lack of an MDF Wallet. Please review the eligibility for each program.

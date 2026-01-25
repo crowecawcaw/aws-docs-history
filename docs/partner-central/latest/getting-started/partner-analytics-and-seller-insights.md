@@ -1,6 +1,6 @@
-# Tracking progress with Partner Analytics and Marketplace Insights
+# Tracking progress with Partner analytics and Marketplace insights
 
-The Partner analytics and Marketplace insights dashboards provide Partners and Sellers with real-time insights into their product performance, including customer usage patterns, revenue trends, and subscription metrics through interactive visualizations and customizable reports. Sellers can track key performance indicators like monthly recurring revenue, customer acquisition costs, conversion rates, and geographic distribution of customers, enabling data-driven decisions to optimize their marketplace strategy.
+The Partner analytics and Marketplace insights dashboards provide AWS Partners and Marketplace Sellers with real-time insights into their product performance, including customer usage patterns, revenue trends, and subscription metrics through interactive visualizations and customizable reports. Marketplace Sellers can track key performance indicators like monthly recurring revenue, customer acquisition costs, conversion rates, and geographic distribution of customers, enabling data-driven decisions to optimize their AWS Marketplace strategy.
 
 ###### Note
 

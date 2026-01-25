@@ -11,7 +11,7 @@ Only users with specific managed policies assigned can apply for AWS Partner Pro
 1. Navigate to Partner Admin, Program Applications.
 2. On the Applications and Programs page, choose **Create**.
 3. On the Apply for Program page, choose **Select Designation**.
-4. In the Select Designation dialog box, search for and choose a program. For example, to apply to the AWS ISV Workload Migration (WMP) program, search for ISV and choose ISV Workload Migration.
+4. In the Select Designation dialog box, search for and choose a program.
 5. Choose **Select**.
 6. Select the acknowledgement checkbox and choose **Yes, I Agree**.
 7. Complete the application steps. For more information, refer to the program guidelines.

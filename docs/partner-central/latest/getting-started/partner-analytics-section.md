@@ -1,6 +1,6 @@
-# Under Partner analytics
+# Partner analytics
 
-For more information, see Tracking progress with Partner analytics and Marketplace insights.
+For more information, see [Tracking progress with Partner analytics and Marketplace insights](partner-analytics-and-seller-insights.md "partner-analytics-and-seller-insights.md").
 
 - **At a Glance:** Key metrics and account status.
 - **Opportunities:** Analysis of your opportunity pipeline, with insights on estimated revenue, conversion success rates, etc.

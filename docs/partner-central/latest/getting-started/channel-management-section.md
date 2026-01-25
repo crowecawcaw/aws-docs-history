@@ -1,4 +1,4 @@
-# Under Channel management
+# Channel management
 
 For more information, see [Channel Management](channel-management.md "channel-management.md").
 

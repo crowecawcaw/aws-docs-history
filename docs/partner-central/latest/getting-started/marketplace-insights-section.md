@@ -1,4 +1,4 @@
-# Under Marketplace insights
+# Marketplace insights
 
 - **Agreements and renewals:** Native in the AWS Console. Provides information about agreements and renewals within 24 hours of signing an agreement in AWS Marketplace.
 - **Usage:** Native in the AWS Console. Provides visualizations and fine-grained data for customers using SaaS and server usage-based products.

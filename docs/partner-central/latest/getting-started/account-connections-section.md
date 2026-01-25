@@ -1,4 +1,4 @@
-# Under Account connections
+# Account connections
 
 For more information, see [Partner Connections](../sales-guide/partner-connections.md "../sales-guide/partner-connections.md").
 

@@ -1,4 +1,4 @@
-# Under Funding Benefits
+# Funding Benefits
 
 For more information, see [Managing fund requests in the AWS Partner Funding Portal](https://aws.amazon.com/partners/funding/ "https://aws.amazon.com/partners/funding/").
 
