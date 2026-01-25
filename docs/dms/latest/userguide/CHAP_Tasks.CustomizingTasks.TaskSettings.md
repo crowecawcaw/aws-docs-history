@@ -1,53 +1,28 @@
-# Before
+# Stream
 
-image task settings
+buffer task settings
 
-When writing CDC updates to a data-streaming target like Kinesis or Apache Kafka, you
-can view a source database row's original values before change by an
-update. To make this possible, AWS DMS populates a _before
-image_ of update events based on data supplied by the source
-database engine. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+You can set stream buffer settings using the AWS CLI, including the
+following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-To do so, you use the `BeforeImageSettings` parameter, which adds a
-new JSON attribute to every update operation with values collected from the
-source database system.
-
-Make sure to apply `BeforeImageSettings` only to full load plus CDC
-tasks or CDC only tasks. Full load plus CDC tasks migrate existing data and
-replicate ongoing changes. CDC only tasks replicate data changes only.
-
-Don't apply `BeforeImageSettings` to tasks that are full load
-only.
-
-Possible options for `BeforeImageSettings` are the
-following:
-
-- `EnableBeforeImage` – Turns on before imaging when
-  set to `true`. The default is `false`.
-- `FieldName` – Assigns a name to the new JSON
-  attribute. When `EnableBeforeImage` is `true`,
-  `FieldName` is required and can't be empty.
-- `ColumnFilter` – Specifies a column to add by using
-  before imaging. To add only columns that are part of the table's
-  primary keys, use the default value, `pk-only`. To add any
-  column that has a before image value, use `all`. Note that the
-  before image doesn't support large binary object (LOB) data types such
-  as CLOB and BLOB.
-  The following shows an example of the use of
-  `BeforeImageSettings`.
-
-```
-"BeforeImageSettings": {
-    "EnableBeforeImage": true,
-    "FieldName": "before-image",
-    "ColumnFilter": "pk-only"
-  }
-```
-
-For information on before image settings for Kinesis, including additional table
-mapping settings, see [Using a before image to view
-original values of CDC rows for a Kinesis data stream as a target](CHAP_Target.md#CHAP_Target.Kinesis.BeforeImage "CHAP_Target.md#CHAP_Target.Kinesis.BeforeImage").
-
-For information on before image settings for Kafka, including additional table
-mapping settings, see [Using a before image to view
-original values of CDC rows for Apache Kafka as a target](CHAP_Target.md#CHAP_Target.Kafka.BeforeImage "CHAP_Target.md#CHAP_Target.Kafka.BeforeImage").
+- `StreamBufferCount` – Use this option to specify the
+  number of data stream buffers for the migration task. The default stream
+  buffer number is 3. Increasing the value of this setting might increase
+  the speed of data extraction. However, this performance increase is
+  highly dependent on the migration environment, including the source
+  system and instance class of the replication server. The default is
+  sufficient for most situations.
+- `StreamBufferSizeInMB` – Use this option to indicate
+  the maximum size of each data stream buffer. The default size is 8 MB.
+  You might need to increase the value for this option when you work with
+  very large LOBs. You also might need to increase the value if you
+  receive a message in the log files that the stream buffer size is
+  insufficient. When calculating the size of this option, you can use the
+  following equation: `[Max LOB size (or LOB chunk size)]*[number of
+LOB columns]*[number of stream buffers]*[number of tables loading in
+parallel per task(MaxFullLoadSubTasks)]*3`
+- `CtrlStreamBufferSizeInMB` – Use this option to set
+  the size of the control stream buffer. The value is in megabytes, and
+  can be 1–8. The default value is 5. You might need to increase
+  this when working with a very large number of tables, such as tens of
+  thousands of tables.

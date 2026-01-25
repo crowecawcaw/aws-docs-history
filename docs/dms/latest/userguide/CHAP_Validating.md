@@ -1,443 +1,266 @@
-# AWS DMS data validation
+# AWS DMS data resync
 
-###### Topics
+AWS Database Migration Service (AWS DMS) Data resync automatically fixes data inconsistencies identified
+through data validation between your source and target databases. This feature works as
+part of your existing DMS migration tasks, ensuring proper updates occur based on your
+task configurations, connection settings, table mappings, and transformations.
 
-- [Replication task statistics](#CHAP_Validating.TaskStatistics "#CHAP_Validating.TaskStatistics")
-- [Replication task statistics with Amazon CloudWatch](#CHAP_Validating.TaskStatistics.CloudWatch "#CHAP_Validating.TaskStatistics.CloudWatch")
-- [Revalidating tables during a task](#CHAP_Validating.Revalidating "#CHAP_Validating.Revalidating")
-- [Using JSON editor to modify validation rules](#CHAP_Validating.JSONEditor "#CHAP_Validating.JSONEditor")
-- [Validation only tasks](#CHAP_Validating.ValidationOnly "#CHAP_Validating.ValidationOnly")
-- [Troubleshooting](#CHAP_Validating.Troubleshooting "#CHAP_Validating.Troubleshooting")
-- [Redshift Validation Performance](#CHAP_Validating.Redshift "#CHAP_Validating.Redshift")
-- [Enhanced data validation for AWS Database Migration Service](#CHAP_Validating_Enhanced "#CHAP_Validating_Enhanced")
-- [Limitations](#CHAP_Validating.Limitations "#CHAP_Validating.Limitations")
-- [Amazon S3 target data validation](CHAP_Validating_S3.md "CHAP_Validating_S3.md")
-- [AWS DMS data resync](CHAP_Validating.md "CHAP_Validating.md")
-  AWS DMS provides support for data validation to ensure that your data was migrated
-  accurately from the source to the target. If enabled, validation begins immediately
-  after a full load is performed for a table. Validation compares the incremental
-  changes for a CDC-enabled task as they occur.
+Data resync feature operates by reading validation failures from a control table on
+the target database and executing appropriate fix-up operations. When a mismatch is
+detected, the current data is retrived from the source using the primary key stored in
+the failure record, and it is applied to the target while respecting any configured
+transformations. For more information, see [awsdms_validation_failures_v2 control table](CHAP_Validating.md#CHAP_DataResync.Troubleshooting.v2table "CHAP_Validating.md#CHAP_DataResync.Troubleshooting.v2table").
 
-During data validation, AWS DMS compares each row in the source with its corresponding
-row at the target, verifies the rows contain the same data, and reports any mismatches.
-To accomplish this AWS DMS issues appropriate queries to retrieve the data. Note that these
-queries will consume additional resources at the source and target as well as additional
-network resources.
+The behavior varies depending on your migration type. For full-load-only tasks, Data
+resync runs once after the initial load and validation complete. For tasks with change
+data capture (CDC), Data resync operates according to a configured schedule, temporarily
+pausing replication and validation while fixes are applied.
 
-For a CDC only task with validation enabled, all pre-existing data in a table is validated before starting validation of new data.
+During CDC resync operations:
 
-Data validation works with the following source databases wherever AWS DMS supports
-them as source endpoints:
+- Replication and validation pause temporarily.
+- Data resync processes existing validation failures.
+- Normal replication and validation resume.
+- The process repeats based on your configured schedule.
+  Data resync automatically tracks the status of each fix-up operation and provides
+  detailed metrics through table statistics.
 
-- Oracle
-- PostgreSQL-compatible database (PostgreSQL, Aurora PostgreSQL, or Aurora Serverless for PostgreSQL)
-- MySQL-compatible database (MySQL, MariaDB, Aurora MySQL, or Aurora Serverless for MySQL)
-- Microsoft SQL Server
-- IBM Db2 LUW
-  Data validation works with the following target databases wherever AWS DMS supports
-  them as target endpoints:
+**Prerequisites**:
 
-- Oracle
-- PostgreSQL-compatible database (PostgreSQL, Aurora PostgreSQL, or Aurora Serverless for PostgreSQL)
-- MySQL-compatible database (MySQL, MariaDB, Aurora MySQL, or Aurora Serverless for MySQL)
-- Microsoft SQL Server
-- IBM Db2 LUW
-- Amazon Redshift
-- Amazon S3. For information about validating Amazon S3 target data, see [Amazon S3 target data validation](CHAP_Validating_S3.md "CHAP_Validating_S3.md").
-  For more information about the supported endpoints, see [Working with AWS DMS endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md").
+The Data resync feature needs following prerequisites:
 
-Data validation requires additional time, beyond the amount required for the
-migration itself. The extra time required depends on how much data was
-migrated.
+- You must have AWS DMS engine version 3.6.1 or later.
+- You must configure schedule and timing duration settings for tasks
+  that have ongoing replication. Full load only tasks do not require
+  these settings.
 
-For more information about these settings, see [Data
-validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+## Limitations
 
-For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+The Data resync feature has following limitations:
 
-## Replication task statistics
+- Data resync only supports Oracle and SQL Server as source database.
+- Data resync supports PostgreSQL and Amazon Aurora PostgreSQL compatible
+  engine as target database.
+- All the tables in your source and target database must have primary keys.
+  Validation does not support tables without a primary key or a unique key.
+  Any tables that do not have a valid primary or unique key are suspended from
+  validation and no validation failures are reported.
+- When running Full-load-only tasks, data validation must be enabled.
+- Data resync cannot be enabled for Validation only task as they do not
+  replicate any data. You can enable resync on the parent replication task by
+  providing the Validation only `taskID`. For more information, see
+  [Validation only tasks](CHAP_Validating.md#CHAP_Validating.ValidationOnly "CHAP_Validating.md#CHAP_Validating.ValidationOnly").
+- If the Validation only task has a `ControlSchema` parameter
+  setting configured in the task settings, then the replication task must also
+  have the same parameter configuration for Data resync to find the correct
+  validation failures.
+- You are required to configure schedule and timing duration settings for
+  CDC tasks.
+- During the resync window, Data resync can have an impact on the
+  replication latency in DMS.
 
-When data validation is enabled, AWS DMS provides the following statistics at
-the table level:
+For more information regarding troubleshooting validations in AWS DMS during Data
+resync, see the [Troubleshooting](CHAP_Validating.md#CHAP_Validating.Troubleshooting "CHAP_Validating.md#CHAP_Validating.Troubleshooting") section under [AWS DMS data
+validation](CHAP_Validating.md "CHAP_Validating.md").
 
-- ValidationState—The
-  validation state of the table. The parameter can have the following
-  values:
-  - Not enabled—Validation is not enabled for the table in
-    the migration task.
-  - Pending records—Some records in the table are waiting for
-    validation.
-  - Mismatched records—Some records in the table don't match
-    between the source and target. A mismatch might occur for a number of
-    reasons; For more information, check the
-    `awsdms_control.awsdms_validation_failures_v1` table on the target
-    endpoint.
-  - Suspended records—Some records in the table can't be
-    validated.
-  - No primary key—The table can't be validated because it
-    had no primary key.
-  - Table error—The table wasn't validated because it was in
-    an error state and some data wasn't migrated.
-  - Validated—All rows in the table are validated. If the
-    table is updated, the status can change from Validated.
-  - Error—The table can't be validated because of an
-    unexpected error.
-  - Pending validation—The table is waiting validation.
-  - Preparing table—Preparing the table enabled in the migration task for validation.
-  - Pending revalidation—All rows in the table are pending validation after the table was updated.
+## Scheduling and timing
 
-- ValidationPending—The number of
-  records that have been migrated to the target, but that haven't yet been
-  validated.
-- ValidationSuspended—The number of
-  records that AWS DMS can't compare. For example, if a record at the source is
-  constantly being updated, AWS DMS can't compare the source and the target.
-- ValidationFailed—The number of
-  records that didn't pass the data validation phase.
+For tasks with CDC, you must configure when and how long Data resync operates.
+This helps prevent impact to your normal replication operations. You specify:
 
-For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+- A schedule using cron format to define when resync operations can
+  occur.
+- A maximum duration to ensure resync operations don't extend into peak
+  usage periods.
 
-You can view the data validation information using the console, the AWS CLI,
-or the AWS DMS API.
-
-- On the console, you can choose to validate a task when you create or modify the task. To view
-  the data validation report using the console, choose the task on the
-  **Tasks** page and choose the **Table
-  statistics** tab in the details section.
-- Using the CLI, set the `EnableValidation` parameter to `true`
-  when creating or modifying a task to begin data validation. The
-  following example creates a task and enables data validation.
-
-```
-create-replication-task
-  --replication-task-settings '{"ValidationSettings":{"EnableValidation":true}}'
-  --replication-instance-arn arn:aws:dms:us-east-1:5731014:
-     rep:36KWVMB7Q
-  --source-endpoint-arn arn:aws:dms:us-east-1:5731014:
-     endpoint:CSZAEFQURFYMM
-  --target-endpoint-arn arn:aws:dms:us-east-1:5731014:
-     endpoint:CGPP7MF6WT4JQ
-  --migration-type full-load-and-cdc
-  --table-mappings '{"rules": [{"rule-type": "selection", "rule-id": "1",
-     "rule-name": "1", "object-locator": {"schema-name": "data_types", "table-name": "%"},
-     "rule-action": "include"}]}'
-```
-
-Use the `describe-table-statistics` command to receive
-the data validation report in JSON format. The following command
-shows the data validation report.
-
-```
-aws dms  describe-table-statistics --replication-task-arn arn:aws:dms:us-east-1:5731014:
-rep:36KWVMB7Q
-```
-
-The report would be similar to the following.
-
-```
-{
-    "ReplicationTaskArn": "arn:aws:dms:us-west-2:5731014:task:VFPFTYKK2RYSI",
-    "TableStatistics": [
-        {
-            "ValidationPendingRecords": 2,
-            "Inserts": 25,
-            "ValidationState": "Pending records",
-            "ValidationSuspendedRecords": 0,
-            "LastUpdateTime": 1510181065.349,
-            "FullLoadErrorRows": 0,
-            "FullLoadCondtnlChkFailedRows": 0,
-            "Ddls": 0,
-            "TableName": "t_binary",
-            "ValidationFailedRecords": 0,
-            "Updates": 0,
-            "FullLoadRows": 10,
-            "TableState": "Table completed",
-            "SchemaName": "d_types_s_sqlserver",
-            "Deletes": 0
-        }
-}
-
-```
-
-- Using the AWS DMS API, create a task using the **CreateReplicationTask**
-  action and set the `EnableValidation` parameter to
-  **true** to validate the data migrated by the
-  task. Use the **DescribeTableStatistics** action to
-  receive the data validation report in JSON format.
-
-## Replication task statistics with Amazon CloudWatch
-
-When Amazon CloudWatch is enabled, AWS DMS provides the following replication task
-statistics:
-
-- ValidationSucceededRecordCount— Number of
-  rows that AWS DMS validated, per minute.
-- ValidationAttemptedRecordCount— Number of
-  rows that validation was attempted, per minute.
-- ValidationFailedOverallCount— Number of
-  rows where validation failed.
-- ValidationSuspendedOverallCount— Number of
-  rows where validation was suspended.
-- ValidationPendingOverallCount— Number of
-  rows where the validation is still pending.
-- ValidationBulkQuerySourceLatency— AWS DMS
-  can do data validation in bulk, especially in certain scenarios during a
-  full-load or on-going replication when there are many changes. This metric
-  indicates the latency required to read a bulk set of data from the source
-  endpoint.
-- ValidationBulkQueryTargetLatency— AWS DMS
-  can do data validation in bulk, especially in certain scenarios during a
-  full-load or on-going replication when there are many changes. This metric
-  indicates the latency required to read a bulk set of data on the target
-  endpoint.
-- ValidationItemQuerySourceLatency— During
-  on-going replication, data validation can identify on-going changes and validate
-  those changes. This metric indicates the latency in reading those changes from
-  the source. Validation can run more queries than required, based on number of
-  changes, if there are errors during validation.
-- ValidationItemQueryTargetLatency— During
-  on-going replication, data validation can identify on-going changes and validate
-  the changes row by row. This metric gives us the latency in reading those
-  changes from the target. Validation may run more queries than required, based on
-  number of changes, if there are errors during validation.
-
-To collect data validation information from CloudWatch enabled statistics,
-select **Enable CloudWatch logs** when you create or modify a task using the console.
-Then, to view the data validation information and ensure that your data was migrated
-accurately from source to target, do the following.
-
-1. Choose the task on the **Database migration tasks** page.
-2. Choose the **CloudWatch metrics** tab.
-3. Select **Validation** from the drop down menu.
-
-## Revalidating tables during a task
-
-While a task is running, you can request AWS DMS to perform data validation.
-
-### AWS Management Console
-
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-
-If you're signed in as an AWS Identity and Access Management (IAM) user, make sure that you
-have the appropriate permissions to access AWS DMS. the permissions required,
-see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. Choose **Tasks** from the navigation pane. 3. Choose the running task that has the table you want to revalidate. 4. Choose the **Table Statistics** tab. 5. Choose the table you want to revalidate (you can choose up to 10 tables at one time). If the task is no longer running, you
-can't revalidate the table(s). 6. Choose **Revalidate**.
-
-## Using JSON editor to modify validation rules
-
-To add a validation rule to a task using the JSON editor from the AWS DMS Console, do
-the following:
-
-1. Select **Database migration tasks**.
-2. Select your task from the list of migration tasks.
-3. If your task is running, select **Stop** from the **Actions** drop down menu.
-4. Once the task has stopped, to modify your task, select **Modify** from the **Actions** drop down menu.
-5. In the **Table mappings** section, select **JSON editor** and add your
-   validation rule to your table mappings.
-
-For example, you can add the following validation rule to run a replace function on the source. In this case, if the
-validation rule encounters a null byte, it validates it as a space.
-
-```
-{
-	"rule-type": "validation",
-	"rule-id": "1",
-	"rule-name": "1",
-	"rule-target": "column",
-	"object-locator": {
-		"schema-name": "Test-Schema",
-		"table-name": "Test-Table",
-		"column-name": "Test-Column"
-	},
-	"rule-action": "override-validation-function",
-	"source-function": "REPLACE(${column-name}, chr(0), chr(32))",
-	"target-function": "${column-name}"
-}
-
-```
+It is recommended to schedule resync operations during off-peak hours or to a
+period where there minimal to no changes on the source database.
 
 ###### Note
 
-`override-validation-function` does not take effect if the column is a
-part of the primary key.
+The scheduled time includes waiting for the target apply stream to be empty,
+as Data resync and normal replication cannot run simultaneously.
 
-## Validation only tasks
+## Use cases
 
-You can create validation only tasks to preview and validate data without performing
-any migration or data replication. To create a validation only task, set the
-`EnableValidation` and `ValidationOnly` settings to
-`true`. When enabling `ValidationOnly`, additional
-requirements apply. For more information, see [Data
-validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+The data resync feature enables users to reconcile data inconsistencies between
+source and target systems. It identifies mismatched records and synchronizes them to
+maintain data consistency across distributed environments. The following use cases
+demonstrate common scenarios where the data resync feature resolves data consistency
+challenges:
 
-For a full load only migration type, a validation only task
-completes much faster than its CDC equivalent when many failures are reported. But
-changes to the source or target endpoint are reported as failures for full load mode, a
-possible disadvantage.
+**Scenario 1: Full load task - run resync using the
+same DMS task**
 
-A CDC validation only task delays validation based on average latency, and retries failures multiple times
-before reporting them. If the majority of data comparisons result in failures, a validation only task for CDC mode
-is very slow, a potential drawback.
+In your existing DMS full-load migration task, you can do the
+following:
 
-A validation only task must be set up in the same direction as the replication task,
-especially for CDC. This is because a CDC Validation Only task detects which rows have
-changed and need to be revalidated based on the change log on the source. If the target
-is specified as the source, then it only knows about changes sent to the target by DMS
-and is not guaranteed to catch replication errors.
+- Enable validation: `Validation with data migration =
+true`.
+- Enable resync: `Data resync = true`
 
-### Full load validation only
+**Scenario 2: Full load and CDC, CDC only task - run
+resync using the same DMS task**
 
-Beginning with AWS DMS version 3.4.6 and higher, a full load validation only task quickly compares all rows
-from the source and target tables in a single pass, immediately reports any failures, and then shuts down.
-Validation never is suspended due to failures in this mode, it is optimized for speed. But changes to the source
-or target endpoint are reported as failures.
+In your existing DMS CDC migration task, you can do the
+following:
+
+- Enable validation: `Validation with data migration =
+true`.
+- Enable resync: `Data resync = true`
+- Specify resync schedule: `"ResyncSchedule": "0 0,2,4,6 \*
+- \*"`.
+- Specify resync time: `MaxResyncTime": 60`
+
+**Scenario 3: Full load and CDC or CDC only task for
+replication and resync, in combination with a validation only
+task**
+
+To perform validation only operation in another DMS task when using
+resync, you can do the following:
+
+- Create a validation only DMS CDC task.
 
 ###### Note
 
-Beginning with AWS DMS version 3.4.6 and higher, this validation behavior also
-applies to full load migration task with validation enabled.
+You must note down and specify the ID of this task during
+Data resync.
 
-### CDC validation only
+- In your primary CDC task, disable validation: `Data
+validation = false`.
+- Enable resync: `Data resync = true`
+- Specify resync schedule: `"ResyncSchedule": "0 0,2,4,6 \*
+- \*"`.
+- Specify resync time: `MaxResyncTime": 60`.
+- Specify the ID of the validation only DMS CDC task. Validation
+  only task ID is appended at the end of ARN. Example ARN:
+  `arn:aws:dms:us-west-2:123456789012:task:6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
+  and Example validation only task ID:
+  `6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`.
 
-A CDC validation only task validates all existing rows between the source and
-target tables on a fresh start. In addition, a CDC validation only task runs
-continuously, re-validates ongoing replication changes, limits the number of
-failures reported each pass, and retries mismatched rows before failing them. It is
-optimized to prevent false positives.
+## Best practices
 
-Validation for a table (or the entire task) is suspended if the`FailureMaxCount` or `TableFailureMaxCount` thresholds are
-breached. This also applies for a CDC or Full Load+CDC migration task with
-validation enabled. And a CDC task with validation enabled delays re-validation for
-each changed row based on average source and target latency.
+You can leverage the Data resync feature in AWS Database Migration Service to improve durability of
+your replication tasks and attain consistency. Some of the best practices to use the
+Data resync feature are:
 
-But a CDC _validation only task_ doesn't
-migrate data and has no latency. It sets `ValidationQueryCdcDelaySeconds`
-to 180 by default. And you can increase the amount to account for high latency
-environments and help prevent false positives.
+- As part of the Data resync, records that have mismatches are fixed by
+  fetching it from the source and applying it on the target database. If the
+  source database is updated during the resync window, resync reads the latest
+  record value and applies it on the target. This can cause CDC apply events
+  to fail and introduce temporary inconsistencies on the target database . To
+  avoid this, you must schedule the resync window during off-business hours or
+  periods where the changes on the source database are zero or minimal.
+- Set the resync window during periods of minimal source database activity
+  and within your acceptable target latency threshold. Small resync intervals
+  can cause unprocessed validation mismatches to accumulate, while large
+  windows may increase replication latency when many validation failures
+  occur. Monitor validation failure and resync rates to determine optimal
+  resync windows during source inactivity periods. Some examples for setting
+  up the resync windows are:
+  - Multiple short window configuration:
 
-### Validation only use cases
+  ```
+  "ResyncSchedule": "0 0,2,4,6 * * *",
+  "MaxResyncTime": 60
+  ```
 
-Use cases for splitting the data validation portion of a migration or replication task into a
-separate _validation only task_ includes, but is not limited to, the following:
+  - Single daily window configuration:
 
-- _Control exactly when validation occurs_ — Validation queries add
-  an additional load to both source and target endpoints. So, migrating or replicating data in one task first,
-  then validating the results in another task can be beneficial.
-- _Reduce load on the replication instance_ —
-  Splitting data validation to run on its own instance can be
-  advantageous.
-- _Quickly obtain how many rows don't match at a given moment in time_ —
-  For example, just before or during a maintenance window production cut–over to a target endpoint, you can create a Full Load
-  validation only task to get an answer to your question.
-- _When validation failures are expected for a migration task with
-  a CDC component_ — For example, if migrating
-  Oracle `varchar2` to PostgreSQL `jsonb`, CDC validation keeps
-  retrying these failed rows and limits the number of failures reported each
-  time. But, you can create a Full Load validation only task and obtain a
-  quicker answer.
-- _You've developed a data repair script/utility that reads
-  the validation failure table_ — (See also, [Troubleshooting](#CHAP_Validating.Troubleshooting "#CHAP_Validating.Troubleshooting")). A Full Load
-  validation only task quickly reports failures for the data repair script to
-  act upon.
+  ```
+  "ResyncSchedule": "0 0 * * *",
+  "MaxResyncTime": 360
+  ```
 
-For an example of `ValidationSettings` task settings in a JSON file, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example")).
+- Monitoring replication latency in DMS during resync windows and adjust
+  schedule accordingly to mitigate large spikes.
+- You can review resync results through table stastics or by querying the
+  `awsdms_validation_failures_v2` table on the target
+  databadse. For more information, see [Monitoring replication tasks using Amazon
+  CloudWatch](CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch "CHAP_Monitoring.md#CHAP_Monitoring.CloudWatch").
+- When the task is in an ongoing replication phase, avoid initiating a
+  reload for individual tables during the resync window.
+- Best practices for a CDC replication task:
+  - All the tables in your database complete loading process.
+  - Mismatches are identified in the on going validation
+    process.
+  - As per the resync scheduled window, the replication task pauses
+    for a brief period.
+  - Data resync fixes the issues idenfified during the validation
+    process.
+  - The replication process resumes and repeats as per the
+    schedule.
 
-## Troubleshooting
+## Data resync configuration and
 
-During validation, AWS DMS creates a new table at the target endpoint:
-`awsdms_control.awsdms_validation_failures_v1`. If any record enters the
-_ValidationSuspended_ or the
-_ValidationFailed_ state, AWS DMS writes diagnostic
-information to `awsdms_control.awsdms_validation_failures_v1`. You can query this table
-to help troubleshoot validation errors.
+examples
 
-For information about changing the default schema the table is created in on the target, see
-[Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+**Data resync settings
+configuration**:
 
-Following is a description of the `awsdms_control.awsdms_validation_failures_v1`
-table:
-
-| Column name    | Data type                | Description                                                                                                                 |
-| -------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `TASK_NAME`    | `VARCHAR(128) NOT NULL`  | AWS DMS task identifier.                                                                                                    |
-| `TABLE_OWNER`  | `VARCHAR(128) NOT NULL`  | Schema (owner) of the table.                                                                                                |
-| `TABLE_NAME`   | `VARCHAR(128) NOT NULL`  | Table name.                                                                                                                 |
-| `FAILURE_TIME` | `DATETIME(3) NOT NULL`   | Time when the failure occurred.                                                                                             |
-| `KEY_TYPE`     | `VARCHAR(128) NOT NULL`  | Reserved for future use (value is always 'Row')                                                                             |
-| `KEY`          | `TEXT NOT NULL`          | This is the primary key for row record type.                                                                                |
-| `FAILURE_TYPE` | `VARCHAR(128) NOT NULL`  | Severity of validation error. Can be either<br>`RECORD_DIFF`, `MISSING_SOURCE`,<br>`MISSING_TARGET`, or<br>`TABLE_WARNING`. |
-| `DETAILS`      | `VARCHAR(8000) NOT NULL` | JSON formatted string of all source/target column values<br>which do not match for the given key.                           |
-
-The following is a sample query for a MySQL target that will show you all the failures for a task by querying the
-`awsdms_control.awsdms_validation_failures_v1` table. Note that the schema name and
-query syntax will vary across target engine versions. The task name should be the
-external resource ID of the task. The external resource ID of the task is the last value
-in the task ARN. For example, for a task with an ARN value of
-arn:aws:dms:us-west-2:5599:task: VFPFKH4FJR3FTYKK2RYSI, the external resource ID of the
-task would be VFPFKH4FJR3FTYKK2RYSI.
+You can configure resync for your replication task in DMS. Below is an
+example of Data resync settings configuration in your task:
 
 ```
-
-select * from awsdms_validation_failures_v1 where TASK_NAME = 'VFPFKH4FJR3FTYKK2RYSI'
-
-TASK_NAME       VFPFKH4FJR3FTYKK2RYSI
-TABLE_OWNER     DB2PERF
-TABLE_NAME      PERFTEST
-FAILURE_TIME    2020-06-11 21:58:44
-KEY_TYPE        Row
-KEY             {"key":  ["3451491"]}
-FAILURE_TYPE    RECORD_DIFF
-DETAILS         [[{'MYREAL': '+1.10106036e-01'}, {'MYREAL': '+1.10106044e-01'}],]
-
-
+"ResyncSettings": {
+    "EnableResync": true,
+    "ResyncSchedule": "0 0,2,4,6 * * *",  // Run at 12AM, 2AM, 4AM, and 6AM daily
+    "MaxResyncTime": 60,                  // Run for maximum of 60 minutes, or 1 hour
+    "ValidationTaskId": "TASK-ID-IF-NEEDED" //Optional, used only if validation is performed as a separate Validation only task
+}
 ```
 
-You can look at the `DETAILS` field to determine which columns
-don’t match. Since you have the primary key of the failed record, you can query the
-source and target endpoints to see what part of the record does not match.
+**Examples of common resync scheduling
+patterns**:
 
-### `awsdms_validation_failures_v2` control table
+- `0 0 * * *`: Run once everyday at midnight.
+- `0 0,12 * * *`: Run twice every day at midnight and
+  noon.
+- `0 0,2,4,6, * * *`: Run every two hours between midnight and 6
+  am.
+- `0 1 * * 1`: Run every week on Mondays at 1 am.
 
-During validation, in AWS DMS version 3.6.1 and above, DMS creates a new table at
-the PostgreSQL target endpoint: `awsdms_validation_failures_v2`. This
-tables consists of failures for all the DMS tasks that have data validation enabled.
-When the `awsdms_validation_failures_v2` table is created, you should not
-drop or truncate the table as it can cause errors for any tasks with validation and
-resync enabled. `awsdms_validation_failures_v2` table has an
-auto-increment primary key feature. This table consists of new columns to support
-the Data resync feature. They are:
+###### Note
 
-`**RESYNC\_RESULT**`
+You must specifiy a number for each day starting 0 to 6. For more information,
+see [Cron expressions rules](#CHAP_DataResync.cron "#CHAP_DataResync.cron").
 
-**Values**: `SUCCESS` or
-`FAILURE`.
+**Monitoring resync operations**:
 
-**`RESYNC_TIME`**
-
-Timestamp with millisecond precision. Default value is
-`NULL` if Data resync is not attempted for this
-failure.
-
-**`RESYNC_ACTION`**
-
-**Values**: `UPSERT` or
-`DELETE`.
-
-`**RESYNC\_ID**`
-
-Primary key column with auto-increment enabled.
-
-In the `awsdms_validation_failures_v2` table, an index is added to the
-`TASK_NAME`, `TABLE_OWNER`, `TABLE_NAME`,
-`FAILURE_TYPE`, and `FAILURE_TIME` columns to efficiently
-read failures for any given table in your target database. Below is an example
-create statement to create an `awsdms_validation_failures_v2`
-table:
+You can monitor the resync operation through table statistics. Here is
+an example output:
 
 ```
-CREATE TABLE public.awsdms_validation_failures_v2 (
-    "RESYNC_ID" int8 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+{
+    "TableStatistics": {
+        ...
+        "ValidationFailedRecords": 1000,
+        ...
+        "ResyncRowsAttempted": 1000,
+        "ResyncRowsSucceeded": 995,
+        "ResyncRowsFailed": 5,
+        "ResyncProgress": 99.5, // ratio of ResyncRowsSucceeded/ValidationFailedRecords
+        "ResyncState": "Last resync at: 2024-03-14T06:00:00Z"
+    }
+}
+```
+
+To configure the Data resync feature in AWS DMS, you can review various resync
+parameters and their respective configuration settings. For more information, see
+[Data
+resync settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+For more information regarding data resync logging settings, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+
+## Validation and troubleshooting
+
+**Validation**:
+
+When data valudation is enabled, AWS DMS creates a validation failures
+table in your target database with the following structure:
+
+```
+CREATE TABLE awsdms_validation_failures_v2 (
+    "RESYNC_ID" bigint NOT NULL,
     "TASK_NAME" varchar(128) NOT NULL,
     "TABLE_OWNER" varchar(128) NOT NULL,
     "TABLE_NAME" varchar(128) NOT NULL,
@@ -448,154 +271,150 @@ CREATE TABLE public.awsdms_validation_failures_v2 (
     "DETAILS" varchar(7000) NOT NULL,
     "RESYNC_RESULT" varchar(128) NULL,
     "RESYNC_TIME" timestamp NULL,
-    "RESYNC_ACTION" varchar(128) NULL,
-    CONSTRAINT awsdms_validation_failures_v2_pkey PRIMARY KEY ("RESYNC_ID")
+    "RESYNC_ACTION" varchar(128) NULL
 );
 ```
 
-## Redshift Validation Performance
+You can write a query to this table to understand the data mismatches
+that are found and how are they resolved.
 
-Amazon Redshift differs from relational databases in several ways, including columnar storage,
-MPP, data compression, and other factors. These differences give Redshift a different
-performance profile from relational databases.
+When validation is enabled, AWS DMS creates a validation failures table in your
+target database. If you have any issues you can query the
+`awsdms_control.awsdms_validation_failures_v2` table to understand
+the data mismatches that are found and how are they resolved. For more information,
+see [Troubleshooting](CHAP_Validating.md#CHAP_Validating.Troubleshooting "CHAP_Validating.md#CHAP_Validating.Troubleshooting") section in [AWS DMS Data
+validation](CHAP_Validating.md "CHAP_Validating.md").
 
-During the full-load replication phase, validation uses range queries, with the data
-size governed by the `PartitionSize` setting.
-These range-based queries select all the records from the source table.
+**Common workflow**:
 
-For ongoing
-replication, queries switch between range-based and individual-record fetches. The query type is
-determined dynamically based on multiple factors, such as the following:
+During validation in data resync the standard workflow is as
+follows:
 
-- Query volume
-- Types of DML queries on the source table
-- Task latency
-- Total number of records
-- Validation settings such as `PartitionSize`
-  You may see additional load on your Amazon Redshift cluster due to validation queries.
-  As the above factors vary across use cases, you must review your validation query performance and
-  tune your cluster and table accordingly. Some options to mitigate performance isses include the following:
+**Full Load Only tasks**:
 
-- Reduce the `PartitionSize` and `ThreadCount` settings to help reduce the
-  workload during full-load validation. Note that this will slow down data validation.
-- While Redshift doesn’t enforce primary keys, AWS DMS relies on primary keys to uniquely identify
-  records on the target for data validation. If possible, set the primary key to mirror the sort key so that
-  full load validation queries execute more quickly.
+1. All the tables in your database complete loading
+   process.
+2. Mismatches are identified in the on going validation
+   process.
+3. Data resync fixes the issues idenfified during the validation
+   process.
+4. Validation process validates the rectification.
+5. Migration task is completed successfully.
 
-## Enhanced data validation for AWS Database Migration Service
+**CDC tasks**:
 
-AWS Database Migration Service has enhanced data validation performance for database migrations, enabling
-customers to validate large datasets with significantly faster processing times. This
-enhanced data validation is now available in version 3.5.4 of the replication engine for
-both full load and full load with CDC migration tasks. Currently, this enhancement
-supports migration paths from Oracle to PostgreSQL, SQL Server to PostgreSQL, Oracle to
-Oracle, and SQL Server to SQL Server, with additional migration paths planned for future
-releases.
+1. All the tables in your database complete loading
+   process.
+2. Mismatches are identified in the on going validation
+   process.
+3. As per the resync scheduled window, the replication task
+   pauses for a brief period.
+4. Data resync fixes the issues idenfified during the validation
+   process.
+5. The replication process resumes and repeats as per the
+   schedule.
 
-### Prerequisites
+Any modification done to the task such as stoping the replication task during the
+resync operation or reloading and revalidating tables can impact the task's behavior
+and outcome. Some of the known behavior changes are as follows:
 
-- _Oracle:_ grant the `EXECUTE` permission on `SYS.DBMS_CRYPTO` to the user account that accesses the Oracle endpoint:
+**When you stop the replication task while resync operation is
+in progress**:
 
-```
-GRANT EXECUTE ON SYS.DBMS_CRYPTO TO dms_endpoint_user;
-```
+- The resync operation does not automatically resume. You must restart it
+  again.
+- Future resync operations occur as per the configured schedule.
+- Any incomplete fixes are attempted in the next resync schedule
+  window.
 
-- Install the `pgcrypto` extension on the PostgreSQL database:
+**When you reload a table in your database**:
 
-For self-managed PostgreSQL instances, you need to install the `contrib` module libraries and create the extension:
+- The resync operation skips any table undergoing reload.
+- The previous validation failures for a table that was reloaded are
+  ignored.
+- New validation begins after the reload action completes.
 
-    + Install the `contrib` module libraries. For example, on an Amazon EC2 instance with Amazon Linux and PostgreSQL 15:
+**When you revalidate a table in your
+database**:
 
+- All the statiscs for your resync operation are reset.
+- The previous validation failures for a table that was revalidated are
+  ignored.
 
+###### Note
 
-    ```
-    sudo dnf install postgresql15-contrib
-    ```
-    + Create the `pgcrypto` extension:
+When upgrading or moving a task to DMS version 3.6.1 and above, any failures
+in the `awsdms_control.awsdms_validation_failures_v1` table are not
+resynced. Only failures in the `awsdms_validation_failures_v2` table
+are resynced. To resync failures in
+`awsdms_control.awsdms_validation_failures_v2` table, you must
+reload the task, reload one or more tables in the task, or re-validate one or
+more tables. For more information, see the following links:
 
+- To reload a task, see [`StartReplicationTask` API reference](../APIReference/API_StartReplicationTask.md "../APIReference/API_StartReplicationTask.md").
+- To reload one or more tables in a task, see [`reload-tables`](../../../cli/latest/reference/dms/reload-tables.md "../../../cli/latest/reference/dms/reload-tables.md") in the _AWS CLI command reference_
+  documentation.
+- To re-validate one or more tables, see the `validate-only`
+  option in the [`reload-tables`](../../../cli/latest/reference/dms/reload-tables.md "../../../cli/latest/reference/dms/reload-tables.md") section in the _AWS CLI command reference_
+  documentation.
+  .
 
+## Cron expression rules
 
-    ```
-    CREATE EXTENSION IF NOT EXISTS pgcrypto;
-    ```
+To configure Data resync operations during a replication task in AWS DMS you can use
+cron expressions rules. These rules allow you customise resync time windows and
+schedule them as per your business needs. You can use various parameters such as
+minutes, hours, days, months, and days of the week. The cron expression rules for
+each parameters are:
 
-- For Amazon RDS for PostgreSQL instances, configure the SSL mode for the AWS DMS endpoint:
-  - By default, Amazon RDS forces an SSL connection. When you create a AWS DMS endpoint for a Amazon RDS for PostgreSQL instance, use the "SSL mode" option = "required".
-  - If you want to use the "SSL mode" option = "none", set the `rds.force_ssl` parameter to 0 in the RDS Parameter Group.
+**Minutes**:
 
-- For PostgreSQL 12 and 13, create the `BIT_XOR` aggregate:
+- Minute range from 0 to 59.
+- You can use (`-`), `or`/`and`
+  to specify the range. Maximum 10 items separated by a comma
+  (`,`).
+- **Examples**:
+  - `2-5` equals to
+    `2,3,5,5`.
+  - `1-2,3-4,5,7-10` is a valid range.
+  - `1,2,3,4,5,6,7,8,9,10` is a valid
+    range.
+  - `1,2,3,4,5,6,7,8,9,10,11` is not a valid
+    range. The resync operation skips after the 10th range
+    item.
 
-```
-CREATE OR REPLACE AGGREGATE BIT_XOR(IN v bit) (SFUNC = bitxor, STYPE = bit);
-```
+- You can use (`*`). Example: `*` equals
+  to `0-59`.
+- You can use (`/`) only in combination with
+  (`-`) or (`*`).
 
-### Enhanced data validation
+**Examples**:
 
-limitations
+    + `2-7/2` equals to
+     `2,4,6`.
+    + `*/15` equals to
+     `0,15,30,45`.
 
-This enhanced data validation feature has the following limitations:
+**Hours**:
 
-- Database endpoint requirements: This improvement is enabled only for database endpoints that meet the following criteria:
-  - Use AWS Secrets Manager to store credentials.
-  - For Microsoft SQL Server, Kerberos authentication is also supported.
+Same as "**Minutes**" but the valid range
+is from `0` to `23`.
 
-- Database version support:
-  - PostgreSQL 12 and higher
-  - Oracle 12.1 and higher
-  - For Microsoft SQL Server versions lower than 2019, validation of NCHAR and NVARCHAR data types is not supported.
+**Days**:
 
-## Limitations
+- Same as "**Minutes**" but the
+  valid range is from `1` to `31`.
+- Use of `L` is supported in resync configuration. It
+  is intepretted as last day of the month. You must not use it in
+  combination with another syntax.
 
-- Data validation requires that the table has a primary key or unique
-  index.
-  - Primary key columns cannot be of type `CLOB`, `BLOB`,
-    `BINARY`, or `BYTE`.
-  - For primary key columns of type `VARCHAR` or
-    `CHAR`, the length must be less than 1024. You must specify the length
-    in the datatype. You can't use unbounded data types as a primary key for data validation.
-  - An Oracle key created with the `NOVALIDATE` clause is _not_
-    considered a primary key or unique index.
-  - For an Oracle table with no primary key and only a unique key,
-    the columns with the unique constraint must also have a `NOT NULL` constraint.
+**Months**:
 
-- Validation of NULL PK/UK values aren't supported.
-- If the collation of the primary key column in the target PostgreSQL
-  instance isn't set to "C", the sort order of the primary key is different
-  compared to the sort order in Oracle. If the sort order is different between
-  PostgreSQL and Oracle, data validation fails to validate the records.
-- Data validation generates additional queries against the source and
-  target databases. You must ensure that both databases have enough resources to
-  handle this additional load. This is especially true for Redshift targets.
-  For more information, see [Redshift Validation Performance](#CHAP_Validating.Redshift "#CHAP_Validating.Redshift") following.
-- Data validation isn't supported when consolidating several databases into one.
-- For a source or target Oracle endpoint, AWS DMS uses
-  `DBMS_CRYPTO`. If you use data validation on Oracle endpoint you
-  must grant the execute permission on `dbms_crypto` to the user
-  account used to access the Oracle endpoint. You can do this by running the
-  following statement
+Same as "**Minutes**" but the valid range
+is from `1` to `12`.
 
-```
-grant execute on sys.dbms_crypto to `dms_endpoint_user`;
-```
+**Days of week**:
 
-- If the target database is modified outside of AWS DMS during validation,
-  then discrepancies might not be reported accurately. This result can occur if
-  one of your applications writes data to the target table, while AWS DMS is
-  performing validation on that same table.
-- If one or more rows are being continuously modified during
-  validation, then AWS DMS can't validate those rows.
-- If AWS DMS detects more than 10,000 failed or suspended records, it
-  stops the validation. Before you proceed further, resolve any underlying problems
-  with the data.
-- AWS DMS doesn't support data validation of views.
-- AWS DMS doesn't support data validation when character substitution task settings are used.
-- AWS DMS doesn't support validating the Oracle LONG type.
-- AWS DMS doesn't support validating the Oracle Spatial type during heterogeneous migration.
-- Data validation ignores those columns in tables for which data masking transformations exists in table mapping.
-- Data validation skips an entire table if there is a data masking transformation rule for its PK/UK column. The validation state will show as No primary key for such tables.
-- Data validation does not work with Amazon Aurora PostgreSQL Limitless. When
-  attempting to validate tables in a Limitless Database, the validation state
-  displays "No primary key" for these tables.
-
-For limitations when using S3 target validation, see [Limitations for using S3 target
-validation](CHAP_Validating_S3.md#CHAP_Validating_S3_limitations "CHAP_Validating_S3.md#CHAP_Validating_S3_limitations").
+- Same as "**Minutes**" but the
+  valid range is from `0` to `6`.
+- You cannot add a string value for the name of the week.
