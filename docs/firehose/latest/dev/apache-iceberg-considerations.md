@@ -2,8 +2,9 @@
 
 ###### Note
 
-Firehose supports Apache Iceberg Tables as a destination in all [AWS Regions](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region") except China Regions, AWS GovCloud (US) Regions, and
-Asia Pacific (Malaysia).
+Firehose supports Apache Iceberg Tables as a destination in all [AWS Regions](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region") except China Regions, AWS GovCloud (US) Regions, Asia Pacific (Taipei),
+Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand),
+and Mexico (Central).
 
 Firehose support for Apache Iceberg tables has the following considerations and
 limitations.

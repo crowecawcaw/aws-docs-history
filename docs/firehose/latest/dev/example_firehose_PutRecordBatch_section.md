@@ -226,6 +226,44 @@ async fn put_record_batch(
   [PutRecordBatch](https://docs.rs/aws-sdk-firehose/latest/aws_sdk_firehose/client/struct.Client.html#method.put_record_batch "https://docs.rs/aws-sdk-firehose/latest/aws_sdk_firehose/client/struct.Client.html#method.put_record_batch")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_frh->putrecordbatch(
+          iv_deliverystreamname = iv_deliv_stream_name
+          it_records            = it_records ).
+
+        DATA(lv_failed_count) = lo_result->get_failedputcount( ).
+
+        IF lv_failed_count > 0.
+          MESSAGE |{ lv_failed_count } records failed to send.| TYPE 'I'.
+        ELSE.
+          MESSAGE 'All records sent successfully to Firehose delivery stream.' TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_frhresourcenotfoundex.
+        MESSAGE 'Delivery stream not found.' TYPE 'E'.
+      CATCH /aws1/cx_frhinvalidargumentex.
+        MESSAGE 'Invalid argument provided.' TYPE 'E'.
+      CATCH /aws1/cx_frhserviceunavailex.
+        MESSAGE 'Service temporarily unavailable.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [PutRecordBatch](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Firehose with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
