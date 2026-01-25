@@ -17,7 +17,7 @@ template parts. You can also use the snippets as a starting point for sections o
 - [Amazon Elastic Container Service sample templates](quickref-ecs.md "quickref-ecs.md")
 - [Amazon Elastic File System Sample Template](quickref-efs.md "quickref-efs.md")
 - [Elastic Beanstalk template snippets](quickref-elasticbeanstalk.md "quickref-elasticbeanstalk.md")
-- [ELB template snippets](quickref-elb.md "quickref-elb.md")
+- [Elastic Load Balancing template snippets](quickref-elb.md "quickref-elb.md")
 - [AWS Identity and Access Management template snippets](quickref-iam.md "quickref-iam.md")
 - [AWS Lambda template](quickref-lambda.md "quickref-lambda.md")
 - [Amazon Redshift template snippets](quickref-redshift.md "quickref-redshift.md")

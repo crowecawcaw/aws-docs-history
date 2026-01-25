@@ -313,8 +313,8 @@ Now, update the stack.
 
 When your stack is in the `UPDATE_COMPLETE` state, you can choose the
 `WebsiteURL` output value again to verify that the changes to your application
-have taken effect. By default, the `cfn-hup` daemon runs every 2 minutes, so it may
-take up to 2 minutes for the application to change once the stack has been updated.
+have taken effect. The `cfn-hup` daemon runs every 2 minutes, so it may take up to
+2 minutes for the application to change once the stack has been updated.
 
 To see the set of resources that were updated, go to the CloudFormation console. On the
 **Events** tab, look at the stack events. In this particular case, the

@@ -260,7 +260,7 @@ Scaling processes are suspended: `HealthCheck`, `ReplaceUnhealthy`,
 `AZRebalance`, `AlarmNotification`, and
 `ScheduledActions`. Note: Don't suspend the `Launch`,
 `Terminate`, or `AddToLoadBalancer` (if the Auto Scaling group is being used
-with ELB) process types because doing so can prevent the rolling update from functioning
+with Elastic Load Balancing) process types because doing so can prevent the rolling update from functioning
 properly.
 
 The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list of

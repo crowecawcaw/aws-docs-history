@@ -13,7 +13,7 @@ following scenarios demonstrate how CloudFormation can help.
 management
 
 For a scalable web application that also includes a backend database, you might use an
-Auto Scaling group, an ELB load balancer, and an Amazon Relational Database Service database instance. You might use
+Auto Scaling group, an Elastic Load Balancing load balancer, and an Amazon Relational Database Service database instance. You might use
 each individual service to provision these resources and after you create the resources,
 you would have to configure them to work together. All these tasks can add complexity
 and time before you even get your application up and running.

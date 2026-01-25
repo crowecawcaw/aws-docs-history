@@ -457,19 +457,19 @@ specifies the stack resources and their properties.
 
 - `Port`, `Protocol`, and `HealthCheckProtocol` specify
   the EC2 instance port (80) and protocol (HTTP) that the
-  `ApplicationLoadBalancer` routes traffic to and that ELB uses to check the
+  `ApplicationLoadBalancer` routes traffic to and that Elastic Load Balancing uses to check the
   health of the EC2 instances.
 - `HealthCheckIntervalSeconds` specifies that the EC2 instances have an
   interval of 30 seconds between health checks. The `HealthCheckTimeoutSeconds`
-  is defined as the length of time ELB waits for a response from the health check target
-  (15 seconds in this example). After the timeout period lapses, ELB marks that EC2
+  is defined as the length of time Elastic Load Balancing waits for a response from the health check target
+  (15 seconds in this example). After the timeout period lapses, Elastic Load Balancing marks that EC2
   instance's health check as unhealthy. When an EC2 instance fails three consecutive health
-  checks (`UnhealthyThresholdCount`), ELB stops routing traffic to that EC2
+  checks (`UnhealthyThresholdCount`), Elastic Load Balancing stops routing traffic to that EC2
   instance until that instance has five consecutive healthy health checks
-  (`HealthyThresholdCount`). At that point, ELB considers the instance
+  (`HealthyThresholdCount`). At that point, Elastic Load Balancing considers the instance
   healthy and begins routing traffic to the instance again.
 - `TargetGroupAttributes` updates the deregistration delay value of the
-  target group to 20 seconds. By default, ELB waits 300 seconds before completing the
+  target group to 20 seconds. By default, Elastic Load Balancing waits 300 seconds before completing the
   deregistration process.
 
 [AWS::ElasticLoadBalancingV2::Listener](../TemplateReference/aws-resource-elasticloadbalancingv2-listener.md "../TemplateReference/aws-resource-elasticloadbalancingv2-listener.md") resource `ALBListener`
@@ -520,7 +520,7 @@ resource `NotificationTopic`
 ## Step 1: Launch the stack
 
 Before you launch the stack, check that you have AWS Identity and Access Management (IAM) permissions to use all
-of the following services: Amazon EC2, Amazon EC2 Auto Scaling, AWS Systems Manager, ELB, Amazon SNS, and CloudFormation.
+of the following services: Amazon EC2, Amazon EC2 Auto Scaling, AWS Systems Manager, Elastic Load Balancing, Amazon SNS, and CloudFormation.
 
 The following procedure involves uploading the sample stack template from a file. Open a
 text editor on your local machine and add one of the templates. Save the file with the name
