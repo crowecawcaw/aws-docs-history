@@ -58,6 +58,15 @@ You can work with RTB Fabric in the following ways:
 - **AWS CloudFormation** – Provides templates to create and manage RTB Fabric resources as code. You can use CloudFormation to automate the deployment and configuration of gateways and links. For more information, see the [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md").
 - **AWS Command Line Interface** – Provides commands for a broad set of AWS services, including RTB Fabric. It's supported on Windows, macOS, and Linux. For more information about getting started with the AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 - **AWS SDKs** – Provide language-specific APIs and take care of many of the connection details, such as calculating signatures, handling request retries, and error handling. For more information, see [AWS SDKs and Tools Reference Guide](../../../sdkref/latest/guide/overview.md "../../../sdkref/latest/guide/overview.md").
+
+###### SDK endpoint considerations
+
+RTB Fabric uses dual-stack (IPv4 and IPv6) endpoints exclusively. Before using the SDK, review the following considerations:
+
+    + **VPC endpoint allow lists** – If you have allow-listed specific RTB Fabric endpoints in your VPC configuration, update your allow lists to include the dual-stack endpoint addresses.
+    + **IPv6 network configuration** – Ensure your VPC security groups and network ACLs are configured to allow IPv6 traffic. Incorrect IPv6 rules may cause connectivity issues even if IPv4 is configured correctly.
+    + **Custom endpoint resolvers** – The `UseDualStack` SDK parameter is not supported for RTB Fabric. If you use custom endpoint resolvers that reference this parameter, update them to remove the dependency.
+
 - **HTTPS API** – Provides programmatic access to RTB Fabric and AWS. The HTTPS API lets you issue HTTPS requests directly to the service. When you use the HTTPS API, you must include code to digitally sign requests using your credentials. For more information, see the [AWS RTB Fabric API Reference](../api.md "../api.md").
 
 ## RTB Fabric pricing

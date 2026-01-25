@@ -19,9 +19,9 @@ The following quotas apply to RTB Fabric resources in your account.
 | Resource                          | Default quota | Adjustable | Description                                                                                          |
 | --------------------------------- | ------------- | ---------- | ---------------------------------------------------------------------------------------------------- |
 | Number of gateways                | 2             | Yes        | The maximum number of requester and responder gateways combined that you can create in your account. |
-| Links per gateway                 | 2             | Yes        | The maximum number of links that can be created from a single gateway.                               |
-| Modules per flow                  | 2             | Yes        | The maximum number of modules that can be configured in a single flow.                               |
-| Subnets per gateway               | 1             | Yes        | The maximum number of subnets that can be configured per gateway.                                    |
+| Links per Gateway                 | 2             | Yes        | The maximum number of links that can be created from a single gateway.                               |
+| Modules per Flow                  | 2             | Yes        | The maximum number of modules that can be configured in a single flow.                               |
+| Availability Zones per Gateway    | 1             | Yes        | The maximum number of Availability Zones that can be configured per gateway.                         |
 | External outbound links supported | No            | Yes        | Indicates whether gateways can be configured with outbound external links. Supported values: 0 or 1. |
 | External inbound links supported  | No            | Yes        | Indicates whether gateways can be configured with inbound external links. Supported values: 0 or 1.  |
 
