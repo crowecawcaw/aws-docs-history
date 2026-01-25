@@ -1,28 +1,30 @@
-# NEST_TO_MAP
+# SPLIT_COLUMN_BETWEEN_DELIMITER
 
-Converts user-selected columns into key-value pairs, each with a key representing the
-column name and a value representing the row value. The order of the selected column is
-not maintained while creating the resultant map. The different column data types are
-typecast to a common type that supports the data types of all columns.
+Splits a column into three new columns, according to a beginning and ending
+delimiter.
 
 ###### Parameters
 
-- `sourceColumns` — List of the source columns.
-- `targetColumn` — The name of the target column.
-- `removeSourceColumns` — Contains the value
-  `true` or `false` to indicate whether or not the
-  user wants to remove the selected source columns.
+- `sourceColumn` – The name of an existing column.
+- `patternOption1` – A JSON-encoded string representing one or more
+  characters that indicate the first delimiter.
+- `patternOption2` – A JSON-encoded string representing one or more
+  characters that indicate the second delimiter.
+- `pattern` – One or more characters to use as a separator,
+  when splitting the data.
+- `includeInSplit` – If true, includes the pattern in the new
+  column; otherwise, the pattern is discarded.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "NEST_TO_MAP",
+        "Operation": "SPLIT_COLUMN_BETWEEN_DELIMITER",
         "Parameters": {
-            "sourceColumns": "[\"age\",\"weight_kg\",\"height_cm\"]",
-            "targetColumn": "columnName",
-            "removeSourceColumns": "true"
+            "patternOption1": "{\"pattern\":\"H\",\"includeInSplit\":true}",
+            "patternOption2": "{\"pattern\":\"M\",\"includeInSplit\":true}",
+            "sourceColumn": "last_name"
         }
     }
 }

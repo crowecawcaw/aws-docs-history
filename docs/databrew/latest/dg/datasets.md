@@ -1,43 +1,78 @@
-# Connecting to your data
+# Connecting to data in a text file with DataBrew
 
-For more information on connecting to the following data sources, choose the section
-that applies to you.
+You can configure the following format options for the input files that DataBrew supports:
 
-- **AWS Glue Data Catalog**
-  – You can use the Data Catalog to define references to data objects
-  stored in the AWS Cloud, including the following services:
+- **Comma-separated value (CSV) files**
+  - **Delimiters**
 
-      + Amazon Redshift
-      + Aurora MySQL
-      + Aurora PostgreSQL
-      + Amazon RDS for MySQL
-      + Amazon RDS for PostgreSQL
+  The default delimiter is a comma for .csv files.
+  If your file uses a different delimiter, choose the delimiter for **CSV
+  delimiter** in the **Additional configurations**
+  section when you create your dataset. The following delimiters are supported for
+  .csv files:
 
-  DataBrew recognizes all Lake Formation permissions that have been applied to Data Catalog
-  resources, so DataBrew users can only access these resources if they're authorized.
+      - Comma (,)
+      - Colon (:)
+      - Semi-colon (;)
+      - Pipe (|)
+      - Tab (\t)
+      - Caret (^)
+      - Backslash (\)
+      - Space
 
-To create a dataset, you specify a Data Catalog database name and a table name.
-DataBrew takes care of the other connection details.
+  - **Column header values**
 
-- **AWS Data Exchange**
-  – You can choose from hundreds of third-party data sources that are available
-  in AWS Data Exchange. By subscribing to
-  these data sources, you always have the most up-to-date version of the data.
+  Your CSV file can include a header row as the first row of the file. If it
+  doesn't, DataBrew creates a header row for you.
 
-To create a dataset, you specify the name of a Data Exchange data product that you're
-subscribed to or entitled to use.
+      - If your CSV file includes a header row, choose **Treat first
+       row as header**. If you do, the first row of your CSV file is treated as
+       containing the column header values.
+      - If your CSV file doesn't include a header row, choose
+       **Add default
+       header**. If you do, DataBrew creates a header row for
+       the file and doesn't treat your first row of data as
+       containing header values. The headers that DataBrew creates consist
+       of an underscore and a number for each column in the file, in
+       the format `Column_1`, `Column_2`,
+       `Column_3`, and so on.
 
-- **JDBC driver connections** – You can create
-  a dataset by connecting DataBrew to a JDBC-compatible data source. DataBrew supports
-  connecting to the following sources through JDBC:
-  - Amazon Redshift
-  - Microsoft SQL Server
-  - MySQL
-  - Oracle
-  - PostgreSQL
-  - Snowflake
+- **JSON files**
 
-###### Topics
+DataBrew supports two formats for JSON files, JSON Lines and JSON
+document. JSON Lines files contain one row per line. In JSON document files, all
+rows are contained in a single JSON structure or an array. You can specify your
+JSON file type in the **Additional configurations** section
+when you create a JSON dataset. The default format is JSON Lines.
 
-- [Using drivers with AWS Glue DataBrew](dbms-driver-connections.md "dbms-driver-connections.md")
-- [Supported JDBC drivers](jdbc-drivers.md "jdbc-drivers.md")
+- **Excel files**
+
+The following apply to Excel sheets in DataBrew:
+
+    + **Excel sheet loading**
+
+
+    By default, DataBrew loads the first sheet in your Excel file. However,
+     you can specify a different sheet number or sheet name in the
+     **Additional configurations** section when you create an
+     Excel dataset.
+    + **Column header values**
+
+
+    Your Excel sheets can include a header row as the first row of the file, but if they
+     don't, DataBrew will create a header row for you.
+
+
+
+
+    	- If your Excel sheets include a header row, choose **Treat first
+    	 row as header**. If you do, the first row of your Excel sheets is treated
+    	 as containing the column header values.
+    	- If your Excel file doesn't include a header row, choose **Add default
+    	 header**. By doing this, you specify that DataBrew
+    	 should create a header row for the file and not treat your first
+    	 row of data as containing header values. The headers that DataBrew
+    	 creates consist of an underscore and a number for each column in
+    	 the file, in the format `Column_1`,
+    	 `Column_2`, `Column_3`, and so
+    	 on.

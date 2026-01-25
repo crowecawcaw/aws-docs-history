@@ -1,6 +1,7 @@
-# STANDARD_DEVIATION
+# KTH_LARGEST_UNIQUE
 
-Returns the standard deviation from the selected source columns in a new column.
+Returns the *k*th largest unique number from the
+selected source columns in a new column.
 
 ###### Parameters
 
@@ -8,15 +9,19 @@ Returns the standard deviation from the selected source columns in a new column.
   columns.
 - `targetColumn` – A name for the newly created column.
 
+`value` – A number representing
+_k_.
+
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "STANDARD_DEVIATION",
+        "Operation": "KTH_LARGEST_UNIQUE",
         "Parameters": {
-            "sourceColumns": "[\"years_in_sservice\",\"age\"]",
-            "targetColumn": "STANDARD_DEVIATION Column 1"
+            "sourceColumns": "[\"age\",\"height_cm\",\"weight_kg\"]",
+            "targetColumn": "KTH_LARGEST_UNIQUE Column 1",
+            "value": "3"
         }
     }
 }
