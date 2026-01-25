@@ -33,6 +33,20 @@ For information about adding EBS volumes to your instance at launch, see
   if you attach the root volume of another instance, or a volume created from the
   snapshot of a root volume, to an instance with an existing root volume. For more
   information, see [Boot from the wrong volume](../../../AWSEC2/latest/UserGuide/instance-booting-from-wrong-volume.md "../../../AWSEC2/latest/UserGuide/instance-booting-from-wrong-volume.md").
+- Some instance types support more than one EBS card. You can select the EBS card
+  for the volume to be attached to by specifying the EBS card index. For instances support
+  multiple EBS cards, see [EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md").
+  - Your root volume must be attached to EBS card index `0`.
+  - For the instances that support multiple EBS cards, If you do not specify
+    the EBS card index, your volume will be attached to EBS card index `0`.
+  - When configuring your EC2 instances for high-performance workloads, it is
+    essential to balance EBS volumes across EBS cards based on performance requirements,
+    to avoid running into performance limits on any of the EBS cards.
+  - The volume attachment limit for an instance type is spread equally across
+    each EBS card. For example, on an EC2 instance that supports `128` volume attachments
+    with 2 EBS cards, each EBS card can support up to `64` volume attachments. If you
+    exceed the EBS card attachment limit, the request fails with
+    the `CardAttachmentLimitExceeded` error.
 
 Console
 
