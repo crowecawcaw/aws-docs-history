@@ -19,7 +19,7 @@ in to the management account of your AWS organization.
 
 ###### To view the AWS Health Dashboard for your organization
 
-1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
 2. In the navigation pane, under **Your organization
    health**, choose
    **Configurations**.
@@ -35,7 +35,7 @@ _AWS Organizations User Guide_.
 ###### Notes
 
 - When you enable AWS Health organizational view, the initial account loading process runs in the background and might take several minutes to complete. You can close the AWS Health console and return later, as you don't need to wait for the process to finish. Historical health events (those created before you enabled the feature) might take up to 24 hours to appear in your organizational view.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you can call the [DescribeHealthServiceStatusForOrganization](../APIReference/API_DescribeHealthServiceStatusForOrganization.md "../APIReference/API_DescribeHealthServiceStatusForOrganization.md") API
+- If you have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can call the [DescribeHealthServiceStatusForOrganization](../APIReference/API_DescribeHealthServiceStatusForOrganization.md "../APIReference/API_DescribeHealthServiceStatusForOrganization.md") API
   operation to check the status of the process.
 - When you enable this feature, the
   `AWSServiceRoleForHealth_Organizations`

@@ -9,7 +9,7 @@ planned activities. The service delivers alerts and notifications triggered by c
 the health of AWS resources, so that you get near-instant event visibility and
 guidance to help accelerate troubleshooting.
 
-All customers can use the [AWS Health Dashboard](https://health.aws.com/health/home "https://health.aws.com/health/home"), powered by the AWS Health API. The dashboard
+All customers can use the [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), powered by the AWS Health API. The dashboard
 requires no setup, and it's ready to use for [authenticated AWS users](controlling-access.md "controlling-access.md"). For more service highlights, see the [AWS Health Dashboard detail
 page](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/").
 
@@ -25,7 +25,7 @@ service, To understand the basics of AWS Health see [Concepts for AWS Health](aw
   cost.
 - All AWS customers can receive AWS Health events through Amazon EventBridge at no
   additional cost.
-- If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you can use the AWS Health API to
-  integrate with in-house and third-party systems. For more information, see the
+- If you have an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you can use the AWS Health API to
+  integrate with in-house and third-party systems. If you're in an AWS Region that doesn't offer one of these AWS Support plans, or if you haven't transitioned to one of these plans, you can use the AWS Health API with a Business, Enterprise On-Ramp, or Enterprise Support plan. For more information, see the
   [AWS Health API Reference](../APIReference.md "../APIReference.md").
 - For more information about available AWS Support plans, see [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").

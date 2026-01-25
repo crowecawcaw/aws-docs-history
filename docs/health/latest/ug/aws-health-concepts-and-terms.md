@@ -42,7 +42,7 @@ AWS organization. For example, if there's an issue with an Amazon Elastic Comput
 in a Region that you use, AWS Health provides information about the event and the name of
 the affected resources.
 
-You can find account-specific events from your [AWS Health Dashboard](https://health.aws.com/health/home "https://health.aws.com/health/home"), the [AWS Health
+You can find account-specific events from your [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), the [AWS Health
 API](../APIReference/Welcome.md "../APIReference/Welcome.md"), or use [Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md") or [AWS User Notifications](#user-notifications "#user-notifications") to receive
 notifications.
 
@@ -71,14 +71,14 @@ such as an upcoming maintenance issue for a service in a Region. You can also us
 learn about events that might affect you directly, such as a deprecated resource in your
 account.
 
-You can sign in to the AWS Management Console to view your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/home "https://health.aws.com/health/home").
+You can sign in to the AWS Management Console to view your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home").
 
 For more information, see [Getting started with your
 AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 ### AWS Health Dashboard – Service health
 
-If you don't have an account, you can use the AWS Health Dashboard – Service health at [https://health.aws.com/health/status](https://health.aws.com/health/status "https://health.aws.com/health/status") to view public events. Public events are reported service issues for
+If you don't have an account, you can use the AWS Health Dashboard – Service health at [https://health.aws.amazon.com/health/status](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") to view public events. Public events are reported service issues for
 AWS that provide information about service availability. This website only shows
 public events, which aren’t specific to any account. You don't need to sign in or have an
 account to view this page.
@@ -224,7 +224,7 @@ Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md").
 ## AWS Health API
 
 You can use the AWS Health API to programmatically access the information that appears in
-the [AWS Health Dashboard](https://health.aws.com/health/home "https://health.aws.com/health/home"), such as the following:
+the [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), such as the following:
 
 - Get information about events that might affect your AWS services and
   resources
@@ -236,8 +236,8 @@ For more information, see the [AWS Health API Reference](../APIReference/Welcome
 
 ###### Note
 
-You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") to use the AWS Health API. If you call the AWS Health API from an
-account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
+You must have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan from [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") to use the AWS Health API. If you call the AWS Health API from an
+account that doesn't have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, you receive a
 `SubscriptionRequiredException` error.
 
 ## Organizational view

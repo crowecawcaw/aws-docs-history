@@ -192,7 +192,7 @@ identity. This policy includes permissions to complete this action on the consol
 Health Dashboard and the AWS Health API
 
 The Health Dashboard is available for all AWS accounts. The AWS Health API is available only
-to accounts with a Business, Enterprise On-Ramp, or Enterprise Support plan. For more information, see [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
+to accounts with a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan. For more information, see [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
 You can use IAM to create entities (users, groups, or roles), and then give those
 entities permissions to access the Health Dashboard and the AWS Health API.

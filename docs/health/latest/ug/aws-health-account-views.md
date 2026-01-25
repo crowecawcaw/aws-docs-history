@@ -6,7 +6,7 @@ You can sign in to your account to get personalized events and recommendations.
 
 ###### To view account events in your AWS Health Dashboard
 
-1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
 2. In the navigation pane, for **Your account health**, you can
    choose the following options:
    1. **[Open and recent
@@ -226,7 +226,7 @@ events update to the time zone that you specify.
 
 ###### To update your time zone settings
 
-1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
 2. At the bottom of the page, choose **Cookie
    preferences**.
 3. Select **Allowed** for Functional cookies. Then choose

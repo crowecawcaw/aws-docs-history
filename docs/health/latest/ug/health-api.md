@@ -10,9 +10,9 @@ parameters, see the [AWS Health API Reference](../APIReference.md "../APIReferen
 
 ###### Note
 
-You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") to use the AWS Health API. If you call the
-AWS Health API from an AWS account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you
-receive a `SubscriptionRequiredException` error.
+You must have an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan from [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") to use the AWS Health API. If you're in an AWS Region that doesn't offer one of these AWS Support plans, or if you haven't transitioned to one of these plans, you can use the AWS Health API with a Business, Enterprise On-Ramp, or Enterprise Support plan. If you call the AWS Health API from an
+AWS account that isn't enrolled in one of these plans, then you receive a
+`SubscriptionRequiredException` error.
 
 You can use the AWS SDKs to wrap the AWS Health REST API calls, which can simplify your
 application development. You specify your AWS credentials, and these libraries take care

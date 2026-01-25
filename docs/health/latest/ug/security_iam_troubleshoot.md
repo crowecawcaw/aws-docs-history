@@ -32,8 +32,8 @@ permission to use Health Dashboard or the AWS Health API operations.
 In this case, the user's administrator must update the policy to allow the user
 access.
 
-The AWS Health API requires a Business, Enterprise On-Ramp, or Enterprise Support plan from [AWS Support](http://aws.amazon.com/premiumsupport/ "http://aws.amazon.com/premiumsupport/"). If you call the
-AWS Health API from an account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, the following
+The AWS Health API requires a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan from [AWS Support](http://aws.amazon.com/premiumsupport/ "http://aws.amazon.com/premiumsupport/"). If you call the
+AWS Health API from an account that doesn't have a AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan, the following
 error code is returned: `SubscriptionRequiredException`.
 
 ## I'm not authorized to perform

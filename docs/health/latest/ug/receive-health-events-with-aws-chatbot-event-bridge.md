@@ -4,7 +4,7 @@ send notifications about events in AWS Health
 
 You can receive AWS Health events directly in your chat clients, such as Slack and Amazon Chime.
 You can use this event to identify recent AWS service issues that might affect your AWS
-applications and infrastructure. Then, you can sign in to your [AWS Health Dashboard](https://health.aws.com/health/home "https://health.aws.com/health/home") to learn more about
+applications and infrastructure. Then, you can sign in to your [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home") to learn more about
 the update. For example, if you're monitoring for the
 `AWS_EC2_INSTANCE_STOP_SCHEDULED` event type in your AWS account, the
 AWS Health event can appear directly to your Slack channel.
