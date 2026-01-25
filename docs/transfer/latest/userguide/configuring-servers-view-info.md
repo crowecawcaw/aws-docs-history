@@ -45,4 +45,4 @@ within this range depends on the Region of your server.
 
 ![Server details screen showing the Monitoring section..](images/edit-server-details-additional.png)
 ![Server details screen showing the Tags section.](images/edit-server-details-monitoring.png)
-![Server details screen showing the Tags section.](images/edit-server-details-tags.png)
+![Server details screen showing the Tags section.](/images/transfer/latest/userguide/images/edit-server-details-tags.png)

@@ -25,7 +25,7 @@ example policy, see [Lambda resource-based policy](#lambda-resource-policy "#lam
    provider**, choose **Custom Identity Provider**, as
    shown in the following screenshot.
 
-![The Choose an identity provider console section with Custom identity provider selected. Also has the default value selected, which is that users can authenticate using either their password or key.](images/custom-lambda-console.png)
+![The Choose an identity provider console section with Custom identity provider selected. Also has the default value selected, which is that users can authenticate using either their password or key.](/images/transfer/latest/userguide/images/custom-lambda-console.png)
 
 ###### Note
 
