@@ -857,7 +857,7 @@ sudo sed \
 /etc/nginx/conf.d/default.conf
 ```
 
-5. After overwriting the file, run the commands below
+5. After overwriting the `default.conf` file, run the commands below
    to check the configuration and restart NGINX
 
 ```

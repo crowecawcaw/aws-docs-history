@@ -5,7 +5,7 @@ blueprints
 Use the following quick start guides to get started with Lightsail blueprints. In
 Lightsail, a blueprint is a virtual image that comes prepackaged with an operating
 system and application. Applications include WordPress, WordPress Multisite, cPanel
-& WHM, PrestaShop, Drupal, Ghost, Joomla!, Magento, Redmine, LAMP, Nginx (LEMP), and
+& WHM, PrestaShop, Drupal, Ghost, Joomla!, Magento, Redmine, Ruby on Rails, LAMP, Nginx (LEMP), and
 Node.js
 
 ###### Topics
@@ -36,6 +36,8 @@ Node.js
   Lightsail](amazon-lightsail-quick-start-guide-prestashop.md "amazon-lightsail-quick-start-guide-prestashop.md")
 - [Configure and secure a Redmine
   instance on Lightsail](amazon-lightsail-quick-start-guide-redmine.md "amazon-lightsail-quick-start-guide-redmine.md")
+- [Set up Ruby on Rails on
+  Lightsail](amazon-lightsail-quick-start-guide-rubyonrails.md "amazon-lightsail-quick-start-guide-rubyonrails.md")
 - [Launch and configure WordPress on
   Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md")
 - [Set up WordPress

@@ -17,37 +17,7 @@ Select the appropriate guide for your Node.js instance:
 
 Bitnami
 
-## Step 1: Get the default
-
-application password for your Node.js instance
-
-You need the default application password to access pre-installed applications or services
-on your instance.
-
-1. On your instance management page, under the **Connect** tab, choose
-   **Connect using SSH**.
-2. After you're connected, enter the following command to get the default application
-   password:
-
-```
-cat bitnami_application_password
-```
-
-###### Note
-
-If you're in a directory other than the user home directory, then enter `cat
- $HOME/bitnami_application_password`.
-
-You should see a response similar to this, which contains the default application
-password:
-
-![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
-
-For more information, see [Getting the
-application user name and password for your Bitnami instance in
-Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md").
-
-## Step 2: Attach a static IP address
+## Step 1: Attach a static IP address
 
 to your Node.js instance
 
@@ -65,7 +35,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 ![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
 
-## Step 3: Visit your Node.js instance welcome
+## Step 2: Visit your Node.js instance welcome
 
 page
 
@@ -81,7 +51,7 @@ For more information, see [Getting the
 application user name and password for your Bitnami instance in
 Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md").
 
-## Step 4: Map your
+## Step 3: Map your
 
 domain name to your Node.js instance
 
@@ -97,7 +67,7 @@ choose **Create DNS zone**, then follow the instructions on the page.
 For more information, see [Create a DNS
 zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").
 
-## Step 5: Read the
+## Step 4: Read the
 
 Bitnami documentation
 
@@ -107,7 +77,7 @@ support with SSL certificates, upload files to the server with SFTP, and more.
 For more information, see the [Bitnami Node.js for
 AWS Cloud](https://docs.bitnami.com/aws/infrastructure/nodejs/ "https://docs.bitnami.com/aws/infrastructure/nodejs/").
 
-## Step 6: Create a snapshot of your
+## Step 5: Create a snapshot of your
 
 Node.js instance
 

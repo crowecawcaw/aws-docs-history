@@ -344,7 +344,7 @@ _Bitnami_ website.
 
 ## Application stacks and servers
 
-Lightsail has five application stacks and servers for a wide variety of development
+Lightsail has multiple application stacks and servers for a wide variety of development
 projects. Each image uses Linux/Unix as the base operating system.
 
 \***\*LAMP stack (PHP 8) packaged by Bitnami\*\***
@@ -501,6 +501,15 @@ that your customers need.
 configure Plesk](set-up-and-configure-plesk-stack-on-lightsail.md "set-up-and-configure-plesk-stack-on-lightsail.md").
 
 Learn more about the [Plesk stack](https://docs.plesk.com/en-US/current/administrator-guide/about-plesk.70559/ "https://docs.plesk.com/en-US/current/administrator-guide/about-plesk.70559/") at the _Plesk_ website.
+
+\***\*Ruby on Rails\*\***
+
+The Ruby on Rails blueprint comes pre-configured with Rails on Amazon Linux 2023, eliminating the need for manual framework installation and setup. The Ruby on Rails blueprint enables you to deploy a robust, scalable, and cost-effective solution for building modern web applications on Lightsail.
+
+[Set up Ruby on Rails on
+Lightsail](amazon-lightsail-quick-start-guide-rubyonrails.md "amazon-lightsail-quick-start-guide-rubyonrails.md")
+
+Learn more about [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html "https://guides.rubyonrails.org/getting_started.html") and [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/").
 
 ## Ecommerce applications
 

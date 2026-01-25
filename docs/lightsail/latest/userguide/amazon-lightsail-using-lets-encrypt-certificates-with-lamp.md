@@ -279,7 +279,7 @@ _acme-challenge.`example.com`
 
 
 
-    ![Confirmation that TXT records propagated.](images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
+    ![Confirmation that TXT records propagated.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
     * If your TXT records have not propagated to the internet’s DNS, you see a
      **DNS Record not found** response. Confirm that you added the
      correct DNS records to your domains’ DNS zone. If you added the correct records, wait
