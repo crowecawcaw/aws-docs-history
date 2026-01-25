@@ -46,7 +46,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M7i-flex        | `m7i-flex.large`         | `m7i-flex.xlarge` | `m7i-flex.2xlarge` | `m7i-flex.4xlarge` | `m7i-flex.8xlarge` | `m7i-flex.12xlarge` | `m7i-flex.16xlarge` |
 | M8a             | `m8a.medium`             | `m8a.large`       | `m8a.xlarge`       | `m8a.2xlarge`      | `m8a.4xlarge`      | `m8a.8xlarge`       | `m8a.12xlarge`      | `m8a.16xlarge`   | `m8a.24xlarge`   | `m8a.48xlarge`   | `m8a.metal-24xl`  | `m8a.metal-48xl`  |
 | M8g             | `m8g.medium`             | `m8g.large`       | `m8g.xlarge`       | `m8g.2xlarge`      | `m8g.4xlarge`      | `m8g.8xlarge`       | `m8g.12xlarge`      | `m8g.16xlarge`   | `m8g.24xlarge`   | `m8g.48xlarge`   | `m8g.metal-24xl`  | `m8g.metal-48xl`  |
-| M8gb            | `m8gb.medium`            | `m8gb.large`      | `m8gb.xlarge`      | `m8gb.2xlarge`     | `m8gb.4xlarge`     | `m8gb.8xlarge`      | `m8gb.12xlarge`     | `m8gb.16xlarge`  | `m8gb.24xlarge`  |
+| M8gb            | `m8gb.medium`            | `m8gb.large`      | `m8gb.xlarge`      | `m8gb.2xlarge`     | `m8gb.4xlarge`     | `m8gb.8xlarge`      | `m8gb.12xlarge`     | `m8gb.16xlarge`  | `m8gb.24xlarge`  | `m8gb.48xlarge`  |
 | M8gd            | `m8gd.medium`            | `m8gd.large`      | `m8gd.xlarge`      | `m8gd.2xlarge`     | `m8gd.4xlarge`     | `m8gd.8xlarge`      | `m8gd.12xlarge`     | `m8gd.16xlarge`  | `m8gd.24xlarge`  | `m8gd.48xlarge`  | `m8gd.metal-24xl` | `m8gd.metal-48xl` |
 | M8gn            | `m8gn.medium`            | `m8gn.large`      | `m8gn.xlarge`      | `m8gn.2xlarge`     | `m8gn.4xlarge`     | `m8gn.8xlarge`      | `m8gn.12xlarge`     | `m8gn.16xlarge`  | `m8gn.24xlarge`  | `m8gn.48xlarge`  |
 | M8i             | `m8i.large`              | `m8i.xlarge`      | `m8i.2xlarge`      | `m8i.4xlarge`      | `m8i.8xlarge`      | `m8i.12xlarge`      | `m8i.16xlarge`      | `m8i.24xlarge`   | `m8i.32xlarge`   | `m8i.48xlarge`   | `m8i.96xlarge`    | `m8i.metal-48xl`  | `m8i.metal-96xl` |
@@ -340,6 +340,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8gb.12xlarge      | 192.00       | AWS Graviton4 Processor         | 48    | 48        | 1                | ✗ No         | ✗ No               |
 | m8gb.16xlarge      | 256.00       | AWS Graviton4 Processor         | 64    | 64        | 1                | ✗ No         | ✗ No               |
 | m8gb.24xlarge      | 384.00       | AWS Graviton4 Processor         | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| m8gb.48xlarge      | 768.00       | AWS Graviton4 Processor         | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | **M8gd**           |
 | m8gd.medium        | 4.00         | AWS Graviton4 Processor         | 1     | 1         | 1                | ✗ No         | ✗ No               |
 | m8gd.large         | 8.00         | AWS Graviton4 Processor         | 2     | 2         | 1                | ✗ No         | ✗ No               |
@@ -681,6 +682,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8gb.12xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | m8gb.16xlarge       | 133.33 Gigabit                    | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
 | m8gb.24xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
+| m8gb.48xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
 | **M8gd**            |
 | m8gd.medium 1       | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
 | m8gd.large 1        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
@@ -1046,6 +1048,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8gb.12xlarge       | 75000.00                            | 9375.00                                           | 360000.00                            | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8gb.16xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8gb.24xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8gb.48xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | **M8gd**            |
 | m8gd.medium 1       | 315.00 / 10000.00                   | 39.38 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8gd.large 1        | 630.00 / 10000.00                   | 78.75 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1477,6 +1480,7 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8gb.12xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8gb.16xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8gb.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8gb.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **M8gd**           |
 | m8gd.medium        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | m8gd.large         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |

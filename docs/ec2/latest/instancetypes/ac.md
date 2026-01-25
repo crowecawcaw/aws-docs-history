@@ -38,6 +38,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | G6f             | `g6f.large`              | `g6f.xlarge`    | `g6f.2xlarge`   | `g6f.4xlarge`   |
 | Gr6             | `gr6.4xlarge`            | `gr6.8xlarge`   |
 | Gr6f            | `gr6f.4xlarge`           |
+| G7e             | `g7e.2xlarge`            | `g7e.4xlarge`   | `g7e.8xlarge`   | `g7e.12xlarge`  | `g7e.24xlarge`  | `g7e.48xlarge`  |
 | Inf1            | `inf1.xlarge`            | `inf1.2xlarge`  | `inf1.6xlarge`  | `inf1.24xlarge` |
 | Inf2            | `inf2.xlarge`            | `inf2.8xlarge`  | `inf2.24xlarge` | `inf2.48xlarge` |
 | P4d             | `p4d.24xlarge`           |
@@ -71,6 +72,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | G6f             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
 | Gr6             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
 | Gr6f            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
+| G7e             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
 | Inf1            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | Inf2            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86_64)                  | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 | P4d             | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
@@ -166,6 +168,13 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | gr6.8xlarge        | 256.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
 | **Gr6f**           |
 | gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0 x NVIDIA L4 GPU                                 | 11 GiB (0 x 11 GiB)     |
+| **G7e**            |
+| g7e.2xlarge        | 64.00        | Intel Xeon Emerald Rapids   | 8     | 4         | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
+| g7e.4xlarge        | 128.00       | Intel Xeon Emerald Rapids   | 16    | 8         | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
+| g7e.8xlarge        | 256.00       | Intel Xeon Emerald Rapids   | 32    | 16        | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
+| g7e.12xlarge       | 512.00       | Intel Xeon Emerald Rapids   | 48    | 24        | 2                | 2 x NVIDIA RTX PRO Server 6000 GPU                | 192 GiB (2 x 96 GiB)    |
+| g7e.24xlarge       | 1024.00      | Intel Xeon Emerald Rapids   | 96    | 48        | 2                | 4 x NVIDIA RTX PRO Server 6000 GPU                | 384 GiB (4 x 96 GiB)    |
+| g7e.48xlarge       | 2048.00      | Intel Xeon Emerald Rapids   | 192   | 96        | 2                | 8 x NVIDIA RTX PRO Server 6000 GPU                | 768 GiB (8 x 96 GiB)    |
 | **Inf1**           |
 | inf1.xlarge        | 8.00         | Intel Xeon P-8259L          | 4     | 2         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
 | inf1.2xlarge       | 16.00        | Intel Xeon P-8259L          | 8     | 4         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
@@ -281,6 +290,13 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | gr6.8xlarge        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **Gr6f**           |
 | gr6f.4xlarge 1     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| **G7e**            |
+| g7e.2xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
+| g7e.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
+| g7e.8xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
+| g7e.12xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 10                      | 64                         | ✓ Yes |
+| g7e.24xlarge       | 800 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 20                      | 64                         | ✓ Yes |
+| g7e.48xlarge       | 1600 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 4             | 40                      | 64                         | ✓ Yes |
 | **Inf1**           |
 | inf1.xlarge 1      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 10                         | ✓ Yes |
 | inf1.2xlarge 1     | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 10                         | ✓ Yes |
@@ -423,6 +439,13 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 | gr6.8xlarge        | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **Gr6f**           |
 | gr6f.4xlarge       | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **G7e**            |
+| g7e.2xlarge 1      | 2000.00 / 5000.00                   | 250.00 / 625.00                                   | 8000.00 / 20000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| g7e.4xlarge        | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| g7e.8xlarge        | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| g7e.12xlarge       | 25000.00                            | 3125.00                                           | 100000.00                            | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| g7e.24xlarge       | 50000.00                            | 6250.00                                           | 200000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| g7e.48xlarge       | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | **Inf1**           |
 | inf1.xlarge 1      | 1190.00 / 4750.00                   | 148.75 / 593.75                                   | 4000.00 / 20000.00                   | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | inf1.2xlarge 1     | 1190.00 / 4750.00                   | 148.75 / 593.75                                   | 6000.00 / 20000.00                   | ✓ Yes | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
@@ -539,6 +562,13 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | gr6.8xlarge        | 2 x 450 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
 | **Gr6f**           |
 | gr6f.4xlarge       | 1 x 450 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
+| **G7e**            |
+| g7e.2xlarge        | 1 x 1900 GB            | NVMe SSD            | 275,000 / 137,500                  |                        | ✓ Yes          |
+| g7e.4xlarge        | 1 x 1900 GB            | NVMe SSD            | 275,000 / 137,500                  |                        | ✓ Yes          |
+| g7e.8xlarge        | 1 x 1900 GB            | NVMe SSD            | 275,000 / 137,500                  |                        | ✓ Yes          |
+| g7e.12xlarge       | 1 x 3800 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
+| g7e.24xlarge       | 2 x 3800 GB            | NVMe SSD            | 1,100,000 / 550,000                |                        | ✓ Yes          |
+| g7e.48xlarge       | 4 x 3800 GB            | NVMe SSD            | 2,200,000 / 1,100,000              |                        | ✓ Yes          |
 | **P4d**            |
 | p4d.24xlarge       | 8 x 1000 GB            | NVMe SSD            | 2,000,000 / 1,600,000              |                        | ✓ Yes          |
 | **P4de**           |
@@ -647,6 +677,13 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | gr6.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **Gr6f**           |
 | gr6f.4xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| **G7e**            |
+| g7e.2xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| g7e.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| g7e.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| g7e.12xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| g7e.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| g7e.48xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **Inf1**           |
 | inf1.xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | inf1.2xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |

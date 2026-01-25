@@ -25,31 +25,31 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ----------------- | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | --------------- | --------------- | ----------------- | ----------------- | ----------------- | ---------------- |
+| --------------- | ------------------------ | ----------------- | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | --------------- | --------------- | ---------------- | ----------------- | ----------------- | ---------------- |
 | C5              | `c5.large`               | `c5.xlarge`       | `c5.2xlarge`       | `c5.4xlarge`       | `c5.9xlarge`       | `c5.12xlarge`       | `c5.18xlarge`       | `c5.24xlarge`   | `c5.metal`      |
 | C5a             | `c5a.large`              | `c5a.xlarge`      | `c5a.2xlarge`      | `c5a.4xlarge`      | `c5a.8xlarge`      | `c5a.12xlarge`      | `c5a.16xlarge`      | `c5a.24xlarge`  |
 | C5ad            | `c5ad.large`             | `c5ad.xlarge`     | `c5ad.2xlarge`     | `c5ad.4xlarge`     | `c5ad.8xlarge`     | `c5ad.12xlarge`     | `c5ad.16xlarge`     | `c5ad.24xlarge` |
 | C5d             | `c5d.large`              | `c5d.xlarge`      | `c5d.2xlarge`      | `c5d.4xlarge`      | `c5d.9xlarge`      | `c5d.12xlarge`      | `c5d.18xlarge`      | `c5d.24xlarge`  | `c5d.metal`     |
 | C5n             | `c5n.large`              | `c5n.xlarge`      | `c5n.2xlarge`      | `c5n.4xlarge`      | `c5n.9xlarge`      | `c5n.18xlarge`      | `c5n.metal`         |
-| C6a             | `c6a.large`              | `c6a.xlarge`      | `c6a.2xlarge`      | `c6a.4xlarge`      | `c6a.8xlarge`      | `c6a.12xlarge`      | `c6a.16xlarge`      | `c6a.24xlarge`  | `c6a.32xlarge`  | `c6a.48xlarge`    | `c6a.metal`       |
+| C6a             | `c6a.large`              | `c6a.xlarge`      | `c6a.2xlarge`      | `c6a.4xlarge`      | `c6a.8xlarge`      | `c6a.12xlarge`      | `c6a.16xlarge`      | `c6a.24xlarge`  | `c6a.32xlarge`  | `c6a.48xlarge`   | `c6a.metal`       |
 | C6g             | `c6g.medium`             | `c6g.large`       | `c6g.xlarge`       | `c6g.2xlarge`      | `c6g.4xlarge`      | `c6g.8xlarge`       | `c6g.12xlarge`      | `c6g.16xlarge`  | `c6g.metal`     |
 | C6gd            | `c6gd.medium`            | `c6gd.large`      | `c6gd.xlarge`      | `c6gd.2xlarge`     | `c6gd.4xlarge`     | `c6gd.8xlarge`      | `c6gd.12xlarge`     | `c6gd.16xlarge` | `c6gd.metal`    |
 | C6gn            | `c6gn.medium`            | `c6gn.large`      | `c6gn.xlarge`      | `c6gn.2xlarge`     | `c6gn.4xlarge`     | `c6gn.8xlarge`      | `c6gn.12xlarge`     | `c6gn.16xlarge` |
-| C6i             | `c6i.large`              | `c6i.xlarge`      | `c6i.2xlarge`      | `c6i.4xlarge`      | `c6i.8xlarge`      | `c6i.12xlarge`      | `c6i.16xlarge`      | `c6i.24xlarge`  | `c6i.32xlarge`  | `c6i.metal`       |
-| C6id            | `c6id.large`             | `c6id.xlarge`     | `c6id.2xlarge`     | `c6id.4xlarge`     | `c6id.8xlarge`     | `c6id.12xlarge`     | `c6id.16xlarge`     | `c6id.24xlarge` | `c6id.32xlarge` | `c6id.metal`      |
-| C6in            | `c6in.large`             | `c6in.xlarge`     | `c6in.2xlarge`     | `c6in.4xlarge`     | `c6in.8xlarge`     | `c6in.12xlarge`     | `c6in.16xlarge`     | `c6in.24xlarge` | `c6in.32xlarge` | `c6in.metal`      |
-| C7a             | `c7a.medium`             | `c7a.large`       | `c7a.xlarge`       | `c7a.2xlarge`      | `c7a.4xlarge`      | `c7a.8xlarge`       | `c7a.12xlarge`      | `c7a.16xlarge`  | `c7a.24xlarge`  | `c7a.32xlarge`    | `c7a.48xlarge`    | `c7a.metal-48xl`  |
+| C6i             | `c6i.large`              | `c6i.xlarge`      | `c6i.2xlarge`      | `c6i.4xlarge`      | `c6i.8xlarge`      | `c6i.12xlarge`      | `c6i.16xlarge`      | `c6i.24xlarge`  | `c6i.32xlarge`  | `c6i.metal`      |
+| C6id            | `c6id.large`             | `c6id.xlarge`     | `c6id.2xlarge`     | `c6id.4xlarge`     | `c6id.8xlarge`     | `c6id.12xlarge`     | `c6id.16xlarge`     | `c6id.24xlarge` | `c6id.32xlarge` | `c6id.metal`     |
+| C6in            | `c6in.large`             | `c6in.xlarge`     | `c6in.2xlarge`     | `c6in.4xlarge`     | `c6in.8xlarge`     | `c6in.12xlarge`     | `c6in.16xlarge`     | `c6in.24xlarge` | `c6in.32xlarge` | `c6in.metal`     |
+| C7a             | `c7a.medium`             | `c7a.large`       | `c7a.xlarge`       | `c7a.2xlarge`      | `c7a.4xlarge`      | `c7a.8xlarge`       | `c7a.12xlarge`      | `c7a.16xlarge`  | `c7a.24xlarge`  | `c7a.32xlarge`   | `c7a.48xlarge`    | `c7a.metal-48xl`  |
 | C7g             | `c7g.medium`             | `c7g.large`       | `c7g.xlarge`       | `c7g.2xlarge`      | `c7g.4xlarge`      | `c7g.8xlarge`       | `c7g.12xlarge`      | `c7g.16xlarge`  | `c7g.metal`     |
 | C7gd            | `c7gd.medium`            | `c7gd.large`      | `c7gd.xlarge`      | `c7gd.2xlarge`     | `c7gd.4xlarge`     | `c7gd.8xlarge`      | `c7gd.12xlarge`     | `c7gd.16xlarge` | `c7gd.metal`    |
 | C7gn            | `c7gn.medium`            | `c7gn.large`      | `c7gn.xlarge`      | `c7gn.2xlarge`     | `c7gn.4xlarge`     | `c7gn.8xlarge`      | `c7gn.12xlarge`     | `c7gn.16xlarge` | `c7gn.metal`    |
-| C7i             | `c7i.large`              | `c7i.xlarge`      | `c7i.2xlarge`      | `c7i.4xlarge`      | `c7i.8xlarge`      | `c7i.12xlarge`      | `c7i.16xlarge`      | `c7i.24xlarge`  | `c7i.48xlarge`  | `c7i.metal-24xl`  | `c7i.metal-48xl`  |
+| C7i             | `c7i.large`              | `c7i.xlarge`      | `c7i.2xlarge`      | `c7i.4xlarge`      | `c7i.8xlarge`      | `c7i.12xlarge`      | `c7i.16xlarge`      | `c7i.24xlarge`  | `c7i.48xlarge`  | `c7i.metal-24xl` | `c7i.metal-48xl`  |
 | C7i-flex        | `c7i-flex.large`         | `c7i-flex.xlarge` | `c7i-flex.2xlarge` | `c7i-flex.4xlarge` | `c7i-flex.8xlarge` | `c7i-flex.12xlarge` | `c7i-flex.16xlarge` |
-| C8a             | `c8a.medium`             | `c8a.large`       | `c8a.xlarge`       | `c8a.2xlarge`      | `c8a.4xlarge`      | `c8a.8xlarge`       | `c8a.12xlarge`      | `c8a.16xlarge`  | `c8a.24xlarge`  | `c8a.48xlarge`    | `c8a.metal-24xl`  | `c8a.metal-48xl`  |
-| C8g             | `c8g.medium`             | `c8g.large`       | `c8g.xlarge`       | `c8g.2xlarge`      | `c8g.4xlarge`      | `c8g.8xlarge`       | `c8g.12xlarge`      | `c8g.16xlarge`  | `c8g.24xlarge`  | `c8g.48xlarge`    | `c8g.metal-24xl`  | `c8g.metal-48xl`  |
-| C8gb            | `c8gb.medium`            | `c8gb.large`      | `c8gb.xlarge`      | `c8gb.2xlarge`     | `c8gb.4xlarge`     | `c8gb.8xlarge`      | `c8gb.12xlarge`     | `c8gb.16xlarge` | `c8gb.24xlarge` | `c8gb.metal-24xl` |
-| C8gd            | `c8gd.medium`            | `c8gd.large`      | `c8gd.xlarge`      | `c8gd.2xlarge`     | `c8gd.4xlarge`     | `c8gd.8xlarge`      | `c8gd.12xlarge`     | `c8gd.16xlarge` | `c8gd.24xlarge` | `c8gd.48xlarge`   | `c8gd.metal-24xl` | `c8gd.metal-48xl` |
-| C8gn            | `c8gn.medium`            | `c8gn.large`      | `c8gn.xlarge`      | `c8gn.2xlarge`     | `c8gn.4xlarge`     | `c8gn.8xlarge`      | `c8gn.12xlarge`     | `c8gn.16xlarge` | `c8gn.24xlarge` | `c8gn.48xlarge`   | `c8gn.metal-24xl` | `c8gn.metal-48xl` |
-| C8i             | `c8i.large`              | `c8i.xlarge`      | `c8i.2xlarge`      | `c8i.4xlarge`      | `c8i.8xlarge`      | `c8i.12xlarge`      | `c8i.16xlarge`      | `c8i.24xlarge`  | `c8i.32xlarge`  | `c8i.48xlarge`    | `c8i.96xlarge`    | `c8i.metal-48xl`  | `c8i.metal-96xl` |
+| C8a             | `c8a.medium`             | `c8a.large`       | `c8a.xlarge`       | `c8a.2xlarge`      | `c8a.4xlarge`      | `c8a.8xlarge`       | `c8a.12xlarge`      | `c8a.16xlarge`  | `c8a.24xlarge`  | `c8a.48xlarge`   | `c8a.metal-24xl`  | `c8a.metal-48xl`  |
+| C8g             | `c8g.medium`             | `c8g.large`       | `c8g.xlarge`       | `c8g.2xlarge`      | `c8g.4xlarge`      | `c8g.8xlarge`       | `c8g.12xlarge`      | `c8g.16xlarge`  | `c8g.24xlarge`  | `c8g.48xlarge`   | `c8g.metal-24xl`  | `c8g.metal-48xl`  |
+| C8gb            | `c8gb.medium`            | `c8gb.large`      | `c8gb.xlarge`      | `c8gb.2xlarge`     | `c8gb.4xlarge`     | `c8gb.8xlarge`      | `c8gb.12xlarge`     | `c8gb.16xlarge` | `c8gb.24xlarge` | `c8gb.48xlarge`  | `c8gb.metal-24xl` | `c8gb.metal-48xl` |
+| C8gd            | `c8gd.medium`            | `c8gd.large`      | `c8gd.xlarge`      | `c8gd.2xlarge`     | `c8gd.4xlarge`     | `c8gd.8xlarge`      | `c8gd.12xlarge`     | `c8gd.16xlarge` | `c8gd.24xlarge` | `c8gd.48xlarge`  | `c8gd.metal-24xl` | `c8gd.metal-48xl` |
+| C8gn            | `c8gn.medium`            | `c8gn.large`      | `c8gn.xlarge`      | `c8gn.2xlarge`     | `c8gn.4xlarge`     | `c8gn.8xlarge`      | `c8gn.12xlarge`     | `c8gn.16xlarge` | `c8gn.24xlarge` | `c8gn.48xlarge`  | `c8gn.metal-24xl` | `c8gn.metal-48xl` |
+| C8i             | `c8i.large`              | `c8i.xlarge`      | `c8i.2xlarge`      | `c8i.4xlarge`      | `c8i.8xlarge`      | `c8i.12xlarge`      | `c8i.16xlarge`      | `c8i.24xlarge`  | `c8i.32xlarge`  | `c8i.48xlarge`   | `c8i.96xlarge`    | `c8i.metal-48xl`  | `c8i.metal-96xl` |
 | C8i-flex        | `c8i-flex.large`         | `c8i-flex.xlarge` | `c8i-flex.2xlarge` | `c8i-flex.4xlarge` | `c8i-flex.8xlarge` | `c8i-flex.12xlarge` | `c8i-flex.16xlarge` |
 
 ## Instance family summary
@@ -305,7 +305,9 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | c8gb.12xlarge     | 96.00        | AWS Graviton4 Processor            | 48    | 48        | 1                | ✗ No         | ✗ No               |
 | c8gb.16xlarge     | 128.00       | AWS Graviton4 Processor            | 64    | 64        | 1                | ✗ No         | ✗ No               |
 | c8gb.24xlarge     | 192.00       | AWS Graviton4 Processor            | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| c8gb.48xlarge     | 384.00       | AWS Graviton4 Processor            | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | c8gb.metal-24xl   | 192.00       | AWS Graviton4 Processor            | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| c8gb.metal-48xl   | 384.00       | AWS Graviton4 Processor            | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | **C8gd**          |
 | c8gd.medium       | 2.00         | AWS Graviton4 Processor            | 1     | 1         | 1                | ✗ No         | ✗ No               |
 | c8gd.large        | 4.00         | AWS Graviton4 Processor            | 2     | 2         | 1                | ✗ No         | ✗ No               |
@@ -585,7 +587,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8gb.12xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | c8gb.16xlarge       | 133.33 Gigabit                    | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
 | c8gb.24xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
+| c8gb.48xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
 | c8gb.metal-24xl     | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 50                         | ✓ Yes |
+| c8gb.metal-48xl     | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 50                         | ✓ Yes |
 | **C8gd**            |
 | c8gd.medium 1       | 0.52 / 12.5                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 4                          | ✓ Yes |
 | c8gd.large 1        | 0.937 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
@@ -898,7 +902,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8gb.12xlarge       | 75000.00                            | 9375.00                                           | 360000.00                            | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8gb.16xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8gb.24xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8gb.48xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | c8gb.metal-24xl     | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | 39 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| c8gb.metal-48xl     | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **C8gd**            |
 | c8gd.medium 1       | 315.00 / 10000.00                   | 39.38 / 1250.00                                   | 2500.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | c8gd.large 1        | 630.00 / 10000.00                   | 78.75 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1256,7 +1262,9 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | c8gb.12xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | c8gb.16xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | c8gb.24xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| c8gb.48xlarge     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | c8gb.metal-24xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| c8gb.metal-48xl   | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **C8gd**          |
 | c8gd.medium       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | c8gd.large        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
