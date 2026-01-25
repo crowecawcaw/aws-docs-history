@@ -46,6 +46,6 @@ validated.
 2. Document redundancy plans in your system design
    specifications and standard operating procedures.
 3. Use AWS services such as Amazon RDS Multi-AZ, Amazon S3
-   cross-region replication, or ELB across
+   cross-region replication, or Elastic Load Balancing across
    multiple Availability Zones, verifying that validation
    records include both primary and redundant configurations.

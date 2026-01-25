@@ -50,7 +50,7 @@ Store test artifacts centrally with immutable retention.
 
 ### Implementation steps
 
-1. Use AWS ELB with Auto Scaling to validate
+1. Use AWS Elastic Load Balancing with Auto Scaling to validate
    failover.
 2. Run simulated production workloads using AWS Batch or Amazon ECS.
 3. Trigger alerts through Amazon CloudWatch Alarms and verify
