@@ -208,14 +208,14 @@ AWS Managed Services provided for such customer-requested configurations will be
 - Backups and Restoration: All AWS services supported by AWS Backup. For a list of services
   supported by AWS Backup, see [AWS Backup supported resources](../../../aws-backup/latest/devguide/whatisbackup.md#supported-resources "../../../aws-backup/latest/devguide/whatisbackup.md#supported-resources").
 - Resource Scheduler: Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon Relational Database Service (Amazon RDS) and Amazon EC2 Auto Scaling groups
-- Services monitored for operational events: [Supported checks](tr-supported-checks.md "tr-supported-checks.md") and Trusted Advisor, Application Load Balancer, Aurora, Amazon EC2, ELB, Amazon FSx for NetApp ONTAP, Amazon FSx
+- Services monitored for operational events: [Supported checks](tr-supported-checks.md "tr-supported-checks.md") and Trusted Advisor, Application Load Balancer, Aurora, Amazon EC2, Elastic Load Balancing, Amazon FSx for NetApp ONTAP, Amazon FSx
   for Windows File Server, NAT gateway (a Network Address Translation (NAT)
   service), OpenSearch, Health Dashboard, Amazon Redshift, Amazon Relational Database Service (Amazon RDS),
   Site-to-Site VPN. To learn more about what AMS Accelerate is monitoring as part
   of a service, see [Alerts from baseline monitoring in AMS](monitoring-default-metrics.md "monitoring-default-metrics.md") .
 - Services monitored by security Config Rules: AWS Account, GuardDuty, Macie, Amazon API Gateway, AWS Certificate Manager, AWS Config,
   CloudTrail, CloudWatch, AWS CodeBuild, AWS Database Migration Service, Amazon DynamoDB, Amazon EC2, Amazon ElastiCache, Amazon Elastic Block Store (Amazon EBS),
-  Amazon Elastic File System (Amazon EFS), Amazon Elastic Kubernetes Service (Amazon EKS), ELB, Amazon OpenSearch Service, Amazon EMR, AWS Identity and Access Management (IAM), AWS Key Management Service, AWS Lambda, Amazon Redshift, Amazon Relational Database Service,
+  Amazon Elastic File System (Amazon EFS), Amazon Elastic Kubernetes Service (Amazon EKS), Elastic Load Balancing, Amazon OpenSearch Service, Amazon EMR, AWS Identity and Access Management (IAM), AWS Key Management Service, AWS Lambda, Amazon Redshift, Amazon Relational Database Service,
   Amazon S3, Amazon SageMaker AI, AWS Secrets Manager , Amazon Simple Notification Service, AWS Systems Manager, Amazon VPC
   (Security group, volume, Elastic IP address, VPN connection, Internet gateways), Amazon VPC Flow Logs.
   For more details, see
