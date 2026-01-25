@@ -27,7 +27,7 @@ Review the example yaml below. Note the following configurations:
 - `tolerations` — This toleration overcomes the `CriticalAddonsOnly` taint on nodes in the `system` node pool.
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sample-app

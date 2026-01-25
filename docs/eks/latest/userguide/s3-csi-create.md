@@ -33,7 +33,7 @@ For more information about the recommended permissions for Mountpoint, see [Moun
 Replace `amzn-s3-demo-bucket1` with your own Amazon S3 bucket name.
 
 ```
- {
+{
    "Version":"2012-10-17",
    "Statement": [
         {
@@ -68,7 +68,7 @@ Directory buckets, introduced with the Amazon S3 Express One Zone storage class,
 Below is an example of least-privilege policy that you would use for a directory bucket.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -103,7 +103,7 @@ The IAM policy `AmazonS3CSIDriverPolicy` was created in the previous section.
 To create the IAM role and the Kubernetes service account, run the following commands. These commands also attach the `AmazonS3CSIDriverPolicy` IAM policy to the role, annotate the Kubernetes service account (`s3-csi-controller-sa`) with the IAM role’s Amazon Resource Name (ARN), and add the Kubernetes service account name to the trust policy for the IAM role.
 
 ```
- CLUSTER_NAME=my-cluster
+CLUSTER_NAME=my-cluster
 REGION=region-code
 ROLE_NAME=AmazonEKS_S3_CSI_DriverRole
 POLICY_ARN=AmazonEKS_S3_CSI_DriverRole_ARN
@@ -146,13 +146,13 @@ eksctl create iamserviceaccount \
 9. Find the line that looks similar to the following:
 
 ```
- "oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
+"oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:aud": "sts.amazonaws.com"
 ```
 
 Add a comma to the end of the previous line, and then add the following line after it. Replace `region-code` with the AWS Region that your cluster is in. Replace `EXAMPLED539D4633E53DE1B71EXAMPLE` with your cluster’s OIDC provider ID.
 
 ```
- "oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:s3-csi-driver-sa"
+"oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE:sub": "system:serviceaccount:kube-system:s3-csi-driver-sa"
 ```
 
 10. Ensure that the `Condition` operator is set to `"StringEquals"`.
@@ -163,20 +163,20 @@ Add a comma to the end of the previous line, and then add the following line aft
 1. View the OIDC provider URL for your cluster. Replace `my-cluster` with the name of your cluster. If the output from the command is `None`, review the [Prerequisites](#s3-csi-prereqs "#s3-csi-prereqs").
 
 ```
- aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text
+aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text
 ```
 
 An example output is as follows.
 
 ```
- https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
+https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
 ```
 
 2. Create the IAM role, granting the Kubernetes service account the `AssumeRoleWithWebIdentity` action.
    1. Copy the following contents to a file named `aws-s3-csi-driver-trust-policy.json`. Replace `111122223333` with your account ID. Replace `EXAMPLED539D4633E53DE1B71EXAMPLE` and `region-code` with the values returned in the previous step.
 
    ```
-    {
+   {
      "Version":"2012-10-17",
      "Statement": [
        {
@@ -199,7 +199,7 @@ An example output is as follows.
    2. Create the role. You can change `AmazonEKS_S3_CSI_DriverRole` to a different name, but if you do, make sure to change it in later steps too.
 
    ```
-    aws iam create-role \
+   aws iam create-role \
      --role-name AmazonEKS_S3_CSI_DriverRole \
      --assume-role-policy-document file://"aws-s3-csi-driver-trust-policy.json"
    ```
@@ -207,8 +207,8 @@ An example output is as follows.
 3. Attach the previously created IAM policy to the role with the following command.
 
 ```
- aws iam attach-role-policy \
-  --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonS3CSIDriverPolicy \
+aws iam attach-role-policy \
+  --policy-arn arn:aws:iam::aws:policy/AmazonS3CSIDriverPolicy \
   --role-name AmazonEKS_S3_CSI_DriverRole
 ```
 
@@ -221,7 +221,7 @@ The IAM policy `AmazonS3CSIDriverPolicy` was created in the previous section. 4.
 
 
     ```
-     ---
+    ---
     apiVersion: v1
     kind: ServiceAccount
     metadata:
@@ -230,14 +230,14 @@ The IAM policy `AmazonS3CSIDriverPolicy` was created in the previous section. 4.
       name: mountpoint-s3-csi-controller-sa
       namespace: kube-system
       annotations:
-        eks.amazonaws.com/role-arn: <shared id="region.arn"/>iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
+        eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
     ```
     2. Create the Kubernetes service account on your cluster. The Kubernetes service account (`mountpoint-s3-csi-controller-sa`) is annotated with the IAM role that you created named `AmazonEKS_S3_CSI_DriverRole`.
 
 
 
     ```
-     kubectl apply -f mountpoint-s3-service-account.yaml
+    kubectl apply -f mountpoint-s3-service-account.yaml
     ```
 
     ###### Note
@@ -263,8 +263,8 @@ Starting from `v1.8.0`, you can configure taints to tolerate for the CSI driver�
 Run the following command. Replace `my-cluster` with the name of your cluster, `111122223333` with your account ID, and `AmazonEKS_S3_CSI_DriverRole` with the name of the [IAM role created earlier](#s3-create-iam-role "#s3-create-iam-role").
 
 ```
- eksctl create addon --name aws-mountpoint-s3-csi-driver --cluster my-cluster \
-  --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole --force
+eksctl create addon --name aws-mountpoint-s3-csi-driver --cluster my-cluster \
+  --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole --force
 ```
 
 If you remove the `--force` option and any of the Amazon EKS add-on settings conflict with your existing settings, then updating the Amazon EKS add-on fails, and you receive an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option. For more information about other options for this setting, see [Addons](https://eksctl.io/usage/addons/ "https://eksctl.io/usage/addons/") in the `eksctl` documentation. For more information about Amazon EKS Kubernetes field management, see [Determine fields you can customize for Amazon EKS add-ons](kubernetes-field-management.md "kubernetes-field-management.md").
@@ -272,12 +272,12 @@ If you remove the `--force` option and any of the Amazon EKS add-on settings con
 You can customize `eksctl` through configuration files. For more information, see [Working with configuration values](https://eksctl.io/usage/addons/#working-with-configuration-values "https://eksctl.io/usage/addons/#working-with-configuration-values") in the `eksctl` documentation. The following example shows how to tolerate all taints.
 
 ```
- # config.yaml
+# config.yaml
 ...
 
 addons:
 - name: aws-mountpoint-s3-csi-driver
-  serviceAccountRoleARN: <shared id="region.arn"/>iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
+  serviceAccountRoleARN: arn:aws:iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
   configurationValues: |-
     node:
       tolerateAllTaints: true
@@ -310,15 +310,15 @@ addons:
 Run the following command. Replace `my-cluster` with the name of your cluster, `111122223333` with your account ID, and `AmazonEKS_S3_CSI_DriverRole` with the name of the role that was created earlier.
 
 ```
- aws eks create-addon --cluster-name my-cluster --addon-name aws-mountpoint-s3-csi-driver \
-  --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
+aws eks create-addon --cluster-name my-cluster --addon-name aws-mountpoint-s3-csi-driver \
+  --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole
 ```
 
 You can customize the command with the `--configuration-values` flag. The following alternative example shows how to tolerate all taints.
 
 ```
- aws eks create-addon --cluster-name my-cluster --addon-name aws-mountpoint-s3-csi-driver \
-  --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole \
+aws eks create-addon --cluster-name my-cluster --addon-name aws-mountpoint-s3-csi-driver \
+  --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKS_S3_CSI_DriverRole \
   --configuration-values '{"node":{"tolerateAllTaints":true}}'
 ```
 

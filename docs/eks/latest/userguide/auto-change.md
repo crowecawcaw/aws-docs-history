@@ -9,8 +9,12 @@ This page documents updates to Amazon EKS Auto Mode. You can periodically check 
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
 ```
- https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
+https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
+
+## December 19, 2025
+
+**Feature**: Added support for secondary IP mode that provisions secondary IP addresses instead of prefix to Auto nodes. The mode maintains a one secondary IP as MinimalIPTarget and save IP resources for customers who don’t need to warm up more secondary IPs or prefixes. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec") and [Secondary IP Mode for Pods](create-node-class.md#secondary-IP-mode "create-node-class.md#secondary-IP-mode").
 
 ## November 19, 2025
 

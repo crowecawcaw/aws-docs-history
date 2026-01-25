@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Automate cluster infrastructure with EKS Auto Mode
 
+###### Tip
+
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS Auto Mode workshops.
+
 EKS Auto Mode extends AWS management of Kubernetes clusters beyond the cluster itself, to allow AWS to also set up and manage the infrastructure that enables the smooth operation of your workloads.
 You can delegate key infrastructure decisions and leverage the expertise of AWS for day-to-day operations.
 Cluster infrastructure managed by AWS includes many Kubernetes capabilities as core components, as opposed to add-ons, such as compute autoscaling, pod and service networking, application load balancing, cluster DNS, block storage, and GPU support.

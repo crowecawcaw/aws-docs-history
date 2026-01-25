@@ -118,7 +118,7 @@ If you are building a VMware vSphere OVA, the following environment variables mu
 Before running your build, validate your template with the following command after setting your environment variables. Replace `template.pkr.hcl` if you are using a different name for your template.
 
 ```
- packer validate template.pkr.hcl
+packer validate template.pkr.hcl
 ```
 
 ### Build images
@@ -134,25 +134,25 @@ If you are using RHEL with vSphere you need to convert the kickstart files to an
 **Ubuntu 22.04 OVA**
 
 ```
- packer build -only=general-build.vsphere-iso.ubuntu22 template.pkr.hcl
+packer build -only=general-build.vsphere-iso.ubuntu22 template.pkr.hcl
 ```
 
 **Ubuntu 24.04 OVA**
 
 ```
- packer build -only=general-build.vsphere-iso.ubuntu24 template.pkr.hcl
+packer build -only=general-build.vsphere-iso.ubuntu24 template.pkr.hcl
 ```
 
 **RHEL 8 OVA**
 
 ```
- packer build -only=general-build.vsphere-iso.rhel8 template.pkr.hcl
+packer build -only=general-build.vsphere-iso.rhel8 template.pkr.hcl
 ```
 
 **RHEL 9 OVA**
 
 ```
- packer build -only=general-build.vsphere-iso.rhel9 template.pkr.hcl
+packer build -only=general-build.vsphere-iso.rhel9 template.pkr.hcl
 ```
 
 **QEMU**
@@ -164,25 +164,25 @@ If you are building an image for a specific host CPU that does not match your bu
 **Ubuntu 22.04 Qcow2 / Raw**
 
 ```
- packer build -only=general-build.qemu.ubuntu22 template.pkr.hcl
+packer build -only=general-build.qemu.ubuntu22 template.pkr.hcl
 ```
 
 **Ubuntu 24.04 Qcow2 / Raw**
 
 ```
- packer build -only=general-build.qemu.ubuntu24 template.pkr.hcl
+packer build -only=general-build.qemu.ubuntu24 template.pkr.hcl
 ```
 
 **RHEL 8 Qcow2 / Raw**
 
 ```
- packer build -only=general-build.qemu.rhel8 template.pkr.hcl
+packer build -only=general-build.qemu.rhel8 template.pkr.hcl
 ```
 
 **RHEL 9 Qcow2 / Raw**
 
 ```
- packer build -only=general-build.qemu.rhel9 template.pkr.hcl
+packer build -only=general-build.qemu.rhel9 template.pkr.hcl
 ```
 
 ### Pass nodeadm configuration through user-data
@@ -193,7 +193,7 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 2. After running the Packer build in the previous section and provisioning your template, you can clone your template to create multiple different nodes using the following. You must clone the template for each new VM you are creating that will be used for hybrid nodes. Replace the variables in the command below with the values for your environment. The `VM_NAME` in the command below is used as your `NODE_NAME` when you inject the names for your VMs via your `metadata.yaml` file.
 
 ```
- govc vm.clone -vm "/PATH/TO/TEMPLATE" -ds="YOUR_DATASTORE" \
+govc vm.clone -vm "/PATH/TO/TEMPLATE" -ds="YOUR_DATASTORE" \
     -on=false -template=false -folder=/FOLDER/TO/SAVE/VM "VM_NAME"
 ```
 
@@ -202,7 +202,7 @@ You can pass configuration for `nodeadm` in your user-data through cloud-init to
 **userdata.yaml:**
 
 ```
- #cloud-config
+#cloud-config
 users:
   - name: # username for login. Use 'builder' for RHEL or 'ubuntu' for Ubuntu.
     passwd: # password to login. Default is 'builder' for RHEL.
@@ -220,7 +220,7 @@ write_files:
       spec:
           cluster:
               name: # Cluster Name
-              region: # <shared id="AWS"/> region
+              region: # AWS region
           hybrid:
               ssm:
                   activationCode: # Your ssm activation code
@@ -235,7 +235,7 @@ runcmd:
 Create a `metadata.yaml` for your environment. Keep the `"$NODE_NAME"` variable format in the file as this will be populated with values in a subsequent step.
 
 ```
- instance-id: "$NODE_NAME"
+instance-id: "$NODE_NAME"
 local-hostname: "$NODE_NAME"
 network:
   version: 2
@@ -249,7 +249,7 @@ network:
 4. Add the `userdata.yaml` and `metadata.yaml` files as `gzip+base64` strings with the following commands. The following commands should be run for each of the VMs you are creating. Replace `VM_NAME` with the name of the VM you are updating.
 
 ```
- export NODE_NAME="VM_NAME"
+export NODE_NAME="VM_NAME"
 export USER_DATA=$(gzip -c9 <userdata.yaml | base64)
 
 govc vm.change -dc="YOUR_DATASTORE" -vm "$NODE_NAME" -e guestinfo.userdata="${USER_DATA}"
@@ -265,5 +265,5 @@ govc vm.change -dc="YOUR_DATASTORE" -vm "$NODE_NAME" -e guestinfo.metadata.encod
 5. Power on your new VMs, which should automatically connect to the EKS cluster you configured.
 
 ```
- govc vm.power -on "${NODE_NAME}"
+govc vm.power -on "${NODE_NAME}"
 ```

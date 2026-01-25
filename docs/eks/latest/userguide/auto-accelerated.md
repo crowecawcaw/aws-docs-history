@@ -41,7 +41,7 @@ To deploy the Amazon EKS Auto Mode `NodePool` and the sample `workload`, review 
 **nodepool-gpu.yaml**
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: gpu
@@ -79,7 +79,7 @@ spec:
 **pod.yaml**
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: nvidia-smi
@@ -111,21 +111,21 @@ Note the `eks.amazonaws.com/compute-type: auto` selector requires the workload b
 Apply the NodePool and workload to your cluster.
 
 ```
- kubectl apply -f nodepool-gpu.yaml
+kubectl apply -f nodepool-gpu.yaml
 kubectl apply -f pod.yaml
 ```
 
 You should see the following output:
 
 ```
- nodepool.karpenter.sh/gpu configured created
+nodepool.karpenter.sh/gpu configured created
 pod/nvidia-smi created
 ```
 
 Wait a few seconds, and check the nodes in your cluster. You should now see a new node provisioned in your Amazon EKS Auto Mode cluster:
 
 ```
- > kubectl get nodes
+> kubectl get nodes
 
 NAME        TYPE          CAPACITY    ZONE         NODE                  READY   AGE
 gpu-dnknr   g6e.2xlarge   on-demand   us-west-2b   i-02315c7d7643cdee6   True    76s
@@ -136,7 +136,7 @@ gpu-dnknr   g6e.2xlarge   on-demand   us-west-2b   i-02315c7d7643cdee6   True   
 You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than an `g6.2xlarge` as the workload required an instance with l40s `GPU`, according to the following Kubernetes scheduling constraints:
 
 ```
- ...
+...
   nodeSelector:
     eks.amazonaws.com/instance-gpu-name: l40s
 ...
@@ -152,13 +152,13 @@ You can see Amazon EKS Auto Mode launched a `g6e.2xlarge` rather than an `g6.2xl
 Now, look at the containers logs, by running the following command:
 
 ```
- kubectl logs nvidia-smi
+kubectl logs nvidia-smi
 ```
 
 Sample output:
 
 ```
- +---------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 535.230.02             Driver Version: 535.230.02   CUDA Version: 12.2     |
 |-----------------------------------------+----------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
@@ -203,7 +203,7 @@ The following NodePool defines:
 **Example NodePool with GPU instance family and consolidation**
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: gpu
@@ -242,7 +242,7 @@ If you have specific storage requirements you can tune the nodes ephemeral stora
 **Example storage configuration for NodeClass**
 
 ```
- apiVersion: eks.amazonaws.com/v1
+apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: gpu

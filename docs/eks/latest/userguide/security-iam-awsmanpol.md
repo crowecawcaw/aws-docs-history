@@ -370,7 +370,7 @@ View details about updates to AWS managed policies for Amazon EKS since this ser
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
 ```
- https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/security/iam-reference/security-iam-awsmanpol.adoc.atom
+https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/security/iam-reference/security-iam-awsmanpol.adoc.atom
 ```
 
 | Change                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Date              |

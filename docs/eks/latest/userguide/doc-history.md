@@ -7,7 +7,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 The following table describes some of the major updates and new features for the Amazon EKS User Guide. To receive notifications when this table gets a new entry, you can subscribe to the following URL with an RSS reader:
 
 ```
- https://docs.aws.amazon.com/eks/latest/userguide/doc-history.rss
+https://docs.aws.amazon.com/eks/latest/userguide/doc-history.rss
 ```
 
 | Change                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Date               |

@@ -37,26 +37,26 @@ To register a cluster to Amazon EKS connector, you can use one of these tools:
 2. For the Connector configuration, specify your Amazon EKS Connector agent IAM role. For more information, see [Required IAM roles for Amazon EKS Connector](eks-connector.md#connector-iam-permissions "eks-connector.md#connector-iam-permissions").
 
 ```
- aws eks register-cluster \
+aws eks register-cluster \
      --name my-first-registered-cluster \
-     --connector-config roleArn=<shared id="region.arn"/>iam::111122223333:role/AmazonEKSConnectorAgentRole,provider="OTHER" \
+     --connector-config roleArn=arn:aws:iam::111122223333:role/AmazonEKSConnectorAgentRole,provider="OTHER" \
      --region aws-region
 ```
 
 An example output is as follows.
 
 ```
- {
+{
     "cluster": {
         "name": "my-first-registered-cluster",
-        "arn": "<shared id="region.arn"/>eks:region:111122223333:cluster/my-first-registered-cluster",
+        "arn": "arn:aws:eks:region:111122223333:cluster/my-first-registered-cluster",
         "createdAt": 1627669203.531,
         "ConnectorConfig": {
             "activationId": "xxxxxxxxACTIVATION_IDxxxxxxxx",
             "activationCode": "xxxxxxxxACTIVATION_CODExxxxxxxx",
             "activationExpiry": 1627672543.0,
             "provider": "OTHER",
-            "roleArn": "<shared id="region.arn"/>iam::111122223333:role/AmazonEKSConnectorAgentRole"
+            "roleArn": "arn:aws:iam::111122223333:role/AmazonEKSConnectorAgentRole"
         },
         "status": "CREATING"
     }
@@ -91,13 +91,13 @@ Continue to the next step to apply the manifest file to your Kubernetes cluster.
 2. Register the cluster by providing a name, provider, and region.
 
 ```
- eksctl register cluster --name my-cluster --provider my-provider --region region-code
+eksctl register cluster --name my-cluster --provider my-provider --region region-code
 ```
 
 Example output:
 
 ```
- 2021-08-19 13:47:26 [ℹ]  creating IAM role "eksctl-20210819194112186040"
+2021-08-19 13:47:26 [ℹ]  creating IAM role "eksctl-20210819194112186040"
 2021-08-19 13:47:26 [ℹ]  registered cluster "<name>" successfully
 2021-08-19 13:47:26 [ℹ]  wrote file eks-connector.yaml to <current directory>
 2021-08-19 13:47:26 [ℹ]  wrote file eks-connector-clusterrole.yaml to <current directory>
@@ -109,7 +109,7 @@ Example output:
 This creates files on your local computer. These files must be applied to the external cluster within 3 days, or the registration expires. 3. In a terminal that can access the cluster, apply the `eks-connector-binding.yaml` file:
 
 ```
- kubectl apply -f eks-connector-binding.yaml
+kubectl apply -f eks-connector-binding.yaml
 ```
 
 ## Step 2: Installing the `eks-connector` agent
@@ -128,7 +128,7 @@ If you registered the cluster with `eksctl`, use the YAML manifest method instea
 1. If you used the AWS CLI in the previous step, replace the `ACTIVATION_CODE` and `ACTIVATION_ID` in the following command with the `activationId`, and `activationCode` values respectively. Replace the `aws-region` with the AWS Region that you used in the previous step. Then run the command to install the `eks-connector` agent on the registering cluster:
 
 ```
- $ helm install eks-connector \
+$ helm install eks-connector \
   --namespace eks-connector \
   oci://public.ecr.aws/eks-connector/eks-connector-chart \
   --set eks.activationCode=ACTIVATION_CODE \
@@ -145,7 +145,7 @@ Complete the connection by applying the Amazon EKS Connector manifest file to yo
 1. Download the Amazon EKS Connector YAML file.
 
 ```
- curl -O https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml
+curl -O https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml
 ```
 
 2. Edit the Amazon EKS Connector YAML file to replace all references of `%AWS_REGION%`, `%EKS_ACTIVATION_ID%`, `%EKS_ACTIVATION_CODE%` with the `aws-region`, `activationId`, and `activationCode` from the output of the previous step.
@@ -153,7 +153,7 @@ Complete the connection by applying the Amazon EKS Connector manifest file to yo
 The following example command can replace these values.
 
 ```
- sed -i "s~%AWS_REGION%~$aws-region~g; s~%EKS_ACTIVATION_ID%~$EKS_ACTIVATION_ID~g; s~%EKS_ACTIVATION_CODE%~$(echo -n $EKS_ACTIVATION_CODE | base64)~g" eks-connector.yaml
+sed -i "s~%AWS_REGION%~$aws-region~g; s~%EKS_ACTIVATION_ID%~$EKS_ACTIVATION_ID~g; s~%EKS_ACTIVATION_CODE%~$(echo -n $EKS_ACTIVATION_CODE | base64)~g" eks-connector.yaml
 ```
 
 ###### Important
@@ -161,13 +161,13 @@ The following example command can replace these values.
 Ensure that your activation code is in the base64 format. 3. In a terminal that can access the cluster, you can apply the updated manifest file by running the following command:
 
 ```
- kubectl apply -f eks-connector.yaml
+kubectl apply -f eks-connector.yaml
 ```
 
 4. After the Amazon EKS Connector manifest and role binding YAML files are applied to your Kubernetes cluster, confirm that the cluster is now connected.
 
 ```
- aws eks describe-cluster \
+aws eks describe-cluster \
      --name "my-first-registered-cluster" \
      --region AWS_REGION
 ```

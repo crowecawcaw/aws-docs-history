@@ -44,7 +44,7 @@ Using Amazon EKS doesn’t change your responsibilities under the [shared respon
 To automatically delete the related Pods after a Job completes or fails, you can specify a time period using the time-to-live (TTL) controller. The following example shows specifying `.spec.ttlSecondsAfterFinished` in your Job manifest.
 
 ```
- apiVersion: batch/v1
+apiVersion: batch/v1
 kind: Job
 metadata:
   name: busybox

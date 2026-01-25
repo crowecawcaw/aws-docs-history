@@ -13,7 +13,7 @@ Unlike dynamic node pools that scale based on pod scheduling demands, static-cap
 Here’s a simple static-capacity node pool that maintains 5 nodes:
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: my-static-nodepool
@@ -64,7 +64,7 @@ Static-capacity node pools have several important constraints and behaviors:
 You can change the number of replicas in a static-capacity node pool using the `kubectl scale` command:
 
 ```
- # Scale down to 5 nodes
+# Scale down to 5 nodes
 kubectl scale nodepool static-nodepool --replicas=5
 ```
 
@@ -75,7 +75,7 @@ When scaling down, EKS Auto Mode will terminate nodes gracefully, respecting Pod
 Use the following commands to monitor your static-capacity node pools:
 
 ```
- # View node pool status
+# View node pool status
 kubectl get nodepool static-nodepool
 
 # Get detailed information including current node count
@@ -92,7 +92,7 @@ The `status.nodes` field shows the current number of nodes managed by the node p
 ### Basic static-capacity node pool
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: basic-static
@@ -121,7 +121,7 @@ spec:
 ### Static-capacity with specific instance types
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: reserved-instances
@@ -162,7 +162,7 @@ spec:
 ### Multi-zone static-capacity node pool
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: multi-zone-static

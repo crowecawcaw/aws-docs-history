@@ -24,12 +24,13 @@ Changes to Kubernetes resources are immediately reflected in AWS resource state,
 **Example S3 Bucket resource manifest**
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: my-ack-bucket
 spec:
-  name: <replaceable>my-unique-bucket-name</replaceable>
+  name: `my-unique-bucket-name`
+
 ```
 
 When you apply this custom resource to your cluster, ACK creates an Amazon S3 bucket in your account if it does not yet exist.

@@ -30,7 +30,7 @@ Platform teams need permissions to create and manage ResourceGraphDefinitions.
 **Example ClusterRole for platform teams**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: kro-platform-admin
@@ -43,7 +43,7 @@ rules:
 **Bind to platform team members**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: platform-team-kro-admin
@@ -64,7 +64,7 @@ Application teams need permissions to create instances of custom resources in th
 **Example Role for application teams**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: kro-app-developer
@@ -78,7 +78,7 @@ rules:
 **Bind to application team members**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: app-team-kro-developer
@@ -104,7 +104,7 @@ Grant read-only access to view ResourceGraphDefinitions and instances without mo
 **Read-only ClusterRole**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: kro-viewer
@@ -117,7 +117,7 @@ rules:
 **Read-only Role for instances**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: kro-instance-viewer
@@ -135,7 +135,7 @@ Grant application teams access to multiple namespaces using ClusterRoles with Ro
 **ClusterRole for multi-namespace access**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: kro-multi-namespace-developer
@@ -148,7 +148,7 @@ rules:
 **Bind to specific namespaces**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: app-team-dev-access

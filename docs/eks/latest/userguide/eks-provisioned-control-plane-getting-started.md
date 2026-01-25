@@ -14,7 +14,7 @@ Before you begin, ensure you have:
 - **Required IAM permissions** – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _IAM User Guide_. You must complete all steps in this guide as the same user. To check the current user, run the following command:
 
 ```
- aws sts get-caller-identity
+aws sts get-caller-identity
 ```
 
 ###### Note
@@ -26,7 +26,7 @@ We recommend that you complete the steps in this topic in a Bash shell. If you a
 ### Create cluster with EKS Provisioned Control Plane Scaling Tier
 
 ```
- aws eks create-cluster --name prod-cluster \
+aws eks create-cluster --name prod-cluster \
 --role-arn arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI \
 --resources-vpc-config subnetIds=subnet-6782e71e,subnet-e7e761ac,securityGroupIds=sg-6979fe18 \
 --control-plane-scaling-config tier=tier-xl
@@ -35,7 +35,7 @@ We recommend that you complete the steps in this topic in a Bash shell. If you a
 Response:
 
 ```
- {
+{
     "cluster": {
         "name": "my-eks-cluster",
         "arn": "arn:aws:eks:us-east-2:111122223333:cluster/my-eks-cluster",
@@ -120,13 +120,13 @@ Response:
 ### View cluster’s Control Plane Scaling Tier
 
 ```
- aws eks describe-cluster --name prod-cluster
+aws eks describe-cluster --name prod-cluster
 ```
 
 Response:
 
 ```
- {
+{
     "cluster": {
         "name": "my-eks-cluster",
         "arn": "arn:aws:eks:us-east-2:111122223333:cluster/my-eks-cluster",
@@ -211,14 +211,14 @@ Response:
 ### Update cluster to use EKS Provisioned Control Plane
 
 ```
- aws eks update-cluster-config --name prod-cluster \
+aws eks update-cluster-config --name prod-cluster \
 --control-plane-scaling-config tier=tier-2xl
 ```
 
 Response:
 
 ```
- {
+{
     "update": {
         "id": "7551c64b-1d27-4b1e-9f8e-c45f056eb6fd",
         "status": "InProgress",
@@ -242,13 +242,13 @@ Response:
 ### View Control Plane Scaling update
 
 ```
- aws eks list-updates --name example
+aws eks list-updates --name example
 ```
 
 Response:
 
 ```
- {
+{
     "updateIds": [
         "7551c64b-1d27-4b1e-9f8e-c45f056eb6fd1"
     ]
@@ -258,14 +258,14 @@ Response:
 ### Exit Provisioned Control Plane to Standard Control Plane
 
 ```
- aws eks update-cluster-config --name prod-cluster \
+aws eks update-cluster-config --name prod-cluster \
 --control-plane-scaling-config tier=standard
 ```
 
 Response:
 
 ```
- {
+{
     "update": {
         "id": "7551c64b-1d27-4b1e-9f8e-c45f056eb6fd",
         "status": "InProgress",

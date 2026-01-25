@@ -13,7 +13,7 @@ EKS Auto Mode does not create a `StorageClass` for you. You must create a `Stora
 First, create a file named `storage-class.yaml`:
 
 ```
- apiVersion: storage.k8s.io/v1
+apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: auto-ebs-sc
@@ -34,7 +34,7 @@ parameters:
 Second, apply the storage class to your cluster.
 
 ```
- kubectl apply -f storage-class.yaml
+kubectl apply -f storage-class.yaml
 ```
 
 **Key components:**
@@ -70,7 +70,7 @@ Update the following values in the policy below:
 - `<aws-region>` – The AWS region of your cluster, such as `us-west-2`
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Id": "key-auto-policy-3",
   "Statement": [
@@ -112,7 +112,7 @@ Update the following values in the policy below:
 ### Sample self-managed KMS `StorageClass`
 
 ```
- parameters:
+parameters:
   type: gp3
   encrypted: "true"
   kmsKeyId: <custom-key-arn>
@@ -186,7 +186,7 @@ For more information, see:
    1. Insert the following yaml to associate the snapshot controller with the `system` node pool. The snapshot controller includes a toleration for the `CriticalAddonsOnly` taint.
 
    ```
-    {
+   {
            "nodeSelector": {
                "karpenter.sh/nodepool": "system"
            }

@@ -33,7 +33,7 @@ See the Access Entry RBAC requirements section below for configuration options.
 **Using the Argo CD CLI**:
 
 ```
- argocd cluster add <cluster-context-name> \
+argocd cluster add <cluster-context-name> \
   --aws-cluster-name arn:aws:eks:us-west-2:111122223333:cluster/my-cluster \
   --name local-cluster
 ```
@@ -41,7 +41,7 @@ See the Access Entry RBAC requirements section below for configuration options.
 **Using a Kubernetes Secret**:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Secret
 metadata:
   name: local-cluster
@@ -57,7 +57,7 @@ stringData:
 Apply the configuration:
 
 ```
- kubectl apply -f local-cluster.yaml
+kubectl apply -f local-cluster.yaml
 ```
 
 ###### Note
@@ -75,10 +75,10 @@ To deploy to remote clusters:
 Replace `region-code` with the AWS Region that your remote cluster is in, replace `remote-cluster` with the name of your remote cluster, and replace the ARN with your Argo CD capability role ARN.
 
 ```
- aws eks create-access-entry \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>remote-cluster</replaceable> \
-  --principal-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/<replaceable>ArgoCDCapabilityRole</replaceable> \
+aws eks create-access-entry \
+  --region `region-code` \
+  --cluster-name `remote-cluster` \
+  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
   --type STANDARD
 ```
 
@@ -88,10 +88,10 @@ The Access Entry requires Kubernetes RBAC permissions for Argo CD to deploy appl
 For getting started quickly, you can use the `AmazonEKSClusterAdminPolicy`:
 
 ```
- aws eks associate-access-policy \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>remote-cluster</replaceable> \
-  --principal-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/<replaceable>ArgoCDCapabilityRole</replaceable> \
+aws eks associate-access-policy \
+  --region `region-code` \
+  --cluster-name `remote-cluster` \
+  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 ```
@@ -108,7 +108,7 @@ See the production setup section below for least privilege configuration.
 **Using the Argo CD CLI**:
 
 ```
- argocd cluster add <cluster-context-name> \
+argocd cluster add <cluster-context-name> \
   --aws-cluster-name arn:aws:eks:us-west-2:111122223333:cluster/remote-cluster \
   --name remote-cluster
 ```
@@ -116,7 +116,7 @@ See the production setup section below for least privilege configuration.
 **Using a Kubernetes Secret**:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Secret
 metadata:
   name: remote-cluster
@@ -132,7 +132,7 @@ stringData:
 Apply the configuration:
 
 ```
- kubectl apply -f remote-cluster.yaml
+kubectl apply -f remote-cluster.yaml
 ```
 
 ## Cross-account clusters
@@ -152,7 +152,7 @@ The cluster ARN format includes the region, so cross-region deployments use the 
 View registered clusters:
 
 ```
- kubectl get secrets -n argocd -l argocd.argoproj.io/secret-type=cluster
+kubectl get secrets -n argocd -l argocd.argoproj.io/secret-type=cluster
 ```
 
 Or check cluster status in the Argo CD UI under Settings → Clusters.
@@ -195,10 +195,10 @@ Argo CD needs two types of permissions to function without errors:
 For getting started quickly, testing, or development environments, use `AmazonEKSClusterAdminPolicy`:
 
 ```
- aws eks associate-access-policy \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
-  --principal-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/<replaceable>ArgoCDCapabilityRole</replaceable> \
+aws eks associate-access-policy \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
+  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 ```
@@ -219,18 +219,19 @@ For production environments, create custom Kubernetes RBAC that grants:
 **Step 1: Associate Access Entry with a custom Kubernetes group**
 
 ```
- aws eks associate-access-policy \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
-  --principal-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/<replaceable>ArgoCDCapabilityRole</replaceable> \
+aws eks associate-access-policy \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
+  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSEditPolicy \
-  --access-scope type=namespace,namespaces=<replaceable>app-namespace</replaceable>
+  --access-scope type=namespace,namespaces=`app-namespace`
+
 ```
 
 **Step 2: Create ClusterRole for read access**
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: argocd-read-all
@@ -244,7 +245,7 @@ rules:
 **Step 3: Create Role for write access to application namespaces**
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argocd-deploy
@@ -259,7 +260,7 @@ rules:
 **Step 4: Bind roles to the Kubernetes group**
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: argocd-read-all
@@ -308,7 +309,7 @@ Specify the project when registering the cluster using the `project` field in th
 Use Projects to control which clusters and namespaces Applications can deploy to by configuring the allowed target clusters and namespaces in `spec.destinations`:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: production

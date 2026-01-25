@@ -35,7 +35,7 @@ The value of `aws:SourceArn` must be the ARN of an EKS cluster in the format `ar
 The following example shows how you can use the `aws:SourceArn` and `aws:SourceAccount` global condition context keys in Amazon EKS to prevent the confused deputy problem.
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {

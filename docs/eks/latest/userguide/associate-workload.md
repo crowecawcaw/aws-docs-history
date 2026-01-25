@@ -19,7 +19,7 @@ This `nodeSelector` value is not required for EKS Auto Mode. This `nodeSelector`
 You can add this `nodeSelector` to Deployments or other workloads to require Kubernetes schedule them onto EKS Auto Mode nodes.
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 spec:
   template:
@@ -32,7 +32,7 @@ spec:
 You can add this `nodeAffinity` to Deployments or other workloads to require Kubernetes **not** schedule them onto EKS Auto Mode nodes.
 
 ```
-   affinity:
+  affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:

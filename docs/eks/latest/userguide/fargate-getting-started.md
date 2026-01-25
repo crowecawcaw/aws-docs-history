@@ -23,7 +23,7 @@ For existing node groups that were created with `eksctl` or the Amazon EKS manag
 You can check for a security group for your cluster in the AWS Management Console under the **Networking** section for the cluster. Or, you can do this using the following AWS CLI command. When using this command, replace `<my-cluster>` with the name of your cluster.
 
 ```
- aws eks describe-cluster --name <my-cluster> --query cluster.resourcesVpcConfig.clusterSecurityGroupId
+aws eks describe-cluster --name <my-cluster> --query cluster.resourcesVpcConfig.clusterSecurityGroupId
 ```
 
 ## Step 2: Create a Fargate Pod execution role
@@ -52,7 +52,7 @@ You can create a Fargate profile using either of these tools:
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
 ```
- eksctl version
+eksctl version
 ```
 
 For instructions on how to install or upgrade `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
@@ -62,7 +62,7 @@ For instructions on how to install or upgrade `eksctl`, see [Installation](https
 Create your Fargate profile with the following `eksctl` command, replacing every `<example value>` with your own values. You’re required to specify a namespace. However, the `--labels` option isn’t required.
 
 ```
- eksctl create fargateprofile \
+eksctl create fargateprofile \
     --cluster <my-cluster> \
     --name <my-fargate-profile> \
     --namespace <my-kubernetes-namespace> \
@@ -116,10 +116,10 @@ If you created your cluster with `eksctl` using the `--fargate` option, then you
 The role ARN can’t include a [path](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-friendly-names "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-friendly-names") other than `/`. For example, if the name of your role is `development/apps/AmazonEKSFargatePodExecutionRole`, you need to change it to `AmazonEKSFargatePodExecutionRole` when specifying the ARN for the role. The format of the role ARN must be `arn:aws:iam::<111122223333>:role/<AmazonEKSFargatePodExecutionRole>`.
 
 ```
- aws eks create-fargate-profile \
+aws eks create-fargate-profile \
     --fargate-profile-name coredns \
     --cluster-name <my-cluster> \
-    --pod-execution-role-arn <shared id="region.arn"/>iam::<111122223333>:role/<AmazonEKSFargatePodExecutionRole> \
+    --pod-execution-role-arn arn:aws:iam::<111122223333>:role/<AmazonEKSFargatePodExecutionRole> \
     --selectors namespace=kube-system,labels={k8s-app=kube-dns} \
     --subnets subnet-<000000000000000a> subnet-<000000000000000b> subnet-<000000000000000c>
 ```
@@ -127,7 +127,7 @@ The role ARN can’t include a [path](../../../IAM/latest/UserGuide/reference_id
 2. Trigger a rollout of the `coredns` deployment.
 
 ```
- kubectl rollout restart -n kube-system deployment coredns
+kubectl rollout restart -n kube-system deployment coredns
 ```
 
 ## Next steps
@@ -137,7 +137,7 @@ The role ARN can’t include a [path](../../../IAM/latest/UserGuide/reference_id
   2.  Delete and re-create any existing Pods so that they’re scheduled on Fargate. Modify the `<namespace>` and `<deployment-type>` to update your specific Pods.
 
   ```
-   kubectl rollout restart -n <namespace> deployment <deployment-type>
+  kubectl rollout restart -n <namespace> deployment <deployment-type>
   ```
 
 - Deploy the [Route application and HTTP traffic with Application Load Balancers](alb-ingress.md "alb-ingress.md") to allow Ingress objects for your Pods running on Fargate.

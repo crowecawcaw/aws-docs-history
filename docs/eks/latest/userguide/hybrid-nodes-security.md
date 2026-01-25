@@ -41,7 +41,7 @@ There are three methods to patch and install security upgrades in-place on nodes
 After you confirm that the `containerd` CVE patch has been published to the OS or Docker repos (either Apt or RPM), you can use the `nodeadm upgrade` command to upgrade to the latest version of `containerd`. Since this isn’t a Kubernetes version upgrade, you must pass in your current Kubernetes version to the `nodeadm` upgrade command.
 
 ```
- nodeadm upgrade <replaceable>K8S_VERSION</replaceable> --config-source file:///root/nodeConfig.yaml
+nodeadm upgrade `K8S_VERSION` --config-source file:///root/nodeConfig.yaml
 ```
 
 ## Step 2 b: Patching with operating system package managers
@@ -51,14 +51,14 @@ Alternatively you can also update through the respective package manager and use
 **Amazon Linux 2023**
 
 ```
- sudo yum update -y
+sudo yum update -y
 sudo yum install -y containerd
 ```
 
 **RHEL**
 
 ```
- sudo yum install -y yum-utils
+sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
 sudo yum update -y
 sudo yum install -y containerd
@@ -67,7 +67,7 @@ sudo yum install -y containerd
 **Ubuntu**
 
 ```
- sudo mkdir -p /etc/apt/keyrings
+sudo mkdir -p /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
@@ -86,5 +86,5 @@ If the patched `containerd` version is only available by other means instead of 
 3. Run the `nodeadm install` command with the `--containerd-source` argument set to `none`, which will skip `containerd` installation through `nodeadm`. You can use the value of `none` in the `containerd` source for any operating system that the node is running.
 
 ```
- nodeadm install <replaceable>K8S_VERSION</replaceable> --credential-provider <replaceable>CREDS_PROVIDER</replaceable> --containerd-source none
+nodeadm install `K8S_VERSION` --credential-provider `CREDS_PROVIDER` --containerd-source none
 ```

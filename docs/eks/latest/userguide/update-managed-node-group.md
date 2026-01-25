@@ -40,7 +40,7 @@ The version that you update to can’t be greater than the control plane’s ver
 Update a managed node group to the latest AMI release of the same Kubernetes version that’s currently deployed on the nodes with the following command. Replace every `example value` with your own values.
 
 ```
- eksctl upgrade nodegroup \
+eksctl upgrade nodegroup \
   --name=node-group-name \
   --cluster=my-cluster \
   --region=region-code
@@ -55,7 +55,7 @@ You can’t directly upgrade a node group that’s deployed without a launch tem
 You can upgrade a node group to the same version as the control plane’s Kubernetes version. For example, if you have a cluster running Kubernetes `1.33`, you can upgrade nodes currently running Kubernetes `1.32` to version `1.33` with the following command.
 
 ```
- eksctl upgrade nodegroup \
+eksctl upgrade nodegroup \
   --name=node-group-name \
   --cluster=my-cluster \
   --region=region-code \

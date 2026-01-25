@@ -75,7 +75,7 @@ For more information, see:
 By default, the managed policies related to EKS Auto Mode do not permit applying user defined tags to Auto Mode provisioned AWS resources. If you want to apply user defined tags to AWS resources, you must attach additional permissions to the Cluster IAM Role with sufficient permissions to create and modify tags on AWS resources. Below is an example of a policy that will allow unrestricted tagging access:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

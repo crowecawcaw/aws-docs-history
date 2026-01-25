@@ -16,7 +16,7 @@ This topic describes how to create an AWS Controllers for Kubernetes (ACK) capab
 Create a trust policy file:
 
 ```
- cat > ack-trust-policy.json << 'EOF'
+cat > ack-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -38,7 +38,7 @@ EOF
 Create the IAM role:
 
 ```
- aws iam create-role \
+aws iam create-role \
   --role-name ACKCapabilityRole \
   --assume-role-policy-document file://ack-trust-policy.json
 ```
@@ -46,7 +46,7 @@ Create the IAM role:
 Attach the `AdministratorAccess` managed policy to the role:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
   --role-name ACKCapabilityRole \
   --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 ```
@@ -62,9 +62,9 @@ For guidance on creating least-privilege policies, see [Configure ACK permission
 Create the ACK capability resource on your cluster. Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks create-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
+aws eks create-capability \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
   --capability-name my-ack \
   --type ACK \
   --role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/ACKCapabilityRole \
@@ -87,9 +87,9 @@ If you receive an error that the cluster doesn’t exist or you don’t have per
 Wait for the capability to become active. Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks describe-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
+aws eks describe-capability \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
   --capability-name my-ack \
   --query 'capability.status' \
   --output text
@@ -101,9 +101,9 @@ Don’t continue to the next step until the status is `ACTIVE`.
 You can also view the full capability details:
 
 ```
- aws eks describe-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
+aws eks describe-capability \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
   --capability-name my-ack
 ```
 
@@ -112,7 +112,7 @@ You can also view the full capability details:
 After the capability is active, verify that ACK custom resources are available in your cluster:
 
 ```
- kubectl api-resources | grep services.k8s.aws
+kubectl api-resources | grep services.k8s.aws
 ```
 
 You should see a number of APIs listed for AWS resources.

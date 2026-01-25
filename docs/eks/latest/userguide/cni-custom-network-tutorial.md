@@ -24,14 +24,14 @@ The following procedures help you create a test VPC and cluster and configure cu
 1. Run the following command to define the `account_id` variable.
 
 ```
- account_id=$(aws sts get-caller-identity --query Account --output text)
+account_id=$(aws sts get-caller-identity --query Account --output text)
 ```
 
 2. Create a VPC.
    1. If you are deploying to a test system, create a VPC using an Amazon EKS AWS CloudFormation template.
 
    ```
-    aws cloudformation create-stack --stack-name my-eks-custom-networking-vpc \
+   aws cloudformation create-stack --stack-name my-eks-custom-networking-vpc \
      --template-url https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml \
      --parameters ParameterKey=VpcBlock,ParameterValue=192.168.0.0/24 \
      ParameterKey=PrivateSubnet01Block,ParameterValue=192.168.0.64/27 \
@@ -43,13 +43,13 @@ The following procedures help you create a test VPC and cluster and configure cu
    2. The AWS CloudFormation stack takes a few minutes to create. To check on the stack’s deployment status, run the following command.
 
    ```
-    aws cloudformation describe-stacks --stack-name my-eks-custom-networking-vpc --query Stacks\[\].StackStatus  --output text
+   aws cloudformation describe-stacks --stack-name my-eks-custom-networking-vpc --query Stacks\[\].StackStatus  --output text
    ```
 
    Don’t continue to the next step until the output of the command is `CREATE_COMPLETE`. 3. Define variables with the values of the private subnet IDs created by the template.
 
    ```
-    subnet_id_1=$(aws cloudformation describe-stack-resources --stack-name my-eks-custom-networking-vpc \
+   subnet_id_1=$(aws cloudformation describe-stack-resources --stack-name my-eks-custom-networking-vpc \
        --query "StackResources[?LogicalResourceId=='PrivateSubnet01'].PhysicalResourceId" --output text)
    subnet_id_2=$(aws cloudformation describe-stack-resources --stack-name my-eks-custom-networking-vpc \
        --query "StackResources[?LogicalResourceId=='PrivateSubnet02'].PhysicalResourceId" --output text)
@@ -58,7 +58,7 @@ The following procedures help you create a test VPC and cluster and configure cu
    4. Define variables with the Availability Zones of the subnets retrieved in the previous step.
 
    ```
-    az_1=$(aws ec2 describe-subnets --subnet-ids $subnet_id_1 --query 'Subnets[*].AvailabilityZone' --output text)
+   az_1=$(aws ec2 describe-subnets --subnet-ids $subnet_id_1 --query 'Subnets[*].AvailabilityZone' --output text)
    az_2=$(aws ec2 describe-subnets --subnet-ids $subnet_id_2 --query 'Subnets[*].AvailabilityZone' --output text)
    ```
 
@@ -66,7 +66,7 @@ The following procedures help you create a test VPC and cluster and configure cu
    1. Run the following command to create an IAM trust policy JSON file.
 
    ```
-    {
+   {
      "Version":"2012-10-17",
      "Statement": [
        {
@@ -83,21 +83,21 @@ The following procedures help you create a test VPC and cluster and configure cu
    2. Create the Amazon EKS cluster IAM role. If necessary, preface `eks-cluster-role-trust-policy.json` with the path on your computer that you wrote the file to in the previous step. The command associates the trust policy that you created in the previous step to the role. To create an IAM role, the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
    ```
-    aws iam create-role --role-name myCustomNetworkingAmazonEKSClusterRole --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
+   aws iam create-role --role-name myCustomNetworkingAmazonEKSClusterRole --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
    ```
 
    3. Attach the Amazon EKS managed policy named [AmazonEKSClusterPolicy](../../../aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.md#AmazonEKSClusterPolicy-json "../../../aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.md#AmazonEKSClusterPolicy-json") to the role. To attach an IAM policy to an [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal"), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
    ```
-    aws iam attach-role-policy --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy --role-name myCustomNetworkingAmazonEKSClusterRole
+   aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name myCustomNetworkingAmazonEKSClusterRole
    ```
 
 4. Create an Amazon EKS cluster and configure your device to communicate with it.
    1. Create a cluster.
 
    ```
-    aws eks create-cluster --name my-custom-networking-cluster \
-      --role-arn <shared id="region.arn"/>iam::$account_id:role/myCustomNetworkingAmazonEKSClusterRole \
+   aws eks create-cluster --name my-custom-networking-cluster \
+      --role-arn arn:aws:iam::$account_id:role/myCustomNetworkingAmazonEKSClusterRole \
       --resources-vpc-config subnetIds="$subnet_id_1","$subnet_id_2"
    ```
 
@@ -106,13 +106,13 @@ The following procedures help you create a test VPC and cluster and configure cu
    You might receive an error that one of the Availability Zones in your request doesn’t have sufficient capacity to create an Amazon EKS cluster. If this happens, the error output contains the Availability Zones that can support a new cluster. Retry creating your cluster with at least two subnets that are located in the supported Availability Zones for your account. For more information, see [Insufficient capacity](troubleshooting.md#ice "troubleshooting.md#ice"). 2. The cluster takes several minutes to create. To check on the cluster’s deployment status, run the following command.
 
    ```
-    aws eks describe-cluster --name my-custom-networking-cluster --query cluster.status
+   aws eks describe-cluster --name my-custom-networking-cluster --query cluster.status
    ```
 
    Don’t continue to the next step until the output of the command is `"ACTIVE"`. 3. Configure `kubectl` to communicate with your cluster.
 
    ```
-    aws eks update-kubeconfig --name my-custom-networking-cluster
+   aws eks update-kubeconfig --name my-custom-networking-cluster
    ```
 
 ## Step 2: Configure your VPC
@@ -123,7 +123,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 2. Retrieve the ID of your cluster VPC and store it in a variable for use in later steps.
 
 ```
- vpc_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query "cluster.resourcesVpcConfig.vpcId" --output text)
+vpc_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query "cluster.resourcesVpcConfig.vpcId" --output text)
 ```
 
 3.  Associate an additional Classless Inter-Domain Routing (CIDR) block with your cluster’s VPC. The CIDR block can’t overlap with any existing associated CIDR blocks.
@@ -133,7 +133,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 
 
         ```
-         aws ec2 describe-vpcs --vpc-ids $vpc_id \
+        aws ec2 describe-vpcs --vpc-ids $vpc_id \
             --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
         ```
 
@@ -142,7 +142,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 
 
         ```
-         ----------------------------------
+        ----------------------------------
         |          DescribeVpcs          |
         +-----------------+--------------+
         |    CIDRBlock    |    State     |
@@ -155,14 +155,14 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 
 
         ```
-         aws ec2 associate-vpc-cidr-block --vpc-id $vpc_id --cidr-block 192.168.1.0/24
+        aws ec2 associate-vpc-cidr-block --vpc-id $vpc_id --cidr-block 192.168.1.0/24
         ```
         3. Confirm that the new block is associated.
 
 
 
         ```
-         aws ec2 describe-vpcs --vpc-ids $vpc_id --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
+        aws ec2 describe-vpcs --vpc-ids $vpc_id --query 'Vpcs[*].CidrBlockAssociationSet[*].{CIDRBlock: CidrBlock, State: CidrBlockState.State}' --out table
         ```
 
         An example output is as follows.
@@ -170,7 +170,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 
 
         ```
-         ----------------------------------
+        ----------------------------------
         |          DescribeVpcs          |
         +-----------------+--------------+
         |    CIDRBlock    |    State     |
@@ -186,7 +186,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
     1. Create new subnets. Replace the CIDR block values in the following command. The subnets must be created in a different VPC CIDR block than your existing subnets are in, but in the same Availability Zones as your existing subnets. In this example, one subnet is created in the new CIDR block in each Availability Zone that the current private subnets exist in. The IDs of the subnets created are stored in variables for use in later steps. The `Name` values match the values assigned to the subnets created using the Amazon EKS VPC template in a previous step. Names aren’t required. You can use different names.
 
     ```
-     new_subnet_id_1=$(aws ec2 create-subnet --vpc-id $vpc_id --availability-zone $az_1 --cidr-block 192.168.1.0/27 \
+    new_subnet_id_1=$(aws ec2 create-subnet --vpc-id $vpc_id --availability-zone $az_1 --cidr-block 192.168.1.0/27 \
         --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=my-eks-custom-networking-vpc-PrivateSubnet01},{Key=kubernetes.io/role/internal-elb,Value=1}]' \
         --query Subnet.SubnetId --output text)
     new_subnet_id_2=$(aws ec2 create-subnet --vpc-id $vpc_id --availability-zone $az_2 --cidr-block 192.168.1.32/27 \
@@ -199,7 +199,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
     By default, your new subnets are implicitly associated with your VPC’s [main route table](../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables "../../../vpc/latest/userguide/VPC_Route_Tables.md#RouteTables"). This route table allows communication between all the resources that are deployed in the VPC. However, it doesn’t allow communication with resources that have IP addresses that are outside the CIDR blocks that are associated with your VPC. You can associate your own route table to your subnets to change this behavior. For more information, see [Subnet route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md#subnet-route-tables "../../../vpc/latest/userguide/VPC_Route_Tables.md#subnet-route-tables") in the Amazon VPC User Guide. 2. View the current subnets in your VPC.
 
     ```
-     aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpc_id" \
+    aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpc_id" \
         --query 'Subnets[*].{SubnetId: SubnetId,AvailabilityZone: AvailabilityZone,CidrBlock: CidrBlock}' \
         --output table
     ```
@@ -207,7 +207,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
     An example output is as follows.
 
     ```
-     ----------------------------------------------------------------------
+    ----------------------------------------------------------------------
     |                           DescribeSubnets                          |
     +------------------+--------------------+----------------------------+
     | AvailabilityZone |     CidrBlock      |         SubnetId           |
@@ -228,13 +228,13 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
 1. Set the `AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG` environment variable to `true` in the `aws-node` DaemonSet.
 
 ```
- kubectl set env daemonset aws-node -n kube-system AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true
+kubectl set env daemonset aws-node -n kube-system AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true
 ```
 
 2. Retrieve the ID of your [cluster security group](sec-group-reqs.md "sec-group-reqs.md") and store it in a variable for use in the next step. Amazon EKS automatically creates this security group when you create your cluster.
 
 ```
- cluster_security_group_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId --output text)
+cluster_security_group_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId --output text)
 ```
 
 3.  Create an `ENIConfig` custom resource for each subnet that you want to deploy Pods in.
@@ -243,7 +243,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
     The following commands create separate `ENIConfig` files for the two subnets that were created in a previous step. The value for `name` must be unique. The name is the same as the Availability Zone that the subnet is in. The cluster security group is assigned to the `ENIConfig`.
 
     ```
-     cat >$az_1.yaml <<EOF
+    cat >$az_1.yaml <<EOF
     apiVersion: crd.k8s.amazonaws.com/v1alpha1
     kind: ENIConfig
     metadata:
@@ -256,7 +256,7 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
     ```
 
     ```
-     cat >$az_2.yaml <<EOF
+    cat >$az_2.yaml <<EOF
     apiVersion: crd.k8s.amazonaws.com/v1alpha1
     kind: ENIConfig
     metadata:
@@ -291,20 +291,20 @@ This tutorial requires the VPC created in [Step 1: Create a test VPC and cluster
     2. Apply each custom resource file that you created to your cluster with the following commands.
 
     ```
-     kubectl apply -f $az_1.yaml
+    kubectl apply -f $az_1.yaml
     kubectl apply -f $az_2.yaml
     ```
 
 4.  Confirm that your `ENIConfigs` were created.
 
 ```
- kubectl get ENIConfigs
+kubectl get ENIConfigs
 ```
 
 An example output is as follows.
 
 ```
- NAME         AGE
+NAME         AGE
 us-west-2a   117s
 us-west-2d   105s
 ```
@@ -321,7 +321,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 
 
     ```
-     kubectl describe daemonset aws-node -n kube-system | grep ENI_CONFIG_ANNOTATION_DEF
+    kubectl describe daemonset aws-node -n kube-system | grep ENI_CONFIG_ANNOTATION_DEF
     ```
 
     If output is returned, the annotation exists. If no output is returned, then the variable is not set. For a production cluster, you can use either this setting or the setting in the following step. If you use this setting, it overrides the setting in the following step. In this tutorial, the setting in the next step is used.
@@ -330,7 +330,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 
 
     ```
-     kubectl set env daemonset aws-node -n kube-system ENI_CONFIG_LABEL_DEF=topology.kubernetes.io/zone
+    kubectl set env daemonset aws-node -n kube-system ENI_CONFIG_LABEL_DEF=topology.kubernetes.io/zone
     ```
 
 ## Step 4: Deploy Amazon EC2 nodes
@@ -339,7 +339,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
    1. Run the following command to create an IAM trust policy JSON file.
 
    ```
-    {
+   {
      "Version":"2012-10-17",
      "Statement": [
        {
@@ -356,21 +356,21 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
    2. Create an IAM role and store its returned Amazon Resource Name (ARN) in a variable for use in a later step.
 
    ```
-    node_role_arn=$(aws iam create-role --role-name myCustomNetworkingNodeRole --assume-role-policy-document file://"node-role-trust-relationship.json" \
+   node_role_arn=$(aws iam create-role --role-name myCustomNetworkingNodeRole --assume-role-policy-document file://"node-role-trust-relationship.json" \
        --query Role.Arn --output text)
    ```
 
    3. Attach three required IAM managed policies to the IAM role.
 
    ```
-    aws iam attach-role-policy \
-     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodePolicy \
+   aws iam attach-role-policy \
+     --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy \
      --role-name myCustomNetworkingNodeRole
    aws iam attach-role-policy \
-     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryReadOnly \
+     --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly \
      --role-name myCustomNetworkingNodeRole
    aws iam attach-role-policy \
-       --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy \
+       --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
        --role-name myCustomNetworkingNodeRole
    ```
 
@@ -383,7 +383,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
      - **Without a launch template or with a launch template without an AMI ID specified** – Run the following command. For this tutorial, use the example values. For a production node group, replace all example values with your own. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
 
      ```
-      aws eks create-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup \
+     aws eks create-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup \
          --subnets $subnet_id_1 $subnet_id_2 --instance-types t3.medium --node-role $node_role_arn
      ```
 
@@ -392,7 +392,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
        2. In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes arguments into the `NodeConfig` specification. For more information about NodeConfig, see the [NodeConfig API reference](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig "https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig"). You can replace `20` with either the value from the previous step (recommended) or your own value.
 
        ```
-        ---
+       ---
        MIME-Version: 1.0
        Content-Type: multipart/mixed; boundary="BOUNDARY"
        --BOUNDARY
@@ -421,7 +421,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 If you want nodes in a production cluster to support a significantly higher number of Pods, run the script in [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods") again. Also, add the `--cni-prefix-delegation-enabled` option to the command. For example, `110` is returned for an `m5.large` instance type. For instructions on how to enable this capability, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). You can use this capability with custom networking. 3. Node group creation takes several minutes. You can check the status of the creation of a managed node group with the following command.
 
 ```
- aws eks describe-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup --query nodegroup.status --output text
+aws eks describe-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup --query nodegroup.status --output text
 ```
 
 Don’t continue to the next step until the output returned is `ACTIVE`. 4. For the tutorial, you can skip this step.
@@ -433,7 +433,7 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 
 
     ```
-     kubectl get nodes
+    kubectl get nodes
     ```
 
     An example output is as follows.
@@ -441,7 +441,7 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 
 
     ```
-     NAME                                          STATUS   ROLES    AGE     VERSION
+    NAME                                          STATUS   ROLES    AGE     VERSION
     ip-192-168-0-126.us-west-2.compute.internal   Ready    <none>   8m49s   v1.22.9-eks-810597c
     ip-192-168-0-92.us-west-2.compute.internal    Ready    <none>   8m34s   v1.22.9-eks-810597c
     ```
@@ -450,7 +450,7 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 
 
     ```
-     aws ec2 describe-instances --filters Name=network-interface.private-dns-name,Values=ip-192-168-0-126.us-west-2.compute.internal \
+    aws ec2 describe-instances --filters Name=network-interface.private-dns-name,Values=ip-192-168-0-126.us-west-2.compute.internal \
     --query 'Reservations[].Instances[].{AvailabilityZone: Placement.AvailabilityZone, SubnetId: SubnetId}'
     ```
 
@@ -459,7 +459,7 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 
 
     ```
-     [
+    [
         {
             "AvailabilityZone": "us-west-2d",
             "SubnetId": "subnet-Example5"
@@ -471,7 +471,7 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 
 
     ```
-     kubectl annotate node ip-192-168-0-126.us-west-2.compute.internal k8s.amazonaws.com/eniConfig=EniConfigName1
+    kubectl annotate node ip-192-168-0-126.us-west-2.compute.internal k8s.amazonaws.com/eniConfig=EniConfigName1
     kubectl annotate node ip-192-168-0-92.us-west-2.compute.internal k8s.amazonaws.com/eniConfig=EniConfigName2
     ```
 
@@ -484,7 +484,7 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 
 
         ```
-         aws eks delete-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup
+        aws eks delete-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup
         ```
 
     Only new nodes that are registered with the `k8s.amazonaws.com/eniConfig` label use the custom networking feature.
@@ -492,13 +492,13 @@ For a production cluster, if you didn’t name your `ENIConfigs` the same as the
 6.  Confirm that Pods are assigned an IP address from a CIDR block that’s associated to one of the subnets that you created in a previous step.
 
 ```
- kubectl get pods -A -o wide
+kubectl get pods -A -o wide
 ```
 
 An example output is as follows.
 
 ```
- NAMESPACE     NAME                       READY   STATUS    RESTARTS   AGE     IP              NODE                                          NOMINATED NODE   READINESS GATES
+NAMESPACE     NAME                       READY   STATUS    RESTARTS   AGE     IP              NODE                                          NOMINATED NODE   READINESS GATES
 kube-system   aws-node-2rkn4             1/1     Running   0          7m19s   192.168.0.92    ip-192-168-0-92.us-west-2.compute.internal    <none>           <none>
 kube-system   aws-node-k96wp             1/1     Running   0          7m15s   192.168.0.126   ip-192-168-0-126.us-west-2.compute.internal   <none>           <none>
 kube-system   coredns-657694c6f4-smcgr   1/1     Running   0          56m     192.168.1.23    ip-192-168-0-92.us-west-2.compute.internal    <none>           <none>
@@ -518,76 +518,76 @@ After you complete the tutorial, we recommend that you delete the resources that
 1. If the node group that you created was just for testing, then delete it.
 
 ```
- aws eks delete-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup
+aws eks delete-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup
 ```
 
 2. Even after the AWS CLI output says that the cluster is deleted, the delete process might not actually be complete. The delete process takes a few minutes. Confirm that it’s complete by running the following command.
 
 ```
- aws eks describe-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup --query nodegroup.status --output text
+aws eks describe-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup --query nodegroup.status --output text
 ```
 
 Don’t continue until the returned output is similar to the following output.
 
 ```
- An error occurred (ResourceNotFoundException) when calling the DescribeNodegroup operation: No node group found for name: my-nodegroup.
+An error occurred (ResourceNotFoundException) when calling the DescribeNodegroup operation: No node group found for name: my-nodegroup.
 ```
 
 3. If the node group that you created was just for testing, then delete the node IAM role.
    1. Detach the policies from the role.
 
    ```
-    aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodePolicy
-   aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-   aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy
+   aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+   aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+   aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
    ```
 
    2. Delete the role.
 
    ```
-    aws iam delete-role --role-name myCustomNetworkingNodeRole
+   aws iam delete-role --role-name myCustomNetworkingNodeRole
    ```
 
 4. Delete the cluster.
 
 ```
- aws eks delete-cluster --name my-custom-networking-cluster
+aws eks delete-cluster --name my-custom-networking-cluster
 ```
 
 Confirm the cluster is deleted with the following command.
 
 ```
- aws eks describe-cluster --name my-custom-networking-cluster --query cluster.status --output text
+aws eks describe-cluster --name my-custom-networking-cluster --query cluster.status --output text
 ```
 
 When output similar to the following is returned, the cluster is successfully deleted.
 
 ```
- An error occurred (ResourceNotFoundException) when calling the DescribeCluster operation: No cluster found for name: my-custom-networking-cluster.
+An error occurred (ResourceNotFoundException) when calling the DescribeCluster operation: No cluster found for name: my-custom-networking-cluster.
 ```
 
 5. Delete the cluster IAM role.
    1. Detach the policies from the role.
 
    ```
-    aws iam detach-role-policy --role-name myCustomNetworkingAmazonEKSClusterRole --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy
+   aws iam detach-role-policy --role-name myCustomNetworkingAmazonEKSClusterRole --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
    ```
 
    2. Delete the role.
 
    ```
-    aws iam delete-role --role-name myCustomNetworkingAmazonEKSClusterRole
+   aws iam delete-role --role-name myCustomNetworkingAmazonEKSClusterRole
    ```
 
 6. Delete the subnets that you created in a previous step.
 
 ```
- aws ec2 delete-subnet --subnet-id $new_subnet_id_1
+aws ec2 delete-subnet --subnet-id $new_subnet_id_1
 aws ec2 delete-subnet --subnet-id $new_subnet_id_2
 ```
 
 7. Delete the VPC that you created.
 
 ```
- aws cloudformation delete-stack --stack-name my-eks-custom-networking-vpc
+aws cloudformation delete-stack --stack-name my-eks-custom-networking-vpc
 ```

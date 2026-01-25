@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 1. Make sure the kubecost related Pods' state are "Running".
 
 ```
- kubectl get pods --namespace kubecost
+kubectl get pods --namespace kubecost
 ```
 
 ## Access Kubecost Dashboard
@@ -18,19 +18,19 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
    - If kubecost v3 is installed using helm:
 
    ```
-    kubectl port-forward deployment/kubecost-frontend 9090 --namespace kubecost
+   kubectl port-forward deployment/kubecost-frontend 9090 --namespace kubecost
    ```
 
    - If kubecost v1 or v2 is installed using helm:
 
    ```
-    kubectl port-forward deployment/kubecost-cost-analyzer 9090 --namespace kubecost
+   kubectl port-forward deployment/kubecost-cost-analyzer 9090 --namespace kubecost
    ```
 
    - If kubecost is installed using Amazon EKS add-on:
 
    ```
-    kubectl port-forward deployment/cost-analyzer 9090 --namespace kubecost
+   kubectl port-forward deployment/cost-analyzer 9090 --namespace kubecost
    ```
 
    Alternatively, you can use the [AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md") to expose Kubecost and use Amazon Cognito for authentication, authorization, and user management. For more information, see [How to use Application Load Balancer and Amazon Cognito to authenticate users for your Kubernetes web apps](https://aws.amazon.com/blogs/containers/how-to-use-application-load-balancer-and-amazon-cognito-to-authenticate-users-for-your-kubernetes-web-apps "https://aws.amazon.com/blogs/containers/how-to-use-application-load-balancer-and-amazon-cognito-to-authenticate-users-for-your-kubernetes-web-apps").
@@ -38,7 +38,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 2. On the same device that you completed the previous step on, open a web browser and enter the following address.
 
 ```
- http://localhost:9090
+http://localhost:9090
 ```
 
 You see the Kubecost Overview page in your browser. It might take 5–10 minutes (or more) for Kubecost to gather metrics, depends on your cluster size. You can see your Amazon EKS spend, including cumulative cluster costs, associated Kubernetes asset costs, and monthly aggregated spend. 3. To track costs at a cluster level, tag your Amazon EKS resources for billing. For more information, see [Tagging your resources for billing](eks-using-tags.md#tag-resources-for-billing "eks-using-tags.md#tag-resources-for-billing").

@@ -40,7 +40,7 @@ EKS Pod Identity is a simpler method than [IAM roles for service accounts](iam-r
   – EKS Pod Identity uses a single IAM principal instead of the separate principals for each cluster that IAM roles for service accounts use. Your IAM administrator adds the following principal to the trust policy of any role to make it usable by EKS Pod Identities.
 
 ```
-             "Principal": {
+            "Principal": {
                 "Service": "pods.eks.amazonaws.com"
             }
 ```

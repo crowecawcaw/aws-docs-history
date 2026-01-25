@@ -9,12 +9,12 @@ A trail is a configuration that enables delivery of events as log files to an Am
 The following example shows a CloudTrail log entry that demonstrates the [`CreateCluster`](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") action.
 
 ```
- {
+{
   "eventVersion": "1.05",
   "userIdentity": {
     "type": "IAMUser",
     "principalId": "AKIAIOSFODNN7EXAMPLE",
-    "arn": "<shared id="region.arn"/>iam::111122223333:user/username",
+    "arn": "arn:aws:iam::111122223333:user/username",
     "accountId": "111122223333",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
     "userName": "username"
@@ -32,7 +32,7 @@ The following example shows a CloudTrail log entry that demonstrates the [`Creat
         "subnet-4f8c5004"
       ]
     },
-    "roleArn": "<shared id="region.arn"/>iam::111122223333:role/AWSServiceRoleForAmazonEKS-CAC1G1VH3ZKZ",
+    "roleArn": "arn:aws:iam::111122223333:role/AWSServiceRoleForAmazonEKS-CAC1G1VH3ZKZ",
     "clusterName": "test"
   },
   "responseElements": {
@@ -41,8 +41,8 @@ The following example shows a CloudTrail log entry that demonstrates the [`Creat
       "status": "CREATING",
       "createdAt": 1527535003.208,
       "certificateAuthority": {},
-      "arn": "<shared id="region.arn"/>eks:region-code:111122223333:cluster/test",
-      "roleArn": "<shared id="region.arn"/>iam::111122223333:role/AWSServiceRoleForAmazonEKS-CAC1G1VH3ZKZ",
+      "arn": "arn:aws:eks:region-code:111122223333:cluster/test",
+      "roleArn": "arn:aws:iam::111122223333:role/AWSServiceRoleForAmazonEKS-CAC1G1VH3ZKZ",
       "version": "1.10",
       "resourcesVpcConfig": {
         "securityGroupIds": [],
@@ -69,19 +69,19 @@ The Amazon EKS service linked roles make API calls to AWS resources. CloudTrail 
 The following example shows a CloudTrail log entry that demonstrates a [`DeleteInstanceProfile`](../../../IAM/latest/APIReference/API_DeleteInstanceProfile.md "../../../IAM/latest/APIReference/API_DeleteInstanceProfile.md") action that’s made by the `AWSServiceRoleForAmazonEKSNodegroup` service linked role, noted in the `sessionContext`.
 
 ```
- {
+{
     "eventVersion": "1.05",
     "userIdentity": {
         "type": "AssumedRole",
         "principalId": "AROA3WHGPEZ7SJ2CW55C5:EKS",
-        "arn": "<shared id="region.arn"/>sts::111122223333:assumed-role/AWSServiceRoleForAmazonEKSNodegroup/EKS",
+        "arn": "arn:aws:sts::111122223333:assumed-role/AWSServiceRoleForAmazonEKSNodegroup/EKS",
         "accountId": "111122223333",
         "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
                 "principalId": "AROA3WHGPEZ7SJ2CW55C5",
-                "arn": "<shared id="region.arn"/>iam::111122223333:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup",
+                "arn": "arn:aws:iam::111122223333:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup",
                 "accountId": "111122223333",
                 "userName": "AWSServiceRoleForAmazonEKSNodegroup"
             },

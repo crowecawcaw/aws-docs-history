@@ -20,7 +20,7 @@ Register the cluster where you want to deploy applications.
 For this example, we’ll register the same cluster where Argo CD is running (you can use the name `in-cluster` for compatibility with most Argo CD examples):
 
 ```
- # Get your cluster ARN
+# Get your cluster ARN
 CLUSTER_ARN=$(aws eks describe-cluster \
   --name my-cluster \
   --query 'cluster.arn' \
@@ -53,7 +53,7 @@ See [Configure repository access](argocd-configure-repositories.md "argocd-confi
 Create this Application manifest in `my-app.yaml`:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook
@@ -78,7 +78,7 @@ spec:
 Apply the Application:
 
 ```
- kubectl apply -f my-app.yaml
+kubectl apply -f my-app.yaml
 ```
 
 After applying this Application, Argo CD:
@@ -92,7 +92,7 @@ After applying this Application, Argo CD:
 View the application status:
 
 ```
- kubectl get application guestbook -n argocd
+kubectl get application guestbook -n argocd
 ```
 
 You can also view the application using the Argo CD CLI or the Argo CD UI (accessible from the EKS console under your cluster’s Capabilities tab).
@@ -141,7 +141,7 @@ Argo CD continuously monitors your sources and clusters to detect and correct di
 **Sync waves** control resource creation order using annotations:
 
 ```
- metadata:
+metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"  # Default if not specified
 ```
@@ -153,7 +153,7 @@ This allows you to create dependencies like namespaces (wave `-1`) before deploy
 **Self-healing** automatically reverts manual changes:
 
 ```
- spec:
+spec:
   syncPolicy:
     automated:
       selfHeal: true
@@ -213,7 +213,7 @@ Fine-tune sync behavior with common options:
 - `SkipDryRunOnMissingResource=true` - Skip dry run when CRDs don’t exist yet (useful for kro instances)
 
 ```
- spec:
+spec:
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

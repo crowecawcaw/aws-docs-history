@@ -11,9 +11,9 @@ This topic covers some common errors that you may see while using Amazon EKS wit
 If you receive an `AccessDeniedException` when calling an AWS API operation, then the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") credentials that you’re using don’t have the required permissions to make that call.
 
 ```
- An error occurred (AccessDeniedException) when calling the DescribeCluster operation:
-User: <shared id="region.arn"/>iam::111122223333:user/user_name is not authorized to perform:
-eks:DescribeCluster on resource: <shared id="region.arn"/>eks:region:111122223333:cluster/my-cluster
+An error occurred (AccessDeniedException) when calling the DescribeCluster operation:
+User: arn:aws:iam::111122223333:user/user_name is not authorized to perform:
+eks:DescribeCluster on resource: arn:aws:eks:region:111122223333:cluster/my-cluster
 ```
 
 In the previous example message, the user does not have permissions to call the Amazon EKS `DescribeCluster` API operation. To provide Amazon EKS admin permissions to an IAM principal, see [Amazon EKS identity-based policy examples](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").

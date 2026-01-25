@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Connect kubectl to an EKS cluster by creating a kubeconfig file
 
+###### Tip
+
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS workshops.
+
 In this topic, you create a `kubeconfig` file for your cluster (or update an existing one).
 
 The `kubectl` command-line tool uses configuration information in `kubeconfig` files to communicate with the API server of a cluster. For more information, see [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/ "https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/") in the Kubernetes documentation.
@@ -11,7 +15,7 @@ The `kubectl` command-line tool uses configuration information in `kubeconfig` f
 Amazon EKS uses the `aws eks get-token` command with `kubectl` for cluster authentication. By default, the AWS CLI uses the same credentials that are returned with the following command:
 
 ```
- aws sts get-caller-identity
+aws sts get-caller-identity
 ```
 
 - An existing Amazon EKS cluster. To deploy one, see [Get started with Amazon EKS](getting-started.md "getting-started.md").
@@ -26,7 +30,7 @@ Amazon EKS uses the `aws eks get-token` command with `kubectl` for cluster authe
   1.  Create or update a `kubeconfig` file for your cluster. Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
   ```
-   aws eks update-kubeconfig --region region-code --name my-cluster
+  aws eks update-kubeconfig --region region-code --name my-cluster
   ```
 
   By default, the resulting configuration file is created at the default `kubeconfig` path (`.kube`) in your home directory or merged with an existing `config` file at that location. You can specify another path with the `--kubeconfig` option.
@@ -36,13 +40,13 @@ Amazon EKS uses the `aws eks get-token` command with `kubectl` for cluster authe
   For all available options, run the `aws eks update-kubeconfig help` command or see [update-kubeconfig](../../../cli/latest/reference/eks/update-kubeconfig.md "../../../cli/latest/reference/eks/update-kubeconfig.md") in the _AWS CLI Command Reference_. 2. Test your configuration.
 
   ```
-   kubectl get svc
+  kubectl get svc
   ```
 
   An example output is as follows.
 
   ```
-   NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+  NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
   svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
   ```
 

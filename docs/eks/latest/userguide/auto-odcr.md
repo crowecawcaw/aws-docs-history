@@ -23,7 +23,7 @@ If you configure `capacityReservationSelectorTerms` on a NodeClass in a cluster,
 ### Example NodeClass
 
 ```
- apiVersion: eks.amazonaws.com/v1
+apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 spec:
   # Optional: Selects upon on-demand capacity reservations and capacity blocks
@@ -58,7 +58,7 @@ The following sample definitions create three resources:
 This NodeClass references a specific Capacity Block for ML by its reservation ID. You can obtain this ID from the EC2 console.
 
 ```
- apiVersion: eks.amazonaws.com/v1
+apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: gpu
@@ -79,7 +79,7 @@ This NodePool references the `gpu` NodeClass and specifies important configurati
 - It applies a `nvidia.com/gpu` taint to ensure only GPU workloads are scheduled on these nodes
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: gpu
@@ -125,7 +125,7 @@ This example pod demonstrates how to configure a workload to run on your Capacit
 - It explicitly **requests GPU resources** using the `nvidia.com/gpu` resource type
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: nvidia-smi

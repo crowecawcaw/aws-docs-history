@@ -74,7 +74,7 @@ AWS provides technical support for the default configurations of the following c
    - For a full list of Helm values for Cilium, see the [Helm reference](https://docs.cilium.io/en/stable/helm-reference/ "https://docs.cilium.io/en/stable/helm-reference/") in the Cilium documentation.
 
    ```
-    affinity:
+   affinity:
      nodeAffinity:
        requiredDuringSchedulingIgnoredDuringExecution:
          nodeSelectorTerms:
@@ -86,9 +86,9 @@ AWS provides technical support for the default configurations of the following c
    ipam:
      mode: cluster-pool
      operator:
-       clusterPoolIPv4MaskSize: <replaceable>25</replaceable>
+       clusterPoolIPv4MaskSize: `25`
        clusterPoolIPv4PodCIDRList:
-       - <replaceable>POD_CIDR</replaceable>
+       - `POD_CIDR`
    loadBalancer:
      serviceTopology: true
    operator:
@@ -116,8 +116,8 @@ AWS provides technical support for the default configurations of the following c
    - If you are using a specific kubeconfig file, use the `--kubeconfig` flag with the Helm install command.
 
    ```
-    helm install cilium oci://public.ecr.aws/eks/cilium/cilium \
-       --version <replaceable>CILIUM_VERSION</replaceable> \
+   helm install cilium oci://public.ecr.aws/eks/cilium/cilium \
+       --version `CILIUM_VERSION` \
        --namespace kube-system \
        --values cilium-values.yaml
    ```
@@ -125,21 +125,21 @@ AWS provides technical support for the default configurations of the following c
 3. Confirm your Cilium installation was successful with the following commands. You should see the `cilium-operator` deployment and the `cilium-agent` running on each of your hybrid nodes. Additionally, your hybrid nodes should now have status `Ready`. For information on how to configure Cilium BGP to advertise your pod CIDRs to your on-premises network, proceed to [Configure Cilium BGP for hybrid nodes](hybrid-nodes-cilium-bgp.md "hybrid-nodes-cilium-bgp.md").
 
 ```
- kubectl get pods -n kube-system
+kubectl get pods -n kube-system
 ```
 
 ```
- NAME                              READY   STATUS    RESTARTS   AGE
+NAME                              READY   STATUS    RESTARTS   AGE
 cilium-jjjn8                      1/1     Running   0          11m
 cilium-operator-d4f4d7fcb-sc5xn   1/1     Running   0          11m
 ```
 
 ```
- kubectl get nodes
+kubectl get nodes
 ```
 
 ```
- NAME                   STATUS   ROLES    AGE   VERSION
+NAME                   STATUS   ROLES    AGE   VERSION
 mi-04a2cf999b7112233   Ready    <none>   19m   v1.31.0-eks-a737599
 ```
 
@@ -151,7 +151,7 @@ Before upgrading your Cilium deployment, carefully review the [Cilium upgrade do
 2. Run the Cilium upgrade pre-flight check. Replace `CILIUM_VERSION` with your target Cilium version. We recommend that you run the latest patch version for your Cilium minor version. You can find the latest patch release for a given minor Cilium release in the [Stable Releases section](https://github.com/cilium/cilium#stable-releases "https://github.com/cilium/cilium#stable-releases") of the Cilium documentation.
 
 ```
- helm install cilium-preflight oci://public.ecr.aws/eks/cilium/cilium --version CILIUM_VERSION \
+helm install cilium-preflight oci://public.ecr.aws/eks/cilium/cilium --version CILIUM_VERSION \
   --namespace=kube-system \
   --set preflight.enabled=true \
   --set agent=false \
@@ -161,11 +161,11 @@ Before upgrading your Cilium deployment, carefully review the [Cilium upgrade do
 3. After applying the `cilium-preflight.yaml`, ensure that the number of `READY` pods is the same number of Cilium pods running.
 
 ```
- kubectl get ds -n kube-system | sed -n '1p;/cilium/p'
+kubectl get ds -n kube-system | sed -n '1p;/cilium/p'
 ```
 
 ```
- NAME                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+NAME                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 cilium                    2         2         2       2            2           <none>          1h20m
 cilium-pre-flight-check   2         2         2       2            2           <none>          7m15s
 ```
@@ -173,39 +173,39 @@ cilium-pre-flight-check   2         2         2       2            2           <
 4. Once the number of READY pods are equal, make sure the Cilium pre-flight deployment is also marked as READY 1/1. If it shows READY 0/1, consult the [CNP Validation](https://docs.cilium.io/en/v1.17/operations/upgrade/#cnp-validation "https://docs.cilium.io/en/v1.17/operations/upgrade/#cnp-validation") section and resolve issues with the deployment before continuing with the upgrade.
 
 ```
- kubectl get deployment -n kube-system cilium-pre-flight-check -w
+kubectl get deployment -n kube-system cilium-pre-flight-check -w
 ```
 
 ```
- NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
 cilium-pre-flight-check   1/1     1            0           12s
 ```
 
 5. Delete the preflight
 
 ```
- helm uninstall cilium-preflight --namespace kube-system
+helm uninstall cilium-preflight --namespace kube-system
 ```
 
 6. Before running the `helm upgrade` command, preserve the values for your deployment in a `existing-cilium-values.yaml` or use `--set` command line options for your settings when you run the upgrade command. The upgrade operation overwrites the Cilium ConfigMap, so it is critical that your configuration values are passed when you upgrade.
 
 ```
- helm get values cilium --namespace kube-system -o yaml > existing-cilium-values.yaml
+helm get values cilium --namespace kube-system -o yaml > existing-cilium-values.yaml
 ```
 
 7. During normal cluster operations, all Cilium components should run the same version. The following steps describe how to upgrade all of the components from one stable release to a later stable release. When upgrading from one minor release to another minor release, it is recommended to upgrade to the latest patch release for the existing Cilium minor version first. To minimize disruption, set the `upgradeCompatibility` option to the initial Cilium version that you installed in this cluster.
 
 ```
- helm upgrade cilium oci://public.ecr.aws/eks/cilium/cilium --version <replaceable>CILIUM_VERSION</replaceable> \
+helm upgrade cilium oci://public.ecr.aws/eks/cilium/cilium --version `CILIUM_VERSION` \
   --namespace kube-system \
-  --set upgradeCompatibility=<replaceable>1.X</replaceable> \
+  --set upgradeCompatibility=`1.X` \
   -f existing-cilium-values.yaml
 ```
 
 8. (Optional) If you need to rollback your upgrade due to issues, run the following commands.
 
 ```
- helm history cilium --namespace kube-system
+helm history cilium --namespace kube-system
 helm rollback cilium [REVISION] --namespace kube-system
 ```
 
@@ -214,11 +214,11 @@ helm rollback cilium [REVISION] --namespace kube-system
 1. Run the following command to uninstall all Cilium components from your cluster. Note, uninstalling the CNI might impact the health of nodes and pods and shouldn’t be performed on production clusters.
 
 ```
- helm uninstall cilium --namespace kube-system
+helm uninstall cilium --namespace kube-system
 ```
 
 The interfaces and routes configured by Cilium are not removed by default when the CNI is removed from the cluster, see the [GitHub issue](https://github.com/cilium/cilium/issues/34289 "https://github.com/cilium/cilium/issues/34289") for more information. 2. To clean up the on-disk configuration files and resources, if you are using the standard configuration directories, you can remove the files as shown by the [`cni-uninstall.sh` script](https://github.com/cilium/cilium/blob/main/plugins/cilium-cni/cni-uninstall.sh "https://github.com/cilium/cilium/blob/main/plugins/cilium-cni/cni-uninstall.sh") in the Cilium repository on GitHub. 3. To remove the Cilium Custom Resource Definitions (CRDs) from your cluster, you can run the following commands.
 
 ```
- kubectl get crds -oname | grep "cilium" | xargs kubectl delete
+kubectl get crds -oname | grep "cilium" | xargs kubectl delete
 ```

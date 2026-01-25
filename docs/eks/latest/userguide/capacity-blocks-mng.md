@@ -33,8 +33,8 @@ In addition to the requirements in the above procedures, make sure that the `Lau
 
 
     ```
-     NodeLaunchTemplate:
-      Type: "<shared id="AWS"/>::EC2::LaunchTemplate"
+    NodeLaunchTemplate:
+      Type: "AWS::EC2::LaunchTemplate"
       Properties:
         LaunchTemplateData:
           InstanceMarketOptions:
@@ -58,7 +58,7 @@ When creating the Capacity Block managed node group, do the following:
 
 
     ```
-     aws eks create-nodegroup \
+    aws eks create-nodegroup \
         --cluster-name my-cluster \
         --nodegroup-name my-mng \
         --node-role node-role-arn \

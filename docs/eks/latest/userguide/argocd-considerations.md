@@ -45,7 +45,7 @@ However, the IAM Capability Role is required for:
 If you’re using CodeCommit repositories, attach a policy with read permissions:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -66,7 +66,7 @@ For production use, restrict the `Resource` field to specific repository ARNs in
 Example:
 
 ```
- "Resource": "arn:aws:codecommit:us-west-2:111122223333:my-app-repo"
+"Resource": "arn:aws:codecommit:us-west-2:111122223333:my-app-repo"
 ```
 
 This limits the Argo CD capability’s access to only the repositories it needs to manage.
@@ -76,7 +76,7 @@ This limits the Argo CD capability’s access to only the repositories it needs 
 If you’re storing repository credentials in Secrets Manager, attach the managed policy for read access:
 
 ```
- arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess
+arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess
 ```
 
 This policy includes the necessary permissions: `secretsmanager:GetSecretValue`, `secretsmanager:DescribeSecret`, and KMS decrypt permissions.
@@ -163,9 +163,9 @@ Register clusters using Kubernetes Secrets in the `argocd` namespace.
 Get the target cluster ARN. Replace `region-code` with the AWS Region that your target cluster is in and replace `target-cluster` with the name of your target cluster.
 
 ```
- aws eks describe-cluster \
-  --region <replaceable>region-code</replaceable> \
-  --name <replaceable>target-cluster</replaceable> \
+aws eks describe-cluster \
+  --region `region-code` \
+  --name `target-cluster` \
   --query 'cluster.arn' \
   --output text
 ```
@@ -173,7 +173,7 @@ Get the target cluster ARN. Replace `region-code` with the AWS Region that your 
 Create a cluster secret using the cluster ARN:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Secret
 metadata:
   name: target-cluster
@@ -195,7 +195,7 @@ The managed capability requires ARNs to identify target clusters.
 Apply the secret:
 
 ```
- kubectl apply -f cluster-secret.yaml
+kubectl apply -f cluster-secret.yaml
 ```
 
 ### Configure Access Entry on target cluster
@@ -203,10 +203,10 @@ Apply the secret:
 The target cluster must have an Access Entry that grants the Argo CD capability role permission to deploy applications. Replace `region-code` with the AWS Region that your target cluster is in, replace `target-cluster` with the name of your target cluster, and replace the ARN with your Argo CD capability role ARN.
 
 ```
- aws eks create-access-entry \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>target-cluster</replaceable> \
-  --principal-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/<replaceable>ArgoCDCapabilityRole</replaceable> \
+aws eks create-access-entry \
+  --region `region-code` \
+  --cluster-name `target-cluster` \
+  --principal-arn arn:aws:iam::[.replaceable]`111122223333`:role/`ArgoCDCapabilityRole` \
   --type STANDARD \
   --kubernetes-groups system:masters
 ```
@@ -297,7 +297,7 @@ The webhook URL follows the pattern `${serverUrl}/api/webhook`, where `serverUrl
 For example, if your Argo CD server URL is `https://abc123.eks-capabilities.us-west-2.amazonaws.com`, the webhook URL is:
 
 ```
- https://abc123.eks-capabilities.us-west-2.amazonaws.com/api/webhook
+https://abc123.eks-capabilities.us-west-2.amazonaws.com/api/webhook
 ```
 
 ### Configure webhooks by Git provider

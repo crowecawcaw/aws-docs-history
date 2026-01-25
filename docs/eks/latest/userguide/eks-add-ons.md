@@ -45,13 +45,13 @@ The predefined namespace for an add-on is the namespace it will be installed int
 To get the predefined namespace for an add-on, use the following command:
 
 ```
- aws eks describe-addon-versions --addon-name <addon-name> --query "addons[].defaultNamespace"
+aws eks describe-addon-versions --addon-name <addon-name> --query "addons[].defaultNamespace"
 ```
 
 Example output:
 
 ```
- [
+[
     "kube-system"
 ]
 ```

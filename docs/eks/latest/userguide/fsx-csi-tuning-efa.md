@@ -16,14 +16,14 @@ This topic describes how to set up Elastic Fabric Adapter (EFA) tuning with Amaz
 Create a cluster using the provided configuration file:
 
 ```
- # Create cluster using efa-cluster.yaml
+# Create cluster using efa-cluster.yaml
 eksctl create cluster -f efa-cluster.yaml
 ```
 
 Example `efa-cluster.yaml`:
 
 ```
- #efa-cluster.yaml
+#efa-cluster.yaml
 
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -120,7 +120,7 @@ managedNodeGroups:
 Create an EFA-enabled node group:
 
 ```
- # Create node group using efa-ng.yaml
+# Create node group using efa-ng.yaml
 eksctl create nodegroup -f efa-ng.yaml
 ```
 
@@ -130,7 +130,7 @@ eksctl create nodegroup -f efa-ng.yaml
 Adjust these values for your environment in section `# 5. Mount FSx filesystem`.
 
 ```
- FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
+FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
 MOUNT_NAME="<your-mount-name>" # Needs to be adjusted.
 MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
 ```
@@ -140,7 +140,7 @@ MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
 Example `efa-ng.yaml`:
 
 ```
- apiVersion: eksctl.io/v1alpha5
+apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
@@ -561,26 +561,26 @@ managedNodeGroups:
 SSH into node:
 
 ```
- # Get instance ID from EKS console or {aws} CLI
+# Get instance ID from EKS console or {aws} CLI
 ssh -i /path/to/your-key.pem ec2-user@<node-internal-ip>
 ```
 
 Verify EFA configuration:
 
 ```
- sudo lnetctl net show
+sudo lnetctl net show
 ```
 
 Check setup logs:
 
 ```
- sudo cat /var/log/cloud-init-output.log
+sudo cat /var/log/cloud-init-output.log
 ```
 
 Here’s example expected output for `lnetctl net show`:
 
 ```
- net:
+net:
     - net type: tcp
       ...
     - net type: efa
@@ -594,7 +594,7 @@ Here’s example expected output for `lnetctl net show`:
 ### a. Create claim.yaml
 
 ```
- #claim.yaml
+#claim.yaml
 
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -613,7 +613,7 @@ spec:
 Apply the claim:
 
 ```
- kubectl apply -f claim.yaml
+kubectl apply -f claim.yaml
 ```
 
 ### b. Create pv.yaml
@@ -621,7 +621,7 @@ Apply the claim:
 Update the `<replaceable-placeholders>`:
 
 ```
- #pv.yaml
+#pv.yaml
 
 apiVersion: v1
 kind: PersistentVolume
@@ -647,13 +647,13 @@ spec:
 Apply the persistent volume:
 
 ```
- kubectl apply -f pv.yaml
+kubectl apply -f pv.yaml
 ```
 
 ### c. Create pod.yaml
 
 ```
- #pod.yaml
+#pod.yaml
 
 apiVersion: v1
 kind: Pod
@@ -682,7 +682,7 @@ spec:
 Apply the Pod:
 
 ```
- kubectl apply -f pod.yaml
+kubectl apply -f pod.yaml
 ```
 
 ## Additional verification commands
@@ -690,7 +690,7 @@ Apply the Pod:
 Verify Pod mounts and writes to filesystem:
 
 ```
- kubectl exec -ti fsx-efa-app -- df -h | grep data
+kubectl exec -ti fsx-efa-app -- df -h | grep data
 # Expected output:
 # <192.0.2.0>@tcp:/<abcdef01>  4.5T  1.2G  4.5T   1% /data
 
@@ -702,7 +702,7 @@ kubectl exec -ti fsx-efa-app -- ls /data
 SSH onto the node to verify traffic is going over EFA:
 
 ```
- sudo lnetctl net show -v
+sudo lnetctl net show -v
 ```
 
 The expected output will show EFA interfaces with traffic statistics.

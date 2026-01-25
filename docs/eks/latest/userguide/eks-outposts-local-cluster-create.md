@@ -50,7 +50,7 @@ You could also use the [AWS CLI](../../../cli/latest/reference/eks/create-cluste
    - Replace `m5.large` with an instance type available on your Outpost. Before choosing an instance type, see [Select instance types and placement groups for Amazon EKS clusters on AWS Outposts based on capacity considerations](eks-outposts-capacity-considerations.md "eks-outposts-capacity-considerations.md"). Three control plane instances are deployed. You can’t change this number.
 
    ```
-    cat >outpost-control-plane.yaml <<EOF
+   cat >outpost-control-plane.yaml <<EOF
    apiVersion: eksctl.io/v1alpha5
    kind: ClusterConfig
 
@@ -69,7 +69,7 @@ You could also use the [AWS CLI](../../../cli/latest/reference/eks/create-cluste
            id: "subnet-subnet-ExampleID1"
 
    outpost:
-     controlPlaneOutpostARN: <shared id="region.arn"/>outposts:region-code:111122223333:outpost/op-uniqueid
+     controlPlaneOutpostARN: arn:aws:outposts:region-code:111122223333:outpost/op-uniqueid
      controlPlaneInstanceType: m5.large
    EOF
    ```
@@ -79,13 +79,13 @@ You could also use the [AWS CLI](../../../cli/latest/reference/eks/create-cluste
 3. Create the cluster using the configuration file that you created in the previous step. `eksctl` creates a VPC and one subnet on your Outpost to deploy the cluster in.
 
 ```
- eksctl create cluster -f outpost-control-plane.yaml
+eksctl create cluster -f outpost-control-plane.yaml
 ```
 
 Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
 
 ```
- [✓]  EKS cluster "my-cluster" in "region-code" region is ready
+[✓]  EKS cluster "my-cluster" in "region-code" region is ready
 ```
 
 ###### Tip
@@ -103,7 +103,7 @@ The `eksctl` command automatically created an [access entry](access-entries.md "
    1. Run the following command to create an IAM trust policy JSON file.
 
    ```
-    {
+   {
      "Version":"2012-10-17",
      "Statement": [
        {
@@ -120,13 +120,13 @@ The `eksctl` command automatically created an [access entry](access-entries.md "
    2. Create the Amazon EKS cluster IAM role. To create an IAM role, the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
    ```
-    aws iam create-role --role-name myAmazonEKSLocalClusterRole --assume-role-policy-document file://"eks-local-cluster-role-trust-policy.json"
+   aws iam create-role --role-name myAmazonEKSLocalClusterRole --assume-role-policy-document file://"eks-local-cluster-role-trust-policy.json"
    ```
 
    3. Attach the Amazon EKS managed policy named [AmazonEKSLocalOutpostClusterPolicy](../../../aws-managed-policy/latest/reference/AmazonEKSLocalOutpostClusterPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEKSLocalOutpostClusterPolicy.md") to the role. To attach an IAM policy to an [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal"), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
    ```
-    aws iam attach-role-policy --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy --role-name myAmazonEKSLocalClusterRole
+   aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy --role-name myAmazonEKSLocalClusterRole
    ```
 
 3. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
@@ -164,13 +164,13 @@ Cluster provisioning takes several minutes.
 1. After your cluster is created, you can view the Amazon EC2 control plane instances that were created.
 
 ```
- aws ec2 describe-instances --query 'Reservations[*].Instances[*].{Name:Tags[?Key==`Name`]|[0].Value}' | grep my-cluster-control-plane
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].{Name:Tags[?Key==`Name`]|[0].Value}' | grep my-cluster-control-plane
 ```
 
 An example output is as follows.
 
 ```
- "Name": "my-cluster-control-plane-id1"
+"Name": "my-cluster-control-plane-id1"
 "Name": "my-cluster-control-plane-id2"
 "Name": "my-cluster-control-plane-id3"
 ```
@@ -179,13 +179,13 @@ Each instance is tainted with `node-role.eks-local.amazonaws.com/control-plane` 
 `config` file. For instructions on how to create and update the file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
 ```
- aws eks update-kubeconfig --region region-code --name my-cluster
+aws eks update-kubeconfig --region region-code --name my-cluster
 ```
 
 An example output is as follows.
 
 ```
- Added new context <shared id="region.arn"/>eks:region-code:111122223333:cluster/my-cluster to /home/username/.kube/config
+Added new context arn:aws:eks:region-code:111122223333:cluster/my-cluster to /home/username/.kube/config
 ```
 
 3. To connect to your local cluster’s Kubernetes API server, have access to the local gateway for the subnet, or connect from within the VPC. For more information about connecting an Outpost rack to your on-premises network, see [How local gateways for racks work](../../../outposts/latest/userguide/how-racks-work.md "../../../outposts/latest/userguide/how-racks-work.md") in the AWS Outposts User Guide. If you use Direct VPC Routing and the Outpost subnet has a route to your local gateway, the private IP addresses of the Kubernetes control plane instances are automatically broadcasted over your local network. The local cluster’s Kubernetes API server endpoint is hosted in Amazon Route 53 (Route 53). The API service endpoint can be resolved by public DNS servers to the Kubernetes API servers' private IP addresses.
@@ -193,13 +193,13 @@ An example output is as follows.
 Local clusters' Kubernetes control plane instances are configured with static elastic network interfaces with fixed private IP addresses that don’t change throughout the cluster lifecycle. Machines that interact with the Kubernetes API server might not have connectivity to Route 53 during network disconnects. If this is the case, we recommend configuring `/etc/hosts` with the static private IP addresses for continued operations. We also recommend setting up local DNS servers and connecting them to your Outpost. For more information, see the [AWS Outposts documentation](../../../outposts/latest/userguide/how-outposts-works.md#dns "../../../outposts/latest/userguide/how-outposts-works.md#dns"). Run the following command to confirm that communication’s established with your cluster.
 
 ```
- kubectl get svc
+kubectl get svc
 ```
 
 An example output is as follows.
 
 ```
- NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   28h
 ```
 

@@ -45,7 +45,7 @@ To ensure that your IAM principals can still use the Amazon EKS console, create 
 The following example policy allows a principal to view information on the **Configuration** tab in the console. To view information on the **Overview** and **Resources** tabs in the AWS Management Console, the principal also needs Kubernetes permissions. For more information, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions "view-kubernetes-resources.md#view-kubernetes-resources-permissions").
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -76,7 +76,7 @@ You don’t need to allow minimum console permissions for principals that are ma
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -116,7 +116,7 @@ This example policy includes the minimum permissions required to create an Amazo
 AWS Region. You can replace the AWS Region with the AWS Region that you want to create a cluster in. If you see a warning that says **The actions in your policy do not support resource-level permissions and require you to choose `All resources`** in the AWS Management Console, it can be safely ignored. If your account already has the `AWSServiceRoleForAmazonEKS` role, you can remove the `iam:CreateServiceLinkedRole` action from the policy. If you’ve ever created an Amazon EKS cluster in your account then this role already exists, unless you deleted it.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -149,7 +149,7 @@ This example policy includes the minimum permissions required to create an Amazo
 AWS Region. You can replace the AWS Region with the AWS Region that you want to create a cluster in. If you see a warning that says **The actions in your policy do not support resource-level permissions and require you to choose `All resources`** in the AWS Management Console, it can be safely ignored. If your account already has the `AWSServiceRoleForAmazonEKSLocalOutpost` role, you can remove the `iam:CreateServiceLinkedRole` action from the policy. If you’ve ever created an Amazon EKS local cluster on an Outpost in your account then this role already exists, unless you deleted it.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -200,7 +200,7 @@ AWS Region. You can replace the AWS Region with the AWS Region that you want to 
 This example policy includes the minimum permission required to update a cluster named `my-cluster` in the us-west-2 AWS Region.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -218,7 +218,7 @@ This example policy includes the minimum permissions required to list and descri
 AWS CLI command.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

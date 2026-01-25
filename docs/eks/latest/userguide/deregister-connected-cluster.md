@@ -28,7 +28,7 @@ To deregister a cluster from Amazon EKS connector, you can use one of these tool
 3. Deregister the connected cluster.
 
 ```
- aws eks deregister-cluster \
+aws eks deregister-cluster \
     --name my-cluster \
     --region region-code
 ```
@@ -47,7 +47,7 @@ To deregister a cluster from Amazon EKS connector, you can use one of these tool
 3. Deregister the connected cluster:
 
 ```
- eksctl deregister cluster --name my-cluster
+eksctl deregister cluster --name my-cluster
 ```
 
 ## Clean up the resources in your Kubernetes cluster
@@ -62,7 +62,7 @@ To uninstall the `eks-connector` agent, use one of the following tools:
 Run the following command to uninstall the agent.
 
 ```
- helm -n eks-connector uninstall eks-connector
+helm -n eks-connector uninstall eks-connector
 ```
 
 ### yaml
@@ -70,7 +70,7 @@ Run the following command to uninstall the agent.
 1. Delete the Amazon EKS Connector YAML file from your Kubernetes cluster.
 
 ```
- kubectl delete -f eks-connector.yaml
+kubectl delete -f eks-connector.yaml
 ```
 
 2. If you created `clusterrole` or `clusterrolebindings` for additional [IAM principals](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") to access the cluster, delete them from your Kubernetes cluster.

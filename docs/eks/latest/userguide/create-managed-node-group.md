@@ -31,7 +31,7 @@ If this is your first time launching an Amazon EKS managed node group, we recomm
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
 ```
- eksctl version
+eksctl version
 ```
 
 For instructions on how to install or upgrade `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
@@ -40,7 +40,7 @@ For instructions on how to install or upgrade `eksctl`, see [Installation](https
 2. Create a managed node group with or without using a custom launch template. Manually specifying a launch template allows for greater customization of a node group. For example, it can allow deploying a custom AMI or providing arguments to the `boostrap.sh` script in an Amazon EKS optimized AMI. For a complete list of every available option and default, enter the following command.
 
 ```
- eksctl create nodegroup --help
+eksctl create nodegroup --help
 ```
 
 In the following command, replace `my-cluster` with the name of your cluster and replace `my-mng` with the name of your node group. The node group name can’t be longer than 63 characters. It must start with letter or digit, but can also include hyphens and underscores for the remaining characters.
@@ -71,7 +71,7 @@ For more information, see [Restrict access to the instance profile assigned to t
 If you want to block Pod access to IMDS, then add the `--disable-pod-imds` option to the following command.
 
 ```
- eksctl create nodegroup \
+eksctl create nodegroup \
   --cluster my-cluster \
   --region region-code \
   --name my-mng \
@@ -103,7 +103,7 @@ If you want to block Pod access to IMDS, then specify the necessary settings in 
 1. Copy the following contents to your device. Replace the example values and then run the modified command to create the `eks-nodegroup.yaml` file. Several settings that you specify when deploying without a launch template are moved into the launch template. If you don’t specify a `version`, the template’s default version is used.
 
 ```
- cat >eks-nodegroup.yaml <<EOF
+cat >eks-nodegroup.yaml <<EOF
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
@@ -124,7 +124,7 @@ If you didn’t specify an AMI ID in your launch template, managed node groups c
 If you specified an AMI ID in your launch template, specify the maximum number of Pods that can run on each node of your node group if you’re using [custom networking](cni-custom-network.md "cni-custom-network.md") or want to [increase the number of IP addresses assigned to your instance](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md"). For more information, see [Amazon EKS recommended maximum Pods for each Amazon EC2 instance type](choosing-instance-type.md#determine-max-pods "choosing-instance-type.md#determine-max-pods"). 2. Deploy the nodegroup with the following command.
 
 ```
- eksctl create nodegroup --config-file eks-nodegroup.yaml
+eksctl create nodegroup --config-file eks-nodegroup.yaml
 ```
 
 ## AWS Management Console
@@ -208,13 +208,13 @@ If you specified an AMI ID in your launch template, specify the maximum number o
 If nodes fail to join the cluster, then see [Nodes fail to join cluster](troubleshooting.md#worker-node-fail "troubleshooting.md#worker-node-fail") in the Troubleshooting chapter. 10. Watch the status of your nodes and wait for them to reach the `Ready` status.
 
 ```
- kubectl get nodes --watch
+kubectl get nodes --watch
 ```
 
 11. (GPU nodes only) If you chose a GPU instance type and an Amazon EKS optimized accelerated AMI, then you must apply the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin "https://github.com/NVIDIA/k8s-device-plugin") as a DaemonSet on your cluster. Replace `vX.X.X` with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases "https://github.com/NVIDIA/k8s-device-plugin/releases") version before running the following command.
 
 ```
- kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
+kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
 ```
 
 ## Install Kubernetes add-ons

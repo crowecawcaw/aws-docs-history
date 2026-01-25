@@ -17,44 +17,47 @@ After creating the ACK capability (see [Create an ACK capability](create-ack-cap
 As an example, create this S3 bucket manifest in `bucket.yaml`, choosing your own unique bucket name.
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: my-test-bucket
   namespace: default
 spec:
-  name: <replaceable>my-unique-bucket-name-12345</replaceable>
+  name: `my-unique-bucket-name-12345`
+
 ```
 
 Apply the manifest:
 
 ```
- kubectl apply -f bucket.yaml
+kubectl apply -f bucket.yaml
 ```
 
 Check the status:
 
 ```
- kubectl get bucket my-test-bucket
+kubectl get bucket my-test-bucket
 kubectl describe bucket my-test-bucket
 ```
 
 Verify the bucket was created in AWS:
 
 ```
- aws s3 ls | grep <replaceable>my-unique-bucket-name-12345</replaceable>
+aws s3 ls | grep `my-unique-bucket-name-12345`
+
 ```
 
 Delete the Kubernetes resource:
 
 ```
- kubectl delete bucket my-test-bucket
+kubectl delete bucket my-test-bucket
 ```
 
 Verify the bucket was deleted from AWS:
 
 ```
- aws s3 ls | grep <replaceable>my-unique-bucket-name-12345</replaceable>
+aws s3 ls | grep `my-unique-bucket-name-12345`
+
 ```
 
 The bucket should no longer appear in the list, demonstrating that ACK manages the full lifecycle of AWS resources.
@@ -104,7 +107,7 @@ Understanding these conditions helps you troubleshoot issues and understand reso
 Check resource status:
 
 ```
- # Check if resource is ready
+# Check if resource is ready
 kubectl get bucket my-bucket -o jsonpath='{.status.conditions[?(@.type=="Ready")].status}'
 
 # Check for terminal errors
@@ -114,7 +117,7 @@ kubectl get bucket my-bucket -o jsonpath='{.status.conditions[?(@.type=="ACK.Ter
 Example status:
 
 ```
- status:
+status:
   conditions:
   - type: Ready
     status: "True"
@@ -142,7 +145,7 @@ The AWS resource is deleted when you delete the Kubernetes resource:
 This is the default behavior.
 
 ```
- # No annotation needed - this is the default
+# No annotation needed - this is the default
 apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
@@ -158,7 +161,7 @@ Deleting this resource deletes the S3 bucket in AWS.
 The AWS resource is kept when you delete the Kubernetes resource:
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: important-bucket
@@ -187,7 +190,7 @@ When to use adoption:
 How adoption works:
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: existing-bucket
@@ -222,7 +225,7 @@ ACK can manage resources in different AWS accounts and regions from a single clu
 You can specify the region of an AWS resource using an annotation:
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: eu-bucket
@@ -239,7 +242,7 @@ You can also specify the region of all AWS resources created in a given namespac
 Set a default region for all resources in a namespace:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Namespace
 metadata:
   name: production
@@ -254,7 +257,7 @@ Resources created in this namespace use this region unless overridden with a res
 Use IAM Role Selectors to map specific IAM roles to namespaces:
 
 ```
- apiVersion: services.k8s.aws/v1alpha1
+apiVersion: services.k8s.aws/v1alpha1
 kind: IAMRoleSelector
 metadata:
   name: target-account-config
@@ -284,7 +287,7 @@ Retry strategy:
 Check resource status for error details using `kubectl describe`:
 
 ```
- kubectl describe bucket my-bucket
+kubectl describe bucket my-bucket
 ```
 
 Look for status conditions with error messages, events showing recent reconciliation attempts, and the `message` field in status conditions explaining failures.

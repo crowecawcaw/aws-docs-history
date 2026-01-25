@@ -22,7 +22,7 @@ For more information about using debugging profiles with `kubectl`, see [Debuggi
 1. Determine the AWS Instance ID of the node you want to run the report on. Use the following command to list the nodes in the cluster. The instance ID is found in the name column, and begins with `i-`:
 
 ```
- kubectl get nodes
+kubectl get nodes
 ```
 
 ```
@@ -33,7 +33,7 @@ i-0ea0ba0f8ef9ad609   Ready    <none>   62s   v1.30.10-eks-1a9dacd
 2. Run the following command, replacing `<instance-id>` with the instance ID of the node you want to query:
 
 ```
- kubectl debug node/<instance-id> -it --profile=sysadmin --image=public.ecr.aws/amazonlinux/amazonlinux:2023 -- bash -c "yum install -q -y util-linux-core; nsenter -t 1 -m apiclient report cis --level 1 --format text"
+kubectl debug node/<instance-id> -it --profile=sysadmin --image=public.ecr.aws/amazonlinux/amazonlinux:2023 -- bash -c "yum install -q -y util-linux-core; nsenter -t 1 -m apiclient report cis --level 1 --format text"
 ```
 
 Components of this command include:

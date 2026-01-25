@@ -24,7 +24,7 @@ You can launch self-managed Windows nodes with either of the following:
 This procedure requires that you have installed `eksctl`, and that your `eksctl` version is at least `0.215.0`. You can check your version with the following command.
 
 ```
- eksctl version
+eksctl version
 ```
 
 For instructions on how to install or upgrade `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
@@ -43,7 +43,7 @@ Create your node group with the following command. Replace `region-code` with th
 To deploy a node group to AWS Outposts, AWS Wavelength, or AWS Local Zone subnets, don’t pass the AWS Outposts, Wavelength, or Local Zone subnets when you create the cluster. Create the node group with a config file, specifying the AWS Outposts, Wavelength, or Local Zone subnets. For more information, see [Create a nodegroup from a config file](https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file "https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file") and [Config file schema](https://eksctl.io/usage/schema/ "https://eksctl.io/usage/schema/") in the `eksctl` documentation.
 
 ```
- eksctl create nodegroup \
+eksctl create nodegroup \
     --region region-code \
     --cluster my-cluster \
     --name ng-windows \
@@ -63,13 +63,13 @@ To deploy a node group to AWS Outposts, AWS Wavelength, or AWS Local Zone subnet
 
 
     ```
-     eksctl command -help
+    eksctl command -help
     ```
 
 An example output is as follows. Several lines are output while the nodes are created. One of the last lines of output is the following example line.
 
 ```
- [✔]  created 1 nodegroup(s) in cluster "my-cluster"
+[✔]  created 1 nodegroup(s) in cluster "my-cluster"
 ```
 
 3.  (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your cluster and Windows nodes.
@@ -97,7 +97,7 @@ An example output is as follows. Several lines are output while the nodes are cr
 5. Copy the following URL and paste it into **Amazon S3 URL**.
 
 ```
- https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2023-02-09/amazon-eks-windows-nodegroup.yaml
+https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2023-02-09/amazon-eks-windows-nodegroup.yaml
 ```
 
 6.  Select **Next** twice.
@@ -155,7 +155,7 @@ An example output is as follows. Several lines are output while the nodes are cr
    `ConfigMap`.
 
 ```
- kubectl describe configmap -n kube-system aws-auth
+kubectl describe configmap -n kube-system aws-auth
 ```
 
 2.  If you are shown an `aws-auth`
@@ -166,14 +166,14 @@ An example output is as follows. Several lines are output while the nodes are cr
 
 
         ```
-         kubectl edit -n kube-system configmap/aws-auth
+        kubectl edit -n kube-system configmap/aws-auth
         ```
         2. Add new `mapRoles` entries as needed. Set the `rolearn` values to the **NodeInstanceRole** values that you recorded in the previous procedures.
 
 
 
         ```
-         [...]
+        [...]
         data:
           mapRoles: |
         - rolearn: <ARN of linux instance role (not instance profile)>
@@ -195,13 +195,13 @@ An example output is as follows. Several lines are output while the nodes are cr
     1. Download the configuration map.
 
     ```
-     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml
     ```
 
     2. In the `aws-auth-cm-windows.yaml` file, set the `rolearn` values to the applicable **NodeInstanceRole** values that you recorded in the previous procedures. You can do this with a text editor, or by replacing the example values and running the following command:
 
     ```
-     sed -i.bak -e 's|<ARN of linux instance role (not instance profile)>|my-node-linux-instance-role|' \
+    sed -i.bak -e 's|<ARN of linux instance role (not instance profile)>|my-node-linux-instance-role|' \
         -e 's|<ARN of windows instance role (not instance profile)>|my-node-windows-instance-role|' aws-auth-cm-windows.yaml
     ```
 
@@ -213,13 +213,13 @@ An example output is as follows. Several lines are output while the nodes are cr
     3. Apply the configuration. This command might take a few minutes to finish.
 
     ```
-     kubectl apply -f aws-auth-cm-windows.yaml
+    kubectl apply -f aws-auth-cm-windows.yaml
     ```
 
 4.  Watch the status of your nodes and wait for them to reach the `Ready` status.
 
 ```
- kubectl get nodes --watch
+kubectl get nodes --watch
 ```
 
 Enter `Ctrl`+`C` to return to a shell prompt.

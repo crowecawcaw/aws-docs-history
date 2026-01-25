@@ -13,14 +13,14 @@ If your add-ons are encountering errors while attempting AWS API, SDK, or CLI op
   - Use the AWS CLI to retrieve the associations for the service account name used by the add-on.
 
   ```
-   aws eks list-pod-identity-associations --cluster-name <cluster-name>
+  aws eks list-pod-identity-associations --cluster-name <cluster-name>
   ```
 
 - The IAM role has the required trust policy for Pod Identities.
   - Use the AWS CLI to retrieve the trust policy for an add-on.
 
   ```
-   aws iam get-role --role-name <role-name> --query Role.AssumeRolePolicyDocument
+  aws iam get-role --role-name <role-name> --query Role.AssumeRolePolicyDocument
   ```
 
 - The IAM role has the necessary permissions for the add-on.

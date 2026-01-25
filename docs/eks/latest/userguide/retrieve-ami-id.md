@@ -19,19 +19,20 @@ You can retrieve the image ID of the latest recommended Amazon EKS optimized Ama
 - Replace `<region-code>` with an [Amazon EKS supported AWS Region](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") for which you want the AMI ID.
 
 ```
- aws ssm get-parameter --name /aws/service/eks/optimized-ami/<kubernetes-version>/<ami-type>/recommended/image_id \
+aws ssm get-parameter --name /aws/service/eks/optimized-ami/<kubernetes-version>/<ami-type>/recommended/image_id \
     --region <region-code> --query "Parameter.Value" --output text
 ```
 
 Here’s an example command after placeholder replacements have been made.
 
 ```
- aws ssm get-parameter --name /aws/service/eks/optimized-ami/<replaceable>1.31</replaceable>/<replaceable>amazon-linux-2023</replaceable>/<replaceable>x86_64/standard</replaceable>/recommended/image_id \
-    --region <replaceable>us-west-2</replaceable> --query "Parameter.Value" --output text
+aws ssm get-parameter --name /aws/service/eks/optimized-ami/`1.31`/`amazon-linux-2023`/`x86_64/standard`/recommended/image_id \
+    --region `us-west-2` --query "Parameter.Value" --output text
 ```
 
 An example output is as follows.
 
 ```
- ami-<replaceable>1234567890abcdef0</replaceable>
+ami-`1234567890abcdef0`
+
 ```

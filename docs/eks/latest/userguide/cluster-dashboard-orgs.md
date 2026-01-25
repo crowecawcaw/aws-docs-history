@@ -27,7 +27,7 @@ When you enable trusted access through the EKS console, the system automatically
 2. Run the following commands:
 
 ```
- aws iam create-service-linked-role --aws-service-name dashboard.eks.amazonaws.com
+aws iam create-service-linked-role --aws-service-name dashboard.eks.amazonaws.com
 aws organizations enable-aws-service-access --service-principal eks.amazonaws.com
 ```
 
@@ -48,7 +48,7 @@ Disabling trusted access revokes the EKS Dashboard’s permission to access clus
 2. Run the following command:
 
 ```
- aws organizations disable-aws-service-access --service-principal eks.amazonaws.com
+aws organizations disable-aws-service-access --service-principal eks.amazonaws.com
 ```
 
 ## Enable a delegated administrator account
@@ -70,7 +70,7 @@ A delegated administrator is a member account that’s granted permission to acc
 2. Run the following command, replacing `123456789012` with your account ID:
 
 ```
- aws organizations register-delegated-administrator --account-id 123456789012 --service-principal eks.amazonaws.com
+aws organizations register-delegated-administrator --account-id 123456789012 --service-principal eks.amazonaws.com
 ```
 
 ## Disable a delegated administrator account
@@ -91,7 +91,7 @@ Disabling a delegated administrator removes the account’s permission to access
 2. Run the following command, replacing `123456789012` with the account ID of the delegated administrator:
 
 ```
- aws organizations deregister-delegated-administrator --account-id 123456789012 --service-principal eks.amazonaws.com
+aws organizations deregister-delegated-administrator --account-id 123456789012 --service-principal eks.amazonaws.com
 ```
 
 ## Minimum IAM policies required
@@ -103,7 +103,7 @@ This section outlines the minimum IAM policies required to enable trusted access
 To enable trusted access between EKS Dashboard and AWS Organizations, you need the following permissions:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -131,7 +131,7 @@ To enable trusted access between EKS Dashboard and AWS Organizations, you need t
 To register or deregister a delegated administrator for the EKS Dashboard, you need the following permissions:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -150,7 +150,7 @@ To register or deregister a delegated administrator for the EKS Dashboard, you n
 ### Policy to view EKS Dashboard
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

@@ -25,7 +25,7 @@ For development, testing, or simple use cases, grant all necessary permissions d
 **Example**: Add S3 and RDS permissions to your Capability Role with resource tagging conditions:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -130,16 +130,32 @@ Use Kubernetes namespaces to logically separate ACK resources by environment (pr
 
 ### Resource tagging
 
-EKS automatically applies tags to AWS resources managed by ACK, including the capability resource ARN.
-Add additional tags for cost allocation, ownership tracking, and organizational purposes.
+The EKS ACK capability automatically applies default tags to all AWS resources it creates.
+These tags differ from self-managed ACK and provide enhanced traceability.
 
-**Recommended tags**:
+**Default tags applied by the capability**:
+
+| Tag Key                        | Description                                                   |
+| ------------------------------ | ------------------------------------------------------------- |
+| `eks:controller-version`       | The version of the ACK controller                             |
+| `eks:kubernetes-namespace`     | The Kubernetes namespace of the ACK resource                  |
+| `eks:kubernetes-resource-name` | The name of the Kubernetes resource                           |
+| `eks:kubernetes-api-group`     | The Kubernetes API group (for example, `s3.services.k8s.aws`) |
+| `eks:eks-capability-arn`       | The ARN of the EKS ACK capability                             |
+
+###### Note
+
+Self-managed ACK uses different default tags: `services.k8s.aws/controller-version` and `services.k8s.aws/namespace`.
+The capability’s tags use the `eks:` prefix for consistency with other EKS features.
+
+**Additional recommended tags**:
+
+Add custom tags for cost allocation, ownership tracking, and organizational purposes:
 
 - Environment (Production, Staging, Development)
 - Team or department ownership
 - Cost center for billing allocation
 - Application or service name
-- ManagedBy: ACK (to identify ACK-managed resources)
 
 ## Migration from other Infrastructure-as-code tools
 
@@ -159,7 +175,7 @@ ACK supports adopting existing AWS resources without recreating them, enabling z
 **Adopt an existing resource**:
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: existing-bucket
@@ -212,7 +228,7 @@ This protects critical data and allows resources to outlive their Kubernetes rep
 - Resources with complex dependencies that require careful decommissioning
 
 ```
- apiVersion: rds.services.k8s.aws/v1alpha1
+apiVersion: rds.services.k8s.aws/v1alpha1
 kind: DBInstance
 metadata:
   name: production-db

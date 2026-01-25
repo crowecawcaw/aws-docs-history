@@ -26,7 +26,7 @@ You can use the following procedure to check and see if your account already has
 7. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -91,15 +91,15 @@ Attach the following AWS managed policies to the Node IAM Role to provide the ne
 To attach AmazonEKSWorkerNodeMinimalPolicy:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
 ```
 
 To attach AmazonEC2ContainerRegistryPullOnly:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+    --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```

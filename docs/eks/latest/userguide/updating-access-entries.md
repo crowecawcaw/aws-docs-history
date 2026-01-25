@@ -26,7 +26,7 @@ You can update an access entry using the AWS Management Console or the AWS CLI.
    Replace `my-cluster` with the name of your cluster, `111122223333` with your AWS account ID, and `EKS-my-cluster-my-namespace-Viewers` with the name of an IAM role.
 
 ```
- aws eks update-access-entry --cluster-name my-cluster --principal-arn <shared id="region.arn"/>iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers --kubernetes-groups Viewers
+aws eks update-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-my-namespace-Viewers --kubernetes-groups Viewers
 ```
 
 You can’t use the `--kubernetes-groups` option if the type of the access entry is a value other than `STANDARD`. You also can’t associate an access policy to an access entry with a type other than `STANDARD`.

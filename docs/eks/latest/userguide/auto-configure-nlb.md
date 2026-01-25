@@ -25,7 +25,7 @@ For more information about the Kubernetes `Service` resource, see [the Kubernete
 Review the sample `Service` resource below:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: echoserver
@@ -94,7 +94,7 @@ When migrating to EKS Auto Mode for load balancing, several changes in service a
 To migrate from deprecated load balancer attribute annotations, consolidate these settings into the `service.beta.kubernetes.io/aws-load-balancer-attributes` annotation. This annotation accepts a comma-separated list of key-value pairs for various load balancer attributes. For example, to specify access logging, and cross-zone load balancing, use the following format:
 
 ```
- service.beta.kubernetes.io/aws-load-balancer-attributes: access_logs.s3.enabled=true,access_logs.s3.bucket=my-bucket,access_logs.s3.prefix=my-prefix,load_balancing.cross_zone.enabled=true
+service.beta.kubernetes.io/aws-load-balancer-attributes: access_logs.s3.enabled=true,access_logs.s3.bucket=my-bucket,access_logs.s3.prefix=my-prefix,load_balancing.cross_zone.enabled=true
 ```
 
 This consolidated format provides a more consistent and flexible way to configure load balancer attributes while reducing the number of individual annotations needed. Review your existing Service configurations and update them to use this consolidated format.

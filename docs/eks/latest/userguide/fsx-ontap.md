@@ -13,7 +13,7 @@ Amazon FSx for NetApp ONTAP is a storage service that allows you to launch and r
 If you are using Amazon FSx for NetApp ONTAP alongside the Amazon EBS CSI driver to provision EBS volumes, you must specify to not use EBS devices in the `multipath.conf` file. For supported methods, see [Configuration File Blacklist](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/dm_multipath/config_file_blacklist#config_file_blacklist "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/dm_multipath/config_file_blacklist#config_file_blacklist"). Here is an example.
 
 ```
-  defaults {
+ defaults {
         user_friendly_names yes
         find_multipaths no
       }

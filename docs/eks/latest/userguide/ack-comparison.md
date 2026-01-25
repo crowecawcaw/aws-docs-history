@@ -17,6 +17,15 @@ You can attach IAM policies directly to the Capability Role with no need to crea
 A best practice for production use cases is to configure service permissions using `IAMRoleSelector`.
 See [Configure ACK permissions](ack-permissions.md "ack-permissions.md") for more details.
 
+**Session tags**: The managed capability automatically sets session tags on all AWS API requests, enabling fine-grained access control and auditing.
+Tags include `eks:eks-capability-arn`, `eks:kubernetes-namespace`, and `eks:kubernetes-api-group`.
+This differs from self-managed ACK, which does not set these tags by default.
+See [Configure ACK permissions](ack-permissions.md "ack-permissions.md") for details on using session tags in IAM policies.
+
+**Resource tags**: The capability applies different default tags to AWS resources than self-managed ACK.
+The capability uses `eks:` prefixed tags (such as `eks:kubernetes-namespace`, `eks:eks-capability-arn`) instead of the `services.k8s.aws/` tags used by self-managed ACK.
+See [ACK considerations for EKS](ack-considerations.md "ack-considerations.md") for the complete list of default resource tags.
+
 **Resource compatibility**: ACK custom resources work identically to upstream ACK with no changes to your ACK resource YAML files.
 The capability uses the same Kubernetes APIs and CRDs, so tools like `kubectl` work the same way.
 All GA controllers and resources from upstream ACK are supported.
@@ -30,7 +39,7 @@ You can migrate from self-managed ACK to the managed capability with zero downti
 1. Update your self-managed ACK controller to use `kube-system` for leader election leases, for example:
 
 ```
- helm upgrade --install ack-s3-controller \
+helm upgrade --install ack-s3-controller \
   oci://public.ecr.aws/aws-controllers-k8s/s3-chart \
   --namespace ack-system \
   --set leaderElection.namespace=kube-system
@@ -39,7 +48,7 @@ You can migrate from self-managed ACK to the managed capability with zero downti
 This moves the controller’s lease to `kube-system`, allowing the managed capability to coordinate with it. 2. Create the ACK capability on your cluster (see [Create an ACK capability](create-ack-capability.md "create-ack-capability.md")) 3. The managed capability recognizes existing ACK-managed AWS resources and takes over reconciliation 4. Gradually scale down or remove self-managed controller deployments:
 
 ```
- helm uninstall ack-s3-controller --namespace ack-system
+helm uninstall ack-s3-controller --namespace ack-system
 ```
 
 This approach allows both controllers to coexist safely during migration.

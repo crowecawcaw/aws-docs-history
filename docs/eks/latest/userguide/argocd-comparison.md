@@ -64,18 +64,18 @@ Configure the CLI using environment variables:
    The `https://` prefix must be removed:
 
 ```
- export ARGOCD_SERVER=$(aws eks describe-capability \
-  --cluster-name <replaceable>my-cluster</replaceable> \
-  --capability-name <replaceable>my-argocd</replaceable> \
+export ARGOCD_SERVER=$(aws eks describe-capability \
+  --cluster-name `my-cluster` \
+  --capability-name `my-argocd` \
   --query 'capability.configuration.argoCd.serverUrl' \
   --output text \
-  --region <replaceable>region-code</replaceable> | sed 's|^https://||')
+  --region `region-code` | sed 's|^https://||')
 ```
 
 2. Generate an account token from the Argo CD UI (**Settings** → **Accounts** → **admin** → **Generate New Token**), then set it as an environment variable:
 
 ```
- export ARGOCD_AUTH_TOKEN="your-token-here"
+export ARGOCD_AUTH_TOKEN="your-token-here"
 ```
 
 ###### Important
@@ -87,7 +87,7 @@ For more information about configuring project roles and RBAC, see [Configure Ar
 1. Set the required gRPC option:
 
 ```
- export ARGOCD_OPTS="--grpc-web"
+export ARGOCD_OPTS="--grpc-web"
 ```
 
 With these environment variables set, you can use the Argo CD CLI without the `argocd login` command.
@@ -105,9 +105,9 @@ The managed capability has the following CLI limitations:
 Register an EKS cluster for application deployment:
 
 ```
- # Get the cluster ARN
+# Get the cluster ARN
 CLUSTER_ARN=$(aws eks describe-cluster \
-  --name <replaceable>my-cluster</replaceable> \
+  --name `my-cluster` \
   --query 'cluster.arn' \
   --output text)
 

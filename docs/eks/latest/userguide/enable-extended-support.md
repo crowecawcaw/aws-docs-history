@@ -31,7 +31,7 @@ If you do not enable extended support, your cluster will be automatically upgrad
 3. Run the following command:
 
 ```
- aws eks update-cluster-config \
+aws eks update-cluster-config \
 --name <cluster-name> \
 --upgrade-policy supportType=EXTENDED
 ```

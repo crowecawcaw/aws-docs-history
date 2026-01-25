@@ -20,19 +20,19 @@ Follow these steps to create a NodePool for your Amazon EKS cluster:
 2. Apply the NodePool to your cluster:
 
 ```
- kubectl apply -f nodepool.yaml
+kubectl apply -f nodepool.yaml
 ```
 
 3. Verify that the NodePool was created successfully:
 
 ```
- kubectl get nodepools
+kubectl get nodepools
 ```
 
 4. (Optional) Monitor the NodePool status:
 
 ```
- kubectl describe nodepool default
+kubectl describe nodepool default
 ```
 
 Ensure that your NodePool references a valid NodeClass that exists in your cluster. The NodeClass defines AWS-specific configurations for your compute resources. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
@@ -40,7 +40,7 @@ Ensure that your NodePool references a valid NodeClass that exists in your clust
 ## Sample NodePool
 
 ```
- apiVersion: karpenter.sh/v1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: my-node-pool
@@ -136,7 +136,7 @@ When you create a cluster without built-in node pools, the `default` NodeClass i
    - Sample eksctl `autoModeConfig`:
 
    ```
-    autoModeConfig:
+   autoModeConfig:
      enabled: true
      nodePools: []
      # Do not set a nodeRoleARN

@@ -29,13 +29,13 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 1. View the names of add-ons available for a cluster version. Replace `1.33` with the version of your cluster.
 
 ```
- eksctl utils describe-addon-versions --kubernetes-version 1.33 | grep AddonName
+eksctl utils describe-addon-versions --kubernetes-version 1.33 | grep AddonName
 ```
 
 An example output is as follows.
 
 ```
- "AddonName": "aws-ebs-csi-driver",
+"AddonName": "aws-ebs-csi-driver",
                         "AddonName": "coredns",
                         "AddonName": "kube-proxy",
                         "AddonName": "vpc-cni",
@@ -50,13 +50,13 @@ An example output is as follows.
 2. View the versions available for the add-on that you would like to create. Replace `1.33` with the version of your cluster. Replace `name-of-addon` with the name of the add-on you want to view the versions for. The name must be one of the names returned in the previous step.
 
 ```
- eksctl utils describe-addon-versions --kubernetes-version 1.33 --name name-of-addon | grep AddonVersion
+eksctl utils describe-addon-versions --kubernetes-version 1.33 --name name-of-addon | grep AddonVersion
 ```
 
 The following output is an example of what is returned for the add-on named `vpc-cni`. You can see that the add-on has several available versions.
 
 ```
- "AddonVersions": [
+"AddonVersions": [
     "AddonVersion": "v1.12.0-eksbuild.1",
     "AddonVersion": "v1.11.4-eksbuild.1",
     "AddonVersion": "v1.10.4-eksbuild.1",
@@ -68,7 +68,7 @@ The following output is an example of what is returned for the add-on named `vpc
 
 
     ```
-     eksctl utils describe-addon-versions --kubernetes-version 1.33 --name name-of-addon | grep ProductUrl
+    eksctl utils describe-addon-versions --kubernetes-version 1.33 --name name-of-addon | grep ProductUrl
     ```
 
     If no output is returned, then the add-on is an Amazon EKS. If output is returned, then the add-on is an AWS Marketplace add-on. The following output is for an add-on named `teleport_teleport`.
@@ -76,7 +76,7 @@ The following output is an example of what is returned for the add-on named `vpc
 
 
     ```
-     "ProductUrl": "https://aws.amazon.com/marketplace/pp?sku=3bda70bb-566f-4976-806c-f96faef18b26"
+    "ProductUrl": "https://aws.amazon.com/marketplace/pp?sku=3bda70bb-566f-4976-806c-f96faef18b26"
     ```
 
     You can learn more about the add-on in the AWS Marketplace with the returned URL. If the add-on requires a subscription, you can subscribe to the add-on through the AWS Marketplace. If you’re going to create an add-on from the AWS Marketplace, then the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that you’re using to create the add-on must have permission to create the [AWSServiceRoleForAWSLicenseManagerRole](../../../license-manager/latest/userguide/license-manager-role-core.md "../../../license-manager/latest/userguide/license-manager-role-core.md") service-linked role. For more information about assigning permissions to an IAM entity, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the IAM User Guide.
@@ -91,14 +91,14 @@ The following output is an example of what is returned for the add-on named `vpc
    - This example command overwrites the configuration of any existing self-managed version of the add-on, if there is one. If you don’t want to overwrite the configuration of an existing self-managed add-on, remove the `--force` option. If you remove the option, and the Amazon EKS add-on needs to overwrite the configuration of an existing self-managed add-on, then creation of the Amazon EKS add-on fails with an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option.
 
    ```
-    eksctl create addon --cluster my-cluster --name name-of-addon --version latest \
-       --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/role-name --force
+   eksctl create addon --cluster my-cluster --name name-of-addon --version latest \
+       --service-account-role-arn arn:aws:iam::111122223333:role/role-name --force
    ```
 
    You can see a list of all available options for the command.
 
    ```
-    eksctl create addon --help
+   eksctl create addon --help
    ```
 
    For more information about available options see [Addons](https://eksctl.io/usage/addons/ "https://eksctl.io/usage/addons/") in the `eksctl` documentation.
@@ -156,14 +156,14 @@ If the **AWS Marketplace add-ons** that you want to install aren’t listed, you
 2. Determine which add-ons are available. You can see all available add-ons, their type, and their publisher. You can also see the URL for add-ons that are available through the AWS Marketplace. Replace `1.33` with the version of your cluster.
 
 ```
- aws eks describe-addon-versions --kubernetes-version 1.33 \
+aws eks describe-addon-versions --kubernetes-version 1.33 \
     --query 'addons[].{MarketplaceProductUrl: marketplaceInformation.productUrl, Name: addonName, Owner: owner Publisher: publisher, Type: type}' --output table
 ```
 
 An example output is as follows.
 
 ```
- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 |                                                                 DescribeAddonVersions                                                                 |
 +---------------------------------------------------------------+-------------------------------+------------------+--------------+---------------------+
 |                     MarketplaceProductUrl                     |             Name              |      Owner       |  Publisher   |        Type         |
@@ -184,14 +184,14 @@ An example output is as follows.
 Your output might be different. In this example output, there are three different add-ons available of type `networking` and five add-ons with a publisher of type `eks`. The add-ons with `aws-marketplace` in the `Owner` column may require a subscription before you can install them. You can visit the URL to learn more about the add-on and to subscribe to it. 3. You can see which versions are available for each add-on. Replace `1.33` with the version of your cluster and replace `vpc-cni` with the name of an add-on returned in the previous step.
 
 ```
- aws eks describe-addon-versions --kubernetes-version 1.33 --addon-name vpc-cni \
+aws eks describe-addon-versions --kubernetes-version 1.33 --addon-name vpc-cni \
     --query 'addons[].addonVersions[].{Version: addonVersion, Defaultversion: compatibilities[0].defaultVersion}' --output table
 ```
 
 An example output is as follows.
 
 ```
- ------------------------------------------
+------------------------------------------
 |          DescribeAddonVersions         |
 +-----------------+----------------------+
 | Defaultversion  |       Version        |
@@ -206,11 +206,11 @@ An example output is as follows.
 The version with `True` in the `Defaultversion` column is the version that the add-on is created with, by default. 4. (Optional) Find the configuration options for your chosen add-on by running the following command:
 
 ```
- aws eks describe-addon-configuration --addon-name vpc-cni --addon-version v1.12.0-eksbuild.1
+aws eks describe-addon-configuration --addon-name vpc-cni --addon-version v1.12.0-eksbuild.1
 ```
 
 ```
- {
+{
     "addonName": "vpc-cni",
     "addonVersion": "v1.12.0-eksbuild.1",
     "configurationSchema": "{\"$ref\":\"#/definitions/VpcCni\",\"$schema\":\"http://json-schema.org/draft-06/schema#\",\"definitions\":{\"Cri\":{\"additionalProperties\":false,\"properties\":{\"hostPath\":{\"$ref\":\"#/definitions/HostPath\"}},\"title\":\"Cri\",\"type\":\"object\"},\"Env\":{\"additionalProperties\":false,\"properties\":{\"ADDITIONAL_ENI_TAGS\":{\"type\":\"string\"},\"AWS_VPC_CNI_NODE_PORT_SUPPORT\":{\"format\":\"boolean\",\"type\":\"string\"},\"AWS_VPC_ENI_MTU\":{\"format\":\"integer\",\"type\":\"string\"},\"AWS_VPC_K8S_CNI_CONFIGURE_RPFILTER\":{\"format\":\"boolean\",\"type\":\"string\"},\"AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG\":{\"format\":\"boolean\",\"type\":\"string\"},\"AWS_VPC_K8S_CNI_EXTERNALSNAT\":{\"format\":\"boolean\",\"type\":\"string\"},\"AWS_VPC_K8S_CNI_LOGLEVEL\":{\"type\":\"string\"},\"AWS_VPC_K8S_CNI_LOG_FILE\":{\"type\":\"string\"},\"AWS_VPC_K8S_CNI_RANDOMIZESNAT\":{\"type\":\"string\"},\"AWS_VPC_K8S_CNI_VETHPREFIX\":{\"type\":\"string\"},\"AWS_VPC_K8S_PLUGIN_LOG_FILE\":{\"type\":\"string\"},\"AWS_VPC_K8S_PLUGIN_LOG_LEVEL\":{\"type\":\"string\"},\"DISABLE_INTROSPECTION\":{\"format\":\"boolean\",\"type\":\"string\"},\"DISABLE_METRICS\":{\"format\":\"boolean\",\"type\":\"string\"},\"DISABLE_NETWORK_RESOURCE_PROVISIONING\":{\"format\":\"boolean\",\"type\":\"string\"},\"ENABLE_POD_ENI\":{\"format\":\"boolean\",\"type\":\"string\"},\"ENABLE_PREFIX_DELEGATION\":{\"format\":\"boolean\",\"type\":\"string\"},\"WARM_ENI_TARGET\":{\"format\":\"integer\",\"type\":\"string\"},\"WARM_PREFIX_TARGET\":{\"format\":\"integer\",\"type\":\"string\"}},\"title\":\"Env\",\"type\":\"object\"},\"HostPath\":{\"additionalProperties\":false,\"properties\":{\"path\":{\"type\":\"string\"}},\"title\":\"HostPath\",\"type\":\"object\"},\"Limits\":{\"additionalProperties\":false,\"properties\":{\"cpu\":{\"type\":\"string\"},\"memory\":{\"type\":\"string\"}},\"title\":\"Limits\",\"type\":\"object\"},\"Resources\":{\"additionalProperties\":false,\"properties\":{\"limits\":{\"$ref\":\"#/definitions/Limits\"},\"requests\":{\"$ref\":\"#/definitions/Limits\"}},\"title\":\"Resources\",\"type\":\"object\"},\"VpcCni\":{\"additionalProperties\":false,\"properties\":{\"cri\":{\"$ref\":\"#/definitions/Cri\"},\"env\":{\"$ref\":\"#/definitions/Env\"},\"resources\":{\"$ref\":\"#/definitions/Resources\"}},\"title\":\"VpcCni\",\"type\":\"object\"}}}"
@@ -222,7 +222,7 @@ The output is a standard JSON schema.
 Here is an example of valid configuration values, in JSON format, that works with the schema above.
 
 ```
- {
+{
   "resources": {
     "limits": {
       "cpu": "100m"
@@ -234,7 +234,7 @@ Here is an example of valid configuration values, in JSON format, that works wit
 Here is an example of valid configuration values, in YAML format, that works with the schema above.
 
 ```
-   resources:
+  resources:
     limits:
       cpu: 100m
 ```
@@ -254,31 +254,31 @@ Here is an example of valid configuration values, in YAML format, that works wit
      - If the add-on (1) requires IAM permissions, and (2) your cluster uses EKS Pod Identities, replace `<service-account-configuration>` with the following pod identity association. Replace `<service-account-name>` with the service account name used by the add-on. Replace `<role-arn>` with the ARN of an IAM role. The role must have the trust policy required by EKS Pod Identities.
 
      ```
-      --pod-identity-associations 'serviceAccount=<service-account-name>,roleArn=<role-arn>'
+     --pod-identity-associations 'serviceAccount=<service-account-name>,roleArn=<role-arn>'
      ```
 
      - If the add-on (1) requires IAM permissions, and (2) your cluster uses IRSA, replace `<service-account-configuration>` with the following IRSA configuration. Replace `111122223333` with your account ID and `role-name` with the name of an existing IAM role that you’ve created. For instructions on creating the role, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md"). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
      ```
-      --service-account-role-arn <shared id="region.arn"/>:iam::111122223333:role/role-name
+     --service-account-role-arn arn:aws::iam::111122223333:role/role-name
      ```
 
    - These example commands overwrites the `--configuration-values` option of any existing self-managed version of the add-on, if there is one. Replace this with the desired configuration values, such as a string or a file input. If you don’t want to provide configuration values, then delete the `--configuration-values` option. If you don’t want the AWS CLI to overwrite the configuration of an existing self-managed add-on, remove the `--resolve-conflicts OVERWRITE` option. If you remove the option, and the Amazon EKS add-on needs to overwrite the configuration of an existing self-managed add-on, then creation of the Amazon EKS add-on fails with an error message to help you resolve the conflict. Before specifying this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to manage, because those settings are overwritten with this option.
 
    ```
-    aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
+   aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
         <service-account-configuration> --configuration-values '{"resources":{"limits":{"cpu":"100m"}}}' --resolve-conflicts OVERWRITE
    ```
 
    ```
-    aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
+   aws eks create-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version version-number \
        <service-account-configuration> --configuration-values 'file://example.yaml' --resolve-conflicts OVERWRITE
    ```
 
    For a full list of available options, see `create-addon` in the Amazon EKS Command Line Reference. If the add-on that you created has `aws-marketplace` listed in the `Owner` column of a previous step, then creation may fail, and you may receive an error message similar to the following error.
 
    ```
-    {
+   {
        "addon": {
            "addonName": "addon-name",
            "clusterName": "my-cluster",
@@ -288,7 +288,7 @@ Here is an example of valid configuration values, in YAML format, that works wit
                "issues": [
                    {
                        "code": "AddonSubscriptionNeeded",
-                       "message": "You are currently not subscribed to this add-on. To subscribe, visit the <shared id="AWS"/> Marketplace console, agree to the seller EULA, select the pricing type if required, then re-install the add-on"
+                       "message": "You are currently not subscribed to this add-on. To subscribe, visit the AWS Marketplace console, agree to the seller EULA, select the pricing type if required, then re-install the add-on"
                    }
                ]
            }

@@ -41,7 +41,7 @@ This approach works well when:
 
 For production environments, use IAM Role Selectors to implement least-privilege access and namespace-level isolation.
 
-When using IAM Role Selectors, the Capability Role only needs `sts:AssumeRole` permission to assume the service-specific roles.
+When using IAM Role Selectors, the Capability Role only needs `sts:AssumeRole` and `sts:TagSession` permissions to assume the service-specific roles.
 You don’t need to add any AWS service permissions (like S3 or RDS) to the Capability Role itself—those permissions are granted to the individual IAM roles that the Capability Role assumes.
 
 **Choosing between permission models**:
@@ -77,7 +77,7 @@ You can start with direct permissions and migrate to IAM Role Selectors later as
 Create an IAM role with permissions for specific AWS services:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -94,7 +94,7 @@ Create an IAM role with permissions for specific AWS services:
 Configure the trust policy to allow the Capability Role to assume it:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -102,7 +102,7 @@ Configure the trust policy to allow the Capability Role to assume it:
       "Principal": {
         "AWS": "arn:aws:iam::111122223333:role/ACKCapabilityRole"
       },
-      "Action": "sts:AssumeRole"
+      "Action": ["sts:AssumeRole", "sts:TagSession"]
     }
   ]
 }
@@ -113,12 +113,12 @@ Configure the trust policy to allow the Capability Role to assume it:
 Add permission to the Capability Role to assume the service-specific role:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "sts:AssumeRole",
+      "Action": ["sts:AssumeRole", "sts:TagSession"],
       "Resource": "arn:aws:iam::111122223333:role/ACK-S3-Role"
     }
   ]
@@ -130,7 +130,7 @@ Add permission to the Capability Role to assume the service-specific role:
 Map the IAM role to a namespace:
 
 ```
- apiVersion: services.k8s.aws/v1alpha1
+apiVersion: services.k8s.aws/v1alpha1
 kind: IAMRoleSelector
 metadata:
   name: s3-namespace-config
@@ -146,7 +146,7 @@ spec:
 Resources in the `s3-resources` namespace automatically use the specified role:
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: my-bucket
@@ -164,7 +164,7 @@ Use IAM Role Selectors to manage resources across multiple AWS accounts.
 In the target account (444455556666), create a role that trusts the source account’s Capability Role:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -172,7 +172,7 @@ In the target account (444455556666), create a role that trusts the source accou
       "Principal": {
         "AWS": "arn:aws:iam::111122223333:role/ACKCapabilityRole"
       },
-      "Action": "sts:AssumeRole"
+      "Action": ["sts:AssumeRole", "sts:TagSession"]
     }
   ]
 }
@@ -185,12 +185,12 @@ Attach service-specific permissions to this role.
 In the source account (111122223333), allow the Capability Role to assume the target account role:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "sts:AssumeRole",
+      "Action": ["sts:AssumeRole", "sts:TagSession"],
       "Resource": "arn:aws:iam::444455556666:role/ACKTargetAccountRole"
     }
   ]
@@ -202,7 +202,7 @@ In the source account (111122223333), allow the Capability Role to assume the ta
 Map the cross-account role to a namespace:
 
 ```
- apiVersion: services.k8s.aws/v1alpha1
+apiVersion: services.k8s.aws/v1alpha1
 kind: IAMRoleSelector
 metadata:
   name: production-account-config
@@ -218,7 +218,7 @@ spec:
 Resources in the `production` namespace are created in the target account:
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: my-bucket
@@ -226,6 +226,75 @@ metadata:
 spec:
   name: my-cross-account-bucket
 ```
+
+## Session tags
+
+The EKS ACK capability automatically sets session tags on all AWS API requests.
+These tags enable fine-grained access control and auditing by identifying the source of each request.
+
+### Available session tags
+
+The following session tags are included with every AWS API call made by ACK:
+
+| Tag Key                    | Description                                                                   |
+| -------------------------- | ----------------------------------------------------------------------------- |
+| `eks:eks-capability-arn`   | The ARN of the EKS capability making the request                              |
+| `eks:kubernetes-namespace` | The Kubernetes namespace of the resource being managed                        |
+| `eks:kubernetes-api-group` | The Kubernetes API group of the resource (for example, `s3.services.k8s.aws`) |
+
+### Using session tags for access control
+
+You can use these session tags in IAM policy conditions to restrict which resources ACK can manage.
+This provides an additional layer of security beyond namespace-based IAM Role Selectors.
+
+**Example: Restrict by namespace**
+
+Allow ACK to create S3 buckets only when the request originates from the `production` namespace:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:CreateBucket",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalTag/eks:kubernetes-namespace": "production"
+        }
+      }
+    }
+  ]
+}
+```
+
+**Example: Restrict by capability**
+
+Allow actions only from a specific ACK capability:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalTag/eks:eks-capability-arn": "arn:aws:eks:us-west-2:111122223333:capability/my-cluster/ack/my-ack"
+        }
+      }
+    }
+  ]
+}
+```
+
+###### Note
+
+Session tags are a difference from self-managed ACK, which does not set these tags by default.
+This enables more granular access control with the managed capability.
 
 ## Advanced IAM Role Selector patterns
 

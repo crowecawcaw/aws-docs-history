@@ -21,19 +21,20 @@ You can retrieve the image ID of the latest recommended Amazon EKS optimized Bot
 - Replace `region-code` with an [Amazon EKS supported AWS Region](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") for which you want the AMI ID.
 
 ```
- aws ssm get-parameter --name /aws/service/bottlerocket/aws-k8s-<replaceable>kubernetes-version-flavor</replaceable>/<replaceable>architecture</replaceable>/latest/image_id \
-    --region <replaceable>region-code</replaceable> --query "Parameter.Value" --output text
+aws ssm get-parameter --name /aws/service/bottlerocket/aws-k8s-`kubernetes-version-flavor`/`architecture`/latest/image_id \
+    --region `region-code` --query "Parameter.Value" --output text
 ```
 
 Here’s an example command after placeholder replacements have been made.
 
 ```
- aws ssm get-parameter --name /aws/service/bottlerocket/aws-k8s-<replaceable>1.31</replaceable>/<replaceable>x86_64</replaceable>/latest/image_id \
-    --region <replaceable>us-west-2</replaceable> --query "Parameter.Value" --output text
+aws ssm get-parameter --name /aws/service/bottlerocket/aws-k8s-`1.31`/`x86_64`/latest/image_id \
+    --region `us-west-2` --query "Parameter.Value" --output text
 ```
 
 An example output is as follows.
 
 ```
- ami-<replaceable>1234567890abcdef0</replaceable>
+ami-`1234567890abcdef0`
+
 ```

@@ -37,7 +37,7 @@ The Bottlerocket FIPS AMI relies on the Amazon ECR FIPS endpoint during bootstra
 1. Create a new configuration file with the following content or incorporate the content into your existing configuration file.
 
 ```
- [default]
+[default]
 use_fips_endpoint=false
 ```
 
@@ -45,7 +45,7 @@ use_fips_endpoint=false
 2. In your launch template’s `UserData`, add the following encoded string using TOML format:
 
 ```
- [settings.aws]
+[settings.aws]
 config = "<your-base64-encoded-string>"
 ```
 
@@ -54,7 +54,7 @@ For other settings, see Bottlerocket’s [Description of settings](https://githu
 Here is an example of `UserData` in a launch template:
 
 ```
- [settings]
+[settings]
 motd = "Hello from eksctl!"
 [settings.aws]
 config = "W2RlZmF1bHRdCnVzZV9maXBzX2VuZHBvaW50PWZhbHNlCg==" # Base64-encoded string.

@@ -49,14 +49,14 @@ The specific steps in this procedure are written for using the driver as an Amaz
 Run the following commands to create an IAM role and Pod Identity association with `eksctl`. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
 ```
- export cluster_name=my-cluster
+export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 eksctl create podidentityassociation \
     --service-account-name efs-csi-controller-sa \
     --namespace kube-system \
     --cluster $cluster_name \
     --role-name $role_name \
-    --permission-policy-arns <shared id="region.arn"/>iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy
+    --permission-policy-arns arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy
 ```
 
 #### If using IAM roles for service accounts
@@ -64,7 +64,7 @@ eksctl create podidentityassociation \
 Run the following commands to create an IAM role with `eksctl`. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
 ```
- export cluster_name=my-cluster
+export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 eksctl create iamserviceaccount \
     --name efs-csi-controller-sa \
@@ -72,7 +72,7 @@ eksctl create iamserviceaccount \
     --cluster $cluster_name \
     --role-name $role_name \
     --role-only \
-    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
+    --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
     --approve
 TRUST_POLICY=$(aws iam get-role --output json --role-name $role_name --query 'Role.AssumeRolePolicyDocument' | \
     sed -e 's/efs-csi-controller-sa/efs-csi-*/' -e 's/StringEquals/StringLike/')
@@ -127,13 +127,13 @@ Run the following to create an IAM role with AWS Management Console.
       3. Find the line that looks similar to the following line:
 
       ```
-       "oidc.eks.region-code.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:aud": "sts.amazonaws.com"
+      "oidc.eks.region-code.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:aud": "sts.amazonaws.com"
       ```
 
       Add the following line above the previous line. Replace `<region-code>` with the AWS Region that your cluster is in. Replace `<EXAMPLED539D4633E53DE1B71EXAMPLE>` with your cluster’s OIDC provider ID.
 
       ```
-       "oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:sub": "system:serviceaccount:kube-system:efs-csi-*",
+      "oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:sub": "system:serviceaccount:kube-system:efs-csi-*",
       ```
 
       4. Modify the `Condition` operator from `"StringEquals"` to `"StringLike"`.
@@ -149,7 +149,7 @@ Run the following commands to create an IAM role with AWS CLI.
    1. Copy the following contents to a file named `aws-efs-csi-driver-trust-policy-pod-identity.json`.
 
    ```
-    {
+   {
        "Version":"2012-10-17",
        "Statement": [
            {
@@ -170,7 +170,7 @@ Run the following commands to create an IAM role with AWS CLI.
    2. Create the role. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
    ```
-    export cluster_name=my-cluster
+   export cluster_name=my-cluster
    export role_name=AmazonEKS_EFS_CSI_DriverRole
    aws iam create-role \
      --role-name $role_name \
@@ -180,8 +180,8 @@ Run the following commands to create an IAM role with AWS CLI.
 2. Attach the required AWS managed policy to the role with the following command.
 
 ```
- aws iam attach-role-policy \
-  --policy-arn <shared id="region.arn"/>iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
+aws iam attach-role-policy \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
   --role-name $role_name
 ```
 
@@ -198,7 +198,7 @@ aws eks create-pod-identity-association --cluster-name $cluster_name --role-arn 
 1. View your cluster’s OIDC provider URL. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
 ```
- export cluster_name=my-cluster
+export cluster_name=my-cluster
 export role_name=AmazonEKS_EFS_CSI_DriverRole
 aws eks describe-cluster --name $cluster_name --query "cluster.identity.oidc.issuer" --output text
 ```
@@ -206,7 +206,7 @@ aws eks describe-cluster --name $cluster_name --query "cluster.identity.oidc.iss
 An example output is as follows.
 
 ```
- https://oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>
+https://oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>
 ```
 
 If the output from the command is `None`, review the **Prerequisites**. 2. Create the IAM role that grants the `AssumeRoleWithWebIdentity` action.
@@ -216,7 +216,7 @@ If the output from the command is `None`, review the **Prerequisites**. 2. Creat
 
 
     ```
-     {
+    {
       "Version":"2012-10-17",
       "Statement": [
         {
@@ -240,7 +240,7 @@ If the output from the command is `None`, review the **Prerequisites**. 2. Creat
 
 
     ```
-     aws iam create-role \
+    aws iam create-role \
       --role-name $role_name \
       --assume-role-policy-document file://"aws-efs-csi-driver-trust-policy.json"
     ```
@@ -248,8 +248,8 @@ If the output from the command is `None`, review the **Prerequisites**. 2. Creat
 3. Attach the required AWS managed policy to the role with the following command.
 
 ```
- aws iam attach-role-policy \
-  --policy-arn <shared id="region.arn"/>iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
+aws iam attach-role-policy \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy \
   --role-name $role_name
 ```
 

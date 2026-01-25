@@ -26,7 +26,7 @@ Before starting this tutorial, you must install and configure the following tool
   – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the IAM User Guide. You must complete all steps in this guide as the same user. To check the current user, run the following command:
 
 ```
- aws sts get-caller-identity
+aws sts get-caller-identity
 ```
 
 We recommend that you complete the steps in this topic in a Bash shell. If you aren’t using a Bash shell, some script commands such as line continuation characters and the way variables are set and used require adjustment for your shell. Additionally, the quoting and escaping rules for your shell might be different. For more information, see [Using quotation marks with strings in the AWS CLI](../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md "../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md") in the AWS Command Line Interface User Guide.
@@ -40,8 +40,8 @@ To get started as simply and quickly as possible, this topic includes steps to c
 1. Create an Amazon VPC with public and private subnets that meets Amazon EKS requirements. Replace `region-code` with any AWS Region that is supported by Amazon EKS. For a list of AWS Regions, see [Amazon EKS endpoints and quotas](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") in the AWS General Reference guide. You can replace `my-eks-vpc-stack` with any name you choose.
 
 ```
- aws cloudformation create-stack \
-  --region <replaceable>region-code</replaceable> \
+aws cloudformation create-stack \
+  --region `region-code` \
   --stack-name my-eks-vpc-stack \
   --template-url https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
 ```
@@ -55,7 +55,7 @@ For a list of all the resources the previous command creates, open the AWS Cloud
 
 
     ```
-     {
+    {
       "Version":"2012-10-17",
       "Statement": [
         {
@@ -73,7 +73,7 @@ For a list of all the resources the previous command creates, open the AWS Cloud
 
 
     ```
-     aws iam create-role \
+    aws iam create-role \
       --role-name myAmazonEKSClusterRole \
       --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
     ```
@@ -82,8 +82,8 @@ For a list of all the resources the previous command creates, open the AWS Cloud
 
 
     ```
-     aws iam attach-role-policy \
-      --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy \
+    aws iam attach-role-policy \
+      --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy \
       --role-name myAmazonEKSClusterRole
     ```
 
@@ -122,13 +122,14 @@ Before proceeding, be sure that your cluster creation completed successfully in 
 1. Create or update a `kubeconfig` file for your cluster. Replace `region-code` with the AWS Region that you created your cluster in. Replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks update-kubeconfig --region <replaceable>region-code</replaceable> --name <replaceable>my-cluster</replaceable>
+aws eks update-kubeconfig --region `region-code` --name `my-cluster`
+
 ```
 
 By default, the `config` file is created in `~/.kube` or the new cluster’s configuration is added to an existing `config` file in `~/.kube`. 2. Test your configuration.
 
 ```
- kubectl get svc
+kubectl get svc
 ```
 
 ###### Note
@@ -138,7 +139,7 @@ If you receive any authorization or resource type errors, see [Unauthorized or a
 An example output is as follows.
 
 ```
- NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+NAME             TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 svc/kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   1m
 ```
 
@@ -159,7 +160,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    1. Copy the following contents to a file named `node-role-trust-policy.json`.
 
    ```
-    {
+   {
      "Version":"2012-10-17",
      "Statement": [
        {
@@ -176,7 +177,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    2. Create the node IAM role.
 
    ```
-    aws iam create-role \
+   aws iam create-role \
      --role-name myAmazonEKSNodeRole \
      --assume-role-policy-document file://"node-role-trust-policy.json"
    ```
@@ -184,14 +185,14 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    3. Attach the required managed IAM policies to the role.
 
    ```
-    aws iam attach-role-policy \
-     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodePolicy \
+   aws iam attach-role-policy \
+     --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy \
      --role-name myAmazonEKSNodeRole
    aws iam attach-role-policy \
-     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryReadOnly \
+     --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly \
      --role-name myAmazonEKSNodeRole
    aws iam attach-role-policy \
-     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy \
+     --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
      --role-name myAmazonEKSNodeRole
    ```
 

@@ -6,6 +6,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ###### Tip
 
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS workshops.
+
+###### Tip
+
 With Amazon EKS Auto Mode, you don’t need to install or upgrade networking add-ons. Auto Mode includes pod networking and load balancing capabilities.
 
 For more information, see [Automate cluster infrastructure with EKS Auto Mode](automode.md "automode.md").
@@ -39,7 +43,7 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 1. Download an IAM policy for the AWS Load Balancer Controller that allows it to make calls to AWS APIs on your behalf.
 
 ```
- curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy.json
+curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy.json
 ```
 
     * If you are a non-standard AWS partition, such as a Government or China region, [review the policies on GitHub](https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install "https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/docs/install") and download the appropriate policy for your region.
@@ -47,7 +51,7 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 2. Create an IAM policy using the policy downloaded in the previous step.
 
 ```
- aws iam create-policy \
+aws iam create-policy \
     --policy-name AWSLoadBalancerControllerIAMPolicy \
     --policy-document file://iam_policy.json
 ```
@@ -57,11 +61,11 @@ The following steps refer to the AWS Load Balancer Controller **v2.14.1** releas
 If you view the policy in the AWS Management Console, the console shows warnings for the **ELB** service, but not for the **ELB v2** service. This happens because some of the actions in the policy exist for **ELB v2**, but not for **ELB**. You can ignore the warnings for **ELB**. 3. Replace the values for cluster name, region code, and account ID.
 
 ```
- eksctl create iamserviceaccount \
+eksctl create iamserviceaccount \
     --cluster=<cluster-name> \
     --namespace=kube-system \
     --name=aws-load-balancer-controller \
-    --attach-policy-arn=<shared id="region.arn"/>iam::<AWS_ACCOUNT_ID>:policy/AWSLoadBalancerControllerIAMPolicy \
+    --attach-policy-arn=arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AWSLoadBalancerControllerIAMPolicy \
     --override-existing-serviceaccounts \
     --region <aws-region-code> \
     --approve
@@ -72,13 +76,13 @@ If you view the policy in the AWS Management Console, the console shows warnings
 1. Add the `eks-charts` Helm chart repository. AWS maintains [this repository](https://github.com/aws/eks-charts "https://github.com/aws/eks-charts") on GitHub.
 
 ```
- helm repo add eks https://aws.github.io/eks-charts
+helm repo add eks https://aws.github.io/eks-charts
 ```
 
 2. Update your local repo to make sure that you have the most recent charts.
 
 ```
- helm repo update eks
+helm repo update eks
 ```
 
 3. Install the AWS Load Balancer Controller.
@@ -98,7 +102,7 @@ If you’re deploying the controller to Amazon EC2 nodes that have [restricted a
 
 
     ```
-     helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+    helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
       -n kube-system \
       --set clusterName=my-cluster \
       --set serviceAccount.create=false \
@@ -113,7 +117,7 @@ The deployed chart doesn’t receive security updates automatically. You need to
 The `helm install` command automatically installs the custom resource definitions (CRDs) for the controller. The `helm upgrade` command does not. If you use `helm upgrade,` you must manually install the CRDs. Run the following command to install the CRDs:
 
 ```
- wget https://raw.githubusercontent.com/aws/eks-charts/master/stable/aws-load-balancer-controller/crds/crds.yaml
+wget https://raw.githubusercontent.com/aws/eks-charts/master/stable/aws-load-balancer-controller/crds/crds.yaml
 kubectl apply -f crds.yaml
 ```
 
@@ -122,13 +126,13 @@ kubectl apply -f crds.yaml
 1. Verify that the controller is installed.
 
 ```
- kubectl get deployment -n kube-system aws-load-balancer-controller
+kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
 
 An example output is as follows.
 
 ```
- NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
 aws-load-balancer-controller   2/2     2            2           84s
 ```
 

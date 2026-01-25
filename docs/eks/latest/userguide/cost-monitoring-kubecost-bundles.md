@@ -28,6 +28,7 @@ Kubecost 3.0 is a major architectural upgrade that delivers dramatically faster 
 
 - **ClickHouse Database**: Replaces DuckDB for dramatically faster queries and better scalability
 - **Unified Agent**: Combines Kubecost and Cloudability functionality, eliminating Prometheus dependency
+- **S3-Compatible Storage for Multi-Cluster**: For multi-cluster deployments, v3 uses S3-compatible object storage (AWS S3 for EKS customers) instead of Prometheus-compatible storage like Amazon Managed Service for Prometheus. The FinOps agent pulls metrics from the Kubernetes API and pushes to S3-compatible storage, then the Aggregator pulls that data, performs derivation steps, and displays results in the frontend. For more information, see [Multi-Cluster Installation](https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=installation-multi-cluster "https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=installation-multi-cluster") and [Secondary Clusters Guide](https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=cluster-secondary-clusters-guide "https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=cluster-secondary-clusters-guide") in the Kubecost documentation.
 - **Reduced Memory Footprint**: Substantially lower resource requirements while maintaining functionality
 - **Simplified Architecture**: Single-container pod topology for independent scaling and improved resiliency
 - **Enhanced Automation**: Automated Container Request Sizing with multi-cluster awareness and custom profiles
@@ -38,15 +39,15 @@ The _Amazon EKS optimized Kubecost bundle_ continues to be available at no addit
 
 **Core features comparison:**
 
-| Feature                            | Kubecost free tier 3.0                                    | Amazon EKS optimized Kubecost bundle 3.0                                                              | Kubecost Enterprise 3.0                                                                              |
-| ---------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Cluster cost visibility            | Unlimited clusters, gated at $100k USD spend over 30 days | Unified multi-cluster without spend limits when integrated with Amazon Managed Service for Prometheus | Unified and unlimited number of clusters across unlimited numbers of environments (i.e. multi-cloud) |
-| Database backend                   | ClickHouse (local)                                        | ClickHouse with Amazon Managed Service for Prometheus integration                                     | ClickHouse with custom database options                                                              |
-| Performance                        | Substantially faster queries vs v2                        | Substantially faster queries vs v2                                                                    | Substantially faster queries vs v2                                                                   |
-| Memory footprint                   | Reduced vs v2 (no Prometheus dependency)                  | Reduced vs v2 (no Prometheus dependency)                                                              | Reduced vs v2 (no Prometheus dependency)                                                             |
-| Automated Container Request Sizing | Available (limited to 250 cores)                          | Available without core limits                                                                         | Available without core limits                                                                        |
-| Spend limits                       | $100k USD over 30 days                                    | No spend limits                                                                                       | No spend limits                                                                                      |
-| Multi-cluster automation           | Limited                                                   | Full multi-cluster awareness with secure messaging                                                    | Full multi-cluster awareness with secure messaging                                                   |
+| Feature                            | Kubecost free tier 3.0                                    | Amazon EKS optimized Kubecost bundle 3.0                        | Kubecost Enterprise 3.0                                                                              |
+| ---------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Cluster cost visibility            | Unlimited clusters, gated at $100k USD spend over 30 days | Unified multi-cluster without spend limits                      | Unified and unlimited number of clusters across unlimited numbers of environments (i.e. multi-cloud) |
+| Database backend                   | ClickHouse (local)                                        | ClickHouse with S3-compatible storage for multi-cluster metrics | ClickHouse with custom database options                                                              |
+| Performance                        | Substantially faster queries vs v2                        | Substantially faster queries vs v2                              | Substantially faster queries vs v2                                                                   |
+| Memory footprint                   | Reduced vs v2 (no Prometheus dependency)                  | Reduced vs v2 (no Prometheus dependency)                        | Reduced vs v2 (no Prometheus dependency)                                                             |
+| Automated Container Request Sizing | Available (limited to 250 cores)                          | Available without core limits                                   | Available without core limits                                                                        |
+| Spend limits                       | $100k USD over 30 days                                    | No spend limits                                                 | No spend limits                                                                                      |
+| Multi-cluster automation           | Limited                                                   | Full multi-cluster awareness with secure messaging              | Full multi-cluster awareness with secure messaging                                                   |
 
 ## Kubecost v2
 
@@ -196,6 +197,10 @@ No. The $100,000 USD spend limit over 30 days introduced in Kubecost v3 free tie
 
 Kubecost v3 introduces substantial performance improvements through its ClickHouse database backend, which provides dramatically faster queries compared to the DuckDB used in v2.8. Additionally, the unified agent architecture eliminates the Prometheus dependency, reducing memory footprint while maintaining full functionality and OpenCost compatibility.
 
+**What storage backend does Kubecost v3 use for multi-cluster deployments?**
+
+Kubecost v3 uses S3-compatible object storage (AWS S3 for EKS customers) for multi-cluster metrics storage, replacing the Prometheus-compatible storage used in v2. The FinOps agent collects metrics from the Kubernetes API and pushes them to S3-compatible storage. The Aggregator then retrieves this data, performs cost calculations, and displays the results in the frontend. For detailed multi-cluster setup instructions, see [Multi-Cluster Installation](https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=installation-multi-cluster "https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=installation-multi-cluster") and [Secondary Clusters Guide](https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=cluster-secondary-clusters-guide "https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=cluster-secondary-clusters-guide") in the Kubecost documentation.
+
 **Can I upgrade directly from Kubecost v1 to v3?**
 
 No. Direct upgrade from v1 to v3 is not supported. You must first upgrade to v2, then migrate to v3. Review the Kubecost documentation for detailed migration guidance, as the process requires careful planning and may impact report availability during transition.
@@ -203,7 +208,7 @@ No. Direct upgrade from v1 to v3 is not supported. You must first upgrade to v2,
 ## Additional Kubecost Features
 
 - The following features are available in Kubecost v1, v2, and v3.
-  - **Export cost metrics** – Amazon EKS optimized cost monitoring is deployed with Kubecost. In v1 and v2, Kubecost integrates with Prometheus for metrics storage and processing. In v3, Kubecost uses a ClickHouse database for dramatically improved performance while maintaining OpenCost compatibility. Kubecost reads metrics, performs cost allocation calculations, and provides data through its APIs and user interface. The architecture varies by version but maintains consistent functionality.
+  - **Export cost metrics** – Amazon EKS optimized cost monitoring is deployed with Kubecost. In v1 and v2, Kubecost integrates with Prometheus for metrics storage and processing. In v3, Kubecost uses a ClickHouse database for dramatically improved performance while maintaining OpenCost compatibility. For multi-cluster deployments in v3, metrics are stored in S3-compatible object storage (AWS S3 for EKS customers) instead of Prometheus-compatible storage. Kubecost reads metrics, performs cost allocation calculations, and provides data through its APIs and user interface. The architecture varies by version but maintains consistent functionality.
 
   ![Kubecost architecture](images/kubecost-architecture.png)
 

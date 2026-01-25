@@ -94,13 +94,13 @@ The example script defined in this topic performs these operations:
 Adjust these values for your environment in both section `# 5. Mount FSx filesystem` and the `setup_persistence()` function of `apply_lustre_tunings.sh` in section `# 8. Setup persistence`:
 
 ```
- FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
+FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
 MOUNT_NAME="<your-mount-name>" # Needs to be adjusted.
 MOUNT_POINT="</your/mount/point>" # Needs to be adjusted.
 ```
 
 ```
- MIME-Version: 1.0
+MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="==MYBOUNDARY=="
 --==MYBOUNDARY==
 Content-Type: text/x-shellscript; charset="us-ascii"

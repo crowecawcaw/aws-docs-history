@@ -43,19 +43,21 @@ To see the list of insight checks performed and any relevant issues that Amazon 
    - Replace `my-cluster` with the name of your cluster.
 
    ```
-    aws eks start-insight-refresh --region <replaceable>region-code</replaceable> --cluster-name <replaceable>my-cluster</replaceable>
+   aws eks start-insight-refresh --region `region-code` --cluster-name `my-cluster`
+
    ```
 
 2. To track the status of an insights refresh, run the following command. Replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks describe-insights-refresh --cluster-name <replaceable>my-cluster</replaceable>
+aws eks describe-insights-refresh --cluster-name `my-cluster`
+
 ```
 
 An example output is as follows.
 
 ```
- {
+{
     "message": "Insights refresh is in progress",
     "status": "IN_PROGRESS",
     "startedAt": "2025-07-30T13:36:09-07:00"
@@ -67,13 +69,14 @@ An example output is as follows.
    - Replace `my-cluster` with the name of your cluster.
 
    ```
-    aws eks list-insights --region <replaceable>region-code</replaceable> --cluster-name <replaceable>my-cluster</replaceable>
+   aws eks list-insights --region `region-code` --cluster-name `my-cluster`
+
    ```
 
    An example output is as follows.
 
    ```
-    {
+   {
    "insights":
        [
            {
@@ -181,13 +184,13 @@ An example output is as follows.
    - Replace `my-cluster` with the name of your cluster.
 
    ```
-    aws eks describe-insight --region region-code --id <replaceable>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</replaceable> --cluster-name my-cluster
+   aws eks describe-insight --region region-code --id `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222` --cluster-name my-cluster
    ```
 
    An example output is as follows.
 
    ```
-    {
+   {
      "insight":
        {
          "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",

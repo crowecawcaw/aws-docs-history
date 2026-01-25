@@ -29,19 +29,19 @@ The hybrid nodes version of `nodeadm` is hosted in Amazon S3 fronted by Amazon C
 **For x86_64 hosts:**
 
 ```
- curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
+curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/amd64/nodeadm'
 ```
 
 **For ARM hosts**
 
 ```
- curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/arm64/nodeadm'
+curl -OL 'https://hybrid-assets.eks.amazonaws.com/releases/latest/bin/linux/arm64/nodeadm'
 ```
 
 Add executable file permission to the downloaded binary on each host.
 
 ```
- chmod +x nodeadm
+chmod +x nodeadm
 ```
 
 ## Step 2: Install the hybrid nodes dependencies with `nodeadm`
@@ -58,7 +58,8 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
 - Replace `CREDS_PROVIDER` with the on-premises credential provider you are using. Valid values are `ssm` for AWS SSM and `iam-ra` for AWS IAM Roles Anywhere.
 
 ```
- nodeadm install <replaceable>K8S_VERSION</replaceable> --credential-provider <replaceable>CREDS_PROVIDER</replaceable>
+nodeadm install `K8S_VERSION` --credential-provider `CREDS_PROVIDER`
+
 ```
 
 ## Step 3: Connect hybrid nodes to your cluster
@@ -77,7 +78,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
       4. Replace `ACTIVATION_ID` with the activation ID you received when creating your AWS SSM hybrid activation. You can retrieve this information from the AWS Systems Manager console or from the AWS CLI `aws ssm describe-activations` command.
 
       ```
-       apiVersion: node.eks.aws/v1alpha1
+      apiVersion: node.eks.aws/v1alpha1
       kind: NodeConfig
       spec:
         cluster:
@@ -100,7 +101,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
       8. Replace `KEY_PATH` with the path in disk to your certificate private key. If you don’t specify it, the default is `/etc/iam/pki/server.key`.
 
       ```
-       apiVersion: node.eks.aws/v1alpha1
+      apiVersion: node.eks.aws/v1alpha1
       kind: NodeConfig
       spec:
         cluster:
@@ -119,7 +120,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
 2. Run the `nodeadm init` command with your `nodeConfig.yaml` to connect your hybrid nodes to your Amazon EKS cluster.
 
 ```
- nodeadm init -c file://nodeConfig.yaml
+nodeadm init -c file://nodeConfig.yaml
 ```
 
 If the above command completes successfully, your hybrid node has joined your Amazon EKS cluster. You can verify this in the Amazon EKS console by navigating to the Compute tab for your cluster ([ensure IAM principal has permissions to view](view-kubernetes-resources.md#view-kubernetes-resources-permissions "view-kubernetes-resources.md#view-kubernetes-resources-permissions")) or with `kubectl get nodes`.

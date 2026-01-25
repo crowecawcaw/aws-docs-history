@@ -37,7 +37,7 @@ For complete generator reference, see [ApplicationSet Documentation](https://arg
 Deploy to multiple clusters with explicit configuration:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: guestbook-all-clusters
@@ -82,7 +82,7 @@ This creates three Applications: `guestbook-dev`, `guestbook-staging`, and `gues
 Deploy to all registered clusters automatically:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: cluster-addons
@@ -115,7 +115,7 @@ This automatically creates an Application for each registered cluster.
 Use `matchLabels` to include specific clusters, or `matchExpressions` to exclude clusters:
 
 ```
- spec:
+spec:
   generators:
   - clusters:
       selector:
@@ -136,7 +136,7 @@ Git generators create Applications based on repository structure:
 **Example: Microservices deployment**
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: microservices
@@ -175,7 +175,7 @@ For details on Git generators and file-based configuration, see [Git Generator](
 Combine multiple generators to deploy across multiple dimensions (environments × clusters):
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: multi-env-multi-cluster
@@ -214,7 +214,7 @@ For details on combining generators, see [Matrix Generator](https://argo-cd.read
 Deploy to clusters across multiple regions:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: global-app
@@ -256,7 +256,7 @@ spec:
 **View ApplicationSets and generated Applications**:
 
 ```
- kubectl get applicationsets -n argocd
+kubectl get applicationsets -n argocd
 kubectl get applications -n argocd -l argocd.argoproj.io/application-set-name=<applicationset-name>
 ```
 
@@ -266,13 +266,13 @@ Modify the ApplicationSet spec and reapply.
 Argo CD automatically updates all generated Applications:
 
 ```
- kubectl apply -f applicationset.yaml
+kubectl apply -f applicationset.yaml
 ```
 
 **Delete an ApplicationSet**:
 
 ```
- kubectl delete applicationset <name> -n argocd
+kubectl delete applicationset <name> -n argocd
 ```
 
 ###### Warning

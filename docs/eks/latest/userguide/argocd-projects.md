@@ -31,7 +31,7 @@ Create a Project by applying an `AppProject` resource to your cluster.
 **Example: Team-specific Project**
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: team-a
@@ -68,7 +68,7 @@ spec:
 Apply the Project:
 
 ```
- kubectl apply -f team-a-project.yaml
+kubectl apply -f team-a-project.yaml
 ```
 
 ## Project configuration
@@ -78,7 +78,7 @@ Apply the Project:
 Control which Git repositories Applications in this project can use:
 
 ```
- spec:
+spec:
   sourceRepos:
     - 'https://github.com/my-org/app-*'  # Wildcard pattern
     - 'https://github.com/my-org/infra'  # Specific repo
@@ -92,7 +92,7 @@ For details, see [Managing Projects](https://argo-cd.readthedocs.io/en/stable/us
 Limit where Applications can deploy:
 
 ```
- spec:
+spec:
   destinations:
     - name: prod-cluster  # Specific cluster by name
       namespace: production
@@ -115,7 +115,7 @@ Control which Kubernetes resource types can be deployed:
 **Cluster-scoped resources**:
 
 ```
- spec:
+spec:
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace
@@ -126,7 +126,7 @@ Control which Kubernetes resource types can be deployed:
 **Namespace-scoped resources**:
 
 ```
- spec:
+spec:
   namespaceResourceWhitelist:
     - group: 'apps'
       kind: Deployment
@@ -141,7 +141,7 @@ Control which Kubernetes resource types can be deployed:
 Use blacklists to deny specific resources:
 
 ```
- spec:
+spec:
   namespaceResourceBlacklist:
     - group: ''
       kind: Secret  # Prevent direct Secret creation
@@ -152,7 +152,7 @@ Use blacklists to deny specific resources:
 When creating an Application, specify the project in the `spec.project` field:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-app
@@ -177,7 +177,7 @@ Map project roles to AWS Identity Center users and groups in your capability con
 **Example: Project with developer and admin roles**
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: team-a
@@ -215,7 +215,7 @@ For details on project roles, JWT tokens for CI/CD pipelines, and RBAC configura
 Create separate projects for each environment:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: production
@@ -240,7 +240,7 @@ spec:
 Isolate teams with dedicated projects:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: platform-team
@@ -262,7 +262,7 @@ spec:
 Deploy to multiple clusters with consistent policies:
 
 ```
- apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: global-app

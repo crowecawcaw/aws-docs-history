@@ -28,6 +28,10 @@ You can use one of the following procedures to install the _Amazon EKS optimized
 
 For Kubecost v3, the Helm chart location has changed to `public.ecr.aws/kubecost/kubecost`. If you are upgrading from v2, update your Helm repository references accordingly.
 
+###### Note
+
+For multi-cluster deployments with Kubecost v3, you need S3-compatible object storage (AWS S3 for EKS customers) for metrics storage. This replaces the Prometheus-compatible storage used in v2. For more information, see [Multi-Cluster Installation](https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=installation-multi-cluster "https://www.ibm.com/docs/en/kubecost/self-hosted/3.x?topic=installation-multi-cluster") in the Kubecost documentation.
+
 ## Access Kubecost dashboard
 
 Once the _Amazon EKS optimized Kubecost bundle_ setup done, you should have access to Kubecost dashboard. For more information, see [Access Kubecost Dashboard](cost-monitoring-kubecost-dashboard.md "cost-monitoring-kubecost-dashboard.md").

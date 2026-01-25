@@ -134,7 +134,7 @@ The following CLI instructions cover creating IAM resources and creating the clu
 Create a trust policy that allows the Amazon EKS service to assume the role. Save the policy as `trust-policy.json`:
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -176,41 +176,41 @@ Attach the following AWS managed policies to the Cluster IAM Role to grant the n
 **AmazonEKSClusterPolicy**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
 ```
 
 **AmazonEKSComputePolicy**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSComputePolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSComputePolicy
 ```
 
 **AmazonEKSBlockStoragePolicy**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSBlockStoragePolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy
 ```
 
 **AmazonEKSLoadBalancingPolicy**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSLoadBalancingPolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy
 ```
 
 **AmazonEKSNetworkingPolicy**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoClusterRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSNetworkingPolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy
 ```
 
 ### Create an EKS Auto Mode Node IAM Role
@@ -220,7 +220,7 @@ Attach the following AWS managed policies to the Cluster IAM Role to grant the n
 Create a trust policy that allows the Amazon EKS service to assume the role. Save the policy as `node-trust-policy.json`:
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -259,17 +259,17 @@ Attach the following AWS managed policies to the Node IAM Role to provide the ne
 **AmazonEKSWorkerNodeMinimalPolicy**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
+    --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
 ```
 
 **AmazonEC2ContainerRegistryPullOnly**:
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
     --role-name AmazonEKSAutoNodeRole \
-    --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+    --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 ```
 
 ### Create cluster
@@ -288,13 +288,13 @@ Attach the following AWS managed policies to the Node IAM Role to provide the ne
     Whether you choose any security groups or not, Amazon EKS creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md"). You can modify the rules in the cluster security group that Amazon EKS creates.
 
     ```
-     aws eks create-cluster \
+    aws eks create-cluster \
       --region region-code \
       --name my-cluster \
       --kubernetes-version 1.30 \
-      --role-arn <shared id="region.arn"/>iam::111122223333:role/AmazonEKSAutoClusterRole \
+      --role-arn arn:aws:iam::111122223333:role/AmazonEKSAutoClusterRole \
       --resources-vpc-config '{"subnetIds": ["subnet-ExampleID1","subnet-ExampleID2"], "securityGroupIds": ["sg-ExampleID1"], "endpointPublicAccess": true, "endpointPrivateAccess": true}' \
-      --compute-config '{"enabled": true, "nodeRoleArn": "<shared id="region.arn"/>iam::111122223333:role/AmazonEKSAutoNodeRole", "nodePools": ["general-purpose", "system"]}' \
+      --compute-config '{"enabled": true, "nodeRoleArn": "arn:aws:iam::111122223333:role/AmazonEKSAutoNodeRole", "nodePools": ["general-purpose", "system"]}' \
       --kubernetes-network-config '{"elasticLoadBalancing": {"enabled": true}}' \
       --storage-config '{"blockStorage": {"enabled": true}}' \
       --access-config '{"authenticationMode": "API"}'
@@ -325,7 +325,7 @@ Attach the following AWS managed policies to the Node IAM Role to provide the ne
 2.  It takes several minutes to provision the cluster. You can query the status of your cluster with the following command.
 
 ```
- aws eks describe-cluster --region region-code --name my-cluster --query "cluster.status"
+aws eks describe-cluster --region region-code --name my-cluster --query "cluster.status"
 ```
 
 ## Next steps

@@ -30,7 +30,7 @@ AWS CodeConnections handles the OAuth authentication flow and manages the connec
 2. Ensure the Argo CD capability role has permissions to use the connection with a resource-based policy:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {

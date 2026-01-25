@@ -23,7 +23,7 @@ You need `kubectl` installed and configured. For more information, see [Set up t
 Here’s an example Node Class:
 
 ```
- apiVersion: eks.amazonaws.com/v1
+apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: private-compute
@@ -44,7 +44,7 @@ This NodeClass increases the amount of ephemeral storage on the node.
 Apply this configuration by using:
 
 ```
- kubectl apply -f nodeclass.yaml
+kubectl apply -f nodeclass.yaml
 ```
 
 Next, reference the Node Class in your Node Pool configuration. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
@@ -64,7 +64,7 @@ When creating access entries for EKS Auto Mode node classes, you need to use the
 Update the following CLI commands with your cluster name, and node role ARN. The node role ARN is specified in the node class YAML.
 
 ```
- # Create the access entry for EC2 nodes
+# Create the access entry for EC2 nodes
 aws eks create-access-entry \
   --cluster-name <cluster-name> \
   --principal-arn <node-role-arn> \
@@ -74,7 +74,7 @@ aws eks create-access-entry \
 aws eks associate-access-policy \
   --cluster-name <cluster-name> \
   --principal-arn <node-role-arn> \
-  --policy-arn <shared id="region.arn"/>eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy \
+  --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy \
   --access-scope type=cluster
 ```
 
@@ -85,7 +85,7 @@ aws eks associate-access-policy \
 Update the following CloudFormation with your cluster name, and node role ARN. The node role ARN is specified in the node class YAML.
 
 ```
- EKSAutoNodeRoleAccessEntry:
+EKSAutoNodeRoleAccessEntry:
   Type: AWS::EKS::AccessEntry
   Properties:
     ClusterName: <cluster-name>
@@ -94,7 +94,7 @@ Update the following CloudFormation with your cluster name, and node role ARN. T
     AccessPolicies:
       - AccessScope:
           Type: cluster
-        PolicyArn: <shared id="region.arn"/>eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy
+        PolicyArn: arn:aws:eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy
   DependsOn: [ <cluster-name> ] # previously defined in CloudFormation
 ```
 
@@ -103,7 +103,7 @@ For information about deploying CloudFormation stacks, see [Getting started with
 ## Node Class Specification
 
 ```
- apiVersion: eks.amazonaws.com/v1
+apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: my-node-class
@@ -165,7 +165,7 @@ spec:
     iops: 3000      # Range: 3000-16000
     throughput: 125 # Range: 125-1000
     # Optional KMS key for encryption
-    kmsKeyID: "<shared id="region.arn"/>kms:region:account:key/key-id"
+    kmsKeyID: "arn:aws:kms:region:account:key/key-id"
     # Accepted formats:
     # KMS Key ID
     # KMS Key ARN
@@ -191,6 +191,8 @@ spec:
         # Domains to exclude, put all VPC endpoints here
         - .internal
         - .eks.amazonaws.com
+    # ipv4PrefixSize is default to Auto which is prefix and fallback to secondary IP. "32" is the secondary IP mode.
+    ipv4PrefixSize: Auto # or "32"
 
   advancedSecurity:
     # Optional, US regions only: Specifying `fips: true` will cause nodes in the nodeclass to run FIPS compatible AMIs.
@@ -242,7 +244,7 @@ Use `podSubnetSelectorTerms` when you need to:
 ### Example configuration
 
 ```
- apiVersion: eks.amazonaws.com/v1
+apiVersion: eks.amazonaws.com/v1
 kind: NodeClass
 metadata:
   name: advanced-networking
@@ -277,3 +279,33 @@ spec:
 - **Network planning**: Ensure adequate IP address space in both node and Pod subnets to support your workload requirements.
 - **Routing configuration**: Verify that route table and network Access Control List (ACL) of the Pod subnets are properly configured for communication between node and Pod subnets.
 - **Availability Zones**: Verify that you’ve created Pod subnets across multiple AZs. If you are using specific Pod subnet, it must be in the same AZ as the node subnet AZ.
+
+## Secondary IP Mode for Pods
+
+The `ipv4PrefixSize` fields enables advanced networking configurations by allowing only allocating secondary IP addresses to nodes. This feature doesn’t allocate prefix (/28) to nodes and maintain only one secondary IP as MinimalIPTarget.
+
+### Use cases
+
+Use `ipv4PrefixSize` when you need to:
+
+- **Reduced IP utilization**: Only one IP addresses will be warmed up in every node.
+- **Lower pods churning rate**: Pods creation velocity is not a major concern.
+- **No prefix fragmentation**: Prefix caused fragmentation is a major concern or blocker to use Auto mode.
+
+### Example configuration
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: advanced-networking
+spec:
+  role: MyNodeRole
+
+  advancedNetworking:
+    ipv4PrefixSize: "32"
+```
+
+### Considerations for secondary IP mode
+
+- **Reduced Pod creation velocity**: Since only one secondary IP is warmed up, the IPAM service need more time to provision IPs on more pods creation.

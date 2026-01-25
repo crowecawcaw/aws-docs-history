@@ -19,7 +19,7 @@ You must have the `aws` and `eksctl` tools installed. You must be logged into th
 Run the following command to create a new EKS Auto Mode cluster with
 
 ```
- eksctl create cluster --name=<cluster-name> --enable-auto-mode
+eksctl create cluster --name=<cluster-name> --enable-auto-mode
 ```
 
 ## Create an EKS Auto Mode cluster with a YAML file
@@ -33,7 +33,7 @@ AWS suggests enabling EKS Auto Mode. If this is your first time creating an EKS 
 AWS suggests not specifying any value for `nodePools`. EKS Auto Mode will create default node pools. You can use the Kubernetes API to create additional node pools.
 
 ```
- # cluster.yaml
+# cluster.yaml
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -62,5 +62,5 @@ autoModeConfig:
 Save the `ClusterConfig` file as `cluster.yaml`, and use the following command to create the cluster:
 
 ```
- eksctl create cluster -f cluster.yaml
+eksctl create cluster -f cluster.yaml
 ```

@@ -44,19 +44,19 @@ First, you need to determine the EC2 Instance ID of the instance associated with
 2. (Optional) Use the name of a Kubernetes Deployment to list the associated pods.
 
 ```
- kubectl get pods -l app=<deployment-name>
+kubectl get pods -l app=<deployment-name>
 ```
 
 3. Use the name of the Kubernetes Pod to determine the EC2 instance ID of the associated node.
 
 ```
- kubectl get pod <pod-name> -o wide
+kubectl get pod <pod-name> -o wide
 ```
 
 4. Use the EC2 instance ID to retrieve the console output.
 
 ```
- aws ec2 get-console-output --instance-id <instance id> --latest --output text
+aws ec2 get-console-output --instance-id <instance id> --latest --output text
 ```
 
 ## Get node logs by using _debug containers_ and the `kubectl` CLI
@@ -68,13 +68,13 @@ However, you can stream logs live from an instance by using the `kubectl debug n
 1. Launch a debug container. The following command uses `i-01234567890123456` for the instance ID of the node, `-it` allocates a `tty` and attach `stdin` for interactive usage, and uses the `sysadmin` profile from the kubeconfig file.
 
 ```
- kubectl debug node/i-01234567890123456 -it --profile=sysadmin --image=public.ecr.aws/amazonlinux/amazonlinux:2023
+kubectl debug node/i-01234567890123456 -it --profile=sysadmin --image=public.ecr.aws/amazonlinux/amazonlinux:2023
 ```
 
 An example output is as follows.
 
 ```
- Creating debugging pod node-debugger-i-01234567890123456-nxb9c with container debugger on node i-01234567890123456.
+Creating debugging pod node-debugger-i-01234567890123456-nxb9c with container debugger on node i-01234567890123456.
 If you don't see a command prompt, try pressing enter.
 bash-5.2#
 ```
@@ -82,18 +82,18 @@ bash-5.2#
 2. From the shell, you can now install `util-linux-core` which provides the `nsenter` command. Use `nsenter` to enter the mount namespace of PID 1 (`init`) on the host, and run the `journalctl` command to stream logs from the `kubelet`:
 
 ```
- yum install -y util-linux-core
+yum install -y util-linux-core
 nsenter -t 1 -m journalctl -f -u kubelet
 ```
 
 For security, the Amazon Linux container image doesn’t install many binaries by default. You can use the `yum whatprovides` command to identify the package that must be installed to provide a given binary.
 
 ```
- yum whatprovides ps
+yum whatprovides ps
 ```
 
 ```
- Last metadata expiration check: 0:03:36 ago on Thu Jan 16 14:49:17 2025.
+Last metadata expiration check: 0:03:36 ago on Thu Jan 16 14:49:17 2025.
 procps-ng-3.3.17-1.amzn2023.0.2.x86_64 : System and process monitoring utilities
 Repo        : @System
 Matched from:
@@ -142,13 +142,13 @@ EKS Auto Mode automatically configures new EC2 instances with the correct inform
 1. Run `kubectl get nodeclaim` to check for `NodeClaims` that are `Ready = False`.
 
 ```
- kubectl get nodeclaim
+kubectl get nodeclaim
 ```
 
 2. Run `kubectl describe nodeclaim <node_claim>` and look under **Status** to find any issues preventing the node from joining the cluster.
 
 ```
- kubectl describe nodeclaim <node_claim>
+kubectl describe nodeclaim <node_claim>
 ```
 
 **Common error messages:**
@@ -175,26 +175,26 @@ One reason that an instance didn’t join the cluster is a network connectivity 
 To get the **instance ID**, you will need to create a workload on the cluster to cause EKS Auto Mode to launch an EC2 instance. This also creates a `NodeClaim` object in your cluster that will have the instance ID. Run `kubectl get nodeclaim -o yaml` to print all of the `NodeClaims` in your cluster. Each `NodeClaim` contains the instance ID as a field and again in the providerID:
 
 ```
- kubectl get nodeclaim -o yaml
+kubectl get nodeclaim -o yaml
 ```
 
 An example output is as follows.
 
 ```
-     nodeName: i-01234567890123456
+    nodeName: i-01234567890123456
     providerID: aws:///us-west-2a/i-01234567890123456
 ```
 
 You can determine your **Kubernetes API server endpoint** by running `kubectl get endpoint kubernetes -o yaml`. The addresses are in the addresses field:
 
 ```
- kubectl get endpoints kubernetes -o yaml
+kubectl get endpoints kubernetes -o yaml
 ```
 
 An example output is as follows.
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Endpoints
 metadata:
   name: kubernetes
@@ -232,7 +232,7 @@ Due to this, you may experience issues when trying to share data between Pods. F
 To enable this sharing between Pods, you can use the Pod’s `seLinuxOptions` to configure the same MCS label on those Pods. In this example, we assign the three categories `c123,c456,c789` to the Pod. This will not conflict with any categories assigned to Pods on the node automatically, as they will only be assigned two categories.
 
 ```
- securityContext:
+securityContext:
   seLinuxOptions:
     level: "s0:c123,c456,c789"
 ```

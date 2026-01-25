@@ -70,7 +70,7 @@ Your system’s Python version must be `2.7.9` or later. Otherwise, you receive 
 Docker runs in the `172.17.0.0/16` CIDR range in Amazon EKS clusters. We recommend that your cluster’s VPC subnets do not overlap this range. Otherwise, you will receive the following error:
 
 ```
- Error: : error upgrading connection: error dialing backend: dial tcp 172.17.<nn>.<nn>:10250: getsockopt: no route to host
+Error: : error upgrading connection: error dialing backend: dial tcp 172.17.<nn>.<nn>:10250: getsockopt: no route to host
 ```
 
 ## `Instances failed to join the Kubernetes cluster`
@@ -150,7 +150,7 @@ The most common cause of `AccessDenied` errors when performing operations on man
 The `ClusterRole` may change over time, but it should look similar to the following example:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: eks:node-manager
@@ -184,7 +184,7 @@ rules:
 The `ClusterRoleBinding` may change over time, but it should look similar to the following example:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: eks:node-manager
@@ -202,7 +202,7 @@ Verify that the `eks:node-manager`
 `ClusterRole` exists.
 
 ```
- kubectl describe clusterrole eks:node-manager
+kubectl describe clusterrole eks:node-manager
 ```
 
 If present, compare the output to the previous `ClusterRole` example.
@@ -211,7 +211,7 @@ Verify that the `eks:node-manager`
 `ClusterRoleBinding` exists.
 
 ```
- kubectl describe clusterrolebinding eks:node-manager
+kubectl describe clusterrolebinding eks:node-manager
 ```
 
 If present, compare the output to the previous `ClusterRoleBinding` example.
@@ -219,7 +219,7 @@ If present, compare the output to the previous `ClusterRoleBinding` example.
 If you’ve identified a missing or broken `ClusterRole` or `ClusterRoleBinding` as the cause of an `AcessDenied` error while requesting managed node group operations, you can restore them. Save the following contents to a file named `eks-node-manager-role.yaml`.
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: eks:node-manager
@@ -266,7 +266,7 @@ subjects:
 Apply the file.
 
 ```
- kubectl apply -f eks-node-manager-role.yaml
+kubectl apply -f eks-node-manager-role.yaml
 ```
 
 Retry the node group operation to see if that resolved your issue.
@@ -288,7 +288,7 @@ To troubleshoot issue with Amazon EKS nodes, there is a pre-built script availab
 Use the following command to run the script on your node:
 
 ```
- sudo bash /etc/eks/log-collector-script/eks-log-collector.sh
+sudo bash /etc/eks/log-collector-script/eks-log-collector.sh
 ```
 
 ###### Note
@@ -296,14 +296,14 @@ Use the following command to run the script on your node:
 If the script is not present at that location. You can manually download and run the script with the following command:
 
 ```
- curl -O https://amazon-eks.s3.amazonaws.com/support/log-collector-script/linux/eks-log-collector.sh
+curl -O https://amazon-eks.s3.amazonaws.com/support/log-collector-script/linux/eks-log-collector.sh
 sudo bash eks-log-collector.sh
 ```
 
 The script collects the following diagnostic information.
 
 ```
- $ sudo bash /etc/eks/log-collector-script/eks-log-collector.sh
+$ sudo bash /etc/eks/log-collector-script/eks-log-collector.sh
 
       This is version 0.7.8. New versions can be found at https://github.com/awslabs/amazon-eks-ami/blob/main/log-collector-script/
 
@@ -319,7 +319,7 @@ Trying to collect mount points and volume information...
 The diagnostic information is collected and stored at:
 
 ```
- /var/log/eks_i-EXAMPLE_2025-03-25_0000-UTC_0.7.8.tar.gz
+/var/log/eks_i-EXAMPLE_2025-03-25_0000-UTC_0.7.8.tar.gz
 ```
 
 To retrieve log bundle for Bottlerocket nodes, please refer to [Bottlerocket Log](https://github.com/bottlerocket-os/bottlerocket?tab=readme-ov-file#logs "https://github.com/bottlerocket-os/bottlerocket?tab=readme-ov-file#logs") for more details.
@@ -329,7 +329,7 @@ To retrieve log bundle for Bottlerocket nodes, please refer to [Bottlerocket Log
 You may receive a `Container runtime network not ready` error and authorization errors similar to the following:
 
 ```
- 4191 kubelet.go:2130] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+4191 kubelet.go:2130] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
 4191 reflector.go:205] k8s.io/kubernetes/pkg/kubelet/kubelet.go:452: Failed to list *v1.Service: Unauthorized
 4191 kubelet_node_status.go:106] Unable to register node "ip-10-40-175-122.ec2.internal" with API server: Unauthorized
 4191 reflector.go:205] k8s.io/kubernetes/pkg/kubelet/kubelet.go:452: Failed to list *v1.Service: Unauthorized
@@ -344,8 +344,8 @@ To resolve the issue, view the existing entries in your `ConfigMap` by replacing
 `ConfigMap`. The following command adds an entry to the `ConfigMap`. If the `ConfigMap`doesn’t exist, the command also creates it. Replace`111122223333`with the AWS account ID for the IAM role and`myAmazonEKSNodeRole` with the name of your node’s role.
 
 ```
- eksctl create iamidentitymapping --cluster my-cluster \
-    --arn <shared id="region.arn"/>iam::111122223333:role/myAmazonEKSNodeRole --group system:bootstrappers,system:nodes \
+eksctl create iamidentitymapping --cluster my-cluster \
+    --arn arn:aws:iam::111122223333:role/myAmazonEKSNodeRole --group system:bootstrappers,system:nodes \
     --username system:node:{{EC2PrivateDNSName}}
 ```
 
@@ -353,7 +353,7 @@ The ARN of the role that you specify can’t include a [path](../../../IAM/lates
 `ConfigMap` (see previous item) for the node’s IAM role or an access entry doesn’t exist for the role. To resolve the issue, view your existing access entries by replacing `my-cluster` in the following command with the name of your cluster and then running the modified command: `aws eks list-access-entries --cluster-name `my-cluster``. The following command adds an access entry for the node’s IAM role. Replace `111122223333`with the AWS account ID for the IAM role and`myAmazonEKSNodeRole`with the name of your node’s role. If you have a Windows node, replace`EC2_LINUX`with`EC2_Windows`. Make sure that you specify the node IAM role ARN (not the instance profile ARN).
 
 ```
- aws eks create-access-entry --cluster-name my-cluster --principal-arn <shared id="region.arn"/>iam::111122223333:role/myAmazonEKSNodeRole --type EC2_LINUX
+aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/myAmazonEKSNodeRole --type EC2_LINUX
 ```
 
 ## TLS handshake timeout
@@ -361,7 +361,7 @@ The ARN of the role that you specify can’t include a [path](../../../IAM/lates
 When a node is unable to establish a connection to the public API server endpoint, you may see an error similar to the following error.
 
 ```
- server.go:233] failed to run Kubelet: could not init cloud provider "aws": error finding instance i-1111f2222f333e44c: "error listing <shared id="AWS"/> instances: \"RequestError: send request failed\\ncaused by: Post  net/http: TLS handshake timeout\""
+server.go:233] failed to run Kubelet: could not init cloud provider "aws": error finding instance i-1111f2222f333e44c: "error listing AWS instances: \"RequestError: send request failed\\ncaused by: Post  net/http: TLS handshake timeout\""
 ```
 
 The `kubelet` process will continually respawn and test the API server endpoint. The error can also occur temporarily during any procedure that performs a rolling update of the cluster in the control plane, such as a configuration change or version update.
@@ -373,13 +373,13 @@ To resolve the issue, check the route table and security groups to ensure that t
 If you’re using IAM roles for service accounts for a Pod or DaemonSet deployed to a cluster in a China AWS Region, and haven’t set the `AWS_DEFAULT_REGION` environment variable in the spec, the Pod or DaemonSet may receive the following error:
 
 ```
- An error occurred (InvalidClientTokenId) when calling the GetCallerIdentity operation: The security token included in the request is invalid
+An error occurred (InvalidClientTokenId) when calling the GetCallerIdentity operation: The security token included in the request is invalid
 ```
 
 To resolve the issue, you need to add the `AWS_DEFAULT_REGION` environment variable to your Pod or DaemonSet spec, as shown in the following example Pod spec.
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: envar-demo
@@ -429,13 +429,13 @@ This can happen when Amazon EKS isn’t able to automatically update your cluste
 The [cluster IAM role](cluster-iam-role.md "cluster-iam-role.md") was deleted – This role was specified when the cluster was created. You can see which role was specified with the following command. Replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks describe-cluster --name my-cluster --query cluster.roleArn --output text | cut -d / -f 2
+aws eks describe-cluster --name my-cluster --query cluster.roleArn --output text | cut -d / -f 2
 ```
 
 An example output is as follows.
 
 ```
- eksClusterRole
+eksClusterRole
 ```
 
 ###### Solution
@@ -447,13 +447,13 @@ Create a new [cluster IAM role](cluster-iam-role.md "cluster-iam-role.md") with 
 A subnet specified during cluster creation was deleted – The subnets to use with the cluster were specified during cluster creation. You can see which subnets were specified with the following command. Replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.subnetIds
+aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.subnetIds
 ```
 
 An example output is as follows.
 
 ```
- [
+[
 "subnet-EXAMPLE1",
 "subnet-EXAMPLE2"
 ]
@@ -464,14 +464,14 @@ An example output is as follows.
 Confirm whether the subnet IDs exist in your account.
 
 ```
- vpc_id=$(aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.vpcId --output text)
+vpc_id=$(aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.vpcId --output text)
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpc_id" --query "Subnets[*].SubnetId"
 ```
 
 An example output is as follows.
 
 ```
- [
+[
 "subnet-EXAMPLE3",
 "subnet-EXAMPLE4"
 ]
@@ -486,13 +486,13 @@ When you initiate a Kubernetes version update for your cluster, the update can f
 A security group specified during cluster creation was deleted – If you specified security groups during cluster creation, you can see their IDs with the following command. Replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.securityGroupIds
+aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.securityGroupIds
 ```
 
 An example output is as follows.
 
 ```
- [
+[
     "sg-EXAMPLE1"
 ]
 ```
@@ -504,14 +504,14 @@ If `[]` is returned, then no security groups were specified when the cluster was
 Confirm whether these security groups exist in your account.
 
 ```
- vpc_id=$(aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.vpcId --output text)
+vpc_id=$(aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.vpcId --output text)
 aws ec2 describe-security-groups --filters "Name=vpc-id,Values=$vpc_id" --query "SecurityGroups[*].GroupId"
 ```
 
 An example output is as follows.
 
 ```
- [
+[
 "sg-EXAMPLE2"
 ]
 ```

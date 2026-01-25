@@ -21,13 +21,13 @@ In this tutorial, you’ll learn how to deploy a sample workload to an EKS Auto 
 First, use `kubectl` to list the node pools on your cluster.
 
 ```
- kubectl get nodepools
+kubectl get nodepools
 ```
 
 Sample Output:
 
 ```
- general-purpose
+general-purpose
 ```
 
 In this tutorial, we will deploy a workload configured to use the `general-purpose` node pool. This node pool is built into EKS Auto Mode, and includes reasonable defaults for general workloads, such as microservices and web apps. You can create your own node pool. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
@@ -35,7 +35,7 @@ In this tutorial, we will deploy a workload configured to use the `general-purpo
 Second, use `kubectl` to list the nodes connected to your cluster.
 
 ```
- kubectl get nodes
+kubectl get nodes
 ```
 
 If you just created an EKS Auto Mode cluster, you will have no nodes.
@@ -47,7 +47,7 @@ In this tutorial you will deploy a sample workload. If you have no nodes, or the
 Review the following Kubernetes Deployment and save it as `inflate.yaml`
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: inflate
@@ -83,7 +83,7 @@ Note the `eks.amazonaws.com/compute-type: auto` selector requires the workload b
 Apply the Deployment to your cluster.
 
 ```
- kubectl apply -f inflate.yaml
+kubectl apply -f inflate.yaml
 ```
 
 ## Step 3: Watch Kubernetes Events
@@ -91,13 +91,13 @@ Apply the Deployment to your cluster.
 Use the following command to watch Kubernetes events, including creating a new node. Use `ctrl+c` to stop watching events.
 
 ```
- kubectl get events -w --sort-by '.lastTimestamp'
+kubectl get events -w --sort-by '.lastTimestamp'
 ```
 
 Use `kubectl` to list the nodes connected to your cluster again. Note the newly created node.
 
 ```
- kubectl get nodes
+kubectl get nodes
 ```
 
 ## Step 4: View nodes and instances in the AWS console
@@ -111,7 +111,7 @@ EC2 Instances deployed by EKS Auto Mode are restricted. You cannot run arbitrary
 Use `kubectl` to delete the sample deployment
 
 ```
- kubectl delete -f inflate.yaml
+kubectl delete -f inflate.yaml
 ```
 
 If you have no other workloads deployed to your cluster, the node created by EKS Auto Mode will be empty.

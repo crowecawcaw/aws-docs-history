@@ -25,7 +25,7 @@ Due to this behavior:
 - Your Pods are in a [private subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-basics "../../../vpc/latest/userguide/configure-subnets.md#subnet-basics") and need to communicate outbound to the internet. The subnet has a route to a [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
 
 ```
- kubectl set env daemonset -n kube-system aws-node AWS_VPC_K8S_CNI_EXTERNALSNAT=true
+kubectl set env daemonset -n kube-system aws-node AWS_VPC_K8S_CNI_EXTERNALSNAT=true
 ```
 
 ###### Note

@@ -31,7 +31,7 @@ You can view capability health and status issues in the EKS console or using the
 **AWS CLI**:
 
 ```
- # View capability status and health
+# View capability status and health
 aws eks describe-capability \
   --region region-code \
   --cluster-name my-cluster \
@@ -51,7 +51,7 @@ aws eks describe-capability \
 **Check resource status**:
 
 ```
- # Describe the resource to see conditions and events
+# Describe the resource to see conditions and events
 kubectl describe bucket my-bucket -n default
 
 # Look for status conditions
@@ -64,12 +64,13 @@ kubectl get events --field-selector involvedObject.name=my-bucket -n default
 **Verify IAM permissions**:
 
 ```
- # View the Capability Role's policies
-aws iam list-attached-role-policies --role-name <replaceable>my-ack-capability-role</replaceable>
-aws iam list-role-policies --role-name <replaceable>my-ack-capability-role</replaceable>
+# View the Capability Role's policies
+aws iam list-attached-role-policies --role-name `my-ack-capability-role`
+aws iam list-role-policies --role-name `my-ack-capability-role`
 
 # Get specific policy details
-aws iam get-role-policy --role-name <replaceable>my-ack-capability-role</replaceable> --policy-name <replaceable>policy-name</replaceable>
+aws iam get-role-policy --role-name `my-ack-capability-role` --policy-name `policy-name`
+
 ```
 
 ## Resources created in AWS but not showing in Kubernetes
@@ -78,7 +79,7 @@ ACK only tracks resources it creates through Kubernetes manifests.
 To manage existing AWS resources with ACK, use the adoption feature.
 
 ```
- apiVersion: s3.services.k8s.aws/v1alpha1
+apiVersion: s3.services.k8s.aws/v1alpha1
 kind: Bucket
 metadata:
   name: existing-bucket
@@ -97,8 +98,8 @@ If resources aren’t being created in a target AWS account when using IAM Role 
 **Verify trust relationship**:
 
 ```
- # Check the trust policy in the target account role
-aws iam get-role --role-name <replaceable>cross-account-ack-role</replaceable> --query 'Role.AssumeRolePolicyDocument'
+# Check the trust policy in the target account role
+aws iam get-role --role-name `cross-account-ack-role` --query 'Role.AssumeRolePolicyDocument'
 ```
 
 The trust policy must allow the source account’s Capability Role to assume it.
@@ -106,7 +107,7 @@ The trust policy must allow the source account’s Capability Role to assume it.
 **Confirm IAMRoleSelector configuration**:
 
 ```
- # List IAMRoleSelectors (cluster-scoped)
+# List IAMRoleSelectors (cluster-scoped)
 kubectl get iamroleselector
 
 # Describe specific selector
@@ -119,14 +120,14 @@ IAMRoleSelectors are cluster-scoped resources but target specific namespaces.
 Ensure your ACK resources are in a namespace that matches the IAMRoleSelector’s namespace selector:
 
 ```
- # Check resource namespace
-kubectl get bucket <replaceable>my-cross-account-bucket</replaceable> -n <replaceable>production</replaceable>
+# Check resource namespace
+kubectl get bucket `my-cross-account-bucket` -n `production`
 
 # List all IAMRoleSelectors (cluster-scoped)
 kubectl get iamroleselector
 
 # Check which namespace the selector targets
-kubectl get iamroleselector <replaceable>my-selector</replaceable> -o jsonpath='{.spec.namespaceSelector}'
+kubectl get iamroleselector `my-selector` -o jsonpath='{.spec.namespaceSelector}'
 ```
 
 **Check IAMRoleSelected condition**:
@@ -134,8 +135,8 @@ kubectl get iamroleselector <replaceable>my-selector</replaceable> -o jsonpath='
 Verify that the IAMRoleSelector was successfully matched to your resource by checking the `ACK.IAMRoleSelected` condition:
 
 ```
- # Check if IAMRoleSelector was matched
-kubectl get bucket <replaceable>my-cross-account-bucket</replaceable> -n <replaceable>production</replaceable> -o jsonpath='{.status.conditions[?(@.type=="ACK.IAMRoleSelected")]}'
+# Check if IAMRoleSelector was matched
+kubectl get bucket `my-cross-account-bucket` -n `production` -o jsonpath='{.status.conditions[?(@.type=="ACK.IAMRoleSelected")]}'
 ```
 
 If the condition is `False` or missing, the IAMRoleSelector’s namespace selector doesn’t match the resource’s namespace.
@@ -143,15 +144,15 @@ Verify the selector’s `namespaceSelector` matches your resource’s namespace 
 
 **Check Capability Role permissions**:
 
-The Capability Role needs `sts:AssumeRole` permission for the target account role:
+The Capability Role needs `sts:AssumeRole` and `sts:TagSession` permissions for the target account role:
 
 ```
- {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "sts:AssumeRole",
+      "Action": ["sts:AssumeRole", "sts:TagSession"],
       "Resource": "arn:aws:iam::[.replaceable]`444455556666`:role/[.replaceable]`cross-account-ack-role`"
     }
   ]

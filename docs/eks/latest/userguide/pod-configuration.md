@@ -20,7 +20,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       ```
-       cat >my-deployment.yaml <<EOF
+      cat >my-deployment.yaml <<EOF
       apiVersion: apps/v1
       kind: Deployment
       metadata:
@@ -45,7 +45,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       ```
-       kubectl apply -f my-deployment.yaml
+      kubectl apply -f my-deployment.yaml
       ```
       3. Confirm that the required environment variables exist for your Pod.
 
@@ -57,7 +57,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 kubectl get pods | grep my-app
+      	kubectl get pods | grep my-app
       	```
 
       	An example output is as follows.
@@ -65,14 +65,14 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 my-app-6f4dfff6cb-76cv9   1/1     Running   0          3m28s
+      	my-app-6f4dfff6cb-76cv9   1/1     Running   0          3m28s
       	```
       	2. View the ARN of the IAM role that the Pod is using.
 
 
 
       	```
-      	 kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_ROLE_ARN:
+      	kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_ROLE_ARN:
       	```
 
       	An example output is as follows.
@@ -80,7 +80,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 AWS_ROLE_ARN:                 <shared id="region.arn"/>iam::111122223333:role/my-role
+      	AWS_ROLE_ARN:                 arn:aws:iam::111122223333:role/my-role
       	```
 
       	The role ARN must match the role ARN that you annotated the existing service account with. For more about annotating the service account, see [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md "associate-service-account-role.md").
@@ -89,7 +89,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_WEB_IDENTITY_TOKEN_FILE:
+      	kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_WEB_IDENTITY_TOKEN_FILE:
       	```
 
       	An example output is as follows.
@@ -97,7 +97,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+      	AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
       	```
 
       	The `kubelet` requests and stores the token on behalf of the Pod. By default, the `kubelet` refreshes the token if the token is older than 80 percent of its total time to live or older than 24 hours. You can modify the expiration duration for any account other than the default service account by using the settings in your Pod spec. For more information, see [Service Account Token Volume Projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection") in the Kubernetes documentation.
@@ -108,7 +108,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 eks.amazonaws.com/role-arn: <shared id="region.arn"/>iam::111122223333:role/my-role
+      	eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/my-role
       	```
 
       	The webhook applies the previous environment variables to those Pods. Your cluster doesn’t need to use the webhook to configure the environment variables and token file mounts. You can manually configure Pods to have these environment variables. The [supported versions of the AWS SDK](iam-roles-for-service-accounts-minimum-sdk.md "iam-roles-for-service-accounts-minimum-sdk.md") look for these environment variables first in the credential chain provider. The role credentials are used for Pods that meet this criteria.
@@ -131,7 +131,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 kubectl describe deployment my-app | grep "Service Account"
+      	kubectl describe deployment my-app | grep "Service Account"
       	```
 
       	An example output is as follows.
@@ -139,6 +139,6 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 Service Account:  my-service-account
+      	Service Account:  my-service-account
       	```
       	3. If your Pods still can’t access services, review the [steps](associate-service-account-role.md#irsa-confirm-role-configuration "associate-service-account-role.md#irsa-confirm-role-configuration") that are described in [Assign IAM roles to Kubernetes service accounts](associate-service-account-role.md "associate-service-account-role.md") to confirm that your role and service account are configured properly.

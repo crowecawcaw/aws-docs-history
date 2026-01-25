@@ -30,13 +30,13 @@ You can also assign `IPv6` addresses to nodes in public and private subnets. The
    - `IPv4`
 
 ```
- https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
+https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
 ```
 
 - `IPv4` and `IPv6`
 
 ```
- https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-ipv6-vpc-public-private-subnets.yaml
+https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-ipv6-vpc-public-private-subnets.yaml
 ```
 
 1. On the **Specify stack details** page, enter the parameters, and then choose **Next**.
@@ -70,7 +70,7 @@ This VPC has three public subnets that are deployed into different Availability 
 5. Paste the following URL into the text area under **Amazon S3 URL** and choose **Next**:
 
 ```
- https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-sample.yaml
+https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-sample.yaml
 ```
 
 1. On the **Specify Details** page, enter the parameters, and then choose **Next**.
@@ -99,7 +99,7 @@ This VPC has three private subnets that are deployed into different Availability
 5. Paste the following URL into the text area under **Amazon S3 URL** and choose **Next**:
 
 ```
- https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-fully-private-vpc.yaml
+https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-fully-private-vpc.yaml
 ```
 
 1. On the **Specify Details** page, enter the parameters and then choose **Next**.

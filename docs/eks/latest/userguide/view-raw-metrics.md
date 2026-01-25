@@ -9,13 +9,13 @@ The Kubernetes control plane exposes a number of metrics that are represented in
 To view the raw metrics output, replace `endpoint` and run the following command.
 
 ```
- kubectl get --raw endpoint
+kubectl get --raw endpoint
 ```
 
 This command allows you to pass any endpoint path and returns the raw response. The output lists different metrics line-by-line, with each line including a metric name, tags, and a value.
 
 ```
- metric_name{tag="value"[,...]} value
+metric_name{tag="value"[,...]} value
 ```
 
 ## Fetch metrics from the API server
@@ -23,13 +23,13 @@ This command allows you to pass any endpoint path and returns the raw response. 
 The general API server endpoint is exposed on the Amazon EKS control plane. This endpoint is primarily useful when looking at a specific metric.
 
 ```
- kubectl get --raw /metrics
+kubectl get --raw /metrics
 ```
 
 An example output is as follows.
 
 ```
- [...]
+[...]
 # HELP rest_client_requests_total Number of HTTP requests, partitioned by status code, method, and host.
 # TYPE rest_client_requests_total counter
 rest_client_requests_total{code="200",host="127.0.0.1:21362",method="POST"} 4994
@@ -62,13 +62,13 @@ If you have a webhook configuration that could block the creation of the new `AP
 To retrieve `kube-scheduler` metrics, use the following command.
 
 ```
- kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/ksh/container/metrics"
+kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/ksh/container/metrics"
 ```
 
 An example output is as follows.
 
 ```
- # TYPE scheduler_pending_pods gauge
+# TYPE scheduler_pending_pods gauge
 scheduler_pending_pods{queue="active"} 0
 scheduler_pending_pods{queue="backoff"} 0
 scheduler_pending_pods{queue="gated"} 0
@@ -89,13 +89,13 @@ scheduler_pod_scheduling_attempts_bucket{le="+Inf"} 81
 To retrieve `kube-controller-manager` metrics, use the following command.
 
 ```
- kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/kcm/container/metrics"
+kubectl get --raw "/apis/metrics.eks.amazonaws.com/v1/kcm/container/metrics"
 ```
 
 An example output is as follows.
 
 ```
- [...]
+[...]
 workqueue_work_duration_seconds_sum{name="pvprotection"} 0
 workqueue_work_duration_seconds_count{name="pvprotection"} 0
 workqueue_work_duration_seconds_bucket{name="replicaset",le="1e-08"} 0
@@ -137,7 +137,7 @@ The following table describes the scheduler and controller manager metrics that 
 To deploy a Prometheus scraper to consistently scrape the metrics, use the following configuration:
 
 ```
- ---
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -226,7 +226,7 @@ spec:
 The permission that follows is required for the Pod to access the new metrics endpoint.
 
 ```
- {
+{
   "effect": "allow",
   "apiGroups": [
     "metrics.eks.amazonaws.com"
@@ -243,7 +243,7 @@ The permission that follows is required for the Pod to access the new metrics en
 To patch the role being used, you can use the following command.
 
 ```
- kubectl patch clusterrole <role-name> --type=json -p='[
+kubectl patch clusterrole <role-name> --type=json -p='[
   {
     "op": "add",
     "path": "/rules/-",
@@ -259,7 +259,7 @@ To patch the role being used, you can use the following command.
 Then you can view the Prometheus dashboard by proxying the port of the Prometheus scraper to your local port.
 
 ```
- kubectl port-forward pods/prom-pod 9090:9090
+kubectl port-forward pods/prom-pod 9090:9090
 ```
 
 For your Amazon EKS cluster, the core Kubernetes control plane metrics are also ingested into Amazon CloudWatch Metrics under the `AWS/EKS` namespace. To view them, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks "https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks") and select **All metrics** from the left navigation pane. On the **Metrics** selection page, choose the `AWS/EKS` namespace and a metrics dimension for your cluster.

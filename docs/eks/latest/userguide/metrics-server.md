@@ -44,26 +44,26 @@ You install or update community add-ons in the same way as other Amazon EKS Add-
 1. Deploy the Metrics Server with the following command:
 
 ```
- kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
 If you are using Fargate, you will need to change this file. In the default configuration, the metrics server uses port 10250. This port is reserved on Fargate. Replace references to port 10250 in components.yaml with another port, such as 10251. 2. Verify that the `metrics-server` deployment is running the desired number of Pods with the following command.
 
 ```
- kubectl get deployment metrics-server -n kube-system
+kubectl get deployment metrics-server -n kube-system
 ```
 
 An example output is as follows.
 
 ```
- NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 metrics-server   1/1     1            1           6m
 ```
 
 3. Test the metrics server is working by displaying resource (CPU/memory) usage of nodes.
 
 ```
- kubectl top nodes
+kubectl top nodes
 ```
 
 4. If you receive the error message `Error from server (Forbidden)`, you need to update your Kubernetes RBAC configuration. Your Kubernetes RBAC identity needs sufficent permissions to read cluster metrics. Review the [minimum required Kubernetes API permissions for reading metrics](https://github.com/kubernetes-sigs/metrics-server/blob/e285375a49e3bf77ddd78c08a05aaa44f2249ebd/manifests/base/rbac.yaml#L5C9-L5C41 "https://github.com/kubernetes-sigs/metrics-server/blob/e285375a49e3bf77ddd78c08a05aaa44f2249ebd/manifests/base/rbac.yaml#L5C9-L5C41") on GitHub. Learn how to [grant AWS IAM Identities such as Roles access to Kubernetes APIs](grant-k8s-access.md#authentication-modes "grant-k8s-access.md#authentication-modes").

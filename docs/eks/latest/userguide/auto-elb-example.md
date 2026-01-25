@@ -19,7 +19,7 @@ First, create a dedicated namespace for the 2048 game application.
 Create a file named `01-namespace.yaml`:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Namespace
 metadata:
   name: game-2048
@@ -28,7 +28,7 @@ metadata:
 Apply the namespace configuration:
 
 ```
- kubectl apply -f 01-namespace.yaml
+kubectl apply -f 01-namespace.yaml
 ```
 
 ## Step 2: Deploy the Application
@@ -38,7 +38,7 @@ The application runs multiple replicas of the 2048 game container.
 Create a file named `02-deployment.yaml`:
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: game-2048
@@ -78,7 +78,7 @@ If you receive an error loading the image `public.ecr.aws/l6m2t8p7/docker-2048:l
 Apply the deployment:
 
 ```
- kubectl apply -f 02-deployment.yaml
+kubectl apply -f 02-deployment.yaml
 ```
 
 ## Step 3: Create the Service
@@ -88,7 +88,7 @@ The service exposes the deployment to the cluster network.
 Create a file named `03-service.yaml`:
 
 ```
- apiVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   namespace: game-2048
@@ -111,7 +111,7 @@ spec:
 Apply the service:
 
 ```
- kubectl apply -f 03-service.yaml
+kubectl apply -f 03-service.yaml
 ```
 
 ## Step 4: Configure Load Balancing
@@ -121,7 +121,7 @@ You will set up an ingress to expose the application to the internet.
 First, create the `IngressClass`. Create a file named `04-ingressclass.yaml`:
 
 ```
- apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
   labels:
@@ -142,7 +142,7 @@ Learn how to [Tag subnets for EKS Auto Mode](tag-subnets-auto.md "tag-subnets-au
 Then create the Ingress resource. Create a file named `05-ingress.yaml`:
 
 ```
- apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: game-2048
@@ -173,7 +173,7 @@ spec:
 Apply the ingress configurations:
 
 ```
- kubectl apply -f 04-ingressclass.yaml
+kubectl apply -f 04-ingressclass.yaml
 kubectl apply -f 05-ingress.yaml
 ```
 
@@ -182,19 +182,19 @@ kubectl apply -f 05-ingress.yaml
 1. Check that all pods are running:
 
 ```
- kubectl get pods -n game-2048
+kubectl get pods -n game-2048
 ```
 
 2. Verify the service is created:
 
 ```
- kubectl get svc -n game-2048
+kubectl get svc -n game-2048
 ```
 
 3. Get the ALB endpoint:
 
 ```
- kubectl get ingress -n game-2048
+kubectl get ingress -n game-2048
 ```
 
 The ADDRESS field in the ingress output will show your ALB endpoint. Wait 2-3 minutes for the ALB to provision and register all targets.
@@ -208,7 +208,7 @@ Open your web browser and browse to the ALB endpoint URL from the earlier step. 
 To remove all resources created in this tutorial:
 
 ```
- kubectl delete namespace game-2048
+kubectl delete namespace game-2048
 ```
 
 This will delete all resources in the namespace, including the deployment, service, and ingress resources.

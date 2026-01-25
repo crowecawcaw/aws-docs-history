@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # What is Amazon EKS?
 
+###### Tip
+
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS workshops.
+
 ## Amazon EKS: Simplified Kubernetes Management
 
 Amazon Elastic Kubernetes Service (EKS) provides a fully managed Kubernetes service that eliminates the complexity of operating Kubernetes clusters. With EKS, you can:

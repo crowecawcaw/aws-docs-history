@@ -6,6 +6,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ###### Tip
 
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS workshops.
+
+###### Tip
+
 With Amazon EKS Auto Mode, you don’t need to install or upgrade networking add-ons. Auto Mode includes pod networking and load balancing capabilities.
 
 For more information, see [Automate cluster infrastructure with EKS Auto Mode](automode.md "automode.md").

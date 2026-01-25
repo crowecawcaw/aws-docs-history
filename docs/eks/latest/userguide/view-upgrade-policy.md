@@ -36,7 +36,7 @@ For example, if you have set your version support policy as `standard` then you 
 3. Run the following command:
 
 ```
- aws eks describe-cluster \
+aws eks describe-cluster \
 --name <cluster-name> \
 --query "cluster.upgradePolicy.supportType"
 ```

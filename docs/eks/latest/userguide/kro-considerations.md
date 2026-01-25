@@ -44,7 +44,7 @@ Platform teams create and maintain ResourceGraphDefinitions (RGDs) that define c
 **Example ClusterRole for platform team**:
 
 ```
- apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: platform-kro-admin

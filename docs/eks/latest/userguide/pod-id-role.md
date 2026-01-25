@@ -5,7 +5,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Create IAM role with trust policy required by EKS Pod Identity
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -38,7 +38,7 @@ You can use these tags in the _condition keys_ in the trust policy to restrict w
 For example, you can restrict which pods can assume the role a Pod Identity IAM Role to a specific `ServiceAccount` and `Namespace` with the following Trust Policy with the added `Condition`:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

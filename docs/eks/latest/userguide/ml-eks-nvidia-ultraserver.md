@@ -72,7 +72,7 @@ The NVIDIA GPU operator simplifies the management of components required to use 
 1. Create a Helm values file named `gpu-operator-values.yaml` with the following configuration.
 
 ```
- devicePlugin:
+devicePlugin:
   enabled: true
 nfd:
   enabled: true
@@ -89,12 +89,12 @@ migManager:
 2. Install the NVIDIA GPU operator for your cluster using the `gpu-operator-values.yaml` file you created in the previous step.
 
 ```
- helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 helm repo update
 ```
 
 ```
- helm install gpu-operator nvidia/gpu-operator \
+helm install gpu-operator nvidia/gpu-operator \
  --namespace gpu-operator \
  --create-namespace \
  --version v25.3.4 \
@@ -108,7 +108,7 @@ As of NVIDIA GPU operator version `v25.3.4`, the NVIDIA DRA driver must be insta
 1. Create a Helm values file named `dra-values.yaml` with the following configuration. Note the `nodeAffinity` and `tolerations` that configures the DRA driver to deploy only on nodes with an NVIDIA GPU.
 
 ```
- resources:
+resources:
   gpus:
     enabled: false # set to false to disable experimental gpu support
   computeDomains:
@@ -138,12 +138,12 @@ kubeletPlugin:
 2. Install the NVIDIA DRA driver for your cluster using the `dra-values.yaml` file you created in the previous step.
 
 ```
- helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
 helm repo update
 ```
 
 ```
- helm install nvidia-dra-driver-gpu nvidia/nvidia-dra-driver-gpu \
+helm install nvidia-dra-driver-gpu nvidia/nvidia-dra-driver-gpu \
   --version="25.8.0" \
   --namespace nvidia-dra-driver-gpu \
   --create-namespace \
@@ -155,22 +155,22 @@ helm repo update
 Confirm the DRA resources are available with the following commands.
 
 ```
- kubectl api-resources | grep resource.k8s.io
+kubectl api-resources | grep resource.k8s.io
 ```
 
 ```
- deviceclasses           resource.k8s.io/v1  false        DeviceClass
+deviceclasses           resource.k8s.io/v1  false        DeviceClass
 resourceclaims          resource.k8s.io/v1  true         ResourceClaim
 resourceclaimtemplates  resource.k8s.io/v1  true         ResourceClaimTemplate
 resourceslices          resource.k8s.io/v1  false        ResourceSlice
 ```
 
 ```
- kubectl get deviceclasses
+kubectl get deviceclasses
 ```
 
 ```
- NAME
+NAME
 compute-domain-daemon.nvidia.com
 compute-domain-default-channel.nvidia.com
 ```
@@ -182,7 +182,7 @@ To use EFA communication between UltraServers, you must install the Kubernetes d
 1. Create a Helm values file named `efa-values.yaml` with the following configuration.
 
 ```
- tolerations:
+tolerations:
   - key: nvidia.com/gpu
     operator: Exists
     effect: NoSchedule
@@ -191,12 +191,12 @@ To use EFA communication between UltraServers, you must install the Kubernetes d
 2. Install the NVIDIA DRA operator for your cluster using the `dra-values.yaml` file you created in the previous step.
 
 ```
- helm repo add eks https://aws.github.io/eks-charts
+helm repo add eks https://aws.github.io/eks-charts
 helm repo update
 ```
 
 ```
- helm install efa eks/aws-efa-k8s-device-plugin -n kube-system \
+helm install efa eks/aws-efa-k8s-device-plugin -n kube-system \
   --version="0.5.14" \
   -f efa-values.yaml
 ```
@@ -204,11 +204,11 @@ helm repo update
 As an example, if you configured your instances with 1 efa-only interface in each [NCI group](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md#efa-for-p6e"), when describing a node, it is expected to see 4 allocatable EFA devices per node.
 
 ```
- kubectl describe node/<gb200-node-name>
+kubectl describe node/<gb200-node-name>
 ```
 
 ```
- Capacity:
+Capacity:
   ...
   vpc.amazonaws.com/efa:  4
 Allocatable:
@@ -223,7 +223,7 @@ For a multi-node NVLINK NCCL test and other micro-benchmarks review the [awesome
 1. To run a multi-node bandwidth test across two nodes in the NVL72 domain, first install the MPI operator:
 
 ```
- kubectl create -f https://github.com/kubeflow/mpi-operator/releases/download/v0.7.0/mpi-operator.yaml
+kubectl create -f https://github.com/kubeflow/mpi-operator/releases/download/v0.7.0/mpi-operator.yaml
 ```
 
 2. Create a Helm values file named `nvbandwidth-test-job.yaml` that defines the test manifest. Note the `nvidia.com/gpu.clique` pod affinity to schedule the workers in the same NVLink domain which has Multi-Node NVLink reachability.
@@ -231,7 +231,7 @@ For a multi-node NVLINK NCCL test and other micro-benchmarks review the [awesome
 As of NVIDIA DRA Driver version `v25.8.0` ComputeDomains are elastic and `.spec.numNodes` can be set to `0` in the ComputeDomain definition. Review the latest [NVIDIA DRA Driver release notes](https://github.com/NVIDIA/k8s-dra-driver-gpu "https://github.com/NVIDIA/k8s-dra-driver-gpu") for updates.
 
 ```
- ---
+---
 apiVersion: resource.nvidia.com/v1beta1
 kind: ComputeDomain
 metadata:
@@ -322,17 +322,17 @@ spec:
 3. Create the ComputeDomain and start the job with the following command.
 
 ```
- kubectl apply -f nvbandwidth-test-job.yaml
+kubectl apply -f nvbandwidth-test-job.yaml
 ```
 
 4. ComputeDomain creation, you can see the workload’s ComputeDomain has two nodes:
 
 ```
- kubectl get computedomains.resource.nvidia.com -o yaml
+kubectl get computedomains.resource.nvidia.com -o yaml
 ```
 
 ```
- status:
+status:
   nodes:
   - cliqueID: <ClusterUUID>.<Clique ID>
     ipAddress: <node-ip>
@@ -346,11 +346,11 @@ spec:
 5. Review the results of the job with the following command.
 
 ```
- kubectl logs --tail=-1 -l job-name=nvbandwidth-test-launcher
+kubectl logs --tail=-1 -l job-name=nvbandwidth-test-launcher
 ```
 
 6. When the test is complete, delete it with the following command.
 
 ```
- kubectl delete -f nvbandwidth-test-job.yaml
+kubectl delete -f nvbandwidth-test-job.yaml
 ```

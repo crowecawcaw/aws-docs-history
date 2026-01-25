@@ -15,7 +15,7 @@ Use cross references (xref) to link between pages or sections within the same do
 For most cases when linking to another ID in this user guide, use the following approach to have the link text automatically update to the latest title as needed.
 
 ```
- For more information, see <<page-or-section-id>>.
+For more information, see <<page-or-section-id>>.
 ```
 
 ### Define custom link text
@@ -23,7 +23,7 @@ For most cases when linking to another ID in this user guide, use the following 
 For cases where you must have custom link text, use the following format.
 
 ```
- Here's an example of a <<page-or-section-id,link with custom text>>.
+Here's an example of a <<page-or-section-id,link with custom text>>.
 ```
 
 ## Link to another guide in the AWS Docs
@@ -33,7 +33,7 @@ For cases where you must have custom link text, use the following format.
 3. Create a link as shown below:
 
 ```
- link:AmazonS3/latest/userguide/create-bucket-overview.html[Create a bucket, type="documentation"]
+link:AmazonS3/latest/userguide/create-bucket-overview.html[Create a bucket, type="documentation"]
 ```
 
 ## Link to an external webpage
@@ -41,7 +41,7 @@ For cases where you must have custom link text, use the following format.
 This format creates a standard link out to a page not hosted by Amazon. For example, use this for GitHub links.
 
 ```
- https://example.com[Link text]
+https://example.com[Link text]
 ```
 
 ###### Note

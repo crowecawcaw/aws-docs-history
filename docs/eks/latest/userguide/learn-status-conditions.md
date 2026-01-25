@@ -15,19 +15,20 @@ Node conditions represent terminal issues requiring remediation actions like ins
 **To get conditions for all nodes:**
 
 ```
- kubectl get nodes -o 'custom-columns=NAME:.metadata.name,CONDITIONS:.status.conditions[*].type,STATUS:.status.conditions[*].status'
+kubectl get nodes -o 'custom-columns=NAME:.metadata.name,CONDITIONS:.status.conditions[*].type,STATUS:.status.conditions[*].status'
 ```
 
 **To get detailed conditions for a specific node**
 
 ```
- kubectl describe node <replaceable>node-name</replaceable>
+kubectl describe node `node-name`
+
 ```
 
 **Example condition output of a healthy node:**
 
 ```
-   - lastHeartbeatTime: "2024-11-21T19:07:40Z"
+  - lastHeartbeatTime: "2024-11-21T19:07:40Z"
     lastTransitionTime: "2024-11-08T03:57:40Z"
     message: Monitoring for the Networking system is active
     reason: NetworkingIsReady
@@ -38,7 +39,7 @@ Node conditions represent terminal issues requiring remediation actions like ins
 **Example condition of a unhealthy node with a networking problem:**
 
 ```
-   - lastHeartbeatTime: "2024-11-21T19:12:29Z"
+  - lastHeartbeatTime: "2024-11-21T19:12:29Z"
     lastTransitionTime: "2024-11-08T17:04:17Z"
     message: IPAM-D has failed to connect to API Server which could be an issue with
       IPTable rules or any other network configuration.
@@ -56,38 +57,39 @@ Node events indicate temporary issues or sub-optimal configurations.
 When the node monitoring agent is available, you can run the following command.
 
 ```
- kubectl get events --field-selector=reportingComponent=eks-node-monitoring-agent
+kubectl get events --field-selector=reportingComponent=eks-node-monitoring-agent
 ```
 
 Sample output:
 
 ```
- LAST SEEN   TYPE      REASON       OBJECT                                              MESSAGE
+LAST SEEN   TYPE      REASON       OBJECT                                              MESSAGE
 4s          Warning   SoftLockup   node/ip-192-168-71-251.us-west-2.compute.internal   CPU stuck for 23s
 ```
 
 **To get events for all nodes**
 
 ```
- kubectl get events --field-selector involvedObject.kind=Node
+kubectl get events --field-selector involvedObject.kind=Node
 ```
 
 **To get events for a specific node**
 
 ```
- kubectl get events --field-selector involvedObject.kind=Node,involvedObject.name=<replaceable>node-name</replaceable>
+kubectl get events --field-selector involvedObject.kind=Node,involvedObject.name=`node-name`
+
 ```
 
 **To watch events in real-time**
 
 ```
- kubectl get events -w --field-selector involvedObject.kind=Node
+kubectl get events -w --field-selector involvedObject.kind=Node
 ```
 
 **Example event output:**
 
 ```
- LAST SEEN   TYPE     REASON           OBJECT         MESSAGE
+LAST SEEN   TYPE     REASON           OBJECT         MESSAGE
 2m          Warning  MemoryPressure   Node/node-1    Node experiencing memory pressure
 5m          Normal   NodeReady        Node/node-1    Node became ready
 ```
@@ -95,8 +97,8 @@ Sample output:
 ## Common troubleshooting commands
 
 ```
- # Get comprehensive node status
-kubectl get node <replaceable>node-name</replaceable> -o yaml
+# Get comprehensive node status
+kubectl get node `node-name` -o yaml
 
 # Watch node status changes
 kubectl get nodes -w

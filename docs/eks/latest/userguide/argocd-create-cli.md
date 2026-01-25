@@ -17,7 +17,7 @@ This topic describes how to create an Argo CD capability using the AWS CLI.
 Create a trust policy file:
 
 ```
- cat > argocd-trust-policy.json << 'EOF'
+cat > argocd-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -39,7 +39,7 @@ EOF
 Create the IAM role:
 
 ```
- aws iam create-role \
+aws iam create-role \
   --role-name ArgoCDCapabilityRole \
   --assume-role-policy-document file://argocd-trust-policy.json
 ```
@@ -56,7 +56,7 @@ Create the Argo CD capability resource on your cluster.
 First, set environment variables for your Identity Center configuration:
 
 ```
- # Get your Identity Center instance ARN (replace region if your IDC instance is in a different region)
+# Get your Identity Center instance ARN (replace region if your IDC instance is in a different region)
 export IDC_INSTANCE_ARN=$(aws sso-admin list-instances --region [.replaceable]`region` --query 'Instances[0].InstanceArn' --output text)
 
 # Get a user ID for RBAC mapping (replace with your username and region if needed)
@@ -72,9 +72,9 @@ echo "IDC_USER_ID=$IDC_USER_ID"
 Create the capability with Identity Center integration. Replace `region-code` with the AWS Region where your cluster is located and `my-cluster` with your cluster name:
 
 ```
- aws eks create-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
+aws eks create-capability \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
   --capability-name my-argocd \
   --type ARGOCD \
   --role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/ArgoCDCapabilityRole \
@@ -112,9 +112,9 @@ If you receive an error that the cluster doesn’t exist or you don’t have per
 Wait for the capability to become active. Replace `region-code` with the AWS Region where your cluster is located and `my-cluster` with your cluster name.
 
 ```
- aws eks describe-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
+aws eks describe-capability \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
   --capability-name my-argocd \
   --query 'capability.status' \
   --output text
@@ -126,9 +126,9 @@ Don’t continue to the next step until the status is `ACTIVE`.
 You can also view the full capability details:
 
 ```
- aws eks describe-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster-name <replaceable>my-cluster</replaceable> \
+aws eks describe-capability \
+  --region `region-code` \
+  --cluster-name `my-cluster` \
   --capability-name my-argocd
 ```
 
@@ -137,7 +137,7 @@ You can also view the full capability details:
 After the capability is active, verify that Argo CD custom resources are available in your cluster:
 
 ```
- kubectl api-resources | grep argoproj.io
+kubectl api-resources | grep argoproj.io
 ```
 
 You should see `Application` and `ApplicationSet` resource types listed.

@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Understand the Kubernetes version lifecycle on EKS
 
+###### Tip
+
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS workshops.
+
 Kubernetes rapidly evolves with new features, design updates, and bug fixes. The community releases new Kubernetes minor versions (such as `1.33`) on average once every four months. Amazon EKS follows the upstream release and deprecation cycle for minor versions. As new Kubernetes versions become available in Amazon EKS, we recommend that you proactively update your clusters to use the latest available version.
 
 A minor version is under standard support in Amazon EKS for the first 14 months after it’s released. Once a version is past the end of standard support date, it enters extended support for the next 12 months. Extended support allows you to stay at a specific Kubernetes version for longer at an additional cost per cluster hour. If you haven’t updated your cluster before the extended support period ends, your cluster is auto-upgraded to the oldest currently supported extended version.
@@ -43,7 +47,7 @@ Dates with only a month and a year are approximate and are updated with an exact
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
 ```
- https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/clusters/kubernetes-versions.adoc.atom
+https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/versioning/kubernetes-versions.adoc.atom
 ```
 
 | Kubernetes version | Upstream release  | Amazon EKS release | End of standard support | End of extended support |
@@ -72,7 +76,7 @@ aws eks describe-cluster-versions
 4. The command will return a JSON output with details about the available cluster versions. Here’s an example of the output:
 
 ```
- {
+{
     "clusterVersions": [
         {
             "clusterVersion": "1.31",

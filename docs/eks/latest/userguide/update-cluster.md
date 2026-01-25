@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Update existing cluster to new Kubernetes version
 
+###### Tip
+
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS workshops.
+
 When a new Kubernetes version is available in Amazon EKS, you can update your Amazon EKS cluster to the latest version.
 
 ###### Important
@@ -49,13 +53,13 @@ Compare the Kubernetes version of your cluster control plane to the Kubernetes v
 - Get the Kubernetes version of your cluster control plane.
 
 ```
- kubectl version
+kubectl version
 ```
 
 - Get the Kubernetes version of your nodes. This command returns all self-managed and managed Amazon EC2, Fargate, and hybrid nodes. Each Fargate Pod is listed as its own node.
 
 ```
- kubectl get nodes
+kubectl get nodes
 ```
 
 Before updating your control plane to a new Kubernetes version, make sure that the Kubernetes minor version of both the managed nodes and Fargate nodes in your cluster are the same as your control plane’s version. For example, if your control plane is running version `1.29` and one of your nodes is running version `1.28`, then you must update your nodes to version `1.29` before updating your control plane to 1.30. We also recommend that you update your self-managed nodes and hybrid nodes to the same version as your control plane before updating the control plane. For more information, see [Update a managed node group for your cluster](update-managed-node-group.md "update-managed-node-group.md"), [Update self-managed nodes for your cluster](update-workers.md "update-workers.md"), and [Upgrade hybrid nodes for your cluster](hybrid-nodes-upgrade.md "hybrid-nodes-upgrade.md"). If you have Fargate nodes with a minor version lower than the control plane version, first delete the Pod that’s represented by the node. Then update your control plane. Any remaining Pods will update to the new version after you redeploy them.
@@ -103,7 +107,7 @@ You can submit the request to upgrade your EKS control plane version using:
 This procedure requires `eksctl` version `0.215.0` or later. You can check your version with the following command:
 
 ```
- eksctl version
+eksctl version
 ```
 
 For instructions on how to install and update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
@@ -111,7 +115,7 @@ For instructions on how to install and update `eksctl`, see [Installation](https
 Update the Kubernetes version of your Amazon EKS control plane. Replace `<cluster-name>` with your cluster name. Replace `<version-number>` with the Amazon EKS supported version number that you want to update your cluster to. For a list of supported version numbers, see [Amazon EKS supported versions](kubernetes-versions.md "kubernetes-versions.md").
 
 ```
- eksctl upgrade cluster --name <cluster-name> --version <version-number> --approve
+eksctl upgrade cluster --name <cluster-name> --version <version-number> --approve
 ```
 
 The update takes several minutes to complete.
@@ -131,14 +135,14 @@ Continue to [Step 4: Update cluster components](#step4 "#step4").
 2. Update your Amazon EKS cluster with the following AWS CLI command. Replace `<cluster-name>` and `<region-code>` of the cluster you want to upgrade. Replace `<version-number>` with the Amazon EKS supported version number that you want to update your cluster to. For a list of supported version numbers, see [Amazon EKS supported versions](kubernetes-versions.md "kubernetes-versions.md").
 
 ```
- aws eks update-cluster-version --name <cluster-name> \
+aws eks update-cluster-version --name <cluster-name> \
   --kubernetes-version <verion-number> --region <region-code>
 ```
 
 An example output is as follows.
 
 ```
- {
+{
     "update": {
         "id": "<update-id>",
         "status": "InProgress",
@@ -161,7 +165,7 @@ An example output is as follows.
 3. The update takes several minutes to complete. Monitor the status of your cluster update with the following command. In addition to using the same `<cluster-name>` and `<region-code>`, use the `<update-id>` that the previous command returned.
 
 ```
- aws eks describe-update --name <cluster-name> \
+aws eks describe-update --name <cluster-name> \
    --region <region-code> --update-id <update-id>
 ```
 
@@ -175,13 +179,13 @@ When a `Successful` status is displayed, the update is complete. 4. Continue to 
    2. Set the Cluster Autoscaler image tag to the version that you recorded in the previous step with the following command. If necessary, replace `X.XX.X` with your own value.
 
    ```
-    kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-autoscaler=registry.k8s.io/autoscaling/cluster-autoscaler:vX.XX.X
+   kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-autoscaler=registry.k8s.io/autoscaling/cluster-autoscaler:vX.XX.X
    ```
 
 3. (Clusters with GPU nodes only) If your cluster has node groups with GPU support (for example, `p3.2xlarge`), you must update the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin "https://github.com/NVIDIA/k8s-device-plugin")DaemonSet on your cluster. Replace `<vX.X.X>` with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases "https://github.com/NVIDIA/k8s-device-plugin/releases") version before running the following command.
 
 ```
- kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/<vX.X.X>/deployments/static/nvidia-device-plugin.yml
+kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/<vX.X.X>/deployments/static/nvidia-device-plugin.yml
 ```
 
 4. Update the Amazon VPC CNI plugin for Kubernetes, CoreDNS, and `kube-proxy` add-ons. We recommend updating the add-ons to the minimum versions listed in [Service account tokens](service-accounts.md#boundserviceaccounttoken-validated-add-on-versions "service-accounts.md#boundserviceaccounttoken-validated-add-on-versions").

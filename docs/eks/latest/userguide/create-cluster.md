@@ -27,7 +27,7 @@ This topic provides an overview of the available options and describes what to c
 2. Run the following command to create an IAM trust policy JSON file.
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -44,7 +44,7 @@ This topic provides an overview of the available options and describes what to c
 3. Create the Amazon EKS cluster IAM role. If necessary, preface `eks-cluster-role-trust-policy.json` with the path on your computer that you wrote the file to in the previous step. The command associates the trust policy that you created in the previous step to the role. To create an IAM role, the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
 ```
- aws iam create-role --role-name myAmazonEKSClusterRole --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
+aws iam create-role --role-name myAmazonEKSClusterRole --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
 ```
 
 4. You can assign either the Amazon EKS managed policy or create your own custom policy. For the minimum permissions that you must use in your custom policy, see [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md").
@@ -52,7 +52,7 @@ This topic provides an overview of the available options and describes what to c
 Attach the Amazon EKS managed policy named [AmazonEKSClusterPolicy](../../../aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.md#AmazonEKSClusterPolicy-json "../../../aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.md#AmazonEKSClusterPolicy-json") to the role. To attach an IAM policy to an [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal"), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
 ```
- aws iam attach-role-policy --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSClusterPolicy --role-name myAmazonEKSClusterRole
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name myAmazonEKSClusterRole
 ```
 
 ### Service Linked Role
@@ -85,13 +85,13 @@ You can create a cluster by using:
 The subnets that you choose must meet the [Amazon EKS subnet requirements](network-reqs.md#network-requirements-subnets "network-reqs.md#network-requirements-subnets"). Before selecting subnets, we recommend that you’re familiar with all of the [Amazon EKS VPC and subnet requirements and considerations](network-reqs.md "network-reqs.md"). 7. Run the following command:
 
 ```
- eksctl create cluster --name my-cluster --region region-code --version 1.33 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
+eksctl create cluster --name my-cluster --region region-code --version 1.33 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
 ```
 
 Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
 
 ```
- [✓]  EKS cluster "my-cluster" in "region-code" region is ready
+[✓]  EKS cluster "my-cluster" in "region-code" region is ready
 ```
 
 8. Continue with [Step 3: Update kubeconfig](#step3 "#step3")
@@ -231,8 +231,8 @@ Cluster provisioning takes several minutes. 12. Continue with [Step 3: Update ku
 
 
         ```
-         aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.33 \
-           --role-arn <shared id="region.arn"/>iam::111122223333:role/myAmazonEKSClusterRole \
+        aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.33 \
+           --role-arn arn:aws:iam::111122223333:role/myAmazonEKSClusterRole \
            --resources-vpc-config subnetIds=subnet-ExampleID1,subnet-ExampleID2,securityGroupIds=sg-ExampleID1
         ```
 
@@ -275,7 +275,7 @@ Cluster provisioning takes several minutes. 12. Continue with [Step 3: Update ku
 2.  It takes several minutes to provision the cluster. You can query the status of your cluster with the following command.
 
 ```
- aws eks describe-cluster --region region-code --name my-cluster --query "cluster.status"
+aws eks describe-cluster --region region-code --name my-cluster --query "cluster.status"
 ```
 
 Don’t proceed to the next step until the output returned is `ACTIVE`. 3. Continue with [Step 3: Update kubeconfig](#step3 "#step3")
@@ -286,25 +286,25 @@ Don’t proceed to the next step until the output returned is `ACTIVE`. 3. Conti
    `config` file. For more information about how to create and update the file, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
 ```
- aws eks update-kubeconfig --region region-code --name my-cluster
+aws eks update-kubeconfig --region region-code --name my-cluster
 ```
 
 An example output is as follows.
 
 ```
- Added new context <shared id="region.arn"/>eks:region-code:111122223333:cluster/my-cluster to /home/username/.kube/config
+Added new context arn:aws:eks:region-code:111122223333:cluster/my-cluster to /home/username/.kube/config
 ```
 
 2. Confirm communication with your cluster by running the following command.
 
 ```
- kubectl get svc
+kubectl get svc
 ```
 
 An example output is as follows.
 
 ```
- NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   28h
 ```
 

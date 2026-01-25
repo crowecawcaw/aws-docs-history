@@ -24,7 +24,7 @@ Before you start, make sure you have performed the following tasks:
 ### 1. Verify prerequisites
 
 ```
- # Check that your Python version is 3.10 or higher
+# Check that your Python version is 3.10 or higher
 python3 --version
 
 # Check uv installation
@@ -77,7 +77,7 @@ Create the configuration file if it doesn’t exist. Be sure to replace the regi
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -101,7 +101,7 @@ Create the configuration file if it doesn’t exist. Be sure to replace the regi
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -153,7 +153,7 @@ Be sure to replace the region (`{region}`) placeholder with your desired region.
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -177,7 +177,7 @@ Be sure to replace the region (`{region}`) placeholder with your desired region.
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -221,7 +221,7 @@ Create the configuration file if it doesn’t exist. Be sure to replace the regi
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -245,7 +245,7 @@ Create the configuration file if it doesn’t exist. Be sure to replace the regi
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -303,7 +303,7 @@ Create the configuration file if it doesn’t exist. Be sure to replace the regi
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -327,7 +327,7 @@ Create the configuration file if it doesn’t exist. Be sure to replace the regi
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp": {
       "disabled": false,
@@ -369,7 +369,7 @@ List the available MCP tools for EKS
 Optionally, you can create a [customer-managed IAM policy](../../../privateca/latest/userguide/auth-CustManagedPolicies.md "../../../privateca/latest/userguide/auth-CustManagedPolicies.md") that provides full access to the Amazon EKS MCP server. This policy grants permissions to use all tools in the EKS MCP server, including both privileged tools that may involve write operations and read-only tools. Note that high-risk permissions (anything with Delete\*, or unrestricted IAM resource) are included in this policy, as they’re required for setup/teardown of the cluster resources in the **manage_eks_stacks** tool.
 
 ```
- aws iam create-policy \
+aws iam create-policy \
  --policy-name EKSMcpWriteManagementPolicy \
  --policy-document "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": [\"eks:DescribeCluster\", \"eks:ListClusters\", \"eks:DescribeNodegroup\", \"eks:ListNodegroups\", \"eks:DescribeAddon\", \"eks:ListAddons\", \"eks:DescribeAccessEntry\", \"eks:ListAccessEntries\", \"eks:DescribeInsight\", \"eks:ListInsights\", \"eks:AccessKubernetesApi\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"eks:CreateCluster\", \"eks:DeleteCluster\", \"eks:CreateAccessEntry\", \"eks:TagResource\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"iam:GetRole\", \"iam:ListRolePolicies\", \"iam:ListAttachedRolePolicies\", \"iam:GetRolePolicy\", \"iam:GetPolicy\", \"iam:GetPolicyVersion\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"iam:TagRole\", \"iam:CreateRole\", \"iam:AttachRolePolicy\", \"iam:PutRolePolicy\", \"iam:DetachRolePolicy\", \"iam:DeleteRole\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"iam:PassRole\"], \"Resource\": \"*\", \"Condition\": {\"StringEquals\": {\"iam:PassedToService\": [\"eks.amazonaws.com\", \"ec2.amazonaws.com\"]}}}, {\"Effect\": \"Allow\", \"Action\": [\"ec2:CreateVpc\", \"ec2:CreateSubnet\", \"ec2:CreateRouteTable\", \"ec2:CreateRoute\", \"ec2:CreateInternetGateway\", \"ec2:CreateNatGateway\", \"ec2:CreateSecurityGroup\", \"ec2:AttachInternetGateway\", \"ec2:AssociateRouteTable\", \"ec2:ModifyVpcAttribute\", \"ec2:ModifySubnetAttribute\", \"ec2:AllocateAddress\", \"ec2:CreateTags\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"ec2:DeleteVpc\", \"ec2:DeleteSubnet\", \"ec2:DisassociateRouteTable\", \"ec2:DeleteRouteTable\", \"ec2:DeleteRoute\", \"ec2:DetachInternetGateway\", \"ec2:DeleteInternetGateway\", \"ec2:DeleteNatGateway\", \"ec2:ReleaseAddress\", \"ec2:DeleteSecurityGroup\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"ec2:DescribeVpcs\", \"ec2:DescribeSubnets\", \"ec2:DescribeRouteTables\", \"ec2:DescribeInternetGateways\", \"ec2:DescribeNatGateways\", \"ec2:DescribeAddresses\", \"ec2:DescribeSecurityGroups\", \"ec2:DescribeAvailabilityZones\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"cloudformation:CreateStack\", \"cloudformation:UpdateStack\", \"cloudformation:DeleteStack\", \"cloudformation:DescribeStacks\", \"cloudformation:TagResource\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"sts:GetCallerIdentity\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"logs:StartQuery\", \"logs:GetQueryResults\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"cloudwatch:GetMetricData\"], \"Resource\": \"*\"}, {\"Effect\": \"Allow\", \"Action\": [\"eks-mcp:*\"], \"Resource\": \"*\"}]}"
 ```
@@ -429,7 +429,7 @@ If you work with multiple AWS accounts, create separate MCP server configuration
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp-prod": {
       "disabled": false,
@@ -468,7 +468,7 @@ If you work with multiple AWS accounts, create separate MCP server configuration
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp-prod": {
       "disabled": false,
@@ -515,7 +515,7 @@ Create a read-only configuration for production environments.
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp-prod-readonly": {
       "command": "uvx",
@@ -543,7 +543,7 @@ Create a read-only configuration for production environments.
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp-prod-readonly": {
       "command": "uvx",
@@ -577,7 +577,7 @@ For development environments with full write access.
 **For Mac/Linux:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp-dev-full": {
       "command": "uvx",
@@ -599,7 +599,7 @@ For development environments with full write access.
 **For Windows:**
 
 ```
- {
+{
   "mcpServers": {
     "eks-mcp-dev-full": {
       "command": "uvx",
@@ -644,6 +644,12 @@ Instead of passing secrets through MCP:
 - Configure proper Kubernetes RBAC for service accounts.
 - Use IAM roles for service accounts (IRSA) for AWS service access from pods.
 
+Redaction of sensitive data:
+
+- The EKS MCP Server automatically redacts common patterns for security tokens, certificates, and other sensitive information in tool responses.
+- Redacted values are replaced with `HIDDEN_FOR_SECURITY_REASONS` to avoid accidentally exposing data to the model.
+- This redaction applies to all tool responses including logs, resource descriptions, and configuration data.
+
 ## Next up
 
-For a complete list of tools and configurations, see [Amazon EKS MCP Server Tool Configuration Reference](eks-mcp-tool-configurations.md "eks-mcp-tool-configurations.md").
+For configuration options, see [Amazon EKS MCP Server Configuration Reference](eks-mcp-tool-configurations.md "eks-mcp-tool-configurations.md"). For a complete list of tools, see [Amazon EKS MCP Server Tools Reference](eks-mcp-tools.md "eks-mcp-tools.md").

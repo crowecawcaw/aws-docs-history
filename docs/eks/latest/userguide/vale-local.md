@@ -36,7 +36,7 @@ Vale uses the `.vale.ini` configuration file in your project root to determine w
 4. Run the command:
 
 ```
- vale sync
+vale sync
 ```
 
 5. Wait for Vale to finish downloading and syncing style rules

@@ -33,7 +33,7 @@ Before beginning the migration, ensure you have
 1. Check if the EKS cluster with Fargate is running:
 
 ```
- kubectl get node
+kubectl get node
 ```
 
 ```
@@ -45,7 +45,7 @@ fargate-ip-192-168-98-196.ec2.internal Ready <none> 24m v1.30.8-eks-2d5f260
 2. Check running pods:
 
 ```
- kubectl get pod -A
+kubectl get pod -A
 ```
 
 ```
@@ -57,7 +57,7 @@ kube-system coredns-6659cb98f6-gzzsx 1/1 Running 0 26m
 3. Create a deployment in a file called `deployment_fargate.yaml`:
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -85,7 +85,7 @@ spec:
 4. Apply the deployment:
 
 ```
- kubectl apply -f deployment_fargate.yaml
+kubectl apply -f deployment_fargate.yaml
 ```
 
 ```
@@ -95,7 +95,7 @@ deployment.apps/nginx-deployment created
 5. Check the pods and deployments:
 
 ```
- kubectl get pod,deploy
+kubectl get pod,deploy
 ```
 
 ```
@@ -111,7 +111,7 @@ deployment.apps/nginx-deployment   3/3     3            3           61s
 6. Check the node:
 
 ```
- kubectl get node -owide
+kubectl get node -owide
 ```
 
 ```
@@ -127,7 +127,7 @@ fargate-ip-192-168-74-140.ec2.internal  Ready   <none> 36s v1.30.8-eks-2d5f260 1
 2. Check the nodepool:
 
 ```
- kubectl get nodepool
+kubectl get nodepool
 ```
 
 ```
@@ -148,7 +148,7 @@ For more information, see [Create a Node Pool for EKS Auto Mode](create-node-poo
 1. Modify your deployments (for example, the `deployment_fargate.yaml` file) to change the compute type to `ec2`:
 
 ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -176,13 +176,13 @@ spec:
 2. Apply the deployment. This change allows the workload to be scheduled on the new EKS Auto Mode nodes:
 
 ```
- kubectl apply -f deployment_fargate.yaml
+kubectl apply -f deployment_fargate.yaml
 ```
 
 3. Check that the deployment is running in the EKS Auto Mode cluster:
 
 ```
- kubectl get pod -o wide
+kubectl get pod -o wide
 ```
 
 ```
@@ -195,7 +195,7 @@ nginx-deployment-97967b68d-qpd8x   1/1     Running   0          2m35s   192.168.
 4. Verify there is no Fargate node running and deployment running in the EKS Auto Mode managed nodes:
 
 ```
- kubectl get node -owide
+kubectl get node -owide
 ```
 
 ```
@@ -214,7 +214,7 @@ Once all workloads have been migrated, you can remove the original `fargate` pro
 Replace `<fargate profile name>` with the name of your Fargate profile:
 
 ```
- aws eks delete-fargate-profile --cluster-name eks-fargate-demo-cluster --fargate-profile-name <fargate profile name>
+aws eks delete-fargate-profile --cluster-name eks-fargate-demo-cluster --fargate-profile-name <fargate profile name>
 ```
 
 ## Step 6: Scale down CoreDNS
@@ -222,5 +222,5 @@ Replace `<fargate profile name>` with the name of your Fargate profile:
 Because EKS Auto mode handles CoreDNS, you scale the `coredns` deployment down to 0:
 
 ```
- kubectl scale deployment coredns -n kube-system —-replicas=0
+kubectl scale deployment coredns -n kube-system —-replicas=0
 ```

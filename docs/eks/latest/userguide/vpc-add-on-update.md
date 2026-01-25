@@ -9,19 +9,19 @@ Update the Amazon EKS type of the Amazon VPC CNI plugin for Kubernetes add-on. I
 1. See which version of the add-on is installed on your cluster. Replace `my-cluster` with your cluster name.
 
 ```
- aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query "addon.addonVersion" --output text
+aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni --query "addon.addonVersion" --output text
 ```
 
 An example output is as follows.
 
 ```
- v1.20.0-eksbuild.1
+v1.20.0-eksbuild.1
 ```
 
 Compare the version with the table of latest versions at [Amazon VPC CNI versions](managing-vpc-cni.md#vpc-cni-latest-available-version "managing-vpc-cni.md#vpc-cni-latest-available-version"). If the version returned is the same as the version for your cluster’s Kubernetes version in the latest version table, then you already have the latest version installed on your cluster and don’t need to complete the rest of this procedure. If you receive an error, instead of a version number in your output, then you don’t have the Amazon EKS type of the add-on installed on your cluster. You need to create the add-on before you can update it with this procedure. To create the Amazon EKS type of the VPC CNI add-on, you can follow [Create the Amazon VPC CNI (Amazon EKS add-on)](vpc-add-on-create.md "vpc-add-on-create.md"). 2. Save the configuration of your currently installed add-on.
 
 ```
- kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
+kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
 ```
 
 3. Update your add-on using the AWS CLI. If you want to use the AWS Management Console or `eksctl` to update the add-on, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md"). Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command.
@@ -32,8 +32,8 @@ Compare the version with the table of latest versions at [Amazon VPC CNI version
    - If you’re not updating a configuration setting, remove `--configuration-values '{`"env":{"AWS_VPC_K8S_CNI_EXTERNALSNAT":"true"}`}'` from the command. If you’re updating a configuration setting, replace `"env":{"AWS_VPC_K8S_CNI_EXTERNALSNAT":"true"}` with the setting that you want to set. In this example, the `AWS_VPC_K8S_CNI_EXTERNALSNAT` environment variable is set to `true`. The value that you specify must be valid for the configuration schema. If you don’t know the configuration schema, run `aws eks describe-addon-configuration --addon-name vpc-cni --addon-version `v1.20.0-eksbuild.1``, replacing `v1.20.0-eksbuild.1`with the version number of the add-on that you want to see the configuration for. The schema is returned in the output. If you have any existing custom configuration, want to remove it all, and set the values for all settings back to Amazon EKS defaults, remove`"env":{"AWS_VPC_K8S_CNI_EXTERNALSNAT":"true"}`from the command, so that you have empty`{}`. For an explanation of each setting, see [CNI Configuration Variables](https://github.com/aws/amazon-vpc-cni-k8s#cni-configuration-variables "https://github.com/aws/amazon-vpc-cni-k8s#cni-configuration-variables") on GitHub.
 
    ```
-    aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version v1.20.3-eksbuild.1 \
-       --service-account-role-arn <shared id="region.arn"/>iam::111122223333:role/AmazonEKSVPCCNIRole \
+   aws eks update-addon --cluster-name my-cluster --addon-name vpc-cni --addon-version v1.20.3-eksbuild.1 \
+       --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole \
        --resolve-conflicts PRESERVE --configuration-values '{"env":{"AWS_VPC_K8S_CNI_EXTERNALSNAT":"true"}}'
    ```
 
@@ -42,7 +42,7 @@ Compare the version with the table of latest versions at [Amazon VPC CNI version
 4. Confirm that the add-on version was updated. Replace `my-cluster` with the name of your cluster.
 
 ```
- aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni
+aws eks describe-addon --cluster-name my-cluster --addon-name vpc-cni
 ```
 
 It might take several seconds for the update to complete.
@@ -50,7 +50,7 @@ It might take several seconds for the update to complete.
 An example output is as follows.
 
 ```
- {
+{
     "addon": {
         "addonName": "vpc-cni",
         "clusterName": "my-cluster",
@@ -59,12 +59,20 @@ An example output is as follows.
         "health": {
             "issues": []
         },
-        "addonArn": "<shared id="region.arn"/>eks:region:111122223333:addon/my-cluster/vpc-cni/74c33d2f-b4dc-8718-56e7-9fdfa65d14a9",
+        "addonArn": "arn:aws:eks:region:111122223333:addon/my-cluster/vpc-cni/74c33d2f-b4dc-8718-56e7-9fdfa65d14a9",
         "createdAt": "2023-04-12T18:25:19.319000+00:00",
         "modifiedAt": "2023-04-12T18:40:28.683000+00:00",
-        "serviceAccountRoleArn": "<shared id="region.arn"/>iam::111122223333:role/AmazonEKSVPCCNIRole",
+        "serviceAccountRoleArn": "arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole",
         "tags": {},
         "configurationValues": "{\"env\":{\"AWS_VPC_K8S_CNI_EXTERNALSNAT\":\"true\"}}"
     }
 }
 ```
+
+## Troubleshooting
+
+When upgrading the VPC CNI from a version older than v1.13.2, you must replace all nodes in the cluster after the update. Versions prior to v1.13.2 use the iptables-legacy backend to insert iptables rules necessary for proper functionality, such as source NAT (SNAT).
+
+Version v1.13.2 was a significant release that [introduced iptables-wrapper](https://github.com/aws/amazon-vpc-cni-k8s/pull/2402 "https://github.com/aws/amazon-vpc-cni-k8s/pull/2402"), which automatically detects the appropriate iptables backend (iptables-legacy or iptables-nft) for inserting chains and rules. This change aligned with the upstream Kubernetes decision to move away from the legacy backend due to performance limitations.
+
+Replacing nodes following an upgrade from a version older than v1.13.2 of the VPC CNI is required because introducing rules into both the iptables-legacy and iptables-nft backends can lead to unexpected behavior for traffic originating from non-primary ENIs.

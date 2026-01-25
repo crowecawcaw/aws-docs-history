@@ -14,7 +14,7 @@ After creating the kro capability (see [Create a kro capability](create-kro-capa
 Here’s a complete example that creates a simple web application abstraction:
 
 ```
- apiVersion: kro.run/v1alpha1
+apiVersion: kro.run/v1alpha1
 kind: ResourceGraphDefinition
 metadata:
   name: webapplication
@@ -67,7 +67,7 @@ spec:
 After applying this ResourceGraphDefinition, application teams can create web applications using your simplified API:
 
 ```
- apiVersion: kro.run/v1alpha1
+apiVersion: kro.run/v1alpha1
 kind: WebApplication
 metadata:
   name: my-app
@@ -105,7 +105,7 @@ For more information, see [ResourceGraphDefinition Overview](https://kro.run/doc
 SimpleSchema provides a simplified way to define API schemas without requiring OpenAPI knowledge:
 
 ```
- schema:
+schema:
   apiVersion: v1alpha1
   kind: Database
   spec:
@@ -126,7 +126,7 @@ CEL expressions are wrapped in `${` and `}` and can be used in two ways:
 **Standalone expressions** - The entire field value is a single expression:
 
 ```
- spec:
+spec:
   replicas: ${schema.spec.replicaCount}  # Expression returns integer
   labels: ${schema.spec.labelMap}        # Expression returns object
 ```
@@ -136,7 +136,7 @@ The expression result replaces the entire field value and must match the field�
 **String templates** - One or more expressions embedded in a string:
 
 ```
- metadata:
+metadata:
   name: "${schema.spec.prefix}-${schema.spec.name}"  # Multiple expressions
   annotation: "Created by ${schema.spec.owner}"      # Single expression in string
 ```
@@ -147,7 +147,7 @@ Use `string()` to convert other types: `"replicas-${string(schema.spec.count)}"`
 **Field references** - Access instance spec values using `schema.spec`:
 
 ```
- template:
+template:
   metadata:
     name: ${schema.spec.name}-deployment
     namespace: ${schema.metadata.namespace}  # Can also reference metadata
@@ -158,7 +158,7 @@ Use `string()` to convert other types: `"replicas-${string(schema.spec.count)}"`
 **Optional field access** - Use `?` for fields that might not exist:
 
 ```
- # For ConfigMaps or Secrets with unknown structure
+# For ConfigMaps or Secrets with unknown structure
 value: ${configmap.data.?DATABASE_URL}
 
 # For optional status fields
@@ -170,7 +170,7 @@ If the field doesn’t exist, the expression returns `null` instead of failing.
 **Conditional resources** - Include resources only when conditions are met:
 
 ```
- resources:
+resources:
 - id: ingress
   includeWhen:
     - ${schema.spec.enableIngress == true}
@@ -185,7 +185,7 @@ Currently, `includeWhen` can only reference `schema.spec` fields.
 **Transformations** - Transform values using ternary operators and functions:
 
 ```
- template:
+template:
   spec:
     resources:
       requests:
@@ -201,7 +201,7 @@ Currently, `includeWhen` can only reference `schema.spec` fields.
 **Cross-resource references** - Reference values from other resources:
 
 ```
- resources:
+resources:
 - id: bucket
   template:
     apiVersion: s3.services.k8s.aws/v1alpha1
@@ -229,7 +229,7 @@ kro automatically infers dependencies from CEL expressions—you don’t specify
 When one resource references another using a CEL expression, kro creates a dependency and determines the correct creation order.
 
 ```
- resources:
+resources:
 - id: bucket
   template:
     apiVersion: s3.services.k8s.aws/v1alpha1
@@ -259,7 +259,7 @@ kro builds a directed acyclic graph (DAG) of all resources and their dependencie
 You can view the computed creation order:
 
 ```
- kubectl get resourcegraphdefinition my-rgd -o jsonpath='{.status.topologicalOrder}'
+kubectl get resourcegraphdefinition my-rgd -o jsonpath='{.status.topologicalOrder}'
 ```
 
 For more information, see [Graph inference](https://kro.run/docs/concepts/rgd/dependencies-ordering/ "https://kro.run/docs/concepts/rgd/dependencies-ordering/") in the kro documentation.
@@ -269,7 +269,7 @@ For more information, see [Graph inference](https://kro.run/docs/concepts/rgd/de
 kro works seamlessly with the EKS Capability for ACK to compose AWS resources with Kubernetes resources:
 
 ```
- resources:
+resources:
 # Create {aws} S3 bucket with ACK
 - id: bucket
   template:

@@ -18,7 +18,7 @@ There is an Amazon EKS access entry type for hybrid nodes named HYBRID_LINUX tha
 2. Create your access entry with the following command. Replace CLUSTER_NAME with the name of your cluster and HYBRID_NODES_ROLE_ARN with the ARN of the role you created in the steps for [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md").
 
 ```
- aws eks create-access-entry --cluster-name CLUSTER_NAME \
+aws eks create-access-entry --cluster-name CLUSTER_NAME \
     --principal-arn HYBRID_NODES_ROLE_ARN \
     --type HYBRID_LINUX
 ```
@@ -42,20 +42,20 @@ In the following steps, you will create or update the `aws-auth` ConfigMap with 
 1. Check to see if you have an existing `aws-auth` ConfigMap for your cluster. Note that if you are using a specific `kubeconfig` file, use the `--kubeconfig` flag.
 
 ```
- kubectl describe configmap -n kube-system aws-auth
+kubectl describe configmap -n kube-system aws-auth
 ```
 
 2. If you are shown an `aws-auth` ConfigMap, then update it as needed.
    1. Open the ConfigMap for editing.
 
    ```
-    kubectl edit -n kube-system configmap/aws-auth
+   kubectl edit -n kube-system configmap/aws-auth
    ```
 
    2. Add a new `mapRoles` entry as needed. Replace `HYBRID_NODES_ROLE_ARN` with the ARN of your Hybrid Nodes IAM role. Note, `{{SessionName}}` is the correct template format to save in the ConfigMap. Do not replace it with other values.
 
    ```
-    data:
+   data:
      mapRoles: |
      - groups:
        - system:bootstrappers
@@ -69,7 +69,7 @@ In the following steps, you will create or update the `aws-auth` ConfigMap with 
 3. If there is not an existing `aws-auth` ConfigMap for your cluster, create it with the following command. Replace `HYBRID_NODES_ROLE_ARN` with the ARN of your Hybrid Nodes IAM role. Note that `{{SessionName}}` is the correct template format to save in the ConfigMap. Do not replace it with other values.
 
 ```
- kubectl apply -f=/dev/stdin <<-EOF
+kubectl apply -f=/dev/stdin <<-EOF
 apiVersion: v1
 kind: ConfigMap
 metadata:

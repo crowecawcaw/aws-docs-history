@@ -28,13 +28,13 @@ The Pods for the Amazon VPC CNI plugin for Kubernetes have access to the permiss
 1. Determine the IP family of your cluster.
 
 ```
- aws eks describe-cluster --name my-cluster | grep ipFamily
+aws eks describe-cluster --name my-cluster | grep ipFamily
 ```
 
 An example output is as follows.
 
 ```
- "ipFamily": "ipv4"
+"ipFamily": "ipv4"
 ```
 
 The output may return `ipv6` instead. 2. Create the IAM role. You can use `eksctl` or `kubectl` and the AWS CLI to create your IAM role.
@@ -55,12 +55,12 @@ eksctl
 
 
     	```
-    	 eksctl create iamserviceaccount \
+    	eksctl create iamserviceaccount \
     	    --name aws-node \
     	    --namespace kube-system \
     	    --cluster my-cluster \
     	    --role-name AmazonEKSVPCCNIRole \
-    	    --attach-policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy \
+    	    --attach-policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
     	    --override-existing-serviceaccounts \
     	    --approve
     	```
@@ -73,12 +73,12 @@ eksctl
 
 
     	```
-    	 eksctl create iamserviceaccount \
+    	eksctl create iamserviceaccount \
     	    --name aws-node \
     	    --namespace kube-system \
     	    --cluster my-cluster \
     	    --role-name AmazonEKSVPCCNIRole \
-    	    --attach-policy-arn <shared id="region.arn"/>iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
+    	    --attach-policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
     	    --override-existing-serviceaccounts \
     	    --approve
     	```
@@ -90,7 +90,7 @@ kubectl and the AWS CLI
 
 
     ```
-     aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text
+    aws eks describe-cluster --name my-cluster --query "cluster.identity.oidc.issuer" --output text
     ```
 
     An example output is as follows.
@@ -98,7 +98,7 @@ kubectl and the AWS CLI
 
 
     ```
-     https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
+    https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
     ```
 
     If no output is returned, then you must [create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
@@ -107,7 +107,7 @@ kubectl and the AWS CLI
 
 
     ```
-     {
+    {
         "Version":"2012-10-17",
         "Statement": [
             {
@@ -131,7 +131,7 @@ kubectl and the AWS CLI
 
 
     ```
-     aws iam create-role \
+    aws iam create-role \
       --role-name AmazonEKSVPCCNIRole \
       --assume-role-policy-document file://"vpc-cni-trust-policy.json"
     ```
@@ -146,8 +146,8 @@ kubectl and the AWS CLI
 
 
     	```
-    	 aws iam attach-role-policy \
-    	  --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy \
+    	aws iam attach-role-policy \
+    	  --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
     	  --role-name AmazonEKSVPCCNIRole
     	```
     	* `IPv6`
@@ -159,8 +159,8 @@ kubectl and the AWS CLI
 
 
     	```
-    	 aws iam attach-role-policy \
-    	  --policy-arn <shared id="region.arn"/>iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
+    	aws iam attach-role-policy \
+    	  --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
     	  --role-name AmazonEKSVPCCNIRole
     	```
     5. Run the following command to annotate the `aws-node` service account with the ARN of the IAM role that you created previously. Replace the example values with your own values.
@@ -168,9 +168,9 @@ kubectl and the AWS CLI
 
 
     ```
-     kubectl annotate serviceaccount \
+    kubectl annotate serviceaccount \
         -n kube-system aws-node \
-        eks.amazonaws.com/role-arn=<shared id="region.arn"/>iam::111122223333:role/AmazonEKSVPCCNIRole
+        eks.amazonaws.com/role-arn=arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
     ```
 
 3. (Optional) Configure the AWS Security Token Service endpoint type used by your Kubernetes service account. For more information, see [Configure the AWS Security Token Service endpoint for a service account](configure-sts-endpoint.md "configure-sts-endpoint.md").
@@ -180,27 +180,27 @@ kubectl and the AWS CLI
 1. Delete and re-create any existing Pods that are associated with the service account to apply the credential environment variables. The annotation is not applied to Pods that are currently running without the annotation. The following command deletes the existing `aws-node` DaemonSet Pods and deploys them with the service account annotation.
 
 ```
- kubectl delete Pods -n kube-system -l k8s-app=aws-node
+kubectl delete Pods -n kube-system -l k8s-app=aws-node
 ```
 
 2. Confirm that the Pods all restarted.
 
 ```
- kubectl get pods -n kube-system -l k8s-app=aws-node
+kubectl get pods -n kube-system -l k8s-app=aws-node
 ```
 
 3. Describe one of the Pods and verify that the `AWS_WEB_IDENTITY_TOKEN_FILE` and `AWS_ROLE_ARN` environment variables exist. Replace `cpjw7` with the name of one of your Pods returned in the output of the previous step.
 
 ```
- kubectl describe pod -n kube-system aws-node-cpjw7 | grep 'AWS_ROLE_ARN:\|AWS_WEB_IDENTITY_TOKEN_FILE:'
+kubectl describe pod -n kube-system aws-node-cpjw7 | grep 'AWS_ROLE_ARN:\|AWS_WEB_IDENTITY_TOKEN_FILE:'
 ```
 
 An example output is as follows.
 
 ```
- AWS_ROLE_ARN:                 <shared id="region.arn"/>iam::111122223333:role/AmazonEKSVPCCNIRole
+AWS_ROLE_ARN:                 arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
       AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
-      AWS_ROLE_ARN:                           <shared id="region.arn"/>iam::111122223333:role/AmazonEKSVPCCNIRole
+      AWS_ROLE_ARN:                           arn:aws:iam::111122223333:role/AmazonEKSVPCCNIRole
       AWS_WEB_IDENTITY_TOKEN_FILE:            /var/run/secrets/eks.amazonaws.com/serviceaccount/token
 ```
 
@@ -209,7 +209,7 @@ Two sets of duplicate results are returned because the Pod contains two containe
 If your Pod is using the AWS Regional endpoint, then the following line is also returned in the previous output.
 
 ```
- AWS_STS_REGIONAL_ENDPOINTS=regional
+AWS_STS_REGIONAL_ENDPOINTS=regional
 ```
 
 ## Step 3: Remove the CNI policy from the node IAM role
@@ -219,7 +219,7 @@ If your [Amazon EKS node IAM role](create-node-role.md "create-node-role.md") cu
 - `IPv4`
 
 ```
- aws iam detach-role-policy --role-name AmazonEKSNodeRole --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy
+aws iam detach-role-policy --role-name AmazonEKSNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
 ```
 
 - `IPv6`
@@ -227,7 +227,7 @@ If your [Amazon EKS node IAM role](create-node-role.md "create-node-role.md") cu
 Replace `111122223333` with your account ID and `AmazonEKS_CNI_IPv6_Policy` with the name of your `IPv6` policy.
 
 ```
- aws iam detach-role-policy --role-name AmazonEKSNodeRole --policy-arn <shared id="region.arn"/>iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy
+aws iam detach-role-policy --role-name AmazonEKSNodeRole --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy
 ```
 
 ## Create IAM policy for clusters that use the `IPv6` family
@@ -237,7 +237,7 @@ If you created a cluster that uses the `IPv6` family and the cluster has version
 1. Copy the following text and save it to a file named `vpc-cni-ipv6-policy.json`.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -267,5 +267,5 @@ If you created a cluster that uses the `IPv6` family and the cluster has version
 2. Create the IAM policy.
 
 ```
- aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
+aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
 ```

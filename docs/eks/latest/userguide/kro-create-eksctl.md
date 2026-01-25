@@ -16,7 +16,7 @@ To check your version, run `eksctl version`.
 Create a trust policy file:
 
 ```
- cat > kro-trust-policy.json << 'EOF'
+cat > kro-trust-policy.json << 'EOF'
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -38,7 +38,7 @@ EOF
 Create the IAM role:
 
 ```
- aws iam create-role \
+aws iam create-role \
   --role-name KROCapabilityRole \
   --assume-role-policy-document file://kro-trust-policy.json
 ```
@@ -54,12 +54,12 @@ Create the kro capability using eksctl.
 Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
- eksctl create capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster <replaceable>my-cluster</replaceable> \
+eksctl create capability \
+  --region `region-code` \
+  --cluster `my-cluster` \
   --name my-kro \
   --type KRO \
-  --role-arn arn:aws:iam::[.replaceable]<literal>111122223333</literal>:role/KROCapabilityRole
+  --role-arn arn:aws:iam::[.replaceable]`111122223333`:role/KROCapabilityRole
 ```
 
 The command returns immediately, but the capability takes some time to become active.
@@ -70,9 +70,9 @@ Check the capability status.
 Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
 
 ```
- eksctl get capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster <replaceable>my-cluster</replaceable> \
+eksctl get capability \
+  --region `region-code` \
+  --cluster `my-cluster` \
   --name my-kro
 ```
 
@@ -86,9 +86,9 @@ To allow kro to create and manage the underlying Kubernetes resources defined in
 Get the capability role ARN:
 
 ```
- CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
-  --region <replaceable>region-code</replaceable> \
-  --cluster <replaceable>my-cluster</replaceable> \
+CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
+  --region `region-code` \
+  --cluster `my-cluster` \
   --name my-kro \
   --query 'capability.roleArn' \
   --output text)
@@ -97,9 +97,9 @@ Get the capability role ARN:
 Associate the cluster admin policy:
 
 ```
- aws eks associate-access-policy \
-  --region <replaceable>region-code</replaceable> \
-  --cluster <replaceable>my-cluster</replaceable> \
+aws eks associate-access-policy \
+  --region `region-code` \
+  --cluster `my-cluster` \
   --principal-arn $CAPABILITY_ROLE_ARN \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
@@ -116,7 +116,7 @@ For guidance on configuring least-privilege permissions, see [Configure kro perm
 After the capability is active, verify that kro custom resources are available in your cluster:
 
 ```
- kubectl api-resources | grep kro.run
+kubectl api-resources | grep kro.run
 ```
 
 You should see the `ResourceGraphDefinition` resource type listed.

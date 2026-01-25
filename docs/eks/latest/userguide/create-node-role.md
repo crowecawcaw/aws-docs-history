@@ -36,7 +36,7 @@ You can use the following procedure to check and see if your account already has
 If the **AmazonEKS_CNI_Policy** policy is attached to the role, we recommend removing it and attaching it to an IAM role that is mapped to the `aws-node` Kubernetes service account instead. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md"). 6. Choose **Trust relationships**, and then choose **Edit trust policy**. 7. Verify that the trust relationship contains the following policy. If the trust relationship matches the following policy, choose **Cancel**. If the trust relationship doesn’t match, copy the policy into the **Edit trust policy** window and choose **Update policy**.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -88,7 +88,7 @@ AWS CLI
 1. Run the following command to create the `node-role-trust-relationship.json` file.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -109,7 +109,7 @@ AWS CLI
 2. Create the IAM role.
 
 ```
- aws iam create-role \
+aws iam create-role \
   --role-name AmazonEKSNodeRole \
   --assume-role-policy-document file://"node-role-trust-relationship.json"
 ```
@@ -117,11 +117,11 @@ AWS CLI
 3. Attach two required IAM managed policies to the IAM role.
 
 ```
- aws iam attach-role-policy \
-  --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKSWorkerNodePolicy \
+aws iam attach-role-policy \
+  --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy \
   --role-name AmazonEKSNodeRole
 aws iam attach-role-policy \
-  --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEC2ContainerRegistryPullOnly \
+  --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly \
   --role-name AmazonEKSNodeRole
 ```
 
@@ -129,8 +129,8 @@ aws iam attach-role-policy \
    - IPv4
 
    ```
-    aws iam attach-role-policy \
-     --policy-arn <shared id="region.arn"/>iam::aws:policy/AmazonEKS_CNI_Policy \
+   aws iam attach-role-policy \
+     --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
      --role-name AmazonEKSNodeRole
    ```
 
@@ -138,7 +138,7 @@ aws iam attach-role-policy \
      1. Copy the following text and save it to a file named `vpc-cni-ipv6-policy.json`.
 
      ```
-      {
+     {
          "Version":"2012-10-17",
          "Statement": [
              {
@@ -168,13 +168,13 @@ aws iam attach-role-policy \
      2. Create the IAM policy.
 
      ```
-      aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
+     aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
      ```
 
      3. Attach the IAM policy to the IAM role. Replace `111122223333` with your account ID.
 
      ```
-      aws iam attach-role-policy \
-       --policy-arn <shared id="region.arn"/>iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
+     aws iam attach-role-policy \
+       --policy-arn arn:aws:iam::111122223333:policy/AmazonEKS_CNI_IPv6_Policy \
        --role-name AmazonEKSNodeRole
      ```

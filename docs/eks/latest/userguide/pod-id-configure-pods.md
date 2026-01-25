@@ -19,7 +19,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       ```
-       cat >my-deployment.yaml <<EOF
+      cat >my-deployment.yaml <<EOF
       apiVersion: apps/v1
       kind: Deployment
       metadata:
@@ -44,7 +44,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       ```
-       kubectl apply -f my-deployment.yaml
+      kubectl apply -f my-deployment.yaml
       ```
       3. Confirm that the required environment variables exist for your Pod.
 
@@ -56,7 +56,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 kubectl get pods | grep my-app
+      	kubectl get pods | grep my-app
       	```
 
       	An example output is as follows.
@@ -64,14 +64,14 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 my-app-6f4dfff6cb-76cv9   1/1     Running   0          3m28s
+      	my-app-6f4dfff6cb-76cv9   1/1     Running   0          3m28s
       	```
       	2. Confirm that the Pod has a service account token file mount.
 
 
 
       	```
-      	 kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:
+      	kubectl describe pod my-app-6f4dfff6cb-76cv9 | grep AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:
       	```
 
       	An example output is as follows.
@@ -79,7 +79,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:  /var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token
+      	AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE:  /var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token
       	```
       4. Confirm that your Pods can interact with the AWS services using the permissions that you assigned in the IAM policy attached to your role.
 
@@ -100,7 +100,7 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 kubectl describe deployment my-app | grep "Service Account"
+      	kubectl describe deployment my-app | grep "Service Account"
       	```
 
       	An example output is as follows.
@@ -108,5 +108,5 @@ If a Pod needs to access AWS services, then you must configure it to use a Kuber
 
 
       	```
-      	 Service Account:  my-service-account
+      	Service Account:  my-service-account
       	```

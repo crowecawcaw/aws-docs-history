@@ -57,25 +57,25 @@ Since each Pod is assigned its own IP address, the number of IP addresses suppor
 1. Download a script that you can use to calculate the maximum number of Pods for each instance type.
 
 ```
- curl -O https://raw.githubusercontent.com/awslabs/amazon-eks-ami/master/templates/al2/runtime/max-pods-calculator.sh
+curl -O https://raw.githubusercontent.com/awslabs/amazon-eks-ami/master/templates/al2/runtime/max-pods-calculator.sh
 ```
 
 2. Mark the script as executable on your computer.
 
 ```
- chmod +x max-pods-calculator.sh
+chmod +x max-pods-calculator.sh
 ```
 
 3. Run the script, replacing `m5.large` with the instance type that you plan to deploy and `1.9.0-eksbuild.1` with your Amazon VPC CNI add-on version. To determine your add-on version, see the update procedures in [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
 
 ```
- ./max-pods-calculator.sh --instance-type m5.large --cni-version 1.9.0-eksbuild.1
+./max-pods-calculator.sh --instance-type m5.large --cni-version 1.9.0-eksbuild.1
 ```
 
 An example output is as follows.
 
 ```
- 29
+29
 ```
 
 You can add the following options to the script to see the maximum Pods supported when using optional capabilities.

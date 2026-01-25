@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Running real-time online inference workloads on Amazon EKS
 
+###### Tip
+
+[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") for upcoming Amazon EKS AI/ML workshops.
+
 This section is designed to help you deploy and operate real-time online inference workloads on Amazon Elastic Kubernetes Service (EKS). You’ll find guidance on building optimized clusters with GPU-accelerated nodes, integrating AWS services for storage and autoscaling, deploying sample models for validation, and key architectural considerations such as decoupling CPU and GPU tasks, selecting appropriate AMIs and instance types, and ensuring low-latency exposure of inference endpoints.
 
 ###### Topics

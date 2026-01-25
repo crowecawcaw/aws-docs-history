@@ -28,13 +28,13 @@ After installing the AWS CLI, do the following steps to configure it. For more i
 1. In a terminal window, enter the following command:
 
 ```
- aws configure
+aws configure
 ```
 
 Optionally, you can configure a named profile, such as `--profile cluster-admin`. If you configure a named profile in the AWS CLI, you must **always** pass this flag in subsequent commands. 2. Enter your AWS credentials. For example:
 
 ```
- Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: region-code
 Default output format [None]: json
@@ -47,13 +47,13 @@ If needed, run the following command to get a new security token for the AWS CLI
 By default, the token is valid for 15 minutes. To change the default session timeout, pass the `--duration-seconds` flag. For example:
 
 ```
- aws sts get-session-token --duration-seconds 3600
+aws sts get-session-token --duration-seconds 3600
 ```
 
 This command returns the temporary security credentials for an AWS CLI session. You should see the following response output:
 
 ```
- {
+{
     "Credentials": {
         "AccessKeyId": "ASIA5FTRU3LOEXAMPLE",
         "SecretAccessKey": "JnKgvwfqUD9mNsPoi9IbxAYEXAMPLE",
@@ -68,16 +68,16 @@ This command returns the temporary security credentials for an AWS CLI session. 
 If needed, run the following command to verify the AWS credentials for your IAM user identity (such as `ClusterAdmin`) for the terminal session.
 
 ```
- aws sts get-caller-identity
+aws sts get-caller-identity
 ```
 
 This command returns the Amazon Resource Name (ARN) of the IAM entity that’s configured for the AWS CLI. You should see the following example response output:
 
 ```
- {
+{
     "UserId": "AKIAIOSFODNN7EXAMPLE",
     "Account": "01234567890",
-    "Arn": "<shared id="region.arn"/>iam::01234567890:user/ClusterAdmin"
+    "Arn": "arn:aws:iam::01234567890:user/ClusterAdmin"
 }
 ```
 

@@ -80,7 +80,7 @@ You should see the `ResourceGraphDefinition` resource type listed.
 **Using kubectl**
 
 ```
- kubectl api-resources | grep kro.run
+kubectl api-resources | grep kro.run
 ```
 
 You should see the `ResourceGraphDefinition` resource type listed.

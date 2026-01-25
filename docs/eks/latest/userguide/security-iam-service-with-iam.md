@@ -30,13 +30,13 @@ Policy actions in Amazon EKS use the following prefix before the action: `eks:`.
 To specify multiple actions in a single statement, separate them with commas as follows:
 
 ```
- "Action": ["eks:action1", "eks:action2"]
+"Action": ["eks:action1", "eks:action2"]
 ```
 
 You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action:
 
 ```
- "Action": "eks:Describe*"
+"Action": "eks:Describe*"
 ```
 
 To see a list of Amazon EKS actions, see [Actions defined by Amazon Elastic Kubernetes Service](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions") in the _Service Authorization Reference_.
@@ -56,7 +56,8 @@ For actions that don’t support resource-level permissions, such as listing ope
 The Amazon EKS cluster resource has the following ARN.
 
 ```
- <shared id="region.arn"/>eks:region-code:account-id:cluster/cluster-name
+
+            arn:aws:eks:region-code:account-id:cluster/cluster-name
 ```
 
 For more information about the format of ARNs, see [Amazon resource names (ARNs) and AWS service namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
@@ -64,19 +65,19 @@ For more information about the format of ARNs, see [Amazon resource names (ARNs)
 For example, to specify the cluster with the name `my-cluster` in your statement, use the following ARN:
 
 ```
- "Resource": "<shared id="region.arn"/>eks:region-code:111122223333:cluster/my-cluster"
+"Resource": "arn:aws:eks:region-code:111122223333:cluster/my-cluster"
 ```
 
 To specify all clusters that belong to a specific account and AWS Region, use the wildcard (\*):
 
 ```
- "Resource": "<shared id="region.arn"/>eks:region-code:111122223333:cluster/*"
+"Resource": "arn:aws:eks:region-code:111122223333:cluster/*"
 ```
 
 Some Amazon EKS actions, such as those for creating resources, can’t be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
 ```
- "Resource": "*"
+"Resource": "*"
 ```
 
 To see a list of Amazon EKS resource types and their ARNs, see [Resources defined by Amazon Elastic Kubernetes Service](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Elastic Kubernetes Service](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md#amazonelastickubernetesservice-actions-as-permissions").

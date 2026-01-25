@@ -13,19 +13,19 @@ Kubernetes services can be reached from inside of a cluster through:
 1. Deploy `cert-manager` to manage webhook certificates. For more information, see the [cert-manager](https://cert-manager.io/docs/ "https://cert-manager.io/docs/") documentation.
 
 ```
- kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
 ```
 
 2. Verify that the `cert-manager` Pods are running.
 
 ```
- kubectl get pods -n cert-manager
+kubectl get pods -n cert-manager
 ```
 
 An example output is as follows.
 
 ```
- NAME                                       READY   STATUS    RESTARTS   AGE
+NAME                                       READY   STATUS    RESTARTS   AGE
 cert-manager-58c8844bb8-nlx7q              1/1     Running   0          15s
 cert-manager-cainjector-745768f6ff-696h5   1/1     Running   0          15s
 cert-manager-webhook-67cc76975b-4v4nk      1/1     Running   0          14s
@@ -34,13 +34,13 @@ cert-manager-webhook-67cc76975b-4v4nk      1/1     Running   0          14s
 3. Review your existing services to ensure that none of them have external IP addresses assigned to them that aren’t contained within the CIDR block you want to limit addresses to.
 
 ```
- kubectl get services -A
+kubectl get services -A
 ```
 
 An example output is as follows.
 
 ```
- NAMESPACE                      NAME                                    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)         AGE
+NAMESPACE                      NAME                                    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)         AGE
 cert-manager                   cert-manager                            ClusterIP      10.100.102.137   <none>          9402/TCP        20m
 cert-manager                   cert-manager-webhook                    ClusterIP      10.100.6.136     <none>          443/TCP         20m
 default                        kubernetes                              ClusterIP      10.100.0.1       <none>          443/TCP         2d1h
@@ -52,13 +52,13 @@ my-namespace                   my-service                              ClusterIP
 If any of the values are IP addresses that are not within the block you want to restrict access to, you’ll need to change the addresses to be within the block, and redeploy the services. For example, the `my-service` service in the previous output has an external IP address assigned to it that isn’t within the CIDR block example in step 5. 4. Download the external IP webhook manifest. You can also view the [source code for the webhook](https://github.com/kubernetes-sigs/externalip-webhook "https://github.com/kubernetes-sigs/externalip-webhook") on GitHub.
 
 ```
- curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/externalip-webhook.yaml
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/docs/externalip-webhook.yaml
 ```
 
 5. Specify CIDR blocks. Open the downloaded file in your editor and remove the `\#` at the start of the following lines.
 
 ```
- #args:
+#args:
 #- --allowed-external-ip-cidrs=10.0.0.0/8
 ```
 
@@ -66,7 +66,7 @@ Replace `10.0.0.0/8` with your own CIDR block. You can specify as many blocks as
 AWS Region, then replace `us-west-2`, `602401143452`, and `amazonaws.com` in the file with the following commands. Before running the commands, replace `region-code` and `111122223333` with the value for your AWS Region from the list in [View Amazon container image registries for Amazon EKS add-ons](add-ons-images.md "add-ons-images.md").
 
 ```
- sed -i.bak -e 's|602401143452|111122223333|' externalip-webhook.yaml
+sed -i.bak -e 's|602401143452|111122223333|' externalip-webhook.yaml
 sed -i.bak -e 's|us-west-2|region-code|' externalip-webhook.yaml
 sed -i.bak -e 's|amazonaws.com||' externalip-webhook.yaml
 ```
@@ -74,7 +74,7 @@ sed -i.bak -e 's|amazonaws.com||' externalip-webhook.yaml
 7. Apply the manifest to your cluster.
 
 ```
- kubectl apply -f externalip-webhook.yaml
+kubectl apply -f externalip-webhook.yaml
 ```
 
 An attempt to deploy a service to your cluster with an IP address specified for `externalIPs` that is not contained in the blocks that you specified in the Specify CIDR blocks step will fail.

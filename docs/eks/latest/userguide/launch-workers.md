@@ -37,7 +37,7 @@ If you want to deploy a node group to AWS Outposts, Wavelength, or Local Zone su
     * You must create the node group with a config file that specifies the subnets and `volumeType: gp2`. For more information, see [Create a nodegroup from a config file](https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file "https://eksctl.io/usage/nodegroups/#creating-a-nodegroup-from-a-config-file") and [Config file schema](https://eksctl.io/usage/schema/ "https://eksctl.io/usage/schema/") in the `eksctl` documentation.
 
 ```
- eksctl create nodegroup \
+eksctl create nodegroup \
   --cluster my-cluster \
   --name al-nodes \
   --node-type t3.medium \
@@ -62,7 +62,7 @@ To deploy a node group that:
 
 
     ```
-     eksctl create nodegroup --help
+    eksctl create nodegroup --help
     ```
 
     If nodes fail to join the cluster, then see [Nodes fail to join cluster](troubleshooting.md#worker-node-fail "troubleshooting.md#worker-node-fail") in the Troubleshooting chapter.
@@ -73,7 +73,7 @@ To deploy a node group that:
 
 
     ```
-     [✔]  created 1 nodegroup(s) in cluster "my-cluster"
+    [✔]  created 1 nodegroup(s) in cluster "my-cluster"
     ```
 
 4.  (Optional) Deploy a [sample application](sample-deployment.md "sample-deployment.md") to test your cluster and Linux nodes.
@@ -91,7 +91,7 @@ To deploy a node group that:
 1. Download the latest version of the AWS CloudFormation template.
 
 ```
- curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-26/amazon-eks-nodegroup.yaml
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-26/amazon-eks-nodegroup.yaml
 ```
 
 2.  Wait for your cluster status to show as `ACTIVE`. If you launch your nodes before the cluster is active, the nodes fail to register with the cluster and you will have to relaunch them.
@@ -156,7 +156,7 @@ The following two steps are only needed if using the Configmap Authentication Mo
    `ConfigMap`.
 
 ```
- kubectl describe configmap -n kube-system aws-auth
+kubectl describe configmap -n kube-system aws-auth
 ```
 
 2.  If you are shown an `aws-auth`
@@ -167,14 +167,14 @@ The following two steps are only needed if using the Configmap Authentication Mo
 
 
         ```
-         kubectl edit -n kube-system configmap/aws-auth
+        kubectl edit -n kube-system configmap/aws-auth
         ```
         2. Add a new `mapRoles` entry as needed. Set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure.
 
 
 
         ```
-         [...]
+        [...]
         data:
           mapRoles: |
             - rolearn: <ARN of instance role (not instance profile)>
@@ -190,25 +190,25 @@ The following two steps are only needed if using the Configmap Authentication Mo
     1. Download the configuration map.
 
     ```
-     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
     ```
 
     2. In the `aws-auth-cm.yaml` file, set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure. You can do this with a text editor, or by replacing `my-node-instance-role` and running the following command:
 
     ```
-     sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
+    sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
     ```
 
     3. Apply the configuration. This command may take a few minutes to finish.
 
     ```
-     kubectl apply -f aws-auth-cm.yaml
+    kubectl apply -f aws-auth-cm.yaml
     ```
 
 4.  Watch the status of your nodes and wait for them to reach the `Ready` status.
 
 ```
- kubectl get nodes --watch
+kubectl get nodes --watch
 ```
 
 Enter `Ctrl`+`C` to return to a shell prompt.
@@ -220,7 +220,7 @@ If you receive any authorization or resource type errors, see [Unauthorized or a
 If nodes fail to join the cluster, then see [Nodes fail to join cluster](troubleshooting.md#worker-node-fail "troubleshooting.md#worker-node-fail") in the Troubleshooting chapter. 5. (GPU nodes only) If you chose a GPU instance type and the Amazon EKS optimized accelerated AMI, you must apply the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin "https://github.com/NVIDIA/k8s-device-plugin") as a DaemonSet on your cluster. Replace `vX.X.X` with your desired [NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin/releases "https://github.com/NVIDIA/k8s-device-plugin/releases") version before running the following command.
 
 ```
- kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
+kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/vX.X.X/deployments/static/nvidia-device-plugin.yml
 ```
 
 **Step 3: Additional actions**
