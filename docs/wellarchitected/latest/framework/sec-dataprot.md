@@ -52,4 +52,4 @@ to encrypt your data. For example, we have implemented server-side
 encryption (SSE) for Amazon S3 to make it easier for you to store
 your data in an encrypted form. You can also arrange for the
 entire HTTPS encryption and decryption process (generally known
-as SSL termination) to be handled by ELB (ELB).
+as SSL termination) to be handled by Elastic Load Balancing (ELB).

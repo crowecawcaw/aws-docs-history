@@ -60,7 +60,7 @@ is not established:** High
 
 ## Implementation guidance
 
-AWS services, such as [ELB](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md") and [Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/auto-scaling-groups.md "../../../autoscaling/ec2/userguide/auto-scaling-groups.md"), help distribute load across resources and Availability
+AWS services, such as [Elastic Load Balancing](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md") and [Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/auto-scaling-groups.md "../../../autoscaling/ec2/userguide/auto-scaling-groups.md"), help distribute load across resources and Availability
 Zones. Therefore, failure of an individual resource (such as an
 EC2 instance) or impairment of an Availability Zone can be
 mitigated by shifting traffic to remaining healthy resources.
@@ -85,9 +85,9 @@ instance if failover is initiated. This failover action may be
 taken by AWS or as required by the customer
 
 For Amazon EC2 instances, Amazon Redshift, Amazon ECS tasks, or Amazon EKS pods, you choose which Availability Zones to deploy to. For
-some designs, ELB provides the solution to
+some designs, Elastic Load Balancing provides the solution to
 detect instances in unhealthy zones and route traffic to the
-healthy ones. ELB can also route traffic to
+healthy ones. Elastic Load Balancing can also route traffic to
 components in your on-premises data center.
 
 For Multi-Region traffic failover, rerouting can leverage Amazon

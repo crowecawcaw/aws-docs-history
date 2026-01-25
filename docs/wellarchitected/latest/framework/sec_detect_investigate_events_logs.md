@@ -65,7 +65,7 @@ all security-related data from your workload and logs that AWS
 services generate, such as
 [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/"),
 [AWS WAF](https://aws.amazon.com/waf/ "https://aws.amazon.com/waf/"),
-[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"), and
+[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"), and
 [Amazon Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/"). There are several benefits to capturing this data in
 standardized locations in a separate AWS account with proper
 cross-account permissions. This practice helps prevent log

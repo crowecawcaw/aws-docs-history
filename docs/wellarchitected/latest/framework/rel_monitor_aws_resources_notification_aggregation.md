@@ -77,7 +77,7 @@ automatically. Enable log collection for AWS storage and
 processing services used by your workloads such as
 [Amazon CloudFront](https://aws.amazon.com/cloudfront/ "https://aws.amazon.com/cloudfront/"),
 [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"),
-[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"), and
+[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/"), and
 [Amazon API Gateway](https://aws.amazon.com/api-gateway/ "https://aws.amazon.com/api-gateway/").
 
 Enrich your telemetry data with

@@ -41,7 +41,7 @@ behavior under normal and failure modes (for example, relying on
 launching new instances if an Availability Zone fails). An example
 of bimodal behavior is when stable Amazon EC2 designs provision enough
 instances in each Availability Zone to handle the workload load if
-one AZ were removed. ELB or Amazon Route 53
+one AZ were removed. Elastic Load Balancing or Amazon Route 53
 health would check to shift a load away from the impaired
 instances. After traffic has shifted, use AWS Auto Scaling to
 asynchronously replace instances from the failed zone and launch
