@@ -11,8 +11,8 @@ Lambda supports the following Python runtimes.
 | Python 3.14 | `python3.14` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Python 3.13 | `python3.13` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Python 3.12 | `python3.12` | Amazon Linux 2023 | Oct 31, 2028     | Nov 30, 2028          | Jan 10, 2029          |
-| Python 3.11 | `python3.11` | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
-| Python 3.10 | `python3.10` | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
+| Python 3.11 | `python3.11` | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
+| Python 3.10 | `python3.10` | Amazon Linux 2    | Oct 31, 2026     | Nov 30, 2026          | Jan 15, 2027          |
 
 ###### To create a Python function
 

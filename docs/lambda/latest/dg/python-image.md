@@ -35,8 +35,8 @@ AWS provides the following base images for Python:
 | 3.14 | Python 3.14 | Amazon Linux 2023 | [Dockerfile<br>for Python 3.14 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.14/Dockerfile.python3.14 "https://github.com/aws/aws-lambda-base-images/blob/python3.14/Dockerfile.python3.14") | Jun 30, 2029 |
 | 3.13 | Python 3.13 | Amazon Linux 2023 | [Dockerfile<br>for Python 3.13 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.13/Dockerfile.python3.13 "https://github.com/aws/aws-lambda-base-images/blob/python3.13/Dockerfile.python3.13") | Jun 30, 2029 |
 | 3.12 | Python 3.12 | Amazon Linux 2023 | [Dockerfile<br>for Python 3.12 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.12/Dockerfile.python3.12 "https://github.com/aws/aws-lambda-base-images/blob/python3.12/Dockerfile.python3.12") | Oct 31, 2028 |
-| 3.11 | Python 3.11 | Amazon Linux 2    | [Dockerfile<br>for Python 3.11 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.11/Dockerfile.python3.11 "https://github.com/aws/aws-lambda-base-images/blob/python3.11/Dockerfile.python3.11") | Jun 30, 2026 |
-| 3.10 | Python 3.10 | Amazon Linux 2    | [Dockerfile<br>for Python 3.10 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.10/Dockerfile.python3.10 "https://github.com/aws/aws-lambda-base-images/blob/python3.10/Dockerfile.python3.10") | Jun 30, 2026 |
+| 3.11 | Python 3.11 | Amazon Linux 2    | [Dockerfile<br>for Python 3.11 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.11/Dockerfile.python3.11 "https://github.com/aws/aws-lambda-base-images/blob/python3.11/Dockerfile.python3.11") | Jun 30, 2027 |
+| 3.10 | Python 3.10 | Amazon Linux 2    | [Dockerfile<br>for Python 3.10 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/python3.10/Dockerfile.python3.10 "https://github.com/aws/aws-lambda-base-images/blob/python3.10/Dockerfile.python3.10") | Oct 31, 2026 |
 
 Amazon ECR repository: [gallery.ecr.aws/lambda/python](https://gallery.ecr.aws/lambda/python "https://gallery.ecr.aws/lambda/python")
 

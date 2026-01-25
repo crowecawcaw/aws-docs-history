@@ -89,7 +89,7 @@ window expires, so the batching window ends early.
 
 We recommend that you test with different batch and record sizes so that the polling frequency
 of each event source is tuned to how quickly your function is able to complete its task. The
-[CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") BatchSize parameter controls the maximum number of
+[CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") `BatchSize` parameter controls the maximum number of
 records that can be sent to your function with each invoke. A larger batch size can often more efficiently
 absorb the invoke overhead across a larger set of records, increasing your throughput.
 
@@ -129,7 +129,7 @@ Using provisioned mode incurs additional costs based on your event poller usage.
 
 Provisioned mode is available for Amazon MSK, self-managed Apache Kafka, and Amazon SQS event sources. While concurrency settings
 give you control over the scaling of your function, provisioned mode gives you control over the
-throughput of your event source mapping. To ensure maximum performance, you may need to adjust both
+throughput of your event source mapping. To ensure maximum performance, you might need to adjust both
 settings independently.
 
 Provisioned mode is ideal for real-time applications requiring consistent
@@ -143,7 +143,7 @@ Each event poller supports different throughput capacity:
 
 For Amazon SQS event source mappings, you can set the minimum number of pollers between 2 and 200 with a default of 2, and the maximum number between 2 and 2,000 with a default of 200. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrency per minute to provide consistent, low-latency processing of your events.
 
-For Kafka event source mappings, you can set the minimum number of pollers between 1 and 200 with default of 1, and the maximum number between 1 and 2,000 with default of 200. Lambda scales the number of event pollers between your configured minimum and maximum based on your event backlog in your topic to provide low-latency processing of your events.
+For Kafka event source mappings, you can set the minimum number of pollers between 1 and 200 with a default of 1, and the maximum number between 1 and 2,000 with a default of 200. Lambda scales the number of event pollers between your configured minimum and maximum based on your event backlog in your topic to provide low-latency processing of your events.
 
 Note that for Amazon SQS event sources, the maximum concurrency setting cannot be used with provisioned mode.
 When using provisioned mode, you control concurrency through the maximum event pollers setting.

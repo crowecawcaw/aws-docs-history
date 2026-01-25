@@ -1,6 +1,6 @@
 # Process Application Load Balancer requests with Lambda
 
-You can use a Lambda function to process requests from an Application Load Balancer. ELB supports Lambda functions as a target for
+You can use a Lambda function to process requests from an Application Load Balancer. Elastic Load Balancing supports Lambda functions as a target for
 an Application Load Balancer. Use load balancer rules to route HTTP requests to a function, based on path or header values. Process the
 request and return an HTTP response from your Lambda function.
 
@@ -40,7 +40,7 @@ metadata.
 }
 ```
 
-Your function processes the event and returns a response document to the load balancer in JSON. ELB converts
+Your function processes the event and returns a response document to the load balancer in JSON. Elastic Load Balancing converts
 the document to an HTTP success or error response and returns it to the user.
 
 ###### Example response document format
@@ -57,7 +57,7 @@ the document to an HTTP success or error response and returns it to the user.
 }
 ```
 
-To configure an Application Load Balancer as a function trigger, grant ELB permission to run the function, create a target
+To configure an Application Load Balancer as a function trigger, grant Elastic Load Balancing permission to run the function, create a target
 group that routes requests to the function, and add a rule to the load balancer that sends requests to the target
 group.
 

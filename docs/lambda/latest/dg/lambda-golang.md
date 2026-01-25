@@ -23,7 +23,7 @@ No code changes are required for this migration. The only required changes relat
 | Name            | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | --------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | OS-only Runtime | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
+| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Aug 31, 2026          | Sep 30, 2026          |
 
 ## Tools and libraries
 

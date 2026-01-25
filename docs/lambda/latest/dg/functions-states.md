@@ -19,6 +19,7 @@ Function states include:
 - `Active` – Your function transitions to active state after Lambda completes resource configuration and provisioning.
   Functions can only be successfully invoked while active.
 - `Failed` – Indicates that resource configuration or provisioning encountered an error.
+  When function creation fails, Lambda sets the function state to failed, and you must delete and recreate the function.
 - `Inactive` – A function becomes inactive when it has been idle
   long enough for Lambda to reclaim the external resources that were configured for it.
   When you try to invoke a function that is inactive, the invocation fails and Lambda
@@ -66,6 +67,11 @@ Lambda uses the [LastUpdateStatus](../api/API_FunctionConfiguration.md#lambda-Ty
   - [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")
   - [PublishVersion](../api/API_PublishVersion.md "../api/API_PublishVersion.md")
   - [TagResource](../api/API_TagResource.md "../api/API_TagResource.md")
+
+When an update fails (when `"LastUpdateStatus": "Failed"`):
+
+- The function's [State](../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State "../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State") remains `Active`.
+- Invocations continue to use the function's previous code and configuration.
 
 ###### Example GetFunctionConfiguration response
 

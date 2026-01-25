@@ -23,7 +23,7 @@ Go is implemented differently than other managed runtimes. Because Go compiles n
 | Name            | Identifier        | Operating system  | Deprecation date | Block function create | Block function update |
 | --------------- | ----------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | OS-only Runtime | `provided.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jun 30, 2026     | Jul 31, 2026          | Aug 31, 2026          |
+| OS-only Runtime | `provided.al2`    | Amazon Linux 2    | Jul 31, 2026     | Aug 31, 2026          | Sep 30, 2026          |
 
 Amazon Elastic Container Registry Public Gallery: [gallery.ecr.aws/lambda/provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided")
 
@@ -40,7 +40,7 @@ build container images for Go functions.
 | Tags   | Runtime         | Operating system  | Dockerfile                                                                                                                                                                                                                                   | Deprecation  |
 | ------ | --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | al2023 | OS-only Runtime | Amazon Linux 2023 | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023") | Jun 30, 2029 |
-| al2    | OS-only Runtime | Amazon Linux 2    | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2")             | Jun 30, 2026 |
+| al2    | OS-only Runtime | Amazon Linux 2    | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2")             | Jul 31, 2026 |
 
 For more information
 about these base images, see [provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided") in the Amazon ECR

@@ -1,18 +1,18 @@
 # Creating event-driven architectures with Lambda
 
-An event is anything that triggers a Lambda function to run. There are two fundamental ways that events can trigger Lambda: through direct invocation (push) and event source mappings (pull).
+An event is anything that triggers a Lambda function to run. Events can trigger a Lambda function in two ways: through direct invocation (push) and event source mappings (pull).
 
-Many AWS services can directly invoke your Lambda functions. These services _push_ events to your Lambda function. Events that trigger a function can be almost anything, from an HTTP request through API Gateway,
+Many AWS services can directly invoke your Lambda functions. These services _push_ events to your Lambda function. Events that trigger functions can be almost anything, from an HTTP request through API Gateway,
 a schedule managed by an EventBridge rule, an AWS IoT event, or an Amazon S3 event. With event source mapping, Lambda actively fetches (or _pulls_) events from a queue or stream.
 You configure Lambda to check for events from a supported service, and Lambda handles the polling and invocation of your function.
 
-When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While standard Lambda function invocations can last up to 15 minutes (or up to one year with Durable Functions), Lambda is best-suited for short invocations that last one second or less.
+When passed to your function, events are structured in JSON format. The JSON structure varies depending on the service that generates it and the event type. While standard Lambda function invocations can last up to 15 minutes (or up to one year with [durable functions](durable-functions.md "durable-functions.md")), Lambda is best-suited for short invocations that last one second or less.
 This is particularly true of event-driven architectures, where each Lambda function is treated as a microservice responsible for performing a narrow set of specific instructions.
 
 ###### Note
 
 Event-driven architectures communicate across different systems using networks, which introduce variable latency.
-For workloads that require very low latency, such as real-time trading systems, this design may not be the best choice.
+For workloads that require very low latency, such as real-time trading systems, this design might not be the best choice.
 However, for highly scalable and available workloads, or those with unpredictable traffic patterns, event-driven
 architectures can provide an effective way to meet these demands.
 
@@ -41,7 +41,7 @@ Both methods contribute to the benefits of event-driven architectures, as descri
 Many traditional architectures use polling and webhook mechanisms to communicate state between
 different components. Polling can be highly inefficient for fetching updates since there is
 a lag between new data becoming available and synchronization with downstream services. Webhooks are
-not always supported by other microservices that you want to integrate with. They may also require
+not always supported by other microservices that you want to integrate with. They might also require
 custom authorization and authentication configurations. In both cases, these integration methods are
 challenging to scale on-demand without additional work by development teams.
 
@@ -63,19 +63,19 @@ compute layer that processes events.
 
 ### Reducing complexity
 
-Microservices enable developers and architects to decompose complex workflows. For example, an
-ecommerce monolith may be broken down into order acceptance and payment processes with separate
-inventory, fulfillment and accounting services. What may be complex to manage and orchestrate in a
+Microservices enable developers and architects to simplify complex workflows. For example, an
+ecommerce monolith can be broken down into order acceptance and payment processes with separate
+inventory, fulfillment and accounting services. What might be complex to manage and orchestrate in a
 monolith becomes a series of decoupled services that communicate asynchronously with events.
 
 ![event driven architectures figure 9](images/event-driven-architectures-figure-9.png)
 
 This approach also makes it possible to assemble services that process data at different rates.
 In this case, an order acceptance microservice can store high volumes of incoming orders by buffering
-the messages in an SQS queue.
+the messages in an Amazon SQS queue.
 
 A payment processing service, which is typically slower due to the complexity of handling payments,
-can take a steady stream of messages from the SQS queue. It can orchestrate complex retry and error
+can take a steady stream of messages from the Amazon SQS queue. It can orchestrate complex retry and error
 handling logic using AWS Step Functions, and coordinate active payment workflows for hundreds of thousands of orders.
 
 ### Improving scalability and extensibility
@@ -96,7 +96,7 @@ which can help simplify the microservice logic.
 
 ### Variable latency
 
-Unlike monolithic applications, which may process everything within the same memory space on a single device,
+Unlike monolithic applications, which might process everything within the same memory space on a single device,
 event-driven applications communicate across networks. This design introduces variable latency. While it’s
 possible to engineer applications to minimize latency, monolithic applications can almost always be optimized
 for lower latency at the expense of scalability and availability.
@@ -160,9 +160,7 @@ making it much easier to pinpoint the root cause of issues. See [Troubleshooting
 
 ## Anti-patterns in Lambda-based event-driven applications
 
-When building event-driven architectures with Lambda, be careful of anti-patterns that are technically
-functional, but may be suboptimal from an architecture and cost perspective. This section provides general
-guidance about these anti-patterns, but is not prescriptive.
+When building event-driven architectures with Lambda, avoid the following common anti-patterns. These patterns work but can increase costs and complexity.
 
 ### The Lambda monolith
 
@@ -175,7 +173,7 @@ Lambda function would handle all API Gateway routes and integrate with all neces
 
 This approach has several drawbacks:
 
-- **Package size** – The Lambda function may be much larger because
+- **Package size** – The Lambda function might be much larger because
   it contains all possible code for all paths, which makes it slower for the Lambda service to run.
 - **Hard to enforce least privilege** – The function’s
   [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") must allow permissions to all
@@ -194,13 +192,13 @@ This approach has several drawbacks:
   harder to unit test all the possible combinations of inputs and entry points in the code base. It’s
   generally easier to implement unit testing for smaller services with less code.
 
-The preferred alternative is to decompose the monolithic Lambda function into individual microservices, mapping
+The preferred alternative is to break down the monolithic Lambda function into individual microservices, mapping
 a single Lambda function to a single, well-defined task. In this simple web application with a few API endpoints,
 the resulting microservice-based architecture can be based upon the API Gateway routes.
 
 ![event driven architectures figure 14](images/event-driven-architectures-figure-14.png)
 
-### Recursive patterns that cause run-away Lambda functions
+### Recursive patterns that cause runaway Lambda functions
 
 AWS services generate events that invoke Lambda functions, and Lambda functions can send messages to AWS
 services. Generally, the service or resource that invokes a Lambda function should be different to the service
@@ -214,7 +212,7 @@ the same Lambda function:
 
 While the potential for infinite loops exists in most programming languages, this anti-pattern has the
 potential to consume more resources in serverless applications. Both Lambda and Amazon S3 automatically scale based
-upon traffic, so the loop may cause Lambda to scale to consume all available concurrency and Amazon S3 will continue
+upon traffic, so the loop can cause Lambda to scale to consume all available concurrency and Amazon S3 will continue
 to write objects and generate more events for Lambda.
 
 This example uses S3, but the risk of recursive loops also exists in Amazon SNS, Amazon SQS, DynamoDB, and other services.
@@ -228,7 +226,7 @@ returns a response.
 
 ###### Note
 
-While Lambda functions directly calling other Lambda functions is generally an anti-pattern due to cost and complexity concerns, this doesn't apply to Durable Functions where this pattern is supported and cost-optimized due to the built-in state management.
+While Lambda functions directly calling other Lambda functions is generally an anti-pattern due to cost and complexity concerns, this doesn't apply to [durable functions](durable-functions.md "durable-functions.md"), which are specifically designed to orchestrate multi-step workflows by invoking other functions.
 
 When this happens on a traditional server or virtual instance, the operating system scheduler switches
 to other available work. Whether the CPU runs at 0% or 100% does not affect the overall cost of the application,
@@ -240,7 +238,7 @@ application consisting of three Lambda functions that process an order:
 ![event driven architectures figure 16](images/event-driven-architectures-figure-16.png)
 
 In this case, the _Create order_ function calls the _Process payment_ function,
-which in turn calls the _Create invoice_ function. While this synchronous flow may work within a
+which in turn calls the _Create invoice_ function. While this synchronous flow might work within a
 single application on a server, it introduces several avoidable problems in a distributed serverless architecture:
 
 - **Cost** – With Lambda, you pay for the duration of an invocation.
@@ -248,7 +246,7 @@ single application on a server, it introduces several avoidable problems in a di
   are also running in a wait state, shown in red on the diagram.
 - **Error handling** – In nested invocations, error handling can become
   much more complex. For example, an error in _Create invoice_ might require the
-  _Process payment_ function to reverse the charge, or it may instead retry the
+  _Process payment_ function to reverse the charge, or it might instead retry the
   _Create invoice_ process.
 - **Tight coupling** – Processing a payment typically takes longer
   than creating an invoice. In this model, the availability of the entire workflow is limited by the
@@ -260,7 +258,7 @@ single application on a server, it introduces several avoidable problems in a di
 In serverless applications, there are two common approaches to avoid this pattern. First, use an Amazon SQS queue
 between Lambda functions. If a downstream process is slower than an upstream process, the queue durably persists
 messages and decouples the two functions. In this example, the _Create order_ function would
-publish a message to an SQS queue, and the _Process payment_ function consumes messages from
+publish a message to an Amazon SQS queue, and the _Process payment_ function consumes messages from
 the queue.
 
 The second approach is to use AWS Step Functions. For complex processes with multiple types of failure and retry logic,
@@ -269,7 +267,7 @@ the work and robustly handles errors and retries, and the Lambda functions conta
 
 ### Synchronous waiting within a single Lambda function
 
-Within a single Lambda, ensure that any potentially concurrent activities are not scheduled synchronously.
+Make sure that any potentially concurrent activities are not scheduled synchronously within a single Lambda function.
 For example, a Lambda function might write to an S3 bucket and then write to a DynamoDB table:
 
 ![event driven architectures figure 17](images/event-driven-architectures-figure-17.png)

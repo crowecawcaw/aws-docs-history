@@ -10,7 +10,7 @@ Lambda supports the following Ruby runtimes.
 | -------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | Ruby 3.4 | `ruby3.4`  | Amazon Linux 2023 | Mar 31, 2028     | Apr 30, 2028          | May 31, 2028          |
 | Ruby 3.3 | `ruby3.3`  | Amazon Linux 2023 | Mar 31, 2027     | Apr 30, 2027          | May 31, 2027          |
-| Ruby 3.2 | `ruby3.2`  | Amazon Linux 2    | Mar 31, 2026     | Jun 1, 2026           | Jul 1, 2026           |
+| Ruby 3.2 | `ruby3.2`  | Amazon Linux 2    | Mar 31, 2026     | Aug 31, 2026          | Sep 30, 2026          |
 
 ###### To create a Ruby function
 
