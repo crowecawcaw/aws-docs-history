@@ -73,7 +73,7 @@ create a dashboard.
 ![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
-![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png)
+![The dashboards list on the project details page with "Create dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/project-create-dashboard-console.png)
 
 Next, you add one or more visualizations of asset properties and alarms to your
 dashboard.
