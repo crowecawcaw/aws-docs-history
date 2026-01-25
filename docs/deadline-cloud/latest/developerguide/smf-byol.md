@@ -15,7 +15,10 @@ ways:
   Only the proxy server is allowed to connect to the vendor's license server over the
   Internet.
   With the instructions below, you use Amazon EC2 Systems Manager (SSM) to forward ports from a worker
-  instance to your license server or proxy instance.
+  instance to your license server or proxy instance. In the example below if your license server
+  is unable to provide a license, Deadline Cloud's usage based licensing will be used.
+  Remove the sections that don't apply to your pipeline or products for which you don't want to
+  use usage based licensing after exhausting your licenses.
 
 ###### Topics
 
@@ -96,6 +99,7 @@ JSON
 Windows
 
 ```
+
 `specificationVersion: "environment-2023-09"
 parameterDefinitions:
  - name: LicenseInstanceId
@@ -111,113 +115,18 @@ parameterDefinitions:
  - name: LicensePorts
  type: STRING
  description: >
- Comma-separated list of ports to be forwarded to the license server/proxy instance.
- Example: "2700,2701,2702"
- default: ""
+ Comma-separated list of ports to be forwarded to the license server/proxy
+ instance. Example: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
+ default: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
 environment:
  name: BYOL License Forwarding
  variables:
- example_LICENSE: 2700@localhost
- script:
- actions:
- onEnter:
- command: powershell
- args: [ "{{Env.File.Enter}}"]
- onExit:
- command: powershell
- args: [ "{{Env.File.Exit}}" ]
- embeddedFiles:
- - name: Enter
- filename: enter.ps1
- type: TEXT
- runnable: True
- data: |
- $ZIP_NAME="SessionManagerPlugin.zip"
- Invoke-WebRequest -Uri "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/$ZIP_NAME" -OutFile $ZIP_NAME
- Expand-Archive -Path $ZIP_NAME
- Expand-Archive -Path .\SessionManagerPlugin\package.zip
- conda activate
- python {{Env.File.StartSession}} {{Session.WorkingDirectory}}\package\bin\session-manager-plugin.exe
- - name: Exit
- filename: exit.ps1
- type: TEXT
- runnable: True
- data: |
- Write-Output "Killing SSM Manager Plugin PIDs: $env:BYOL_SSM_PIDS"
- "$env:BYOL_SSM_PIDS".Split(",") | ForEach {
- Write-Output "Killing $_"
- Stop-Process -Id $_ -Force
- }
- - name: StartSession
- type: TEXT
- data: |
- import boto3
- import json
- import subprocess
- import sys
-
- instance_id = "{{Param.LicenseInstanceId}}"
- region = "{{Param.LicenseInstanceRegion}}"
- license_ports_list = "{{Param.LicensePorts}}".split(",")
-
- ssm_client = boto3.client("ssm", region_name=region)
- pids = []
-
- for port in license_ports_list:
- session_response = ssm_client.start_session(
- Target=instance_id,
- DocumentName="AWS-StartPortForwardingSession",
- Parameters={"portNumber": [port], "localPortNumber": [port]}
- )
-
- cmd = [
- sys.argv[1],
- json.dumps(session_response),
- region,
- "StartSession",
- "",
- json.dumps({"Target": instance_id}),
- f"https://ssm.{region}.amazonaws.com"
- ]
-
- process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
- pids.append(process.pid)
- print(f"SSM Port Forwarding Session started for port {port}")
-
- print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")`
-
-```
-
-Linux
-
-```
-`specificationVersion: "environment-2023-09"
-parameterDefinitions:
- - name: LicenseInstanceId
- type: STRING
- description: >
- The Instance ID of the license server/proxy instance
- default: ""
- - name: LicenseInstanceRegion
- type: STRING
- description: >
- The region containing this farm
- default: ""
- - name: LicensePorts
- type: STRING
- description: >
- Comma-separated list of ports to be forwarded to the license server/proxy instance.
- Example: "2700,2701,2702"
- default: ""
-environment:
- name: BYOL License Forwarding
- variables:
- example_LICENSE: 2700@localhost
+ example_LICENSE: 2701@localhost
  script:
  actions:
  onEnter:
  command: bash
- args: [ "{{Env.File.Enter}}"]
+ args: [ "{{Env.File.Enter}}" ]
  onExit:
  command: bash
  args: [ "{{Env.File.Exit}}" ]
@@ -243,6 +152,8 @@ environment:
  import json
  import subprocess
  import sys
+ import os
+ import tempfile
 
  instance_id = "{{Param.LicenseInstanceId}}"
  region = "{{Param.LicenseInstanceRegion}}"
@@ -272,7 +183,220 @@ environment:
  pids.append(process.pid)
  print(f"SSM Port Forwarding Session started for port {port}")
 
- print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")`
+ print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")
+
+ # Enabling UBL after the BYOL has run out requires prepending the BYOL configuration to the existing license setup
+ # Remove the sections that do not apply to your pipeline, or you do not want to use UBL after exhausting the BYOL licenses.
+ # The port numbers used may not match what your license server is serving.
+
+ # Arnold
+ os.environ["ADSKFLEX_LICENSE_FILE"] = f"2701@localhost;{os.environ.get('ADSKFLEX_LICENSE_FILE', '')}"
+ print(f"openjd_env: ADSKFLEX_LICENSE_FILE={os.environ['ADSKFLEX_LICENSE_FILE']}")
+
+ # Cinema4D
+ os.environ["g_licenseServerRLM"] = f"localhost:7057;{os.environ.get('g_licenseServerRLM', '')}"
+ print(f"openjd_env: g_licenseServerRLM={os.environ['g_licenseServerRLM']}")
+
+ # Nuke
+ os.environ["foundry_LICENSE"] = f"6101@localhost;{os.environ.get('foundry_LICENSE', '')}"
+ print(f"openjd_env: foundry_LICENSE={os.environ['foundry_LICENSE']}")
+
+ # SideFX
+ os.environ["SESI_LMHOST"] = f"localhost:1715;{os.environ.get('SESI_LMHOST', '')}"
+ print(f"openjd_env: SESI_LMHOST={os.environ['SESI_LMHOST']}")
+
+ # Redshift and Red Giant
+ os.environ["redshift_LICENSE"] = f"7054@localhost;7055@localhost;{os.environ.get('redshift_LICENSE', '')}"
+ print(f"openjd_env: redshift_LICENSE={os.environ['redshift_LICENSE']}")
+
+ # V-Ray doesn't support multiple license servers in a single environment variable
+ # See https://documentation.chaos.com/space/LIC5/125050770/Sharing+a+License+Configuration+in+a+Network
+ vray_license = os.environ.get('VRAY_AUTH_CLIENT_SETTINGS', '')
+ xml_content = """<VRLClient>
+ <LicServer>
+ <Host>localhost</Host>
+ <Port>30304</Port>"""
+
+ if vray_license and vray_license.startswith('licset://'):
+ server_parts = vray_license.removeprefix('licset://').split(':')
+ if len(server_parts) >= 2:
+ xml_content += f"""
+ <Host1>{server_parts[0]}</Host1>
+ <Port1>{server_parts[1]}</Port1>"""
+
+ xml_content += """
+ <User></User>
+ <Pass></Pass>
+ </LicServer>
+ </VRLClient>"""
+
+ temp_dir = tempfile.gettempdir()
+ xml_path = os.path.join(temp_dir, 'vrlclient.xml')
+
+ with open(xml_path, 'w') as f:
+ f.write(xml_content)
+
+ os.environ["VRAY_AUTH_CLIENT_FILE_PATH"] = temp_dir
+ print(f"openjd_env: VRAY_AUTH_CLIENT_FILE_PATH={os.environ['VRAY_AUTH_CLIENT_FILE_PATH']}")
+
+ # Clear the existing VRAY_AUTH_CLIENT_SETTINGS so only the vrlclient.xml file is used.
+ os.environ["VRAY_AUTH_CLIENT_SETTINGS"] = ''
+ print(f"openjd_env: VRAY_AUTH_CLIENT_SETTINGS={os.environ['VRAY_AUTH_CLIENT_SETTINGS']}")
+
+ # Print out the created xml file's contents
+ print(f"V-Ray configuration file: {xml_path}")
+ with open(xml_path, 'r') as f:
+ print(f"{f.read()}")`
+
+```
+
+Linux
+
+```
+
+`specificationVersion: "environment-2023-09"
+parameterDefinitions:
+ - name: LicenseInstanceId
+ type: STRING
+ description: >
+ The Instance ID of the license server/proxy instance
+ default: ""
+ - name: LicenseInstanceRegion
+ type: STRING
+ description: >
+ The region containing this farm
+ default: ""
+ - name: LicensePorts
+ type: STRING
+ description: >
+ Comma-separated list of ports to be forwarded to the license server/proxy
+ instance. Example: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
+ default: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
+environment:
+ name: BYOL License Forwarding
+ variables:
+ example_LICENSE: 2701@localhost
+ script:
+ actions:
+ onEnter:
+ command: bash
+ args: [ "{{Env.File.Enter}}" ]
+ onExit:
+ command: bash
+ args: [ "{{Env.File.Exit}}" ]
+ embeddedFiles:
+ - name: Enter
+ type: TEXT
+ runnable: True
+ data: |
+ curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm -Ls | rpm2cpio - | cpio -iv --to-stdout ./usr/local/sessionmanagerplugin/bin/session-manager-plugin > {{Session.WorkingDirectory}}/session-manager-plugin
+ chmod +x {{Session.WorkingDirectory}}/session-manager-plugin
+ conda activate
+ python {{Env.File.StartSession}} {{Session.WorkingDirectory}}/session-manager-plugin
+ - name: Exit
+ type: TEXT
+ runnable: True
+ data: |
+ echo Killing SSM Manager Plugin PIDs: $BYOL_SSM_PIDS
+ for pid in ${BYOL_SSM_PIDS//,/ }; do kill $pid; done
+ - name: StartSession
+ type: TEXT
+ data: |
+ import boto3
+ import json
+ import subprocess
+ import sys
+ import os
+ import tempfile
+
+ instance_id = "{{Param.LicenseInstanceId}}"
+ region = "{{Param.LicenseInstanceRegion}}"
+ license_ports_list = "{{Param.LicensePorts}}".split(",")
+
+ ssm_client = boto3.client("ssm", region_name=region)
+ pids = []
+
+ for port in license_ports_list:
+ session_response = ssm_client.start_session(
+ Target=instance_id,
+ DocumentName="AWS-StartPortForwardingSession",
+ Parameters={"portNumber": [port], "localPortNumber": [port]}
+ )
+
+ cmd = [
+ sys.argv[1],
+ json.dumps(session_response),
+ region,
+ "StartSession",
+ "",
+ json.dumps({"Target": instance_id}),
+ f"https://ssm.{region}.amazonaws.com"
+ ]
+
+ process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+ pids.append(process.pid)
+ print(f"SSM Port Forwarding Session started for port {port}")
+
+ print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")
+
+ # Enabling UBL after the BYOL has run out requires prepending the BYOL configuration to the existing license setup
+ # Remove the sections that do not apply to your pipeline, or you do not want to use UBL after exhausting the BYOL licenses.
+ # The port numbers used may not match what your license server is serving.
+
+ # Arnold
+ os.environ["ADSKFLEX_LICENSE_FILE"] = f"2701@localhost:{os.environ.get('ADSKFLEX_LICENSE_FILE', '')}"
+ print(f"openjd_env: ADSKFLEX_LICENSE_FILE={os.environ['ADSKFLEX_LICENSE_FILE']}")
+
+ # Nuke
+ os.environ["foundry_LICENSE"] = f"6101@localhost:{os.environ.get('foundry_LICENSE', '')}"
+ print(f"openjd_env: foundry_LICENSE={os.environ['foundry_LICENSE']}")
+
+ # SideFX
+ os.environ["SESI_LMHOST"] = f"localhost:1715;{os.environ.get('SESI_LMHOST', '')}"
+ print(f"openjd_env: SESI_LMHOST={os.environ['SESI_LMHOST']}")
+
+ # Redshift and Red Giant
+ os.environ["redshift_LICENSE"] = f"7054@localhost:7055@localhost:{os.environ.get('redshift_LICENSE', '')}"
+ print(f"openjd_env: redshift_LICENSE={os.environ['redshift_LICENSE']}")
+
+ # V-Ray doesn't support multiple license servers in a single environment variable
+ # See https://documentation.chaos.com/space/LIC5/125050770/Sharing+a+License+Configuration+in+a+Network
+ vray_license = os.environ.get('VRAY_AUTH_CLIENT_SETTINGS', '')
+ xml_content = """<VRLClient>
+ <LicServer>
+ <Host>localhost</Host>
+ <Port>30304</Port>"""
+
+ if vray_license and vray_license.startswith('licset://'):
+ server_parts = vray_license.removeprefix('licset://').split(':')
+ if len(server_parts) >= 2:
+ xml_content += f"""
+ <Host1>{server_parts[0]}</Host1>
+ <Port1>{server_parts[1]}</Port1>"""
+
+ xml_content += """
+ <User></User>
+ <Pass></Pass>
+ </LicServer>
+ </VRLClient>"""
+
+ temp_dir = tempfile.gettempdir()
+ xml_path = os.path.join(temp_dir, 'vrlclient.xml')
+
+ with open(xml_path, 'w') as f:
+ f.write(xml_content)
+
+ os.environ["VRAY_AUTH_CLIENT_FILE_PATH"] = temp_dir
+ print(f"openjd_env: VRAY_AUTH_CLIENT_FILE_PATH={os.environ['VRAY_AUTH_CLIENT_FILE_PATH']}")
+
+ # Clear the existing VRAY_AUTH_CLIENT_SETTINGS so only the vrlclient.xml file is used.
+ os.environ["VRAY_AUTH_CLIENT_SETTINGS"] = ''
+ print(f"openjd_env: VRAY_AUTH_CLIENT_SETTINGS={os.environ['VRAY_AUTH_CLIENT_SETTINGS']}")
+
+ # Print out the created xml file's contents
+ print(f"V-Ray configuration file: {xml_path}")
+ with open(xml_path, 'r') as f:
+ print(f"{f.read()}")`
 
 ```
 
@@ -288,10 +412,12 @@ environment:
        be forwarded to the license server or proxy instance (for example
        2700,2701)
 
-   - Add any required licensing environment variables to the variables section. These
-     variables should direct the DCCs to localhost on the license server port. For example,
-     if your Foundry license server is listening on port 6101, you would add the variable
-     as `foundry_LICENSE: 6101@localhost`.
+   - If you want to use usage based licensing (UBL) after Bring your own license (BYOL) is exhausted
+     be sure the port is correct for your license server. If you do not want to use UBL after running out
+     of BYOL, add any required licensing environment variables to the variables section.
+
+   These variables should direct the DCCs to localhost on the license server port. For example, if your Foundry license server is listening on port 6101,
+   you would add the variable as `foundry_LICENSE: 6101@localhost`.
 
 6. (Optional) You can leave **Priority** set to **0**,
    or you can change it to order the priority differently among multiple queue
@@ -373,7 +499,7 @@ licensing.
 ```
 
 AWSTemplateFormatVersion: 2010-09-09
-Description: "Create Deadline Cloud resources for BYOL"
+Description: "Create &ADC; resources for BYOL"
 
 Parameters:
   LicenseInstanceId:
@@ -578,8 +704,8 @@ Resources:
         - name: CondaChannels
           type: STRING
           description: >
-            This is a space-separated list of Conda channels from which to install packages. Deadline Cloud SMF packages are
-            installed from the "deadline-cloud" channel that is configured by Deadline Cloud.
+            This is a space-separated list of Conda channels from which to install packages. &ADC; SMF packages are
+            installed from the "deadline-cloud" channel that is configured by &ADC;.
 
             Add "conda-forge" to get packages from the https://conda-forge.org/ community, and "defaults" to get packages
             from Anaconda Inc (make sure your usage complies with https://www.anaconda.com/terms-of-use).
@@ -607,87 +733,147 @@ Resources:
       Template: !Sub |
         specificationVersion: "environment-2023-09"
         parameterDefinitions:
-          - name: LicenseInstanceId
-            type: STRING
-            description: >
-              The Instance ID of the license server/proxy instance
-            default: "${LicenseInstanceId}"
-          - name: LicenseInstanceRegion
-            type: STRING
-            description: >
-              The region containing this farm
-            default: "${AWS::Region}"
-          - name: LicensePorts
-            type: STRING
-            description: >
-              Comma-separated list of ports to be forwarded to the license server/proxy instance.
-              Example: "2700,2701,2702"
-            default: "${LicensePorts}"
+        - name: LicenseInstanceId
+          type: STRING
+          description: >
+            The Instance ID of the license server/proxy instance
+          default: ""
+        - name: LicenseInstanceRegion
+          type: STRING
+          description: >
+            The region containing this farm
+          default: ""
+        - name: LicensePorts
+          type: STRING
+          description: >
+            Comma-separated list of ports to be forwarded to the license server/proxy
+            instance. Example: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
+          default: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
         environment:
-          name: BYOL License Forwarding
-          variables:
-            example_LICENSE: 2700@localhost
-          script:
-            actions:
-              onEnter:
-                command: bash
-                args: [ "{{Env.File.Enter}}"]
-              onExit:
-                command: bash
-                args: [ "{{Env.File.Exit}}" ]
-            embeddedFiles:
-              - name: Enter
-                type: TEXT
-                runnable: True
-                data: |
-                  curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm -Ls | rpm2cpio - | cpio -iv --to-stdout ./usr/local/sessionmanagerplugin/bin/session-manager-plugin > {{Session.WorkingDirectory}}/session-manager-plugin
-                  chmod +x {{Session.WorkingDirectory}}/session-manager-plugin
-                  conda activate
-                  python {{Env.File.StartSession}} {{Session.WorkingDirectory}}/session-manager-plugin
-              - name: Exit
-                type: TEXT
-                runnable: True
-                data: |
-                  echo Killing SSM Manager Plugin PIDs: $BYOL_SSM_PIDS
-                  for pid in ${!BYOL_SSM_PIDS//,/ }; do kill $pid; done
-              - name: StartSession
-                type: TEXT
-                data: |
-                  import boto3
-                  import json
-                  import subprocess
-                  import sys
+        name: BYOL License Forwarding
+        variables:
+          example_LICENSE: 2701@localhost
+        script:
+          actions:
+          onEnter:
+            command: bash
+            args: [ "{{Env.File.Enter}}" ]
+          onExit:
+            command: bash
+            args: [ "{{Env.File.Exit}}" ]
+          embeddedFiles:
+          - name: Enter
+            type: TEXT
+            runnable: True
+            data: |
+              curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm -Ls | rpm2cpio - | cpio -iv --to-stdout ./usr/local/sessionmanagerplugin/bin/session-manager-plugin > {{Session.WorkingDirectory}}/session-manager-plugin
+              chmod +x {{Session.WorkingDirectory}}/session-manager-plugin
+              conda activate
+              python {{Env.File.StartSession}} {{Session.WorkingDirectory}}/session-manager-plugin
+          - name: Exit
+            type: TEXT
+            runnable: True
+            data: |
+              echo Killing SSM Manager Plugin PIDs: $BYOL_SSM_PIDS
+              for pid in ${BYOL_SSM_PIDS//,/ }; do kill $pid; done
+          - name: StartSession
+            type: TEXT
+            data: |
+              import boto3
+              import json
+              import subprocess
+              import sys
+              import os
+              import tempfile
 
-                  instance_id = "{{Param.LicenseInstanceId}}"
-                  region = "{{Param.LicenseInstanceRegion}}"
-                  license_ports_list = "{{Param.LicensePorts}}".split(",")
+              instance_id = "{{Param.LicenseInstanceId}}"
+              region = "{{Param.LicenseInstanceRegion}}"
+              license_ports_list = "{{Param.LicensePorts}}".split(",")
 
-                  ssm_client = boto3.client("ssm", region_name=region)
-                  pids = []
+              ssm_client = boto3.client("ssm", region_name=region)
+              pids = []
 
-                  for port in license_ports_list:
-                    session_response = ssm_client.start_session(
-                      Target=instance_id,
-                      DocumentName="AWS-StartPortForwardingSession",
-                      Parameters={"portNumber": [port], "localPortNumber": [port]}
-                    )
+              for port in license_ports_list:
+                session_response = ssm_client.start_session(
+                  Target=instance_id,
+                  DocumentName="AWS-StartPortForwardingSession",
+                  Parameters={"portNumber": [port], "localPortNumber": [port]}
+                )
 
-                    cmd = [
-                      sys.argv[1],
-                      json.dumps(session_response),
-                      region,
-                      "StartSession",
-                      "",
-                      json.dumps({"Target": instance_id}),
-                      f"https://ssm.{region}.amazonaws.com"
-                    ]
+                cmd = [
+                  sys.argv[1],
+                  json.dumps(session_response),
+                  region,
+                  "StartSession",
+                  "",
+                  json.dumps({"Target": instance_id}),
+                  f"https://ssm.{region}.amazonaws.com"
+                ]
 
-                    process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    pids.append(process.pid)
-                    print(f"SSM Port Forwarding Session started for port {port}")
+                process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                pids.append(process.pid)
+                print(f"SSM Port Forwarding Session started for port {port}")
 
-                  print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")
+              print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")
 
+              # Enabling UBL after the "bring your own license" (BYOL) has run out requires prepending the BYOL configuration to the existing license setup
+              # Remove the sections that do not apply to your pipeline, or you do not want to use UBL after exhausting the BYOL licenses.
+              # The port numbers used may not match what your license server is serving.
+
+              # Arnold
+              os.environ["ADSKFLEX_LICENSE_FILE"] = f"2701@localhost:{os.environ.get('ADSKFLEX_LICENSE_FILE', '')}"
+              print(f"openjd_env: ADSKFLEX_LICENSE_FILE={os.environ['ADSKFLEX_LICENSE_FILE']}")
+
+              # Nuke
+              os.environ["foundry_LICENSE"] = f"6101@localhost:{os.environ.get('foundry_LICENSE', '')}"
+              print(f"openjd_env: foundry_LICENSE={os.environ['foundry_LICENSE']}")
+
+              # SideFX
+              os.environ["SESI_LMHOST"] = f"localhost:1715;{os.environ.get('SESI_LMHOST', '')}"
+              print(f"openjd_env: SESI_LMHOST={os.environ['SESI_LMHOST']}")
+
+              # Redshift and Red Giant
+              os.environ["redshift_LICENSE"] = f"7054@localhost:7055@localhost:{os.environ.get('redshift_LICENSE', '')}"
+              print(f"openjd_env: redshift_LICENSE={os.environ['redshift_LICENSE']}")
+
+              # V-Ray doesn't support multiple license servers in a single environment variable
+              # See https://documentation.chaos.com/space/LIC5/125050770/Sharing+a+License+Configuration+in+a+Network
+              vray_license = os.environ.get('VRAY_AUTH_CLIENT_SETTINGS', '')
+              xml_content = """<VRLClient>
+                <LicServer>
+                  <Host>localhost</Host>
+                  <Port>30304</Port>"""
+
+              if vray_license and vray_license.startswith('licset://'):
+                  server_parts = vray_license.removeprefix('licset://').split(':')
+                  if len(server_parts) >= 2:
+                      xml_content += f"""
+                  <Host1>{server_parts[0]}</Host1>
+                  <Port1>{server_parts[1]}</Port1>"""
+
+              xml_content += """
+                  <User></User>
+                  <Pass></Pass>
+                </LicServer>
+              </VRLClient>"""
+
+              temp_dir = tempfile.gettempdir()
+              xml_path = os.path.join(temp_dir, 'vrlclient.xml')
+
+              with open(xml_path, 'w') as f:
+                  f.write(xml_content)
+
+              os.environ["VRAY_AUTH_CLIENT_FILE_PATH"] = temp_dir
+              print(f"openjd_env: VRAY_AUTH_CLIENT_FILE_PATH={os.environ['VRAY_AUTH_CLIENT_FILE_PATH']}")
+
+              # Clear the existing VRAY_AUTH_CLIENT_SETTINGS so only the vrlclient.xml file is used.
+              os.environ["VRAY_AUTH_CLIENT_SETTINGS"] = ''
+              print(f"openjd_env: VRAY_AUTH_CLIENT_SETTINGS={os.environ['VRAY_AUTH_CLIENT_SETTINGS']}")
+
+              # Print out the created xml file's contents
+              print(f"V-Ray configuration file: {xml_path}")
+              with open(xml_path, 'r') as f:
+                  print(f"{f.read()}")
 ```
 
 3. When deploying the CloudFormation template, provide the following parameters:
