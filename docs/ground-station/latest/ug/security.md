@@ -1,109 +1,361 @@
-# Data encryption at rest for AWS Ground Station
+# Encryption at rest for azimuth elevation ephemeris
 
-AWS Ground Station provides encryption by default to protect your sensitive data at rest using AWS owned encryption keys.
+## Key policy requirements for azimuth elevation ephemeris
 
-- _AWS owned keys_ - AWS Ground Station uses these keys by default to automatically encrypt personal,
-  directly identifiable data and ephemerides. You cannot view, manage, or use AWS-owned keys, or audit their use;
-  however, it is unnecessary to take any action or change programs to protect the keys that encrypt data.
-  For more information, see [AWS-owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk")
-  in the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+To use a customer managed key with azimuth elevation ephemeris data, your key policy must grant the following permissions
+to the AWS Ground Station service. Unlike TLE and OEM ephemeris data which uses grants, azimuth elevation ephemeris uses direct key policy
+permissions for encryption operations. This is a simpler method to manage the permissions of, and use your keys.
 
-Encryption of data at rest by default helps by reducing the operational overhead and complexity involved in protecting sensitive data.
-At the same time, it enables building secure applications that meet strict encryption compliance, as well as regulatory requirements.
+- [`kms:GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
 
-AWS Ground Station enforces encryption on all sensitive, at-rest, data, however, for some AWS Ground Station resource,
-such as ephemerides, you can choose to use a customer managed key in place of the default AWS managed keys.
+* Generates data keys for encrypting your azimuth elevation ephemeris data.
 
-- _Customer managed keys_ -- AWS Ground Station supports the use of a symmetric customer managed key
-  that you create, own, and manage in place of the existing AWS owned encryption. Because you have
-  full control of this layer of encryption, you can perform such tasks as:
-  - Establishing and maintaining key policies
-  - Establishing and maintaining IAM policies and grants
-  - Enabling and disabling key policies
-  - Rotating key cryptographic material
-  - Adding tags
-  - Creating key aliases
-  - Scheduling keys for deletion
+- [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md")
 
-For more information, see [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-in the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+* Decrypts the encrypted data keys when accessing your azimuth elevation ephemeris data.
 
-The following table summarizes resources for which AWS Ground Station supports the use of Customer Managed Keys
-
-| Data type                                                    | AWS owned key encryption | Customer managed key encryption (Optional) |
-| ------------------------------------------------------------ | ------------------------ | ------------------------------------------ |
-| Ephemeris data used to compute the trajectory of a Satellite | Enabled                  | Enabled                                    |
-| Azimuth elevation ephemeris used to command antennas         | Enabled                  | Enabled                                    |
+### Example key policy granting AWS Ground Station access to a customer managed key
 
 ###### Note
 
-AWS Ground Station automatically enables encryption at rest using AWS owned keys to protect personally
-identifiable data at no charge. However, AWS KMS charges apply for using a customer managed key.
-For more information about pricing, see the [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+With azimuth elevation ephemeris, you must configure these permissions directly in the key policy. The regional AWS Ground Station
+service principal (e.g., `groundstation.`region`.amazonaws.com`) must be granted these
+permissions in your key policy statements. Without these statements added to the key policy AWS Ground Station will be unable to store or access your
+custom azimuth elevation ephemeris.
 
-For more information on AWS KMS, see the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
+JSON
 
-For information specific to each resource type, see:
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Allow AWS Ground Station to Describe key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "groundstation.`us-east-1`.amazonaws.com"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow AWS Ground Station to Encrypt and Decrypt with key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "groundstation.`us-east-1`.amazonaws.com"
+ },
+ "Action": [
+ "kms:GenerateDataKey",
+ "kms:Decrypt"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
 
-- [Encryption at rest for TLE and OEM ephemeris data](security.md "security.md")
-- [Encryption at rest for azimuth elevation ephemeris](security.md "security.md")
+```
 
-## Create a customer managed key
+## IAM user permissions for creating azimuth elevation ephemeris with customer managed keys
 
-You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs.
+When AWS Ground Station uses a customer managed key in cryptographic operations, it acts on behalf of the user who is creating
+the azimuth elevation ephemeris resource.
 
-### To create a symmetric customer managed key
+To create an azimuth elevation ephemeris resource using a customer managed key, a user must have permissions to call the following
+operations on the customer managed key:
 
-Follow the steps for creating symmetric customer managed key in the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md").
+- [`kms:GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
 
-### Key policy overview
+* Allows the user to generate data keys for encrypting the azimuth elevation ephemeris data.
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly one key
-policy, which contains statements that determine who can use the key and how they can use it. When you create
-your customer managed key, you can specify a key policy. For more information, see
-[Managing access to customer managed keys](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the AWS Key Management Service Developer Guide.
+- [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md")
 
-To use your customer managed key with AWS Ground Station resources, you must configure the key policy to grant
-appropriate permissions to the AWS Ground Station service. The specific permissions and policy configuration depend
-on the type of resource you're encrypting:
+* Allows the user to decrypt data keys when accessing the azimuth elevation ephemeris data.
 
-- _For TLE and OEM ephemeris data_ - See [Encryption at rest for TLE and OEM ephemeris data](security.md "security.md") for specific key policy requirements and examples.
-- _For azimuth elevation ephemeris data_ - See [Encryption at rest for azimuth elevation ephemeris](security.md "security.md") for specific key policy requirements and examples.
+- [`kms:DescribeKey`](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
 
-###### Note
+* Allows the user to view the customer managed key details to validate the key.
 
-The key policy configuration differs between ephemeris types. TLE and OEM ephemeris data uses grants
-for key access, while azimuth elevation ephemeris uses direct key policy permissions. Ensure you configure your key
-policy according to the specific resource type you're encrypting.
+You can specify these required permissions in a key policy, or in an IAM policy if the key policy allows it.
+These permissions ensure that users can authorize AWS Ground Station to use the customer managed key for encryption
+operations on their behalf.
 
-For more information about
-[specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements") and
-[troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam") , see the AWS Key Management Service Developer Guide.
+## How AWS Ground Station uses key policies for azimuth elevation ephemeris
 
-## Specifying a customer managed key for AWS Ground Station
+When you provide azimuth elevation ephemeris data with a customer managed key, AWS Ground Station uses key policies to access
+your encryption key. The permissions are granted directly to AWS Ground Station through key policy statements rather than through
+grants as with TLE or OEM ephemeris data.
 
-You can specify a customer managed key to encrypt the following resources:
+If you remove AWS Ground Station's access to the customer managed key, AWS Ground Station won't be able to access any of the data
+encrypted by that key, which affects operations that are dependent on that data. For example, if you remove
+key policy permissions for azimuth elevation ephemeris currently in use for a contact, AWS Ground Station will be unable to use the
+provided azimuth elevation data for commanding the antenna during the contact. This will cause the contact to end
+in a FAILED state.
 
-- Ephemeris (TLE, OEM, and azimuth elevation)
+## Azimuth elevation ephemeris encryption context
 
-When you create a resource, you can specify the data key by providing a _kmsKeyArn_
+When AWS Ground Station uses your AWS KMS key to encrypt azimuth elevation ephemeris data, the service specifies an
+[encryption context](../../../kms/latest/developerguide/encrypt_context.md "../../../kms/latest/developerguide/encrypt_context.md").
+The encryption context is additional authenticated data (AAD) that AWS KMS uses to ensure data integrity. When an encryption context
+is specified for an encryption operation, the service must specify the same encryption context for the decryption
+operation. Otherwise, decryption fails. The encryption context is also written to your CloudTrail logs to
+help you understand why a given AWS KMS key was used. Your CloudTrail logs might contain many entries describing
+the use of a AWS KMS key, but the encryption context in each log entry can help you determine the reason for
+that particular use.
 
-- _kmsKeyArn_ - A
-  [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id")
-  for an AWS KMS customer managed key
+AWS Ground Station specifies the following encryption context when it performs cryptographic operations with your
+customer managed key on an azimuth elevation ephemeris:
 
-## AWS Ground Station encryption context
+```
+{
+    "encryptionContext": {
+        "aws:groundstation:ground-station-id": "Ohio 1",
+        "aws:groundstation:arn": "arn:aws:groundstation:us-east-2:111122223333:ephemeris/00a770b0-082d-45a4-80ed-SAMPLE",
+        "aws:s3:arn": "arn:aws:s3:::customerephemerisbucket/00a770b0-082d-45a4-80ed-SAMPLE/raw"
+    }
+}
+```
 
-An [encryption context](../../../kms/latest/developerguide/encrypt_context.md "../../../kms/latest/developerguide/encrypt_context.md")
-is an optional set of key-value pairs that contain additional contextual information about the data.
-AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption.
-When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the
-encrypted data. To decrypt data, you include the same encryption context in the request.
+The encryption context contains:
 
-AWS Ground Station uses different encryption context depending on the resource being encrypted and specifies
-a specific encryption context for each key grant created.
+`aws:groundstation:ground-station-id`
 
-For resource-specific encryption context details, see:
+The name of the ground station associated with the azimuth elevation ephemeris.
 
-- [Encryption at rest for TLE and OEM ephemeris data](security.md "security.md")
-- [Encryption at rest for azimuth elevation ephemeris](security.md "security.md")
+aws:groundstation:arn
+
+The ARN of the ephemeris resource.
+
+aws:s3:arn
+
+The ARN of the ephemeris stored in Amazon S3.
+
+## Using encryption context to control access to your customer managed key
+
+You can use IAM condition statements to control AWS Ground Station access to your customer managed key. Adding a condition statement on the
+`kms:GenerateDataKey` and `kms:Decrypt` actions restricts which ground stations a AWS KMS can be used for.
+
+The following are example key policy statements to grant AWS Ground Station access to your customer managed key in a specific region for a specific ground station.
+The condition in this policy statement requires that all encrypt and decrypt access to the key that specify an encryption context that matches the condition in the key policy.
+
+### Example key policy granting AWS Ground Station access to a customer managed key for a specific ground station
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Allow AWS Ground Station to Describe key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "groundstation.`us-east-1`.amazonaws.com"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow AWS Ground Station to Encrypt and Decrypt with key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "groundstation.`us-east-1`.amazonaws.com"
+ },
+ "Action": [
+ "kms:GenerateDataKey",
+ "kms:Decrypt"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:EncryptionContext:aws:groundstation:ground-station-id": "`specific-ground-station-name`"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Example key policy granting AWS Ground Station access to a customer managed key for multiple ground stations
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Allow AWS Ground Station to Describe key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "groundstation.`us-east-1`.amazonaws.com"
+ },
+ "Action": "kms:DescribeKey",
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow AWS Ground Station to Encrypt and Decrypt with key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "groundstation.`us-east-1`.amazonaws.com"
+ },
+ "Action": [
+ "kms:GenerateDataKey",
+ "kms:Decrypt"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringLike": {
+ "kms:EncryptionContext:aws:groundstation:ground-station-id": [
+ "`specific-ground-station-name-1`",
+ "`specific-ground-station-name-2`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+## Monitoring your encryption keys for azimuth elevation ephemeris
+
+When you use an AWS KMS customer managed key with your azimuth elevation ephemeris resources, you can use
+[CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or
+[CloudWatch logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that AWS Ground Station sends to AWS KMS. The following examples are CloudTrail
+events for [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
+and [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") to monitor AWS KMS
+operations called by AWS Ground Station to access data encrypted by your customer managed key.
+
+GenerateDataKey
+
+When you use an AWS KMS customer managed key to encrypt your azimuth elevation ephemeris resources, AWS Ground Station sends a
+[GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") request
+to AWS KMS in order to generate a data key with which to encrypt your data.
+
+The following example event records the [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
+operation for azimuth elevation ephemeris:
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "ASIAIOSFODNN7EXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/SampleUser01",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "ASIAIOSFODNN7EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "attributes": {
+                "creationDate": "2025-08-25T14:45:48Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2025-08-25T14:52:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "GenerateDataKey",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": {
+        "keySpec": "AES_256",
+        "encryptionContext": {
+            "aws:groundstation:arn": "arn:aws:groundstation:us-west-2:111122223333:ephemeris/bb650670-7a4b-4152-bd60-SAMPLE",
+            "aws:groundstation:ground-station-id": "Ohio 1",
+            "aws:s3:arn": "arn:aws:s3:::customerephemerisbucket/bb650670-7a4b-4152-bd60-SAMPLE/raw"
+        },
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+    },
+    "responseElements": null,
+    "requestID": "ef6f9a8f-8ef6-46a1-bdcb-123456SAMPLE",
+    "eventID": "952842d4-1389-3232-b885-123456SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "8424f6b6-2280-4d1d-b9fd-0348b1546cba",
+    "eventCategory": "Management"
+}
+```
+
+Decrypt
+
+When you use an AWS KMS customer managed key to encrypt your azimuth elevation ephemeris resources, AWS Ground Station uses the
+[Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") operation to decrypt
+the azimuth elevation ephemeris data provided if they are already encrypted with the same customer managed key.
+
+The following example event records the [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md")
+operation for azimuth elevation ephemeris:
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "ASIAIOSFODNN7EXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/SampleUser01",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "ASIAIOSFODNN7EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            }
+        },
+        "attributes": {
+            "creationDate": "2025-08-25T14:45:48Z",
+            "mfaAuthenticated": "false"
+        }
+    },
+    "invokedBy": "AWS Internal",
+    "eventTime": "2025-08-25T14:54:01Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": {
+        "encryptionContext": {
+            "aws:groundstation:arn": "arn:aws:groundstation:us-west-2:111122223333:ephemeris/bb650670-7a4b-4152-bd60-SAMPLE",
+            "aws:groundstation:ground-station-id": "Ohio 1",
+            "aws:s3:arn": "arn:aws:s3:::customerephemerisbucket/bb650670-7a4b-4152-bd60-SAMPLE/raw"
+        },
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT"
+    },
+    "responseElements": null,
+    "requestID": "a2f46066-49fb-461a-93cb-123456SAMPLE",
+    "eventID": "e997b426-e3ad-31c7-a308-123456SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "477b568e-7f56-4f04-905c-623ff146f30d",
+    "eventCategory": "Management"
+}
+```

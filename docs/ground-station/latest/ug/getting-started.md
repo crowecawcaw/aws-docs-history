@@ -1,49 +1,32 @@
-# Plan your dataflow communication paths
+# Create mission profile
 
-You have the choice between synchronous and asynchronous communication for each communication
-path on your satellite. Depending on your satellite and your use case, you may require one or
-both types. Synchronous communication paths allow for near real-time uplink as well as
-narrowband and wideband downlink operations. Asynchronous communication paths support narrowband
-and wideband downlink operations only.
+With the _configs_ constructed in the previous step, you have identified how
+to track your satellite and the possible ways to communicate with your satellite. In this step
+you will construct one or more mission profiles. A mission profile represents the aggregation of
+the possible _configs_ into an expected behavior that can be then scheduled
+and operated on.
 
-## Asynchronous data delivery
+For the latest parameters, please reference the
+[AWS::GroundStation::MissionProfile CloudFormation resource type](../../../AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.md")
 
-With data delivery to Amazon S3, your contact data is delivered asynchronously to an Amazon S3 bucket in
-your account. Your contact data is delivered as packet capture (pcap) files to allow replaying
-the contact data into a Software Defined Radio (SDR) or to extract the payload data from the
-pcap files for processing. The pcap files are delivered to your Amazon S3 bucket every 30 seconds as
-contact data is received by the antenna hardware to allow processing contact data during the
-contact if desired. Once received, you can process the data using your own post-processing
-software or use other AWS services like Amazon SageMaker AI or Amazon Rekognition. Data delivery to Amazon S3 is only
-available for downlinking data from your satellite; it is not possible to uplink data to your
-satellite from Amazon S3.
+1. Name your mission profile. This allows you to quickly understand its usage within your
+   system. For example, you may have a _satellite-wideband-narrowband-nominal-operations_ and a
+   _satellite-narrowband-emergency-operations_ if you have
+   a separate narrowband carrier for emergency operations.
+2. Set your tracking config.
+3. Set your minimum viable contact durations. This allows you to filter potential contacts
+   to meet your mission needs.
+4. Set your _streamsKmsKey_ and _streamsKmsRole_ that
+   are used to encrypt your data during transit. This is used for all AWS Ground Station Agent dataflows.
+5. Set your dataflows. Create your dataflows to match your carrier signals using the
+   configs you created in the previous step.
+6. [Optional] Set your pre-pass and post-pass contact duration seconds. This is used to
+   emit per-contact events prior-to and after the contact, respectively. See
+   [Automate AWS Ground Station with
+   Events](monitoring.md "monitoring.md")
+   for more information.
+7. [Optional] You can associate Tags to your mission profile. These can be used to help
+   programmatically differentiate your mission profiles.
 
-![Diagram showing data flow from Satellite to AWS Ground Station to S3 Bucket within AWS Cloud.](images/s3-data-delivery.png)
-
-To utilize this path, you will use need to create an Amazon S3 bucket for AWS Ground Station to deliver the data
-into. In the next step, you'll also need to create a _S3 Recording Config_
-in the next step. Please reference the
-[Amazon S3 Recording Config](how-it-works.md#how-it-works.config-s3-recording "how-it-works.md#how-it-works.config-s3-recording")
-for restrictions on bucket naming and how to specify the naming convention used for your
-files.
-
-## Synchronous data delivery
-
-With data delivery to Amazon EC2, your contact data is streamed to and from your Amazon EC2 instance.
-You can process your data in real-time on your Amazon EC2 instance or forward the data for
-post-processing.
-
-To utilize a synchronous path, you will use need to set up and configure your Amazon EC2
-instances and create one or more _Dataflow Endpoint Groups_. To configure
-your Amazon EC2 instance reference the
-[Set up and configure Amazon EC2](dataflows.md "dataflows.md").
-To create your Dataflow Endpoint Group, please reference the
-[Use AWS Ground Station Dataflow endpoint groups](how-it-works.md "how-it-works.md").
-
-The following shows the communication path if you are using the dataflow endpoint configuration.
-
-![Diagram showing data flow from satellite to AWS Ground Station to customer VPC and application.](images/ec2-data-delivery.png)
-
-The following shows the communication path if you are using the AWS Ground Station Agent configuration.
-
-![Communication flow between AWS Ground Station antenna and customer destination region components.](images/digif-data-delivery-overview.png)
+You can reference the [Example mission profile configurations](examples.md "examples.md"), to see just some of
+the potential configurations.
