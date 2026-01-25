@@ -37,9 +37,10 @@ Console
    2. (Optional) For **Version**, enter version
       information. Because you can update the content of a script,
       version data can be helpful in tracking updates.
-   3. For **Script source**, choose
+   3. For **Node.js version**, choose the runtime version of Node.js the server will run on.
+   4. For **Script source**, choose
       **Amazon S3 URI**.
-   4. Enter the **S3 URI** of the script object
+   5. Enter the **S3 URI** of the script object
       that you uploaded to Amazon S3, and then choose the
       **Object version**. If you don't
       remember the Amazon S3 URI and object version, choose
@@ -70,6 +71,7 @@ aws gamelift create-script \
     --name [`user-defined name of script`] \
     --script-version [`user-defined version info`] \
     --storage-location "Bucket"=`S3 bucket name`,"Key"=`name of zip file in S3 bucket`,"RoleArn"=`Access role ARN` \
+    --node-js-version `10.x or 24.x` \
     --region `region name`
 ```
 
@@ -80,6 +82,7 @@ aws gamelift create-script \
     --name "My_Realtime_Server_Script_1" \
     --script-version "1.0.0" \
     --storage-location "Bucket"="gamelift-script","Key"="myrealtime_script_1.0.0.zip","RoleArn"="arn:aws:iam::123456789012:role/S3Access" \
+    --node-js-version 24.x \
     --region us-west-2
 ```
 

@@ -51,6 +51,19 @@ any or all of the following. The script example code provides illustration. See 
   on. For details, see
   [Get fleet data for an Amazon GameLift Servers instance](../developerguide/gamelift-sdk-server-fleetinfo.md "../developerguide/gamelift-sdk-server-fleetinfo.md").
 
+## Node.js runtime versions
+
+Amazon GameLift Servers Realtime servers support multiple Node.js runtime versions. You can specify the Node.js version
+when creating a script. The supported versions are:
+
+- **Node.js 10.x** (Default) - Runs on Amazon Linux 2. This version is
+  nearing end of support as Amazon Linux 2 reaches end-of-life in June 2026. See
+  [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/") for more details.
+- **Node.js 24.x** - Runs on Amazon Linux 2023
+
+To specify the Node.js version and add optional customizations like install scripts, see
+[Upload a script for Amazon GameLift Servers Realtime servers](realtime-script-uploading.md "realtime-script-uploading.md").
+
 ## Amazon GameLift Servers Realtime script example
 
 This example illustrates a basic script needed to deploy Amazon GameLift Servers Realtime plus some custom

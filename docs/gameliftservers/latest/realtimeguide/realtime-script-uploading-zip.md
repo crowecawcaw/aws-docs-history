@@ -21,9 +21,10 @@ Amazon GameLift Servers console
    2. (Optional) For **Version**, enter version
       information. Because you can update the content of a script,
       version data can be helpful in tracking updates.
-   3. For **Script source**, choose
+   3. For **Node.js version**, choose the runtime version of Node.js the server will run on.
+   4. For **Script source**, choose
       **Upload a .zip file**.
-   4. For **Script files**, choose
+   5. For **Script files**, choose
       **Choose file**, browse for the .zip
       file that contains your script, and then choose that
       file.
@@ -58,6 +59,7 @@ aws gamelift create-script \
     --name `user-defined name of script` \
     --script-version `user-defined version info` \
     --zip-file fileb://`name of zip file` \
+    --node-js-version `10.x or 24.x` \
     --region `region name`
 ```
 
@@ -68,6 +70,7 @@ aws gamelift create-script \
     --name "My_Realtime_Server_Script_1" \
     --script-version "1.0.0" \
     --zip-file fileb://myrealtime_script_1.0.0.zip \
+    --node-js-version 24.x \
     --region us-west-2
 ```
 
