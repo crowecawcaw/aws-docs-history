@@ -163,7 +163,7 @@ The following example shows how to add a creation policy to an Amazon EC2 Auto S
 creation policy requires three success signals and times out after 15 minutes. Use the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script to signal when an instance creation
 process has completed successfully.
 
-To have instances wait for an ELB health check before they signal success, add a
+To have instances wait for an Elastic Load Balancing health check before they signal success, add a
 health-check verification by using the [cfn-init](cfn-init.md "cfn-init.md") helper script. For an example, see the
 `verify_instance_health` command in the sample templates for Amazon EC2 Auto Scaling rolling
 updates in our [GitHub repository](https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/AutoScaling "https://github.com/aws-cloudformation/aws-cloudformation-templates/tree/main/AutoScaling").

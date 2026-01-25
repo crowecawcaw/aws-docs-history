@@ -378,7 +378,7 @@ Specifies whether CloudFormation waits for success signals from new instances be
 continuing the update. CloudFormation waits for the specified `PauseTime`
 duration for success signals.
 
-To signal the Auto Scaling group, use the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script. For Auto Scaling groups associated with ELB,
+To signal the Auto Scaling group, use the [cfn-signal](cfn-signal.md "cfn-signal.md") helper script. For Auto Scaling groups associated with Elastic Load Balancing,
 consider adding a health check to ensure that instances are healthy before signaling
 success by using the [cfn-init](cfn-init.md "cfn-init.md") helper
 script. For an example, see the `verify_instance_health` command in the

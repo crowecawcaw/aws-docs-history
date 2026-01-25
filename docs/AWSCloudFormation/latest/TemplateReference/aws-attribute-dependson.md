@@ -126,7 +126,7 @@ an associated public IP address and are in a VPC.
 
 - Auto Scaling groups
 - Amazon EC2 instances
-- ELB load balancers
+- Elastic Load Balancing load balancers
 - Elastic IP addresses
 - Amazon RDS database instances
 - Amazon VPC routes that include the Internet gateway

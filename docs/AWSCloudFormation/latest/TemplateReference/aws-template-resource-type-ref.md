@@ -191,6 +191,7 @@ Resource type identifiers always take the following form:
 - [Amazon Managed Streaming for Apache Kafka](AWS_MSK.md "AWS_MSK.md")
 - [Amazon Managed Streaming for Apache Kafka Connect](AWS_KafkaConnect.md "AWS_KafkaConnect.md")
 - [Amazon Managed Workflows for Apache Airflow](AWS_MWAA.md "AWS_MWAA.md")
+- [Amazon Managed Workflows for Apache Airflow Serverless](AWS_MWAAServerless.md "AWS_MWAAServerless.md")
 - [Amazon Neptune](AWS_Neptune.md "AWS_Neptune.md")
 - [Amazon Neptune Analytics](AWS_NeptuneGraph.md "AWS_NeptuneGraph.md")
 - [AWS Network Firewall](AWS_NetworkFirewall.md "AWS_NetworkFirewall.md")
