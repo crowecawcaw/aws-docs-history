@@ -27,7 +27,7 @@ Make sure that you include the following information in your request:
 
     * **Workload name:** Your workload name
     * **Account ID(s):** ID1, ID2, ID3, and so on. These are the accounts that you want to onboard to AWS Incident Detection and Response
-    * **Language:** English or Japanese
+    * **Language:** For a list of languages supported by Incident Detection and Response, see [Region availability for Incident Detection and Response](idr-availability.md "idr-availability.md").
 
 5. In the **Additional contacts - optional** section, enter any email IDs that you want to receive correspondence about this request.
 
