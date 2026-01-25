@@ -15,7 +15,7 @@ In this example, we use a custom OAuth provider to generate access tokens for a 
 First, we create a credential provider using the AWS CLI. Refer to the [Bedrock AgentCore documentation](../../../cli/latest/reference/bedrock-agentcore-control/create-oa-oauth2-credential-provider.md "../../../cli/latest/reference/bedrock-agentcore-control/create-oa-oauth2-credential-provider.md") for more details on how to create these. Below is a partial sample for a `CustomOauth2` provider:
 
 ```
- aws bedrock-agentcore-control create-oauth2-credential-provider \
+aws bedrock-agentcore-control create-oauth2-credential-provider \
   --region us-east-1 \
   --name "custom-oauth-provider" \
   --credential-provider-vendor "CustomOauth2" \
@@ -33,7 +33,7 @@ First, we create a credential provider using the AWS CLI. Refer to the [Bedrock 
 AgentCore Runtime automatically handles all identity management. When your agent is deployed, the runtime provides the agent identity and user context from the caller, then injects credentials via the decorator `@requires_access_token`.
 
 ```
- from bedrock_agentcore.identity.auth import requires_access_token
+from bedrock_agentcore.identity.auth import requires_access_token
 from nova_act_sdk import NovaAct
 
 @requires_access_token(
@@ -68,7 +68,7 @@ To do this, follow these steps:
 Here is an example of instrumenting a Nova Act workflow and writing the telemetry data to CloudWatch logs:
 
 ```
- import uuid
+import uuid
 import os
 import boto3
 import logging

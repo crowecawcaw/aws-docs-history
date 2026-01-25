@@ -17,7 +17,7 @@ Start by installing `nova-act` and the Bedrock AgentCore libraries:
 Now let’s create Nova Act as a tool for our Strands agent. The tool will take in a website url, an instruction, and an option to download content. Save the below in a folder named `tools` in a file named `web-browser-tool.py`. Note the description of the tool at the start of the `get_current_ticker_price`. This informs the Strands agent what this tool should be used for, arguments to pass in, and the return type.
 
 ```
- from strands import Agent, tool
+from strands import Agent, tool
 from nova_act import NovaAct
 
 @tool
@@ -59,7 +59,7 @@ def browser_automation_tool(starting_url:str, instr: str, download: bool) -> str
 To make this tool available to a Strands agent, import the tool, and then add it to the list of tools available to the agent.
 
 ```
- from tools import browser_automation_tool
+from tools import browser_automation_tool
 
 def generate_and_retrieve_image():
     agent = Agent(tools=[browser_automation_tool])

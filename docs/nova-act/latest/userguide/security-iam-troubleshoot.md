@@ -15,7 +15,7 @@ The following example error occurs when the `mateojackson`
 IAM user tries to use the console to view details about workflow runs but does not have `nova-act:ListWorkflowRuns` permissions.
 
 ```
- User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: nova-act:ListWorkflowRuns on resource: my-workflow-definition
+User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: nova-act:ListWorkflowRuns on resource: my-workflow-definition
 ```
 
 In this case, Mateo asks his administrator to update his policies to allow him to access the `my-workflow-definition` resource using the `nova-act:ListWorkflowRuns` action.

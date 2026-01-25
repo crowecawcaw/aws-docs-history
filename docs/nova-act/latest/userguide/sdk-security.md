@@ -17,7 +17,7 @@ The Nova Act SDK ships with secure default behaviors that should remain enabled 
 To enable local file navigation, define one or more filepath patterns in `SecurityOptions.allowed_file_open_paths`
 
 ```
- from nova_act import NovaAct, SecurityOptions
+from nova_act import NovaAct, SecurityOptions
 
 NovaAct(starting_page="file://home/nova-act/site/index.html", SecurityOptions(allowed_file_open_paths=['/home/nova-act/site/*']))
 ```
@@ -27,7 +27,7 @@ NovaAct(starting_page="file://home/nova-act/site/index.html", SecurityOptions(al
 To allow the agent to upload files to websites, define one or more filepath patterns in `SecurityOptions.allowed_file_upload_paths`.
 
 ```
- from nova_act import NovaAct, SecurityOptions
+from nova_act import NovaAct, SecurityOptions
 NovaAct(starting_page="https://example.com", SecurityOptions(allowed_file_upload_paths=['/home/nova-act/shared/*']))
 ```
 
@@ -45,7 +45,7 @@ The filepath parameters support the following formats:
 State guardrails allow you to control which URLs the agent can visit during execution. You can provide a callback function that inspects the browser state after each observation and decides whether to allow or block continued execution. If blocked, act() will raise ActStateGuardrailError. This is useful for preventing the agent from navigating to unauthorized domains or sensitive pages.
 
 ```
- from nova_act import NovaAct, GuardrailDecision, GuardrailInputState
+from nova_act import NovaAct, GuardrailDecision, GuardrailInputState
 from urllib.parse import urlparse
 import fnmatch
 
