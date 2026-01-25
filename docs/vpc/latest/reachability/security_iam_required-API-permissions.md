@@ -6,7 +6,7 @@ Reachability Analyzer relies on data from other AWS services. It uses permission
 services:
 
 - Amazon EC2
-- ELB
+- Elastic Load Balancing
 - AWS Network Firewall
 - AWS Tiros
   To view the permissions for this policy, see [AmazonVPCReachabilityAnalyzerFullAccessPolicy](../../../aws-managed-policy/latest/reference/AmazonVPCReachabilityAnalyzerFullAccessPolicy.md "../../../aws-managed-policy/latest/reference/AmazonVPCReachabilityAnalyzerFullAccessPolicy.md") in the _AWS Managed Policy Reference_.
@@ -31,7 +31,7 @@ call the Reachability Analyzer API actions they need.
 ###### Describe API calls for networking-related resources
 
 Reachability Analyzer uses describe API calls while gathering information about your resources from
-Amazon VPC, Amazon EC2, and ELB (for example, subnets, network interfaces, and security groups).
+Amazon VPC, Amazon EC2, and Elastic Load Balancing (for example, subnets, network interfaces, and security groups).
 To access Reachability Analyzer, users must also have these API permissions.
 
 ###### Cross-account analysis
