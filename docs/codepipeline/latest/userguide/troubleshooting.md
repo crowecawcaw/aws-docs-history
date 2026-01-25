@@ -66,7 +66,7 @@ returns an error message: "Deployment failed. The provided role does not have su
 permissions: Service:AmazonElasticLoadBalancing"
 
 **Problem:** The service role for CodePipeline does not have
-sufficient permissions for AWS Elastic Beanstalk, including, but not limited to, some operations in ELB.
+sufficient permissions for AWS Elastic Beanstalk, including, but not limited to, some operations in Elastic Load Balancing.
 The service role for CodePipeline was updated on August 6, 2015 to address this issue. Customers who
 created their service role before this date must modify the policy statement for their service
 role to add the required permissions.
