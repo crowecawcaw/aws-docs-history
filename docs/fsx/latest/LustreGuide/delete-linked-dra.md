@@ -35,3 +35,13 @@ be deleted.
 
 After successfully deleting the data repository association, Amazon FSx returns its description as
 JSON.
+
+###### Recreating DRAs with the same file system path
+
+We do not recommend deleting and recreating data repository associations that use the same file system path. If you delete a DRA and later create a new DRA using the same file system path, some files may retain HSM state from the previously deleted DRA.
+
+If you need to export files from a recreated DRA that were managed by a previously deleted DRA, you need to mark those files as dirty using the command below and then run an export data repository task:
+
+```
+sudo lfs hsm_set --dirty `file_path`
+```

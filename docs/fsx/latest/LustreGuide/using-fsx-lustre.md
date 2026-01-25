@@ -10,7 +10,7 @@ system, using the AWS Management Console, the AWS Command Line Interface (AWS CL
 ## Persistent file systems
 
 _Persistent file systems_ are designed for
-longer-term storage and workloads, and the file servers are highly available. For SSD and HDD-based
+longer-term storage and workloads. For SSD and HDD-based
 file systems, data is automatically replicated within the same Availability Zone in which the file
 system is located. For Intelligent-Tiering file systems, data is replicated across multiple
 Availability Zones. The data volumes attached to the file servers are replicated independently

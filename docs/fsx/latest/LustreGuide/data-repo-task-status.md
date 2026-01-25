@@ -32,4 +32,4 @@ repository task using the Amazon FSx console, CLI, or API:
 - CANCELED indicates that the task was canceled and not completed.
 - CANCELING indicates that Amazon FSx is in the process of canceling
   the task.
-  For more information about accessing existing data repository tasks, see [Accessing data repository tasks](view-data-repo-tasks.md "view-data-repo-tasks.md").
+  Data repository task information is kept for 14 days after the task finishes. For more information about accessing existing data repository tasks, see [Accessing data repository tasks](view-data-repo-tasks.md "view-data-repo-tasks.md").
