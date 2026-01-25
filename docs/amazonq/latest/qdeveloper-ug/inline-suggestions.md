@@ -60,7 +60,7 @@ Eclipse
 
 The following image shows the Amazon Q task bar in an Eclipse IDE.
 
-![The Amazon Q task bar in an Eclipse IDE.](/images/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png) 3. Choose **Pause Auto-Suggestions** or **Resume
+![The Amazon Q task bar in an Eclipse IDE.](images/eclipse-taskbar.png) 3. Choose **Pause Auto-Suggestions** or **Resume
 Auto-Suggestions**.
 
 Visual Studio

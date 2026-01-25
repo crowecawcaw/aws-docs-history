@@ -65,7 +65,7 @@ procedure.
 
 The following image shows the Amazon Q task bar in an Eclipse IDE.
 
-![The Amazon Q task bar in an Eclipse IDE.](images/eclipse-taskbar.png) 4. Choose **Open Code Reference Log**.
+![The Amazon Q task bar in an Eclipse IDE.](/images/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png) 4. Choose **Open Code Reference Log**.
 
 The code reference log tab opens. Any references to code recommendations are listed.
 
