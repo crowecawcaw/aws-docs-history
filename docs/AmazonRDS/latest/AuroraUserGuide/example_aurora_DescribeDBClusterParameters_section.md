@@ -496,6 +496,54 @@ async fn test_scenario_cluster_parameters_error() {
   [DescribeDBClusterParameters](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_db_cluster_parameters")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    TRY.
+        DATA lv_marker TYPE /aws1/rdsstring VALUE ''.
+        DATA lt_all_parameters TYPE /aws1/cl_rdsparameter=>tt_parameterslist.
+
+        DO.
+          DATA(lo_output) = lo_rds->describedbclusterparameters(
+            iv_dbclusterparamgroupname = iv_param_group_name
+            iv_source = iv_source
+            iv_marker = lv_marker
+          ).
+
+          LOOP AT lo_output->get_parameters( ) INTO DATA(lo_param).
+            IF iv_name_prefix IS INITIAL OR
+               lo_param->get_parametername( ) CP |{ iv_name_prefix }*|.
+              APPEND lo_param TO lt_all_parameters.
+            ENDIF.
+          ENDLOOP.
+
+          lv_marker = lo_output->get_marker( ).
+          IF lv_marker IS INITIAL.
+            EXIT.
+          ENDIF.
+        ENDDO.
+
+        ot_parameters = lt_all_parameters.
+      CATCH /aws1/cx_rdsdbprmgrnotfndfault.
+        " Re-raise exception - parameter group not found
+        RAISE EXCEPTION TYPE /aws1/cx_rdsdbprmgrnotfndfault.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeDBClusterParameters](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

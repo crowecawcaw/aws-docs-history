@@ -275,6 +275,35 @@ class AuroraWrapper:
   [DescribeDBClusterParameterGroups](../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md "../../../goto/boto3/rds-2014-10-31/DescribeDBClusterParameterGroups.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    TRY.
+        DATA(lo_output) = lo_rds->describedbclusterparamgroups(
+          iv_dbclusterparamgroupname = iv_param_group_name
+        ).
+        DATA(lt_param_groups) = lo_output->get_dbclusterparametergroups( ).
+        IF lines( lt_param_groups ) > 0.
+          oo_result = lt_param_groups[ 1 ].
+        ENDIF.
+      CATCH /aws1/cx_rdsdbprmgrnotfndfault.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeDBClusterParameterGroups](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

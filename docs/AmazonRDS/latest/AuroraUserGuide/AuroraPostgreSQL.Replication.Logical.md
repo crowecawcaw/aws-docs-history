@@ -1,98 +1,118 @@
-# Setting up logical
+# Example: Using
 
-replication for your Aurora PostgreSQL DB cluster
+logical replication with Aurora PostgreSQL DB clusters
 
-Setting up logical replication requires `rds_superuser` privileges. Your
-Aurora PostgreSQL DB cluster must be configured to use a custom DB cluster parameter group
-so that you can set the necessary parameters as detailed in the procedure following. For
-more information, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md").
+The following procedure shows you how to start logical replication between two
+Aurora PostgreSQL DB clusters. Both the publisher and the subscriber must be configured for
+logical replication as detailed in [Setting up logical
+replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
 
-###### To set up PostgreSQL logical replication for an Aurora PostgreSQL DB cluster
+The Aurora PostgreSQL DB cluster that's the designated publisher must also allow
+access to the replication slot. To do so, modify the security group associated with the
+Aurora PostgreSQL DB cluster 's virtual public cloud (VPC) based on the Amazon VPC service.
+Allow inbound access by adding the security group associated with the subscriber's
+VPC to the publisher's security group. For more information, see [Control traffic to resources using
+security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the _Amazon VPC User Guide_.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose your Aurora PostgreSQL DB cluster.
-3. Open the **Configuration** tab. Among the Instance details,
-   find the **Parameter group** link with **DB cluster
-   parameter group** for **Type**.
-4. Choose the link to open the custom parameters associated with your
-   Aurora PostgreSQL DB cluster.
-5. In the **Parameters** search field, type `rds` to
-   find the `rds.logical_replication` parameter. The default value for
-   this parameter is `0`, meaning that it's turned off by default.
-6. Choose **Edit parameters** to access the property values, and
-   then choose `1` from the selector to turn on the feature. Depending
-   on your expected usage, you might also need to change the settings for the
-   following parameters. However, in many cases, the default values are sufficient.
-   - `max_replication_slots` – Set this parameter to a
-     value that's at least equal to your planned total number of logical
-     replication publications and subscriptions. If you are using AWS DMS, this
-     parameter should equal at least your planned change data capture tasks
-     from the cluster, plus logical replication publications and
-     subscriptions.
-   - `max_wal_senders` and
-     `max_logical_replication_workers` – Set these
-     parameters to a value that's at least equal to the number of
-     logical replication slots that you intend to be active, or the number of
-     active AWS DMS tasks for change data capture. Leaving a logical
-     replication slot inactive prevents the vacuum from removing obsolete
-     tuples from tables, so we recommend that you monitor replication slots
-     and remove inactive slots as needed.
-   - `max_worker_processes` – Set this parameter to a
-     value that's at least equal to the total of the
-     `max_logical_replication_workers`,
-     `autovacuum_max_workers`, and
-     `max_parallel_workers` values. On small DB instance
-     classes, background worker processes can affect application workloads,
-     so monitor the performance of your database if you set
-     `max_worker_processes` higher than the default value.
-     (The default value is the result of
-     `GREATEST(${DBInstanceVCPU*2},8}`, which means that, by
-     default, this is either 8 or twice the CPU equivalent of the DB instance
-     class, whichever is greater).
+With these preliminary steps complete, you can use PostgreSQL commands `CREATE
+ PUBLICATION` on the publisher and the `CREATE SUBSCRIPTION` on the
+subscriber, as detailed in the following procedure.
 
-###### Note
+###### To start the logical replication process between two Aurora PostgreSQL DB
 
-You can modify parameter values in a customer-created DB parameter group.
-you can't change the parameter values in a default DB parameter
-group. 7. Choose **Save changes**. 8. Reboot the writer instance of your Aurora PostgreSQL DB cluster so that your
-changes takes effect. In the Amazon RDS console, choose the primary DB instance of
-the cluster and choose **Reboot** from the
-**Actions** menu. 9. When the instance is available, you can verify that logical replication is
-turned on, as follows.
+clusters
 
-    1. Use `psql` to connect to the writer instance of your
-     Aurora PostgreSQL DB cluster.
+These steps assume that your Aurora PostgreSQL DB clusters have a writer instance with
+a database in which to create the example tables.
 
-
+1.  On the publisher Aurora PostgreSQL DB
+    cluster
+    1. Create a table using the following SQL statement.
 
     ```
-    psql --host=`your-db-cluster-instance-1`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password --dbname=`labdb`
-    ```
-    2. Verify that logical replication has been enabled by using the
-     following command.
-
-
-
-    ```
-    `labdb=>` `SHOW rds.logical_replication;`
-     `rds.logical_replication
-    -------------------------
-     on
-    (1 row)`
-    ```
-    3. Verify that the `wal_level` is set to `logical`.
-
-
-
-    ```
-    `labdb=>` `SHOW wal_level;`
-     `wal_level
-    -----------
-     logical
-    (1 row)`
+    CREATE TABLE LogicalReplicationTest (a int PRIMARY KEY);
     ```
 
-For an example of using logical replication to keep a database table synchronized with
-changes from a source Aurora PostgreSQL DB cluster, see [Example: Using
-logical replication with Aurora PostgreSQL DB clusters](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").
+    2. Insert data into the publisher database by using the following SQL
+       statement.
+
+    ```
+    INSERT INTO LogicalReplicationTest VALUES (generate_series(1,10000));
+    ```
+
+    3. Verify that data exists in the table by using the following SQL
+       statement.
+
+    ```
+    SELECT count(*) FROM LogicalReplicationTest;
+    ```
+
+    4. Create a publication for this table by using the `CREATE
+PUBLICATION` statement, as follows.
+
+    ```
+    CREATE PUBLICATION testpub FOR TABLE LogicalReplicationTest;
+    ```
+
+2.  On the subscriber Aurora PostgreSQL DB
+    cluster
+
+        1. Create the same `LogicalReplicationTest` table on the
+         subscriber that you created on the publisher, as follows.
+
+
+
+        ```
+        CREATE TABLE LogicalReplicationTest (a int PRIMARY KEY);
+        ```
+        2. Verify that this table is empty.
+
+
+
+        ```
+        SELECT count(*) FROM LogicalReplicationTest;
+        ```
+        3. Create a subscription to get the changes from the publisher. You need
+         to use the following details about the publisher Aurora PostgreSQL DB
+         cluster.
+
+
+
+
+        	* **host** – The publisher
+        	 Aurora PostgreSQL DB cluster's writer DB instance.
+        	* **port** – The port on
+        	 which the writer DB instance is listening. The default for
+        	 PostgreSQL is 5432.
+        	* **dbname** – The name of
+        	 the database.
+
+        ```
+        CREATE SUBSCRIPTION testsub CONNECTION
+           'host=`publisher-cluster-writer-endpoint` port=5432 dbname=`db-name` user=`user` password=`password`'
+           PUBLICATION testpub;
+
+        ```
+
+        ###### Note
+
+        Specify a password other than the prompt shown here as a security
+         best practice.
+
+
+        After the subscription is created, a logical replication slot is
+         created at the publisher.
+        4. To verify for this example that the initial data is replicated on the
+         subscriber, use the following SQL statement on the subscriber
+         database.
+
+
+
+        ```
+        SELECT count(*) FROM LogicalReplicationTest;
+        ```
+
+    Any further changes on the publisher are replicated to the subscriber.
+
+Logical replication affects performance. We recommend that you turn off logical
+replication after your replication tasks are complete.

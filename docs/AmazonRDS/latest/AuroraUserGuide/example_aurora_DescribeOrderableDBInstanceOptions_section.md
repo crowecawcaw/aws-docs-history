@@ -503,6 +503,34 @@ async fn test_scenario_get_instance_classes_error() {
   [DescribeOrderableDBInstanceOptions](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.describe_orderable_db_instance_options")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    " iv_engine        = 'mysql'
+    " iv_engineversion = '8.0.35'
+    TRY.
+        oo_result = lo_rds->descrorderabledbinstoptions(
+          iv_engine        = iv_engine
+          iv_engineversion = iv_engineversion ).
+        DATA(lv_option_count) = lines( oo_result->get_orderabledbinstoptions( ) ).
+        MESSAGE |Retrieved { lv_option_count } orderable DB instance options.| TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeOrderableDBInstanceOptions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

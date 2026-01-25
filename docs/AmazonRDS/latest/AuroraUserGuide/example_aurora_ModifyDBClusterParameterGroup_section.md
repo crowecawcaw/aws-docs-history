@@ -417,6 +417,37 @@ async fn test_scenario_update_auto_increment_error() {
   [ModifyDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.modify_db_cluster_parameter_group")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    TRY.
+        oo_result = lo_rds->modifydbclusterparamgroup(
+          iv_dbclusterparamgroupname = iv_param_group_name
+          it_parameters = it_update_parameters
+        ).
+      CATCH /aws1/cx_rdsdbprmgrnotfndfault.
+        " Re-raise exception - parameter group not found
+        RAISE EXCEPTION TYPE /aws1/cx_rdsdbprmgrnotfndfault.
+      CATCH /aws1/cx_rdsinvdbprmgrstatef00.
+        " Re-raise exception - invalid state
+        RAISE EXCEPTION TYPE /aws1/cx_rdsinvdbprmgrstatef00.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ModifyDBClusterParameterGroup](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

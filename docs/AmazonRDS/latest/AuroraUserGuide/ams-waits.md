@@ -1,8 +1,14 @@
-# synch/cond/innodb/row_lock_wait_cond
+# io/aurora_redo_log_flush
 
-The `synch/cond/innodb/row_lock_wait_cond` event occurs when one session has locked a row for an update, and another session tries to
-update the same row. For more information, see [InnoDB locking](https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html") in the
-MySQL documentation.
+The `io/aurora_redo_log_flush` event occurs when a session is writing
+persistent data to Amazon Aurora storage.
+
+###### Topics
+
+- [Supported engine versions](#ams-waits.io-auredologflush.context.supported "#ams-waits.io-auredologflush.context.supported")
+- [Context](#ams-waits.io-auredologflush.context "#ams-waits.io-auredologflush.context")
+- [Likely causes of increased waits](#ams-waits.io-auredologflush.causes "#ams-waits.io-auredologflush.causes")
+- [Actions](#ams-waits.io-auredologflush.actions "#ams-waits.io-auredologflush.actions")
 
 ## Supported engine versions
 
@@ -10,118 +16,158 @@ This wait event information is supported for the following engine versions:
 
 - Aurora MySQL version 2
 
+## Context
+
+The `io/aurora_redo_log_flush` event is for a write input/output (I/O) operation in Aurora MySQL.
+
+###### Note
+
+In Aurora MySQL version 3, this wait event is named [io/redo_log_flush](ams-waits.md "ams-waits.md").
+
 ## Likely causes of increased waits
 
-Multiple data manipulation language (DML) statements are accessing the same row or
-rows simultaneously.
+For data persistence, commits require a durable write to stable storage. If the
+database is doing too many commits, there is a wait event on the write I/O operation,
+the `io/aurora_redo_log_flush` wait event.
+
+In the following examples, 50,000 records are inserted into an Aurora MySQL DB cluster using the db.r5.xlarge DB instance
+class:
+
+- In the first example, each session inserts 10,000 records row by row. By default, if a data manipulation language
+  (DML) command isn't within a transaction, Aurora MySQL uses implicit commits. Autocommit is turned on. This means
+  that for each row insertion there is a commit. Performance Insights shows that the connections spend most of their time waiting on the
+  `io/aurora_redo_log_flush` wait event.
+
+![Performance Insights example of the wait event](images/auredologflush_PI_example1.png)
+
+This is caused by the simple insert statements used.
+
+![Insert statements in Top SQL](images/auredologflush_top_SQL1.png)
+
+The 50,000 records take 3.5 minutes to be inserted.
+
+- In the second example, inserts are made in 1,000 batches, that is each connection performs 10 commits instead of
+  10,000. Performance Insights shows that the connections don't spend most of their time on the `io/aurora_redo_log_flush`
+  wait event.
+
+![Performance Insights example of the wait event having less impact](images/auredologflush_PI_example2.png)
+
+The 50,000 records take 4 seconds to be inserted.
 
 ## Actions
 
-We recommend different actions depending on the other wait events that you see.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Find and respond to the SQL statements responsible
-  for this wait event](#ams-waits.row-lock-wait-cond.actions.id "#ams-waits.row-lock-wait-cond.actions.id")
-- [Find and respond to the blocking
-  session](#ams-waits.row-lock-wait-cond.actions.blocker "#ams-waits.row-lock-wait-cond.actions.blocker")
+- [Identify the problematic sessions and
+  queries](#ams-waits.io-auredologflush.actions.identify-queries "#ams-waits.io-auredologflush.actions.identify-queries")
+- [Group your write operations](#ams-waits.io-auredologflush.actions.action0 "#ams-waits.io-auredologflush.actions.action0")
+- [Turn off
+  autocommit](#ams-waits.io-auredologflush.actions.action1 "#ams-waits.io-auredologflush.actions.action1")
+- [Use transactions](#ams-waits.io-auredologflush.action2 "#ams-waits.io-auredologflush.action2")
+- [Use batches](#ams-waits.io-auredologflush.action3 "#ams-waits.io-auredologflush.action3")
 
-### Find and respond to the SQL statements responsible
+### Identify the problematic sessions and
 
-for this wait event
+queries
 
-Use Performance Insights to identify the SQL statements responsible for this wait event. Consider
-the following strategies:
+If your DB instance is experiencing a bottleneck, your first task is to find the sessions and queries that
+cause it. For a useful AWS Database Blog post, see [Analyze Amazon Aurora
+MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-- If row locks are a persistent problem, consider rewriting the application to use optimistic
-  locking.
-- Use multirow statements.
-- Spread the workload over different database objects. You can do this through partitioning.
-- Check the value of the `innodb_lock_wait_timeout` parameter. It controls how
-  long transactions wait before generating a timeout error.
+###### To identify sessions and queries causing a bottleneck
 
-For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Performance Insights**.
+3. Choose your DB instance.
+4. In **Database load**, choose **Slice by wait**.
+5. At the bottom of the page, choose **Top SQL**.
 
-### Find and respond to the blocking
+The queries at the top of the list are causing the highest load on the database.
 
-session
+### Group your write operations
 
-Determine whether the blocking session is idle or active. Also, find out whether the session comes
-from an application or an active user.
-
-To identify the session holding the lock, you can run `SHOW ENGINE INNODB STATUS`. The
-following example shows sample output.
-
-```
-mysql> SHOW ENGINE INNODB STATUS;
-
----TRANSACTION 2771110, ACTIVE 112 sec starting index read
-mysql tables in use 1, locked 1
-LOCK WAIT 2 lock struct(s), heap size 1136, 1 row lock(s)
-MySQL thread id 24, OS thread handle 70369573642160, query id 13271336 172.31.14.179 reinvent Sending data
-select id1 from test.t1 where id1=1 for update
-------- TRX HAS BEEN WAITING 43 SEC FOR THIS LOCK TO BE GRANTED:
-RECORD LOCKS space id 11 page no 3 n bits 0 index GEN_CLUST_INDEX of table test.t1 trx id 2771110 lock_mode X waiting
-Record lock, heap no 2 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
-```
-
-Or you can use the following query to extract details on current locks.
+The following examples trigger the `io/aurora_redo_log_flush` wait
+event. (Autocommit is turned on.)
 
 ```
-mysql> SELECT p1.id waiting_thread,
-              p1.user waiting_user,
-              p1.host waiting_host,
-              it1.trx_query waiting_query,
-              ilw.requesting_trx_id waiting_transaction,
-              ilw.blocking_lock_id blocking_lock,
-              il.lock_mode blocking_mode,
-              il.lock_type blocking_type,
-              ilw.blocking_trx_id blocking_transaction,
-              CASE it.trx_state
-                WHEN 'LOCK WAIT'
-                THEN it.trx_state
-                ELSE p.state
-              END blocker_state,
-              il.lock_table locked_table,
-              it.trx_mysql_thread_id blocker_thread,
-              p.user blocker_user,
-              p.host blocker_host
-       FROM information_schema.innodb_lock_waits ilw
-       JOIN information_schema.innodb_locks il
-         ON ilw.blocking_lock_id = il.lock_id
-        AND ilw.blocking_trx_id = il.lock_trx_id
-       JOIN information_schema.innodb_trx it
-         ON ilw.blocking_trx_id = it.trx_id
-       JOIN information_schema.processlist p
-         ON it.trx_mysql_thread_id = p.id
-       JOIN information_schema.innodb_trx it1
-         ON ilw.requesting_trx_id = it1.trx_id
-       JOIN information_schema.processlist p1
-         ON it1.trx_mysql_thread_id = p1.id\G
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+....
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
 
-*************************** 1. row ***************************
-      waiting_thread: 3561959471
-        waiting_user: reinvent
-        waiting_host: 123.456.789.012:20485
-       waiting_query: select id1 from test.t1 where id1=1 for update
- waiting_transaction: 312337314
-       blocking_lock: 312337287:261:3:2
-       blocking_mode: X
-       blocking_type: RECORD
-blocking_transaction: 312337287
-       blocker_state: User sleep
-        locked_table: `test`.`t1`
-      blocker_thread: 3561223876
-        blocker_user: reinvent
-        blocker_host: 123.456.789.012:17746
-1 row in set (0.04 sec)
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+....
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+....
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
 ```
 
-When you identify the session, your options include the following:
+To reduce the time spent waiting on the `io/aurora_redo_log_flush` wait event, group your write operations
+logically into a single commit to reduce persistent calls to storage.
 
-- Contact the application owner or the user.
-- If the blocking session is idle, consider ending the blocking session. This action might trigger a long rollback.
-  To learn how to end a session, see [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md").
+### Turn off
 
-For more information about identifying blocking transactions, see [Using InnoDB transaction and locking
-information](https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-information-schema-examples.html") in the MySQL documentation.
+autocommit
+
+Turn off autocommit before making large changes that aren't within a
+transaction, as shown in the following example.
+
+```
+SET SESSION AUTOCOMMIT=OFF;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+....
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
+-- Other DML statements here
+COMMIT;
+
+SET SESSION AUTOCOMMIT=ON;
+```
+
+### Use transactions
+
+You can use transactions, as shown in the following example.
+
+```
+BEGIN
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+....
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+....
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+
+-- Other DML statements here
+END
+```
+
+### Use batches
+
+You can make changes in batches, as shown in the following example. However, using
+batches that are too large can cause performance issues, especially in read replicas
+or when doing point-in-time recovery (PITR).
+
+```
+INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES
+('xxxx','xxxxx'),('xxxx','xxxxx'),...,('xxxx','xxxxx'),('xxxx','xxxxx');
+
+UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1 BETWEEN xx AND xxx;
+
+DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1<xx;
+```

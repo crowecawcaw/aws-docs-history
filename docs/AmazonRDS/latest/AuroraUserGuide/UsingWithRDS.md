@@ -1,381 +1,197 @@
-# Rotating your SSL/TLS
-
-certificate
-
-Amazon RDS Certificate Authority certificates rds-ca-2019 expired in
-August, 2024. If you use or plan to use Secure Sockets Layer (SSL) or Transport
-Layer Security (TLS) with certificate verification to connect to your RDS DB
-instances ,consider using one of the new CA certificates
-rds-ca-rsa2048-g1, rds-ca-rsa4096-g1 or rds-ca-ecc384-g1.
-If you currently do not use SSL/TLS with
-certificate verification, you might still have an expired CA certificate and
-must update them to a new CA certificate if you plan to use SSL/TLS with
-certificate verification to connect to your RDS databases.
-
-Amazon RDS provides new CA certificates as an AWS security best practice. For
-information about the new certificates and the supported AWS Regions, see
-[Using SSL/TLS to encrypt a connection to a DB
-cluster](UsingWithRDS.md "UsingWithRDS.md")
-.
-
-To update the CA certificate for your database, use the following methods:
-
-- [Updating
-  your CA certificate by modifying your DB instance](#UsingWithRDS.SSL-certificate-rotation-updating "#UsingWithRDS.SSL-certificate-rotation-updating")
-- [Updating your CA certificate by applying maintenance](#UsingWithRDS.SSL-certificate-rotation-maintenance-update "#UsingWithRDS.SSL-certificate-rotation-maintenance-update")
-  Before you update your DB instances to use the new CA certificate, make sure that you update
-  your clients or applications connecting to your RDS databases.
-
-## Considerations for rotating certificates
-
-Consider the following situations before rotating your certificate:
-
-- Amazon RDS Proxy and Aurora Serverless v1
-  use
-
-certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, when
-you rotate your SSL/TLS certificate, you don't need to update
-applications that use RDS Proxy connections. For more information, see
-[Using TLS/SSL with RDS Proxy](rds-proxy.md#rds-proxy-security.tls "rds-proxy.md#rds-proxy-security.tls")
-.
-
-- If you're using Aurora Serverless v1, downloading Amazon RDS certificates
-  isn't required. For more information, see [Using TLS/SSL with Aurora Serverless v1](aurora-serverless.md#aurora-serverless.tls "aurora-serverless.md#aurora-serverless.tls")
-  .
-- If you're using a Go version 1.15 application with a DB instance
-  that was created
-  or updated to the rds-ca-2019 certificate prior to July 28, 2020,
-  you must update the certificate again. Update the certificate to
-  rds-ca-rsa2048-g1, rds-ca-rsa4096-g1,
-  or rds-ca-ecc384-g1 depending on your engine
-  .
-
-Use the `modify-db-instance` command ,
-using the new CA certificate identifier. You can find the CAs that
-are available for a specific DB engine and DB engine version using
-the `describe-db-engine-versions` command.
-
-If you created your database or updated its certificate after July
-28, 2020, no action is required. For more information, see [Go GitHub issue
-#39568](https://github.com/golang/go/issues/39568 "https://github.com/golang/go/issues/39568").
-
-## Updating
-
-your CA certificate by modifying your DB instance
-
-The following example updates your CA certificate from
-_rds-ca-2019_ to
-_rds-ca-rsa2048-g1_.You can
-choose a different certificate. For more information, see [Certificate
-authorities](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities")
-.
-
-Update your application trust store to reduce any down time associated
-with updating your CA certificate. For more information about restarts
-associated with CA certificate rotation, see [Automatic server certificate rotation](#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
-.
-
-###### To update your CA certificate by modifying your DB instance
-
-1. Download the new SSL/TLS certificate as described in [Using SSL/TLS to encrypt a connection to a DB
-   cluster](UsingWithRDS.md "UsingWithRDS.md")
-   .
-2. Update your applications to use the new SSL/TLS
-   certificate.
-
-The methods for updating applications for new SSL/TLS certificates
-depend on your specific applications. Work with your application
-developers to update the SSL/TLS certificates for your
-applications.
-
-For information about checking for SSL/TLS connections and
-updating applications for each DB engine, see the following
-topics:
-
-    * [Updating applications to connect to
-     Aurora MySQL DB clusters using new TLS certificates](ssl-certificate-rotation-aurora-mysql.md "ssl-certificate-rotation-aurora-mysql.md")
-    * [Updating applications to connect to Aurora PostgreSQL DB clusters using new SSL/TLS certificates](ssl-certificate-rotation-aurora-postgresql.md "ssl-certificate-rotation-aurora-postgresql.md")
-
-For a sample script that updates a trust
-store for a Linux operating system, see [Sample
-script for importing certificates into your trust store](#UsingWithRDS.SSL-certificate-rotation-sample-script "#UsingWithRDS.SSL-certificate-rotation-sample-script")
-.
-
-###### Note
-
-The certificate bundle contains certificates for both the old
-and new CA, so you can upgrade your application safely and
-maintain connectivity during the transition period. If you are
-using the AWS Database Migration Service to migrate a database to a DB
-cluster, we recommend using the
-certificate bundle to ensure connectivity during the
-migration. 3. Modify the DB instance to change the CA from
-**rds-ca-2019** to
-**rds-ca-rsa2048-g1**. To check if your
-database requires a restart to update the CA certificates, use the
-[describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command and check the
-`SupportsCertificateRotationWithoutRestart` flag.
-
-###### Note
-
-Reboot your Babelfish cluster after modifying to update
-the CA certificate.
-
-###### Important
+# Identity and access management for Amazon Aurora
 
-If you are experiencing connectivity issues after certificate
-expiry, use the apply immediately option by specifying
-**Apply immediately** in the console or by
-specifying the `--apply-immediately` option using the
-AWS CLI. By default, this operation is scheduled to run during
-your next maintenance window.
+AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
+to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
+(have permissions) to use Amazon RDS resources. IAM is an AWS service that you can
+use with no additional charge.
 
-To set an override for your cluster
-CA that's different from the default
-RDS CA, use the [modify-certificates](../../../cli/latest/reference/rds/modify-certificates.md "../../../cli/latest/reference/rds/modify-certificates.md") CLI command.
+###### Topics
 
-You can use the AWS Management Console or the AWS CLI to change the CA certificate from
-**rds-ca-2019** to
-**rds-ca-rsa2048-g1** for a DB instance .
+- [Audience](#security_iam_audience "#security_iam_audience")
+- [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
+- [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
+- [How Amazon Aurora works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Identity-based policy
+  examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [AWS managed policies for Amazon RDS](rds-security-iam-awsmanpol.md "rds-security-iam-awsmanpol.md")
+- [Amazon RDS updates to AWS managed policies](rds-manpol-updates.md "rds-manpol-updates.md")
+- [Preventing cross-service confused deputy problems](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md")
+- [Troubleshooting Amazon Aurora identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
-Console
+## Audience
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose
-   **Databases**, and then choose the
-   DB instance that you want to modify.
-3. Choose **Modify**.
+How you use AWS Identity and Access Management (IAM) differs, depending on the work you do in Amazon Aurora.
 
-![Modify DB instance](images/ssl-rotate-cert-modify-aurora.png) 4. In the **Connectivity** section,
-choose **rds-ca-rsa2048-g1**.
+**Service user** – If you use the Aurora service to do your job, then your administrator provides you
+with the credentials and permissions that you need. As you use more Aurora features to do your work, you might need additional permissions.
+Understanding how access is managed can help you request the right permissions from your administrator. If you cannot access a feature in
+Aurora, see [Troubleshooting Amazon Aurora identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
 
-![Choose CA certificate](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
-summary of modifications. 6. To apply the changes immediately, choose
-**Apply immediately**. 7. On the confirmation page, review your changes. If they
-are correct, choose **Modify DB
-Instance**
-to save your changes.
+**Service administrator** – If you're in charge of Aurora resources at your company, you probably have
+full access to Aurora. It's your job to determine which Aurora features and resources your employees should access. You must then
+submit requests to your administrator to change the permissions of your service users. Review the information on this page to understand the
+basic concepts of IAM. To learn more about how your company can use IAM with Aurora, see [How Amazon Aurora works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
-###### Important
+**Administrator** – If you're an administrator, you might want to learn details about how you can
+write policies to manage access to Aurora. To view example Aurora identity-based policies that you can use in IAM, see [Identity-based policy
+examples for Amazon Aurora](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-When you schedule this operation, make sure that
-you have updated your client-side trust store
-beforehand.
+## Authenticating with identities
 
-Or choose **Back** to edit your
-changes or **Cancel** to cancel your
-changes.
-
-AWS CLI
-To use the AWS CLI to change the CA from
-**rds-ca-2019** to
-**rds-ca-rsa2048-g1** for a DB instance
-, call the
-[modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command. Specify the DB instance
-identifier
-and the `--ca-certificate-identifier` option.
-
-Use the `--apply-immediately` parameter to apply
-the update immediately. By default, this operation is scheduled
-to run during your next maintenance window.
-
-###### Important
-
-When you schedule this operation, make sure that you have
-updated your client-side trust store beforehand.
-
-The following example modifies `mydbinstance`
-by setting the CA certificate to
-`rds-ca-rsa2048-g1`.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `mydbinstance` \
-    --ca-certificate-identifier rds-ca-rsa2048-g1
-```
-
-For Windows:
-
-```
-aws rds modify-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
-    --ca-certificate-identifier rds-ca-rsa2048-g1
-```
-
-###### Note
-
-If your instance requires reboot, you can use the
-[modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command and specify
-the `--no-certificate-rotation-restart`
-option.
-
-## Updating your CA certificate by applying maintenance
-
-Perform the following steps to update your CA certificate by applying
-maintenance.
-
-Console
-
-###### To update your CA certificate by applying
-
-maintenance
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Certificate
-   update**.
-
-![Certificate rotation navigation pane option](images/ssl-rotate-cert-certupdate.png)
-
-The **Databases requiring certificate
-update** page appears.
-
-![Update CA certificate for database](images/ssl-rotate-cert-update-multiple.png)
-
-###### Note
-
-This page only shows the DB instances for
-the current AWS Region. If you have databases in
-more than one AWS Region, check this page in each
-AWS Region to see all DB instances with old
-SSL/TLS certificates. 3. Choose the DB instance that you want to update.
-
-You can schedule the certificate rotation for your
-next maintenance window by choosing
-**Schedule**. Apply the rotation
-immediately by choosing **Apply
-now**.
-
-###### Important
-
-If you experience connectivity issues after
-certificate expiry, use the **Apply
-now** option. 4. 1. If you choose **Schedule**,
-you are prompted to confirm the CA certificate
-rotation. This prompt also states the scheduled
-window for your update.
-![Confirm certificate rotation](images/ssl-rotate-cert-confirm-schedule.png) 2. If you choose **Apply now**,
-you are prompted to confirm the CA certificate
-rotation.
-![Confirm certificate rotation](images/ssl-rotate-cert-confirm-now.png)###### Important
-
-Before scheduling the CA certificate rotation on
-your database, update any client applications that
-use SSL/TLS and the server certificate to connect.
-These updates are specific to your DB engine. After
-you have updated these client applications, you can
-confirm the CA certificate rotation.
-
-To continue, choose the check box, and then choose
-**Confirm**. 5. Repeat steps 3 and 4 for each DB instance that you
-want to update.
-
-## Automatic server certificate rotation
-
-If your root CA supports automatic server certificate rotation, RDS
-automatically handles the rotation of the DB server certificate. RDS uses
-the same root CA for this automatic rotation, so you don't need to download
-a new CA bundle. See [Certificate
-authorities](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities")
-.
-
-The rotation and validity of your DB server certificate depend on your DB
-engine:
-
-- If your DB engine supports rotation without restart, RDS
-  automatically rotates the DB server certificate without requiring
-  any action from you. RDS attempts to rotate your DB server
-  certificate in your preferred maintenance window at the DB server
-  certificate half life. The new DB server certificate is valid for 12
-  months.
-- If your DB engine doesn't support rotation without restart, Amazon RDS
-  makes a `server-certificate-rotation` Pending Maintenance Action
-  visible via Describe-pending-maintenance-actions API, at the half life of the certificate, or at least 3 months before expiry.
-  You can apply the rotation using the apply-pending-maintenance-action API. The new DB server certificate is valid for 36 months.
-
-Use the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command and inspect the
-`SupportsCertificateRotationWithoutRestart` flag to identify
-whether the DB engine version supports rotating the certificate without
-restart. For more information, see [Setting the CA for your database](UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection "UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities.Selection")
-.
-
-## Sample
-
-script for importing certificates into your trust store
-
-The following are sample shell scripts that import the certificate bundle
-into a trust store.
-
-Each sample shell script uses keytool, which is part of the Java
-Development Kit (JDK). For information about installing the JDK, see [JDK Installation Guide](https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html "https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html").
-
-Linux
-The following is a sample shell script that imports the
-certificate bundle into a trust store on a Linux operating
-system.
-
-```
-
-mydir=tmp/certs
-if [ ! -e "${mydir}" ]
-then
-mkdir -p "${mydir}"
-fi truststore=${mydir}/rds-truststore.jks storepassword=`changeit`
-
-curl -sS "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"> ${mydir}/global-bundle.pem
-awk 'split_after == 1 {n++;split_after=0} /-----END CERTIFICATE-----/ {split_after=1}{print > "rds-ca-" n+1 ".pem"}' < ${mydir}/global-bundle.pem
-
-for CERT in rds-ca-*; do alias=$(openssl x509 -noout -text -in $CERT | perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print')
-  echo "Importing $alias"
-  keytool -import -file ${CERT} -alias "${alias}" -storepass ${storepassword} -keystore ${truststore} -noprompt
-  rm $CERT
-done
-
-rm ${mydir}/global-bundle.pem
-
-echo "Trust store content is: "
-
-keytool -list -v -keystore "$truststore" -storepass ${storepassword} | grep Alias | cut -d " " -f3- | while read alias
-do expiry=`keytool -list -v -keystore "$truststore" -storepass ${storepassword} -alias "${alias}" | grep Valid | perl -ne 'if(/until: (.*?)\n/) { print "$1\n"; }'`
-   echo " Certificate ${alias} expires in '$expiry'"
-done
-
-```
-
-macOS
-The following is a sample shell script that imports the
-certificate bundle into a trust store on macOS.
-
-```
-
-mydir=tmp/certs
-if [ ! -e "${mydir}" ]
-then
-mkdir -p "${mydir}"
-fi truststore=${mydir}/rds-truststore.jks storepassword=`changeit`
-
-curl -sS "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"> ${mydir}/global-bundle.pem
-split -p "-----BEGIN CERTIFICATE-----" ${mydir}/global-bundle.pem rds-ca-
-
-for CERT in rds-ca-*; do alias=$(openssl x509 -noout -text -in $CERT | perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print')
-  echo "Importing $alias"
-  keytool -import -file ${CERT} -alias "${alias}" -storepass ${storepassword} -keystore ${truststore} -noprompt
-  rm $CERT
-done
-
-rm ${mydir}/global-bundle.pem
-
-echo "Trust store content is: "
-
-keytool -list -v -keystore "$truststore" -storepass ${storepassword} | grep Alias | cut -d " " -f3- | while read alias
-do expiry=`keytool -list -v -keystore "$truststore" -storepass ${storepassword} -alias "${alias}" | grep Valid | perl -ne 'if(/until: (.*?)\n/) { print "$1\n"; }'`
-   echo " Certificate ${alias} expires in '$expiry'"
-done
-
-```
-
-To learn more best practices about using SSL with
-Amazon RDS, see [Best practices for successful SSL connections to Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/best-practices-for-successful-ssl-connections-to-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/best-practices-for-successful-ssl-connections-to-amazon-rds-for-oracle/").
+Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
+
+You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md") in the _AWS Sign-In User Guide_.
+
+For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
+
+### AWS account root user
+
+When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
+
+### Federated identity
+
+As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
+
+A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
+
+For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
+
+### IAM users and groups
+
+An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
+
+An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
+
+You can authenticate to your DB cluster using IAM database authentication.
+
+IAM database authentication works with Aurora. For more information
+about authenticating to your DB cluster
+using IAM, see [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md").
+
+### IAM roles
+
+An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity within your AWS account that
+has specific permissions. It is similar to a user, but is not associated with a specific person. You can temporarily assume an IAM role in
+the AWS Management Console by [switching roles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md"). You can assume a role by calling an AWS CLI
+or AWS API operation or by using a custom URL. For more information about methods for using roles, see [Using IAM roles](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md") in the _IAM User Guide_.
+
+IAM roles with temporary credentials are useful in the following situations:
+
+- **Temporary user permissions** – A user can assume an IAM role to temporarily take on
+  different permissions for a specific task.
+- **Federated user access** –
+
+To assign permissions to a federated identity, you create a role and define permissions for the role. When a federated identity authenticates, the identity is associated with the role and is granted the permissions that are defined by the role. For information about roles for federation, see [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md") in the _IAM User Guide_.
+
+If you use IAM Identity Center, you configure a permission set. To control what your identities can access after they authenticate, IAM Identity Center correlates the permission set to a role in IAM.
+For information about permissions sets, see [Permission sets](../../../singlesignon/latest/userguide/permissionsetsconcept.md "../../../singlesignon/latest/userguide/permissionsetsconcept.md") in the _AWS IAM Identity Center User Guide_.
+
+- **Cross-account access** – You can use an
+  IAM role to allow someone (a trusted principal) in a different account to access
+  resources in your account. Roles are the primary way to grant cross-account
+  access. However, with some AWS services, you can attach a policy directly to a
+  resource (instead of using a role as a proxy). To learn the difference between
+  roles and resource-based policies for cross-account access, see [How IAM roles
+  differ from resource-based policies](../../../IAM/latest/UserGuide/id_roles_compare-resource-policies.md "../../../IAM/latest/UserGuide/id_roles_compare-resource-policies.md") in the
+  _IAM User Guide_.
+- **Cross-service access** –
+
+Some AWS services use features in other AWS services. For example, when you make a call in a service,
+it's common for that service to run applications in Amazon EC2 or store objects in Amazon S3. A service might do this
+using the calling principal's permissions, using a service role, or using a service-linked role.
+
+    + **Forward access sessions** –
+
+     Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
+     when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+    + **Service role** –
+
+     A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
+     actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
+     more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the *IAM User Guide*.
+    + **Service-linked role** –
+
+     A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
+     Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
+     but not edit the permissions for service-linked roles.
+
+- **Applications running on Amazon EC2** –
+
+You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests.
+This is preferable to storing access keys within the EC2 instance. To assign an AWS role to an EC2 instance and make it
+available to all of its applications, you create an instance profile that is attached to the
+instance. An instance profile contains the role and enables programs that are running on the EC2 instance to
+get temporary credentials. For more information, see [Use an IAM role to grant permissions to applications running on Amazon EC2 instances](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md") in the
+_IAM User Guide_.
+
+To learn whether to use IAM roles, see [When to create an IAM role (instead of a
+user)](../../../IAM/latest/UserGuide/id.md#id_which-to-choose_role "../../../IAM/latest/UserGuide/id.md#id_which-to-choose_role") in the _IAM User Guide_.
+
+## Managing access using policies
+
+You control access in AWS by creating policies and attaching them to IAM identities or AWS resources. A policy is an object in AWS that,
+when associated with an identity or resource, defines their permissions. AWS evaluates these policies when an entity (root user, user, or IAM
+role) makes a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON
+documents. For more information about the structure and contents of JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
+
+An administrator can use policies to specify who has access to AWS resources, and what actions they can perform on those resources. Every
+IAM entity (permission set or role) starts with no permissions. In other words, by default, users can do nothing, not even change their own password. To give a
+user permission to do something, an administrator must attach a permissions policy to a user. Or the administrator can add the user to a group that has
+the intended permissions. When an administrator gives permissions to a group, all users in that group are granted those permissions.
+
+IAM policies define permissions for an action regardless of the method that you use to perform the operation. For example, suppose that you have a
+policy that allows the `iam:GetRole` action. A user with that policy can get role information from the AWS Management Console, the AWS CLI, or the AWS
+API.
+
+### Identity-based policies
+
+Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as a permission set or role. These
+policies control what actions that identity can perform, on which resources, and under what conditions. To learn how to create an identity-based
+policy, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
+_IAM User Guide_.
+
+Identity-based policies can be further categorized as _inline policies_ or _managed
+policies_. Inline policies are embedded directly into a single permission set or role. Managed policies are standalone policies that you
+can attach to multiple permission sets and roles in your AWS account. Managed policies include AWS managed policies and customer managed
+policies. To learn how to choose between a managed policy or an inline policy, see [Choosing between managed policies and inline
+policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline") in the _IAM User Guide_.
+
+For information about AWS managed policies that are specific to
+Amazon Aurora, see
+[AWS managed policies for Amazon RDS](rds-security-iam-awsmanpol.md "rds-security-iam-awsmanpol.md").
+
+### Other policy types
+
+AWS supports additional, less-common policy types. These policy types can set the maximum permissions granted to you by the more common policy
+types.
+
+- **Permissions boundaries** – A permissions
+  boundary is an advanced feature in which you set the maximum permissions that an
+  identity-based policy can grant to an IAM entity (permission set or role). You can
+  set a permissions boundary for an entity. The resulting permissions are the
+  intersection of entity's identity-based policies and its permissions boundaries.
+  Resource-based policies that specify the permission set or role in the
+  `Principal` field are not limited by the permissions boundary. An
+  explicit deny in any of these policies overrides the allow. For more information
+  about permissions boundaries, see [Permissions boundaries for
+  IAM entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md") in the _IAM User Guide_.
+- **Service control policies (SCPs)** – SCPs are JSON policies that specify the maximum permissions for
+  an organization or organizational unit (OU) in AWS Organizations. AWS Organizations is a service for grouping and centrally managing multiple AWS accounts
+  that your business owns. If you enable all features in an organization, then you can apply service control policies (SCPs) to any or all of
+  your accounts. The SCP limits permissions for entities in member accounts, including each AWS account root user. For more information about Organizations and
+  SCPs, see [How SCPs work](../../../organizations/latest/userguide/orgs_manage_policies_about-scps.md "../../../organizations/latest/userguide/orgs_manage_policies_about-scps.md") in the _AWS Organizations User Guide_.
+- **Session policies** – Session policies are
+  advanced policies that you pass as a parameter when you programmatically create a
+  temporary session for a role or federated user. The resulting session's
+  permissions are the intersection of the permission sets or role's identity-based policies and
+  the session policies. Permissions can also come from a resource-based policy. An
+  explicit deny in any of these policies overrides the allow. For more information,
+  see [Session
+  policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
+
+### Multiple policy types
+
+When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines
+whether to allow a request when multiple policy types are involved, see [Policy
+evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.

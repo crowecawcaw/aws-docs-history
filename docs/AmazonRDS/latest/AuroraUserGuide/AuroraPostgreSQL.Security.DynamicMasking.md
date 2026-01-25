@@ -1,144 +1,81 @@
-# Pre-defined data masking functions
+# Escaping identifiers in masking policy DDL procedure
 
-`pg_columnmask` extension provides built-in utility functions written in C language
-(for faster execution) which can be used as masking expression for `pg_columnmask` policies.
+When creating data masking policies with quoted identifiers, proper escaping is required to ensure correct object references
+and policy application. To use quoted identifiers inside the `pg_columnmask` masking policy management procedures:
 
-**mask_text**
+- **Policy name** – Must be enclosed in double quotes.
+- **Table name** – Both schema name and table name must be enclosed in double quotes individually when required.
+- **Masking expressions** – Column and function names in masking expressions must be enclosed in
+  double quotes and the quotes themselves must be escaped using a backslash.
+- **Roles** – The array of role names is automatically quoted.
+  The role name should exactly match the name as seen in `pg_roles` including case sensitivity.
 
-A function to mask text data with configurable visibility options.
+###### Example of escaping and quoting syntax
 
-**Arguments**
-
-| Parameter        | Datatype | Description                                                                                   |
-| ---------------- | -------- | --------------------------------------------------------------------------------------------- |
-| `input`          | TEXT     | The original text string to be masked                                                         |
-| `mask_char`      | CHAR(1)  | Character used for masking (default: 'X')                                                     |
-| `visible_prefix` | INT      | Number of characters at the beginning of input text that will<br>remain unmasked (default: 0) |
-| `visible_suffix` | INT      | Number of characters at the end of input text that will remain<br>unmasked (default: 0)       |
-| `use_hash_mask`  | BOOLEAN  | If TRUE, uses a hash-based masking instead of mask_char (default: FALSE)                      |
-
-###### Example of using different masking options
-
-Mask the entire input string with the default 'X' character
+This example shows the proper escaping and quoting syntax when creating masking policies for tables,
+columns, functions, and roles that use mixed-case names or require quoted identifiers in Aurora PostgreSQL.
 
 ```
-postgres=> SELECT pgcolumnmask.mask_text('Hello World');
-  mask_text
--------------
- XXXXXXXXXXX
-```
+-- Create a table and columns with mixed case name
+CREATE TABLE public."Employees" (
+    "Name" TEXT,
+    "Email" TEXT,
+    ssn VARCHAR(20)
+);
 
-Use the `mask_char` argument to mask text input using a different character
+-- Create a role with mixed case name
+CREATE ROLE "Masked_user";
 
-```
-postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*');
-  mask_text
--------------
- ***********
-```
+-- Create a function with mixed case name
+CREATE OR REPLACE FUNCTION public."MaskEmail"(text)
+    RETURNS character varying
+    LANGUAGE plpgsql
+    IMMUTABLE PARALLEL SAFE
+    AS $$ BEGIN
+        RETURN 'XXXXXXXX'::text;
+    END $$;
 
-Use `visible_prefix` and `visible_suffix` parameters to control how many characters remain unmasked at the start and end of the text
+-- Now use these objects with mixed case names in
+-- masking policy management procedures
+CALL pgcolumnmask.create_masking_policy(
+    '"Policy1"',  -- policy name should be surrounded with double quotes for quoting
+    'public."Employees"', -- table and schema name should be individually
+                          -- surrounded with double quotes for quoting
+    JSON_OBJECT('{
+        "\"Email\"", "\"MaskEmail\"(\"Email\")"
+    }')::JSONB, -- masking expression should have double quotes around function names
+                -- and columns names etc when needed. Also the double quotes itself
+                -- should be escaped using \ (backslash) since this is a JSON string
+    ARRAY['Masked_user'], -- Rolename do not need quoting
+                          -- (this behaviour may change in future release)
+    100
+);
 
-```
-postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 5, 1);
-  mask_text
--------------
- Hello*****d
-```
+SELECT * FROM pgcolumnmask.pg_columnmask_policies
+    WHERE tablename = 'Employees';
+-[ RECORD 1 ]-----+-------------------------------------
+schemaname        | public
+tablename         | Employees
+policyname        | Policy1
+roles             | {Masked_user}
+masked_columns    | {Email}
+masking_functions | {"(\"MaskEmail\"(\"Email\"))::text"}
+weight            | 100
 
-When `use_hash_mask` is true the input string is masked using random characters
-`mask_char` argument is ignored but `visible_prefix` and `visible_suffix` are still honored
-
-```
-postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 2, 2, true);
-  mask_text
--------------
- Hex36dOHild
-```
-
-**mask_timestamp**
-
-| Parameter    | Datatype  | Description                                                                                                                            |
-| ------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `ts_to_mask` | TIMESTAMP | The original timestamp to be masked                                                                                                    |
-| `mask_part`  | TEXT      | Specifies which part of the timestamp to mask (default: 'all') Valid values: 'year', 'month', 'day', 'hour', 'minute', 'second', 'all' |
-| `mask_value` | TIMESTAMP | The timestamp value to use for masking (default: '1900-01-01 00:00:00')                                                                |
-
-###### Example of using `mask_timestamps`
-
-These examples demonstrate complete timestamp masking to a default value, partial masking
-of specific timestamp components (year only), and masking with a custom replacement value.
-
-Completely mask input value to the default timestamp
 
 ```
-postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00');
-   mask_timestamp
----------------------
- 1900-01-01 00:00:00
-```
 
-To mask only one part of the timestamp from example only the year
+## Administrative views
 
-```
-postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'year');
-   mask_timestamp
----------------------
- 1900-06-15 14:30:00
-```
+You can review all the `pg_columnmask` policy using the publicly accessible `pgcolumnmask.pg_columnmask_policies` administrative view.
+Following information is available using this view. The view only returns the masking policies owned by current user.
 
-To change the masked value for timestamp use the `mask_value` argument
-
-```
-postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'all', '2012-12-12 12:12:12');
-   mask_timestamp
----------------------
- 2012-12-12 12:12:12
-```
-
-**mask_timestamp**
-
-A function to mask email addresses while preserving email structure.
-
-| Parameter     | Datatype | Description                                                       |
-| ------------- | -------- | ----------------------------------------------------------------- |
-| `input`       | TEXT     | The original email address to be masked                           |
-| `mask_char`   | CHAR(1)  | Character used for masking (default: 'X')                         |
-| `mask_local`  | BOOLEAN  | If TRUE, masks the local part of email (before @) (default: TRUE) |
-| `mask_domain` | BOOLEAN  | If TRUE, masks the domain part of email (after @) (default: TRUE) |
-
-###### Example of using `mask_email`
-
-These examples demonstrate complete email masking, custom mask characters, and selective masking of either the local part or domain part of the email address.
-
-Complete masking
-
-```
-postgres=> SELECT pgcolumnmask.mask_email('user@example.com');
-    mask_email
-------------------
- XXXX@XXXXXXX.com
-```
-
-Use `mask_char` to change the character used for masking
-
-```
-postgres=> SELECT pgcolumnmask.mask_email('user@example.com', '*');
-    mask_email
-------------------
- ****@*******.com
-```
-
-Use `mask_local` and `mask_domain` to control masking on local and domain
-
-```
-postgres=> SELECT pgcolumnmask.mask_email('user@example.com', '*', true, false);
-    mask_email
-------------------
- ****@example.com
-
-postgres=> SELECT pgcolumnmask.mask_email('user@example.com', '*', false, true);
-    mask_email
-------------------
- user@*******.com
-```
+| Column name       | Data type | Description                                                           |
+| ----------------- | --------- | --------------------------------------------------------------------- |
+| schemaname        | NAME      | Schema of the relation to which the policy is attached                |
+| tablename         | NAME      | Name of the relation to which the policy is attached                  |
+| policyname        | NAME      | Name of the masking policy, all masking policies have unique<br>names |
+| roles             | TEXT[]    | Role to which policy applies.                                         |
+| masked_columns    | TEXT[]    | Masked columns                                                        |
+| masking_functions | TEXT[]    | Masking functions                                                     |
+| weight            | INT       | Weight of the attached policy                                         |

@@ -428,6 +428,39 @@ async fn test_scenario_set_engine_param_group_exists() {
   [CreateDBClusterParameterGroup](https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group "https://docs.rs/aws-sdk-rds/latest/aws_sdk_rds/client/struct.Client.html#method.create_db_cluster_parameter_group")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    TRY.
+        DATA(lo_output) = lo_rds->createdbclusterparamgroup(
+          iv_dbclusterparamgroupname = iv_param_group_name
+          iv_dbparametergroupfamily = iv_param_group_family
+          iv_description = iv_description
+        ).
+        oo_result = lo_output->get_dbclusterparametergroup( ).
+      CATCH /aws1/cx_rdsdbparmgralrexfault.
+        " Re-raise exception - parameter group already exists
+        RAISE EXCEPTION TYPE /aws1/cx_rdsdbparmgralrexfault.
+      CATCH /aws1/cx_rdsdbprmgrquotaexcd00.
+        " Re-raise exception - quota exceeded
+        RAISE EXCEPTION TYPE /aws1/cx_rdsdbprmgrquotaexcd00.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateDBClusterParameterGroup](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

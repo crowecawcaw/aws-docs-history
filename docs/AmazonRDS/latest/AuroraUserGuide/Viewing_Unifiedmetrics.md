@@ -1,6 +1,4 @@
-# Creating a custom
-
-dashboard with Performance Insights
+# Choosing the new monitoring view from the Monitoring tab
 
 ###### Important
 
@@ -21,45 +19,27 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-In the new monitoring view, you can create a custom dashboard with the metrics you
-need to meet your analysis requirements.
+From the Amazon RDS console, you can choose the new monitoring view to view Performance Insights and CloudWatch metrics for your DB instance.
 
-You can create a custom dashboard by selecting Performance Insights and CloudWatch metrics for your DB instance.
-You can use this custom dashboard for other DB instances of the same database
-engine type in your AWS account.
-
-###### Note
-
-The customized dashboard supports up to 50 metrics.
-
-Use the widget settings menu to edit or delete the dashboard, and move or resize the
-widget window.
-
-###### To create a custom dashboard with Performance Insights in the navigation pane
+###### To choose the new monitoring view in the Monitoring tab
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
-4. Scroll down to the **Metrics tab** in the window.
-5. Select the custom dashboard from the drop down list. The following example
-   shows the custom dashboard creation.
+2. In the left navigation pane, choose **Databases**.
+3. Choose the Aurora DB cluster that you want to monitor.
+4. Scroll down and choose the **Monitoring** tab.
 
-![Custom metrics dashboard with no widgets yet.](images/Monitoring_custmDashbrd_addWidget.png) 6. Choose **Add widget** to open the **Add
-widget** window. You can open and view the available operating
-system (OS) metrics, database metrics, and CloudWatch metrics in the window.
+A banner appears with the option to choose the new monitoring view. The following
+example shows the banner to choose the new monitoring view.
 
-The following example shows the **Add widget** window with the metrics.
+![Banner with navigation to new monitoring view.](images/NewMonitoringViewOption.png) 5. Choose **Go to new monitoring view** to open the Performance Insights dashboard
+with Performance Insights and CloudWatch metrics for your DB cluster. 6. (Optional) If Performance Insights is turned off for your DB instance, a banner appears with the option
+to modify your DB instance and turn on Performance Insights.
 
-![The metrics options in the Add Widget window.](images/Monitoring_AddWidget.png) 7. Select the metrics that you want to view in the dashboard and choose
-**Add widget**. You can use the search field to find a
-specific metric.
+The following example shows the banner to modify the DB instance in the
+**Monitoring** tab .
 
-The selected metrics appear on your dashboard. 8. (Optional) If you want to modify or delete your dashboard, choose the
-settings icon on the upper right of the widget, and then select one of the following actions in the menu.
+![Modify DB instance to turn on Performance Insights.](images/Monitoring_modifyInstnc_banner.png)
 
-    * **Edit** – Modify the metrics list in the window. Choose
-     **Update widget** after you select the metrics for
-     your dashboard.
-    * **Delete** – Deletes the widget. Choose
-     **Delete** in the confirmation window.
+Choose **Modify** to modify your DB instance and turn on Performance Insights.
+For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md")

@@ -1,749 +1,323 @@
-# Getting started with Aurora zero-ETL integrations
+# Data filtering for Aurora zero-ETL integrations
 
-Before you create a zero-ETL integration, configure your Aurora DB cluster and your data warehouse with
-the required parameters and permissions. During setup, you'll complete the following
-steps:
+Aurora
+zero-ETL integrations support data filtering, which lets you control which data is replicated from
+your source Aurora DB cluster to your target data warehouse. Instead of replicating the entire
+database, you can apply one or more filters to selectively include or exclude specific tables.
+This helps you optimize storage and query performance by ensuring that only relevant data is
+transferred. Currently, filtering is limited to the database and table levels. Column- and
+row-level filtering are not supported.
 
-1. [Create a custom DB cluster parameter group](#zero-etl.parameters "#zero-etl.parameters").
-2. [Create a source DB cluster](#zero-etl.create-cluster "#zero-etl.create-cluster").
-3. [Create a target data warehouse
-   for Amazon Redshift](#zero-etl-setting-up.data-warehouse "#zero-etl-setting-up.data-warehouse") or [Create a
-   target Amazon SageMaker AI lakehouse](#zero-etl-setting-up.sagemaker "#zero-etl-setting-up.sagemaker").
-   After you complete these tasks, continue to [Creating Aurora zero-ETL integrations with Amazon Redshift](zero-etl.md "zero-etl.md") or [Creating Aurora zero-ETL integrations with an Amazon SageMaker lakehouse](zero-etl.md "zero-etl.md").
+Data filtering can be useful when you want to:
 
-You can use the AWS SDKs to automate the setup process for you. For
-more information, see [Set up an integration using the AWS SDKs](#zero-etl.setup-sdk "#zero-etl.setup-sdk").
+- Join certain tables from two or more different source clusters, and you don't need
+  complete data from either cluster.
+- Save costs by performing analytics using only a subset of tables rather than an entire
+  fleet of databases.
+- Filter out sensitive information—such as phone numbers, addresses, or credit card
+  details—from certain tables.
+  You can add data filters to a zero-ETL integration using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or
+  the Amazon RDS API.
 
-###### Tip
+If the integration has a provisioned cluster as its target, the cluster must be on [patch 180](../../../redshift/latest/mgmt/cluster-versions.md#cluster-version-180 "../../../redshift/latest/mgmt/cluster-versions.md#cluster-version-180") or higher to
+use data filtering.
 
-You can have RDS complete these setup steps for you while you're creating the
-integration, rather than performing them manually. To immediately start creating an
-integration, see [Creating Aurora zero-ETL integrations with Amazon Redshift](zero-etl.md "zero-etl.md").
+###### Topics
 
-For Step 3, you can choose to create either a target data warehouse (Step 3a) or a target
-lakehouse (Step 3b) depending on your needs:
+- [Format of a data filter](#zero-etl.filtering-format "#zero-etl.filtering-format")
+- [Filter logic](#zero-etl.filtering-evaluate "#zero-etl.filtering-evaluate")
+- [Filter precedence](#zero-etl.filtering-precedence "#zero-etl.filtering-precedence")
+- [Aurora MySQL
+  examples](#zero-etl.filtering-examples-mysql "#zero-etl.filtering-examples-mysql")
+- [Aurora PostgreSQL examples](#zero-etl.filtering-examples-postgres "#zero-etl.filtering-examples-postgres")
+- [Adding data filters to an integration](#zero-etl.add-filter "#zero-etl.add-filter")
+- [Removing data filters from an integration](#zero-etl.remove-filter "#zero-etl.remove-filter")
 
-- Choose a data warehouse if you need traditional data warehousing capabilities with
-  SQL-based analytics.
-- Choose an Amazon SageMaker AI lakehouse if you need machine learning
-  capabilities and want to use lakehouse features for data science and ML
-  workflows.
+## Format of a data filter
 
-## Step 1: Create a custom DB cluster parameter group
+You can define multiple filters for a single integration. Each filter either includes or
+excludes any existing and future database tables that match one of the patterns in the filter
+expression. Aurora zero-ETL integrations use [Maxwell filter syntax](https://maxwells-daemon.io/filtering/ "https://maxwells-daemon.io/filtering/") for data filtering.
 
-Aurora zero-ETL integrations require specific values for the DB cluster
-parameters that control replication. Specifically, Aurora MySQL requires
-_enhanced binlog_ (`aurora_enhanced_binlog`), and
-Aurora PostgreSQL requires _enhanced logical replication_
-(`aurora.enhanced_logical_replication`).
+Each filter has the following elements:
 
-To configure binary logging or logical replication, you must first
-create a custom DB cluster parameter group, and then associate it with the source
-DB cluster.
-
-**Aurora MySQL (aurora-mysql8.0
-family)**:
-
-- `aurora_enhanced_binlog=1`
-- `binlog_backup=0`
-- `binlog_format=ROW`
-- `binlog_replication_globaldb=0`
-- `binlog_row_image=full`
-- `binlog_row_metadata=full`
-
-In addition, make sure that the
-`binlog_transaction_compression` parameter is _not_
-set to `ON`, and that the `binlog_row_value_options` parameter is
-_not_ set to `PARTIAL_JSON`.
-
-For more information about Aurora MySQL enhanced binlog, see [Setting up enhanced binlog for Aurora MySQL](AuroraMySQL.Enhanced.md "AuroraMySQL.Enhanced.md").
-
-**Aurora PostgreSQL (aurora-postgresql16
-family):**
-
-- `rds.logical_replication=1`
-- `aurora.enhanced_logical_replication=1`
-- `aurora.logical_replication_backup=0`
-- `aurora.logical_replication_globaldb=0`
-
-Enabling enhanced logical replication
-(`aurora.enhanced_logical_replication`) will always write all column
-values to the write ahead log (WAL) even if `REPLICA IDENTITY FULL` isn't
-enabled. This might increase the IOPS for your source DB cluster.
+| Element           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Filter type       | An `Include` filter type *includes<br>• all tables<br>that match one of the patterns in the filter expression. An `Exclude`<br>filter type *excludes<br>• all tables that match one of the<br>patterns.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Filter expression | A comma-separated list of patterns. Expressions must use [Maxwell filter syntax](https://maxwells-daemon.io/filtering/ "https://maxwells-daemon.io/filtering/").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Pattern           | A filter pattern in the format<br>``database`.`table``<br>for Aurora MySQL, or<br>``database`.`schema`.`table``<br>for Aurora PostgreSQL. You can specify literal names, or define regular<br>expressions.<br>NoteFor Aurora MySQL, regular expressions are supported in both the database and<br>table name. For Aurora PostgreSQL, regular expressions are supported only in the<br>schema and table name, not in the database name.<br>You can't include column-level filters or denylists.<br>A single integration can have a maximum of 99 total patterns. In the console, you<br>can enter patterns within a single filter expression, or spread them out among<br>multiple expressions. A single pattern can't exceed 256 characters in length. |
 
 ###### Important
 
-If you enable or disable the `aurora.enhanced_logical_replication` DB
-cluster parameter, the primary DB instance invalidates all logical replication
-slots. This stops replication from the source to the target, and you must recreate
-replication slots on the primary DB instance. To prevent interruptions, keep the
-parameter state consistent during replication.
+If you select an Aurora PostgreSQL source DB cluster, you must specify at least one
+data filter pattern. At minimum, the pattern must include a single database
+(``database-name`._._`) for replication to
+the target data warehouse.
 
-## Step 2: Select or create a source DB cluster
+The following image shows the structure of Aurora MySQL data filters in the
+console:
 
-After you create a custom DB cluster parameter
-group, choose or create an
-Aurora DB cluster. This cluster will be the source of
-data replication to the target data warehouse. You can
-specify a DB cluster that uses provisioned DB instances or Aurora Serverless v2 DB instances as the
-source. For instructions to create a DB cluster, see
-[Creating an Amazon Aurora DB cluster](Aurora.md "Aurora.md") or
-[Creating a DB cluster that uses Aurora Serverless v2](aurora-serverless-v2.md "aurora-serverless-v2.md").
+![Data filters for a zero-ETL integration](images/zero-etl-filter.png)
 
-The database must be running a supported DB engine version. For a list of supported
-versions, see [Supported
-Regions and Aurora DB engines for zero-ETL integrations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.md").
+###### Important
 
-When you create the database, under **Additional configuration**,
-change the default **DB cluster parameter
-group** to the custom parameter group that you created in the previous
-step.
+Do not include personally identifying, confidential, or sensitive information in your
+filter patterns.
 
-###### Note
+### Data filters in the AWS CLI
 
-If you associate the parameter group with the DB cluster
-_after_ the cluster is already
-created, you must reboot the primary DB instance in the cluster to apply the
-changes before you can create a zero-ETL integration. For instructions, see [Rebooting an Amazon Aurora DB cluster or Amazon Aurora DB instance](USER_RebootCluster.md "USER_RebootCluster.md").
+When using the AWS CLI to add a data filter, the syntax differs slightly from the console.
+You must assign a filter type (`Include` or `Exclude`) to each pattern
+individually, so you can't group multiple patterns under one filter type.
 
-## Step 3a: Create a target data
+For example, in the console you can group the following comma-separated patterns under a
+single `Include` statement:
 
-warehouse
-
-After you create your source DB cluster, you must create and configure a target data
-warehouse. The data warehouse must meet the following requirements:
-
-- Using an RA3 node type with at least two nodes, or Redshift Serverless.
-- Encrypted (if using a provisioned cluster). For more information, see [Amazon Redshift database
-  encryption](../../../redshift/latest/mgmt/working-with-db-encryption.md "../../../redshift/latest/mgmt/working-with-db-encryption.md").
-
-For instructions to create a data warehouse, see [Creating a cluster](../../../redshift/latest/mgmt/create-cluster.md "../../../redshift/latest/mgmt/create-cluster.md") for provisioned
-clusters, or [Creating a workgroup with a namespace](../../../redshift/latest/mgmt/serverless-console-workgroups-create-workgroup-wizard.md "../../../redshift/latest/mgmt/serverless-console-workgroups-create-workgroup-wizard.md") for Redshift Serverless.
-
-### Enable case sensitivity on
-
-the data warehouse
-
-For the integration to be successful, the case sensitivity parameter ([`enable_case_sensitive_identifier`](../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md "../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md")) must be enabled for
-the data warehouse. By default, case sensitivity is disabled on all provisioned
-clusters and Redshift Serverless workgroups.
-
-To enable case sensitivity, perform the following steps depending on your data
-warehouse type:
-
-- **Provisioned cluster** – To enable
-  case sensitivity on a provisioned cluster, create a custom parameter group
-  with the `enable_case_sensitive_identifier` parameter enabled.
-  Then, associate the parameter group with the cluster. For instructions, see
-  [Managing parameter groups using the console](../../../redshift/latest/mgmt/managing-parameter-groups-console.md "../../../redshift/latest/mgmt/managing-parameter-groups-console.md") or [Configuring parameter values using the AWS CLI](../../../redshift/latest/mgmt/working-with-parameter-groups.md#configure-parameters-using-the-clil "../../../redshift/latest/mgmt/working-with-parameter-groups.md#configure-parameters-using-the-clil").
-
-###### Note
-
-Remember to reboot the cluster after you associate the custom
-parameter group with it.
-
-- **Serverless workgroup** – To enable
-  case sensitivity on a Redshift Serverless workgroup, you must use the AWS CLI. The Amazon Redshift
-  console doesn't currently support modifying Redshift Serverless parameter values. Send the
-  following [update-workgroup](../../../cli/latest/reference/redshift-serverless/update-workgroup.md "../../../cli/latest/reference/redshift-serverless/update-workgroup.md") request:
+**Aurora MySQL**
 
 ```
-aws redshift-serverless update-workgroup \
-  --workgroup-name `target-workgroup` \
-  --config-parameters parameterKey=enable_case_sensitive_identifier,parameterValue=true
+`mydb`.`mytable`, `mydb`.`/table_\d+/`
 ```
 
-You don't need to reboot a workgroup after you modify its parameter
-values.
-
-### Configure authorization for the data
-
-warehouse
-
-After you create a data warehouse, you must configure the source Aurora DB cluster as an authorized integration source. For instructions, see [Configure authorization for your Amazon Redshift data warehouse](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam").
-
-## Set up an integration using the AWS SDKs
-
-Rather than setting up each resource manually, you can run the following Python script
-to automatically set up the required resources for you. The code example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html") to create a source Amazon Aurora
-DB cluster and target
-data warehouse, each with the required parameter values. It then waits for the databases
-to be available before creating a zero-ETL integration between them. You can comment out
-different functions depending on which resources you need to set up.
-
-To install the required dependencies, run the following commands:
+**Aurora PostgreSQL**
 
 ```
-pip install boto3
-pip install time
+`mydb`.`myschema`.`mytable`, `mydb`.`myschema`.`/table_\d+/`
 ```
 
-Within the script, optionally modify the names of the source, target, and parameter
-groups. The final function creates an integration named `my-integration`
-after the resources are set up.
+However, when using the AWS CLI, the same data filter must be in the following
+format:
 
+**Aurora MySQL**
+
+```
+'include: `mydb.mytable`, include: `mydb./table_\d+/`'
+```
+
+**Aurora PostgreSQL**
+
+```
+'include: `mydb.myschema.mytable`, include: `mydb.myschema./table_\d+/`'
+```
+
+## Filter logic
+
+If you don't specify any data filters in your integration, Aurora assumes a default filter of
+`include:*.*`, which replicates all tables to the target data warehouse. However,
+if you add at least one filter, the default logic switches to `exclude:*.*`, which
+excludes all tables by default. This lets you explicitly define which databases and tables to
+include in replication.
+
+For example, if you define the following filter:
+
+```
+'include: db.table1, include: db.table2'
+```
+
+Aurora
+evaluates the filter as follows:
+
+```
+'**exclude:\*.\***, include: db.table1, include: db.table2'
+```
+
+Therefore, Aurora only replicates `table1` and `table2` from the
+database named `db` to the target data warehouse.
+
+## Filter precedence
+
+Aurora
+evaluates data filters in the order you specify. In the AWS Management Console, it processes filter
+expressions from left to right and top to bottom. A second filter or an individual pattern
+that follows the first can override it.
+
+For example, if the first filter is `Include books.stephenking`, it includes
+only the `stephenking` table from the `books` database. However, if you
+add a second filter, `Exclude books.*`, it overrides the first filter. This
+prevents any tables from the `books` index from being replicated to the target data warehouse.
+
+When you specify at least one filter, the logic starts by assuming
+`exclude:*.*` by default, which automatically _excludes_ all
+tables from replication. As a best practice, define filters from broadest to most specific.
+Start with one or more `Include` statements to specify the data to replicate, then
+add `Exclude` filters to selectively remove certain tables.
+
+The same principle applies to filters that you define using the AWS CLI. Aurora evaluates
+these filter patterns in the order that you specify them, so a pattern might override one that
+you specify before it.
+
+## Aurora MySQL
+
+examples
+
+The following examples demonstrate how data filtering works for
 Aurora MySQL
+examples zero-ETL integrations:
+
+- Include all databases and all tables:
 
 ```
-import boto3
-import time
-
-# Build the client using the default credential configuration.
-# You can use the CLI and run 'aws configure' to set access key, secret
-# key, and default Region.
-
-rds = boto3.client('rds')
-redshift = boto3.client('redshift')
-sts = boto3.client('sts')
-
-source_cluster_name = 'my-source-cluster' # A name for the source cluster
-source_param_group_name = 'my-source-param-group' # A name for the source parameter group
-target_cluster_name = 'my-target-cluster' # A name for the target cluster
-target_param_group_name = 'my-target-param-group' # A name for the target parameter group
-
-def create_source_cluster(*args):
-    """Creates a source Aurora MySQL DB cluster"""
-
-    response = rds.create_db_cluster_parameter_group(
-        DBClusterParameterGroupName=source_param_group_name,
-        DBParameterGroupFamily='aurora-mysql8.0',
-        Description='For Aurora MySQL binary logging'
-    )
-    print('Created source parameter group: ' + response['DBClusterParameterGroup']['DBClusterParameterGroupName'])
-
-    response = rds.modify_db_cluster_parameter_group(
-        DBClusterParameterGroupName=source_param_group_name,
-        Parameters=[
-            {
-                'ParameterName': 'aurora_enhanced_binlog',
-                'ParameterValue': '1',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'binlog_backup',
-                'ParameterValue': '0',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'binlog_format',
-                'ParameterValue': 'ROW',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'binlog_replication_globaldb',
-                'ParameterValue': '0',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'binlog_row_image',
-                'ParameterValue': 'full',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'binlog_row_metadata',
-                'ParameterValue': 'full',
-                'ApplyMethod': 'pending-reboot'
-            }
-        ]
-    )
-    print('Modified source parameter group: ' + response['DBClusterParameterGroupName'])
-
-    response = rds.create_db_cluster(
-        DBClusterIdentifier=source_cluster_name,
-        DBClusterParameterGroupName=source_param_group_name,
-        Engine='aurora-mysql',
-        EngineVersion='8.0.mysql_aurora.3.05.2',
-        DatabaseName='myauroradb',
-        MasterUsername='`username`',
-        MasterUserPassword='`Password01**`'
-    )
-    print('Creating source cluster: ' + response['DBCluster']['DBClusterIdentifier'])
-    source_arn = (response['DBCluster']['DBClusterArn'])
-    create_target_cluster(target_cluster_name, source_arn, target_param_group_name)
-
-    response = rds.create_db_instance(
-        DBInstanceClass='db.r6g.2xlarge',
-        DBClusterIdentifier=source_cluster_name,
-        DBInstanceIdentifier=source_cluster_name + '-instance',
-        Engine='aurora-mysql'
-    )
-    return(response)
-
-def create_target_cluster(target_cluster_name, source_arn, target_param_group_name):
-    """Creates a target Redshift cluster"""
-
-    response = redshift.create_cluster_parameter_group(
-        ParameterGroupName=target_param_group_name,
-        ParameterGroupFamily='redshift-1.0',
-        Description='For Aurora MySQL zero-ETL integrations'
-    )
-    print('Created target parameter group: ' + response['ClusterParameterGroup']['ParameterGroupName'])
-
-    response = redshift.modify_cluster_parameter_group(
-        ParameterGroupName=target_param_group_name,
-        Parameters=[
-            {
-                'ParameterName': 'enable_case_sensitive_identifier',
-                'ParameterValue': 'true'
-            }
-        ]
-    )
-    print('Modified target parameter group: ' + response['ParameterGroupName'])
-
-    response = redshift.create_cluster(
-        ClusterIdentifier=target_cluster_name,
-        NodeType='ra3.4xlarge',
-        NumberOfNodes=2,
-        Encrypted=True,
-        MasterUsername='`username`',
-        MasterUserPassword='`Password01**`',
-        ClusterParameterGroupName=target_param_group_name
-    )
-    print('Creating target cluster: ' + response['Cluster']['ClusterIdentifier'])
-
-    # Retrieve the target cluster ARN
-    response = redshift.describe_clusters(
-        ClusterIdentifier=target_cluster_name
-    )
-    target_arn = response['Clusters'][0]['ClusterNamespaceArn']
-
-    # Retrieve the current user's account ID
-    response = sts.get_caller_identity()
-    account_id = response['Account']
-
-    # Create a resource policy specifying cluster ARN and account ID
-    response = redshift.put_resource_policy(
-        ResourceArn=target_arn,
-        Policy='''
-        {
-            \"Version\":\"2012-10-17\",
-            \"Statement\":[
-                {\"Effect\":\"Allow\",
-                \"Principal\":{
-                    \"Service\":\"redshift.amazonaws.com\"
-                },
-                \"Action\":[\"redshift:AuthorizeInboundIntegration\"],
-                \"Condition\":{
-                    \"StringEquals\":{
-                        \"aws:SourceArn\":\"%s\"}
-                    }
-                },
-                {\"Effect\":\"Allow\",
-                \"Principal\":{
-                    \"AWS\":\"arn:aws:iam::%s:root\"},
-                \"Action\":\"redshift:CreateInboundIntegration\"}
-            ]
-        }
-        ''' % (source_arn, account_id)
-    )
-    return(response)
-
-def wait_for_cluster_availability(*args):
-    """Waits for both clusters to be available"""
-
-    print('Waiting for clusters to be available...')
-
-    response = rds.describe_db_clusters(
-        DBClusterIdentifier=source_cluster_name
-    )
-    source_status = response['DBClusters'][0]['Status']
-    source_arn = response['DBClusters'][0]['DBClusterArn']
-
-    response = rds.describe_db_instances(
-        DBInstanceIdentifier=source_cluster_name + '-instance'
-    )
-    source_instance_status = response['DBInstances'][0]['DBInstanceStatus']
-
-    response = redshift.describe_clusters(
-        ClusterIdentifier=target_cluster_name
-    )
-    target_status = response['Clusters'][0]['ClusterStatus']
-    target_arn = response['Clusters'][0]['ClusterNamespaceArn']
-
-    # Every 60 seconds, check whether the clusters are available.
-    if source_status != 'available' or target_status != 'available' or  source_instance_status != 'available':
-        time.sleep(60)
-        response = wait_for_cluster_availability(
-            source_cluster_name, target_cluster_name)
-    else:
-        print('Clusters available. Ready to create zero-ETL integration.')
-        create_integration(source_arn, target_arn)
-        return
-
-def create_integration(source_arn, target_arn):
-    """Creates a zero-ETL integration using the source and target clusters"""
-
-    response = rds.create_integration(
-        SourceArn=source_arn,
-        TargetArn=target_arn,
-        IntegrationName='`my-integration`'
-    )
-    print('Creating integration: ' + response['IntegrationName'])
-
-def main():
-    """main function"""
-    create_source_cluster(source_cluster_name, source_param_group_name)
-    wait_for_cluster_availability(source_cluster_name, target_cluster_name)
-
-if __name__ == "__main__":
-    main()
+'include: *.*'
 ```
 
-Aurora PostgreSQL
+- Include all tables within the `books` database:
 
 ```
-import boto3
-import time
-
-# Build the client using the default credential configuration.
-# You can use the CLI and run 'aws configure' to set access key, secret
-# key, and default Region.
-
-rds = boto3.client('rds')
-redshift = boto3.client('redshift')
-sts = boto3.client('sts')
-
-source_cluster_name = 'my-source-cluster' # A name for the source cluster
-source_param_group_name = 'my-source-param-group' # A name for the source parameter group
-target_cluster_name = 'my-target-cluster' # A name for the target cluster
-target_param_group_name = 'my-target-param-group' # A name for the target parameter group
-
-def create_source_cluster(*args):
-    """Creates a source Aurora PostgreSQL DB cluster"""
-
-    response = rds.create_db_cluster_parameter_group(
-        DBClusterParameterGroupName=source_param_group_name,
-        DBParameterGroupFamily='aurora-postgresql16',
-        Description='For Aurora PostgreSQL logical replication'
-    )
-    print('Created source parameter group: ' + response['DBClusterParameterGroup']['DBClusterParameterGroupName'])
-
-    response = rds.modify_db_cluster_parameter_group(
-        DBClusterParameterGroupName=source_param_group_name,
-        Parameters=[
-            {
-                'ParameterName': 'rds.logical_replication',
-                'ParameterValue': '1',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'aurora.enhanced_logical_replication',
-                'ParameterValue': '1',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'aurora.logical_replication_backup',
-                'ParameterValue': '0',
-                'ApplyMethod': 'pending-reboot'
-            },
-            {
-                'ParameterName': 'aurora.logical_replication_globaldb',
-                'ParameterValue': '0',
-                'ApplyMethod': 'pending-reboot'
-            }
-        ]
-    )
-    print('Modified source parameter group: ' + response['DBClusterParameterGroupName'])
-
-    response = rds.create_db_cluster(
-        DBClusterIdentifier=source_cluster_name,
-        DBClusterParameterGroupName=source_param_group_name,
-        Engine='aurora-postgresql',
-        EngineVersion='16.4.aurora-postgresql',
-        DatabaseName='mypostgresdb',
-        MasterUsername='`username`',
-        MasterUserPassword='`Password01`**'
-    )
-    print('Creating source cluster: ' + response['DBCluster']['DBClusterIdentifier'])
-    source_arn = (response['DBCluster']['DBClusterArn'])
-    create_target_cluster(target_cluster_name, source_arn, target_param_group_name)
-
-    response = rds.create_db_instance(
-        DBInstanceClass='db.r6g.2xlarge',
-        DBClusterIdentifier=source_cluster_name,
-        DBInstanceIdentifier=source_cluster_name + '-instance',
-        Engine='aurora-postgresql'
-    )
-    return(response)
-
-def create_target_cluster(target_cluster_name, source_arn, target_param_group_name):
-    """Creates a target Redshift cluster"""
-
-    response = redshift.create_cluster_parameter_group(
-        ParameterGroupName=target_param_group_name,
-        ParameterGroupFamily='redshift-1.0',
-        Description='For Aurora PostgreSQL zero-ETL integrations'
-    )
-    print('Created target parameter group: ' + response['ClusterParameterGroup']['ParameterGroupName'])
-
-    response = redshift.modify_cluster_parameter_group(
-        ParameterGroupName=target_param_group_name,
-        Parameters=[
-            {
-                'ParameterName': 'enable_case_sensitive_identifier',
-                'ParameterValue': 'true'
-            }
-        ]
-    )
-    print('Modified target parameter group: ' + response['ParameterGroupName'])
-
-    response = redshift.create_cluster(
-        ClusterIdentifier=target_cluster_name,
-        NodeType='ra3.4xlarge',
-        NumberOfNodes=2,
-        Encrypted=True,
-        MasterUsername='`username`',
-        MasterUserPassword='`Password01**`',
-        ClusterParameterGroupName=target_param_group_name
-    )
-    print('Creating target cluster: ' + response['Cluster']['ClusterIdentifier'])
-
-    # Retrieve the target cluster ARN
-    response = redshift.describe_clusters(
-        ClusterIdentifier=target_cluster_name
-    )
-    target_arn = response['Clusters'][0]['ClusterNamespaceArn']
-
-    # Retrieve the current user's account ID
-    response = sts.get_caller_identity()
-    account_id = response['Account']
-
-    # Create a resource policy specifying cluster ARN and account ID
-    response = redshift.put_resource_policy(
-        ResourceArn=target_arn,
-        Policy='''
-        {
-            \"Version\":\"2012-10-17\",
-            \"Statement\":[
-                {\"Effect\":\"Allow\",
-                \"Principal\":{
-                    \"Service\":\"redshift.amazonaws.com\"
-                },
-                \"Action\":[\"redshift:AuthorizeInboundIntegration\"],
-                \"Condition\":{
-                    \"StringEquals\":{
-                        \"aws:SourceArn\":\"%s\"}
-                    }
-                },
-                {\"Effect\":\"Allow\",
-                \"Principal\":{
-                    \"AWS\":\"arn:aws:iam::%s:root\"},
-                \"Action\":\"redshift:CreateInboundIntegration\"}
-            ]
-        }
-        ''' % (source_arn, account_id)
-    )
-    return(response)
-
-def wait_for_cluster_availability(*args):
-    """Waits for both clusters to be available"""
-
-    print('Waiting for clusters to be available...')
-
-    response = rds.describe_db_clusters(
-        DBClusterIdentifier=source_cluster_name
-    )
-    source_status = response['DBClusters'][0]['Status']
-    source_arn = response['DBClusters'][0]['DBClusterArn']
-
-    response = rds.describe_db_instances(
-        DBInstanceIdentifier=source_cluster_name + '-instance'
-    )
-    source_instance_status = response['DBInstances'][0]['DBInstanceStatus']
-
-    response = redshift.describe_clusters(
-        ClusterIdentifier=target_cluster_name
-    )
-    target_status = response['Clusters'][0]['ClusterStatus']
-    target_arn = response['Clusters'][0]['ClusterNamespaceArn']
-
-    # Every 60 seconds, check whether the clusters are available.
-    if source_status != 'available' or target_status != 'available' or  source_instance_status != 'available':
-        time.sleep(60)
-        response = wait_for_cluster_availability(
-            source_cluster_name, target_cluster_name)
-    else:
-        print('Clusters available. Ready to create zero-ETL integration.')
-        create_integration(source_arn, target_arn)
-        return
-
-def create_integration(source_arn, target_arn):
-    """Creates a zero-ETL integration using the source and target clusters"""
-
-    response = rds.create_integration(
-        SourceArn=source_arn,
-        TargetArn=target_arn,
-        IntegrationName='`my-integration`'
-    )
-    print('Creating integration: ' + response['IntegrationName'])
-
-def main():
-    """main function"""
-    create_source_cluster(source_cluster_name, source_param_group_name)
-    wait_for_cluster_availability(source_cluster_name, target_cluster_name)
-
-if __name__ == "__main__":
-    main()
+'include: books.*'
 ```
 
-## Step 3b: Create an AWS Glue catalog for
-
-Amazon SageMaker AI zero-ETL integration
-
-When creating a zero-ETL integration with an Amazon SageMaker AI lakehouse, you
-must create an AWS Glue managed catalog in AWS Lake Formation. The target catalog must be an Amazon Redshift
-managed catalog. To create an Amazon Redshift managed catalog, first create the
-`AWSServiceRoleForRedshift` service-linked role. In the Lake Formation console, add
-the `AWSServiceRoleForRedshift` as a read-only administrator.
-
-For more information about the previous tasks, see the following topics.
-
-- For information about creating an Amazon Redshift managed catalog, see [Creating an Amazon Redshift managed catalog in the AWS Glue Data Catalog](../../../lake-formation/latest/dg/create-rms-catalog.md "../../../lake-formation/latest/dg/create-rms-catalog.md") in the
-  _AWS Lake Formation Developer Guide_.
-- For information about the service-linked role for Amazon Redshift, see [Using
-  service-linked roles for Amazon Redshift](../../../redshift/latest/mgmt/using-service-linked-roles.md "../../../redshift/latest/mgmt/using-service-linked-roles.md") in the
-  _Amazon Redshift Management Guide_.
-- For information about read-only administrator permissions for Lake Formation, see [Lake Formation personas and
-  IAM permissions reference](../../../lake-formation/latest/dg/permissions-reference.md "../../../lake-formation/latest/dg/permissions-reference.md") in the
-  _AWS Lake Formation Developer Guide_.
-
-### Configure permissions
-
-for the target AWS Glue catalog
-
-Before creating a target catalog for zero-ETL integration, you must create the Lake Formation
-target creation role and the AWS Glue data transfer role. Use the Lake Formation target creation
-role to create the target catalog. When creating the target catalog, enter the Glue
-data transfer role in the **IAM role** field in the
-**Access from engines section**.
-
-The target creation role must be a Lake Formation administrator and requires the
-following permissions.
-
-JSON
+- Exclude any tables named `mystery`:
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": "lakeformation:RegisterResource",
- "Resource": "*"
- },
- {
- "Sid": "VisualEditor1",
- "Effect": "Allow",
- "Action": [
- "s3:PutEncryptionConfiguration",
- "iam:PassRole",
- "glue:CreateCatalog",
- "glue:GetCatalog",
- "s3:PutBucketTagging",
- "s3:PutLifecycleConfiguration",
- "s3:PutBucketPolicy",
- "s3:CreateBucket",
- "redshift-serverless:CreateNamespace",
- "s3:DeleteBucket",
- "s3:PutBucketVersioning",
- "redshift-serverless:CreateWorkgroup"
- ],
- "Resource": [
- "arn:aws:glue:*:`111122223333`:catalog",
- "arn:aws:glue:*:`111122223333`:catalog/*",
- "arn:aws:s3:::*",
- "arn:aws:redshift-serverless:*:`111122223333`:workgroup/*",
- "arn:aws:redshift-serverless:*:`111122223333`:namespace/*",
- "arn:aws:iam::`111122223333`:role/GlueDataCatalogDataTransferRole"
- ]
- }
- ]
-}`
-
+'include: *.*, exclude: *.mystery'
 ```
 
-The target creation role must have the following trust
-relationship.
-
-JSON
+- Include two specific tables within the `books` database:
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "glue.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- },
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:user/Username"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+'include: books.stephen_king, include: books.carolyn_keene'
 ```
 
-The Glue data transfer role is required for MySQL catalog operations and
-must have the following permissions.
-
-JSON
+- Include all tables in the `books` database, except for those containing the
+  substring `mystery`:
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DataTransferRolePolicy",
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey",
- "kms:Decrypt",
- "glue:GetCatalog",
- "glue:GetDatabase"
- ],
- "Resource": [
- "*"
- ]
- }
- ]
-}`
-
+'include: books.*, exclude: books./.*mystery.*/'
 ```
 
-The Glue data transfer role must have the following trust
-relationship.
-
-JSON
+- Include all tables in the `books` database, except those starting with
+  `mystery`:
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "glue.amazonaws.com",
- "redshift.amazonaws.com"
- ]
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+'include: books.*, exclude: books./mystery.*/'
 ```
 
-## Next steps
+- Include all tables in the `books` database, except those ending with
+  `mystery`:
 
-With a source Aurora DB cluster and either an Amazon Redshift target data warehouse or
-Amazon SageMaker AI lakehouse, you can create a zero-ETL integration and
-replicate data. For instructions, see [Creating Aurora zero-ETL integrations with Amazon Redshift](zero-etl.md "zero-etl.md").
+```
+'include: books.*, exclude: books./.*mystery/'
+```
+
+- Include all tables in the `books` database that start with
+  `table_`, except for the one named `table_stephen_king`. For
+  example, `table_movies` or `table_books` would be replicated, but
+  not `table_stephen_king`.
+
+```
+'include: books./table_.*/, exclude: books.table_stephen_king'
+```
+
+## Aurora PostgreSQL examples
+
+The following examples demonstrate how data filtering works for Aurora PostgreSQL
+zero-ETL integrations:
+
+- Include all tables within the `books` database:
+
+```
+'include: books.*.*'
+```
+
+- Exclude any tables named `mystery` in the `books`
+  database:
+
+```
+'include: books.*.*, exclude: books.*.mystery'
+```
+
+- Include one table within the `books` database in the `mystery`
+  schema, and one table within `employee` database in the `finance`
+  schema:
+
+```
+'include: books.mystery.stephen_king, include: employee.finance.benefits'
+```
+
+- Include all tables in the `books` database and `science_fiction`
+  schema, except for those containing the substring `king`:
+
+```
+'include: books.science_fiction.*, exclude: books.*./.*king.*/
+```
+
+- Include all tables in the `books` database, except those with a schema name
+  starting with `sci`:
+
+```
+'include: books.*.*, exclude: books./sci.*/.*'
+```
+
+- Include all tables in the `books` database, except those in the
+  `mystery` schema ending with `king`:
+
+```
+'include: books.*.*, exclude: books.mystery./.*king/'
+```
+
+- Include all tables in the `books` database that start with
+  `table_`, except for the one named `table_stephen_king`. For
+  example, `table_movies` in the `fiction` schema and
+  `table_books` in the `mystery` schema are replicated, but not
+  `table_stephen_king` in either schema:
+
+```
+'include: books.*./table_.*/, exclude: books.*.table_stephen_king'
+```
+
+## Adding data filters to an integration
+
+You can configure data filtering using the AWS Management Console, the AWS CLI, or the Amazon RDS API.
+
+###### Important
+
+If you add a filter after you create an integration, Aurora treats it as if it always
+existed. It removes any data in the target data warehouse that doesn’t match the new
+filtering criteria and resynchronizes all affected tables.
+
+###### To add data filters to a zero-ETL integration
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Zero-ETL integrations**. Select the
+   integration that you want to add data filters to, and then choose
+   **Modify**.
+3. Under **Source**, add one or more `Include` and
+   `Exclude` statements.
+
+The following image shows an example of data filters for a MySQL integration:
+
+![Data filters for a zero-ETL integration in the RDS console](images/zero-etl-filter-data.png) 4. When you're satisfied with the changes, choose **Continue** and
+**Save changes**.
+To add data filters to a zero-ETL integration using the AWS CLI, call the [modify-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html") command. In addition to the integration identifier, specify
+the `--data-filter` parameter with a comma-separated list of
+`Include` and `Exclude` Maxwell filters.
+
+The following example adds filter patterns to `my-integration`.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-integration \
+    --integration-identifier `my-integration` \
+    --data-filter `'include: foodb.*, exclude: foodb.tbl, exclude: foodb./table_\d+/'`
+```
+
+For Windows:
+
+```
+aws rds modify-integration ^
+    --integration-identifier `my-integration` ^
+    --data-filter `'include: foodb.*, exclude: foodb.tbl, exclude: foodb./table_\d+/'`
+```
+
+To modify a zero-ETL integration using the RDS API, call the [ModifyIntegration](../APIReference/API_ModifyIntegration.md "../APIReference/API_ModifyIntegration.md")
+operation. Specify the integration identifier and provide a comma-separated list of filter
+patterns.
+
+## Removing data filters from an integration
+
+When you remove a data filter from an integration, Aurora reevaluates the remaining filters
+as if the removed filter never existed. It then replicates any previously excluded data that
+now meets the criteria into the target data warehouse. This triggers a resynchronization
+of all affected tables.

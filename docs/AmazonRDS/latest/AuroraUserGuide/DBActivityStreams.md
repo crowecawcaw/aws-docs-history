@@ -1,121 +1,48 @@
-# IAM policy examples for database activity streams
+# Getting the status of a database activity stream
 
-Any user with appropriate AWS Identity and Access Management (IAM) role privileges for database activity streams
-can create, start, stop, and modify the activity stream settings for a DB cluster. These
-actions are included in the audit log of the stream. For best compliance practices, we
-recommend that you don't provide these privileges to DBAs.
+You can get the status of an activity stream using the console or AWS CLI.
 
-You set access to database activity streams using IAM policies. For more information about Aurora authentication, see [Identity and access management for Amazon Aurora](UsingWithRDS.md "UsingWithRDS.md"). For more information about creating IAM policies, see
-[Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+###### To get the status of a database activity stream
 
-###### Example Policy to allow configuring database activity streams
+1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**, and then choose the DB cluster link.
+3. Choose the **Configuration** tab, and check **Database activity stream**
+   for status.
+   You can get the activity stream configuration for a DB cluster as the response to a [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md")
+   CLI
+   request.
 
-To give users fine-grained access to modify activity streams, use the service-specific operation context keys
-`rds:StartActivityStream` and `rds:StopActivityStream`
-in an IAM policy. The following IAM
-policy example allows a user or role to configure activity streams.
-
-JSON
+The following example describes `my-cluster`.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ConfigureActivityStreams",
- "Effect": "Allow",
- "Action": [
- "rds:StartActivityStream",
- "rds:StopActivityStream"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+aws rds --region `my-region` describe-db-clusters --db-cluster-identifier `my-cluster`
 ```
 
-###### Example Policy to allow starting database activity streams
+The following example shows a JSON response. The following fields are shown:
 
-The following IAM policy example allows a user or role to start activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"AllowStartActivityStreams",
- "Effect":"Allow",
- "Action":"rds:StartActivityStream",
- "Resource":"*"
- }
- ]
-}`
+- `ActivityStreamKinesisStreamName`
+- `ActivityStreamKmsKeyId`
+- `ActivityStreamStatus`
+- `ActivityStreamMode`
+- These fields are the same for Aurora PostgreSQL and Aurora MySQL, except that `ActivityStreamMode` is
+  always `async` for Aurora MySQL, while for Aurora PostgreSQL it might be `sync` or `async`.
 
 ```
-
-###### Example Policy to allow stopping database activity streams
-
-The following IAM policy example allows a user or role to stop activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"AllowStopActivityStreams",
- "Effect":"Allow",
- "Action":"rds:StopActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
+{
+    "DBClusters": [
+        {
+      "DBClusterIdentifier": "`my-cluster`",
+            ...
+            "ActivityStreamKinesisStreamName": "aws-rds-das-cluster-A6TSYXITZCZXJHIRVFUBZ5LTWY",
+            "ActivityStreamStatus": "starting",
+            "ActivityStreamKmsKeyId": "12345678-abcd-efgh-ijkl-bd041f170262",
+            "ActivityStreamMode": "async",
+            "DbClusterResourceId": "cluster-ABCD123456"
+            ...
+        }
+    ]
+}
 ```
 
-###### Example Policy to deny starting database activity streams
-
-The following IAM policy example prevents a user or role from starting activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"DenyStartActivityStreams",
- "Effect":"Deny",
- "Action":"rds:StartActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
-```
-
-###### Example Policy to deny stopping database activity streams
-
-The following IAM policy example prevents a user or role from stopping activity streams.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Sid":"DenyStopActivityStreams",
- "Effect":"Deny",
- "Action":"rds:StopActivityStream",
- "Resource":"*"
- }
- ]
-}`
-
-```
+You can get the activity stream configuration for a DB cluster as the response to a [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")
+operation.
