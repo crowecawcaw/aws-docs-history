@@ -216,6 +216,45 @@ class ECRWrapper:
   [DescribeImages](../../../goto/boto3/ecr-2015-09-21/DescribeImages.md "../../../goto/boto3/ecr-2015-09-21/DescribeImages.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+
+```
+    TRY.
+        " iv_repository_name = 'my-repository'
+        " it_image_ids = VALUE #( ( NEW /aws1/cl_ecrimageidentifier( iv_imagetag = 'latest' ) ) )
+        IF it_image_ids IS NOT INITIAL.
+          oo_result = lo_ecr->describeimages(
+            iv_repositoryname = iv_repository_name
+            it_imageids = it_image_ids ).
+        ELSE.
+          oo_result = lo_ecr->describeimages(
+            iv_repositoryname = iv_repository_name ).
+        ENDIF.
+        DATA(lt_image_details) = oo_result->get_imagedetails( ).
+        MESSAGE |Found { lines( lt_image_details ) } images in repository.| TYPE 'I'.
+      CATCH /aws1/cx_ecrrepositorynotfndex.
+        MESSAGE 'Repository not found.' TYPE 'I'.
+      CATCH /aws1/cx_ecrimagenotfoundex.
+        MESSAGE 'Image not found.' TYPE 'I'.
+      CATCH /aws1/cx_ecrinvalidparameterex.
+        MESSAGE 'Invalid parameter provided.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeImages](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -262,6 +262,43 @@ class ECRWrapper:
   [CreateRepository](../../../goto/boto3/ecr-2015-09-21/CreateRepository.md "../../../goto/boto3/ecr-2015-09-21/CreateRepository.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+
+```
+    TRY.
+        " iv_repository_name = 'my-repository'
+        oo_result = lo_ecr->createrepository(
+          iv_repositoryname = iv_repository_name ).
+        DATA(lv_repository_uri) = oo_result->get_repository( )->get_repositoryuri( ).
+        MESSAGE |Repository created with URI: { lv_repository_uri }| TYPE 'I'.
+      CATCH /aws1/cx_ecrrepositoryalrexex.
+        " If repository already exists, retrieve it
+        DATA lt_repo_names TYPE /aws1/cl_ecrrepositorynamels00=>tt_repositorynamelist.
+        APPEND NEW /aws1/cl_ecrrepositorynamels00( iv_value = iv_repository_name ) TO lt_repo_names.
+        DATA(lo_describe_result) = lo_ecr->describerepositories( it_repositorynames = lt_repo_names ).
+        DATA(lt_repos) = lo_describe_result->get_repositories( ).
+        IF lines( lt_repos ) > 0.
+          READ TABLE lt_repos INDEX 1 INTO DATA(lo_repo).
+          oo_result = NEW /aws1/cl_ecrcrerepositoryrsp( io_repository = lo_repo ).
+          MESSAGE |Repository { iv_repository_name } already exists.| TYPE 'I'.
+        ENDIF.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateRepository](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

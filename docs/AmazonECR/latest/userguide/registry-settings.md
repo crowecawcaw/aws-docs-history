@@ -12,7 +12,7 @@ registry settings to configure the following features.
   registry. For more information, see [Sync an upstream registry with an Amazon ECR private registry](pull-through-cache.md "pull-through-cache.md").
 - **Replication configuration** – The replication
   configuration is used to control whether your repositories are copied across
-  AWS Regions or AWS accounts. For more information, see [Private image replication in Amazon ECR](replication.md "replication.md")
+  AWS Regions or AWS accounts. For more information, see [Private image replication in Amazon ECR](replication.md "replication.md").
 - **Repository creation templates** – A repository
   creation template is used to define the standard settings to apply when new
   repositories are created by Amazon ECR on your behalf. For example, repositories
@@ -27,3 +27,6 @@ registry settings to configure the following features.
   specific images when they are pulled. This is useful for images that are used
   for testing or CI/CD purposes where you don't want the pull time to affect
   lifecycle policy decisions. For more information, see [Pull-time update exclusions](pull-time-update-exclusions.md "pull-time-update-exclusions.md").
+- **Blob mounting configuration** – The blob mounting configuration is used to
+  control if the repositories within your registry share common layers rather than store
+  duplicate layers. For more information, see [Blob mounting in Amazon ECR](blob-mounting.md "blob-mounting.md").

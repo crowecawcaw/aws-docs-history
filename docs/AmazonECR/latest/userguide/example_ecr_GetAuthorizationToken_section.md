@@ -171,6 +171,36 @@ class ECRWrapper:
   [GetAuthorizationToken](../../../goto/boto3/ecr-2015-09-21/GetAuthorizationToken.md "../../../goto/boto3/ecr-2015-09-21/GetAuthorizationToken.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+
+```
+    TRY.
+        oo_result = lo_ecr->getauthorizationtoken( ).
+        DATA(lt_auth_data) = oo_result->get_authorizationdata( ).
+        IF lines( lt_auth_data ) > 0.
+          READ TABLE lt_auth_data INDEX 1 INTO DATA(lo_auth_data).
+          DATA(lv_token) = lo_auth_data->get_authorizationtoken( ).
+          MESSAGE 'Authorization token retrieved.' TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_ecrserverexception.
+        MESSAGE 'Server exception occurred.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetAuthorizationToken](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -51,8 +51,8 @@ API action that is part of that task. For example, when you create a repository,
 `GetAuthorizationToken`, `CreateRepository` and
 `SetRepositoryPolicy` sections are generated in the CloudTrail log files.
 When you push an image to a repository, `InitiateLayerUpload`,
-`UploadLayerPart`, `CompleteLayerUpload`, and
-`PutImage` sections are generated. When you pull an image,
+`UploadLayerPart`, `CompleteLayerUpload`,
+`PutImage`, and, if blob mounting is enabled, `MountLayer` sections are generated. When you pull an image,
 `GetDownloadUrlForLayer` and `BatchGetImage` sections are
 generated. When you archive or restore an image `UpdateImageStorageClass`
 section is generated. When OCI clients that support the OCI 1.1

@@ -41,3 +41,4 @@ to your repositories.
 - Your images can be replicated to other repositories across Regions in your own
   registry and across accounts. You can do this by specifying a replication
   configuration in your registry settings. For more information, see [Private registry settings in Amazon ECR](registry-settings.md "registry-settings.md").
+- When blob mounting is enabled at the registry level, repositories can share common image layers.

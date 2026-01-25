@@ -235,6 +235,34 @@ async fn show_repos(client: &aws_sdk_ecr::Client) -> Result<(), aws_sdk_ecr::Err
   [DescribeRepositories](https://docs.rs/aws-sdk-ecr/latest/aws_sdk_ecr/client/struct.Client.html#method.describe_repositories "https://docs.rs/aws-sdk-ecr/latest/aws_sdk_ecr/client/struct.Client.html#method.describe_repositories")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+
+```
+    TRY.
+        " it_repository_names = VALUE #( ( NEW /aws1/cl_ecrrepositorynamels00( iv_value = 'my-repository' ) ) )
+        oo_result = lo_ecr->describerepositories(
+          it_repositorynames = it_repository_names ).
+        DATA(lt_repositories) = oo_result->get_repositories( ).
+        MESSAGE |Found { lines( lt_repositories ) } repositories.| TYPE 'I'.
+      CATCH /aws1/cx_ecrrepositorynotfndex.
+        MESSAGE 'Repository not found.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeRepositories](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

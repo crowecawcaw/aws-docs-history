@@ -272,6 +272,35 @@ Example that grants an IAM role download access.
   [SetRepositoryPolicy](../../../goto/boto3/ecr-2015-09-21/SetRepositoryPolicy.md "../../../goto/boto3/ecr-2015-09-21/SetRepositoryPolicy.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+
+```
+    TRY.
+        " iv_repository_name = 'my-repository'
+        " iv_policy_text = '{"Version":"2012-10-17",		 	 	 "Statement":[...]}'
+        lo_ecr->setrepositorypolicy(
+          iv_repositoryname = iv_repository_name
+          iv_policytext = iv_policy_text ).
+        MESSAGE |Policy set for repository { iv_repository_name }.| TYPE 'I'.
+      CATCH /aws1/cx_ecrrepositorynotfndex.
+        MESSAGE 'Repository not found.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SetRepositoryPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

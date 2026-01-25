@@ -183,6 +183,36 @@ class ECRWrapper:
   [GetRepositoryPolicy](../../../goto/boto3/ecr-2015-09-21/GetRepositoryPolicy.md "../../../goto/boto3/ecr-2015-09-21/GetRepositoryPolicy.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ecr#code-examples").
+
+```
+    TRY.
+        " iv_repository_name = 'my-repository'
+        oo_result = lo_ecr->getrepositorypolicy(
+          iv_repositoryname = iv_repository_name ).
+        DATA(lv_policy_text) = oo_result->get_policytext( ).
+        MESSAGE 'Repository policy retrieved.' TYPE 'I'.
+      CATCH /aws1/cx_ecrrepositorynotfndex.
+        MESSAGE 'Repository not found.' TYPE 'I'.
+      CATCH /aws1/cx_ecrrepositoryplynot00.
+        MESSAGE 'Repository policy not found.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetRepositoryPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon ECR with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

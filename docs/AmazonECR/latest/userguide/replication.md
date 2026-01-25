@@ -198,3 +198,12 @@ The following should be considered when using private image replication.
   uses the same tag as an existing image, the image is replicated but won't
   contain the duplicated tag. This might result in the image being
   untagged.
+- When replicating images, if blob mounting has been configured, ECR will check
+  to ensure any layers from the source repository already exist in the destination
+  registry. If any layers already exist in the destination registry, ECR will mount
+  those layers.
+
+###### Note
+
+If the source registry is different from its destination registry, blob mounting
+will need to be enabled for both registries for ECR to mount replicated layers.
