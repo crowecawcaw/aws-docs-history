@@ -61,7 +61,7 @@
     workloads running on
     AWS. AWS Shield Advanced provides additional protections against more
     sophisticated and larger exploits for your workloads
-    running on Amazon EC2, ELB (ELB),
+    running on Amazon EC2, Elastic Load Balancing (ELB),
     Amazon CloudFront, AWS Global Accelerator, and Route 53.
   - **[AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"):** AWS Lambda lets you run code
     without provisioning or managing servers. AWS Lambda is
