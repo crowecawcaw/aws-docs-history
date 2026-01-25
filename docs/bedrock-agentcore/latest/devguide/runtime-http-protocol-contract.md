@@ -9,7 +9,7 @@ request/response patterns and WebSocket endpoints for real-time bidirectional st
 Both HTTP (`/invocations`) and WebSocket (`/ws`) endpoints can be deployed on the same container using port 8080, allowing a single agent implementation to support both traditional API interactions and real-time bidirectional streaming.
 
 For example code, see [Get started with the Amazon Bedrock AgentCore starter
-toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
+toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 
 ###### Topics
 

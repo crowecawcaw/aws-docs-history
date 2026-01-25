@@ -1,9 +1,9 @@
 # Get started with the Amazon Bedrock AgentCore starter
 
-toolkit
+toolkit in Python
 
 This tutorial shows you how to use the Amazon Bedrock AgentCore [starter toolkit](https://github.com/aws/bedrock-agentcore-starter-toolkit "https://github.com/aws/bedrock-agentcore-starter-toolkit")
-to deploy an agent to an Amazon Bedrock AgentCore Runtime.
+to deploy a Python agent to an Amazon Bedrock AgentCore Runtime.
 
 The starter toolkit is a Command Line Interface (CLI) toolkit that you can use to deploy
 AI agents to an Amazon Bedrock AgentCore Runtime. You can use the toolkit with popular Python agent

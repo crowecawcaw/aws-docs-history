@@ -7,4 +7,5 @@ connections between your VPC and Amazon Bedrock AgentCore.
 
 - [Use interface VPC endpoints (AWS PrivateLink) to
   create a private connection between your VPC and your Amazon Bedrock AgentCore resources](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Configure Amazon Bedrock AgentCore Gateway VPC Egress for Gateway Targets](gateway-vpc-egress.md "gateway-vpc-egress.md")
 - [Configure Amazon Bedrock AgentCore Runtime and tools for VPC](agentcore-vpc.md "agentcore-vpc.md")

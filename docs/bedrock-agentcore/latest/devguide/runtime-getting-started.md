@@ -9,7 +9,9 @@ AgentCore Runtime.
 ###### Topics
 
 - [Get started with the Amazon Bedrock AgentCore starter
-  toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md")
+  toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md")
+- [Get started with the Amazon Bedrock AgentCore starter
+  toolkit in TypeScript](runtime-get-started-toolkit-typescript.md "runtime-get-started-toolkit-typescript.md")
 - [Get started without the starter toolkit](getting-started-custom.md "getting-started-custom.md")
 - [Get started with Amazon Bedrock AgentCore Runtime direct
   code deployment](runtime-get-started-code-deploy.md "runtime-get-started-code-deploy.md")

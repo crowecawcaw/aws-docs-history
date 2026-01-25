@@ -21,6 +21,33 @@ When using Smithy models with AgentCore Gateway, be aware of the following limit
 
 In considering using Smithy models with AgentCore Gateway, review the following feature support table.
 
+### Security best practices for endpoint configuration
+
+###### Warning
+
+When defining endpoint rules and server URLs in your Smithy models, avoid using overly permissive URL parameter patterns that could expose your gateway to security risks.
+
+Smithy models support dynamic endpoint configuration through endpoint rules and URL parameters. However, certain patterns can introduce security vulnerabilities if not properly constrained. Specifically, avoid using fully dynamic patterns such as:
+
+- Unrestricted host or domain parameters in endpoint URLs: `https://{host}/api/v1` or `https://{domain}.example.com`
+- Multiple unconstrained placeholders in server URLs: `https://{subdomain}.{env}.{domain}.com`
+- Endpoint rules that allow arbitrary URL construction without validation
+
+These patterns can potentially be exploited to:
+
+- Redirect requests to unintended or malicious endpoints
+- Access internal network resources or instance metadata services (Server-Side Request Forgery)
+- Exfiltrate IAM credentials or sensitive data
+
+**Recommended practices:**
+
+- Use static, fully qualified endpoint URLs whenever possible
+- For AWS services, rely on standard endpoint resolution with validated region parameters. Gateway enforces AWS region validation for AWS services
+- If custom endpoint rules are required, constrain parameters to specific, validated values
+- Avoid exposing raw host or domain parameters in your Smithy model's endpoint configuration
+
+For AWS service integrations, AgentCore Gateway automatically validates region parameters and blocks requests to private IP ranges.
+
 ### Smithy feature support for AgentCore Gateway
 
 The following table outlines the Smithy features that are supported and unsupported by Gateway:

@@ -45,6 +45,66 @@ For best results with OpenAPI targets:
 - Implement authentication and authorization outside of the specification
 - Only use supported media types for maximum compatibility
 
+### Security best practices for URL parameters
+
+###### Warning
+
+When defining server URLs in your OpenAPI specifications, avoid using overly permissive URL parameter patterns that could expose your gateway to security risks.
+
+URL parameters in OpenAPI server definitions allow dynamic endpoint configuration. However, certain patterns can introduce security vulnerabilities if not properly constrained. Specifically, avoid using fully dynamic domain patterns such as:
+
+- `https://{yourDomain}/` - Allows arbitrary domain substitution
+- `https://{subdomain}.{env}.{domain}.com` - Multiple unconstrained placeholders
+- `https://{host}/api/` - Unrestricted host parameter
+
+These patterns can potentially be exploited to:
+
+- Redirect requests to unintended or malicious endpoints
+- Access internal network resources (Server-Side Request Forgery)
+- Exfiltrate credentials or sensitive data
+
+**Recommended practices:**
+
+- Use fully qualified, static URLs whenever possible: `https://api.example.com/v1`
+- Limit parameters to subdomains within your controlled domain and implement validation in your application
+- Avoid using parameters that allow arbitrary domain or host substitution
+- Implement additional validation in your API to verify that runtime parameter values match expected patterns
+
+AgentCore Gateway automatically validates region parameters and blocks requests to private IP ranges.
+
+Example of a secure server URL configuration:
+
+```
+{
+  "servers": [
+    {
+      "url": "https://api.example.com/v1"
+    }
+  ]
+}
+```
+
+If dynamic parameters are necessary, use fully qualified domains with minimal placeholders and enum restrictions:
+
+```
+{
+  "servers": [
+    {
+      "url": "https://{tenant}.api.example.com/v1",
+      "variables": {
+        "tenant": {
+          "default": "default-tenant",
+          "description": "Customer tenant identifier",
+          "enum": ["tenant1", "tenant2", "tenant3"]
+        }
+      }
+    }
+  ]
+}
+```
+
+This approach restricts URL parameters to specific subdomains within your controlled domain while maintaining flexibility for multi-tenant deployments. Using enum restrictions prevents arbitrary values and helps protect against SSRF attacks by limiting parameters to predefined, safe values. Additionally, always validate tenant values in your application logic.
+
 In considering using OpenAPI schema targets with AgentCore Gateway, review the following feature support table.
 
 ### OpenAPI feature support

@@ -262,7 +262,7 @@ export AGENT_OBSERVABILITY_ENABLED=true # Activates the ADOT pipeline
 export OTEL_PYTHON_DISTRO=aws_distro # Uses AWS Distro for OpenTelemetry
 export OTEL_PYTHON_CONFIGURATOR=aws_configurator # Sets AWS configurator for ADOT SDK
 export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf # Configures export protocol
-export  OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<YOUR-LOG-GROUP>,x-aws-log-stream=<YOUR-LOG-STREAM>,x-aws- metric-namespace=<YOUR-NAMESPACE>
+export  OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<YOUR-LOG-GROUP>,x-aws-log-stream=<YOUR-LOG-STREAM>,x-aws-metric-namespace=<YOUR-NAMESPACE>
 # Directs logs to CloudWatch groups
 export OTEL_RESOURCE_ATTRIBUTES=service.name=`<YOUR-AGENT-NAME>` # Identifies your agent in observability data
 ```

@@ -130,6 +130,30 @@ page = context.pages[0]
 
 ```
 
+### Browser extensions issues
+
+#### Extension download fails with access denied
+
+**Symptom:** Session fails to start with errors related to Amazon S3 access when using extensions.
+
+**Solution:**
+
+- Verify your IAM user or role has `s3:GetObject` and `s3:GetObjectHead` permission on the extension bucket
+- Confirm the Amazon S3 bucket is owned by the same AWS account making the API call
+- Check that the bucket name and prefix (object key) are correct
+- If using versioned buckets, ensure you have `s3:GetObjectVersion` permission
+
+#### Extension rejected due to invalid format
+
+**Symptom:** Session fails to start with validation errors about the extension file format.
+
+**Solution:**
+
+- Ensure the extension file is in ZIP format
+- Verify the ZIP file contains a valid Chrome extension structure with a valid `manifest.json` file
+- Check that the extension follows Chrome extension guidelines
+- Ensure the ZIP was created from the extension directory contents, not the parent folder
+
 ## Code Interpreter issues
 
 For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using

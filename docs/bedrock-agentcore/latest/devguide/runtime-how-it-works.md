@@ -231,7 +231,7 @@ AgentCore Runtime supports multiple communication protocols:
 - [HTTP](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md"): Direct REST
   API endpoints for traditional request/response patterns. For more information,
   see [Get started with the Amazon Bedrock AgentCore starter
-  toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
+  toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 - [MCP](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md"): Model Context
   Protocol for tools and agent servers. For more information, see [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md "runtime-mcp.md").
 - [A2A](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md"): Agent-to-Agent
@@ -241,7 +241,7 @@ AgentCore Runtime supports multiple communication protocols:
 ## Implementation overview
 
 Here's how to get started with the AgentCore Runtime. For the complete example, see [Get started with the Amazon Bedrock AgentCore starter
-toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
+toolkit in Python](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md").
 
 ### Prepare your agent or tool code
 
