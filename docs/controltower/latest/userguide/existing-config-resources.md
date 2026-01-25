@@ -5,15 +5,6 @@ resources
 This topic provides a step-by-step approach for how to enroll accounts that have existing
 AWS Config resources. For examples of how to check your existing resources, see [Enroll accounts with AWS Config resources](enroll-account.md#example-config-cli-commands "enroll-account.md#example-config-cli-commands").
 
-###### Note
-
-If you plan to bring existing AWS accounts into AWS Control Tower as
-**Audit** and **Log archive** accounts, and if
-those accounts have existing AWS Config resources, you must delete the existing AWS Config resources
-completely, before you can enroll these accounts into AWS Control Tower for this purpose. For
-accounts that are not intended to become **Audit** and **Log
-archive** accounts, you can modify the existing Config resources.
-
 ###### Examples of AWS Config resources
 
 Here are some types of AWS Config resources that your account could have already. These
@@ -24,33 +15,27 @@ AWS Control Tower.
 - AWS Config delivery channel
 - AWS Config aggregation authorization
 
-###### Assumptions
-
-- You have deployed an AWS Control Tower landing zone
-- Your account is not enrolled with AWS Control Tower already.
-- Your account has at least one pre-existing AWS Config resource in at least one of the
-  AWS Control Tower Regions governed by the management account.
-- Your account is not the AWS Control Tower management account.
-- Your account is not in governance drift.
-  For a blog that describes an automated approach to enrolling accounts with existing AWS Config
-  resources, see [Automate enrollment of accounts with existing AWS Config resources into AWS Control Tower](https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/ "https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/").
-  You'll be able to submit a single support ticket for all of the accounts you wish to enroll,
-  as described in [Step 1: Contact customer support with a ticket,
-  to add the account to the AWS Control Tower allow list](#existing-config-step-1 "#existing-config-step-1"), which follows.
-
-###### Note
-
-If you've enabed auto-enroll for accounts (in the **Settings** page), you will not be able to enroll accounts with existing AWS Config resources automatically.
-
 ###### Limitations
 
+- Enroll account with existing AWS Config resource is not supported for management account or
+  service integration account(s) configured in landing zone.
 - The account can be enrolled only by using the OU registration or re-registration workflow
   which enables the `AWSControlTowerBaseline`. The account can not be enrolled by
   enabling or resetting the `ConfigBaseline`.
+- Account with existing AWS Config resource is not supported by
+  [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md "account-auto-enrollment.md").
 - If the resources are modified and create drift on the account, AWS Control Tower does not
   update the resources.
 - AWS Config resources in Regions that are not governed by AWS Control Tower are not
   changed.
+
+###### Assumptions
+
+- You have deployed an AWS Control Tower landing zone.
+- Your account is not enrolled with AWS Control Tower already.
+- Your account has at least one pre-existing AWS Config resource in at least one of the
+  Regions governed by AWS Control Tower.
+- Your account is not in governance drift.
 
 ###### Note
 
@@ -62,9 +47,12 @@ AWS Control Tower before you can request the allow list and then enroll it. If y
 account to a different AWS Control Tower OU, it causes governance drift, which also prevents the
 account from being added to the allow list.
 
+For a blog that describes an automated approach to enrolling accounts with existing AWS Config
+resources, see [Automate enrollment of accounts with existing AWS Config resources into AWS Control Tower](https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/ "https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/").
+
 ###### This process has 5 main steps.
 
-1. Add the account to the AWS Control Tower allow list.
+1. Add the account(s) to the AWS Control Tower allow list.
 2. Create a new IAM role in the account.
 3. Modify pre-existing AWS Config resources.
 4. Create AWS Config resources in AWS Regions where they don't exist.
@@ -81,9 +69,7 @@ process.
   must be updated to align with AWS Control Tower settings before you can re-enroll the
   account.
 
-## Step 1: Contact customer support with a ticket,
-
-to add the account to the AWS Control Tower allow list
+## Step 1: Contact support to add account(s) to the allow list
 
 **Include this phrase in your ticket subject line:**
 
@@ -93,7 +79,8 @@ AWS Control Tower_
 ###### Include the following details in the body of your ticket:
 
 - Management account number
-- Account numbers of member accounts that have existing AWS Config resources
+- Account numbers of member accounts that have existing AWS Config resources.
+  You'll be able to create a support case for all of the accounts you wish to enroll.
 - Your selected home Region for AWS Control Tower setup
 
 ###### Note
@@ -169,9 +156,18 @@ AWS Region
 
 For this step, the following information is needed about your AWS Control Tower setup.
 
-- `LOGGING_ACCOUNT` - the Logging account ID
-- `AUDIT_ACCOUNT` - the Audit account ID
-- `IAM_ROLE_ARN` - the IAM role ARN created in Step 1
+- `AUDIT_ACCOUNT` - the AWS Config service integration account
+  (previously known as the Audit account) ID
+- `CONFIG_BUCKET` - the AWS S3 bucket to which AWS Config delivers configuration snapshots
+  and configuration history files. Locate and confirm that the AWS S3 bucket exists before proceeding
+  to the next steps.
+  - For landing zone version 3.3 or lower, the AWS S3 bucket is named
+    `aws-controltower-logs-LOGGING_ACCOUNT-HOME_REGION`, located in the Logging account.
+  - For landing zone version 4.0 or higher, the AWS S3 bucket is named
+    `aws-controltower-config-logs-AUDIT_ACCOUNT-<REGION_STRING>-<SUFFIX_STRING>`,
+    located in the AWS Config service integration account (previously known as the Audit account).
+
+- `IAM_ROLE_ARN` - the IAM role ARN created in Step 2
 - `ORGANIZATION_ID` - the organization ID for the management
   account
 - `MEMBER_ACCOUNT_NUMBER` - the member account that is being
@@ -217,11 +213,7 @@ settings as shown.
 
 - **Name:** DON’T CHANGE
 - **ConfigSnapshotDeliveryProperties:** TwentyFour_Hours
-- **S3BucketName:** The logging bucket name from the AWS Control Tower
-  logging account
-
-`aws-controltower-logs-`LOGGING_ACCOUNT`-`HOME_REGION``
-
+- **S3BucketName:**`CONFIG_BUCKET`
 - **S3KeyPrefix:** `ORGANIZATION_ID`
 - **SnsTopicARN:** The SNS topic ARN from the audit account,
   with the following format:
@@ -234,13 +226,17 @@ the existing AWS Config recorder name.
 
 ```
 
-aws configservice put-delivery-channel --delivery-channel name=`DELIVERY_CHANNEL_NAME`,s3BucketName=aws-controltower-logs-`LOGGING_ACCOUNT_ID`-`HOME_REGION`,s3KeyPrefix="`ORGANIZATION_ID`",configSnapshotDeliveryProperties={deliveryFrequency=TwentyFour_Hours},snsTopicARN=arn:aws:sns:`CURRENT_REGION`:`AUDIT_ACCOUNT`:aws-controltower-AllConfigNotifications --region `CURRENT_REGION`
+aws configservice put-delivery-channel --delivery-channel name=`DELIVERY_CHANNEL_NAME`,s3BucketName=`CONFIG_BUCKET`,s3KeyPrefix="`ORGANIZATION_ID`",configSnapshotDeliveryProperties={deliveryFrequency=TwentyFour_Hours},snsTopicARN=arn:aws:sns:`CURRENT_REGION`:`AUDIT_ACCOUNT`:aws-controltower-AllConfigNotifications --region `CURRENT_REGION`
 
 ```
 
 ## Step 5c. Modify AWS Config aggregation
 
 authorization resources
+
+###### Note
+
+This step is not required for landing zone version 4.0 or higher.
 
 Multiple aggregation authorizations can exist per Region. AWS Control Tower requires an
 aggregation authorization that specifies the audit account as the authorized account,
@@ -277,6 +273,11 @@ where an AWS Config recorder does not exist.
    **CustomerCreatedConfigResourcesForControlTower**.
 3. Copy and update the following template:
 
+###### Note
+
+The `CustomerCreatedAggregationAuthorization` resource in the template is
+not required for landing zone version 4.0 or higher.
+
 ```
 AWSTemplateFormatVersion: 2010-09-09
 Description: Configure AWS Config
@@ -296,7 +297,7 @@ Resources:
       Name: aws-controltower-BaselineConfigDeliveryChannel-customer-created
       ConfigSnapshotDeliveryProperties:
         DeliveryFrequency: TwentyFour_Hours
-      S3BucketName: aws-controltower-logs-`LOGGING_ACCOUNT`-`HOME_REGION`
+      S3BucketName: `CONFIG_BUCKET`
       S3KeyPrefix: `ORGANIZATION_ID`
       SnsTopicARN: !Sub arn:aws:sns:${AWS::Region}:`AUDIT_ACCOUNT`:aws-controltower-AllConfigNotifications
   CustomerCreatedAggregationAuthorization:
@@ -310,8 +311,7 @@ Resources:
 ###### Update the template with required fields:
 
     1. In the **S3BucketName** field, replace the
-     `LOGGING_ACCOUNT_ID` and
-     `HOME_REGION`
+     `CONFIG_BUCKET`
     2. In the **S3KeyPrefix** field, replace the
      `ORGANIZATION_ID`
     3. In the **SnsTopicARN** field, replace the

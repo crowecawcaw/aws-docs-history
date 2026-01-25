@@ -18,6 +18,12 @@
     created by AWS Control Tower.
   - Customers can set-up cross-bucket replication if they wish to centralize different logs to a single bucket.
     Please see [S3 documentation](../../../AmazonS3/latest/userguide/replication.md "../../../AmazonS3/latest/userguide/replication.md") for more information.
+  - If you have enrolled accounts with pre-existing AWS Config Delivery Channels not created by AWS Control Tower
+    in Regions governed by AWS Control Tower, update the Delivery Channels' S3 bucket name to the new S3 bucket
+    with prefix `aws-controltower-config-logs-` in the AWS Config integration account to be consistent
+    with AWS Control Tower configurations on landing zone 4.0. See more details in
+    [Enroll accounts that have existing AWS Config
+    resources](existing-config-resources.md "existing-config-resources.md").
 
 - **AWS Config integration on landing zone version 4.0:** When migrating to landing zone 4.0 with AWS Config integration enabled, customers would see the following changes -
   1.  The existing Audit account is registered as a delegated admin for AWS Config.
