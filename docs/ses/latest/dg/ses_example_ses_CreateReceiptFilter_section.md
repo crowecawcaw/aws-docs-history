@@ -176,6 +176,53 @@ class SesReceiptHandler:
   [CreateReceiptFilter](../../../goto/boto3/email-2010-12-01/CreateReceiptFilter.md "../../../goto/boto3/email-2010-12-01/CreateReceiptFilter.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    " iv_allow = abap_true means 'Allow', abap_false means 'Block'
+    DATA(lv_policy) = COND /aws1/sesreceiptfilterpolicy(
+      WHEN iv_allow = abap_true THEN 'Allow'
+      ELSE 'Block'
+    ).
+
+    DATA(lo_ip_filter) = NEW /aws1/cl_sesreceiptipfilter(
+      iv_policy = lv_policy
+      iv_cidr = iv_ip_address_or_range
+    ).
+
+    DATA(lo_filter) = NEW /aws1/cl_sesreceiptfilter(
+      iv_name = iv_filter_name
+      io_ipfilter = lo_ip_filter
+    ).
+
+    TRY.
+        lo_ses->createreceiptfilter( io_filter = lo_filter ).
+        MESSAGE 'Receipt filter created successfully' TYPE 'I'.
+      CATCH /aws1/cx_sesalreadyexistsex INTO DATA(lo_ex1).
+        DATA(lv_error) = |Filter already exists: { lo_ex1->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex1.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex_generic).
+        lv_error = |An error occurred: { lo_ex_generic->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex_generic.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateReceiptFilter](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

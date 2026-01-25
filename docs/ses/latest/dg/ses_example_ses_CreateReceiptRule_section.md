@@ -257,6 +257,63 @@ class SesReceiptHandler:
   [CreateReceiptRule](../../../goto/boto3/email-2010-12-01/CreateReceiptRule.md "../../../goto/boto3/email-2010-12-01/CreateReceiptRule.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    " Create S3 action for copying emails to S3
+    DATA(lo_s3_action) = NEW /aws1/cl_sess3action(
+      iv_bucketname = iv_bucket_name
+      iv_objectkeyprefix = iv_prefix
+    ).
+
+    " Create receipt action with S3 action
+    DATA(lo_action) = NEW /aws1/cl_sesreceiptaction(
+      io_s3action = lo_s3_action
+    ).
+
+    " Create list of actions
+    DATA lt_actions TYPE /aws1/cl_sesreceiptaction=>tt_receiptactionslist.
+    APPEND lo_action TO lt_actions.
+
+    " Create receipt rule
+    DATA(lo_rule) = NEW /aws1/cl_sesreceiptrule(
+      iv_name = iv_rule_name
+      iv_enabled = abap_true
+      it_recipients = it_recipients
+      it_actions = lt_actions
+    ).
+
+    TRY.
+        lo_ses->createreceiptrule(
+          iv_rulesetname = iv_rule_set_name
+          io_rule = lo_rule
+        ).
+        MESSAGE 'Receipt rule created successfully' TYPE 'I'.
+      CATCH /aws1/cx_sesinvalids3confex INTO DATA(lo_ex1).
+        DATA(lv_error) = |Invalid S3 configuration: { lo_ex1->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex1.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex_generic).
+        lv_error = |An error occurred: { lo_ex_generic->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex_generic.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateReceiptRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

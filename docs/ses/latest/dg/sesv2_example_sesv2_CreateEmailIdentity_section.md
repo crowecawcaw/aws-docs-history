@@ -210,6 +210,36 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [CreateEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+```
+    TRY.
+        lo_se2->createemailidentity(
+          iv_emailidentity = iv_email_identity ).
+        MESSAGE 'Email identity created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_se2alreadyexistsex.
+        MESSAGE 'Email identity already exists.' TYPE 'I'.
+      CATCH /aws1/cx_se2badrequestex INTO DATA(lo_bad_request).
+        MESSAGE lo_bad_request TYPE 'I' DISPLAY LIKE 'E'.
+      CATCH /aws1/cx_se2limitexceededex INTO DATA(lo_limit_exceeded).
+        MESSAGE lo_limit_exceeded TYPE 'I' DISPLAY LIKE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateEmailIdentity](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

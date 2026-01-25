@@ -182,6 +182,47 @@ end
   [GetIdentityVerificationAttributes](../../../goto/SdkForRubyV3/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/SdkForRubyV3/email-2010-12-01/GetIdentityVerificationAttributes.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    DATA lt_identities TYPE /aws1/cl_sesidentitylist_w=>tt_identitylist.
+    APPEND NEW /aws1/cl_sesidentitylist_w( iv_value = iv_identity ) TO lt_identities.
+
+    TRY.
+        DATA(lo_result) = lo_ses->getidentityverificationattrs(
+          it_identities = lt_identities
+        ).
+
+        DATA(lt_attrs) = lo_result->get_verificationattributes( ).
+        IF lt_attrs IS NOT INITIAL.
+          LOOP AT lt_attrs ASSIGNING FIELD-SYMBOL(<ls_attr>).
+            ov_status = <ls_attr>-value->get_verificationstatus( ).
+            EXIT.
+          ENDLOOP.
+        ELSE.
+          ov_status = 'NotFound'.
+        ENDIF.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex).
+        DATA(lv_error) = |An error occurred: { lo_ex->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetIdentityVerificationAttributes](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

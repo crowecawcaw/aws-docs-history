@@ -161,6 +161,38 @@ class SesTemplate:
   [GetTemplate](../../../goto/boto3/email-2010-12-01/GetTemplate.md "../../../goto/boto3/email-2010-12-01/GetTemplate.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_ses->gettemplate( iv_templatename = iv_template_name ).
+        oo_template = lo_result->get_template( ).
+        MESSAGE 'Template retrieved successfully' TYPE 'I'.
+      CATCH /aws1/cx_sestmpldoesnotexistex INTO DATA(lo_ex1).
+        DATA(lv_error) = |Template does not exist: { lo_ex1->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex1.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex_generic).
+        lv_error = |An error occurred: { lo_ex_generic->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex_generic.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetTemplate](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

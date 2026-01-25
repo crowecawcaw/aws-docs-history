@@ -186,6 +186,37 @@ async fn show_contacts(client: &Client, list: &str) -> Result<(), Error> {
   [ListContacts](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.list_contacts")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+```
+    TRY.
+        oo_result = lo_se2->listcontacts(
+          iv_contactlistname = iv_contact_list_name ).
+        DATA(lv_count) = lines( oo_result->get_contacts( ) ).
+        MESSAGE |Retrieved { lv_count } contacts from list.| TYPE 'I'.
+      CATCH /aws1/cx_se2badrequestex INTO DATA(lo_bad_request).
+        MESSAGE 'Bad request.' TYPE 'I'.
+        RAISE EXCEPTION lo_bad_request.
+      CATCH /aws1/cx_se2notfoundexception INTO DATA(lo_not_found).
+        MESSAGE 'Contact list not found.' TYPE 'I'.
+        RAISE EXCEPTION lo_not_found.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListContacts](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

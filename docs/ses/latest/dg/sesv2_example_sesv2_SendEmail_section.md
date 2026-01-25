@@ -642,6 +642,107 @@ Sends a message to all members of the contact list using a template.
   [SendEmail](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.send_email")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+Sends a message.
+
+```
+    TRY.
+        " Create destination with recipient address
+        DATA lt_to_addresses TYPE /aws1/cl_se2emailaddresslist_w=>tt_emailaddresslist.
+        APPEND NEW /aws1/cl_se2emailaddresslist_w( iv_value = iv_to_email_address ) TO lt_to_addresses.
+        DATA(lo_destination) = NEW /aws1/cl_se2destination(
+          it_toaddresses = lt_to_addresses ).
+
+        " Create message content
+        DATA(lo_subject) = NEW /aws1/cl_se2content( iv_data = iv_subject ).
+        DATA(lo_text_body) = NEW /aws1/cl_se2content( iv_data = iv_text_body ).
+        DATA(lo_html_body) = NEW /aws1/cl_se2content( iv_data = iv_html_body ).
+        DATA(lo_body) = NEW /aws1/cl_se2body(
+          io_text = lo_text_body
+          io_html = lo_html_body ).
+        DATA(lo_message) = NEW /aws1/cl_se2message(
+          io_subject = lo_subject
+          io_body = lo_body ).
+
+        DATA(lo_content) = NEW /aws1/cl_se2emailcontent(
+          io_simple = lo_message ).
+
+        " Send the email
+        lo_se2->sendemail(
+          iv_fromemailaddress = iv_from_email_address
+          io_destination = lo_destination
+          io_content = lo_content ).
+        MESSAGE 'Email sent successfully.' TYPE 'I'.
+      CATCH /aws1/cx_se2accountsuspendedex INTO DATA(lo_account_suspended).
+        MESSAGE 'Account suspended.' TYPE 'I'.
+        RAISE EXCEPTION lo_account_suspended.
+      CATCH /aws1/cx_se2badrequestex INTO DATA(lo_bad_request).
+        MESSAGE 'Bad request.' TYPE 'I'.
+        RAISE EXCEPTION lo_bad_request.
+      CATCH /aws1/cx_se2messagerejected INTO DATA(lo_message_rejected).
+        MESSAGE 'Message rejected - check email verification.' TYPE 'I'.
+        RAISE EXCEPTION lo_message_rejected.
+    ENDTRY.
+
+
+```
+
+Sends a message using a template.
+
+```
+    TRY.
+        " Create destination with recipient address
+        DATA lt_to_addresses TYPE /aws1/cl_se2emailaddresslist_w=>tt_emailaddresslist.
+        APPEND NEW /aws1/cl_se2emailaddresslist_w( iv_value = iv_to_email_address ) TO lt_to_addresses.
+        DATA(lo_destination) = NEW /aws1/cl_se2destination(
+          it_toaddresses = lt_to_addresses ).
+
+        " Create template reference
+        DATA(lo_template) = NEW /aws1/cl_se2template(
+          iv_templatename = iv_template_name
+          iv_templatedata = iv_template_data ).
+
+        DATA(lo_content) = NEW /aws1/cl_se2emailcontent(
+          io_template = lo_template ).
+
+        " Create list management options
+        DATA(lo_list_mgmt) = NEW /aws1/cl_se2listmanagementopts(
+          iv_contactlistname = iv_contact_list_name ).
+
+        " Send the email using template
+        lo_se2->sendemail(
+          iv_fromemailaddress = iv_from_email_address
+          io_destination = lo_destination
+          io_content = lo_content
+          io_listmanagementoptions = lo_list_mgmt ).
+        MESSAGE 'Email sent using template successfully.' TYPE 'I'.
+      CATCH /aws1/cx_se2accountsuspendedex INTO DATA(lo_account_suspended).
+        MESSAGE 'Account suspended.' TYPE 'I'.
+        RAISE EXCEPTION lo_account_suspended.
+      CATCH /aws1/cx_se2badrequestex INTO DATA(lo_bad_request).
+        MESSAGE 'Bad request.' TYPE 'I'.
+        RAISE EXCEPTION lo_bad_request.
+      CATCH /aws1/cx_se2messagerejected INTO DATA(lo_message_rejected).
+        MESSAGE 'Message rejected - check email verification.' TYPE 'I'.
+        RAISE EXCEPTION lo_message_rejected.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SendEmail](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -132,6 +132,34 @@ class SesIdentity:
   [VerifyDomainIdentity](../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md "../../../goto/boto3/email-2010-12-01/VerifyDomainIdentity.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_ses->verifydomainidentity( iv_domain = iv_domain_name ).
+        ov_token = lo_result->get_verificationtoken( ).
+        MESSAGE 'Domain verification initiated' TYPE 'I'.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex).
+        DATA(lv_error) = |An error occurred: { lo_ex->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [VerifyDomainIdentity](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

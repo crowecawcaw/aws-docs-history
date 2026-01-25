@@ -256,6 +256,33 @@ end
   [VerifyEmailIdentity](../../../goto/SdkForRubyV3/email-2010-12-01/VerifyEmailIdentity.md "../../../goto/SdkForRubyV3/email-2010-12-01/VerifyEmailIdentity.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    TRY.
+        lo_ses->verifyemailidentity( iv_emailaddress = iv_email_address ).
+        MESSAGE 'Email verification initiated' TYPE 'I'.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex).
+        DATA(lv_error) = |An error occurred: { lo_ex->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [VerifyEmailIdentity](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

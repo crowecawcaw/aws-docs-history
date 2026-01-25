@@ -238,6 +238,42 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [CreateEmailTemplate](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_template "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_template")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+```
+    TRY.
+        DATA(lo_template_content) = NEW /aws1/cl_se2emailtmplcontent(
+          iv_subject = iv_subject
+          iv_html = iv_html
+          iv_text = iv_text ).
+
+        lo_se2->createemailtemplate(
+          iv_templatename = iv_template_name
+          io_templatecontent = lo_template_content ).
+        MESSAGE 'Email template created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_se2alreadyexistsex.
+        MESSAGE 'Email template already exists.' TYPE 'I'.
+      CATCH /aws1/cx_se2badrequestex.
+        MESSAGE 'Bad request.' TYPE 'E'.
+      CATCH /aws1/cx_se2limitexceededex.
+        MESSAGE 'Limit exceeded.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateEmailTemplate](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

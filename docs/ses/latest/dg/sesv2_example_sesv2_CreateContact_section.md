@@ -238,6 +238,37 @@ async fn add_contact(client: &Client, list: &str, email: &str) -> Result<(), Err
   [CreateContact](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+```
+    TRY.
+        lo_se2->createcontact(
+          iv_contactlistname = iv_contact_list_name
+          iv_emailaddress = iv_email_address ).
+        MESSAGE 'Contact created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_se2alreadyexistsex.
+        MESSAGE 'Contact already exists.' TYPE 'I'.
+      CATCH /aws1/cx_se2badrequestex.
+        MESSAGE 'Bad request.' TYPE 'E'.
+      CATCH /aws1/cx_se2notfoundexception.
+        MESSAGE 'Contact list not found.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateContact](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

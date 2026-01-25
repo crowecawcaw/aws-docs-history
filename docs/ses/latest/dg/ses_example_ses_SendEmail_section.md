@@ -772,6 +772,61 @@ end
   [SendEmail](../../../goto/SdkForRubyV3/email-2010-12-01/SendEmail.md "../../../goto/SdkForRubyV3/email-2010-12-01/SendEmail.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ses#code-examples").
+
+```
+    " Create message object
+    DATA(lo_subject) = NEW /aws1/cl_sescontent( iv_data = iv_subject ).
+    DATA(lo_text_body) = NEW /aws1/cl_sescontent( iv_data = iv_text ).
+    DATA(lo_html_body) = NEW /aws1/cl_sescontent( iv_data = iv_html ).
+    DATA(lo_body) = NEW /aws1/cl_sesbody(
+      io_text = lo_text_body
+      io_html = lo_html_body
+    ).
+    DATA(lo_message) = NEW /aws1/cl_sesmessage(
+      io_subject = lo_subject
+      io_body = lo_body
+    ).
+
+    TRY.
+        " Send email
+        DATA(lo_result) = lo_ses->sendemail(
+          iv_source = iv_source
+          io_destination = io_destination
+          io_message = lo_message
+          it_replytoaddresses = it_reply_tos
+        ).
+        ov_msg_id = lo_result->get_messageid( ).
+        MESSAGE 'Email sent successfully' TYPE 'I'.
+      CATCH /aws1/cx_sesacctsendingpause00 INTO DATA(lo_ex1).
+        DATA(lv_error) = |Account sending paused: { lo_ex1->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex1.
+      CATCH /aws1/cx_sesmessagerejected INTO DATA(lo_ex2).
+        lv_error = |Message rejected: { lo_ex2->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex2.
+      CATCH /aws1/cx_rt_generic INTO DATA(lo_ex_generic).
+        lv_error = |An error occurred: { lo_ex_generic->get_text( ) }|.
+        MESSAGE lv_error TYPE 'I'.
+        RAISE EXCEPTION lo_ex_generic.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SendEmail](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
