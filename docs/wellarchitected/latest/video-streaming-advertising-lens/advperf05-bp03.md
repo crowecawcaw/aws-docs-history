@@ -5,7 +5,7 @@ availability of applications. In the event of disruptions that cause targets to 
 
 ## Implementation guidance
 
-ELB (ELB) employs various load balancing
+Elastic Load Balancing (ELB) employs various load balancing
 algorithms, such as round-robin, least outstanding requests, or
 IP hash, to distribute traffic evenly across healthy targets,
 which optimizes resource utilization and prevents overloading of

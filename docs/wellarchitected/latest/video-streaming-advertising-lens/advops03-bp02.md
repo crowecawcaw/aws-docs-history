@@ -31,7 +31,7 @@ disruptions**
 issues**
 
 - Implement auto scaling and load balancing using Amazon EC2 Auto Scaling and
-  [ELB (ELB)](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/")
+  [Elastic Load Balancing (ELB)](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/")
 - Use
   [AWS Auto Scaling](https://aws.amazon.com/autoscaling/ "https://aws.amazon.com/autoscaling/") for predictive scaling based on
   historical data and scheduled scaling for planned events
