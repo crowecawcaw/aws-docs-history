@@ -39,7 +39,7 @@ The following image depicts where to find the **Public network** option on the A
 
 The following architectural diagram depicts an Amazon MWAA environment with a private webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with a private webserver.](/images/mwaa/latest/userguide/images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with a private webserver.](images/mwaa-private-web-server.png)
 
 The private network access mode limits access to the Apache Airflow UI to users _within your Amazon VPC_ that have been granted access to the
 [IAM policy for your environment](access-policies.md "access-policies.md").
