@@ -301,7 +301,7 @@ You can now programmatically check whether a domain can be transferred to Route�
 _Amazon Route 53 API Reference_.
 
 **September 11, 2017**
-You can now create Route 53 alias records that route internet traffic to ELB Network Load Balancers.
+You can now create Route 53 alias records that route internet traffic to Elastic Load Balancing Network Load Balancers.
 For more information about alias records, see
 [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
 
@@ -467,7 +467,7 @@ With this release, Route 53 adds the following new features:
 - **Alias records in private hosted zones** – In the past,
   you could create alias records that route DNS queries only to other Route 53 records in the same
   hosted zone. With this release, you can also create alias records that route DNS queries to Elastic Beanstalk environments
-  that have regionalized subdomains, ELB load balancers, and Amazon S3 buckets. (You still can't create alias records
+  that have regionalized subdomains, Elastic Load Balancing load balancers, and Amazon S3 buckets. (You still can't create alias records
   that route DNS queries to a CloudFront distribution.) For more information, see the following documentation:
   - **Route 53 console** – See
     [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").

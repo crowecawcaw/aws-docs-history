@@ -18,7 +18,7 @@ Route 53 is primarily a global service, but the following features support AWS 
   created the endpoint. For more information, see
   [What is Route 53 VPC Resolver?](resolver.md "resolver.md").
 - You can configure Route 53 health checks to check the health of resources that you create in specific Regions,
-  such as Amazon EC2 instances and ELB load balancers.
+  such as Amazon EC2 instances and Elastic Load Balancing load balancers.
 - When you create a health check that monitors an endpoint, you can optionally specify the Regions that you want
   Route 53 to perform health checks from.
   For more information about AWS Regions

@@ -57,7 +57,7 @@ requires the registrar to send you an email. The email comes from one of the fol
 
 - **noreply@registrar.amazon** – For domains for which
   the registrar is Amazon Registrar.
-- **noreply@domainnameverification.net** – For domains for which
+- **noreply@domainnameverification.net** or **noreply@emailverification.info** – For domains for which
   the registrar is our registrar associate, Gandi.
 
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").

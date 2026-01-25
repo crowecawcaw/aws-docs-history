@@ -91,10 +91,10 @@ email for a domain registration
 If too much time has passed, the link won't work any longer, but you'll know
 where to look for the confirmation email when we send you another one.
 
-| TLDs       | Email address that the approval or confirmation email comes<br>from                                         |
-| ---------- | ----------------------------------------------------------------------------------------------------------- |
-| .fr        | nic@nic.fr                                                                                                  |
-| All others | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net |
+| TLDs       | Email address that the approval or confirmation email comes<br>from                                                                             |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| .fr        | nic@nic.fr                                                                                                                                      |
+| All others | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net<br>• noreply@emailverification.info |
 
 ###### Note
 
@@ -146,11 +146,11 @@ following email addresses.
 If too much time has passed, the link won't work any longer, but you'll know
 where to look for the authorization email when we send you another one.
 
-| TLDs                | Email address that the approval or confirmation email comes<br>from                                         |
-| ------------------- | ----------------------------------------------------------------------------------------------------------- |
-| .com.au and .net.au | no-reply@ispapi.net<br>The email contains a link to<br>https://approve.domainadmin.com.                     |
-| .fr                 | nic@nic.fr                                                                                                  |
-| All others          | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net |
+| TLDs                | Email address that the approval or confirmation email comes<br>from                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| .com.au and .net.au | no-reply@ispapi.net<br>The email contains a link to<br>https://approve.domainadmin.com.                                                         |
+| .fr                 | nic@nic.fr                                                                                                                                      |
+| All others          | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net<br>• noreply@emailverification.info |
 
 ###### Note
 
@@ -194,10 +194,10 @@ email to update the registrant contact or delete a domain
 If too much time has passed, the link won't work any longer, but you'll know
 where to look for the authorization email when we send you another one.
 
-| TLDs       | Email address that the authorization email comes from                                                       |
-| ---------- | ----------------------------------------------------------------------------------------------------------- |
-| .fr        | nic@nic.fr                                                                                                  |
-| All others | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net |
+| TLDs       | Email address that the authorization email comes from                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| .fr        | nic@nic.fr                                                                                                                                      |
+| All others | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net<br>• noreply@emailverification.info |
 
 ###### Note
 

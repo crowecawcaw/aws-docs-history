@@ -4,7 +4,7 @@ When you create records using the Amazon Route 53 console, the values that you 
 that you want to use and on whether you're creating alias records, which route traffic to AWS resources.
 
 Alias records that route traffic to certain AWS resources for which you specify the target
-resource (for example, ELB, CloudFront distribution, Amazon S3 bucket). You can also optionally
+resource (for example, Elastic Load Balancing, CloudFront distribution, Amazon S3 bucket). You can also optionally
 associate health checks and configure target health evaluation. The following topics provide
 detailed information on the values required for each routing policy and record type, helping
 you configure your Route 53 records effectively.

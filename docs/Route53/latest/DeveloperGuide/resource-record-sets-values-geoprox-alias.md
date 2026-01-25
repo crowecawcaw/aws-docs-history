@@ -199,7 +199,7 @@ You can't set **Evaluate target health** to **Yes** when the endpoint is a Cloud
 
 **Elastic Beanstalk environments that have regionalized subdomains**
 
-If you specify an Elastic Beanstalk environment in **Endpoint** and the environment contains an ELB load balancer, ELB routes
+If you specify an Elastic Beanstalk environment in **Endpoint** and the environment contains an ELB load balancer, Elastic Load Balancing routes
 queries only to the healthy Amazon EC2 instances that are registered with the load balancer. (An environment automatically contains an ELB
 load balancer if it includes more than one Amazon EC2 instance.) If you set **Evaluate target health** to
 **Yes** and either no Amazon EC2 instances are healthy or the load balancer itself is unhealthy, Route 53 routes queries to
@@ -212,7 +212,7 @@ If the environment contains a single Amazon EC2 instance, there are no special r
 Health checking behavior depends on the type of load balancer:
 
 - **Classic Load Balancers** – If you specify an ELB Classic Load Balancer in
-  **Endpoint**, ELB routes queries only to the healthy Amazon EC2 instances that are registered with the load
+  **Endpoint**, Elastic Load Balancing routes queries only to the healthy Amazon EC2 instances that are registered with the load
   balancer. If you set **Evaluate target health** to **Yes** and either no EC2 instances are
   healthy or the load balancer itself is unhealthy, Route 53 routes queries to other resources.
 - **Application and Network Load Balancers** – If you specify an ELB Application or Network
@@ -225,7 +225,7 @@ Health checking behavior depends on the type of load balancer:
 
 ###### Note
 
-When you create a load balancer, you configure settings for ELB health checks; they're not Route 53 health checks, but they perform
+When you create a load balancer, you configure settings for Elastic Load Balancing health checks; they're not Route 53 health checks, but they perform
 a similar function. Do not create Route 53 health checks for the EC2 instances that you register with an ELB load balancer.
 
 **S3 buckets**

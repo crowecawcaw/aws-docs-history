@@ -3,7 +3,7 @@
 balancer
 
 If you host a website on multiple Amazon EC2 instances, you can distribute traffic to your
-website across the instances by using an ELB (ELB) load balancer. The ELB service
+website across the instances by using an Elastic Load Balancing (ELB) load balancer. The ELB service
 automatically scales the load balancer as traffic to your website changes over time. The
 load balancer also can monitor the health of its registered instances and route domain
 traffic only to healthy instances.
@@ -25,7 +25,7 @@ To get started, you need the following:
 
 - An ELB load balancer. You can use an ELB Classic, Application, or Network
   Load Balancer. For information about creating a load balancer, see [Getting started
-  with ELB](../../../elasticloadbalancing/latest/userguide/load-balancer-getting-started.md "../../../elasticloadbalancing/latest/userguide/load-balancer-getting-started.md") in the _Elastic Load Balancing User Guide_.
+  with Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/load-balancer-getting-started.md "../../../elasticloadbalancing/latest/userguide/load-balancer-getting-started.md") in the _Elastic Load Balancing User Guide_.
 
 Give the load balancer a name that will help you remember what it's for
 later. The name that you specify when you create a load balancer is the name
@@ -56,7 +56,7 @@ load balancer
    account, skip to step 2.
 
 If you created the hosted zone and the ELB load balancer using different
-accounts, perform the procedure [Getting the DNS name for an ELB load balancer](resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure "resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure") to get the
+accounts, perform the procedure [Getting the DNS name for an Elastic Load Balancing load balancer](resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure "resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure") to get the
 DNS name for the load balancer. 2. Sign in to the AWS Management Console and open the Route 53 console at
 [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/"). 3. In the navigation pane, choose **Hosted zones**. 4. Choose the name of the hosted zone that has the domain name that you want
 to use to route traffic to your load balancer. 5. Choose **Create record**. 6. Specify the following values:

@@ -52,7 +52,7 @@ Some domains may require that we send an email an email to the registrant for th
 If you receive an email, it will from one of the following email addresses:
 
     * noreply@registrar.amazon – for TLDs registered by Amazon Registrar.
-    * noreply@domainnameverification.net – for TLDs registered by our registrar associate, Gandi.
+    * noreply@domainnameverification.net or noreply@emailverification.info – for TLDs registered by our registrar associate, Gandi.
 
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md"). 5. If you receive the verification email, choose the link in the email, and either approve or reject the request to delete the domain.
 

@@ -83,7 +83,7 @@ send email from one of the following email addresses:
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | TLDs registered by Amazon Registrar | noreply@registrar.amazon                                                                              |
 | .fr                                 | nic@nic.fr (The email is sent both to the current registrant contact and the new registrant contact.) |
-| All others                          | noreply@domainnameverification.net                                                                    |
+| All others                          | noreply@domainnameverification.net or noreply@emailverification.info                                  |
 
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 
@@ -113,7 +113,7 @@ following email addresses:
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | TLDs registered by Amazon Registrar | noreply@registrar.amazon                                                                              |
 | .fr                                 | nic@nic.fr (The email is sent both to the current registrant contact and the new registrant contact.) |
-| All others                          | noreply@domainnameverification.net                                                                    |
+| All others                          | noreply@domainnameverification.nett or noreply@emailverification.info                                 |
 
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 

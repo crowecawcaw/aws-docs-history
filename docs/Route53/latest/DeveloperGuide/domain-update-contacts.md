@@ -262,11 +262,11 @@ ICANN.
 
 The email comes from one of the following email addresses.
 
-| TLDs               | Email address that authorization email comes from                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- |
-| .fr                | nic@nic.fr                                                                                                  |
-| .com.au<br>.net.au | noreply@emailverification.info                                                                              |
-| All others         | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net |
+| TLDs               | Email address that authorization email comes from                                                                                               |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| .fr                | nic@nic.fr                                                                                                                                      |
+| .com.au<br>.net.au | noreply@emailverification.info                                                                                                                  |
+| All others         | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net<br>• noreply@emailverification.info |
 
 9. If you encounter issues while updating contact information, you can
    contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").

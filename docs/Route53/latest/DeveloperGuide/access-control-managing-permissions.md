@@ -165,7 +165,7 @@ following:
 
 - Create and update alias records for which the value of
   **Alias Target** is a CloudFront distribution, an
-  ELB load balancer, an Elastic Beanstalk environment, or an Amazon S3 bucket.
+  Elastic Load Balancing load balancer, an Elastic Beanstalk environment, or an Amazon S3 bucket.
   (With these permissions, you can create alias records for which
   the value of **Alias Target** is another record
   in the same hosted zone.)

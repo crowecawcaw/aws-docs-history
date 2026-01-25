@@ -189,7 +189,7 @@ For ELB load balancers, do one of the following:
   Choose **Endpoint** and choose a load balancer from the list. If you have a lot of load balancers, you can
   enter the first few characters of the DNS name to filter the list.
 - **If you used different accounts to create your Route 53 hosted zone and your load balancer**
-  – Enter the value that you got in the procedure [Getting the DNS name for an ELB load balancer](resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure "resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure").
+  – Enter the value that you got in the procedure [Getting the DNS name for an Elastic Load Balancing load balancer](resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure "resource-record-sets-creating.md#resource-record-sets-elb-dns-name-procedure").
 
 If you used one AWS account to create the current hosted zone and a different account to create a load balancer, the load
 balancer will not appear in the **Endpoints** list.

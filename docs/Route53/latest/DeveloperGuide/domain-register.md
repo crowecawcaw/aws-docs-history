@@ -182,7 +182,7 @@ Route 53, some TLD registries require you to verify that the address is valid.
 We send a verification email from one of the following email addresses:
 
     * **noreply@registrar.amazon** – for TLDs registered by Amazon Registrar.
-    * **noreply@domainnameverification.net** – for TLDs registered by our registrar associate, Gandi.
+    * **noreply@domainnameverification.net** or **noreply@emailverification.info** – for TLDs registered by our registrar associate, Gandi.
      To determine who the registrar is for your TLD, see [Finding your registrar](find-your-registrar.md "find-your-registrar.md").
 
 ###### Important

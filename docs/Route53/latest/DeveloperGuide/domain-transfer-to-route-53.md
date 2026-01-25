@@ -489,7 +489,7 @@ addresses:
 
     * **noreply@registrar.amazon** – for TLDs
      registered by Amazon Registrar.
-    * **noreply@domainnameverification.net** –
+    * **noreply@domainnameverification.net** or **noreply@emailverification.info** –
      for TLDs registered by our registrar associate, Gandi. To determine
      who the registrar is for your TLD, see [Finding your registrar](find-your-registrar.md "find-your-registrar.md").
 
@@ -519,7 +519,7 @@ the internet.
     For example, when someone enters your domain name in a browser and
     that query is forwarded to Route 53, do you want Route 53 to respond to
     the query with the IP address of a web server in your data center or
-    with the name of an ELB load balancer?
+    with the name of an Elastic Load Balancing load balancer?
 
     For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
 
@@ -628,7 +628,7 @@ addresses:
 
     * **noreply@registrar.amazon** – for TLDs
      registered by Amazon Registrar.
-    * **noreply@domainnameverification.net** –
+    * **noreply@domainnameverification.net** or **noreply@emailverification.info** –
      for TLDs registered by our registrar associate, Gandi. To determine
      who the registrar is for your TLD, see [Finding your registrar](find-your-registrar.md "find-your-registrar.md").
 
@@ -758,7 +758,7 @@ All email comes from one of the following email addresses.
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | .com.au and .net.au | no-reply@ispapi.net<br>The email contains a link to<br>http://transfers.ispapi.net.                                                                                                                                                   |
 | .fr                 | nic@nic.fr, if you're changing the registrant contact for<br>a .fr domain name at the same time that you're transferring<br>the domain. (The email is sent both to the current<br>registrant contact and the new registrant contact.) |
-| All others          | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net                                                                                                                           |
+| All others          | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net<br>• noreply@emailverification.info                                                                                       |
 
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 

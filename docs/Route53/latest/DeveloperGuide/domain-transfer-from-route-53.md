@@ -209,7 +209,7 @@ registrant contact for the domain:
 
 Route 53 sends a confirmation email to the email address for the
 registrant contact for the domain from address
-*noreply@domainnameverification.net* with a
+*noreply@domainnameverification.net* or *noreply@emailverification.info* with a
 link to confirm the transfer:
 
     * If you don't respond to the email, the transfer is
