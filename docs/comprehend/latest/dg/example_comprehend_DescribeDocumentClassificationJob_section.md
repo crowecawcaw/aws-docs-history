@@ -100,6 +100,39 @@ class ComprehendClassifier:
   [DescribeDocumentClassificationJob](../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob.md "../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+
+```
+    TRY.
+        oo_result = lo_cpd->describedocclassificationjob(
+          iv_jobid = iv_job_id
+        ).
+        MESSAGE 'Document classification job described.' TYPE 'I'.
+      CATCH /aws1/cx_cpdinvalidrequestex.
+        MESSAGE 'Invalid request.' TYPE 'E'.
+      CATCH /aws1/cx_cpdjobnotfoundex.
+        MESSAGE 'Job not found.' TYPE 'E'.
+      CATCH /aws1/cx_cpdtoomanyrequestsex.
+        MESSAGE 'Too many requests.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinternalserverex.
+        MESSAGE 'Internal server error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeDocumentClassificationJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -219,15 +219,18 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 ```
     TRY.
         oo_result = lo_cpd->detectsentiment(
-          iv_languagecode = lv_language_code
-          iv_text = lv_text
+          iv_text = iv_text
+          iv_languagecode = iv_language_code
         ).
-
-        MESSAGE |Detected sentiment: { oo_result->get_sentiment( ) }| TYPE 'I'.
-
-      CATCH /aws1/cx_cpdtextsizelmtexcdex INTO DATA(lo_cpdex) .
-        MESSAGE 'The size of the input text exceeds the limit. Use a smaller document.' TYPE 'E'.
-
+        MESSAGE 'Sentiment detected.' TYPE 'I'.
+      CATCH /aws1/cx_cpdtextsizelmtexcdex.
+        MESSAGE 'Text size exceeds limit.' TYPE 'E'.
+      CATCH /aws1/cx_cpdunsuppedlanguageex.
+        MESSAGE 'Unsupported language.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinternalserverex.
+        MESSAGE 'Internal server error occurred.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinvalidrequestex.
+        MESSAGE 'Invalid request.' TYPE 'E'.
     ENDTRY.
 
 

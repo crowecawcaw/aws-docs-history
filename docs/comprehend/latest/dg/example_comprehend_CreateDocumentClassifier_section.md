@@ -203,6 +203,47 @@ class ComprehendClassifier:
   [CreateDocumentClassifier](../../../goto/boto3/comprehend-2017-11-27/CreateDocumentClassifier.md "../../../goto/boto3/comprehend-2017-11-27/CreateDocumentClassifier.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+
+```
+    TRY.
+        oo_result = lo_cpd->createdocumentclassifier(
+          iv_documentclassifiername = iv_classifier_name
+          iv_languagecode = iv_language_code
+          io_inputdataconfig = NEW /aws1/cl_cpddocclifierinpdat00(
+            iv_s3uri = iv_training_s3_uri
+          )
+          iv_dataaccessrolearn = iv_data_access_role_arn
+          iv_mode = iv_mode
+        ).
+        MESSAGE 'Document classifier creation started.' TYPE 'I'.
+      CATCH /aws1/cx_cpdinvalidrequestex.
+        MESSAGE 'Invalid request.' TYPE 'E'.
+      CATCH /aws1/cx_cpdresrclimitexcdex.
+        MESSAGE 'Resource limit exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_cpdtoomanyrequestsex.
+        MESSAGE 'Too many requests.' TYPE 'E'.
+      CATCH /aws1/cx_cpdtoomanytagsex.
+        MESSAGE 'Too many tags.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinternalserverex.
+        MESSAGE 'Internal server error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateDocumentClassifier](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

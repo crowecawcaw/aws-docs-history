@@ -152,6 +152,56 @@ class ComprehendClassifier:
   [StartDocumentClassificationJob](../../../goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob.md "../../../goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+
+```
+    TRY.
+        oo_result = lo_cpd->startdocclassificationjob(
+          iv_jobname = iv_job_name
+          iv_documentclassifierarn = iv_classifier_arn
+          io_inputdataconfig = NEW /aws1/cl_cpdinputdataconfig(
+            iv_s3uri = iv_input_s3_uri
+            iv_inputformat = iv_input_format
+          )
+          io_outputdataconfig = NEW /aws1/cl_cpdoutputdataconfig(
+            iv_s3uri = iv_output_s3_uri
+          )
+          iv_dataaccessrolearn = iv_data_access_role_arn
+        ).
+        MESSAGE 'Document classification job started.' TYPE 'I'.
+      CATCH /aws1/cx_cpdinvalidrequestex.
+        MESSAGE 'Invalid request.' TYPE 'E'.
+      CATCH /aws1/cx_cpdtoomanyrequestsex.
+        MESSAGE 'Too many requests.' TYPE 'E'.
+      CATCH /aws1/cx_cpdresourcenotfoundex.
+        MESSAGE 'Resource not found.' TYPE 'E'.
+      CATCH /aws1/cx_cpdresourceunavailex.
+        MESSAGE 'Resource unavailable.' TYPE 'E'.
+      CATCH /aws1/cx_cpdkmskeyvalidationex.
+        MESSAGE 'KMS key validation error.' TYPE 'E'.
+      CATCH /aws1/cx_cpdtoomanytagsex.
+        MESSAGE 'Too many tags.' TYPE 'E'.
+      CATCH /aws1/cx_cpdresrclimitexcdex.
+        MESSAGE 'Resource limit exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinternalserverex.
+        MESSAGE 'Internal server error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [StartDocumentClassificationJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

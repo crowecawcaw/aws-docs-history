@@ -317,6 +317,40 @@ class ComprehendDetect:
   [DetectKeyPhrases](../../../goto/boto3/comprehend-2017-11-27/DetectKeyPhrases.md "../../../goto/boto3/comprehend-2017-11-27/DetectKeyPhrases.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+
+```
+    TRY.
+        oo_result = lo_cpd->detectkeyphrases(
+          iv_text = iv_text
+          iv_languagecode = iv_language_code
+        ).
+        MESSAGE 'Key phrases detected.' TYPE 'I'.
+      CATCH /aws1/cx_cpdtextsizelmtexcdex.
+        MESSAGE 'Text size exceeds limit.' TYPE 'E'.
+      CATCH /aws1/cx_cpdunsuppedlanguageex.
+        MESSAGE 'Unsupported language.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinternalserverex.
+        MESSAGE 'Internal server error occurred.' TYPE 'E'.
+      CATCH /aws1/cx_cpdinvalidrequestex.
+        MESSAGE 'Invalid request.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DetectKeyPhrases](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
