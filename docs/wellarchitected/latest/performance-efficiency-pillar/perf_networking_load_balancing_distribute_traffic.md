@@ -43,7 +43,7 @@ including microservices and containers.
 required. It is capable of handling millions of requests per second while maintaining
 ultra-low latencies, and it is optimized to handle sudden and volatile traffic patterns.
 
-[ELB](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") provides integrated
+[Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/ "https://aws.amazon.com/elasticloadbalancing/") provides integrated
 certificate management and SSL/TLS decryption, allowing you the flexibility to centrally
 manage the SSL settings of the load balancer and offload CPU intensive work from your
 workload.
@@ -155,20 +155,20 @@ required in response to incoming traffic. Load balancers can also integrate with
   Application Load Balancers](../../../elasticloadbalancing/latest/application/load-balancer-monitoring.md "../../../elasticloadbalancing/latest/application/load-balancer-monitoring.md")
 - [Monitor your
   Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-monitoring.md "../../../elasticloadbalancing/latest/network/load-balancer-monitoring.md")
-- [Use ELB to distribute traffic across the instances in your Auto Scaling group](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md")
+- [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md "../../../autoscaling/ec2/userguide/autoscaling-load-balancer.md")
 
 **Related videos:**
 
 - [AWS re:Invent 2023: What can
   networking do for your application?](https://www.youtube.com/watch?v=tUh26i8uY9Q "https://www.youtube.com/watch?v=tUh26i8uY9Q")
 - [AWS re:Inforce 20: How to use
-  ELB to enhance your security posture at scale](https://www.youtube.com/watch?v=YhNc5VSzOGQ "https://www.youtube.com/watch?v=YhNc5VSzOGQ")
-- [AWS re:Invent 2018: ELB: Deep
+  Elastic Load Balancing to enhance your security posture at scale](https://www.youtube.com/watch?v=YhNc5VSzOGQ "https://www.youtube.com/watch?v=YhNc5VSzOGQ")
+- [AWS re:Invent 2018: Elastic Load Balancing: Deep
   Dive and Best Practices](https://www.youtube.com/watch?v=VIgAT7vjol8 "https://www.youtube.com/watch?v=VIgAT7vjol8")
 - [AWS re:Invent 2021 - How to
   choose the right load balancer for your AWS workloads](https://www.youtube.com/watch?v=p0YZBF03r5A "https://www.youtube.com/watch?v=p0YZBF03r5A")
 - [AWS re:Invent 2019: Get the
-  most from ELB for different workloads](https://www.youtube.com/watch?v=HKh54BkaOK0 "https://www.youtube.com/watch?v=HKh54BkaOK0")
+  most from Elastic Load Balancing for different workloads](https://www.youtube.com/watch?v=HKh54BkaOK0 "https://www.youtube.com/watch?v=HKh54BkaOK0")
 
 **Related examples:**
 
