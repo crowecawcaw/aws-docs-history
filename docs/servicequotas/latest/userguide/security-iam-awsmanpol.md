@@ -59,7 +59,7 @@ _not_ part of Service Quotas:
 - `dynamodb:DescribeLimits` – Allows Service Quotas to retrieve
   applied quota value for DynamoDB quotas.
 - `elasticloadbalancing:DescribeAccountLimits` – Allows
-  Service Quotas to retrieve applied quota value for ELB quotas.
+  Service Quotas to retrieve applied quota value for Elastic Load Balancing quotas.
 - `iam:GetAccountSummary` – Allows Service Quotas to retrieve
   applied quota value for IAM.
 - `kinesis:DescribeLimits` – Allows Service Quotas to retrieve
@@ -137,7 +137,7 @@ _not_ part of Service Quotas:
 - `dynamodb:DescribeLimits` – Allows Service Quotas to retrieve
   applied quota value for DynamoDB quotas.
 - `elasticloadbalancing:DescribeAccountLimits` – Allows
-  Service Quotas to retrieve applied quota value for ELB quotas.
+  Service Quotas to retrieve applied quota value for Elastic Load Balancing quotas.
 - `iam:GetAccountSummary` – Allows Service Quotas to retrieve
   applied quota value for IAM.
 - `kinesis:DescribeLimits` – Allows Service Quotas to retrieve
