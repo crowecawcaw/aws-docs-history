@@ -125,6 +125,52 @@ def update_vocabulary(
   [UpdateVocabulary](../../../goto/boto3/transcribe-2017-10-26/UpdateVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/UpdateVocabulary.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+
+```
+    TRY.
+        IF it_phrases IS NOT INITIAL.
+          oo_result = lo_tnb->updatevocabulary(
+            iv_vocabularyname = iv_vocabulary_name
+            iv_languagecode = iv_language_code
+            it_phrases = it_phrases ).
+        ELSEIF iv_vocab_file_uri IS NOT INITIAL.
+          oo_result = lo_tnb->updatevocabulary(
+            iv_vocabularyname = iv_vocabulary_name
+            iv_languagecode = iv_language_code
+            iv_vocabularyfileuri = iv_vocab_file_uri ).
+        ENDIF.
+        MESSAGE 'Vocabulary updated.' TYPE 'I'.
+      CATCH /aws1/cx_tnbbadrequestex INTO DATA(lo_bad_request_ex).
+        MESSAGE lo_bad_request_ex TYPE 'I'.
+      CATCH /aws1/cx_tnblimitexceededex INTO DATA(lo_limit_ex).
+        MESSAGE lo_limit_ex TYPE 'I'.
+        RAISE EXCEPTION lo_limit_ex.
+      CATCH /aws1/cx_tnbnotfoundexception INTO DATA(lo_not_found_ex).
+        MESSAGE lo_not_found_ex TYPE 'I'.
+      CATCH /aws1/cx_tnbinternalfailureex INTO DATA(lo_internal_ex).
+        MESSAGE lo_internal_ex TYPE 'I'.
+        RAISE EXCEPTION lo_internal_ex.
+      CATCH /aws1/cx_tnbconflictexception INTO DATA(lo_conflict_ex).
+        MESSAGE lo_conflict_ex TYPE 'I'.
+        RAISE EXCEPTION lo_conflict_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [UpdateVocabulary](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

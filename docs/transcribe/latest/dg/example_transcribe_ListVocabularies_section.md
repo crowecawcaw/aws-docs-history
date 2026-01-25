@@ -155,6 +155,39 @@ def list_vocabularies(vocabulary_filter, transcribe_client):
   [ListVocabularies](../../../goto/boto3/transcribe-2017-10-26/ListVocabularies.md "../../../goto/boto3/transcribe-2017-10-26/ListVocabularies.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+
+```
+    TRY.
+        IF iv_vocab_filter IS NOT INITIAL.
+          oo_result = lo_tnb->listvocabularies( iv_namecontains = iv_vocab_filter ).
+        ELSE.
+          oo_result = lo_tnb->listvocabularies( ).
+        ENDIF.
+        MESSAGE 'Retrieved vocabularies list.' TYPE 'I'.
+      CATCH /aws1/cx_tnbbadrequestex INTO DATA(lo_bad_request_ex).
+        MESSAGE lo_bad_request_ex TYPE 'I'.
+        RAISE EXCEPTION lo_bad_request_ex.
+      CATCH /aws1/cx_tnbinternalfailureex INTO DATA(lo_internal_ex).
+        MESSAGE lo_internal_ex TYPE 'I'.
+        RAISE EXCEPTION lo_internal_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListVocabularies](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.

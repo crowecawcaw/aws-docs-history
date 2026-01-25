@@ -644,6 +644,53 @@ def start_job(
   [StartTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+
+```
+    TRY.
+        DATA(lo_media) = NEW /aws1/cl_tnbmedia( iv_mediafileuri = iv_media_uri ).
+        DATA(lo_settings) = NEW /aws1/cl_tnbsettings( ).
+        IF iv_vocabulary_name IS NOT INITIAL.
+          lo_settings = NEW /aws1/cl_tnbsettings( iv_vocabularyname = iv_vocabulary_name ).
+        ENDIF.
+
+        oo_result = lo_tnb->starttranscriptionjob(
+          iv_transcriptionjobname = iv_job_name
+          io_media = lo_media
+          iv_mediaformat = iv_media_format
+          iv_languagecode = iv_language_code
+          io_settings = lo_settings ).
+
+        MESSAGE 'Transcription job started.' TYPE 'I'.
+      CATCH /aws1/cx_tnbbadrequestex INTO DATA(lo_bad_request_ex).
+        MESSAGE lo_bad_request_ex TYPE 'I'.
+        RAISE EXCEPTION lo_bad_request_ex.
+      CATCH /aws1/cx_tnblimitexceededex INTO DATA(lo_limit_ex).
+        MESSAGE lo_limit_ex TYPE 'I'.
+        RAISE EXCEPTION lo_limit_ex.
+      CATCH /aws1/cx_tnbinternalfailureex INTO DATA(lo_internal_ex).
+        MESSAGE lo_internal_ex TYPE 'I'.
+        RAISE EXCEPTION lo_internal_ex.
+      CATCH /aws1/cx_tnbconflictexception INTO DATA(lo_conflict_ex).
+        MESSAGE lo_conflict_ex TYPE 'I'.
+        RAISE EXCEPTION lo_conflict_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [StartTranscriptionJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
 This topic also includes information about getting started and details about previous SDK versions.
