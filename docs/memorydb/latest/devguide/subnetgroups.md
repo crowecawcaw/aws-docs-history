@@ -1,105 +1,110 @@
-# Creating a subnet group
+# Updating a subnet group
 
-When you create a new subnet group, note the number of available
-IP addresses. If the subnet has very few free IP addresses, you might be
-constrained as to how many more nodes you can add to the cluster. To
-resolve this issue, you can assign one or more subnets to a subnet group
-so that you have a sufficient number of IP addresses in your cluster's
-Availability Zone. After that, you can add more nodes to your
-cluster.
+You can update a subnet group's description, or modify the list of subnet IDs associated with the subnet group.
+You cannot delete a subnet ID from a subnet group if a cluster is currently using that subnet.
 
-The following procedures show you how to create a subnet group called
-`mysubnetgroup` (console), the AWS CLI, and the
-MemoryDB API.
+The following procedures show you how to update a subnet group.
 
-## Creating a subnet group (Console)
+## Updating subnet groups (Console)
 
-The following procedure shows how to create a subnet group (console).
+###### To update a subnet group
 
-###### To create a subnet group (Console)
+1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
+2. In the left navigation pane, choose **Subnet Groups**.
+3. In the list of subnet groups, choose the one you want to modify.
+4. **Name**, **VPCId** and **Description** fields are not modifiable.
+5. In the **Selected subnets** section click **Manage** to make any changes to the Availability Zones you need for the subnets. To save your changes, choose
+   **Save**.
 
-1.  Sign in to the AWS Management Console, and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2.  In the left navigation pane, choose **Subnet Groups**.
-3.  Choose **Create Subnet Group**.
-4.  In the **Create Subnet Group** page,
-    do the following:
-    1. In the **Name** box,
-       type a name for your subnet group.
+## Updating subnet groups (AWS CLI)
 
-    Cluster naming constraints are as follows:
-
-        * Must contain 1–40 alphanumeric characters or hyphens.
-        * Must begin with a letter.
-        * Can't contain two consecutive hyphens.
-        * Can't end with a hyphen.
-
-    2. In the **Description** box,
-       type a description for your subnet group.
-    3. In the **VPC ID** box,
-       choose the Amazon VPC that you created. If you have not created one, choose the **Create VPC** button and follow the
-       steps to create one.
-    4. In **Selected subnets**,
-       choose the Availability Zone and ID of your private subnet,
-       and then choose **Choose**.
-
-5.  For **Tags**, you can optionally apply tags to search and filter your subnets or track your AWS costs.
-6.  When all the settings are as you want them, choose **Create**.
-7.  In the confirmation message that appears, choose **Close**.
-
-Your new subnet group appears in the **Subnet Groups** list of
-the MemoryDB console. At the bottom of the window you can choose the subnet group to see details,
-such as all of the subnets associated with this group.
-
-## Creating a subnet group (AWS CLI)
-
-At a command prompt, use the command `create-subnet-group` to create a subnet group.
+At a command prompt, use the command `update-subnet-group` to
+update a subnet group.
 
 For Linux, macOS, or Unix:
 
 ```
-aws memorydb create-subnet-group \
+aws memorydb update-subnet-group \
     --subnet-group-name `mysubnetgroup` \
-    --description `"Testing"` \
-    --subnet-ids `subnet-53df9c3a`
+    --description `"New description"` \
+    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
 ```
 
 For Windows:
 
 ```
-aws memorydb create-subnet-group ^
+aws memorydb update-subnet-group ^
     --subnet-group-name `mysubnetgroup` ^
-    --description `"Testing"` ^
-    --subnet-ids `subnet-53df9c3a`
+    --description `"New description"` ^
+    --subnet-ids "`subnet-42df9c3a`" "`subnet-48fc21a9`"
 ```
 
 This command should produce output similar to the following:
 
 ```
-    {
-        "SubnetGroup": {
-            "Subnets": [
-                {
-                    "Identifier": "subnet-53df9c3a",
-                    "AvailabilityZone": {
+{
+    "SubnetGroup": {
+        "VpcId": "vpc-73cd3c17",
+        "Description": "New description",
+        "Subnets": [
+            {
+                "Identifier": "subnet-42dcf93a",
+                "AvailabilityZone": {
                     "Name": "us-east-1a"
-                    }
                 }
-            ],
-            "VpcId": "vpc-3cfaef47",
-            "Name": "mysubnetgroup",
-            "ARN": "arn:aws:memorydb:us-east-1:012345678912:subnetgroup/mysubnetgroup",
-            "Description": "Testing"
-        }
+            },
+            {
+                "Identifier": "subnet-48fc12a9",
+                "AvailabilityZone": {
+                    "Name": "us-east-1a"
+                }
+            }
+        ],
+        "Name": "mysubnetgroup",
+        "ARN": "arn:aws:memorydb:us-east-1:012345678912:subnetgroup/mysubnetgroup",
     }
+}
 ```
 
-For more information, see the AWS CLI topic create-subnet-group.
+For more information, see the AWS CLI topic [update-subnet-group](../../../cli/latest/reference/memorydb/update-subnet-group.md "../../../cli/latest/reference/memorydb/update-subnet-group.md").
 
-## Creating a subnet group (MemoryDB API)
+## Updating subnet groups (MemoryDB API)
 
-Using the MemoryDB API, call `CreateSubnetGroup` with the following
+Using the MemoryDB API, call `UpdateSubnetGroup` with the following
 parameters:
 
 - `SubnetGroupName=``mysubnetgroup`
-- `Description=``Testing`
-- `SubnetIds.member.1=``subnet-53df9c3a`
+- Any other parameters whose values you want to change. This example uses
+  `Description=``New%20description`
+  to change the description of the subnet group.
+
+###### Example
+
+```
+https://memory-db.us-east-1.amazonaws.com/
+    ?Action=UpdateSubnetGroup
+    &Description=New%20description
+    &SubnetGroupName=mysubnetgroup
+    &SubnetIds.member.1=subnet-42df9c3a
+    &SubnetIds.member.2=subnet-48fc21a9
+    &SignatureMethod=HmacSHA256
+    &SignatureVersion=4
+    &Timestamp=20141201T220302Z
+    &Version=2014-12-01
+    &X-Amz-Algorithm=Amazon4-HMAC-SHA256
+    &X-Amz-Credential=<credential>
+    &X-Amz-Date=20141201T220302Z
+    &X-Amz-Expires=20141201T220302Z
+    &X-Amz-Signature=<signature>
+    &X-Amz-SignedHeaders=Host
+```
+
+###### Note
+
+When you create a new subnet group, take note the number of available IP addresses.
+If the subnet has very few free IP addresses,
+you might be constrained as to how many more nodes you can add to the cluster.
+To resolve this issue,
+you can assign one or more subnets to a subnet group
+so that you have a sufficient number of IP addresses in your cluster's Availability Zone.
+After that, you can add more nodes to your cluster.
