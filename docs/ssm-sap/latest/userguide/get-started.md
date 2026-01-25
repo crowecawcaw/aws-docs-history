@@ -70,7 +70,7 @@ Use the following steps to register your SAP HANA database credentials in AWS Se
 5. In the **Resource permissions** container, choose **Edit permissions**, and paste the following policy with your Amazon Resource Name for the Amazon EC2 instance role.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -98,13 +98,13 @@ You must attach this policy to each secret that you create for your SAP HANA dat
 Use the following command to verify the status of the SSM Agent on your instance.
 
 ```
- $ sudo systemctl status amazon-ssm-agent
+$ sudo systemctl status amazon-ssm-agent
 ```
 
 Your output should display _active (running)_ as seen here.
 
 ```
- amazon-ssm-agent.service - amazon-ssm-agent
+amazon-ssm-agent.service - amazon-ssm-agent
      Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: disabled)
      Active: active (running) since Tue 2022-02-15 18:56:26 UTC; 12s ago
      ^^^^^^^^^^^^^^^^^^^^^^^^ You should expect to see "active (running)".
@@ -149,7 +149,7 @@ To backup and restore your SAP HANA databases running on Amazon EC2 instance, at
 - `AWSBackupServiceRolePolicyForBackup` – this Amazon managed policy must be attached to the role that will passed to `StartBackupJob` or `DefaultRole`. For more information, see [Service-linked role permissions for AWS Backup](../../../aws-backup/latest/devguide/using-service-linked-roles-AWSServiceRoleForBackup.md#service-linked-role-permissions-AWSServiceRoleForBackup "../../../aws-backup/latest/devguide/using-service-linked-roles-AWSServiceRoleForBackup.md#service-linked-role-permissions-AWSServiceRoleForBackup"). The policy must contain the following trust relation.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

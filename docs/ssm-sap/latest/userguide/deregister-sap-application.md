@@ -9,7 +9,7 @@ If a database has not been previously registered with AWS Systems Manager, the d
 **Command template**
 
 ```
- aws ssm-sap list-applications --region <REGION_ID>
+aws ssm-sap list-applications --region <REGION_ID>
 ```
 
 Note the `ApplicationId` of your registration.
@@ -21,7 +21,7 @@ You can use the AWS CLI command [deregister-application](https://awscli.amazonaw
 **Command template**
 
 ```
- aws ssm-sap deregister-application --application-id <APPLICATION_ID> --region <REGION>
+aws ssm-sap deregister-application --application-id <APPLICATION_ID> --region <REGION>
 ```
 
 The parameter `application-id` is required. As the value, use the ApplicationID retrieved in Step 1.

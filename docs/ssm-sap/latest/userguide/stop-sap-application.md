@@ -24,7 +24,7 @@ Register your SAP application, if you have not already done so. For more informa
 You can use the following AWS CLI command to stop your SAP application:
 
 ```
- aws ssm-sap stop-application \
+aws ssm-sap stop-application \
 --application-id <APPLICATION_ID> \
 --stop-connected-entity <ENTITY> \
 --include-ec2-instance-shutdown \
@@ -45,13 +45,13 @@ SAP ABAP
 **Command template**
 
 ```
- aws ssm-sap stop-application --application-id <APPLICATION_ID> --stop-connected-entity <ENTITY> --include-ec2-instance-shutdown --region <REGION_ID>
+aws ssm-sap stop-application --application-id <APPLICATION_ID> --stop-connected-entity <ENTITY> --include-ec2-instance-shutdown --region <REGION_ID>
 ```
 
 **Command example**
 
 ```
- aws ssm-sap stop-application \
+aws ssm-sap stop-application \
 --application-id myABAPApplication \
 --stop-connected-entity DBMS \
 --include-ec2-instance-shutdown \
@@ -61,7 +61,7 @@ SAP ABAP
 **Return example**
 
 ```
- {
+{
     "OperationId": "a7h4j3k6-8463-836h-018h-7sh377h6hhd6"
 }
 ```
@@ -71,13 +71,13 @@ SAP HANA
 **Command template**
 
 ```
- aws ssm-sap stop-application --application-id <APPLICATION_ID> --include-ec2-instance-shutdown --region <REGION_ID>
+aws ssm-sap stop-application --application-id <APPLICATION_ID> --include-ec2-instance-shutdown --region <REGION_ID>
 ```
 
 **Command example**
 
 ```
- aws ssm-sap stop-application \
+aws ssm-sap stop-application \
 --application-id myABAPApplication \
 --include-ec2-instance-shutdown \
 --region us-east-1
@@ -86,7 +86,7 @@ SAP HANA
 **Return Example**
 
 ```
- {
+{
     "OperationId": "j3h5j4k5-8323-192j-102n-18h7hhh27h27"
 }
 ```
@@ -98,13 +98,13 @@ The stop operation can take up to five minutes to complete. During that time, yo
 **Command template**
 
 ```
- aws ssm-sap get-operation --operation-id <OPERATION_ID> --region <REGION_ID>
+aws ssm-sap get-operation --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 **Command example**
 
 ```
- aws ssm-sap get-operation \
+aws ssm-sap get-operation \
 --operation-id b2bc3266-9369-4163-b935-6a586c80e76b \
 --region us-east-1
 ```
@@ -116,20 +116,20 @@ Verify the stop operation on the application through the event using the [ListOp
 **Command template**
 
 ```
- aws ssm-sap list-operation-events --operation-id <OPERATION_ID> --region <REGION_ID>
+aws ssm-sap list-operation-events --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 **Command example**
 
 ```
- aws ssm-sap list-operation-events \
+aws ssm-sap list-operation-events \
 --operation-id a1bc2345-6789-0123-d456-7e890f12g34h
 ```
 
 **Return example**
 
 ```
- {
+{
     "OperationEvents": [
         {
             "Description": "Stop the EC2 instance i-abcdefgh987654321",

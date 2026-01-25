@@ -16,7 +16,7 @@ You can register a single node or a high availability setup with multiple nodes 
 Create a JSON file to store the credentials you created in [Register SAP HANA database credentials in AWS Secrets Manager](get-started.md#register-secrets "get-started.md#register-secrets").
 
 ```
- [
+[
     {
         "DatabaseName": "<YOUR_SID>/<YOUR_DATABASE_NAME>",
         "CredentialType": "ADMIN",
@@ -37,7 +37,7 @@ Create a JSON file to store the credentials you created in [Register SAP HANA da
 The following is an example JSON file.
 
 ```
- [
+[
     {
         "DatabaseName": "HDB/SYSTEMDB",
         "CredentialType": "ADMIN",
@@ -60,13 +60,13 @@ Make sure to use the correct SAP HANA database instance number and SAP HANA data
 **Command Template**
 
 ```
- aws ssm-sap register-application --application-id <APPLICATION_ID> --application-type HANA --instances <YOUR_EC2_INSTANCE_ID> --sap-instance-number <YOUR_HANA_DATABASE_SYSTEM_NUMBER> --sid <YOUR_HANA_DATABASE_SID> --region <REGION> --credentials file://<PATH_TO_YOUR_CREDENTIALS_JSON_FILE>
+aws ssm-sap register-application --application-id <APPLICATION_ID> --application-type HANA --instances <YOUR_EC2_INSTANCE_ID> --sap-instance-number <YOUR_HANA_DATABASE_SYSTEM_NUMBER> --sid <YOUR_HANA_DATABASE_SID> --region <REGION> --credentials file://<PATH_TO_YOUR_CREDENTIALS_JSON_FILE>
 ```
 
 **Example command with sample values**
 
 ```
- aws ssm-sap register-application \
+aws ssm-sap register-application \
 --application-id myHanaApplication \
 --application-type HANA \
 --instances i-0123456789abcdefg \
@@ -79,7 +79,7 @@ Make sure to use the correct SAP HANA database instance number and SAP HANA data
 **Example JSON response**
 
 ```
- {
+{
     "Application": {
         "Id": "myHanaApplication",
         "Type": "HANA",
@@ -108,7 +108,7 @@ To register a high availability SAP HANA database, you can input either the prim
 The registration may take a few minutes to complete. Use the following command to check the status of the registration. Replace `<YOUR_OPERATION_ID>` with the `OperationID` from the previous step.
 
 ```
- aws ssm-sap get-operation --operation-id <YOUR_OPERATION_ID> --region <REGION>
+aws ssm-sap get-operation --operation-id <YOUR_OPERATION_ID> --region <REGION>
 ```
 
 ## Step 4: Verify registration
@@ -118,13 +118,13 @@ Verify the registration with [GetApplication](../../../ssmsap/latest/APIReferenc
 **Command template**
 
 ```
- aws ssm-sap get-application --application-id <APPLICATON_ID> --region <REGION>
+aws ssm-sap get-application --application-id <APPLICATON_ID> --region <REGION>
 ```
 
 **Example to get the summary of an application**
 
 ```
- aws ssm-sap get-application \
+aws ssm-sap get-application \
 --application-id myHanaApplication \
 --region us-east-1
 ```
@@ -132,7 +132,7 @@ Verify the registration with [GetApplication](../../../ssmsap/latest/APIReferenc
 **Example output**
 
 ```
- {
+{
     "Application": {
         "Id": "myHanaApplication",
         "Type": "HANA",
@@ -155,7 +155,7 @@ Verify the registration with [GetApplication](../../../ssmsap/latest/APIReferenc
 Get the component summary with [GetComponent](../../../ssmsap/latest/APIReference/API_GetComponent.md "../../../ssmsap/latest/APIReference/API_GetComponent.md") API.
 
 ```
- aws ssm-sap get-component --application-id <APPLICATION_ID> --component-id <YOUR_COMPONENT_ID_FROM_LAST_STEP> --region <REGION>
+aws ssm-sap get-component --application-id <APPLICATION_ID> --component-id <YOUR_COMPONENT_ID_FROM_LAST_STEP> --region <REGION>
 ```
 
 Systems Manager for SAP provides two types of components for an SAP HANA application – parent and child.
@@ -170,7 +170,7 @@ Single node
 **GetComponent API output for parent component**
 
 ```
- {
+{
     "Component": {
         "ComponentId": "HDB-HDB00",
         "ChildComponents": [
@@ -204,7 +204,7 @@ Single node
 **GetComponent API output for child component**
 
 ```
- {
+{
     "Component": {
         "ComponentId": "HDB-HDB00-sapci",
         "ParentComponent": "HDB-HDB00",
@@ -236,7 +236,7 @@ High availability
 **GetComponent API output for parent component**
 
 ```
- {
+{
     "Component": {
         "ComponentId": "HDB-HDB00",
         "ChildComponents": [
@@ -260,7 +260,7 @@ High availability
 **GetComponent API output for child component (primary)**
 
 ```
- {
+{
     "Component": {
         "ComponentId": "HDB-HDB00-sappridb",
         "ParentComponent": "HDB-HDB00",
@@ -291,7 +291,7 @@ High availability
 **GetComponent API output for child component (secondary)**
 
 ```
- {
+{
     "Component": {
         "ComponentId": "HDB-HDB00-sapsecdb",
         "ParentComponent": "HDB-HDB00",

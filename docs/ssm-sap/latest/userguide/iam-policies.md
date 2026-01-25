@@ -22,7 +22,7 @@ This policy includes the following permissions.
 - `ec2` – Allows Systems Manager for SAP to start or stop an Amazon EC2 instance, if that instance is tagged with the key value pair `SSMForSAPManaged=True`.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -79,7 +79,7 @@ This policy includes the following permissions.
 - `ssm-sap` – Allows principals read only access to Systems Manager for SAP.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

@@ -13,7 +13,7 @@ AWS Command Line Interface
 Use the following command to view the metrics via AWS CLI.
 
 ```
- aws cloudwatch list-metrics --namespace "AWS/SSMForSAP"
+aws cloudwatch list-metrics --namespace "AWS/SSMForSAP"
 ```
 
 **The following are all the metrics available to you.**

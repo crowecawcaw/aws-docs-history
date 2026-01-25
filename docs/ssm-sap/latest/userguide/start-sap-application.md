@@ -26,7 +26,7 @@ In your records, note the `ApplicationId` of your registration.
 You can use the following AWS CLI command to start your SAP application:
 
 ```
- aws ssm-sap start-application \
+aws ssm-sap start-application \
 --application-id <APPLICATION_ID> \
 --region <REGION_ID>
 ```
@@ -36,13 +36,13 @@ The parameter `application-id` is required. As the value, use the ApplicationID 
 **Command template**
 
 ```
- aws ssm-sap start-application --application-id <APPLICATION_ID> --region <REGION_ID>
+aws ssm-sap start-application --application-id <APPLICATION_ID> --region <REGION_ID>
 ```
 
 **Command example**
 
 ```
- aws ssm-sap start-application \
+aws ssm-sap start-application \
 --application-id myHanaApplication \
 --region us-east-1
 ```
@@ -50,7 +50,7 @@ The parameter `application-id` is required. As the value, use the ApplicationID 
 **Return example**
 
 ```
- {
+{
     "OperationId": "a7h4j3k6-8463-836h-018h-7sh377h6hhd6" //(Note)
 }
 ```
@@ -64,7 +64,7 @@ The start operation can take up to five minutes to complete. During that time, y
 **Command template**
 
 ```
- aws ssm-sap get-operation --operation-id <OPERATION_ID> --region <REGION_ID>
+aws ssm-sap get-operation --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 ## Step 4: Monitor and verify Start operation
@@ -74,13 +74,13 @@ Verify the start operation on the application through the event using the [ListO
 **Command template**
 
 ```
- aws ssm-sap list-operation-events --operation-id <OPERATION_ID> --region <REGION_ID>
+aws ssm-sap list-operation-events --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
 **Command example**
 
 ```
- aws ssm-sap list-operation-events \
+aws ssm-sap list-operation-events \
 --operation-id b2bc3266-9369-4163-b935-6a586c80e76b \
 --region us-east-1
 ```
@@ -88,7 +88,7 @@ Verify the start operation on the application through the event using the [ListO
 **Json output**
 
 ```
- {
+{
     "OperationEvents": [
         {
             "Description": "Start the SAP component ECD-ABAP",
