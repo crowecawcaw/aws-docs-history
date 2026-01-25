@@ -1,45 +1,59 @@
-# [QA.ST.4] Enhance source code security with static application security testing
+# [QA.ST.2] Normalize security testing findings
 
 **Category:** FOUNDATIONAL
 
-Static Application Security Testing (SAST) is a proactive measure to identify
-potential vulnerabilities in your source code before they become part of a live application.
-SAST is a specialized form of non-functional static testing that enables you to analyze the
-source or binary code for security vulnerabilities, without the need for the code to be
-running.
+Effective vulnerability management requires clarity and
+consistency. Given the diversity of security testing tools in
+a DevOps environment, findings often emerge from different
+sources and in different formats. This diversity of tooling
+can introduce confusion and inefficiency into risk management
+processes.  Having a common framework for normalizing the
+interpretation and ranking of vulnerabilities from diverse
+security testing tools provides a systematic approach to risk
+management and mitigation. Normalization is not just about
+consistency, it helps ensure that every identified
+vulnerability is understood, categorized, and managed
+according to its threat level.
 
-Choose a SAST tool, such as
-[Amazon CodeGuru Security](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/"), and use it to scan your application
-using an automated continuous integration pipeline. This
-enables identifying security vulnerabilities in the source
-code early in the development process. When selecting a SAST
-tool, consider its compatibility with your application's
-languages and frameworks, its ease of integration into your
-existing toolsets, its ability to provide actionable insights
-to fix vulnerabilities, and false positive rates. False
-positive rate is one of the most important metrics to focus on
-when selecting a SAST tool, as this can result in findings and
-alerts of potential security issues that are not actually
-exploitable. False positives can erode trust in the adoption
-of security testing.
+Begin by selecting a recognized scoring system, such as the
+Common Vulnerability Scoring System
+([CVSS](https://nvd.nist.gov/vuln-metrics/cvss "https://nvd.nist.gov/vuln-metrics/cvss")),
+as the baseline for vulnerability ranking. This will provide a
+universal language for risk assessment and
+prioritization. Many modern security tools have built-in
+integrations with popular scoring systems. Configure your
+tools to automatically map their findings to the chosen
+system, ensuring uniformity across all results. It is
+important to periodically review the normalization process,
+updating it as required and ensuring alignment with industry
+best practices.
 
-To prevent developer burnout and backlash due to overwhelming
-false positives or a high rate of alerts in existing
-applications, introduce SAST rulesets incrementally. Start
-with a core set of rules and expand as your team becomes more
-accustomed to addressing security testing feedback. This
-iterative approach also allows teams to validate the tool's
-findings and fine-tune its sensitivity over time. Regularly
-update and refine enabled SAST rules to maintain its
-effectiveness in identifying potential security issues.
+Use tools that can automatically translate findings into the
+standardized format. Integrations like the Static Analysis
+Results Interchange Format
+([SARIF](https://sarifweb.azurewebsites.net/ "https://sarifweb.azurewebsites.net/"))
+or [OCSF
+Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/") can assist with this. These tools can enable
+centralizing findings from different sources into a single
+dashboard or reporting platform to create a unified view of
+the security posture which can streamline the prioritization
+and remediation process.
+
+By adopting a systematic approach to normalization, organizations can verify that
+their response to vulnerabilities is consistent, effective, and aligned with the actual
+risks posed to the system. Ensure that everyone involved in the security process understands
+the chosen scoring system and knows how to interpret it. Regular workshops or training
+sessions can help ensure ongoing alignment.
 
 **Related information:**
 
-- [Security
-  in every stage of the CI/CD pipeline: SAST](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#static-application-security-testing-sast "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/security-in-every-stage-of-cicd-pipeline.md#static-application-security-testing-sast")
-- [Amazon CodeGuru Security](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/")
-- [Security
-  scans - CodeWhisperer](../../../codewhisperer/latest/userguide/security-scans.md "../../../codewhisperer/latest/userguide/security-scans.md")
-- [Blog:
-  Building end-to-end AWS DevSecOps CI/CD pipeline with open
-  source SCA, SAST and DAST tools](https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/ "https://aws.amazon.com/blogs/devops/building-end-to-end-aws-devsecops-ci-cd-pipeline-with-open-source-sca-sast-and-dast-tools/")
+- [NIST
+  Common Vulnerability Scoring System (CVSS)](https://nvd.nist.gov/vuln-metrics/cvss "https://nvd.nist.gov/vuln-metrics/cvss")
+- [MITRE Common
+  Weakness Scoring System (CWSS™)](https://cwe.mitre.org/cwss/cwss_v1.0.1.html "https://cwe.mitre.org/cwss/cwss_v1.0.1.html")
+- [Static
+  Analysis Results Interchange Format (SARIF)](https://sarifweb.azurewebsites.net/ "https://sarifweb.azurewebsites.net/")
+- [OCSF
+  Schema](https://schema.ocsf.io/ "https://schema.ocsf.io/")
+- [OCSF
+  GitHub](https://github.com/ocsf "https://github.com/ocsf")

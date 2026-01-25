@@ -1,40 +1,34 @@
-# [AG.DEP.7] Utilize metadata for scalable environment management
+# [AG.DEP.8] Implement a unified developer portal for self-service environment management
 
 **Category:** OPTIONAL
 
-Effective environment management at scale requires the
-collection and maintenance of key information about each
-environment, such as ownership, purpose, criticality,
-lifespan, and more. These details can offer visibility and
-clarity which reduces potential confusion and misuse of
-environments and assists with setting up proper controls based
-on specific details associated with the environment.
+Consider implementing a self-service portal that empowers
+developers to create, manage, and decommission their own
+isolated development or sandbox environments, within the
+established boundaries set by the platform team. While
+fostering autonomy for development teams, this approach
+accelerates the development process and reduces the
+operational load on the supporting platform team. To ensure
+adherence to the organization's standards and ensure
+consistency, the portal could include predefined environment
+templates and resource bundles.
 
-Adopt techniques like resource tagging to track and maintain this metadata. Not only
-does this allow platform teams to track and optimize costs by accurately attributing
-resource usage to specific environments, but it also supports the management of access
-controls and security measures, aligning governance and compliance needs with individual
-environments.
+While beneficial, the implementation of a developer portal is optional, particularly
+if the organization is leveraging codified environment vending as recommended.
+Infrastructure as code (IaC) presents an alternative approach that reduces human
+intervention.
 
-For implementation, use available tagging features and APIs for resource management
-and metadata tracking. Where additional metadata capture is required, consider creating or
-integrating with a custom tracking system tailored to your specific needs, such as
-existing configuration management database (CMDB) or IT service management (ITSM) tools,
-providing a holistic view of all environments, thus empowering platform teams to better
-govern and manage environments based on their metadata.
-
-Although this practice is marked as optional, it is strongly
-recommended for organizations operating in complex and
-large-scale environments, where managing resources and
-configurations based on metadata can significantly improve
-efficiency, governance, and compliance. This indicator focuses
-on leveraging metadata for active environment management,
-distinguishing it from the broader scope of configuration item
-management.
+The self-service portal, if implemented, can adopt the _X as a
+Service_ (XaaS) interaction model as outlined in the [Team Topologies](https://teamtopologies.com/ "https://teamtopologies.com/") book by Matthew Skelton and
+Manuel Pais. The portal can evolve over time into a central resource for common, reusable
+tools and capabilities preconfigured to comply with organizational standards, facilitating
+streamlined automated governance activities. This might include centralized access to
+common tools into a unified developer portal, including observability, security, quality,
+cost, and organizational use cases. If adopted by many teams, this platform can become an
+excellent method for communicating changes within the organization.
 
 **Related information:**
 
-- [Choosing
-  tags for your environment](../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/choosing-tags.md "../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/choosing-tags.md")
-- [Tag
-  policies - AWS Organizations](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")
+- [The
+  Amazon Software Development Process: Self-Service
+  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")

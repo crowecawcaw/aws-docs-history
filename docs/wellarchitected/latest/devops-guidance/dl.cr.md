@@ -1,22 +1,27 @@
-# [DL.CR.3] Establish clear completion criteria for code tasks
+# [DL.CR.5] Foster a constructive and inclusive review culture
 
 **Category:** FOUNDATIONAL
 
-A clear definition of done ensures that developers understand
-the requirements of their task, can consistently meet those
-requirements, and that reviewers have a sense of what they are
-reviewing. It provides the team with shared clarity of purpose
-for each change that they will be making to the code base.
+Code reviews should be respectful and collaborative
+interactions that cultivate a positive and inclusive culture.
+Good code reviews involve asking open-ended questions,
+suggesting alternatives, and assuming good intentions. Reviews
+should be empathetic and kind, recognizing the effort put into
+the code changes and promoting positivity.
 
-To implement a clear definition of done, initiate discussions among all team members
-during the design phase to identify and agree on the criteria that should be included.  The
-done criteria should include the types of testing that need to be done (like functional,
-non-functional, or security tests), any required documentation (like code comments or user
-manuals), and the standards the code needs to meet (such as performance, availability, or
-team style guides).
+The tone and approach of code reviews can greatly impact the
+efficiency of the process, team morale, and ultimately the
+quality of the product. A positive and inclusive review
+culture encourages more open discussion, facilitates knowledge
+sharing, and can lead to improved code quality.
 
-Once these criteria are defined and agreed upon, document them, and make this
-definition of done available and visible to all team members. It should be used as a
-checklist during the code review process to ensure that all changes meet the established
-criteria. Having a clear definition of done can streamline the review process and reduce the
-number of issues that need to be addressed in later stages of the development lifecycle.
+To implement a positive and inclusive review culture, teams
+should establish clear guidelines on the expectations for code
+reviews, including language use and constructive feedback.
+Regularly reinforce these expectations through team meetings
+and training. Encourage team members to focus on the code and
+not the coder, to be respectful and patient, and to frame
+suggestions as questions or alternatives rather than absolute
+critiques. Use the available escalation paths and mutually
+agreed upon team guiding principles to quickly resolve team
+differences and act as tie breakers during disagreement.

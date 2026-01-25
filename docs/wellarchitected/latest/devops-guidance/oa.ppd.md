@@ -1,34 +1,28 @@
-# [OA.PPD.5] Recognize and reward continuous learning
+# [OA.PPD.3] Offer diverse and accessible training options
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Establish measurable learning targets, including stretch
-goals, and design meaningful reward systems to encourage
-team members to meet their set targets. Regularly provide
-feedback and progress assessments, which keeps employees
-aligned with their learning goals. Emphasize the significance
-of soft skills training and how they correlate with the
-broader business and team goals. Celebrate and broadly
-acknowledge individual and team accomplishments related to
-learning and skill development to reinforce the organization's
-commitment to fostering a culture of continuous learning.
+Offer accessible training options with materials and courses made available in
+multiple languages and formats, including in-person, remote, and self-paced options.
+Provide accessible and inclusive content for employees with visual or communication
+impairments, incorporating features like closed captioning and screen reader
+compatibility.
 
-Encourage individuals to pursue relevant certifications that
-align to their roles and responsibilities to validate their
-expertise and keep up to date with latest technologies and
-best practices. Consider financial incentives or
-reimbursements for successfully obtaining a certification to
-further motive team members to invest in their continued
-learning. Organizations can also host regular internal
-training sessions, workshops, or mentorship programs to
-facilitate individuals learning from one-another and help
-accelerate learning through collaboration. Exemplary
-organizations tend to introduce immersive experiential
-learning platforms that develop skills through simulation,
-hands-on problem solving, and gamification.
+Leaders should identify the diverse training needs of teams and individual team
+members, and develop accessible training options that are available in multiple languages
+and formats. Keep training content relevant and up-to-date. Some organizations
+choose to implement a learning management system (LMS) to track employee progress and
+provide access to training materials, while others choose to use content developed by third
+parties. Gather feedback from employees to improve the training modules and
+delivery formats.
 
 **Related information:**
 
-- [AWS Certification Paths](https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf "https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf")
-- [AWS Ramp-Up Guide: DevOps Engineer](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf "https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_DevOps.pdf")
-- [AWS Jams](https://aws.amazon.com/professional-services/jam/ "https://aws.amazon.com/professional-services/jam/")
+- [AWS Certification](https://aws.amazon.com/certification "https://aws.amazon.com/certification")
+- [AWS Educate](https://aws.amazon.com/education/awseducate/ "https://aws.amazon.com/education/awseducate/")
+- [AWS Skills Centers](https://aws.amazon.com/training/skills-centers/ "https://aws.amazon.com/training/skills-centers/")
+- [AWS re/Start](https://aws.amazon.com/training/restart/ "https://aws.amazon.com/training/restart/")
+- [Cloud
+  Academy: DevOps Training Library](https://cloudacademy.com/library/devops/ "https://cloudacademy.com/library/devops/")
+- [Pluralsight:
+  DevOps Courses](https://www.pluralsight.com/search?q=DevOps "https://www.pluralsight.com/search?q=DevOps")

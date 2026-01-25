@@ -1,35 +1,49 @@
-# [OA.TI.8] Simplify access to organizational information
+# [OA.TI.6] Prioritize customer needs to deliver optimal business outcomes
 
 **Category:** RECOMMENDED
 
-Provide internal users access to vital
-organizational information, such as details about the
-organization, objectives, analytics, employee data, policies,
-hierarchical structures, and escalation channels. One approach
-is to manage a centralized platform, like an intranet, where
-employees can swiftly locate the information they need for
-effective job performance.
+Customer-driven development is an approach that places the end user's needs and
+expectations at the heart of product development. Instead of starting with technical
+specifications or available resources, teams start by visualizing the ideal user
+experience. From there, iteratively work backwards to determine how to deliver on
+that plan.
 
-To improve the platform's information integrity and relevance, connect it with internal systems such as Enterprise
-Resource Planning (ERP) software, and maintain regular
-updates at the source. Include instruction and training on
-using this platform as part of the onboarding process to equip
-employees with the necessary skills for information access.
+An example of this is the Amazon _working backwards_ process. At
+Amazon, the development process begins with a document that outlines the product's core
+value to customers as a Press Release and Frequently Asked Questions (PRFAQ)
+document. This document often contains detailed data points such as usage forecasts,
+adoption expectations, the value to the customer, and how we can provide that value to
+customers. With this approach, Amazon can continuously build products and features that
+resonate with user needs.
 
-Further enhance the platform with generative AI-powered
-internal research and search capabilities. This helps users
-swiftly access and interpret proprietary, complex
-documentation regarding compliance, regulations, or portfolio
-research using text summarization. Search is another method for
-faster information retrieval and classification, expediting
-access to relevant documents during review processes. Search also improves extraction of accurate answers from researched
-materials by querying a topic.
+To implement this mechanism within your organization, begin the development process
+by writing a document that envisions the desired customer outcome. From there,
+work backwards to establish the technical and operational steps to achieve that
+outcome. Use mechanisms such as surveys and interviews to understand customer needs
+and gather data points.
+
+Next, add a detailed set of meaningful FAQs to clarify product intricacies,
+anticipate questions customers will have, and preempt potential challenges. Before
+starting development, create visual mock-ups and provide use cases to offer a tangible
+representation for the team so they understand how users interact with the product.
+Draft user guides or documentation that can provide clarity on how users will interact
+with the system and features to expect.
+
+Share these documents internally to gain alignment and
+additional perspective from other teams and leaders. The
+documents can also be used throughout the development
+lifecycle to provide developers a clear understanding of the
+desired customer experience, leading to fewer errors and
+quicker deployment cycles. Establish a continuous feedback
+loop that gathers customer insights and use them to inform
+decision-making and prioritize additional products and
+features.
 
 **Related information:**
 
-- [Business
-  Value is IT's Primary Measure of Progress](https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/ "https://aws.amazon.com/blogs/enterprise-strategy/business-value-is-its-primary-measure-of-progress/")
-- [Amazon
-  Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
-- [Amazon Kendra](https://aws.amazon.com/kendra/ "https://aws.amazon.com/kendra/")
-- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
+- [Working
+  Backwards](https://www.allthingsdistributed.com/2006/11/working_backwards.html "https://www.allthingsdistributed.com/2006/11/working_backwards.html")
+- [The
+  Amazon Software Development Process: Listen to
+  Customers](https://youtu.be/52SC80SFPOw?t=2076 "https://youtu.be/52SC80SFPOw?t=2076")
+- [AWS re:Invent 2020: Working backwards](https://www.youtube.com/watch?v=aFdpBqmDpzM "https://www.youtube.com/watch?v=aFdpBqmDpzM")

@@ -1,45 +1,42 @@
-# [AG.DLM.5] Reduce risks and costs with systematic data retention strategies
+# [AG.DLM.7] Ensure data safety with automated backup processes
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Data is continuously generated, processed, and stored
-throughout the development lifecycle, increasing the
-complexity and importance of automated data management
-capabilities. Automated data retention and disposal is the
-process of implementing strategies and tools that
-systematically store data for pre-established periods and
-securely delete it afterward. The goal of data retention and
-disposal is not just about compliance, but also about reducing
-risks, sustainability, minimizing costs, and improving
-operational efficiency. Automation reduces the manual
-workload, decreases the risk of human error, and improves data
-governance and compliance.
+Data loss can be catastrophic for any organization. Automated backup mechanisms help
+to ensure that your data is not only routinely backed up, but also that these backups are
+maintained and readily available when needed.  As data is constantly being created and
+modified, these processes minimize the risk for data loss and reduce the manual,
+error-prone manual approach of backing up data.
 
-To effectively implement automated data retention and
-disposal, start by defining the data lifecycle policies for
-your organization. This includes understanding the regulatory
-and business requirements for each type of data your
-organization processes, how long it needs to be retained, and
-the conditions under which it should be disposed. The policies
-should also include procedures for data archiving, backups,
-and restoration.
+Define a backup policy that outlines the types of data to be
+backed up, the frequency of backups, and the duration for
+which backups should be retained. This policy should also
+cover data restoration processes and timelines. Create backup
+policies that best fit the classification of the data to avoid
+backing up unnecessary data.
 
-Once these policies are in place, automate the enforcement of
-these policies with data lifecycle management tools. These
-tools can automatically handle tasks like deletion, archival,
-or movement of data based on the predefined rules. As part of
-the automation process, develop mechanisms to log and audit
-data disposal actions. This not only provides accountability
-and traceability but also is essential for demonstrating
-compliance during audits.
+Choose backup tools that support automation and can be
+integrated into your DevOps pipelines and environments. These
+tools should have capabilities to schedule backups, maintain
+and prune older backups, and ensure the integrity of the
+backed-up data. For instance, during the development
+lifecycle, trigger backups before altering environments with
+business-critical data and in the case of rollbacks ensure
+that the data was not impacted.
+
+Regularly test the data restoration process to ensure that the
+backed-up data can be effectively restored when required.
+Regular audits and reviews of the backup policy and the
+effectiveness of the backup process can help identify any gaps
+or potential improvements. Alerts and reports should be
+configured to provide visibility into the backup process and
+notify teams about any issues.
 
 **Related information:**
 
-- [AWS Well-Architected Cost Optimization Pillar: COST04-BP05
-  Enforce data retention policies](../cost-optimization-pillar/cost_decomissioning_resources_data_retention.md "../cost-optimization-pillar/cost_decomissioning_resources_data_retention.md")
-- [AWS Well-Architected Sustainability Pillar: SUS04-BP03 Use
-  policies to manage the lifecycle of your datasets](../sustainability-pillar/sus_sus_data_a4.md "../sustainability-pillar/sus_sus_data_a4.md")
-- [AWS Well-Architected Sustainability Pillar: SUS04-BP05 Remove
-  unneeded or redundant data](../sustainability-pillar/sus_sus_data_a6.md "../sustainability-pillar/sus_sus_data_a6.md")
-- [Managing
-  your storage lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md")
+- [AWS Well-Architected Sustainability Pillar: SUS04-BP08 Back up
+  data only when difficult to recreate](../sustainability-pillar/sus_sus_data_a9.md "../sustainability-pillar/sus_sus_data_a9.md")
+- [AWS Well-Architected Reliability Pillar: REL09-BP03 Perform
+  data backup automatically](../reliability-pillar/rel_backing_up_data_automated_backups_data.md "../reliability-pillar/rel_backing_up_data_automated_backups_data.md")
+- [Centrally
+  manage and automate data protection - AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/")

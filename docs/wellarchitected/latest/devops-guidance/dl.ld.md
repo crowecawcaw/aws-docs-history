@@ -1,38 +1,28 @@
-# [DL.LD.5] Enforce coding standards before commit
+# [DL.LD.10] Manage unused development environments
 
-**Category:** RECOMMENDED
+**Category:** OPTIONAL
 
-Identify common style, formatting, and other flaws before they
-are published to a repository. Use static code scanning tools,
-such as linters, to improve code quality and consistency
-before pushing committed code. This process can be automated
-using pre-commit hooks. Upon discovery, pushing the commit
-should ideally fail and require immediate correction by the
-developer. Automatically and consistently enforcing coding
-standards during the local development process directly
-improves the code review process by removing common errors
-before manual review.
+Properly managing unused environments prevents unnecessary
+resource utilization and potential security threats. When
+development environments are not in use, the environment and
+associated resources should be disabled or deleted.
 
-Select scanning tools compatible with your chosen programming
-language and customize them to uphold specific coding
-standards and styles. It is best to integrate these tools into
-pre-commit hooks, integrated development environments (IDEs),
-and continuous integration pipelines so that changes are
-consistently and continuously checked at all stages of the
-development lifecycle.
+Managing unused development environments requires tracking,
+disabling, or removing development setups that are dormant or
+no longer in active use. Regularly audit the active and
+inactive development environments. Implement automated tools
+or scripts that monitor activity and provide notifications
+regarding dormant environments.
+
+Once identified, these environments should be archived,
+disabled, or removed, depending on the future needs of the
+project. Treat development environments as ephemeral
+environments to reduces the risk of incurring unexpected cost
+and leaving potentially insecure resources running.
 
 **Related information:**
 
-- [Amazon CodeGuru Reviewer](https://aws.amazon.com/codeguru/ "https://aws.amazon.com/codeguru/")
-- [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
-- [Pre-commit](https://pre-commit.com/ "https://pre-commit.com/")
-- [Husky](https://typicode.github.io/husky/ "https://typicode.github.io/husky/")
-- [Validate
-  your AWS SAM applications with AWS CloudFormation
-  Linter](../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md "../../../serverless-application-model/latest/developerguide/validate-cfn-lint.md")
-- [Workshop: AWS CloudFormation Workshop - Linting and-testing](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing")
-- [Blog: Use
-  Git pre-commit hooks to avoid AWS CloudFormation
-  errors](https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/ "https://aws.amazon.com/blogs/infrastructure-and-automation/use-git-pre-commit-hooks-avoid-aws-cloudformation-errors/")
-- [Blog: Automate
-  code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")
+- [AWS Well-Architected Sustainability Pillar: SUS02-BP03 Stop
+  the creation and maintenance of unused assets](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST04-BP03
+  Decommission resources](../cost-optimization-pillar/cost_decomissioning_resources_decommission.md "../cost-optimization-pillar/cost_decomissioning_resources_decommission.md")

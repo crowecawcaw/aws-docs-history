@@ -1,46 +1,28 @@
-# [DL.CI.1] Integrate code changes regularly and frequently
+# [DL.CI.6] Refine integration pipelines with build metrics
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Working in small batches, characterized by regular, small changes to a code base,
-enhances software delivery performance. It reduces the time to receive feedback on changes,
-which is required to enable continuous integration. This way of working is an improvement
-over traditional phased development approaches, which often leads to delayed feedback due to
-large batches of work. By making smaller, more frequent changes, teams can uncover and fix
-bugs earlier in the development lifecycle, simplifying the process of updating, testing, and
-releasing software.
+Use key metrics—whether sourced from this guidance, established frameworks
+like [DORA](https://dora.dev/ "https://dora.dev/") or [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124"), or custom to your
+organization—to optimize your continuous integration process. Metrics such as deployment
+frequency, change lead time, failure rate, and time to recover serve as outcome-based
+lagging indicators. These indicators span many DevOps capabilities to provide insights
+into the efficiency and reliability of the full delivery process. While individual metrics
+offer granular insights to optimize specific continuous integration capabilities, these
+aggregated metrics present a holistic overview of the end-to-end development lifecycle.
+Both granular and holistic metrics are important for continuous improvement.
 
-Features should be broken down into independent work units
-that align with the agile
-[INVEST](https://www.agilealliance.org/glossary/invest/ "https://www.agilealliance.org/glossary/invest/")
-checklist. Splitting features into small increments of value,
-ramping up the frequency of deployment, and practicing Test
-Driven Development (TDD) all contribute to ensuring small
-batch sizes. Developers should strive to integrate multiple
-small, releasable changes to the code base at least once per
-day. Techniques like
-[dark
-launching](https://martinfowler.com/bliki/DarkLaunching.html "https://martinfowler.com/bliki/DarkLaunching.html"), [branch
-by abstraction](https://trunkbaseddevelopment.com/branch-by-abstraction/ "https://trunkbaseddevelopment.com/branch-by-abstraction/"), and
-[feature
-flags](https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags") allow incomplete features to be integrated in a
-reversible way without impacting end users.
+Embed observability practices into your integration pipelines,
+incorporating monitoring and logging observability
+capabilities. By transforming logs into metrics, you gain
+actionable insights into areas needing refinement. Prioritize
+making these metrics accessible to all team members to create
+an environment where teams can proactively monitor, analyze,
+and improve based on these metrics.
 
-Working in small batches requires discipline and commitment,
-but leads to improvements in speed, security, collaboration,
-and code base consistency. In mature teams, developers commit
-changes multiple times per day and merge code frequently to
-prevent accumulating large changes. These teams yield better
-collaboration and success in maintaining an up-to-date,
-releasable version of the code base.
-
-**Related information:**
-
-- [What
-  is continuous integration and continuous
-  delivery/deployment?](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/what-is-continuous-integration-and-continuous-deliverydeployment.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/what-is-continuous-integration-and-continuous-deliverydeployment.md")
-- [What
-  does INVEST Stand For?](https://www.agilealliance.org/glossary/invest/ "https://www.agilealliance.org/glossary/invest/")
-- [Testing
-  software and systems at Amazon: Continuous Integration and
-  Deployment](https://youtu.be/o1sc3cK9bMU?t=1313 "https://youtu.be/o1sc3cK9bMU?t=1313")
+Putting an emphasis on continually optimizing pipelines using
+metrics is recommended. When getting started with DevOps
+adoption, initial efforts should prioritize the establishment
+of a stable and effective integration pipeline, with
+subsequent enhancements to the pipeline being driven by
+metrics.

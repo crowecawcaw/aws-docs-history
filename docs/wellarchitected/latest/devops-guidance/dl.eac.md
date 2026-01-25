@@ -1,52 +1,59 @@
-# [DL.EAC.1] Organize
+# [DL.EAC.4] Implement continuous configuration for enhanced application management
 
-infrastructure as code for scale
+**Category:** RECOMMENDED
 
-**Category:** FOUNDATIONAL
+_Configuration as code_ is the practice of managing and tracking
+configuration changes as code, providing an audit trail and reducing errors from manual
+changes. [Continuous configuration](https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html "https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html") uses configuration as code to enhance configuration
+management by allowing configuration changes to be made independently of application code
+deployments.
 
-Infrastructure as code (IaC) provides consistent and automated infrastructure
-management capabilities which are important to DevOps adoption. Effectively organizing and
-scaling IaC within your organization enhances flexibility, readability, and reusability
-across multiple teams, while streamlining infrastructure provisioning and maintenance.
+Configuration should be separated from application code to allow for independent
+tracking and management. Use tools designed for managing configurations as code, such
+as [AWS
+AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/"), to manage configuration externally from the application. Create fully
+automated pipelines that perform continuous integration and continuous delivery (CI/CD)
+based on changes to the configuration code. Just like with application deployment
+pipelines, these configuration deployment pipelines should run quality assurance tests,
+followed by deployment in a non-production environment before deploying to production.
 
-When working with IaC files and artifacts, apply modern
-practices such as modular design for improved management and
-reuse, and maintain thorough in-code documentation for
-clarity. Adopt IaC-specific design patterns, like breaking
-down infrastructure templates into reusable modules. Treat IaC
-testing with the same rigor as other software, focusing on
-security risks like excessive privileges or open security
-groups, while upholding quality standards. Use version
-control for IaC templates to ensure traceable changes,
-reliable rollbacks, and efficient sharing across the
-organization.
+It's important to distinguish between static and dynamic configuration types. Static
+configurations do not change during the software's runtime and are specific to each
+environment. Dynamic configurations can be adjusted at runtime without downtime. [Feature
+flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") are examples of dynamic configurations that can be used to control which
+features are enabled per environment to decouple release from deployment. Operational
+configurations, such as log level, throttling thresholds, connection/request limits,
+alerts, and notifications, can be static or dynamic depending on the use case and need to
+be managed. Application modes, which toggle the application to run as either
+_development_, _test_, or
+_production_, are typically considered to be static configuration
+that is set at startup and do not change.
 
-You must carefully consider your organization's governance structure when deciding
-how to implement IaC at scale. Depending on the specific needs, your organization might find
-one model more suitable than the other, or even adopt a hybrid approach that combines
-elements of both. The right approach to scaling is dependent on factors such as team
-dynamics, operating model, application type, and the desired rate of change.
+General use cases for continuous configuration include application integration
+tuning, feature toggling, allowing access to premium content through allow lists, and
+addressing operational issues and troubleshooting. To manage your configurations
+effectively, establish a routine to prevent configuration bloat. While it can seem
+tempting to externalize as many variables as possible, an excessively complex
+configuration file can lead to confusion and errors. Carefully evaluate the necessity,
+frequency of change, and runtime requirements of each value to decide if it should be
+included as dynamic configuration. 
 
-For example, services like [AWS Service Catalog](https://aws.amazon.com/servicecatalog/ "https://aws.amazon.com/servicecatalog/") and [AWS Proton](https://aws.amazon.com/proton/ "https://aws.amazon.com/proton/") provide
-distinct methods to distribute and consume secure-by-default software components and IaC in
-different ways. Service Catalog suits organizations favoring predefined deployment standards and
-centrally defined resource provisioning, while AWS Proton is ideal for organizations that
-allow development teams to maintain infrastructure and application autonomy. Some
-organizations might prefer to adopt a fully decentralized approach, where individual teams
-provision and manage their own [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") IaC templates. Choose the tools and distribution methods that best
-support your governance model and business goals.
+For large-scale deployment of configuration as code, a [Dynamic Configuration Pipeline](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/dynamic-configuration-pipeline/index.html") is recommended. This allows centralized
+management of the entire workload configuration and its components across all
+environments. It ensures that all configurations are version-controlled, adhere to quality
+assurance and code review processes, and is capable of progressively deploying
+configuration changes and performing rollbacks as necessary to minimize system
+disruptions.
+
+Continuous configuration is beneficial in DevOps environments, as it improves
+operational efficiency and scalability. However, not every system requires the complexity
+associated with continuous configuration. Therefore, each workload should be evaluated
+depending on architecture choice, team preferences, and service level objective
+requirements.
 
 **Related information:**
 
-- [Infrastructure
-  as code - Introduction to DevOps on AWS](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md")
-- [Infrastructure
-  as Code on AWS - An Introduction](https://blog.awsfundamentals.com/infrastructure-as-code-on-aws-an-introduction "https://blog.awsfundamentals.com/infrastructure-as-code-on-aws-an-introduction")
-- [Accelerate
-  deployments on AWS with effective governance](https://aws.amazon.com/blogs/architecture/accelerate-deployments-on-aws-with-effective-governance/ "https://aws.amazon.com/blogs/architecture/accelerate-deployments-on-aws-with-effective-governance/")
-- [Source
-  Control concepts](https://aws.amazon.com/devops/source-control/ "https://aws.amazon.com/devops/source-control/")
-- [Design
-  Patterns](https://refactoring.guru/design-patterns "https://refactoring.guru/design-patterns")
-- [Amazon's
-  approach to security during development: Octane](https://youtu.be/NeR7FhHqDGQ?t=1571 "https://youtu.be/NeR7FhHqDGQ?t=1571")
+- [AWS Cloud Adoption Framework: Operations Perspective
+  - Configuration management](../../../whitepapers/latest/aws-caf-operations-perspective/configuration-management.md "../../../whitepapers/latest/aws-caf-operations-perspective/configuration-management.md")
+- [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/ "https://aws.amazon.com/systems-manager/features/appconfig/")
+- [Continuous configuration](https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html "https://www.allthingsdistributed.com/2021/08/continuous-configuration-on-aws.html")
