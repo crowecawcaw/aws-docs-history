@@ -20,7 +20,7 @@ All Flink applications are built from a single Maven project (`modules/flink`) t
 The Makefile automates the complete build and deployment workflow:
 
 ```
- # Build JAR from source
+# Build JAR from source
 cd modules/flink
 export JAVA_HOME=/opt/homebrew/opt/openjdk@11
 mvn clean package -DskipTests
@@ -48,7 +48,7 @@ To modify a Flink processor and redeploy:
    The Makefile handles all steps automatically:
 
 ```
- # Complete rebuild and redeploy
+# Complete rebuild and redeploy
 make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 ```
 
@@ -63,7 +63,7 @@ make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 **Configuration**:
 
 ```
- {
+{
   "PROCESSOR_TYPE": "EventDrivenTelemetryProcessor",
   "bootstrap.servers": "b-1.cluster.kafka.us-east-1.amazonaws.com:9098",
   "security.protocol": "SASL_SSL",
@@ -87,7 +87,7 @@ make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 **Configuration**:
 
 ```
- {
+{
   "PROCESSOR_TYPE": "TelemetryDataProcessor",
   "group.id": "cms-telemetry-enhanced-processor-consumer",
   "TABLE_NAME": "cms-dev-storage-telemetry",
@@ -111,7 +111,7 @@ make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 **Configuration**:
 
 ```
- {
+{
   "PROCESSOR_TYPE": "TripProcessor",
   "group.id": "cms-trip-processor-consumer",
   "TRIPS_TABLE_NAME": "cms-dev-storage-trips"
@@ -133,7 +133,7 @@ make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 **Configuration**:
 
 ```
- {
+{
   "PROCESSOR_TYPE": "SafetyProcessor",
   "group.id": "cms-safety-processor-consumer",
   "SAFETY_EVENTS_TABLE_NAME": "cms-dev-storage-safety-events"
@@ -155,7 +155,7 @@ make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 **Configuration**:
 
 ```
- {
+{
   "PROCESSOR_TYPE": "MaintenanceProcessor",
   "group.id": "cms-maintenance-processor-consumer",
   "MAINTENANCE_TABLE_NAME": "cms-dev-storage-maintenance-events"
@@ -169,7 +169,7 @@ make configure-flink AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 All Flink applications share common configuration for MSK connectivity and AWS integration:
 
 ```
- {
+{
   "bootstrap.servers": "b-1.cluster.kafka.us-east-1.amazonaws.com:9098,b-2.cluster.kafka.us-east-1.amazonaws.com:9098",
   "security.protocol": "SASL_SSL",
   "sasl.mechanism": "AWS_MSK_IAM",

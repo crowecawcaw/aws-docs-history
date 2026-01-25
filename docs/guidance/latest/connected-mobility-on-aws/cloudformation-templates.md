@@ -42,7 +42,7 @@ The Fleet Manager UI can function as a standalone implementation without deployi
 Deploy only the core infrastructure and UI components:
 
 ```
- # Phase 0: Infrastructure Foundation
+# Phase 0: Infrastructure Foundation
 make infrastructure AWS_PROFILE=my-profile DEPLOYMENT_STAGE=dev
 
 # Phase 1: Fleet Manager Interface
@@ -70,7 +70,7 @@ The simulator includes a historical data injector that populates DynamoDB tables
 The injector runs automatically during Phase 2, but can be executed manually:
 
 ```
- cd services/simulation
+cd services/simulation
 python3 enhanced_historical_data_injector.py
 ```
 

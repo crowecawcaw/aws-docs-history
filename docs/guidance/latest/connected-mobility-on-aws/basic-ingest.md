@@ -22,7 +22,7 @@ The basic ingest layer uses AWS IoT Core Rules Engine to route vehicle telemetry
 **Rule Configuration**:
 
 ```
- SELECT * FROM 'fleet/+/vehicle/+/telemetry'
+SELECT * FROM 'fleet/+/vehicle/+/telemetry'
 ```
 
 This rule matches all telemetry messages from any fleet and vehicle, routing them to the MSK `raw-telemetry` topic. The wildcard pattern (+) enables dynamic fleet and vehicle registration without rule updates.
@@ -46,7 +46,7 @@ Example: `AmazonMSK_connected-mobility-cluster_iot-core-user`
 The secret value must be a JSON object with exactly these keys:
 
 ```
- {
+{
   "username": "iot-core-user",
   "password": "your-secure-password-here"
 }
@@ -65,7 +65,7 @@ The secret value must be a JSON object with exactly these keys:
 Before IoT Core can authenticate, the SCRAM user must be created in MSK:
 
 ```
- # Create SCRAM secret in Secrets Manager
+# Create SCRAM secret in Secrets Manager
 aws secretsmanager create-secret \
   --name AmazonMSK_connected-mobility-cluster_iot-core-user \
   --secret-string '{"username":"iot-core-user","password":"SecurePassword123!"}'
@@ -97,7 +97,7 @@ kafka-acls --bootstrap-server $BOOTSTRAP_SERVERS \
 The IoT Rule action must specify the MSK cluster, topic, and authentication details:
 
 ```
- {
+{
   "kafka": {
     "destinationArn": "arn:aws:kafka:us-east-1:123456789012:cluster/connected-mobility-cluster/uuid",
     "topic": "raw-telemetry",
