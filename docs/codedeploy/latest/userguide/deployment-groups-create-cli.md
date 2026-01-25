@@ -32,7 +32,7 @@ To use the AWS CLI to create a deployment group, call the
   an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
   CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
 - For in-place deployments:
-  - (Optional) The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in ELB that
+  - (Optional) The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in Elastic Load Balancing that
     manage traffic to the instances during the deployment processes.
 
 - For blue/green deployments:
@@ -45,12 +45,12 @@ To use the AWS CLI to create a deployment group, call the
     - Whether instances in the original environment should be
       terminated.
 
-  - The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in ELB to be used for
+  - The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in Elastic Load Balancing to be used for
     instances registered in the replacement environment.
 
 ###### Warning
 
-If you are configuring both an Auto Scaling group and an ELB load balancer in
+If you are configuring both an Auto Scaling group and an Elastic Load Balancing load balancer in
 your deployment group, and you want to [attach the
 load balancer to the Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
 attachment _before_ creating the CodeDeploy deployment from

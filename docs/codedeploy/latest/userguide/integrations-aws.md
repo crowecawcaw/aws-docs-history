@@ -16,4 +16,4 @@ CodeDeploy is integrated with the following AWS services:
 ###### Topics
 
 - [Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md")
-- [ELB](integrations-aws-elastic-load-balancing.md "integrations-aws-elastic-load-balancing.md")
+- [Elastic Load Balancing](integrations-aws-elastic-load-balancing.md "integrations-aws-elastic-load-balancing.md")

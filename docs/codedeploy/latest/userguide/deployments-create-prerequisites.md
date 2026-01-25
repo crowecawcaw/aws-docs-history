@@ -98,13 +98,13 @@ examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../.
 - If you are creating a blue/green deployment, or you have specified an
   optional Classic Load Balancer, Application Load Balancer, or Network Load Balancer in the deployment group for an in-place
   deployment, you have created a VPC using Amazon VPC that contains at least two
-  subnets. (CodeDeploy uses ELB, which requires all instances in a load balancer
+  subnets. (CodeDeploy uses Elastic Load Balancing, which requires all instances in a load balancer
   group to be in a single VPC.)
 
 If you have not created a VPC yet, see the [Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.md "../../../AmazonVPC/latest/GettingStartedGuide/ExerciseOverview.md").
 
 - If you are creating a blue/green deployment, you have configured at least
-  one Classic Load Balancer, Application Load Balancer, or Network Load Balancer in ELB and used it to register the instances
+  one Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing and used it to register the instances
   that make up your original environment.
 
 ###### Note
@@ -112,7 +112,7 @@ If you have not created a VPC yet, see the [Amazon VPC Getting Started Guide](..
 The instances in your replacement environment will be registered with
 the load balancer later.
 
-For more information about configuring a load balancer, see [Set up a load balancer in ELB
+For more information about configuring a load balancer, see [Set up a load balancer in Elastic Load Balancing
 for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md"), and [Set up a load balancer,
 target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md").
 
@@ -124,5 +124,5 @@ blue/green deployment through CloudFormation
   deployment group.
 - Your template must include resources for a VPC using Amazon VPC that contains
   at least two subnets.
-- Your template must include resources for one or more Classic Load Balancers, Application Load Balancers, or Network Load Balancers in ELB
+- Your template must include resources for one or more Classic Load Balancers, Application Load Balancers, or Network Load Balancers in Elastic Load Balancing
   that are used to direct traffic to your target groups.

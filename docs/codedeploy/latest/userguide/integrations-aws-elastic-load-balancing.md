@@ -1,6 +1,6 @@
 # Integrating CodeDeploy with
 
-ELB
+Elastic Load Balancing
 
 During CodeDeploy deployments, a load balancer prevents internet traffic from being routed to
 instances when they are not ready, are currently being deployed to, or are no longer needed
@@ -12,9 +12,9 @@ whether it is used in a blue/green deployment or an in-place deployment.
 The use of Elastic Load Balancing load balancers is mandatory in blue/green deployments and
 optional in in-place deployments.
 
-## ELB types
+## Elastic Load Balancing types
 
-ELB provides three types of load balancers that can be used in CodeDeploy deployments:
+Elastic Load Balancing provides three types of load balancers that can be used in CodeDeploy deployments:
 Classic Load Balancers, Application Load Balancers, and Network Load Balancers.
 
 Classic Load Balancer
@@ -47,9 +47,9 @@ address information extracted from the TCP packet header, not from packet
 content. Network Load Balancers can handle traffic bursts, retain the source IP of the
 client, and use a fixed IP for the life of the load balancer.
 
-To learn more about ELB load balancers, see the following topics:
+To learn more about Elastic Load Balancing load balancers, see the following topics:
 
-- [What is ELB?](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md")
+- [What is Elastic Load Balancing?](../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md "../../../elasticloadbalancing/latest/userguide/what-is-load-balancing.md")
 - [What is a Classic Load Balancer?](../../../elasticloadbalancing/latest/classic/introduction.md "../../../elasticloadbalancing/latest/classic/introduction.md")
 - [What is an Application Load Balancer?](../../../elasticloadbalancing/latest/application/introduction.md "../../../elasticloadbalancing/latest/application/introduction.md")
 - [What is a Network Load Balancer?](../../../elasticloadbalancing/latest/network/introduction.md "../../../elasticloadbalancing/latest/network/introduction.md")
@@ -78,7 +78,7 @@ add the load balancers to a deployment group.
 For more information about load balancers in blue/green deployments, see the following
 topics:
 
-- [Set up a load balancer in ELB
+- [Set up a load balancer in Elastic Load Balancing
   for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
 - [Create an application for a blue/green
   deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md")
@@ -121,7 +121,7 @@ deployments, see the following topics:
   deployment (console)](applications-create-in-place.md "applications-create-in-place.md")
 - [Create a deployment group for an
   in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md")
-- [Set up a load balancer in ELB
+- [Set up a load balancer in Elastic Load Balancing
   for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
 
 ### Specify
@@ -141,7 +141,7 @@ scripts. For more information about deployment configurations, see [Working with
 CodeDeploy](deployment-configurations.md "deployment-configurations.md").
 
 In the CodeDeploy Samples repository on GitHub, we provide instructions and samples
-you can adapt to use CodeDeploy ELB load balancers. These repositories include
+you can adapt to use CodeDeploy Elastic Load Balancing load balancers. These repositories include
 three sample scripts—`register_with_elb.sh`,
 `deregister_from_elb.sh`, and
 `common_functions.sh`—that provide all of the code
@@ -150,7 +150,7 @@ then reference these scripts from your
 `appspec.yml` file.
 
 To set up in-place deployments in CodeDeploy with Amazon EC2 instances that are
-registered with ELB load balancers, do the following:
+registered with Elastic Load Balancing load balancers, do the following:
 
 1. Download the samples for the type of load balancer you want to use for an
    in-place deployment:
@@ -175,10 +175,10 @@ registered with ELB load balancers, do the following:
 
 In the `common_functions.sh` script:
 
-    * If you are using the [Classic Load Balancer](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb"), specify the names of the ELB load balancers in
+    * If you are using the [Classic Load Balancer](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb"), specify the names of the Elastic Load Balancing load balancers in
      `ELB_LIST=""`, and make any changes you need to the
      other deployment settings in the file.
-    * If you are using the [Application Load Balancer [or Network Load Balancer](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2 "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2")](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2 "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2"), specify the names of the ELB
+    * If you are using the [Application Load Balancer [or Network Load Balancer](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2 "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2")](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2 "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2"), specify the names of the Elastic Load Balancing
      target group names in `TARGET_GROUP_LIST=""`, and make
      any changes you need to the other deployment settings in the
      file.

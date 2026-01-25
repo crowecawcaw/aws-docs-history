@@ -495,7 +495,7 @@ hooks are run in the following order:
 ###### Note
 
 For in-place deployments, the six hooks related to blocking and allowing traffic
-apply only if you specify a Classic Load Balancer, Application Load Balancer, or Network Load Balancer from ELB in the deployment
+apply only if you specify a Classic Load Balancer, Application Load Balancer, or Network Load Balancer from Elastic Load Balancing in the deployment
 group.
 
 ![The order of event hooks during the rollback of an in-place deployment.](images/lifecycle-event-order-in-place.png)

@@ -165,7 +165,7 @@ AWS Lambda and Amazon ECS deployments cannot use an in-place deployment type.
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more ELB load
+      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
@@ -371,7 +371,7 @@ Here's how it works:
       is paused. This is the time when you can run tests and verifications in your
       replacement environment. If you don't manually reroute the traffic before the end
       of the wait period, the deployment is stopped.
-   4. Instances in the replacement environment are registered with an ELB load
+   4. Instances in the replacement environment are registered with an Elastic Load Balancing load
       balancer and traffic starts being routed to them.
    5. Instances in the original environment are deregistered and handled according
       to your specification in the deployment group, either terminated or kept

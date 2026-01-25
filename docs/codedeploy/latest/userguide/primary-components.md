@@ -115,7 +115,7 @@ application revision available on instances in a deployment group. There are two
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more ELB load
+      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
@@ -162,7 +162,7 @@ those resources. For CodeDeploy, a service role is used for the following:
 - To read either the tags applied to the instances or the Amazon EC2 Auto Scaling group names
   associated with the instances. This enables CodeDeploy to identify instances to which it
   can deploy applications.
-- To perform operations on instances, Amazon EC2 Auto Scaling groups, and ELB load balancers.
+- To perform operations on instances, Amazon EC2 Auto Scaling groups, and Elastic Load Balancing load balancers.
 - To publish information to Amazon SNS topics so that notifications can be sent when
   specified deployment or instance events occur.
 - To retrieve information about CloudWatch alarms to set up alarm monitoring for

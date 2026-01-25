@@ -21,7 +21,7 @@ issues
 - [Only ALB supports gradual traffic routing, use
   AllAtOnce Traffic routing instead when you create/update Deployment group](#troubleshooting-ecs-lb "#troubleshooting-ecs-lb")
 - [Even though my deployment succeeded,
-  the replacement task set fails the ELB health checks, and my application is down](#troubleshooting-ecs-task-set-stability "#troubleshooting-ecs-task-set-stability")
+  the replacement task set fails the Elastic Load Balancing health checks, and my application is down](#troubleshooting-ecs-task-set-stability "#troubleshooting-ecs-task-set-stability")
 - [Can I attach multiple load balancers to a
   deployment group?](#troubleshooting-ecs-lb-multi "#troubleshooting-ecs-lb-multi")
 - [Can I perform CodeDeploy blue/green deployments without
@@ -177,7 +177,7 @@ more information about task sets, see [TaskSet](../../../AmazonECS/latest/APIRef
 _Amazon Elastic Container Service API Reference_ and [describe-task-set](../../../cli/latest/reference/ecs/describe-task-set.md "../../../cli/latest/reference/ecs/describe-task-set.md") in the Amazon ECS
 section of the _AWS CLI Command Reference_.
 
-**Possible fix**: Make sure that the ELB's production
+**Possible fix**: Make sure that the Elastic Load Balancing's production
 listener and test listener are both pointing to the target group that's currently serving your
 workloads. There are three places to check:
 
@@ -254,15 +254,15 @@ configurations for an Amazon ECS compute platform](deployment-configurations.md#
 
 ## Even though my deployment succeeded,
 
-the replacement task set fails the ELB health checks, and my application is down
+the replacement task set fails the Elastic Load Balancing health checks, and my application is down
 
 **Problem**: Even though CodeDeploy indicates that my deployment
-succeeded, the replacement task set fails the health checks from ELB, and my application is
+succeeded, the replacement task set fails the health checks from Elastic Load Balancing, and my application is
 down.
 
 **Possible cause**: This issue might occur if you performed a
 CodeDeploy all-at-once deployment, and your replacement (green) task set contains bad code that is
-causing the ELB health checks to fail. With the all-at-once deployment configuration, the
+causing the Elastic Load Balancing health checks to fail. With the all-at-once deployment configuration, the
 load balancer’s health checks start running on the replacement task set
 _after_ traffic has been shifted to it (that is,
 _after_ CodeDeploy’s `AllowTraffic` lifecycle event occurs). That’s

@@ -25,7 +25,7 @@ Do not follow these steps if:
   the steps in this topic.
 - You have not created a Classic Load Balancer or an Application Load Balancer in Elastic Load Balancing for the registration
   of the instances in your replacement environment. For more information, see
-  [Set up a load balancer in ELB
+  [Set up a load balancer in Elastic Load Balancing
   for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md").
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
@@ -114,7 +114,7 @@ For more information about load balancers for CodeDeploy deployments, see [Integ
 
 ###### Warning
 
-If you are configuring both Auto Scaling groups and ELB load balancers in this
+If you are configuring both Auto Scaling groups and Elastic Load Balancing load balancers in this
 deployment group, and you want to [attach the
 load balancers to Auto Scaling groups](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
 attachment _before_ creating the CodeDeploy deployment from

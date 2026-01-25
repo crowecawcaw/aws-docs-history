@@ -23,7 +23,7 @@ Do not follow these steps if:
   configure a service role, follow the instructions in [Step 2: Create a service role for
   CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then follow
   the steps in this topic.
-- You want to select a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in ELB for the in-place
+- You want to select a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing for the in-place
   deployment, but have not yet created it.
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
@@ -134,7 +134,7 @@ For more information about load balancers for CodeDeploy deployments, see [Integ
 
 ###### Warning
 
-If you are configuring both Auto Scaling groups and an ELB load balancers in
+If you are configuring both Auto Scaling groups and an Elastic Load Balancing load balancers in
 this deployment group, and you want to [attach
 load balancers to the Auto Scaling groups](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md"), we recommend completing this
 attachment _before_ creating the CodeDeploy deployment from

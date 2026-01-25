@@ -9,8 +9,8 @@ in the _Amazon EC2 Auto Scaling User Guide_.
 
 When new Amazon EC2 instances are launched as part of an Amazon EC2 Auto Scaling group, CodeDeploy can deploy your
 revisions to the new instances automatically. You can also coordinate deployments in CodeDeploy
-with Amazon EC2 Auto Scaling instances registered with ELB load balancers. For more information, see
-[Integrating CodeDeploy with Elastic Load Balancing](integrations-aws-elastic-load-balancing.md "integrations-aws-elastic-load-balancing.md") and [Set up a load balancer in ELB
+with Amazon EC2 Auto Scaling instances registered with Elastic Load Balancing load balancers. For more information, see
+[Integrating CodeDeploy with Elastic Load Balancing](integrations-aws-elastic-load-balancing.md "integrations-aws-elastic-load-balancing.md") and [Set up a load balancer in Elastic Load Balancing
 for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md").
 
 ###### Note

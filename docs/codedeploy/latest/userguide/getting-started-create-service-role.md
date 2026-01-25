@@ -39,7 +39,7 @@ the `AWSCodeDeployRoleForECS` policy. It provides the permissions for
 your service role to:
 
 - Read, update, and delete Amazon ECS task sets.
-- Update ELB target groups, listeners, and rules.
+- Update Elastic Load Balancing target groups, listeners, and rules.
 - Invoke AWS Lambda functions.
 - Access revision files in Amazon S3 buckets.
 - Retrieve information about CloudWatch alarms.

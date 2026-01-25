@@ -28,7 +28,7 @@ deployment. CodeDeploy supports two types of deployments:
       	- The latest application revision is installed on the replacement instances.
       	- An optional wait time occurs for activities such as application testing and system
       	 verification.
-      	- Instances in the replacement environment are registered with one or more ELB load
+      	- Instances in the replacement environment are registered with one or more Elastic Load Balancing load
       	 balancers, causing traffic to be rerouted to them. Instances in the original
       	 environment are deregistered and can be terminated or kept running for other
       	 uses.
