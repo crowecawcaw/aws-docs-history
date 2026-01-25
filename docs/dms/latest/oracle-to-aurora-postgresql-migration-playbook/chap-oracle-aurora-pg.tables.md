@@ -1,188 +1,167 @@
-# Oracle and PostgreSQL user-defined types
+# Oracle read-only tables and partitions and PostgreSQL Aurora replicas
 
-With AWS DMS, you can migrate user-defined types (UDTs) from Oracle and PostgreSQL databases to compatible target databases. UDTs extend the database’s built-in data types by providing a way to store complex data structures like objects or custom data types.
+With AWS DMS, you can migrate data from Oracle databases to Amazon Aurora PostgreSQL-Compatible Edition with minimal downtime by leveraging Oracle read-only tables and partitions for ongoing replication, and PostgreSQL Aurora replicas for read scaling. Oracle read-only tables and partitions facilitate ongoing replication from an Oracle source database, while PostgreSQL Aurora replicas provide read scaling for the migrated Aurora PostgreSQL database.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                   | Key differences                                                                                                                     |
-| ------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [User-Defined Types](chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.udt "chap-oracle-aurora-pg.tools.md#chap-oracle-aurora-pg.tools.actioncode.udt") | PostgreSQL doesn’t support `FORALL` statement and `DEFAULT` option. PostgreSQL doesn’t support constructors of the collection type. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| -------------------------------- | ---------------------------------- | ------------------------- | --------------- |
+| Three star feature compatibility | No automation                      | N/A                       | N/A             |
 
 ## Oracle usage
 
-Oracle refers to user-defined types (UDTs) as `OBJECT TYPES`. These types are managed using PL/SQL. User-defined types enable the creation of application-dedicated, complex data types that are based on, and extend, the built-in Oracle data types.
+Beginning with Oracle 11g, tables can be marked as read-only to prevent DML operations from altering table data.
 
-The `CREATE TYPE` statement supports creating of the following types:app-name:
+Prior to Oracle 11g, the only way to set a table to read-only mode was by limiting table privileges to `SELECT`. The table owner was still able to perform read and write operations. Begining with Oracle 11g, users can run an `ALTER TABLE` statement and change the table mode to either `READ ONLY` or `READ WRITE`.
 
-- Objects types
-- Varying array (varray) types
-- Nested table types
-- Incomplete types
-- Additional types such as an SQLJ object type (a Java class mapped to SLQ user defined type)
+Oracle 12c Release 2 introduces greater granularity for read-only objects and supports read-only table partitions. Any attempt to perform a DML operation on a partition, or sub-partition, set to `READ ONLY` results in an error.
+
+`SELECT FOR UPDATE` statements aren’t allowed.
+
+DDL operations are permitted if they don’t modify table data.
+
+Operations on indexes are allowed on tables set to `READ ONLY` mode.
 
 **Examples**
 
-Create an Oracle Object Type to store an employee phone number.
-
 ```
-CREATE OR REPLACE TYPE EMP_PHONE_NUM AS OBJECT (
-  PHONE_NUM VARCHAR2(11));
+CREATE TABLE EMP_READ_ONLY (
+EMP_ID NUMBER PRIMARY KEY,
+EMP_FULL_NAME VARCHAR2(60) NOT NULL);
 
-CREATE TABLE EMPLOYEES (
-  EMP_ID NUMBER PRIMARY KEY,
-  EMP_PHONE EMP_PHONE_NUM NOT NULL);
+INSERT INTO EMP_READ_ONLY VALUES(1, 'John Smith');
 
-INSERT INTO EMPLOYEES VALUES(1, EMP_PHONE_NUM('111-222-333'));
-SELECT a.EMP_ID, a.EMP_PHONE.PHONE_NUM FROM EMPLOYEES a;
+1 row created
 
-EMP_ID  EMP_PHONE.P
-1       111-222-333
-```
+ALTER TABLE EMP_READ_ONLY READ ONLY;
 
-Create an Oracle object type as a collection of attributes for the employees table.
+INSERT INTO EMP_READ_ONLY VALUES(2, 'Steven King');
 
-```
-CREATE OR REPLACE TYPE EMP_ADDRESS AS OBJECT (
-  STATE VARCHAR2(2),
-  CITY VARCHAR2(20),
-  STREET VARCHAR2(20),
-  ZIP_CODE NUMBER);
+ORA-12081: update operation not allowed on table "SCT"."TBL_READ_ONLY"
 
-CREATE TABLE EMPLOYEES (
-  EMP_ID NUMBER PRIMARY KEY,
-  EMP_NAME VARCHAR2(10) NOT NULL,
-  EMP_ADDRESS EMP_ADDRESS NOT NULL);
+ALTER TABLE EMP_READ_ONLY READ WRITE;
 
-INSERT INTO EMPLOYEES VALUES(1, 'John Smith',
-  EMP_ADDRESS('AL', 'Gulf Shores', '3033 Joyce Street', '36542'));
+INSERT INTO EMP_READ_ONLY VALUES(2, 'Steven King');
 
-SELECT a.EMP_ID, a.EMP_NAME, a.EMP_ADDRESS.STATE,
-  a.EMP_ADDRESS.CITY, a.EMP_ADDRESS.STREET, a.EMP_ADDRESS.ZIP_CODE
-  FROM EMPLOYEES a;
+1 row created
 
-EMP_ID  EMP_NAME    STATE  CITY         STREET             ZIP_CODE
-1       John Smith  AL     Gulf Shores  3033 Joyce Street  36542
+COMMIT;
+
+SELECT * FROM EMP_READ_ONLY;
+
+EMP_ID  EMP_FULL_NAME
+1       John Smith
+2       Steven King
 ```
 
-For more information, see [CREATE TYPE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE.html#GUID-E72E3EE6-DE95-4F58-8941-E2F76D0EAE80 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE.html#GUID-E72E3EE6-DE95-4F58-8941-E2F76D0EAE80") and [CREATE TYPE BODY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE-BODY.html#GUID-C4F1591A-6F62-4897-9039-2C3F066F1E9D "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE-BODY.html#GUID-C4F1591A-6F62-4897-9039-2C3F066F1E9D") in the _Oracle documentation_.
+For more information, see [ALTER TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-TABLE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-TABLE.html") and [Changes in This Release for Oracle Database VLDB and Partitioning Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/release-changes.html#GUID-C7A9BAD4-E4C9-4765-88C5-51AC7E97BAF1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/release-changes.html#GUID-C7A9BAD4-E4C9-4765-88C5-51AC7E97BAF1") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-Similar to Oracle, PostgreSQL enables creation of user-defined types using the `CREATE TYPE` statement. A user-defined type is owned by the user who creates it. If a schema name is specified, the type is created under the specified schema.
+PostgreSQL doesn’t provide an equivalent to the `READ ONLY` mode supported in Oracle.
 
-PostgreSQL supports the creation of several different user-defined types.
+You can use the following alternatives as a workaround:
 
-- **Composite** — Stores a single named attribute that is attached to a data type or multiple attributes as an attribute collection. In PostgreSQL, you can also use the `CREATE TYPE` statement standalone with an association to a table.
-- **Enumerated (enum)** — Stores a static ordered set of values. For example, product categories.
+- Read-only user or role.
+- Read-only database.
+- Creating a read-only database trigger or a using a read-only constraint.
 
-```
-CREATE TYPE PRODUCT_CATEGORT AS ENUM ('Hardware', 'Software', 'Document');
-```
+**PostgreSQL read-only user or role example**
 
-- **Range** — Stores a range of values, for example, a range of timestamps used to represent the ranges of time of when a course is scheduled.
+To achieve some degree of protection from unwanted DML operations on table for a specific database user, you can grant the user only the `SELECT` privilege on the table and set the user `default_transaction_read_only` parameter to `ON`.
 
-```
-CREATE TYPE float8_range AS RANGE (subtype = float8, subtype_diff = float8mi);
-```
-
-For more information, see [Range Types](https://www.postgresql.org/docs/10/rangetypes.html "https://www.postgresql.org/docs/10/rangetypes.html") in the _PostgreSQL documentation_.
-
-- **Base** — These types are the system core types (abstract types) and are implemented in a low-level language such as C.
-- **Array** — Support definition of columns as multidimensional arrays. An array column can be created with a built-in type or a user-defined base type, enum type, or composite.
+Create a PostgreSQL user with `READ ONLY` privileges.
 
 ```
-CREATE TABLE COURSE_SCHEDULE (
-  COURSE_ID NUMERIC PRIMARY KEY,
-  COURSE_NAME VARCHAR(60),
-  COURSE_SCHEDULES text[]);
-```
-
-For more information, see [Arrays](https://www.postgresql.org/docs/13/arrays.html "https://www.postgresql.org/docs/13/arrays.html") in the _PostgreSQL documentation_.
-
-## PostgreSQL CREATE TYPE synopsis
-
-```
-CREATE TYPE name AS RANGE (
-  SUBTYPE = subtype
-  [ , SUBTYPE_OPCLASS = subtype_operator_class ]
-  [ , COLLATION = collation ]
-  [ , CANONICAL = canonical_function ]
-  [ , SUBTYPE_DIFF = subtype_diff_function ]
-)
-
-CREATE TYPE name (
-  INPUT = input_function,
-  OUTPUT = output_function
-  [ , RECEIVE = receive_function ]
-  [ , SEND = send_function ]
-  [ , TYPMOD_IN = type_modifier_input_function ]
-  [ , TYPMOD_OUT = type_modifier_output_function ]
-  [ , ANALYZE = analyze_function ]
-  [ , INTERNALLENGTH = { internallength | VARIABLE } ]
-  [ , PASSEDBYVALUE ]
-  [ , ALIGNMENT = alignment ]
-  [ , STORAGE = storage ]
-  [ , LIKE = like_type ]
-  [ , CATEGORY = category ]
-  [ , PREFERRED = preferred ]
-  [ , DEFAULT = default ]
-  [ , ELEMENT = element ]
-  [ , DELIMITER = delimiter ]
-  [ , COLLATABLE = collatable ]
-)
-```
-
-PostgreSQL syntax differences from Oracle `CREATE TYPE` statement.
-
-- PostgreSQL doesn’t support `CREATE OR REPLACE TYPE`.
-- PostgreSQL doesn’t accept `AS OBJECT`.
-
-**Examples**
-
-Create a user-defined type as a dedicated type for storing an employee phone number.
-
-```
-CREATE TYPE EMP_PHONE_NUM AS (
-  PHONE_NUM VARCHAR(11));
-
-CREATE TABLE EMPLOYEES (
+CREATE TABLE EMP_READ_ONLY (
   EMP_ID NUMERIC PRIMARY KEY,
-  EMP_PHONE EMP_PHONE_NUM NOT NULL);
+  EMP_FULL_NAME VARCHAR(60) NOT NULL);
 
-INSERT INTO EMPLOYEES VALUES(1, ROW('111-222-333'));
+CREATE USER aws_readonly PASSWORD 'aws_readonly';
+CREATE ROLE
 
-SELECT a.EMP_ID, (a.EMP_PHONE).PHONE_NUM FROM EMPLOYEES a;
+ALTER USER aws_readonly SET DEFAULT_TRANSACTION_READ_ONLY=ON;
+ALTER ROLE
 
-emp_id  phone_num
-1       111-222-333
-(1 row)
+GRANT SELECT ON EMP_READ_ONLY TO aws_readonly;
+GRANT
+
+-- Open a new session with user “aws_readonly”
+SELECT * FROM EMP_READ_ONLY;
+
+emp_id  emp_full_name
+(0 rows)
+
+INSERT INTO EMP_READ_ONLY VALUES(1, 'John Smith');
+ERROR: can't execute INSERT in a read-only transaction
 ```
 
-Create a PostgreSQL object type as a collection of Attributes for the employees table.
+**PostgreSQL read-only database example**
+
+As an alternative solution for restricting write operations on database objects, a dedicated read-only PostgreSQL database can be created to store all read-only tables. PostgreSQL supports multiple databases under the same database instance. Adding a dedicated “read-only” database is a simple and straightforward solution.
+
+- Set the `DEFAULT_TRANSACTION_READ_ONLY` to `ON` for a database. If a session attempts to perform DDL or DML operations, and error will be raised.
+- The database can be altered back to `READ WRITE` mode when the parameter is set to `OFF`.
+
+Create a PostgreSQL READ ONLY database.
 
 ```
-CREATE OR REPLACE TYPE EMP_ADDRESS AS OBJECT (
-  STATE VARCHAR(2),
-  CITY VARCHAR(20),
-  STREET VARCHAR(20),
-  ZIP_CODE NUMERIC);
+CREATE DATABASE readonly_db;
 
-CREATE TABLE EMPLOYEES (
+ALTER DATABASE readonly_db SET DEFAULT_TRANSACTION_READ_ONLY=ON;
+
+-- Open a new session connected to the “readonly_db” database
+
+CREATE TABLE EMP_READ_ONLY (
   EMP_ID NUMERIC PRIMARY KEY,
-  EMP_NAME VARCHAR(10) NOT NULL,
-  EMP_ADDRESS EMP_ADDRESS NOT NULL);
+  EMP_FULL_NAME VARCHAR(60) NOT NULL);
+ERROR: can't execute CREATE TABLE in a read-only transaction
 
-INSERT INTO EMPLOYEES
-  VALUES(1, 'John Smith',
-  ('AL', 'Gulf Shores', '3033 Joyce Street', '36542'));
+-- In case of an existing table
 
-SELECT a.EMP_NAME,
-    (a.EMP_ADDRESS).STATE,
-    (a.EMP_ADDRESS).CITY,
-    (a.EMP_ADDRESS).STREET,
-    (a.EMP_ADDRESS).ZIP_CODE
-  FROM EMPLOYEES a;
-
-emp_name    state  city         street             zip_code
-John Smith  AL     Gulf Shores  3033 Joyce Street  36542
+INSERT INTO EMP_READ_ONLY VALUES(1, 'John Smith');
+ERROR: can't execute INSERT in a read-only transaction
 ```
 
-For more information, see [CREATE TYPE](https://www.postgresql.org/docs/13/sql-createtype.html "https://www.postgresql.org/docs/13/sql-createtype.html") and [Composite Types](https://www.postgresql.org/docs/13/rowtypes.htm "https://www.postgresql.org/docs/13/rowtypes.htm") in the _PostgreSQL documentation_.
+**PostgreSQL read-only database trigger example**
+
+You can create an `INSTEAD OF` trigger to prevent data modifications on a specific table, such as restricting `INSERT`, `UPDATE`, `DELETE` and `TRUNCATE`.
+
+Create PostgreSQL function which contains the logic for restricting to read-only operations:
+
+```
+CREATE OR REPLACE FUNCTION READONLY_TRIGGER_FUNCTION()
+  RETURNS
+  TRIGGER AS $$
+  BEGIN
+RAISE EXCEPTION 'THE "%" TABLE IS READ ONLY!', TG_TABLE_NAME
+  using hint = 'Operation Ignored';
+    RETURN NULL;
+  END;
+$$ language 'plpgsql';
+```
+
+Create a trigger which will run the function that was previously created.
+
+```
+CREATE TRIGGER EMP_READONLY_TRIGGER
+  BEFORE INSERT OR UPDATE OR DELETE OR TRUNCATE
+  ON EMP_READ_ONLY FOR EACH STATEMENT
+  EXECUTE PROCEDURE READONLY_TRIGGER_FUNCTION();
+```
+
+Test DML and truncate commands against the table with the new trigger.
+
+```
+INSERT INTO EMP_READ_ONLY VALUES(1, 'John Smith');
+  ERROR: THE "EMP_READ_ONLY" TABLE IS READ ONLY!
+  HINT: Operation Ignored
+  CONTEXT: PL/pgSQL function readonly_trigger_function() line 3 at
+  RAISE
+
+demo>= TRUNCATE TABLE SRC;
+  ERROR: THE " EMP_READ_ONLY" TABLE IS READ ONLY!
+  HINT: Operation Ignored
+  CONTEXT: PL/pgSQL function readonly_trigger_function() line 3 at
+  RAISE
+```
+
+For more information, see [Privileges](https://www.postgresql.org/docs/13/ddl-priv.html "https://www.postgresql.org/docs/13/ddl-priv.html"), [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html"), and [Client Connection Defaults](https://www.postgresql.org/docs/13/runtime-config-client.html "https://www.postgresql.org/docs/13/runtime-config-client.html") in the _PostgreSQL documentation_.
