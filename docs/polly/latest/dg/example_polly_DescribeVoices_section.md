@@ -273,6 +273,46 @@ async fn list_voices(client: &Client) -> Result<(), Error> {
   [DescribeVoices](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.describe_voices "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.describe_voices")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        " Only pass optional parameters if they have values
+        IF iv_engine IS NOT INITIAL AND iv_language IS NOT INITIAL.
+          oo_result = lo_ply->describevoices(
+            iv_engine = iv_engine
+            iv_languagecode = iv_language ).
+        ELSEIF iv_engine IS NOT INITIAL.
+          oo_result = lo_ply->describevoices(
+            iv_engine = iv_engine ).
+        ELSEIF iv_language IS NOT INITIAL.
+          oo_result = lo_ply->describevoices(
+            iv_languagecode = iv_language ).
+        ELSE.
+          oo_result = lo_ply->describevoices( ).
+        ENDIF.
+        MESSAGE 'Retrieved voice metadata.' TYPE 'I'.
+      CATCH /aws1/cx_plyinvalidnexttokenex.
+        MESSAGE 'The NextToken is invalid.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeVoices](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

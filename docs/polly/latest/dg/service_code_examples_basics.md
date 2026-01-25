@@ -13,6 +13,7 @@ SDKs.
   - [GetLexicon](example_polly_GetLexicon_section.md "example_polly_GetLexicon_section.md")
   - [GetSpeechSynthesisTask](example_polly_GetSpeechSynthesisTask_section.md "example_polly_GetSpeechSynthesisTask_section.md")
   - [ListLexicons](example_polly_ListLexicons_section.md "example_polly_ListLexicons_section.md")
+  - [ListSpeechSynthesisTasks](example_polly_ListSpeechSynthesisTasks_section.md "example_polly_ListSpeechSynthesisTasks_section.md")
   - [PutLexicon](example_polly_PutLexicon_section.md "example_polly_PutLexicon_section.md")
   - [StartSpeechSynthesisTask](example_polly_StartSpeechSynthesisTask_section.md "example_polly_StartSpeechSynthesisTask_section.md")
   - [SynthesizeSpeech](example_polly_SynthesizeSpeech_section.md "example_polly_SynthesizeSpeech_section.md")

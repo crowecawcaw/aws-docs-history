@@ -88,6 +88,39 @@ class PollyWrapper:
   [GetSpeechSynthesisTask](../../../goto/boto3/polly-2016-06-10/GetSpeechSynthesisTask.md "../../../goto/boto3/polly-2016-06-10/GetSpeechSynthesisTask.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        oo_result = lo_ply->getspeechsynthesistask( iv_task_id ).
+        DATA(lo_task) = oo_result->get_synthesistask( ).
+        IF lo_task IS BOUND.
+          DATA(lv_status) = lo_task->get_taskstatus( ).
+          MESSAGE |Task status: { lv_status }| TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_plyinvalidtaskidex.
+        MESSAGE 'Invalid task ID.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+      CATCH /aws1/cx_plysynthesistsknotf00.
+        MESSAGE 'Synthesis task not found.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetSpeechSynthesisTask](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -195,6 +195,45 @@ async fn make_lexicon(client: &Client, name: &str, from: &str, to: &str) -> Resu
   [PutLexicon](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.put_lexicon "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.put_lexicon")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        lo_ply->putlexicon(
+          iv_name = iv_name
+          iv_content = iv_content ).
+        MESSAGE 'Lexicon created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_plyinvalidlexiconex.
+        MESSAGE 'Invalid lexicon.' TYPE 'E'.
+      CATCH /aws1/cx_plylexiconsizeexcdex.
+        MESSAGE 'Lexicon size exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_plymaxlexemelengthe00.
+        MESSAGE 'Maximum lexeme length exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_plymaxlexiconsnoexc00.
+        MESSAGE 'Maximum number of lexicons exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+      CATCH /aws1/cx_plyunsuppedplsalpha00.
+        MESSAGE 'Unsupported PLS alphabet.' TYPE 'E'.
+      CATCH /aws1/cx_plyunsuppedplslangu00.
+        MESSAGE 'Unsupported PLS language.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [PutLexicon](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

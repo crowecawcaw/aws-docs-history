@@ -93,6 +93,33 @@ For more information, see [Using the DeleteLexicon operation](gs-delete-lexicon.
   [DeleteLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/delete-lexicon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/delete-lexicon.html")
   in _AWS CLI Command Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        lo_ply->deletelexicon( iv_name ).
+        MESSAGE 'Lexicon deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_plylexiconnotfoundex.
+        MESSAGE 'Lexicon not found.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteLexicon](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

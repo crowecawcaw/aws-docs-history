@@ -153,6 +153,72 @@ class PollyWrapper:
   [StartSpeechSynthesisTask](../../../goto/boto3/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/boto3/polly-2016-06-10/StartSpeechSynthesisTask.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        " Only pass optional parameters if they have values
+        IF iv_lang_code IS NOT INITIAL AND iv_s3_key_prefix IS NOT INITIAL.
+          oo_result = lo_ply->startspeechsynthesistask(
+            iv_engine = iv_engine
+            iv_outputformat = iv_audio_format
+            iv_outputs3bucketname = iv_s3_bucket
+            iv_outputs3keyprefix = iv_s3_key_prefix
+            iv_text = iv_text
+            iv_voiceid = iv_voice_id
+            iv_languagecode = iv_lang_code ).
+        ELSEIF iv_lang_code IS NOT INITIAL.
+          oo_result = lo_ply->startspeechsynthesistask(
+            iv_engine = iv_engine
+            iv_outputformat = iv_audio_format
+            iv_outputs3bucketname = iv_s3_bucket
+            iv_text = iv_text
+            iv_voiceid = iv_voice_id
+            iv_languagecode = iv_lang_code ).
+        ELSEIF iv_s3_key_prefix IS NOT INITIAL.
+          oo_result = lo_ply->startspeechsynthesistask(
+            iv_engine = iv_engine
+            iv_outputformat = iv_audio_format
+            iv_outputs3bucketname = iv_s3_bucket
+            iv_outputs3keyprefix = iv_s3_key_prefix
+            iv_text = iv_text
+            iv_voiceid = iv_voice_id ).
+        ELSE.
+          oo_result = lo_ply->startspeechsynthesistask(
+            iv_engine = iv_engine
+            iv_outputformat = iv_audio_format
+            iv_outputs3bucketname = iv_s3_bucket
+            iv_text = iv_text
+            iv_voiceid = iv_voice_id ).
+        ENDIF.
+        MESSAGE 'Speech synthesis task started.' TYPE 'I'.
+      CATCH /aws1/cx_plyinvalids3bucketex.
+        MESSAGE 'Invalid S3 bucket.' TYPE 'E'.
+      CATCH /aws1/cx_plyinvalidssmlex.
+        MESSAGE 'Invalid SSML.' TYPE 'E'.
+      CATCH /aws1/cx_plylexiconnotfoundex.
+        MESSAGE 'Lexicon not found.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+      CATCH /aws1/cx_plytextlengthexcdex.
+        MESSAGE 'Text length exceeded maximum.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [StartSpeechSynthesisTask](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

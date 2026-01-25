@@ -308,6 +308,35 @@ async fn show_lexicons(client: &Client) -> Result<(), Error> {
   [ListLexicons](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.list_lexicons "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.list_lexicons")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        oo_result = lo_ply->listlexicons( ).
+        DATA(lt_lexicons) = oo_result->get_lexicons( ).
+        DATA(lv_count) = lines( lt_lexicons ).
+        MESSAGE |Found { lv_count } lexicons| TYPE 'I'.
+      CATCH /aws1/cx_plyinvalidnexttokenex.
+        MESSAGE 'Invalid NextToken.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListLexicons](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

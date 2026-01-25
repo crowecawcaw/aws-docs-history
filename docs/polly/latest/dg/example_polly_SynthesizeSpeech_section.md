@@ -452,6 +452,51 @@ async fn synthesize(client: &Client, filename: &str) -> Result<(), Error> {
   [SynthesizeSpeech](https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.synthesize_speech "https://docs.rs/aws-sdk-polly/latest/aws_sdk_polly/client/struct.Client.html#method.synthesize_speech")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples").
+
+```
+    TRY.
+        " Only pass optional language code if it has a value
+        IF iv_lang_code IS NOT INITIAL.
+          oo_result = lo_ply->synthesizespeech(
+            iv_engine = iv_engine
+            iv_outputformat = iv_output_fmt
+            iv_text = iv_text
+            iv_voiceid = iv_voice_id
+            iv_languagecode = iv_lang_code ).
+        ELSE.
+          oo_result = lo_ply->synthesizespeech(
+            iv_engine = iv_engine
+            iv_outputformat = iv_output_fmt
+            iv_text = iv_text
+            iv_voiceid = iv_voice_id ).
+        ENDIF.
+        MESSAGE 'Speech synthesized successfully.' TYPE 'I'.
+      CATCH /aws1/cx_plyinvalidssmlex.
+        MESSAGE 'Invalid SSML.' TYPE 'E'.
+      CATCH /aws1/cx_plylexiconnotfoundex.
+        MESSAGE 'Lexicon not found.' TYPE 'E'.
+      CATCH /aws1/cx_plyservicefailureex.
+        MESSAGE 'Service failure occurred.' TYPE 'E'.
+      CATCH /aws1/cx_plytextlengthexcdex.
+        MESSAGE 'Text length exceeded maximum.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SynthesizeSpeech](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon Polly with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
