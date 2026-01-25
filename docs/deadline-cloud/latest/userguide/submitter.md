@@ -65,7 +65,7 @@ With the installer, you can install the following submitters:
 | Foundry Nuke                  | 15<br>• 16         | [Included](supported-submitters.md#submitter-launch-nuke "supported-submitters.md#submitter-launch-nuke")           | [Included](supported-submitters.md#submitter-launch-nuke "supported-submitters.md#submitter-launch-nuke")       | [Included](supported-submitters.md#submitter-launch-nuke "supported-submitters.md#submitter-launch-nuke")           |
 | KeyShot Studio                | 2023<br>• 2025     | [Included](supported-submitters.md#submitter-launch-keyshot "supported-submitters.md#submitter-launch-keyshot")     | Not included                                                                                                    | [Included](supported-submitters.md#submitter-launch-keyshot "supported-submitters.md#submitter-launch-keyshot")     |
 | Maxon Cinema 4D               | 2024<br>• 2026     | [Included](supported-submitters.md#submitter-launch-cinema-4d "supported-submitters.md#submitter-launch-cinema-4d") | Not included                                                                                                    | [Included](supported-submitters.md#submitter-launch-cinema-4d "supported-submitters.md#submitter-launch-cinema-4d") |
-| Maxon Redshift for Maya       | 2025               | Included                                                                                                            | Included                                                                                                        | Included                                                                                                            |
+| Maxon Redshift for Maya       | 2025-2026          | Included                                                                                                            | Included                                                                                                        | Included                                                                                                            |
 | SideFX Houdini                | 19.5<br>• 21.0     | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini")     | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini") | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini")     |
 
 You can install other submitters not listed here. We use Deadline Cloud libraries to build
@@ -364,37 +364,16 @@ environment for service-managed fleets. For more information, see [Default Conda
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Blender**.
-2. Choose **Edit**, then **Preferences**. Under
-   **File Paths** choose **Script
-   Directories**, then choose **Add**. Add a script
-   directory for the python folder where the Blender submitter was
-   installed:
-
-```
-Windows:
-   %USERPROFILE%\DeadlineCloudSubmitter\Submitters\Blender\python\
-Linux:
-   ~/DeadlineCloudSubmitter/Submitters/Blender/python/
-MacOS:
-   ~/DeadlineCloudSubmitter/Submitters/Blender/python/
-```
-
-3. Restart Blender.
-4. Choose **Edit**, then **Preferences**. Next,
-   choose **Add-ons**, then search for **Deadline Cloud for
-   Blender**. Select the checkbox to enable the
-   add-on.
-5. Open a Blender scene with dependencies that exist within the
-   asset root directory.
-6. In the **Render** menu, select the Deadline Cloud dialog.
-   1. If you are not already authenticated in the Deadline Cloud submitter, the
+2. In the **Render** menu, choose **Submit to AWS Deadline Cloud**.
+   1. If you are prompted to install GUI dependencies, choose **OK**
+      and the Deadline Cloud submitter dialog will appear shortly.
+   2. If you are not already authenticated in the Deadline Cloud submitter, the
       **Credentials Status** shows as
       **NEEDS_LOGIN**.
-   2. Choose **Login**.
-   3. A login browser window displays. Log in with your user
-      credentials.
-   4. Choose **Allow**. You are now logged in and the
+   3. Choose **Login**. You will be prompted to log in with your user
+      credentials in a browser.
+   4. You are now logged in and the
       **Credentials Status** shows as
       **AUTHENTICATED**.
 
-7. Choose **Submit**.
+3. Choose **Submit**.

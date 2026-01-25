@@ -24,7 +24,7 @@ You can find the source code for these libraries and submitters in the [aws-dead
 | Foundry Nuke                  | 15<br>• 16         | [Included](#submitter-launch-nuke "#submitter-launch-nuke")           | [Included](#submitter-launch-nuke "#submitter-launch-nuke")       | [Included](#submitter-launch-nuke "#submitter-launch-nuke")           |
 | KeyShot Studio                | 2023<br>• 2025     | [Included](#submitter-launch-keyshot "#submitter-launch-keyshot")     | Not included                                                      | [Included](#submitter-launch-keyshot "#submitter-launch-keyshot")     |
 | Maxon Cinema 4D               | 2024<br>• 2026     | [Included](#submitter-launch-cinema-4d "#submitter-launch-cinema-4d") | Not included                                                      | [Included](#submitter-launch-cinema-4d "#submitter-launch-cinema-4d") |
-| Maxon Redshift for Maya       | 2025               | Included                                                              | Included                                                          | Included                                                              |
+| Maxon Redshift for Maya       | 2025-2026          | Included                                                              | Included                                                          | Included                                                              |
 | SideFX Houdini                | 19.5<br>• 21.0     | [Included](#submitter-launch-houdini "#submitter-launch-houdini")     | [Included](#submitter-launch-houdini "#submitter-launch-houdini") | [Included](#submitter-launch-houdini "#submitter-launch-houdini")     |
 
 For mnore detailed instructions on how to use the submitters and troubleshoot issues, see the
@@ -134,40 +134,19 @@ information, see [Default Conda queue
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Blender**.
-2. Choose **Edit**, then **Preferences**.
-   Under **File Paths** choose **Script
-   Directories**, then choose **Add**. Add a
-   script directory for the python folder where the Blender
-   submitter was installed:
-
-```
-Windows (per-user installation):
-   %USERPROFILE%\DeadlineCloudSubmitter\Submitters\Blender\python\
-Windows (system-wide installation):
-   %PROGRAMFILES%\DeadlineCloudSubmitter\Submitters\Blender\python\
-Linux:
-   ~/DeadlineCloudSubmitter/Submitters/Blender/python/
-```
-
-3. Restart Blender.
-4. Choose **Edit**, then **Preferences**.
-   Next, choose **Add-ons**, then search for **Deadline Cloud
-   for Blender**. Select the checkbox to enable the
-   add-on.
-5. Open a Blender scene with dependencies that exist within
-   the asset root directory.
-6. In the **Render** menu, select the Deadline Cloud dialog.
-   1. If you are not already authenticated in the Deadline Cloud submitter, the
+2. In the **Render** menu, choose **Submit to AWS Deadline Cloud**.
+   1. If you are prompted to install GUI dependencies, choose **OK**
+      and the Deadline Cloud submitter dialog will appear shortly.
+   2. If you are not already authenticated in the Deadline Cloud submitter, the
       **Credentials Status** shows as
       **NEEDS_LOGIN**.
-   2. Choose **Login**.
-   3. A login browser window displays. Log in with your user
-      credentials.
-   4. Choose **Allow**. You are now logged in and the
+   3. Choose **Login**. You will be prompted to log in with your user
+      credentials in a browser.
+   4. You are now logged in and the
       **Credentials Status** shows as
       **AUTHENTICATED**.
 
-7. Choose **Submit**.
+3. Choose **Submit**.
 
 ## Cinema 4D
 
@@ -207,10 +186,20 @@ environment](create-queue-environment.md#conda-queue-environment "create-queue-e
 1. Open **Houdini**.
 2. In the **Network Editor**, select the
    **/out** network.
-3. Press **tab**, and enter
-   `deadline`.
-4. Select the Deadline Cloud option, and connect it to your existing network.
-5. Double-click the **Deadline Cloud node**.
+3. Open the context menu (right-click or press **Tab**) and search for
+   `Deadline Cloud`.
+4. Select the **Deadline Cloud** node and add it to your existing network with any ROP node as input.
+5. Select the **Deadline Cloud** node.
+   1. If you are not already authenticated in the Deadline Cloud submitter, the
+      **Credentials Status** shows as
+      **NEEDS_LOGIN**.
+   2. Choose **Login**. You will be prompted to log in with your user
+      credentials in a browser.
+   3. You are now logged in and the
+      **Credentials Status** shows as
+      **AUTHENTICATED**.
+
+6. Choose **Submit**.
 
 ## KeyShot
 

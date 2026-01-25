@@ -91,6 +91,7 @@ Linux
 
 - Maxon Redshift for Maya
   - `maya-redshift=2025.4`
+  - `maya-redshift=2026.2`
 
 - SideFX Houdini
   - `houdini=19.5`
