@@ -24,4 +24,4 @@ practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/
 ###### Contents
 
 - [AWS managed policies for SQL Server on EC2](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Service-linked role for SQL License Exemption](slr-sql-le.md "slr-sql-le.md")
+- [Service-linked role for SQL Server on EC2](slr-sql-ha.md "slr-sql-ha.md")

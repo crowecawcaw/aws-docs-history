@@ -15,10 +15,9 @@ By leveraging Windows VSS technology, this solution offers the following advanta
 ###### Contents
 
 - [Pricing](#ms-ssdb-ec2-vss-restore-pricing "#ms-ssdb-ec2-vss-restore-pricing")
+- [VSS based database restore solution change history](#ms-ssdb-ec2-vss-restore-history "#ms-ssdb-ec2-vss-restore-history")
 - [VSS snapshot restore prerequisites](ms-ssdb-ec2-vss-restore-prereq.md "ms-ssdb-ec2-vss-restore-prereq.md")
 - [Restore your SQL Server database from VSS snapshots](ms-ssdb-ec2-vss-restore-from-snap.md "ms-ssdb-ec2-vss-restore-from-snap.md")
-- [Troubleshoot restoring your SQL Server database
-  from AWS VSS solution snapshots](ms-ssdb-ec2-vss-restore-troubleshoot.md "ms-ssdb-ec2-vss-restore-troubleshoot.md")
 
 ## Pricing
 
@@ -37,3 +36,14 @@ family. For more information about Systems Manager automation pricing, see [Auto
 During restore steps, the AWS VSS solution creates a new EBS volume and restores data from VSS based
 EBS snapshots. With Amazon EBS resources, you pay only for what you provision. For more information,
 see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
+
+## VSS based database restore solution change history
+
+The following table includes release and change history for the AWS VSS restore solution.
+
+| Release date     | Details                                                                                                                                                                                                                     |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| January 14, 2026 | Enhanced restore solution to create new Amazon EBS volumes only from snapshots that contain source database files to be restored,<br>reducing cleanup overhead and improving the overall reliability of restore operations. |
+| April 22, 2025   | Fixed an issue where the restore process times out when disk partition<br>information is not available, improving reliability of restore operations.                                                                        |
+| January 24, 2025 | • Updated automation document description to improve clarity<br>• Minor bug fixes and stability improvements                                                                                                                |
+| January 15, 2025 | Initial release of the VSS restore solution.                                                                                                                                                                                |

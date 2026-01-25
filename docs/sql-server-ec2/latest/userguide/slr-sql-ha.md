@@ -1,4 +1,4 @@
-# Service-linked role for SQL License Exemption
+# Service-linked role for SQL Server on EC2
 
 Amazon EC2 uses service-linked roles for the permissions that it requires to call other
 AWS services on your behalf. A service-linked role is a unique type of IAM role that
