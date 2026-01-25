@@ -58,6 +58,8 @@ RCPs apply to actions for the following AWS services:
 - [AWS Key Management Service](../../../kms.md "../../../kms.md")
 - [Amazon SQS](../../../sqs.md "../../../sqs.md")
 - [AWS Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md")
+- [Amazon Cognito](../../../cognito.md "../../../cognito.md")
+- [Amazon CloudWatch Logs](../../../cloudwatch.md "../../../cloudwatch.md")
 - [Amazon Elastic Container Registry](../../../ecr.md "../../../ecr.md")
 - [Amazon OpenSearch Serverless](../../../opensearch-service.md "../../../opensearch-service.md")
 

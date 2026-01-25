@@ -132,6 +132,39 @@ def attach_policy(policy_id, target_id, orgs_client):
   [AttachPolicy](../../../goto/boto3/organizations-2016-11-28/AttachPolicy.md "../../../goto/boto3/organizations-2016-11-28/AttachPolicy.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples").
+
+```
+    TRY.
+        lo_org->attachpolicy(
+          iv_policyid = iv_policy_id
+          iv_targetid = iv_target_id ).
+        MESSAGE 'Policy attached to target.' TYPE 'I'.
+      CATCH /aws1/cx_orgaccessdeniedex.
+        MESSAGE 'You do not have permission to attach the policy.' TYPE 'E'.
+      CATCH /aws1/cx_orgpolicynotfoundex.
+        MESSAGE 'The specified policy does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_orgtargetnotfoundex.
+        MESSAGE 'The specified target does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_orgduplicateplyatta00.
+        MESSAGE 'The policy is already attached to the target.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [AttachPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

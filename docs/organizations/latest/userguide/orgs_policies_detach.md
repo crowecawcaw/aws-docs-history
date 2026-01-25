@@ -538,6 +538,39 @@ def detach_policy(policy_id, target_id, orgs_client):
   [DetachPolicy](../../../goto/boto3/organizations-2016-11-28/DetachPolicy.md "../../../goto/boto3/organizations-2016-11-28/DetachPolicy.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples").
+
+```
+    TRY.
+        lo_org->detachpolicy(
+          iv_policyid = iv_policy_id
+          iv_targetid = iv_target_id ).
+        MESSAGE 'Policy detached from target.' TYPE 'I'.
+      CATCH /aws1/cx_orgaccessdeniedex.
+        MESSAGE 'You do not have permission to detach the policy.' TYPE 'E'.
+      CATCH /aws1/cx_orgpolicynotfoundex.
+        MESSAGE 'The specified policy does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_orgtargetnotfoundex.
+        MESSAGE 'The specified target does not exist.' TYPE 'E'.
+      CATCH /aws1/cx_orgpolicynotattex.
+        MESSAGE 'The policy is not attached to the target.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DetachPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 The policy change takes effect immediately, affecting the permissions of IAM
 users and roles and resources, if applicable, in the attached account or all
 accounts under the attached root or OU.
