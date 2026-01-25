@@ -432,6 +432,7 @@
 - [AmazonSageMakerGeospatialExecutionRole](AmazonSageMakerGeospatialExecutionRole.md "AmazonSageMakerGeospatialExecutionRole.md")
 - [AmazonSageMakerGeospatialFullAccess](AmazonSageMakerGeospatialFullAccess.md "AmazonSageMakerGeospatialFullAccess.md")
 - [AmazonSageMakerGroundTruthExecution](AmazonSageMakerGroundTruthExecution.md "AmazonSageMakerGroundTruthExecution.md")
+- [AmazonSageMakerHyperPodGatedModelAccess](AmazonSageMakerHyperPodGatedModelAccess.md "AmazonSageMakerHyperPodGatedModelAccess.md")
 - [AmazonSageMakerHyperPodObservabilityAdminAccess](AmazonSageMakerHyperPodObservabilityAdminAccess.md "AmazonSageMakerHyperPodObservabilityAdminAccess.md")
 - [AmazonSageMakerHyperPodServiceRolePolicy](AmazonSageMakerHyperPodServiceRolePolicy.md "AmazonSageMakerHyperPodServiceRolePolicy.md")
 - [AmazonSageMakerHyperPodTrainingOperatorAccess](AmazonSageMakerHyperPodTrainingOperatorAccess.md "AmazonSageMakerHyperPodTrainingOperatorAccess.md")

@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 14, 2017, 01:18 UTC
-- **Edited time:** November 20, 2025, 23:49 UTC
+- **Edited time:** January 21, 2026, 18:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -182,6 +182,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ecs:*:*:task/*",
         "arn:aws:ssm:*:*:document/AmazonECS-ExecuteInteractiveCommand"
       ]
+    },
+    {
+      "Sid" : "OpenDataChannel",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssmmessages:OpenDataChannel"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:session/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalAccount" : "${aws:ResourceAccount}"
+        }
+      }
     },
     {
       "Sid" : "CloudMapResourceCreation",
