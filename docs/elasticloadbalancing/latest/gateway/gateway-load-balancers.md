@@ -8,8 +8,8 @@ listens for all IP packets across all ports and forwards traffic to the target g
 specified in the listener rule, using the GENEVE protocol on port 6081.
 
 You can add or remove targets from your load balancer as your needs change, without
-disrupting the overall flow of requests. ELB scales your load balancer as traffic to your
-application changes over time. ELB can scale to the vast majority of workloads
+disrupting the overall flow of requests. Elastic Load Balancing scales your load balancer as traffic to your
+application changes over time. Elastic Load Balancing can scale to the vast majority of workloads
 automatically.
 
 ###### Contents

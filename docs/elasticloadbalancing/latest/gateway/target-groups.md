@@ -92,7 +92,7 @@ You can use the following attributes with target groups:
 
 `deregistration_delay.timeout_seconds`
 
-The amount of time for ELB to wait before changing the state of a
+The amount of time for Elastic Load Balancing to wait before changing the state of a
 deregistering target from `draining` to `unused`. The
 range is 0-3600 seconds. The default value is 300 seconds.
 

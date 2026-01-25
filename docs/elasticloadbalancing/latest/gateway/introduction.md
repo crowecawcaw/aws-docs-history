@@ -1,11 +1,11 @@
 # What is a Gateway Load Balancer?
 
-ELB automatically distributes your incoming traffic across multiple targets, in one or more Availability Zones. It monitors the
-health of its registered targets, and routes traffic only to the healthy targets. ELB
+Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, in one or more Availability Zones. It monitors the
+health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing
 scales your load balancer as your incoming traffic changes over time. It can automatically
 scale to the vast majority of workloads.
 
-ELB supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and
+Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and
 Classic Load Balancers. You can select the type of load balancer that best suits your needs. This guide
 discusses Gateway Load Balancers. For more information about the other load balancers, see the
 [User Guide for Application Load Balancers](../application.md "../application.md"), the [User Guide for Network Load Balancers](../network.md "../network.md"), and the [User Guide for Classic Load Balancers](../classic.md "../classic.md").
@@ -41,7 +41,7 @@ For more information, see [Access virtual appliances through AWS PrivateLink](..
 
 You are responsible for choosing and qualifying software from appliance vendors. You must
 trust the appliance software to inspect or modify traffic from the load balancer. The appliance
-vendors listed as [ELB
+vendors listed as [Elastic Load Balancing
 Partners](https://aws.amazon.com/elasticloadbalancing/partners/ "https://aws.amazon.com/elasticloadbalancing/partners/") have integrated and qualified their appliance software with AWS. You can
 place a higher degree of trust in the appliance software from vendors in this list. However,
 AWS does not guarantee the security or reliability of software from these vendors.
@@ -52,4 +52,4 @@ To create a Gateway Load Balancer using the AWS Management Console, see [Getting
 
 ## Pricing
 
-With your load balancer, you pay only for what you use. For more information, see [ELB pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
+With your load balancer, you pay only for what you use. For more information, see [Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
