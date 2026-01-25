@@ -80,7 +80,7 @@ Balancer
 
 When you provision your website or application on an Amazon Elastic Compute Cloud (Amazon EC2)
 instance, the load balancer must be made aware of that instance. This can be
-accomplished through the ELB console or the AWS Command Line Interface. The following
+accomplished through the Elastic Load Balancing console or the AWS Command Line Interface. The following
 example shows a call to `RegisterInstancesWithLoadBalancer` for a
 load balancer named LinuxTest on AWS account 123456789012.
 

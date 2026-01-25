@@ -145,7 +145,7 @@ JSON
 
 ###### Note
 
-This permission is required for ACM certificates to appear in the ELB
+This permission is required for ACM certificates to appear in the Elastic Load Balancing
 and CloudFront consoles.
 
 ## Request a certificate

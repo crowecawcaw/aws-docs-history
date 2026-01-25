@@ -155,7 +155,7 @@ allow only supported algorithms and key sizes for their resources.
 Support varies based on whether the certificate is imported into IAM
 or ACM. For details, see each service's documentation:
 
-- For ELB, see [HTTPS Listeners for Your Application Load
+- For Elastic Load Balancing, see [HTTPS Listeners for Your Application Load
   Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md").
 - For CloudFront, see [Supported SSL/TLS Protocols and Ciphers](../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md "../../../AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.md").
 
