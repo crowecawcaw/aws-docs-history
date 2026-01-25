@@ -73,7 +73,7 @@ AWS Resilience Hub supports resources from the following AWS services:
   - Amazon RDS services
   - Amazon FSx for Windows File Server
 
-- Amazon ARC in AWS Resilience Hub assesses only Amazon DynamoDB global, ELB, Amazon RDS, and AWS Auto Scaling
+- Amazon ARC in AWS Resilience Hub assesses only Amazon DynamoDB global, Elastic Load Balancing, Amazon RDS, and AWS Auto Scaling
   groups.
 - For AWS Resilience Hub to assess the cross-Region resources, group the resources under a single
   Application Component. For more information about the resources supported by each of the
