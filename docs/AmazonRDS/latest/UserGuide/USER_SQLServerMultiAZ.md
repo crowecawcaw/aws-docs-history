@@ -1,12 +1,11 @@
-# Determining the location of the
+# Migrating from Database Mirroring to Always On Availability Groups
 
-secondary
+In version 14.00.3049.1 of Microsoft SQL Server Enterprise Edition, Always On Availability Groups (AGs) are enabled by
+default.
 
-You can determine the location of the secondary replica by using the AWS Management Console. You
-need to know the location of the secondary if you are setting up your primary DB
-instance in a VPC.
+To migrate from Database Mirroring (DBM) to AGs, first check your version. If you are using a DB instance with a version prior to
+Enterprise Edition 13.00.5216.0, modify the instance to patch it to 13.00.5216.0 or later. If you are using a DB instance with a
+version prior to Enterprise Edition 14.00.3049.1, modify the instance to patch it to 14.00.3049.1 or later.
 
-![Secondary AZ](images/SQLSvr-MultiAZ.png)
-You can also view the Availability Zone of the secondary using the AWS CLI command
-`describe-db-instances` or RDS API operation `DescribeDBInstances`.
-The output shows the secondary AZ where the standby mirror is located.
+If you want to upgrade a mirrored DB instance to use AGs, run the upgrade first, modify the instance to remove Multi-AZ, and then
+modify it again to add Multi-AZ. This converts your instance to use Always On AGs.

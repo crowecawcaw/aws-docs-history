@@ -326,6 +326,34 @@ class InstanceWrapper:
   [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    " iv_engine        = 'mysql'
+    " iv_engineversion = '8.0.35'
+    TRY.
+        oo_result = lo_rds->descrorderabledbinstoptions(
+          iv_engine        = iv_engine
+          iv_engineversion = iv_engineversion ).
+        DATA(lv_option_count) = lines( oo_result->get_orderabledbinstoptions( ) ).
+        MESSAGE |Retrieved { lv_option_count } orderable DB instance options.| TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeOrderableDBInstanceOptions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

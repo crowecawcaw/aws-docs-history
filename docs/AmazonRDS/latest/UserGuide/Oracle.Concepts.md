@@ -1,92 +1,103 @@
-# RDS for Oracle limitations
+# Turning on extended data types in RDS for Oracle
 
-In the following sections, you can find important limitations of using RDS for Oracle. For
-limitations specific to CDBs, see [Limitations of RDS for Oracle
-CDBs](Oracle.Concepts.md#Oracle.Concepts.single-tenant-limitations "Oracle.Concepts.md#Oracle.Concepts.single-tenant-limitations").
+Amazon RDS for Oracle supports extended data types. With extended data types, the maximum size
+is 32,767 bytes for the `VARCHAR2`, `NVARCHAR2`, and `RAW`
+data types. To use extended data types, set the `MAX_STRING_SIZE` parameter to
+`EXTENDED`. For more information, see [Extended
+data types](https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF55623 "https://docs.oracle.com/database/121/SQLRF/sql_elements001.htm#SQLRF55623") in the Oracle documentation.
+
+If you don't want to use extended data types, keep the `MAX_STRING_SIZE` parameter set to
+`STANDARD` (the default). In this case, the size limits are 4,000 bytes for the
+`VARCHAR2` and `NVARCHAR2` data types, and 2,000 bytes for the RAW data type.
+
+You can turn on extended data types on a new or existing DB instance. For new DB instances, DB instance creation time is typically
+longer when you turn on extended data types. For existing DB instances, the DB instance is unavailable during the conversion
+process.
+
+## Considerations for
+
+extended data types
+
+Consider the following when you enable extended data types for your DB instance:
+
+- When you turn on extended data types for a new or existing DB instance, you must
+  reboot the instance for the change to take effect.
+- After you turn on extended data types, you can't change the DB instance back to use
+  the standard size for data types. If you set the `MAX_STRING_SIZE`
+  parameter back to `STANDARD` it results in the
+  `incompatible-parameters` status.
+- When you restore a DB instance that uses extended data types, you must specify a
+  parameter group with the `MAX_STRING_SIZE` parameter set to
+  `EXTENDED`. During restore, if you specify the default parameter
+  group or any other parameter group with `MAX_STRING_SIZE` set to
+  `STANDARD` it results in the `incompatible-parameters`
+  status.
+- When the DB instance status is `incompatible-parameters` because of the
+  `MAX_STRING_SIZE` setting, the DB instance remains unavailable until
+  you set the `MAX_STRING_SIZE` parameter to `EXTENDED` and
+  reboot the DB instance.
+
+## Turning on extended data types for a new DB instance
+
+When you create a DB instance with `MAX_STRING_SIZE` set to
+`EXTENDED`, the instance shows `MAX_STRING_SIZE` set to the
+default `STANDARD`. Reboot the instance to enable the change.
+
+###### To turn on extended data types for a new DB instance
+
+1. Set the `MAX_STRING_SIZE` parameter to `EXTENDED` in a parameter
+   group.
+
+To set the parameter, you can either create a new parameter group or modify an existing parameter
+group.
+
+For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Create a new RDS for Oracle DB instance.
+
+For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 3. Associate the parameter group with `MAX_STRING_SIZE` set to
+`EXTENDED` with the DB instance.
+
+For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 4. Reboot the DB instance for the parameter change to take effect.
+
+For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
+
+## Turning on extended
+
+data types for an existing DB instance
+
+When you modify a DB instance to turn on extended data types, RDS converts the data in the
+database to use the extended sizes. The conversion and downtime occur when you next
+reboot the database after the parameter change. The DB instance is unavailable during the
+conversion.
+
+The amount of time it takes to convert the data depends on the DB instance class, the
+database size, and the time of the last DB snapshot. To reduce downtime, consider taking a
+snapshot immediately before rebooting. This shortens the time of the backup that occurs
+during the conversion workflow.
 
 ###### Note
 
-This list is not exhaustive.
+After you turn on extended data types, you can't perform a point-in-time restore to a time during the conversion. You can
+restore to the time immediately before the conversion or after the conversion.
 
-###### Topics
+###### To turn on extended data types for an existing DB instance
 
-- [Oracle file size limits in Amazon RDS](#Oracle.Concepts.file-size-limits "#Oracle.Concepts.file-size-limits")
-- [Block size limits in
-  RDS for Oracle](#Oracle.Concepts.block-size-limits "#Oracle.Concepts.block-size-limits")
-- [Public synonyms for Oracle-supplied schemas](#Oracle.Concepts.PublicSynonyms "#Oracle.Concepts.PublicSynonyms")
-- [Schemas for unsupported features
-  in RDS for Oracle](#Oracle.Concepts.unsupported-features "#Oracle.Concepts.unsupported-features")
-- [Limitations for DBA privileges in
-  RDS for Oracle](#Oracle.Concepts.dba-limitations "#Oracle.Concepts.dba-limitations")
-- [Deprecation of TLS 1.0 and 1.1 Transport Layer
-  Security in RDS for Oracle](#Oracle.Concepts.tls "#Oracle.Concepts.tls")
+1. Take a snapshot of the database.
 
-## Oracle file size limits in Amazon RDS
+If there are invalid objects in the database, Amazon RDS tries to recompile them. The conversion to
+extended data types can fail if Amazon RDS can't recompile an invalid object. The snapshot enables you to
+restore the database if there is a problem with the conversion. Always check for invalid objects
+before conversion and fix or drop those invalid objects. For production databases, we recommend
+testing the conversion process on a copy of your DB instance first.
 
-The maximum size of a single file on RDS for Oracle DB instances is 16 TiB (tebibytes). This limit is imposed by the ext4 filesystem
-used by the instance. Thus, Oracle bigfile data files are limited to 16 TiB. If you try to resize a data file in a bigfile
-tablespace to a value over the limit, you receive an error such as the following.
+For more information, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md"). 2. Set the `MAX_STRING_SIZE` parameter to `EXTENDED` in a parameter
+group.
 
-```
-ORA-01237: cannot extend datafile 6
-ORA-01110: data file 6: '/rdsdbdata/db/mydir/datafile/myfile.dbf'
-ORA-27059: could not reduce file size
-Linux-x86_64 Error: 27: File too large
-Additional information: 2
-```
+To set the parameter, you can either create a new parameter group or modify an existing parameter
+group.
 
-## Block size limits in
+For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. Modify the DB instance to associate it with the parameter group with `MAX_STRING_SIZE`
+set to `EXTENDED`.
 
-RDS for Oracle
+For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 4. Reboot the DB instance for the parameter change to take effect.
 
-The maximum size of a single block on RDS for Oracle DB instances is 8 KB. The 16 KB block size
-isn't supported.
-
-## Public synonyms for Oracle-supplied schemas
-
-Don't create or modify public synonyms for Oracle-supplied schemas, including `SYS`,
-`SYSTEM`, and `RDSADMIN`. Such actions might result in invalidation of core
-database components and affect the availability of your DB instance.
-
-You can create public synonyms referencing objects in your own schemas.
-
-## Schemas for unsupported features
-
-in RDS for Oracle
-
-In general, Amazon RDS doesn't prevent you from creating schemas for unsupported features. However, if you
-create schemas for Oracle features and components that require SYS privileges, you can damage the data
-dictionary and affect your instance availability. Use only supported features and schemas that are available
-in [Adding options to Oracle DB instances](Appendix.Oracle.md "Appendix.Oracle.md").
-
-## Limitations for DBA privileges in
-
-RDS for Oracle
-
-In the database, a _role_ is a collection of privileges that you can grant to or
-revoke from a user. An Oracle database uses roles to provide security.
-
-The predefined role `DBA` normally allows all administrative privileges on an Oracle database.
-When you create a DB instance, your master user account gets DBA privileges (with some limitations). To
-deliver a managed experience, an RDS for Oracle database doesn't provide the following privileges for the
-`DBA` role:
-
-- `ALTER DATABASE`
-- `ALTER SYSTEM`
-- `CREATE ANY DIRECTORY`
-- `DROP ANY DIRECTORY`
-- `GRANT ANY PRIVILEGE`
-- `GRANT ANY ROLE`
-
-Use the master user account for administrative tasks such as creating additional user accounts in the
-database. You can't use `SYS`, `SYSTEM`, and other Oracle-supplied administrative
-accounts.
-
-## Deprecation of TLS 1.0 and 1.1 Transport Layer
-
-Security in RDS for Oracle
-
-Transport Layer Security protocol versions 1.0 and 1.1 (TLS 1.0 and TLS 1.1) are
-deprecated. In accordance with security best practices, Oracle has deprecated the use of
-TLS 1.0 and TLS 1.1. To meet your security requirements, we strongly recommends that you
-use TLS 1.2 instead.
+For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").

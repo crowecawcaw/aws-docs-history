@@ -15,11 +15,17 @@ Consider the following prerequisites and limitations:
   You can take a final snapshot, but only if the tenant database and DB instance
   were in an available state before you issued the
   `delete-tenant-database` command.
+  This snapshot will only be taken on the primary instance if the DB instance has read replicas.
   - The tenant database is being created.
   - The DB instance is modifying the tenant database.
+  - If the DB instance has read replicas these constraints apply to all replicas.
 
 - You can't delete multiple tenant databases in a single operation.
 - You can't delete a tenant database if it is the only tenant in the CDB.
+- You can't delete a tenant database on a read replica,
+  you can only delete a tenant on the primary DB instance.
+  Replication health is also validated, ensuring the replication lag is less than
+  5 minutes before the tenant is deleted.
 
 ###### To delete a tenant database
 

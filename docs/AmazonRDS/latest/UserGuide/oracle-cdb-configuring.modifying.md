@@ -11,6 +11,9 @@ your CDB. Note the following requirements and limitations:
   modify one tenant database at a time.
 - You can't change the name of a tenant database to `CDB$ROOT` or
   `PDB$SEED`.
+- If your DB instance has read replicas, you can only modify tenants on the primary DB instance.
+  Replication health is also validated, ensuring the replicas are available and replication lag is less than
+  5 minutes before the tenant is modified.
   You can modify PDBs using the AWS Management Console, the AWS CLI, or the RDS API.
 
 ###### To modify the PDB name or master password of a tenant database

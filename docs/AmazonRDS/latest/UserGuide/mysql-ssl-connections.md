@@ -1,26 +1,21 @@
-# Encrypting client connections with SSL/TLS to MySQL
+# Requiring SSL/TLS for
 
-DB instances on Amazon RDS
+specific user accounts to a MySQL DB instance on Amazon RDS
 
-Secure Sockets Layer (SSL) is an industry-standard protocol for securing network
-connections between client and server. After SSL version 3.0, the name was changed to
-Transport Layer Security (TLS). Amazon RDS supports SSL/TLS encryption for MySQL DB instances.
-Using SSL/TLS, you can encrypt a connection between your application client and your MySQL
-DB instance. SSL/TLS support is available in all AWS Regions for MySQL.
+You can require SSL/TLS encryption for specified user account connections to your
+MySQL DB instances on Amazon RDS. Protecting sensitive information from unauthorized access
+or interception is crucial to enforce security policies where data confidentiality is a
+concern.
 
-With Amazon RDS, you can secure data in transit by encrypting client connections to MySQL DB
-instances with SSL/TLS, requiring SSL/TLS for all connections to a MySQL DB instance, and
-connecting from the MySQL command-line client with SSL/TLS (encrypted). The following
-sections provide guidance on configuring and utilizing SSL/TLS encryption for MySQL DB
-instances on Amazon RDS.
+To require SSL/TLS connections for specific users' accounts, use one of the following
+statements, depending on your MySQL version, to require SSL/TLS connections on the user
+account `encrypted_user`.
 
-###### Topics
+To do so, use the following statement.
 
-- [SSL/TLS support for MySQL DB instances on
-  Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md")
-- [Requiring SSL/TLS for
-  specific user accounts to a MySQL DB instance on Amazon RDS](mysql-ssl-connections.md "mysql-ssl-connections.md")
-- [Requiring SSL/TLS for all
-  connections to a MySQL DB instance on Amazon RDS](mysql-ssl-connections.md "mysql-ssl-connections.md")
-- [Connecting to your MySQL DB instance on
-  Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToInstanceSSL.md "USER_ConnectToInstanceSSL.md")
+```
+ALTER USER 'encrypted_user'@'%' REQUIRE SSL;
+```
+
+For more information on SSL/TLS connections with MySQL, see the [Using
+encrypted connections](https://dev.mysql.com/doc/refman/8.0/en/encrypted-connections.html "https://dev.mysql.com/doc/refman/8.0/en/encrypted-connections.html") in the MySQL documentation.

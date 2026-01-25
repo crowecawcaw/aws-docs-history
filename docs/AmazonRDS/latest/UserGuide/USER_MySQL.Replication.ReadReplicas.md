@@ -1,22 +1,23 @@
-# Monitoring replication lag for MySQL read replicas
+# Starting and stopping replication with MySQL read replicas
 
-For MySQL read replicas, you can monitor replication lag in Amazon CloudWatch by viewing
-the Amazon RDS `ReplicaLag` metric. The `ReplicaLag` metric reports
-the value of the `Seconds_Behind_Master` field of the `SHOW REPLICA
- STATUS` command.
+You can stop and restart the replication process on an Amazon RDS DB instance by calling the
+system stored procedures
+[mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") and
+[mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication").
+You can do this when replicating between two Amazon RDS instances for long-running operations
+such as creating large indexes. You also need to stop and start replication when
+importing or exporting databases.
+For more information, see
+[Importing data to an Amazon RDS for MySQL
+database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md")
+and
+[Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md").
 
-Common causes for replication lag for MySQL are the following:
-
-- A network outage.
-- Writing to tables that have different indexes on a read replica. If the
-  `read_only` parameter is set to `0` on the read
-  replica, replication can break if the read replica becomes incompatible with
-  the source DB instance. After you've performed maintenance tasks on the
-  read replica, we recommend that you set the `read_only` parameter
-  back to `1`.
-- Using a nontransactional storage engine such as MyISAM. Replication
-  is only supported for the InnoDB storage engine on MySQL.
-  When the `ReplicaLag` metric reaches 0, the replica has caught up to
-  the source DB instance. If the `ReplicaLag` metric returns -1, then
-  replication is currently not active. `ReplicaLag` = -1 is equivalent to
-  `Seconds_Behind_Master` = `NULL`.
+If replication is stopped for more than 30 consecutive days, either manually or due to
+a replication error, Amazon RDS terminates replication between the source DB instance and
+all read replicas. It does so to prevent increased storage requirements on the
+source DB instance and long failover times. The read replica DB instance is still
+available. However, replication can't be resumed because the binary logs required by
+the read replica are deleted from the source DB instance after replication is
+terminated. You can create a new read replica for the source DB instance to
+reestablish replication.

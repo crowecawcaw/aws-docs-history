@@ -1,37 +1,47 @@
-# Configuring and managing a Multi-AZ deployment for Amazon RDS
+# Multi-AZ DB instance deployments for Amazon RDS
 
-Multi-AZ deployments can have one standby or two standby DB instances. When the deployment
-has one standby DB instance, it's called a _Multi-AZ DB instance
-deployment_. A Multi-AZ DB instance deployment has one standby DB instance
-that provides failover support, but doesn't serve read traffic. When the deployment has
-two standby DB instances, it's called a _Multi-AZ DB cluster deployment_.
-A Multi-AZ DB cluster deployment has standby DB instances that provide failover support and
-can also serve read traffic.
+Amazon RDS provides high availability and failover support for DB instances using Multi-AZ
+deployments with a single standby DB instance. This type of deployment is called a
+_Multi-AZ DB instance deployment_. Amazon RDS uses several different
+technologies to provide this failover support. Multi-AZ deployments for MariaDB, MySQL,
+Oracle, PostgreSQL, and RDS Custom for SQL Server DB instances use the Amazon failover technology. Microsoft SQL Server
+DB instances use SQL Server Database Mirroring (DBM) or Always On Availability Groups (AGs).
+For information on SQL Server version support for Multi-AZ, see [Multi-AZ deployments for Amazon RDS for Microsoft SQL Server](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md"). For information
+on working with RDS Custom for SQL Server for Multi-AZ, see [Managing a Multi-AZ deployment for RDS Custom for SQL Server](custom-sqlserver-multiaz.md "custom-sqlserver-multiaz.md").
 
-You can use the AWS Management Console to determine whether a Multi-AZ deployment is a Multi-AZ DB instance deployment or a Multi-AZ DB cluster deployment.
-In the navigation pane, choose **Databases**, and then choose a **DB identifier**.
+In a Multi-AZ DB instance deployment, Amazon RDS automatically provisions and maintains a
+synchronous standby replica in a different Availability Zone. The primary DB instance is
+synchronously replicated across Availability Zones to a standby replica to provide data
+redundancy and minimize latency spikes during system backups. Running a DB instance with
+high availability can enhance availability during planned system maintenance. It can also
+help protect your databases against DB instance failure and Availability Zone disruption.
+For more information on Availability Zones, see [Regions, Availability Zones, and Local Zones](Concepts.md "Concepts.md").
 
-- A Multi-AZ DB instance deployment has the following characteristics:
-  - There is only one row for the DB instance.
-  - The value of **Role** is **Instance** or **Primary**.
-  - The value of **Multi-AZ** is **Yes**.
+###### Note
 
-- A Multi-AZ DB cluster deployment has the following characteristics:
-  - There is a cluster-level row with three DB instance rows under it.
-  - For the cluster-level row, the value of **Role** is **Multi-AZ DB cluster**.
-  - For each instance-level row, the value of **Role** is **Writer instance**
-    or **Reader instance**.
-  - For each instance-level row, the value of **Multi-AZ** is **3 Zones**.
+The high availability option isn't a scaling solution for read-only scenarios. You
+can't use a standby replica to serve read traffic. To serve read-only traffic, use
+a Multi-AZ DB cluster or a read replica instead. For more information about Multi-AZ DB
+clusters, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md "multi-az-db-clusters-concepts.md"). For more information about read
+replicas, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-###### Topics
+![High availability scenario](images/con-multi-AZ.png)
+Using the RDS console, you can create a Multi-AZ DB instance deployment by simply specifying Multi-AZ
+when creating a DB instance. You can use the console to convert existing DB instances to
+Multi-AZ DB instance deployments by modifying the DB instance and specifying the Multi-AZ option. You
+can also specify a Multi-AZ DB instance deployment with the AWS CLI or Amazon RDS API. Use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") or [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command,
+or the [CreateDBInstance](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md") or
+[ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API
+operation.
 
-- [Multi-AZ DB instance deployments for Amazon RDS](Concepts.md "Concepts.md")
-- [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md "multi-az-db-clusters-concepts.md")
-  In addition, the following topics apply to both DB instances and Multi-AZ DB clusters.
+The RDS console shows the Availability Zone of the standby replica (called the secondary AZ).
+You can also use the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") CLI command or the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md") API
+operation to find the secondary AZ.
 
-- [Tagging Amazon RDS resources](USER_Tagging.md "USER_Tagging.md")
-- [Amazon Resource Names (ARNs) in Amazon RDS](USER_Tagging.md "USER_Tagging.md")
-- [Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md")
-- [Maintaining a DB instance](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
-- [Upgrading
-  a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
+DB instances using Multi-AZ DB instance deployments can have increased write and commit
+latency compared to a Single-AZ deployment. This can happen because of the synchronous data
+replication that occurs. You might have a change in latency if your deployment fails over to
+the standby replica, although AWS is engineered with low-latency network connectivity
+between Availability Zones. For production workloads, we recommend that you use Provisioned
+IOPS (input/output operations per second) for fast, consistent performance. For more
+information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").

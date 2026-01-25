@@ -9,6 +9,7 @@ running the Db2 engine.
 
 - [rdsadmin.get_task_status](#db2-udf-get-task-status "#db2-udf-get-task-status")
 - [rdsadmin.list_databases](#db2-udf-list-databases "#db2-udf-list-databases")
+- [rdsadmin.list_modifiable_db_parms](#db2-udf-list-modi-db-parms "#db2-udf-list-modi-db-parms")
 
 ## rdsadmin.get_task_status
 
@@ -312,4 +313,58 @@ rdsadmin        2024-10-22-03.37.48.535671
 TEST            2024-10-22-03.39.36.818679
 TEST1           2024-10-22-03.57.15.218009
 TEST2           2024-10-22-03.59.28.029556
+```
+
+## rdsadmin.list_modifiable_db_parms
+
+Returns a list of all the modifiable database configuration parameters.
+
+### Syntax
+
+```
+db2 "select * from table(rdsadmin.list_modifiable_db_parms())"
+```
+
+### Usage notes
+
+This user-defined function displays a selected lists of modifiable database parameters. These parameters can be updated using the stored procedure [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
+
+Any database parameter not included in this list has been restricted and cannot be modified.
+
+### Response
+
+The `rdsadmin.list_modifiable_db_parms` user-defined function returns the
+following columns:
+
+`PARAM_NAME`
+
+The name of the parameter that can be modified.
+
+`DEFAULT_VALUE`
+
+Default parameter value at the time of database creation.
+
+`RESTART_REQUIRED`
+
+If database recycle is required of not.
+
+Y = Yes, Database restart is required.
+
+N = No, Database restart is not required.
+
+### Response
+
+examples
+
+The following is a sample (truncated) list of expected output.
+
+```
+PARAM_NAME             DEFAULT_VALUE RESTART_REQUIRED
+---------------------- ------------- ----------------
+ACT_SORTMEM_LIMIT      NONE          N
+ARCHRETRYDELAY         20            N
+AUTHN_CACHE_DURATION   3             N
+AUTHN_CACHE_USERS      0             N
+AUTO_CG_STATS          OFF           N
+...
 ```

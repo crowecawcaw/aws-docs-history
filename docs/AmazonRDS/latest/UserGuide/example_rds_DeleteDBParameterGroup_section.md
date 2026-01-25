@@ -277,6 +277,35 @@ class InstanceWrapper:
   [DeleteDBParameterGroup](../../../goto/boto3/rds-2014-10-31/DeleteDBParameterGroup.md "../../../goto/boto3/rds-2014-10-31/DeleteDBParameterGroup.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    " iv_dbparametergroupname = 'mydbparametergroup'
+    TRY.
+        lo_rds->deletedbparametergroup(
+          iv_dbparametergroupname = iv_dbparametergroupname ).
+        MESSAGE 'DB parameter group deleted.' TYPE 'I'.
+      CATCH /aws1/cx_rdsdbprmgrnotfndfault.
+        MESSAGE 'DB parameter group not found.' TYPE 'I'.
+      CATCH /aws1/cx_rdsinvdbprmgrstatef00.
+        MESSAGE 'DB parameter group is in an invalid state.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteDBParameterGroup](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

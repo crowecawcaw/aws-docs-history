@@ -1,282 +1,521 @@
-# Tutorial: Create a VPC for use with a
+# Install a web server on your EC2 instance
 
-DB instance (IPv4 only)
+Install a web server on the EC2 instance you created in
+[Launch an EC2 instance to connect with your
+DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md"). The web server connects to the Amazon RDS DB
+instance that you created in [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
-A common scenario includes a DB instance in a virtual private cloud (VPC) based on the Amazon VPC
-service. This VPC shares data with a web server that is running in the same VPC. In this
-tutorial, you create the VPC for this scenario.
+## Install an Apache web server with PHP and MariaDB
 
-The following diagram shows this scenario. For information about other scenarios, see
-[Scenarios for accessing a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
+Connect to your EC2 instance and install the web server.
 
-![Single VPC scenario](images/con-VPC-sec-grp.png)
-Your DB instance needs to be available only to your web server, and not to the public
-internet. Thus, you create a VPC with both public and private subnets. The web server is
-hosted in the public subnet, so that it can reach the public internet. The DB instance is
-hosted in a private subnet. The web server can connect to the DB instance
-because it is hosted within the same VPC. But the DB instance isn't available to the
-public internet, providing greater security.
+###### To connect to your EC2 instance and install the Apache web server with PHP
 
-This tutorial configures an additional public and private subnet in a separate
-Availability Zone. These subnets aren't used by the tutorial. An RDS DB subnet group
-requires a subnet in at least two Availability Zones. The
-additional subnet makes it easier to switch to a Multi-AZ DB instance deployment in the
-future.
+1. Connect to the EC2 instance that you created earlier by following the steps in
+   [Connect to your Linux
+   instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the _Amazon EC2 User Guide_.
 
-This tutorial describes configuring a VPC for Amazon RDS DB instances.
-For a tutorial that shows you how to create a web server for this VPC scenario, see
-[Tutorial: Create a web server and an
-Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md"). For more information about Amazon VPC, see
-[Amazon VPC Getting Started Guide](../../../AmazonVPC/latest/GettingStartedGuide.md "../../../AmazonVPC/latest/GettingStartedGuide.md") and [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
+We recommend that you connect to your EC2 instance using SSH. If the SSH client utility is
+installed on Windows, Linux, or Mac, you can connect to the instance using the
+following command format:
 
-###### Tip
+```
+ssh -i `location_of_pem_file` ec2-user@`ec2-instance-public-dns-name`
+```
 
-You can set up network connectivity between an Amazon EC2 instance and a DB
-instance automatically
-when you create the DB instance.
-The network configuration is similar to the one described in this tutorial. For more information, see
-[Configure
-automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
+For example, assume that `ec2-database-connect-key-pair.pem` is stored
+in `/dir1` on Linux, and the public IPv4 DNS for your EC2 instance is
+`ec2-12-345-678-90.compute-1.amazonaws.com`. Your SSH command would
+look as follows:
 
-## Create a VPC with
+```
+ssh -i /dir1/ec2-database-connect-key-pair.pem ec2-user@ec2-12-345-678-90.compute-1.amazonaws.com
+```
 
-private and public subnets
-
-Use the following procedure to create a VPC with both public and private subnets.
-
-###### To create a VPC and subnets
-
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. In the top-right corner of the AWS Management Console, choose the Region
-   to create your VPC in. This example uses the US West (Oregon) Region.
-3. In the upper-left corner, choose **VPC dashboard**. To begin
-   creating a VPC, choose **Create VPC**.
-4. For **Resources to create** under **VPC settings**, choose
-   **VPC and more**.
-5. For the **VPC settings**, set these values:
-   - **Name tag auto-generation** – `tutorial`
-   - **IPv4 CIDR block** – `10.0.0.0/16`
-   - **IPv6 CIDR block** – **No IPv6 CIDR block**
-   - **Tenancy** – **Default**
-   - **Number of Availability Zones (AZs)** – **2**
-   - **Customize AZs** – Keep the default values.
-   - **Number of public subnet** – **2**
-   - **Number of private subnets** – **2**
-   - **Customize subnets CIDR blocks** – Keep the default values.
-   - **NAT gateways ($)** – **None**
-   - **VPC endpoints** – **None**
-   - **DNS options** – Keep the default values.
+2. Get the latest bug fixes and security updates by updating the software on your EC2 instance.
+   To do this, use the following command.
 
 ###### Note
 
-Amazon RDS requires at least two subnets in two different Availability Zones to
-support Multi-AZ DB instance deployments. This tutorial creates a Single-AZ
-deployment, but the requirement makes it easier to convert to a Multi-AZ DB
-instance deployment in the future. 6. Choose **Create VPC**.
+The `-y` option installs the updates without asking for confirmation. To
+examine updates before installing, omit this option.
 
-## Create a VPC
+```
+sudo dnf update -y
+```
 
-security group for a public web server
+3. After the updates complete, install the Apache web server, PHP, and
+   MariaDB or PostgreSQL software using the following commands. This command
+   installs multiple software packages and related dependencies at the same
+   time.
 
-Next, you create a security group for public access. To connect to public EC2
-instances in your VPC, you add inbound rules to your VPC security group. These allow
-traffic to connect from the internet.
+MariaDB & MySQL
 
-###### To create a VPC security group
+```
+sudo dnf install -y httpd php php-mysqli mariadb105
+```
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  Choose **VPC Dashboard**, choose **Security
-    Groups**, and then choose **Create security
-    group**.
-3.  On the **Create security group** page, set these values:
-    - **Security group name:**
-      `tutorial-securitygroup`
-    - **Description:**
-      `Tutorial Security Group`
-    - **VPC:** Choose the VPC that you created earlier, for
-      example: **vpc-`identifier` (tutorial-vpc)**
+PostgreSQL
 
-4.  Add inbound rules to the security group.
-    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
-       (SSH). To determine your public IP address, in a different browser window or tab,
-       you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
-       An example of an IP address is `203.0.113.25/32`.
+```
+sudo dnf install -y httpd php php-pgsql postgresql15
+```
 
-    In many cases, you might connect through an internet service provider
-    (ISP) or from behind your firewall without a static IP address. If so,
-    find the range of IP addresses used by client computers.
+If you receive an error, your instance probably wasn't launched with an
+Amazon Linux 2023 AMI. You might be using the Amazon Linux 2 AMI instead. You can
+view your version of Amazon Linux using the following command.
 
-    ###### Warning
+```
+cat /etc/system-release
+```
 
-    If you use `0.0.0.0/0` for SSH access, you make it
-    possible for all IP addresses to access your public instances using
-    SSH. This approach is acceptable for a short time in a test
-    environment, but it's unsafe for production environments. In
-    production, authorize only a specific IP address or range of
-    addresses to access your instances using SSH. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow SSH access
-    to your Amazon EC2 instance. If you do this, you can connect to your Amazon EC2
-    instance to install the web server and other utilities. You also connect
-    to your EC2 instance to upload content for your web server.
+For more information, see [Updating instance software](../../../AWSEC2/latest/UserGuide/install-updates.md "../../../AWSEC2/latest/UserGuide/install-updates.md"). 4. Start the web server with the command shown following.
 
-        * **Type:**
-        `SSH`
-        * **Source:** The IP address or range from Step a, for
-         example: `203.0.113.25/32`.
+```
+sudo systemctl start httpd
+```
 
-    4. Choose **Add rule**.
-    5. Set the following values for your new inbound rule to allow HTTP
-       access to your web server:
-       - **Type:**
-         `HTTP`
-       - **Source:**
-         `0.0.0.0/0`
+You can test that your web server is properly installed and started. To do
+this, enter the public Domain Name System (DNS) name of your EC2 instance in
+the address bar of a web browser, for example:
+`http://ec2-42-8-168-21.us-west-1.compute.amazonaws.com`. If
+your web server is running, then you see the Apache test page.
 
-5.  Choose **Create security group** to create the security
-    group.
-
-Note the security group ID because you need it later in this tutorial.
-
-## Create a VPC
-
-security group for a private DB instance
-
-To keep your DB instance private, create a second security group for
-private access. To connect to private DB instances in your VPC, you add
-inbound rules to your VPC security group that allow traffic from your web server
-only.
-
-###### To create a VPC security group
-
-1. Open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2. Choose **VPC Dashboard**, choose **Security
-   Groups**, and then choose **Create security
-   group**.
-3. On the **Create security group** page, set these
-   values:
-   - **Security group name:**
-     `tutorial-db-securitygroup`
-   - **Description:**
-     `Tutorial DB Instance Security Group`
-   - **VPC:** Choose the VPC that you created earlier, for
-     example: **vpc-`identifier` (tutorial-vpc)**
-
-4. Add inbound rules to the security group.
-   1. In the **Inbound rules** section, choose **Add rule**.
-   2. Set the following values for your new inbound rule to allow MySQL
-      traffic on port 3306 from your Amazon EC2 instance. If you do this, you can
-      connect from your web server to your DB instance. By
-      doing so, you can store and retrieve data from your web application to
-      your database.
-      - **Type:**
-        `MySQL/Aurora`
-      - **Source:** The identifier of the
-        **tutorial-securitygroup** security group that you created
-        previously in this tutorial, for example:
-        **sg-9edd5cfb**.
-
-5. Choose **Create security group** to create the security
-   group.
-
-## Create a DB subnet group
-
-A _DB subnet group_ is a collection of subnets that
-you create in a VPC and that you then designate for your DB instances. A DB subnet group makes it possible for you to specify a particular
-VPC when creating DB instances.
-
-###### To create a DB subnet group
-
-1. Identify the private subnets for your database in the VPC.
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **Subnets**.
-   3. Note the subnet IDs of the subnets named **tutorial-subnet-private1-us-west-2a**
-      and **tutorial-subnet-private2-us-west-2b**.
-
-   You need the subnet IDs when you create your DB subnet group.
-
-2. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-
-Make sure that you connect to the Amazon RDS console, not to the Amazon VPC console. 3. In the navigation pane, choose **Subnet groups**. 4. Choose **Create DB subnet group**. 5. On the **Create DB subnet group** page, set these values
-in **Subnet group details**:
-
-    * **Name:** `tutorial-db-subnet-group`
-    * **Description:** `Tutorial DB Subnet Group`
-    * **VPC:** **tutorial-vpc (vpc-`identifier`)**
-
-6. In the **Add subnets** section, choose the **Availability Zones** and **Subnets**.
-
-For this tutorial, choose **us-west-2a** and **us-west-2b** for the **Availability Zones**.
-For **Subnets**, choose the private subnets you identified in the previous step. 7. Choose **Create**.
-
-Your new DB subnet group appears in the DB subnet groups list on the RDS
-console. You can choose the DB subnet group to see details in the details pane
-at the bottom of the window. These details include all of the subnets associated
-with the group.
+If you don't see the Apache test page, check your inbound rules for the
+VPC security group that you created in [Tutorial: Create a VPC for use with a
+DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md"). Make sure that
+your inbound rules include one allowing HTTP (port 80) access for the IP
+address to connect to the web server.
 
 ###### Note
 
-If you created this VPC to complete [Tutorial: Create a web server and an
-Amazon RDS DB instance](TUT_WebAppWithRDS.md "TUT_WebAppWithRDS.md"),
-create the DB instance
-by following the instructions in [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+The Apache test page appears only when there is no content in the
+document root directory, `/var/www/html`. After you add
+content to the document root directory, your content appears at the
+public DNS address of your EC2 instance. Before this point, it appears
+on the Apache test page. 5. Configure the web server to start with each system boot using the `systemctl`
+command.
 
-## Deleting the VPC
+```
+sudo systemctl enable httpd
+```
 
-After you create the VPC and other resources for this tutorial, you can delete them if they are no longer needed.
+To allow `ec2-user` to manage files in the default root directory for
+your Apache web server, modify the ownership and permissions of the
+`/var/www` directory. There are many ways to accomplish this task. In this tutorial,
+you add `ec2-user` to the `apache` group, to give the `apache` group
+ownership of the `/var/www` directory and assign write permissions to the group.
+
+###### To set file permissions for the Apache web server
+
+1. Add the `ec2-user` user to the `apache` group.
+
+```
+sudo usermod -a -G apache ec2-user
+```
+
+2. Log out to refresh your permissions and include the new `apache` group.
+
+```
+exit
+```
+
+3. Log back in again and verify that the `apache` group exists with the
+   `groups` command.
+
+```
+groups
+```
+
+Your output looks similar to the following:
+
+```
+ec2-user adm wheel apache systemd-journal
+```
+
+4. Change the group ownership of the `/var/www` directory and its contents to the
+   `apache` group.
+
+```
+sudo chown -R ec2-user:apache /var/www
+```
+
+5. Change the directory permissions of `/var/www` and its subdirectories to add group
+   write permissions and set the group ID on subdirectories created in the
+   future.
+
+```
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} \;
+```
+
+6. Recursively change the permissions for files in the `/var/www` directory and its
+   subdirectories to add group write permissions.
+
+```
+find /var/www -type f -exec sudo chmod 0664 {} \;
+```
+
+Now, `ec2-user` (and any future members of the `apache`
+group) can add, delete, and edit files in the Apache document root. This makes it
+possible for you to add content, such as a static website or a PHP application.
 
 ###### Note
 
-If you added resources in the VPC that you created for this tutorial, you might
-need to delete these before you can delete the VPC. For example, these resources
-might include Amazon EC2 instances or Amazon RDS DB instances. For more
-information, see [Delete your
-VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting") in the _Amazon VPC User Guide_.
+A web server running the HTTP protocol provides no transport security for the
+data that it sends or receives. When you connect to an HTTP server using a web
+browser, much information is visible to eavesdroppers anywhere along the network
+pathway. This information includes the URLs that you visit, the content of
+web pages that you receive, and the contents (including passwords) of any HTML
+forms.
 
-###### To delete a VPC and related resources
+The best practice for securing your web server is to install support for HTTPS
+(HTTP Secure). This protocol protects your data with SSL/TLS encryption. For
+more information, see [Tutorial:
+Configure SSL/TLS with the Amazon Linux AMI](../../../AWSEC2/latest/UserGuide/SSL-on-amazon-linux-ami.md "../../../AWSEC2/latest/UserGuide/SSL-on-amazon-linux-ami.md") in the _Amazon EC2
+User Guide_.
 
-1. Delete the DB subnet group.
-   1. Open the Amazon RDS console at
-      [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the navigation pane, choose **Subnet groups**.
-   3. Select the DB subnet group you want to delete, such as **tutorial-db-subnet-group**.
-   4. Choose **Delete**, and then choose **Delete** in the confirmation window.
+## Connect your
 
-2. Note the VPC ID.
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **VPCs**.
-   3. In the list, identify the VPC that you created, such as
-      **tutorial-vpc**.
-   4. Note the **VPC ID** of the VPC that you created. You
-      need the VPC ID in later steps.
+Apache web server to your DB instance
 
-3. Delete the security groups.
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **Security
-      Groups**.
-   3. Select the security group for the Amazon RDS DB instance, such as
-      **tutorial-db-securitygroup**.
-   4. For **Actions**, choose **Delete security
-      groups**, and then choose **Delete** on
-      the confirmation page.
-   5. On the **Security Groups** page, select the security group for the Amazon EC2 instance, such as
-      **tutorial-securitygroup**.
-   6. For **Actions**, choose **Delete security
-      groups**, and then choose **Delete** on
-      the confirmation page.
+Next, you add content to your Apache web server that connects to your Amazon RDS DB instance.
 
-4. Delete the VPC.
-   1. Open the Amazon VPC console at
-      [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-   2. Choose **VPC Dashboard**, and then choose **VPCs**.
-   3. Select the VPC you want to delete, such as **tutorial-vpc**.
-   4. For **Actions**, choose **Delete
-      VPC**.
+###### To add content to the Apache web server that connects to your DB instance
 
-   The confirmation page shows other resources that are associated with the VPC that
-   will also be deleted, including the subnets associated with it. 5. On the confirmation page, enter `delete`, and then choose **Delete**.
+1. While still connected to your EC2 instance, change the directory to
+   `/var/www` and create a new subdirectory named
+   `inc`.
+
+```
+cd /var/www
+mkdir inc
+cd inc
+```
+
+2. Create a new file in the `inc` directory named
+   `dbinfo.inc`, and then edit the file by calling nano (or the
+   editor of your choice).
+
+```
+>dbinfo.inc
+nano dbinfo.inc
+```
+
+3. Add the following contents to the `dbinfo.inc` file. Here,
+   `db_instance_endpoint` is your DB instance endpoint, without the
+   port, for your DB instance.
+
+###### Note
+
+We recommend placing the user name and password information in a
+folder that isn't part of the document root for your web server. Doing
+this reduces the possibility of your security information being
+exposed.
+
+Make sure to change `master password` to a suitable
+password in your application.
+
+```
+<?php
+
+define('DB_SERVER', '`db_instance_endpoint`');
+define('DB_USERNAME', 'tutorial_user');
+define('DB_PASSWORD', '`master password`');
+define('DB_DATABASE', 'sample');
+?>
+```
+
+4. Save and close the `dbinfo.inc` file. If you are using nano,
+   save and close the file by using Ctrl+S and Ctrl+X.
+5. Change the directory to `/var/www/html`.
+
+```
+cd /var/www/html
+```
+
+6. Create a new file in the `html` directory named
+   `SamplePage.php`, and then edit the file by calling nano (or
+   the editor of your choice).
+
+```
+>SamplePage.php
+nano SamplePage.php
+```
+
+7. Add the following contents to the `SamplePage.php` file:
+
+MariaDB & MySQL
+
+```
+<?php include "../inc/dbinfo.inc"; ?>
+<html>
+<body>
+<h1>Sample page</h1>
+<?php
+
+  /* Connect to MySQL and select the database. */
+  $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+
+  if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+  $database = mysqli_select_db($connection, DB_DATABASE);
+
+  /* Ensure that the EMPLOYEES table exists. */
+  VerifyEmployeesTable($connection, DB_DATABASE);
+
+  /* If input fields are populated, add a row to the EMPLOYEES table. */
+  $employee_name = htmlentities($_POST['NAME']);
+  $employee_address = htmlentities($_POST['ADDRESS']);
+
+  if (strlen($employee_name) || strlen($employee_address)) {
+    AddEmployee($connection, $employee_name, $employee_address);
+  }
+?>
+
+<!-- Input form -->
+<form action="<?PHP echo $_SERVER['SCRIPT_NAME'] ?>" method="POST">
+  <table border="0">
+    <tr>
+      <td>NAME</td>
+      <td>ADDRESS</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" name="NAME" maxlength="45" size="30" />
+      </td>
+      <td>
+        <input type="text" name="ADDRESS" maxlength="90" size="60" />
+      </td>
+      <td>
+        <input type="submit" value="Add Data" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+<!-- Display table data. -->
+<table border="1" cellpadding="2" cellspacing="2">
+  <tr>
+    <td>ID</td>
+    <td>NAME</td>
+    <td>ADDRESS</td>
+  </tr>
+
+<?php
+
+$result = mysqli_query($connection, "SELECT * FROM EMPLOYEES");
+
+while($query_data = mysqli_fetch_row($result)) {
+  echo "<tr>";
+  echo "<td>",$query_data[0], "</td>",
+       "<td>",$query_data[1], "</td>",
+       "<td>",$query_data[2], "</td>";
+  echo "</tr>";
+}
+?>
+
+</table>
+
+<!-- Clean up. -->
+<?php
+
+  mysqli_free_result($result);
+  mysqli_close($connection);
+
+?>
+
+</body>
+</html>
+
+
+<?php
+
+/* Add an employee to the table. */
+function AddEmployee($connection, $name, $address) {
+   $n = mysqli_real_escape_string($connection, $name);
+   $a = mysqli_real_escape_string($connection, $address);
+
+   $query = "INSERT INTO EMPLOYEES (NAME, ADDRESS) VALUES ('$n', '$a');";
+
+   if(!mysqli_query($connection, $query)) echo("<p>Error adding employee data.</p>");
+}
+
+/* Check whether the table exists and, if not, create it. */
+function VerifyEmployeesTable($connection, $dbName) {
+  if(!TableExists("EMPLOYEES", $connection, $dbName))
+  {
+     $query = "CREATE TABLE EMPLOYEES (
+         ID int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+         NAME VARCHAR(45),
+         ADDRESS VARCHAR(90)
+       )";
+
+     if(!mysqli_query($connection, $query)) echo("<p>Error creating table.</p>");
+  }
+}
+
+/* Check for the existence of a table. */
+function TableExists($tableName, $connection, $dbName) {
+  $t = mysqli_real_escape_string($connection, $tableName);
+  $d = mysqli_real_escape_string($connection, $dbName);
+
+  $checktable = mysqli_query($connection,
+      "SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_NAME = '$t' AND TABLE_SCHEMA = '$d'");
+
+  if(mysqli_num_rows($checktable) > 0) return true;
+
+  return false;
+}
+?>
+
+```
+
+PostgreSQL
+
+```
+<?php include "../inc/dbinfo.inc"; ?>
+
+<html>
+<body>
+<h1>Sample page</h1>
+<?php
+
+/* Connect to PostgreSQL and select the database. */
+$constring = "host=" . DB_SERVER . " dbname=" . DB_DATABASE . " user=" . DB_USERNAME . " password=" . DB_PASSWORD ;
+$connection = pg_connect($constring);
+
+if (!$connection){
+ echo "Failed to connect to PostgreSQL";
+ exit;
+}
+
+/* Ensure that the EMPLOYEES table exists. */
+VerifyEmployeesTable($connection, DB_DATABASE);
+
+/* If input fields are populated, add a row to the EMPLOYEES table. */
+$employee_name = htmlentities($_POST['NAME']);
+$employee_address = htmlentities($_POST['ADDRESS']);
+
+if (strlen($employee_name) || strlen($employee_address)) {
+  AddEmployee($connection, $employee_name, $employee_address);
+}
+
+?>
+
+<!-- Input form -->
+<form action="<?PHP echo $_SERVER['SCRIPT_NAME'] ?>" method="POST">
+  <table border="0">
+    <tr>
+      <td>NAME</td>
+      <td>ADDRESS</td>
+    </tr>
+    <tr>
+      <td>
+    <input type="text" name="NAME" maxlength="45" size="30" />
+      </td>
+      <td>
+    <input type="text" name="ADDRESS" maxlength="90" size="60" />
+      </td>
+      <td>
+    <input type="submit" value="Add Data" />
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- Display table data. -->
+<table border="1" cellpadding="2" cellspacing="2">
+  <tr>
+    <td>ID</td>
+    <td>NAME</td>
+    <td>ADDRESS</td>
+  </tr>
+
+<?php
+
+$result = pg_query($connection, "SELECT * FROM EMPLOYEES");
+
+while($query_data = pg_fetch_row($result)) {
+  echo "<tr>";
+  echo "<td>",$query_data[0], "</td>",
+       "<td>",$query_data[1], "</td>",
+       "<td>",$query_data[2], "</td>";
+  echo "</tr>";
+}
+?>
+</table>
+
+<!-- Clean up. -->
+<?php
+
+  pg_free_result($result);
+  pg_close($connection);
+?>
+</body>
+</html>
+
+
+<?php
+
+/* Add an employee to the table. */
+function AddEmployee($connection, $name, $address) {
+   $n = pg_escape_string($name);
+   $a = pg_escape_string($address);
+   echo "Forming Query";
+   $query = "INSERT INTO EMPLOYEES (NAME, ADDRESS) VALUES ('$n', '$a');";
+
+   if(!pg_query($connection, $query)) echo("<p>Error adding employee data.</p>");
+}
+
+/* Check whether the table exists and, if not, create it. */
+function VerifyEmployeesTable($connection, $dbName) {
+  if(!TableExists("EMPLOYEES", $connection, $dbName))
+  {
+     $query = "CREATE TABLE EMPLOYEES (
+         ID serial PRIMARY KEY,
+         NAME VARCHAR(45),
+         ADDRESS VARCHAR(90)
+       )";
+
+     if(!pg_query($connection, $query)) echo("<p>Error creating table.</p>");
+  }
+}
+/* Check for the existence of a table. */
+function TableExists($tableName, $connection, $dbName) {
+  $t = strtolower(pg_escape_string($tableName)); //table name is case sensitive
+  $d = pg_escape_string($dbName); //schema is 'public' instead of 'sample' db name so not using that
+
+  $query = "SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_NAME = '$t';";
+  $checktable = pg_query($connection, $query);
+
+  if (pg_num_rows($checktable) >0) return true;
+  return false;
+
+}
+?>
+```
+
+8. Save and close the `SamplePage.php` file.
+9. Verify that your web server successfully connects to your DB instance by opening a web browser and browsing to
+   `http://`EC2 instance
+   endpoint`/SamplePage.php`, for example:
+   `http://ec2-12-345-67-890.us-west-2.compute.amazonaws.com/SamplePage.php`.
+
+You can use `SamplePage.php` to add data to your DB instance. The data that you add is then displayed on the page. To
+verify that the data was inserted into the table, install MySQL client on the Amazon EC2
+instance. Then connect to the DB instance and query the
+table.
+
+For information about installing the MySQL client and
+connecting to a DB instance, see [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md").
+
+To make sure that your DB instance is as secure as possible, verify that
+sources outside of the VPC can't connect to your DB instance.
+
+After you have finished testing your web server and your database, you should
+delete your DB instance and your Amazon EC2 instance.
+
+- To delete a DB instance, follow the instructions in [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md"). You
+  don't need to create a final snapshot.
+- To terminate an Amazon EC2 instance, follow the instruction in [Terminate your
+  instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the _Amazon EC2 User Guide_.

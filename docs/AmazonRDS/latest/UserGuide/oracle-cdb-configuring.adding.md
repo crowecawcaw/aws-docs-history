@@ -12,7 +12,11 @@ tenant database, make sure you meet the following prerequisites:
   You can add a tenant database using the AWS Management Console, the AWS CLI, or the RDS API. You
   can't add multiple tenant databases in a single operation: you must add them one at a
   time. If the CDB has backup retention enabled, Amazon RDS backs up the DB instance before and after
-  it adds a new tenant database.
+  it adds a new tenant database. If the CDB has read replicas,
+  you can only add a tenant database to the primary DB instance;
+  Amazon RDS automatically creates the tenant database on the replicas.
+  Replication health is also validated, ensuring all replicas are available and
+  replication lag is less than 5 minutes before the tenant is created.
 
 ###### To add a tenant database to your DB instance
 
@@ -48,8 +52,9 @@ tenant database, make sure you meet the following prerequisites:
         	###### Note
 
         	We recommend AWS Secrets Manager as the most secure
-        	 technique for managing credentials. Additional
-        	 charges apply. For more information, see [Password management with
+        	 technique for managing credentials. Additional charges apply.
+        	 AWS Secrets Manager is not supported for instances using read replicas.
+        	 For more information, see [Password management with
         	 Amazon RDS
         	 and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
         	+ **Self managed**
@@ -68,7 +73,9 @@ tenant database, make sure you meet the following prerequisites:
          a character set for the PDB. The default is
          **AL32UTF8**. You can choose a PDB
          character set that is different from the CDB character
-         set.
+         set. If the instance has read replicas, tenants cannot be created
+         with a custom character set. You can create your tenants with a custom character set
+         before creating a read replica if needed.
         * For **Tenant database national character
          set**, choose a national character set for the PDB.
          The default is **AL32UTF8**. The national

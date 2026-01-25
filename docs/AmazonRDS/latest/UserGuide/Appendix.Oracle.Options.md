@@ -1,167 +1,163 @@
-# Oracle time zone
+# Oracle Statspack
 
-To change the system time zone used by your Oracle DB instance, use the time zone option. For example, you might
-change the time zone of a DB instance to be compatible with an on-premises environment, or a legacy application. The
-time zone option changes the time zone at the host level. Changing the time zone impacts all date columns and values,
-including `SYSDATE` and `SYSTIMESTAMP`.
+The Oracle Statspack option installs and enables the Oracle Statspack performance
+statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus
+scripts that collect, store, and display performance data. For information about using
+Oracle Statspack, see [Oracle Statspack](http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html "http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html") in the Oracle documentation.
 
-The time zone option differs from the `rdsadmin_util.alter_db_time_zone` command. The
-`alter_db_time_zone` command changes the time zone only for certain data types. The time zone option
-changes the time zone for all date columns and values. For more information about `alter_db_time_zone`,
-see [Setting the
-database time zone](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md"). For more information about upgrade
-considerations, see [Time zone considerations](USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.DST "USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.DST").
+###### Note
 
-## Restrictions for setting
+Oracle Statspack is no longer supported by Oracle and has been replaced by the
+more advanced Automatic Workload Repository (AWR). AWR is available only for Oracle
+Enterprise Edition customers who have purchased the Diagnostics Pack. You can use
+Oracle Statspack with any Oracle DB engine on Amazon RDS. You can't run Oracle
+Statspack on Amazon RDS read replicas.
 
-the time zone
+## Setting up Oracle Statspack
 
-The time zone option is a permanent and persistent option. Therefore, you can't do the
-following:
+To run Statspack scripts, you must add the Statspack option.
 
-- Remove the option from an option group after you add the time zone
-  option.
-- Remove the option group from a DB instance after you add the group.
-- Modify the time zone setting of the option to a different time zone.
+###### To set up Oracle Statspack
 
-## Recommendations for setting
+1. In a SQL client, log in to the Oracle DB with an administrative
+   account.
+2. Do either of the following actions, depending on whether Statspack is
+   installed:
+   - If Statspack is installed, and the `PERFSTAT` account
+     is associated with Statspack, skip to Step 4.
+   - If Statspack is not installed, and the `PERFSTAT`
+     account exists, drop the account as follows:
 
-the time zone
+   ```
+   DROP USER PERFSTAT CASCADE;
+   ```
 
-Before you add the time zone option to your production database, we strongly recommend
-that you do the following:
+   Otherwise, attempting to add the Statspack option generates an
+   error and `RDS-Event-0058`.
 
-- Take a snapshot of your DB instance. If you accidentally set the time zone
-  incorrectly, you must recover your DB instance to its previous time zone setting. For
-  more information, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md").
-- Add the time zone option to a test DB instance. Adding the time zone option can
-  cause problems with tables that use the system date to add dates or times. We
-  recommend that you analyze your data and applications on the test instance. This
-  way you can assess the impact of changing the time zone on your production
-  instance.
+3. Add the Statspack option to an option group. See [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 
-If your DB instance uses the default option group, then follow these steps:
-
-1. Take a snapshot of your DB instance.
-2. Add the time zone option to your DB instance.
-
-If your DB instance currently uses a nondefault option group, then follow these
-steps:
-
-1. Take a snapshot of your DB instance.
-2. Create a new option group.
-3. Add the time zone option to it, along with all other options that are
-   currently associated with the existing option group.
-
-This prevents the existing options from being uninstalled while enabling the
-time zone option. 4. Add the option group to your DB instance.
-
-## Time zone option settings
-
-Amazon RDS supports the following settings for the time zone option.
-
-| Option setting | Valid values                                                                                                                                                             | Description                             |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
-| `TIME_ZONE`    | One of the available time zones.<br>For the full list, see<br>[Available time zones](#Appendix.Oracle.Options.Timezone.Zones "#Appendix.Oracle.Options.Timezone.Zones"). | The new time zone for your DB instance. |
-
-## Adding the time zone option
-
-Complete the following steps to add the time zone option to your DB instance:
-
-1. (Recommended) Take a snapshot of your DB instance.
-2. Do one of the following tasks:
-   - Create a new option group from scratch. For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
-   - Copy an existing option group using the AWS CLI or API. For more information,
-     see [Copying an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy").
-   - Reuse an existing non-default option group. A best practice is to use an
-     option group that isn't currently associated with any DB instances or
-     snapshots.
-
-3. Add the new option to the option group from the preceding step.
-4. If the option group that is currently associated with your DB instance has options enabled,
-   add these options to your new option group. This strategy prevents the existing options
-   from being uninstalled while enabling the new option.
-5. Add the new option group to your DB instance.
-
-When you add the time zone option,
-a brief outage occurs
-while your DB instance is automatically restarted.
-
-###### To add the time zone option to an option group and associate it with a
-
-DB instance
-
-1.  In the RDS console, choose **Option groups.**
-2.  Choose the name of the option group to which you want to add the
-    option.
-3.  Choose **Add option**.
-4.  For **Option name**, choose
-    **Timezone**, and then configure the option
-    settings.
-5.  Associate the option group with a new or existing DB instance:
-
-        * For a new DB instance, apply the option group when you launch the instance. For more
-         information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-        * For an existing DB instance, apply the option group by modifying the instance and
-         attaching the new option group. When you add the new option to an existing DB instance, a
-         brief outage occurs while your DB instance is automatically restarted. For more
-         information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-
-    The following example uses the AWS CLI [add-option-to-option-group](../../../cli/latest/reference/rds/add-option-to-option-group.md "../../../cli/latest/reference/rds/add-option-to-option-group.md") command to add the `Timezone`
-    option and the `TIME_ZONE` option setting to an option group called
-    `myoptiongroup`. The time zone is set to
-    `Africa/Cairo`.
-
-For Linux, macOS, or Unix:
+Amazon RDS automatically installs the Statspack scripts on the DB instance and
+then sets up the `PERFSTAT` account. 4. Reset the password using the following SQL statement, replacing _pwd_ with your new password:
 
 ```
-aws rds add-option-to-option-group \
-    --option-group-name "`myoptiongroup`" \
-    --options "`OptionName=Timezone,OptionSettings=[{Name=TIME_ZONE,Value=Africa/Cairo}]`" \
-    --apply-immediately
+ALTER USER PERFSTAT IDENTIFIED BY *pwd* ACCOUNT UNLOCK;
 ```
 
-For Windows:
+You can log in using the `PERFSTAT` user account and run the
+Statspack scripts. 5. Grant the `CREATE JOB` privilege to the `PERFSTAT`
+account using the following statement:
 
 ```
-aws rds add-option-to-option-group ^
-    --option-group-name "`myoptiongroup`" ^
-    --options "`OptionName=Timezone,OptionSettings=[{Name=TIME_ZONE,Value=Africa/Cairo}]`" ^
-    --apply-immediately
+GRANT CREATE JOB TO PERFSTAT;
 ```
 
-## Modifying time zone settings
+6. Ensure that idle wait events in the `PERFSTAT.STATS$IDLE_EVENT`
+   table are populated.
 
-The time zone option is a permanent and persistent option.
-You can't remove the option from an option group after you add it.
-You can't remove the option group from a DB instance after you add it.
-You can't modify the time zone setting of the option to a different time zone.
-If you set the time zone incorrectly,
-restore a snapshot of your DB instance from before you added the time zone option.
+Because of Oracle Bug 28523746, the idle wait events in
+`PERFSTAT.STATS$IDLE_EVENT` may not be populated. To ensure
+all idle events are available, run the following statement:
 
-## Removing the time zone option
+```
+INSERT INTO PERFSTAT.STATS$IDLE_EVENT (EVENT)
+SELECT NAME FROM V$EVENT_NAME WHERE WAIT_CLASS='Idle'
+MINUS
+SELECT EVENT FROM PERFSTAT.STATS$IDLE_EVENT;
+COMMIT;
+```
 
-The time zone option is a permanent and persistent option.
-You can't remove the option from an option group after you add it.
-You can't remove the option group from a DB instance after you add it.
-To remove the time zone option,
-restore a snapshot of your DB instance from before you added the time zone option.
+## Generating Statspack reports
 
-## Available time zones
+A Statspack report compares two snapshots.
 
-You can use the following values for the time zone option.
+###### To generate Statspack reports
 
-| Zone      | Time zone                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Africa    | Africa/Cairo, Africa/Casablanca, Africa/Harare, Africa/Lagos,<br>Africa/Luanda, Africa/Monrovia, Africa/Nairobi, Africa/Tripoli,<br>Africa/Windhoek                                                                                                                                                                                                                                                                                                                                                                             |
-| America   | America/Araguaina, America/Argentina/Buenos_Aires, America/Asuncion, America/Bogota,<br>America/Caracas, America/Chicago, America/Chihuahua, America/Cuiaba,<br>America/Denver, America/Detroit, America/Fortaleza, America/Godthab,<br>America/Guatemala, America/Halifax, America/Lima, America/Los_Angeles,<br>America/Manaus, America/Matamoros, America/Mexico_City, America/Monterrey,<br>America/Montevideo, America/New_York, America/Phoenix, America/Santiago,<br>America/Sao_Paulo, America/Tijuana, America/Toronto |
-| Asia      | Asia/Amman, Asia/Ashgabat, Asia/Baghdad, Asia/Baku,<br>Asia/Bangkok, Asia/Beirut, Asia/Calcutta, Asia/Damascus,<br>Asia/Dhaka, Asia/Hong_Kong, Asia/Irkutsk, Asia/Jakarta,<br>Asia/Jerusalem, Asia/Kabul, Asia/Karachi, Asia/Kathmandu,<br>Asia/Kolkata, Asia/Krasnoyarsk, Asia/Magadan, Asia/Manila,<br>Asia/Muscat, Asia/Novosibirsk, Asia/Rangoon, Asia/Riyadh,<br>Asia/Seoul, Asia/Shanghai, Asia/Singapore, Asia/Taipei,<br>Asia/Tehran, Asia/Tokyo, Asia/Ulaanbaatar, Asia/Vladivostok,<br>Asia/Yakutsk, Asia/Yerevan     |
-| Atlantic  | Atlantic/Azores, Atlantic/Cape_Verde                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Australia | Australia/Adelaide, Australia/Brisbane, Australia/Darwin, Australia/Eucla,<br>Australia/Hobart, Australia/Lord_Howe, Australia/Perth, Australia/Sydney                                                                                                                                                                                                                                                                                                                                                                          |
-| Brazil    | Brazil/DeNoronha, Brazil/East                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Canada    | Canada/Newfoundland, Canada/Saskatchewan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Etc       | Etc/GMT-3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Europe    | Europe/Amsterdam, Europe/Athens, Europe/Berlin, Europe/Dublin,<br>Europe/Helsinki, Europe/Kaliningrad, Europe/London, Europe/Madrid,<br>Europe/Moscow, Europe/Paris, Europe/Prague, Europe/Rome,<br>Europe/Sarajevo                                                                                                                                                                                                                                                                                                             |
-| Pacific   | Pacific/Apia, Pacific/Auckland, Pacific/Chatham, Pacific/Fiji,<br>Pacific/Guam, Pacific/Honolulu, Pacific/Kiritimati, Pacific/Marquesas,<br>Pacific/Samoa, Pacific/Tongatapu, Pacific/Wake                                                                                                                                                                                                                                                                                                                                      |
-| US        | US/Alaska, US/Central, US/East-Indiana, US/Eastern,<br>US/Pacific                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| UTC       | UTC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+1. In a SQL client, log in to the Oracle DB with the `PERFSTAT` account.
+2. Create a snapshot using either of the following techniques:
+   - Create a Statspack snapshot manually.
+   - Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack
+     snapshot every hour:
+
+   ```
+   VARIABLE jn NUMBER;
+   exec dbms_job.submit(:jn, 'statspack.snap;',SYSDATE,'TRUNC(SYSDATE+1/24,''HH24'')');
+   COMMIT;
+   ```
+
+3. View the snapshots using the following query:
+
+```
+SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
+```
+
+4. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`,
+   replacing _begin_snap_ and _end_snap_ with the snapshot IDs:
+
+```
+exec rdsadmin.rds_run_spreport(*begin\_snap*,*end\_snap*);
+```
+
+For example, the following command creates a report based on the interval
+between Statspack snapshots 1 and 2:
+
+```
+exec rdsadmin.rds_run_spreport(1,2);
+```
+
+The file name of the Statspack report includes the number of the two
+snapshots. For example, a report file created using Statspack snapshots 1
+and 2 would be named `ORCL_spreport_1_2.lst`. 5. Monitor the output for errors.
+
+Oracle Statspack performs checks before running the report. Therefore, you
+could also see error messages in the command output. For example, you might
+try to generate a report based on an invalid range, where the beginning
+Statspack snapshot value is larger than the ending value. In this case, the
+output shows the error message, but the DB engine does not generate an error
+file.
+
+```
+exec rdsadmin.rds_run_spreport(2,1);
+*
+ERROR at line 1:
+ORA-20000: Invalid snapshot IDs. Find valid ones in perfstat.stats$snapshot.
+```
+
+If you use an invalid number a Statspack snapshot, the output shows an
+error. For example, if you try to generate a report for snapshots 1 and 50,
+but snapshot 50 doesn't exist, the output shows an error.
+
+```
+exec rdsadmin.rds_run_spreport(1,50);
+*
+ERROR at line 1:
+ORA-20000: Could not find both snapshot IDs
+```
+
+6. (Optional)
+
+To retrieve the report, call the trace file procedures, as explained in
+[Working with
+Oracle trace files](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles").
+
+Alternatively, download the Statspack report from the RDS console. Go to the
+**Log** section of the DB instance details and choose
+**Download**. The following example shows
+`trace/ORCL_spreport_1_2.lst`
+
+![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](images/statspack1.png)
+
+If an error occurs while generating a report, the DB engine uses the same
+naming conventions as for a report but with an extension of
+`.err`. For example, if an error occurred while creating
+a report using Statspack snapshots 1 and 7, the report file would be named
+`ORCL_spreport_1_7.err`. You can download the error
+report using the same techniques as for a standard Snapshot report.
+
+## Removing Statspack snapshots
+
+To remove a range of Oracle Statspack snapshots, use the following command:
+
+```
+exec statspack.purge(*begin snap*, *end snap*);
+```

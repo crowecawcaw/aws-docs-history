@@ -1,37 +1,83 @@
-# Importing using Oracle Export/Import
+# Migrating with Oracle materialized views
 
-You might consider Oracle Export/Import utilities for migrations in the following conditions:
+To migrate large datasets efficiently, you can use Oracle materialized view replication. With replication, you can keep the target tables
+synchronized with the source tables. Thus, you can switch over to Amazon RDS later, if needed.
 
-- Your data size is small.
-- Data types such as binary float and double aren't required.
-  The import process creates the necessary schema objects. Thus, you don't need to run a
-  script to create the objects beforehand.
+Before you can migrate using materialized views, make sure that you meet the following requirements:
 
-The easiest way to install the Oracle the export and import utilities is to install the
-Oracle Instant Client. To download the software, go to [https://www.oracle.com/database/technologies/instant-client.html](https://www.oracle.com/database/technologies/instant-client.html "https://www.oracle.com/database/technologies/instant-client.html"). For
-documentation, see [Instant Client for SQL\*Loader, Export, and Import](https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/instant-client-sql-loader-export-import.html#GUID-FF1B6F75-09F5-4911-9317-9776FAD15965 "https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/instant-client-sql-loader-export-import.html#GUID-FF1B6F75-09F5-4911-9317-9776FAD15965") in the _Oracle
-Database Utilities_ manual.
+- Configure access from the target database to the source database. In the following example, access rules were enabled on the source
+  database to allow the RDS for Oracle target database to connect to the source over SQL\*Net.
+- Create a database link from the RDS for Oracle DB instance to the source database.
 
-###### To export tables and then import them
+###### To migrate data using materialized views
 
-1. Export the tables from the source database using the `exp` command.
-
-The following command exports the tables named `tab1`, `tab2`, and `tab3`. The dump file is
-`exp_file.dmp`.
+1. Create a user account on both source and RDS for Oracle target instances that can authenticate with the same password. The following
+   example creates a user named `dblink_user`.
 
 ```
-exp cust_dba@ORCL FILE=exp_file.dmp TABLES=(tab1,tab2,tab3) LOG=exp_file.log
+CREATE USER dblink_user IDENTIFIED BY `my-password`
+  DEFAULT TABLESPACE users
+  TEMPORARY TABLESPACE temp;
+
+GRANT CREATE SESSION TO dblink_user;
+
+GRANT SELECT ANY TABLE TO dblink_user;
+
+GRANT SELECT ANY DICTIONARY TO dblink_user;
 ```
 
-The export creates a binary dump file that contains both the schema and data for the specified tables. 2. Import the schema and data into a target database using the `imp` command.
+###### Note
 
-The following command imports the tables `tab1`, `tab2`, and `tab3` from dump file
-`exp_file.dmp`.
+Specify a password other than the prompt shown here as a security best practice. 2. Create a database link from the RDS for Oracle target instance to the source instance using your newly created user.
 
 ```
-imp cust_dba@targetdb FROMUSER=cust_schema TOUSER=cust_schema \
-TABLES=(tab1,tab2,tab3) FILE=exp_file.dmp LOG=imp_file.log
+CREATE DATABASE LINK remote_site
+  CONNECT TO dblink_user IDENTIFIED BY `my-password`
+  USING '(description=(address=(protocol=tcp) (host=`my-host`)
+    (port=`my-listener-port`)) (connect_data=(sid=`my-source-db-sid`)))';
 ```
 
-Export and Import have other variations that might be better suited to your requirements. See the Oracle Database documentation for full
-details.
+###### Note
+
+Specify a password other than the prompt shown here as a security best practice. 3. Test the link:
+
+```
+SELECT * FROM V$INSTANCE@remote_site;
+```
+
+4. Create a sample table with primary key and materialized view log on the source instance.
+
+```
+CREATE TABLE customer_0 TABLESPACE users
+  AS (SELECT ROWNUM id, o.*
+      FROM   ALL_OBJECTS o, ALL_OBJECTS x
+      WHERE  ROWNUM <= 1000000);
+
+ALTER TABLE customer_0 ADD CONSTRAINT pk_customer_0 PRIMARY KEY (id) USING INDEX;
+
+CREATE MATERIALIZED VIEW LOG ON customer_0;
+```
+
+5. On the target RDS for Oracle DB instance, create a materialized view.
+
+```
+CREATE MATERIALIZED VIEW customer_0
+  BUILD IMMEDIATE REFRESH FAST
+  AS (SELECT *
+      FROM   cust_dba.customer_0@remote_site);
+```
+
+6. On the target RDS for Oracle DB instance, refresh the materialized view.
+
+```
+EXEC DBMS_MVIEW.REFRESH('CUSTOMER_0', 'f');
+```
+
+7. Drop the materialized view and include the `PRESERVE TABLE` clause to retain the materialized view container table and
+   its contents.
+
+```
+DROP MATERIALIZED VIEW customer_0 PRESERVE TABLE;
+```
+
+The retained table has the same name as the dropped materialized view.

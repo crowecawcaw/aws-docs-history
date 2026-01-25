@@ -1,69 +1,90 @@
-# Oracle major version upgrades
+# Upgrading the version of an
 
-To perform a major version upgrade, modify the DB instance manually. Major version
-upgrades don't occur automatically.
+RDS for Oracle DB instance
 
-###### Important
+To manually upgrade the DB engine version of an RDS for Oracle DB instance,use the AWS Management Console, the AWS CLI,
+or the RDS API. For general information about database upgrades in RDS, see Upgrading the version of an
+RDS for Oracle DB instance. To get valid upgrade targets,
+use the AWS CLI [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command.
 
-Make sure that you thoroughly test any upgrade to verify that your applications work
-correctly before applying the upgrade to your production databases. For more
-information, see [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
+###### To upgrade the engine version of an RDS for Oracle DB instance by using the
 
-###### Topics
+console
 
-- [Supported versions for major upgrades](#USER_UpgradeDBInstance.Oracle.Major.supported-versions "#USER_UpgradeDBInstance.Oracle.Major.supported-versions")
-- [Supported instance classes for major upgrades](#USER_UpgradeDBInstance.Oracle.Major.instance-classes "#USER_UpgradeDBInstance.Oracle.Major.instance-classes")
-- [Gathering statistics before major upgrades](#USER_UpgradeDBInstance.Oracle.Major.gathering-stats "#USER_UpgradeDBInstance.Oracle.Major.gathering-stats")
-- [Allowing
-  major upgrades](#USER_UpgradeDBInstance.Oracle.Major.allowing-upgrades "#USER_UpgradeDBInstance.Oracle.Major.allowing-upgrades")
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**, and then
+   choose the DB instance that you want to upgrade.
+3. Choose **Modify**.
+4. For **DB engine version**, choose a higher database
+   version.
+5. Choose **Continue** and check the summary of
+   modifications. Make sure that you understand the implications of a database
+   version upgrade. You can't convert an upgraded DB instance back to the previous
+   version. Make sure you have tested both your database and your application
+   with the new version before continuing.
+6. Decide when to schedule your DB instance upgrade. To apply the changes
+   immediately, choose **Apply immediately**. Choosing this
+   option can cause an outage in some cases. For more information, see [Using the schedule modifications
+   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+7. On the confirmation page, review your changes. If they are correct, choose
+   **Modify DB instance** to save your changes.
 
-## Supported versions for major upgrades
+Alternatively, choose **Back** to edit your changes, or
+choose **Cancel** to cancel your changes.
+To upgrade the engine version of an RDS for Oracle DB instance, you can use the CLI [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md")
+command. Specify the following parameters:
 
-Amazon RDS supports the following major version upgrades.
+- `--db-instance-identifier` – the name of the RDS for Oracle
+  DB instance.
+- `--engine-version` – the version number of the database
+  engine to upgrade to.
 
-| Current version                     | Upgrade supported |
-| ----------------------------------- | ----------------- |
-| 19.0.0.0 using the CDB architecture | 21.0.0.0          |
+For information about valid engine versions, use the AWS CLI [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command.
 
-A major version upgrade of Oracle Database must upgrade to a Release Update (RU) that was released in the same
-month or later. Major version downgrades aren't supported for any Oracle Database versions.
+- `--allow-major-version-upgrade` – to upgrade the DB engine
+  version.
+- `--no-apply-immediately` – to apply changes during the
+  next maintenance window. To apply changes immediately, use
+  `--apply-immediately`.
 
-## Supported instance classes for major upgrades
+###### Example
 
-Your current Oracle DB instance might run on a DB instance class that isn't supported for the version
-to which you are upgrading. In this case, before you upgrade, migrate the DB instance to a supported DB
-instance class. For more information about the supported DB instance classes for each version and edition of
-Amazon RDS for Oracle, see [DB instance classes](Concepts.md "Concepts.md").
+The following example upgrades a CDB instance named `myorainst`
+from its current version of `19.0.0.0.ru-2024-01.rur-2024-01.r1` to
+version `21.0.0.0.ru-2024-04.rur-2024-04.r1`.
 
-## Gathering statistics before major upgrades
-
-Before you perform a major version upgrade, Oracle recommends that you gather optimizer statistics on the
-DB instance that you are upgrading. This action can reduce DB instance downtime during the upgrade.
-
-To gather optimizer statistics, connect to the DB instance as the master user, and
-run the `DBMS_STATS.GATHER_DICTIONARY_STATS` procedure, as in the
-following example.
+For Linux, macOS, or Unix:
 
 ```
-EXEC DBMS_STATS.GATHER_DICTIONARY_STATS;
+aws rds modify-db-instance \
+    --db-instance-identifier `myorainst` \
+    --engine-version `21.0.0.0.ru-2024-04.rur-2024-04.r1` \
+    --allow-major-version-upgrade \
+    --no-apply-immediately
 ```
 
-For more information, see [GATHER_DICTIONARY_STATS Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_STATS.html?source=%3Aso%3Atw%3Aor%3Aawr%3Aodv%3A%3A#GUID-867989C7-ADFC-4464-8981-437CEA7F331E "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_STATS.html?source=%3Aso%3Atw%3Aor%3Aawr%3Aodv%3A%3A#GUID-867989C7-ADFC-4464-8981-437CEA7F331E") in the Oracle documentation.
+For Windows:
 
-## Allowing
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `myorainst` ^
+    --engine-version `21.0.0.0.ru-2024-04.rur-2024-04.r1` ^
+    --allow-major-version-upgrade ^
+    --no-apply-immediately
+```
 
-major upgrades
+To upgrade an RDS for Oracle DB instance, use the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") action.
+Specify the following parameters:
 
-A major engine version upgrade might be incompatible with your application. The
-upgrade is irreversible. If you specify a major version for the EngineVersion
-parameter that is different from the current major version, you must allow major
-version upgrades.
-
-If you upgrade a major version using the CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"), specify `--allow-major-version-upgrade`. This setting isn't
-persistent, so you must specify `--allow-major-version-upgrade` whenever you perform a major
-upgrade. This parameter has no impact on upgrades of minor engine versions. For more information, see [Upgrading
-a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
-
-If you upgrade a major version using the console, you don't need to choose an
-option to allow the upgrade. Instead, the console displays a warning that major
-upgrades are irreversible.
+- `DBInstanceIdentifier` – the name of the DB instance, for
+  example `myorainst`.
+- `EngineVersion` – the version number of the database
+  engine to upgrade to. For information about valid engine versions, use the
+  [DescribeDBEngineVersions](../APIReference/API_DescribeDBEngineVersions.md "../APIReference/API_DescribeDBEngineVersions.md") operation.
+- `AllowMajorVersionUpgrade` – whether to allow a major
+  version upgrade. To do so, set the value to `true`.
+- `ApplyImmediately` – whether to apply changes
+  immediately or during the next maintenance window. To apply changes
+  immediately, set the value to `true`. To apply changes during the
+  next maintenance window, set the value to `false`.

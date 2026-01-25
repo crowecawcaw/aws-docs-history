@@ -1,35 +1,19 @@
-# Connecting from the MySQL command-line client (unencrypted) for RDS for MariaDB
+# Troubleshooting
 
-###### Important
+connections to your MariaDB DB instance
 
-Only use an unencrypted MySQL connection when the client and server are in the same VPC
-and the network is trusted. For information about using encrypted connections, see
-[Connecting to your MariaDB DB
-instance on Amazon RDS with SSL/TLS from the MySQL command-line client
-(encrypted)](USER_ConnectToMariaDBInstanceSSL.md "USER_ConnectToMariaDBInstanceSSL.md").
+Two common causes of connection failures to a new DB instance are the following:
 
-To connect to a DB instance using the MySQL command-line client, enter the following command at a
-command prompt on a client computer. Doing this connects you to a database on a MariaDB
-DB instance. Substitute the DNS name (endpoint) for your DB instance for
-`<endpoint>` and the master user name that you used for
-`<mymasteruser>`. Provide the master password that
-you used when prompted for a password.
+- The DB instance was created using a security group that doesn't authorize
+  connections from the device or Amazon EC2 instance where the MariaDB application or
+  utility is running. The DB instance must have a VPC security group that authorizes
+  the connections. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md "USER_VPC.md").
 
-```
-mysql -h `<endpoint>` -P 3306 -u `<mymasteruser>` -p
-```
+You can add or edit an inbound rule in the security group. For
+**Source**, choose **My IP**. This allows
+access to the DB instance from the IP address detected in your browser.
 
-After you enter the password for the user, you see output similar to the
-following.
-
-```
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 31
-Server version: 10.6.10-MariaDB-log Source distribution
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-MariaDB [(none)]>
-```
+- The DB instance was created using the default port of 3306, and your company has
+  firewall rules blocking connections to that port from devices in your company
+  network. To fix this failure, recreate the instance with a different port.
+  For more information on connection issues, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").

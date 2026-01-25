@@ -311,7 +311,7 @@ The following diagram depicts a Multi-AZ DB cluster deployment, which has a writ
 DB instance and two reader DB instances in three separate Availability Zones in the same
 AWS Region. All three DB instances can serve read traffic.
 
-![High availability scenario for a Multi-AZ cluster deployment](images/multi-az-db-cluster.png)
+![High availability scenario for a Multi-AZ cluster deployment](/images/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster.png)
 
 For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
 

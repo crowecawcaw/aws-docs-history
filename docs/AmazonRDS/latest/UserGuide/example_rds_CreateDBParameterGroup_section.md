@@ -284,6 +284,39 @@ class InstanceWrapper:
   [CreateDBParameterGroup](../../../goto/boto3/rds-2014-10-31/CreateDBParameterGroup.md "../../../goto/boto3/rds-2014-10-31/CreateDBParameterGroup.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+
+```
+    " iv_dbparametergroupname   = 'mydbparametergroup'
+    " iv_dbparametergroupfamily = 'mysql8.0'
+    " iv_description            = 'My custom DB parameter group for MySQL 8.0'
+    TRY.
+        oo_result = lo_rds->createdbparametergroup(
+          iv_dbparametergroupname   = iv_dbparametergroupname
+          iv_dbparametergroupfamily = iv_dbparametergroupfamily
+          iv_description            = iv_description ).
+        MESSAGE 'DB parameter group created.' TYPE 'I'.
+      CATCH /aws1/cx_rdsdbparmgralrexfault.
+        MESSAGE 'DB parameter group already exists.' TYPE 'I'.
+      CATCH /aws1/cx_rdsdbprmgrquotaexcd00.
+        MESSAGE 'DB parameter group quota exceeded.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateDBParameterGroup](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**
