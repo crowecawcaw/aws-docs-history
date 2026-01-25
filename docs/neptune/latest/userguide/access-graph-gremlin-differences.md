@@ -74,27 +74,20 @@ penalties for not parameterizing when possible. There are a great many such exam
 for TinkerPop that you may encounter, and they all sound quite convincing about the
 need to parameterize.
 
-However, both the variables declarations feature and the parameterization feature
-(along with the warnings) only apply to TinkerPop's Gremlin Server when it is using
-the `GremlinGroovyScriptEngine`. They do not apply when Gremlin Server
-uses Gremlin's `gremlin-language` ANTLR grammar to parse queries. The
-ANTLR grammar doesn't support either variable declarations or parameterization,
-so when using ANTLR, you don't have to worry about failing to parameterize. Because
-the ANTLR grammar is a newer component of TinkerPop, older content you may encounter
-on the Internet doesn't generally reflect this distinction.
-
-Neptune uses the ANTLR grammar in its query processing engine rather than
-the `GremlinGroovyScriptEngine`, so it does not support variables or
-parameterization or the `bindings` property. As a result, the problems
-related to failing to parameterize do not apply in Neptune. Using Neptune,
-it's perfectly safe simply to submit the query as-is where one would normally
-parameterize. As a result, the previous example can be simplified without any
-performance penalty as follows:
+Since Neptune uses the `gremlin-language` ANTLR grammar instead of
+the `GremlinGroovyScriptEngine` which relies on the Groovy programming
+language for query processing, it does not support variable declarations or
+parameterization features that are typically found in TinkerPop's Gremlin Server.
+This means you can submit queries directly without parameterization in Neptune
+without any performance penalties, as demonstrated in this simplified example:
 
 ```
 String query = "g.V(1)";
 List<Result> results = client.submit(query).all().get();
 ```
+
+This distinction may not be apparent in older online documentation that assumes
+the use of `GremlinGroovyScriptEngine`.
 
 ## TinkerPop enumerations
 
@@ -108,21 +101,20 @@ The enumeration type is determined by parameter type.
 The following table shows the allowed enumeration values and the related TinkerPop fully
 qualified name.
 
-| Allowed Values                                                                                | Class                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`, `key`, `label`, `value`                                                                 | [org.apache.tinkerpop.gremlin.structure.T](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/T.html "https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/T.html")                                                                                                               |
-| `T.id`, `T.key`, `T.label`, `T.value`                                                         | [org.apache.tinkerpop.gremlin.structure.T](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/T.html "https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/T.html")                                                                                                               |
-| `set`, `single`                                                                               | [org.apache.tinkerpop.gremlin.structure.VertexProperty.Cardinality](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html "https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html")                                    |
-| `asc`, `desc`, `shuffle`                                                                      | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html "https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html")                                                                               |
-| `Order.asc`, `Order.desc`, `Order.shuffle`                                                    | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html "https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html")                                                                               |
-| `global`, `local`                                                                             | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html")                                                                               |
-| `Scope.global`, `Scope.local`                                                                 | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html")                                                                               |
-| `all`, `first`, `last`, `mixed`                                                               | [org.apache.tinkerpop.gremlin.process.traversal.Pop](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Pop.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Pop.html")                                                                                     |
-| `normSack`                                                                                    | [org.apache.tinkerpop.gremlin.process.traversal.SackFunctions.Barrier](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/SackFunctions.Barrier.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/SackFunctions.Barrier.html")                               |
-| `addAll`, `and`, `assign`, `div`,<br>`max`, `min`, `minus`, `mult`,<br>`or`, `sum`, `sumLong` | [org.apache.tinkerpop.gremlin.process.traversal.Operator](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Operator.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Operator.html")                                                                      |
-| `keys`, `values`                                                                              | [org.apache.tinkerpop.gremlin.structure.Column](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Column.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Column.html")                                                                                                    |
-| `BOTH`, `IN`, `OUT`                                                                           | [org.apache.tinkerpop.gremlin.structure.Direction](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Direction.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Direction.html")                                                                                           |
-| `any`, `none`                                                                                 | [org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent.Pick](https://tinkerpop.apache.org/javadocs/3.5.2/full/org/apache/tinkerpop/gremlin/process/traversal/step/TraversalOptionParent.Pick.html "https://tinkerpop.apache.org/javadocs/3.5.2/full/org/apache/tinkerpop/gremlin/process/traversal/step/TraversalOptionParent.Pick.html") |
+| Enum          | Allowed Values                                                                                | Class                                                                                                                                                                                                                                                                                                                                                         |
+| ------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Cardinality` | `set`, `single`                                                                               | [org.apache.tinkerpop.gremlin.structure.VertexProperty.Cardinality](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html")                                        |
+| `Barrier`     | `normSack`                                                                                    | [org.apache.tinkerpop.gremlin.process.traversal.SackFunctions.Barrier](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/SackFunctions.Barrier.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/SackFunctions.Barrier.html")                               |
+| `Column`      | `keys`, `values`                                                                              | [org.apache.tinkerpop.gremlin.structure.Column](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Column.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Column.html")                                                                                                    |
+| `Direction`   | `BOTH`, `IN`, `from`, `OUT`, `to`                                                             | [org.apache.tinkerpop.gremlin.structure.Direction](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Direction.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Direction.html")                                                                                           |
+| `DT`          | `day`, `hour`, `minute`, `second`                                                             | [org.apache.tinkerpop.gremlin.process.traversal.DT](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/DT.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/DT.html")                                                                                        |
+| `Merge`       | `inV`, `outV`, `onCreate`, `onMatch`                                                          | [org.apache.tinkerpop.gremlin.process.traversal.Merge](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Merge.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Merge.html")                                                                               |
+| `Operator`    | `addAll`, `and`, `assign`, `div`,<br>`max`, `min`, `minus`, `mult`,<br>`or`, `sum`, `sumLong` | [org.apache.tinkerpop.gremlin.process.traversal.Operator](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Operator.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Operator.html")                                                                      |
+| `Order`       | `asc`, `desc`, `shuffle`                                                                      | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html "https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html")                                                                               |
+| `Pick`        | `any`, `none`                                                                                 | [org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent.Pick](https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/step/TraversalOptionParent.Pick.html "https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/step/TraversalOptionParent.Pick.html") |
+| `Pop`         | `all`, `first`, `last`, `mixed`                                                               | [org.apache.tinkerpop.gremlin.process.traversal.Pop](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Pop.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Pop.html")                                                                                     |
+| `Scope`       | `global`, `local`                                                                             | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html")                                                                               |
+| `T`           | `id`, `key`, `label`, `value`                                                                 | [org.apache.tinkerpop.gremlin.structure.T](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/T.html "https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/T.html")                                                                                                                   |
 
 ## Java code
 
@@ -270,17 +262,12 @@ Characters](http://groovy-lang.org/syntax.html#_escaping_special_characters " ht
 
 ## Groovy limitations
 
-Neptune doesn't support Groovy commands that don't start with `g`. This
-includes math (for example, `1+1`), system calls (for example,
-`System.nanoTime()`), and variable definitions (for example,
-`1+1`).
-
-###### Important
-
-Neptune does not support fully qualified class names. For example, you must use
-`single` and not
-`org.apache.tinkerpop.gremlin.structure.VertexProperty.Cardinality.single` in
-your Groovy request.
+Neptune uses the `gremlin-language` ANTLR grammar for query processing. As
+such it does not support Groovy code. This includes math (for example, `1+1`),
+system calls (for example, `System.nanoTime()`), fully qualified class names (for
+example, `org.apache.tinkerpop.gremlin.structure.Direction.OUT`) and variable
+definitions (for example, `x=1`). Scripts sent to the server must be valid Gremlin
+syntax that start with `g` as in `g.V()`.
 
 ## Serialization
 

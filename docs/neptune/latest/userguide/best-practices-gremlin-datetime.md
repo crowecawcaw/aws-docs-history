@@ -1,11 +1,9 @@
-# Using the `datetime( )` Method
+# Using the `datetime( )` Function
 
-for Groovy Time Data
+for Gremlin Scripts
 
-Neptune provides the `datetime` method for specifying dates and times for
-queries sent in the Gremlin **Groovy** variant. This includes
-the Gremlin Console, text strings using the HTTP REST API, and any other serialization that
-uses Groovy.
+Gremlin's `datetime()` function can be used to specify dates and times for
+queries sent as script based requests.
 
 ###### Important
 
@@ -14,9 +12,6 @@ the Gremlin query as a _text string_. If you are using a Gremlin Language Varian
 you must use the native date classes and functions for the language. For more information,
 see the next section, [Using Native Date and Time for GLV
 Time Data](best-practices-gremlin-datetime-glv.md "best-practices-gremlin-datetime-glv.md").
-
-Starting with TinkerPop `3.5.2` (introduced in [Neptune engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")), `datetime`
-is an integral part of TinkerPop.
 
 You can use the `datetime` method to store and compare dates:
 

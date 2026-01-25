@@ -107,10 +107,6 @@ Arrays of strings are allowed, but strings in an array cannot include the semico
 
 **Specifying the Cardinality of a Column**
 
-Starting in [Release 1.0.1.0.200366.0 (2019-07-26)](engine-releases-1.0.1.0.200366.md "engine-releases-1.0.1.0.200366.md"), the column header can be used
-to specify _cardinality_ for the property identified by the column.
-This allows the bulk loader to honor cardinality similarly to the way Gremlin queries do.
-
 You specify the cardinality of a column like this:
 
 ```

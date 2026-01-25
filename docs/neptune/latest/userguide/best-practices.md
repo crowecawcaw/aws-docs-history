@@ -27,8 +27,8 @@ maximizing performance.
     Gremlin Writes](best-practices-gremlin-multithreaded-writes.md "best-practices-gremlin-multithreaded-writes.md")
   - [Pruning Records with the Creation Time
     Property](best-practices-gremlin-prune.md "best-practices-gremlin-prune.md")
-  - [Using the datetime( ) Method
-    for Groovy Time Data](best-practices-gremlin-datetime.md "best-practices-gremlin-datetime.md")
+  - [Using the datetime( ) Function
+    for Gremlin Scripts](best-practices-gremlin-datetime.md "best-practices-gremlin-datetime.md")
   - [Using Native Date and Time for GLV
     Time Data](best-practices-gremlin-datetime-glv.md "best-practices-gremlin-datetime-glv.md")
 

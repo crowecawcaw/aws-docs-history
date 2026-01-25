@@ -21,27 +21,21 @@ supported by different Neptune engine versions:
 | `1.3.0.0`              | `3.6.2`                   | `3.6.4`                   |
 | `1.2.1.0 <= 1.2.1.2`   | `3.6.2`                   | `3.6.2`                   |
 | `1.1.1.0 <= 1.2.0.2`   | `3.5.5`                   | `3.5.6`                   |
-| `1.1.0.0`              | `3.4.0`                   | `3.4.13`                  |
-| `1.0.5.1 and older`    | `(deprecated)`            | `(deprecated)`            |
+| `1.1.0.0 and older`    | `(deprecated)`            | `(deprecated)`            |
 
-TinkerPop clients are usually backwards compatible within a series (`3.3.x`,
-for example, or `3.4.x`). There are exceptional cases where backward
-compatibility has to be broken, so it's best to check the
-[TinkerPop
-upgrade recommendation](http://tinkerpop.apache.org/docs/current/upgrade/ "http://tinkerpop.apache.org/docs/current/upgrade/") before upgrading to a new client version.
+TinkerPop clients are usually backwards compatible within a series (`3.6.x`,
+for example, or `3.7.x`) and while they can often work across those boundaries,
+the table above recommends the version combinations to use for the best possible experience
+and compatibility. Unless otherwise advised, it is generally best to adhere to these guidelines
+and upgrade client applications to match the version of TinkerPop you are using.
 
-The client might not be able to use new steps or new features introduced in versions
-later than what the server supports, but you can expect existing queries and features
-to work unless the [upgrade
-recommendation](http://tinkerpop.apache.org/docs/current/upgrade/ "http://tinkerpop.apache.org/docs/current/upgrade/") calls out a breaking change.
-
-###### Note
-
-Starting with [Neptune engine release 1.1.1.0](engine-releases-1.1.1.md "engine-releases-1.1.1.md")
-don't use a TinkerPop version lower than `3.5.2`.
-
-Python users should avoid using TinkerPop version `3.4.9`
-because of a default timeout setting that requires direct configuration (see [TINKERPOP-2505](https://issues.apache.org/jira/browse/TINKERPOP-2505 "https://issues.apache.org/jira/browse/TINKERPOP-2505")).
+When upgrading TinkerPop versions it is always important to refer to [TinkerPop's upgrade
+recommendation](http://tinkerpop.apache.org/docs/current/upgrade/ "http://tinkerpop.apache.org/docs/current/upgrade/") which will help you identify new features you can take advantage of,
+but also issues you may need to be aware of as you approach your upgrade. You should typically
+expect existing queries and features to work after upgrade unless something in particular is
+called out as a breaking change. Finally, it is important to note that should a version you
+upgrade to have a new feature, you may not be able to use it if it is from a version later than
+what Neptune supports.
 
 ## Gremlin Java client for Amazon Neptune
 

@@ -16,8 +16,8 @@ The official TinkerPop libraries are all Gremlin Language Variant libraries.
 ###### Important
 
 This page only applies to Gremlin Language Variant (GLV) libraries. If you are using a method where you send
-the Gremlin query as text string, you must use Gremlin's datetime() function. This includes the Gremlin Console,
-text strings using the HTTP REST API or directly submitting Gremlin strings via the drivers.
+the Gremlin query as text string, you must use Gremlin's `datetime()` function. This includes the
+Gremlin Console, text strings using the HTTP REST API or directly submitting Gremlin strings via the drivers.
 
 ###### Go
 

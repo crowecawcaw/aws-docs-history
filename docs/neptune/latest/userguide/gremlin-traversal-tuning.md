@@ -5,38 +5,6 @@ performance, using the information available to you in the reports you get from
 the Neptune [explain](gremlin-explain-api.md "gremlin-explain-api.md") and [profile](gremlin-profile-api.md "gremlin-profile-api.md") APIs. To do so, it helps to
 understand how Neptune processes Gremlin traversals.
 
-###### Important
-
-A change was made in TinkerPop version 3.4.11 that improves correctness of
-how queries are processed, but for the moment can sometimes seriously impact
-query performance.
-
-For example, a query of this sort may run significantly slower:
-
-```
-g.V().hasLabel('airport').
-  order().
-    by(out().count(),desc).
-  limit(10).
-  out()
-```
-
-The vertices after the limit step are now fetched in a non-optimal way beause
-of the TinkerPop 3.4.11 change. To avoid this, you can modify the query by adding
-the barrier() step at any point after the `order().by()`.
-For example:
-
-```
-g.V().hasLabel('airport').
-  order().
-    by(out().count(),desc).
-  limit(10).
-  barrier().
-  out()
-```
-
-TinkerPop 3.4.11 was enabled in Neptune [engine version 1.0.5.0](engine-releases-1.0.5.md "engine-releases-1.0.5.md").
-
 ## Understanding Gremlin traversal processing in Neptune
 
 When a Gremlin traversal is sent to Neptune, there are three main processes

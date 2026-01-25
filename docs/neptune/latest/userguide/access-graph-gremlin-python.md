@@ -10,11 +10,6 @@ improve the stability, performance and usability of the client. The
 versions described in the [table
 for the Java Gremlin client](access-graph-gremlin-client.md#best-practices-gremlin-java-latest "access-graph-gremlin-client.md#best-practices-gremlin-java-latest").
 
-###### Note
-
-The `gremlinpython` 3.5.x versions are compatible with TinkerPop
-3.4.x versions as long as you only use 3.4.x features in the Gremlin queries you write.
-
 The following section walks you through the running of a Python sample that connects to an
 Amazon Neptune DB instance and performs a Gremlin traversal.
 

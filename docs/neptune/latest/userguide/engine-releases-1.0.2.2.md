@@ -1,41 +1,34 @@
-# Amazon Neptune Engine Version 1.0.2.2.R4 (2020-07-23)
+# Amazon Neptune Engine Version 1.0.2.2.R2 (2020-04-02)
 
-As of 2020-07-23, engine version 1.0.2.2.R4 is being generally deployed. Please note
+As of 2020-04-02, engine version 1.0.2.2.R2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ## Improvements in This Engine Release
 
-- Improved memory usage by releasing unused memory back to the operating system
-  more frequently.
-- Also improved memory usage for SPARQL GROUP BY queries.
-- Increased the maximum time a WebSocket connection can stay open that is
-  authenticated using IAM, from 36 hours to 10 days.
-- Added the `BufferCacheHitRatio` CloudWatch metric, which can be
-  useful in diagnosing query latency and tuning instance types. See [Neptune metrics](cw-metrics.md#cw-metrics-available "cw-metrics.md#cw-metrics-available").
+- You can now queue up to 64 bulk-load jobs, rather than having to
+  wait for one to finish before initiating the next one. You can also make execution of a
+  queued load request contingent on the successful completion of one or more previously
+  queued load jobs using the `dependencies` parameter of the `load`
+  command. See [Neptune Loader Command](load-api-reference-load.md "load-api-reference-load.md").
+- Full-text-search output can now be sorted (see [Full-text search parameters](full-text-search-parameters.md "full-text-search-parameters.md")).
+- There is now a DB cluster parameter for invoking Neptune streams,
+  and the feature has been moved out of Lab Mode. See [Enabling Neptune Streams](streams-using-enabling.md "streams-using-enabling.md").
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a bug in closing idle or expired IAM WebSocket connections.
-  Neptune now sends a close frame before closing the connection.
-- Fixed a SPARQL bug in the evaluation of queries containing nested
-  FILTER EXISTS and/or FILTER NOT EXISTS conditions.
-- Fixed a SPARQL query termination bug that caused blocked threads
-  on the server under certain extreme conditions.
-- Fixed a Gremlin bug involving Edge pathType in the `hasLabel`
-  step.
-- Fixed a Gremlin bug to handle `toV` and `fromV`
-  individually for each direction on `bothE`.
-- Fixed a Gremlin bug involving disappearing sideEffects.
+- Fixed a stochastic failure in server startup which delayed instance creation.
+- Fixed an optimizer issue where `BIND` statements in the query
+  made the optimizer start out with unselective patterns in join-order planning.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.2.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.2.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.3`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.2.R4
+## Upgrade Paths to Engine Release 1.0.2.2.R2
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.0.2.2`.
@@ -44,7 +37,7 @@ You can manually upgrade any previous Neptune engine release to this release.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.2.R4 is now generally available.
+Amazon Neptune 1.0.2.2.R2 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

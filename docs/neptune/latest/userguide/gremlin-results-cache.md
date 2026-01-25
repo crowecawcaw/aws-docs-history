@@ -1,8 +1,5 @@
 # Caching query results in Amazon Neptune Gremlin
 
-Starting in [engine release 1.0.5.1](engine-releases-1.0.5.md "engine-releases-1.0.5.md"),
-Amazon Neptune supports a results cache for Gremlin queries.
-
 You can enable the query results cache and then use a query hint
 to cache the results of a Gremlin read-only query.
 

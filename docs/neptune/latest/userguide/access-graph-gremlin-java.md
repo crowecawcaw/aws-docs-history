@@ -102,13 +102,6 @@ nano pom.xml
       <artifactId>gremlin-driver</artifactId>
       <version>`3.7.2`</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-groovy
-      (Not needed for TinkerPop version 3.5.2 and up)
-    <dependency>
-      <groupId>org.apache.tinkerpop</groupId>
-      <artifactId>gremlin-groovy</artifactId>
-      <version>3.7.2</version>
-    </dependency> -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-jdk14</artifactId>
@@ -253,16 +246,10 @@ The following methods submit the query to the Neptune DB instance:
 Neptune requires SSL/TLS to be enabled by default. Typically, if the Java driver
 is configured with `enableSsl(true)`, it can connect to Neptune
 without having to set up a `trustStore()` or `keyStore()` with a
-local copy of a certificate. Earlier versions of TinkerPop encouraged use of
-`keyCertChainFile()` to configure a locally stored `.pem` file,
-but that has been deprecated and no longer available after 3.5.x. If you were using
-that setup with a public certificate, using `SFSRootCAG2.pem`, you can now
-remove the local copy.
-
-However, if the instance with which you are connecting doesn't have an internet
-connection through which to verify a public certificate, or if the certificate you're
-using isn't public, you can take the following steps to configure a local certificate
-copy:
+local copy of a certificate. However, if the instance with which you are connecting doesn't
+have an internet connection through which to verify a public certificate, or if the
+certificate you're using isn't public, you can take the following steps to configure a local
+certificate copy:
 
 ###### Setting up a local certificate copy to enable SSL/TLS
 

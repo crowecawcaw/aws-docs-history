@@ -11,11 +11,6 @@ The `gremlingo` version to use will typically align with the TinkerPop
 versions described in the [table
 for the Java Gremlin client](access-graph-gremlin-client.md#best-practices-gremlin-java-latest "access-graph-gremlin-client.md#best-practices-gremlin-java-latest").
 
-###### Note
-
-The gremlingo 3.5.x versions are backwards compatible with TinkerPop 3.4.x versions
-as long as you only use 3.4.x features in the Gremlin queries you write.
-
 The following section walks you through the running of a Go sample that connects to
 an Amazon Neptune DB instance and performs a Gremlin traversal.
 
