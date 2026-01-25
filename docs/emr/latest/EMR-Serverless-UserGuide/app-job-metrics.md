@@ -102,6 +102,10 @@ Amazon EMR Serverless sends the following job worker level metrics that are avai
 EMR Serverless collects data points from individual workers during job runs at the job level, worker-type, and the capacity-allocation-type level. You can use
 `ApplicationId` as a dimension to monitor multiple jobs that belong to the same application.
 
+###### Note
+
+To view the total CPU and Memory used by an EMR Serverless job when viewing the metrics in the Amazon CloudWatch console, use the Statistic as Sum and Period as 1 minute.
+
 | EMR Serverless job worker-level metrics | Metric                                                                       | Description    | Unit                                                                                               | Dimension |
 | --------------------------------------- | ---------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------- | --------- |
 | `WorkerCpuAllocated`                    | The total numbers of vCPU cores allocated for workers in a job run.          | vCPU           | `JobId`, `JobName`, `ApplicationId`, `ApplicationName`, `WorkerType`, and `CapacityAllocationType` |

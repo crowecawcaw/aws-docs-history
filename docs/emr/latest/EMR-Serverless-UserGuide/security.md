@@ -10,7 +10,7 @@ _in_ the cloud:
 
 - **Security of the cloud** – AWS is
   responsible for protecting the infrastructure that runs AWS services in the AWS
-  Cloud. AWS also provides you with services that use securely. Third-party auditors
+  Cloud. AWS also provides you with services that you use securely. Third-party auditors
   regularly test and verify the effectiveness of our security as part of the [AWS compliance
   programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to
   Amazon EMR Serverless, refer to [AWS services in
@@ -32,6 +32,7 @@ _in_ the cloud:
 - [Trusted Identity Propagation](security-iam-service-trusted-prop.md "security-iam-service-trusted-prop.md")
 - [Using Lake Formation with EMR Serverless](lake-formation-section.md "lake-formation-section.md")
 - [Inter-worker encryption](interworker-encryption.md "interworker-encryption.md")
+- [Disk Encryption with KMS CMK](disk-encryption-cmk.md "disk-encryption-cmk.md")
 - [Secrets Manager for data protection with EMR Serverless](secrets-manager.md "secrets-manager.md")
 - [Using Amazon S3 Access Grants with EMR Serverless](access-grants.md "access-grants.md")
 - [Logging Amazon EMR Serverless API calls using

@@ -2,7 +2,7 @@
 
 You can configure EMR Serverless applications to use Lake Formation with either full table
 access or fine-grained access control. For details on supported features in each access
-mode, review the the following table.
+mode, review the following table.
 
 ## Feature availability
 
