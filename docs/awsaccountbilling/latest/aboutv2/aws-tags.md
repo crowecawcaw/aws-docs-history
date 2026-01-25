@@ -99,7 +99,7 @@ after the following events.
 |                                                 | `CreateCacheCluster`                  | Cluster                |
 | AWS Elastic Beanstalk (Elastic Beanstalk)       | `CreateEnvironment`                   | Environment            |
 |                                                 | `CreateApplication`                   | Application            |
-| Elastic Load Balancing (ELB)                    | `CreateLoadBalancer`                  | Loadbalancer           |
+| Elastic Load Balancing (Elastic Load Balancing) | `CreateLoadBalancer`                  | Loadbalancer           |
 | Amazon Glacier (Amazon Glacier)                 | `CreateVault`                         | Vault                  |
 | Amazon Kinesis (Kinesis)                        | `CreateStream`                        | Stream                 |
 | Amazon Relational Database Service (Amazon RDS) | `CreateDBInstanceReadReplica`         | Database               |

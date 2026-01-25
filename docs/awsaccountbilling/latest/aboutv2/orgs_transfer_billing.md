@@ -61,7 +61,7 @@ Only the account that will manage and pay for the consolidated bill (bill-transf
 
 **Invitations must be accepted before the billing transfer effective start date**
 
-Invitations expire at 7 PM Eastern Standard Time (19:00 UTC-5) the day before the start date of the billing transfer. The start date is the first day of the month specified in the invitation.
+Invites must be accepted 24 hours before the start date of the billing transfer, in UTC time. The start date is the first day of the month specified in the invitation. For example, invites with a start date of Feb 1st must be accepted by Jan 30th 7PM EST.
 
 **Withdrawal can be done by either management account in a transfer**
 

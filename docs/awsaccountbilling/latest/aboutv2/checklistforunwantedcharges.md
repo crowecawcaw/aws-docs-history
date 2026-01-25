@@ -127,7 +127,7 @@ this, you must terminate your Elastic Beanstalk environment before you terminate
 Elastic Beanstalk has created. For more information, see [Terminating an
 Environment](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
-### Charges incurred from ELB (ELB) load
+### Charges incurred from Elastic Load Balancing (ELB) load
 
 balancers
 
@@ -147,7 +147,7 @@ more information, see the [AWS OpsWorks User Guide](../../../opsworks/latest/use
 
 ## Charges incurred by Amazon EC2 instances
 
-After you remove load balancers and ELB environments, you can stop or terminate
+After you remove load balancers and Elastic Load Balancing environments, you can stop or terminate
 Amazon EC2 instances. Stopping an instance allows you to start it again later, but you might
 be charged for storage. Terminating an instance permanently deletes it. For more
 information, see [Instance
