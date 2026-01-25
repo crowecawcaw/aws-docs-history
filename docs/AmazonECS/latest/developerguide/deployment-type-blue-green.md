@@ -24,11 +24,11 @@ The following are Amazon ECS blue/green deployment terms:
 - Green deployment - The new service revision that you want to deploy.
 - Lifecycle stages - A series of events in the deployment operation, such as "after production traffic shift".
 - Lifecycle hook - A Lambda function that verifies the deployment at a specific lifecycle stage.
-- Listener - A ELB resource that checks for connection requests using the
+- Listener - A Elastic Load Balancing resource that checks for connection requests using the
   protocol and port that you configure. The rules that you define for a listener
   determine how Amazon ECS routes requests to its registered targets.
-- Rule - An ELB resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
-- Target group - An ELB resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
+- Rule - An Elastic Load Balancing resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
+- Target group - An Elastic Load Balancing resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
 - Traffic shift - The process Amazon ECS uses to shift traffic from the blue
   deployment to the green deployment. For Amazon ECS blue/green deployments, all
   traffic is shifted from the blue service to the green service at

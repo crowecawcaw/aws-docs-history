@@ -48,7 +48,7 @@ DEACTIVATING
 
 This is a transition state where Amazon ECS has to perform additional steps before
 the task is stopped. For example, for tasks that are part of a service that's
-configured to use ELBs target groups, the target group deregistration
+configured to use Elastic Load Balancings target groups, the target group deregistration
 occurs during this state.
 
 STOPPING

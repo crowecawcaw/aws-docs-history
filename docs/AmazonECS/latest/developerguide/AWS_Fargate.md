@@ -81,7 +81,7 @@ For more information see [Fargate platform versions for Amazon ECS](platform-far
 ## Service load balancing
 
 Your Amazon ECS service on AWS Fargate can optionally be configured to use
-ELB to distribute traffic evenly across the tasks in your service.
+Elastic Load Balancing to distribute traffic evenly across the tasks in your service.
 
 Amazon ECS services on AWS Fargate support the Application Load Balancer, Network Load Balancer, and Gateway Load Balancer load balancer
 types. Application Load Balancers are used to route HTTP/HTTPS (or layer 7) traffic. Network Load Balancers are used to

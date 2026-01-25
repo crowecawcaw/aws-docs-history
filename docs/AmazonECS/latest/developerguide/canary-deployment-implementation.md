@@ -3,7 +3,7 @@
 To use a canary deployment with managed traffic shifting, your service must use one of the
 following features:
 
-- ELB
+- Elastic Load Balancing
 - Service Connect
 
 ###### Note

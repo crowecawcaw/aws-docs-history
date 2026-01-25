@@ -12,7 +12,7 @@ You must create new lifecycle hooks for your Amazon ECS blue/green deployment.
 Perform the following operations before you start a blue/green deployment.
 
 1.  Replace the Amazon ECS CodeDeploy IAM role with the following permissions.
-    - For information about ELB permissions, see [Amazon ECS infrastructure
+    - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure
       IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
     - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 

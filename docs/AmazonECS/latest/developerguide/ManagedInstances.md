@@ -249,7 +249,7 @@ available task-level storage options, see [Storage options for Amazon ECS tasks]
 
 ## Service load balancing
 
-Your Amazon ECS services using Amazon ECS Managed Instances can be configured to use ELB to
+Your Amazon ECS services using Amazon ECS Managed Instances can be configured to use Elastic Load Balancing to
 distribute traffic evenly across the tasks in your service.
 
 Amazon ECS services on Amazon ECS Managed Instances support Application Load Balancer, Network Load Balancer, and Gateway Load Balancer load balancer

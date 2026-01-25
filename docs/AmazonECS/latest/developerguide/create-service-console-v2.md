@@ -190,7 +190,7 @@ Under **Compute configuration**, choose your option.
        rebalancing**.
     4. For **Health check grace period**, enter the amount
        of time (in seconds) that the enter the amount of time (in seconds) that
-       the service scheduler ignores unhealthy ELB, VPC Lattice, and container
+       the service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container
        health checks after a task has first started. If you do not specify a
        health check grace period value, the default value of 0 is used.
     5. Determine the deployment type for your service. Expand

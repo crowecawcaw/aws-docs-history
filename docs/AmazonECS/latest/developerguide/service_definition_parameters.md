@@ -707,7 +707,7 @@ Type: Integer
 Required: No
 
 The period of time, in seconds, that the Amazon ECS service scheduler
-ignores unhealthy ELB, VPC Lattice, and container health checks after a task
+ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task
 has first started. If you do not specify a health check grace period value,
 the default value of 0 is used. If you do not use any of the health checks,
 then `healthCheckGracePeriodSeconds` is unused.
@@ -735,7 +735,7 @@ target groups that you can attach to a service.
 When you update a service, this parameter triggers a new service
 deployment.
 
-After you create a service, the load balancer configuration can't be changed from the AWS Management Console. You can use the AWS Copilot, AWS CloudFormation, AWS CLI or SDK to modify the load balancer configuration for the `ECS` rolling deployment controller only, not AWS CodeDeploy blue/green or external. When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers. We recommend that you verify this on a test environment before you update the ELB configuration. For information about how to modify the configuration, see [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") in the _Amazon Elastic Container Service API Reference_.
+After you create a service, the load balancer configuration can't be changed from the AWS Management Console. You can use the AWS Copilot, AWS CloudFormation, AWS CLI or SDK to modify the load balancer configuration for the `ECS` rolling deployment controller only, not AWS CodeDeploy blue/green or external. When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers. We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration. For information about how to modify the configuration, see [UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") in the _Amazon Elastic Container Service API Reference_.
 
 For Application Load Balancers and Network Load Balancers, this object must contain the load balancer target
 group ARN, the container name (as it appears in a container definition), and
@@ -749,7 +749,7 @@ Type: String
 
 Required: No
 
-The full Amazon Resource Name (ARN) of the ELB target
+The full Amazon Resource Name (ARN) of the Elastic Load Balancing target
 group that's associated with a service.
 
 A target group ARN is only specified when using an Application Load Balancer or

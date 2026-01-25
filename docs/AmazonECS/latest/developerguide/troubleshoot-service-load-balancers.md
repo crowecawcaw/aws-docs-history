@@ -2,7 +2,7 @@
 
 balancers in Amazon ECS
 
-Amazon ECS services can register tasks with an ELB load balancer. Load balancer
+Amazon ECS services can register tasks with an Elastic Load Balancing load balancer. Load balancer
 configuration errors are common causes for stopped tasks. If your stopped tasks were
 started by services that use a load balancer, consider the following possible
 causes.
@@ -10,7 +10,7 @@ causes.
 **Amazon ECS service-linked role doesn't exist**
 
 The Amazon ECS service-linked role allows Amazon ECS services to register container
-instances with ELB load balancers. The service-linked role must be created
+instances with Elastic Load Balancing load balancers. The service-linked role must be created
 in your account. For more information, see [Using service-linked roles for
 Amazon ECS](using-service-linked-roles.md "using-service-linked-roles.md").
 
@@ -20,7 +20,7 @@ If your container is mapped to port 80 on your container instance, your
 container instance security group must allow inbound traffic on port 80 for
 the load balancer health checks to pass.
 
-**ELB load balancer not configured for all Availability
+**Elastic Load Balancing load balancer not configured for all Availability
 Zones**
 
 Your load balancer should be configured to use all of the Availability
@@ -30,7 +30,7 @@ task on a container instance that resides in an Availability Zone that the
 load balancer isn't configured to use, the task never passes the health
 check. This results in the task being killed.
 
-**ELB load balancer health check misconfigured**
+**Elastic Load Balancing load balancer health check misconfigured**
 
 The load balancer health check parameters can be overly restrictive or
 point to resources that don't exist. If a container instance is determined

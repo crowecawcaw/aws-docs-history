@@ -37,11 +37,11 @@ throttled. That is, they might be throttled enough to breach the limits enforced
 Amazon ECS or the AWS service that is being called. For example, if you deploy hundreds
 of services, each having hundreds of tasks concurrently that use the
 `awsvpc` network mode, Amazon ECS invokes Amazon EC2 API operations such as
-`CreateNetworkInterface` and ELB API operations such as
+`CreateNetworkInterface` and Elastic Load Balancing API operations such as
 `RegisterTarget` or `DescribeTargetHealth` to register the
 elastic network interface and load balancer, respectively. These API calls can
 exceed the API limits, resulting in throttling errors. The following is an example
-of an ELB throttling error that's included in the service event message.
+of an Elastic Load Balancing throttling error that's included in the service event message.
 
 ```
 {

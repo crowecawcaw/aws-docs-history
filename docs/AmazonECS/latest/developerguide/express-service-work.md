@@ -210,7 +210,7 @@ You must create the new IAM role before you create or update the Express Mode se
 The following IAM roles are configured by Express Mode automatically.
 
 - ecsServiceRoleForECS: Allows Amazon ECS to manage your cluster
-- AWSServiceRoleForElasticLoadBalancing: Calls other AWS services for you on your behalf - created automatically by ELB
+- AWSServiceRoleForElasticLoadBalancing: Calls other AWS services for you on your behalf - created automatically by Elastic Load Balancing
 - AWSServiceRoleForApplicationAutoScaling_ECSService: Calls other AWS services on your behalf - created automatically by Application Auto Scaling
 
 ## Application Auto Scaling defaults

@@ -222,6 +222,7 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | m8gb.12xlarge      | 11                              | 60                           |
 | m8gb.16xlarge      | 15                              | 120                          |
 | m8gb.24xlarge      | 23                              | 120                          |
+| m8gb.48xlarge      | 23                              | 120                          |
 | m8gd.medium        | 1                               | 4                            |
 | m8gd.large         | 2                               | 10                           |
 | m8gd.xlarge        | 3                               | 20                           |
@@ -462,7 +463,9 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | c8gb.12xlarge     | 11                              | 60                           |
 | c8gb.16xlarge     | 15                              | 120                          |
 | c8gb.24xlarge     | 23                              | 120                          |
+| c8gb.48xlarge     | 23                              | 120                          |
 | c8gb.metal-24xl   | 23                              | 120                          |
+| c8gb.metal-48xl   | 23                              | 120                          |
 | c8gd.medium       | 1                               | 4                            |
 | c8gd.large        | 2                               | 10                           |
 | c8gd.xlarge       | 3                               | 20                           |
@@ -698,7 +701,9 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | r8gb.12xlarge        | 11                              | 60                           |
 | r8gb.16xlarge        | 15                              | 120                          |
 | r8gb.24xlarge        | 23                              | 120                          |
+| r8gb.48xlarge        | 23                              | 120                          |
 | r8gb.metal-24xl      | 23                              | 120                          |
+| r8gb.metal-48xl      | 23                              | 120                          |
 | r8gd.medium          | 1                               | 4                            |
 | r8gd.large           | 2                               | 10                           |
 | r8gd.xlarge          | 3                               | 20                           |
@@ -944,6 +949,12 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | gr6.4xlarge        | 7                               | 60                           |
 | gr6.8xlarge        | 7                               | 90                           |
 | gr6f.4xlarge       | 7                               | 60                           |
+| g7e.2xlarge        | 3                               | 242                          |
+| g7e.4xlarge        | 7                               | 242                          |
+| g7e.8xlarge        | 7                               | 242                          |
+| g7e.12xlarge       | 9                               | 242                          |
+| g7e.24xlarge       | 19                              | 242                          |
+| g7e.48xlarge       | 39                              | 242                          |
 | inf2.xlarge        | 3                               | 20                           |
 | inf2.8xlarge       | 7                               | 90                           |
 | inf2.24xlarge      | 14                              | 120                          |

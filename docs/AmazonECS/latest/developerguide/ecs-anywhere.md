@@ -3,7 +3,7 @@
 Amazon ECS Anywhere provides support for registering an _external instance_
 such as an on-premises server or virtual machine (VM), to your Amazon ECS cluster. External
 instances are optimized for running applications that generate outbound traffic or process
-data. If your application requires inbound traffic, the lack of ELB support makes running
+data. If your application requires inbound traffic, the lack of Elastic Load Balancing support makes running
 these workloads less efficient. Amazon ECS added a new `EXTERNAL` launch type that you
 can use to create services or run tasks on your external instances.
 
@@ -11,36 +11,28 @@ can use to create services or run tasks on your external instances.
 
 architectures
 
-The following is the list of supported operating systems and system
-architectures.
+The following is the list of supported operating systems. The
+`x86_64` and `ARM64` CPU architectures are supported.
+
+- Amazon Linux 2023
+- Ubuntu 20, Ubuntu 22, Ubuntu 24
+- RHEL 9 — You must ensure that Docker is installed before you run the
+  [ECS
+  Anywhere install script](https://github.com/aws/amazon-ecs-agent/blob/master/scripts/ecs-anywhere-install.sh "https://github.com/aws/amazon-ecs-agent/blob/master/scripts/ecs-anywhere-install.sh"). For more information, see
+  [Install Docker Engine
+  on RHEL](https://docs.docker.com/engine/install/rhel/ "https://docs.docker.com/engine/install/rhel/") in the Docker documentation.
+
+Beginning August 7 2026, the following operating systems are no longer supported by Amazon ECS Anywhere:
 
 - Amazon Linux 2
-- Amazon Linux 2023
 - CentOS Stream 9
-- RHEL 7, RHEL 8, RHEL 9 — Neither Docker or RHEL's open package
-  repositories support installing Docker natively on RHEL. You must ensure that
-  Docker is installed before you run the install script that's described in this
-  document.
+- RHEL 7, RHEL 8
 - Fedora 32, Fedora 33, Fedora 40
 - openSUSE Tumbleweed
-- Ubuntu 18, Ubuntu 20, Ubuntu 22, Ubuntu 24
-- Debian 10
-
-###### Important
-
-Debian 9 Long Term Support (LTS support) ended on June 30, 2022 and is no
-longer supported by Amazon ECS Anywhere.
-
-- Debian 11
-- Debian 12
+- Ubuntu 18
+- Debian 9, Debian 10, Debian 11, Debian 12
 - SUSE Enterprise Server 15
-- The `x86_64` and `ARM64` CPU architectures are
-  supported.
-- The following Windows operating system versions are supported:
-  - Windows Server 2022
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 20H2
+- Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 20H2
 
 ## Considerations
 
@@ -99,8 +91,6 @@ considerations.
 - Integration with App Mesh isn't supported.
 - If you use the console to create an external instance task definition, you
   must create the task definition with the console JSON editor.
-- When you run ECS Anywhere on Windows, you must use your own Windows license on
-  the on-premises infrastructure.
 - When you use a non Amazon ECS-optimized AMI, run the following commands on the
   external container instance to configure rules to use IAM roles for tasks. For
   more information, see [External instance additional
@@ -116,7 +106,7 @@ $ iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIREC
 
 Amazon ECS external instances are optimized for running applications that generate
 outbound traffic or process data. If your application requires inbound traffic, such
-as a web service, the lack of ELB support makes running these workloads less
+as a web service, the lack of Elastic Load Balancing support makes running these workloads less
 efficient because there isn't support for placing these workloads behind a load
 balancer.
 
@@ -131,8 +121,6 @@ your external instances.
 
 For more information about each network mode, see [Amazon ECS task networking options for EC2 instances](task-networking.md "task-networking.md").
 
-- Windows tasks that run on external instances must use the
-  `default` network mode.
 - You can run Linux tasks on external instances in an IPv6-only
   configuration as long as the instances are in IPv6-only subnets. For more information, see [Using a VPC in IPv6-only mode](task-networking.md#networking-ipv6-only "task-networking.md#networking-ipv6-only").
 - There are Amazon ECS service domains in each Region and must be
@@ -178,6 +166,10 @@ include an asterisk (for example, `ecs-a-*`).
 
 Anywhere
 
+###### Important
+
+Windows support for Amazon ECS Anywhere has been deprecated. This section is no longer applicable.
+
 In order to use the Amazon FSx for Windows File Server with Amazon ECS external instances you
 must establish a connection between your on-premises data center and the
 AWS Cloud. For information about the options for connecting your network to your
@@ -185,7 +177,11 @@ VPC, see [Amazon Virtual Private Cloud Connectivity Options](../../../whitepaper
 
 ### gMSA with ECS Anywhere
 
-The following use cases are supported for ECS Anywhere.
+###### Important
+
+Windows support for Amazon ECS Anywhere has been deprecated. This section is no longer applicable.
+
+The following use cases were supported for ECS Anywhere when Windows was a supported operating system.
 
 - The Active Directory is in the AWS Cloud - For this configuration, you
   create a connection between your on-premises network and the AWS Cloud

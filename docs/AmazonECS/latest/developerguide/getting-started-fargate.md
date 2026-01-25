@@ -161,7 +161,7 @@ using.
 
 Some Amazon ECS resources, such as tasks, services, clusters, and container instances,
 are cleaned up using the Amazon ECS console. Other resources, such as Amazon EC2 instances,
-ELB load balancers, and Auto Scaling groups, must be cleaned up manually in the Amazon EC2
+Elastic Load Balancing load balancers, and Auto Scaling groups, must be cleaned up manually in the Amazon EC2
 console or by deleting the CloudFormation stack that created them.
 
 1. In the navigation pane, choose **Clusters**.

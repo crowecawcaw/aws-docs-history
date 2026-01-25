@@ -9,7 +9,7 @@ The following are some of the reasons you would delete a service:
   your costs
   The service is automatically scaled down to zero before it is deleted. Load balancer
   resources or service discovery resources associated with the service are not affected by
-  the service deletion. To delete your ELB resources, see one of the following topics,
+  the service deletion. To delete your Elastic Load Balancing resources, see one of the following topics,
   depending on your load balancer type: [Delete an Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-delete.md "../../../elasticloadbalancing/latest/application/load-balancer-delete.md") or [Delete a Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-delete.md "../../../elasticloadbalancing/latest/network/load-balancer-delete.md").
 
 When you delete a service, Amazon ECS deletes all service deployments and service revisions for

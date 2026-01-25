@@ -37,7 +37,7 @@ specific service within your network isn't performing as expected.
 You can use Amazon VPC flow logs to analyze network performance and debug connectivity
 issues. With VPC flow logs enabled, you can capture a log of all the connections in
 your VPC. These include connections to networking interfaces that are associated
-with ELB, Amazon RDS, NAT gateways, and other key AWS services that you might be
+with Elastic Load Balancing, Amazon RDS, NAT gateways, and other key AWS services that you might be
 using. For more information, see [VPC Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md") in the
 _Amazon VPC User Guide_.
 

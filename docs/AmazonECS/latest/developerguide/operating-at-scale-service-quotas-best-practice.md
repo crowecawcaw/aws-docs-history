@@ -2,7 +2,7 @@
 
 limits
 
-Amazon ECS integrates with several AWS services, including ELB, AWS Cloud Map, and Amazon EC2.
+Amazon ECS integrates with several AWS services, including Elastic Load Balancing, AWS Cloud Map, and Amazon EC2.
 With this tight integration, Amazon ECS includes several features such as service load
 balancing, service discovery, task networking, and cluster auto scaling. Amazon ECS and the
 other AWS services that it integrates with all maintain service quotas and API rate
@@ -53,16 +53,16 @@ AWS Management Console](service-quotas-manage.md "service-quotas-manage.md").
   following section covers the key rate limits for each service in detail, and provides
   recommendations to deal with potential throttling issues.
 
-## ELB
+## Elastic Load Balancing
 
-You can configure your Amazon ECS services to use ELB to distribute traffic evenly
+You can configure your Amazon ECS services to use Elastic Load Balancing to distribute traffic evenly
 across the tasks. For more information about how to choose a load balancer, see
 [Use load balancing to distribute Amazon ECS service traffic](service-load-balancing.md "service-load-balancing.md").
 
-### ELB service quotas
+### Elastic Load Balancing service quotas
 
-When you scale your workloads, consider the following ELB service quotas.
-Most ELB service quotas are adjustable, and you can request an increase in the
+When you scale your workloads, consider the following Elastic Load Balancing service quotas.
+Most Elastic Load Balancing service quotas are adjustable, and you can request an increase in the
 Service Quotas console.
 
 **Application Load Balancer**
@@ -86,15 +86,15 @@ which comes with additional scaling limitations on `Targets per Availability
 Zone for each Network Load Balancer. For more information, see [Quotas
 for your Network Load Balancers](../../../elasticloadbalancing/latest/network/load-balancer-limits.md "../../../elasticloadbalancing/latest/network/load-balancer-limits.md").
 
-### ELB API throttling
+### Elastic Load Balancing API throttling
 
 When you configure an Amazon ECS service to use a load balancer, the target group
 health checks must pass before the service is considered healthy. For performing
-these health checks, Amazon ECS invokes ELB API operations on your behalf. If you
+these health checks, Amazon ECS invokes Elastic Load Balancing API operations on your behalf. If you
 have a large number of services configured with load balancers in your account,
 you might experience slower service deployments because of potential throttling
 specifically for the `RegisterTarget`, `DeregisterTarget`,
-and `DescribeTargetHealth` ELB API operations. When throttling
+and `DescribeTargetHealth` Elastic Load Balancing API operations. When throttling
 occurs, throttling errors occur in your Amazon ECS service event messages.
 
 If you experience AWS Cloud Map API throttling, you can contact Support for guidance on
@@ -105,7 +105,7 @@ monitoring and troubleshooting such throttling errors, see [Handling throttling 
 
 When your tasks use the `awsvpc` network mode, Amazon ECS provisions a
 unique elastic network interface (ENI) for each task. When your Amazon ECS services use
-an ELB load balancer, these network interfaces are also registered as targets to
+an Elastic Load Balancing load balancer, these network interfaces are also registered as targets to
 the appropriate target group defined in the service.
 
 ### Elastic network interface service

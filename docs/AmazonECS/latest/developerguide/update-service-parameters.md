@@ -275,7 +275,7 @@ You can change this parameter for rolling deployments.
 **Health check grace period**
 
 The period of time, in seconds, that the Amazon ECS service scheduler ignores
-unhealthy ELB, VPC Lattice, and container health checks after a task has first
+unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first
 started. If you don't specify a health check grace period value, the default
 value of `0` is used. If you don't use any of the health checks, then
 `healthCheckGracePeriodSeconds` is unused.
@@ -293,22 +293,22 @@ deployments.
 
 You must use a service-linked role when you update a load balancer.
 
-A list of ELB load balancer objects. It contains the load balancer name, the
+A list of Elastic Load Balancing load balancer objects. It contains the load balancer name, the
 container name, and the container port to access from the load balancer. The
 container name is as it appears in a container definition.
 
-Amazon ECS does not automatically update the security groups associated with ELB
+Amazon ECS does not automatically update the security groups associated with Elastic Load Balancing
 load balancers or Amazon ECS container instances.
 
 When you add, update, or remove a load balancer configuration, Amazon ECS starts
-new tasks with the updated ELB configuration, and then stops the old tasks
+new tasks with the updated Elastic Load Balancing configuration, and then stops the old tasks
 when the new tasks are running.
 
-For services that use rolling updates, you can add, update, or remove ELB
+For services that use rolling updates, you can add, update, or remove Elastic Load Balancing
 target groups. You can update from a single target group to multiple target
 groups and from multiple target groups to a single target group.
 
-For services that use blue/green deployments, you can update ELB target
+For services that use blue/green deployments, you can update Elastic Load Balancing target
 groups by using `CreateDeployment` through CodeDeploy. Note that multiple
 target groups are not supported for blue/green deployments. For more information
 see [Register multiple target groups with a service](register-multiple-targetgroups.md "register-multiple-targetgroups.md").

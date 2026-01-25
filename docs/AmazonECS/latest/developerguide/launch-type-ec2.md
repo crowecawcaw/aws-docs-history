@@ -24,7 +24,7 @@ front-end service and include it in the same task definition.
 After you have your task definitions, you can create services from them to
 maintain the availability of your desired tasks. For more information, see [Creating an Amazon ECS rolling update
 deployment](create-service-console-v2.md "create-service-console-v2.md"). In your services, you
-can associate containers with ELB load balancers. For more information, see [Use load balancing to distribute Amazon ECS service
+can associate containers with Elastic Load Balancing load balancers. For more information, see [Use load balancing to distribute Amazon ECS service
 traffic](service-load-balancing.md "service-load-balancing.md"). When
 your application requirements change, you can update your services to scale the
 number of desired tasks up or down. Or, you can update your services to deploy newer
