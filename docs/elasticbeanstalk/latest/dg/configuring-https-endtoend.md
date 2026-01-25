@@ -73,7 +73,7 @@ You must remove these settings if you want to use configuration files to configu
 
 In the next task, you need to modify the load balancer's security group to allow traffic. Depending on the [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md")
 (Amazon VPC) in which you launch your environment—the default VPC or a custom VPC—the load balancer's security group will vary. In a default VPC,
-ELB provides a default security group that all load balancers can use. In an Amazon VPC that you create, Elastic Beanstalk creates a security group for the load balancer
+Elastic Load Balancing provides a default security group that all load balancers can use. In an Amazon VPC that you create, Elastic Beanstalk creates a security group for the load balancer
 to use.
 
 To support both scenarios, you can create a security group and tell Elastic Beanstalk to use it. The following configuration file creates a security group and

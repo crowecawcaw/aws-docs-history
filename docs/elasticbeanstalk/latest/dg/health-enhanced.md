@@ -65,7 +65,7 @@ The Elastic Beanstalk health agent is a daemon process (or service, on Windows e
 operating system and application-level health metrics and reporting issues to Elastic Beanstalk. The health agent is included in all platform versions starting with
 version 2.0 of each platform.
 
-The health agent reports similar metrics to those [published to CloudWatch](using-features.md#monitoring-basic-cloudwatch "using-features.md#monitoring-basic-cloudwatch") by Amazon EC2 Auto Scaling and ELB as part
+The health agent reports similar metrics to those [published to CloudWatch](using-features.md#monitoring-basic-cloudwatch "using-features.md#monitoring-basic-cloudwatch") by Amazon EC2 Auto Scaling and Elastic Load Balancing as part
 of [basic health reporting](using-features.md "using-features.md"), including CPU load, HTTP codes, and latency. The health agent, however,
 reports directly to Elastic Beanstalk, with greater granularity and frequency than basic health reporting.
 
@@ -89,7 +89,7 @@ details on publishing enhanced health metrics to CloudWatch, see [Publishing Ama
 
 ## Factors in determining instance and environment health
 
-In addition to the basic health reporting system checks, including [ELB health checks](using-features.md#using-features.healthstatus.understanding "using-features.md#using-features.healthstatus.understanding") and [resource monitoring](using-features.md#monitoring-basic-additionalchecks "using-features.md#monitoring-basic-additionalchecks"), Elastic Beanstalk
+In addition to the basic health reporting system checks, including [Elastic Load Balancing health checks](using-features.md#using-features.healthstatus.understanding "using-features.md#using-features.healthstatus.understanding") and [resource monitoring](using-features.md#monitoring-basic-additionalchecks "using-features.md#monitoring-basic-additionalchecks"), Elastic Beanstalk
 enhanced health reporting gathers additional data about the state of the instances in your environment. This includes operating system metrics, server
 logs, and the state of ongoing environment operations such as deployments and updates. The Elastic Beanstalk health reporting service combines information from all
 available sources and analyzes it to determine the overall health of the environment.
@@ -266,7 +266,7 @@ updates](using-features.md "using-features.md") and [rolling deployments](using-
 process.
 
 Enhanced health reporting can also highlight the need to set a proper [health check URL](environments-cfg-clb.md#using-features.managing.elb.healthchecks "environments-cfg-clb.md#using-features.managing.elb.healthchecks")
-for ELB. When your environment scales up to meet demand, new instances will start taking requests as soon as they pass enough ELB health checks. If a
+for Elastic Load Balancing. When your environment scales up to meet demand, new instances will start taking requests as soon as they pass enough ELB health checks. If a
 health check URL is not configured, this can be as little as 20 seconds after a new instance is able to accept a TCP connection.
 
 If your application hasn't finished starting up by the time the load balancer declares it healthy enough to receive traffic, you will see a flood of

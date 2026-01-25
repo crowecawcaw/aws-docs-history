@@ -1,7 +1,7 @@
 # Configuring a Network Load Balancer
 
 When you [enable load balancing](using-features-managing-env-types.md#using-features.managing.changetype "using-features-managing-env-types.md#using-features.managing.changetype"), your AWS Elastic Beanstalk environment is equipped with an Elastic Load Balancing load
-balancer to distribute traffic among the instances in your environment. ELB supports several load balancer types. To learn about them, see the
+balancer to distribute traffic among the instances in your environment. Elastic Load Balancing supports several load balancer types. To learn about them, see the
 [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md"). Elastic Beanstalk can create a load balancer for you, or let you specify a shared load balancer that you've created.
 
 This topic describes the configuration of a [Network Load Balancer](../../../elasticloadbalancing/latest/network.md "../../../elasticloadbalancing/latest/network.md") that Elastic Beanstalk creates and dedicates to your environment. For
@@ -45,7 +45,7 @@ running.
 Alternatively, in the **Capacity** configuration category, configure a **Load balanced** environment type. For
 details, see [Capacity](environments-create-wizard.md#environments-create-wizard-capacity "environments-create-wizard.md#environments-create-wizard-capacity"). 6. In the **Load balancer** configuration category, choose **Edit**. 7. Select the **Network Load Balancer** option, if it isn't already selected.
 
-![ELB configuration page - choosing load balancer type](images/aeb-config-nlb-type-chooser.png) 8. Make any Network Load Balancer configuration changes that your environment requires. 9. Choose **Save**, and then make any other configuration changes that your environment requires. 10. Choose **Create environment**.
+![Elastic Load Balancing configuration page - choosing load balancer type](images/aeb-config-nlb-type-chooser.png) 8. Make any Network Load Balancer configuration changes that your environment requires. 9. Choose **Save**, and then make any other configuration changes that your environment requires. 10. Choose **Create environment**.
 
 ###### To configure a running environment's Network Load Balancer in the Elastic Beanstalk console
 
@@ -118,7 +118,7 @@ requests.
 Use the following settings to configure process health checks:
 
 - **Interval** – The amount of time, in seconds, between health checks of an individual instance.
-- **Healthy threshold** – The number of health checks that must pass before ELB changes an instance's health state.
+- **Healthy threshold** – The number of health checks that must pass before Elastic Load Balancing changes an instance's health state.
   (For Network Load Balancer, **Unhealthy threshold** is a read-only setting that is always equal to the healthy threshold value.)
 - **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering an
   instance.
@@ -127,7 +127,7 @@ Use the following settings to configure process health checks:
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check will
+The Elastic Load Balancing health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an Elastic Load Balancing health check will
 not automatically be replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").

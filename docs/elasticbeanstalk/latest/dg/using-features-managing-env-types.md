@@ -11,7 +11,7 @@ effectively scale out by adding instances to the Auto Scaling group to process d
 
 ## Load-balanced, scalable environment
 
-A load-balanced and scalable environment uses the ELB and Amazon EC2 Auto Scaling services to provision the Amazon EC2 instances that are required for your deployed
+A load-balanced and scalable environment uses the Elastic Load Balancing and Amazon EC2 Auto Scaling services to provision the Amazon EC2 instances that are required for your deployed
 application. Amazon EC2 Auto Scaling automatically starts additional instances to accommodate increasing load on your application. If the load on your application decreases,
 Amazon EC2 Auto Scaling stops instances but always leaves your specified minimum number of instances running. If your application requires scalability with the option of
 running in multiple Availability Zones, use a load-balanced, scalable environment. If you're not sure which environment type to select, you can pick
@@ -49,5 +49,5 @@ scalable environment so that it can scale to meet the demands of your customers.
 
 It can take several minutes for the environment to update while Elastic Beanstalk provisions AWS resources.
 
-If your environment is in a VPC, select subnets to place ELB and Amazon EC2 instances in. Each Availability Zone that your application runs in must have
+If your environment is in a VPC, select subnets to place Elastic Load Balancing and Amazon EC2 instances in. Each Availability Zone that your application runs in must have
 both. See [Using Elastic Beanstalk with Amazon VPC](vpc.md "vpc.md") for details.

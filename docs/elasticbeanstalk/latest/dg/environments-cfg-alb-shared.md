@@ -1,7 +1,7 @@
 # Configuring a shared Application Load Balancer
 
 When you [enable load balancing](using-features-managing-env-types.md#using-features.managing.changetype "using-features-managing-env-types.md#using-features.managing.changetype"), your AWS Elastic Beanstalk environment is equipped with an Elastic Load Balancing load
-balancer to distribute traffic among the instances in your environment. ELB supports several load balancer types. To learn about them, see the
+balancer to distribute traffic among the instances in your environment. Elastic Load Balancing supports several load balancer types. To learn about them, see the
 [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md"). Elastic Beanstalk can create a load balancer for you, or enable you to specify a shared load balancer that you've created.
 
 This topic describes the configuration of a shared [Application Load Balancer](../../../elasticloadbalancing/latest/application.md "../../../elasticloadbalancing/latest/application.md") that you create and associate with your environment. See also
@@ -62,7 +62,7 @@ processes (target groups), and access log capture, use Amazon EC2.
 Alternatively, in the **Capacity** configuration category, configure a **Load balanced** environment type. For
 details, see [Capacity](environments-create-wizard.md#environments-create-wizard-capacity "environments-create-wizard.md#environments-create-wizard-capacity"). 6. In the **Load balancer** configuration category, choose **Edit**. 7. Select the **Application Load Balancer** option, if it isn't already selected, and then select the **Shared** option.
 
-![ELB configuration page - choosing load balancer type](images/aeb-config-alb-shared-type-chooser.png) 8. Make any shared Application Load Balancer configuration changes that your environment requires. 9. Choose **Save**, and then make any other configuration changes that your environment requires. 10. Choose **Create environment**.
+![Elastic Load Balancing configuration page - choosing load balancer type](images/aeb-config-alb-shared-type-chooser.png) 8. Make any shared Application Load Balancer configuration changes that your environment requires. 9. Choose **Save**, and then make any other configuration changes that your environment requires. 10. Choose **Create environment**.
 
 ###### Shared Application Load Balancer settings
 
@@ -127,7 +127,7 @@ Use the following settings to configure process health checks:
 - **Interval** – The amount of time, in seconds, between health checks of an individual instance. The interval must be
   greater than the timeout.
 - **Unhealthy threshold**, **Healthy threshold** – The number of health checks that must fail or pass,
-  respectively, before ELB changes an instance's health state.
+  respectively, before Elastic Load Balancing changes an instance's health state.
 - **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering
   an instance.
 
@@ -135,7 +135,7 @@ Use the following settings to configure process health checks:
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check are
+The Elastic Load Balancing health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an Elastic Load Balancing health check are
 not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").

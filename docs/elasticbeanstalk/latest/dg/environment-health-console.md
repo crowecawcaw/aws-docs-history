@@ -21,7 +21,7 @@ editing your environment's configuration settings.
 ## Monitoring graphs
 
 The **Monitoring** page shows an overview of health-related metrics for your environment. This includes the default set of
-metrics provided by ELB and Amazon EC2, and graphs that show how the environment's health has changed over time.
+metrics provided by Elastic Load Balancing and Amazon EC2, and graphs that show how the environment's health has changed over time.
 
 The bar above the graphs provides a variety of time intervals for you to select. For example, select **1w** to display
 information that spans over the last week. Or select **3h** to display information that spans over the last three hours.

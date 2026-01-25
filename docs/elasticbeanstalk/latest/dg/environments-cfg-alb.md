@@ -1,7 +1,7 @@
 # Configuring an Application Load Balancer
 
 When you [enable load balancing](using-features-managing-env-types.md#using-features.managing.changetype "using-features-managing-env-types.md#using-features.managing.changetype"), your AWS Elastic Beanstalk environment is equipped with an Elastic Load Balancing load
-balancer to distribute traffic among the instances in your environment. ELB supports several load balancer types. To learn about them, see the
+balancer to distribute traffic among the instances in your environment. Elastic Load Balancing supports several load balancer types. To learn about them, see the
 [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md"). Elastic Beanstalk can create a load balancer for you, or let you specify a shared load balancer that you've created.
 
 This topic describes the configuration of an [Application Load Balancer](../../../elasticloadbalancing/latest/application.md "../../../elasticloadbalancing/latest/application.md") that Elastic Beanstalk creates and dedicates to your environment. See also
@@ -76,7 +76,7 @@ running.
 Alternatively, in the **Capacity** configuration category, configure a **Load balanced** environment type. For
 details, see [Capacity](environments-create-wizard.md#environments-create-wizard-capacity "environments-create-wizard.md#environments-create-wizard-capacity"). 6. In the **Load balancer** configuration category, choose **Edit**. 7. Select the **Application Load Balancer** and **Dedicated** options, if they aren't already selected.
 
-![ELB configuration page - choosing load balancer type](images/aeb-config-alb-type-chooser.png) 8. Make any Application Load Balancer configuration changes that your environment requires. 9. Choose **Save**, and then make any other configuration changes that your environment requires. 10. Choose **Create environment**.
+![Elastic Load Balancing configuration page - choosing load balancer type](images/aeb-config-alb-type-chooser.png) 8. Make any Application Load Balancer configuration changes that your environment requires. 9. Choose **Save**, and then make any other configuration changes that your environment requires. 10. Choose **Create environment**.
 
 ###### To configure a running environment's Application Load Balancer in the Elastic Beanstalk console
 
@@ -168,7 +168,7 @@ Use the following settings to configure process health checks:
 - **Interval** – The amount of time, in seconds, between health checks of an individual instance. The interval must be
   greater than the timeout.
 - **Unhealthy threshold**, **Healthy threshold** – The number of health checks that must fail or pass,
-  respectively, before ELB changes an instance's health state.
+  respectively, before Elastic Load Balancing changes an instance's health state.
 - **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering
   an instance.
 
@@ -176,7 +176,7 @@ Use the following settings to configure process health checks:
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check are
+The Elastic Load Balancing health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an Elastic Load Balancing health check are
 not automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").
@@ -186,7 +186,7 @@ For more information about health checks and how they influence your environment
 Select or clear the **Stickiness policy enabled** box to enable or disable sticky sessions. Use **Cookie
 duration** to configure a sticky session's duration, up to `604800` seconds.
 
-![Application Load Balancer process settings for session stickiness](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-sessions.png)
+![Application Load Balancer process settings for session stickiness](images/aeb-config-alb-process-sessions.png)
 
 ### Rules
 
@@ -219,10 +219,10 @@ When editing any existing rule, you can't change its **Name** and **Listener por
 
 ### Access log capture
 
-Use these settings to configure ELB to capture logs with detailed information about requests sent to your Application Load Balancer. Access log capture is disabled by
-default. When **Store logs** is enabled, ELB stores the logs in the **S3 bucket** that you configure. The
-**Prefix** setting specifies a top-level folder in the bucket for the logs. ELB places the logs in a folder named
-`AWSLogs` under your prefix. If you don't specify a prefix, ELB places its folder at the root level of the bucket.
+Use these settings to configure Elastic Load Balancing to capture logs with detailed information about requests sent to your Application Load Balancer. Access log capture is disabled by
+default. When **Store logs** is enabled, Elastic Load Balancing stores the logs in the **S3 bucket** that you configure. The
+**Prefix** setting specifies a top-level folder in the bucket for the logs. Elastic Load Balancing places the logs in a folder named
+`AWSLogs` under your prefix. If you don't specify a prefix, Elastic Load Balancing places its folder at the root level of the bucket.
 
 ###### Note
 
@@ -269,7 +269,7 @@ You can now see your additional listener on the list.
 port**, type `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 
-![Application Load Balancer configuration example - adding admin rule](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
+![Application Load Balancer configuration example - adding admin rule](images/aeb-config-alb-rule-https-admin.png)
 
 ## Configuring an Application Load Balancer using the EB CLI
 

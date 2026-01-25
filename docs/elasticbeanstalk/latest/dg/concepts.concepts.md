@@ -41,7 +41,7 @@ VeriSign or Entrust. Then, use the AWS Command Line Interface (AWS CLI) to uploa
 key of the certificate authenticates your server to the browser. It also serves as the basis for creating the shared session key that encrypts the data in
 both directions. For instructions on how to create, upload, and assign an SSL certificate to your environment, see [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md "configuring-https.md").
 
-When you configure an SSL certificate for your environment, data is encrypted between the client and the ELB load balancer for your environment. By
+When you configure an SSL certificate for your environment, data is encrypted between the client and the Elastic Load Balancing load balancer for your environment. By
 default, encryption is terminated at the load balancer, and traffic between the load balancer and Amazon EC2 instances is unencrypted.
 
 ## Persistent storage

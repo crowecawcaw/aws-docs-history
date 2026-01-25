@@ -25,7 +25,7 @@ those users to grant the appropriate permissions to the app1 and app2 applicatio
 We have broken down John's policy into three separate policies so that they are easier to read and manage. Together, they give John the permissions he
 needs to perform development, testing, and deployment actions on the two applications.
 
-The first policy specifies actions for Auto Scaling, Amazon S3, Amazon EC2, CloudWatch, Amazon SNS, ELB, Amazon RDS, and CloudFormation. Elastic Beanstalk relies on these additional services to provision
+The first policy specifies actions for Auto Scaling, Amazon S3, Amazon EC2, CloudWatch, Amazon SNS, Elastic Load Balancing, Amazon RDS, and CloudFormation. Elastic Beanstalk relies on these additional services to provision
 underlying resources when creating an environment.
 
 Note that this policy is an example. It gives a broad set of permissions to the AWS products that Elastic Beanstalk uses to manage applications and environments.
@@ -171,7 +171,7 @@ JSON
 We have broken down Jill's policy into three separate policies so that they are easier to read and manage. Together, they give Jill the permissions
 she needs to perform testing and monitoring actions on the two applications.
 
-The first policy specifies `Describe*`, `List*`, and `Get*` actions on Auto Scaling, Amazon S3, Amazon EC2, CloudWatch, Amazon SNS, ELB, Amazon RDS,
+The first policy specifies `Describe*`, `List*`, and `Get*` actions on Auto Scaling, Amazon S3, Amazon EC2, CloudWatch, Amazon SNS, Elastic Load Balancing, Amazon RDS,
 and CloudFormation (for non-legacy container types) so that the Elastic Beanstalk actions are able to retrieve the relevant information about the underlying resources of the
 app1 and app2 applications.
 
@@ -299,7 +299,7 @@ JSON
 We have broken down Jack's policy into three separate policies so that they are easier to read and manage. Together, they give Jack the permissions he
 needs to perform testing, monitoring, and deployment actions on the app1 resource.
 
-The first policy specifies the actions on Auto Scaling, Amazon S3, Amazon EC2, CloudWatch, Amazon SNS, ELB, Amazon RDS, and CloudFormation (for non-legacy container types) so that the Elastic Beanstalk
+The first policy specifies the actions on Auto Scaling, Amazon S3, Amazon EC2, CloudWatch, Amazon SNS, Elastic Load Balancing, Amazon RDS, and CloudFormation (for non-legacy container types) so that the Elastic Beanstalk
 actions are able to view and work with the underlying resources of app1. For a list of supported non-legacy container types, see [Why are some platform versions marked legacy?](using-features.md#using-features.migration.why "using-features.md#using-features.migration.why")
 
 Note that this policy is an example. It gives a broad set of permissions to the AWS products that Elastic Beanstalk uses to manage applications and environments.

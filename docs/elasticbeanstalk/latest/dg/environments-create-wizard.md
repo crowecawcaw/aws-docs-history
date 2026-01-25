@@ -215,7 +215,7 @@ configuring deployments, see [Deployment policies and settings](using-features.m
 Configuration changes that modify the [launch configuration](command-options-general.md#command-options-general-autoscalinglaunchconfiguration "command-options-general.md#command-options-general-autoscalinglaunchconfiguration") or [VPC settings](command-options-general.md#command-options-general-ec2vpc "command-options-general.md#command-options-general-ec2vpc") require terminating all instances in your environment and replacing them. For more
 information about setting the update type and other options, see [Configuration changes](environments-updating.md "environments-updating.md").
 
-![Configuration updates section in the modify rolling updates and deployments configuration page](/images/elasticbeanstalk/latest/dg/images/aeb-config-rolling-updates-health.png)
+![Configuration updates section in the modify rolling updates and deployments configuration page](images/aeb-config-rolling-updates-health.png)
 
 #### Security
 

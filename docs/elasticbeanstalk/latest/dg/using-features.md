@@ -1,42 +1,55 @@
-# Viewing an Elastic Beanstalk environment's event stream
+# Manage alarms
 
-This topic explains how to access events and notifications associated with your application.
+This topic walks you through the steps to create alarms for metrics that you're monitoring. It also provides instructions to view your existing alarms
+and to check their state.
 
-## Viewing events with the Elastic Beanstalk console
+You can create alarms for metrics that you are monitoring by using the Elastic Beanstalk console. Alarms help you monitor changes to your AWS Elastic Beanstalk environment so
+that you can easily identify and mitigate problems before they occur. For example, you can set an alarm that notifies you when CPU utilization in an
+environment exceeds a certain threshold, ensuring that you are notified before a potential problem occurs. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md").
 
-###### To view events with the Elastic Beanstalk console
+###### Note
+
+Elastic Beanstalk uses CloudWatch for monitoring and alarms, meaning CloudWatch costs are applied to your AWS account for any alarms that you use.
+
+For more information about monitoring specific metrics, see [Basic health reporting](using-features.md "using-features.md").
+
+###### To check the state of your alarms
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
    and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
-3. In the navigation pane, choose **Events**.
+3. In the navigation pane, choose **Alarms**.
 
-The Events page shows a list of all events that have been recorded for the environment. You can page through the list choosing
-**<** (previous), **>** (next), or page numbers. You can filter the type of events shown by using the
-**Severity** drop-down
-list.
+The page displays a list of existing alarms. If any alarms are in the alarm state, they are flagged with the warning icon (
+![Image of the warning icon.](images/warning.png)
+). 4. To filter alarms, choose the drop-down menu, and then select a filter. 5. To edit or delete an alarm, choose the edit icon (
+![Image of a cog, which serves as the edit icon.](images/cog.png)
+) or the delete icon (
+![Image of an x, which servers as the delete icon.](images/x.png)
+), respectively.
 
-## Viewing events with command line tools
+###### To create an alarm
 
-The [EB CLI](eb-cli3.md "eb-cli3.md") and [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") both provide commands for retrieving events. If you are
-managing your environment using the EB CLI, use [eb events](eb3-events.md "eb3-events.md") to print a list of events. This command also
-has a `--follow` option that continues to show new events until you press **Ctrl+C** to stop output.
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Monitoring**.
+4. Locate the metric for which you want to create an alarm, and then choose the alarm icon (
+   ![Image of a bell, which serves as the alarm icon.](images/bell.png)
+   ). The **Add alarm** page is displayed.
+5. Enter details about the alarm:
+   - **Name**: A name for this alarm.
+   - **Description** (optional): A short description of what this alarm is.
+   - **Period**: The time interval between readings.
+   - **Threshold**: Describes the behavior and value that the metric must exceed in order to trigger an alarm.
+   - **Change state after**: The amount a time after a threshold has been exceed that triggers a change in state of the
+     alarm.
+   - **Notify**: The Amazon SNS topic that is notified when an alarm changes state.
+   - **Notify when state changes to**:
+     - **OK**: The metric is within the defined threshold.
+     - **Alarm**: The metric exceeded the defined threshold.
+     - **Insufficient data**: The alarm has just started, the metric is not available, or not enough data is available for the
+       metric to determine the alarm state.
 
-To pull events using the AWS CLI, use the `describe-events` command and specify the environment by name or ID:
-
-```
-$ `aws elasticbeanstalk describe-events --environment-id e-gbjzqccra3`
-{
-    "Events": [
-        {
-            "ApplicationName": "elastic-beanstalk-example",
-            "EnvironmentName": "elasticBeanstalkExa-env",
-            "Severity": "INFO",
-            "RequestId": "a4c7bfd6-2043-11e5-91e2-9114455c358a",
-            "Message": "Environment update completed successfully.",
-            "EventDate": "2015-07-01T22:52:12.639Z"
-        },
-...
-```
-
-For more information about the command line tools, see [Setting up the EB command line interface (EB CLI) to manage Elastic Beanstalk](eb-cli3.md "eb-cli3.md").
+6. Choose **Add**. The environment status changes to gray while the environment updates. You can view the alarm that you created by
+   choosing **Alarms** in the navigation pane.

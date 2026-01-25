@@ -10,7 +10,7 @@ The default behavior is good for troubleshooting. If Auto Scaling replaced the i
 wrong, even if it crashed quickly after starting up.
 
 If you want Auto Scaling to replace instances whose application has stopped responding, you can use a [configuration file](ebextensions.md "ebextensions.md")
-to configure the Auto Scaling group to use ELB health checks. The following example sets the group to use the load balancer's health checks, in addition to the
+to configure the Auto Scaling group to use Elastic Load Balancing health checks. The following example sets the group to use the load balancer's health checks, in addition to the
 Amazon EC2 status check, to determine an instance's health.
 
 ###### Example .ebextensions/autoscaling.config
@@ -26,7 +26,7 @@ Resources:
 
 For more information about the `HealthCheckType` and `HealthCheckGracePeriod` properties, see [AWS::AutoScaling::AutoScalingGroup](../../../AWSCloudFormation/latest/UserGuide/aws-properties-as-group.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-as-group.md") in the _AWS CloudFormation User Guide_ and [Health Checks for Auto Scaling Instances](../../../autoscaling/ec2/userguide/healthcheck.md "../../../autoscaling/ec2/userguide/healthcheck.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
-By default, the ELB health check is configured to attempt a TCP connection to your instance over port 80. This confirms that the web server running on
+By default, the Elastic Load Balancing health check is configured to attempt a TCP connection to your instance over port 80. This confirms that the web server running on
 the instance is accepting connections. However, you might want to [customize the load balancer health
 check](using-features.managing.md "using-features.managing.md") to ensure that your application, and not just the web server, is in a good state. The grace period setting sets the number of seconds that an
 instance can fail the health check without being terminated and replaced. Instances can recover after being kicked out of the load balancer, so give the

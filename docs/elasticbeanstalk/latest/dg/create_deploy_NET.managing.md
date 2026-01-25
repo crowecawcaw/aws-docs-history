@@ -1,127 +1,102 @@
-# Configuring Elastic Load Balancing using the AWS toolkit for Visual Studio
+# Configuring EC2 server instances using the AWS toolkit for Visual Studio
 
-Elastic Load Balancing is an Amazon web service that helps you improve the availability and scalability of your application. This service makes it
-easy for you to distribute application loads between two or more Amazon EC2 instances. Elastic Load Balancing enables availability through redundancy and
-supports traffic growth for your application.
+Amazon Elastic Compute Cloud (Amazon EC2) is a web service that you use to launch and manage server instances in Amazon's data centers. You can use
+Amazon EC2 server instances at any time, for as long as you need, and for any legal purpose. Instances are available in different sizes and
+configurations. For more information, go to [Amazon EC2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/").
 
-Elastic Load Balancing lets you automatically distribute and balance the incoming application traffic among all the instances you are running. The
-service also makes it easy to add new instances when you need to increase the capacity of your application.
+You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the **Server** tab inside your application environment
+tab in the AWS Toolkit for Visual Studio.
 
-Elastic Beanstalk automatically provisions Elastic Load Balancing when you deploy an application. You can edit the Elastic Beanstalk environment's Amazon EC2 instance
-configuration with the **Load Balancer** tab inside your application environment tab in AWS Toolkit for Visual Studio.
+![Elastic Beanstalk servers configuration panel](images/aeb-vs-server.png)
 
-![Elastic Beanstalk Elastic Load Balancing configuration panel](images/aeb-vs-loadbalancer.png)
-The following sections describe the Elastic Load Balancing parameters you can configure for your application.
+## Amazon EC2 instance types
 
-## Ports
+**Instance type** displays the
+instance types available to your Elastic Beanstalk application. Change the instance type
+to select a server with the characteristics (including memory size
+and CPU power) that are most appropriate to your application. For example,
+applications with intensive and long-running operations can require more CPU or
+memory.
 
-The load balancer provisioned to handle requests for your Elastic Beanstalk application sends requests to the Amazon EC2 instances that are running your
-application. The provisioned load balancer can listen for requests on HTTP and HTTPS ports and route requests to the Amazon EC2 instances in your AWS Elastic Beanstalk application. By default, the load balancer handles requests on the HTTP port. At least one of the ports (either HTTP or HTTPS) must be
-turned on.
+For more information about the Amazon EC2 instance types available for your Elastic Beanstalk
+application, see [Instance Types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the _Amazon Elastic Compute Cloud
+User Guide_.
 
-![Elastic Beanstalk Elastic Load Balancing configuration - ports](images/aeb-vs-loadbalancer-ports.png)
+## Amazon EC2 security groups
 
-###### Important
+You can control access to your Elastic Beanstalk application using an _Amazon EC2 Security Group_. A security group defines firewall rules
+for your instances. These rules specify which ingress (i.e., incoming) network traffic should be delivered to your instance. All other ingress traffic
+will be discarded. You can modify rules for a group at any time. The new rules are automatically enforced for all running instances and instances
+launched in the future.
 
-Make sure that the port you specified is not locked down; otherwise, users will not be able to connect to your Elastic Beanstalk application.
-
-### Controlling the HTTP port
-
-To turn off the HTTP port, select **OFF** for **HTTP Listener Port**. To turn on the HTTP port, you select an
-HTTP port (for example, **80**) from the list.
+You can set up your Amazon EC2 security groups using the AWS Management Console or by using the AWS Toolkit for Visual Studio. You can specify which
+Amazon EC2 Security Groups control access to your Elastic Beanstalk application by entering the names of one or more Amazon EC2 security group names (delimited by
+commas) into the **EC2 Security Groups** text box.
 
 ###### Note
 
-To access your environment using a port other than the default port 80, such as port 8080,
-add a listener to the existing load balancer and configure the new listener to
-listen on that port.
+Make sure port 80 (HTTP) is accessible from 0.0.0.0/0 as the source CIDR range if you want to enable health checks for your application. For more
+information about health checks, see [Health checks](create_deploy_NET.managing.md#create_deploy_NET.managing.elb.healthchecks "create_deploy_NET.managing.md#create_deploy_NET.managing.elb.healthchecks").
 
-For example, using the
-[AWS CLI for Classic load balancers](../../../cli/latest/reference/elb/create-load-balancer-listeners.md "../../../cli/latest/reference/elb/create-load-balancer-listeners.md"),
-type the following command, replacing `LOAD_BALANCER_NAME` with the name of
-your load balancer for Elastic Beanstalk.
+###### To create a security group using the AWS toolkit for Visual Studio
 
-```
-aws elb create-load-balancer-listeners --load-balancer-name `LOAD_BALANCER_NAME` --listeners "Protocol=HTTP, LoadBalancerPort=8080, InstanceProtocol=HTTP, InstancePort=80"
-```
+1. In Visual Studio, in **AWS Explorer**, expand the **Amazon EC2** node, and then double-click
+   **Security Groups**.
+2. Click **Create Security Group**, and enter a name and description for your security group.
+3. Click **OK**.
 
-For example, using the
-[AWS CLI for Application Load Balancers](../../../cli/latest/reference/elbv2/create-listener.md "../../../cli/latest/reference/elbv2/create-listener.md"),
-type the following command, replacing `LOAD_BALANCER_ARN` with the ARN of
-your load balancer for Elastic Beanstalk.
+For more information on Amazon EC2 Security Groups, see [Using
+Security Groups](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md") in the _Amazon Elastic Compute Cloud User Guide_.
 
-```
-aws elbv2 create-listener --load-balancer-arn `LOAD_BALANCER_ARN` --protocol HTTP --port 8080
-```
+## Amazon EC2 key pairs
 
-If you want Elastic Beanstalk to monitor your environment, do not remove
-the listener on port 80.
+You can securely log in to the Amazon EC2 instances provisioned for your Elastic Beanstalk application with an Amazon EC2 key pair.
 
-### Controlling the HTTPS port
+###### Important
 
-Elastic Load Balancing supports the HTTPS/TLS protocol to enable traffic encryption for client connections to the load balancer. Connections from
-the load balancer to the EC2 instances use plaintext encryption. By default, the HTTPS port is turned off.
+You must create an Amazon EC2 key pair and configure your Elastic Beanstalk–provisioned Amazon EC2 instances to use the Amazon EC2 key pair before you
+can access your Elastic Beanstalk–provisioned Amazon EC2 instances. You can create your key pair using the **Publish to AWS** wizard inside
+the AWS Toolkit for Visual Studio when you deploy your application to Elastic Beanstalk. If you want to create additional key pairs using the Toolkit, follow the
+steps below. Alternatively, you can set up your Amazon EC2 key pairs using the [AWS Management
+Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). For instructions on creating a key pair for Amazon EC2, see the [Amazon Elastic Compute Cloud Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md").
 
-###### To turn on the HTTPS port
+The **Existing Key Pair** text box lets you specify the name of an Amazon EC2 key pair you can use to securely log in to the
+Amazon EC2 instances running your Elastic Beanstalk application.
 
-1. Create a new certificate using AWS Certificate Manager (ACM) or upload a certificate and key to AWS Identity and Access Management (IAM). For more information about requesting an
-   ACM certificate, see [Request a Certificate](../../../acm/latest/userguide/gs-acm-request.md "../../../acm/latest/userguide/gs-acm-request.md") in the _AWS Certificate Manager User Guide_. For
-   more information about importing third-party certificates into ACM, see [Importing
-   Certificates](../../../acm/latest/userguide/import-certificate.md "../../../acm/latest/userguide/import-certificate.md") in the _AWS Certificate Manager User Guide_. If ACM is not [available in your region](../../../general/latest/gr/acm.md "../../../general/latest/gr/acm.md"), use AWS Identity and Access Management (IAM) to upload a
-   third-party certificate. The ACM and IAM services store the certificate and provide an Amazon Resource Name (ARN) for the SSL certificate. For
-   more information about creating and uploading certificates to IAM, see [Working with Server
-   Certificates](../../../IAM/latest/UserGuide/ManagingServerCerts.md "../../../IAM/latest/UserGuide/ManagingServerCerts.md") in _IAM User Guide_.
-2. Specify the HTTPS port by selecting a port for **HTTPS Listener Port**.
+###### To specify the name of an Amazon EC2 key pair
 
-![Elastic Beanstalk Elastic Load Balancing configuration - SSL](images/aeb-vs-elb-ssl.png) 3. For **SSL Certificate ID**, enter the Amazon Resources Name (ARN) of your SSL certificate. For example,
-`arn:aws:iam::123456789012:server-certificate/abc/certs/build` or
-`arn:aws:acm:us-east-2:123456789012:certificate/12345678-12ab-34cd-56ef-12345678`. Use the SSL certificate that you created
-or uploaded in step 1.
+1. Expand the **Amazon EC2** node and double-click **Key Pairs**.
+2. Click **Create Key Pair** and enter the key pair name.
+3. Click **OK**.
 
-To turn off the HTTPS port, select **OFF** for **HTTPS Listener Port**.
+For more information about Amazon EC2 key pairs, go to [Using Amazon EC2
+Credentials](../../../AWSEC2/latest/UserGuide/using-credentials.md "../../../AWSEC2/latest/UserGuide/using-credentials.md") in the _Amazon Elastic Compute Cloud User Guide_. For more information about connecting to Amazon EC2
+instances, see [Listing and connecting to server instances](create_deploy_NET.md "create_deploy_NET.md").
 
-## Health checks
+## Monitoring interval
 
-The health check definition includes a URL to be queried for instance health. By default, Elastic Beanstalk uses TCP:80 for nonlegacy containers and HTTP:80 for
-legacy containers. You can override the default URL to match an existing resource in your application (e.g., `/myapp/default.aspx`)
-by entering it in the **Application Health Check URL** box. If you override the default URL, then Elastic Beanstalk uses HTTP to query the
-resource. To check if you are using a legacy container type, see [Why are some platform versions marked legacy?](using-features.md#using-features.migration.why "using-features.md#using-features.migration.why")
+By default, only basic Amazon CloudWatch metrics are enabled. They return
+data in five-minute periods. You can enable more granular one-minute CloudWatch
+metrics by selecting **1 minute** for the **Monitoring
+Interval** in the **Server** section of the **Configuration** tab for your environment in the AWS Toolkit for Eclipse.
 
-You can control the settings for the health check using the **EC2 Instance Health Check** section of the **Load
-Balancing** panel.
+###### Note
 
-![Elastic Beanstalk Elastic Load Balancing configuration - health checks](images/aeb-vs-loadbalancer-healthcheck.png)
+Amazon CloudWatch service charges can apply for one-minute interval
+metrics. See [Amazon
+CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") for more information.
 
-The health check definition includes a URL to be queried for instance health. Override the default URL to match an existing resource in your
-application (e.g., `/myapp/index.jsp`) by entering it in the **Application Health Check URL** box.
+## Custom AMI ID
 
-The following list describes the health check parameters you can set for your application.
+You can override the default AMI used for your Amazon EC2 instances with your own
+custom AMI by entering the identifier of your custom AMI into the
+**Custom AMI ID** box in the **Server** section of the **Configuration** tab for your environment in the AWS Toolkit for Eclipse.
 
-- For **Health Check Interval (seconds)**, enter the number of seconds Elastic Load Balancing waits between health checks for
-  your application's Amazon EC2 instances.
-- For **Health Check Timeout (seconds)**, specify the number of seconds Elastic Load Balancing waits for a response before it
-  considers the instance unresponsive.
-- For **Healthy Check Count Threshold** and **Unhealthy Check Count Threshold**, specify the number of
-  consecutive successful or unsuccessful URL probes before Elastic Load Balancing changes the instance health status. For example, specifying
-  `5` for **Unhealthy Check Count Threshold** means that the URL would have to return an error message or
-  timeout five consecutive times before Elastic Load Balancing considers the health check failed.
+###### Important
 
-## Sessions
-
-By default, a load balancer routes each request independently to the server instance with the smallest load. By comparison, a sticky session binds a
-user's session to a specific server instance so that all requests coming from the user during the session are sent to the same server instance.
-
-Elastic Beanstalk uses load balancer–generated HTTP cookies when sticky sessions are enabled for an application. The load balancer uses a special load
-balancer–generated cookie to track the application instance for each request. When the load balancer receives a request, it first checks to see if
-this cookie is present in the request. If so, the request is sent to the application instance specified in the cookie. If there is no cookie, the load
-balancer chooses an application instance based on the existing load balancing algorithm. A cookie is inserted into the response for binding subsequent
-requests from the same user to that application instance. The policy configuration defines a cookie expiry, which establishes the duration of validity
-for each cookie.
-
-You can use the **Sessions** section on the **Load Balancer** tab to specify whether or not the load balancer for
-your application allows session stickiness.
-
-![Elastic Beanstalk Elastic Load Balancing configuration - sessions](images/aeb-vs-loadbalancer-sessions.png)
-
-For more information on Elastic Load Balancing, go to the [Elastic Load
-Balancing Developer Guide](../../../ElasticLoadBalancing/latest/DeveloperGuide.md "../../../ElasticLoadBalancing/latest/DeveloperGuide.md").
+Using your own AMI is an advanced task that you should do with
+care. If you need a custom AMI, we recommend you start with the default
+Elastic Beanstalk AMI and then modify it. To be considered healthy, Elastic Beanstalk
+expects Amazon EC2 instances to meet a set of requirements, including having a
+running host manager. If these requirements are not met, your environment
+might not work properly.

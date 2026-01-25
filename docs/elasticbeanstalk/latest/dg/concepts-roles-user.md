@@ -6,7 +6,7 @@ services and features that they need.
 
 Elastic Beanstalk requires permissions not only for its own API actions, but also for several other
 AWS services. Elastic Beanstalk uses user permissions to launch resources in an environment. These
-resources include EC2 instances, an ELB load balancer, and an Auto Scaling group. Elastic Beanstalk also uses
+resources include EC2 instances, an Elastic Load Balancing load balancer, and an Auto Scaling group. Elastic Beanstalk also uses
 user permissions to save logs and templates to Amazon Simple Storage Service (Amazon S3), send notifications to Amazon SNS,
 assign instance profiles, and publish metrics to CloudWatch. Elastic Beanstalk requires CloudFormation permissions to
 orchestrate resource deployments and updates. It also requires Amazon RDS permissions to create

@@ -1,40 +1,44 @@
-# Tagging Elastic Beanstalk application resources
+# Tag propagation to launch templates
 
-This topic explains the benefits of using tags with your Elastic Beanstalk application resources along with the constraints of doing so.
-It also explains how to create and manage tags for application resources.
-
-You can apply tags to resources of your AWS Elastic Beanstalk applications. Tags are key-value pairs associated with AWS resources. Tags can help you categorize
-resources. They're particularly useful if you manage many resources as part of multiple AWS applications.
-
-Here are some ways to use tagging with Elastic Beanstalk resources:
-
-- _Deployment stages_ – Identify resources associated with different stages of your application, such as development, beta,
-  and production.
-- _Cost allocation_ – Use cost allocation reports to track your usage of AWS resources associated with various expense
-  accounts. The reports include both tagged and untagged resources, and they aggregate costs according to tags. For information about how cost allocation
-  reports use tags, see [Use Cost Allocation Tags for Custom Billing Reports](../../../awsaccountbilling/latest/aboutv2/allocation.md "../../../awsaccountbilling/latest/aboutv2/allocation.md") in the _AWS Billing and Cost Management User Guide_.
-- _Access control_ – Use tags to manage permissions to requests and resources. For example, a user who can only create and
-  manage beta environments should only have access to beta stage resources. For details, see [Using tags to control access to Elastic Beanstalk resources](AWSHowTo.iam.policies.md "AWSHowTo.iam.policies.md").
-  You can add up to 50 tags to each resource. Environments are slightly different: Elastic Beanstalk adds three default system tags to environments, and you can't
-  edit or delete these tags. In addition to the default tags, you can add up to 47 additional tags to each environment.
-
-The following constraints apply to tag keys and values:
-
-- Keys and values can contain letters, numbers, white space, and the following symbols: `_ . : / = + - @`
-- Keys can contain up to 127 characters. Values can contain up to 255 characters.
+Elastic Beanstalk provides an option to enable the propagation of environment tags to launch templates. This option provides continued support for tag-based
+access control (TBAC) with launch templates.
 
 ###### Note
 
-These length limits are for Unicode characters in UTF-8. For other multibyte encodings, the limits might be lower.
+Launch configurations are being phased out and replaced by launch templates. For more information, see [Launch configurations](../../../autoscaling/ec2/userguide/launch-configurations.md "../../../autoscaling/ec2/userguide/launch-configurations.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
-- Keys are case sensitive.
-- Keys cannot begin with `aws:` or `elasticbeanstalk:`.
+To prevent down-time of running EC2 instances CloudFormation doesn’t propagate tags to existing launch templates. If there's a use case that requires tags for
+your environment’s resources, you can enable Elastic Beanstalk to create launch templates with tags for these resources. To do so, set the
+`LaunchTemplateTagPropagationEnabled` option in the [aws:autoscaling:launchconfiguration](command-options-general.md#command-options-general-autoscalinglaunchconfiguration "command-options-general.md#command-options-general-autoscalinglaunchconfiguration") namespace to `true`. The default value is `false`.
 
-## Resources you can tag
+The following [configuration file](ebextensions.md "ebextensions.md") example enables the propagation of tags to launch templates.
 
-The following are the types of Elastic Beanstalk resources that you can tag, and links to specific topics about managing tags for each of them:
+```
+option_settings:
+  aws:autoscaling:launchconfiguration:
+    LaunchTemplateTagPropagationEnabled: `true`
+```
 
-- [Applications](applications-tagging.md "applications-tagging.md")
-- [Environments](using-features.md "using-features.md")
-- [Application versions](applications-versions-tagging.md "applications-versions-tagging.md")
-- [Saved configurations](environment-configuration-savedconfig-tagging.md "environment-configuration-savedconfig-tagging.md")
+Elastic Beanstalk can only propagate tags to launch templates for the following resources:
+
+- EBS volumes
+- EC2 instances
+- EC2 network interfaces
+- CloudFormation launch templates that define a resource
+  This constraint exists because CloudFormation only allows tags on template creation for specific resources. For more information see [TagSpecification](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.md") in the
+  _AWS CloudFormation User Guide_.
+
+###### Important
+
+- Changing this option value from `false` to `true` for an existing environment may be a breaking change for previously
+  existing tags.
+- When this feature is enabled, the propagation of tags will require EC2 replacement, which can result in downtime. You can enable _rolling
+  updates_ to apply configuration changes in batches and prevent downtime during the update process. For more information, see [Configuration changes](environments-updating.md "environments-updating.md").
+  For more information about launch templates, see the following:
+
+- [Launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md") in the
+  _Amazon EC2 Auto Scaling User Guide_
+- [Working with templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
+  _AWS CloudFormation User Guide_
+- [Elastic Beanstalk template snippets](../../../AWSCloudFormation/latest/UserGuide/quickref-elasticbeanstalk.md "../../../AWSCloudFormation/latest/UserGuide/quickref-elasticbeanstalk.md") in the
+  _AWS CloudFormation User Guide_

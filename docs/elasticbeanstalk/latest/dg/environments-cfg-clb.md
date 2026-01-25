@@ -1,7 +1,7 @@
 # Configuring a Classic Load Balancer
 
 When you [enable load balancing](using-features-managing-env-types.md#using-features.managing.changetype "using-features-managing-env-types.md#using-features.managing.changetype"), your AWS Elastic Beanstalk environment is equipped with an Elastic Load Balancing load
-balancer to distribute traffic among the instances in your environment. ELB supports several load balancer types. To learn about them, see the
+balancer to distribute traffic among the instances in your environment. Elastic Load Balancing supports several load balancer types. To learn about them, see the
 [Elastic Load Balancing User Guide](../../../elasticloadbalancing/latest/userguide.md "../../../elasticloadbalancing/latest/userguide.md"). Elastic Beanstalk can create a load balancer for you, or let you specify a shared load balancer that you've created.
 
 This topic describes the configuration of a [Classic Load Balancer](../../../elasticloadbalancing/latest/classic.md "../../../elasticloadbalancing/latest/classic.md") that Elastic Beanstalk creates and dedicates to your environment. For
@@ -167,13 +167,13 @@ Use the following settings to configure load balancer health checks:
 - **Interval** – The amount of time, in seconds, between health checks of an individual instance. The interval must be
   greater than the timeout.
 - **Unhealthy threshold**, **Healthy threshold** – The number of health checks that must fail or pass,
-  respectively, before ELB changes an instance's health state.
+  respectively, before Elastic Load Balancing changes an instance's health state.
 
 ![Classic Load Balancer settings for health check](images/aeb-config-elb-healthcheck.png)
 
 ###### Note
 
-The ELB health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an ELB health check are not
+The Elastic Load Balancing health check doesn't affect the health check behavior of an environment's Auto Scaling group. Instances that fail an Elastic Load Balancing health check are not
 automatically replaced by Amazon EC2 Auto Scaling unless you manually configure Amazon EC2 Auto Scaling to do so. See [Auto Scaling health check setting for your Elastic Beanstalk environment](environmentconfig-autoscaling-healthchecktype.md "environmentconfig-autoscaling-healthchecktype.md") for details.
 
 For more information about health checks and how they influence your environment's overall health, see [Basic health reporting](using-features.md "using-features.md").

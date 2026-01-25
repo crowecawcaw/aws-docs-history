@@ -87,7 +87,7 @@ In JSON:
 }
 ```
 
-This configures the ELB load balancer in your Elastic Beanstalk environment to make an HTTP request
+This configures the Elastic Load Balancing load balancer in your Elastic Beanstalk environment to make an HTTP request
 to the path `/health` to each EC2 instance to determine if it is healthy or
 not.
 

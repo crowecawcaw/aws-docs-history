@@ -26,7 +26,7 @@ option to set up an Amazon RDS database that's integrated with your environment.
 
 ###### Instance traffic and scaling
 
-These options customize the capacity, scaling, and load balancing for the environment’s EC2 instances. You can also configure ELB to capture logs
+These options customize the capacity, scaling, and load balancing for the environment’s EC2 instances. You can also configure Elastic Load Balancing to capture logs
 with detailed information about requests sent to the load balancer.
 
 The following options for your EC2 instances are also available for configuration:

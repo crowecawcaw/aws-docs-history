@@ -9,7 +9,7 @@ environment, Elastic Beanstalk provisions the resources required to run your app
 (ELB in the diagram), an Auto Scaling group, and one or more Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
 Every environment has a CNAME (URL) that points to a load balancer. The environment has a URL, such as
-`myapp.us-west-2.elasticbeanstalk.com`. This URL is aliased in [Amazon Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/") to an ELB
+`myapp.us-west-2.elasticbeanstalk.com`. This URL is aliased in [Amazon Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/") to an Elastic Load Balancing
 URL—something like `abcdef-123456.us-west-2.elb.amazonaws.com`—by using a CNAME record. [Amazon
 Route 53](https://aws.amazon.com/route53/ "https://aws.amazon.com/route53/") is a highly available and scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure.
 Your domain name that you registered with your DNS provider will forward requests to the CNAME.

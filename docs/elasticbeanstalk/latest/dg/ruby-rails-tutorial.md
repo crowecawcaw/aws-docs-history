@@ -69,7 +69,7 @@ static assets, and generates access and error logs.
 
 - **Instance security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This
   resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic isn't allowed on other ports.
-- **Load balancer** – An ELB load balancer configured to distribute requests to the instances running your
+- **Load balancer** – An Elastic Load Balancing load balancer configured to distribute requests to the instances running your
   application. A load balancer also eliminates the need to expose your instances directly to the internet.
 - **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This
   resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
