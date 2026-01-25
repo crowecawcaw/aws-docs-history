@@ -109,7 +109,7 @@ administrator account associated with the attachment.
 
 1. When choosing a link to a member account, you're prompted to switch console roles:
 
-![Switch roles dialog box](/images/network-manager/latest/tgwnm/images/nm-switchrole.png) 2. The following values populate the **Switch Role**
+![Switch roles dialog box](images/nm-switchrole.png) 2. The following values populate the **Switch Role**
 screen. Keep the following values:
 
     * **Account** — The account ID for the member account
