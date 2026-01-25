@@ -16,4 +16,11 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_pinpoint-sms-voice_actions.md "service_code_examples_pinpoint-sms-voice_actions.md")
+  - [CreateConfigurationSet](pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSet_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSet_section.md")
+  - [CreateConfigurationSetEventDestination](pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSetEventDestination_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSetEventDestination_section.md")
+  - [DeleteConfigurationSet](pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSet_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSet_section.md")
+  - [DeleteConfigurationSetEventDestination](pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSetEventDestination_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSetEventDestination_section.md")
+  - [GetConfigurationSetEventDestinations](pinpoint-sms-voice_example_pinpoint-sms-voice_GetConfigurationSetEventDestinations_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_GetConfigurationSetEventDestinations_section.md")
+  - [ListConfigurationSets](pinpoint-sms-voice_example_pinpoint-sms-voice_ListConfigurationSets_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_ListConfigurationSets_section.md")
   - [SendVoiceMessage](pinpoint-sms-voice_example_pinpoint-sms-voice_SendVoiceMessage_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_SendVoiceMessage_section.md")
+  - [UpdateConfigurationSetEventDestination](pinpoint-sms-voice_example_pinpoint-sms-voice_UpdateConfigurationSetEventDestination_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_UpdateConfigurationSetEventDestination_section.md")
