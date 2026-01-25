@@ -5,7 +5,7 @@ service. Unless otherwise noted, each quota is Region-specific.
 
 To view the quotas for your Classic Load Balancers, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home"). In the navigation pane, choose **AWS services** and
 select **Elastic Load Balancing**. You can also use the [describe-account-limits](../../../cli/latest/reference/elb/describe-account-limits.md "../../../cli/latest/reference/elb/describe-account-limits.md") (AWS CLI)
-command for ELB.
+command for Elastic Load Balancing.
 
 To request a quota increase, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.

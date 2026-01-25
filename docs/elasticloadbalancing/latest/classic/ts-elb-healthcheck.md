@@ -1,7 +1,7 @@
 # Troubleshoot a Classic Load Balancer: Health checks
 
 Your load balancer checks the health of its registered instances using either the default
-health check configuration provided by ELB or a custom health
+health check configuration provided by Elastic Load Balancing or a custom health
 check configuration that you specify. The health check configuration contains information such as
 the protocol, ping port, ping path, response timeout, and health check interval. An instance is
 considered healthy if it returns a 200 response code within the health check interval. For more
@@ -175,5 +175,5 @@ considered healthy based on the EC2 status check.
 
 **Solution**: Use the ELB health check for your Auto Scaling group. When you use the ELB
 health check, Auto Scaling determines the health status of your instances by checking the results of both the instance
-status check and the ELB health check. For more information, see [Add ELB health checks to your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md")
+status check and the ELB health check. For more information, see [Add Elastic Load Balancing health checks to your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md")
 in the _Amazon EC2 Auto Scaling User Guide_.

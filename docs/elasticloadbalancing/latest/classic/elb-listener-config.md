@@ -1,12 +1,12 @@
 # Listeners for your Classic Load Balancer
 
-Before you start using ELB, you must configure one or more
+Before you start using Elastic Load Balancing, you must configure one or more
 _listeners_ for your Classic Load Balancer. A listener is a process that checks for
 connection requests. It is configured with a protocol and a port for front-end (client to
 load balancer) connections, and a protocol and a port for back-end (load balancer to
 back-end instance) connections.
 
-ELB supports the following protocols:
+Elastic Load Balancing supports the following protocols:
 
 - HTTP
 - HTTPS (secure HTTP)
@@ -41,7 +41,7 @@ format for communication, called a _protocol_, in these layers. For
 more information, see [OSI
 model](https://en.wikipedia.org/wiki/OSI_model "https://en.wikipedia.org/wiki/OSI_model") in Wikipedia.
 
-When you use ELB, you need a basic understanding of layer 4 and layer 7. Layer 4 is
+When you use Elastic Load Balancing, you need a basic understanding of layer 4 and layer 7. Layer 4 is
 the transport layer that describes the Transmission Control Protocol (TCP) connection
 between the client and your back-end instance, through the load balancer. Layer 4 is the
 lowest level that is configurable for your load balancer. Layer 7 is the application
@@ -80,12 +80,12 @@ balancer parses the headers in the request before sending the request to the bac
 instances.
 
 For every registered and healthy instance behind an HTTP/HTTPS load balancer,
-ELB opens and maintains one or more TCP connections. These connections ensure that
+Elastic Load Balancing opens and maintains one or more TCP connections. These connections ensure that
 there is always an established connection ready to receive HTTP/HTTPS
 requests.
 
 The HTTP requests and HTTP responses use header fields to send information about
-HTTP messages. ELB supports `X-Forwarded-For` headers. Because load
+HTTP messages. Elastic Load Balancing supports `X-Forwarded-For` headers. Because load
 balancers intercept traffic between clients and servers, your server access logs
 contain only the IP address of the load balancer. To see the IP address of the
 client, use the `X-Forwarded-For` request header. For more information,
@@ -119,7 +119,7 @@ requests.
 
 ### SSL negotiation
 
-ELB provides predefined SSL negotiation configurations that are used for SSL
+Elastic Load Balancing provides predefined SSL negotiation configurations that are used for SSL
 negotiation when a connection is established between a client and your load
 balancer. The SSL negotiation configurations provide compatibility with a broad
 range of clients and use high-strength cryptographic algorithms called

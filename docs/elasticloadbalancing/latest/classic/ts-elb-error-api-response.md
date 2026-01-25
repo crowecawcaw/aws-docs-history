@@ -1,6 +1,6 @@
 # Troubleshoot a Classic Load Balancer: API errors
 
-The following are error messages returned by ELB API, the
+The following are error messages returned by Elastic Load Balancing API, the
 potential causes, and the steps you can take to resolve the issues.
 
 ###### Error Messages
@@ -28,8 +28,8 @@ to get the certificate ARN and verify that you provided the correct value for th
 ## OutofService: A transient error occurred
 
 **Cause**: There is a transient internal problem within the
-ELB service or the underlying network. This temporary issue might also occur
-when ELB queries the health of the load balancer and its registered instances.
+Elastic Load Balancing service or the underlying network. This temporary issue might also occur
+when Elastic Load Balancing queries the health of the load balancer and its registered instances.
 
 **Solution**: Retry the API call. If the problem persists,
 go to the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") for assistance.

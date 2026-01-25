@@ -1,6 +1,6 @@
 # CloudWatch metrics for your Classic Load Balancer
 
-ELB publishes data points to Amazon CloudWatch for your load balancers and your back-end instances.
+Elastic Load Balancing publishes data points to Amazon CloudWatch for your load balancers and your back-end instances.
 CloudWatch enables you to retrieve statistics about those data points as an ordered set of
 time-series data, known as _metrics_. Think of a metric as a variable
 to monitor, and the data points as the values of that variable over time. For example, you
@@ -12,8 +12,8 @@ can create a CloudWatch alarm to monitor a specified metric and initiate an acti
 as sending a notification to an email address) if the metric goes outside what you
 consider an acceptable range.
 
-ELB reports metrics to CloudWatch only when requests are flowing through the load balancer.
-If there are requests flowing through the load balancer, ELB measures and sends its metrics in 60-second intervals.
+Elastic Load Balancing reports metrics to CloudWatch only when requests are flowing through the load balancer.
+If there are requests flowing through the load balancer, Elastic Load Balancing measures and sends its metrics in 60-second intervals.
 If there are no requests flowing through the load balancer or no data for a metric, the metric is not reported.
 
 For more information about Amazon CloudWatch, see the _[Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md")_.
@@ -51,12 +51,12 @@ greater in size, we recommend that you estimate your costs as follows: create an
 `ConsumedLCUs` metric for the Application Load Balancer. For more information, see [Migrate your Classic Load Balancer](../userguide/migrate-classic-load-balancer.md "../userguide/migrate-classic-load-balancer.md")
 in the _Elastic Load Balancing User Guide_.
 
-| Metric                              | Description                                                                                                                                                                                                                                                                                                     |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EstimatedALBActiveConnectionCount` | The estimated number of concurrent TCP connections active from clients to the load balancer and from the load balancer to targets.                                                                                                                                                                              |
-| `EstimatedALBConsumedLCUs`          | The estimated number of load balancer capacity units (LCU) used by an Application Load Balancer. You pay for the number of LCUs that you use per hour.<br>For more information, see [ELB Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/"). |
-| `EstimatedALBNewConnectionCount`    | The estimated number of new TCP connections established from clients to the load balancer and from the load balancer to targets.                                                                                                                                                                                |
-| `EstimatedProcessedBytes`           | The estimated number of bytes processed by an Application Load Balancer.                                                                                                                                                                                                                                        |
+| Metric                              | Description                                                                                                                                                                                                                                                                                                                        |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EstimatedALBActiveConnectionCount` | The estimated number of concurrent TCP connections active from clients to the load balancer and from the load balancer to targets.                                                                                                                                                                                                 |
+| `EstimatedALBConsumedLCUs`          | The estimated number of load balancer capacity units (LCU) used by an Application Load Balancer. You pay for the number of LCUs that you use per hour.<br>For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/"). |
+| `EstimatedALBNewConnectionCount`    | The estimated number of new TCP connections established from clients to the load balancer and from the load balancer to targets.                                                                                                                                                                                                   |
+| `EstimatedProcessedBytes`           | The estimated number of bytes processed by an Application Load Balancer.                                                                                                                                                                                                                                                           |
 
 ## Metric dimensions for Classic Load Balancers
 
@@ -69,7 +69,7 @@ To filter the metrics for your Classic Load Balancer, use the following dimensio
 
 ## Statistics for Classic Load Balancer metrics
 
-CloudWatch provides statistics based on the metric data points published by ELB.
+CloudWatch provides statistics based on the metric data points published by Elastic Load Balancing.
 Statistics are metric data aggregations over specified period of time.
 When you request statistics, the returned data stream is identified by the metric name and dimension.
 A dimension is a name/value pair that uniquely identifies a metric. For example, you can

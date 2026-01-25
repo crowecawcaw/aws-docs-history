@@ -4,7 +4,7 @@ A _listener_ is a process that checks for connection requests. It
 is configured with a protocol and a port for front-end (client to load balancer)
 connections and a protocol and a port for back-end (load balancer to instance)
 connections. For information about the ports, protocols, and listener configurations
-supported by ELB, see [Listeners for your Classic Load Balancer](elb-listener-config.md "elb-listener-config.md").
+supported by Elastic Load Balancing, see [Listeners for your Classic Load Balancer](elb-listener-config.md "elb-listener-config.md").
 
 If you have a load balancer with a listener that accepts HTTP requests on port 80, you
 can add a listener that accepts HTTPS requests on port 443. If you specify that the

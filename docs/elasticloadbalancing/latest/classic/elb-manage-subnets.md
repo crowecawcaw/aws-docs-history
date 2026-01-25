@@ -1,6 +1,6 @@
 # Configure subnets for your Classic Load Balancer
 
-When you add a subnet to your load balancer, ELB creates a load balancer node in the
+When you add a subnet to your load balancer, Elastic Load Balancing creates a load balancer node in the
 Availability Zone. Load balancer nodes accept traffic from clients and forward requests to the
 healthy registered instances in one or more Availability Zones. We recommend that
 you add one subnet per Availability Zone

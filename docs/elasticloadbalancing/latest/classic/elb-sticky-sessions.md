@@ -8,12 +8,12 @@ user during the session are sent to the same instance.
 
 The key to managing sticky sessions is to determine how long your load balancer should
 consistently route the user's request to the same instance. If your application has its
-own session cookie, then you can configure ELB so that the session cookie follows the
+own session cookie, then you can configure Elastic Load Balancing so that the session cookie follows the
 duration specified by the application's session cookie. If your application does not
-have its own session cookie, then you can configure ELB to create a session cookie by
+have its own session cookie, then you can configure Elastic Load Balancing to create a session cookie by
 specifying your own stickiness duration.
 
-ELB creates a cookie, named AWSELB, that is used to map the session to the
+Elastic Load Balancing creates a cookie, named AWSELB, that is used to map the session to the
 instance.
 
 ###### Requirements
@@ -23,12 +23,12 @@ instance.
 
 ###### Compatibility
 
-- The RFC for the path property of a cookie allows underscores. However, ELB
+- The RFC for the path property of a cookie allows underscores. However, Elastic Load Balancing
   URI encodes underscore characters as `%5F` because some browsers,
   such as Internet Explorer 7, expect underscores to be URI encoded as
   `%5F`. Because of the potential to impact browsers that are
-  currently working, ELB continues to URI encode underscore characters. For
-  example, if the cookie has the property `path=/my_path`, ELB
+  currently working, Elastic Load Balancing continues to URI encode underscore characters. For
+  example, if the cookie has the property `path=/my_path`, Elastic Load Balancing
   changes this property in the forwarded request to
   `path=/my%5Fpath`.
 - You can't set the `secure` flag or `HttpOnly` flag on
@@ -63,7 +63,7 @@ expired before using it. After a cookie expires, the session is no longer sticky
 The client should remove the cookie from its cookie store upon expiry.
 
 With CORS (cross-origin resource sharing) requests, some browsers require
-`SameSite=None; Secure` to enable stickiness. In this case, ELB
+`SameSite=None; Secure` to enable stickiness. In this case, Elastic Load Balancing
 creates a second stickiness cookie, AWSELBCORS, which includes the same information
 as the original stickiness cookie plus this `SameSite` attribute. Clients
 receive both cookies.

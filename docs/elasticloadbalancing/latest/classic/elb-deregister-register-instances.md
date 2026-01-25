@@ -11,14 +11,14 @@ If demand decreases, or you need to service your instances, you can deregister i
 An instance that is deregistered remains running, but no longer receives traffic from the load balancer,
 and you can register it with the load balancer again when you are ready.
 
-When you deregister an instance, ELB waits until in-flight requests have completed if
+When you deregister an instance, Elastic Load Balancing waits until in-flight requests have completed if
 connection draining is enabled. For more information, see [Configure connection draining for your Classic Load Balancer](config-conn-drain.md "config-conn-drain.md").
 
 If your load balancer is attached to an Auto Scaling group, instances in the group are
 automatically registered with the load balancer. If you detach a load balancer from
 your Auto Scaling group, the instances in the group are deregistered.
 
-ELB registers your EC2 instance with your load balancer using its IP address.
+Elastic Load Balancing registers your EC2 instance with your load balancer using its IP address.
 
 [EC2-VPC] When you register an instance with an elastic network interface (ENI)
 attached, the load balancer routes requests to the primary IP address of the

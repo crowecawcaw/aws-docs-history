@@ -2,7 +2,7 @@
 
 Proxy protocol is an internet protocol used to carry connection information from the
 source requesting the connection to the destination for which the connection was
-requested. ELB uses proxy protocol version 1, which uses a human-readable header
+requested. Elastic Load Balancing uses proxy protocol version 1, which uses a human-readable header
 format.
 
 By default, when you use Transmission Control Protocol (TCP) for both front-end and
@@ -88,7 +88,7 @@ instance on port `80`, and verify that the policy is enabled.
 ###### To enable proxy protocol for your load balancer
 
 1. (Optional) Use the following [describe-load-balancer-policy-types](../../../cli/latest/reference/elb/describe-load-balancer-policy-types.md "../../../cli/latest/reference/elb/describe-load-balancer-policy-types.md") command to list the
-   policies supported by ELB:
+   policies supported by Elastic Load Balancing:
 
 ```
 `aws elb describe-load-balancer-policy-types`

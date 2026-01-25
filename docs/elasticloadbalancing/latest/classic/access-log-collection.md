@@ -1,12 +1,12 @@
 # Access logs for your Classic Load Balancer
 
-ELB provides access logs that capture detailed information about requests sent to your
+Elastic Load Balancing provides access logs that capture detailed information about requests sent to your
 load balancer. Each log contains information such as the time the request was received,
 the client's IP address, latencies, request paths, and server responses. You can use
 these access logs to analyze traffic patterns and to troubleshoot issues.
 
-Access logs are an optional feature of ELB that is disabled by default.
-After you enable access logs for your load balancer, ELB captures the logs
+Access logs are an optional feature of Elastic Load Balancing that is disabled by default.
+After you enable access logs for your load balancer, Elastic Load Balancing captures the logs
 and stores them in the Amazon S3 bucket that you specify. You can disable access
 logging at any time.
 
@@ -19,7 +19,7 @@ data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3
 in the _Amazon S3 User Guide_.
 
 There is no additional charge for access logs. You will be charged storage costs for Amazon S3, but will
-not be charged for the bandwidth used by ELB to send log files to Amazon S3. For more information about
+not be charged for the bandwidth used by Elastic Load Balancing to send log files to Amazon S3. For more information about
 storage costs, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Contents
@@ -32,9 +32,9 @@ storage costs, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https
 
 ## Access log files
 
-ELB publishes a log file for each load balancer node at the interval you specify.
+Elastic Load Balancing publishes a log file for each load balancer node at the interval you specify.
 You can specify a publishing interval of either 5 minutes or 60 minutes when you enable the access log for your
-load balancer. By default, ELB publishes logs at a 60-minute interval.
+load balancer. By default, Elastic Load Balancing publishes logs at a 60-minute interval.
 If the interval is set for 5 minutes, the logs are published at 1:05, 1:10, 1:15, and so on.
 The start of log delivery is delayed up to 5 minutes if the interval is set to 5 minutes, and up to 15 minutes if the interval is set to 60 minutes.
 You can modify the publishing interval at any time.
@@ -114,14 +114,14 @@ in the _Amazon S3 User Guide_.
 
 ## Access log entries
 
-ELB logs requests sent to the load balancer, including
+Elastic Load Balancing logs requests sent to the load balancer, including
 requests that never made it to the back-end instances. For example, if a client
 sends a malformed request, or there are no healthy instances to respond, the
 requests are still logged.
 
 ###### Important
 
-ELB logs requests on a best-effort basis. We recommend that you use access logs to
+Elastic Load Balancing logs requests on a best-effort basis. We recommend that you use access logs to
 understand the nature of the requests, not as a complete accounting of all requests.
 
 ### Syntax

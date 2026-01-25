@@ -29,7 +29,7 @@ The `X-Forwarded-For` request header is automatically added and helps
 you identify the IP address of a client when you use an HTTP or HTTPS load balancer.
 Because load balancers intercept traffic between clients and servers, your server
 access logs contain only the IP address of the load balancer. To see the IP address
-of the client, use the `X-Forwarded-For` request header. ELB stores the
+of the client, use the `X-Forwarded-For` request header. Elastic Load Balancing stores the
 IP address of the client in the `X-Forwarded-For` request header and
 passes the header to your server. If the `X-Forwarded-For` request header
 is not included in the request, the load balancer creates one with the client IP
@@ -68,7 +68,7 @@ The `X-Forwarded-Proto` request header helps you identify the protocol
 access logs contain only the protocol used between the server and the load balancer;
 they contain no information about the protocol used between the client and the load
 balancer. To determine the protocol used between the client and the load balancer,
-use the `X-Forwarded-Proto` request header. ELB stores the protocol
+use the `X-Forwarded-Proto` request header. Elastic Load Balancing stores the protocol
 used between the client and the load balancer in the `X-Forwarded-Proto`
 request header and passes the header along to your server.
 

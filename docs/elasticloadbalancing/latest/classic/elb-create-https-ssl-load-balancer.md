@@ -56,7 +56,7 @@ A _listener_ is a process that checks for connection
 requests. It is configured with a protocol and a port for front-end (client to
 load balancer) connections and a protocol and a port for back-end (load balancer
 to instance) connections. For information about the ports, protocols, and
-listener configurations supported by ELB, see [Listeners for your Classic Load Balancer](elb-listener-config.md "elb-listener-config.md").
+listener configurations supported by Elastic Load Balancing, see [Listeners for your Classic Load Balancer](elb-listener-config.md "elb-listener-config.md").
 
 ###### To create your secure Classic Load Balancer using the console
 
@@ -147,7 +147,7 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
         **Ping Port**. Your EC2 instances must accept traffic on the specified ping port.
     2.  For **Ping Port**, ensure the port is `80`.
     3.  For **Ping Path**, replace the default alue with a single forward slash, (`/`).
-        This tells ELB to send health check requests to the default home page for your web server, such as
+        This tells Elastic Load Balancing to send health check requests to the default home page for your web server, such as
         `index.html`.
     4.  For **Advanced health check settings**, use the default values.
 
@@ -225,7 +225,7 @@ A _listener_ is a process that checks for connection
 requests. It is configured with a protocol and a port for front-end (client to
 load balancer) connections and a protocol and port for back-end (load balancer
 to instance) connections. For information about the ports, protocols, and
-listener configurations supported by ELB, see [Listeners for your Classic Load Balancer](elb-listener-config.md "elb-listener-config.md").
+listener configurations supported by Elastic Load Balancing, see [Listeners for your Classic Load Balancer](elb-listener-config.md "elb-listener-config.md").
 
 In this example, you configure two listeners for your load balancer by
 specifying the ports and protocols to use for front-end and back-end
@@ -282,7 +282,7 @@ The following is an example response:
 policy
 
 You can select one of the predefined security policies, or you can create your
-own custom security policy. Otherwise, ELB configures your load balancer with
+own custom security policy. Otherwise, Elastic Load Balancing configures your load balancer with
 the default predefined security policy, `ELBSecurityPolicy-2016-08`. For more
 information, see [SSL negotiation configurations for Classic Load Balancers](elb-ssl-security-policy.md "elb-ssl-security-policy.md").
 
@@ -598,12 +598,12 @@ HTTPS. In this example, the instance port is port 443.
 
 (optional)
 
-ELB regularly checks the health of each registered EC2 instance based on the
-health checks that you configured. If ELB finds an unhealthy instance, it
+Elastic Load Balancing regularly checks the health of each registered EC2 instance based on the
+health checks that you configured. If Elastic Load Balancing finds an unhealthy instance, it
 stops sending traffic to the instance and routes traffic to the healthy
 instances. For more information, see [Health checks for the instances for your Classic Load Balancer](elb-healthchecks.md "elb-healthchecks.md").
 
-When you create your load balancer, ELB uses default settings for the health
+When you create your load balancer, Elastic Load Balancing uses default settings for the health
 checks. If you prefer, you can change the health check configuration for your
 load balancer instead of using the default settings.
 

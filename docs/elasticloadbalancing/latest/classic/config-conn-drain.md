@@ -12,7 +12,7 @@ seconds). When the maximum time limit is reached, the load balancer forcibly clo
 connections to the de-registering instance.
 
 If a de-registering instance has no in-flight requests and no active connections,
-ELB immediately completes the deregistration process.
+Elastic Load Balancing immediately completes the deregistration process.
 
 While in-flight requests are being served, the load balancer reports the state of a
 de-registering instance as `InService: Instance deregistration currently in

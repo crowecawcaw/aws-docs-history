@@ -2,7 +2,7 @@
 
 To enable access logs for your load balancer, you must specify the name of the Amazon S3
 bucket where the load balancer will store the logs. You must also attach a bucket policy
-to this bucket that grants ELB permission to write to the bucket.
+to this bucket that grants Elastic Load Balancing permission to write to the bucket.
 
 ###### Tasks
 
@@ -43,14 +43,14 @@ The bucket must meet the following requirements.
 
 ## Step 2: Attach a policy to your S3 bucket
 
-Your S3 bucket must have a bucket policy that grants ELB permission to write the access
+Your S3 bucket must have a bucket policy that grants Elastic Load Balancing permission to write the access
 logs to the bucket. Bucket policies are a collection of JSON statements written
 in the access policy language to define access permissions for your bucket. Each
 statement includes information about a single permission and contains a series
 of elements.
 
 If you're using an existing bucket that already has an attached policy, you can add the
-statement for ELB access logs to the policy. If you do so, we recommend
+statement for Elastic Load Balancing access logs to the policy. If you do so, we recommend
 that you evaluate the resulting set of permissions to ensure that they are
 appropriate for the users that need access to the bucket for access logs.
 
@@ -113,12 +113,12 @@ arn:aws-us-gov:s3:::amzn-s3-demo-logging-bucket/AWSLogs/123456789012/*
 ```
 
 Previously, for Regions available before August 2022, we required a policy
-that granted permissions to an ELB account that was specific to the Region.
+that granted permissions to an Elastic Load Balancing account that was specific to the Region.
 This legacy policy is still supported, but we recommend that you replace it
 with the newer policy above. If you prefer to keep using the legacy bucket
 policy, which is not shown here, you can.
 
-For reference, here are the IDs of the ELB accounts to
+For reference, here are the IDs of the Elastic Load Balancing accounts to
 specify in `Principal`. Note that Regions that are not in this list
 never supported the legacy bucket policy.
 
@@ -207,7 +207,7 @@ If you specify a prefix, it must not include the string "AWSLogs".
 
 ###### To configure access logs for your load balancer using the AWS CLI
 
-First, create a .json file that enables ELB to capture and deliver logs every 60 minutes to the S3 bucket
+First, create a .json file that enables Elastic Load Balancing to capture and deliver logs every 60 minutes to the S3 bucket
 that you created for the logs:
 
 ```
@@ -247,18 +247,18 @@ The following is an example response.
 
 Be sure to disable access logs before you delete the bucket that you configured
 for access logs. Otherwise, if there is a new bucket with the same name and the
-required bucket policy created in an AWS account that you don't own, ELB
+required bucket policy created in an AWS account that you don't own, Elastic Load Balancing
 could write the access logs for your load balancer to this new bucket.
 
 ## Step 4: Verify bucket permissions
 
-After access logs are enabled for your load balancer, ELB validates the S3 bucket and
+After access logs are enabled for your load balancer, Elastic Load Balancing validates the S3 bucket and
 creates a test file to ensure that the bucket policy specifies the required
 permissions. You can use the S3 console to verify that the test file was created.
 The test file is not an actual access log file; it doesn't contain example
 records.
 
-###### To verify that ELB created a test file in your S3 bucket
+###### To verify that Elastic Load Balancing created a test file in your S3 bucket
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -274,7 +274,7 @@ records.
 
 If you receive this error, the following are possible causes:
 
-- The bucket policy does not grant ELB permission to write access logs to the bucket.
+- The bucket policy does not grant Elastic Load Balancing permission to write access logs to the bucket.
   Verify that you are using the correct bucket policy for the Region.
   Verify that the resource ARN uses the same bucket name that you
   specified when you enabled access logs. Verify that the resource ARN

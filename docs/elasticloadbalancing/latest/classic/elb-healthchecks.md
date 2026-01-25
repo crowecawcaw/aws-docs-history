@@ -13,13 +13,13 @@ load balancer resumes routing requests to the instance when it has been restored
 healthy state.
 
 The load balancer checks the health of the registered instances using either the
-default health check configuration provided by ELB or a health check configuration
+default health check configuration provided by Elastic Load Balancing or a health check configuration
 that you configure.
 
 If you have associated your Auto Scaling group with a Classic Load Balancer, you can use the load balancer
 health check to determine the health state of instances in your Auto Scaling group. By default
 an Auto Scaling group periodically determines the health state of each instance. For more
-information, see [Add ELB health
+information, see [Add Elastic Load Balancing health
 checks to your Auto Scaling group](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ###### Contents

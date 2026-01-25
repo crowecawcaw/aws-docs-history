@@ -2,26 +2,26 @@
 
 ###### Note
 
-Classic Load Balancers are the previous generation of load balancers from ELB. We recommend that
+Classic Load Balancers are the previous generation of load balancers from Elastic Load Balancing. We recommend that
 you migrate to a current generation load balancer. For more information, see [Migrate your Classic Load Balancer](../userguide/migrate-classic-load-balancer.md "../userguide/migrate-classic-load-balancer.md").
 
-ELB automatically distributes your incoming traffic across multiple targets, such as
+Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as
 EC2 instances, containers, and IP addresses, in one or more Availability Zones. It
 monitors the health of its registered targets, and routes traffic only to the healthy
-targets. ELB scales your load balancer as your incoming traffic changes over time. It can
+targets. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time. It can
 automatically scale to the vast majority of workloads.
 
 ## Classic Load Balancer overview
 
 A load balancer distributes incoming application traffic across multiple EC2 instances in
 multiple Availability Zones. This increases the fault tolerance of your applications.
-ELB detects unhealthy instances and routes traffic only to healthy instances.
+Elastic Load Balancing detects unhealthy instances and routes traffic only to healthy instances.
 
 Your load balancer serves as a single point of contact for clients.
 This increases the availability of your application. You can add and remove instances
 from your load balancer as your needs change, without disrupting the overall flow of
-requests to your application. ELB scales your load balancer as traffic to your
-application changes over time. ELB can scale to the vast majority of workloads
+requests to your application. Elastic Load Balancing scales your load balancer as traffic to your
+application changes over time. Elastic Load Balancing can scale to the vast majority of workloads
 automatically.
 
 A _listener_ checks for connection requests from clients, using the
@@ -49,7 +49,7 @@ instances in all enabled Availability Zones, enable _cross-zone load balancing_
 on your load balancer. However, we still recommend that you maintain approximately equivalent
 numbers of instances in each Availability Zone for better fault tolerance.
 
-For more information, see [How ELB works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md")
+For more information, see [How Elastic Load Balancing works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md")
 in the _Elastic Load Balancing User Guide_.
 
 ## Benefits
@@ -60,7 +60,7 @@ Using a Classic Load Balancer instead of an Application Load Balancer has the fo
 - Support for sticky sessions using application-generated cookies
 
 For more information about the features supported by each load balancer type, see
-[Product comparisons](https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons "https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons") for ELB.
+[Product comparisons](https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons "https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons") for Elastic Load Balancing.
 
 ## How to get started
 
@@ -73,4 +73,4 @@ For more information about the features supported by each load balancer type, se
 
 ## Pricing
 
-With your load balancer, you pay only for what you use. For more information, see [ELB Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
+With your load balancer, you pay only for what you use. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").

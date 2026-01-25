@@ -1,6 +1,6 @@
 # SSL negotiation configurations for Classic Load Balancers
 
-ELB uses a Secure Socket Layer (SSL) negotiation configuration, known as a
+Elastic Load Balancing uses a Secure Socket Layer (SSL) negotiation configuration, known as a
 _security policy_, to negotiate SSL connections between a client
 and the load balancer. A security policy is a combination of SSL protocols, SSL ciphers,
 and the Server Order Preference option. For more information about configuring an SSL
@@ -54,7 +54,7 @@ your load balancer is private.
 
 Secure Sockets Layer (SSL) and Transport Layer Security (TLS) are cryptographic
 protocols that are used to encrypt confidential data over insecure networks such as
-the internet. The TLS protocol is a newer version of the SSL protocol. In the ELB
+the internet. The TLS protocol is a newer version of the SSL protocol. In the Elastic Load Balancing
 documentation, we refer to both SSL and TLS protocols as the SSL protocol.
 
 ###### Recommended protocol
@@ -72,7 +72,7 @@ security policies.
 
 ## Server Order Preference
 
-ELB supports the _Server Order Preference_ option for
+Elastic Load Balancing supports the _Server Order Preference_ option for
 negotiating connections between a client and a load balancer. During the SSL
 connection negotiation process, the client and the load balancer present a list of
 ciphers and protocols that they each support, in order of preference. By default,
@@ -94,7 +94,7 @@ Note that a certificate provided by AWS Certificate Manager (ACM) contains an RS
 Therefore, you must include a cipher suite that uses RSA in your security policy if
 you use a certificate provided by ACM; otherwise, the TLS connection fails.
 
-ELB supports the following ciphers for use with Classic Load Balancers. A subset of these
+Elastic Load Balancing supports the following ciphers for use with Classic Load Balancers. A subset of these
 ciphers are used by the predefined SSL policies. All of these ciphers are available
 for use in a custom policy. We recommend that you use only the ciphers included in
 the default security policy (those with an asterisk). Many of the other ciphers are
