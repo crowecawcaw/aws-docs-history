@@ -103,17 +103,13 @@ After July 25, 2024, you can refer to the current status and support timelines i
 
 The following table shows the support status for all existing Amazon EMR releases at time of announcement of the policy, July 25, 2024:
 
-| Releases and supported periods                                                                | Amazon EMR release version        | Initial release date                | Standard support end date | End of support start date | End of life start date |
-| --------------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------- | ------------------------- | ------------------------- | ---------------------- |
-| 7.2.0                                                                                         | July 25, 2024                     | July 24, 2026                       | July 25, 2026             | July 25, 2027             |
-| 7.1.0                                                                                         | April 23, 2024                    | Bridge support until April 30, 2026 | May 1, 2026               | May 1, 2027               |
-| 7.0.0                                                                                         | December 19, 2023                 | Bridge support until April 30, 2026 | May 1, 2026               | May 1, 2027               |
-| 5.36.x and 6.6.x – 6.15.x                                                                     | May 9, 2022 to November 13, 2023  | Bridge support until April 30, 2026 | May 1, 2026               | May 1, 2027               |
-| • 6.x series: 6.5.0 and lower<br>• 5.x series: 5.35.0 and lower<br>• 4.x, 3.x, and 2.x series | January 1, 2013 to March 30, 2022 | Bridge support until April 30, 2026 | May 1, 2026               | May 1, 2027               |
+| Releases and supported periods                                                                                                                                         | Amazon EMR release version       | Initial release date               | Standard support end date | End of support start date | End of life start date |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ---------------------------------- | ------------------------- | ------------------------- | ---------------------- |
+| • 7.0 – 7.2<br>• 6.x series (all versions)<br>• 5.x series (all versions)<br>• 4.x series (all versions)<br>• 3.x series (all versions)<br>• 2.x series (all versions) | January 1, 2013 to July 25, 2024 | Bridge support until July 31, 2026 | August 1, 2026            | August 1, 2027            |
 
 ###### Note
 
-Dates for bridge support have been extended to April 30, 2026, for all releases.
+Dates for bridge support have been extended to July 31, 2026, for all eligible releases.
 
 You can use Apache Spark Upgrade Agent to upgrade your Apache Spark existing applications on EMR on EC2 and EMR Serverless from older EMR versions to latest EMR version. To learn more, see [What is Apache Spark Upgrade Agent for Amazon EMR](spark-upgrades.md "spark-upgrades.md").
 
