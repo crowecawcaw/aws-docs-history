@@ -183,6 +183,40 @@ class KeyspaceWrapper:
   [UpdateTable](../../../goto/boto3/keyspaces-2022-02-10/UpdateTable.md "../../../goto/boto3/keyspaces-2022-02-10/UpdateTable.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples").
+
+```
+    TRY.
+        " Add a new column to track watched movies
+        DATA(lt_add_columns) = VALUE /aws1/cl_kyscolumndefinition=>tt_columndefinitionlist(
+          ( NEW /aws1/cl_kyscolumndefinition( iv_name = 'watched' iv_type = 'boolean' ) )
+        ).
+
+        oo_result = lo_kys->updatetable(
+          iv_keyspacename = iv_keyspace_name
+          iv_tablename = iv_table_name
+          it_addcolumns = lt_add_columns ).
+        MESSAGE 'Table updated successfully.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [UpdateTable](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

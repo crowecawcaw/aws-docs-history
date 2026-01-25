@@ -165,6 +165,35 @@ class KeyspaceWrapper:
   [GetKeyspace](../../../goto/boto3/keyspaces-2022-02-10/GetKeyspace.md "../../../goto/boto3/keyspaces-2022-02-10/GetKeyspace.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples").
+
+```
+    TRY.
+        oo_result = lo_kys->getkeyspace(
+          iv_keyspacename = iv_keyspace_name ).
+        MESSAGE 'Keyspace retrieved successfully.' TYPE 'I'.
+      CATCH /aws1/cx_kysresourcenotfoundex.
+        MESSAGE 'Keyspace does not exist.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetKeyspace](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

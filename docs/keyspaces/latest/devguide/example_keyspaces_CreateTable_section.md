@@ -297,6 +297,59 @@ class KeyspaceWrapper:
   [CreateTable](../../../goto/boto3/keyspaces-2022-02-10/CreateTable.md "../../../goto/boto3/keyspaces-2022-02-10/CreateTable.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kys#code-examples").
+
+```
+    TRY.
+        " Define schema with columns
+        DATA(lt_columns) = VALUE /aws1/cl_kyscolumndefinition=>tt_columndefinitionlist(
+          ( NEW /aws1/cl_kyscolumndefinition( iv_name = 'title' iv_type = 'text' ) )
+          ( NEW /aws1/cl_kyscolumndefinition( iv_name = 'year' iv_type = 'int' ) )
+          ( NEW /aws1/cl_kyscolumndefinition( iv_name = 'release_date' iv_type = 'timestamp' ) )
+          ( NEW /aws1/cl_kyscolumndefinition( iv_name = 'plot' iv_type = 'text' ) )
+        ).
+
+        " Define partition keys
+        DATA(lt_partition_keys) = VALUE /aws1/cl_kyspartitionkey=>tt_partitionkeylist(
+          ( NEW /aws1/cl_kyspartitionkey( iv_name = 'year' ) )
+          ( NEW /aws1/cl_kyspartitionkey( iv_name = 'title' ) )
+        ).
+
+        " Create schema definition
+        DATA(lo_schema) = NEW /aws1/cl_kysschemadefinition(
+          it_allcolumns = lt_columns
+          it_partitionkeys = lt_partition_keys ).
+
+        " Enable point-in-time recovery
+        DATA(lo_pitr) = NEW /aws1/cl_kyspointintimerec(
+          iv_status = 'ENABLED' ).
+
+        oo_result = lo_kys->createtable(
+          iv_keyspacename = iv_keyspace_name
+          iv_tablename = iv_table_name
+          io_schemadefinition = lo_schema
+          io_pointintimerecovery = lo_pitr ).
+        MESSAGE 'Table created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateTable](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
