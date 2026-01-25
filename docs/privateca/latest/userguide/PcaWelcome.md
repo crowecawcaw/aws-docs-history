@@ -147,7 +147,7 @@ includes certificates that you export from ACM and certificates that you create 
 the AWS Private CA API or AWS Private CA CLI. You are not charged for a private CA after it has
 been deleted. However, if you restore a private CA, you are charged for the time between
 deletion and restoration. Private certificates whose private key you cannot access are
-free. These include certificates that are used with [Integrated Services](../../../acm/latest/userguide/acm-services.md "../../../acm/latest/userguide/acm-services.md") such as ELB, CloudFront,
+free. These include certificates that are used with [Integrated Services](../../../acm/latest/userguide/acm-services.md "../../../acm/latest/userguide/acm-services.md") such as Elastic Load Balancing, CloudFront,
 and API Gateway.
 
 For the latest AWS Private CA pricing information, see [AWS Private Certificate Authority Pricing](https://aws.amazon.com/private-ca/pricing/ "https://aws.amazon.com/private-ca/pricing/"). You can also use the [AWS pricing

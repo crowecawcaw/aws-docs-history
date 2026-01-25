@@ -8,10 +8,10 @@ endpoints for TLS-secured communications.
 
 1. **Termination at the load balancer**
 
-Elastic Load Balancing (ELB) is integrated with the AWS Certificate Manager service. You don't need to
+Elastic Load Balancing (Elastic Load Balancing) is integrated with the AWS Certificate Manager service. You don't need to
 install `cert-manager` on the load balancer. You can provision ACM with
 a private CA, sign a certificate with the private CA, and install the certificate
-using the ELB console. AWS Private CA certificates are automatically renewed.
+using the Elastic Load Balancing console. AWS Private CA certificates are automatically renewed.
 
 As an alternative, you can provide a private certificate to a non-AWS load
 balancer to terminate TLS.
