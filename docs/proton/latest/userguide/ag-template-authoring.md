@@ -55,7 +55,7 @@ The following diagram shows an example of steps that you can take to create a _t
 ![Red circle with the number 1 inside, typically used as a notification icon.](images/label-one.png)
 Identify [input parameters](parameters.md "parameters.md").
 
-![Number 2 icon in a pink circle.](images/label-two.png)
+![Number 2 icon in a pink circle.](/images/proton/latest/userguide/images/label-two.png)
 Create a [schema file](ag-schema.md "ag-schema.md") to define your input parameters.
 
 ![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)

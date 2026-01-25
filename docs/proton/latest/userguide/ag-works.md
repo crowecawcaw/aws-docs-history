@@ -17,7 +17,7 @@ parameters_.
 ![Number 2 icon in a pink circle.](images/label-two.png)
 AWS Proton uses the environment template and parameter values to provision your environment.
 
-![Pink square icon with a white exclamation mark inside a circle.](images/label-three.png)
+![Pink square icon with a white exclamation mark inside a circle.](/images/proton/latest/userguide/images/label-three.png)
 When you, as a developer or administrator, select a service template with AWS Proton, you provide values for required input parameters.
 You also select an environment to deploy your application or service to.
 
