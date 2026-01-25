@@ -16,7 +16,7 @@ A tag is a label that you assign to an AWS resource. Each tag consists of a key 
 After tagging your resources, you can apply specific security restrictions, such as access control (as seen in the following example policy), based on tag values.
 
 ```
-             {
+            {
                 "Version":"2012-10-17",
                 "Statement": [
                     {

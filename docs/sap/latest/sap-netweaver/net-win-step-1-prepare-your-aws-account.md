@@ -10,7 +10,7 @@ In this example, we step through setting up a sample environment for the install
       2. Display the AWS CLI configuration data:
 
       ```
-        $ aws configure list
+       $ aws configure list
       ```
 
       In the command output, make sure that the default Region that’s listed is the same as the target Region where you want to deploy your AWS resources and install SAP NetWeaver.
@@ -52,7 +52,7 @@ In this example, we step through setting up a sample environment for the install
   Make sure that you choose one of the [Amazon EC2 Instance Types for SAP](https://aws.amazon.com/sap/instance-types/ "https://aws.amazon.com/sap/instance-types/"). Sample AWS CLI syntax is given below.
 
   ```
-   $ aws ec2 run-instances \
+  $ aws ec2 run-instances \
   --image-id <AMI-ID> \
   --monitoring Enabled=true \
   --count <number-of-EC2-instances> \
@@ -66,7 +66,7 @@ In this example, we step through setting up a sample environment for the install
   This example enables detailed monitoring (data is available in 1-minute periods for an additional cost) which is a support prerequisite for SAP workloads on Amazon EC2.
 
   ```
-   $ aws ec2 run-instances \
+  $ aws ec2 run-instances \
   --image-id ami-012345678901234ab \
   --monitoring Enabled=true \
   --count 1 \

@@ -28,13 +28,13 @@ Install the ASCS instance on `<instance_id_1>` using virtual hostname `<ascs_vir
 _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
- # <swpm location>/sapinst SAPINST_USE_HOSTNAME=<ascs_virt_hostname>
+# <swpm location>/sapinst SAPINST_USE_HOSTNAME=<ascs_virt_hostname>
 ```
 
 Install the ERS instance on `<instance_id_2>` using virtual hostname `<ers_virt_hostname>` with the `SAPINST_USE_HOSTNAME` parameter. This ensures the installation uses the overlay IP rather than the physical hostname:
 
 ```
- # <swpm location>/sapinst SAPINST_USE_HOSTNAME=<ers_virt_hostname>
+# <swpm location>/sapinst SAPINST_USE_HOSTNAME=<ers_virt_hostname>
 ```
 
 Once the ASCS and ERS installations are complete, you will need to install and configure the database and SAP Primary Application Server (PAS) - these components are not covered in this cluster setup documentation. Optionally, you can also install and configure Additional Application Server (AAS). For more details on installing these SAP NetWeaver components, refer to SAP Help Portal.
@@ -57,5 +57,5 @@ This is applicable to both cluster nodes. The SAP host agent is used for system 
 Use the following command to check the version of the host agent:
 
 ```
- # /usr/sap/hostctrl/exe/saphostexec -version
+# /usr/sap/hostctrl/exe/saphostexec -version
 ```

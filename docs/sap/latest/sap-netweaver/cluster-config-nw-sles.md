@@ -24,13 +24,13 @@ To ensure that the cluster does not perform unexpected actions during setup of r
 Run the following command to put the cluster in maintenance mode:
 
 ```
- # crm maintenance on
+# crm maintenance on
 ```
 
 To verify the current maintenance state:
 
 ```
- # crm status
+# crm status
 ```
 
 ###### Note
@@ -44,7 +44,7 @@ There are two types of maintenance mode:
 To disable maintenance mode after configuration is complete:
 
 ```
- # crm maintenance off
+# crm maintenance off
 ```
 
 ## Cluster Bootstrap
@@ -54,7 +54,7 @@ To disable maintenance mode after configuration is complete:
 Configure cluster properties to establish fencing behavior and resource failover settings:
 
 ```
- # crm configure property stonith-enabled="true"
+# crm configure property stonith-enabled="true"
 # crm configure property stonith-timeout="600"
 # crm configure property priority-fencing-delay="20"
 ```
@@ -64,7 +64,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 To verify your cluster property settings:
 
 ```
- # crm configure show property
+# crm configure show property
 ```
 
 ### Configure Resource Defaults
@@ -72,7 +72,7 @@ To verify your cluster property settings:
 Configure resource default behaviors:
 
 ```
- # crm configure rsc_defaults resource-stickiness="1"
+# crm configure rsc_defaults resource-stickiness="1"
 # crm configure rsc_defaults migration-threshold="3"
 # crm configure rsc_defaults failure-timeout="600s"
 ```
@@ -86,7 +86,7 @@ Individual resources may override these defaults with their own defined values.
 To verify your resource default settings:
 
 ```
- # crm configure show rsc_defaults
+# crm configure show rsc_defaults
 ```
 
 ### Configure Operation Defaults
@@ -94,7 +94,7 @@ To verify your resource default settings:
 Configure operation timeout defaults:
 
 ```
- # crm configure op_defaults timeout="600"
+# crm configure op_defaults timeout="600"
 ```
 
 - The **op_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
@@ -102,7 +102,7 @@ Configure operation timeout defaults:
 To verify your operation default settings:
 
 ```
- # crm configure show op_defaults
+# crm configure show op_defaults
 ```
 
 ## Create STONITH (external/ec2) resource
@@ -110,7 +110,7 @@ To verify your operation default settings:
 Create the STONITH or Fencing resource using resource agent **`external/ec2`**:
 
 ```
- # crm configure primitive <stonith_resource_name> stonith:external/ec2 \
+# crm configure primitive <stonith_resource_name> stonith:external/ec2 \
 params tag="<cluster_tag>" profile="<cli_cluster_profile>" pcmk_delay_max="<delay_value>" \
 op start interval="0" timeout="180" \
 op stop interval="0" timeout="180" \
@@ -128,7 +128,7 @@ ENSA1
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive res_stonith_ec2 stonith:external/ec2 \
+# crm configure primitive res_stonith_ec2 stonith:external/ec2 \
 params tag="pacemaker" profile="cluster" \
 pcmk_delay_max="30" \
 op start interval="0" timeout="180" \
@@ -141,7 +141,7 @@ ENSA2
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive res_stonith_ec2 stonith:external/ec2 \
+# crm configure primitive res_stonith_ec2 stonith:external/ec2 \
 params tag="pacemaker" profile="cluster" \
 pcmk_delay_max="10" \
 op start interval="0" timeout="180" \
@@ -156,7 +156,7 @@ In classic configuration, the mounting and unmounting of file system resources t
 Create **ASCS** file system resources:
 
 ```
- # crm configure primitive rsc_fs_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:Filesystem \
+# crm configure primitive rsc_fs_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:Filesystem \
 params \
 device="<nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr>" \
 directory="/usr/sap/<SID>/ASCS<ascs_sys_nr>" \
@@ -170,7 +170,7 @@ op monitor interval="20" timeout="40"
 Create **ERS** file system resources:
 
 ```
- # crm configure primitive rsc_fs_<SID>_ERS<ers_sys_nr> ocf:heartbeat:Filesystem \
+# crm configure primitive rsc_fs_<SID>_ERS<ers_sys_nr> ocf:heartbeat:Filesystem \
 params \
 device="<nfs.fqdn>:/<SID>_ERS<ers_sys_nr>" \
 directory="/usr/sap/<SID>/ERS<ers_sys_nr>" \
@@ -184,7 +184,7 @@ op monitor interval="20" timeout="40"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive rsc_fs_SLX_ASCS00 ocf:heartbeat:Filesystem \
+# crm configure primitive rsc_fs_SLX_ASCS00 ocf:heartbeat:Filesystem \
 params \
 device="fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/SLX_ASCS00" \
 directory="/usr/sap/SLX/ASCS00" \
@@ -217,7 +217,7 @@ The IP resource provides the details necessary to update the route table entry f
 Create **ASCS** IP Resource:
 
 ```
- # crm configure primitive rsc_ip_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 params \
 ip="<ascs_overlayip>" \
 routing_table="<routetable_id>" \
@@ -231,7 +231,7 @@ op monitor interval="20" timeout="40"
 Create **ERS** IP Resource:
 
 ```
- # crm configure primitive rsc_ip_<SID>_ERS<ers_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_<SID>_ERS<ers_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 params \
 ip="<ers_overlayip>" \
 routing_table="<routetable_id>" \
@@ -245,7 +245,7 @@ op monitor interval="20" timeout="40"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive rsc_ip_SLX_ASCS00 ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_SLX_ASCS00 ocf:heartbeat:aws-vpc-move-ip \
 params \
 ip="172.16.30.5" \
 routing_table="rtb-xxxxxroutetable1" \
@@ -282,7 +282,7 @@ Create **ASCS** SAPStartSrv Resource
 Use the following command to create an ASCS SAPStartSrv resource.
 
 ```
- # crm configure primitive rsc_sapstart_<SID>_ASCS<ascs_sys_nr> ocf:suse:SAPStartSrv \
+# crm configure primitive rsc_sapstart_<SID>_ASCS<ascs_sys_nr> ocf:suse:SAPStartSrv \
 params \
 InstanceName=<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>
 ```
@@ -292,7 +292,7 @@ Create **ERS** SAPStartSrv Resource
 Use the following command to create an ERS SAPStartSrv resource.
 
 ```
- # crm configure primitive rsc_sapstart_<SID>_ERS<ers_sys_nr> ocf:suse:SAPStartSrv \
+# crm configure primitive rsc_sapstart_<SID>_ERS<ers_sys_nr> ocf:suse:SAPStartSrv \
 params  \
 InstanceName=<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>
 ```
@@ -300,7 +300,7 @@ InstanceName=<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- #crm configure primitive rsc_sapstart_SLX_ASCS00 ocf:suse:SAPStartSrv \
+#crm configure primitive rsc_sapstart_SLX_ASCS00 ocf:suse:SAPStartSrv \
 params \
 InstanceName=SLX_ASCS00_slxascs
 
@@ -319,7 +319,7 @@ ENSA1
 Create an **ASCS** SAP instance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
@@ -339,7 +339,7 @@ priority="10"
 Create an **ERS** SAP instance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
@@ -357,7 +357,7 @@ priority="1000"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
 params \
 InstanceName="SLX_ASCS00_slxascs" \
 START_PROFILE="/usr/sap/SLX/SYS/profile/SLX_ASCS00_slxascs" \
@@ -392,7 +392,7 @@ ENSA2
 Create an **ASCS** SAP instance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
@@ -410,7 +410,7 @@ priority="1000"
 Create an **ERS** SAP instance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
@@ -426,7 +426,7 @@ op monitor interval="11" timeout="60" on-fail="restart"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
 params \
 InstanceName="SLX_ASCS00_slxascs" \
 START_PROFILE="/usr/sap/SLX/SYS/profile/SLX_ASCS00_slxascs" \
@@ -463,7 +463,7 @@ ENSA1
 Create an **ASCS** SAPInstance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
@@ -482,7 +482,7 @@ priority="10"
 Create an **ERS** SAPInstance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
@@ -499,7 +499,7 @@ priority="1000"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
 params \
 InstanceName="SLX_ASCS00_slxascs" \
 START_PROFILE="/usr/sap/SLX/SYS/profile/SLX_ASCS00_slxascs" \
@@ -532,7 +532,7 @@ ENSA2
 Create an **ASCS** SAPInstance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ASCS<ascs_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ASCS<ascs_sys_nr>_<ascs_virt_hostname>" \
@@ -549,7 +549,7 @@ priority="1000"
 Create an **ERS** SAPInstance resource:
 
 ```
- # crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_<SID>_ERS<ers_sys_nr> ocf:heartbeat:SAPInstance \
 params \
 InstanceName="<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
 START_PROFILE="/usr/sap/<SID>/SYS/profile/<SID>_ERS<ers_sys_nr>_<ers_virt_hostname>" \
@@ -564,7 +564,7 @@ op monitor interval="11" timeout="60" on-fail="restart"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
+# crm configure primitive rsc_sap_SLX_ASCS00 ocf:heartbeat:SAPInstance \
 params \
 InstanceName="SLX_ASCS00_slxascs" \
 START_PROFILE="/usr/sap/SLX/SYS/profile/SLX_ASCS00_slxascs" \
@@ -600,7 +600,7 @@ In simple-mount architecture, the overlay IP must be available first, then the S
 Create an **ASCS** cluster resource group:
 
 ```
- # crm configure group grp_<SID>_ASCS<ascs_sys_nr> \
+# crm configure group grp_<SID>_ASCS<ascs_sys_nr> \
 rsc_ip_<SID>_ASCS<ascs_sys_nr> \
 rsc_sapstart_<SID>_ASCS<ascs_sys_nr> \
 rsc_sap_<SID>_ASCS<ascs_sys_nr> \
@@ -610,7 +610,7 @@ meta resource-stickiness="3000"
 Create an **ERS** cluster resource group:
 
 ```
- # crm configure group grp_<SID>_ERS<ers_sys_nr> \
+# crm configure group grp_<SID>_ERS<ers_sys_nr> \
 rsc_ip_<SID>_ERS<ers_sys_nr> \
 rsc_sapstart_<SID>_ERS<ers_sys_nr> \
 rsc_sap_<SID>_ERS<ers_sys_nr>
@@ -619,7 +619,7 @@ rsc_sap_<SID>_ERS<ers_sys_nr>
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure group grp_SLX_ASCS00 \
+# crm configure group grp_SLX_ASCS00 \
 rsc_ip_SLX_ASCS00 \
 rsc_sapstart_SLX_ASCS00 \
 rsc_sap_SLX_ASCS00 \
@@ -640,7 +640,7 @@ In classic architecture, the file system is mounted first, then the overlay IP m
 Create an **ASCS** cluster resource group:
 
 ```
- # crm configure group grp_<SID>_ASCS<ascs_sys_nr> \
+# crm configure group grp_<SID>_ASCS<ascs_sys_nr> \
 rsc_fs_<SID>_ASCS<ascs_sys_nr> \
 rsc_ip_<SID>_ASCS<ascs_sys_nr> \
 rsc_sap_<SID>_ASCS<ascs_sys_nr> \
@@ -650,7 +650,7 @@ meta resource-stickiness="3000"
 Create an **ERS** cluster resource group:
 
 ```
- # crm configure group grp_<SID>_ERS<ers_sys_nr> \
+# crm configure group grp_<SID>_ERS<ers_sys_nr> \
 rsc_fs_<SID>_ERS<ers_sys_nr> \
 rsc_ip_<SID>_ERS<ers_sys_nr> \
 rsc_sap_<SID>_ERS<ers_sys_nr>
@@ -659,7 +659,7 @@ rsc_sap_<SID>_ERS<ers_sys_nr>
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure group grp_SLX_ASCS00 \
+# crm configure group grp_SLX_ASCS00 \
 rsc_fs_SLX_ASCS00 \
 rsc_ip_SLX_ASCS00 \
 rsc_sap_SLX_ASCS00 \
@@ -680,14 +680,14 @@ Resource constraints are used to determine where resources run per the condition
 The negative score ensures that ASCS and ERS are run on separate nodes, wherever possible.
 
 ```
- # crm configure colocation col_sap_<SID>_ascs_ers_separate_nodes \
+# crm configure colocation col_sap_<SID>_ascs_ers_separate_nodes \
 -5000: grp_<SID>_ERS<ers_sys_nr> grp_<SID>_ASCS<ascs_sys_nr>
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure colocation col_sap_SLX_ascs_ers_separate_nodes \
+# crm configure colocation col_sap_SLX_ascs_ers_separate_nodes \
 -5000: grp_SLX_ERS10 grp_SLX_ASCS00
 ```
 
@@ -696,7 +696,7 @@ The negative score ensures that ASCS and ERS are run on separate nodes, wherever
 This constraint ensures the ASCS instance is started prior to stopping the ERS instance. This is necessary to consume the lock table.
 
 ```
- # crm configure order ord_sap_<SID>_ascs_start_before_ers_stop \
+# crm configure order ord_sap_<SID>_ascs_start_before_ers_stop \
 Optional: rsc_sap_<SID>_ASCS<ascs_sys_nr>:start rsc_sap_<SID>_ERS<ers_sys_nr>:stop \
 symmetrical="false"
 ```
@@ -704,7 +704,7 @@ symmetrical="false"
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure order ord_sap_SLX_ascs_start_before_ers_stop \
+# crm configure order ord_sap_SLX_ascs_start_before_ers_stop \
 Optional: rsc_sap_SLX_ASCS00:start rsc_sap_SLX_ERS10:stop \
 symmetrical="false"
 ```
@@ -714,14 +714,14 @@ symmetrical="false"
 This constraint is only required for ENSA1. The lock table can be retrieved remotely for ENSA2, and as a result ASCS doesn’t failover to where ERS is running.
 
 ```
- # crm configure location loc_sap_<SID>_ascs_follows_ers \
+# crm configure location loc_sap_<SID>_ascs_follows_ers \
 rsc_sap_<SID>_ASCS<ascs_sys_nr> rule 2000: runs_ers_<SID> eq 1
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm configure location loc_sap_SLX_ascs_follows_ers \
+# crm configure location loc_sap_SLX_ascs_follows_ers \
 rsc_sap_SLX_ASCS00 rule 2000: runs_ers_SLX eq 1
 ```
 
@@ -734,13 +734,13 @@ The following instructions help you reset the complete configuration. Run these 
 Run the following command to back up the current configuration for reference:
 
 ```
- # crm config show > /tmp/crmconfig_backup.txt
+# crm config show > /tmp/crmconfig_backup.txt
 ```
 
 Run the following command to clear the current configuration:
 
 ```
- # crm configure erase
+# crm configure erase
 ```
 
 Once the preceding erase command is executed, it removes all of the cluster resources from Cluster Information Base (CIB), and disconnects the communication from corosync to the cluster. Before starting the resource configuration run crm cluster restart, so that cluster reestablishes communication with corosync, and retrieves the configuration. The restart of cluster removes maintenance mode. Reapply before commencing additional configuration and resource setup.

@@ -18,22 +18,22 @@ On
 Use one of the following commands to turn on maintenance mode.
 
 ```
- # pcs property set maintenance-mode=true
+# pcs property set maintenance-mode=true
 ```
 
 ```
- # pcs cluster maintenance --all
+# pcs cluster maintenance --all
 ```
 
 Off
 Use one of the following commands to turn off maintenance mode.
 
 ```
- # pcs property set maintenance-mode=false
+# pcs property set maintenance-mode=false
 ```
 
 ```
- # pcs cluster maintenance --all --wait=60
+# pcs cluster maintenance --all --wait=60
 ```
 
 ## Placing a node in standby mode
@@ -41,7 +41,7 @@ Use one of the following commands to turn off maintenance mode.
 To perform maintenance on the cluster without system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
 ```
- # pcs node standby <hostname>
+# pcs node standby <hostname>
 ```
 
 The cluster will cleanly relocate resources, and you can perform activities, including reboots on the node in standby mode. When maintenance activities are complete, you can re-introduce the node with the following command.
@@ -55,7 +55,7 @@ The cluster will cleanly relocate resources, and you can perform activities, inc
 Moving individual resources is not recommended because of the migration or move constraints that are created to lock the resource in its new location. These can be cleared as described in the info messages, but this introduces an additional setup.
 
 ```
- <rhxhost01>:~ pcs resource move grp_<RHX>_ASCS<00> <rhxhost02>
+<rhxhost01>:~ pcs resource move grp_<RHX>_ASCS<00> <rhxhost02>
 Location constraint to move resource 'grp_<RHX>_ASCS<00>' has been created
 Run 'pcs resource clear grp_<RHX>_ASCS<00>' to remove this constraint
 ```
@@ -63,5 +63,5 @@ Run 'pcs resource clear grp_<RHX>_ASCS<00>' to remove this constraint
 Use the following command once the resources have relocated to their target location.
 
 ```
- # pcs resource clear grp_RHX_ASCS00
+# pcs resource clear grp_RHX_ASCS00
 ```

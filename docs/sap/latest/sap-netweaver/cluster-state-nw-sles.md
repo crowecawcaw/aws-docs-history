@@ -12,13 +12,13 @@ You can view the state of the cluster in two ways - based on your operating syst
 There are multiple operating system commands that can be run as root or as a user with appropriate permissions. The commands enable you to get an overview of the status of the cluster and its services. See the following commands for more details.
 
 ```
- # crm status
+# crm status
 ```
 
 Sample output:
 
 ```
- slxhost01:~ # crm status
+slxhost01:~ # crm status
 Cluster Summary:
   * Stack: corosync
   * Current DC: slxhost01 (version 2.0.5+20201202.ba59be712-150300.4.24.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -57,7 +57,7 @@ The following table provides a list of useful commands.
 Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2.
 
 ```
- # systemctl enable --now hawk
+# systemctl enable --now hawk
 # systemctl status hawk
 ```
 

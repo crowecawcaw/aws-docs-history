@@ -52,7 +52,7 @@ Using the NFS ID created in the previous step, temporarily mount the root direct
 The following commands use the NFS location names from the table above. Replace `<SID>_sapmnt`, `<SID>_ASCS<ascs_sys_nr>`, and `<SID>_ERS<ers_sys_nr>` with your chosen NFS location names and parameter values.
 
 ```
- # mount <nfs.fqdn>:/ /mnt
+# mount <nfs.fqdn>:/ /mnt
 # mkdir -p /mnt/<SID>_sapmnt
 # mkdir -p /mnt/<SID>_ASCS<ascs_sys_nr>
 # mkdir -p /mnt/<SID>_ERS<ers_sys_nr>
@@ -61,7 +61,7 @@ The following commands use the NFS location names from the table above. Replace 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
- # mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/ /mnt
+# mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/ /mnt
 # mkdir -p /mnt/RHX_sapmnt
 # mkdir -p /mnt/RHX_ASCS00
 # mkdir -p /mnt/RHX_ERS10
@@ -70,13 +70,13 @@ The following commands use the NFS location names from the table above. Replace 
 During SAP installation, the `<sid>adm` user and proper directory ownership will be created. Until then, we need to ensure the installation process has sufficient access. Set temporary permissions on the directories:
 
 ```
- # chmod 777 /mnt/<SID>_sapmnt /mnt/<SID>_ASCS<ascs_sys_nr> /mnt/<SID>_ERS<ers_sys_nr>
+# chmod 777 /mnt/<SID>_sapmnt /mnt/<SID>_ASCS<ascs_sys_nr> /mnt/<SID>_ERS<ers_sys_nr>
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
- # chmod 777 /mnt/RHX_sapmnt /mnt/RHX_ASCS00 /mnt/RHX_ERS10
+# chmod 777 /mnt/RHX_sapmnt /mnt/RHX_ASCS00 /mnt/RHX_ERS10
 ```
 
 The SAP installation process will automatically set the correct ownership and permissions for operational use.
@@ -84,7 +84,7 @@ The SAP installation process will automatically set the correct ownership and pe
 Unmount the temporary mount:
 
 ```
- # umount /mnt
+# umount /mnt
 ```
 
 ## Create mount point directories
@@ -92,7 +92,7 @@ Unmount the temporary mount:
 This is applicable to both cluster nodes. Create the directories for the required mount points (permanent or cluster controlled):
 
 ```
- # mkdir /sapmnt
+# mkdir /sapmnt
 # mkdir /usr/sap/<SID>/ASCS<ascs_sys_nr>
 # mkdir /usr/sap/<SID>/ERS<ers_sys_nr>
 ```
@@ -100,7 +100,7 @@ This is applicable to both cluster nodes. Create the directories for the require
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
- # mkdir /sapmnt
+# mkdir /sapmnt
 # mkdir /usr/sap/RHX/ASCS00
 # mkdir /usr/sap/RHX/ERS10
 ```
@@ -114,20 +114,20 @@ Add the file systems not managed by the cluster to `/etc/fstab`.
 For both **simple-mount** and **classic** architectures, prepare and append an entry for the `sapmnt` file system to `/etc/fstab`:
 
 ```
- <nfs.fqdn>/<SID>_sapmnt    /sapmnt    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
+<nfs.fqdn>/<SID>_sapmnt    /sapmnt    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 ```
 
 **Simple-mount only** – prepare and append entries for the ASCS and ERS file systems to `/etc/fstab`:
 
 ```
- <nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr>   /usr/sap/<SID>/ASCS<ascs_sys_nr>  nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
+<nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr>   /usr/sap/<SID>/ASCS<ascs_sys_nr>  nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>     /usr/sap/<SID>/ERS<ers_sys_nr>    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
- fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_sapmnt    /sapmnt               nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
+fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_sapmnt    /sapmnt               nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_ASCS00    /usr/sap/RHX/ASCS00   nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_ERS10     /usr/sap/RHX/ERS10    nfs    nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport    0    0
 ```
@@ -143,13 +143,13 @@ Consult SAP and AWS documentation for the latest mount option recommendations.
 Use the following command to mount the file systems defined in `/etc/fstab`:
 
 ```
- # mount -a
+# mount -a
 ```
 
 Use the following command to check that the required file systems are available:
 
 ```
- # df -h
+# df -h
 ```
 
 ## Temporarily mount ASCS and ERS directories for installation (classic only)
@@ -161,18 +161,18 @@ Mount ASCS and ERS directories for installation.
 Use the following command on the instance where you plan to install ASCS:
 
 ```
- # mount <nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr>  /usr/sap/<SID>/ASCS<ascs_sys_nr>
+# mount <nfs.fqdn>:/<SID>_ASCS<ascs_sys_nr>  /usr/sap/<SID>/ASCS<ascs_sys_nr>
 ```
 
 Use the following command on the instance where you plan to install ERS:
 
 ```
- # mount <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>  /usr/sap/<SID>/ERS<ers_sys_nr>
+# mount <nfs.fqdn>:/<SID>_ERS<ers_sys_nr>  /usr/sap/<SID>/ERS<ers_sys_nr>
 ```
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
 
 ```
- # mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_ASCS00  /usr/sap/RHX/ASCS00
+# mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_ASCS00  /usr/sap/RHX/ASCS00
 # mount fs-xxxxxxxxxxxxxefs1.efs.us-east-1.amazonaws.com:/RHX_ERS10   /usr/sap/RHX/ERS10
 ```

@@ -17,7 +17,7 @@ Establish cluster communication between nodes using Corosync and configure requi
 On all cluster nodes, change the password of the operating system user hacluster:
 
 ```
- # passwd hacluster
+# passwd hacluster
 ```
 
 ## Setup Passwordless Authentication
@@ -29,14 +29,14 @@ EC2 instances typically have no root password set. Use the shared `/sapmnt` file
 **On the primary node (<hostname1>):**
 
 ```
- # ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
+# ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
 # cp /root/.ssh/id_rsa.pub /sapmnt/node1_key.pub
 ```
 
 **On the secondary node (<hostname2>):**
 
 ```
- # ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
+# ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
 # cp /root/.ssh/id_rsa.pub /sapmnt/node2_key.pub
 # cat /sapmnt/node1_key.pub >> /root/.ssh/authorized_keys
 # chmod 600 /root/.ssh/authorized_keys
@@ -45,20 +45,20 @@ EC2 instances typically have no root password set. Use the shared `/sapmnt` file
 **Back on the primary node (<hostname1>):**
 
 ```
- # cat /sapmnt/node2_key.pub >> /root/.ssh/authorized_keys
+# cat /sapmnt/node2_key.pub >> /root/.ssh/authorized_keys
 # chmod 600 /root/.ssh/authorized_keys
 ```
 
 **Test connectivity from both nodes:**
 
 ```
- # ssh root@<opposite_hostname> 'hostname'
+# ssh root@<opposite_hostname> 'hostname'
 ```
 
 **Clean up temporary files (from either node):**
 
 ```
- # rm /sapmnt/node1_key.pub /sapmnt/node2_key.pub
+# rm /sapmnt/node1_key.pub /sapmnt/node2_key.pub
 ```
 
 An alternative is to review the SUSE Dcoumentation for [Running cluster reports without root access](https://documentation.suse.com/sle-ha/15-SP7/html/SLE-HA-all/app-crmreport-nonroot.html "https://documentation.suse.com/sle-ha/15-SP7/html/SLE-HA-all/app-crmreport-nonroot.html")
@@ -74,13 +74,13 @@ Initialize the cluster framework on the first node to recognise both cluster nod
 On the primary node as root, run:
 
 ```
- # crm cluster init -u -n <cluster_name> -N <hostname_1> <hostname_2>
+# crm cluster init -u -n <cluster_name> -N <hostname_1> <hostname_2>
 ```
 
 _Example using values from [Parameter Reference](sap-nw-pacemaker-sles-parameters.md "sap-nw-pacemaker-sles-parameters.md")_:
 
 ```
- # crm cluster init -u -y -n slx-sap-cluster -N slxhost01 -N slxhost02
+# crm cluster init -u -y -n slx-sap-cluster -N slxhost01 -N slxhost02
 INFO: Detected "amazon-web-services" platform
 INFO: Loading "default" profile from /etc/crm/profiles.yml
 INFO: "amazon-web-services" profile does not exist in /etc/crm/profiles.yml
@@ -137,13 +137,13 @@ After initializing the cluster, the generated corosync configuration requires so
 **1. Edit the corosync configuration:**
 
 ```
- # vi /etc/corosync/corosync.conf
+# vi /etc/corosync/corosync.conf
 ```
 
 The generated file typically looks like this:
 
 ```
- # Please read the corosync.conf.5 manual page
+# Please read the corosync.conf.5 manual page
 totem {
         version: 2
         cluster_name: myCluster
@@ -212,7 +212,7 @@ totem {
 **2. Modify the configuration to add the second ring and optimize settings:**
 
 ```
- totem {
+totem {
     token: 15000           # Changed from 5000 to 15000
     rrp_mode: passive      # Added for dual ring support
 }
@@ -241,13 +241,13 @@ _Example IP configuration:_
 **3. Synchronize the modified configuration to all nodes:**
 
 ```
- # csync2 -xvF /etc/corosync/corosync.conf
+# csync2 -xvF /etc/corosync/corosync.conf
 ```
 
 **4. Restart the cluster**
 
 ```
- # crm cluster restart
+# crm cluster restart
 # ssh root@<hostname2> 'crm cluster restart'
 ```
 
@@ -256,13 +256,13 @@ _Example IP configuration:_
 Verify network rings are active:
 
 ```
- # corosync-cfgtool -s
+# corosync-cfgtool -s
 ```
 
 _Example output_:
 
 ```
- Printing ring status.
+Printing ring status.
 Local node ID 1
 RING ID 0
         id      = 10.2.10.1
@@ -279,7 +279,7 @@ Both network rings should report "active with no faults". If either ring is miss
 Enable pacemaker to start automatically after reboot:
 
 ```
- # systemctl enable pacemaker
+# systemctl enable pacemaker
 ```
 
 Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead.
@@ -289,19 +289,19 @@ Enabling pacemaker also handles corosync through service dependencies. The clust
 **1. Check pacemaker service status:**
 
 ```
- # systemctl status pacemaker
+# systemctl status pacemaker
 ```
 
 **2. Verify cluster status:**
 
 ```
- # crm_mon -1
+# crm_mon -1
 ```
 
 _Example output_:
 
 ```
- Cluster Summary:
+Cluster Summary:
   * Stack: corosync
   * Current DC: slxhost01 (version 2.1.5+20221208.a3f44794f) - partition with quorum
   * 2 nodes configured
