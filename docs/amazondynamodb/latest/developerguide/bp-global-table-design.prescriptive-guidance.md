@@ -1,181 +1,163 @@
-# Preparation
+# Routing
 
-checklist for DynamoDB global tables
+strategies in DynamoDB
 
-Use the following checklist for decisions and tasks when you deploy global tables.
+Perhaps the most complex piece of a global table deployment is managing request routing.
+Requests must first go from an end user to a Region that’s chosen and routed in some manner.
+The request encounters some stack of services in that Region, including a compute layer that
+perhaps consists of a load balancer backed by an AWS Lambdafunction, container, or Amazon Elastic Compute Cloud
+(Amazon EC2) node, and possibly other services including another database. That compute layer
+communicates with DynamoDB It should do that by using the local endpoint for that Region. The
+data in the global table replicates to all other participating Regions, and each Region has a
+similar stack of services around its DynamoDB table.
 
-- Determine if your use case benefits more from an MRSC or MREC consistency mode. Do you
-  need strong consistency, even with the higher latency and other tradeoffs?
-- Determine how many and which Regions should participate in the global table. If you plan to
-  use MRSC, decide if you want the third Region to be a replica or a witness.
-- Determine your application’s write mode. This is not the same as the consistency mode. For
-  more information, see [Write modes with DynamoDB global tables](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md").
-- Plan your [Routing
-  strategies in DynamoDB](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md") strategy, based on your write mode.
-- Define your
-  [Evacuation
-  processes](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md"), based on your
-  consistency mode, write mode, and routing strategy.
-- Capture metrics on the health, latency, and errors across each Region. For a list of DynamoDB metrics, see the AWS blog post [Monitoring Amazon DynamoDB for Operational Awareness](https://aws.amazon.com/blogs/database/monitoring-amazon-dynamodb-for-operational-awareness/ "https://aws.amazon.com/blogs/database/monitoring-amazon-dynamodb-for-operational-awareness/") for a list of metrics to observe. You should also use [synthetic canaries](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md") (artificial requests designed to detect failures, named after the canary in the coal mine), as well as live observation of customer traffic. Not all issues will appear in the DynamoDB metrics.
-- If you're using MREC, set alarms for any sustained increase in
-  `ReplicationLatency`. An increase might indicate an accidental misconfiguration
-  in which the global table has different write settings in different Regions, which leads
-  to failed replicated requests and increased latencies. It could also indicate that there
-  is a Regional disruption. A [good example](https://aws.amazon.com/blogs/database/monitoring-amazon-dynamodb-for-operational-awareness/ "https://aws.amazon.com/blogs/database/monitoring-amazon-dynamodb-for-operational-awareness/") is to generate an alert if the recent average exceeds 180,000
-  milliseconds. You might also watch for `ReplicationLatency` dropping to 0,
-  which indicates stalled replication.
-- Assign sufficient maximum read and write settings for each global table.
-- Identify the reasons for evacuating a Region in advance. If the decision involves human
-  judgment, document all considerations. This work should be done carefully in advance, not
-  under stress.
-- Maintain a runbook for every action that must take place when you evacuate a Region. Usually
-  very little work is involved for the global tables, but moving the rest of the stack might be
-  complex.
+The global table provides each stack in the various Regions with a local copy of the
+same data. You might consider designing for a single stack in a single Region and anticipate
+making remote calls to a secondary Region’s DynamoDB endpoint if there’s an issue with the local
+DynamoDB table. This is not best practice. If there’s an issue in one Region that’s caused by
+DynamoDB (or, more likely, caused by something else in the stack or by another service that
+depends on DynamoDB), it’s best to route the end user to another Region for processing and use
+that other Region’s compute layer, which will talk to its local DynamoDB endpoint. This approach
+routes around the problematic Region entirely. To ensure resiliency, you need replication
+across multiple Regions: replication of the compute layer as well as the data layer.
+
+There are numerous alternative techniques to route an end user request to a Region for processing. The
+optimum choice depends on your write mode and your failover considerations. This section discusses four
+options: client-driven, compute-layer, Route 53, and Global Accelerator.
+
+## Client-driven request routing
+
+With client-driven request routing, illustrated in the following diagram, the end user
+client (an application, a web page with JavaScript, or another client) keeps track of the
+valid application endpoints (for example, an Amazon API Gateway endpoint rather than a
+literal DynamoDB endpoint) and uses its own embedded logic to choose the Region to communicate
+with. It might choose based on random selection, lowest observed latencies, highest observed
+bandwidth measurements, or locally performed health checks.
+
+![Diagram of how writing to a client's chosen target works.](images/gt-routing-is-clients-choice2_v2.png)
+
+As an advantage, client-driven request routing can adapt to things such as real-world
+public internet traffic conditions to switch Regions if it notices any degraded performance.
+The client must be aware of all potential endpoints, but launching a new Regional endpoint
+is not a frequent occurrence.
+
+With _write to any Region_ mode, a client can
+unilaterally select its preferred endpoint. If its access to one Region becomes impaired,
+the client can route to another endpoint.
+
+With the _write to one Region_ mode, the client will
+need a mechanism to route its writes to the currently active region. This could be as basic
+as empirically testing which region is presently accepting writes (noting any write
+rejections and falling back to an alternate) or as complex as calling a global coordinator
+to query for the current application state (perhaps built on the Amazon Application Recovery Controller (ARC) (ARC) routing
+control which provides a 5-region quorum-driven system to maintain global state for needs
+such as this). The client can decide if reads can go to any Region for eventual consistency
+or must be routed to the active region for strong consistency. For further information see
+[How
+Route 53 works](../../../r53recovery/latest/dg/introduction-how-it-works.md "../../../r53recovery/latest/dg/introduction-how-it-works.md").
+
+With the _write to your Region_ mode, the client needs to determine the home region for the data set it’s
+working against. For example, if the client corresponds to a user account and each user account is
+homed to a Region, the client can request the appropriate endpoint from a global login system.
+
+For example, a financial services company that helps users manage their business finances via the
+web could use global tables with a _write to your Region_ mode.
+Each user must login to a central service. That service returns credentials and the endpoint for the Region where those
+credentials will work. The credentials are valid
+for a short time. After that the webpage auto-negotiates a new login, which provides an opportunity to
+potentially redirect the user’s activity to a new Region.
+
+## Compute-layer request routing
+
+With compute-layer request routing, illustrated in the following diagram, the code that
+runs in the compute layer determines whether to process the request locally or pass it to a
+copy of itself that’s running in another Region. When you use the _write to one Region_ mode, the compute layer might detect that it’s not the
+active Region and allow local read operations while forwarding all write operations to
+another Region. This compute layer code must be aware of data topology and routing rules,
+and enforce them reliably, based on the latest settings that specify which Regions are
+active for which data. The outer software stack within the Region doesn’t have to be aware
+of how read and write requests are routed by the micro service. In a robust design, the
+receiving Region validates whether it is the current primary for the write operation. If it
+isn’t, it generates an error that indicates that the global state needs to be corrected. The
+receiving Region might also buffer the write operation for a while if the primary Region is
+in the process of changing. In all cases, the compute stack in a Region writes only to its
+local DynamoDB endpoint, but the compute stacks might communicate with one another.
+
+![Diagram of compute layer request routing.](images/gt-compute-layer-routing2.png)
+
+The Vanguard Group uses a system called Global Orchestration and Status Tool (GOaST) and
+a library called Global Multi-Region library (GMRlib) for this routing process, as presented
+at [re:Invent
+2022](https://www.youtube.com/watch?v=ilgpzlE7Hds&t=1882s "https://www.youtube.com/watch?v=ilgpzlE7Hds&t=1882s"). They use a follow-the-sun single primary model. GOaST maintains the global
+state, similar to the ARC routing control discussed in the previous section. It uses a
+global table to track which Region is the primary Region and when the next primary switch is
+scheduled. All read and write operations go through GMRlib, which coordinates with GOaST.
+GMRlib allows read operations to be performed locally, at low latency. For write operations,
+GMRlib checks if the local Region is the current primary Region. If so, the write operation
+completes directly. If not, GMRlib forwards the write task to the GMRlib in the primary
+Region. That receiving library confirms that it also considers itself the primary Region and
+raises an error if it isn’t, which indicates a propagation delay with the global state. This
+approach provides a validation benefit by not writing directly to a remote DynamoDB
+endpoint.
+
+## Route 53 request routing
+
+Amazon Application Recovery Controller (ARC) is a Domain Name Service (DNS) technology. With Route 53, the client requests
+its endpoint by looking up a well-known DNS domain name, and Route 53 returns the IP address
+corresponding to the regional endpoint(s) it thinks most appropriate. This is illustrated in
+the following diagram. Route 53 has a long list of routing policies it uses to determine the
+appropriate Region. It also can do failover routing to route traffic away from Regions that
+fail health checks.
+
+![Diagram of compute layer request routing.](images/gt-rt-53-anycast2_v2.png)
+
+With _write to any Region_ mode,
+or if combined with the compute-layer request routing on the backend, Route 53 can be given full access to
+return the Region based on any complex internal rules such
+as the Region in closest network proximity, or closest geographic proximity, or any other choice.
+
+With _write to one Region_ mode, you can configure Route 53 to
+return the currently active Region (using Route 53 ARC). If the client wants to connect to
+a passive Region (for example, for read operations), it could look up a different DNS
+name.
 
 ###### Note
 
-With failover procedures, it's best practice to rely only on data plane operations and not on
-control plane operations, because some control plane operations could be degraded during
-Region failures.
+Clients cache the IP addresses in the response from Route 53 for a time indicated by the time to
+live (TTL) setting on the domain name. A longer TTL extends the recovery time
+objective (RTO) for all clients to recognize the new endpoint. A value of 60 seconds
+is typical for failover use. Not all software perfectly adheres to DNS TTL expiration,
+and there might be multiple levels of DNS caching, such as at the operating system,
+virtual machine, and application.
 
-For more information, see the AWS blog post [Build resilient applications with Amazon DynamoDB global tables: Part 4](https://aws.amazon.com/blogs/database/part-4-build-resilient-applications-with-amazon-dynamodb-global-tables/ "https://aws.amazon.com/blogs/database/part-4-build-resilient-applications-with-amazon-dynamodb-global-tables/").
+With _write to your Region_ mode, it’s best to avoid Route 53
+unless you're also using compute-layer request routing.
 
-- Test all aspects of the runbook periodically, including Region evacuations. An untested runbook
-  is an unreliable runbook.
-- Consider using [AWS Resilience Hub](../../../resilience-hub/latest/userguide/what-is.md "../../../resilience-hub/latest/userguide/what-is.md") to evaluate the resilience of your entire application (including
-  global tables). It provides a comprehensive view of your overall application portfolio
-  resilience status through its dashboard.
-- Consider using ARC readiness checks to evaluate the current configuration of your application
-  and track any deviances from best practices.
-- When you write health checks for use with Route 53 or Global Accelerator, make a set of calls
-  that cover the full database flow. If you limit your check to confirm only that the DynamoDB
-  endpoint is up, you won’t be able to cover many failure modes such as AWS Identity and Access Management (IAM)
-  configuration errors, code deployment problems, failure in the stack outside DynamoDB, higher
-  than average read or write latencies, and so on.
+## Global Accelerator request routing
 
-## Frequently Asked Questions (FAQ) for deploying global tables
+With [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/ "https://aws.amazon.com/global-accelerator/"),
+illustrated in the following diagram, a client looks up the well-known domain name in Route 53.
+However, instead of getting back an IP address that corresponds to a Regional endpoint, the
+client receives an anycast static IP address which routes to the nearest AWS edge
+location. Starting from that edge location, all traffic gets routed on the private AWS
+network and to some endpoint (such as a load balancer or API Gateway) in a Region chosen by
+routing rules that are maintained within Global Accelerator. Compared with routing based on Route 53 rules,
+Global Accelerator request routing has lower latencies because it reduces the amount of traffic on the
+public internet. In addition, because Global Accelerator doesn’t depend on DNS TTL expiration to change
+routing rules, it can adjust routing more quickly.
 
-**What is the pricing for global tables?**
+![Diagram of how client writing with Global Accelerator can work.](images/gt-routing-gax-excerpt2_v2.png)
 
-- A write operation in a traditional DynamoDB table is priced in write capacity units (WCUs,
-  for provisioned tables) or write request units (WRUs) for on-demand tables. If you write a 5
-  KB item, it incurs a charge of 5 units. A write to a global table is priced in replicated
-  write capacity units (rWCUs, for provisioned tables) or replicated write request units
-  (rWRUs, for on-demand tables). rWCUs and rWRUs are priced the same as WGUs and WRUs.
-- rWCU and rWRU changes are incurred in every Region where the item is written
-  directly or written through replication. Cross-Region data transfer fees apply.
-- Writing to a global secondary index (GSI) is considered a local write operation and
-  uses regular write units.
-- There is no reserved capacity available for rWCUs or rWRUs at this time. Purchasing
-  reserved capacity for WCUs can be beneficial for tables where GSIs consume write
-  units.
-- When you add a new Region to a global table, DynamoDB bootstraps the new Region
-  automatically and charges you as if it were a table restore, based on the GB size of the
-  table. It also charges cross-Region data transfer fees.
+With _write to any Region_ mode, or if combined with the
+compute-layer request routing on the back- end, Global Accelerator works seamlessly. The client
+connects to the nearest edge location and need not be concerned with which Region
+receives the request.
 
-**Which Regions does global tables support?**
+With _write to one Region_ Global Accelerator routing rules must send
+requests to the currently active Region. You can use health checks that artificially
+report a failure on any Region that’s not considered by your global system to be the
+active Region. As with DNS, it’s possible to use an alternative DNS domain name for
+routing read requests if the requests can be from any Region.
 
-[Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md") supports
-all AWS Regions for MREC tables and the following Region sets for MRSC tables:
-
-- US Region set: US East (N.Virginia), US East (Ohio), US West (Oregon)
-- EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe
-  (Frankfort)
-- AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), and Asia Pacific
-  (Osaka)
-
-**How are GSIs handled with global tables?**
-
-In [Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md"), when you create a GSI in one Region
-it’s automatically created in
-other participating Regions and automatically backfilled.
-
-**How do I stop replication of a global table?**
-
-- You can delete a replica table the same way you would delete any other table.
-  Deleting the global table stops replication to that Region and deletes the table copy
-  kept in that Region. However, you can't stop replication while keeping copies of the
-  table as independent entities, nor can you pause replication.
-- An MRSC table must be deployed in exactly three Regions. To delete the replicas you
-  must delete all the replicas and the witness so that the MRSC table becomes a local
-  table.
-
-**How do DynamoDB Streams interact with global tables?**
-
-- Each global table produces an independent stream based on all its write operations,
-  wherever they started from. You can choose to consume the DynamoDB stream in one Region or
-  in all Regions (independently). If you want to process local but not replicated write
-  operations, you can add your own Region attribute to each item to identify the writing
-  Region. You can then use a Lambda event filter to call the Lambda function only for write
-  operations in the local Region. This helps with insert and update operations, but not
-  delete operations.
-- Global tables that are configured for multi-Region eventual consistency (MREC
-  tables) replicate changes by reading those changes from a DynamoDB stream on a replica
-  table and applying that change to all other replica tables. Therefore, DynamoDB is enabled
-  by default on all replicas in an MREC global table and cannot be disabled on those
-  replicas. The MREC replication process can combine multiple changes in a short period of
-  time into a single replicated write operation. As a result, each replica's stream might
-  contain slightly different records. DynamoDB Streams records on MREC replicas are always ordered on
-  a per-item basis, but ordering between items might differ between replicas.
-- Global tables that are configured for multi-Region strong consistency (MRSC tables)
-  don’t use DynamoDB Streams for replication, so this feature isn’t enabled by default on MRSC
-  replicas. You can enable DynamoDB Streams on an MRSC replica. DynamoDB Streams records on MRSC replicas are
-  identical for every replica and are always ordered on a per-item basis, but ordering
-  between items might differ between replicas.
-
-**How do global tables handle transactions?**
-
-- Transactional operations on MRSC tables will generate errors.
-- Transactional operations on MREC tables provide atomicity, consistency, isolation,
-  and durability (ACID) guarantees only within the Region where the write operation
-  originally occurred. Transactions are not supported across Regions in global tables. For
-  example, if you have an MREC global table with replicas in the US East (Ohio) and US
-  West (Oregon) Regions and perform a `TransactWriteItems` operation in the US
-  East (Ohio) Region, you might observe partially completed transactions in the US West
-  (Oregon) Region as changes are replicated. Changes are replicated to other Regions only
-  after they have been committed in the source Region.
-
-**How do global tables interact with the DynamoDB Accelerator cache (DAX)?**
-
-Global tables bypass DAX by updating DynamoDB directly, so DAX isn’t aware that it’s
-holding stale data. The DAX cache is refreshed only when the cache’s TTL expires.
-
-**Do tags on tables propagate?**
-
-No, tags do not automatically propagate.
-
-**Should I backup tables in all Regions or just one?**
-
-The answer depends on the purpose of the backup.
-
-- If you want to ensure data durability, DynamoDB already provides that safeguard. The
-  service ensures durability.
-- If you want to keep a snapshot for historical records (for example, to meet
-  regulatory requirements), backing up in one Region should suffice. You can copy the
-  backup to additional Regions by using AWS Backup.
-- If you want to recover erroneously deleted or modified data, use [DynamoDB point-in-time recovery (PITR)](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md") in
-  one Region.
-
-**How do I deploy global tables using CloudFormation?**
-
-- CloudFormation represents a DynamoDB table and a global table as two separate resources:
-  `AWS::DynamoDB::Table` and `AWS::DynamoDB::GlobalTable`. One
-  approach is to create all tables that can potentially be global by using the
-  `GlobalTable` construct of keeping them as standalone tables initially, and
-  add Regions later if necessary.
-- In CloudFormation, each global table is controlled by a single stack, in a single
-  Region, regardless of the number of replicas. When you deploy your template, CloudFormation
-  creates and updates all replicas as part of a single stack operation. You should not
-  deploy the same [AWS::DynamoDB::GlobalTable](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.md") resource in multiple Regions. This will result in
-  errors and is unsupported. If you deploy your application template in multiple Regions,
-  you can use conditions to create the `AWS::DynamoDB::GlobalTable` resource in
-  a single Region. Alternatively, you can choose to define your
-  `AWS::DynamoDB::GlobalTable` resources in a stack that’s separate from your
-  application stack, and make sure that it’s deployed to a single Region.
-- If you have a regular table and you want to convert it to a global table while
-  keeping it managed by CloudFormation then set the deletion policy to `Retain`,
-  remove the table from the stack, convert the table to a global table in the console, and
-  then import the global table as a new resource to the stack. For more information, see
-  the [AWS
-  GitHub repository](https://github.com/aws-samples/amazon-dynamodb-table-to-global-table-cdk "https://github.com/aws-samples/amazon-dynamodb-table-to-global-table-cdk").
-- Cross-account replication is not supported at this time.
+With _write to your Region_ mode, it’s best to avoid Global Accelerator
+unless you're also using compute-layer request routing.

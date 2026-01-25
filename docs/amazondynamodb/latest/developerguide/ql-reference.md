@@ -1,208 +1,61 @@
-# PartiQL select statements for DynamoDB
+# PartiQL data types for DynamoDB
 
-Use the `SELECT` statement to retrieve data from a table in
-Amazon DynamoDB.
+The following table lists the data types you can use with PartiQL for DynamoDB.
 
-Using the `SELECT` statement can result in a full table scan if an
-equality or IN condition with a partition key is not provided in the WHERE clause. A scan
-operation examines every item for the requested values and can use up the
-provisioned throughput for a large table or index in a single operation.
-
-If you want to avoid full table scan in PartiQL, you can:
-
-- Author your `SELECT` statements to not result in full table
-  scans by making sure your [WHERE clause condition](ql-reference.md#ql-reference.select.parameters "ql-reference.md#ql-reference.select.parameters") is configured accordingly.
-- Disable full table scans using the IAM policy specified at [Example: Allow select statements and
-  deny full table scan statements in PartiQL for DynamoDB](ql-iam.md#access-policy-ql-iam-example6 "ql-iam.md#access-policy-ql-iam-example6"), in the DynamoDB developer
-  guide.
-  For more information see [Best practices for
-  querying and scanning data](bp-query-scan.md "bp-query-scan.md"), in the DynamoDB developer guide.
-
-###### Topics
-
-- [Syntax](#ql-reference.select.syntax "#ql-reference.select.syntax")
-- [Parameters](#ql-reference.select.parameters "#ql-reference.select.parameters")
-- [Examples](#ql-reference.select.examples "#ql-reference.select.examples")
-
-## Syntax
-
-```
-SELECT `expression`  [, ...]
-FROM `table`[.`index`]
-[ WHERE `condition` ] [ [ORDER BY `key` [DESC|ASC] , ...]
-```
-
-## Parameters
-
-**`expression`**
-
-(Required) A projection formed from the `*` wildcard or
-a projection list of one or more attribute names or document paths
-from the result set. An expression can consist of calls to [Use PartiQL functions with DynamoDB](ql-functions.md "ql-functions.md") or fields
-that are modified by [PartiQL arithmetic, comparison, and logical operators for DynamoDB](ql-operators.md "ql-operators.md") .
-
-**`table`**
-
-(Required) The table name to query.
-
-**`index`**
-
-(Optional) The name of the index to query.
-
-###### Note
-
-You must add double quotation marks to the table name and
-index name when querying an index.
-
-```
-SELECT *
-FROM "TableName"."IndexName"
-
-```
-
-**`condition`**
-
-(Optional) The selection criteria for the query.
-
-###### Important
-
-To ensure that a `SELECT` statement does not result
-in a full table scan, the `WHERE` clause condition
-must specify a partition key. Use the equality or IN
-operator.
-
-For example, if you have an `Orders` table with an
-`OrderID` partition key and other non-key
-attributes, including an `Address`, the following
-statements would not result in a full table scan:
-
-```
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100
-
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100 and Address='some address'
-
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100 or OrderID = 200
-
-SELECT *
-FROM "Orders"
-WHERE OrderID IN [100, 300, 234]
-```
-
-The following `SELECT` statements, however, will
-result in a full table scan:
-
-```
-SELECT *
-FROM "Orders"
-WHERE OrderID > 1
-
-SELECT *
-FROM "Orders"
-WHERE Address='some address'
-
-SELECT *
-FROM "Orders"
-WHERE OrderID = 100 OR Address='some address'
-```
-
-**`key`**
-
-(Optional) A hash key or a sort key to use to order returned
-results. The default order is ascending (`ASC`) specify
-`DESC` if you want the results retuned in descending
-order.
-
-###### Note
-
-If you omit the `WHERE` clause, then all of the items in the
-table are retrieved.
+| DynamoDB data type | PartiQL representation   | Notes                                                                                                                                               |
+| ------------------ | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `Boolean`          | TRUE                     | FALSE                                                                                                                                               | Not case sensitive. |
+| `Binary`           | N/A                      | Only supported via code.                                                                                                                            |
+| `List`             | [ value1, value2,...]    | There are no restrictions on the data types that can be stored in a<br>List type, and the elements in a List do not have to be of the same<br>type. |
+| `Map`              | { 'name' : value }       | There are no restrictions on the data types that can be stored in a<br>Map type, and the elements in a Map do not have to be of the same<br>type.   |
+| `Null`             | NULL                     | Not case sensitive.                                                                                                                                 |
+| `Number`           | 1, 1.0, 1e0              | Numbers can be positive, negative, or zero. Numbers can have up to 38<br>digits of precision.                                                       |
+| `Number Set`       | <<number1, number2>>     | The elements in a number set must be of type Number.                                                                                                |
+| `String Set`       | <<'string1', 'string2'>> | The elements in a string set must be of type String.                                                                                                |
+| `String`           | 'string value'           | Single quotes must be used to specify String values.                                                                                                |
 
 ## Examples
 
-The following query returns one item, if one exists, from the
-`Orders` table by specifying the partition key,
-`OrderID`, and using the equality operator.
+The following statement demonstrates how to insert the following data types:
+`String`, `Number`, `Map`, `List`,
+`Number Set` and `String Set`.
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE OrderID = 1
+INSERT INTO TypesTable value {'primarykey':'1',
+'NumberType':1,
+'MapType' : {'entryname1': 'value', 'entryname2': 4},
+'ListType': [1,'stringval'],
+'NumberSetType':<<1,34,32,4.5>>,
+'StringSetType':<<'stringval','stringval2'>>
+}
 ```
 
-The following query returns all items in the `Orders` table that
-have a specific partition key, `OrderID`, values using the OR
-operator.
+The following statement demonstrates how to insert new elements into the
+`Map`, `List`, `Number Set` and `String
+ Set` types and change the value of a `Number` type.
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE OrderID = 1 OR OrderID = 2
+UPDATE TypesTable
+SET NumberType=NumberType + 100
+SET MapType.NewMapEntry=[2020, 'stringvalue', 2.4]
+SET ListType = LIST_APPEND(ListType, [4, <<'string1', 'string2'>>])
+SET NumberSetType= SET_ADD(NumberSetType, <<345, 48.4>>)
+SET StringSetType = SET_ADD(StringSetType, <<'stringsetvalue1', 'stringsetvalue2'>>)
+WHERE primarykey='1'
 ```
 
-The following query returns all items in the `Orders` table that
-have a specific partition key, `OrderID`, values using the IN
-operator. The returned results are in descending order, based on the
-`OrderID` key attribute value.
+The following statement demonstrates how to remove elements from the
+`Map`, `List`, `Number Set` and `String
+ Set` types and change the value of a `Number` type.
 
 ```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE OrderID IN [1, 2, 3] ORDER BY OrderID DESC
+UPDATE TypesTable
+SET NumberType=NumberType - 1
+REMOVE ListType[1]
+REMOVE MapType.NewMapEntry
+SET NumberSetType = SET_DELETE( NumberSetType, <<345>>)
+SET StringSetType = SET_DELETE( StringSetType, <<'stringsetvalue1'>>)
+WHERE primarykey='1'
 ```
 
-The following query shows a full table scan that returns all items from the
-`Orders` table that have a `Total` greater than 500,
-where `Total` is a non-key attribute.
-
-```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE Total > 500
-```
-
-The following query shows a full table scan that returns all items from the
-`Orders` table within a specific `Total` order range,
-using the IN operator and a non-key attribute `Total`.
-
-```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE Total IN [500, 600]
-```
-
-The following query shows a full table scan that returns all items from the
-`Orders` table within a specific `Total` order range,
-using the BETWEEN operator and a non-key attribute `Total`.
-
-```
-SELECT OrderID, Total
-FROM "Orders"
-WHERE Total BETWEEN 500 AND 600
-```
-
-The following query returns the first date a firestick device was used to
-watch by specifying the partition key `CustomerID` and sort key
-`MovieID` in the WHERE clause condition and using document paths
-in the SELECT clause.
-
-```
-SELECT Devices.FireStick.DateWatched[0]
-FROM WatchList
-WHERE CustomerID= 'C1' AND MovieID= 'M1'
-```
-
-The following query shows a full table scan that returns the list of items
-where a firestick device was first used after 12/24/19 using document paths in
-the WHERE clause condition.
-
-```
-SELECT Devices
-FROM WatchList
-WHERE Devices.FireStick.DateWatched[0] >= '12/24/19'
-```
+For more information, see [DynamoDB data types](HowItWorks.md#HowItWorks.DataTypes "HowItWorks.md#HowItWorks.DataTypes").

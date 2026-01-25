@@ -1,196 +1,186 @@
-# Referring to item attributes when using
+# Condition and filter expressions,
 
-expressions in DynamoDB
+operators, and functions in DynamoDB
 
-This section describes how to refer to item attributes in an expression in Amazon DynamoDB.
-You can work with any attribute, even if it is deeply nested within multiple lists and
-maps.
+To manipulate data in an DynamoDB table, you use the `PutItem`, `UpdateItem`, and
+`DeleteItem` operations. For these data manipulation operations, you can specify a condition
+expression to determine which items should be modified. If the condition expression
+evaluates to true, the operation succeeds. Otherwise, the operation fails.
+
+This section covers the built-in functions and keywords for writing filter expressions and
+condition expressions in Amazon DynamoDB. For more detailed information on functions and
+programming with DynamoDB, see [Programming with DynamoDB and the AWS SDKs](Programming.md "Programming.md") and
+the [DynamoDB API
+Reference](../APIReference.md "../APIReference.md").
 
 ###### Topics
 
-- [Top-level
-  attributes](#Expressions.Attributes.TopLevelAttributes "#Expressions.Attributes.TopLevelAttributes")
-- [Nested attributes](#Expressions.Attributes.NestedAttributes "#Expressions.Attributes.NestedAttributes")
-- [Document paths](#Expressions.Attributes.NestedElements.DocumentPathExamples "#Expressions.Attributes.NestedElements.DocumentPathExamples")
+- [Syntax for filter and
+  condition expressions](#Expressions.OperatorsAndFunctions.Syntax "#Expressions.OperatorsAndFunctions.Syntax")
+- [Making
+  comparisons](#Expressions.OperatorsAndFunctions.Comparators "#Expressions.OperatorsAndFunctions.Comparators")
+- [Functions](#Expressions.OperatorsAndFunctions.Functions "#Expressions.OperatorsAndFunctions.Functions")
+- [Logical
+  evaluations](#Expressions.OperatorsAndFunctions.LogicalEvaluations "#Expressions.OperatorsAndFunctions.LogicalEvaluations")
+- [Parentheses](#Expressions.OperatorsAndFunctions.Parentheses "#Expressions.OperatorsAndFunctions.Parentheses")
+- [Precedence in
+  conditions](#Expressions.OperatorsAndFunctions.Precedence "#Expressions.OperatorsAndFunctions.Precedence")
 
-###### A Sample Item: ProductCatalog
+## Syntax for filter and
 
-The examples on this page use the following sample item in the
-`ProductCatalog` table. (This table is described in [Example tables and data for use in DynamoDB](AppendixSampleTables.md "AppendixSampleTables.md").)
+condition expressions
+
+In the following syntax summary, an `operand` can be the
+following:
+
+- A top-level attribute name, such as `Id`, `Title`,
+  `Description`, or `ProductCategory`
+- A document path that references a nested attribute
 
 ```
-{
-    "Id": 123,
-    "Title": "Bicycle 123",
-    "Description": "123 description",
-    "BicycleType": "Hybrid",
-    "Brand": "Brand-Company C",
-    "Price": 500,
-    "Color": ["Red", "Black"],
-    "ProductCategory": "Bicycle",
-    "InStock": true,
-    "QuantityOnHand": null,
-    "RelatedItems": [
-        341,
-        472,
-        649
-    ],
-    "Pictures": {
-        "FrontView": "http://example.com/products/123_front.jpg",
-        "RearView": "http://example.com/products/123_rear.jpg",
-        "SideView": "http://example.com/products/123_left_side.jpg"
-    },
-    "ProductReviews": {
-	    "FiveStar": [
-	    		"Excellent! Can't recommend it highly enough! Buy it!",
-	    		"Do yourself a favor and buy this."
-	    ],
-	    "OneStar": [
-	    		"Terrible product! Do not buy this."
-	    ]
-    },
-    "Comment": "This product sells out quickly during the summer",
-    "Safety.Warning": "Always wear a helmet"
- }
+**condition-expression** ::=
+      `operand` comparator `operand`
+    | `operand` BETWEEN `operand` AND `operand`
+    | `operand` IN ( `operand` (',' `operand` (, ...) ))
+    | function
+    | `condition` AND `condition`
+    | `condition` OR `condition`
+    | NOT `condition`
+    | ( `condition` )
+
+**comparator** ::=
+    =
+    | <>
+    | <
+    | <=
+    | >
+    | >=
+
+**function** ::=
+    attribute_exists (`path`)
+    | attribute_not_exists (`path`)
+    | attribute_type (`path`, `type`)
+    | begins_with (`path`, `substr`)
+    | contains (`path`, `operand`)
+    | size (`path`)
 ```
 
-Note the following:
+## Making
 
-- The partition key value (`Id`) is `123`. There is no
-  sort key.
-- Most of the attributes have scalar data types, such as `String`,
-  `Number`, `Boolean`, and `Null`.
-- One attribute (`Color`) is a `String Set`.
-- The following attributes are document data types:
-  - A list of `RelatedItems`. Each element is an
-    `Id` for a related product.
-  - A map of `Pictures`. Each element is a short description of
-    a picture, along with a URL for the corresponding image file.
-  - A map of `ProductReviews`. Each element represents a rating
-    and a list of reviews corresponding to that rating. Initially, this map
-    is populated with five-star and one-star reviews.
+comparisons
 
-## Top-level
+Use these comparators to compare an operand against a single value:
 
-attributes
+- ``a` = `b``
+  – True if `a` is equal to
+  `b`.
+- ``a` <>
+`b`` – True if
+  `a` is not equal to
+  `b`.
+- ``a` < `b``
+  – True if `a` is less than
+  `b`.
+- ``a` <= `b``
+  – True if `a` is less than or equal to
+  `b`.
+- ``a` > `b``
+  – True if `a` is greater than
+  `b`.
+- ``a` >= `b``
+  – True if `a` is greater than or equal to
+  `b`.
 
-An attribute is said to be _top level_ if it is not embedded
-within another attribute. For the `ProductCatalog` item, the top-level
-attributes are as follows:
+Use the `BETWEEN` and `IN` keywords to compare an operand
+against a range of values or an enumerated list of values:
 
-- `Id`
-- `Title`
-- `Description`
-- `BicycleType`
-- `Brand`
-- `Price`
-- `Color`
-- `ProductCategory`
-- `InStock`
-- `QuantityOnHand`
-- `RelatedItems`
-- `Pictures`
-- `ProductReviews`
-- `Comment`
-- `Safety.Warning`
+- ``a` BETWEEN `b` AND
+`c`` – True if
+  `a` is greater than or equal to
+  `b`, and less than or equal to
+  `c`.
+- ``a` IN (`b`,
+  `c`, `d`)`
+– True if`a`is equal to any value in the
+list—for example, any of`b`,
+`c`, or `d`. The list can
+  contain up to 100 values, separated by commas.
 
-All of these top-level attributes are scalars, except for `Color`
-(list), `RelatedItems` (list), `Pictures` (map), and
-`ProductReviews` (map).
+## Functions
 
-## Nested attributes
+Use the following functions to determine whether an attribute exists in an item, or to
+evaluate the value of an attribute. These function names are case sensitive. For a
+nested attribute, you must provide its full document path.
 
-An attribute is said to be _nested_ if it is embedded within
-another attribute. To access a nested attribute, you use _dereference
-operators_:
+| Function                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `attribute_exists<br>(`path`)`       | True if the item contains the attribute specified by<br>`path`.<br>Example: Check whether an item in the `Product` table<br>has a side view picture.<br>• `attribute_exists (#Pictures.#SideView)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `attribute_not_exists<br>(`path`)`   | True if the attribute specified by `path` does not<br>exist in the item.<br>Example: Check whether an item has a `Manufacturer`<br>attribute.<br>• `attribute_not_exists (Manufacturer)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `attribute_type (`path`,<br>`type`)` | True if the attribute at the specified path is of a particular<br>data type. The `type` parameter must be one of the<br>following:<br>• `S` – String<br>• `SS` – String set<br>• `N` – Number<br>• `NS` – Number set<br>• `B` – Binary<br>• `BS` – Binary set<br>• `BOOL` – Boolean<br>• `NULL` – Null<br>• `L` – List<br>• `M` – Map<br>You must use an expression attribute value for the<br>`type` parameter.<br>Example: Check whether the `QuantityOnHand` attribute<br>is of type List. In this example, `:v_sub` is a<br>placeholder for the string `L`.<br>• `attribute_type (ProductReviews.FiveStar,<br>:v_sub)`<br>You must use an expression attribute value for the<br>`type` parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `begins_with (`path`,<br>`substr`)`  | True if the attribute specified by `path` begins with a<br>particular substring.<br>Example: Check whether the first few characters of the front view<br>picture URL are `http://`.<br>• `begins_with (Pictures.FrontView,<br>:v_sub)`<br>The expression attribute value `:v_sub` is a<br>placeholder for `http://`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `contains (`path`,<br>`operand`)`    | True if the attribute specified by `path` is one of<br>the following:<br>• A `String` that contains a particular<br>substring.<br>• A `Set` that contains a particular element<br>within the set.<br>• A `List` that contains a particular element<br>within the list.<br>If the attribute specified by `path` is a<br>`String`, the `operand` must be a<br>`String`. If the attribute specified by<br>`path` is a `Set`, the<br>`operand` must be the set's element type.<br>The path and the operand must be distinct. That is, `contains<br>(a, a)` returns an error.<br>Example: Check whether the `Brand` attribute contains<br>the substring `Company`.<br>• `contains (Brand, :v_sub)`<br>The expression attribute value `:v_sub` is a<br>placeholder for `Company`.<br>Example: Check whether the product is available in red.<br>• `contains (Color, :v_sub)`<br>The expression attribute value `:v_sub` is a<br>placeholder for `Red`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `size (`path`)`                      | Returns a number that represents an attribute's size. The<br>following are valid data types for use with<br>`size`.<br>If the attribute is of type `String`, `size`<br>returns the length of the string.<br>Example: Check whether the string `Brand` is less than<br>or equal to 20 characters. The expression attribute value<br>`:v_sub` is a placeholder for `20`.<br>• `size (Brand) <= :v_sub`<br>If the attribute is of type `Binary`, `size`<br>returns the number of bytes in the attribute value.<br>Example: Suppose that the `ProductCatalog` item has a<br>binary attribute named `VideoClip` that contains a short<br>video of the product in use. The following expression checks whether<br>`VideoClip` exceeds 64,000 bytes. The expression<br>attribute value `:v_sub` is a placeholder for<br>`64000`.<br>• `size(VideoClip) > :v_sub`<br>If the attribute is a `Set` data type,<br>`size` returns the number of elements in the set.<br>Example: Check whether the product is available in more than one<br>color. The expression attribute value `:v_sub` is a<br>placeholder for `1`.<br>• `size (Color) < :v_sub`<br>If the attribute is of type `List` or `Map`,<br>`size` returns the number of child elements.<br>Example: Check whether the number of `OneStar` reviews<br>has exceeded a certain threshold. The expression attribute value<br>`:v_sub` is a placeholder for `3`.<br>• `size(ProductReviews.OneStar) ><br>:v_sub` |
 
-- `[n]` — for list elements
-- `.` (dot) — for map elements
+## Logical
 
-### Accessing list elements
+evaluations
 
-The dereference operator for a list element is [*N*], where _n_ is the
-element number. List elements are zero-based, so [0] represents the first
-element in the list, [1] represents the second, and so on. Here are some
-examples:
+Use the `AND`, `OR`, and `NOT` keywords to perform
+logical evaluations. In the following list, `a` and
+`b` represent conditions to be evaluated.
 
-- `MyList[0]`
-- `AnotherList[12]`
-- `ThisList[5][11]`
+- ``a` AND `b``
+  – True if `a` and `b`
+  are both true.
+- ``a` OR `b``
+  – True if either `a` or
+  `b` (or both) are true.
+- `NOT `a``– True if`a`is false. False if`a`
+  is true.
 
-The element `ThisList[5]` is itself a nested list. Therefore,
-`ThisList[5][11]` refers to the 12th element in that list.
+The following is a code example of AND in an operation.
 
-The number within the square brackets must be a non-negative integer.
-Therefore, the following expressions are not valid:
+`dynamodb-local (*)> select * from exprtest where a > 3 and a <
+ 5;`
 
-- `MyList[-1]`
-- `MyList[0.4]`
+## Parentheses
 
-###
+Use parentheses to change the precedence of a logical evaluation. For example, suppose
+that conditions `a` and `b` are true,
+and that condition `c` is false. The following expression
+evaluates to true:
 
-Accessing map elements
+- ``a` OR `b` AND
+`c``
 
-The dereference operator for a map element is .
-(a dot). Use a dot as a separator between elements in a map:
+However, if you enclose a condition in parentheses, it is evaluated first. For
+example, the following evaluates to false:
 
-- `MyMap.nestedField`
-- `MyMap.nestedField.deeplyNestedField`
-
-## Document paths
-
-In an expression, you use a _document path_ to tell DynamoDB where
-to find an attribute. For a top-level attribute, the document path is simply the
-attribute name. For a nested attribute, you construct the document path using
-dereference operators.
-
-The following are some examples of document paths. (Refer to the item shown in
-[Referring to item attributes when using
-expressions in DynamoDB](Expressions.md "Expressions.md").)
-
-- A top-level scalar attribute.
-
-`Description`
-
-- A top-level list attribute. (This returns the entire list, not just some
-  of the elements.)
-
-`RelatedItems`
-
-- The third element from the `RelatedItems` list. (Remember that
-  list elements are zero-based.)
-
-`RelatedItems[2]`
-
-- The front-view picture of the product.
-
-`Pictures.FrontView`
-
-- All of the five-star reviews.
-
-`ProductReviews.FiveStar`
-
-- The first of the five-star reviews.
-
-`ProductReviews.FiveStar[0]`
+- `(`a`OR`b`) AND
+`c``
 
 ###### Note
 
-The maximum depth for a document path is 32. Therefore,
-the number of dereferences operators in a path cannot exceed this limit.
+You can nest parentheses in an expression. The innermost ones are evaluated
+first.
 
-You can use any attribute name in a document path as long as they meet these
-requirements:
+The following is a code example with parentheses in a logical evaluation.
 
-- The first character is `a-z` or `A-Z` and or
-  `0-9`
-- The second character (if present) is `a-z`,
-  `A-Z`
+`dynamodb-local (*)> select * from exprtest where attribute_type(b, string) or
+ ( a = 5 and c = “coffee”);`
 
-###### Note
+## Precedence in
 
-If an attribute name does not meet this requirement, you must define an
-expression attribute name as a placeholder.
+conditions
 
-For more information, see [Expression attribute names (aliases)
-in DynamoDB](Expressions.md "Expressions.md").
+DynamoDB evaluates conditions from left to right using the following precedence
+rules:
+
+- `= <> < <= > >=`
+- `IN`
+- `BETWEEN`
+- `attribute_exists attribute_not_exists begins_with contains`
+- Parentheses
+- `NOT`
+- `AND`
+- `OR`

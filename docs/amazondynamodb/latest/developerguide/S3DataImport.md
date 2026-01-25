@@ -1,136 +1,84 @@
-# Amazon S3 import formats for DynamoDB
+# Best practices for importing from Amazon S3 into
 
-DynamoDB can import data in three formats: CSV, DynamoDB JSON, and Amazon Ion.
+DynamoDB
 
-###### Topics
+The following are the best practices for importing data from Amazon S3 into DynamoDB.
 
-- [CSV](#S3DataImport.Requesting.Formats.CSV "#S3DataImport.Requesting.Formats.CSV")
-- [DynamoDB Json](#S3DataImport.Requesting.Formats.DDBJson "#S3DataImport.Requesting.Formats.DDBJson")
-- [Amazon Ion](#S3DataImport.Requesting.Formats.Ion "#S3DataImport.Requesting.Formats.Ion")
+## Stay under the limit of 50,000 S3
 
-## CSV
+objects
 
-A file in CSV format consists of multiple items delimited by newlines. By default,
-DynamoDB interprets the first line of an import file as the header and expects columns
-to be delimited by commas. You can also define headers that will be applied, as long as
-they match the number of columns in the file. If you define headers explicitly, the
-first line of the file will be imported as values.
+Each import job supports a maximum of 50,000 S3 objects. If your dataset contains more
+than 50,000 objects, consider consolidating them into larger objects.
 
-###### Note
+## Avoid excessively large
 
-When importing from CSV files, all columns other than the hash range and keys of your
-base table and secondary indexes are imported as DynamoDB strings.
+S3 objects
 
-**Escaping double quotes**
+S3 objects are imported in parallel. Having numerous mid-sized S3 objects allows for
+parallel execution without excessive overhead. For items under 1 KB, consider placing
+4,000,000 items into each S3 object. If you have a larger average item size, place
+proportionally fewer items into each S3 object.
 
-Any double quotes characters that exist in the CSV file must be escaped.
-If they are not escaped, such as in this following example, the import will fail:
+## Randomize sorted
 
-```
-id,value
-"123",Women's Full "Length" Dress
-```
+data
 
-This same import will succeed if the quotes are escaped with two sets of double quotes:
+If an S3 object holds data in sorted order, it can create a _rolling hot partition_. This is a situation where one partition receives
+all the activity, and then the next partition after that, and so on. Data in sorted
+order is defined as items in sequence in the S3 object that will be written to the same
+target partition during the import. One common situation where data is in sorted order
+is a CSV file where items are sorted by partition key so that repeated items share the
+same partition key.
 
-```
-id,value
-"""123""","Women's Full ""Length"" Dress"
-```
+To avoid a rolling hot partition, we recommend that you randomize the order in these
+cases. This can improve performance by spreading the write operations. For more
+information, see [Distributing write activity efficiently during
+data upload in DynamoDB](bp-partition-key-data-upload.md "bp-partition-key-data-upload.md").
 
-Once the text has been properly escaped and imported, it will appear as it did in the original CSV file:
+## Compress data to keep the
 
-```
-id,value
-"123",Women's Full "Length" Dress
-```
+total S3 object size below the Regional limit
 
-## DynamoDB Json
+In the [import from S3 process](S3DataImport.md "S3DataImport.md"), there is
+a limit on the sum total size of the S3 object data to be imported. The limit is 15 TB
+in the us-east-1, us-west-2, and eu-west-1 Regions, and 1 TB in all other Regions. The
+limit is based on the raw S3 object sizes.
 
-A file in DynamoDB JSON format can consist of multiple Item objects. Each individual object
-is in DynamoDB’s standard marshalled JSON format, and newlines are used as item delimiters. As an added
-feature, exports from point in time are supported as an import source by default.
+Compression allows more raw data to fit within the limit. If compression alone isn’t
+sufficient to fit the import within the limit, you can also contact [AWS Premium Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") for a quota
+increase.
 
-###### Note
+## Be aware of how item size impacts
 
-New lines are used as item delimiters for a file in DynamoDB JSON format and
-shouldn't be used within an item object.
+performance
 
-```
-{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "333-3333333333"}, "Id": {"N": "103"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 103 Title"}}}
-{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "444-444444444"}, "Id": {"N": "104"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 104 Title"}}}
-{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "555-5555555555"}, "Id": {"N": "105"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 105 Title"}}}
-```
+If your average item size is very small (below 200 bytes), the import process might
+take a little longer than for larger item sizes.
 
-## Amazon Ion
+## Do not modify S3 objects
 
-[Amazon Ion](https://amzn.github.io/ion-docs/ "https://amzn.github.io/ion-docs/") is a richly-typed,
-self-describing, hierarchical data serialization format built to address
-rapid development, decoupling, and efficiency challenges faced every day
-while engineering large-scale, service-oriented architectures.
+during active imports
 
-When you import data in Ion format, the Ion datatypes are mapped to
-DynamoDB datatypes in the new DynamoDB table.
+Ensure that your source S3 objects remain unchanged while an import operation is in
+progress. If an S3 object is modified during an import, the operation will fail with
+error code `ObjectModifiedInS3DuringImport` and the message "The S3 object
+could not be imported because it was overwritten."
 
-| S. No. | Ion to DynamoDB datatype conversion                                       | B                         |
-| ------ | ------------------------------------------------------------------------- | ------------------------- |
-| `1`    | `Ion Data Type`                                                           | `DynamoDB Representation` |
-| `2`    | `string`                                                                  | `String (s)`              |
-| `3`    | `bool`                                                                    | `Boolean (BOOL)`          |
-| `4`    | `decimal`                                                                 | `Number (N)`              |
-| `5`    | `blob`                                                                    | `Binary (B)`              |
-| `6`    | `list (with type annotation $dynamodb_SS, $dynamodb_NS, or $dynamodb_BS)` | `Set (SS, NS, BS)`        |
-| `7`    | `list`                                                                    | `List`                    |
-| `8`    | `struct`                                                                  | `Map`                     |
+If you encounter this error, restart the import operation with a stable version of
+your S3 object. To avoid this issue, wait for the current import to complete before
+making changes to the source files.
 
-Items in an Ion file are delimited by newlines. Each line begins with an Ion version marker,
-followed by an item in Ion format.
+## Consider importing without any Global
+
+Secondary Indexes
+
+The duration of an import task may depend on the presence of one or multiple global
+secondary indexes (GSIs). If you plan to establish indexes with partition keys that have
+low cardinality, you may see a faster import if you defer index creation until after the
+import task is finished (rather than including them in the import job).
 
 ###### Note
 
-In the following example, we've formatted items from an Ion-formatted file on multiple lines to improve readability.
-
-```
-$ion_1_0
-[
-  {
-    Item:{
-      Authors:$dynamodb_SS::["Author1","Author2"],
-      Dimensions:"8.5 x 11.0 x 1.5",
-      ISBN:"333-3333333333",
-      Id:103.,
-      InPublication:false,
-      PageCount:6d2,
-      Price:2d3,
-      ProductCategory:"Book",
-      Title:"Book 103 Title"
-    }
-  },
-  {
-    Item:{
-      Authors:$dynamodb_SS::["Author1","Author2"],
-      Dimensions:"8.5 x 11.0 x 1.5",
-      ISBN:"444-4444444444",
-      Id:104.,
-      InPublication:false,
-      PageCount:6d2,
-      Price:2d3,
-      ProductCategory:"Book",
-      Title:"Book 104 Title"
-    }
-  },
-  {
-    Item:{
-      Authors:$dynamodb_SS::["Author1","Author2"],
-      Dimensions:"8.5 x 11.0 x 1.5",
-      ISBN:"555-5555555555",
-      Id:105.,
-      InPublication:false,
-      PageCount:6d2,
-      Price:2d3,
-      ProductCategory:"Book",
-      Title:"Book 105 Title"
-    }
-  }
-]
-```
+Creating a GSI during the import does not incur write charges (creating a GSI
+after the import would).

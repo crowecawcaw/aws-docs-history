@@ -244,6 +244,36 @@ public class DynamoDbBasics
 
 ```
 
+Use the injected client for table operations.
+
+```
+using System.Text.Json;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon.DynamoDBv2.Model;
+
+namespace DynamoDBActions;
+
+/// <summary>
+/// Methods of this class perform Amazon DynamoDB operations.
+/// </summary>
+public class DynamoDbWrapper
+{
+    private readonly IAmazonDynamoDB _amazonDynamoDB;
+
+    /// <summary>
+    /// Constructor for the DynamoDbWrapper class.
+    /// </summary>
+    /// <param name="amazonDynamoDB">The injected DynamoDB client.</param>
+    public DynamoDbWrapper(IAmazonDynamoDB amazonDynamoDB)
+    {
+        _amazonDynamoDB = amazonDynamoDB;
+    }
+
+
+```
+
 Creates a table to contain movie data.
 
 ```

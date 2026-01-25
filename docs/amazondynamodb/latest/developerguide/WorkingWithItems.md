@@ -429,7 +429,7 @@ aws dynamodb update-item \
 
 ## Conditional writes
 
-By default, the DynamoDB write operations (`PutItem`, `UpdateItem`,
+By default, the DynamoDB write operations (`PutItem`,
 `DeleteItem`) are _unconditional_: Each operation
 overwrites an existing item that has the specified primary key.
 

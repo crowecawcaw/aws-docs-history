@@ -1,37 +1,60 @@
-# Using data
+# Copying data between DynamoDB
 
-compression
+and a native Hive table
 
-When you use Hive to copy data among different data sources, you can request
-on-the-fly data compression. Hive provides several compression codecs. You can
-choose one during your Hive session. When you do this, the data is compressed in the
-specified format.
+If you have data in a DynamoDB table, you can copy the data to a native Hive table.
+This will give you a snapshot of the data, as of the time you copied it.
 
-The following example compresses data using the Lempel-Ziv-Oberhumer (LZO)
-algorithm.
+You might decide to do this if you need to perform many HiveQL queries, but do not
+want to consume provisioned throughput capacity from DynamoDB. Because the data in the
+native Hive table is a copy of the data from DynamoDB, and not "live" data, your
+queries should not expect that the data is up-to-date.
+
+###### Note
+
+The examples in this section are written with the assumption you followed the
+steps in [Tutorial: Working with Amazon DynamoDB and Apache
+Hive](EMRforDynamoDB.md "EMRforDynamoDB.md") and have an external table in
+DynamoDB named _ddb_features_.
+
+###### Example From DynamoDB to native Hive table
+
+You can create a native Hive table and populate it with data from
+_ddb_features_, like this:
 
 ```
-SET hive.exec.compress.output=true;
-SET io.seqfile.compression.type=BLOCK;
-SET mapred.output.compression.codec = com.hadoop.compression.lzo.LzopCodec;
-
-CREATE EXTERNAL TABLE `lzo_compression_table` (line STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
-LOCATION '`s3://bucketname/path/subpath/`';
-
-INSERT OVERWRITE TABLE `lzo_compression_table` SELECT *
-FROM `hiveTableName`;
+CREATE TABLE features_snapshot AS
+SELECT * FROM ddb_features;
 ```
 
-The resulting file in Amazon S3 will have a system-generated name with
-`.lzo` at the end (for example,
-`8d436957-57ba-4af7-840c-96c2fc7bb6f5-000000.lzo`).
+You can then refresh the data at any time:
 
-The available compression codecs are:
+```
+INSERT OVERWRITE TABLE features_snapshot
+SELECT * FROM ddb_features;
+```
 
-- `org.apache.hadoop.io.compress.GzipCodec`
-- `org.apache.hadoop.io.compress.DefaultCodec`
-- `com.hadoop.compression.lzo.LzoCodec`
-- `com.hadoop.compression.lzo.LzopCodec`
-- `org.apache.hadoop.io.compress.BZip2Codec`
-- `org.apache.hadoop.io.compress.SnappyCodec`
+In these examples, the subquery `SELECT * FROM ddb_features` will
+retrieve all of the data from _ddb_features_. If you only
+want to copy a subset of the data, you can use a `WHERE` clause in
+the subquery.
+
+The following example creates a native Hive table, containing only some of the
+attributes for lakes and summits:
+
+```
+CREATE TABLE lakes_and_summits AS
+SELECT feature_name, feature_class, state_alpha
+FROM ddb_features
+WHERE feature_class IN ('Lake','Summit');
+```
+
+###### Example From native Hive table to DynamoDB
+
+Use the following HiveQL statement to copy the data from the native Hive table
+to _ddb_features_:
+
+```
+INSERT OVERWRITE TABLE ddb_features
+SELECT * FROM features_snapshot;
+```

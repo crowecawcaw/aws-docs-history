@@ -2,44 +2,14 @@
 
 We recommend that first time users begin by reading the following sections, and refer to them as needed.
 
-- **Service highlights and pricing** – The [product detail page](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") provides a general product
-  overview of DynamoDB, common use cases, service highlights, and pricing.
-- **DynamoDB resources** – The [DynamoDB resources](https://aws.amazon.com/dynamodb/resources/ "https://aws.amazon.com/dynamodb/resources/") section has videos,
-  tutorials, and prescriptive guidance that introduces you to the service, concepts of data
-  modeling, and core features and capabilities.
-- **Getting started** – The [Getting started with DynamoDB](GettingStartedDynamoDB.md "GettingStartedDynamoDB.md") section includes information on setting up DynamoDB, creating
-  sample tables, and uploading data. It also provides information about performing basic database
-  operations using the AWS Management Console, AWS CLI, NoSQL Workbench, and DynamoDB APIs.
-- **DynamoDB basics course** – A [free digital course](https://explore.skillbuilder.aws/learn/course/external/view/elearning/16104/amazon-dynamodb-basics "https://explore.skillbuilder.aws/learn/course/external/view/elearning/16104/amazon-dynamodb-basics") that teaches the fundamentals of DynamoDB, including table design,
-  data types, and basic operations. This course is ideal for developers new to DynamoDB and NoSQL
-  databases.
-- **DynamoDB Nuggets** –A collection of short, focused [video
-  tutorials](https://www.youtube.com/playlist?list=PLhr1KZpdzukemNOO71Hca0GpjG0QmXwEd "https://www.youtube.com/playlist?list=PLhr1KZpdzukemNOO71Hca0GpjG0QmXwEd") that explain key DynamoDB concepts and features. These bite-sized videos cover
-  topics like data modeling, partitioning strategies, access patterns, and best practices in an
-  easy-to-understand format.
-- [**DynamoDB code samples repository**](https://github.com/aws-samples/aws-dynamodb-examples "https://github.com/aws-samples/aws-dynamodb-examples") – Provides practical DynamoDB code
-  examples in various programming languages.
-- **Free DynamoDB training** – AWS provides [free
-  digital training courses](https://explore.skillbuilder.aws/learn/courses/1525/developing-with-amazon-dynamodb "https://explore.skillbuilder.aws/learn/courses/1525/developing-with-amazon-dynamodb") that cover DynamoDB concepts, features, and best practices. The
-  DynamoDB deep-dive course series helps you learn how to design efficient data models, implement
-  effective partition keys, and use secondary indexes effectively.
-- **NoSQL Workbench for DynamoDB** – [NoSQL Workbench](https://youtu.be/p5va6ZX9_o0 "https://youtu.be/p5va6ZX9_o0") is a unified visual tool that
-  provides data modeling, data visualization, and query development features. It helps you design,
-  create, query, and manage DynamoDB tables, making it especially valuable for learning DynamoDB's data
-  modeling concepts and testing access patterns.
-- **DynamoDB Design Patterns** – A [Best practices for designing and architecting with
-  DynamoDB](best-practices.md "best-practices.md") and data modeling examples that demonstrate best practices for different use cases. Includes
-  practical examples and code samples for implementing effective solutions.
-- **Hands-on Tutorials** – Step-by-step tutorials in the
-  AWS Management Console that guide you through common DynamoDB tasks, from [creating tables](https://aws.amazon.com/tutorials/create-nosql-table/ "https://aws.amazon.com/tutorials/create-nosql-table/") to
-  implementing complex queries.
-- **Migrating to DynamoDB** – This [Migrating to DynamoDB from a relational database](migration-guide.md "migration-guide.md") provides an overview of the process, tools, and strategies for
-  migrating a database into DynamoDB.
-- **AWS Well-Architected Lens for DynamoDB** – The [Using the DynamoDB Well-Architected Lens to optimize your DynamoDB
-  workload](bp-wal.md "bp-wal.md") provides architectural best practices for designing and operating reliable,
-  secure, efficient, and cost-effective applications using DynamoDB. It includes design principles,
-  architectural patterns, and operational guidance aligned with the six pillars of the
-  Well-Architected Framework.
+|                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[Service highlights and pricing](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/")**Provides a general product overview of DynamoDB, common use cases, service highlights, and pricing.                                                                                | **[DynamoDB resources](https://aws.amazon.com/dynamodb/resources/ "https://aws.amazon.com/dynamodb/resources/")**Videos, tutorials, and prescriptive guidance that introduces you to the service, concepts of data modeling, and core features and capabilities.                                                                                              |
+| **[Getting started](GettingStartedDynamoDB.md "GettingStartedDynamoDB.md")**Information on setting up DynamoDB, creating sample tables, and uploading data.                                                                                                                                 | **[DynamoDB basics course](https://explore.skillbuilder.aws/learn/course/external/view/elearning/16104/amazon-dynamodb-basics "https://explore.skillbuilder.aws/learn/course/external/view/elearning/16104/amazon-dynamodb-basics")**Free digital course that teaches the fundamentals of DynamoDB, including table design, data types, and basic operations. |
+| **[DynamoDB Nuggets](https://www.youtube.com/playlist?list=PLhr1KZpdzukemNOO71Hca0GpjG0QmXwEd "https://www.youtube.com/playlist?list=PLhr1KZpdzukemNOO71Hca0GpjG0QmXwEd")**Short, focused video tutorials that explain key DynamoDB concepts and features.                                  | **[DynamoDB code samples repository](https://github.com/aws-samples/aws-dynamodb-examples "https://github.com/aws-samples/aws-dynamodb-examples")**Practical DynamoDB code examples in various programming languages.                                                                                                                                         |
+| **[Free DynamoDB training](https://skillbuilder.aws/learn/WC3K4Y4S5N/amazon-dynamodb-getting-started/ "https://skillbuilder.aws/learn/WC3K4Y4S5N/amazon-dynamodb-getting-started/")**AWS provides free digital training courses that cover DynamoDB concepts, features, and best practices. | **[NoSQL Workbench for DynamoDB](https://youtu.be/p5va6ZX9_o0 "https://youtu.be/p5va6ZX9_o0")**Unified visual tool that provides data modeling, data visualization, and query development features.                                                                                                                                                           |
+| **[DynamoDB Design Patterns](best-practices.md "best-practices.md")**Best practices and data modeling examples for different use cases with practical code samples.                                                                                                                         | **[Hands-on Tutorials](https://aws.amazon.com/tutorials/create-nosql-table/ "https://aws.amazon.com/tutorials/create-nosql-table/")**Step-by-step tutorials in the AWS Management Console that guide you through common DynamoDB tasks.                                                                                                                       |
+| **[Migrating to DynamoDB](migration-guide.md "migration-guide.md")**Overview of the process, tools, and strategies for migrating a database into DynamoDB.                                                                                                                                  | **[AWS Well-Architected Lens for DynamoDB](bp-wal.md "bp-wal.md")**Architectural best practices for designing and operating reliable, secure, efficient, and cost-effective applications using DynamoDB.                                                                                                                                                      |
 
 ## Amazon DynamoDB additional best practices for first-time
 

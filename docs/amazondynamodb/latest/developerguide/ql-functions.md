@@ -1,21 +1,40 @@
-# Use PartiQL functions with DynamoDB
+# Using the EXISTS function with PartiQL for DynamoDB
 
-PartiQL in Amazon DynamoDB supports the following built-in variants of SQL standard
-functions.
+You can use EXISTS to perform the same function as `ConditionCheck` does in
+the [TransactWriteItems](transaction-apis.md#transaction-apis-txwriteitems "transaction-apis.md#transaction-apis-txwriteitems") API. The EXISTS function can only be used in
+transactions.
+
+Given a value, returns `TRUE` if the value is a non-empty collection.
+Otherwise, returns `FALSE`.
 
 ###### Note
 
-Any SQL functions that are not included in this list are not currently supported in
-DynamoDB.
+This function can only be used in transactional operations.
 
-## Aggregate functions
+## Syntax
 
-- [Using the SIZE function with PartiQL for amazon DynamoDB](ql-functions.md "ql-functions.md")
+```
+EXISTS ( `statement` )
+```
 
-## Conditional functions
+## Arguments
 
-- [Using the EXISTS function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the BEGINS_WITH function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the CONTAINS function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the MISSING function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
+`statement`
+
+(Required) The SELECT statement that the function evaluates.
+
+###### Note
+
+The SELECT statement must specify a full primary key and one other condition.
+
+## Return type
+
+`bool`
+
+## Examples
+
+```
+EXISTS(
+    SELECT * FROM "Music"
+    WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks')
+```

@@ -4,7 +4,7 @@ Amazon Q Developer's Console-to-Code feature simplifies infrastructure managemen
 transforming manual table creation steps into reproducible automation code. This capability helps
 developers efficiently scale database resource configuration across their environments.
 For more information,
-see [Automating AWS services with Amazon Q Developer Console-to-Code](../../../q/latest/userguide/console-to-code.md "../../../q/latest/userguide/console-to-code.md").
+see [Automating AWS services with Amazon Q Developer Console-to-Code](../../../amazonq/latest/qdeveloper-ug/console-to-code.md "../../../amazonq/latest/qdeveloper-ug/console-to-code.md").
 
 Console-to-Code captures detailed DynamoDB table configurations, including partition keys, sort keys, provisioned throughput
 settings, and secondary indexes, and converts these into precise infrastructure-as-code templates. Using generative AI, the tool
@@ -27,7 +27,7 @@ Developers can generate DynamoDB infrastructure code in multiple formats, such a
 When using Console-to-Code with DynamoDB, the process typically involves:
 
 1. **Prototyping in the console** – Use the DynamoDB console to create and configure resources like tables.
-   See [Connect to Amazon DynamoDB](../../../amazonDynamoDB/latest/developerguide/GettingStartedDynamoDB.md "../../../amazonDynamoDB/latest/developerguide/GettingStartedDynamoDB.md") for more information.
+   See [Connect to Amazon DynamoDB](GettingStartedDynamoDB.md "GettingStartedDynamoDB.md") for more information.
 2. **Recording actions** – Console-to-Code records these actions as you perform them.
 3. **Code generation** – The feature uses Amazon Q Developer's generative AI capabilities to transform your console
    actions into reusable code in your preferred format.
@@ -63,10 +63,10 @@ Get started quickly with automation code that can be further customized for prod
 
 To start using Console-to-Code with DynamoDB:
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/DynamoDB/](https://console.aws.amazon.com/DynamoDB/ "https://console.aws.amazon.com/DynamoDB/").
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodbv2/](https://console.aws.amazon.com/dynamodbv2/ "https://console.aws.amazon.com/dynamodbv2/").
 2. Begin creating or modifying DynamoDB resources through the console interface.
 3. Use the Console-to-Code feature to generate code for your actions in your preferred format.
 4. Copy or download the generated code and customize it as needed for your specific requirements.
 
 For more information and detailed instructions on how to use Console-to-Code,
-see [Automating AWS services with Amazon Q Developer Console-to-Code](../../../q/latest/userguide/console-to-code.md "../../../q/latest/userguide/console-to-code.md") in the _Amazon Q Developer User Guide_.
+see [Automating AWS services with Amazon Q Developer Console-to-Code](../../../amazonq/latest/qdeveloper-ug/console-to-code.md "../../../amazonq/latest/qdeveloper-ug/console-to-code.md") in the _Amazon Q Developer User Guide_.

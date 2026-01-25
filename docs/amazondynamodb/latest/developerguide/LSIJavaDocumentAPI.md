@@ -1,203 +1,269 @@
-# Working with Local Secondary Indexes: Java
+# Example: Local Secondary Indexes using the Java
 
-You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more
-local secondary indexes, describe the indexes on the table, and perform queries using the
-indexes.
+document API
 
-The following are the common steps for table operations using the AWS SDK for Java Document
-API.
+The following Java code example shows how to work with local secondary indexes in
+Amazon DynamoDB. The example creates a table named `CustomerOrders` with a
+partition key of `CustomerId` and a sort key of `OrderId`. There
+are two local secondary indexes on this table:
 
-1. Create an instance of the `DynamoDB` class.
-2. Provide the required and optional parameters for the operation by creating the
-   corresponding request objects.
-3. Call the appropriate method provided by the client that you created in the
-   preceding step.
+- `OrderCreationDateIndex` — The sort key is
+  `OrderCreationDate`, and the following attributes are projected
+  into the index:
+  - `ProductCategory`
+  - `ProductName`
+  - `OrderStatus`
+  - `ShipmentTrackingId`
 
-###### Topics
+- `IsOpenIndex` — The sort key is `IsOpen`, and all
+  of the table attributes are projected into the index.
+  After the `CustomerOrders` table is created, the program loads the table
+  with data representing customer orders. It then queries the data using the local
+  secondary indexes. Finally, the program deletes the `CustomerOrders`
+  table.
 
-- [Create a table with a Local Secondary Index](#LSIJavaDocumentAPI.CreateTableWithIndex "#LSIJavaDocumentAPI.CreateTableWithIndex")
-- [Describe a table with a Local Secondary Index](#LSIJavaDocumentAPI.DescribeTableWithIndex "#LSIJavaDocumentAPI.DescribeTableWithIndex")
-- [Query a Local Secondary Index](#LSIJavaDocumentAPI.QueryAnIndex "#LSIJavaDocumentAPI.QueryAnIndex")
-- [Example: Local Secondary Indexes using the Java
-  document API](LSIJavaDocumentAPI.md "LSIJavaDocumentAPI.md")
-
-## Create a table with a Local Secondary Index
-
-Local secondary indexes must be created at the same time you create a table. To do
-this, use the `createTable` method and provide your specifications for one or
-more local secondary indexes. The following Java code example creates a table to hold
-information about songs in a music collection. The partition key is `Artist`
-and the sort key is `SongTitle`. A secondary index,
-`AlbumTitleIndex`, facilitates queries by album title.
-
-The following are the steps to create a table with a local secondary index, using the DynamoDB document
-API.
-
-1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `CreateTableRequest` class to provide the
-   request information.
-
-You must provide the table name, its primary key, and the provisioned
-throughput values. For the local secondary index, you must provide the index name, the name and
-data type for the index sort key, the key schema for the index, and the
-attribute projection. 3. Call the `createTable` method by providing the request object as a
-parameter.
-
-The following Java code example demonstrates the preceding steps. The code creates a
-table (`Music`) with a secondary index on the `AlbumTitle`
-attribute. The table partition key and sort key, plus the index sort key, are the only
-attributes projected into the index.
-
-```
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-DynamoDB dynamoDB = new DynamoDB(client);
-
-String tableName = "Music";
-
-CreateTableRequest createTableRequest = new CreateTableRequest().withTableName(tableName);
-
-//ProvisionedThroughput
-createTableRequest.setProvisionedThroughput(new ProvisionedThroughput().withReadCapacityUnits((long)5).withWriteCapacityUnits((long)5));
-
-//AttributeDefinitions
-ArrayList<AttributeDefinition> attributeDefinitions= new ArrayList<AttributeDefinition>();
-attributeDefinitions.add(new AttributeDefinition().withAttributeName("Artist").withAttributeType("S"));
-attributeDefinitions.add(new AttributeDefinition().withAttributeName("SongTitle").withAttributeType("S"));
-attributeDefinitions.add(new AttributeDefinition().withAttributeName("AlbumTitle").withAttributeType("S"));
-
-createTableRequest.setAttributeDefinitions(attributeDefinitions);
-
-//KeySchema
-ArrayList<KeySchemaElement> tableKeySchema = new ArrayList<KeySchemaElement>();
-tableKeySchema.add(new KeySchemaElement().withAttributeName("Artist").withKeyType(KeyType.HASH));  //Partition key
-tableKeySchema.add(new KeySchemaElement().withAttributeName("SongTitle").withKeyType(KeyType.RANGE));  //Sort key
-
-createTableRequest.setKeySchema(tableKeySchema);
-
-ArrayList<KeySchemaElement> indexKeySchema = new ArrayList<KeySchemaElement>();
-indexKeySchema.add(new KeySchemaElement().withAttributeName("Artist").withKeyType(KeyType.HASH));  //Partition key
-indexKeySchema.add(new KeySchemaElement().withAttributeName("AlbumTitle").withKeyType(KeyType.RANGE));  //Sort key
-
-Projection projection = new Projection().withProjectionType(ProjectionType.INCLUDE);
-ArrayList<String> nonKeyAttributes = new ArrayList<String>();
-nonKeyAttributes.add("Genre");
-nonKeyAttributes.add("Year");
-projection.setNonKeyAttributes(nonKeyAttributes);
-
-LocalSecondaryIndex localSecondaryIndex = new LocalSecondaryIndex()
-    .withIndexName("AlbumTitleIndex").withKeySchema(indexKeySchema).withProjection(projection);
-
-ArrayList<LocalSecondaryIndex> localSecondaryIndexes = new ArrayList<LocalSecondaryIndex>();
-localSecondaryIndexes.add(localSecondaryIndex);
-createTableRequest.setLocalSecondaryIndexes(localSecondaryIndexes);
-
-Table table = dynamoDB.createTable(createTableRequest);
-System.out.println(table.getDescription());
-```
-
-You must wait until DynamoDB creates the table and sets the table status to
-`ACTIVE`. After that, you can begin putting data items into the
-table.
-
-## Describe a table with a Local Secondary Index
-
-To get information about local secondary indexes on a table, use the
-`describeTable` method. For each index, you can access its name, key
-schema, and projected attributes.
-
-The following are the steps to access local secondary index information of a table using the AWS SDK for Java
-Document API.
-
-1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class. You must provide the table
-   name.
-3. Call the `describeTable` method on the `Table`
-   object.
-
-The following Java code example demonstrates the preceding steps.
+For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.md "CodeSamples.md").
 
 ###### Example
 
 ```
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-DynamoDB dynamoDB = new DynamoDB(client);
 
-String tableName = "Music";
+package com.example.dynamodb;
 
-Table table = dynamoDB.getTable(tableName);
+import software.amazon.awssdk.core.waiters.WaiterResponse;
+import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+import software.amazon.awssdk.services.dynamodb.model.*;
+import software.amazon.awssdk.services.dynamodb.waiters.DynamoDbWaiter;
 
-TableDescription tableDescription = table.describe();
+import java.util.HashMap;
+import java.util.Map;
 
-List<LocalSecondaryIndexDescription> localSecondaryIndexes
-    = tableDescription.getLocalSecondaryIndexes();
+public class DocumentAPILocalSecondaryIndexExample {
 
-// This code snippet will work for multiple indexes, even though
-// there is only one index in this example.
+    static DynamoDbClient client = DynamoDbClient.create();
+    public static String tableName = "CustomerOrders";
 
-Iterator<LocalSecondaryIndexDescription> lsiIter = localSecondaryIndexes.iterator();
-while (lsiIter.hasNext()) {
-
-    LocalSecondaryIndexDescription lsiDescription = lsiIter.next();
-    System.out.println("Info for index " + lsiDescription.getIndexName() + ":");
-    Iterator<KeySchemaElement> kseIter = lsiDescription.getKeySchema().iterator();
-    while (kseIter.hasNext()) {
-        KeySchemaElement kse = kseIter.next();
-        System.out.printf("\t%s: %s\n", kse.getAttributeName(), kse.getKeyType());
+    public static void main(String[] args) {
+        createTable();
+        loadData();
+        query(null);
+        query("IsOpenIndex");
+        query("OrderCreationDateIndex");
+        deleteTable(tableName);
     }
-    Projection projection = lsiDescription.getProjection();
-    System.out.println("\tThe projection type is: " + projection.getProjectionType());
-    if (projection.getProjectionType().toString().equals("INCLUDE")) {
-        System.out.println("\t\tThe non-key projected attributes are: " + projection.getNonKeyAttributes());
+
+    public static void createTable() {
+        CreateTableRequest request = CreateTableRequest.builder()
+            .tableName(tableName)
+            .provisionedThroughput(ProvisionedThroughput.builder()
+                .readCapacityUnits(1L)
+                .writeCapacityUnits(1L)
+                .build())
+            .attributeDefinitions(
+                AttributeDefinition.builder().attributeName("CustomerId").attributeType(ScalarAttributeType.S).build(),
+                AttributeDefinition.builder().attributeName("OrderId").attributeType(ScalarAttributeType.N).build(),
+                AttributeDefinition.builder().attributeName("OrderCreationDate").attributeType(ScalarAttributeType.N).build(),
+                AttributeDefinition.builder().attributeName("IsOpen").attributeType(ScalarAttributeType.N).build())
+            .keySchema(
+                KeySchemaElement.builder().attributeName("CustomerId").keyType(KeyType.HASH).build(),
+                KeySchemaElement.builder().attributeName("OrderId").keyType(KeyType.RANGE).build())
+            .localSecondaryIndexes(
+                LocalSecondaryIndex.builder()
+                    .indexName("OrderCreationDateIndex")
+                    .keySchema(
+                        KeySchemaElement.builder().attributeName("CustomerId").keyType(KeyType.HASH).build(),
+                        KeySchemaElement.builder().attributeName("OrderCreationDate").keyType(KeyType.RANGE).build())
+                    .projection(Projection.builder()
+                        .projectionType(ProjectionType.INCLUDE)
+                        .nonKeyAttributes("ProductCategory", "ProductName")
+                        .build())
+                    .build(),
+                LocalSecondaryIndex.builder()
+                    .indexName("IsOpenIndex")
+                    .keySchema(
+                        KeySchemaElement.builder().attributeName("CustomerId").keyType(KeyType.HASH).build(),
+                        KeySchemaElement.builder().attributeName("IsOpen").keyType(KeyType.RANGE).build())
+                    .projection(Projection.builder()
+                        .projectionType(ProjectionType.ALL)
+                        .build())
+                    .build())
+            .build();
+
+        System.out.println("Creating table " + tableName + "...");
+        client.createTable(request);
+
+        try (DynamoDbWaiter waiter = client.waiter()) {
+            WaiterResponse<DescribeTableResponse> response = waiter.waitUntilTableExists(r -> r.tableName(tableName));
+            response.matched().response().ifPresent(System.out::println);
+        }
+    }
+
+    public static void query(String indexName) {
+        System.out.println("\n***********************************************************\n");
+        System.out.println("Querying table " + tableName + "...");
+
+        if ("IsOpenIndex".equals(indexName)) {
+            System.out.println("\nUsing index: '" + indexName + "': Bob's orders that are open.");
+            System.out.println("Only a user-specified list of attributes are returned\n");
+
+            Map<String, AttributeValue> values = new HashMap<>();
+            values.put(":v_custid", AttributeValue.builder().s("bob@example.com").build());
+            values.put(":v_isopen", AttributeValue.builder().n("1").build());
+
+            QueryRequest request = QueryRequest.builder()
+                .tableName(tableName)
+                .indexName(indexName)
+                .keyConditionExpression("CustomerId = :v_custid and IsOpen = :v_isopen")
+                .expressionAttributeValues(values)
+                .projectionExpression("OrderCreationDate, ProductCategory, ProductName, OrderStatus")
+                .build();
+
+            System.out.println("Query: printing results...");
+            client.query(request).items().forEach(System.out::println);
+
+        } else if ("OrderCreationDateIndex".equals(indexName)) {
+            System.out.println("\nUsing index: '" + indexName + "': Bob's orders that were placed after 01/31/2015.");
+            System.out.println("Only the projected attributes are returned\n");
+
+            Map<String, AttributeValue> values = new HashMap<>();
+            values.put(":v_custid", AttributeValue.builder().s("bob@example.com").build());
+            values.put(":v_orddate", AttributeValue.builder().n("20150131").build());
+
+            QueryRequest request = QueryRequest.builder()
+                .tableName(tableName)
+                .indexName(indexName)
+                .keyConditionExpression("CustomerId = :v_custid and OrderCreationDate >= :v_orddate")
+                .expressionAttributeValues(values)
+                .select(Select.ALL_PROJECTED_ATTRIBUTES)
+                .build();
+
+            System.out.println("Query: printing results...");
+            client.query(request).items().forEach(System.out::println);
+
+        } else {
+            System.out.println("\nNo index: All of Bob's orders, by OrderId:\n");
+
+            Map<String, AttributeValue> values = new HashMap<>();
+            values.put(":v_custid", AttributeValue.builder().s("bob@example.com").build());
+
+            QueryRequest request = QueryRequest.builder()
+                .tableName(tableName)
+                .keyConditionExpression("CustomerId = :v_custid")
+                .expressionAttributeValues(values)
+                .build();
+
+            System.out.println("Query: printing results...");
+            client.query(request).items().forEach(System.out::println);
+        }
+    }
+
+    public static void deleteTable(String tableName) {
+        System.out.println("Deleting table " + tableName + "...");
+        client.deleteTable(DeleteTableRequest.builder().tableName(tableName).build());
+
+        try (DynamoDbWaiter waiter = client.waiter()) {
+            waiter.waitUntilTableNotExists(r -> r.tableName(tableName));
+        }
+    }
+
+    public static void loadData() {
+        System.out.println("Loading data into table " + tableName + "...");
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("alice@example.com").build(),
+            "OrderId", AttributeValue.builder().n("1").build(),
+            "IsOpen", AttributeValue.builder().n("1").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150101").build(),
+            "ProductCategory", AttributeValue.builder().s("Book").build(),
+            "ProductName", AttributeValue.builder().s("The Great Outdoors").build(),
+            "OrderStatus", AttributeValue.builder().s("PACKING ITEMS").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("alice@example.com").build(),
+            "OrderId", AttributeValue.builder().n("2").build(),
+            "IsOpen", AttributeValue.builder().n("1").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150221").build(),
+            "ProductCategory", AttributeValue.builder().s("Bike").build(),
+            "ProductName", AttributeValue.builder().s("Super Mountain").build(),
+            "OrderStatus", AttributeValue.builder().s("ORDER RECEIVED").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("alice@example.com").build(),
+            "OrderId", AttributeValue.builder().n("3").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150304").build(),
+            "ProductCategory", AttributeValue.builder().s("Music").build(),
+            "ProductName", AttributeValue.builder().s("A Quiet Interlude").build(),
+            "OrderStatus", AttributeValue.builder().s("IN TRANSIT").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("176493").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("1").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150111").build(),
+            "ProductCategory", AttributeValue.builder().s("Movie").build(),
+            "ProductName", AttributeValue.builder().s("Calm Before The Storm").build(),
+            "OrderStatus", AttributeValue.builder().s("SHIPPING DELAY").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("859323").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("2").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150124").build(),
+            "ProductCategory", AttributeValue.builder().s("Music").build(),
+            "ProductName", AttributeValue.builder().s("E-Z Listening").build(),
+            "OrderStatus", AttributeValue.builder().s("DELIVERED").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("756943").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("3").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150221").build(),
+            "ProductCategory", AttributeValue.builder().s("Music").build(),
+            "ProductName", AttributeValue.builder().s("Symphony 9").build(),
+            "OrderStatus", AttributeValue.builder().s("DELIVERED").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("645193").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("4").build(),
+            "IsOpen", AttributeValue.builder().n("1").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150222").build(),
+            "ProductCategory", AttributeValue.builder().s("Hardware").build(),
+            "ProductName", AttributeValue.builder().s("Extra Heavy Hammer").build(),
+            "OrderStatus", AttributeValue.builder().s("PACKING ITEMS").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("5").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150309").build(),
+            "ProductCategory", AttributeValue.builder().s("Book").build(),
+            "ProductName", AttributeValue.builder().s("How To Cook").build(),
+            "OrderStatus", AttributeValue.builder().s("IN TRANSIT").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("440185").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("6").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150318").build(),
+            "ProductCategory", AttributeValue.builder().s("Luggage").build(),
+            "ProductName", AttributeValue.builder().s("Really Big Suitcase").build(),
+            "OrderStatus", AttributeValue.builder().s("DELIVERED").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("893927").build()));
+
+        putItem(Map.of(
+            "CustomerId", AttributeValue.builder().s("bob@example.com").build(),
+            "OrderId", AttributeValue.builder().n("7").build(),
+            "OrderCreationDate", AttributeValue.builder().n("20150324").build(),
+            "ProductCategory", AttributeValue.builder().s("Golf").build(),
+            "ProductName", AttributeValue.builder().s("PGA Pro II").build(),
+            "OrderStatus", AttributeValue.builder().s("OUT FOR DELIVERY").build(),
+            "ShipmentTrackingId", AttributeValue.builder().s("383283").build()));
+    }
+
+    private static void putItem(Map<String, AttributeValue> item) {
+        client.putItem(PutItemRequest.builder().tableName(tableName).item(item).build());
     }
 }
-```
 
-## Query a Local Secondary Index
 
-You can use the `Query` operation on a local secondary index in much the same way that you
-`Query` a table. You must specify the index name, the query criteria for
-the index sort key, and the attributes that you want to return. In this example, the
-index is `AlbumTitleIndex` and the index sort key is `AlbumTitle`.
-
-The only attributes returned are those that have been projected into the index. You
-could modify this query to select non-key attributes too, but this would require table
-fetch activity that is relatively expensive. For more information about table fetches,
-see [Attribute projections](LSI.md#LSI.Projections "LSI.md#LSI.Projections").
-
-The following are the steps to query a local secondary index using the AWS SDK for Java Document API.
-
-1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class. You must provide the table
-   name.
-3. Create an instance of the `Index` class. You must provide the index
-   name.
-4. Call the `query` method of the `Index` class.
-
-The following Java code example demonstrates the preceding steps.
-
-###### Example
-
-```
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-DynamoDB dynamoDB = new DynamoDB(client);
-
-String tableName = "Music";
-
-Table table = dynamoDB.getTable(tableName);
-Index index = table.getIndex("AlbumTitleIndex");
-
-QuerySpec spec = new QuerySpec()
-    .withKeyConditionExpression("Artist = :v_artist and AlbumTitle = :v_title")
-    .withValueMap(new ValueMap()
-        .withString(":v_artist", "Acme Band")
-        .withString(":v_title", "Songs About Life"));
-
-ItemCollection<QueryOutcome> items = index.query(spec);
-
-Iterator<Item> itemsIter = items.iterator();
-
-while (itemsIter.hasNext()) {
-    Item item = itemsIter.next();
-    System.out.println(item.toJSONPretty());
-}
 ```

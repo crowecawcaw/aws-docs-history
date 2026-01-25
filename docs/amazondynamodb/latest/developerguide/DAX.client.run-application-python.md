@@ -1,31 +1,44 @@
-# 06-delete-table.py
+# 01-create-table.py
 
-The `06-delete-table.py` program deletes
-`TryDaxTable`. Run this program after you have finished
-testing Amazon DynamoDB Accelerator (DAX) functionality.
+The `01-create-table.py` program creates a table
+(`TryDaxTable`). The remaining Python programs in this
+section depend on this table.
 
 ```
 import boto3
 
 
-def delete_dax_table(dyn_resource=None):
+def create_dax_table(dyn_resource=None):
     """
-    Deletes the demonstration table.
+    Creates a DynamoDB table.
 
     :param dyn_resource: Either a Boto3 or DAX resource.
+    :return: The newly created table.
     """
     if dyn_resource is None:
         dyn_resource = boto3.resource("dynamodb")
 
-    table = dyn_resource.Table("TryDaxTable")
-    table.delete()
-
-    print(f"Deleting {table.name}...")
-    table.wait_until_not_exists()
+    table_name = "TryDaxTable"
+    params = {
+        "TableName": table_name,
+        "KeySchema": [
+            {"AttributeName": "partition_key", "KeyType": "HASH"},
+            {"AttributeName": "sort_key", "KeyType": "RANGE"},
+        ],
+        "AttributeDefinitions": [
+            {"AttributeName": "partition_key", "AttributeType": "N"},
+            {"AttributeName": "sort_key", "AttributeType": "N"},
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+    }
+    table = dyn_resource.create_table(**params)
+    print(f"Creating {table_name}...")
+    table.wait_until_exists()
+    return table
 
 
 if __name__ == "__main__":
-    delete_dax_table()
-    print("Table deleted!")
+    dax_table = create_dax_table()
+    print(f"Created table.")
 
 ```
