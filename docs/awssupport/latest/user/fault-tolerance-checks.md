@@ -148,7 +148,7 @@ For more information, see [Availability Zones for your Application Load Balancer
 
 For more information, see the following documentation:
 
-- [How ELB works](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region")
+- [How Elastic Load Balancing works](../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region "../../../elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.md#AZ-Region")
 - [Regions, Availability Zones, and Local Zones](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md")
 
 **Report columns**
@@ -605,7 +605,7 @@ To automate the creation of EBS snapshots, you can consider using [AWS Backup](.
 
 **Description**
 
-Checks if your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer are using ELB health checks. The default health checks for an Auto Scaling group are Amazon EC2 status checks only. If an instance fails these status checks, it is marked unhealthy and is terminated. Amazon EC2 Auto Scaling launches a new replacement instance. The ELB health check periodically monitors Amazon EC2 instances to detect and terminate unhealthy instances and then launch new instances.
+Checks if your Amazon EC2 Auto Scaling groups that are associated with a Classic Load Balancer are using Elastic Load Balancing health checks. The default health checks for an Auto Scaling group are Amazon EC2 status checks only. If an instance fails these status checks, it is marked unhealthy and is terminated. Amazon EC2 Auto Scaling launches a new replacement instance. The Elastic Load Balancing health check periodically monitors Amazon EC2 instances to detect and terminate unhealthy instances and then launch new instances.
 
 For more information, see [Add Elastic Load Balancing health checks](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console").
 
@@ -627,13 +627,13 @@ For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations pla
 
 **Alert Criteria**
 
-Yellow: Amazon EC2 Auto Scaling group attached to Classic Load Balancer has not enabled ELB health checks.
+Yellow: Amazon EC2 Auto Scaling group attached to Classic Load Balancer has not enabled Elastic Load Balancing health checks.
 
 **Recommended Action**
 
-Ensure that your Auto Scaling groups that are associated with a Classic Load Balancer use ELB health checks.
+Ensure that your Auto Scaling groups that are associated with a Classic Load Balancer use Elastic Load Balancing health checks.
 
-ELB health checks report if the load balancer is healthy and available to handle requests. This ensures high availability for your application.
+Elastic Load Balancing health checks report if the load balancer is healthy and available to handle requests. This ensures high availability for your application.
 
 For more information, see [Add Elastic Load Balancing health checks to an Auto Scaling group](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md")
 
@@ -2846,7 +2846,7 @@ Configure your Application, Network, and Gateway Load Balancers with subnets acr
 
 [Availability Zones for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md")
 
-[Availability Zones (ELB)](../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones "../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones")
+[Availability Zones (Elastic Load Balancing)](../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones "../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones")
 
 [Create a Gateway Load Balancer](../../../elasticloadbalancing/latest/gateway/create-load-balancer.md "../../../elasticloadbalancing/latest/gateway/create-load-balancer.md")
 
@@ -2892,8 +2892,8 @@ Increase the number of available IP addresses
 
 Examines the health check configuration for Auto Scaling groups.
 
-If ELB is being used for an Auto Scaling group, the recommended configuration is
-to enable an ELB health check. If an ELB health check is not used, Auto Scaling
+If Elastic Load Balancing is being used for an Auto Scaling group, the recommended configuration is
+to enable an Elastic Load Balancing health check. If an Elastic Load Balancing health check is not used, Auto Scaling
 can only act upon the health of the Amazon Elastic Compute Cloud (Amazon EC2) instance. Auto Scaling will
 not act on the application running on the instance.
 
@@ -3811,7 +3811,7 @@ changes in your Amazon VPC.
 Checks your load balancer configuration.
 
 To help increase the level of fault tolerance in Amazon Elastic Compute Cloud (Amazon EC2) when
-using ELB , we recommend running an equal number of instances across
+using Elastic Load Balancing , we recommend running an equal number of instances across
 multiple Availability Zones in a Region. A load balancer that is configured
 accrues charges, so this is a cost-optimization check as well.
 

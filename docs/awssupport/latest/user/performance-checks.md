@@ -1428,7 +1428,7 @@ Checks for resource record sets that can be changed to alias resource
 record sets to improve performance and save money.
 
 An alias resource record set routes DNS queries to an AWS resource (for
-example, an ELB load balancer or an Amazon S3 bucket) or to another Route 53
+example, an Elastic Load Balancing load balancer or an Amazon S3 bucket) or to another Route 53
 resource record set. When you use alias resource record sets, Route 53 routes
 your DNS queries to AWS resources free of charge.
 
@@ -1449,7 +1449,7 @@ This check reports the resources that are flagged by the criteria and the total 
   website.
 - Yellow: A resource record set is a CNAME to an Amazon CloudFront
   distribution.
-- Yellow: A resource record set is a CNAME to an ELB load
+- Yellow: A resource record set is a CNAME to an Elastic Load Balancing load
   balancer.
 
 **Recommended Action**

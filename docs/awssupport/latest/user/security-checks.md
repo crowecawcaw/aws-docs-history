@@ -1400,7 +1400,7 @@ Certificates that were encrypted by using the SHA-1 hashing algorithm are
 being deprecated by web browsers such as Chrome and Firefox. Depending on
 the number of SSL certificates that you have associated with your CloudFront
 distributions, this check might add a few cents per month to your bill with
-your web hosting provider, for example, AWS if you're using Amazon EC2 or ELB
+your web hosting provider, for example, AWS if you're using Amazon EC2 or Elastic Load Balancing
 as the origin for your CloudFront distribution. This check does not validate your
 origin certificate chain or certificate authorities. You can check these in
 your CloudFront configuration.
@@ -1493,7 +1493,7 @@ security policy.
 
 Use only the recommended ciphers and protocols.
 
-For more information, see [Listener Configurations for ELB](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md").
+For more information, see [Listener Configurations for Elastic Load Balancing](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.md").
 
 **Additional Resources**
 
@@ -1502,7 +1502,7 @@ For more information, see [Listener Configurations for ELB](../../../ElasticLoad
 - [Update SSL Negotiation Configuration of
   Your Load Balancer](../../../ElasticLoadBalancing/latest/DeveloperGuide/ssl-config-update.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/ssl-config-update.md")
 - [SSL Negotiation Configurations for
-  ELB](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md")
+  Elastic Load Balancing](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-ssl-security-policy.md")
 - [SSL Security Policy Table](../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.md "../../../ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.md")
 
 **Report columns**

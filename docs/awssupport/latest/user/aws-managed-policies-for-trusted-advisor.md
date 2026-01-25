@@ -247,7 +247,7 @@ This policy includes the following permissions.
 - `dynamodbaccelerator` – Describes DynamoDB Accelerator resources
 - `ec2` – Describes Amazon Elastic Compute Cloud (Amazon EC2) account quotas and
   resources
-- `elasticloadbalancing` – Describes ELB (ELB) account
+- `elasticloadbalancing` – Describes Elastic Load Balancing (ELB) account
   quotas and resources
 - `iam` – Gets IAM resources, such as credentials, password
   policy, and certificates

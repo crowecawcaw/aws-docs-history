@@ -1937,7 +1937,7 @@ resolve your active issues.
 
 **Description**
 
-Checks your ELB configuration for load balancers that are idle.
+Checks your Elastic Load Balancing configuration for load balancers that are idle.
 
 Any load balancer that is configured accrues charges. If a load
 balancer has no associated back-end instances, or if network traffic is

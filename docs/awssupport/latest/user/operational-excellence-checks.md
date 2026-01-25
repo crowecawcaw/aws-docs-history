@@ -33,7 +33,7 @@ You can use the following checks for the operational excellence category.
 - [AWS Fargate platform version is not latest](operational-excellence-checks.md#ecs-fargate-latest-platform-version "operational-excellence-checks.md#ecs-fargate-latest-platform-version")
 - [AWS Systems Manager State Manager Association in Non-compliant Status](operational-excellence-checks.md#ec2-managedinstance-association-compliance-status-check "operational-excellence-checks.md#ec2-managedinstance-association-compliance-status-check")
 - [CloudTrail trails are not configured with Amazon CloudWatch Logs](operational-excellence-checks.md#cloudtrail-cloudwatch-logs-enabled "operational-excellence-checks.md#cloudtrail-cloudwatch-logs-enabled")
-- [ELB Deletion Protection Not Enabled for Load Balancers](operational-excellence-checks.md#elb-deletion-protection-enabled "operational-excellence-checks.md#elb-deletion-protection-enabled")
+- [Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers](operational-excellence-checks.md#elb-deletion-protection-enabled "operational-excellence-checks.md#elb-deletion-protection-enabled")
 - [RDS DB Cluster Deletion Protection Check](operational-excellence-checks.md#rds-db-cluster-deletion-protection "operational-excellence-checks.md#rds-db-cluster-deletion-protection")
 - [RDS DB Instance Automatic Minor Version Upgrade Check](operational-excellence-checks.md#rds-automatic-minor-version-upgrade-enabled "operational-excellence-checks.md#rds-automatic-minor-version-upgrade-enabled")
 
@@ -957,9 +957,9 @@ For more information, see [Create a flow log](../../../vpc/latest/userguide/work
 
 Checks if Application Load Balancers and Classic Load Balancers have access logging enabled.
 
-ELB provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and troubleshoot issues.
+Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and troubleshoot issues.
 
-Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, ELB captures the logs and stores them in the Amazon S3 bucket that you specify.
+Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify.
 
 You can specify the access log Amazon S3 bucket that you want to check using the **s3BucketNames** parameter in your AWS Config rules.
 
@@ -1470,15 +1470,15 @@ For more information, see [Creating CloudWatch alarms for CloudTrail events: exa
 - Input Parameters
 - Last Updated Time
 
-## ELB Deletion Protection Not Enabled for Load Balancers
+## Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers
 
 **Description**
 
 Checks if deletion protection is turned on for your load balancers.
 
-ELB supports deletion protection for your Application Load Balancers, Network Load Balancers, and Gateway Load Balancers. Turn on deletion protection to prevent your load balancer from accidental deletion. Deletion protection is turned off by default when you create a load balancer. If your load balancers are part of a production environment, then consider turning on deletion protection.
+Elastic Load Balancing supports deletion protection for your Application Load Balancers, Network Load Balancers, and Gateway Load Balancers. Turn on deletion protection to prevent your load balancer from accidental deletion. Deletion protection is turned off by default when you create a load balancer. If your load balancers are part of a production environment, then consider turning on deletion protection.
 
-Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, ELB captures the logs and stores them in the Amazon S3 bucket that you specify.
+Access logs are an optional feature of Elastic Load Balancing that is disabled by default. After you enable access logs for your load balancer, Elastic Load Balancing captures the logs and stores them in the Amazon S3 bucket that you specify.
 
 For more information, see [Application Load Balancer Deletion protection](../../../elasticloadbalancing/latest/application/application-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/application/application-load-balancers.md#deletion-protection"), [Network Load Balancers Deletion protection](../../../elasticloadbalancing/latest/network/network-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/network/network-load-balancers.md#deletion-protection"), or [Gateway Load Balancers Deletion protection](../../../elasticloadbalancing/latest/gateway/gateway-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/gateway/gateway-load-balancers.md#deletion-protection").
 
