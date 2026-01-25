@@ -190,6 +190,8 @@ MSSQL| **Volume name** | **Directory** | **Description** |
 | <SID>-sqldbexe | <drive>:\Program Files\Microsoft SQL Server | Directory for SQL server program files, and `master`, `msdb`, and `model` data files |
 | <SID>-backup | <drive>:\Backup | SQL server data and log backup directory |
 
+It is recommended to switch on Storage Efficiency, but to keep inactive data compression disabled.
+
 ## File system setup
 
 To create a FSx for ONTAP file system, see [Step 1: Create an Amazon FSx for NetApp ONTAP file system](../../../fsx/latest/ONTAPGuide/getting-started-step1.md "../../../fsx/latest/ONTAPGuide/getting-started-step1.md"). For more information, see [Managing FSx for ONTAP file systems](../../../fsx/latest/ONTAPGuide/managing-file-systems.md "../../../fsx/latest/ONTAPGuide/managing-file-systems.md").

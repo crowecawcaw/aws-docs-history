@@ -60,7 +60,7 @@ For the Pacemaker setup, create two policies and attach them to the IAM role, wh
 - STONITH – Allows Ec2 instance to start, stop and reboot instances.
 
 ```
-  {
+ {
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -94,7 +94,7 @@ For the Pacemaker setup, create two policies and attach them to the IAM role, wh
 - Overlay IP – Allows the Ec2 instance to update the route table in case of failover.
 
 ```
-        {
+       {
     "Version":"2012-10-17",
     "Statement": [
         {
