@@ -2,6 +2,10 @@
 
 Amazon CloudWatch Evidently extension
 
+###### Warning
+
+Amazon CloudWatch Evidently is no longer supported. Please see [this](https://aws.amazon.com/blogs/mt/support-for-amazon-cloudwatch-evidently-ending-soon/ "https://aws.amazon.com/blogs/mt/support-for-amazon-cloudwatch-evidently-ending-soon/") for more details
+
 You can use Amazon CloudWatch Evidently to safely validate new features by serving them to a
 specified percentage of your users while you roll out the feature. You can monitor the
 performance of the new feature to help you decide when to ramp up traffic to your users.
