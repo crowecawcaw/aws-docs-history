@@ -2,6 +2,7 @@
 
 | Change                                                          | Date           |
 | --------------------------------------------------------------- | -------------- |
+| Added X8i to SAP NetWeaver and SAP HANA                         | January 2026   |
 | Added Scale-Out (OLAP) support for u7inh-32tb.480xlarge         | June 2025      |
 | Added U7i to SAP NetWeaver and SAP HANA                         | May 2024       |
 | Added R7i to SAP Business One                                   | January 2024   |

@@ -59,7 +59,7 @@ See the following example policies based on your AWS Region.
 **AWS Regions (except AWS GovCloud (US-East), AWS GovCloud (US-West), Beijing and Ningxia)**
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -87,7 +87,7 @@ See the following example policies based on your AWS Region.
 **Beijing and Ningxia**
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -115,7 +115,7 @@ See the following example policies based on your AWS Region.
 **AWS GovCloud (US-East) and AWS GovCloud (US-West)**
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
