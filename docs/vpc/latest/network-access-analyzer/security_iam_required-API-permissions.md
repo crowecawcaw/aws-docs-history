@@ -6,7 +6,7 @@ Network Access Analyzer relies on data from other AWS services. It uses permissi
 services:
 
 - Amazon EC2
-- ELB
+- Elastic Load Balancing
 - AWS Network Firewall
 - AWS Resource Groups
 - AWS Resource Groups Tagging API
@@ -34,7 +34,7 @@ Network Access Analyzer API actions that they need.
 ###### Describe API calls for networking-related resources
 
 Network Access Analyzer uses describe calls while gathering information about your resources from Amazon VPC,
-Amazon EC2, ELB, and AWS Network Firewall (for example, subnets, network interfaces, and security
+Amazon EC2, Elastic Load Balancing, and AWS Network Firewall (for example, subnets, network interfaces, and security
 groups). To access Network Access Analyzer, users must also have these API permissions.
 
 If you specify a resource group in a resource statement, Network Access Analyzer uses
