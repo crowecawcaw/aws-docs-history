@@ -63,4 +63,6 @@ policy.
 ## Data encryption
 
 Amazon Verified Permissions automatically encrypts all customer data such as policies with an
-AWS managed key, so the use of a customer managed key is neither necessary nor supported.
+AWS managed key. Amazon Verified Permissions also allows for customers to utilize a customer managed key to encrypt their data.
+
+For detailed information about using customer managed keys for encryption, see [Encrypting Resources in Amazon Verified Permissions](security-data-protection-cmk.md "security-data-protection-cmk.md").
