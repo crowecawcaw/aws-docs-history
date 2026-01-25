@@ -68,7 +68,7 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
    **Activity**, choose **Reply**. You can
    reply with text and with emojis.
 
-![Adding replies and emoji reactions to a comment.](/images/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
+![Adding replies and emoji reactions to a comment.](images/codecommit-commenting-commenttab.png)
 
 You can view the names of those who responded with a particular emoji reaction
 reply by choosing it. To view all emoji reactions and information about who
