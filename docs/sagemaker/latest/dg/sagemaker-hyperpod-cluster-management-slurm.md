@@ -28,6 +28,22 @@ using your custom scripts, write your logs to the
 `/var/log/provision/provisioning.log` location for them to be available
 in CloudWatch.
 
+**Lifecycle script log markers**
+
+CloudWatch logs for lifecycle scripts include specific markers to help you track execution progress and identify issues:
+
+|                                                                                                                           |                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Marker**                                                                                                                | **Description**                                                         |
+| `START`                                                                                                                   | `Indicates the beginning of lifecycle script logs for the instance`     |
+| `[SageMaker] Lifecycle scripts were provided, with S3 uri: `[s3://bucket-name/]`and entrypoint script:`[script-name.sh]`` | `Indicates the S3 location and entrypoint script that will be used`     |
+| `[SageMaker] Downloading lifecycle scripts`                                                                               | `Indicates scripts are being downloaded from the specified S3 location` |
+| `[SageMaker] Lifecycle scripts have been downloaded`                                                                      | `Indicates scripts have been successfully downloaded from S3`           |
+| `[SageMaker] The lifecycle scripts succeeded`                                                                             | `Indicates successful completion of all lifecycle scripts`              |
+| `[SageMaker] The lifecycle scripts failed`                                                                                | `Indicates failed execution of lifecycle scripts`                       |
+
+These markers help you quickly identify where in the lifecycle script execution process an issue occurred. When troubleshooting failures, review the log entries to identify where the process stopped or failed.
+
 **Lifecycle script failure messages**
 
 If the lifecycle script exists but fails during execution, you will receive an error message that includes the CloudWatch log group name and log stream name. In the event that there are lifecycle script failures across multiple instances, the error message will indicate only one failed instance, but the log group should contain streams for all instances.

@@ -27,13 +27,82 @@ attached with an Internet Gateway (IGW). Remote VS Code connections share the
 same limitations as SageMaker AI. For more information, see [Connect
 Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
 
-**VPC PrivateLink requirements** When SageMaker AI runs
-in private subnets, configure these SSM VPC endpoints in addition to standard
+### VPC PrivateLink requirements
+
+When SageMaker AI runs in private subnets, configure these SSM VPC endpoints in addition to standard
 VPC endpoints required for SageMaker. For more information, see [Connect Studio
 Through a VPC Endpoint](studio-interface-endpoint.md "studio-interface-endpoint.md").
 
 - `com.amazonaws.`REGION`.ssm`
 - `com.amazonaws.`REGION`.ssmmessages`
+
+**VPC endpoint policy recommendations**
+
+The following are the recommended VPC endpoint policies that allow the necessary actions for remote access while using the `aws:PrincipalIsAWSService` condition to ensure only AWS services like Amazon SageMaker AI can make the calls. For more information about the `aws:PrincipalIsAWSService` condition key, see [the documentation](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalisawsservice "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalisawsservice").
+
+**SSM endpoint policy**
+
+Use the following policy for the `com.amazonaws.`REGION`.ssm` endpoint:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "ssm:CreateActivation",
+                "ssm:RegisterManagedInstance",
+                "ssm:DeleteActivation",
+                "ssm:DeregisterManagedInstance",
+                "ssm:AddTagsToResource",
+                "ssm:UpdateInstanceInformation",
+                "ssm:UpdateInstanceAssociationStatus",
+                "ssm:DescribeInstanceInformation",
+                "ssm:ListInstanceAssociations",
+                "ssm:ListAssociations",
+                "ssm:GetDocument",
+                "ssm:PutInventory"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "BoolIfExists": {
+                    "aws:PrincipalIsAWSService": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
+**SSM Messages endpoint policy**
+
+Use the following policy for the `com.amazonaws.`REGION`.ssmmessages` endpoint:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "ssmmessages:CreateControlChannel",
+                "ssmmessages:CreateDataChannel",
+                "ssmmessages:OpenControlChannel",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "BoolIfExists": {
+                    "aws:PrincipalIsAWSService": "true"
+                }
+            }
+        }
+    ]
+}
+```
 
 **VS Code specific network requirements**
 
