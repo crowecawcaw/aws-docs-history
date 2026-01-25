@@ -67,9 +67,9 @@ label 7.4 or higher. See below for how to set up guaranteed shuffle protection.
   The cluster never scales below the minimum constraints specified
   in the managed scaling policy.
 - For clusters that are launched with Amazon EMR 5.x releases 5.34.0 and
-  higher, and 6.x releases 6.4.0 and higher, Amazon EMR-managed scaling doesn’t
+  higher, and 6.x releases 6.4.0 and higher, Amazon EMR Managed Scaling doesn’t
   scale down nodes that have `ApplicationMaster` for Apache
-  Spark running on them. This minimizes job failures and retries, which
+  Spark, if there are active stages in the applications running on them. This minimizes job failures and retries, which
   helps to improve job performance and reduce costs. To confirm which
   nodes in your cluster are running `ApplicationMaster`, visit
   the Spark History Server and filter for the driver under the
