@@ -224,6 +224,38 @@ class OpsItemWrapper:
   [CreateOpsItem](../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        oo_result = lo_ssm->createopsitem(
+            iv_title = iv_title
+            iv_source = iv_source
+            iv_category = iv_category
+            iv_severity = iv_severity
+            iv_description = iv_description ).
+        MESSAGE 'OpsItem created.' TYPE 'I'.
+      CATCH /aws1/cx_ssmopsitemlimitexcdex.
+        MESSAGE 'You have exceeded your open OpsItem limit.' TYPE 'I'.
+      CATCH /aws1/cx_ssmopsitemalrdyexex.
+        MESSAGE 'OpsItem already exists.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateOpsItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

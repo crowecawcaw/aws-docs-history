@@ -271,6 +271,56 @@ class OpsItemWrapper:
   [DescribeOpsItems](../../../goto/boto3/ssm-2014-11-06/DescribeOpsItems.md "../../../goto/boto3/ssm-2014-11-06/DescribeOpsItems.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        " Create filter for OpsItem ID
+        DATA(lt_filters) = VALUE /aws1/cl_ssmopsitemfilter=>tt_opsitemfilters(
+          ( NEW /aws1/cl_ssmopsitemfilter(
+              iv_key = 'OpsItemId'
+              it_values = VALUE /aws1/cl_ssmopsitemfiltvals_w=>tt_opsitemfiltervalues(
+                ( NEW /aws1/cl_ssmopsitemfiltvals_w( iv_value = iv_ops_item_id ) )
+              )
+              iv_operator = 'Equal'
+            ) )
+        ).
+
+        " Use paginator to get all results
+        DATA(lo_paginator) = lo_ssm->get_paginator( ).
+        DATA(lo_iterator) = lo_paginator->describeopsitems(
+          it_opsitemfilters = lt_filters ).
+
+        rv_found = abap_false.
+
+        WHILE lo_iterator->has_next( ).
+          DATA(lo_result) = CAST /aws1/cl_ssmdescropsitemsrsp( lo_iterator->get_next( ) ).
+          LOOP AT lo_result->get_opsitemsummaries( ) INTO DATA(lo_item).
+            DATA(lv_title) = lo_item->get_title( ).
+            DATA(lv_status) = lo_item->get_status( ).
+            MESSAGE |The OpsItem title is { lv_title } and the status is { lv_status }| TYPE 'I'.
+            rv_found = abap_true.
+          ENDLOOP.
+        ENDWHILE.
+      CATCH /aws1/cx_ssminternalservererr.
+        MESSAGE 'Internal server error occurred.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeOpsItems](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -25,6 +25,37 @@ documents, not other types such as Automation runbooks. The
 plugin. For more information about the `aws:downloadContent` plugin,
 see [aws:downloadContent](documents-command-ssm-plugin-reference.md#aws-downloadContent "documents-command-ssm-plugin-reference.md#aws-downloadContent").
 
+###### Warning
+
+`AWS-RunDocument` can execute document content from various sources
+(SSM documents, GitHub, S3, URLs). When executing remote documents, the IAM
+permissions evaluated are for `ssm:GetDocument` on the remote document
+and `ssm:SendCommand` on `AWS-RunDocument`. If you have
+IAM policies that deny access to specific SSM documents, users with
+`AWS-RunDocument` permissions can still execute those denied documents
+by passing the document content as parameters, which may not be subject to the same
+document-specific IAM restrictions.
+
+To properly restrict document execution, use one of these approaches:
+
+- **Allowlist approved sources**: If you need
+  to use nested document execution, restrict access to only approved sources
+  using appropriate controls for each source type: IAM policies to control
+  `ssm:GetDocument` for SSM document sources, IAM and Amazon S3
+  bucket policies for Amazon S3 sources, and network settings (such as VPC endpoints
+  or security groups) for public Internet sources.
+- **Restrict access to AWS-RunDocument**:
+  Deny `ssm:SendCommand` on `AWS-RunDocument` and any
+  other documents that use the `aws:runDocument` plugin in your IAM
+  policies to prevent nested document execution.
+- **Use permission boundaries**: Implement
+  IAM permission boundaries to set maximum permissions for users, preventing
+  them from executing unauthorized documents regardless of the execution
+  method.
+  For more information about IAM best practices and permission boundaries, see
+  [Permissions boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md") in the _AWS Identity and Access Management User
+  Guide_.
+
 ###### Before you begin
 
 Before you run a remote document, you must complete the following

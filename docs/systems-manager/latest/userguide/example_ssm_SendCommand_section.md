@@ -500,6 +500,40 @@ class DocumentWrapper:
   [SendCommand](../../../goto/boto3/ssm-2014-11-06/SendCommand.md "../../../goto/boto3/ssm-2014-11-06/SendCommand.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_ssm->sendcommand(
+            it_instanceids = it_instance_ids
+            iv_documentname = iv_document_name
+            iv_timeoutseconds = 3600 ).
+        DATA(lo_command) = lo_result->get_command( ).
+        IF lo_command IS BOUND.
+          rv_command_id = lo_command->get_commandid( ).
+          MESSAGE 'Command sent successfully.' TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_ssminvaliddocument.
+        MESSAGE 'Invalid document.' TYPE 'I'.
+      CATCH /aws1/cx_ssminvalidinstanceid.
+        MESSAGE 'Invalid instance ID.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SendCommand](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

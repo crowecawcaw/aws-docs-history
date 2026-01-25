@@ -47,7 +47,7 @@ them in the **Custom applications** category.
 
 CloudFormation allows you to create and provision AWS infrastructure
 deployments predictably and repeatedly. It helps you use AWS services
-such as Amazon EC2, Amazon Elastic Block Store (Amazon EBS), Amazon Simple Notification Service (Amazon SNS), ELB, and AWS
+such as Amazon EC2, Amazon Elastic Block Store (Amazon EBS), Amazon Simple Notification Service (Amazon SNS), Elastic Load Balancing, and AWS
 Auto Scaling. With CloudFormation, you can build reliable, scalable, cost-effective
 applications in the cloud without worrying about creating and
 configuring the underlying AWS infrastructure.

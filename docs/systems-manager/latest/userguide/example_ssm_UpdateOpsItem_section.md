@@ -214,6 +214,37 @@ class OpsItemWrapper:
   [UpdateOpsItem](../../../goto/boto3/ssm-2014-11-06/UpdateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/UpdateOpsItem.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        lo_ssm->updateopsitem(
+            iv_opsitemid = iv_ops_item_id
+            iv_title = iv_title
+            iv_description = iv_description
+            iv_status = iv_status ).
+        MESSAGE 'OpsItem updated.' TYPE 'I'.
+      CATCH /aws1/cx_ssmopsitemnotfoundex.
+        MESSAGE 'OpsItem not found.' TYPE 'I'.
+      CATCH /aws1/cx_ssmopsiteminvparamex.
+        MESSAGE 'Invalid OpsItem parameter.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [UpdateOpsItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

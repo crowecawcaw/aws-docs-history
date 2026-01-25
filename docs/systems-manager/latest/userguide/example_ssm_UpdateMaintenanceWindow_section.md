@@ -377,6 +377,38 @@ class MaintenanceWindowWrapper:
   [UpdateMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/UpdateMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/UpdateMaintenanceWindow.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        lo_ssm->updatemaintenancewindow(
+            iv_windowid = iv_window_id
+            iv_name = iv_name
+            iv_enabled = iv_enabled
+            iv_schedule = iv_schedule
+            iv_duration = iv_duration
+            iv_cutoff = iv_cutoff
+            iv_allowunassociatedtargets = iv_allow_unassociated_targets ).
+        MESSAGE 'Maintenance window updated.' TYPE 'I'.
+      CATCH /aws1/cx_ssmdoesnotexistex.
+        MESSAGE 'Maintenance window does not exist.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [UpdateMaintenanceWindow](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

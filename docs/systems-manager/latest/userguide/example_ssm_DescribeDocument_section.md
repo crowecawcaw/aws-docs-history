@@ -1,7 +1,7 @@
 AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
 
-# Use `DescribeDocument` with a CLI
+# Use `DescribeDocument` with an AWS SDK or CLI
 
 The following code examples show how to use `DescribeDocument`.
 
@@ -133,6 +133,35 @@ Status          : Active
 - For API details, see
   [DescribeDocument](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
   in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        DATA(lo_result) = lo_ssm->describedocument( iv_name = iv_name ).
+        DATA(lo_document) = lo_result->get_document( ).
+        IF lo_document IS BOUND.
+          rv_status = lo_document->get_status( ).
+          MESSAGE |Document status: { rv_status }| TYPE 'I'.
+        ENDIF.
+      CATCH /aws1/cx_ssminvaliddocument.
+        MESSAGE 'Invalid document.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeDocument](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

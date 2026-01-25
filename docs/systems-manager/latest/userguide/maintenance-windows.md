@@ -79,7 +79,7 @@ selected targets.
 - Run AWS Lambda functions that invokes additional actions, such as scanning your
   nodes for patch updates.
 - Run AWS Step Functions state machines to perform tasks such as removing a node from an
-  ELB environment, patching the node, and then adding the node back to the ELB
+  Elastic Load Balancing environment, patching the node, and then adding the node back to the Elastic Load Balancing
   environment.
 - Target nodes that are offline by specifying an AWS resource group as the
   target.

@@ -214,7 +214,7 @@ console
    The following image
    highlights the location of the Systems Manager option.
 
-   ![Systems Manager is one of the options for Use case.](images/iam_use_cases_for_MWs.png)
+   ![Systems Manager is one of the options for Use case.](/images/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
 
 4. Choose **Next**.
 5. In the **Permissions policies** area, in the search

@@ -355,6 +355,48 @@ class DocumentWrapper:
   [ListCommandInvocations](../../../goto/boto3/ssm-2014-11-06/ListCommandInvocations.md "../../../goto/boto3/ssm-2014-11-06/ListCommandInvocations.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        " Use paginator to get all results
+        DATA(lo_paginator) = lo_ssm->get_paginator( ).
+        DATA(lo_iterator) = lo_paginator->listcommandinvocations(
+          iv_instanceid = iv_instance_id ).
+
+        DATA lv_count TYPE i VALUE 0.
+
+        WHILE lo_iterator->has_next( ).
+          DATA(lo_result) = CAST /aws1/cl_ssmlistcmdinvcsresult( lo_iterator->get_next( ) ).
+          LOOP AT lo_result->get_commandinvocations( ) INTO DATA(lo_invocation).
+            lv_count = lv_count + 1.
+            DATA(lv_requested_datetime) = lo_invocation->get_requesteddatetime( ).
+            MESSAGE |Command invocation requested at: { lv_requested_datetime }| TYPE 'I'.
+          ENDLOOP.
+        ENDWHILE.
+
+        MESSAGE |{ lv_count } command invocation(s) found for instance { iv_instance_id }.| TYPE 'I'.
+      CATCH /aws1/cx_ssminvalidinstanceid.
+        MESSAGE 'Invalid instance ID.' TYPE 'I'.
+      CATCH /aws1/cx_ssminvalidcommandid.
+        MESSAGE 'Invalid command ID.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListCommandInvocations](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

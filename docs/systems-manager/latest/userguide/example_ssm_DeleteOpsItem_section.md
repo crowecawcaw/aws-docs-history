@@ -3,7 +3,7 @@ AWS Systems Manager Change Manager is no longer open to new customers. Existing
 
 # Use `DeleteOpsItem` with an AWS SDK
 
-The following code example shows how to use `DeleteOpsItem`.
+The following code examples show how to use `DeleteOpsItem`.
 
 Python
 
@@ -61,6 +61,31 @@ class OpsItemWrapper:
 - For API details, see
   [DeleteOpsItem](../../../goto/boto3/ssm-2014-11-06/DeleteOpsItem.md "../../../goto/boto3/ssm-2014-11-06/DeleteOpsItem.md")
   in _AWS SDK for Python (Boto3) API Reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+
+```
+    TRY.
+        lo_ssm->deleteopsitem( iv_opsitemid = iv_ops_item_id ).
+        MESSAGE 'OpsItem deleted.' TYPE 'I'.
+      CATCH /aws1/cx_ssmopsiteminvparamex.
+        MESSAGE 'Invalid OpsItem parameter.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteOpsItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
