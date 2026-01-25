@@ -96,7 +96,7 @@ You can do this for actions that support a specific resource type, known as _res
 For actions that don’t support resource-level permissions, such as listing operations, use a wildcard (\*) to indicate that the statement applies to all resources.
 
 ```
- "Resource": "*"
+"Resource": "*"
 ```
 
 To see a list of Amazon EVS resource types and their ARNs, see [Resources defined by Amazon Elastic VMware Service](../../../service-authorization/latest/reference/list_amazonelasticvmwareservice.md#amazonelasticvmwareservice-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonelasticvmwareservice.md#amazonelasticvmwareservice-resources-for-iam-policies") in the _Service Authorization Reference_.
@@ -107,7 +107,7 @@ For example, multiple environments can be referenced when calling the `ListEnvir
 To specify multiple resources in a single statement, separate the ARNs with commas.
 
 ```
- "Resource": [
+"Resource": [
       "EXAMPLE-RESOURCE-1",
       "EXAMPLE-RESOURCE-2"
 ```
@@ -121,7 +121,7 @@ arn:${Partition}:evs:${Region}:${Account}:environment/${EnvironmentId}
 To specify the environments `my-environment-1` and `my-environment-2` in your statement, use the following example ARNs:
 
 ```
- "Resource": [
+"Resource": [
          "arn:aws:evs:us-east-1:123456789012:environment/my-environment-1",
          "arn:aws:evs:us-east-1:123456789012:environment/my-environment-2"
 ```
@@ -129,7 +129,7 @@ To specify the environments `my-environment-1` and `my-environment-2` in your st
 To specify all environments that belong to a specific account, use the wildcard (\*):
 
 ```
- "Resource": "arn:aws:evs:us-east-1:123456789012:environment/*"
+"Resource": "arn:aws:evs:us-east-1:123456789012:environment/*"
 ```
 
 ### Policy condition keys for Amazon EVS

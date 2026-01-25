@@ -15,7 +15,7 @@ Amazon EVS only supports Single-AZ deployments at this time.
 - Amazon EVS supports the use of AWS Elastic Disaster Recovery to automate the backup and recovery of your data.
 - Amazon EVS deploys an Active/Standby NSX Edge cluster with two NSX Edge nodes per VCF requirements.
   The NSX Edge nodes run on different hosts to ensure high availability and allow for quick failover in the rare event that an NSX Edge node fails.
-- Amazon EVS deploys a minimal environment of four ESXi hosts, which VCF requires.
+- Amazon EVS deploys a minimal environment of four ESX hosts, which VCF requires.
   Additional hosts can be added post-deployment.
   This is a VMware design requirement to ensure proper vSAN quorum and maintain availability during maintenance operations and host failures.
   For more information, see [vSphere Cluster Design for VMware Cloud Foundation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-design-5-2/vsphere-design-for-vmware-cloud-foundation/vcf-vsphere-cluster-design.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-design-5-2/vsphere-design-for-vmware-cloud-foundation/vcf-vsphere-cluster-design.html") in the VMware Cloud Foundation documentation.

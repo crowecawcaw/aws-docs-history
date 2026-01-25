@@ -79,7 +79,7 @@ IAM console
 12. For **Trusted entity type**, choose AWS account.
 13. Under **An AWS account** , specify the account that you want to perform Amazon EVS actions and choose **Next**.
 14. On the **Add permissions** page, select the permissions policy that you previously created and choose **Next**.
-15. Under **Role name**, enter a meaninful name to identify this role.
+15. Under **Role name**, enter a meaningful name to identify this role.
 16. Review the trust policy and ensure that the correct AWS account is listed as the principal.
 17. (Optional) Add tags to help identify, organize, or search for this resource.
 18. Choose **Create role**.
@@ -90,7 +90,7 @@ AWS CLI
    For the principal ARN, replace the example AWS account ID and `service-user` name with your own AWS account ID and IAM user name.
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {
@@ -108,7 +108,7 @@ AWS CLI
    Replace `evs-environment-role-trust-policy.json` with your trust policy file name.
 
 ```
- aws iam create-role \
+aws iam create-role \
   --role-name myAmazonEVSEnvironmentRole \
   --assume-role-policy-document file://"evs-environment-role-trust-policy.json"
 ```
@@ -119,7 +119,7 @@ AWS CLI
    To view all available Amazon EVS actions, resources, and condition keys, see [Actions](../../../service-authorization/latest/reference/list_amazonelasticvmwareservice.md "../../../service-authorization/latest/reference/list_amazonelasticvmwareservice.md") in the _Service Authorization Reference_.
 
 ```
- aws iam attach-role-policy \
+aws iam attach-role-policy \
   --policy-arn arn:aws:iam::aws:policy/AmazonEVSEnvironmentPolicy \
   --role-name myAmazonEVSEnvironmentRole
 ```
@@ -281,7 +281,7 @@ For more information, see [Configure on-premises network connectivity (optional)
 
 ## Create an Amazon EC2 Capacity Reservation
 
-Amazon EVS launches Amazon EC2 i4i.metal instances that represent ESXi hosts in your Amazon EVS environment.
+Amazon EVS launches Amazon EC2 i4i.metal instances that represent ESX hosts in your Amazon EVS environment.
 To ensure that you have sufficient i4i.metal instance capacity available when you need it, we recommend that you request an Amazon EC2 Capacity Reservation.
 You can create a Capacity Reservation at any time, and you can choose when it starts.
 You can request a Capacity Reservation for immediate use, or you can request a Capacity Reservation for a future date.
@@ -304,12 +304,11 @@ To create a key pair, follow the steps on [Create a key pair for your Amazon EC2
 Before you deploy your Amazon EVS environment, your environment must meet VMware Cloud Foundation (VCF) infrastructure requirements.
 For detailed VCF prerequisites, see the [Planning and Preparation Workbook](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/planning-and-preparation-workbook-5-2.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/planning-and-preparation-workbook-5-2.html") in the VMware Cloud Foundation product documentation.
 
-You should also familiarize yourself with VCF 5.2.1 requirements.
-For more information, see the [VCF 5.2.1 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes/vmware-cloud-foundation-521-release-notes.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes/vmware-cloud-foundation-521-release-notes.html")
+You should also familiarize yourself with VCF 5.2.x requirements. See the [VCF 5.2.x release notes](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes.html") for relevant release information.
 
 ###### Note
 
-Amazon EVS only supports VCF version 5.2.1.x at this time.
+For information about VCF versions provided by Amazon EVS, see [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md").
 
 ## Acquire VCF license keys
 

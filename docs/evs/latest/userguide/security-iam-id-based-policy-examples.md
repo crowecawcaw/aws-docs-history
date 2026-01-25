@@ -29,7 +29,7 @@ To access the Amazon EVS console, an IAM principal must have a minimum set of pe
 To ensure that your IAM principals can still use the Amazon EVS console, create a policy with your own unique name, such as `AmazonEVSAdminPolicy`. Attach the policy to the principals. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -63,7 +63,7 @@ You don’t need to allow minimum console permissions for users that are making 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -104,7 +104,7 @@ This example policy includes the permissions required to create and delete an Am
 You can replace the AWS Region with the AWS Region that you want to create an environment in. If your account already has the `AWSServiceRoleForAmazonEVS` role, you can remove the `iam:CreateServiceLinkedRole` action from the policy. If you’ve ever created an Amazon EVS environment in your account, a role with these permissions already exists, unless you deleted it.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -475,7 +475,7 @@ You can replace the AWS Region with the AWS Region that you want to create an en
 This example policy includes the minimum permissions required for an administrator to get and list all Amazon EVS environments, hosts, and VLANs within a given account in the us-east-2 AWS Region.
 
 ```
- {
+{
   "Version":"2012-10-17",
   "Statement": [
     {

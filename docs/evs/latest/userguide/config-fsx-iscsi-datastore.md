@@ -28,18 +28,18 @@ at least 768 MB/s for Single-AZ 2. 9. Select the Amazon EVS VPC that has connect
 traffic to the Amazon EVS host VMkernel management VLAN subnet. 11. Select the Amazon EVS service access subnet that your file system will be deployed in.
 For more information, see [Service access subnet](concepts.md#concepts-service-access-subnet "concepts.md#concepts-service-access-subnet"). 12. Within **Default volume configuration**, set **Storage efficiency** to **Enabled**. 13. Leave the remaining setting at their default values and choose **Next**. 14. Review the file system attributes and choose **Create file system**.
 
-## Configure a software iSCSI adapter in vSphere for ESXi host storage
+## Configure a software iSCSI adapter in vSphere for ESX host storage
 
-For each ESXi host, you must configure the software iSCSI adapter so that your ESXi
+For each ESX host, you must configure the software iSCSI adapter so that your ESX
 hosts can use it to access iSCSI storage.
-For instruction to configure the software iSCSI adapter for ESXi hosts in vSphere, see [Add or Remove the Software iSCSI Adapter](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/configure-the-software-iscsi-adapter-with-esxi/add-or-remove-the-software-iscsi-adapter.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/configure-the-software-iscsi-adapter-with-esxi/add-or-remove-the-software-iscsi-adapter.html") in the VMware vSphere product documentation.
+For instruction to configure the software iSCSI adapter for ESX hosts in vSphere, see [Add or Remove the Software iSCSI Adapter](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/configure-the-software-iscsi-adapter-with-esxi/add-or-remove-the-software-iscsi-adapter.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/configure-the-software-iscsi-adapter-with-esxi/add-or-remove-the-software-iscsi-adapter.html") in the VMware vSphere product documentation.
 
 After you configure the software iSCSI adapter, copy the iSCSI Qualified Name (IQN) associated with an iSCSI adapter.
 These values will be used later.
 
 ## Create an iSCSI LUN
 
-FSx for ONTAP allows you to create Logical Unit Numbers (LUNs) that are specifically intended for iSCSI access, providing shared block storage to your ESXi hosts.
+FSx for ONTAP allows you to create Logical Unit Numbers (LUNs) that are specifically intended for iSCSI access, providing shared block storage to your ESX hosts.
 You use the NetApp ONTAP CLI to create a LUN.
 
 Below is a sample command.
@@ -49,7 +49,7 @@ Below is a sample command.
 It is recommended to configure the LUN size to 90% of the volume size.
 
 ```
- lun create -vserver <your_svm_name> \
+lun create -vserver <your_svm_name> \
 -path /vol/<your_volume_name>/<lun_name> \
 -size <required_datastore_capacity> \
 -ostype vmware
@@ -68,7 +68,7 @@ Below is a sample command.
 For `--initiator`, use the iSCSI adapter IQNs that you copied in the previous step.
 
 ```
- igroup create <svm_name> \
+igroup create <svm_name> \
 -igroup <initiator_group_name> \
 -protocol iscsi \
 -ostype vmware \
@@ -78,14 +78,14 @@ For `--initiator`, use the iSCSI adapter IQNs that you copied in the previous st
 2. Confirm that the `igroup` exists.
 
 ```
- lun igroup show
+lun igroup show
 ```
 
 3. Map the LUN to the initiator group.
    Below is a sample command.
 
 ```
- lun mapping create -vserver <svm_name> \
+lun mapping create -vserver <svm_name> \
 -path /vol/<vol_name>/<lun_name> \
 -igroup <initiator_group_name> \
 -lun-id <scsi_lun_number_for this_datastore>
@@ -94,16 +94,16 @@ For `--initiator`, use the iSCSI adapter IQNs that you copied in the previous st
 4. Use the `lun show -path` command to confirm that the LUN is created, online, and mapped.
 
 ```
- lun show -path /vol/<vol_name>/<lun_name> -fields state,mapped,serial-hex
+lun show -path /vol/<vol_name>/<lun_name> -fields state,mapped,serial-hex
 ```
 
 For more information, see [Provisioning iSCSI for Linux](../../../fsx/latest/ONTAPGuide/mount-iscsi-luns-linux.md "../../../fsx/latest/ONTAPGuide/mount-iscsi-luns-linux.md") or [Provisioning iSCSI for Windows](../../../fsx/latest/ONTAPGuide/mount-iscsi-windows.md "../../../fsx/latest/ONTAPGuide/mount-iscsi-windows.md") in the _FSx for ONTAP User Guide_.
 
 ## Configure dynamic discovery of the iSCSI LUN in vSphere
 
-To allow the ESXi hosts to see the iSCSI LUN, you must configure dynamic discovery for each host in the vSphere client interface.
+To allow the ESX hosts to see the iSCSI LUN, you must configure dynamic discovery for each host in the vSphere client interface.
 For the iSCSI server field, enter the (NFS) DNS name that you copied in the previous step.
-For more information, see [Configure Dynamic or Static Discovery for iSCSI and iSER on ESXi
+For more information, see [Configure Dynamic or Static Discovery for iSCSI and iSER on ESX
 Host](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/configure-dynamic-or-static-discovery-for-iscsi-and-iser-on-esxi-host.html#GUID-4ED3304A-ED4F-4692-825F-83637E04D592-en "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/configuring-iscsi-and-iser-adapters-and-storage-with-esxi/configure-dynamic-or-static-discovery-for-iscsi-and-iser-on-esxi-host.html#GUID-4ED3304A-ED4F-4692-825F-83637E04D592-en") in the VMware vSphere product documentation.
 
 ## Create a VMFS Datastore in VMware vSphere using the iSCSI LUN

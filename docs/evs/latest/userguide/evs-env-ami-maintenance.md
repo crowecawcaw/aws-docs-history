@@ -1,7 +1,7 @@
 # AMI maintenance
 
-Amazon EVS deploys ESXi hosts with a custom EVS Amazon Machine Image (AMI).
-The AMI contains a custom vendor add-on containing the required packages for running ESXi on Amazon EC2.
+Amazon EVS deploys ESX hosts with a custom EVS Amazon Machine Image (AMI).
+The AMI contains a custom vendor add-on containing the required packages for running ESX on Amazon EC2.
 
 ## Troubleshoot add host failure due to incompatible cluster image
 

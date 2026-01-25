@@ -99,7 +99,7 @@ After the Amazon EVS environment deploys, you have multiple options to enforce d
 
 ## Key and secret management
 
-During Amazon EVS environment deployment, Amazon EVS uses AWS Secrets Manager to create, encrypt, and store secrets that contain the VCF credentials needed to install and access VMware VCF management appliances, as well as the ESXi root password.
+During Amazon EVS environment deployment, Amazon EVS uses AWS Secrets Manager to create, encrypt, and store secrets that contain the VCF credentials needed to install and access VMware VCF management appliances, as well as the ESX root password.
 Amazon EVS also deletes managed secrets on your behalf when the EVS environment is deleted.
 For more information, see [What’s in a Secrets Manager secret](../../../secretsmanager/latest/userguide/whats-in-a-secret.md "../../../secretsmanager/latest/userguide/whats-in-a-secret.md") in the _AWS Secrets Manager User Guide_.
 

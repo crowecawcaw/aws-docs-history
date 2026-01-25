@@ -9,12 +9,11 @@ After you’re finished, you’ll have an Amazon EVS environment that you can us
 
 To get started as simply and quickly as possible, this topic includes steps to create a VPC, and specifies minimum requirements for DNS server configuration and Amazon EVS environment creation.
 Before creating these resources, we recommend that you plan out your IP address space and DNS record setup that meets your requirements.
-You should also familiarize yourself with VCF 5.2.1 requirements.
-For more information, see the [VCF 5.2.1 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes/vmware-cloud-foundation-521-release-notes.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes/vmware-cloud-foundation-521-release-notes.html").
+You should also familiarize yourself with VCF 5.2.x requirements. See the [VCF 5.2.x release notes](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/vcf-release-notes.html") for relevant release information.
 
 ###### Important
 
-Amazon EVS only supports VCF version 5.2.1.x at this time.
+For information about VCF versions provided by Amazon EVS, see [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md").
 
 ###### Topics
 
@@ -100,7 +99,7 @@ AWS CLI
 2. Create a VPC with a private subnet and optional public subnet in a single Availability Zone.
 
 ```
- aws ec2 create-vpc \
+aws ec2 create-vpc \
   --cidr-block 10.0.0.0/16 \
   --instance-tenancy default \
   --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=evs-vpc}]'
@@ -120,7 +119,7 @@ VPC_ID=$(aws ec2 describe-vpcs \
 3. Enable DNS hostnames and DNS support.
 
 ```
- aws ec2 modify-vpc-attribute \
+aws ec2 modify-vpc-attribute \
   --vpc-id $VPC_ID \
   --enable-dns-hostnames
 aws ec2 modify-vpc-attribute \
@@ -131,7 +130,7 @@ aws ec2 modify-vpc-attribute \
 4. Create a private subnet in the VPC.
 
 ```
- aws ec2 create-subnet \
+aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.1.0/24 \
   --availability-zone us-west-2a \
@@ -141,7 +140,7 @@ aws ec2 modify-vpc-attribute \
 5. Store the private subnet ID for use in subsequent commands.
 
 ```
- PRIVATE_SUBNET_ID=$(aws ec2 describe-subnets \
+PRIVATE_SUBNET_ID=$(aws ec2 describe-subnets \
   --filters Name=tag:Name,Values=evs-private-subnet \
   --query 'Subnets[0].SubnetId' \
   --output text)
@@ -150,7 +149,7 @@ aws ec2 modify-vpc-attribute \
 6. (Optional) Create a public subnet if internet connectivity is needed.
 
 ```
- aws ec2 create-subnet \
+aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block 10.0.0.0/24 \
   --availability-zone us-west-2a \
@@ -160,7 +159,7 @@ aws ec2 modify-vpc-attribute \
 7. (Optional) Store the public subnet ID for use in subsequent commands.
 
 ```
- PUBLIC_SUBNET_ID=$(aws ec2 describe-subnets \
+PUBLIC_SUBNET_ID=$(aws ec2 describe-subnets \
   --filters Name=tag:Name,Values=evs-public-subnet \
   --query 'Subnets[0].SubnetId' \
   --output text)
@@ -169,7 +168,7 @@ aws ec2 modify-vpc-attribute \
 8. (Optional) Create and attach an internet gateway if the public subnet is created.
 
 ```
- aws ec2 create-internet-gateway \
+aws ec2 create-internet-gateway \
   --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value=evs-igw}]'
 
 IGW_ID=$(aws ec2 describe-internet-gateways \
@@ -185,7 +184,7 @@ aws ec2 attach-internet-gateway \
 9. (Optional) Create a NAT gateway if internet connectivity is needed.
 
 ```
- aws ec2 allocate-address \
+aws ec2 allocate-address \
   --domain vpc \
   --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-nat-eip}]'
 
@@ -203,7 +202,7 @@ aws ec2 create-nat-gateway \
 10. Create and configure the necessary route tables.
 
 ```
- aws ec2 create-route-table \
+aws ec2 create-route-table \
   --vpc-id $VPC_ID \
   --tag-specifications 'ResourceType=route-table,Tags=[{Key=Name,Value=evs-private-rt}]'
 
@@ -225,7 +224,7 @@ PUBLIC_RT_ID=$(aws ec2 describe-route-tables \
 11. Add the necessary routes to the route tables.
 
 ```
- aws ec2 create-route \
+aws ec2 create-route \
   --route-table-id $PUBLIC_RT_ID \
   --destination-cidr-block 0.0.0.0/0 \
   --gateway-id $IGW_ID
@@ -239,7 +238,7 @@ aws ec2 create-route \
 12. Associate the route tables with your subnets.
 
 ```
- aws ec2 associate-route-table \
+aws ec2 associate-route-table \
   --route-table-id $PRIVATE_RT_ID \
   --subnet-id $PRIVATE_SUBNET_ID
 
@@ -331,7 +330,7 @@ AWS CLI
 2. Get the public scope ID from your IPAM.
 
 ```
- SCOPE_ID=$(aws ec2 describe-ipam-scopes \
+SCOPE_ID=$(aws ec2 describe-ipam-scopes \
   --filters Name=ipam-scope-type,Values=public \
   --query 'IpamScopes[0].IpamScopeId' \
   --output text)
@@ -340,7 +339,7 @@ AWS CLI
 3. Create an IPAM pool in the public scope.
 
 ```
- aws ec2 create-ipam-pool \
+aws ec2 create-ipam-pool \
   --ipam-scope-id $SCOPE_ID \
   --address-family ipv4 \
   --no-auto-import \
@@ -354,7 +353,7 @@ AWS CLI
 4. Store the pool ID for use in subsequent commands.
 
 ```
- POOL_ID=$(aws ec2 describe-ipam-pools \
+POOL_ID=$(aws ec2 describe-ipam-pools \
   --filters Name=tag:Name,Values=evs-hcx-public-pool \
   --query 'IpamPools[0].IpamPoolId' \
   --output text)
@@ -363,7 +362,7 @@ AWS CLI
 5. Provision a CIDR block from the pool with a minimum netmask length of /28.
 
 ```
- aws ec2 provision-ipam-pool-cidr \
+aws ec2 provision-ipam-pool-cidr \
   --ipam-pool-id $POOL_ID \
   --netmask-length 28
 ```
@@ -400,7 +399,7 @@ AWS CLI
 2. Get the IPAM pool ID that you created earlier.
 
 ```
- POOL_ID=$(aws ec2 describe-ipam-pools \
+POOL_ID=$(aws ec2 describe-ipam-pools \
   --filters Name=tag:Name,Values=evs-hcx-public-pool \
   --query 'IpamPools[0].IpamPoolId' \
   --output text)
@@ -422,7 +421,7 @@ Manually input addresses within the IPAM pool to ensure that the EIPs that Amazo
 If you allow IPAM to choose the EIP, IPAM may allocate a EIP that Amazon EVS reserves, causing failure during EIP association to the VLAN subnet.
 
 ```
- aws ec2 allocate-address \
+aws ec2 allocate-address \
   --domain vpc \
   --tag-specifications 'ResourceType=elastic-ip,Tags=[{Key=Name,Value=evs-hcx-manager-eip}]' \
   --ipam-pool-id $POOL_ID \
@@ -468,7 +467,7 @@ AWS CLI
 2. Get the IPAM pool ID and the provisioned CIDR block.
 
 ```
- POOL_ID=$(aws ec2 describe-ipam-pools \
+POOL_ID=$(aws ec2 describe-ipam-pools \
   --filters Name=tag:Name,Values=evs-hcx-public-pool \
   --query 'IpamPools[0].IpamPoolId' \
   --output text)
@@ -482,7 +481,7 @@ CIDR_BLOCK=$(aws ec2 get-ipam-pool-cidrs \
 3. Add the CIDR block to your VPC.
 
 ```
- aws ec2 associate-vpc-cidr-block \
+aws ec2 associate-vpc-cidr-block \
   --vpc-id $VPC_ID \
   --cidr-block $CIDR_BLOCK
 ```
@@ -543,7 +542,7 @@ To successfully deploy an Amazon EVS environment, your VPC’s DHCP option set m
 
 For more information about configuring DNS servers in a DHCP option set, see [Create a DHCP option set](../../../vpc/latest/userguide/DHCPOptionSet.md#CreatingaDHCPOptionSet "../../../vpc/latest/userguide/DHCPOptionSet.md#CreatingaDHCPOptionSet").
 
-#### Configure DNS for on-premesis connectivity
+#### Configure DNS for on-premisis connectivity
 
 For on-premises connectivity, we recommend the use of Route 53 private hosted zones with inbound resolvers.
 This setup enables hybrid DNS resolution, where you can use Route 53 for internal DNS within your VPC and integrate it with your existing on-premises DNS infrastructure.
@@ -712,8 +711,7 @@ If it’s not, choose the dropdown next to the AWS Region name and choose the AW
 For more information, see [Setting up Amazon Elastic VMware Service](setting-up.md "setting-up.md").
 
     1. (Optional) For **Name**, enter an environment name.
-    2. For **Environment version**, choose your VCF version.
-    Amazon EVS currently only supports version 5.2.1.x.
+    2. For **Environment version**, choose your VCF version. For information about VCF versions provided by Amazon EVS, see [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md").
     3. For **Site ID**, enter your Broadcom Site ID.
     4. For **VCF Solution key**, enter a VCF solution key (VMware vSphere 8 Enterprise Plus for VCF).
     This license key cannot be in use by an existing environment.
@@ -753,7 +751,7 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
 
     ###### Note
 
-    Amazon EVS requires that you maintain a valid vSAN license key in SDDC Manager for the service to function properly.
+    Amazon EVS requires that you maintain a valid vSAN license key in SDDC Manager forchooose chose the service to function properly.
     If you manage the vSAN license key using the vSphere Client post-deployment, you must ensure that the keys also appears in the licensing screen of the SDDC Manager user interface.
     6. For **VCF license terms**, check the box to confirm that you have purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment.
     Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
@@ -765,6 +763,7 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
         1. Choose **Add host details**.
         2. For **DNS hostname**, enter the host name for the host.
         3. For **instance type**, choose the EC2 instance type.
+        4. For **ESX host version**, during environment creation a default ESX version for the chosen VCF version will be used. See [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md") for more information.
 
 
         ###### Important
@@ -776,8 +775,8 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
         ###### Note
 
         Amazon EVS only supports i4i.metal EC2 instances at this time.
-        4. For **SSH key pair**, choose an SSH key pair for SSH access into the host.
-        5. Choose **Add host**.
+        5. For **SSH key pair**, choose an SSH key pair for SSH access into the host.
+        6. Choose **Add host**.
 
 6.  On the **Configure networks and connectivity** page, do the following.
     1. For **HCX connectivity requirements**, select whether you want to use HCX with private connectivity or over the internet.
@@ -876,7 +875,7 @@ Environment deployment can take several hours.
 
     * For `--vpc-id`, specify the VPC that you previously created with a minimum IPv4 CIDR range of /22.
     * For `--service-access-subnet-id`, specify the unique ID of the private subnet that was created when you created the VPC.
-    * For `--vcf-version`, Amazon EVS currently only supports VCF 5.2.1.x.
+    * For `--vcf-version`, See [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md") for VCF versions provided by Amazon EVS,
     * With `--terms-accepted`, you confirm that you have purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment.
     Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
     * For `--license-info`, enter your VCF solution key (VMware vSphere 8 Enterprise Plus for VCF) and vSAN license key.
@@ -949,11 +948,11 @@ Environment deployment can take several hours.
 
 
     ```
-     aws evs create-environment \
+    aws evs create-environment \
     --environment-name testEnv \
     --vpc-id vpc-1234567890abcdef0 \
     --service-access-subnet-id subnet-01234a1b2cde1234f \
-    --vcf-version VCF-5.2.1 \
+    --vcf-version VCF-5.2.2 \
     --terms-accepted \
     --license-info "{
           \"solutionKey\": \"00000-00000-00000-abcde-11111\",
@@ -1042,7 +1041,7 @@ Environment deployment can take several hours.
 
 
     ```
-     {
+    {
         "environment": {
             "environmentId": "env-abcde12345",
             "environmentState": "CREATING",
@@ -1053,7 +1052,7 @@ Environment deployment can take several hours.
             "environmentName": "testEnv",
             "vpcId": "vpc-1234567890abcdef0",
             "serviceAccessSubnetId": "subnet-01234a1b2cde1234f",
-            "vcfVersion": "VCF-5.2.1",
+            "vcfVersion": "VCF-5.2.2",
             "termsAccepted": true,
             "licenseInfo": [
                 {
@@ -1111,13 +1110,13 @@ Environment creation can take several hours.
 If the `environmentState` still shows `CREATING`, run the command again to refresh the output.
 
 ```
- aws evs get-environment  --environment-id env-abcde12345
+aws evs get-environment  --environment-id env-abcde12345
 ```
 
 The following is a sample response.
 
 ```
- {
+{
     "environment": {
         "environmentId": "env-abcde12345",
         "environmentState": "CREATED",
@@ -1127,7 +1126,7 @@ The following is a sample response.
         "environmentName": "testEnv",
         "vpcId": "vpc-0c6def5b7b61c9f41",
         "serviceAccessSubnetId": "subnet-06a3c3b74d36b7d5e",
-        "vcfVersion": "VCF-5.2.1",
+        "vcfVersion": "VCF-5.2.2",
         "termsAccepted": true,
         "licenseInfo": [
             {
@@ -1181,13 +1180,13 @@ AWS CLI
 2. Identify the Amazon EVS VLAN subnet IDs.
 
 ```
- aws ec2 describe-subnets
+aws ec2 describe-subnets
 ```
 
 3. Associate your Amazon EVS VLAN subnets with a route table in your VPC.
 
 ```
- aws ec2 associate-route-table \
+aws ec2 associate-route-table \
 --route-table-id rtb-0123456789abcdef0 \
 --subnet-id subnet-01234a1b2cde1234f
 ```
@@ -1230,7 +1229,7 @@ AWS CLI
     - `allocation-id` - The allocation ID of the Elastic IP address.
 
     ```
-     aws evs associate-eip-to-vlan \
+    aws evs associate-eip-to-vlan \
       --environment-id "env-605uove256" \
       --vlan-name "hcx" \
       --allocation-id "eipalloc-0429268f30c4a34f7"
@@ -1239,7 +1238,7 @@ AWS CLI
     The command returns details about the VLAN, including the new EIP association:
 
     ```
-     {
+    {
         "vlan": {
             "vlanId": 80,
             "cidr": "18.97.137.0/28",
@@ -1280,7 +1279,7 @@ For more information, see [Allows prefixes interactions for AWS Direct Connect g
 ## Retrieve VCF credentials and access VCF management appliances
 
 Amazon EVS uses AWS Secrets Manager to create, encrypt, and store managed secrets in your account.
-These secrets contain the VCF credentials needed to install and access VCF management appliances such as vCenter Server, NSX, and SDDC Manager, as well as the ESXi root password.
+These secrets contain the VCF credentials needed to install and access VCF management appliances such as vCenter Server, NSX, and SDDC Manager, as well as the ESX root password.
 For more information about retrieving secrets, see [Get secrets from AWS Secrets Manager](../../../secretsmanager/latest/userguide/retrieving-secrets.md "../../../secretsmanager/latest/userguide/retrieving-secrets.md") in the _AWS Secrets Manager User Guide_.
 
 ###### Note
@@ -1291,7 +1290,7 @@ We recommend that you rotate your secrets regularly on a set rotation window to 
 After you have retrieved your VCF credentials from AWS Secrets Manager, you can use them to log into your VCF management appliances.
 For more information, see [Log in to the SDDC Manager User Interface](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/getting-started-with-sddc-manager-admin/log-in-to-the-sddc-manager-dashboard-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/getting-started-with-sddc-manager-admin/log-in-to-the-sddc-manager-dashboard-admin.html") and [How to Use and Configure Your vSphere Client](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/using-the-vsphere-client-host-management/working-with-the-vsphere-client-host-management.html#GUID-CE128B59-E236-45FF-9976-D134DADC8178-en "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/using-the-vsphere-client-host-management/working-with-the-vsphere-client-host-management.html#GUID-CE128B59-E236-45FF-9976-D134DADC8178-en") in the VMware product documentation.
 
-By default, Amazon EVS enables the ESXi Shell on newly deployed Amazon EVS hosts.
+By default, Amazon EVS enables the ESX Shell on newly deployed Amazon EVS hosts.
 This configuration allows access to the Amazon EC2 instance’s serial port through the EC2 serial console, which you can use to troubleshoot boot, network configuration, and other issues.
 The serial console does not require your instance to have any networking capabilities.
 With the serial console, you can enter commands to a running EC2 instance as if your keyboard and monitor are directly attached to the instance’s serial port.
@@ -1301,12 +1300,12 @@ For more information, see [EC2 Serial Console for instances](../../../AWSEC2/lat
 
 ###### Note
 
-The EC2 serial console is the only Amazon EVS supported mechanism to access the Direct Console User Interface (DCUI) to interact with an ESXi host locally.
+The EC2 serial console is the only Amazon EVS supported mechanism to access the Direct Console User Interface (DCUI) to interact with an ESX host locally.
 
 ###### Note
 
 Amazon EVS disables remote SSH by default.
-For more information about enabling SSH to access the remote ESXi Shell, see [Remote ESXi Shell Access with SSH](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/getting-started-with-esxcli-8-0/running-host-management-commands-in-the-esxi-shell/remote-esxi-shell-access-with-ssh.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/getting-started-with-esxcli-8-0/running-host-management-commands-in-the-esxi-shell/remote-esxi-shell-access-with-ssh.html") in the VMware vSphere product documentation.
+For more information about enabling SSH to access the remote ESX Shell, see [Remote ESX Shell Access with SSH](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/getting-started-with-esxcli-8-0/running-host-management-commands-in-the-esxi-shell/remote-esxi-shell-access-with-ssh.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/getting-started-with-esxcli-8-0/running-host-management-commands-in-the-esxi-shell/remote-esxi-shell-access-with-ssh.html") in the VMware vSphere product documentation.
 
 **Connect to the EC2 Serial Console**
 
@@ -1362,18 +1361,18 @@ AWS CLI
 2. Identify the environment that contains the host to delete.
 
 ```
- aws evs list-environments
+aws evs list-environments
 ```
 
 The following is a sample response.
 
 ```
- {
+{
     "environmentSummaries": [
         {
             "environmentId": "env-abcde12345",
             "environmentName": "testEnv",
-            "vcfVersion": "VCF-5.2.1",
+            "vcfVersion": "VCF-5.2.2",
             "environmentState": "CREATED",
             "createdAt": "2025-04-13T14:42:41.430000+00:00",
             "modifiedAt": "2025-04-13T14:43:33.412000+00:00",
@@ -1382,7 +1381,7 @@ The following is a sample response.
         {
             "environmentId": "env-edcba54321",
             "environmentName": "testEnv2",
-            "vcfVersion": "VCF-5.2.1",
+            "vcfVersion": "VCF-5.2.2",
             "environmentState": "CREATED",
             "createdAt": "2025-04-13T13:39:49.546000+00:00",
             "modifiedAt": "2025-04-13T13:52:13.342000+00:00",
@@ -1400,7 +1399,7 @@ The following is a sample response.
 To be able to delete an environment, you must first delete all of the hosts that are contained in the environment.
 
 ```
- aws evs delete-environment-host \
+aws evs delete-environment-host \
 --environment-id env-abcde12345 \
 --host esx01
 ```
@@ -1409,7 +1408,7 @@ To be able to delete an environment, you must first delete all of the hosts that
 5. Delete the environment.
 
 ```
- aws evs delete-environment --environment-id env-abcde12345
+aws evs delete-environment --environment-id env-abcde12345
 ```
 
 ###### Note

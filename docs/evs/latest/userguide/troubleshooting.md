@@ -41,7 +41,7 @@ If you are still unable to resolve the issue after following this guidance, we r
 
 ### Host count check failed
 
-This check verifies that your environment has a minimum of four hosts, which is a requirement for VCF 5.2.1.
+This check verifies that your environment has a minimum of four hosts, which is a requirement for VCF 5.2.x.
 
 If this check fails, you will need to add hosts so that your environment meets this minimum requirement.
 Amazon EVS only supports environments with 4 to 16 hosts.
@@ -86,15 +86,15 @@ While keys must be assigned to your hosts and vSAN cluster using the vSphere Cli
 
 ## vSphere HA agent on this host could not reach isolation address
 
-In the vCenter user interface, with the ESXi host selected, you see the message "vSphere HA agent on this host could not reach isolation address <IPv6 address>".
+In the vCenter user interface, with the ESX host selected, you see the message "vSphere HA agent on this host could not reach isolation address <IPv6 address>".
 
 This error message indicates that the vSphere HA agent on a host is unable to reach the default IPv6 isolation address that vSphere HA uses for heartbeat checks.
 The error message is not indicative of a problem, and only occurs because Amazon EVS does not support IPv6 at this time.
 The absence of IPV6 support for Amazon EVS does not affect the core functionality of vSphere HA.
 
-## vSAN upgrade prechecks fail for ESXi host cluster
+## vSAN upgrade prechecks fail for ESX host cluster
 
-When attempting to upgrade the ESXi host cluster using SDDC Manager, vSAN disk-related prechecks may fail.
+When attempting to upgrade the ESX host cluster using SDDC Manager, vSAN disk-related prechecks may fail.
 This is because Amazon EVS uses vSAN Express Storage Architecture (ESA), and the upgrade prechecks do not apply to vSAN ESA.
 For more information, see [the Broadcom knowledge base article on this topic](https://knowledge.broadcom.com/external/article/369423/upgrade-prechecks-fails-with-esxi-cluste.html "https://knowledge.broadcom.com/external/article/369423/upgrade-prechecks-fails-with-esxi-cluste.html").
 
@@ -127,9 +127,9 @@ Follow these steps.
 
 **Problem**
 
-If you have updated your ESXi version after the Amazon EVS environment deployment, SDDC manager may fail
+If you have updated your ESX version after the Amazon EVS environment deployment, SDDC manager may fail
 during VCF host validation in the commission hosts step.
-To fix this issue, you will have to use vSphere Lifecyle Manager to upgrade ESXi on the newly added host.
+To fix this issue, you will have to use vSphere Lifecyle Manager to upgrade ESX on the newly added host.
 
 **Solution**
 
@@ -138,17 +138,17 @@ Follow these steps.
 ###### Important
 
 These steps require temporarily adding the host to vCenter outside of SDDC Manager.
-Using vSphere Lifecyle Manager for any operations other than ESXi upgrades may render your host unusable, and require you to delete and create a new Amazon EVS host.
+Using vSphere Lifecyle Manager for any operations other than ESX upgrades may render your host unusable, and require you to delete and create a new Amazon EVS host.
 
 1. Go to the Hosts and Clusters inventory in VMware vCenter Server.
 2. Add the host temporarily to your virtual data center, ensuring to select **manage host with an image**.
-   The host will be removed in a later step after the ESXi upgrade is complete.
+   The host will be removed in a later step after the ESX upgrade is complete.
    For more information, see [How to Add a Host to Your vSphere Data Center or Folder](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/organizing-your-inventory-host-management/add-a-host-to-a-folder-or-a-data-center-host-management.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/organizing-your-inventory-host-management/add-a-host-to-a-folder-or-a-data-center-host-management.html") in the vSphere documentation.
 3. Once the host is added to vSphere, upgrade the ESX version on the host.
    This can be done in the **Updates** tab of your host.
    Edit the host image to match the ESX version of your cluster.
 4. After the upgrade has completed, remove the host from your vCenter inventory.
-   For more information, see [How to Remove an ESXi Host from Your vCenter Server Instance](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/managing-hosts-in-vcenter-server-host-management/remove-a-host-from-vcenter-server-host-management.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/managing-hosts-in-vcenter-server-host-management/remove-a-host-from-vcenter-server-host-management.html") in the vSphere documentation.
+   For more information, see [How to Remove an ESX Host from Your vCenter Server Instance](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/managing-hosts-in-vcenter-server-host-management/remove-a-host-from-vcenter-server-host-management.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/managing-hosts-in-vcenter-server-host-management/remove-a-host-from-vcenter-server-host-management.html") in the vSphere documentation.
 5. Commission your host in SDDC manager.
    For more information, see [Commission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html") in the VMware Cloud Foundation documentation.
 6. After the host is commissioned, add the host to your cluster using SDDC Manager.

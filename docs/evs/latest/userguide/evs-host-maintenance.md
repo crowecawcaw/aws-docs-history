@@ -1,7 +1,7 @@
 # Amazon EVS host maintenance
 
 Because Amazon EVS is a self-managed service, you are responsible for maintenance of the VMware Cloud Foundation (VCF) software that runs on the host, monitoring host health, and remediating host issues, including host replacement in the event of host failure.
-For more information about managing ESXi hosts in VMware Cloud Foundation (VCF), see [Host Management](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin.html") in the VMware Cloud Foundation documentation.
+For more information about managing ESX hosts in VMware Cloud Foundation (VCF), see [Host Management](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin.html") in the VMware Cloud Foundation documentation.
 
 ## Checking health of the underlying EC2 instance
 
@@ -80,7 +80,7 @@ For steps to troubleshoot this issue, see [Troubleshoot add host failure due to 
 
 ###### Warning
 
-If you have updated your ESXi version post-deployment, SDDC manager may fail
+If you have updated your ESX version post-deployment, SDDC manager may fail
 during VCF host validation in the commission hosts step.
 For steps to troubleshoot this issue, see [SDDC Manager fails VCF host validation during host commissioning](troubleshooting.md#troubleshoot-sddc-failure-host-commission "troubleshooting.md#troubleshoot-sddc-failure-host-commission").
 
@@ -100,13 +100,13 @@ Amazon EVS console and SDDC Managuer UI
 5. Choose **Create host**.
 6. Specify host details and choose **Create host**.
 7. To verify completion, check that the **Host state** has changed to **Created**.
-8. Retrieve the credentials for the ESXi root password from AWS Secrets Manager.
+8. Retrieve the credentials for the ESX root password from AWS Secrets Manager.
    For more information about retrieving secrets, see [Get secrets from AWS Secrets Manager](../../../secretsmanager/latest/userguide/retrieving-secrets.md "../../../secretsmanager/latest/userguide/retrieving-secrets.md") in the _AWS Secrets Manager User Guide_.
 9. Go to SDDC Manager.
-10. Commission the new host in SDDC Manager, using the ESXi root credentials that you retrieved in a previous step.
+10. Commission the new host in SDDC Manager, using the ESX root credentials that you retrieved in a previous step.
     For more information, see [Commission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html") in the VMware Cloud Foundation documentation.
 11. Add the new host to the cluster.
-    For more information, see [How to Add an ESXi
+    For more information, see [How to Add an ESX
     Host to Your vSphere Cluster by Using the Quickstart Workflow](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/use-quickstart-to-add---host-to-a-cluster.html "https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/use-quickstart-to-add---host-to-a-cluster.html") in the vSphere documentation.
 12. Decommission the old host in SDDC Manager that you want to remove from SDDC Manager.
     For more information, see [Decommission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/decommission-hosts-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/decommission-hosts-admin.html") in the VMware Cloud Foundation documentation.
@@ -120,19 +120,20 @@ AWS CLI and SDDC Manager UI
    See example command below for reference.
 
 ```
- aws evs create-environment-host \
+aws evs create-environment-host \
     --environment-id "env-abcde12345" \
     --host '{ \
         "hostName": "esxi-host-05", \
         "keyName": "your-ec2-keypair-name", \
         "instanceType": "i4i.metal" \
+        "esxVersion": "ESXi-8.0U3g-24859861"\
     }'
 ```
 
-3. Retrieve the credentials for the ESXi root password from AWS Secrets Manager.
+3. Retrieve the credentials for the ESX root password from AWS Secrets Manager.
    For more information about retrieving secrets, see [Get secrets from AWS Secrets Manager](../../../secretsmanager/latest/userguide/retrieving-secrets.md "../../../secretsmanager/latest/userguide/retrieving-secrets.md") in the _AWS Secrets Manager User Guide_.
 4. Go to SDDC Manager.
-5. Commission the new host in SDDC Manager, using the ESXi root credentials that you retrieved in a previous step.
+5. Commission the new host in SDDC Manager, using the ESX root credentials that you retrieved in a previous step.
    For more information, see [Commission Hosts](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/host-management-admin/commission-hosts-admin.html") in the VMware Cloud Foundation documentation.
 6. Add the new host to the cluster that contains the impaired host.
 7. Decommission the impaired host in SDDC Manager.
@@ -142,7 +143,7 @@ AWS CLI and SDDC Manager UI
    See example command below for reference.
 
 ```
- aws evs delete-environment-host --environment-id "env-abcde12345" --host-name "esxi-host-05"
+aws evs delete-environment-host --environment-id "env-abcde12345" --host-name "esxi-host-05"
 ```
 
 ### Troubleshooting

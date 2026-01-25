@@ -11,14 +11,14 @@ For more information, see [Amazon EVS architecture](architecture.md "architectur
 
 ## Amazon EVS host
 
-An Amazon EVS _host_ is a VMware ESXi host that runs on Amazon EC2 bare metal instances.
+An Amazon EVS _host_ is a VMware ESX host that runs on Amazon EC2 bare metal instances.
 
 ## Service access subnet
 
 The _service access subnet_ is a standard VPC subnet that allows Amazon EVS to access the VCF deployment.
 During Amazon EVS environment creation, you specify the VPC and subnet for Amazon EVS to use for service access.
 
-When you create an Amazon EVS environment, Amazon EVS provisions elastic network interfaces into the service access subnet to facilitate management connectivity to VCF appliances and ESXi hosts.
+When you create an Amazon EVS environment, Amazon EVS provisions elastic network interfaces into the service access subnet to facilitate management connectivity to VCF appliances and ESX hosts.
 This connectivity is required for Amazon EVS to be able to deploy, manage, and monitor the VCF deployment.
 
 ## Amazon EVS VLAN subnet
@@ -63,12 +63,12 @@ The _vSAN VLAN subnet_ is used by VMware vSAN to separate traffic related to vSA
 
 ### VTEP VLAN subnet
 
-The _VTEP VLAN subnet_ uses VMware NSX virtual tunnel endpoints (VTEP) to encapsulate and decapsulate overlay network traffic for the Amazon EVS ESXi hosts.
+The _VTEP VLAN subnet_ uses VMware NSX virtual tunnel endpoints (VTEP) to encapsulate and decapsulate overlay network traffic for the Amazon EVS ESX hosts.
 
 ### Edge VTEP VLAN subnet
 
 The _Edge VTEP VLAN subnet_ is a specialized VTEP VLAN subnet that is dedicated for NSX Edge appliance overlay traffic.
-This VLAN is used for overlay communication between NSX edges and ESXi hosts.
+This VLAN is used for overlay communication between NSX edges and ESX hosts.
 
 ### Management VM VLAN subnet
 

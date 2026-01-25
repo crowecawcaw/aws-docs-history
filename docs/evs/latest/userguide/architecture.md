@@ -6,7 +6,7 @@ The Amazon EVS environment is managed from a single vCenter Server with vSphere 
 
 The consolidated domain that Amazon EVS deploys contains the following VCF management components:
 
-- ESXi hosts
+- ESX hosts
 - vCenter Server instance
 - SDDC Manager
 - vSAN datastore
@@ -116,7 +116,7 @@ These resources appear in the VPC that you allow Amazon EVS to access, and are v
 Modification of these resources outside of the Amazon EVS console and API could impact the availability and stability of your Amazon EVS environment.
 
 - Amazon EVS elastic network interfaces that enable connectivity to your VCF appliances and hosts.
-- Amazon EVS ESXi hosts that run on Amazon EC2 bare metal instances.
+- Amazon EVS ESX hosts that run on Amazon EC2 bare metal instances.
   For more information, see [Amazon EVS host](concepts.md#concepts-evs-host "concepts.md#concepts-evs-host").
 
 ###### Important
