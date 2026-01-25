@@ -1,6 +1,6 @@
 # Runtime versions using Node.js
 
-The following section contain information about the CloudWatch Synthetics runtime versions for Node.js. This runtime does not have any browser or framework included.
+The following section contains information about the CloudWatch Synthetics runtime versions for Node.js. This runtime does not have any browser or framework included.
 
 The naming convention for these runtime versions is
 `syn-`language`-`majorversion`.`minorversion``.

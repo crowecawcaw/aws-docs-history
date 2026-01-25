@@ -581,6 +581,39 @@ run_me if $PROGRAM_NAME == __FILE__
   [DescribeAlarmsForMetric](../../../goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
+
+```
+
+    TRY.
+        oo_result = lo_cwt->describealarmsformetric(          " oo_result is returned for testing purposes. "
+          iv_namespace   = iv_namespace
+          iv_metricname  = iv_metric_name
+          it_dimensions  = it_dimensions
+          iv_statistic   = iv_statistic
+          iv_period      = iv_period
+          iv_unit        = iv_unit ).
+        MESSAGE 'Alarms for metric retrieved.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeAlarmsForMetric](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

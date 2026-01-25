@@ -65,17 +65,66 @@ series during alarm evaluation.
 When working with CloudWatch Metrics Insights alarms, be aware of these functional
 limits:
 
-- 200 alarms using this syntax per account per Region
+- A default of 200 alarms using the Metrics Insights query per account per Region
 - Only the latest 3 hours of data can be used for evaluating the alarm's conditions.
   However, you can visualize up to two weeks of data on the alarm's detail page
   graph
 - Alarms evaluating multiple time series will limit the rate of concurrent transitions
   to 100
+  - Assuming the query retrieves 150 time series:
+    - If there are fewer than 100 contributors in ALARM (for example 95), the `StateReason`
+      will be "95 out of 150 time series evaluated to ALARM"
+    - If there are more than 100 contributors in ALARM, for example 105, the `StateReason`
+      will be "100+ time series evaluated to ALARM"
+
+  - Furthermore, based on the size of the Alarm contributor data, the `StateReason` can be
+    truncated to display fewer time series data. Assuming we truncate to 85 contributors,
+    the `StateReason` will be:
+    - If there are fewer than 100 contributors in ALARM (for example 95) - truncated to 85,
+      the `StateReason` will be "85+ out of 150 time series evaluated to ALARM".
+    - If there are more than 100 contributors in ALARM (for example 105) - truncated to 85,
+      the `StateReason` will be "85+ time series evaluated to ALARM".
+
 - Metrics Insights limits on the maximum number of time series analyzed or returned
   apply
+- During alarm evaluation, the `EvaluationState` will be set to
+  `PARTIAL_DATA` for the following limits:
+  - If the Metrics Insights query returns more than 500 time series.
+  - If the Metrics Insights query matches more than 10,000 metrics.
 
-For more information on CloudWatch service quotas and limits, see [CloudWatch service
-quotas](cloudwatch_limits.md "cloudwatch_limits.md").
+For more information on CloudWatch service quotas and limits, see [CloudWatch Metrics Insights service
+quotas](cloudwatch-metrics-insights-limits.md "cloudwatch-metrics-insights-limits.md").
+
+## Missing Data in CloudWatch Metrics Insights alarms
+
+**Alarms based on Metrics Insights queries that aggregate to a
+single time series**
+
+The missing data scenarios and their effects upon alarm evaluation are the same as a standard
+metric alarm in terms of the configured missing data treatment. See, [metric alarm missing data](AlarmThatSendsEmail.md#alarms-and-missing-data "AlarmThatSendsEmail.md#alarms-and-missing-data").
+
+**Alarms based on Metrics Insights queries that produce multiple time series**
+
+Missing data scenarios for Metrics Insights alarms occur when:
+
+- Individual datapoints within a time series are not present.
+- One or more time series disappear when evaluating upon multiple time series.
+- No time series are retrieved by the query.
+
+Missing data scenarios affect the alarm evaluation in the following manner:
+
+- For the evaluation of a time series, the treat missing data treatment is applied for individual
+  datapoints within the time series. For example, if 3 datapoints were queried for the time series but
+  only 1 was received, 2 datapoints would follow the configured missing data configuration.
+- If a time series is not retrieved by the query anymore, it will transition to `OK` no matter
+  the treat missing data treatment. Alarm actions associated with the `OK` transition at the
+  contributor level are executed and the `StateReason` specifies that the aforementioned
+  contributor was not found with the message, "No data was returned for this contributor".
+  The state of the alarm will depend on the state of the other contributors that were
+  retrieved by the query.
+- At alarm level, if the query returns an empty result (no time series at all), the treat missing
+  data treatment is applied. For example, if the treat missing data was set as `BREACHING`,
+  the alarm will transition to `ALARM`.
 
 ## Prerequisites
 

@@ -662,6 +662,72 @@ end
   [PutMetricData](../../../goto/SdkForRubyV3/monitoring-2010-08-01/PutMetricData.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/PutMetricData.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
+
+```
+
+    DATA lt_metricdata TYPE /aws1/cl_cwtmetricdatum=>tt_metricdata.
+
+    "Create metric data object.
+    DATA(lo_metricdatum) = NEW /aws1/cl_cwtmetricdatum(
+      iv_metricname = iv_metric_name
+      iv_value      = iv_value
+      iv_unit       = iv_unit ).
+
+    INSERT lo_metricdatum INTO TABLE lt_metricdata.
+
+    TRY.
+        lo_cwt->putmetricdata(
+          iv_namespace   = iv_namespace
+          it_metricdata  = lt_metricdata ).
+        MESSAGE 'Metric data added.' TYPE 'I'.
+      CATCH /aws1/cx_cwtinvparamvalueex.
+        MESSAGE 'The specified argument was not valid.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+Put a set of data into a CloudWatch metric.
+
+```
+
+    DATA lt_metricdata TYPE /aws1/cl_cwtmetricdatum=>tt_metricdata.
+
+    "Create metric data object with values and counts.
+    DATA(lo_metricdatum) = NEW /aws1/cl_cwtmetricdatum(
+      iv_metricname = iv_metric_name
+      iv_timestamp  = iv_timestamp
+      iv_unit       = iv_unit
+      it_values     = it_values
+      it_counts     = it_counts ).
+
+    INSERT lo_metricdatum INTO TABLE lt_metricdata.
+
+    TRY.
+        lo_cwt->putmetricdata(
+          iv_namespace   = iv_namespace
+          it_metricdata  = lt_metricdata ).
+        MESSAGE 'Metric data set added.' TYPE 'I'.
+      CATCH /aws1/cx_cwtinvparamvalueex.
+        MESSAGE 'The specified argument was not valid.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [PutMetricData](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

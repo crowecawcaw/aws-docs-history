@@ -79,10 +79,8 @@ network path from the AWS hosted resource, where the monitor is deployed, to the
 Connect location. Network Synthetic Monitor uses outlier detection to calculate availability drops or lower performance
 along the network paths.
 
-NHI is not accurate for Direct Connect attachments that use intermediary routing, such as
-connections that are created using Cloud WAN or that use AWS Transit Gateway. When you
-have a hybrid network that includes AWS Transit Gateway
-or other intermediary routing segments, do not use the NHI value as an indication of a performance issue.
+NHI is not accurate for Direct Connect attachments that use intermediary routing with Cloud WAN. When you
+have a hybrid network that includes Cloud WAN, do not use the NHI value as an indication of a performance issue.
 
 ###### Note
 

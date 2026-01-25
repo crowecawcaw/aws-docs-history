@@ -240,6 +240,98 @@ include suppression information in the `actionsSuppressedBy` and
 }
 ```
 
+Multi Time Series Alarm
+
+Events generated when an Alarm Contributor or an Alarm changes
+state. Alarm Contributor state change events contain the id and attributes of the Alarm Contributor
+as well as the most recent datapoint that breached the threshold. Alarm State change events have a
+summary of the number of contributors that caused the alarm to transition in their state reason.
+
+**Alarm Contributor Example**
+
+```
+{
+  "version": "0",
+  "id": "6d226bbc-07f0-9a31-3359-1736968f8ded",
+  "detail-type": "CloudWatch Alarm Contributor State Change",
+  "source": "aws.cloudwatch",
+  "account": "123456789012",
+  "time": "2025-12-01T13:42:04Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:cloudwatch:us-east-1:123456789012:alarm:DynamoDBInsightsAlarm"
+  ],
+  "detail": {
+    "alarmName": "DynamoDBInsightsAlarm",
+    "alarmContributor": {
+      "id": "6d442278dba546f6",
+      "attributes": {
+        "TableName": "example-dynamodb-table-name"
+      }
+    },
+    "state": {
+      "value": "ALARM",
+      "reason": "Threshold Crossed: 1 datapoint was less than the threshold (1.0). The most recent datapoint which crossed the threshold: [0.0 (01/12/25 13:34:00)].",
+      "timestamp": "2025-12-01T13:42:04.919+0000"
+    },
+    "configuration": {
+      "metrics": [
+        {
+          "id": "m1",
+          "expression": "SELECT AVG(ConsumedWriteCapacityUnits) FROM \"AWS/DynamoDB\" GROUP BY TableName ORDER BY MAX() DESC",
+          "returnData":true,
+          "period": 60
+        }
+      ],
+      "description": "Metrics Insights alarm for DynamoDB ConsumedWriteCapacity per TableName"
+    }
+  }
+}
+
+```
+
+**Alarm Example**
+
+```
+{
+  "version": "0",
+  "id": "80ddd249-dedf-7c4d-0708-0eb78132dd78",
+  "detail-type": "CloudWatch Alarm State Change",
+  "source": "aws.cloudwatch",
+  "account": "123456789012",
+  "time": "2025-12-01T13:42:04Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:cloudwatch:us-east-1:123456789012:alarm:DynamoDBInsightsAlarm"
+  ],
+  "detail": {
+    "alarmName": "DynamoDBInsightsAlarm",
+    "state": {
+      "value": "ALARM",
+      "reason": "6 out of 6 time series evaluated to ALARM",
+      "timestamp": "2025-12-01T13:42:04.919+0000"
+    },
+    "previousState": {
+      "value": "INSUFFICIENT_DATA",
+      "reason": "Unchecked: Initial alarm creation",
+      "timestamp": "2025-12-01T13:40:50.600+0000"
+    },
+    "configuration": {
+      "metrics": [
+        {
+          "id": "m1",
+          "expression": "SELECT AVG(ConsumedWriteCapacityUnits) FROM \"AWS/DynamoDB\" GROUP BY TableName ORDER BY MAX() DESC",
+          "returnData": true,
+          "period": 60
+        }
+      ],
+      "description": "Metrics Insights alarm for DynamoDB ConsumedWriteCapacity per TableName"
+    }
+  }
+}
+
+```
+
 ## Alarm Configuration Change
 
 Events

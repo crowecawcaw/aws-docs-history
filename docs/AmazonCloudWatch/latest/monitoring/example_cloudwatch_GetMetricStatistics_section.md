@@ -412,6 +412,38 @@ class CloudWatchWrapper:
   [GetMetricStatistics](../../../goto/boto3/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/boto3/monitoring-2010-08-01/GetMetricStatistics.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
+
+```
+
+    TRY.
+        oo_result = lo_cwt->getmetricstatistics(              " oo_result is returned for testing purposes. "
+          iv_namespace   = iv_namespace
+          iv_metricname  = iv_metric_name
+          iv_starttime   = iv_start_time
+          iv_endtime     = iv_end_time
+          iv_period      = iv_period
+          it_statistics  = it_statistics ).
+        MESSAGE 'Metric statistics retrieved.' TYPE 'I'.
+      CATCH /aws1/cx_cwtinvparamvalueex.
+        MESSAGE 'The specified argument was not valid.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetMetricStatistics](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

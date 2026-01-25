@@ -285,7 +285,7 @@ series value:
 - has the value of **0**, if the corresponding data point of
   **metric1** is TRUE and the corresponding data point does not exist
   in **metric2**.
-- is dropped, if the corresponding data point of **metric1** is FALSE
+- has the value of **0**, if the corresponding data point of **metric1** is FALSE
   and the corresponding data point does not exist in **metric3**
 - is dropped, if the corresponding data point of **metric1** is FALSE
   and **metric3** is omitted from the expression.

@@ -270,6 +270,6 @@ Multi checks blueprints support:
 
 - Basic HTTP requests, TCP requests, validate DNS records and monitor SSL certificates
 - HTTP authentication methods such as Basic, API Key, OAuth, and Sigv4 integrated with Secrets Manager
-- "Assertions for each check
+- Assertions for each check
 
 For more information, see [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md "CloudWatch_Synthetics_Canaries_Create.md").

@@ -166,7 +166,7 @@ statistics.
 - API Gateway
 - Application Load Balancer
 - Amazon EC2
-- ELB
+- Elastic Load Balancing
 - Kinesis
 - Amazon RDS
 

@@ -60,7 +60,7 @@ Under **Configure Checks**, you will see two tabs, **Checks** and **Canary confi
 ## Creating a multi check canary using AWS Synthetics APIs
 
 Use the `CreateCanary` API and within the `Code` parameter, provide the field/value `BlueprintTypes="multi-checks"` instead of `Handler`.
-When both `BlueprintTypes` and `Handler` are specified, a `ValidationException` is displayed. The runtime version provided must be `syn-nodejs-3.0 or later`.
+When both `BlueprintTypes` and `Handler` are specified, a `ValidationException` is displayed. The runtime version provided must be `syn-nodejs-3.0` or later.
 
 ```
 

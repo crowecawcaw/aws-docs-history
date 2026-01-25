@@ -317,7 +317,7 @@ The following AWS services include metrics that support percentile statistics.
 - API Gateway
 - Application Load Balancer
 - Amazon EC2
-- ELB
+- Elastic Load Balancing
 - Kinesis
 - Lambda
 - Amazon RDS

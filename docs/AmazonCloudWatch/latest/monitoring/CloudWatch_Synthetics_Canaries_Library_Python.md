@@ -338,7 +338,7 @@ synthetics_logger.log(message, *args, **kwargs)
 ```
 
 ```
-synthetics_logger.warn(message, *args, **kwargs)
+synthetics_logger.warning(message, *args, **kwargs)
 ```
 
 ```
@@ -387,7 +387,7 @@ synthetics_logger.log('Successfully completed step - login.')
 Log a message with the level `WARN`:
 
 ```
-synthetics_logger.warn('Warning encountered trying to publish %s', 'CloudWatch Metric')
+synthetics_logger.warning('Warning encountered trying to publish %s', 'CloudWatch Metric')
 ```
 
 Log a message with the level `ERROR`:

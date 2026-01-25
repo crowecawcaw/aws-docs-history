@@ -238,7 +238,7 @@ The following services are used along with CloudWatch Application Insights:
   you have the correct number of EC2 instances available to handle the load
   for your application. For more information, see the [_Amazon EC2 Auto Scaling User
   Guide_](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md").
-- **ELB** distributes incoming applications
+- **Elastic Load Balancing** distributes incoming applications
   or network traffic across multiple targets, such as EC2 instances,
   containers, and IP addresses, in multiple Availability Zones. For more
   information, see the [_Elastic Load Balancing User
@@ -348,7 +348,7 @@ The following components are supported by CloudWatch Application Insights:
 - Amazon EC2
 - Amazon EBS
 - Amazon RDS
-- ELB: Application Load Balancer and Classic Load Balancer (all target
+- Elastic Load Balancing: Application Load Balancer and Classic Load Balancer (all target
   instances of these load balancers are identified and configured).
 - Amazon EC2 Auto Scaling groups: AWS Auto Scaling (Auto Scaling groups
   are dynamically configured for all target instances; if your application

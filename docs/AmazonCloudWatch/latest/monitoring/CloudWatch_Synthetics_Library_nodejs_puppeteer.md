@@ -223,7 +223,7 @@ strongly recommend that you migrate to AWS SDK v3.
 - **Bug fixes**
 
 The following runtimes for Node.js and Puppeteer have been deprecated. For information about
-runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Canaries_Library.md#runtime_deprecation_dates "CloudWatch_Synthetics_Canaries_Library.md#runtime_deprecation_dates").
+runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates "CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates").
 
 ### syn-nodejs-puppeteer-6.1
 
@@ -335,7 +335,7 @@ Puppeteer-core versions 19.7.0 through 6.0, in
 ###### Important
 
 This runtime version was deprecated on January 8, 2024. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -353,7 +353,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on January 8, 2024. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -376,7 +376,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on January 8, 2024. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -401,7 +401,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on January 8, 2024. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -420,7 +420,7 @@ and stop time of canary runs are now precise to the millisecond.
 ###### Important
 
 This runtime version was deprecated on January 8, 2024. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -438,7 +438,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on November 13, 2022. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -463,7 +463,7 @@ example, `MyFolder/MyScriptFile.functionname` can be used as an entry point.
 ###### Important
 
 This runtime version was deprecated on November 13, 2022. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -483,7 +483,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on November 13, 2022. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -508,7 +508,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on November 13, 2022. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -536,7 +536,7 @@ information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synth
 ###### Important
 
 This runtime version was deprecated on November 13, 2022. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -565,7 +565,7 @@ the `syn-nodejs-2.2` runtime version.
 ###### Important
 
 This runtime version was deprecated on May 28, 2021. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -612,7 +612,7 @@ For more information, see [SyntheticsConfiguration class](CloudWatch_Synthetics_
 ###### Important
 
 This runtime version was deprecated on May 28, 2021. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -640,7 +640,7 @@ to earlier versions of the canary runtimes.
 ###### Important
 
 This runtime version was deprecated on May 28, 2021. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
@@ -698,7 +698,7 @@ to earlier versions of the canary runtimes.
 ###### Important
 
 This runtime version was deprecated on February 8, 2021. For more
-information, see [CloudWatch Synthetics runtime support policy](CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support "CloudWatch_Synthetics_Canaries_Library.md#CloudWatch_Synthetics_Canaries_runtime_support").
+information, see [Runtime versions support policy](CloudWatch_Synthetics_Runtime_Support_Policy.md "CloudWatch_Synthetics_Runtime_Support_Policy.md").
 
 **Major dependencies**:
 
