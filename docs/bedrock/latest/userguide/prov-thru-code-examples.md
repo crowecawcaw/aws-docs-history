@@ -4,8 +4,7 @@ The following code examples demonstrate how to create a Provisioned Throughput a
 
 **Prerequisites**
 
-The following examples use the Amazon Nova Lite model, whose model ID is `amazon.nova-lite-v1:0:24k`. If you haven't already, request access to the Amazon Nova Lite by following the steps at [Access Amazon Bedrock foundation models in AWS
-GovCloud (US)](model-access.md#model-access-modify "model-access.md#model-access-modify").
+The following examples use the Amazon Nova Lite model, whose model ID is `amazon.nova-lite-v1:0:24k`. If you haven't already, request access to the Amazon Nova Lite by following the steps at [Manage model access using SDK and CLI](model-access.md#model-access-modify "model-access.md#model-access-modify").
 
 If you want to purchase Provisioned Throughput for a different foundation model or a custom model, you'll have to do the following:
 

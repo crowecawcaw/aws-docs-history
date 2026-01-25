@@ -209,6 +209,7 @@ The following table shows the source Regions from which you can call the inferen
 | us-west-1      | Commercial AWS Regions<br>us-west-1      |
 | us-west-2      | Commercial AWS Regions<br>us-west-2      |
 | me-central-1   | Commercial AWS Regions<br>me-central-1   |
+| af-south-1     | Commercial AWS Regions<br>af-south-1     |
 | il-central-1   | Commercial AWS Regions<br>il-central-1   |
 | me-south-1     | Commercial AWS Regions<br>me-south-1     |
 

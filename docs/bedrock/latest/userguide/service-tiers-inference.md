@@ -34,10 +34,10 @@ For more information about pricing, visit the [pricing page](https://aws.amazon.
 
 Models and regions supported by the Reserved service tier:
 
-|                |                   |                                                                                                                                          |                |
-| -------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| **Provider**   | **Model**         | **Model IDs**                                                                                                                            | **Regions**    |
-| Anthropic      | Claude Sonnet 4.5 | global.anthropic.claude-sonnet-4-5-20250929-v1:0us.anthropic.claude-sonnet-4-5-20250929-v1:0eu.anthropic.claude-sonnet-4-5-20250929-v1:0 | ap-northeast-1 |
+|                |                   |                                                                                                                                                                                          |                |
+| -------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| **Provider**   | **Model**         | **Model IDs**                                                                                                                                                                            | **Regions**    |
+| Anthropic      | Claude Sonnet 4.5 | global.anthropic.claude-sonnet-4-5-20250929-v1:0us.anthropic.claude-sonnet-4-5-20250929-v1:0eu.anthropic.claude-sonnet-4-5-20250929-v1:0us-gov.anthropic.claude-sonnet-4-5-20250929-v1:0 | ap-northeast-1 |
 | ap-northeast-2 |
 | ap-northeast-3 |
 | ap-southeast-1 |
@@ -60,7 +60,8 @@ Models and regions supported by the Reserved service tier:
 | us-east-2      |
 | us-west-1      |
 | us-west-2      |
-| Anthropic      | Claude Opus 4.5   | global.anthropic.claude-opus-4-5-20251101-v1:0us.anthropic.claude-opus-4-5-20251101-v1:0eu.anthropic.claude-opus-4-5-20251101-v1:0       | ap-northeast-1 |
+| us-gov-west-1  |
+| Anthropic      | Claude Opus 4.5   | global.anthropic.claude-opus-4-5-20251101-v1:0us.anthropic.claude-opus-4-5-20251101-v1:0eu.anthropic.claude-opus-4-5-20251101-v1:0                                                       | ap-northeast-1 |
 | ap-northeast-2 |
 | ap-northeast-3 |
 | ap-southeast-1 |
@@ -83,7 +84,7 @@ Models and regions supported by the Reserved service tier:
 | us-east-2      |
 | us-west-1      |
 | us-west-2      |
-| Anthropic      | Claude Haiku 4.5  | global.anthropic.claude-haiku-4-5-20251001-v1:0us.anthropic.claude-haiku-4-5-20251001-v1:0eu.anthropic.claude-haiku-4-5-20251001-v1:0    | ap-northeast-1 |
+| Anthropic      | Claude Haiku 4.5  | global.anthropic.claude-haiku-4-5-20251001-v1:0us.anthropic.claude-haiku-4-5-20251001-v1:0eu.anthropic.claude-haiku-4-5-20251001-v1:0                                                    | ap-northeast-1 |
 | ap-northeast-2 |
 | ap-northeast-3 |
 | ap-southeast-1 |

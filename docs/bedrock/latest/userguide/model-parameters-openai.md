@@ -86,8 +86,7 @@ Set up your AWS credentials or generate an Amazon Bedrock API key to authenticat
 If you use the OpenAI Chat completions API, you can only authenticate with an Amazon Bedrock API key.
 
 - **Endpoint** – Find the endpoint that corresponds to the AWS Region to use in [Amazon Bedrock Runtime endpoints and quotas](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"). If you use an AWS SDK, you might only need to specify the region code and not the whole endpoint when you set up the client. You must use an endpoint associated with a Region supported by the model used in the example.
-- **Model access** – Request access to an OpenAI model. For more information, see [Access Amazon Bedrock foundation models in AWS
-  GovCloud (US)](model-access.md#model-access-modify "model-access.md#model-access-modify").
+- **Model access** – Request access to an OpenAI model. For more information, see [Manage model access using SDK and CLI](model-access.md#model-access-modify "model-access.md#model-access-modify").
 - **(If the example uses an SDK) Install the SDK** – After installation, set up default credentials and a default AWS Region. If you don't set up default credentials or a Region, you'll have to explicitly specify them in the relevant code examples. For more information about standardized credential providers, see [AWS SDKs and Tools standardized credential providers](../../../sdkref/latest/guide/standardized-credentials.md "../../../sdkref/latest/guide/standardized-credentials.md").
 
 ###### Note

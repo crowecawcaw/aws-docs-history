@@ -29,8 +29,7 @@ OpenAI SDK
 
 - **Authentication** – The OpenAI SDK only supports authentication with an Amazon Bedrock API key. Generate an Amazon Bedrock API key to authenticate your request. To learn about Amazon Bedrock API keys and how to generate them, see [Generate Amazon Bedrock API keys to easily authenticate to the Amazon Bedrock API](api-keys.md "api-keys.md").
 - **Endpoint** – Find the endpoint that corresponds to the AWS Region to use in [Amazon Bedrock Runtime endpoints and quotas](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"). If you use an AWS SDK, you might only need to specify the region code and not the whole endpoint when you set up the client.
-- **Model access** – Request access to an Amazon Bedrock model that supports this feature. For more information, see [Access Amazon Bedrock foundation models in AWS
-  GovCloud (US)](model-access.md#model-access-modify "model-access.md#model-access-modify").
+- **Model access** – Request access to an Amazon Bedrock model that supports this feature. For more information, see [Manage model access using SDK and CLI](model-access.md#model-access-modify "model-access.md#model-access-modify").
 - **Install an OpenAI SDK** – For more information, see [Libraries](https://platform.openai.com/docs/libraries "https://platform.openai.com/docs/libraries") in the OpenAI documentation.
 - **Batch JSONL file uploaded to S3** – Follow the steps at [Prepare your batch file](https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file "https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file") in the OpenAI documentation to prepare your batch file with the correct format. Then upload it to an Amazon S3 bucket.
 - **IAM permissions** – Make sure that you have the following IAM identities with the proper permissions:
@@ -47,8 +46,7 @@ Set up your AWS credentials or generate an Amazon Bedrock API key to authenticat
     + To learn about Amazon Bedrock API keys and how to generate them, see [Generate Amazon Bedrock API keys to easily authenticate to the Amazon Bedrock API](api-keys.md "api-keys.md").
 
 - **Endpoint** – Find the endpoint that corresponds to the AWS Region to use in [Amazon Bedrock Runtime endpoints and quotas](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"). If you use an AWS SDK, you might only need to specify the region code and not the whole endpoint when you set up the client.
-- **Model access** – Request access to an Amazon Bedrock model that supports this feature. For more information, see [Access Amazon Bedrock foundation models in AWS
-  GovCloud (US)](model-access.md#model-access-modify "model-access.md#model-access-modify").
+- **Model access** – Request access to an Amazon Bedrock model that supports this feature. For more information, see [Manage model access using SDK and CLI](model-access.md#model-access-modify "model-access.md#model-access-modify").
 - **Batch JSONL file uploaded to S3** – Follow the steps at [Prepare your batch file](https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file "https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file") in the OpenAI documentation to prepare your batch file with the correct format. Then upload it to an Amazon S3 bucket.
 - **IAM permissions** – Make sure that you have the following IAM identities with the proper permissions:
   - An IAM identity that you authenticate with can carry out batch inference-related API operations. For more information, see [Required permissions for an IAM identity to submit and manage batch inference jobs](batch-inference-permissions.md "batch-inference-permissions.md").
