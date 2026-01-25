@@ -21,7 +21,7 @@ closes the connection that was established for the health check.
   HTTP1 or HTTP2.
 - Health checks do not support Lambda target groups.
 - Health checks do not support Application Load Balancer target groups. However, you can enable
-  health checks for the targets of your Application Load Balancer using ELB. For more information, see
+  health checks for the targets of your Application Load Balancer using Elastic Load Balancing. For more information, see
   [Target group health checks](../../../elasticloadbalancing/latest/application/target-group-health-checks.md "../../../elasticloadbalancing/latest/application/target-group-health-checks.md") in the _User Guide for Application Load Balancers_.
 
 ## Health check settings

@@ -15,7 +15,7 @@ and authorization, and connectivity across VPCs and accounts.
   used by two different VPC Lattice services.
 - VPC Lattice does not provide health checks for an `ALB` type target group.
   However, you can configure health checks independently at the load balancer
-  level for the targets in ELB. For more information, see [Target group health checks](../../../elasticloadbalancing/latest/application/target-group-health-checks.md "../../../elasticloadbalancing/latest/application/target-group-health-checks.md") in the _User Guide for Application Load Balancers_
+  level for the targets in Elastic Load Balancing. For more information, see [Target group health checks](../../../elasticloadbalancing/latest/application/target-group-health-checks.md "../../../elasticloadbalancing/latest/application/target-group-health-checks.md") in the _User Guide for Application Load Balancers_
 
 ## Prerequisites
 

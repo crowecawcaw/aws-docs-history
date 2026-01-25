@@ -12,7 +12,7 @@ create different target groups for different types of requests. For example, cre
 target group for general requests and other target groups for requests that include specific
 rule conditions, such as a path or header value.
 
-![A service with a listener, listener rules, and two target groups.](/images/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener, listener rules, and two target groups.](images/service.png)
 You define health check settings for your service on a per target group basis. Each target
 group uses the default health check settings, unless you override them when you create the
 target group or modify them later on. After you specify a target group in a rule for a
@@ -22,7 +22,7 @@ target group. The service routes requests to the registered targets that are hea
 To specify a target group in a rule for a service listener, the target group must be
 in the same account as the service.
 
-VPC Lattice target groups are similar to the target groups provided by ELB, but they
+VPC Lattice target groups are similar to the target groups provided by Elastic Load Balancing, but they
 are not interchangeable.
 
 ###### Contents

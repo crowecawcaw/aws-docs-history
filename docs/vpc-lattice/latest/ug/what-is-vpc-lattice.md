@@ -40,7 +40,7 @@ target groups, listeners, and rules.
 Target group
 
 A collection of resources, also known as targets, that run your application or
-service. These are similar to the target groups provided by ELB, but they are not
+service. These are similar to the target groups provided by Elastic Load Balancing, but they are not
 interchangeable. The supported target types include EC2 instances, IP addresses, Lambda functions, Application Load Balancers, Amazon ECS tasks, and Kubernetes Pods.
 
 Listener
@@ -81,7 +81,7 @@ authorized to do so.
 In the following figure, the clients can communicate with both services, because the VPC
 and services are associated with the same service network.
 
-![A service network with servers and clients.](images/service-network.png)
+![A service network with servers and clients.](/images/vpc-lattice/latest/ug/images/service-network.png)
 
 **Service directory**
 
