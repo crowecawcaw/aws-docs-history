@@ -1,12 +1,12 @@
-# Request throttling for the ELB API
+# Request throttling for the Elastic Load Balancing API
 
-ELB throttles its API requests for each AWS account on a per-Region basis. We do this
+Elastic Load Balancing throttles its API requests for each AWS account on a per-Region basis. We do this
 to help the performance and availability of the service. Throttling ensures that requests
-to the ELB API do not exceed the maximum allowed API request limits. API requests are
+to the Elastic Load Balancing API do not exceed the maximum allowed API request limits. API requests are
 subject to the request limits whether you call them or they are called on your behalf (for
 example, by the AWS Management Console or a third-party application).
 
-If you exceed an ELB API throttling limit, you get the `ThrottlingException`
+If you exceed an Elastic Load Balancing API throttling limit, you get the `ThrottlingException`
 error code and a `Rate exceeded` error message.
 
 We recommend that you prepare to handle throttling gracefully. For more information, see
@@ -17,17 +17,17 @@ safety limits of the system, to maintain high availability and predictable perfo
 
 ## How throttling is applied
 
-ELB uses the [token bucket
+Elastic Load Balancing uses the [token bucket
 algorithm](https://en.wikipedia.org/wiki/Token_bucket "https://en.wikipedia.org/wiki/Token_bucket") to implement API throttling. With this algorithm, your account has
 a _bucket_ that holds a specific number of
 _tokens_. The number of tokens in the bucket represents your
 throttling limit at any given second.
 
-ELB provides two sets of API actions. ELB API version 2 supports the following types
+Elastic Load Balancing provides two sets of API actions. ELB API version 2 supports the following types
 of load balancers: Application Load Balancers, Network Load Balancers, and Gateway Load Balancers. ELB API version 1 supports Classic Load Balancers. Each
 ELB API version has its own buckets and tokens.
 
-Services that call the ELB API on your behalf, such as Amazon EC2, Amazon ECS, Amazon EC2 Auto Scaling,
+Services that call the Elastic Load Balancing API on your behalf, such as Amazon EC2, Amazon ECS, Amazon EC2 Auto Scaling,
 and AWS CloudFormation have their own account-level buckets. These services do not consume tokens
 from your buckets.
 
@@ -55,7 +55,7 @@ You do not need to wait for a bucket to be completely full before you can make A
 requests. You can use tokens as they are added to a bucket. If you immediately use the
 refill tokens, the bucket does not reach its maximum capacity.
 
-There is an account-level throttling limit that is shared across all ELB API actions.
+There is an account-level throttling limit that is shared across all Elastic Load Balancing API actions.
 The capacity of the account-level bucket is 40 tokens and the refill rate is 10 request
 tokens per second.
 
@@ -106,5 +106,5 @@ The following table shows the default capacity and refill rates for the uncatego
 
 ## Monitoring API requests
 
-You can use AWS CloudTrail to monitor your ELB API requests. For more information, see
-[Log API calls for ELB using AWS CloudTrail](cloudtrail-logs.md "cloudtrail-logs.md").
+You can use AWS CloudTrail to monitor your Elastic Load Balancing API requests. For more information, see
+[Log API calls for Elastic Load Balancing using AWS CloudTrail](cloudtrail-logs.md "cloudtrail-logs.md").

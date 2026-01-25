@@ -1,6 +1,6 @@
-# ELB service-linked role
+# Elastic Load Balancing service-linked role
 
-ELB uses a service-linked role for the permissions that it requires to call other
+Elastic Load Balancing uses a service-linked role for the permissions that it requires to call other
 AWS services on your behalf. For more information, see [Service-linked
 roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in the _IAM User Guide_.
 
@@ -8,7 +8,7 @@ roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../
 
 service-linked role
 
-ELB uses the service-linked role named
+Elastic Load Balancing uses the service-linked role named
 AWSServiceRoleForElasticLoadBalancing to call other AWS
 services on your behalf.
 
@@ -22,10 +22,10 @@ To view the permissions for this policy, see [AWSElasticLoadBalancingServiceRole
 ## Create the service-linked role
 
 You don't need to manually create the
-AWSServiceRoleForElasticLoadBalancing role. ELB creates
+AWSServiceRoleForElasticLoadBalancing role. Elastic Load Balancing creates
 this role for you when you create a load balancer or a target group.
 
-For ELB to create a service-linked role on your behalf, you must have the
+For Elastic Load Balancing to create a service-linked role on your behalf, you must have the
 required permissions. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
@@ -38,7 +38,7 @@ _IAM User Guide_.
 
 ## Delete the service-linked role
 
-If you no longer need to use ELB, we recommend that you delete
+If you no longer need to use Elastic Load Balancing, we recommend that you delete
 AWSServiceRoleForElasticLoadBalancing.
 
 You can delete this service-linked role only after you delete all load balancers
@@ -50,5 +50,5 @@ You can use the IAM console, the IAM CLI, or the IAM API to delete
 service-linked roles. For more information, see [Delete a service-linked role](../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr "../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr") in the
 _IAM User Guide_.
 
-After you delete AWSServiceRoleForElasticLoadBalancing, ELB
+After you delete AWSServiceRoleForElasticLoadBalancing, Elastic Load Balancing
 creates the role again if you create a load balancer.

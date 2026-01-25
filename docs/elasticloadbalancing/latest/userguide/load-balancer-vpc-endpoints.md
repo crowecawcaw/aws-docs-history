@@ -1,10 +1,10 @@
-# Access ELB using an interface endpoint (AWS PrivateLink)
+# Access Elastic Load Balancing using an interface endpoint (AWS PrivateLink)
 
 You can establish a private connection between your virtual private cloud (VPC) and the
-ELB API by creating an interface VPC endpoint. You can use this connection to call the
-ELB API from your VPC without requiring that you attach an internet gateway, NAT instance,
+Elastic Load Balancing API by creating an interface VPC endpoint. You can use this connection to call the
+Elastic Load Balancing API from your VPC without requiring that you attach an internet gateway, NAT instance,
 or VPN connection to your VPC. The endpoint provides reliable, scalable connectivity to the
-ELB API, versions 2015-12-01 and 2012-06-01, which you use to create and manage your load
+Elastic Load Balancing API, versions 2015-12-01 and 2012-06-01, which you use to create and manage your load
 balancers.
 
 Interface VPC endpoints are powered by AWS PrivateLink, a feature that enables communication
@@ -15,9 +15,9 @@ see [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.co
 
 AWS PrivateLink does not support Network Load Balancers with more than 50 listeners.
 
-## Create an interface endpoint for ELB
+## Create an interface endpoint for Elastic Load Balancing
 
-Create an endpoint for ELB using the following service name:
+Create an endpoint for Elastic Load Balancing using the following service name:
 
 ```
 com.amazonaws.`region`.elasticloadbalancing
@@ -25,9 +25,9 @@ com.amazonaws.`region`.elasticloadbalancing
 
 For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink Guide_.
 
-## Create a VPC endpoint policy for ELB
+## Create a VPC endpoint policy for Elastic Load Balancing
 
-You can attach a policy to your VPC endpoint to control access to the ELB API. The
+You can attach a policy to your VPC endpoint to control access to the Elastic Load Balancing API. The
 policy specifies:
 
 - The principal that can perform actions.

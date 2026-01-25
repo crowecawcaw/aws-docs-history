@@ -1,15 +1,15 @@
-# Understand codes for ELB in billing and usage reports
+# Understand codes for Elastic Load Balancing in billing and usage reports
 
-When you use ELB, we include related codes in your AWS billing and usage reports. Reviewing these
+When you use Elastic Load Balancing, we include related codes in your AWS billing and usage reports. Reviewing these
 codes helps you understand your load balancer costs and usage patterns. Tracking and managing your
 expenses is essential for optimizing your costs.
 
-For more information, see [ELB pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
+For more information, see [Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
 
-The following tables describe the codes for ELB that appear in your billing and usage
+The following tables describe the codes for Elastic Load Balancing that appear in your billing and usage
 reports. The units are hours or load balancer capacity units (LCU). Each load balancer type
 has a specific definition of LCU. For information about the LCUs for each load balancer
-type, see [ELB pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
+type, see [Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").
 For a list of the Region codes used in the billing and usage reports, see [AWS Region
 billing codes](../../../global-infrastructure/latest/regions/aws-region-billing-codes.md "../../../global-infrastructure/latest/regions/aws-region-billing-codes.md").
 

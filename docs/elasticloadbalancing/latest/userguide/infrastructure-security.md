@@ -1,12 +1,12 @@
 # Infrastructure security in Elastic Load Balancing
 
-As a managed service, ELB is protected by AWS global network security. For
+As a managed service, Elastic Load Balancing is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
 environment using the best practices for infrastructure security, see [Infrastructure
 Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS Well‐Architected
 Framework_.
 
-You use AWS published API calls to access ELB through the network. Clients must
+You use AWS published API calls to access Elastic Load Balancing through the network. Clients must
 support the following:
 
 - Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
@@ -30,8 +30,8 @@ Your load balancer sends requests to its registered targets using private IP add
 Therefore, your targets do not need public IP addresses in order to receive requests from
 a load balancer.
 
-To call the ELB API from your VPC using private IP addresses, use AWS PrivateLink. For
-more information, see [Access ELB using an interface endpoint (AWS PrivateLink)](load-balancer-vpc-endpoints.md "load-balancer-vpc-endpoints.md").
+To call the Elastic Load Balancing API from your VPC using private IP addresses, use AWS PrivateLink. For
+more information, see [Access Elastic Load Balancing using an interface endpoint (AWS PrivateLink)](load-balancer-vpc-endpoints.md "load-balancer-vpc-endpoints.md").
 
 ## Controlling network traffic
 

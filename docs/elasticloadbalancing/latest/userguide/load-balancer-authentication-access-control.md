@@ -1,10 +1,10 @@
 # Identity and access management
 
-for ELB
+for Elastic Load Balancing
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
-(have permissions) to use ELB resources. IAM is an AWS service that you can
+(have permissions) to use Elastic Load Balancing resources. IAM is an AWS service that you can
 use with no additional charge.
 
 ###### Contents
@@ -12,7 +12,7 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How ELB works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [How Elastic Load Balancing works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Resource tagging API
   permissions](tagging-resources-during-creation.md "tagging-resources-during-creation.md")
 - [Service-linked role](elb-service-linked-roles.md "elb-service-linked-roles.md")
@@ -20,19 +20,19 @@ use with no additional charge.
 
 ## Audience
 
-How you use AWS Identity and Access Management (IAM) differs, depending on the work that you do in ELB.
+How you use AWS Identity and Access Management (IAM) differs, depending on the work that you do in Elastic Load Balancing.
 
-**Service user** – If you use the ELB service to do your job, then your administrator provides you
-with the credentials and permissions that you need. As you use more ELB features to do your work, you might need additional permissions.
+**Service user** – If you use the Elastic Load Balancing service to do your job, then your administrator provides you
+with the credentials and permissions that you need. As you use more Elastic Load Balancing features to do your work, you might need additional permissions.
 Understanding how access is managed can help you request the right permissions from your administrator.
 
-**Service administrator** – If you're in charge of ELB resources at your company, you probably have
-full access to ELB. It's your job to determine which ELB features and resources your service users should access. You must then
+**Service administrator** – If you're in charge of Elastic Load Balancing resources at your company, you probably have
+full access to Elastic Load Balancing. It's your job to determine which Elastic Load Balancing features and resources your service users should access. You must then
 submit requests to your IAM administrator to change the permissions of your service users. Review the information on this page to understand the
 basic concepts of IAM.
 
 **IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can
-write policies to manage access to ELB.
+write policies to manage access to Elastic Load Balancing.
 
 ## Authenticating with identities
 

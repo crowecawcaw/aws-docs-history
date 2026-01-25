@@ -1,4 +1,4 @@
-# How ELB works
+# How Elastic Load Balancing works
 
 A load balancer accepts incoming traffic from clients and routes requests to its
 registered targets (such as EC2 instances) in one or more Availability Zones. The load
@@ -23,7 +23,7 @@ connections from the load balancer to the targets.
 
 ## Availability Zones and load balancer nodes
 
-When you enable an Availability Zone for your load balancer, ELB creates a load
+When you enable an Availability Zone for your load balancer, Elastic Load Balancing creates a load
 balancer node in the Availability Zone. If you register targets in an Availability Zone
 but do not enable the Availability Zone, these registered targets do not receive
 traffic. Your load balancer is most effective when you ensure that each enabled
@@ -127,12 +127,12 @@ Before a client sends a request to your load balancer, it resolves the load bala
 domain name using a Domain Name System (DNS) server. The DNS entry is controlled by
 Amazon, because your load balancers are in the `amazonaws.com` domain. The
 Amazon DNS servers return one or more IP addresses to the client. These are the IP
-addresses of the load balancer nodes for your load balancer. With Network Load Balancers, ELB creates
+addresses of the load balancer nodes for your load balancer. With Network Load Balancers, Elastic Load Balancing creates
 a network interface for each Availability Zone that you enable, and uses it to get a static
 IP address. You can optionally associate one Elastic IP address with each network interface
 when you create the Network Load Balancer.
 
-As traffic to your application changes over time, ELB scales your load balancer and
+As traffic to your application changes over time, Elastic Load Balancing scales your load balancer and
 updates the DNS entry. The DNS entry also specifies the time-to-live (TTL) of 60
 seconds. This helps ensure that the IP addresses can be remapped quickly in response to
 changing traffic.
