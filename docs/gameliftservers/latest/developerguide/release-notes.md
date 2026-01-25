@@ -93,7 +93,20 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-Amazon GameLift Servers now provides AI-powered assistance in the web console, leveraging Amazon Q Developer to provide tailored guidance for game developers. This new feature integrates specialized Amazon GameLift Servers knowledge to help customers navigate complex workflows, troubleshoot issues, and optimize their game server deployments more efficiently.
+Amazon GameLift Servers Realtime now supports Node.js 24.x on Amazon Linux 2023. This update provides access to the latest Node.js features and security improvements while running on the modern Amazon Linux 2023 operating system.
+
+You can now also include an optional install script when creating a Realtime fleet, allowing the installation of software during instance startup for your specific requirements. To use the new runtime version, specify Node.js 24.x when creating Realtime scripts.
+
+Amazon GameLift Servers API Reference links:
+
+- [AWS SDK
+  action `CreateScript`](../apireference/API_CreateScript.md "../apireference/API_CreateScript.md")
+
+###### **Learn more:**
+
+- [Node.js runtime versions](../realtimeguide/realtime-script.md#realtime-script-nodejs "../realtimeguide/realtime-script.md#realtime-script-nodejs")
+- [Add an install script](../realtimeguide/realtime-script-uploading.md "../realtimeguide/realtime-script-uploading.md")
+  Amazon GameLift Servers now provides AI-powered assistance in the web console, leveraging Amazon Q Developer to provide tailored guidance for game developers. This new feature integrates specialized Amazon GameLift Servers knowledge to help customers navigate complex workflows, troubleshoot issues, and optimize their game server deployments more efficiently.
 
 This new feature provides AI-assisted recommendations for game server integration, fleet configuration, and performance optimization directly within the Amazon GameLift Servers console. This enhancement aims to streamline decision making processes, reduce troubleshooting time, and improve overall resource utilization, leading to cost savings and better player experiences.
 

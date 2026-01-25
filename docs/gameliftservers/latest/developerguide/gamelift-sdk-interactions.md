@@ -172,7 +172,11 @@ process notifies the Amazon GameLift Servers service of game session status.
 1. The game server process ends the game session and initiates process shut
    down by calling the server SDK operation
    `ProcessEnding()`.
-2. The Amazon GameLift Servers service does the following:
+2. The game server process calls `Destroy()` to free the server
+   SDK from memory. This step is required for
+   [Telemetry metrics](monitoring-gamelift-servers-metrics.md "monitoring-gamelift-servers-metrics.md")
+   to prevent it from reporting normal process exits as crashes.
+3. The Amazon GameLift Servers service does the following:
    1. Uploads game session logs to Amazon Simple Storage Service (Amazon S3).
    2. Changes the game session status to `TERMINATED`.
    3. Changes the server process status to `TERMINATED`.
