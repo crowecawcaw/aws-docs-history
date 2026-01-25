@@ -7,6 +7,18 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 AWS Wickr bots and integrations are regularly updated with new features, improvements, and
 bug fixes. This chapter provides information about the changes in each release.
 
+## Version 6.60.05.78 - Release Date: 01/20/2026
+
+The 6.60.05.78 release is a bug fix release and focused on the following major
+changes:
+
+### Bug Fix: Enhanced authorization
+
+validation in bot's admin command handling
+
+Admin command handling was found to have limited authorization validation. Changes were
+made to prevent unauthorized privilege escalation.
+
 ## Version 6.60 - Release Date: 12/08/2025
 
 AWS Wickr Bots 6.60 is a maintenance release focused on platform modernization, security
@@ -100,7 +112,7 @@ to CloudWatch - if users have CloudWatch configured.
 The 6.36.20.02 hotfix release of the bot-enterprise image and the 6.36.09.01 hotfix release
 of Data Retention bot images are focused on the fix described below.
 
-### Fix Bug: The Edit message, delete message and
+### Bug Fix: The Edit message, delete message and
 
 reactions are not being captured
 
@@ -134,7 +146,7 @@ Using the clientConfig.json file to automate the start of bots does not generate
 there is a failure to parse the JSON. This fix will output errors when failure to parse the JSON
 occurs.
 
-### Fix Bug: Sending messages to invalid users could
+### Bug Fix: Sending messages to invalid users could
 
 hang bot
 
