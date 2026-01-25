@@ -60,7 +60,7 @@ automatically remediating any failures using the Kubernetes
 control plane.
 
 Design patterns that are accessed through a load balancer using
-compute clusters should leverage Auto Scaling groups. ELB (ELB) automatically distributes incoming
+compute clusters should leverage Auto Scaling groups. Elastic Load Balancing (ELB) automatically distributes incoming
 application traffic across multiple targets and virtual
 appliances in one or more Availability Zones (AZs).
 

@@ -80,7 +80,7 @@ is not established:** High
    all components of the workloads. Turn on additional logging,
    such as S3 Access Logs, and permit your workload to log
    workload specific data. Collect metrics for CPU, network I/O,
-   and disk I/O averages from services such as Amazon ECS, Amazon EKS, Amazon EC2, ELB, AWS Auto Scaling, and
+   and disk I/O averages from services such as Amazon ECS, Amazon EKS, Amazon EC2, Elastic Load Balancing, AWS Auto Scaling, and
    Amazon EMR. See
    [AWS Services That Publish CloudWatch Metrics](../../../AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.md "../../../AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.md") for a list of
    AWS services that publish metrics to CloudWatch.
