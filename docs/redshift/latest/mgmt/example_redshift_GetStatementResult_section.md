@@ -173,6 +173,57 @@ The following code instantiates the RedshiftDataWrapper object.
   [GetStatementResult](../../../goto/boto3/redshift-2012-12-01/GetStatementResult.md "../../../goto/boto3/redshift-2012-12-01/GetStatementResult.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples").
+
+Check the statement result.
+
+```
+    TRY.
+        " Example values: iv_statement_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+        " Handle pagination for large result sets
+
+        DO.
+          lo_result_page = lo_rsd->getstatementresult(
+            iv_id = iv_statement_id
+            iv_nexttoken = lv_next_token
+          ).
+
+          " Collect records from this page
+          lt_page_records = lo_result_page->get_records( ).
+          APPEND LINES OF lt_page_records TO lt_all_records.
+
+          " Check if there are more pages
+          lv_next_token = lo_result_page->get_nexttoken( ).
+          IF lv_next_token IS INITIAL.
+            EXIT. " No more pages
+          ENDIF.
+        ENDDO.
+
+        " For the last call, set oo_result for return value
+        oo_result = lo_result_page.
+        lv_record_count = lines( lt_all_records ).
+        MESSAGE |Retrieved { lv_record_count } record(s).| TYPE 'I'.
+      CATCH /aws1/cx_rsdresourcenotfoundex.
+        MESSAGE 'Statement not found or results not available.' TYPE 'I'.
+      CATCH /aws1/cx_rsdinternalserverex.
+        MESSAGE 'Internal server error.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetStatementResult](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

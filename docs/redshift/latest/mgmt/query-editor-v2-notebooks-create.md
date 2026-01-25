@@ -61,7 +61,7 @@ the `.ipynb` extension.
 into a cell in the notebook. You can import files with `.sql` and
 `.txt` extensions.
 
-- ![Save](images/qev2-floppy-disk.png)
+- ![Save](/images/redshift/latest/mgmt/images/qev2-floppy-disk.png)
 
 **Save version** – To create a version of the notebook.
 To see versions of a notebook, navigate to your saved notebooks and open

@@ -418,6 +418,48 @@ The following code instantiates the RedshiftWrapper object.
   [CreateCluster](../../../goto/boto3/redshift-2012-12-01/CreateCluster.md "../../../goto/boto3/redshift-2012-12-01/CreateCluster.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples").
+
+Create the cluster.
+
+```
+    TRY.
+        " Example values: iv_cluster_identifier = 'my-redshift-cluster'
+        " Example values: iv_node_type = 'ra3.4xlarge'
+        " Example values: iv_master_username = 'awsuser'
+        " Example values: iv_master_password = 'AwsUser1000'
+        " Example values: iv_publicly_accessible = abap_true
+        " Example values: iv_number_of_nodes = 2
+        oo_result = lo_rsh->createcluster(
+          iv_clusteridentifier = iv_cluster_identifier
+          iv_nodetype = iv_node_type
+          iv_masterusername = iv_master_username
+          iv_masteruserpassword = iv_master_password
+          iv_publiclyaccessible = iv_publicly_accessible
+          iv_numberofnodes = iv_number_of_nodes
+        ).
+        MESSAGE 'Redshift cluster created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_rshclustalrdyexfault.
+        MESSAGE 'Cluster already exists.' TYPE 'I'.
+      CATCH /aws1/cx_rshclstquotaexcdfault.
+        MESSAGE 'Cluster quota exceeded.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateCluster](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

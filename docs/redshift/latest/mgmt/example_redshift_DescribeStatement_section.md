@@ -173,6 +173,37 @@ The following code instantiates the RedshiftDataWrapper object.
   [DescribeStatement](../../../goto/boto3/redshift-2012-12-01/DescribeStatement.md "../../../goto/boto3/redshift-2012-12-01/DescribeStatement.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples").
+
+```
+    TRY.
+        " Example values: iv_statement_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+        oo_result = lo_rsd->describestatement(
+          iv_id = iv_statement_id
+        ).
+        lv_status = oo_result->get_status( ).
+        MESSAGE |Statement status: { lv_status }| TYPE 'I'.
+      CATCH /aws1/cx_rsdresourcenotfoundex.
+        MESSAGE 'Statement not found.' TYPE 'I'.
+      CATCH /aws1/cx_rsdinternalserverex.
+        MESSAGE 'Internal server error.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeStatement](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

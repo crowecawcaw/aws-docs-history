@@ -3,42 +3,21 @@ If you would like to use Python UDFs, create the UDFs prior to that date.
 Existing Python UDFs will continue to function as normal. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Create a zero-ETL integration for
+# Create a zero-ETL
 
-Amazon RDS
+integration
 
-In this step, you create an Amazon RDS zero-ETL integration with Amazon Redshift. Redshift supports
-integrations with RDS for MySQL, RDS for PostgreSQL, and RDS for Oracle.
+First, you create a zero-ETL integration to replicate your source data to Amazon Redshift.
 
-###### To create an Amazon RDS zero-ETL integration with Amazon Redshift
+The source of your data determines which type of zero-ETL integration to create.
 
-1. From the Amazon RDS console, [create
-   a custom DB parameter group](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.parameters "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.parameters") as described in the
-   _Amazon RDS User Guide_.
-2. From the Amazon RDS console, [create a source Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.create-cluster "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.create-cluster") as described in the
-   _Amazon RDS User Guide_.
-3. From the Amazon Redshift console: [Create and configure a target
-   Amazon Redshift data warehouse](zero-etl-setting-up.md "zero-etl-setting-up.md").
-   - From the AWS CLI or Amazon Redshift console: [Turn on case sensitivity for your
-     data warehouse](zero-etl-setting-up.md "zero-etl-setting-up.md").
-   - From the Amazon Redshift console: [Configure authorization for your Amazon Redshift data
-     warehouse](zero-etl-using.md "zero-etl-using.md").
+###### Topics
 
-4. From the Amazon RDS console, [create a
-   zero-ETL integration](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.create "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.create") as described in the _Amazon RDS User Guide_.
-5. From the Amazon Redshift console or the query editor v2, [create an Amazon Redshift database
-   from your integration](zero-etl-using.md "zero-etl-using.md").
-
-Then, [query and create materialized views with replicated data](zero-etl-using.md "zero-etl-using.md").
-The Amazon RDS console offers a step-by-step integration creation flow, in which you
-specify the source database and the target Amazon Redshift data warehouse. If issues
-occur, then you can choose to have Amazon RDS fix the issues for you instead of manually fixing
-them on either the Amazon RDS or Amazon Redshift console.
-
-For detailed instructions to create RDS zero-ETL integrations, see [Creating Amazon RDS zero-ETL integrations with
-Amazon Redshift](../../../AmazonRDS/latest/UserGuide/zero-etl.md "../../../AmazonRDS/latest/UserGuide/zero-etl.md") in the _Amazon RDS User Guide_.
-
-For detailed instructions to specifically create an Amazon RDS for Oracle zero-ETL integration, see
-[Setting
-up a zero-ETL integration](../../../odb/latest/UserGuide/setting-up-zero-etl.md "../../../odb/latest/UserGuide/setting-up-zero-etl.md") in the _Oracle Database@AWS User
-Guide_.
+- [Create a zero-ETL integration for
+  Aurora](zero-etl-setting-up.md "zero-etl-setting-up.md")
+- [Create a zero-ETL integration for
+  Amazon RDS](zero-etl-setting-up.md "zero-etl-setting-up.md")
+- [Create a zero-ETL integration for
+  DynamoDB](zero-etl-setting-up.md "zero-etl-setting-up.md")
+- [Create a zero-ETL integration with
+  applications](zero-etl-setting-up.md "zero-etl-setting-up.md")

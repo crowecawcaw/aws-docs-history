@@ -112,6 +112,42 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
   [ListDatabases](../../../goto/SdkForJavaV2/redshift-2012-12-01/ListDatabases.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/ListDatabases.md")
   in _AWS SDK for Java 2.x API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples").
+
+```
+    TRY.
+        " Example values: iv_cluster_identifier = 'redshift-cluster-movies'
+        " Example values: iv_database_name = 'dev'
+        " Example values: iv_database_user = 'awsuser'
+        oo_result = lo_rsd->listdatabases(
+          iv_clusteridentifier = iv_cluster_identifier
+          iv_database = iv_database_name
+          iv_dbuser = iv_database_user
+        ).
+        lt_databases = oo_result->get_databases( ).
+        lv_db_count = lines( lt_databases ).
+        MESSAGE |Retrieved { lv_db_count } database(s).| TYPE 'I'.
+      CATCH /aws1/cx_rsddatabaseconnex.
+        MESSAGE 'Database connection error.' TYPE 'I'.
+      CATCH /aws1/cx_rsdresourcenotfoundex.
+        MESSAGE 'Cluster not found.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListDatabases](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

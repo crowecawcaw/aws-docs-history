@@ -336,6 +336,39 @@ The following code instantiates the RedshiftWrapper object.
   [DeleteCluster](../../../goto/boto3/redshift-2012-12-01/DeleteCluster.md "../../../goto/boto3/redshift-2012-12-01/DeleteCluster.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples").
+
+Delete the cluster.
+
+```
+    TRY.
+        " Example values: iv_cluster_identifier = 'my-redshift-cluster'
+        lo_rsh->deletecluster(
+          iv_clusteridentifier = iv_cluster_identifier
+          iv_skipfinalclustersnapshot = abap_true
+        ).
+        MESSAGE 'Redshift cluster deleted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_rshclustnotfoundfault.
+        MESSAGE 'Cluster not found.' TYPE 'I'.
+      CATCH /aws1/cx_rshinvcluststatefault.
+        MESSAGE 'Invalid cluster state for deletion.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteCluster](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -5,7 +5,7 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 # Use `ExecuteStatement` with an AWS SDK
 
-The following code example shows how to use `ExecuteStatement`.
+The following code examples show how to use `ExecuteStatement`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
@@ -195,6 +195,57 @@ Executes a SQL statement to query a database table.
 - For API details, see
   [ExecuteStatement](../../../goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement.md")
   in _AWS SDK for Java 2.x API Reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples").
+
+```
+    TRY.
+        " Example values: iv_cluster_identifier = 'redshift-cluster-movies'
+        " Example values: iv_database_name = 'dev'
+        " Example values: iv_user_name = 'awsuser'
+        " Example values: iv_sql = 'SELECT * FROM movies WHERE year = :year'
+        " Example values: it_parameter_list - SQL parameters for parameterized queries
+
+        " Only pass parameters if the list is not empty
+        IF it_parameter_list IS NOT INITIAL.
+          oo_result = lo_rsd->executestatement(
+            iv_clusteridentifier = iv_cluster_identifier
+            iv_database = iv_database_name
+            iv_dbuser = iv_user_name
+            iv_sql = iv_sql
+            it_parameters = it_parameter_list
+          ).
+        ELSE.
+          oo_result = lo_rsd->executestatement(
+            iv_clusteridentifier = iv_cluster_identifier
+            iv_database = iv_database_name
+            iv_dbuser = iv_user_name
+            iv_sql = iv_sql
+          ).
+        ENDIF.
+
+        lv_statement_id = oo_result->get_id( ).
+        MESSAGE |Statement executed. ID: { lv_statement_id }| TYPE 'I'.
+      CATCH /aws1/cx_rsdexecutestatementex.
+        MESSAGE 'Statement execution error.' TYPE 'I'.
+      CATCH /aws1/cx_rsdresourcenotfoundex.
+        MESSAGE 'Resource not found.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ExecuteStatement](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
