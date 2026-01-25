@@ -1,76 +1,23 @@
-# Configuring your ElastiCache client for efficient load balancing (Memcached)
+# Minimizing downtime during
 
-###### Note
+maintenance
 
-This section applies to node-based multi-node Memcached clusters.
+Cluster mode configuration has the best availability during managed or unmanaged operations.
+We recommend that you use a cluster mode supported client that connects to the cluster
+discovery endpoint. For cluster mode disabled, we recommend that you use the primary
+endpoint for all write operations.
 
-To effectively use multiple ElastiCache Memcached nodes, you need to be able to spread your cache
-keys across the nodes. A simple way to load balance a cluster with
-_n_ nodes is to calculate the hash of the object's key and mod
-the result by _n_: `hash(key) mod n`. The resulting value
-(0 through _n_–1) is the number of the node where you place the object.
+For read activity, applications can also connect to any node in the cluster. Unlike the primary endpoint,
+node endpoints resolve to specific endpoints. If you make a change in your cluster, such as adding or deleting a replica,
+you must update the node endpoints in your application. This is why for cluster mode disabled, we recommend that you
+use the reader endpoint for read activity.
 
-This approach is simple and works well as long as the number of nodes
-(_n_) is constant. However, whenever you add or remove a node
-from the cluster, the number of keys that need to be moved is _(n - 1) /
-n_ (where _n_ is the new number of nodes). Thus, this
-approach results in a large number of keys being moved, which translates to a large
-number of initial cache misses, especially as the number of nodes gets large. Scaling
-from 1 to 2 nodes results in (2-1) / 2 (50 percent) of the keys being moved,
-the best case. Scaling from 9 to 10 nodes results in (10–1)/10 (90 percent) of the
-keys being moved. If you're scaling up due to a spike in traffic, you don't want to
-have a large number of cache misses. A large number of cache misses results in hits to
-the database, which is already overloaded due to the spike in traffic.
+If AutoFailover is enabled in the cluster, the primary node might change. Therefore, the
+application should confirm the role of the node and update all the read endpoints. Doing
+this helps ensure that you aren't causing a major load on the primary. With AutoFailover
+disabled, the role of the node doesn't change. However, the downtime in managed or
+unmanaged operations is higher as compared to clusters with AutoFailover
+enabled.
 
-The solution to this dilemma is consistent hashing. Consistent hashing uses an algorithm
-such that whenever a node is added or removed from a cluster, the number of keys that
-must be moved is roughly _1 / n_ (where _n_ is the
-new number of nodes). Scaling from 1 to 2 nodes results in 1/2 (50 percent) of the keys
-being moved, the worst case. Scaling from 9 to 10 nodes results in 1/10 (10 percent) of
-the keys being moved.
-
-As the user, you control which hashing algorithm is used for multi-node clusters. We
-recommend that you configure your clients to use consistent hashing. Fortunately, there
-are many Memcached client libraries in most popular languages that implement consistent
-hashing. Check the documentation for the library you are using to see if it supports
-consistent hashing and how to implement it.
-
-If you are working in Java, PHP, or .NET, we recommend you use one of the Amazon ElastiCache
-client libraries.
-
-## Consistent Hashing Using Java
-
-The ElastiCache Memcached Java client is based on the open-source spymemcached Java client, which
-has consistent hashing capabilities built in. The library includes a
-KetamaConnectionFactory class that implements consistent hashing. By default,
-consistent hashing is turned off in spymemcached.
-
-For more information, see the KetamaConnectionFactory documentation at
-[KetamaConnectionFactory](https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java "https://github.com/RTBHOUSE/spymemcached/blob/master/src/main/java/net/spy/memcached/KetamaConnectionFactory.java").
-
-## Consistent hashing using PHP with Memcached
-
-The ElastiCache Memcached PHP client is a wrapper around the built-in Memcached PHP library.
-By default, consistent hashing is turned off by the Memcached PHP library.
-
-Use the following code to turn on consistent hashing.
-
-```
-$m = new Memcached();
-$m->setOption(Memcached::OPT_DISTRIBUTION, Memcached::DISTRIBUTION_CONSISTENT);
-```
-
-In addition to the preceding code,
-we recommend that you also turn `memcached.sess_consistent_hash`
-on in your php.ini file.
-
-For more information, see the run-time configuration documentation for Memcached PHP at
-[http://php.net/manual/en/memcached.configuration.php](http://php.net/manual/en/memcached.configuration.php "http://php.net/manual/en/memcached.configuration.php").
-Note specifically the `memcached.sess_consistent_hash` parameter.
-
-## Consistent hashing using .NET with Memcached
-
-The ElastiCache Memcached .NET client is a wrapper around Enyim Memcached.
-By default, consistent hashing is turned on by the Enyim Memcached client.
-
-For more information, see the `memcached/locator` documentation at [https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator](https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator "https://github.com/enyim/EnyimMemcached/wiki/MemcachedClient-Configuration#user-content-memcachedlocator").
+Avoid directing read requests to a single read replica node, as its unavailability could lead to a read outage. Either fallback to reading from the primary,
+or ensure that you have at least two read replicas to avoid any read interruption during maintenance.

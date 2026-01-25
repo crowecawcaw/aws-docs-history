@@ -1,88 +1,54 @@
-# Configure a client-side timeout (Valkey and Redis OSS)
+# Lua scripts
 
-**Configuring the client-side timeout**
+Valkey and Redis OSS supports more than 200 commands, including those to run Lua scripts. However, when it comes to Lua scripts, there are several pitfalls that can affect memory and availability of Valkey or Redis OSS.
 
-Configure the client-side timeout appropriately to allow the server sufficient time to process the request and generate the response. This also allows it to fail fast if the connection to the server can't be established.
-Certain Valkey or Redis OSS commands can be more computationally expensive than others. For example, Lua scripts or MULTI/EXEC transactions that contain multiple commands that must be run atomically. In general, a higher client-side timeout is
-recommended to avoid a time out of the client before the response is received from the server, including the following:
+**Unparameterized Lua scripts**
 
-- Running commands across multiple keys
-- Running MULTI/EXEC transactions or Lua scripts that consist of multiple individual Valkey or Redis OSS commands
-- Reading large values
-- Performing blocking operations such as BLPOP
-  In case of a blocking operation such as BLPOP, the best practice is to set the command timeout to a number lower than the socket timeout.
+Each Lua script is cached on the Valkey or Redis OSS server before it runs. Unparameterized Lua scripts are unique, which can lead to the Valkey or Redis OSS server storing a large number of Lua scripts and consuming more memory.
+To mitigate this, ensure that all Lua scripts are parameterized and regularly perform SCRIPT FLUSH to clean up cached Lua scripts if needed.
 
-The following are code examples for implementing a client-side timeout in redis-py, PHPRedis, and Lettuce.
+Also be aware that keys must be provided. If a value for the KEY parameter is not provided, the script will fail.
 
-**Timeout configuration sample 1: redis-py**
-
-The following is a code example with redis-py:
+For example, this will not work:
 
 ```
-# connect to Redis server with a 100 millisecond timeout
-# give every Redis command a 2 second timeout
-client = redis.Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10,socket_connect_timeout=0.1,socket_timeout=2))
-
-res = client.set("key", "value") # will timeout after 2 seconds
-print(res)                       # if there is a connection error
-
-res = client.blpop("list", timeout=1) # will timeout after 1 second
-                                      # less than the 2 second socket timeout
-print(res)
+serverless-test-lst4hg.serverless.use1.cache.amazonaws.com:6379> eval 'return "Hello World"' 0
+(error) ERR Lua scripts without any input keys are not supported.
 ```
 
-**Timeout config sample 2: PHPRedis**
-
-The following is a code example with PHPRedis:
+This will work:
 
 ```
-// connect to Redis server with a 100ms timeout
-// give every Redis command a 2s timeout
-$client = new Redis();
-$timeout = 0.1; // 100 millisecond connection timeout
-$retry_interval = 100; // 100 millisecond retry interval
-$client = new Redis();
-if($client->pconnect($HOST, $PORT, 0.1, NULL, 100, $read_timeout=2) != TRUE){
-	return; // ERROR: connection failed
-}
-$client->set($key, $value);
-
-$res = $client->set("key", "value"); // will timeout after 2 seconds
-print "$res\n";                      // if there is a connection error
-
-$res = $client->blpop("list", 1); // will timeout after 1 second
-print "$res\n";                   // less than the 2 second socket timeout
+serverless-test-lst4hg.serverless.use1.cache.amazonaws.com:6379> eval 'return redis.call("get", KEYS[1])' 1 mykey-2
+"myvalue-2"
 ```
 
-**Timeout config sample 3: Lettuce**
-
-The following is a code example with Lettuce:
+The following example shows how to use parameterized scripts. First, we have an example of an unparameterized approach that results in three different cached Lua scripts and is not recommended:
 
 ```
-// connect to Redis server and give every command a 2 second timeout
-public static void main(String[] args)
-{
-	RedisClient client = null;
-	StatefulRedisConnection<String, String> connection = null;
-	try {
-		client = RedisClient.create(RedisURI.create(HOST, PORT));
-		client.setOptions(ClientOptions.builder()
-	.socketOptions(SocketOptions.builder().connectTimeout(Duration.ofMillis(100)).build()) // 100 millisecond connection timeout
-	.timeoutOptions(TimeoutOptions.builder().fixedTimeout(Duration.ofSeconds(2)).build()) // 2 second command timeout
-	.build());
-
-		// use the connection pool from above example
-
-		commands.set("key", "value"); // will timeout after 2 seconds
-		commands.blpop(1, "list"); // BLPOP with 1 second timeout
-	} finally {
-		if (connection != null) {
-			connection.close();
-		}
-
-		if (client != null){
-			client.shutdown();
-		}
-	}
-}
+eval "return redis.call('set','key1','1')" 0
+eval "return redis.call('set','key2','2')" 0
+eval "return redis.call('set','key3','3')" 0
 ```
+
+Instead, use the following pattern to create a single script that can accept passed parameters:
+
+```
+eval "return redis.call('set',KEYS[1],ARGV[1])" 1 key1 1
+eval "return redis.call('set',KEYS[1],ARGV[1])" 1 key2 2
+eval "return redis.call('set',KEYS[1],ARGV[1])" 1 key3 3
+```
+
+**Long-running Lua scripts**
+
+Lua scripts can run multiple commands atomically, so it can take longer to complete than a regular Valkey or Redis OSS command. If the Lua script only runs read-only operations, you can stop it in the middle. However, as soon as the Lua script performs a write operation,
+it becomes unkillable and must run to completion.
+A long-running Lua script that is mutating can cause the Valkey or Redis OSS server to be unresponsive for a long time. To mitigate this issue, avoid long-running Lua scripts and test the script out in a pre-production environment.
+
+**Lua script with stealth writes**
+
+There are a few ways a Lua script can continue to write new data into Valkey or Redis OSS even when Valkey or Redis OSS is over `maxmemory`:
+
+- The script starts when the Valkey or Redis OSS server is below `maxmemory`, and contains multiple write operations inside
+- The script's first write command isn't consuming memory (such as DEL), followed by more write operations that consume memory
+- You can mitigate this problem by configuring a proper eviction policy in Valkey or Redis OSS server other than `noeviction`. This allows Redis OSS to evict items and free up memory in between Lua scripts.

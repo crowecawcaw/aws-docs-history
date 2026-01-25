@@ -112,7 +112,7 @@ you must update the node endpoints in your application.
 
 The clusters screen will appear with a list of Valkey or Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the button to its left).
 
-![Image: Primary endpoint for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](/images/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
 
 _Primary and Reader endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster_
 
@@ -123,7 +123,7 @@ name and then choosing the **Nodes** tab.
 The nodes screen appears with each node in the cluster, primary and replicas,
 listed with its endpoint.
 
-![Image: Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](/images/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
 
 _Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
 
