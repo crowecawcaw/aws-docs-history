@@ -43,7 +43,7 @@ distribution](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudfron
 `EvaluateTargetHealth`
 
 When EvaluateTargetHealth is true, an alias record inherits the health of the
-referenced AWS resource, such as an ELB load balancer or another record in the
+referenced AWS resource, such as an Elastic Load Balancing load balancer or another record in the
 hosted zone.
 
 _Type_: Boolean
