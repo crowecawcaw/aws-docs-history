@@ -48,7 +48,7 @@ AWS Direct Connect provides the following virtual interfaces:
 **Public virtual interfaces –** Provide global connectivity to
 public AWS resources, including AWS
 
-public service endpoints public Amazon EC2 IP addresses, and public ELB addresses.
+public service endpoints public Amazon EC2 IP addresses, and public Elastic Load Balancing addresses.
 
 **Private virtual interfaces –** Provide connectivity to the
 private IP range of your VPC.
