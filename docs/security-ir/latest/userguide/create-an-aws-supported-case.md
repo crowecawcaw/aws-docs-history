@@ -1,7 +1,7 @@
 # Create an AWS supported case
 
 You can create an AWS supported case for AWS Security Incident Response through the Console, the API, or the AWS Command Line Interface.
-AWS supported cases allow you to receive support from Security Indcident Response engineers.
+AWS supported cases allow you to receive support from Security Incident Response engineers.
 
 ###### Note
 
@@ -11,7 +11,7 @@ this time frame. This response time does not apply to subsequent responses.
 
 The following example covers use of the console.
 
-1. Sign into AWS Security Incident Response via the AWS Management Console at [https://console.aws.amazon.com/security-ir/](https://console.aws.amazon.com "https://console.aws.amazon.com").
+1. Sign into AWS Security Incident Response via the AWS Management Console.
 2. Choose **Create Case**
 3. Choose **Resolve case with
    AWS**
@@ -79,7 +79,7 @@ incident response team are immediately notified.
 
 **To create an AWS-supported case with AI investigation**
 
-1. Open the AWS Security Incident Response console at [console.aws.amazon.com/security-ir/](../../../console.aws.amazon.com/security-ir.md "../../../console.aws.amazon.com/security-ir.md").
+1. Open the AWS Security Incident Response console at [console.aws.amazon.com/security-ir/](../../../console.aws.amazon.md "../../../console.aws.amazon.md").
 2. Choose **Cases** from the navigation pane.
 3. Choose **Create case**.
 4. For **Case type**, select **AWS-supported

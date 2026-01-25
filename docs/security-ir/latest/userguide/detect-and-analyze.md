@@ -2,7 +2,7 @@
 
 AWS Security Incident Response monitors, triages, investigates security findings from Amazon GuardDuty and integrations
 through AWS Security Hub CSPM. Additional actions that can significantly enhance the scope and effectiveness of
-AWS Security Incident Response's monitoring and investigation capabilities include: Reporting an event, Enabling supported sources of detection, and Communicating with Security Indcident Response engineers.
+AWS Security Incident Response's monitoring and investigation capabilities include: Reporting an event, Enabling supported sources of detection, and Communicating with Security Incident Response engineers.
 
 **Reporting an Event**
 
@@ -65,13 +65,13 @@ If automated triage determines that the detected activity is expected, the syste
 
 **Analysis: Incident Response Security Investigation**
 
-Security Indcident Response engineers are a global, always-available team of security professionals with expertise in AWS and security incident response. If automated triage cannot determine that the activity is expected, Security Indcident Response engineers are engaged to perform a security investigation. If the event was ingested from Security Hub, a note is posted to the related finding stating that Security Indcident Response engineers' investigation is underway.
+Security Incident Response engineers are a global, always-available team of security professionals with expertise in AWS and security incident response. If automated triage cannot determine that the activity is expected, Security Incident Response engineers are engaged to perform a security investigation. If the event was ingested from Security Hub, a note is posted to the related finding stating that Security Incident Response engineers' investigation is underway.
 
-AWS Security Indcident Response engineers conduct a hands-on security investigation by analyzing additional service metadata and threat intelligence, reviewing insights from past findings and investigations in your environment, and applying incident response expertise. Depending on your Containment preferences (see Contain) Security Indcident Response engineers may engage your organization's Incident Response team through a AWS Security Incident Response case in the AWS Security Incident Response console to verify whether the detected activity is expected and authorized (see [Responding to an AWS generated case](responding-to-an-aws-generated-case.md "responding-to-an-aws-generated-case.md")).
+AWS Security Incident Response engineers conduct a hands-on security investigation by analyzing additional service metadata and threat intelligence, reviewing insights from past findings and investigations in your environment, and applying incident response expertise. Depending on your Containment preferences (see Contain) Security Incident Response engineers may engage your organization's Incident Response team through a AWS Security Incident Response case in the AWS Security Incident Response console to verify whether the detected activity is expected and authorized (see [Responding to an AWS generated case](responding-to-an-aws-generated-case.md "responding-to-an-aws-generated-case.md")).
 
 **Communicate**
 
-AWS Security Incident Response keeps you informed during security investigations by engaging with your Incident Response team through a AWS Security Incident Response case. Multiple Security Indcident Response engineers may support an investigation. Communication may include: acknowledgement or notification of the creation of a security investigation; establishing a call bridge; analysis of artifacts such as log files; requests for confirmation of expected activity; and sharing of investigation results.
+AWS Security Incident Response keeps you informed during security investigations by engaging with your Incident Response team through a AWS Security Incident Response case. Multiple Security Incident Response engineers may support an investigation. Communication may include: acknowledgement or notification of the creation of a security investigation; establishing a call bridge; analysis of artifacts such as log files; requests for confirmation of expected activity; and sharing of investigation results.
 
 When AWS Security Incident Response proactively engages your Incident Response team a case is created in your AWS Security Incident Response Membership account, which centralizes communication for all Organizational accounts in one place. These cases contain the "[Proactive case]" prefix in their title, which identifies them as initiated by AWS Security Incident Response. By actively engaging and providing timely responses to these communications, your Incident Response team can assist AWS Security Incident Response to:
 
@@ -80,6 +80,14 @@ When AWS Security Incident Response proactively engages your Incident Response t
 - Reduce false positive detections over time.
 
 The effectiveness of AWS Security Incident Response improves with your collaboration and results in a more effectively monitored and secure AWS environment.
+
+**Updating Findings**
+
+AWS Security Incident Response manages findings differently depending on their source and triage outcome.
+
+**Amazon GuardDuty Findings**
+
+AWS Security Incident Response automatically archives Amazon GuardDuty findings that are determined during automated triage to be benign or associated with expected activity. This archiving occurs only for findings that have been triaged and have an outcome designated as "archive". Findings under active investigation remain visible in the Amazon GuardDuty console even after an investigation wraps up. You can view archived findings in the Amazon GuardDuty console by selecting **Archived** from the findings filter. For more information about working with archived findings, see [Working with findings](../../../guardduty/latest/ug/findings_managing.md "../../../guardduty/latest/ug/findings_managing.md") in the _Amazon GuardDuty User Guide_.
 
 **Service Tuning**
 

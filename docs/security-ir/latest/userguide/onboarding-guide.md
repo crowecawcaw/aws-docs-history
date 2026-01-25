@@ -10,7 +10,7 @@ Prerequisites
 2. While not required, we recommend enabling [Amazon
    GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") and [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md") across all accounts and active regions to maximize
    Security Incident Response benefits.
-3. Review [GuardDuty and Security Incident Response](detect-and-analyze.md "detect-and-analyze.md")
+3. Review GuardDuty and Security Incident Response
 4. Review [GuardDuty
    best practices guide](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md")
    Security Hub CSPM will ingest findings from 3rd party endpoint detection and
@@ -21,7 +21,7 @@ Prerequisites
 
 To setup 3rd party EDR with Security Hub CSPM:
 
-1. Navigate to the [Security Hub CSPM Integrations](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md") page to validate the 3rd party integration
+1. Navigate to the Security Hub CSPM Integrations page to validate the 3rd party integration
    exists
 2. From the console, navigate to the Security Hub CSMP service page.
 3. Choose **Integrations** (using Wiz.IO as an

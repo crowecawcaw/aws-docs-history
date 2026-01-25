@@ -2,11 +2,11 @@
 
 ## Monitoring and investigation
 
-AWS Security Incident Response rapidly reviews security alerts
+AWS Security Incident Response rapidly reviews security threat alerts
 from Amazon GuardDuty and third-party integrations with AWS Security Hub CSPM,
 reducing the number your team needs to
 analyze. It configures suppression rules based on
-your environment to reduce low-priority alerts you
+your environment to reduce threat alerts you
 need to triage and investigate.
 
 ## Streamline incident response

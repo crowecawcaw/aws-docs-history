@@ -22,7 +22,7 @@ _Match only case events:_
              "Case Created",
              "Case Updated",
              "Case Closed",
-             "Case Comment Created",
+             "Case Comment Added",
              "Case Comment Updated"
            ]
          }

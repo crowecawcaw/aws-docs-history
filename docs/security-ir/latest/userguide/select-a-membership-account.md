@@ -28,9 +28,8 @@ You can use the IAM to create this role in your AWS Organizations management acc
 
 1. Login to your AWS Organizations management account.
 2. Access the [AWS CloudShell](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home") window or access the account via CLI in your preferred method.
-3. Use the CLI command `aws iam create-service-linked-role --aws-service-name "triage.security-ir.amazonaws.com" --no-cli-page`
+3. Use the CLI command `aws iam create-service-linked-role --aws-service-name "triage.security-ir.amazonaws.com" --no-cli-pager`
 4. (Optional) To verify the command worked you can execute the command `aws iam get-role --role-name AWSServiceRoleForSecurityIncidentResponse_Triage`
-5. Review the role and then choose **Create role**.
 
 **Use the currently logged in
 account**: Selecting this account means the current account will be designated as the

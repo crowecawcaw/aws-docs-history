@@ -1,7 +1,7 @@
 # Monitoring and investigation
 
-AWS Security Incident Response reviews and triages security alerts from Amazon GuardDuty and AWS Security Hub CSPM, then configures suppression
-rules based on your environment to prevent unnecessary alerts. Security Indcident Response engineers investigate
+AWS Security Incident Response reviews and triages security threat alerts from Amazon GuardDuty and AWS Security Hub CSPM, then configures suppression
+rules based on your environment to prevent unnecessary alerts. Security Incident Response engineers investigate
 findings and quickly escalates and guides your team to rapidly contain potential issues. If desired, you can grant
 AWS Security Incident Response permission to implement containment actions on your behalf.
 
@@ -13,7 +13,7 @@ consistent approach to security event management and adhere to
 best practices in securing and responding to security events in
 your AWS environment.
 
-When the AWS Security Incident Response service identifies a security alert or you request security assistance, Security Indcident Response engineers investigate.
+When the AWS Security Incident Response service identifies a security alert or you request security assistance, Security Incident Response engineers investigate.
 The team collects log events and service data such as GuardDuty alerts, triages and analyzes that data, performs
 remediation and containment activities, and provides post-incident reporting.
 

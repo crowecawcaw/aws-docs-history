@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AI-powered investigation agent works alongside customers and AWS Security Indcident Response engineers
+The AI-powered investigation agent works alongside customers and AWS Security Incident Response engineers
 to expedite security investigations. When a customer creates an AWS-supported case, the agent automatically activates
 in parallel with Security Incident Response engineer engagement, reducing resolution time from days to hours.
 
@@ -36,7 +36,7 @@ The AI investigation agent follows a structured workflow when analyzing AWS-supp
 1. **Case creation** – Customer creates an AWS-supported case in the
    Security Incident Response console describing the security concern.
 2. **Parallel activation**
-   - Security Indcident Response engineers engage with the case.
+   - Security Incident Response engineers engage with the case.
    - Simultaneously, the AI agent begins its investigation workflow.
 
 3. **Contextual questions (optional)** – The agent may ask clarifying

@@ -6,7 +6,7 @@ This includes incidents like account takeovers, data breaches, and ransomware
 attacks.
 
 AWS Security Incident Response triages
-findings, escalates security events, and manages cases that require your immediate
+threat findings, escalates security events, and manages cases that require your immediate
 attention. Additionally, you have access to Security Incident Response engineers, who will
 investigate impacted resources.
 
