@@ -75,7 +75,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
 | Fedora                              | 42              | Errata CVE                             | Yes                    | Yes                      |
-| Fedora                              | 43              | Errata CVE                             | Yes                    | Yes                      |
 | OpenSUSE Leap                       | 15.6            | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux (Oracle)               | 9               | Errata CVE                             | Yes                    | Yes                      |
@@ -93,7 +92,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Ubuntu (Focal)                      | 20.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Jammy)                      | 22.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
 | Ubuntu (Noble Numbat)               | 24.04           | USN, Ubuntu Pro (esm-infra & esm-apps) | Yes                    | Yes                      |
-| Ubuntu (Questing Quokka)            | 25.10           | USN                                    | Yes                    | Yes                      |
 | Windows Server                      | 2016            | MSKB                                   | No                     | Yes                      |
 | Windows Server                      | 2019            | MSKB                                   | No                     | Yes                      |
 | Windows Server                      | 2022            | MSKB                                   | No                     | Yes                      |
@@ -128,7 +126,6 @@ It also specifies the vendor security advisory for each operating system.
 | Debian Server (Bookworm)            | 12      | DSA CVE                                |
 | Debian Server (Trixie)              | 13      | DSA CVE                                |
 | Fedora                              | 42      | Errata CVE                             |
-| Fedora                              | 43      | Errata CVE                             |
 | Minimus                             | –       | Errata CVE                             |
 | OpenSUSE Leap                       | 15.6    | Errata CVE                             |
 | Oracle Linux (Oracle)               | 8       | Errata CVE                             |
@@ -149,7 +146,6 @@ It also specifies the vendor security advisory for each operating system.
 | Ubuntu (Focal)                      | 20.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Jammy)                      | 22.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
 | Ubuntu (Noble Numbat)               | 24.04   | USN, Ubuntu Pro (esm-infra & esm-apps) |
-| Ubuntu (Questing Quokka)            | 25.10   | USN                                    |
 | Wolfi                               | –       | Errata CVE                             |
 
 ### Supported operating systems: CIS scanning
