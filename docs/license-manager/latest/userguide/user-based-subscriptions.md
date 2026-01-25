@@ -635,6 +635,12 @@ slide show presentations.
 
 - Office LTSC Professional Plus 2021
 - Office LTSC Professional Plus 2024
+- Office LTSC Professional Plus 2021 32-bit (x86)
+- Office LTSC Professional Plus 2024 32-bit (x86)
+
+###### Note
+
+Office 32-bit (x86) is only supported for Windows 2025.
 
 The following table details the software subscription names and their associated
 product value used for License Manager user-based subscription API operations.
