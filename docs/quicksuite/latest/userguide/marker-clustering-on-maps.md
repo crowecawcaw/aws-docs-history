@@ -10,7 +10,7 @@ enable marker clustering to represent groupings of locations on the map. As the
 reader zooms in on the map, the clustered markers leave the area marker to display
 separately.
 
-![This is an example of marker clustering at work.](../images/map-marker-clustering.gif)
+![This is an example of marker clustering at work.](images/map-marker-clustering.gif)
 
 ###### To add cluster points to a map
 

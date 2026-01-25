@@ -88,26 +88,26 @@ cases
 
 - Unaggregated X and Y values with Color
 
-![unaggregated-color](../images/unaggregated-color.png)
+![unaggregated-color](images/unaggregated-color.png)
 
 - Unaggregated X and Y values with Label
 
-![unaggregated-label](../images/unaggregated-label.png)
+![unaggregated-label](images/unaggregated-label.png)
 
 - Unaggregated X and Y values with Color and Label
 
-![unaggregated-color-label](../images/unaggregated-color-label.png)
+![unaggregated-color-label](images/unaggregated-color-label.png)
 
 ### Aggregated use cases
 
 - Aggregated X and Y values with Color
 
-![aaggregated-color](../images/aggregated-color.png)
+![aaggregated-color](images/aggregated-color.png)
 
 - Aggregated X and Y values with Label
 
-![aggregated-label](../images/aggregated-label.png)
+![aggregated-label](images/aggregated-label.png)
 
 - Aggregated X and Y values with Color and Label
 
-![aggregated-color-label](../images/aggregated-color-label.png)
+![aggregated-color-label](images/aggregated-color-label.png)

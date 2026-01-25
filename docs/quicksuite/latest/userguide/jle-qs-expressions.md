@@ -90,7 +90,7 @@ to return column values from field wells or themes:
 
 **Example**
 
-![](../images/get-column-example.png)
+![](images/get-column-example.png)
 
 `getColumn` can access any column from the table:
 

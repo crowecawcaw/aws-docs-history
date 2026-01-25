@@ -19,7 +19,7 @@ For more information about Highcharts visuals in Amazon Quick Suite, see the [Hi
 The following image shows a lipstick chart that is configured in the **Chart
 code** JSON editor of a Highcharts visual in Quick Suite.
 
-![](../images/highcharts-example1.png)
+![](images/highcharts-example1.png)
 For more examples of visuals that you can create with the Highcharts visual in
 Quick Suite, see [Highcharts
 demos](https://www.highcharts.com/demo "https://www.highcharts.com/demo").

@@ -26,7 +26,7 @@ each pane (for `Segment`) are ordered by lowest to highest cost. The
 table on the right has the same sort applied, but the sort is being applied
 across the entire table, as shown following.
 
-![Image of a pivot table with a sort highlighted in red.](../images/sorting-pivot-tables2.png)
+![Image of a pivot table with a sort highlighted in red.](images/sorting-pivot-tables2.png)
 
 When you apply multiple sorts to a pivot table, sorting is applied from the
 outside dimension to the inside dimension. Consider the following example image
@@ -35,7 +35,7 @@ of a pivot table. The `Customer Region` column is sorted by
 `Channel` column is sorted by Revenue Goal in ascending order (as
 shown in blue).
 
-![Image of a pivot table showing two measure value columns sorted.](../images/sorting-pivot-tables3.png)
+![Image of a pivot table showing two measure value columns sorted.](images/sorting-pivot-tables3.png)
 
 ## Sorting pivot tables using row or
 
@@ -55,7 +55,7 @@ You can sort dimension fields alphabetically a–z or z–a,
 or you can sort them by a measure in ascending or descending
 order.
 
-![Animated .gif file of sorting values in a pivot table using column headers.](../images/sorting-pivot-table7.gif)
+![Animated .gif file of sorting values in a pivot table using column headers.](images/sorting-pivot-table7.gif)
 
 ## Sorting pivot tables using value
 
@@ -70,7 +70,7 @@ Use the following procedure to sort a pivot table using value headers.
 2. Choose **Ascending** or
    **Descending**.
 
-![Animated .gif file of sorting values in a pivot table using value headers.](../images/sorting-pivot-tables-value.gif)
+![Animated .gif file of sorting values in a pivot table using value headers.](images/sorting-pivot-tables-value.gif)
 
 Sorting by value headers in a pivot table also works on
 subtotals.
@@ -105,7 +105,7 @@ also remove the field, or to replace it with another field.
 
 
 
-    ![Image of a field in the Rows field well with the sort by field and alphabetical sort icons indicated in red squares.](../images/sorting-pivot-tables1.png)
+    ![Image of a field in the Rows field well with the sort by field and alphabetical sort icons indicated in red squares.](images/sorting-pivot-tables1.png)
     * To sort a dimension field by a measure, hover your cursor over
      the field in the **Rows** or
      **Columns** field well. Then choose a
@@ -114,7 +114,7 @@ also remove the field, or to replace it with another field.
 
 
 
-    ![Image of a field in the Rows field well with the sort by field and sort icons indicated in red squares.](../images/sorting-pivot-tables4.png)
+    ![Image of a field in the Rows field well with the sort by field and sort icons indicated in red squares.](images/sorting-pivot-tables4.png)
 
 Or, if you want more control over how the sort is applied to the pivot table,
 customize the sort options.
@@ -150,7 +150,7 @@ fields** menu and choose the option that you want. Each field in a
 hierarchy pivot table can be individually sorted from the **Combined row
 fields** menu.
 
-![Image of the Combined row fields menu.](../images/pivot-table-combined-row-fields-menu.png)
+![Image of the Combined row fields menu.](images/pivot-table-combined-row-fields-menu.png)
 
 More advanced formatting options such as **Hide** and
 **Remove** are available from the field well menus.

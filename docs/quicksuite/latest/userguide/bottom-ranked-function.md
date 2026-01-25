@@ -91,4 +91,4 @@ the top ranked computation.
 The following screenshot shows the default configuration for the
 bottom-ranked computation.
 
-![Default configuration for the bottom-ranked computation.](../images/bottom-ranked-computation.png)
+![Default configuration for the bottom-ranked computation.](images/bottom-ranked-computation.png)

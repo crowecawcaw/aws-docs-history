@@ -97,7 +97,7 @@ single visual.
 
 
 
-      ![](../images/top-customers.png)
+      ![](images/top-customers.png)
 
   Other tips
 

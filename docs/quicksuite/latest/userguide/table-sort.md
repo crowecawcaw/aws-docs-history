@@ -7,7 +7,7 @@ can sort columns in an **Ascending** or a
 **Descending** order. The following image shows the
 **Sort visual** icon and pop over.
 
-![The Sort visual icon and the Sort visual pop over that it opens.](../images/table-sort-icon.png)
+![The Sort visual icon and the Sort visual pop over that it opens.](images/table-sort-icon.png)
 
 ## Single column sort options
 

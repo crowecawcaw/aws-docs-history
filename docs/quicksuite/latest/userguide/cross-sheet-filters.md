@@ -51,7 +51,7 @@ filter scope:
 
 Or the custom sheet selection:
 
-![This is an image of Delete Filter in Quick Sight.](../images/cross-sheet-7.png) 3. If there are controls, you will see a modal to warn you that you will be
+![This is an image of Delete Filter in Quick Sight.](images/cross-sheet-7.png) 3. If there are controls, you will see a modal to warn you that you will be
 bulk-removing controls from any of the sheets where the filter no longer
 applies and this can impact your layout. You can also remove the controls
 individually. For more information, see [Removing a Cross-Sheet

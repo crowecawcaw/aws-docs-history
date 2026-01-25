@@ -40,9 +40,9 @@ question. In the sample below, an Author added descriptions for **Solution
 Create** and **Topic Create**, which enables Amazon Q to
 more accurately select the appropriate date field in context.
 
-![solution create description](../images/solution_create.png)
+![solution create description](images/solution_create.png)
 
-![topic create description](../images/topic_create.png)
+![topic create description](images/topic_create.png)
 
 ## Adding topic-level
 

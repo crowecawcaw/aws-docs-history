@@ -16,7 +16,7 @@ to items that are added to group bys.
 
 You can create up to 200 different data bar configurations for a single table.
 
-![An image that shows data bars in a table.](../images/data-bars-1.png)
+![An image that shows data bars in a table.](images/data-bars-1.png)
 
 ###### To add data bars to a table
 

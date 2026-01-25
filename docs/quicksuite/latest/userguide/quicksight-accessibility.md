@@ -12,7 +12,7 @@ analysis:
 - Use the `ESC` key to clear the selection from a visual or menu
   item.
 
-![alt_text](../images/keyboard-shortcuts-1.gif)
+![alt_text](images/keyboard-shortcuts-1.gif)
 
 ## Using shortcuts within a visual
 
@@ -22,11 +22,11 @@ you want to use a link that's a part of your visuals title. To do this, select t
 visual that you want, then use the `TAB` key until just the link is selected.
 Then, use the `Enter` key to click on the link.
 
-![](../images/keyboard-shortcuts-2.gif)
+![](images/keyboard-shortcuts-2.gif)
 
 You can also use these keyboard shortcuts to navigate and enter the on-visual menu on
 the upper-right corner of a visual. To do this, select the visual that you want and use
 the `TAB` key to get to the field that you want to select. If you miss the
 field that you want, use the `Shift+TAB` keys to go back a field.
 
-![](../images/keyboard-shortcuts-3.gif)
+![](images/keyboard-shortcuts-3.gif)

@@ -73,7 +73,7 @@ followed by a period (`.`). Choose the expression from the list,
 rather than typing it in. However, you can edit the contents of the
 expression after you add it.
 
-![Expression editor with open expressions list.](../images/narrative-add-expression.png)
+![Expression editor with open expressions list.](images/narrative-add-expression.png)
 
 ###### Note
 
@@ -98,7 +98,7 @@ great by repeating the previous step. But this time, make it
  expected`. Make it red instead of green. 12. Choose **Save**. The customized narrative that we just
 created should look similar to the following.
 
-![Customized narrative.](../images/narrative-example-result.png)
+![Customized narrative.](images/narrative-example-result.png)
 The expression editor provides you with a sophisticated tool to customize your
 narratives. You can also reference the parameters you create for your analysis or
 dashboard, and use a set of built-in functions for further customization.

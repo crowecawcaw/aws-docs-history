@@ -15,7 +15,7 @@ distinct values.
 
 The following screenshot shows an example of a word cloud.
 
-![](../images/word-cloud.png)
+![](images/word-cloud.png)
 To create a word cloud, use one dimension in the **Group by** field
 well. Optionally, you can add a metric to the **Size** field
 well.

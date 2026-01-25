@@ -97,13 +97,13 @@ A new, blank visual is created and receives focus. 5. Use one of the following o
 
 
 
-    	![](../images/visual-types.png)
+    	![](images/visual-types.png)
 
     	The field wells display the fields that are visualized.
 
 
 
-    	![](../images/field-wells.png)
+    	![](images/field-wells.png)
     	2. From the **Data** pane, drag the fields
     	 that you want to use to the appropriate field wells.
     	 Typically, you want to use dimension or measure fields as

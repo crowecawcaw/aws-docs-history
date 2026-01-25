@@ -28,7 +28,7 @@ Using a pivot table, you can do the following:
 - Create custom total aggregations
   To easily transpose the fields used by the rows and columns of the pivot table, choose
   the orientation icon (
-  ![](../images/pivot-orientation.png)
+  ![](images/pivot-orientation.png)
   ) near the top right of the visual. To see options for showing and
   hiding totals and subtotals, formatting the visual, or exporting data to a CSV file,
   choose the Menu items icon at top right.

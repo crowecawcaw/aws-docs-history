@@ -22,4 +22,4 @@ collapse a group to show or hide its data in the visual.
     `Startup` are collapsed. When a group is collapsed, its data
     is summarized in the row or column.
 
-![](../images/pivot-table-collapse.png)
+![](images/pivot-table-collapse.png)

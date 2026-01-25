@@ -24,13 +24,13 @@ Using **Table across** applies the calculation across the
 rows of the pivot table, regardless of any grouping. This application is the
 default. For example, take the following pivot table.
 
-![](../images/sample-pivot.png)
+![](images/sample-pivot.png)
 
 Applying the **Running total** function using
 **Table across** gives you the following results, with
 row totals in the last column.
 
-![](../images/table-across.png)
+![](images/table-across.png)
 
 ## Table down
 
@@ -41,7 +41,7 @@ Applying the **Running total** function using
 **Table down** gives you the following results, with
 column totals in the last row.
 
-![](../images/table-down.png)
+![](images/table-down.png)
 
 ## Table across down
 
@@ -54,7 +54,7 @@ Applying the **Running total** function using
 In this case, totals are summed both down and across, with the grand total
 in the lower-right cell.
 
-![](../images/running-total-across-down.png)
+![](images/running-total-across-down.png)
 
 In this case, suppose that you apply the **Rank**
 function using **Table across down**. Doing so means that
@@ -62,7 +62,7 @@ the initial ranks are determined across the table rows and then those ranks
 are in turn ranked down the columns. This approach gives you the following
 results.
 
-![](../images/rank-table-across-down.png)
+![](images/rank-table-across-down.png)
 
 ## Table down across
 
@@ -75,14 +75,14 @@ You can apply the **Running total** function using
 this case, totals are summed both down and across, with the grand total in
 the lower-right cell.
 
-![](../images/running-total-down-across.png)
+![](images/running-total-down-across.png)
 
 You can apply the **Rank** function using **Table
 down across** to get the following results. In this case, the
 initial ranks are determined down the table columns. Then those ranks are in
 turn ranked across the rows.
 
-![](../images/rank-table-down-across.png)
+![](images/rank-table-down-across.png)
 
 ## Group across
 
@@ -98,7 +98,7 @@ For example, take the following pivot table where columns are grouped by
 `Service Line` and then by `Consumption
  Channel`.
 
-![](../images/sample-pivot.png)
+![](images/sample-pivot.png)
 
 You can apply the **Running total** function using
 **Group across** to get the following results. In this
@@ -111,7 +111,7 @@ highlighted cell represents the total for the `APAC` region for
 `2012`, for all `Consumption Channel` values in
 the `Service Line` named `Billing`.
 
-![](../images/group-across.png)
+![](images/group-across.png)
 
 ## Group down
 
@@ -127,7 +127,7 @@ For example, take the following pivot table where rows are grouped by
 `Customer Region` and then by `Date`
 (year).
 
-![](../images/sample-pivot.png)
+![](images/sample-pivot.png)
 
 You can apply the **Running total** function using
 **Group down** to get the following results. In this
@@ -140,7 +140,7 @@ represents the total the `APAC` region, for the
 `Billing` service for the `Mobile` channel, for
 all the `Date` values (years) that display in the report.
 
-![](../images/group-down.png)
+![](images/group-down.png)
 
 ## Group across down
 
@@ -162,7 +162,7 @@ For example, take the following pivot table where columns are grouped by
 Rows are grouped by `Customer Region` and then by
 `Date` (year).
 
-![](../images/sample-pivot.png)
+![](images/sample-pivot.png)
 
 You can apply the **Running total** function using
 **Group across down** to get the following results. In
@@ -171,7 +171,7 @@ boundaries. Here, these boundaries are `Service Line` for the
 columns and `Customer Region` for the rows. The grand total
 appears in the lower-right cell for the group.
 
-![](../images/running-total-group-across-down.png)
+![](images/running-total-group-across-down.png)
 
 You can apply the **Rank** function using **Group
 across down** to get the following results. In this case, the
@@ -180,7 +180,7 @@ function is first applied across the rows bounded by each `Service
 that first calculation, this time applied down the columns bounded by each
 `Customer Region` group.
 
-![](../images/rank-group-across-down.png)
+![](images/rank-group-across-down.png)
 
 ## Group down across
 
@@ -202,7 +202,7 @@ For example, take the following pivot table. Columns are grouped by
 Rows are grouped by `Customer Region` and then by
 `Date` (year).
 
-![](../images/sample-pivot.png)
+![](images/sample-pivot.png)
 
 You can apply the **Running total** function using
 **Group down across** to get the following results. In
@@ -211,7 +211,7 @@ boundaries. In this case, these are `Service Category` for the
 columns and `Customer Region` for the rows. The grand total is in
 the lower-right cell for the group.
 
-![](../images/running-total-group-across-down.png)
+![](images/running-total-group-across-down.png)
 
 You can apply the **Rank** function using **Group
 down across** to get the following results. In this case, the
@@ -220,4 +220,4 @@ function is first applied down the columns bounded by each `Customer
 of that first calculation, this time applied across the rows bounded by each
 `Service Line` group.
 
-![](../images/rank-group-down-across.png)
+![](images/rank-group-down-across.png)

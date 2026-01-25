@@ -133,7 +133,7 @@ Summarize the last two paragraphs of the provided text, focusing only on the mai
 
 Tools (Optional)
 
-A tool is enables the AI agent to interact with external systems or perform specific tasks
+A tool enables the AI agent to interact with external systems or perform specific tasks
 
 **General tools**
 
@@ -175,3 +175,32 @@ Users can see the execution log feed in the audit panel on the right side. The e
 
 - User can see the input variables and output result at the Watch Variables` tab below the log feed.
 - User can see basic metric card above the log feed (total time used and tools used).
+
+### Examples
+
+**Use Case 1: Email Classification and Assignment Agent**
+
+**Role:** You are an Email Categorization and Assignment Agent
+
+**Instructions:** Follow these steps:
+
+- Step 1: Classify the incoming email based on the Category column of the provided reference table as knowledge
+- Step 2: Use the email system to send a notification:
+  - From: [system\_email]
+  - To: [team\_distribution\_email]
+  - Subject: [Classification Result]
+  - Body: Include a brief summary explaining the classification reasoning and key points from the original email
+
+- Step 3: For all valid categories (except 'unknown'), create a new case in Salesforce with:
+  - Subject: [Original Email Subject]
+  - Description: Summarized issue from email body
+  - Priority: Based on content urgency (High/Medium/Low)
+  - Type: Select appropriate type (Question/Problem/Feature Request/Other)
+  - Status: 'New'
+  - Category: [Classification result from Step 1]
+
+- Step 4: If classified as 'unknown':
+  - Escalate to supervisor for manual review
+  - Add note explaining why classification was uncertain
+  - Based on the category received from the supervisor, follow step 2 and 3 and stop
+  - If the category received from the supervisor is unknown or invalid, stop

@@ -12,7 +12,7 @@ following screenshot shows the anomalies screen as it appears when you first ope
 it. In this example, contributors analysis is set up and shows two key
 drivers.
 
-![Anomalies analysis with contributors shown.](../images/anomaly-exploration-v2.png)
+![Anomalies analysis with contributors shown.](images/anomaly-exploration-v2.png)
 The sections of the screen include the following, from top left to bottom
 right:
 

@@ -18,19 +18,19 @@ Region (ap-south-1).
 
 - Light gray canvas
 
-![This is an example image of a map visual with the light gray canvas base.](../images/map-layers1.png)
+![This is an example image of a map visual with the light gray canvas base.](images/map-layers1.png)
 
 - Dark gray canvas
 
-![This is an example image of a map visual with the dark gray canvas base.](../images/map-layers2.png)
+![This is an example image of a map visual with the dark gray canvas base.](images/map-layers2.png)
 
 - Streets
 
-![This is an example image of a map visual with the streets base.](../images/map-layers3.png)
+![This is an example image of a map visual with the streets base.](images/map-layers3.png)
 
 - Imagery
 
-![This is an example image of a map visual with the imagery base.](../images/map-layers4.png)
+![This is an example image of a map visual with the imagery base.](images/map-layers4.png)
 
 ## Changing base maps
 

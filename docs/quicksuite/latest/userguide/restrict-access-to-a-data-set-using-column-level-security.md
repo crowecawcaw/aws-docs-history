@@ -5,7 +5,7 @@ column-level security to restrict access to a dataset
 In the Enterprise edition of Quick Suite, you can restrict access to a dataset
 by configuring column-level security (CLS) on it. A dataset or analysis with CLS enabled
 has the restricted
-![The lock icon for CLS.](../images/cls-restricted-icon.png)
+![The lock icon for CLS.](images/cls-restricted-icon.png)
 symbol next to it. By default, all users and groups have access to
 the data. By using CLS, you can manage access to specific columns in your
 dataset.

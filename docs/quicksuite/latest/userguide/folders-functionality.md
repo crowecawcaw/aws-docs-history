@@ -2,7 +2,7 @@
 
 In Quick Sight, you can create personal and shared folders. You can also favorite
 your personal or shared folders for quick access by choosing the favorite (
-![](../images/favorite-icon.png)
+![](images/favorite-icon.png)
 ) icon next to it.
 
 You can do the following with personal folders:

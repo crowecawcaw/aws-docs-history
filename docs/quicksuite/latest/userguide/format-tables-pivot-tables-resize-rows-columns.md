@@ -15,7 +15,7 @@ column width for columns in a pivot table visual.
 You can adjust the row height by selecting the horizontal lines on cells
 and row headers.
 
-![Resize a row in a table or pivot table.](../images/resize-table-row1.gif)
+![Resize a row in a table or pivot table.](images/resize-table-row1.gif)
 
 ###### To resize a column width in a table or pivot table
 
@@ -26,7 +26,7 @@ and row headers.
 You can adjust the column width by selecting the vertical lines on cells,
 column headers, and row headers.
 
-![Resize a column in a table or pivot table.](../images/resize-table-row2.gif)
+![Resize a column in a table or pivot table.](images/resize-table-row2.gif)
 
 ###### To set the default column width for columns in a pivot table
 

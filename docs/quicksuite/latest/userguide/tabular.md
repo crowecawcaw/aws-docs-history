@@ -46,14 +46,14 @@ well.
 ###### To transpose columns to rows and rows to columns
 
 - Choose the transpose icon (
-  ![](../images/transpose-icon.png)
+  ![](images/transpose-icon.png)
   ) near the top right of the visual. It has two arrows at a
   90 degree angle.
 
 ###### To vertically align columns
 
 1. On your visual, choose the **Format visual** icon (
-   ![](../images/format-visual-icon.png)
+   ![](images/format-visual-icon.png)
    ) near the top right of the visual.
 2. In the **Properties** pane, choose **Table
    options**, and choose your table's vertical alignment.
@@ -61,7 +61,7 @@ well.
 ###### To wrap the text for headers
 
 1. On your visual, choose the **Format visual** icon (
-   ![](../images/format-visual-icon.png)
+   ![](images/format-visual-icon.png)
    ) near the top right of the visual.
 2. In the **Properties** pane, choose **Table
    options**, and select **Wrap header text**.

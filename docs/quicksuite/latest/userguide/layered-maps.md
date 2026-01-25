@@ -15,7 +15,7 @@ geometries are not supported.
 
 The following image shows a layer map visual in Amazon Quick Suite.
 
-![](../images/layer-map.png)
+![](images/layer-map.png)
 
 ## Creating a shape layer with layered
 

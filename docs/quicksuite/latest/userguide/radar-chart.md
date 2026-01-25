@@ -16,7 +16,7 @@ plotted on.
 
 The following image shows an example of a radar chart.
 
-![Radar chart plotting employee satisfaction variables by department.](../images/radar-chart-example.png)
+![Radar chart plotting employee satisfaction variables by department.](images/radar-chart-example.png)
 
 ## Radar chart features
 

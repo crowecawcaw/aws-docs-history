@@ -53,7 +53,7 @@ apply to all metrics in your visual. If you want individual forecasts for
 each metric, consider creating a separate visual for each metric and adding
 a forecast to each.
 
-![Image of a line-chart visual with three metrics forecasted.](../images/forecast2.png) 3. On the **Forecast properties** panel at left, customize
+![Image of a line-chart visual with three metrics forecasted.](images/forecast2.png) 3. On the **Forecast properties** panel at left, customize
 one or more of the following settings:
 
     * **Forecast length** – Set

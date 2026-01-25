@@ -4,7 +4,7 @@
 
 ### Amazon S3
 
-actions allow you to store and retrieve files and data.
+Amazon S3 actions allow you to store and retrieve files and data.
 
 **Available Actions**
 
@@ -14,21 +14,21 @@ actions allow you to store and retrieve files and data.
 - **Delete Object** - Deletes a specified object from an S3 bucket.
 - **List Objects** - Lists all of the objects in the given bucket. Can be filtered using a prefix.
 
-###
+### Amazon Bedrock
 
-actions allow you to connect to foundation models (FMs) from leading AI companies through a single API.
+Amazon Bedrock actions allow you to connect to foundation models (FMs) from leading AI companies through a single API.
 
 - **Basic model converse** - Sends a prompt to an AI model. Use natural language to generate text, analyze content, and get AI-powered responses.
 - **Advanced model converse** - Prompts model with more options. Advanced options include custom message formats, tool integrations, and granular control over model behavior.
 
-### Agents
+### Amazon Bedrock Agents
 
-Agent actions allows you to invoke AI assistants that can connect to your data sources, APIs, and backend systems.
+Amazon Bedrock Agent actions allows you to invoke AI assistants that can connect to your data sources, APIs, and backend systems.
 
 - **Basic agent invoke** - Sends a request to an AI agent. Use for simple interactions that don't require file attachments, user input, or custom configurations.
 - **Advanced agent invoke** - Calls an agent with more options. Used for advanced interactions that require file attachments, user input, or custom configurations.
 
-### Data Automation
+### Amazon Bedrock Data Automation
 
 Bedrock Data Automation (BDA) simplifies the process of extracting valuable insights from unstructured content using generative AI.
 
@@ -44,9 +44,9 @@ Amazon Textract helps you add document text detection and analysis to your autom
 - **Basic document query** - Extracts data based on questions. Each query contains the question you want to ask and the alias you want to associate. Textract provides the text answer to each question and a confidence score.
 - **Basic document analysis** - Extracts data from documents. Automatically detects and extracts forms (key-value pairs), tables (structured data), and text while preserving document layout and data relationships.
 
-###
+### Amazon Comprehend
 
-is a natural language processing (NLP) service for gaining insight into document content. It helps analyze text to extract key phrases, identify sentiment, and classify documents.
+Amazon Comprehend is a natural language processing (NLP) service for gaining insight into document content. It helps analyze text to extract key phrases, identify sentiment, and classify documents.
 
 **Available Actions**
 
@@ -59,7 +59,7 @@ is a natural language processing (NLP) service for gaining insight into document
 
 The Microsoft Outlook actions allow your automations to manage emails and calendars.
 
-- Email
+- **Email**
   - **Send User Email** - Send an email message on behalf of a specific user.
   - **Reply to Email** - Reply to the sender of a message.
   - **List Folder Messages** - Get the messages in a specific folder of the signed-in user's mailbox.
@@ -70,17 +70,17 @@ The Microsoft Outlook actions allow your automations to manage emails and calend
   - **List Email Attachments** - Retrieve a list of attachment objects attached to a message.
   - **Get Attachment** - Read the properties, relationships, or raw contents of an attachment.
 
-- Folders
+- **Folders**
   - **List Mail Folders** - Get the mail folder collection directly under the root folder of the signed-in user.
   - **Move Email to Folder** - Move a message to another folder within the specified user's mailbox.
   - **Get Mailbox Settings** - Get the user's mailbox settings, such as automatic replies, date format, and time zone.
 
-- Calendar
+- **Calendar**
   - **List Calendar Events** - Fetch a list of calendar events for the specified user or resource from Microsoft Outlook.
   - **Create Calendar Event** - Create an event in the user's default calendar or specified calendar.
   - **Update Calendar Event** - Update the properties of an existing event object.
 
-- Other
+- **Other**
   - **List Places** - Get a collection of place objects (rooms or room lists) defined in the tenant.
   - **List Users** - Retrieve a list of users in the organization from Microsoft Outlook with their basic information.
   - **List Contacts** - Get a contact collection from the default contacts folder of the signed-in user.
@@ -89,20 +89,20 @@ The Microsoft Outlook actions allow your automations to manage emails and calend
 
 The Microsoft Teams actions allow your automations to communicate with team members through channels and chat messages, as well as manage meetings.
 
-- Messages
+- **Messages**
   - **List Chats** - View all chat conversations
   - **Create Chat** - Start a new chat conversation
   - **Get Individual Chat** - View details of a specific chat
   - **List All Chat Messages** - View messages in a chat conversation
   - **Send Chat Message** - Send a new message in a chat
 
-- Teams
+- **Teams**
   - **List Teams** - View all teams accessible to the authenticated user
   - **Get Team** - View detailed information about a specific team
   - **List All Team Members** - View members of a team
   - **Invite User To Team** - Add a new member to a team
 
-- Channels
+- **Channels**
   - **List All Channels** - View all channels within a specific team
   - **Create Channel** - Create a new channel within a team
   - **Get Channel** - View detailed information about a specific channel
@@ -111,20 +111,20 @@ The Microsoft Teams actions allow your automations to communicate with team memb
   - **Reply To Channel Message** - Add a reply to an existing channel message
   - **Invite Channel Member** - Add a member to a specific channel
 
-- Meetings
+- **Meetings**
   - **Create Online Teams Meeting** - Schedule a new online meeting
   - **Get Online Teams Meeting** - View details of a specific meeting
   - **List All Recordings** - View recordings from a meeting
   - **List All Transcripts** - View transcripts from a meeting
 
-- Users
+- **Users**
   - **List Users** - View list of users in the organization
 
 ### Microsoft SharePoint
 
 The Microsoft SharePoint allows you to centrally store, manage, and share documents and information through your automations.
 
-- Lists and items
+- **Lists and items**
   - **Get List** - Get a list of operations associated with a list
   - **Create Item** - Create a new list Item in a list
   - **Update Item** - Update the properties on a listItem
@@ -132,7 +132,7 @@ The Microsoft SharePoint allows you to centrally store, manage, and share docume
   - **Get Item** - Returns the metadata for an item in a list
   - **List Item** - Get the collection of items in a list
 
-- Sheets and files
+- **Sheets and files**
   - **Add Sheet** - Add a new worksheet to the workbook
   - **Delete Sheet** - Remove worksheet from workbook
   - **Update Sheet** - Edit worksheet properties (rename, visibility)
@@ -140,7 +140,7 @@ The Microsoft SharePoint allows you to centrally store, manage, and share docume
   - **Read Sheet** - Retrieve properties of a worksheet
   - **Upload File** - Creates or updates a workbook file
 
-- Ranges and cells
+- **Ranges and cells**
   - **Read Range** - Retrieves values from a specified range
   - **Delete Range** - Deletes cells in a specified range
   - **Write Range** - Updates values in a specified range
@@ -153,7 +153,7 @@ The Microsoft SharePoint allows you to centrally store, manage, and share docume
 
 Microsoft OneDrive actions allow you to store, sync, and share files. You can interact directly with Microsoft Excel files saved to OneDrive for spreadsheet actions.
 
-- File management
+- **File management**
   - **Get Item** - View details of a specific file or folder
   - **Get Drive** - View OneDrive account details and storage information
   - **List Items** - View all files and folders in a drive
@@ -165,7 +165,7 @@ Microsoft OneDrive actions allow you to store, sync, and share files. You can in
   - **Add Permissions** - Configure sharing and access permissions for files
   - **Upload File** - Add new files to OneDrive
 
-- Excel
+- **Excel**
   - **Add Sheet** - Create a new worksheet in an Excel workbook
   - **Clear Range** - Remove content and formatting from a range of cells
   - **Delete Range** - Remove cells, rows, or columns from a worksheet
@@ -183,32 +183,141 @@ Microsoft OneDrive actions allow you to store, sync, and share files. You can in
 
 Salesforce actions allow you to automate the process of managing customer relationships across cases, opportunities, leads, campaigns, contacts and more.
 
-- Cases
+- **Cases**
   - **Get Case List** - Gets a list of customer support cases from Salesforce, including their metadata and recent items.
   - **Get Case** - View details of a specific case
   - **Create Case** - Create a new support case
   - **Delete Case** - Remove an existing case
   - **Update Case** - Edit case details and information
 
-- Opportunities, Leads, Campaigns, Feed Items, Contacts, Users, System
+- **Opportunities**
+  - **Get Opportunities** - View list of sales opportunities
+  - **Get Specific Opportunity** - View details of a specific opportunity
+  - **Create Opportunity** - Create a new sales opportunity
+  - **Update Opportunity** - Edit opportunity details
+  - **Delete Opportunity** - Remove an existing opportunity
+
+- **Leads**
+  - **Update Lead** - Edit lead details and information
+
+- **Campaigns**
+  - **Update Campaign** - Edit campaign details and information
+
+- **Feed Items**
+  - **Update Feed Item** - Edit feed item content and properties
+
+- **Contacts**
+  - **Get Contact List** - View all contacts in the system
+  - **Get Contact** - Fetch details of a specific contact
+  - **Update Contact** - Edit contact information
+
+- **Users**
+  - **Get User List** - Retrieve list of Salesforce users
+
+- **System**
+  - **Describe SObject** - Get object metadata and field details for any Salesforce object type
 
 ### Jira
 
 Jira actions allow you to automate managing issues, projects, sprints and more.
 
-- Issues, Comments, Projects, Sprints, Users
+- **Issues**
+  - **Create Issue** - Create an issue in a project.
+  - **Edit Issue** - Modify an existing issue in a project.
+  - **Update Issue Status (Do Transition)** - Change task status of an issue.
+  - **Delete Issue** - Delete an issue in a project.
+  - **Get Issue** - View details of an issue in a project.
+  - **Search Issues** - Searches for issues using JQL
+  - **Search Statuses** - Search issue statuses.
+  - **Download Issue Attachment** - View the contents of an attachment.
+  - **Add Attachment** - Add an attachment to an issue.
+  - **Get All Labels** - View all labels.
+
+- **Comments**
+  - **Add Comment** - Add new comment to an issue.
+  - **Delete Comment** - Remove comment from an issue.
+  - **Update Comment** - Edit an existing comment on an issue.
+  - **Get Comments** - View issue comments.
+
+- **Projects**
+  - **Create Project** - Create new project in Jira.
+  - **Update Project** - Modify project details.
+  - **Delete Project** - Remove project from Jira.
+  - **Get Project** - View project details.
+  - **Get Issue Types For Project** - View project issue types.
+  - **Search Projects** - Find visible projects.
+
+- **Sprints**
+  - **Create Sprint** - Create a sprint in a project.
+  - **Update Sprint** - Update sprint details.
+  - **Delete Sprint** - Delete a sprint in a project.
+  - **Get Sprint** - View details of a sprint in a project.
+  - **Move Issues to Sprint and Rank** - Assign an issue to a sprint.
+  - **Move Issues to Backlog** - Move issues to backlog.
+
+- **Users**
+  - **Find Users** - Search for a Jira user.
+  - **Find Assignable Users** - Returns a list of users that can be assigned to an issue.
+  - **Get All Users** - List all Jira users.
 
 ### ServiceNow
 
 ServiceNow actions allow you to automate IT service management of incidents, change requests, and more.
 
-- Incidents, Change Requests, Knowledge Base Articles, Problem Records, Attachments, System
+- **Incidents**
+  - **Create Incident** - Creates a new incident record.
+  - **Read Incident** - Retrieves details of a specific incident.
+  - **Update Incident** - Modifies an existing incident record.
+  - **Delete Incident** - Removes a specific incident record.
+
+- **Change Requests**
+  - **Create Change Request** - Creates a new change request record.
+  - **Read Change Request** - Retrieves details of a specific change request.
+  - **Update Change Request** - Modifies an existing change request record.
+  - **Delete Change Request** - Removes a specific change request record.
+
+- **Knowledge Base Articles**
+  - **Update Knowledge Base Article** - Modifies an existing knowledge base article.
+
+- **Problem Records**
+  - **Update Problem Record** - Modifies an existing problem record.
+
+- **Attachments**
+  - **Upload Binary Attachment** - Uploads a file as an attachment to a specified record.
+  - **Upload Multipart Form Attachment** - Uploads a form attachment to a record.
+  - **Retrieve Attachment Content** - Gets the binary content of a specific attachment.
+  - **Retrieve Attachment Metadata** - Gets metadata for a specific attachment.
+  - **Delete Attachment** - Removes an attachment from the system.
+  - **Retrieve Metadata for Attachments** - Gets metadata for multiple attachments.
+
+- **System**
+  - **List Users** - Retrieves all existing records from system user table.
+  - **List Choices** - Retrieves choice list values from the system.
 
 ### SAP
 
 SAP actions allow you to automate processes involving business partner data, material stocks, bills of material, product masters, and physical inventory.
 
-- SAP Business Partners, SAP Material Stock, SAP Bill Of Material, SAP Product Master, SAP Physical Inventory
+- **SAP Business Partners**
+  - **Get Business Partner** - Retrieves general data for business partners, providing a comprehensive view of partner information.
+  - **Get Business Partner By ID** - Retrieves detailed business partner data using a specific business partner number as identifier.
+  - **Get Business Partner Address** - Retrieves address details associated with business partners, including postal addresses and contact information.
+  - **Get Business Partner Role** - Retrieves role information for business partners, showing their relationships and functions within the system.
+  - **Get Business Partner Role By ID** - Retrieves specific role data for a business partner using key identifier fields.
+
+- **SAP Material Stock**
+  - **Get Material Stock In Account Model Collection** - Gets material stock levels with details like batch, storage location, and special stock indicators.
+
+- **SAP Bill Of Material**
+  - **Get Material BOM Item** - Retrieves details of materials used in bills of materials including quantities, categories, and relationships.
+
+- **SAP Product Master**
+  - **Get Product Master Records** - View product master general details. Returns complete product master records with options to filter, sort and select specific data.
+  - **Get Plant Data Of Product Master Record** - View plant details of the product. Access detailed plant-specific information for a given product including manufacturing, storage, and logistics data.
+  - **Get Supply Planning Data By Product Number And Plant** - View supply planning details by product number and plant. Retrieves detailed planning parameters including lot sizes, safety stock levels, and procurement data.
+
+- **SAP Physical Inventory**
+  - **Get Phys Inventory Doc Item** - Retrieves physical inventory document items including counting results and inventory differences.
 
 ## Custom REST APIs
 

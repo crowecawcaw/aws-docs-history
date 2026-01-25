@@ -42,12 +42,14 @@ Amazon Quick Automate provides granular role based access: Viewer, Contributor, 
 
 ### Configure integrations
 
-If your automation interacts with external applications such as Salesforce or Jira via APIs, make sure all necessary integrations are configured. For more information, see [Action connectors](action-integrations.md "action-integrations.md").
+- After setting up AWS service integrations, you can begin using them in Quick Automate. See [Action connectors](action-integrations.md "action-integrations.md") for setup details.
+- First, add the integration to an Automation Group. This allows you to control access for which automations can use this integration. To add an integration to your Automation Group:
+  - Go to the **Projects** page
+  - Click **Manage groups** and select the group you want to add an integration to
+  - In the **Assets** sections, click **Add**, and then **Actions**
+  - Select the Integration you created earlier and click **Add** to link it to your Automation Group
 
-- Navigate to **Connections → Integrations** in the left panel to create new integrations.
-- Currently, only integrations available under the **Actions** tab are supported in Amazon Quick Automate.
-- Once an integration is created, associate it with the **Automation Group** where it will be used.
-- The associated actions will then appear in the canvas. During deployment, you can select the appropriate connection to be used by the deployed automation.
+- Now when users create projects in that Automation Group, they will find the actions associated with this Integration and be able to select this Integration for authentication
 
 ### Set up Virtual Private Cloud (VPC) connections
 

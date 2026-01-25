@@ -54,7 +54,7 @@ customizing cells. 2. For **Text**, do one or more of the following:
 
 
 
-    ![Vertical and horizontal cell alignment options in the Format visual menu.](../images/format-pivot-table-alignment.png)
+    ![Vertical and horizontal cell alignment options in the Format visual menu.](images/format-pivot-table-alignment.png)
 
 ## Cell background
 

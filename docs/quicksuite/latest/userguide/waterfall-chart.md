@@ -19,7 +19,7 @@ new employees you hired and how many employees left your company within a year.
 
 The following screenshot shows a waterfall chart.
 
-![](../images/waterfall-chart.png)
+![](images/waterfall-chart.png)
 
 ###### To create a basic waterfall chart visual
 

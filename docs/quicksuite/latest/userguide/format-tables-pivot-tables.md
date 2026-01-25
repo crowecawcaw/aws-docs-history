@@ -20,7 +20,7 @@ file.
 - In your analysis, choose the table or pivot table that you want to customize,
   and then choose the **Format visual** icon.
 
-![Image of the Format visual icon.](../images/format-tables-icon.png)
+![Image of the Format visual icon.](images/format-tables-icon.png)
 
 The **Properties** pane opens at left.
 Following, you can find descriptions for options for customizing each area of your

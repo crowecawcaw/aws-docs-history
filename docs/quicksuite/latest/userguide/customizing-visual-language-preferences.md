@@ -40,13 +40,13 @@ analysis
      dropdown list, and then choose **More formatting
      options**.
 
-   ![Access the Format data pane in the visual.](../images/format-visual-numeric-data-language-3.png)
+   ![Access the Format data pane in the visual.](images/format-visual-numeric-data-language-3.png)
    - In the **Field wells** section of the analysis, open
      the dropdown next to the field that you want to change. Open the
      **Format** menu, and choose **More
      formatting options**.
 
-   ![Access the Format data pane from the field wells.](../images/format-visual-numeric-data-language-6.png)
+   ![Access the Format data pane from the field wells.](images/format-visual-numeric-data-language-6.png)
 
 3. In the **Format data** pane that appears, choose
    **Apply language format**.

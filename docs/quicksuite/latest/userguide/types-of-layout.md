@@ -10,7 +10,7 @@ Visuals in a **Tiled** layout snap to a grid with standard
 spacing and alignment. You can make visuals any size and place them wherever you
 want within a dashboard, but visuals can’t overlap.
 
-![](../images/fixed-layouts-tiled-demo.gif)
+![](images/fixed-layouts-tiled-demo.gif)
 
 Dashboards are displayed as designed, with options to fit to screen or view at
 actual size. You can also fit an entire dashboard to your window by choosing
@@ -31,7 +31,7 @@ place you want, or you can enter the coordinates of the visual’s location. Use
 the following procedure to enter the exact coordinates of the visual's
 location.
 
-![](../images/fixed-layouts-freeform-placement1.gif)
+![](images/fixed-layouts-freeform-placement1.gif)
 
 Dashboards are displayed the way that you choose to design them, with options
 to fit to screen or to view at its actual size. You can optimize free-form

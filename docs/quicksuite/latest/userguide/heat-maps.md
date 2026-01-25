@@ -5,7 +5,7 @@ geospatial visuals. Heat maps display concentrations of data points using a colo
 overlay that highlights the intensity or concentration of the visual's
 markers.
 
-![This is an example of marker clustering at work.](../images/heat-map-1.png)
+![This is an example of marker clustering at work.](images/heat-map-1.png)
 
 ###### To turn a geospatial map into a heat map
 

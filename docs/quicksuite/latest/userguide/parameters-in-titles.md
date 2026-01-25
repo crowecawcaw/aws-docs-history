@@ -15,7 +15,7 @@ You can use parameters in the following areas of your analysis:
 - Sheet titles and descriptions
   The following image shows a chart title that uses a parameter.
 
-![Image of the Format visual pane with a parameter in the chart title and a chart with the parameter value in the title circled in red.](../images/parameters-in-titles-labels2.png)
+![Image of the Format visual pane with a parameter in the chart title and a chart with the parameter value in the title circled in red.](images/parameters-in-titles-labels2.png)
 Use the following procedures to learn how to add parameters to areas throughout
 your analysis. For more information about parameters and how to create them, see
 [Parameters](parameters-in-quicksight.md "parameters-in-quicksight.md").

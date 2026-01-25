@@ -14,9 +14,9 @@ You can use the following functions in pivot table calculations.
 - [Percentile](#percentile "#percentile")
   You can apply functions listed to the following data:
 
-![](../images/running-total1.png)
+![](images/running-total1.png)
 
-![](../images/running-total1.png)
+![](images/running-total1.png)
 
 ## Running total
 
@@ -29,7 +29,7 @@ Applying the **Running total** function across the table
 rows, using **Table across** for **Calculate
 as**, gives you the following results.
 
-![](../images/running-total2.png)
+![](images/running-total2.png)
 
 ## Difference
 
@@ -43,7 +43,7 @@ Applying the **Difference** function across the table
 rows, using **Table across** for **Calculate
 as**, gives you the following results.
 
-![](../images/difference.png)
+![](images/difference.png)
 
 ## Percentage difference
 
@@ -60,7 +60,7 @@ the table rows, using **Table across** for
 **Calculate as**, gives you the following
 results.
 
-![](../images/percentage-difference.png)
+![](images/percentage-difference.png)
 
 ## Percent of total
 
@@ -73,7 +73,7 @@ Applying the **Percent of Total** function across the
 table rows, using **Table across** for **Calculate
 as**, gives you the following results.
 
-![](../images/percent-of-total.png)
+![](images/percent-of-total.png)
 
 ## Rank
 
@@ -88,13 +88,13 @@ if you rank the values 5,3,3,4,3,2, their ranks are 1,3,3,2,3,6.
 
 For example, suppose that you have the following data.
 
-![](../images/rank.png)
+![](images/rank.png)
 
 Applying the **Rank** function across the table rows,
 using **Table across** for **Calculate
 as**, gives you the following results.
 
-![](../images/rank2.png)
+![](images/rank2.png)
 
 ## Percentile
 
@@ -116,4 +116,4 @@ Applying the **Percentile** function across the table
 rows, using **Table across** for **Calculate
 as**, gives you the following results.
 
-![](../images/percentile.png)
+![](images/percentile.png)

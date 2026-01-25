@@ -109,13 +109,13 @@ scale between those two measures varies widely over time, your chart might look
 something like the following line chart. Because the scale between measures varies
 so greatly, the measure with the smaller scale appears nearly flat at zero.
 
-![Image of a line chart with two lines and one axis. One line is flat at zero.](../images/dual-axis-chart1.png)
+![Image of a line chart with two lines and one axis. One line is flat at zero.](images/dual-axis-chart1.png)
 
 If you want to show these measures in the same chart, you can create a dual-axis
 line chart. The following is an example of the same line chart with two
 Y-axes.
 
-![Image of the previous line chart with dual axes. Both lines are now visible.](../images/dual-axis-chart2.png)
+![Image of the previous line chart with dual axes. Both lines are now visible.](images/dual-axis-chart2.png)
 
 ###### To create a dual-axis line chart
 
@@ -139,7 +139,7 @@ Or you can create a dual-axis line chart using the
 
 
 
-    ![Image of Data series section of the Format visual pane with the Show on right axis icon circled in red.](../images/dual-axis-chart3.png)The icon updates to indicate that the value is being shown on the right
+    ![Image of Data series section of the Format visual pane with the Show on right axis icon circled in red.](images/dual-axis-chart3.png)The icon updates to indicate that the value is being shown on the right
 
 axis. The chart updates with two axes.
 
