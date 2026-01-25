@@ -267,3 +267,11 @@ export SHELL=$(which zsh)
 
 After making this change, you must either reboot the WorkSpace or log out of the WorkSpace (not just disconnect)
 and then log back in for the change to take effect.
+
+## Use smart cards for authentication on Rocky Linux WorkSpaces
+
+Rocky Linux WorkSpaces bundles allow the use of
+[Common Access Card (CAC)](https://www.cac.mil/Common-Access-Card "https://www.cac.mil/Common-Access-Card")
+and [Personal Identity Verification (PIV)](https://piv.idmanagement.gov/ "https://piv.idmanagement.gov/")
+smart cards for authentication. For more information, see
+[Use smart cards for authentication in WorkSpaces Personal](smart-cards.md "smart-cards.md").

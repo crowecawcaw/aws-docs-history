@@ -32,6 +32,12 @@ Manage applications allows you install and uninstall the following applications 
 your WorkSpaces. For Microsoft Office 2016 bundle and Microsoft Office 2019, you can only
 uninstall.
 
+- Microsoft Office LTSC Professional Plus 2024
+- Microsoft Visio LTSC Professional 2024
+- Microsoft Project Professional 2024
+- Microsoft Office LTSC Standard 2024
+- Microsoft Visio LTSC Standard 2024
+- Microsoft Project Standard 2024
 - Microsoft Office LTSC Professional Plus 2021
 - Microsoft Visio LTSC Professional 2021
 - Microsoft Project Professional 2021
@@ -43,13 +49,13 @@ uninstall.
 
 The following table shows the list of supported and unsupported application and operating system combinations:
 
-|                     | Microsoft Office Professional Plus 2016 (32-bit) | Microsoft Office Professional Plus 2019 (64-bit) | Microsoft LTSC Office Professional Plus / Standard 2021 (64-bit) | Microsoft Project Professional / Standard 2021 (64-bit) | Microsoft LTSC Visio Professional / Standard 2021 (64-bit) | Microsoft Visual Studio Professional / Enterprise 2022 |
-| ------------------- | ------------------------------------------------ | ------------------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ |
-| Windows Server 2016 | Uninstall                                        | Not supported                                    | Not supported                                                    | Not supported                                           | Not supported                                              | Not supported                                          |
-| Windows Server 2019 | Not supported                                    | Uninstall                                        | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Not supported                                          |
-| Windows Server 2022 | Not supported                                    | Uninstall                                        | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Install/uninstall                                      |
-| Windows 10          | Uninstall                                        | Uninstall                                        | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Install/uninstall                                      |
-| Windows 11          | Uninstall                                        | Uninstall                                        | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Install/uninstall                                      |
+|                     | Microsoft Office Professional Plus 2016 (32-bit) | Microsoft Office Professional Plus 2019 (64-bit) | Microsoft LTSC Office Professional Plus / Standard 2024 (64-bit) | Microsoft Project Professional / Standard 2024 (64-bit) | Microsoft Visio Professional / Standard 2024 (64-bit) | Microsoft LTSC Office Professional Plus / Standard 2021 (64-bit) | Microsoft Project Professional / Standard 2021 (64-bit) | Microsoft LTSC Visio Professional / Standard 2021 (64-bit) | Microsoft Visual Studio Professional / Enterprise 2022 |
+| ------------------- | ------------------------------------------------ | ------------------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ |
+| Windows Server 2016 | Uninstall                                        | Not supported                                    | Not supported                                                    | Not supported                                           | Not supported                                         | Not supported                                                    | Not supported                                           | Not supported                                              | Not supported                                          |
+| Windows Server 2019 | Not supported                                    | Uninstall                                        | Not supported                                                    | Not supported                                           | Not supported                                         | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Not supported                                          |
+| Windows Server 2022 | Not supported                                    | Uninstall                                        | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                     | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Install/uninstall                                      |
+| Windows 10          | Uninstall                                        | Uninstall                                        | Not supported                                                    | Not supported                                           | Not supported                                         | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Install/uninstall                                      |
+| Windows 11          | Uninstall                                        | Uninstall                                        | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                     | Install/uninstall                                                | Install/uninstall                                       | Install/uninstall                                          | Install/uninstall                                      |
 
 ###### Important
 
@@ -59,6 +65,15 @@ The following table shows the list of supported and unsupported application and 
   applications with 2021 applications.
 - Microsoft Office/Visio/Project 2021 Standard/Professional are not supported for
   Value, Graphics, and GraphicsPro WorkSpaces bundles.
+- Microsoft Office/Visio/Project versions 2010 and 2013 (Standard or Professional editions) are
+  no longer supported.
+- Microsoft Office/Visio/Project 2024 (Standard or Professional editions) is not supported for
+  Value bundles.
+- Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after
+  October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021 or Office 2024.
+  For more information, see [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md").
+- Microsoft Office, Project and Visio require up to 25 GB of free space for the 2024 versions
+  and up to 20 GB for the 2021 versions.
 - Value, Standard, Graphics, and GraphicsPro WorkSpaces bundles are not supported
   for Microsoft Visual Studio 2022 Enterprise/Professional. Performance bundles
   can be used for Visual Studio workloads that are less resource intensive.
@@ -74,7 +89,6 @@ The following table shows the list of supported and unsupported application and 
 - You can create a custom image of WorkSpaces with applications installed/uninstalled through Manage applications.
 - For opt-in Regions, such as Africa (Cape Town), WorkSpaces internet connection must be enabled at the
   directory level.
-- Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021. For more information, see, [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md").
 
 ## Update application bundles on a WorkSpace
 

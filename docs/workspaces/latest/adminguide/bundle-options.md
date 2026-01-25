@@ -34,7 +34,7 @@ about protocols, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protoco
   Graphics bundle.
 - Graphics and GraphicsPro bundles aren't currently available in the
   Asia Pacific (Mumbai) Region.
-- Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021. For more information, see, [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md").
+- Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021 or Office 2024. For more information, see, [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md").
   The following are the bundles that WorkSpaces offers. For information about bundles in
   WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles "https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles").
 
