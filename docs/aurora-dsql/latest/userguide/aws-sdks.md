@@ -37,8 +37,9 @@ The following table shows sample code for using standalone ORM libraries with Au
 
 The following table shows the available adapters and dialects specifically designed for Aurora DSQL.
 
-| Programming language | ORM/Framework | Repository link                                                                                                                                               |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Java                 | Hibernate     | [https://github.com/awslabs/aurora-dsql-hibernate/](https://github.com/awslabs/aurora-dsql-hibernate/ "https://github.com/awslabs/aurora-dsql-hibernate/")    |
-| Python               | Django        | [https://github.com/awslabs/aurora-dsql-django/](https://github.com/awslabs/aurora-dsql-django/ "https://github.com/awslabs/aurora-dsql-django/")             |
-| Python               | SQLAlchemy    | [https://github.com/awslabs/aurora-dsql-sqlalchemy/](https://github.com/awslabs/aurora-dsql-sqlalchemy/ "https://github.com/awslabs/aurora-dsql-sqlalchemy/") |
+| Programming language | ORM/Framework | Repository link                                                                                                                                                     |
+| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Java                 | Hibernate     | [https://github.com/awslabs/aurora-dsql-hibernate/](https://github.com/awslabs/aurora-dsql-hibernate/ "https://github.com/awslabs/aurora-dsql-hibernate/")          |
+| Python               | Django        | [https://github.com/awslabs/aurora-dsql-django/](https://github.com/awslabs/aurora-dsql-django/ "https://github.com/awslabs/aurora-dsql-django/")                   |
+| Python               | SQLAlchemy    | [https://github.com/awslabs/aurora-dsql-sqlalchemy/](https://github.com/awslabs/aurora-dsql-sqlalchemy/ "https://github.com/awslabs/aurora-dsql-sqlalchemy/")       |
+| Python               | Tortoise ORM  | [https://github.com/awslabs/aurora-dsql-tortoise-orm/](https://github.com/awslabs/aurora-dsql-tortoise-orm/ "https://github.com/awslabs/aurora-dsql-tortoise-orm/") |

@@ -28,6 +28,7 @@ Skills and powers provide several key benefits for Aurora DSQL development:
 
 Choose the setup path that matches your development environment:
 
+- [Skills CLI](#skills-cli "#skills-cli") (Agent-Agnostic)
 - [Kiro Power](#kiro-power "#kiro-power")
 - [Claude Skill](#claude-skill "#claude-skill")
 - [Gemini Skill](#gemini-skill "#gemini-skill")
@@ -36,6 +37,42 @@ Choose the setup path that matches your development environment:
 The [DSQL Skill](https://github.com/awslabs/mcp/tree/main/src/aurora-dsql-mcp-server/skills/dsql-skill "https://github.com/awslabs/mcp/tree/main/src/aurora-dsql-mcp-server/skills/dsql-skill")
 can also be used with other AI coding agents by copying the skill folder into the tool's
 `rules` or `skills` directory.
+
+## Skills CLI
+
+The [DSQL skill](https://skills.sh/awslabs/mcp/dsql "https://skills.sh/awslabs/mcp/dsql") can be installed using
+the [Skills CLI](https://skills.sh/docs/cli "https://skills.sh/docs/cli"). This agent-agnostic
+setup method works with most AI coding assistants and allows you to install the skill to
+multiple agents at once.
+
+### Setup
+
+Run the following command to install the Aurora DSQL skill:
+
+```
+npx skills add awslabs/mcp --skill dsql
+```
+
+The CLI will guide you through:
+
+- **Selecting agents** - Choose which agents to install to
+  (Kiro, Claude Code, Cursor, Copilot, Gemini, Codex, Roo, Cline, OpenCode, Windsurf, etc.)
+- **Installation scope** - Choose between:
+  - Project: Install in current directory (committed with your project)
+  - Global: Install in home directory (available across all projects)
+
+- **Installation method** - Choose between:
+  - Symlink (Recommended): Single source of truth, easy updates
+  - Copy to all agents: Independent copies for each agent
+
+### Managing Skills
+
+Check and update skills at any time using:
+
+```
+npx skills check
+npx skills update
+```
 
 ## Kiro Power
 
@@ -67,15 +104,26 @@ Claude skills are modular capabilities that extend Claude's functionality. Each 
 instructions, metadata, and optional resources that Claude uses automatically when relevant.
 Skills are filesystem-based and load on-demand to minimize context usage.
 
-The recommended setup takes a sparse clone of the dsql-skill directory and symlinks this clone
+### Simple Setup with the Skills CLI
+
+The skill can be installed to Claude Code using the [Skills CLI](#skills-cli "#skills-cli"). To specify
+only Claude Code as the agent to install to, use:
+
+```
+npx skills add awslabs/mcp --skill dsql --agent claude-code
+```
+
+### Alternative: Direct Setup Using a Git Clone
+
+The alternative setup takes a sparse clone of the dsql-skill directory and symlinks this clone
 into the `~/.claude/skills/` folder. This allows changes to the skill to be pulled
 whenever the skill needs to be updated.
 
-### Prerequisites
+#### Prerequisites
 
 - Git installed
 
-### Setup Steps
+#### Setup Steps
 
 **1. Create a base repos directory**
 
@@ -128,7 +176,7 @@ Once the skill is configured, you should have a new skill command: `/dsql`.
 You may have to restart Claude Code after adding the skill for it to be detected. You can use
 this command from the Claude Code CLI or panel as desired.
 
-### Updating the Skill
+#### Updating the Skill
 
 To pull the latest changes from the repository:
 
@@ -137,7 +185,7 @@ cd .dsql_skill_repos/mcp
 git pull
 ```
 
-### Directory Structure
+#### Directory Structure
 
 After setting up a global skill, you should see these directories:
 
