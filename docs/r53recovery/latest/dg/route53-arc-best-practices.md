@@ -45,7 +45,7 @@ Zonal shifts work by marking a resource, that is, an application replica, as unh
 Availability Zone. This means that it's critical to ensure that the
 resources in your applications are generally healthy and actively taking
 traffic in the Availability Zones in a Region. We recommend that you have
-dashboards to track this, including, for example, ELB metrics for
+dashboards to track this, including, for example, Elastic Load Balancing metrics for
 unhealthy targets and bytesProcessed per Availability Zone.
 
 Consider monitoring the health of your resources from a second, adjacent Region.

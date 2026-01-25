@@ -111,6 +111,94 @@ def update_routing_control_state(
   [UpdateRoutingControlState](../../../goto/boto3/route53-recovery-cluster-2019-12-02/UpdateRoutingControlState.md "../../../goto/boto3/route53-recovery-cluster-2019-12-02/UpdateRoutingControlState.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/r5v#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/r5v#code-examples").
+
+```
+    CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
+    DATA lo_exception TYPE REF TO /aws1/cx_rt_generic.
+    DATA lo_session TYPE REF TO /aws1/cl_rt_session_base.
+    DATA lo_client TYPE REF TO /aws1/if_r5v.
+    DATA lt_endpoints TYPE TABLE OF string.
+    DATA lv_endpoint TYPE string.
+    DATA lv_region TYPE /aws1/rt_region_id.
+
+    " Parse the comma-separated cluster endpoints
+    " Expected format: "https://endpoint1.com|us-west-2,https://endpoint2.com|us-east-1"
+    SPLIT iv_cluster_endpoints AT ',' INTO TABLE lt_endpoints.
+
+    " As a best practice, shuffle cluster endpoints to distribute load
+    " For more information, see https://docs.aws.amazon.com/r53recovery/latest/dg/route53-arc-best-practices.html#route53-arc-best-practices.regional
+    " For simplicity, we'll try them in order (shuffling can be added if needed)
+
+    " Try each endpoint in order
+    LOOP AT lt_endpoints INTO lv_endpoint.
+      TRY.
+          " Parse endpoint and region from the format "url|region"
+          DATA(lv_pos) = find( val = lv_endpoint sub = '|' ).
+          IF lv_pos > 0.
+            DATA(lv_url) = substring( val = lv_endpoint len = lv_pos ).
+            lv_region = substring( val = lv_endpoint off = lv_pos + 1 ).
+          ELSE.
+            " If no region specified, use default
+            lv_url = lv_endpoint.
+            lv_region = 'us-east-1'.
+          ENDIF.
+
+          " Create session for this region
+          lo_session = /aws1/cl_rt_session_aws=>create( cv_pfl ).
+
+          " Create client with the specific endpoint
+          lo_client = create_recovery_client(
+            iv_endpoint = lv_url
+            iv_region   = lv_region
+            io_session  = lo_session ).
+
+          " Try to update the routing control state
+          oo_result = lo_client->updateroutingcontrolstate(
+            iv_routingcontrolarn     = iv_routing_control_arn
+            iv_routingcontrolstate   = iv_routing_control_state
+            it_safetyrulestooverride = it_safety_rules_override ).
+
+          " If successful, return the result
+          RETURN.
+
+        CATCH /aws1/cx_r5vendpttmpyunavailex INTO DATA(lo_endpoint_ex).
+          " This endpoint is temporarily unavailable, try the next one
+          lo_exception = lo_endpoint_ex.
+          CONTINUE.
+
+        CATCH /aws1/cx_r5vaccessdeniedex
+              /aws1/cx_r5vconflictexception
+              /aws1/cx_r5vinternalserverex
+              /aws1/cx_r5vresourcenotfoundex
+              /aws1/cx_r5vthrottlingex
+              /aws1/cx_r5vvalidationex
+              /aws1/cx_rt_generic INTO lo_exception.
+          " For other errors, re-raise immediately
+          RAISE EXCEPTION lo_exception.
+      ENDTRY.
+    ENDLOOP.
+
+    " If we get here, all endpoints failed - re-raise the last exception
+    IF lo_exception IS BOUND.
+      RAISE EXCEPTION lo_exception.
+    ENDIF.
+
+
+```
+
+- For API details, see
+  [UpdateRoutingControlState](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

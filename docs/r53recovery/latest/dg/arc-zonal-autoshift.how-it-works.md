@@ -1,41 +1,33 @@
-# Alarms for practice runs
+# Precedence for zonal shifts
 
-You can specify two types of CloudWatch alarms for
-practice runs in zonal autoshift: outcome alarms and blocking alarms.
+There can be no more than one applied zonal shift at a given time. That is, only one practice run zonal shift,
+customer-initiated zonal shift, autoshift, or AWS FIS experiment for the resource. When a second zonal shift is started,
+ARC follows a precedence to determine which zonal shift type is in effect for a resource.
 
-**Outcome alarms (required)**
+The general principle for precedence is that zonal shifts that you start as a customer take precedence over other
+shift types. However, be aware that a currently-running AWS-initiated practice run prevents you from starting an
+on-demand practice run.
 
-For the first type of alarm, the _outcome alarm_,
-at least one alarm is required to be specified. You should configure outcome alarms to monitor
-the health of your application when traffic is shifted away from an Availability Zone during each
-30-minute practice run.
+To illustrate precedence in ARC, the following is how precedence works for example scenarios:
 
-For a practice run to be effective, specify as outcome alarms at least one CloudWatch alarm that meets
-both of the following criteria:
+| Zonal shift type applied | Zonal shift type initiated | Result                                                                                                                                              |
+| ------------------------ | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS FIS experiment       | Practice run               | The practice run will fail to start, as the AWS FIS experiment takes precedence.                                                                    |
+| AWS FIS experiment       | Manual zonal shift         | The AWS FIS experiment will be canceled, and the manual zonal shift will be applied.                                                                |
+| AWS FIS experiment       | Zonal autoshift            | The AWS FIS experiment will be canceled, and the zonal autoshift will be applied.                                                                   |
+| AWS FIS experiment       | AWS FIS experiment         | The initiated AWS FIS experiment will fail to start because there is an existing<br>experiment running that triggered the AWS FIS autoshift action. |
+| Practice run             | Manual zonal shift         | The practice run will be canceled and the outcome set to `INTERRUPTED`, and the zonal<br>shift will be applied.                                     |
+| Practice run             | AWS FIS experiment         | The practice run will be canceled and the outcome set to `INTERRUPTED`,<br>and the AWS FIS experiment will be applied.                              |
+| Practice run             | Zonal autoshift            | The practice run will be canceled and the outcome set to `INTERRUPTED`,<br>and the zonal autoshift will be applied.                                 |
+| Manual zonal shift       | Practice run               | The practice run will fail to start.                                                                                                                |
+| Manual zonal shift       | AWS FIS experiment         | The AWS FIS experiment will fail to start, or fail if it's already<br>in progress.                                                                  |
+| Manual zonal shift       | Zonal autoshift            | The zonal autoshift will be `ACTIVE` but not `APPLIED` on the<br>resource. The manual zonal shift takes precedence.                                 |
+| Zonal autoshift          | AWS FIS experiment         | The AWS FIS experiment will fail to start, or will fail if it's in<br>progress.                                                                     |
+| Zonal autoshift          | Manual zonal shift         | The zonal autoshift will be `ACTIVE` but not `APPLIED` on the<br>resource. The manual zonal shift takes precedence.                                 |
+| Zonal autoshift          | Practice run               | The practice run will fail to start, as the zonal autoshift<br>takes precedence.                                                                    |
 
-The alarm monitors metrics for the resource, or for your application
-
-AND
-
-The alarm responds with an `ALARM` state
-when your application is adversely affected by the loss of one Availability Zone.
-
-For more information, see the **Alarms that you specify for practice runs** section in
-[Best practices when you configure zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
-
-Outcome alarms also provide information for the _practice run outcome_ that ARC reports for
-each practice run. If an outcome alarm enters an `ALARM` state, ARC ends the practice run and returns
-a practice run outcome of `FAILED`. If the practice run completes the 30 minute
-test period and none of the outcome alarms that you've specified enters an `ALARM` state, the outcome
-returned is `SUCCEEDED`. A list of all outcome values, with descriptions, is provided in the
-[Outcomes for practice runs](arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.md#ZAConsiderationsPracticeRunOutcomes") section.
-
-**Blocking alarms (optional)**
-Optionally, you can specify a second type of alarm, the _blocking alarm_. Blocking alarms
-block practice runs from starting, or continuing, when one or more of the alarms is in an `ALARM` state.
-Blocking alarms block practice run traffic shifts from being started—and stop any practice runs in progress—when
-at least one of the alarms is in an `ALARM` state.
-
-For example, in a large architecture with multiple microservices, when one microservice is experiencing
-a problem, you typically want to stop all other changes in the application environment, which would
-including blocking practice runs. You can add a blocking alarm in ARC to accomplish this.
+The traffic shift that is currently in effect for the resource has an applied zonal shift
+status set to `APPLIED`. Only one shift is set to
+`APPLIED` at any time. Other shifts that are in progress are
+set to `NOT_APPLIED`, but remain with `ACTIVE`
+status.

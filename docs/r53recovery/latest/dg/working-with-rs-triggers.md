@@ -13,3 +13,4 @@ that you choose.
 5. Select a CloudWatch alarm, and then select up to 10 CloudWatch alarms to create the conditions for the trigger.
 
 When you select more than one condition, all conditions must be met before automated execution of the plan will start.
+The trigger starts plan execution when a CloudWatch alarm transitions to meet the conditions for the trigger. When the trigger is added to the plan, if the conditions are already met, the plan does not execute, which prevents unintended failover events.

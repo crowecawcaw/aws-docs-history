@@ -1,87 +1,52 @@
-# Creating
+# How readiness rules
 
-and updating readiness checks in ARC
+determine readiness status
 
-This section provides procedures for readiness checks and resource sets, including creating,
-updating, and deleting these resources.
+ARC readiness checks determine readiness status based on the predefined rules for each resource type and the way those rules are defined.
+ARC includes one group of rules for each type of resource that it supports. For example, ARC has groups of readiness rules for Amazon Aurora clusters,
+Auto Scaling groups, and so on. Some readiness rules compare resources in a set to each other, and some look at specific information about each resource
+in the resource set.
 
-## Creating and updating a readiness check
+You can't add, edit, or remove readiness rules, or groups of rules. However, you can create an Amazon CloudWatch alarm
+and create a readiness check to monitor the state of the alarm. For example, you can create a custom CloudWatch alarm to monitor Amazon EKS container
+services, and create a readiness check to audit the readiness status of the alarm.
 
-The steps in this section explain how to create a readiness check on the ARC console. To learn about using recovery readiness API operations with
-Amazon Application Recovery Controller (ARC), see [Readiness check API operations](actions.md "actions.md").
+You can view all the readiness rules for each resource type in the AWS Management Console when you create a resource set, or
+you can view the readiness rules later by navigating to the details page for a resource set. You can also view
+readiness rules in the following section: [Readiness rules in ARC](recovery-readiness.md#recovery-readiness.list-rules "recovery-readiness.md#recovery-readiness.list-rules").
 
-To update a readiness check, you can edit the resource set for the readiness check, to add or remove resources or to change the readiness scope for a
-resource.
+When a readiness check audits a set of resources with a set of rules, the way each rule is defined determines whether the result will be
+`READY` or `NOT READY` for all the resources or if the result will be different for different resources. In addition, you can view
+readiness status in multiple ways. For example, you can view the readiness status of a group of resources in a resource set or view a summary of readiness
+status for a recovery group or a cell (that is, an AWS Region or Availability Zone, depending on how you've set up your recovery group).
 
-## To create a readiness check
+The wording in each rule description explains how it evaluates the resources to determine the readiness status when that
+rule is applied. A rule is defined to inspect _each resource_ or to inspect _all resources_ in a resource set to
+determine readiness. Specifically, the rules work as follows:
 
-1.  Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
-2.  Choose **Readiness check**.
-3.  On the **Readiness** page, choose **Create**, and then choose a
-    **Readiness check**.
-4.  Enter a name for your readiness check, choose the resource type that you want to check,
-    and then choose **Next**.
-5.  Add a resource set for your readiness check. A resource set is a group of resources of the same type
-    in different replicas. Choose one of the following:
+- The rule inspects _each resource_ in the resource set to ensure a condition.
 
-        * Create a readiness check with resources in a resource set that you've already created.
-        * Create a new resource set.
+      + If all resources succeed, all resources are set as `READY`.
+      + If one resource fails, that resource is set as `NOT READY`, and the other cells remain `READY`.
 
-    If you choose to create a new resource set, enter a name for it and choose **Add**.
+  For example: **MskClusterState:** Inspects each Amazon MSK cluster to ensure that it is in an
+  `ACTIVE` state.
 
-6.  Copy and paste Amazon Resource Names (ARNs) one by one for each resource that you want to include in the set, and then choose
-    **Next**.
+- The rule inspects _all resources_ in the resource set to ensure a condition.
+  - If the condition is ensured, all resources are set as `READY`.
+  - If any fails to meet the condition, all resources are set as `NOT READY`.For example: **VpcSubnetCount:** Inspects all VPC subnets to ensure that they have the same
+    number of subnets.
 
-###### Tip
+- Non-critical rule: The rule inspects all resources in the resource set to ensure a condition.
 
-For examples and more information about the ARN format that ARC expects for each resource type, see
-[Resource types and ARN formats
-in ARC](recovery-readiness.md "recovery-readiness.md"). 7. If you like, view the readiness rules that will be used when ARC checks the
-type of resource you included in this readiness check. Then choose
-**Next**. 8. (Optional) Under **Recovery group name**, choose a recovery group to
-associate the readiness check with and then, for each resource ARN, choose a
-cell (Region or Availability Zone) from the drop-down menu that the resource is in. If it's an application-level
-resource, like a DNS routing policy, choose **global resource (no cell)**.
+      + If any fails, the readiness status is unchanged. A rule with this behavior has a note in its description.For example: **ElbV2CheckAzCount:** Inspects each Network Load Balancer to ensure that it is attached to only one Availability Zone.
 
-_This specifies the readiness scopes for the resources in the readiness check._
+  Note: This rule does not affect readiness status.
+  In addition, ARC takes an extra step for quotas. If a readiness check detects a mismatch across cells for service
+  quotas (the maximum value for resource creation and operations) for any supported resource, ARC automatically raises the quota
+  for the resource with the lower quota. This applies only to quotas (limits). For capacity, you should add additional capacity
+  as required for your application needs.
 
-###### Important
-
-Although this step is optional, readiness scopes must be added to get summary readiness information for your recovery group and cells. If you skip this
-step and don't associate the readiness check with your recovery group's resources by choosing readiness scopes here, ARC cannot return
-summary readiness information for the recovery group or cells. 9. Choose **Next**. 10. Review the information on the confirmation page, and then choose **Create readiness check**.
-
-## To delete a readiness check
-
-1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
-2. Choose **Readiness check**.
-3. Choose a readiness check, and under **Actions**, choose **Delete**.
-
-## Creating and editing resource sets
-
-Typically, you create a resource set as part of creating a readiness check, but you can create a resource set separately as well. You can also edit a
-resource set to add or remove resources. The steps in this section explain how to create or edit a resource set on the ARC console. To learn about using
-recovery readiness API operations with Amazon Application Recovery Controller (ARC), see [Readiness check API operations](actions.md "actions.md").
-
-## To create a resource set
-
-1. Open the Route 53 console at [https://console.aws.amazon.com/route53/home](https://console.aws.amazon.com/route53/home "https://console.aws.amazon.com/route53/home").
-2. Under **Application Recovery Controller**, choose **Resource sets**.
-3. Choose **Create**.
-4. Enter a name for the resource set, and then choose the type of resource to include in the set.
-5. Choose **Add**, and then enter the Amazon Resource Name (ARN) for the resource to add to the set.
-6. After you've finished adding resources, choose **Create resource set**.
-
-## To edit a resource set
-
-1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
-2. Choose **Readiness check**.
-3. Under **Resource sets**, choose **Action**, and then choose
-   **Edit**.
-4. Do one of the following:
-   - To remove a resource from the set, choose **Remove**.
-   - To add a resource to the set, choose **Add**, and then enter the Amazon Resource
-     Name (ARN) for the resource.
-
-5. You can also edit the readiness scope for the resource, to associate the resource with a different cell for the readiness check.
-6. Choose **Save**.
+You can also set up an Amazon EventBridge notification for readiness checks, for example, when any readiness check status changes to `NOT READY`.
+Then when a configuration mismatch is detected, EventBridge sends you a notification and you can take corrective action to make
+sure that your application replicas are aligned and prepared for recovery. For more information, see [Using readiness check in ARC with Amazon EventBridge](eventbridge-readiness.md "eventbridge-readiness.md").

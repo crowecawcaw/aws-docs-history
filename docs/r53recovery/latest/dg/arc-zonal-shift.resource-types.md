@@ -1,152 +1,60 @@
-# Amazon EC2 Auto Scaling groups
+# Application Load Balancers
 
-An Amazon EC2 Auto Scaling group contains a collection of Amazon EC2 instances that are
-treated as a logical grouping for the purposes of automatic scaling and management.
-An Auto Scaling group also lets you use Amazon EC2 Auto Scaling features such as health
-check replacements and scaling policies. Both maintaining the number of instances in
-an Auto Scaling group and automatic scaling are the core functionality of the Amazon EC2
-Auto Scaling service.
+## Using zonal shift for Application Load Balancers
 
-## Using zonal shift for Auto Scaling groups
+To use Application Load Balancers with zonal shift, you must enable ARC zonal shift integration in the
+Application Load Balancer attributes. Application Load Balancer supports zonal shift with cross-zone enabled or
+cross-zone disabled configurations.
 
-To enable zonal shift, use one of the following methods.
+Before you enable the ARC integration and start using zonal shift, review the following information:
 
-Console
+- You can start a zonal shift for a specific load balancer only for a single Availability Zone. You can't
+  start a zonal shift for multiple Availability Zones.
+- AWS proactively removes zonal load balancer IP addresses from DNS when multiple infrastructure issues
+  impact services. Always check current Availability Zone capacity before you start a zonal shift.
+- When an Application Load Balancer is a target of a Network Load Balancer, always start the zonal shift from the Network Load Balancer. If you start a
+  zonal shift from the Application Load Balancer, the Network Load Balancer doesn't recognize the shift and continues to send traffic to the Application Load Balancer.
 
-###### To enable zonal shift on a new group (console)
-
-1. Follow the instructions in [Create an Auto Scaling group using a launch template](../../../autoscaling/ec2/userguide/create-asg-launch-template.md "../../../autoscaling/ec2/userguide/create-asg-launch-template.md") and complete each step in the procedure, up to step 10.
-2. On the **Integrate with other services** page, for **ARC zonal shift**, select the checkbox to enable zonal shift.
-3. For **Health check behavior**, choose Ignore unhealthy or Replace
-   unhealthy. If set to `replace-unhealthy`,
-   unhealthy instances will be replaced in the Availability
-   Zone with the active zonal shift. If set to
-   `ignore-unhealthy`, unhealthy instances will
-   not be replaced in the Availability Zone with the active
-   zonal shift.
-4. Continue with the steps in [Create an Auto Scaling group using a launch template](../../../autoscaling/ec2/userguide/create-asg-launch-template.md "../../../autoscaling/ec2/userguide/create-asg-launch-template.md").
-
-AWS CLI
-
-###### To enable zonal shift on a new group (AWS CLI)
-
-Add the `--availability-zone-impairment-policy` parameter to the [create-auto-scaling-group](../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md") command.
-
-The `--availability-zone-impairment-policy` parameter has two options:
-
-- **ZonalShiftEnabled** – If set to `true`, Auto Scaling registers the Auto Scaling group with ARC zonal shift and you can [start, update, or cancel a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md") on the
-  ARC console. If set to `false`, Auto Scaling deregisters the Auto Scaling group from ARC zonal shift. You must already have zonal shift enabled to set to `false`.
-- **ImpairedZoneHealthCheckBehavior** – If set to `replace-unhealthy`, unhealthy instances will be replaced in the Availability Zone with the active zonal shift. If set to `ignore-unhealthy`, unhealthy instances will
-  not be replaced in the Availability Zone with the active zonal shift.
-
-The following example enables zonal shift on a new Auto Scaling group named `my-asg`.
-
-```
-aws autoscaling create-auto-scaling-group \
-  --launch-template LaunchTemplateName=`my-launch-template`,Version='`1`' \
-  --auto-scaling-group-name `my-asg` \
-  --min-size `1` \
-  --max-size `10` \
-  --desired-capacity `5` \
-  --availability-zones `us-east-1a` `us-east-1b` `us-east-1c` \
-  --availability-zone-impairment-policy '{
-      "ZonalShiftEnabled": `true`,
-      "ImpairedZoneHealthCheckBehavior": `IgnoreUnhealthy`
-    }'
-
-```
+You can start a zonal shift for a load balancer in the Elastic Load Balancing console (in most
+AWS Regions) or in the ARC console.
 
 Console
 
-###### To enable zonal shift on an existing group (console)
+###### To enable zonal shift on a load balancer (Console)
 
 1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"), and choose **Auto Scaling Groups** from the navigation pane.
-2. On the navigation bar at the top of the screen, choose the AWS Region that you created your Auto Scaling group in.
-3. Select the checkbox next to the Auto Scaling group.
-
-A split pane opens up in the bottom of the page. 4. On the **Integrations** tab, under **ARC zonal shift**, choose **Edit**. 5. Select the checkbox to enable zonal shift. 6. For **Health check behavior**, choose **Ignore unhealthy** or **Replace unhealthy**.
-
-    * If health check behavior is set to ignore unhealthy, unhealthy instances are *not* replaced in the Availability Zone
-     with the active zonal shift.
-    * If health check behavior is set to replace unhealthy, unhealthy instances are replaced in the Availability Zone with the active zonal shift.
-
-7. Choose **Update**.
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. On the **Navigation** page, under **Load balancing**, choose **Load balancers**.
+3. Select the Application Load Balancer name.
+4. On the **Attributes** tab, **Edit**.
+5. Under **Availability Zone routing configuration**, for
+   > ARC zonal shift integration, choose **Enable**.
+6. Choose **Save**.
 
 AWS CLI
 
-###### To enable zonal shift on an existing group (AWS CLI)
+###### To enable zonal shift on a load balancer (AWS CLI)
 
-Add the `--availability-zone-impairment-policy` parameter to the [update-auto-scaling-group](../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md") command.
-
-The `--availability-zone-impairment-policy` parameter has two options:
-
-- **ZonalShiftEnabled** – If set to `TRUE`, Auto Scaling
-  registers the Auto Scaling group with ARC zonal shift and you can
-  [start, update, or cancel a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md") on the
-  ARC console. If set to `FALSE`, Auto Scaling deregisters the Auto Scaling group from ARC zonal shift. You must already
-  have zonal shift enabled to set it to `FALSE`.
-- **ImpairedZoneHealthCheckBehavior** – If set to `replace-unhealthy`, unhealthy instances will be replaced in the Availability Zone with the active zonal shift. If set to `ignore-unhealthy`, unhealthy instances will
-  not be replaced in the Availability Zone with the active zonal shift.
-
-The following example enables zonal shift on the specified Auto Scaling group.
+- Enter the following command:
 
 ```
-aws autoscaling update-auto-scaling-group --auto-scaling-group-name `my-asg` \
-  --availability-zone-impairment-policy '{
-      "ZonalShiftEnabled": `true`,
-      "ImpairedZoneHealthCheckBehavior": `IgnoreUnhealthy`
-    }'
+aws elbv2 modify-load-balancer-attributes --load-balancer-arn `my-alb-arn` --attributes Key=zonal_shift.config.enabled,Value=true
 ```
 
-To start a zonal shift, see [Starting, updating, or canceling a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md").
+For more information on starting a zonal shift, see [Starting, updating, or canceling a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md").
 
-## How zonal shift works for Auto Scaling groups
+You can use the `keepalive` option to configure how long connections
+continue. For more information, see [HTTP client keepalive duration](../../../elasticloadbalancing/latest/application/application-load-balancers.md#http-client-keep-alive-duration "../../../elasticloadbalancing/latest/application/application-load-balancers.md#http-client-keep-alive-duration") in the Application Load Balancer User Guide. By default,
+Application Load Balancers set the HTTP client keepalive duration value to 3600 seconds, or 1 hour. We
+suggest that you lower the value to be inline with your recovery time goal for your
+application, for example, 300 seconds. When you choose an HTTP client keepalive
+duration time, consider that this value is a trade off between reconnecting more
+frequently in general, which can affect latency, and more quickly moving all clients
+away from an impaired AZ or Region.
 
-Suppose you have an Auto Scaling group with the following Availability Zones:
+## How zonal shift works for Application Load Balancers
 
-- `us-east-1a`
-- `us-east-1b`
-- `us-east-1c`
+When a zonal shift is started on an Application Load Balancer with cross-zone load balancing enabled, all traffic to
+targets is blocked in the Availability Zone that is impacted, and the zonal shift removes the zonal IP address from DNS.
 
-You notice failures in `us-east-1a` and start a zonal shift.
-The following behaviors occur when a zonal shift is started in `us-east-1a`.
-
-- **Scaling out** – Auto Scaling launches all new capacity
-  requests in the healthy Availability Zones (`us-east-1b` and `us-east-1c`).
-- **Dynamic scaling** – Auto Scaling blocks scaling policies
-  from decreasing desired capacity. Auto Scaling does not block scaling policies from increasing desired capacity.
-- **Instance refresh** – Auto Scaling extends the timeout for
-  any instance refresh process that is delayed during an active zonal shift.
-
-| Impaired Availability Zone health check behavior selection | Health check behavior                                                                                                                                                                 |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Replace unhealthy                                          | Instances that appear unhealthy will be replaced in all<br>Availability Zones (`us-east-1a`, `us-east-1b`, and `us-east-1c`).                                                         |
-| Ignore unhealthy                                           | Instances that appear unhealthy will be replaced in `us-east-1b` and `us-east-1c`. Instances are not replaced in the<br>Availability Zone with the active zonal shift (`us-east-1a`). |
-|                                                            |                                                                                                                                                                                       |
-
-## Best practices for using zonal shift
-
-To maintain high availability for your applications when using zonal shift, we recommend the following best practices.
-
-- Monitor EventBridge notifications to determine when there is an ongoing availability zone impairment event. For more information,
-  see [Automating Amazon EC2 Auto Scaling with EventBridge](../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md").
-- Use scaling policies with appropriate thresholds to make sure that you have enough capacity to tolerate the loss of an availability zone.
-- Set an instance maintenance policy with a minimum healthy percentage of 100. With this setting, Auto Scaling waits for a new instance to be ready to use before
-  terminating an unhealthy instance.
-
-For prescaled customers, we also recommend the following:
-
-- Select **Ignore unhealthy** as the health check behavior for the impaired availability zone because you don't need to
-  replace the unhealthy instance during the impairment event.
-- Use zonal autoshift in ARC for your Auto Scaling groups. The zonal autoshift capability in Amazon Application Recovery Controller (ARC) allows
-  AWS to shift traffic for a resource away from an availability zone when AWS detects an impairment in an availability zone.
-  For more information, see [Zonal autoshift in ARC](arc-zonal-autoshift.md "arc-zonal-autoshift.md").
-
-For customers with cross-zone disabled load balancers, we also recommend:
-
-- Use **balanced only** for your availability zone distribution.
-- If you are using zonal shift on both your Auto Scaling group and your load balancers, make sure to cancel the zonal shift on your Auto Scaling group first. Then, wait until the capacity is balanced across all availability zones.
-  before you cancel the zonal shift on the load balancer.
-- Because of the possibility of imbalanced capacity when you enable zonal shift and you use a cross-zone disabled load balancer, Auto Scaling has an extra validation. If you are following the best practices, you can acknowledge this possibility by selecting the
-  checkbox in the AWS Management Console or using the `skip-zonal-shift-validation` flag in `CreateAutoScalingGroup`, `UpdateAutoScalingGroup`, or `AttachTrafficSources`.
+For more information, see [Integrations for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-integrations.md#zonal-shift "../../../elasticloadbalancing/latest/application/load-balancer-integrations.md#zonal-shift") in the _Application Load Balancer User Guide_.
