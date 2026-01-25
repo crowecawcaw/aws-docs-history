@@ -784,7 +784,7 @@ configuration
 
 Cluster metadata parameters such `clusterName`, `region`,
 `vpcId`, `accountId`, and others may be required by
-various add-ons (for example, ELB Controller). Any parameter similar to these that
+various add-ons (for example, Elastic Load Balancing Controller). Any parameter similar to these that
 is known by the Amazon EKS service will be automatically injected by Amazon EKS add-ons, and
 not put on the responsibility of the user to specify as a configuration option.
 These parameters include:
