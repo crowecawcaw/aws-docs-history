@@ -406,6 +406,39 @@ class RekognitionCollection:
   [ListFaces](../../../goto/boto3/rekognition-2016-06-27/ListFaces.md "../../../goto/boto3/rekognition-2016-06-27/ListFaces.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+
+```
+    TRY.
+        oo_result = lo_rek->listfaces(
+          iv_collectionid = iv_collection_id
+          iv_maxresults = iv_max_results ).
+
+        DATA(lt_faces) = oo_result->get_faces( ).
+        DATA(lv_face_count2) = lines( lt_faces ).
+        DATA(lv_msg3) = |{ lv_face_count2 } face(s) found in collection.|.
+        MESSAGE lv_msg3 TYPE 'I'.
+      CATCH /aws1/cx_rekresourcenotfoundex.
+        MESSAGE 'Collection not found.' TYPE 'E'.
+      CATCH /aws1/cx_rekinvalidparameterex.
+        MESSAGE 'Invalid parameter value.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListFaces](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

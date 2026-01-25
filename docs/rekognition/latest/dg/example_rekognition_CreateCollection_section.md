@@ -248,6 +248,34 @@ class RekognitionCollectionManager:
   [CreateCollection](../../../goto/boto3/rekognition-2016-06-27/CreateCollection.md "../../../goto/boto3/rekognition-2016-06-27/CreateCollection.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+
+```
+    TRY.
+        oo_result = lo_rek->createcollection(
+          iv_collectionid = iv_collection_id ).
+        MESSAGE 'Collection created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_rekresrcalrdyexistsex.
+        MESSAGE 'Collection already exists.' TYPE 'E'.
+      CATCH /aws1/cx_rekinvalidparameterex.
+        MESSAGE 'Invalid parameter value.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateCollection](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

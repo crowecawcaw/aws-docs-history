@@ -454,6 +454,67 @@ class RekognitionImage:
   [CompareFaces](../../../goto/boto3/rekognition-2016-06-27/CompareFaces.md "../../../goto/boto3/rekognition-2016-06-27/CompareFaces.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+
+```
+    TRY.
+        " Create S3 object reference for the source image
+        DATA(lo_source_s3obj) = NEW /aws1/cl_reks3object(
+          iv_bucket = iv_source_s3_bucket
+          iv_name = iv_source_s3_key ).
+
+        " Create source image object
+        DATA(lo_source_image) = NEW /aws1/cl_rekimage(
+          io_s3object = lo_source_s3obj ).
+
+        " Create S3 object reference for the target image
+        DATA(lo_target_s3obj) = NEW /aws1/cl_reks3object(
+          iv_bucket = iv_target_s3_bucket
+          iv_name = iv_target_s3_key ).
+
+        " Create target image object
+        DATA(lo_target_image) = NEW /aws1/cl_rekimage(
+          io_s3object = lo_target_s3obj ).
+
+        " Compare faces
+        oo_result = lo_rek->comparefaces(
+          io_sourceimage = lo_source_image
+          io_targetimage = lo_target_image
+          iv_similaritythreshold = iv_similarity ).
+
+        DATA(lt_face_matches) = oo_result->get_facematches( ).
+        DATA(lt_unmatched_faces) = oo_result->get_unmatchedfaces( ).
+
+        " Get counts of matched and unmatched faces
+        DATA(lv_matched_count) = lines( lt_face_matches ).
+        DATA(lv_unmatched_count) = lines( lt_unmatched_faces ).
+
+        " Output detailed comparison results
+        DATA(lv_message) = |Face comparison completed: | &&
+                           |{ lv_matched_count } matched face(s), | &&
+                           |{ lv_unmatched_count } unmatched face(s).|.
+        MESSAGE lv_message TYPE 'I'.
+      CATCH /aws1/cx_rekinvalids3objectex.
+        MESSAGE 'Invalid S3 object.' TYPE 'E'.
+      CATCH /aws1/cx_rekinvalidparameterex.
+        MESSAGE 'Invalid parameter value.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CompareFaces](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

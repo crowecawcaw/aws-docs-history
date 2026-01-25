@@ -266,6 +266,36 @@ class RekognitionCollectionManager:
   [ListCollections](../../../goto/boto3/rekognition-2016-06-27/ListCollections.md "../../../goto/boto3/rekognition-2016-06-27/ListCollections.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+
+```
+    TRY.
+        oo_result = lo_rek->listcollections(
+          iv_maxresults = iv_max_results ).
+
+        DATA(lt_collection_ids) = oo_result->get_collectionids( ).
+        DATA(lv_coll_count) = lines( lt_collection_ids ).
+        DATA(lv_msg7) = |{ lv_coll_count } collection(s) found.|.
+        MESSAGE lv_msg7 TYPE 'I'.
+      CATCH /aws1/cx_rekinvalidparameterex.
+        MESSAGE 'Invalid parameter value.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListCollections](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -967,6 +967,49 @@ class RekognitionImage:
   [DetectLabels](../../../goto/boto3/rekognition-2016-06-27/DetectLabels.md "../../../goto/boto3/rekognition-2016-06-27/DetectLabels.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+
+```
+    TRY.
+        " Create S3 object reference for the image
+        DATA(lo_s3object) = NEW /aws1/cl_reks3object(
+          iv_bucket = iv_s3_bucket
+          iv_name = iv_s3_key ).
+
+        " Create image object
+        DATA(lo_image) = NEW /aws1/cl_rekimage(
+          io_s3object = lo_s3object ).
+
+        " Detect labels in the image
+        oo_result = lo_rek->detectlabels(
+          io_image = lo_image
+          iv_maxlabels = iv_max_labels ).
+
+        DATA(lt_labels) = oo_result->get_labels( ).
+        DATA(lv_label_count) = lines( lt_labels ).
+        DATA(lv_msg9) = |{ lv_label_count } label(s) detected in image.|.
+        MESSAGE lv_msg9 TYPE 'I'.
+      CATCH /aws1/cx_rekinvalids3objectex.
+        MESSAGE 'Invalid S3 object.' TYPE 'E'.
+      CATCH /aws1/cx_rekinvalidparameterex.
+        MESSAGE 'Invalid parameter value.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DetectLabels](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
