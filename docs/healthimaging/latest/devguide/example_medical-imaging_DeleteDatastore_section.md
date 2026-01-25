@@ -243,6 +243,42 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+```
+    TRY.
+        " iv_datastore_id = '1234567890123456789012345678901234567890'
+        oo_result = lo_mig->deletedatastore( iv_datastoreid = iv_datastore_id ).
+        MESSAGE 'Data store deleted.' TYPE 'I'.
+      CATCH /aws1/cx_migaccessdeniedex.
+        MESSAGE 'Access denied.' TYPE 'I'.
+      CATCH /aws1/cx_migconflictexception.
+        MESSAGE 'Conflict. Data store may contain resources.' TYPE 'I'.
+      CATCH /aws1/cx_miginternalserverex.
+        MESSAGE 'Internal server error.' TYPE 'I'.
+      CATCH /aws1/cx_migresourcenotfoundex.
+        MESSAGE 'Data store not found.' TYPE 'I'.
+      CATCH /aws1/cx_migthrottlingex.
+        MESSAGE 'Request throttled.' TYPE 'I'.
+      CATCH /aws1/cx_migvalidationex.
+        MESSAGE 'Validation error.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

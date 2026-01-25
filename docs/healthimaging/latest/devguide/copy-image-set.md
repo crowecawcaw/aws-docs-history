@@ -617,6 +617,68 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+```
+    TRY.
+        " iv_datastore_id = '1234567890123456789012345678901234567890'
+        " iv_source_image_set_id = '1234567890123456789012345678901234567890'
+        " iv_source_version_id = '1'
+        " iv_destination_image_set_id = '1234567890123456789012345678901234567890' (optional)
+        " iv_destination_version_id = '1' (optional)
+        " iv_force = abap_false
+        DATA(lo_source_info) = NEW /aws1/cl_migcpsrcimagesetinf00(
+          iv_latestversionid = iv_source_version_id ).
+        DATA(lo_copy_info) = NEW /aws1/cl_migcpimagesetinfmtion(
+          io_sourceimageset = lo_source_info ).
+        IF iv_destination_image_set_id IS NOT INITIAL AND
+           iv_destination_version_id IS NOT INITIAL.
+          DATA(lo_dest_info) = NEW /aws1/cl_migcopydstimageset(
+            iv_imagesetid = iv_destination_image_set_id
+            iv_latestversionid = iv_destination_version_id ).
+          lo_copy_info = NEW /aws1/cl_migcpimagesetinfmtion(
+            io_sourceimageset = lo_source_info
+            io_destinationimageset = lo_dest_info ).
+        ENDIF.
+        oo_result = lo_mig->copyimageset(
+          iv_datastoreid = iv_datastore_id
+          iv_sourceimagesetid = iv_source_image_set_id
+          io_copyimagesetinformation = lo_copy_info
+          iv_force = iv_force ).
+        DATA(lo_dest_props) = oo_result->get_dstimagesetproperties( ).
+        DATA(lv_new_id) = lo_dest_props->get_imagesetid( ).
+        MESSAGE |Image set copied with new ID: { lv_new_id }.| TYPE 'I'.
+      CATCH /aws1/cx_migaccessdeniedex.
+        MESSAGE 'Access denied.' TYPE 'I'.
+      CATCH /aws1/cx_migconflictexception.
+        MESSAGE 'Conflict error.' TYPE 'I'.
+      CATCH /aws1/cx_miginternalserverex.
+        MESSAGE 'Internal server error.' TYPE 'I'.
+      CATCH /aws1/cx_migresourcenotfoundex.
+        MESSAGE 'Image set not found.' TYPE 'I'.
+      CATCH /aws1/cx_migservicequotaexcdex.
+        MESSAGE 'Service quota exceeded.' TYPE 'I'.
+      CATCH /aws1/cx_migthrottlingex.
+        MESSAGE 'Request throttled.' TYPE 'I'.
+      CATCH /aws1/cx_migvalidationex.
+        MESSAGE 'Validation error.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CopyImageSet](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
+
 ###### Example availability
 
 Can't find what you need? Request a code example using the **Provide

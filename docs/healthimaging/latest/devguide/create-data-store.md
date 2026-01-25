@@ -317,6 +317,43 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+```
+    TRY.
+        " iv_datastore_name = 'my-datastore-name'
+        oo_result = lo_mig->createdatastore( iv_datastorename = iv_datastore_name ).
+        DATA(lv_datastore_id) = oo_result->get_datastoreid( ).
+        MESSAGE 'Data store created.' TYPE 'I'.
+      CATCH /aws1/cx_migaccessdeniedex.
+        MESSAGE 'Access denied.' TYPE 'I'.
+      CATCH /aws1/cx_migconflictexception.
+        MESSAGE 'Conflict. Data store may already exist.' TYPE 'I'.
+      CATCH /aws1/cx_miginternalserverex.
+        MESSAGE 'Internal server error.' TYPE 'I'.
+      CATCH /aws1/cx_migservicequotaexcdex.
+        MESSAGE 'Service quota exceeded.' TYPE 'I'.
+      CATCH /aws1/cx_migthrottlingex.
+        MESSAGE 'Request throttled.' TYPE 'I'.
+      CATCH /aws1/cx_migvalidationex.
+        MESSAGE 'Validation error.' TYPE 'I'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
+
 ###### Example availability
 
 Can't find what you need? Request a code example using the **Provide
