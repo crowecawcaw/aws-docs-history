@@ -9,7 +9,7 @@ and can be searched in the CloudFormation console. The execution output sometime
 includes output of the ID of the instance created and that ID can be used to search for
 the instance in the corresponding AWS console. For example, the Create ELB CT execution
 output includes a "stack_id" that is searchable in CloudFormation and outputs a key=ELB
-value=<stack-xxxx> that is searchable in the Amazon EC2 console for ELB.
+value=<stack-xxxx> that is searchable in the Amazon EC2 console for Elastic Load Balancing.
 
 Let's examine a CT schema. This is the schema for CodeDeploy Application Create, a fairly small schema.
 Some schemas have very large `Parameter` areas.
