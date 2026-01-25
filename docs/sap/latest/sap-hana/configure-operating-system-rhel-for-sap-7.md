@@ -13,7 +13,7 @@ Depending on your network and security settings, you might have to first connect
 Alternatively, you can use sudo to execute the following commands as ec2-user. 3. Set a hostname for your instance by executing the `hostnamectl` command and update the `/etc/cloud/cloud.cfg` file to ensure that your hostname is preserved during system reboots.
 
 ```
-    hostnamectl set-hostname --static <your_hostname>
+   hostnamectl set-hostname --static <your_hostname>
    echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg
 ```
 
@@ -57,13 +57,13 @@ Ensure that the packages listed in the following SAP Notes (SAP portal access re
 5. Ensure that your instance is running on a kernel version that is recommended in SAP OSS Note [2292690](https://launchpad.support.sap.com/#/notes/2292690 "https://launchpad.support.sap.com/#/notes/2292690"), [2777782](https://launchpad.support.sap.com/#/notes/2777782 "https://launchpad.support.sap.com/#/notes/2777782"), and [3108302](https://launchpad.support.sap.com/#/notes/3108302 "https://launchpad.support.sap.com/#/notes/3108302"). If needed, update your system to meet the minimum kernel version. You can check the version of the kernel and other packages using the following command.
 
 ```
- rpm -qi kernel*
+rpm -qi kernel*
 ```
 
 6. Start `tuned daemon` and use the following commands to set it to automatically start when the system reboots.
 
 ```
- systemctl start tuned
+systemctl start tuned
 
 systemctl enable tuned
 ```
@@ -73,14 +73,14 @@ systemctl enable tuned
 Check whether the `force_latency` parameter is already set in the `/usr/lib/tuned/sap-hana/tuned.conf` file. If the parameter is set, execute the following commands to apply and activate the `sap-hana` profile.
 
 ```
- tuned-adm profile sap-hana
+tuned-adm profile sap-hana
 tuned-adm active
 ```
 
 If the `force_latency` parameter is not set, execute the following steps to modify and activate the `sap-hana` profile.
 
 ```
- mkdir /etc/tuned/sap-hana
+mkdir /etc/tuned/sap-hana
 cp /usr/lib/tuned/sap-hana/tuned.conf /etc/tuned/sap-hana/tuned.conf
 sed -i '/force_latency/ c\force_latency=70' /etc/tuned/sap-hana/tuned.conf
 tuned-adm profile sap-hana
@@ -90,13 +90,13 @@ tuned-adm active
 8. Disable Security-Enhanced Linux (SELinux) by running the following command. (Skip this step if you are using the RHEL for SAP with HA & US image.)
 
 ```
-    sed -i 's/\(SELINUX=enforcing\|SELINUX=permissive\)/SELINUX=disabled/g' \/etc/selinux/config
+   sed -i 's/\(SELINUX=enforcing\|SELINUX=permissive\)/SELINUX=disabled/g' \/etc/selinux/config
 ```
 
 9. Disable Transparent Hugepages (THP) at boot time by adding the following to the line that starts with GRUB_CMDLINE_LINUX in the `/etc/default/grub` file. Execute the following commands to add the required parameter and to re-configure grub (Skip this step if you are using the RHEL for SAP with HA & US image.)
 
 ```
-    sed -i '/GRUB_CMDLINE_LINUX/ s|"| transparent_hugepage=never"|2' /etc/default/grub
+   sed -i '/GRUB_CMDLINE_LINUX/ s|"| transparent_hugepage=never"|2' /etc/default/grub
    cat /etc/default/grub
    grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
@@ -104,7 +104,7 @@ tuned-adm active
 10. Add symbolic links by executing following commands. (Skip this step if you are using the RHEL for SAP with HA & US image.)
 
 ```
-    ln -s /usr/lib64/libssl.so.10 /usr/lib64/libssl.so.1.0.1
+   ln -s /usr/lib64/libssl.so.10 /usr/lib64/libssl.so.1.0.1
    ln -s /usr/lib64/libcrypto.so.10 /usr/lib64/libcrypto.so.1.0.1
 ```
 
@@ -115,7 +115,7 @@ tuned-adm active
 Remove any existing invalid NTP server pools from `/etc/ntp.conf` before adding the following.
 
 ```
-    echo "server 0.pool.ntp.org" >> /etc/ntp.conf
+   echo "server 0.pool.ntp.org" >> /etc/ntp.conf
    echo "server 1.pool.ntp.org" >> /etc/ntp.conf
    echo "server 2.pool.ntp.org" >> /etc/ntp.conf
    echo "server 3.pool.ntp.org" >> /etc/ntp.conf
@@ -129,7 +129,7 @@ Remove any existing invalid NTP server pools from `/etc/ntp.conf` before adding 
 Instead of connecting to the global NTP server pool, you can connect to your internal NTP server if needed. Alternatively, you can also use [Amazon Time Sync Service](../../../AWSEC2/latest/UserGuide/set-time.md "../../../AWSEC2/latest/UserGuide/set-time.md") to keep your system time in sync. 12. Set clocksource to `tsc` by the updating the `current_clocksource` file and the GRUB2 boot loader.
 
 ```
-    echo "tsc" > /sys/devices/system/clocksource/*/current_clocksource
+   echo "tsc" > /sys/devices/system/clocksource/*/current_clocksource
    cp /etc/default/grub /etc/default/grub.backup
    sed -i '/GRUB_CMDLINE_LINUX/ s|"| clocksource=tsc"|2' /etc/default/grub
    grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -138,7 +138,7 @@ Instead of connecting to the global NTP server pool, you can connect to your int
 13. For RHEL9 only, disable the LVM device persistence using the following commands.
 
 ```
- sed -i'.bkp' -e 's/ use_devicesfile = 0/use_devicesfile = 1/g' /etc/lvm/lvm.conf
+sed -i'.bkp' -e 's/ use_devicesfile = 0/use_devicesfile = 1/g' /etc/lvm/lvm.conf
 mv /etc/lvm/devices/system.devices /etc/lvm/devices/system.devices.bkp
 ```
 
@@ -146,7 +146,7 @@ mv /etc/lvm/devices/system.devices /etc/lvm/devices/system.devices.bkp
 15. After the reboot, log in as root and execute the `tuned-adm` command to verify that all SAP recommended settings are in place.
 
 ```
-    tuned-adm verify
+   tuned-adm verify
 
   “tuned-adm verify” creates a log file under /var/log/tuned/tuned.log Review this log file and ensure that  all checks have passed.
 ```

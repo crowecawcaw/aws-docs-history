@@ -18,14 +18,14 @@ On
 Use the following commands to turn on maintenance mode.
 
 ```
- # pcs property maintenance-mode=true
+# pcs property maintenance-mode=true
 ```
 
 Off
 Use the following command to turn off maintenance mode.
 
 ```
- # pcs property maintenance-mode=false
+# pcs property maintenance-mode=false
 ```
 
 ## Placing a node in standby mode
@@ -33,13 +33,13 @@ Use the following command to turn off maintenance mode.
 To perform maintenance on the cluster without a full system outage, the recommended method for moving active resources is to place the node you want to remove from the cluster in standby mode.
 
 ```
- # pcs node standby <hostname>
+# pcs node standby <hostname>
 ```
 
 The cluster will cleanly relocate resources, and you can perform activities, including reboots on the node in standby mode. When maintenance activities are complete, you can re-introduce the node with the following command.
 
 ```
- # pcs node unstandby <hostname>
+# pcs node unstandby <hostname>
 ```
 
 ## Moving a resource
@@ -49,7 +49,7 @@ When moving individual resources, be sure you understand resource dependencies a
 For example:
 
 ```
- # pcs resource move rsc_SAPHana_HDB_HDB00-clone hanahost02
+# pcs resource move rsc_SAPHana_HDB_HDB00-clone hanahost02
 Location constraint to move resource 'rsc_SAPHana_HDB_HDB00-clone' has been created
 Waiting for the cluster to apply configuration changes...
 Location constraint created to move resource 'rsc_SAPHana_HDB_HDB00-clone' has been removed

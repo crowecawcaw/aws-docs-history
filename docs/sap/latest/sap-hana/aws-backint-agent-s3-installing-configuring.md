@@ -57,7 +57,7 @@ Disable any existing backup processes (including scheduled log backups) before c
     11. **Debug Mode**. Select **yes** to activate debug mode.
     12. **Important! Ensure No Backup In Process**. Choose **Yes** to confirm that you have disabled existing backups and are ready to proceed with the installation. **The SSM document will fail if you choose "No"** .
 
-6.  Under **Targets**, select the method for your target instance to use to install the AWS Backint agent, and then choose the instance on which to install it. If you are not able to find your instance in the list, verify that you have followed all of the steps in the [prerequisites](aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites "aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites").
+6.  Under **Targets**, select the method for your target instance to use to install the AWS Backint agent, and then choose the instance on which to install it. If you are not able to find your instance in the list, verify that you have followed all of the steps in the [prerequisites](aws-backint-agent-s3-prerequisites.md "aws-backint-agent-s3-prerequisites.md").
 7.  Under **Other parameters**, leave the field empty and choose **Run**.
 
 ###### Important
@@ -95,53 +95,53 @@ Disable any existing backup processes (including scheduled log backups) before c
 1. Navigate to `/tmp` (or another temporary directory where you downloaded the installer).
 
 ```
-cd /tmp
+$ cd /tmp
 ```
 
 2. Run one of the following commands to download the installer.
 
 ```
-sudo aws s3 cp s3://awssap-backint-agent/binary/latest/install-aws-backint-agent /tmp/ --region us-east-1
+$ sudo aws s3 cp s3://awssap-backint-agent/binary/latest/install-aws-backint-agent /tmp/ --region us-east-1
 ```
 
 or
 
 ```
-sudo wget https://s3.amazonaws.com/awssap-backint-agent/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
+$ sudo wget https://s3.amazonaws.com/awssap-backint-agent/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
 ```
 
 ###### Note
 
-If you encounter permission issues while downloading the AWS Backint installer using the AWS CLI, check your IAM policy and ensure that your policies allow for downloading objects from the `awssap-backint-agent` bucket. See the [Identity and Access Management](aws-backint-agent-amazon-s3.md#aws-backint-agent-iam "aws-backint-agent-amazon-s3.md#aws-backint-agent-iam") section of this documentation for details. 3. (Optional) For AWS GovCloud (US-East) and AWS GovCloud (US-West), run one of the following commands to download the installer.
+If you encounter permission issues while downloading the AWS Backint installer using the AWS CLI, check your IAM policy and ensure that your policies allow for downloading objects from the `awssap-backint-agent` bucket. See the [Identity and Access Management](aws-backint-agent-s3-prerequisites.md#aws-backint-agent-iam "aws-backint-agent-s3-prerequisites.md#aws-backint-agent-iam") section of this documentation for details. 3. (Optional) For AWS GovCloud (US-East) and AWS GovCloud (US-West), run one of the following commands to download the installer.
 
 ```
-sudo aws s3 cp s3://awssap-backint-agent-us-gov-east-1/binary/latest/install-aws-backint-agent /tmp/ --region us-gov-east-1
+$ sudo aws s3 cp s3://awssap-backint-agent-us-gov-east-1/binary/latest/install-aws-backint-agent /tmp/ --region us-gov-east-1
 ```
 
 ```
-sudo aws s3 cp s3://awssap-backint-agent-us-gov-west-1/binary/latest/install-aws-backint-agent /tmp/ --region us-gov-west-1
+$ sudo aws s3 cp s3://awssap-backint-agent-us-gov-west-1/binary/latest/install-aws-backint-agent /tmp/ --region us-gov-west-1
 ```
 
 or
 
 ```
-sudo wget https://awssap-backint-agent-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
+$ sudo wget https://awssap-backint-agent-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
 ```
 
 ```
-sudo wget https://awssap-backint-agent-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
+$ sudo wget https://awssap-backint-agent-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/binary/latest/install-aws-backint-agent -O /tmp/install-aws-backint-agent
 ```
 
 4. Run the installer with the `-h` flag to find all of the available options.
 
 ```
-sudo python install-aws-backint-agent -h
+$ sudo python install-aws-backint-agent -h
 ```
 
 5. Run the following command to execute the installer.
 
 ```
-sudo python install-aws-backint-agent
+$ sudo python install-aws-backint-agent
 ```
 
 ###### Note
@@ -149,15 +149,15 @@ sudo python install-aws-backint-agent
 Run the installer with the `-l` flag if you want the installer to get the AWS Backint agent binary file from your own file system or Amazon S3 bucket. Specify the location of the `aws-backint-agent.tar.gz` file.
 
 ```
-sudo python install-aws-backint-agent -l /tmp/backint/aws-backint-agent.tar.gz
+$ sudo python install-aws-backint-agent -l /tmp/backint/aws-backint-agent.tar.gz
 ```
 
 ```
-sudo python install-aws-backint-agent -l s3://<S3 bucket>/aws-backint-agent.tar.gz
+$ sudo python install-aws-backint-agent -l s3://<S3 bucket>/aws-backint-agent.tar.gz
 ```
 
 ```
-sudo python install-aws-backint-agent -l https://<S3 bucket>.s3.amazonaws.com/aws-backint-agent.tar.gz
+$ sudo python install-aws-backint-agent -l https://<S3 bucket>.s3.amazonaws.com/aws-backint-agent.tar.gz
 ```
 
 6.  Enter information for the following parameters.
@@ -217,7 +217,7 @@ installation_directory = /hana/shared/
 If you want to generate the response file programmatically instead of using AWS Backint installer in interactive mode, you can use the `-g` flag to generate a new response file. The following is an example of how to generate a response file using AWS Backint installer.
 
 ```
-sudo python install-aws-backint-agent -g "s3_bucket_owner_account_id = 111122223333,s3_bucket_name = <S3 bucket>,s3_bucket_region = <us-east-1>,hana_sid = TST,s3_sse_kms_arn = arn:aws:kms:<us-east-1>:111122223333:key/1abcd9b9-ab12-1a2a-1abc-12345abc12a3,s3_bucket_folder = myfolder,installation_directory = /hana/shared/,modify_global_ini = sql" -f myresponse.rsp
+$ sudo python install-aws-backint-agent -g "s3_bucket_owner_account_id = 111122223333,s3_bucket_name = <S3 bucket>,s3_bucket_region = <us-east-1>,hana_sid = TST,s3_sse_kms_arn = arn:aws:kms:<us-east-1>:111122223333:key/1abcd9b9-ab12-1a2a-1abc-12345abc12a3,s3_bucket_folder = myfolder,installation_directory = /hana/shared/,modify_global_ini = sql" -f myresponse.rsp
 ```
 
 After the response file is created, use the following steps to run AWS Backint installer in silent mode.
@@ -229,13 +229,13 @@ Disable any existing backup processes (including scheduled log backups) before c
 Run the following command to execute the installer using the generated response file.
 
 ```
-sudo python install-aws-backint-agent -m silent -f backint-agent-install-YYYYMMDDHHMMSS.rsp -a yes
+$ sudo python install-aws-backint-agent -m silent -f backint-agent-install-YYYYMMDDHHMMSS.rsp -a yes
 ```
 
 If you want to choose the location from which to install the agent, run the command with the `-l` flag and specify the location.
 
 ```
-sudo python install-aws-backint-agent -f aws-backint-agent-install-YYYYMMDDHHMMSS.rsp -m silent -a yes -d -l /tmp/backint/aws-backint-agent.tar.gz
+$ sudo python install-aws-backint-agent -f aws-backint-agent-install-YYYYMMDDHHMMSS.rsp -m silent -a yes -d -l /tmp/backint/aws-backint-agent.tar.gz
 ```
 
 ###### Note
@@ -385,16 +385,16 @@ Before doing steps a and b, ensure that there is no backup process running.
 
 
     ```
-    #Create the folder structure
+    # Create the folder structure
     aws s3api put-object --bucket <S3 bucket> --key <S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --region <us-east-1>
 
-    #Execute a Dry Run to check
+    # Execute a Dry Run to check
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ s3://<S3 bucket>/<S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "*" --include "log_backup_1_0*" --recursive --dryrun --region <us-east-1>
 
-    #Run the command to move the logs to the new S3 location
+    # Run the command to move the logs to the new S3 location
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ s3://<S3 bucket>/<S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "*" --include "log_backup_1_0*" --recursive --region <us-east-1>
 
-    #Check the output of the S3 location for logs
+    # Check the output of the S3 location for logs
     aws s3 ls s3://<S3 bucket>/<S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --region <us-east-1>
     ```
     2. **Change the location of the logs backup for TENANT DB**
@@ -406,16 +406,16 @@ Before doing steps a and b, ensure that there is no backup process running.
 
 
     ```
-    #Create the folder structure
+    # Create the folder structure
     aws s3api put-object --bucket <S3 bucket> --key <S3 folder for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --region <us-east-1>
 
-    #Execute a Dry Run
+    # Execute a Dry Run
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ s3://<S3 bucket>/<S3 bucket for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include "log_backup_2_0" --include "log_backup_3_0" --recursive --dryrun --region <us-east-1>
 
-    #Run the command to move the logs to the new S3 location
+    # Run the command to move the logs to the new S3 location
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ s3://<S3 bucket>/<S3 bucket for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include "log_backup_2_0" --include "log_backup_3_0" --recursive --region <us-east-1>
 
-    #Check the output of the S3 location for logs
+    # Check the output of the S3 location for logs
     aws s3 ls s3://<S3 bucket>/<S3 bucket for logs>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --region <us-east-1>
     ```
 
@@ -423,8 +423,7 @@ Before doing steps a and b, ensure that there is no backup process running.
    1. Make a copy of the existing AWS Backint agent configuration for logs backup.
 
    ```
-   cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  \
-   /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml
+   $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml
    ```
 
    2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-logs.yaml`, using your preferred editor.
@@ -438,8 +437,7 @@ Before doing steps a and b, ensure that there is no backup process running.
    3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
    ```
-   ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml  \
-   /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
+   $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-logs.yaml
    ```
 
 4. **Update the `global.ini` file**
@@ -464,11 +462,11 @@ After a successful validation, we recommend waiting for at least a week before d
 When you’re ready, delete the previous logs with the following commands.
 
 ```
-#Delete previous backups in SYSTEMDB
+# Delete previous backups in SYSTEMDB
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_1_0" --recursive --dryrun --region <us-east-1>
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_1_0" --recursive --region <us-east-1>
 
-#Delete previous backups in the TENANT database (Repeat for each tenant)
+# Delete previous backups in the TENANT database (Repeat for each tenant)
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include --include "log_backup_2_0" --include "log_backup_3_0" --recursive --dryrun --region <us-east-1>
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include "log_backup_2_0" --include "log_backup_3_0" --recursive --region <us-east-1>
 ```
@@ -532,16 +530,16 @@ Before doing steps a and b, ensure that there is no backup process running.
 
 
     ```
-    #Create the folder structure
+    # Create the folder structure
     aws s3api put-object --bucket <S3 bucket> --key S3 folder for catalog/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --region <us-east-1>
 
-    #Execute a Dry Run to check
+    # Execute a Dry Run to check
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ s3://<S3 bucket>/<S3 folder for catalog>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "*" --include "log_backup_0_0_0_0*" --recursive --dryrun --region <us-east-1>
 
-    #Run the command to move the logs to the new S3 location
+    # Run the command to move the logs to the new S3 location
     aws s3 cp s3://example-s3-bucket;/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ s3://<S3 bucket>/<S3 folder for catalog>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "*" --include "log_backup_0_0_0_0*" --recursive --region <us-east-1>
 
-    #Check the output of the S3 location for logs
+    # Check the output of the S3 location for logs
     aws s3 ls s3://<S3 bucket>/<S3 folder for catalog>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --region <us-east-1>
     ```
     2. **Change the location of the catalog backup for TENANT DB**
@@ -553,24 +551,23 @@ Before doing steps a and b, ensure that there is no backup process running.
 
 
     ```
-    #Create the folder structure
+    # Create the folder structure
     aws s3api put-object --bucket <S3 bucket> --key S3 folder for catalog/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --region <us-east-1>
 
-    #Execute a Dry Run
+    # Execute a Dry Run
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ s3://<S3 bucket>/<S3 bucket for catalog>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include "log_backup_0_0_0_0*" --recursive --dryrun --region <us-east-1>
 
-    #Run the command to move the catalog to the new S3 location
+    # Run the command to move the catalog to the new S3 location
     aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ s3://<S3 bucket>/<S3 bucket for catalog>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include "log_backup_0_0_0_0*" --recursive --region <us-east-1>
 
-    #Check the output of the S3 location for catalog
+    # Check the output of the S3 location for catalog
     ```
 
 3. Create the `**aws-backint-agent-config-catalog.yaml**` parameter file
    1. Make a copy of the existing AWS Backint agent configuration for catalog backup.
 
    ```
-   cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  \
-   /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml
+   $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml
    ```
 
    2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-catalog.yaml`, using your preferred editor.
@@ -584,8 +581,7 @@ Before doing steps a and b, ensure that there is no backup process running.
    3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
    ```
-   ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml  \
-   /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-catalog.yaml
+   $ ln -s /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml  /usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/aws-backint-agent-config-catalog.yaml
    ```
 
 4. Update the `**global.ini**` file
@@ -610,11 +606,11 @@ After a successful validation, we recommend waiting for at least a week before d
 When you’re ready, delete the previous logs with the following commands.
 
 ```
-#Delete previous backups in SYSTEMDB
+# Delete previous backups in SYSTEMDB
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_0_0_0_0" --recursive --dryrun --region <us-east-1>
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/SYSTEMDB/ --exclude "" --include "log_backup_0_0_0_0" --recursive --region <us-east-1>
 
-#Delete previous backups in the TENANT database (Repeat for each tenant)
+# Delete previous backups in the TENANT database (Repeat for each tenant)
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include --include "log_backup_0_0_0_0" --recursive --dryrun --region <us-east-1>
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/DB_<SID>/ --exclude "" --include "log_backup_0_0_0_0" --recursive --region <us-east-1>
 ```
@@ -639,20 +635,20 @@ If this is a new setup or you do not want to retain the previous catalog backup,
 Ensure that there is no backup process running, then run the following command to move all of the previous backups to the new Amazon S3 location. This step assumes that you are using the same configuration parameter for both data and log. The example below uses the same S3 bucket, but you can use a new bucket.
 
 ```
-#Execute a Dry Run to check
+# Execute a Dry Run to check
 aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/ s3://<S3 bucket>/<S3 folder>/<SID>/ --recursive --dryrun --region <us-east-1>
 
-#Run the command to move the backups to new S3 location
+# Run the command to move the backups to new S3 location
 aws s3 cp s3://<S3 bucket>/<S3 folder>/<SID>/usr/sap/<SID>/SYS/global/hdb/backint/ s3://<S3 bucket>/<S3 folder>/<SID>/ --recursive --region <us-east-1>
 
-#Check the output of both S3 location
+# Check the output of both S3 location
 aws s3 ls s3://<S3 bucket>/<S3 folder>/<SID>/ --region <us-east-1>
 ```
 
 3. Modify `aws-backint-agent-config.yaml`.
 
 ```
-vi /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml
+$ vi /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml
 ```
 
 Add the `S3ShortenDestinationBackupEnabled` parameter in `aws-backint-agent-config.yaml`, using your preferred editor.
@@ -672,13 +668,13 @@ After a successful validation, we recommend waiting for at least a week before d
 When you’re ready, delete the previous logs with the following commands.
 
 ```
-#Execute a Dry Run to make sure
+# Execute a Dry Run to make sure
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr --recursive --dryrun --region <us-east-1>
 
-#Run the command to delete it in the previous S3 location
+# Run the command to delete it in the previous S3 location
 aws s3 rm s3://<S3 bucket>/<S3 folder>/<SID>/usr --recursive --region <us-east-1>
 
-#Check the output of both S3 location
+# Check the output of both S3 location
 aws s3 ls s3://<S3 bucket>/<S3 folder>/<SID>/ --region <us-east-1>
 ```
 
@@ -691,7 +687,7 @@ When the AWS Backint agent is called by SAP HANA for backup and restore related 
 To display the backint version and the current AWS Backint agent version that it supports, run the `hdbbackint` command with the `–v` parameter from the install directory as the `<SID>adm` user as shown in the following example.
 
 ```
-/usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
+$ /usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
 ```
 
 For instance, running the preceding command on a system with `<SID>` as `HDB` returns the AWS Backint agent version as 1.05 as displayed in the image below.
@@ -699,7 +695,7 @@ For instance, running the preceding command on a system with `<SID>` as `HDB` re
 ![Image of the Backint agent version as 1.05.](images/get-currently-installed-backint-example.png)
 
 ```
-/usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
+$ /usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
 ```
 
 ## Update to the newest version or install a previous version of AWS Backint agent
@@ -732,15 +728,15 @@ _AWS GovCloud (US-West) previous version_ – `s3://awssap-backint-agent-us-gov-
 1. Based on your AWS Region, download the agent binary tar file into a temporary location from the relevant Amazon S3 location.
 
 ```
- cd /tmp
+$ cd /tmp
 ```
 
 ```
- mkdir agent_download && cd agent_download
+$ mkdir agent_download && cd agent_download
 ```
 
 ```
- aws s3 cp s3://awssap-backint-agent/binary/<agent-version>/aws-backint-agent.tar.gz aws-backint-agent.tar.gz --region <us-east-1>
+$ aws s3 cp s3://awssap-backint-agent/binary/<agent-version>/aws-backint-agent.tar.gz aws-backint-agent.tar.gz --region <us-east-1>
 ```
 
 The latest and previous versions of the installer can be found at the following S3 bucket locations.
@@ -771,34 +767,34 @@ The latest and previous versions of the installer can be found at the following 
 2. Extract the binary using the following command.
 
 ```
- tar -xf aws-backint-agent.tar.gz
+$ tar -xf aws-backint-agent.tar.gz
 ```
 
 3. Disable scheduled data and log backups, if not already disabled as prerequisite.
 4. Backup existing agent binary using the following command. This is to ensure that you have a backup if you need to revert the agent version.
 
 ```
- cp <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent. <mmddyy>
+$ cp <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent. <mmddyy>
 ```
 
 5. Copy the newly extracted agent binary using the following command.
 
 ```
- cp aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent
+$ cp aws-backint-agent <INSTALLATION_DIR>/aws-backint-agent/aws-backint-agent
 ```
 
 6. Change the ownership and mode with the following commands.
 
 ```
- cd <INSTALLATION_DIR>/aws-backint-agent
+$ cd <INSTALLATION_DIR>/aws-backint-agent
 ```
 
 ```
- chmod 770 aws-backint-agent
+$ chmod 770 aws-backint-agent
 ```
 
 ```
- chown <sid>adm:sapsys aws-backint-agent
+$ chown <sid>adm:sapsys aws-backint-agent
 ```
 
 7. Once the installation or update is complete, you can re-enable scheduled data backups and log backups.

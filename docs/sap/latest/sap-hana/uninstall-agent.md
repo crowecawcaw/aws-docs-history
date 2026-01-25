@@ -13,8 +13,8 @@ Use the following steps to uninstall AWS Backint agent.
 Reset the following parameters that are modified during agent installation, to default.
 
     1. `catalog_backup_parameter_file`
-    2. `data\_backup\_parameter\_file `
-    3. `log\_backup\_parameter\_file `
+    2. `data_backup_parameter_file`
+    3. `log_backup_parameter_file`
     4. `catalog_backup_using_backint` – Set to false
     5. `log_backup_using_backint` – Set to false
 

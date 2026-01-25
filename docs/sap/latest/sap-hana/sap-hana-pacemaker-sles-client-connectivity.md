@@ -12,7 +12,7 @@ For proper SAP HANA database connectivity:
 Test database connectivity using R3trans utility:
 
 ```
- sidadm> R3trans -d
+sidadm> R3trans -d
 ```
 
 Review additional connections to SAP HANA that require High Availability. While application connectivity should use the overlay IP, administrative tools (SAP HANA Studio, hdbsql commands, monitoring tools) require direct connectivity to individual SAP HANA instances.

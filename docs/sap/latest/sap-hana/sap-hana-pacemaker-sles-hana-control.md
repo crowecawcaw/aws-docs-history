@@ -17,7 +17,7 @@ Modify how SAP HANA services are managed to enable cluster takeover and operatio
 The pacemaker software creates a haclient operating system group. To ensure proper cluster access permissions, add the sidadm user to this group on all cluster nodes. Run the following command as root:
 
 ```
- # usermod -a -G haclient hdbadm
+# usermod -a -G haclient hdbadm
 ```
 
 ## Modify SAP Profile for HANA
@@ -27,7 +27,7 @@ To prevent automatic SAP HANA startup by the SAP start framework when an instanc
 As <sid>adm, edit the SAP HANA profile `<SID>_HDB<hana_sys_nr>_<hostname>` and modify or add the Autostart parameter, ensuring it is set to 0:
 
 ```
- Autostart = 0
+Autostart = 0
 ```
 
 ## Configure SAPHanaSR Cluster Hook for Optimized Cluster Response
@@ -44,13 +44,13 @@ SAPHanaSR
 Check the expected package is installed
 
 ```
- # rpm -qa SAPHanaSR
+# rpm -qa SAPHanaSR
 ```
 
 Review the man pages for more details.
 
 ```
- # man SAPHanaSR
+# man SAPHanaSR
 # man SAPHanaSR.py
 ```
 
@@ -58,13 +58,13 @@ SAPHanaSR-angi
 Check the expected package is installed
 
 ```
- # rpm -qa SAPHanaSR-angi
+# rpm -qa SAPHanaSR-angi
 ```
 
 Review the man pages for more details
 
 ```
- # man SAPHanaSR-angi
+# man SAPHanaSR-angi
 # man SAPHanaSR.py
 ```
 
@@ -77,7 +77,7 @@ Update the `global.ini` file located at `/hana/shared/<SID>/global/hdb/custom/co
 SAPHanaSR
 
 ```
- [ha_dr_provider_SAPHanaSR]
+[ha_dr_provider_SAPHanaSR]
 provider = SAPHanaSR
 path = /usr/share/SAPHanaSR
 execution_order = 1
@@ -93,7 +93,7 @@ Update the path if you have modified the package location.
 SAPHanaSR-angi
 
 ```
- [ha_dr_provider_sushanasr]
+[ha_dr_provider_sushanasr]
 provider = susHanaSR
 path = /usr/share/SAPHanaSR-angi
 execution_order = 1
@@ -115,7 +115,7 @@ The SAPHanaSR Python hook requires sudo privileges for the <sid>adm user to acce
 
 
     ```
-     Cmnd_Alias SITE_SOK = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_[a-zA-Z0-9_]* -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE_SOK = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_[a-zA-Z0-9_]* -v SOK -t crm_config -s SAPHanaSR
     Cmnd_Alias SITE_SFAIL = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_[a-zA-Z0-9_]* -v SFAIL -t crm_config -s SAPHanaSR
     Cmnd_Alias HOOK_HELPER  = /usr/sbin/SAPHanaSR-hookHelper --sid=<SID> --case=checkTakeover
     <sid>adm ALL=(ALL) NOPASSWD: SITE_SOK, SITE_SFAIL, HOOK_HELPER
@@ -126,7 +126,7 @@ The SAPHanaSR Python hook requires sudo privileges for the <sid>adm user to acce
 
 
     ```
-     Cmnd_Alias SITE_SOK = /usr/sbin/crm_attribute -n hana_hdb_site_srHook_[a-zA-Z0-9_]* -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE_SOK = /usr/sbin/crm_attribute -n hana_hdb_site_srHook_[a-zA-Z0-9_]* -v SOK -t crm_config -s SAPHanaSR
     Cmnd_Alias SITE_SFAIL = /usr/sbin/crm_attribute -n hana_hdb_site_srHook_[a-zA-Z0-9_]* -v SFAIL -t crm_config -s SAPHanaSR
     Cmnd_Alias HOOK_HELPER  = /usr/sbin/SAPHanaSR-hookHelper --sid=HDB --case=checkTakeover
     hdbadm ALL=(ALL) NOPASSWD: SITE_SOK, SITE_SFAIL, HOOK_HELPER
@@ -141,7 +141,7 @@ The SAPHanaSR Python hook requires sudo privileges for the <sid>adm user to acce
 As <sid>adm reload the changes to `global.ini` using either a HANA restart or the command:
 
 ```
- hdbadm> hdbnsutil -reconfig
+hdbadm> hdbnsutil -reconfig
 ```
 
 6. **Verify Hook Configuration**
@@ -149,7 +149,7 @@ As <sid>adm reload the changes to `global.ini` using either a HANA restart or th
 As <sid>adm, verify the hook is loaded:
 
 ```
- hdbadm> cdtrace
+hdbadm> cdtrace
 hdbadm> grep "loading HA/DR Provider" nameserver*
 ```
 
@@ -164,13 +164,13 @@ susTkOver.py prevents a manual takeover of the HANA primary if the SAP HANA mult
 For more details:
 
 ```
- # man susTkOver.py
+# man susTkOver.py
 ```
 
 In addition to the steps for the previous hook, add an additional entry in the global.ini on each node. It is necessary to restart Hana:
 
 ```
- [ha_dr_provider_susTkOver]
+[ha_dr_provider_susTkOver]
 provider = susTkOver
 path = /usr/share/SAPHanaSR
 execution_order = 2
@@ -189,7 +189,7 @@ In the default configuration, a failure of the SAP HANA IndexServer will result 
 As this hook can be configured using several different options. We suggest consulting the man page or SUSE documentation, and evaluating the best option for your setup.
 
 ```
- # man susChksrv.py
+# man susChksrv.py
 ```
 
 Test the scenario with a Production Sized system to assess whether the time to resume operations aligns with your non functional requirements.
@@ -209,7 +209,7 @@ For more information, see SAP Documentation: [SAP HANA Fast Restart Option](http
 Review SAP HANA version and systemd version to determine whether the prerequisites for systemd are available:
 
 ```
- sidadm> systemctl --version
+sidadm> systemctl --version
 ```
 
 ###### Operating System versions
@@ -228,19 +228,19 @@ See Note [3189534 - Linux: systemd integration for sapstartsrv and SAP HANA](htt
 Use the following command as root to find SAP systemd services:
 
 ```
- # systemctl list-unit-files | grep -i sap
+# systemctl list-unit-files | grep -i sap
 ```
 
 2. Create a pacemaker service drop-in file:
 
 ```
- # mkdir -p /etc/systemd/system/pacemaker.service.d/
+# mkdir -p /etc/systemd/system/pacemaker.service.d/
 ```
 
 3. Create the file /etc/systemd/system/pacemaker.service.d/50-saphana.conf with the following content:
 
 ```
- [Unit]
+[Unit]
 Description=pacemaker needs SAP instance service
 Documentation=man:SAPHanaSR_basic_cluster(7)
 Wants=SAP<SID>_<hana_sys_nr>.service
@@ -250,13 +250,13 @@ After=SAP<SID>_<hana_sys_nr>.service
 4. Enable the drop-in file by reloading systemd:
 
 ```
- # systemctl daemon-reload
+# systemctl daemon-reload
 ```
 
 5. Verify that the change is active:
 
 ```
- # systemctl show pacemaker.service | grep SAP<SID>_<hana_sys_nr>
+# systemctl show pacemaker.service | grep SAP<SID>_<hana_sys_nr>
 ```
 
 For example, for SID HDB and instance number 00, the following output is expected:

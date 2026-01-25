@@ -33,13 +33,13 @@ The cluster setup uses parameters, including SID and System Number that are uniq
 - Run the following command on your instances to retrieve the hostname:
 
 ```
- $ hostname
+$ hostname
 ```
 
 - Amazon EC2 instance ID – run the following command (IMDSv2 compatible) on your instances to retrieve instance metadata:
 
 ```
- $ /usr/bin/curl --noproxy '*' -w "\n" -s -H "X-aws-ec2-metadata-token: $(curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")" http://169.254.169.254/latest/meta-data/instance-id
+$ /usr/bin/curl --noproxy '*' -w "\n" -s -H "X-aws-ec2-metadata-token: $(curl --noproxy '*' -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")" http://169.254.169.254/latest/meta-data/instance-id
 ```
 
 For more details, see [Retrieve instance metadata](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md") and [Instance identity documents](../../../AWSEC2/latest/UserGuide/instance-identity-documents.md "../../../AWSEC2/latest/UserGuide/instance-identity-documents.md").
@@ -69,7 +69,7 @@ For more details, see [Retrieve instance metadata](../../../AWSEC2/latest/UserGu
 - Post-installation, use the following command to find the details of the instances running on a host:
 
 ```
- $ sudo /usr/sap/hostctrl/exe/saphostctrl -function ListInstances
+$ sudo /usr/sap/hostctrl/exe/saphostctrl -function ListInstances
 ```
 
 - Overlay IP – This value is defined by you. For more information, see [Overlay IP](sap-hana-pacemaker-rhel-concepts.md#overlay-ip-rhel "sap-hana-pacemaker-rhel-concepts.md#overlay-ip-rhel").

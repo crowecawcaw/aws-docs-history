@@ -6,7 +6,7 @@ This section provides information about setting up and using to backup and resto
 
 - [Prerequisites](#backint-backup-prerequisites "#backint-backup-prerequisites")
 - [Install and configure AWS Backint Agent for SAP HANA](#backint-backup-install "#backint-backup-install")
-- [Backup and restore your SAP HANA system with the](#backint-backup-restore "#backint-backup-restore")
+- [Backup and restore your SAP HANA system with AWS Backup](#backint-backup-restore "#backint-backup-restore")
 
 ## Prerequisites
 
@@ -69,8 +69,8 @@ To make the switch from Amazon S3 to AWS Backup, you must reinstall with Systems
 
 Once the switch-over is complete, setup AWS Systems Manager for SAP for an automated backup solution. For more information, see [Get started with AWS Systems Manager for SAP](../../../ssm-sap/latest/userguide/get-started.md "../../../ssm-sap/latest/userguide/get-started.md").
 
-You can now create a backup plan or perform on-demand backups. For more information, see [Backup Operations in the AWS Backup console](../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole "../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole").
+## Backup and restore your SAP HANA system with AWS Backup
 
-## Backup and restore your SAP HANA system with the
+You can now create a backup plan or perform on-demand backups. For more information, see [Backup Operations in the AWS Backup console](../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole "../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole").
 
 For details about backup and restore of your SAP HANA databases on AWS Backup, see [SAP HANA databases on Amazon EC2 instances backup](../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole "../../../aws-backup/latest/devguide/backup-saphana.md#saphanabackupconsole").

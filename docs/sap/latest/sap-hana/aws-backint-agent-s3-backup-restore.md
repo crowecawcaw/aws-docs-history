@@ -1,4 +1,4 @@
-# Back up and restore your SAP HANA system with the AWS Backint Agent for SAP HANA
+# Backup and restore your SAP HANA system with the AWS Backint Agent for SAP HANA
 
 When the AWS Backint agent is installed and configured on your Amazon EC2 instance, you can initiate backup and recovery using SQL statements, SAP HANA Cockpit, or SAP HANA Studio.
 
@@ -62,7 +62,7 @@ With AWS Backint agent, you can perform system copies by restoring a backup of t
 1. You must have AWS Backint agent configured in both the source and target systems.
 2. Check the compatibility of the SAP HANA software version of the source and target systems.
 3. The AWS Backint agent in your target system should be able to access the Amazon S3 bucket where the backups of the source system are stored. If you use a different Amazon S3 bucket for backups in the source and target systems, you have to adjust the configuration parameters of the AWS Backint agent in the target system to temporarily point to the Amazon S3 bucket where the backups are stored in the source system.
-4. If you are performing a system copy across two different AWS accounts, ensure that you have the appropriate IAM permissions and Amazon S3 bucket policies in place. See the [Identity and Access Management](aws-backint-agent-amazon-s3.md#aws-backint-agent-iam "aws-backint-agent-amazon-s3.md#aws-backint-agent-iam") section in this document for details.
+4. If you are performing a system copy across two different AWS accounts, ensure that you have the appropriate IAM permissions and Amazon S3 bucket policies in place. See the [Identity and Access Management](aws-backint-agent-s3-prerequisites.md#aws-backint-agent-iam "aws-backint-agent-s3-prerequisites.md#aws-backint-agent-iam") section in this document for details.
 
 The following is the syntax to restore a specific backup of the source tenant database into your target tenant database.
 

@@ -20,13 +20,13 @@ To ensure that the cluster does not perform any unexpected actions during setup 
 Run the following command to put the cluster in maintenance mode:
 
 ```
- # pcs property set maintenance-mode=true
+# pcs property set maintenance-mode=true
 ```
 
 To verify the current maintenance state:
 
 ```
- $ pcs status
+$ pcs status
 ```
 
 ###### Note
@@ -40,7 +40,7 @@ There are two types of maintenance mode:
 To disable maintenance mode after configuration is complete:
 
 ```
- # pcs property set maintenance-mode=false
+# pcs property set maintenance-mode=false
 ```
 
 ## Cluster Bootstrap
@@ -50,7 +50,7 @@ To disable maintenance mode after configuration is complete:
 Configure cluster properties to establish fencing behavior and resource failover settings:
 
 ```
- # pcs property set stonith-enabled="true"
+# pcs property set stonith-enabled="true"
 # pcs property set stonith-timeout="600"
 # pcs property set priority-fencing-delay="20"
 ```
@@ -60,7 +60,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 To verify your cluster property settings:
 
 ```
- # pcs property list
+# pcs property list
 # pcs property config <property_name>
 ```
 
@@ -71,14 +71,14 @@ Configure resource default behaviors:
 RHEL 8.4 and above
 
 ```
- # pcs resource defaults update resource-stickiness="1000"
+# pcs resource defaults update resource-stickiness="1000"
 # pcs resource defaults update migration-threshold="5000"
 ```
 
 RHEL 7.x and RHEL 8.0 to 8.3
 
 ```
- # pcs resource defaults resource-stickiness="1000"
+# pcs resource defaults resource-stickiness="1000"
 # pcs resource defaults migration-threshold="5000"
 ```
 
@@ -92,7 +92,7 @@ To verify your resource default settings:
 ### Configure Operation Defaults
 
 ```
- # pcs resource op defaults update timeout="600"
+# pcs resource op defaults update timeout="600"
 ```
 
 The op_defaults timeout ensures all cluster operations have a reasonable default timeout of 600 seconds when resource-specific timeouts are not defined. Defaults do not apply to resources which override them with their own defined values
@@ -104,7 +104,7 @@ An AWS STONITH resource is required for proper cluster fencing operations. The `
 Create the STONITH resource using resource agent **`fence_aws`**:
 
 ```
- # pcs stonith create <stonith_resource_name> fence_aws \
+# pcs stonith create <stonith_resource_name> fence_aws \
 pcmk_host_map="<hostname_1>:<instance_id_1>;<hostname_2>:<instance_id_2>" \
 region="<aws_region>" \
 skip_os_shutdown="true" \
@@ -129,7 +129,7 @@ Details:
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs stonith create rsc_fence_aws fence_aws \
+# pcs stonith create rsc_fence_aws fence_aws \
 pcmk_host_map="hanahost01:i-xxxxinstidforhost1;hanahost02:i-xxxxinstidforhost2" \
 region="us-east-1" \
 skip_os_shutdown="true" \
@@ -146,7 +146,7 @@ op monitor interval="300" timeout="60"
 When configuring the STONITH resource, consider your instance’s startup and shutdown times. The default pcmk_reboot_action is 'reboot', where the cluster waits for both stop and start actions to complete before considering the fencing action successful. This allows the cluster to return to a protected state. Setting `pcmk_reboot_action=off` allows the cluster to proceed immediately after shutdown. For High Memory Metal instances, only 'off' is recommended due to the extended time to initialize memory during startup.
 
 ```
- # pcs resource update <stonith_resource_name> pcmk_reboot_action="off"
+# pcs resource update <stonith_resource_name> pcmk_reboot_action="off"
 # pcs resource update <stonith_resource_name> pcmk_off_timeout="600"
 # pcs resource update <stonith_resource_name> pcmk_off_retries="4"
 ```
@@ -158,7 +158,7 @@ This resource ensures client connections follow the SAP HANA primary instance du
 Create the IP resource:
 
 ```
- # pcs resource create rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
+# pcs resource create rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 ip="<hana_overlayip>" \
 routing_table="<routetable_id>" \
 interface="eth0" \
@@ -177,7 +177,7 @@ Details:
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
+# pcs resource create rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
 ip="172.16.52.1" \
 routing_table="rtb-xxxxxroutetable1" \
 interface="eth0" \
@@ -192,7 +192,7 @@ op monitor interval="60" timeout="60"
 Only if you are using `logreplay_readenabled` and require that your secondary is accessible via overlay IP. You can create an additional IP resource.
 
 ```
- # pcs resource create primitive rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled ocf:heartbeat:aws-vpc-move-ip \
+# pcs resource create primitive rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled ocf:heartbeat:aws-vpc-move-ip \
 ip="<readenabled_overlayip>" \
 routing_table="<routetable_id>" \
 interface="eth0" \
@@ -205,7 +205,7 @@ op monitor interval="60" timeout="60"
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
 params ip="172.16.52.2" \
 routing_table="rtb-xxxxxroutetable1" \
 interface="eth0" \
@@ -220,7 +220,7 @@ op monitor interval="60" timeout="60"
 If your configuration requires a shared vpc, two additional parameters are required.
 
 ```
- # pcs resource create primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
+# pcs resource create primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 ip="<hana_overlayip>" routing_table=<routetable_id> interface=eth0 \
 profile="<cli_cluster_profile>" lookup_type=NetworkInterfaceId \
 routing_table_role="arn:aws:iam::<sharing_vpc_account_id>:role/<sharing_vpc_account_cluster_role>" \
@@ -243,14 +243,14 @@ For both scale-up and scale-out deployments
 For documentation on the resource you can review the man page.
 
 ```
- # man ocf_heartbeat_SAPHanaTopology
+# man ocf_heartbeat_SAPHanaTopology
 ```
 
 For scale-up (2-node)
 For the primitive and clone:
 
 ```
- # pcs resource create rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaTopology \
+# pcs resource create rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaTopology \
 SID="<SID>" InstanceNumber="<hana_sys_nr>" \
 op start interval="0" timeout="600" \
 op stop interval="0" timeout="300" \
@@ -261,7 +261,7 @@ clone clone-node-max="1" interleave="true" clone-max="2"
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_SAPHanaTopology_HDB_HDB00 ocf:heartbeat:SAPHanaTopology \
+# pcs resource create rsc_SAPHanaTopology_HDB_HDB00 ocf:heartbeat:SAPHanaTopology \
 SID="HDB" \
 InstanceNumber="00" \
 op start interval="0" timeout="600" \
@@ -274,7 +274,7 @@ For scale-out
 For the primitive and clone:
 
 ```
- # pcs resource create rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaTopology \
+# pcs resource create rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaTopology \
 SID="<SID>" InstanceNumber="<hana_sys_nr>" \
 op start interval="0" timeout="600" \
 op stop interval="0" timeout="300" \
@@ -285,7 +285,7 @@ clone clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_SAPHanaTopology_HDB_HDB00 ocf:heartbeat:SAPHanaTopology \
+# pcs resource create rsc_SAPHanaTopology_HDB_HDB00 ocf:heartbeat:SAPHanaTopology \
 SID="HDB" InstanceNumber="00" \
 op start interval="0" timeout="600" \
 op stop interval="0" timeout="300" \
@@ -315,14 +315,14 @@ The SAPHanaController resource agent with next generation system replication arc
 For documentation on the resource you can review the man page.
 
 ```
- # man ocf_heartbeat_SAPHanaController
+# man ocf_heartbeat_SAPHanaController
 ```
 
 For scale-up (2-node)
 Create the primitive
 
 ```
- # pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
+# pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
 SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -340,7 +340,7 @@ meta priority="100"
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_SAPHanaController_HDB_HDB00 ocf:heartbeat:SAPHanaController \
+# pcs resource create rsc_SAPHanaController_HDB_HDB00 ocf:heartbeat:SAPHanaController \
 SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -359,7 +359,7 @@ For scale-out
 Create the primitive using the SAPHanaController Resource Agent:
 
 ```
- # pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
+# pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
 SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -376,7 +376,7 @@ promotable notify="true" clone-node-max="1" interleave="true" clone-max="<number
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
+# pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
 params SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -415,14 +415,14 @@ Details:
 For classic scale-up deployments, the SAPHana resource agent manages takeover between two SAP HANA databases. For detailed information:
 
 ```
- # man ocf_heartbeat_SAPHana
+# man ocf_heartbeat_SAPHana
 ```
 
 For scale-up (2-node)
 Create the primitive using the SAPHana Resource Agent
 
 ```
- # pcs resource create rsc_SAPHana_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHana \
+# pcs resource create rsc_SAPHana_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHana \
 SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -440,7 +440,7 @@ meta priority="100"
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_SAPHana_HDB_HDB00 ocf:heartbeat:SAPHana \
+# pcs resource create rsc_SAPHana_HDB_HDB00 ocf:heartbeat:SAPHana \
 SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -459,7 +459,7 @@ For scale-out
 Create the primitive using the SAPHanaController Resource Agent:
 
 ```
- # pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
+# pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
 SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -476,7 +476,7 @@ promotable notify="true" clone-node-max="1" interleave="true" clone-max="<number
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :
 
 ```
- # pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
+# pcs resource create rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:heartbeat:SAPHanaController \
 params SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -519,13 +519,13 @@ The following constraints are required.
 This constraint defines the start order between the SAPHanaTopology and SAPHana resources:
 
 ```
- # pcs constraint order <SAPHanaTopology-clone> <SAPHana/SAPHanaController-clone> symmetrical=false
+# pcs constraint order <SAPHanaTopology-clone> <SAPHana/SAPHanaController-clone> symmetrical=false
 ```
 
 - _Example_ :
 
 ```
- # pcs constraint order start rsc_SAPHanaTopology_HDB_HDB00-clone then rsc_SAPHana_HDB_HDB00-clone symmetrical=false
+# pcs constraint order start rsc_SAPHanaTopology_HDB_HDB00-clone then rsc_SAPHana_HDB_HDB00-clone symmetrical=false
 ```
 
 ### Colocation Constraint
@@ -535,13 +535,13 @@ This constraint defines the start order between the SAPHanaTopology and SAPHana 
 This constraint ensures that the IP resource which determines the target of the overlay IP runs on the node which has the primary SAP Hana role:
 
 ```
- # pcs constraint colocation add <ip_resource> with promoted <SAPHana/SAPHanaController-clone> 2000
+# pcs constraint colocation add <ip_resource> with promoted <SAPHana/SAPHanaController-clone> 2000
 ```
 
 - _Example_ :
 
 ```
- # pcs constraint colocation add rsc_ip_HDB_HDB00 with promoted rsc_SAPHana_HDB_HDB00-clone 2000
+# pcs constraint colocation add rsc_ip_HDB_HDB00 with promoted rsc_SAPHana_HDB_HDB00-clone 2000
 ```
 
 #### ReadOnly IP with Secondary (Only for ReadOnly Patterns)
@@ -549,13 +549,13 @@ This constraint ensures that the IP resource which determines the target of the 
 This constraint ensures that the read-enabled IP resource runs on the secondary (Unpromoted) node. When the secondary node is unavailable, the IP will move to the primary node, where read workloads will share capacity with primary workloads:
 
 ```
- # pcs constraint colocation add <ip_resource> with unpromoted <SAPHana/SAPHanaController-clone> 2000
+# pcs constraint colocation add <ip_resource> with unpromoted <SAPHana/SAPHanaController-clone> 2000
 ```
 
 - _Example_ :
 
 ```
- # pcs constraint colocation add rsc_ip_HDB_HDB00_readenabled  with unpromoted rsc_SAPHana_HDB_HDB00-clone 2000
+# pcs constraint colocation add rsc_ip_HDB_HDB00_readenabled  with unpromoted rsc_SAPHana_HDB_HDB00-clone 2000
 ```
 
 ### Location Constraint
@@ -565,7 +565,7 @@ This constraint ensures that the read-enabled IP resource runs on the secondary 
 This location constraint ensures that SAP HANA Resources avoid the Majority Maker, which is not suited to running them.
 
 ```
- # pcs constraint location <SAPHanaTopology-clone> avoids <hostname_mm>
+# pcs constraint location <SAPHanaTopology-clone> avoids <hostname_mm>
 # pcs constraint location <SAPHana/SAPHanaController-clone> avoids <hostname_mm>
 ```
 
@@ -576,7 +576,7 @@ Use `pcs config show` to review that all the values have been entered correctly.
 On confirmation of correct values, set the maintenance mode to false using the following command. This allows the cluster to take control of the resources:
 
 ```
- # pcs property set maintenance-mode=false
+# pcs property set maintenance-mode=false
 ```
 
 ## Reset Configuration – Optional
@@ -588,14 +588,14 @@ The following instructions help you reset the complete configuration. Run these 
 Run the following command to back up the current configuration for reference:
 
 ```
- # pcs config backup /tmp/cluster_backup_$(date +%Y%m%d)
+# pcs config backup /tmp/cluster_backup_$(date +%Y%m%d)
 # pcs config show > /tmp/config_backup_$(date +%Y%m%d).txt
 ```
 
 Run the following command to stop and clear the current configuration
 
 ```
- # pcs cluster stop --all
+# pcs cluster stop --all
 hanahost02: Stopping Cluster (pacemaker)...
 hanahost01: Stopping Cluster (pacemaker)...
 hanahost02: Stopping Cluster (corosync)...

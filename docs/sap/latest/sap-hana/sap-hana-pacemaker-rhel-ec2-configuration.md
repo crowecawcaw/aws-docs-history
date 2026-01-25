@@ -42,7 +42,7 @@ The security group rules created in the AWS
 You can verify the security group rules on your instances using the AWS CLI:
 
 ```
- $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute groupSet
+$ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute groupSet
 ```
 
 ## Assign Secondary IP Addresses
@@ -54,7 +54,7 @@ These IPs are only used in cluster configurations. The secondary IPs provide the
 You can verify the secondary IP configuration on your instances using the AWS CLI:
 
 ```
- $ aws ec2 describe-instances --instance-id <instance_id> \
+$ aws ec2 describe-instances --instance-id <instance_id> \
     --query 'Reservations[*].Instances[*].NetworkInterfaces[*].PrivateIpAddresses[*].PrivateIpAddress' \
     --output text
 ```
@@ -83,7 +83,7 @@ AWS CLI
 To modify using the AWS CLI (requires appropriate configuration permissions):
 
 ```
- $ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-source-dest-check
+$ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-source-dest-check
 ```
 
 Repeat for all nodes in the cluster.
@@ -91,13 +91,13 @@ Repeat for all nodes in the cluster.
 To confirm the value of an attribute for a particular instance, use the following command. The value `false` means source/destination checking is disabled
 
 ```
- $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute sourceDestCheck
+$ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute sourceDestCheck
 ```
 
 The output
 
 ```
- {
+{
     "InstanceId": "i-xxxxinstidforhost1",
     "SourceDestCheck": {
         "Value": false
@@ -123,7 +123,7 @@ AWS CLI
 To modify using the AWS CLI (requires appropriate configuration permissions):
 
 ```
- $ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-disable-api-stop
+$ aws ec2 modify-instance-attribute --instance-id <instance_id> --no-disable-api-stop
 ```
 
 Repeat this command for all nodes in the cluster.
@@ -131,13 +131,13 @@ Repeat this command for all nodes in the cluster.
 To confirm the value of an attribute for a particular instance, use the following command. The value `false` means it is possible to stop the instance using an AWS CLI.
 
 ```
- $ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute disableApiStop
+$ aws ec2 describe-instance-attribute --instance-id <instance_id> --attribute disableApiStop
 ```
 
 The output
 
 ```
- {
+{
     "InstanceId": "i-xxxxinstidforhost1",
     "DisableApiStop": {
         "Value": false
@@ -163,7 +163,7 @@ AWS CLI
 To modify auto-recovery settings (requires appropriate configuration permissions):
 
 ```
- $ aws ec2 modify-instance-maintenance-options --instance-id <instance_id> --auto-recovery disabled
+$ aws ec2 modify-instance-maintenance-options --instance-id <instance_id> --auto-recovery disabled
 ```
 
 Repeat this command for all nodes in the cluster.
@@ -171,13 +171,13 @@ Repeat this command for all nodes in the cluster.
 To confirm the value of an attribute for a particular instance, use the following command. The value `disabled` means autorecovery will not be attempted.
 
 ```
- $ aws ec2 describe-instances --instance-ids <instance_id> --query 'Reservations[*].Instances[*].MaintenanceOptions.AutoRecovery'
+$ aws ec2 describe-instances --instance-ids <instance_id> --query 'Reservations[*].Instances[*].MaintenanceOptions.AutoRecovery'
 ```
 
 The output:
 
 ```
- [
+[
     [
         "disabled"
     ]

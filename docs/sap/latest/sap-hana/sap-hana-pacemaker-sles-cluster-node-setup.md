@@ -28,7 +28,7 @@ The majority maker requires a minimum EC2 instance configuration of 2 vCPUs, 2 G
 On all cluster nodes, change the password of the operating system user hacluster:
 
 ```
- # passwd hacluster
+# passwd hacluster
 ```
 
 ## Setup Passwordless Authentication
@@ -48,13 +48,13 @@ Initialize the cluster framework on the first node, including all known cluster 
 On the primary node as root, run:
 
 ```
- # crm cluster init -u -n <cluster_name> -N <hostname_1> -N <hostname_2>
+# crm cluster init -u -n <cluster_name> -N <hostname_1> -N <hostname_2>
 ```
 
 _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_:
 
 ```
- hanahost01:~ # crm cluster init -u -n myCluster -N hanahost01 -N hanahost02
+hanahost01:~ # crm cluster init -u -n myCluster -N hanahost01 -N hanahost02
 INFO: Detected "amazon-web-services" platform
 INFO: Loading "default" profile from /etc/crm/profiles.yml
 INFO: Configure Corosync (unicast):
@@ -91,7 +91,7 @@ This command:
 - For clusters with more than two nodes, additional nodes can be added either during initialization with additional `-N <hostname_3>` parameters, or later using the following command on each new node:
 
 ```
- # crm cluster join -c <hostname_1>
+# crm cluster join -c <hostname_1>
 ```
 
 ## Modify Generated Corosync Configuration
@@ -101,13 +101,13 @@ After initializing the cluster, the generated corosync configuration requires so
 **1. Edit the corosync configuration:**
 
 ```
- # vi /etc/corosync/corosync.conf
+# vi /etc/corosync/corosync.conf
 ```
 
 The generated file typically looks like this:
 
 ```
- # Please read the corosync.conf.5 manual page
+# Please read the corosync.conf.5 manual page
 totem {
         version: 2
         cluster_name: myCluster
@@ -176,7 +176,7 @@ totem {
 **2. Modify the configuration to add the second ring and optimize settings:**
 
 ```
- totem {
+totem {
     token: 15000           # Changed from 5000 to 15000
     rrp_mode: passive      # Added for dual ring support
 }
@@ -205,13 +205,13 @@ _Example IP configuration:_
 **3. Synchronize the modified configuration to all nodes:**
 
 ```
- # csync2 -f /etc/corosync/corosync.conf
+# csync2 -f /etc/corosync/corosync.conf
 ```
 
 **4. Restart the cluster**
 
 ```
- # crm cluster restart --all
+# crm cluster restart --all
 ```
 
 ## Verify Corosync Configuration
@@ -219,13 +219,13 @@ _Example IP configuration:_
 Verify network rings are active:
 
 ```
- # corosync-cfgtool -s
+# corosync-cfgtool -s
 ```
 
 _Example output_:
 
 ```
- Printing ring status.
+Printing ring status.
 Local node ID 1
 RING ID 0
         id      = 10.2.10.1
@@ -242,7 +242,7 @@ Both network rings should report "active with no faults". If either ring is miss
 Enable pacemaker to start automatically after reboot:
 
 ```
- # systemctl enable pacemaker
+# systemctl enable pacemaker
 ```
 
 Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead.
@@ -252,19 +252,19 @@ Enabling pacemaker also handles corosync through service dependencies. The clust
 **1. Check pacemaker service status:**
 
 ```
- # systemctl status pacemaker
+# systemctl status pacemaker
 ```
 
 **2. Verify cluster status:**
 
 ```
- # crm_mon -1
+# crm_mon -1
 ```
 
 _Example output_:
 
 ```
- Cluster Summary:
+Cluster Summary:
   * Stack: corosync
   * Current DC: hanahost01 (version 2.1.5+20221208.a3f44794f) - partition with quorum
   * 2 nodes configured

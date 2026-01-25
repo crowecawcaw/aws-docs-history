@@ -67,7 +67,7 @@ Suggested Storage Configuration:
 
 ### 768 GiB Memory Systems
 
-Applicable Instance Types: **r8i.24xlarge**, **r7i.24xlarge**, **r6i.24xlarge**, **r5.24xlarge**, **r5.metal**, **r5b.24xlarge**, **r5b.metal**
+Applicable Instance Types: **r8i.24xlarge**, **r7i.24xlarge**, **r6i.24xlarge**, **r5.24xlarge**, **r5.metal**, **r5b.24xlarge**, **r5b.metal**, **x8i.12xlarge**
 
 Suggested Storage Configuration:
 
@@ -82,7 +82,7 @@ Suggested Storage Configuration:
 
 ### 976 GiB / 1024 GiB Memory Systems
 
-Applicable Instance Types: **x2idn.16xlarge**, **r6i.32xlarge**, **x1.16xlarge1**
+Applicable Instance Types: **x2idn.16xlarge**, **r6i.32xlarge**, **x1.16xlarge1**, **x8i.16xlarge**
 
 Suggested Storage Configuration:
 
@@ -99,7 +99,7 @@ Suggested Storage Configuration:
 
 ### 1,536 GiB Memory Systems
 
-Applicable Instance Types: **r8i.48xlarge**, **x2idn.24xlarge**, **r7i.48xlarge**
+Applicable Instance Types: **r8i.48xlarge**, **x2idn.24xlarge**, **r7i.48xlarge**, **x8i.24xlarge**
 
 Suggested Storage Configuration:
 
@@ -114,7 +114,7 @@ Suggested Storage Configuration:
 
 ### 2 TiB Memory Systems
 
-Applicable Instance Types: **x2idn.32xlarge**, **x1.32xlarge**
+Applicable Instance Types: **x2idn.32xlarge**, **x1.32xlarge**, **x8i.32xlarge**
 
 Suggested Storage Configuration:
 
@@ -137,7 +137,7 @@ Memory sizes: [3 TiB](#mem-3tb "#mem-3tb"), [4 TiB](#mem-4tb "#mem-4tb"), [6 TiB
 
 ### 3 TiB Memory Systems
 
-Applicable Instance Types: **r8i.96xlarge**, **x2iedn.24xlarge**, **u-3tb1.56xlarge**
+Applicable Instance Types: **r8i.96xlarge**, **x2iedn.24xlarge**, , **x8i.48xlarge**, **u-3tb1.56xlarge**
 
 Suggested Storage Configuration:
 
@@ -152,7 +152,7 @@ Suggested Storage Configuration:
 
 ### 4 TiB Memory Systems
 
-Applicable Instance Types: **x2iedn.32xlarge**, **x1e.32xlarge**
+Applicable Instance Types: **x2iedn.32xlarge**, **x1e.32xlarge**, **x8i.64xlarge**
 
 Suggested Storage Configuration:
 
@@ -167,7 +167,7 @@ Suggested Storage Configuration:
 
 ### 6 TiB Memory Systems
 
-Applicable Instance Types: **u-6tb1.112xlarge**, **u-6tb1.56xlarge**, **u-6tb1.metal**, **u7i-6tb.112xlarge**
+Applicable Instance Types: , **x8i.96xlarge**, **u-6tb1.112xlarge**, **u-6tb1.56xlarge**, **u-6tb1.metal**, **u7i-6tb.112xlarge**
 
 Suggested Storage Configuration:
 

@@ -40,7 +40,6 @@ We recommend creating separate FSx for ONTAP volumes for each of SAP HANA data, 
 
 The following limitations apply when you create a FSx for ONTAP file system for SAP HANA.
 
-- _Storage Efficiency_ is not supported for SAP HANA and must be **disabled**.
 - _Capacity Pool Tiering_ is not supported for SAP HANA and must be set to **None**.
 - _Daily automatic backups_ must be **disabled** for SAP HANA. Default FSx for ONTAP backups are not application-aware and cannot be used to restore SAP HANA to a consistent state.
 
@@ -50,16 +49,16 @@ You can use the formulas in the following table to create estimates for SAP HANA
 
 Note: Amazon EC2 root volumes used as boot volumes for the operating system always need to be based on Amazon EBS. For example, `gp3` – using an EBS-based SAP HANA log volume with FSx for ONTAP is supported.
 
-| Volume ID          | Type                                                         | Minimum volume size                                            | Additional space for local snapshots                 | Storage efficiency | % space required on SSD                        |
-| ------------------ | ------------------------------------------------------------ | -------------------------------------------------------------- | ---------------------------------------------------- | ------------------ | ---------------------------------------------- |
-| HANA data          | FSxN #1<br>• Single-AZ1<br>• 1024 MB/s (\*)                  | 1.2 x RAM                                                      | DB Size x SNAPSHOTS-KEPT-AT-PRIMARY x CHANGE-RATE-DB | Must be disabled   | 100%                                           |
-| HANA log           | IF(RAM ⇐ 512; RAM/2; 512)                                    | N/A                                                            | Must be disabled                                     | 100%               |
-| HANA shared        | MIN(RAM; 1024) x 50%                                         | Volume Size x SNAPSHOTS-KEPT-AT-PRIMARY x CHANGE-RATE-BINARIES | Enabled, assume ~50%                                 | 100%               |
-| APPSRV bin         | 100 GB x 50%                                                 | Volume Size x SNAPSHOTS-KEPT-AT-PRIMARY x CHANGE-RATE-BINARIES | Enabled, assume ~50%                                 | 100%               |
-| Backup HANA log    | FSxN #2<br>• Multi-AZ1+2<br>• 512 MB/s (\*\*)                | DB Size x LOG-RATE x RETENTION x % SSD                         | N/A                                                  | Optional           | MIN(SNAPSHOTS-KEPT-AT-PRIMARY / RETENTION; 5%) |
-| Backup HANA data   | FSxN #3<br>• Single-AZ3<br>• 512 MB/s                        | DB Size x (1 + RETENTION x CHANGE-RATE-DB) x % SSD             | N/A                                                  | Optional           | ~5%                                            |
-| Backup HANA shared | Volume Size x (1 + RETENTION x CHANGE-RATE-BINARIES) x % SSD | N/A                                                            | Enabled, assume ~50%                                 | ~5%                |
-| Backup APPSRV bin  | Volume Size x (1 + RETENTION x CHANGE-RATE-BINARIES) x % SSD | N/A                                                            | Enabled, assume ~50%                                 | ~5%                |
+| Volume ID          | Type                                                         | Minimum volume size                                            | Additional space for local snapshots                                | Storage efficiency                                                  | % space required on SSD                        |
+| ------------------ | ------------------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------- |
+| HANA data          | FSxN #1<br>• Single-AZ1<br>• 1024 MB/s (\*)                  | 1.2 x RAM                                                      | DB Size x SNAPSHOTS-KEPT-AT-PRIMARY x CHANGE-RATE-DB                | Enabled; expect ~30% savings without encryption, 0% with encryption | 100%                                           |
+| HANA log           | IF(RAM ⇐ 512; RAM/2; 512)                                    | N/A                                                            | Enabled; expect ~30% savings without encryption, 0% with encryption | 100%                                                                |
+| HANA shared        | MIN(RAM; 1024) x 50%                                         | Volume Size x SNAPSHOTS-KEPT-AT-PRIMARY x CHANGE-RATE-BINARIES | Enabled, assume ~50%                                                | 100%                                                                |
+| APPSRV bin         | 100 GB x 50%                                                 | Volume Size x SNAPSHOTS-KEPT-AT-PRIMARY x CHANGE-RATE-BINARIES | Enabled, assume ~50%                                                | 100%                                                                |
+| Backup HANA log    | FSxN #2<br>• Multi-AZ1+2<br>• 512 MB/s (\*\*)                | DB Size x LOG-RATE x RETENTION x % SSD                         | N/A                                                                 | Optional                                                            | MIN(SNAPSHOTS-KEPT-AT-PRIMARY / RETENTION; 5%) |
+| Backup HANA data   | FSxN #3<br>• Single-AZ3<br>• 512 MB/s                        | DB Size x (1 + RETENTION x CHANGE-RATE-DB) x % SSD             | N/A                                                                 | Optional                                                            | ~5%                                            |
+| Backup HANA shared | Volume Size x (1 + RETENTION x CHANGE-RATE-BINARIES) x % SSD | N/A                                                            | Enabled, assume ~50%                                                | ~5%                                                                 |
+| Backup APPSRV bin  | Volume Size x (1 + RETENTION x CHANGE-RATE-BINARIES) x % SSD | N/A                                                            | Enabled, assume ~50%                                                | ~5%                                                                 |
 
 ###### Note
 
@@ -130,7 +129,7 @@ The administrative password enables you to access the file system via SSH, the O
 Get the DNS name of the management endpoint from AWS console. Sign in to the management endpoint via SSH, using the `fsxadmin` user and administrative password.
 
 ```
- ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password:
+ssh fsxadmin@management.<file-system-id>.fsx.<aws-region>.amazonaws.com Password:
 ```
 
 ### Set TCP max transfer size
@@ -138,7 +137,7 @@ Get the DNS name of the management endpoint from AWS console. Sign in to the man
 We recommend a TCP max transfer size of 262,144 for your SAP HANA workloads. Elevate the privilege level to _advanced_ and use the following command on each SVM.
 
 ```
- set advanced
+set advanced
 nfs modify -vserver <svm> -tcp-max-xfer-size 262144
 set admin
 ```
@@ -152,7 +151,7 @@ Lease period refers to the time in which ONTAP irrevocably grants a lock to a cl
 You can change the lease time with the following command.
 
 ```
- set advanced
+set advanced
 nfs modify -vserver <svm> -v4-lease-seconds 10
 set admin
 ```
@@ -166,7 +165,7 @@ Starting with SAP HANA 2.0 SPS4, SAP provides parameters to control failover beh
 FSx for ONTAP automatically enables a snapshot policy for volumes that take hourly snapshots. The default policy offers limited value to SAP HANA due to missing application awareness. We recommend disabling the automatic snapshots by setting the policy to none. You can disable snapshots during volume creation or by using the following command.
 
 ```
- volume modify -vserver <vserver-name> -volume <volume-name> -snapshot-policy none
+volume modify -vserver <vserver-name> -volume <volume-name> -snapshot-policy none
 ```
 
 ### Data volume
@@ -190,7 +189,7 @@ QoS is configured by creating a QoS policy group, setting ceiling or floor perfo
 You are creating a test system, based on a snapshot from production, on the same file system as your production SAP HANA database. You want to ensure that the test system does not impact the performance of the production system. You create a QoS policy group (`qos-test`) and define an upper limit of 200 MB/s for data and log volumes (`vol-data` and `vol-log`), which share the same SVM (`svm-test`).
 
 ```
-  Create QoS policy group
+ Create QoS policy group
 qos policy-group create -policy-group qos-test -vserver svm-test -is-shared false -max-throughput 200MBs
 
  Assign QoS policy group to data on log volumes
@@ -200,7 +199,7 @@ volume modify -vserver svm-test -volume vol-log -qos-policy-group qos-test
 
 ## Backup
 
-You must disable automatic backups for FSx for ONTAP volumes and file systems for SAP HANA. The backups cannot be used to restore SAP HANA to a consistent state. You can use the SnapCenter plugin for SAP HANA backups. For more details, see NetApp docs – [SnapCenter Plug-in for SAP HANA Database overview](https://docs.netapp.com/us-en/snapcenter/protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html "https://docs.netapp.com/us-en/snapcenter/protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html") and [SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter](https://docs.netapp.com/us-en/netapp-solutions-sap/backup/amazon-fsx-overview.html "https://docs.netapp.com/us-en/netapp-solutions-sap/backup/amazon-fsx-overview.html").
+You must disable automatic backups for FSx for ONTAP volumes and file systems for SAP HANA. The backups cannot be used to restore SAP HANA to a consistent state. You can use the SnapCenter plugin for SAP HANA backups. For more details, see NetApp docs – [SnapCenter Plug-in for SAP HANA Database overview](https://docs.netapp.com/us-en/snapcenter/protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html "https://docs.netapp.com/us-en/snapcenter/protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html") and [SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter](https://docs.netapp.com/us-en/netapp-solutions-sap/backup/fsxn-overview.html "https://docs.netapp.com/us-en/netapp-solutions-sap/backup/fsxn-overview.html").
 
 You can also use SnapMirror for SAP HANA backups. For more information, see [How can I optimize SnapMirror performance, and what are the best practices for FSx for ONTAP?](https://repost.aws/knowledge-center/fsx-ontap-optimize-snapmirror "https://repost.aws/knowledge-center/fsx-ontap-optimize-snapmirror")
 

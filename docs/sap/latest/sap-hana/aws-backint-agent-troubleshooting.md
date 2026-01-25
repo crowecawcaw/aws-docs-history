@@ -84,12 +84,12 @@ sudo systemctl status amazon-ssm-agent
   3.  The S3 bucket is not owned by the provided account for `S3BucketOwnerAccountID`.
   4.  The S3 bucket provided for the `S3BucketOwnerAccountID` was created before May 2019.
 
-- **Resolution**: Verify the [prerequisite steps](aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites "aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites") for installing the AWS Backint agent.
+- **Resolution**: Verify the [prerequisite steps](aws-backint-agent-s3-prerequisites.md "aws-backint-agent-s3-prerequisites.md") for installing the AWS Backint agent.
 
 **Problem: Backup or recovery failed due to S3 connectivity**
 
 - **Root Cause**: The IAM role attached to the instance does not have the correct permissions to access the S3 bucket.
-- **Resolution**: Verify the [prerequisite steps](aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites "aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites") for installing the AWS Backint agent.
+- **Resolution**: Verify the [prerequisite steps](aws-backint-agent-s3-prerequisites.md "aws-backint-agent-s3-prerequisites.md") for installing the AWS Backint agent.
 
 **Problem: Agent logs display `Backint cannot execute hdbbackint` or `No such file or directory`.**
 
@@ -104,7 +104,7 @@ sudo systemctl status amazon-ssm-agent
 `Could not start backup for system <SID> DBC: [447]: backup could not be completed: [110091] Invalid path selection for data backup using backint: /usr/sap/<SID>/SYS/global/hdb/backint/COMPLETE_DATA_BACKUP must start with /usr/sap/<SID>/SYS/global/hdb/backint/DB_<TENANT>`
 
 - **Root Cause**: When adding your SAP HANA system to SAP HANA Studio, you chose the single container mode instead of the multiple container mode.
-- **Resolution**: Add the SAP HANA system to SAP HANA Studio and select multiple container mode, and then try to initiate your backup again. For more details, see {https---launchpad-support-sap-com---notes-2803753}[Invalid path selection for data backup using backint] (portal access required).
+- **Resolution**: Add the SAP HANA system to SAP HANA Studio and select multiple container mode, and then try to initiate your backup again. For more details, see [Invalid path selection for data backup using backint](https://me.sap.com/notes/2803753 "https://me.sap.com/notes/2803753") (portal access required).
 
 **Problem: Your backup fails and the following error appears in `aws-backint-agent.log`:**
 
@@ -115,14 +115,14 @@ sudo systemctl status amazon-ssm-agent
 
 **Problem: Any AWS Backint agent operation fails with one of the following errors, which appear in the `aws-backint-agent.log`:**
 
-`"`Error creating upload id for bucket:<mys3bucket>" `
+`Error creating upload id for bucket:<mys3bucket>`
 
 or
 
-`"NoCredentialProviders: no valid providers in chain.`
+`NoCredentialProviders: no valid providers in chain.`
 
 - **Potential Root Cause**: No IAM role is attached to your Amazon EC2 instance.
-- **Resolution**: AWS Backint agent requires an attached IAM role to your EC2 instance to access AWS resources for backup and restore operations. Attach an IAM role to your EC2 instance and attempt the operation again. For more information, see the [prerequisites](aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites "aws-backint-agent-amazon-s3.md#aws-backint-agent-s3-prerequisites") for installing AWS Backint agent.
+- **Resolution**: AWS Backint agent requires an attached IAM role to your EC2 instance to access AWS resources for backup and restore operations. Attach an IAM role to your EC2 instance and attempt the operation again. For more information, see the [prerequisites](aws-backint-agent-s3-prerequisites.md "aws-backint-agent-s3-prerequisites.md") for installing AWS Backint agent.
 - **Potential Root Cause**: Use of proxy for HANA instance on which agent is run causes agent failure.
 - **Resolution**: When using a proxy for the HANA instance on which the agent is run, do not use a proxy for the instance metadata call, otherwise the call hangs. Instance metadata information can not be obtained via proxy, so it must be excluded. Update the launcher script at `{INSTALLATION DIRECTORY}/aws-backint-agent-launcher.sh` to designate `169.254.169.254` as a `no_proxy` host.
 
@@ -175,7 +175,7 @@ For more information about using a proxy address in your SAP HANA environment, s
      - `MaximumConcurrentFilesForRestore`
      - `DownloadConcurrency`
 
-_These values reduce concurrency and parallelism used by AWS Backint agent to achieve high performance during backup and restore. See {https---docs-aws-amazon-com-sap-latest-sap-hana-aws-backint-agent-s3-installing-configuring-html-aws-backint-agent-modifying-config}[Modify AWS Backint agent configuration parameters] for the default values of the preceding parameters._ 5. Review network setup and configuration. 6. Perform trace route to see if Amazon S3 traffic goes through firewall package scanners or any other software that could significantly increase network latency.
+_These values reduce concurrency and parallelism used by AWS Backint agent to achieve high performance during backup and restore. See [Modify AWS Backint agent configuration parameters](aws-backint-agent-s3-installing-configuring.md#aws-backint-agent-latest-version "aws-backint-agent-s3-installing-configuring.md#aws-backint-agent-latest-version") for the default values of the preceding parameters._ 5. Review network setup and configuration. 6. Perform trace route to see if Amazon S3 traffic goes through firewall package scanners or any other software that could significantly increase network latency.
 
 **Problem: When you set the `S3ShortenBackupDestinationEnabled = ‘true’` parameter in the `aws-backint-agent-config.yaml`, a ‘No data backups found’ error is displayed when processing a database recovery.**
 
@@ -188,7 +188,7 @@ _These values reduce concurrency and parallelism used by AWS Backint agent to ac
 
 ![Image showing a 'No data backups found' error and the agent log message 'The operation is not valid for the objects' access tier'.](images/s3-intelligent-tiering-troubleshoot-backint.png)
 
-- **Root Cause**: With the \*S3StorageClass = "INTELLIGENT_TIERING" \* parameter set in the `aws-backint-agent-config.yaml`, the objects have moved to archival storage tiers. AWS Backint agent does not support recovery from archival tiers.
+- **Root Cause**: With the **S3StorageClass = "INTELLIGENT_TIERING"** parameter set in the `aws-backint-agent-config.yaml`, the objects have moved to archival storage tiers. AWS Backint agent does not support recovery from archival tiers.
 - **Resolution**: You must first [restore the archived S3 objects](../../../AmazonS3/latest/userguide/restoring-objects.md "../../../AmazonS3/latest/userguide/restoring-objects.md") to move them in the access tier. This can take from a few minutes to 12 hours, depending on the archival tier and restore option that is selected. After the S3 restore is complete, you can initiate recovery for the HANA database.
 
 **Problem: Backup request initiated by IAM doesn’t have access to your Amazon S3 bucket.**
@@ -209,9 +209,9 @@ Error Fetching Bucket: Access Denied
 
   For more information, see [Configuring the AWS SDK for Go](../../../sdk-for-go/v1/developer-guide/configuring-sdk.md "../../../sdk-for-go/v1/developer-guide/configuring-sdk.md").
 
-**Problem: "/bin/sh: error importing function definition for `which'" when performing backup and restore with AWS Backint agent.**
+**Problem: "/bin/sh: error importing function definition for `which`" when performing backup and restore with AWS Backint agent.**
 
-"/bin/sh: error importing function definition for `which'" error may occur when performing backup and restore with AWS Backint agent. This error occurs when ` BASH_FUNC_which%%` environment variable has a multi-line value that is not supported by some older SAP scripts.
+"/bin/sh: error importing function definition for `which`" error may occur when performing backup and restore with AWS Backint agent. This error occurs when ` BASH_FUNC_which%%` environment variable has a multi-line value that is not supported by some older SAP scripts.
 
 **Affected environment**
 
@@ -221,7 +221,7 @@ Error Fetching Bucket: Access Denied
   - **Resolution**: Check if `BASH_FUNC_which%%` is running using the following command.
 
   ```
-  env | grep -A 2 BASH_FUNC_which
+  $ env | grep -A 2 BASH_FUNC_which
   ```
 
   Based on your business requirements, use one of the following resolutions.

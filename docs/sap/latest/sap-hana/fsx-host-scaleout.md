@@ -19,7 +19,7 @@ The following section is an example host setup for SAP HANA scale-out with stand
 Create a file named `91-NetApp-HANA.conf` with the following configurations in the `/etc/sysctl.d` directory on all the nodes.
 
 ```
- net.core.rmem_max = 16777216
+net.core.rmem_max = 16777216
 net.core.wmem_max = 16777216
 net.ipv4.tcp_rmem = 4096 131072 16777216
 net.ipv4.tcp_wmem = 4096 16384  16777216
@@ -35,7 +35,7 @@ net.ipv4.tcp_sack = 1
 Increase the max sessions slots for NFSv4 to 180.
 
 ```
- echo options nfs max_session_slots=180 > /etc/modprobe.d/nfsclient.conf
+echo options nfs max_session_slots=180 > /etc/modprobe.d/nfsclient.conf
 ```
 
 You must reboot your instance for the kernel parameters and NFS settings to take effect.
@@ -53,13 +53,13 @@ If you are using local user accounts, the NFSv4 domain must be set to the same v
 To identify the domain setting of the SVM, use the following command:
 
 ```
- nfs show -vserver hana-data -fields v4-id-domain
+nfs show -vserver hana-data -fields v4-id-domain
 ```
 
 The following is example output:
 
 ```
- vserver   v4-id-domain
+vserver   v4-id-domain
 --------- ------------
 hana-data ec2.internal
 ```
@@ -69,7 +69,7 @@ hana-data ec2.internal
 Mount the `/hana/shared` volume and create `shared` and `usr-sap` subdirectories for each host. The following example command applies to 4+1 SAP HANA scale-out systems.
 
 ```
- mkdir /mnt/tmp
+mkdir /mnt/tmp
 mount -t nfs -o sec=sys,vers=4.1 <svm-shared>:/HDB-shared /mnt/tmp
 cd /mnt/tmp
 mkdir shared
@@ -87,7 +87,7 @@ umount /mnt/tmp
 On scale-out systems, create the following mount points on all the subordinate and standby nodes. The following example command applies to 4+1 SAP HANA scale-out systems.
 
 ```
- mkdir -p /hana/data/HDB/mnt00001
+mkdir -p /hana/data/HDB/mnt00001
 mkdir -p /hana/log/HDB/mnt00001
 mkdir -p /hana/data/HDB/mnt00002
 mkdir -p /hana/log/HDB/mnt00002
@@ -119,7 +119,7 @@ The created file systems must be mounted as NFS file systems on Amazon EC2. The 
 Add the following lines to `/etc/fstab` on **all** the hosts to preserve mounted file systems during an instance reboot. You can then run `mount -a` to mount the NFS file systems.
 
 ```
- <svm-data_1>:/HDB_data_mnt00001 /hana/data/HDB/mnt00001 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=4
+<svm-data_1>:/HDB_data_mnt00001 /hana/data/HDB/mnt00001 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=4
 <svm-log_1>:/HDB_log_mnt00001 /hana/log/HDB/mnt00001 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
 <svm-data_2>:/HDB_data_mnt00002 /hana/data/HDB/mnt00002 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=4
 <svm-log_2>:/HDB_log_mnt00002 /hana/log/HDB/mnt00002 nfs rw,bg,hard,timeo=600,noatime,vers=4,minorversion=1,lock,rsize=262144,wsize=262144,nconnect=2
@@ -147,7 +147,7 @@ Add the host-specific line to `/etc/fstab` of **each** host to preserve mounted 
 Use the following command to set the `hdbadm` ownership on SAP HANA data and log directories.
 
 ```
- sudo chown hdbadm:sapsys /hana/data/HDB
+sudo chown hdbadm:sapsys /hana/data/HDB
 sudo chown hdbadm:sapsys /hana/log/HDB
 ```
 
@@ -165,7 +165,7 @@ Install your SAP HANA system with the required configuration, and then set the f
 For optimal performance, set the following parameters in the `global.ini` file.
 
 ```
- [fileio]
+[fileio]
 max_parallel_io_requests=128
 async_read_submit=on
 async_write_submit_active=on
@@ -175,7 +175,7 @@ async_write_submit_blocks=all
 The following SQL commands can be used to set these parameters on `SYSTEM` level.
 
 ```
- ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'max_parallel_io_requests') = '128' WITH RECONFIGURE;
+ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'max_parallel_io_requests') = '128' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'async_read_submit') = 'on' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'async_write_submit_active') = 'on' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('fileio', 'async_write_submit_blocks') = 'all' WITH RECONFIGURE;
@@ -194,7 +194,7 @@ Starting with SAP HANA 2.0 SPS4, SAP HANA provides parameters to control the fai
 The following SQL commands can be used to set these parameters on `SYSTEM` level.
 
 ```
- ALTER SYSTEM ALTER CONFIGURATION ('nameserver.ini', 'SYSTEM') SET ('failover', 'normal_retries') = '9' WITH RECONFIGURE;
+ALTER SYSTEM ALTER CONFIGURATION ('nameserver.ini', 'SYSTEM') SET ('failover', 'normal_retries') = '9' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('nameserver.ini', 'SYSTEM') SET ('distributed_watchdog', 'deactivation_retries') = '11' WITH RECONFIGURE;
 ALTER SYSTEM ALTER CONFIGURATION ('nameserver.ini', 'SYSTEM') SET ('distributed_watchdog', 'takeover_retries') = '9' WITH RECONFIGURE;
 ```
@@ -216,14 +216,14 @@ Additional mount points and `/etc/fstab` entries must be created and the new vol
 - Create additional mount points and assign the required permissions, group, and ownership.
 
 ```
- mkdir -p /hana/data2/HDB/mnt00001
+mkdir -p /hana/data2/HDB/mnt00001
 chmod -R 777 /hana/data2/HDB/mnt00001
 ```
 
 - Add additional file systems to `/etc/fstab`.
 
 ```
- <data2>:/data2 /hana/data2/HDB/mnt00001 nfs <mount options>
+<data2>:/data2 /hana/data2/HDB/mnt00001 nfs <mount options>
 ```
 
 - Set the permissions to 777. This is required to enable SAP HANA to add a new data volume in the subsequent step. SAP HANA sets more restrictive permissions automatically during data volume creation.
@@ -233,12 +233,12 @@ chmod -R 777 /hana/data2/HDB/mnt00001
 To enable data volume partitions, add the following entry in the `global.ini` file in the `SYSTEMDB` configuration.
 
 ```
- [customizable_functionalities]
+[customizable_functionalities]
 persistence_datavolume_partition_multipath = true
 ```
 
 ```
- ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM')
+ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM')
 SET ('customizable_functionalities', 'PERSISTENCE_DATAVOLUME_PARTITION_MULTIPATH') = 'true'
 WITH RECONFIGURE;
 ```
@@ -252,7 +252,7 @@ You must restart your database after updating the `global.ini` file.
 Run the following SQL statement against the tenant database to add an additional data volume partition to your tenant database.
 
 ```
- ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/HDB/';
+ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/HDB/';
 ```
 
 Adding a data volume partition is quick. The new data volume partitions are empty after creation. Data is distributed equally across data volumes over time.
@@ -282,7 +282,7 @@ The following table presents the expected results of different test scenarios.
 Check the status of the landscape before testing.
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
 | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
 |         | Active | Status | Status   | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
 |         |        |        |          |        | Partition | Partition | Group    | Group    | Role       | Role       | Role        | Role        | Roles   | Roles   | Groups  | Groups  |
@@ -299,11 +299,11 @@ overall host status: ok
 Run the following command on the subordinate node as `root` to simulate a node crash. In this case, the subordinate node is `hanaw01`.
 
 ```
- echo b > /proc/sysrq-trigger
+echo b > /proc/sysrq-trigger
 ```
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
 | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
 |         | Active | Status | Status   | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
 |         |        |        |          |        | Partition | Partition | Group    | Group    | Role       | Role       | Role        | Role        | Roles   | Roles   | Groups  | Groups  |
@@ -323,7 +323,7 @@ hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support>
 Check the status of the landscape before crashing the node.
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
 | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
 |         | Active | Status | Status   | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
 |         |        |        |          |        | Partition | Partition | Group    | Group    | Role       | Role       | Role        | Role        | Roles   | Roles   | Groups  | Groups  |
@@ -341,11 +341,11 @@ hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support>
 Use the following command to simulate failure, by interrupting SAP HANA processes, on the coordinator node. In this case, the coordinator node is `hana`.
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> HDB kill
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> HDB kill
 ```
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
 nameserver hana:30001 not responding.
 | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
 |         | Active | Status | Status   | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
@@ -366,7 +366,7 @@ hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support>
 Check the status of the landscape before testing.
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
 | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
 |         | Active | Status | Status   | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
 |         |        |        |          |        | Partition | Partition | Group    | Group    | Role       | Role       | Role        | Role        | Roles   | Roles   | Groups  | Groups  |
@@ -384,11 +384,11 @@ hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support>
 Use the following command to simulate failure, by interrupting SAP HANA processes, on the coordinator node. In this case, the coordinator node is `hana04`.
 
 ```
- hdbadm@hanaw04:/usr/sap/HDB/HDB00> HDB kill
+hdbadm@hanaw04:/usr/sap/HDB/HDB00> HDB kill
 ```
 
 ```
- hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
+hdbadm@hana:/usr/sap/HDB/HDB00/exe/python_support> python landscapeHostConfiguration.py
 | Host    | Host     | Host    | Failover         | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
 |         | Active   | Status  | Status           | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
 |         |          |         |                  |        | Partition | Partition | Group    | Group    | Role       | Role       | Role        | Role        | Roles   | Roles   | Groups  | Groups  |

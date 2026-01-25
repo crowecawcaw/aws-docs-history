@@ -33,13 +33,13 @@ Run the following as <sid>adm. These commands will prompt for the system passwor
 Ensure that the configuration parameter log_mode is set to `normal` in the persistence section of the global.ini file:
 
 ```
- hdbsql -jx -i <hana_sys_nr> -u system -d SYSTEMDB "SELECT VALUE FROM M_INIFILE_CONTENTS WHERE FILE_NAME = 'global.ini' AND SECTION = 'persistence' AND KEY = 'log_mode';"
+hdbsql -jx -i <hana_sys_nr> -u system -d SYSTEMDB "SELECT VALUE FROM M_INIFILE_CONTENTS WHERE FILE_NAME = 'global.ini' AND SECTION = 'persistence' AND KEY = 'log_mode';"
 ```
 
 For example:
 
 ```
- hdbadm> hdbsql -jx -i 00 -u system -d SYSTEMDB "SELECT VALUE FROM M_INIFILE_CONTENTS WHERE FILE_NAME = 'global.ini' AND SECTION = 'persistence' AND KEY = 'log_mode';"
+hdbadm> hdbsql -jx -i 00 -u system -d SYSTEMDB "SELECT VALUE FROM M_INIFILE_CONTENTS WHERE FILE_NAME = 'global.ini' AND SECTION = 'persistence' AND KEY = 'log_mode';"
 VALUE
 "normal"
 ```
@@ -51,7 +51,7 @@ SAP HANA System Replication requires consistent configuration between primary an
 Add the following to `global.ini`:
 
 ```
- [inifile_checker]
+[inifile_checker]
 replicate = true
 ```
 
@@ -62,13 +62,13 @@ See SAP Note [2978895 - Changing parameters on Primary and Secondary site of SAP
 **Get a list of all active databases:**
 
 ```
- hdbsql -jx -i <hana_sys_nr> -u system -d SYSTEMDB "SELECT DATABASE_NAME,ACTIVE_STATUS from M_DATABASES"
+hdbsql -jx -i <hana_sys_nr> -u system -d SYSTEMDB "SELECT DATABASE_NAME,ACTIVE_STATUS from M_DATABASES"
 ```
 
 For example:
 
 ```
- hdbadm> hdbsql -jx -i 00 -u system -d SYSTEMDB "SELECT DATABASE_NAME,ACTIVE_STATUS from M_DATABASES"
+hdbadm> hdbsql -jx -i 00 -u system -d SYSTEMDB "SELECT DATABASE_NAME,ACTIVE_STATUS from M_DATABASES"
 Password:
 DATABASE_NAME,ACTIVE_STATUS
 "SYSTEMDB","YES"
@@ -83,13 +83,13 @@ Backint
 For the SystemDB
 
 ```
- hdbsql -i 00 -u SYSTEM  -d SYSTEMDB "BACKUP DATA USING BACKINT ('initial_hsr_db_SYSTEMDB') COMMENT 'Initial backup for HSR'";
+hdbsql -i 00 -u SYSTEM  -d SYSTEMDB "BACKUP DATA USING BACKINT ('initial_hsr_db_SYSTEMDB') COMMENT 'Initial backup for HSR'";
 ```
 
 For each Tenant DB
 
 ```
- hdbsql -i 00 -u SYSTEM  -d <TENANT_DB> "BACKUP DATA USING BACKINT ('initial_hsr_db_<TENANT_DB>') COMMENT 'Initial backup for HSR'";
+hdbsql -i 00 -u SYSTEM  -d <TENANT_DB> "BACKUP DATA USING BACKINT ('initial_hsr_db_<TENANT_DB>') COMMENT 'Initial backup for HSR'";
 ```
 
 - Run as <sid>adm
@@ -100,13 +100,13 @@ File
 For the SystemDB
 
 ```
- hdbsql -i <hana_sys_nr> -u system -d SYSTEMDB "BACKUP DATA USING FILE ('/<backup location>/initial_hsr_db_SYSTEMDB') COMMENT 'Initial backup for HSR'";
+hdbsql -i <hana_sys_nr> -u system -d SYSTEMDB "BACKUP DATA USING FILE ('/<backup location>/initial_hsr_db_SYSTEMDB') COMMENT 'Initial backup for HSR'";
 ```
 
 For each Tenant DB
 
 ```
- hdbsql -i <hana_sys_nr> -u system -d <TENANT_DB> "BACKUP DATA USING FILE ('/<backup location>/initial_hsr_db_<TENANT_DB>') COMMENT 'Initial backup for HSR'";
+hdbsql -i <hana_sys_nr> -u system -d <TENANT_DB> "BACKUP DATA USING FILE ('/<backup location>/initial_hsr_db_<TENANT_DB>') COMMENT 'Initial backup for HSR'";
 ```
 
 - Run as <sid>adm
@@ -120,7 +120,7 @@ For each Tenant DB
 Stop the hana application on the secondary, as <sid>adm
 
 ```
- sapcontrol -nr <hana_sys_nr> -function StopSystem <SID>
+sapcontrol -nr <hana_sys_nr> -function StopSystem <SID>
 ```
 
 ###### Copy the system PKI keys
@@ -128,14 +128,14 @@ Stop the hana application on the secondary, as <sid>adm
 Copy the following system PKI SSFS key and data files from the primary system to the same location on the secondary system using scp, a shared file system, or an S3 bucket:
 
 ```
- /usr/sap/<SID>/SYS/global/security/rsecssfs/data/SSFS_<SID>.DAT
+/usr/sap/<SID>/SYS/global/security/rsecssfs/data/SSFS_<SID>.DAT
 /usr/sap/<SID>/SYS/global/security/rsecssfs/key/SSFS_<SID>.KEY
 ```
 
 For example using scp:
 
 ```
- hdbadm>scp -p /usr/sap/HDB/SYS/global/security/rsecssfs/data/SSFS_HDB.DAT hdbadm@hanahost02:/usr/sap/HDB/SYS/global/security/rsecssfs/data/SSFS_HDB.DAT
+hdbadm>scp -p /usr/sap/HDB/SYS/global/security/rsecssfs/data/SSFS_HDB.DAT hdbadm@hanahost02:/usr/sap/HDB/SYS/global/security/rsecssfs/data/SSFS_HDB.DAT
 hdbadm>scp -p /usr/sap/HDB/SYS/global/security/rsecssfs/key/SSFS_HDB.KEY hdbadm@hanahost02:/usr/sap/HDB/SYS/global/security/rsecssfs/key/SSFS_HDB.KEY
 ```
 
@@ -146,13 +146,13 @@ hdbadm>scp -p /usr/sap/HDB/SYS/global/security/rsecssfs/key/SSFS_HDB.KEY hdbadm@
 Ensure the primary SAP HANA system is **started**, then as <sid>adm, enable system replication using a unique site name:
 
 ```
- hdbnsutil -sr_enable --name=<site_1>
+hdbnsutil -sr_enable --name=<site_1>
 ```
 
 For example:
 
 ```
- hdbadm> hdbnsutil -sr_enable --name=siteA
+hdbadm> hdbnsutil -sr_enable --name=siteA
 ```
 
 ###### Register System Replication on the Secondary System
@@ -160,7 +160,7 @@ For example:
 Ensure the secondary SAP HANA system is **stopped**, then as <sid>adm, enable system replication using a unique site name, the connection details of the primary system and preferred replication options.
 
 ```
- hdbnsutil -sr_register \
+hdbnsutil -sr_register \
  --name=<site_2> \
  --remoteHost=<hostname_1> \
  --remoteInstance=<hana_sys_nr> \
@@ -171,13 +171,13 @@ Ensure the secondary SAP HANA system is **stopped**, then as <sid>adm, enable sy
 For example:
 
 ```
- hdbadm> hdbnsutil -sr_register --name=siteB --remoteHost=hanahost01 --remoteInstance=00 --replicationMode=syncmem --operationMode=logreplay
+hdbadm> hdbnsutil -sr_register --name=siteB --remoteHost=hanahost01 --remoteInstance=00 --replicationMode=syncmem --operationMode=logreplay
 ```
 
 Alternatively, if your setup requires active/active read-enabled access to the secondary:
 
 ```
- hdbadm> hdbnsutil -sr_register --name=siteB --remoteHost=hanahost01 --remoteInstance=00 --replicationMode=syncmem --operationMode=logreplay_readenabled
+hdbadm> hdbnsutil -sr_register --name=siteB --remoteHost=hanahost01 --remoteInstance=00 --replicationMode=syncmem --operationMode=logreplay_readenabled
 ```
 
 - `hostname_1` is the hostname used to install SAP HANA, which may be a virtual name.
@@ -195,5 +195,5 @@ The SAP host agent is used for SAP instance control and monitoring. This agent i
 Use the following command to check the version of the host agent, repeat on all SAP HANA nodes:
 
 ```
- # /usr/sap/hostctrl/exe/saphostexec -version
+# /usr/sap/hostctrl/exe/saphostexec -version
 ```

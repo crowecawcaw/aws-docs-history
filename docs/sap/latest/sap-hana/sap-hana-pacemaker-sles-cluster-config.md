@@ -21,13 +21,13 @@ To ensure that the cluster does not perform unexpected actions during setup of r
 Run the following command to put the cluster in maintenance mode:
 
 ```
- # crm maintenance on
+# crm maintenance on
 ```
 
 To verify the current maintenance state:
 
 ```
- # crm status
+# crm status
 ```
 
 ###### Note
@@ -41,7 +41,7 @@ There are two types of maintenance mode:
 To disable maintenance mode after configuration is complete:
 
 ```
- # crm maintenance off
+# crm maintenance off
 ```
 
 ## Cluster Bootstrap
@@ -51,7 +51,7 @@ To disable maintenance mode after configuration is complete:
 Configure cluster properties to establish fencing behavior and resource failover settings:
 
 ```
- # crm configure property stonith-enabled="true"
+# crm configure property stonith-enabled="true"
 # crm configure property stonith-timeout="600"
 # crm configure property priority-fencing-delay="20"
 # crm configure property stonith-action="off"
@@ -63,7 +63,7 @@ Configure cluster properties to establish fencing behavior and resource failover
 To verify your cluster property settings:
 
 ```
- # crm configure show property
+# crm configure show property
 ```
 
 ### Configure Resource Defaults
@@ -71,7 +71,7 @@ To verify your cluster property settings:
 Configure resource default behaviors:
 
 ```
- # crm configure rsc_defaults resource-stickiness="1000"
+# crm configure rsc_defaults resource-stickiness="1000"
 # crm configure rsc_defaults migration-threshold="5000"
 ```
 
@@ -83,7 +83,7 @@ Individual resources may override these defaults with their own defined values.
 To verify your resource default settings:
 
 ```
- # crm configure show rsc_defaults
+# crm configure show rsc_defaults
 ```
 
 ### Configure Operation Defaults
@@ -91,7 +91,7 @@ To verify your resource default settings:
 Configure operation timeout defaults:
 
 ```
- # crm configure op_defaults timeout="600"
+# crm configure op_defaults timeout="600"
 ```
 
 - The **op_defaults timeout** ensures all cluster operations have a reasonable default timeout of 600 seconds. Individual resources may override this with their own timeout values.
@@ -99,7 +99,7 @@ Configure operation timeout defaults:
 To verify your operation default settings:
 
 ```
- # crm configure show op_defaults
+# crm configure show op_defaults
 ```
 
 ## Create STONITH Fencing Resource
@@ -109,7 +109,7 @@ An AWS STONITH resource agent is recommended for AWS deployments on SUSE as it l
 Create the STONITH resource using resource agent **`external/ec2`**:
 
 ```
- # crm configure primitive <stonith_resource_name> stonith:external/ec2 \
+# crm configure primitive <stonith_resource_name> stonith:external/ec2 \
 params tag="<cluster_tag>" profile="<cli_cluster_profile>" pcmk_delay_max="10" \
 op start interval="0" timeout="180" \
 op stop interval="0" timeout="180" \
@@ -124,7 +124,7 @@ Details:
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive res_stonith_ec2 stonith:external/ec2 \
+# crm configure primitive res_stonith_ec2 stonith:external/ec2 \
 params tag="pacemaker" profile="cluster" \
 pcmk_delay_max="10" \
 op start interval="0" timeout="180" \
@@ -139,7 +139,7 @@ This resource ensures client connections follow the SAP HANA primary instance du
 Create the IP resource:
 
 ```
- # crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 params ip="<hana_overlayip>" \
 routing_table="<routetable_id>" \
 interface="eth0" \
@@ -158,7 +158,7 @@ Details:
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_HDB_HDB00 ocf:heartbeat:aws-vpc-move-ip \
 params ip="172.16.52.1" \
 routing_table="rtb-xxxxxroutetable1" \
 interface="eth0" \
@@ -173,7 +173,7 @@ op monitor interval="60" timeout="60"
 Only if you are using `logreplay_readenabled` and require that your secondary is accessible via overlay IP. You can create an additional IP resource.
 
 ```
- # crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled ocf:heartbeat:aws-vpc-move-ip \
 params ip="<readenabled_overlayip>" \
 routing_table="<routetable_id>" \
 interface="eth0" \
@@ -186,7 +186,7 @@ op monitor interval="60" timeout="60"
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_HDB_HDB00_readenabled ocf:heartbeat:aws-vpc-move-ip \
 params ip="172.16.52.2" \
 routing_table="rtb-xxxxxroutetable1" \
 interface="eth0" \
@@ -201,7 +201,7 @@ op monitor interval="60" timeout="60"
 If your configuration requires a shared vpc, two additional parameters are required.
 
 ```
- # crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
+# crm configure primitive rsc_ip_<SID>_HDB<hana_sys_nr> ocf:heartbeat:aws-vpc-move-ip \
 params ip="<hana_overlayip>" routing_table=<routetable_id> interface=eth0 \
 profile="<cli_cluster_profile>" lookup_type=NetworkInterfaceId \
 routing_table_role="arn:aws:iam::<sharing_vpc_account_id>:role/<sharing_vpc_account_cluster_role>" \
@@ -226,14 +226,14 @@ For both scale-up and scale-out deployments
 For documentation on the resource you can review the man page.
 
 ```
- # man ocf_suse_SAPHanaTopology
+# man ocf_suse_SAPHanaTopology
 ```
 
 For scale-up (2-node)
 For the primitive:
 
 ```
- # crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaTopology \
+# crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaTopology \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 op start interval="0" timeout="600" \
@@ -244,14 +244,14 @@ op monitor interval="10" timeout="600"
 For the clone:
 
 ```
- # crm configure clone cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> \
+# crm configure clone cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
+# crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
 params SID="HDB" \
 InstanceNumber="00" \
 op start interval="0" timeout="600" \
@@ -266,7 +266,7 @@ For scale-out
 For the primitive:
 
 ```
- # crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaTopology \
+# crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaTopology \
 params SID="<SID>" InstanceNumber="<hana_sys_nr>" \
 op start interval="0" timeout="600" \
 op stop interval="0" timeout="300" \
@@ -276,14 +276,14 @@ op monitor interval="10" timeout="600"
 For the clone:
 
 ```
- # crm configure clone cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> \
+# crm configure clone cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> rsc_SAPHanaTopology_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
+# crm configure primitive rsc_SAPHanaTopology_HDB_HDB00 ocf:suse:SAPHanaTopology \
 params SID="HDB" InstanceNumber="00" \
 op start interval="0" timeout="600" \
 op stop interval="0" timeout="300" \
@@ -315,14 +315,14 @@ The SAPHanaController resource agent with next generation system replication arc
 For documentation on the resource you can review the man page.
 
 ```
- # man ocf_suse_SAPHanaController
+# man ocf_suse_SAPHanaController
 ```
 
 For scale-up (2-node)
 Create the primitive
 
 ```
- # crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
+# crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -339,14 +339,14 @@ meta priority="100"
 Create the clone
 
 ```
- # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
+# crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
+# crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
 params SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -366,7 +366,7 @@ For scale-out
 Create the primitive
 
 ```
- # crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
+# crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -382,14 +382,14 @@ op monitor interval="61" role="Unpromoted" timeout="700"
 Create the clone
 
 ```
- # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
+# crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
+# crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
 params SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -423,14 +423,14 @@ Details:
 For classic scale-up deployments, the SAPHana resource agent manages takeover between two SAP HANA databases. For detailed information:
 
 ```
- # man ocf_suse_SAPHana
+# man ocf_suse_SAPHana
 ```
 
 For scale-up (2-node)
 Create the primitive using the SAPHana Resource Agent
 
 ```
- # crm configure primitive rsc_SAPHana_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHana \
+# crm configure primitive rsc_SAPHana_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHana \
 params SID="<SID>" \
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -447,14 +447,14 @@ meta priority="100"
 Create the clone
 
 ```
- # crm configure clone msl_SAPHana_<SID>_HDB<hana_sys_nr> rsc_SAPHana_<SID>_HDB<hana_sys_nr> \
+# crm configure clone msl_SAPHana_<SID>_HDB<hana_sys_nr> rsc_SAPHana_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="2"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \
+# crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \
 params SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -475,7 +475,7 @@ For scale-out
 Create the primitive using the SAPHanaController Resource Agent:
 
 ```
- # crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
+# crm configure primitive rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> ocf:suse:SAPHanaController \
 params SID="<SID>"
 InstanceNumber="<hana_sys_nr>" \
 PREFER_SITE_TAKEOVER="true" \
@@ -491,14 +491,14 @@ op monitor interval="61" role="Slave" timeout="700"
 Create the clone
 
 ```
- # crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
+# crm configure clone msl_SAPHanaController_<SID>_HDB<hana_sys_nr> rsc_SAPHanaController_<SID>_HDB<hana_sys_nr> \
 meta clone-node-max="1" interleave="true" clone-max="<number-of-nodes>"
 ```
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-sles-parameters.md "sap-hana-pacemaker-sles-parameters.md")_ :
 
 ```
- # crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
+# crm configure primitive rsc_SAPHanaController_HDB_HDB00 ocf:suse:SAPHanaController \
 params SID="HDB" \
 InstanceNumber="00" \
 PREFER_SITE_TAKEOVER="true" \
@@ -536,13 +536,13 @@ The following constraints are required.
 This constraint defines the start order between the SAPHanaTopology and SAPHana resources:
 
 ```
- # crm configure order <order_rule_name> Optional: <SAPHanaTopology_clone> <SAPHana/SAPHanaController_Clone>
+# crm configure order <order_rule_name> Optional: <SAPHanaTopology_clone> <SAPHana/SAPHanaController_Clone>
 ```
 
 - _Example_ :
 
 ```
- # crm configure order ord_SAPHana Optional: cln_SAPHanaTopology_HDB_HDB00 msl_SAPHana_HDB_HDB00
+# crm configure order ord_SAPHana Optional: cln_SAPHanaTopology_HDB_HDB00 msl_SAPHana_HDB_HDB00
 ```
 
 ### Colocation Constraint
@@ -552,13 +552,13 @@ This constraint defines the start order between the SAPHanaTopology and SAPHana 
 This constraint ensures that the IP resource which determines the target of the overlay IP runs on the node which has the primary SAP HANA role:
 
 ```
- # crm configure colocation <colocation_rule_name> 2000: <ip_resource_name> <saphana/saphanacontroller name>:Master
+# crm configure colocation <colocation_rule_name> 2000: <ip_resource_name> <saphana/saphanacontroller name>:Master
 ```
 
 - _Example_ :
 
 ```
- # crm configure colocation col_ip_SAPHana_Primary 2000: rsc_ip_HDB_HDB00 msl_SAPHana_HDB_HDB00:Master
+# crm configure colocation col_ip_SAPHana_Primary 2000: rsc_ip_HDB_HDB00 msl_SAPHana_HDB_HDB00:Master
 ```
 
 #### ReadOnly IP with Secondary (Only for ReadOnly Patterns)
@@ -566,13 +566,13 @@ This constraint ensures that the IP resource which determines the target of the 
 This constraint ensures that the read-enabled IP resource runs on the secondary (Unpromoted) node. When the secondary node is unavailable, the IP will move to the primary node, where read workloads will share capacity with primary workloads:
 
 ```
- # crm configure colocation <colocation_rule_name> 2000: rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled msl_SAPHana/SAPHanaController_<SID>_HDB<hana_sys_nr>:Unpromoted
+# crm configure colocation <colocation_rule_name> 2000: rsc_ip_<SID>_HDB<hana_sys_nr>_readenabled msl_SAPHana/SAPHanaController_<SID>_HDB<hana_sys_nr>:Unpromoted
 ```
 
 - _Example_ :
 
 ```
- # crm configure colocation col_ip_readenabled_SAPHana_Secondary 2000: rsc_ip_HDB_HDB00_readenabled msl_SAPHana_HDB_HDB00:Unpromoted
+# crm configure colocation col_ip_readenabled_SAPHana_Secondary 2000: rsc_ip_HDB_HDB00_readenabled msl_SAPHana_HDB_HDB00:Unpromoted
 ```
 
 ### Location Constraint
@@ -582,7 +582,7 @@ This constraint ensures that the read-enabled IP resource runs on the secondary 
 This location constraint ensures that SAP HANA Resources avoid the Majority Maker, which is not suited to running them.
 
 ```
- # crm configure location loc_SAPHanaTopology_avoid_majority_maker cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> -inf:<hostname_mm>
+# crm configure location loc_SAPHanaTopology_avoid_majority_maker cln_SAPHanaTopology_<SID>_HDB<hana_sys_nr> -inf:<hostname_mm>
 
 # crm configure location loc_SAPHana/SAPHanaController_avoid_majority_maker msl_SAPHana/SAPHanaController_<SID>_HDB<hana_sys_nr> -inf:<hostname_mm>
 ```
@@ -590,7 +590,7 @@ This location constraint ensures that SAP HANA Resources avoid the Majority Make
 - _Example_ :
 
 ```
- # crm configure location loc_SAPHanaTopology_avoid_majority_maker cln_SAPHanaTopology_HDB_HDB00 -inf:hanamm
+# crm configure location loc_SAPHanaTopology_avoid_majority_maker cln_SAPHanaTopology_HDB_HDB00 -inf:hanamm
 # crm configure location loc_SAPHana_avoid_majority_maker msl_SAPHana_HDB_HDB00 -inf:hanamm
 ```
 
@@ -601,7 +601,7 @@ Use `crm config show` and `crm config edit` commands to review that all the valu
 On confirmation of correct values, set the maintenance mode to false using the following command. This enables the cluster to take control of the resources:
 
 ```
- # crm maintenance off
+# crm maintenance off
 ```
 
 ## Reset Configuration – Optional
@@ -613,13 +613,13 @@ The following instructions help you reset the complete configuration. Run these 
 Run the following command to back up the current configuration for reference:
 
 ```
- # crm config show > /tmp/crmconfig_backup.txt
+# crm config show > /tmp/crmconfig_backup.txt
 ```
 
 Run the following command to clear the current configuration:
 
 ```
- # crm configure erase
+# crm configure erase
 ```
 
 Once the preceding erase command is executed, it removes all of the cluster resources from Cluster Information Base (CIB), and disconnects the communication from corosync to the cluster. Before starting the resource configuration run crm cluster restart, so that cluster reestablishes communication with corosync, and retrieves the configuration. The restart of cluster removes maintenance mode. Reapply before commencing additional configuration and resource setup.

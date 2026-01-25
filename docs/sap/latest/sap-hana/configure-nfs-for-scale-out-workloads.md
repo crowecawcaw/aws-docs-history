@@ -14,7 +14,7 @@ Amazon EFS provides easy-to-set-up, scalable, and highly available shared file s
 3. After the file systems are created, mount the newly created file systems in all the nodes by using the following commands:
 
 ```
-    mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /hana/shared
+   mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /hana/shared
 
    mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /backup
 ```
@@ -24,7 +24,7 @@ Amazon EFS provides easy-to-set-up, scalable, and highly available shared file s
 If you have trouble mounting the NFS file systems, you might need to adjust your security groups to allow access to port 2049. For details, see [Security Groups for Amazon EC2 Instances and Mount Targets](../../../efs/latest/ug/security-considerations.md#network-access "../../../efs/latest/ug/security-considerations.md#network-access") in the AWS documentation. 4. Add NFS mount entries to the `/etc/fstab` file in all the nodes to automatically mount these file systems during system restart; for example:
 
 ```
-    echo “nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /hana/shared” >> /etc/fstab
+   echo “nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /hana/shared” >> /etc/fstab
    echo “nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 <EFS DNS Name>:/ /backup” >> /etc/fstab
 ```
 
