@@ -249,6 +249,66 @@ suspend fun listCertificates() {
   [ListCertificates](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   in _AWS SDK for Kotlin API reference_.
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+
+```
+class IoTWrapper:
+    """Encapsulates AWS IoT actions."""
+
+    def __init__(self, iot_client, iot_data_client=None):
+        """
+        :param iot_client: A Boto3 AWS IoT client.
+        :param iot_data_client: A Boto3 AWS IoT Data Plane client.
+        """
+        self.iot_client = iot_client
+        self.iot_data_client = iot_data_client
+
+    @classmethod
+    def from_client(cls):
+        iot_client = boto3.client("iot")
+        iot_data_client = boto3.client("iot-data")
+        return cls(iot_client, iot_data_client)
+
+    def list_certificates(self):
+        """
+        Lists AWS IoT certificates.
+
+        :return: The list of certificates.
+        """
+        try:
+            certificates = []
+            paginator = self.iot_client.get_paginator("list_certificates")
+            for page in paginator.paginate():
+                certificates.extend(page["certificates"])
+            logger.info("Retrieved %s certificates.", len(certificates))
+            return certificates
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "ThrottlingException":
+                logger.error("Request throttled. Please try again later.")
+            else:
+                logger.error(
+                    "Couldn't list certificates. Here's why: %s: %s",
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+            raise
+
+
+
+```
+
+- For API details, see
+  [ListCertificates](../../../goto/boto3/iot-2015-05-28/ListCertificates.md "../../../goto/boto3/iot-2015-05-28/ListCertificates.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

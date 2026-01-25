@@ -324,6 +324,54 @@ suspend fun listAllThings() {
   [listThings](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   in _AWS SDK for Kotlin API reference_.
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+
+```
+def hello_iot():
+    """
+    Use the AWS SDK for Python (Boto3) to create an AWS IoT client and list
+    up to 10 things in your AWS IoT account.
+    This example uses the default settings specified in your shared credentials
+    and config files.
+    """
+    try:
+        iot_client = boto3.client("iot")
+        response = iot_client.list_things(maxResults=10)
+        things = response.get("things", [])
+
+        print("Hello, AWS IoT! Here are your things:")
+        if things:
+            for i, thing in enumerate(things, 1):
+                print(f"{i}. {thing['thingName']}")
+        else:
+            print("No things found in your AWS IoT account.")
+    except ClientError as e:
+        if e.response["Error"]["Code"] == "UnauthorizedException":
+            print("You don't have permission to access AWS IoT.")
+        else:
+            print(f"Couldn't access AWS IoT. Error: {e}")
+    except NoCredentialsError:
+        print("No AWS credentials found. Please configure your credentials.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+
+
+
+```
+
+- For API details, see
+  [listThings](../../../goto/boto3/iot-2015-05-28/listThings.md "../../../goto/boto3/iot-2015-05-28/listThings.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

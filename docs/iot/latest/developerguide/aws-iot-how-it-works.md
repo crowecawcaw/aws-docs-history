@@ -249,18 +249,6 @@ applications for live peer-to-peer media streaming, or real-time
 audio or video interactivity between camera IoT devices, web
 browsers, and mobile devices for a variety of use cases.
 
-**AWS IoT Analytics**
-
-[AWS IoT
-Analytics](../../../iotanalytics.md "../../../iotanalytics.md") lets you efficiently run and operationalize
-sophisticated analytics on massive volumes of unstructured IoT data.
-AWS IoT Analytics automates each difficult step that is required to
-analyze data from IoT devices. AWS IoT Analytics filters, transforms,
-and enriches IoT data before storing it in a time-series data store
-for analysis. You can analyze your data by running one-time or
-scheduled queries using the built-in SQL query engine or machine
-learning.
-
 **AWS IoT Events**
 
 [AWS IoT Events](../../../iotevents.md "../../../iotevents.md")

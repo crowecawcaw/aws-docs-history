@@ -211,6 +211,65 @@ suspend fun attachCertificateToThing(
   [AttachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   in _AWS SDK for Kotlin API reference_.
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+
+```
+class IoTWrapper:
+    """Encapsulates AWS IoT actions."""
+
+    def __init__(self, iot_client, iot_data_client=None):
+        """
+        :param iot_client: A Boto3 AWS IoT client.
+        :param iot_data_client: A Boto3 AWS IoT Data Plane client.
+        """
+        self.iot_client = iot_client
+        self.iot_data_client = iot_data_client
+
+    @classmethod
+    def from_client(cls):
+        iot_client = boto3.client("iot")
+        iot_data_client = boto3.client("iot-data")
+        return cls(iot_client, iot_data_client)
+
+    def attach_thing_principal(self, thing_name, principal):
+        """
+        Attaches a certificate to an AWS IoT thing.
+
+        :param thing_name: The name of the thing.
+        :param principal: The ARN of the certificate.
+        """
+        try:
+            self.iot_client.attach_thing_principal(
+                thingName=thing_name, principal=principal
+            )
+            logger.info("Attached principal %s to thing %s.", principal, thing_name)
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "ResourceNotFoundException":
+                logger.error("Cannot attach principal. Resource not found.")
+                return
+            logger.error(
+                "Couldn't attach principal to thing. Here's why: %s: %s",
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+
+
+
+```
+
+- For API details, see
+  [AttachThingPrincipal](../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

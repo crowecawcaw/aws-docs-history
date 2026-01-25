@@ -171,6 +171,67 @@ For more information, see [How to Manage Things with the Registry](thing-registr
   [ListThings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-things.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-things.html")
   in _AWS CLI Command Reference_.
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+
+```
+class IoTWrapper:
+    """Encapsulates AWS IoT actions."""
+
+    def __init__(self, iot_client, iot_data_client=None):
+        """
+        :param iot_client: A Boto3 AWS IoT client.
+        :param iot_data_client: A Boto3 AWS IoT Data Plane client.
+        """
+        self.iot_client = iot_client
+        self.iot_data_client = iot_data_client
+
+    @classmethod
+    def from_client(cls):
+        iot_client = boto3.client("iot")
+        iot_data_client = boto3.client("iot-data")
+        return cls(iot_client, iot_data_client)
+
+    def list_things(self):
+        """
+        Lists AWS IoT things.
+
+        :return: The list of things.
+        """
+        try:
+            things = []
+            paginator = self.iot_client.get_paginator("list_things")
+            for page in paginator.paginate():
+                things.extend(page["things"])
+            logger.info("Retrieved %s things.", len(things))
+            return things
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "ThrottlingException":
+                logger.error("Request throttled. Please try again later.")
+            else:
+                logger.error(
+                    "Couldn't list things. Here's why: %s: %s",
+                    err.response["Error"]["Code"],
+                    err.response["Error"]["Message"],
+                )
+            raise
+
+
+
+
+```
+
+- For API details, see
+  [ListThings](../../../goto/boto3/iot-2015-05-28/ListThings.md "../../../goto/boto3/iot-2015-05-28/ListThings.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
 Rust
 
 **SDK for Rust**
