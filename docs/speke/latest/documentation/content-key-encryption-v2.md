@@ -23,7 +23,7 @@ To provide content key encryption, include the following in your DRM key provide
 _Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Request Payload_
 
 ```
- <cpix:CPIX contentId="abc123"
+<cpix:CPIX contentId="abc123"
     version="2.3"
     xmlns:cpix="urn:dashif:org:cpix"
     xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
@@ -45,7 +45,7 @@ _Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Reque
 _Example Content Key Encryption Element `_<cpix:DeliveryDataList>_` in the Response Payload_
 
 ```
- <cpix:CPIX contentId="abc123"
+<cpix:CPIX contentId="abc123"
     version="2.3"
     xmlns:cpix="urn:dashif:org:cpix"
     xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc">
@@ -93,7 +93,7 @@ _Example Content Key Encryption Element `_<cpix:ContentKeyList>_` in the Respons
 The following example shows encrypted content key handling in the `<cpix:ContentKeyList>` element of the response payload. This uses the `<pskc:EncryptedValue>` element:
 
 ```
- <cpix:ContentKeyList>
+<cpix:ContentKeyList>
      <cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">
          <cpix:Data>
              <pskc:Secret>
@@ -113,7 +113,7 @@ The following example shows encrypted content key handling in the `<cpix:Content
 By comparison, the following example shows a similar response payload with the content key delivered unencrypted, as a clear key. This uses the `<pskc:PlainValue>` element:
 
 ```
- <cpix:ContentKeyList>
+<cpix:ContentKeyList>
     <cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff" commonEncryptionScheme="cbcs">
         <cpix:Data>
             <pskc:Secret>

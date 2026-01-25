@@ -45,7 +45,7 @@ _Live Example Request Payload with Keys in the Clear_
 The following example shows a typical live request payload from the encryptor to the DRM key provider:
 
 ```
- <cpix:CPIX id="abc123" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke">
+<cpix:CPIX id="abc123" xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey kid="98ee5596-cd3e-a20d-163a-e382420c6eff" explicitIV="OFj2IjCsPJFfMAxmQxLGPw=="></cpix:ContentKey>
 	</cpix:ContentKeyList>
@@ -91,7 +91,7 @@ _Live Example Response Payload with Keys in the Clear_
 The following example shows a typical response payload from the DRM key provider:
 
 ```
- <cpix:CPIX xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke" id="abc123">
+<cpix:CPIX xmlns:cpix="urn:dashif:org:cpix" xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc" xmlns:speke="urn:aws:amazon:com:speke" id="abc123">
 	<cpix:ContentKeyList>
 		<cpix:ContentKey explicitIV="OFj2IjCsPJFfMAxmQxLGPw==" kid="98ee5596-cd3e-a20d-163a-e382420c6eff">
 			<cpix:Data>
