@@ -2,7 +2,7 @@
 
 This section provides additional information about authentication helpers.
 
-The Amazon Location JavaScript authentication utilities assistw in authenticating when making Amazon Location Service API calls from JavaScript applications.
+The Amazon Location JavaScript authentication utilities assist in authenticating when making Amazon Location Service API calls from JavaScript applications.
 These utilities specifically support authentication using API keys or Amazon Cognito.
 
 **Installation**

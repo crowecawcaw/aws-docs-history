@@ -24,7 +24,7 @@ information from third parties, safeguard user privacy, and reduce security risk
 application. Amazon Location also ensures that neither Amazon nor third parties have rights to
 sell your data or use it for advertising.
 
-With Amazon Location Service, you can easily and seamlessly integrated your application with other AWS
+With Amazon Location Service, you can easily and seamlessly integrate your application with other AWS
 services, streamlining your development workflow and speeding up deployment. It works
 seamlessly with AWS CloudTrail, Amazon CloudWatch, Amazon EventBridge, and AWS Identity and Access Management. With this integration, you can
 easily manage resources and cost, monitor health metrics, and automatically respond to

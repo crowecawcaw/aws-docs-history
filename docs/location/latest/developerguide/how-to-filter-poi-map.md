@@ -1,6 +1,6 @@
 # How to filter POI on the map
 
-Amazon Location Serviceallows you to select the POI (point-of-interest) categories relevant to your
+Amazon Location Service allows you to select the POI (point-of-interest) categories relevant to your
 use case. Learn more about the standard map style, [Rich
 POI](standard-map-style.md#rich-poi "standard-map-style.md#rich-poi")
 

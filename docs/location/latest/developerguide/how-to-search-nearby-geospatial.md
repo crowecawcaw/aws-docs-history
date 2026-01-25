@@ -110,7 +110,7 @@ cURL
 
 ```
 curl --request POST \
-  --url 'https://places.geo.eu-central-1.amazonaws.com/v2/searearch-nearby?key=Your_Key' \
+  --url 'https://places.geo.eu-central-1.amazonaws.com/v2/search-nearby?key=Your_Key' \
   --header 'Content-Type: application/json' \
   --data '{
     "QueryPosition": [

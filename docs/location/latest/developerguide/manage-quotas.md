@@ -1,20 +1,15 @@
 # Manage quotas with Service Quotas
 
-###### Note
+Service Quotas console allows you to [request
+quota increases or decrease quota](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") for adjustable quotas. Service quotas are the maximum number of API calls or resources
+you can have per AWS account and AWS Region. When requesting a quota increase, select the Region you require
+the quota increase in since most quotas are Region-specific. Amazon Location Service denies additional requests that exceed the service quota.
 
-If you require a higher quota, you can use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") for adjustable quotas. When requesting a quota
-increase, select the Region you require the quota increase in since most quotas are
-specific to the AWS Region.
-
-Service Quotas console allow you to request quota increases or decrease quota for
-adjustable quotas. Service Quotas are the maximum number of API call or resources you can
-have per AWS account and AWS Region. Amazon Location Service denies additional requests that
-exceed the service quota.
-
-Rate limits (quotas that start with Rate of...) are the maximum number of requests per
-second, with a burst rate of 80 percent of the limit within any part of the second, defined
-for each API operation. Amazon Location Service throttles requests that exceed the
-operation's rate limit.
+Rate limits (quotas that start with Rate of...) are the maximum number of requests
+per second, with a burst rate of 80 percent of the limit within any part of the second,
+defined for each API operation. Operations with rate limits increased for an account
+through Service Quotas may have a burst rate lower than 80 percent of the increased rate limit.
+Amazon Location Service throttles requests that exceed the operation's rate limit.
 
 ## Managing your Amazon Location service quotas
 

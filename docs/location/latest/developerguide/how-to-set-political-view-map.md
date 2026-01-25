@@ -37,7 +37,7 @@ index.html
     <body>
         <!-- Map container -->
         <div class="maps">
-        <div id="internatinalView"></div>
+        <div id="internationalView"></div>
         <div id="turkeyView"></div>
         </div>
         <script>
@@ -47,14 +47,14 @@ index.html
             const awsRegion = "eu-central-1";
 
             // International perspective without political-view query parameter
-            const internatinalViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
+            const internationalViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
             // Turkey perspective with political-view query parameter
             const turkeyViewMapStyleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?political-view=TUR&key=${apiKey}`;
 
-            const internatinalViewMap = new maplibregl.Map({
-                container: 'internatinalView', // container id
-                style: internatinalViewMapStyleUrl, // style URL
+            const internationalViewMap = new maplibregl.Map({
+                container: 'internationalView', // container id
+                style: internationalViewMapStyleUrl, // style URL
                 center: [33.0714561, 35.1052139], // starting position [lng, lat]
                 zoom: 7.5,
             });
@@ -67,13 +67,13 @@ index.html
             });
 
             // Sync map zoom and center
-            syncMaps(internatinalViewMap, turkeyViewMap);
+            syncMaps(internationalViewMap, turkeyViewMap);
 
             // Informational popup for international view
             new maplibregl.Popup({closeOnClick: false})
                 .setLngLat([33, 35.5])
                 .setHTML('<h4>International view <br> recognizes <br> Cyprus</h4>')
-                .addTo(internatinalViewMap);
+                .addTo(internationalViewMap);
 
             // Informational popup for Turkey's view
             new maplibregl.Popup({closeOnClick: false})
@@ -92,7 +92,7 @@ style.css
 
 body { margin: 0; padding: 0; }
 html, body { height: 100%; }
-#internatinalView, #turkeyView { height: 100%; width: 100%; }
+#internationalView, #turkeyView { height: 100%; width: 100%; }
 .maps {
     display: flex;
     width: 100%;
