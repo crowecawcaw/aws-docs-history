@@ -8,7 +8,7 @@ template sets the parameters and details of the session.
 1. Go to the **Session templates** page.
 2. Select the **Create template** button.
 
-![Session templates interface showing three templates with Linux and Windows options.](images/session-template.png) 3. Enter the information in the **Configure template
+![Session templates interface showing three templates with Linux and Windows options.](/images/dcv/latest/access-console/images/session-template.png) 3. Enter the information in the **Configure template
 details** page.
 
 This page chooses the parameters of your session template. These
