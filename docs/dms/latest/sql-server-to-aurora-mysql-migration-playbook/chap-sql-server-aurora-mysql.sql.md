@@ -1,313 +1,408 @@
-# Constraints for ANSI SQL
+# Table JOIN for ANSI SQL
 
-This topic provides reference information about constraint compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in how these two database systems handle various types of constraints, including check constraints, unique constraints, primary key constraints, and foreign key constraints.
+This topic provides reference content comparing table join functionality between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the similarities and differences in join syntax and support between these two database systems.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                        | Key differences                                          |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Constraints](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints") | Unsupported `CHECK`. Indexing requirements for `UNIQUE`. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                      | Key differences                                                                                          |
+| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Table Joins](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins") | Basic syntax compatible. `FULL OUTER`, `APPLY`, and `ANSI SQL 89` outer joins will need to be rewritten. |
 
 ## SQL Server Usage
 
-Column and table constraints are defined by the SQL standard and enforce relational data consistency. There are four types of SQL constraints: check constraints, unique constraints, primary key constraints, and foreign key constraints.
+SQL Server supports the standard ANSI join types:
 
-### Check Constraints
+- `<Set A> CROSS JOIN <Set B>` — Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
+- `<Set A> INNER JOIN <Set B> ON <Join Condition>` — Filters the cartesian product to only the rows where the join predicate evaluates to `TRUE`.
+- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
+- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
+- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>` — Designates both sets as reserved and adds non matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
+
+### APPLY
+
+SQL Server also supports the `APPLY` operator, which is somewhat similar to a join. However, `APPLY` operators enable the creation of a correlation between `<Set A>` and `<Set B>` such as that `<Set B>` may consist of a subquery, a `VALUES` row value constructor, or a table valued function that is evaluated for each row of `<Set A>` where the `<Set B>` query can reference columns from the current row in `<Set A>`. This functionality isn’t possible with any type of standard `JOIN` operator.
+
+There are two `APPLY` types:
+
+- `<Set A> CROSS APPLY <Set B>` — Similar to a `CROSS JOIN` in the sense that every row from `<Set A>` is matched with every row from `<Set B>`.
+- `<Set A> OUTER APPLY <Set B>` — Similar to a `LEFT OUTER JOIN` in the sense that rows from `<Set A>` are returned even if the sub query for `<Set B>` produces an empty set. In that case, NULL is assigned to all columns of `<Set B>`.
+
+### ANSI SQL 89 JOIN Syntax
+
+Up until SQL Server version 2008 R2, SQL Server also supported the old style `JOIN` syntax including `LEFT` and` RIGHT OUTER JOIN`.
+
+The ANSI syntax for a `CROSS JOIN` operator was to list the sets in the `FROM` clause using commas as separators. Consider the following example:
 
 ```
-CHECK (<Logical Expression>)
+SELECT *
+FROM Table1,
+    Table2,
+    Table3...
 ```
 
-Check constraints enforce domain integrity by limiting the data values stored in table columns. They are logical Boolean expressions that evaluate to one of three values: `TRUE`, `FALSE`, and `UNKNOWN`.
+To perform an `INNER JOIN`, you only needed to add the `JOIN` predicate as part of the `WHERE` clause. Consider the following example:
+
+```
+SELECT *
+FROM Table1,
+    Table2
+WHERE Table1.Column1 = Table2.Column1
+```
+
+Although the ANSI standard didn’t specify outer joins at the time, most RDBMS supported them in one way or another. T-SQL supported outer joins by adding an asterisk to the left or the right of equality sign of the join predicate to designate the reserved table. Consider the following example:
+
+```
+SELECT *
+FROM Table1,
+    Table2
+WHERE Table1.Column1 *= Table2.Column1
+```
+
+To perform a `FULL OUTER JOIN`, asterisks were placed on both sides of the equality sign of the join predicate.
+
+As of SQL Server 2008R2, outer joins using this syntax have been deprecated. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
 
 ###### Note
 
-Check constraint expressions behave differently than predicates in other query clauses. For example, in a `WHERE` clause, a logical expression that evaluates to `UNKNOWN` is functionally equivalent to `FALSE` and the row is filtered out. For check constraints, an expression that evaluates to `UNKNOWN` is functionally equivalent to `TRUE` because the value is permitted by the constraint.
+Even though inner joins using the ANSI SQL 89 syntax are still supported, they are highly discouraged due to being notorious for introducing hard to catch programming bugs.
 
-You can assign multiple check constraints to a single column. A single check constraint may apply to multiple columns. In this case, it is known as a table-level check constraint.
+### Syntax
 
-In ANSI SQL, check constraints can’t access other rows as part of the expression. In SQL Server, you can use user-defined functions in constraints to access other rows, tables, or even databases.
-
-### Unique Constraints
+**CROSS JOIN**
 
 ```
-UNIQUE [CLUSTERED | NONCLUSTERED] (<Column List>)
+FROM <Table Source 1>
+    CROSS JOIN
+    <Table Source 2>
 ```
 
-Unique constraints should be used for all candidate keys. A candidate key is an attribute or a set of attributes such as columns that uniquely identify each row in the relation or table data.
-
-Unique constraints guarantee that no rows with duplicate column values exist in a table.
-
-A unique constraint can be simple or composite. Simple constraints are composed of a single column. Composite constraints are composed of multiple columns. A column may be a part of more than one constraint.
-
-Although the ANSI SQL standard allows multiple rows having NULL values for unique constraints, in SQL Server, you can use a NULL value for only one row. Use a `NOT NULL` constraint in addition to a unique constraint to disallow all NULL values.
-
-To improve efficiency, SQL Server creates a unique index to support unique constraints. Otherwise, every `INSERT` and `UPDATE` would require a full table scan to verify there are no duplicates. The default index type for unique constraints is non-clustered.
-
-### Primary Key Constraints
-
 ```
-PRIMARY KEY [CLUSTERED | NONCLUSTERED] (<Column List>)
+-- ANSI 89
+FROM <Table Source 1>,
+    <Table Source 2>
 ```
 
-A primary key is a candidate key serving as the unique identifier of a table row. Primary keys may consist of one or more columns. All columns that comprise a primary key must also have a NOT NULL constraint. Tables can have one primary key.
-
-The default index type for primary keys is a clustered index.
-
-### Foreign Key Constraints
+**INNER / OUTER JOIN**
 
 ```
-FOREIGN KEY (<Referencing Column List>)
-REFERENCES <Referenced Table>(<Referenced Column List>)
+FROM <Table Source 1>
+    [ { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } }] JOIN
+    <Table Source 2>
+    ON <JOIN Predicate>
 ```
 
-Foreign key constraints enforce domain referential integrity. Similar to check constraints, foreign keys limit the values stored in a column or set of columns.
+```
+-- ANSI 89
+FROM <Table Source 1>,
+    <Table Source 2>
+WHERE <Join Predicate>
+<Join Predicate>:: <Table Source 1 Expression> | = | *= | =* | *=* <Table Source 2 Expression>
+```
 
-Foreign keys reference columns in other tables, which must be either primary keys or have unique constraints. The set of values allowed for the referencing table is the set of values existing the referenced table.
+**APPLY**
 
-Although the columns referenced in the parent table are indexed (since they must have either a primary key or unique constraint), no indexes are automatically created for the referencing columns in the child table. A best practice is to create appropriate indexes to support joins and constraint enforcement.
-
-Foreign key constraints impose DML limitations for the referencing child table and for the parent table. The constraint’s purpose is to guarantee that no orphan rows with no corresponding matching values in the parent table exist in the referencing table. The constraint limits `INSERT` and `UPDATE` to the child table and `UPDATE` and `DELETE` to the parent table. For example, you can’t delete an order having associated order items.
-
-Foreign keys support cascading referential integrity (CRI). CRI can be used to enforce constraints and define action paths for DML statements that violate the constraints. There are four CRI options:
-
-- **NO ACTION** — When the constraint is violated due to a DML operation, an error is raised and the operation is rolled back.
-- **CASCADE** — Values in a child table are updated with values from the parent table when they are updated or deleted along with the parent.
-- **SET NULL** — All columns that are part of the foreign key are set to NULL when the parent is deleted or updated.
-- **SET DEFAULT** — All columns that are part of the foreign key are set to their DEFAULT value when the parent is deleted or updated.
-
-These actions can be customized independently of others in the same constraint. For example, a cascading constraint may have `CASCADE` for `UPDATE`, but `NO ACTION` for `UPDATE`.
+```
+FROM <Table Source 1>
+    { CROSS | OUTER } APPLY
+    <Table Source 2>
+<Table Source 2>:: <SELECT sub-query> | <Table Valued UDF> | <VALUES clause>
+```
 
 ### Examples
 
-The following example creates a composite non-clustered primary key.
+Create the `Orders` and `Items` tables.
 
 ```
-CREATE TABLE MyTable
+CREATE TABLE Items
 (
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-    PRIMARY KEY NONCLUSTERED (Col1, Col2)
-);
-```
-
-The following example creates a table-level check constraint.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-    PRIMARY KEY NONCLUSTERED (Col1, Col2),
-    CONSTRAINT CK_MyTableCol1Col2
-    CHECK (Col2 >= Col1)
-);
-```
-
-The following example creates a simple non-null unique constraint.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-        PRIMARY KEY NONCLUSTERED (Col1, Col2),
-    CONSTRAINT UQ_Col2Col3
-        UNIQUE (Col2, Col3)
-);
-```
-
-The following example creates a foreign key with multiple cascade actions.
-
-```
-CREATE TABLE MyParentTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PK_MyTable
-    PRIMARY KEY NONCLUSTERED (Col1, Col2)
+Item VARCHAR(20) NOT NULL
+    PRIMARY KEY
+Category VARCHAR(20) NOT NULL,
+Material VARCHAR(20) NOT NULL
 );
 ```
 
 ```
-CREATE TABLE MyChildTable
+INSERT INTO Items (Item, Category, Material)
+VALUES
+('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
+('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
+('M8 Washer', 'Metric Washers', 'Stainless Steel'),
+('3/8" Bolt', 'Imperial Bolts', 'Brass')
+```
+
+```
+CREATE TABLE OrderItems
 (
-    Col1 INT NOT NULL PRIMARY KEY,
-    Col2 INT NOT NULL,
-    Col3 INT NOT NULL,
-    CONSTRAINT FK_MyChildTable_MyParentTable
-        FOREIGN KEY (Col2, Col3)
-        REFERENCES MyParentTable (Col1, Col2)
-        ON DELETE NO ACTION
-        ON UPDATE CASCADE
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL
+    REFERENCES Items(Item),
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
 );
 ```
 
-For more information, see [Unique Constraints and Check Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15") and [Primary and Foreign Key Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15") in the _SQL Server documentation_.
+```
+INSERT INTO OrderItems (OrderID, Item, Quantity)
+VALUES
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200)
+```
+
+**INNER JOIN**
+
+```
+SELECT *
+FROM Items AS I
+    INNER JOIN
+    OrderItems AS OI
+    ON I.Item = OI.Item;
+
+-- ANSI SQL 89
+SELECT *
+FROM Items AS I,
+    OrderItems AS OI
+WHERE I.Item = OI.Item;
+```
+
+**LEFT OUTER JOIN**
+
+Find Items that were never ordered.
+
+```
+SELECT Item
+FROM Items AS I
+    LEFT OUTER JOIN
+    OrderItems AS OI
+    ON I.Item = OI.Item
+WHERE OI.OrderID IS NULL;
+
+-- ANSI SQL 89
+SELECT Item
+FROM
+(
+    SELECT I.Item, O.OrderID
+    FROM Items AS I,
+        OrderItems AS OI
+    WHERE I.Item *= OI.Item
+) AS LeftJoined
+WHERE LeftJoined.OrderID IS NULL;
+```
+
+**FULL OUTER JOIN**
+
+```
+CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
+CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
+
+INSERT INTO T1 (Col1, Col2)
+VALUES (1, 'A'), (2,'B');
+
+INSERT INTO T2 (Col1, Col2)
+VALUES (2,'BB'), (3,'CC');
+
+SELECT *
+FROM T1
+    FULL OUTER JOIN
+    T2
+    ON T1.Col1 = T2.Col1;
+```
+
+```
+Result:
+Col1  COl2  Col1  COl2
+1     A     NULL  NULL
+2     B     2     BB
+NULL NULL 3 CC
+```
+
+For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Similar to SQL Server, Aurora MySQL supports all ANSI constraint types, except check.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the following types of joins in the same way as SQL Server, except for `FULL OUTER JOIN`:
 
-###### Note
+- `<Set A> CROSS JOIN <Set B>` — Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
+- `<Set A> INNER JOIN <Set B> ON <Join Condition>` — Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
+- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
+- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` — Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
 
-You can work around some of the functionality of `CHECK (<Column>) IN (<Value List>)` using the `SET` and `ENUM` data types. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
+In addition, Aurora MySQL supports the following join types not supported by SQL Server:
 
-Unlike SQL Server, constraint names, or symbols in Aurora MySQL terminology, are optional. Identifiers are created automatically and are similar to SQL Server column constraints that are defined without an explicit name.
+- `<Set A> NATURAL [INNER | LEFT OUTER | RIGHT OUTER ] JOIN <Set B>` — Implicitly assumes that the join predicate consists of all columns with the same name from `<Set A>` and `<Set B>`.
+- `<Set A> STRAIGHT_JOIN <Set B>` — Forces `<Set A>` to be read before `<Set B>` and is used as an optimizer hint.
 
-### Unique Constraints
-
-Unlike SQL Server, where unique constraints are objects supported by unique indexes, Aurora MySQL only provides unique indexes. A unique index is the equivalent to a SQL Server unique constraint.
-
-As with SQL Server, unique indexes enforce distinct values for index columns. If a new row is added or an existing row is updated with a value that matches an existing row, an error is raised and the operation is rolled back.
-
-Unlike SQL Server, Aurora MySQL permits multiple rows with NULL values for unique indexes.
-
-###### Note
-
-If a unique index consists of only one `INT` type column, you can use the `_rowid` alias to reference the index in `SELECT` statements.
-
-### Primary Key Constraints
-
-Similar to SQL Server, a primary key constraint in Aurora MySQL is a unique index where all columns are NOT NULL. Each table can have only one primary key. The name of the constraint is always `PRIMARY`.
-
-Primary keys in Aurora MySQL are always clustered. They can’t be configured as `NON CLUSTERED` like SQL Server. For more information, see [Indexes](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
-
-Applications can reference a primary key using the `PRIMARY` alias. If a table has no primary key, which isn’t recommended, Aurora MySQL uses the first NOT NULL and unique index.
-
-###### Note
-
-Keep the primary key short to minimize storage overhead for secondary indexes. In Aurora MySQL, the primary key is clustered. Therefore, every secondary or nonclustered index maintains a copy of the clustering key as the row pointer. It is also recommended to create tables and declare the primary key first, followed by the unique indexes. Then create the non-unique indexes.
-
-If a primary key consists of a single `INTEGER` column, it can be referenced using the `_rowid` alias in `SELECT` commands.
-
-### Foreign Key Constraints
-
-###### Note
-
-MySQL doesn’t support foreign key constraints for partitioned tables. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").
-
-Aurora MySQL supports foreign key constraints for limiting values in a column, or a set of columns, of a child table based on their existence in a parent table.
-
-Unlike SQL Server and contrary to the ANSI standard, Aurora MySQL allows foreign keys to reference nonunique columns in the parent table. The only requirement is that the columns are indexed as the leading columns of an index, but not necessarily a unique index.
-
-Aurora MySQL supports cascading referential integrity actions using the `ON UPDATE` and `ON DELETE` clauses. The available referential actions are `RESTRICT`, `CASCADE`, `SET NULL`, and `NO ACTION`. The default action is `RESTRICT`. `RESTRICT` and `NO ACTION` are synonymous.
-
-###### Note
-
-SET DEFAULT is supported by some other MySQL Server engines. Aurora MySQL uses the InnoDB engine exclusively, which doesn’t support `SET DEFAULT`.
-
-###### Note
-
-Some database engines support the ANSI standard for deferred checks. `NO ACTION` is a deferred check as opposed to `RESTRICT`, which is immediate. In MySQL, foreign key constraints are always validated immediately. Therefore, `NO ACTION` is the same as the `RESTRICT` action.
-
-Aurora MySQL handles foreign keys differently than most other engines in the following ways:
-
-- If there are multiple rows in the parent table that have the same values for the referenced foreign key, Aurora MySQL foreign key checks behave as if the other parent rows with the same key value don’t exist. For example, if a `RESTRICT` action is defined and a child row has several parent rows, Aurora MySQL doesn’t permit deleting them.
-- If `ON UPDATE CASCADE` or `ON UPDATE SET NULL` causes a recursion and updates the same table that has been updated as part of the same cascade operation, Aurora MySQL treats it as if it was a
-  `RESTRICT` action. This effectively turns off self-referencing `ON UPDATE CASCADE` or `ON UPDATE SET NULL` operations to prevent potential infinite loops resulting from cascaded updates. A self-referencing `ON DELETE SET NULL` or `ON DELETE CASCADE` are allowed because there is no risk of an infinite loop.
-- Cascading operations are limited to 15 levels deep.
-
-### Check Constraints
-
-Standard ANSI check clauses are parsed correctly and don’t raise syntax errors. However, they are ignored and aren’t stored as part of the Aurora MySQL table definition.
-
-**Syntax**
+Aurora MySQL also supports the `USING` clause as an alternative to the `ON` clause. The `USING` clause consists of a list of comma separated columns that must appear in both tables. The join predicate is the equivalent of an `AND` logical operator for equality predicates of each column. For example, the following two joins are equivalent:
 
 ```
-CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
-(
-    <Column Definition>
-    [CONSTRAINT [<Symbol>]]
-        PRIMARY KEY (<Column List>)
-    | [CONSTRAINT [<Symbol>]]
-        UNIQUE [INDEX|KEY] [<Index Name>] [<Index Type>] (<Column List>)
-    | [CONSTRAINT [<Symbol>]]
-        FOREIGN KEY [<Index Name>] (<Column List>)
-            REFERENCES <Table Name> (<Column List>)
-                [ON DELETE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
-                [ON UPDATE RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT]
-);
+FROM Table1
+    INNER JOIN
+    Table2
+    ON Table1.Column1 = Table2.column1;
+```
+
+```
+FROM Table1
+    INNER JOIN
+    Table2
+    USING (Column1);
+```
+
+If `Column1` is the only column with a common name between `Table1` and `Table2`, the following statement is also equivalent:
+
+```
+FROM Table1
+    NATURAL JOIN
+    Table2
+```
+
+###### Note
+
+Aurora MySQL supports the ANSI SQL 89 syntax for joins using commas in the `FROM` clause, but only for inner joins.
+
+###### Note
+
+Aurora MySQL supports neither `APPLY` nor the equivalent `LATERAL JOIN` used by some other database engines.
+
+### Syntax
+
+```
+FROM
+    <Table Source 1> CROSS JOIN <Table Source 2>
+    | <Table Source 1> INNER JOIN <Table Source 2>
+        ON <Join Predicate> | USING (Equality Comparison Column List)
+    | <Table Source 1> {LEFT|RIGHT} [OUTER] JOIN <Table Source 2>
+        ON <Join Predicate> | USING (Equality Comparison Column List)
+    | <Table Source 1> NATURAL [INNER | {LEFT|RIGHT} [OUTER]] JOIN <Table Source 2>
+    | <Table Source 1> STRAIGHT_JOIN <Table Source 2>
+    | <Table Source 1> STRAIGHT_JOIN <Table Source 2>
+        ON <Join Predicate>
 ```
 
 ### Migration Considerations
 
-- Aurora MySQL doesn’t support check constraints. The engine parses the syntax for check constraints, but they are ignored.
-- Consider using triggers or stored routines to validate data values for complex expressions.
-- When using check constraints for limiting to a value list such as `CHECK (Col1 IN (1,2,3))`, consider using the `ENUM` or `SET` data types.
-- In Aurora MySQL, the constraint name (symbol) is optional, even for table constraints defined with the `CONSTRAINT` keyword. In SQL Server, it is mandatory.
-- Aurora MySQL requires that both the child table and the parent table in foreign key relationship are indexed. If the appropriate index doesn’t exist, Aurora MySQL automatically creates one.
+For most joins, the syntax should be equivalent and no rewrites should be needed.
+
+- `CROSS JOIN` using either ANSI SQL 89 or ANSI SQL 92 syntax.
+- `INNER JOIN` using either ANSI SQL 89 or ANSI SQL 92 syntax.
+- `OUTER JOIN` using the ANSI SQL 92 syntax only.
+
+`FULL OUTER JOIN` and `OUTER JOIN` using the pre-ANSI SQL 92 syntax aren’t supported, but they can be easily worked around.
+
+`CROSS APPLY` and `OUTER APPLY` aren’t supported and need to be rewritten.
 
 ### Examples
 
-The following example creates a composite primary key.
+Create the `Orders` and `Items` tables.
 
 ```
-CREATE TABLE MyTable
+CREATE TABLE Items
 (
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PRIMARY KEY (Col1, Col2)
-);
-```
-
-The following example creates a simple non-null unique constraint.
-
-```
-CREATE TABLE MyTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PRIMARY KEY (Col1, Col2),
-    CONSTRAINT UNIQUE (Col2, Col3)
-);
-```
-
-The following example creates a named foreign key with multiple cascade actions.
-
-```
-CREATE TABLE MyParentTable
-(
-    Col1 INT NOT NULL,
-    Col2 INT NOT NULL,
-    Col3 VARCHAR(20) NULL,
-    CONSTRAINT PRIMARY KEY (Col1, Col2)
+    Item VARCHAR(20) NOT NULL
+    PRIMARY KEY
+    Category VARCHAR(20) NOT NULL,
+    Material VARCHAR(20) NOT NULL
 );
 ```
 
 ```
-CREATE TABLE MyChildTable
+INSERT INTO Items (Item, Category, Material)
+VALUES
+('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
+('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
+('M8 Washer', 'Metric Washers', 'Stainless Steel'),
+('3/8" Bolt', 'Imperial Bolts', 'Brass')
+```
+
+```
+CREATE TABLE OrderItems
 (
-    Col1 INT NOT NULL PRIMARY KEY,
-    Col2 INT NOT NULL,
-    Col3 INT NOT NULL,
-    FOREIGN KEY (Col2, Col3)
-    REFERENCES MyParentTable (Col1, Col2)
-    ON DELETE NO ACTION
-    ON UPDATE CASCADE
+    OrderID INT NOT NULL,
+    Item VARCHAR(20) NOT NULL
+    REFERENCES Items(Item),
+    Quantity SMALLINT NOT NULL,
+    PRIMARY KEY(OrderID, Item)
 );
+```
+
+```
+INSERT INTO OrderItems (OrderID, Item, Quantity)
+VALUES
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200)
+```
+
+**INNER JOIN and OUTER JOIN**
+
+```
+SELECT *
+FROM Items AS I
+    INNER JOIN
+    OrderItems AS OI
+    ON I.Item = OI.Item;
+
+-- ANSI SQL 89
+SELECT *
+FROM Items AS I,
+    Orders AS O
+WHERE I.Item = OI.Item;
+```
+
+**LEFT OUTER JOIN**
+
+```
+SELECT Item
+FROM Items AS I
+    LEFT OUTER JOIN
+    OrderItems AS OI
+    ON I.Item = OI.Item
+WHERE OI.OrderID IS NULL;
+```
+
+**Rewrite for FULL OUTER JOIN**
+
+```
+CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
+CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
+
+INSERT INTO T1 (Col1, Col2)
+VALUES (1, 'A'), (2,'B');
+
+INSERT INTO T2 (Col1, Col2)
+VALUES (2,'BB'), (3,'CC');
+
+SELECT *
+FROM T1
+    LEFT OUTER JOIN
+    T2
+    ON T1.Col1 = T2.Col1
+UNION ALL
+SELECT NULL, NULL, Col1, Col2
+FROM T2
+WHERE Col1 NOT IN (SELECT Col1 FROM T1);
+```
+
+```
+Result:
+Col1  COl2  Col1  COl2
+1     A     NULL  NULL
+2     B     2     BB
+NULL  NULL  3     CC
 ```
 
 ## Summary
 
-The following table identifies similarities, differences, and key migration considerations.
+Table of similarities, differences, and key migration considerations.
 
-| Feature                         | SQL Server                                        | Aurora MySQL                                   | Comments                                                                  |
-| ------------------------------- | ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- |
-| Check constraints               | `CHECK`                                           | Not supported                                  | Aurora MySQL parses `CHECK` syntax, but ignores it.                       |
-| Unique constraints              | `UNIQUE`                                          | `UNIQUE`                                       |                                                                           |
-| Primary key constraints         | `PRIMARY KEY`                                     | `PRIMARY KEY`                                  |                                                                           |
-| Foreign key constraints         | `FOREIGN KEY`                                     | `FOREIGN KEY`                                  |                                                                           |
-| Cascaded referential actions    | `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT` | `RESTRICT`, `CASCADE`, `SET NULL`, `NO ACTION` | `NO ACTION` and `RESTRICT` are synonymous.                                |
-| Indexing of referencing columns | Not required                                      | Required                                       | If not specified, an index is created silently to support the constraint. |
-| Indexing of referenced columns  | `PRIMARY KEY` or `UNIQUE`                         | Required                                       | Aurora MySQL doesn’t enforce uniqueness of referenced columns.            |
-| Cascade recursion               | Not allowed, discovered at `CREATE` time          | Not allowed, discovered at run time.           |                                                                           |
+| SQL Server                              | Aurora MySQL    | Comments                                                                 |
+| --------------------------------------- | --------------- | ------------------------------------------------------------------------ |
+| `INNER JOIN` with `ON` clause or commas | Supported       |                                                                          |
+| `OUTER JOIN` with `ON` clause           | Supported       |                                                                          |
+| `OUTER JOIN` with commas                | Not supported   | Requires T-SQL rewrite post SQL Server 2008 R2.                          |
+| `CROSS JOIN` or using commas            | Supported       |                                                                          |
+| `CROSS APPLY` and `OUTER APPLY`         | Not Supported   | Rewrite required.                                                        |
+| Not Supported                           | `NATURAL JOIN`  | Not recommended, may cause unexpected issues if table structure changes. |
+| Not Supported                           | `STRAIGHT_JOIN` |                                                                          |
+| Not Supported                           | `USING` clause  |                                                                          |
 
-For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [How MySQL Deals with Constraints](https://dev.mysql.com/doc/refman/5.7/en/constraints.html "https://dev.mysql.com/doc/refman/5.7/en/constraints.html"), and [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html") in the _MySQL documentation_.
+For more information, see [JOIN Clause](https://dev.mysql.com/doc/refman/5.7/en/join.html "https://dev.mysql.com/doc/refman/5.7/en/join.html") in the _MySQL documentation_.

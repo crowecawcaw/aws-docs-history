@@ -1,144 +1,128 @@
-# Resource governor features
+# Monitoring features
 
-This topic provides reference information about resource management and workload isolation capabilities in SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in how these database systems handle resource limits and workload management.
+This topic provides reference information about monitoring and performance management for Microsoft SQL Server and Amazon Aurora MySQL databases. You can learn about the different monitoring capabilities and tools available for each database system, including SQL Server’s dynamic management views and integration with Amazon CloudWatch and Performance Insights.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                       |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------- |
-| One star feature compatibility | N/A                                | N/A                       | Use the resource limit for each user. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                                                                                                                  |
+| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") in the _Amazon Relational Database Service User Guide_. |
 
 ## SQL Server Usage
 
-SQL Server Resource Governor provides the capability to control and manage resource consumption. Administrators can specify and enforce workload limits on CPU, physical I/O, and Memory. Resource configurations are dynamic and you can change them in real time.
+Monitoring server performance and behavior is a critical aspect of maintaining service quality and includes ad-hoc data collection, ongoing data collection, root cause analysis, preventative actions, and reactive actions. SQL Server provides an array of interfaces to monitor and collect server data.
 
-In SQL Server 2019 configurable value for the `REQUEST_MAX_MEMORY_GRANT_PERCENT` option of `CREATE WORKLOAD GROUP` and `ALTER WORKLOAD GROUP` has been changed from an integer to a float data type to allow more granular control of memory limits. For more information, see [ALTER WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver15") and [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+SQL Server 2017 introduces several new dynamic management views:
 
-### Use Cases
+- `sys.dm_db_log_stats` exposes summary level attributes and information on transaction log files, helpful for monitoring transaction log health.
+- `sys.dm_tran_version_store_space_usage` tracks version store usage for each database, useful for proactively planning `tempdb` sizing based on the version store usage for each database.
+- `sys.dm_db_log_info` exposes VLF information to monitor, alert, and avert potential transaction log issues.
+- `sys.dm_db_stats_histogram` is a new dynamic management view for examining statistics.
+- `sys.dm_os_host_info` provides operating system information for both Windows and Linux.
 
-The following list identifies typical Resource Governor use cases:
+SQL Server 2019 adds new configuration parameter, `LIGHTWEIGHT_QUERY_PROFILING`. It turns on or turns off the lightweight query profiling infrastructure. The lightweight query profiling infrastructure (LWP) provides query performance data more efficiently than standard profiling mechanisms and is enabled by default. For more information, see [Query Profiling Infrastructure](https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15") in the _SQL Server documentation_.
 
-- **Minimize performance bottlenecks and inconsistencies** to better support Service Level Agreements (SLA) for multiple workloads and users.
-- **Protect against runaway queries** that consume a large amount of resources or explicitly throttle I/O intensive operations. For example, consistency checks with DBCC that may bottleneck the I/O subsystem and negatively impact concurrent workloads.
-- **Allow tracking and control for resource-based pricing scenarios** to improve predictability of user charges.
+### Windows Operating System Level Tools
 
-### Concepts
+You can use the Windows Scheduler to trigger run of script files such as CMD, PowerShell, and so on to collect, store, and process performance data.
 
-The three basic concepts in Resource Governor are Resource Pools, Workload Groups, and Classification.
+System Monitor is a graphical tool for measuring and recording performance of SQL Server and other Windows-related metrics using the Windows Management Interface (WMI) performance objects.
 
-- **Resource Pools** represent physical resources. Two built-in resource pools, internal and default, are created when SQL Server is installed. You can create custom user-defined resource pools for specific workload types.
-- **Workload Groups** are logical containers for session requests with similar characteristics. Workload Groups allow aggregate resource monitoring of multiple sessions. Resource limit policies are defined for a Workload Group. Each Workload Group belongs to a Resource Pool.
-- **Classification** is a process that inspects incoming connections and assigns them to a specific Workload Group based on the common attributes. User-defined functions are used to implement Classification. For more information, see [User-Defined Functions](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+###### Note
 
-### Examples
+Performance objects can also be accessed directly from T-SQL using the SQL Server Operating System Related DMVs. For a full list of the DMVs, see [SQL Server Operating System Related Dynamic Management Views (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
-Turn on the Resource Governor.
+Performance counters exist for real-time measurements such as CPU Utilization and for aggregated history such as average active transactions. For a full list of the object hierarchy, see: [Use SQL Server Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15") in the _SQL Server documentation_.
 
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
+### SQL Server Extended Events
 
-Create a Resource Pool.
+SQL Server latest tracing framework provides very lightweight and robust event collection and storage. SQL Server Management Studio features the New Session Wizard and New Session graphic user interfaces for managing and analyzing captured data. SQL Server Extended Events consists of the following items:
 
-```
-CREATE RESOURCE POOL ReportingWorkloadPool
-    WITH (MAX_CPU_PERCENT = 20);
-```
+- SQL Server Extended Events Package is a logical container for Extended Events objects.
+- SQL Server Extended Events Targets are consumers of events. Targets include Event File, which writes data to the file Ring Buffer for retention in memory, or for processing aggregates such as Event Counters and Histograms.
+- SQL Server Extended Events Engine is a collection of services and tools that comprise the framework.
+- SQL Server Extended Events Sessions are logical containers mapped many-to-many with packages, events, and filters.
 
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
-
-Create a Workload Group.
+The following example creates a session that logs lock escalations and lock timeouts to a file.
 
 ```
-CREATE WORKLOAD GROUP ReportingWorkloadGroup USING poolAdhoc;
+CREATE EVENT SESSION Locking_Demo
+ON SERVER
+    ADD EVENT sqlserver.lock_escalation,
+    ADD EVENT sqlserver.lock_timeout
+    ADD TARGET package0.etw_classic_sync_target
+        (SET default_etw_session_logfile_path = N'C:\ExtendedEvents\Locking\Demo_20180502.etl')
+    WITH (MAX_MEMORY=8MB, MAX_EVENT_SIZE=8MB);
+GO
 ```
 
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
+### SQL Server Tracing Framework and the SQL Server Profiler Tool
 
-Create a classifier function.
+The SQL Server trace framework is the predecessor to the Extended Events framework and remains popular among database administrators. The lighter and more flexible Extended Events Framework is recommended for development of new monitoring functionality. For more information, see [SQL Server Profiler](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15") in the _SQL Server documentation_.
 
-```
-CREATE FUNCTION dbo.WorkloadClassifier()
-RETURNS sysname WITH SCHEMABINDING
-AS
-BEGIN
-    RETURN (CASE
-        WHEN HOST_NAME()= 'ReportServer'
-        THEN 'ReportingWorkloadGroup'
-        ELSE 'Default'
-    END)
-END;
-```
+### SQL Server Management Studio
 
-Register the classifier function.
+SQL Server Management Studio (SSMS) provides several monitoring extensions:
 
-```
-ALTER RESOURCE GOVERNOR with (CLASSIFIER_FUNCTION = dbo.WorkloadClassifier);
-```
+- **SQL Server Activity Monitor** is an in-process, real-time, basic high-level information graphical tool.
+- **Query Graphical Show Plan** provides easy exploration of estimated and actual query run plans.
+- **Query Live Statistics** displays query run progress in real time.
+- **Replication Monitor** presents a publisher-focused view or distributor-focused view of all replication activity. For more information, see [Overview of the Replication Monitor Interface](https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15") in the _SQL Server documentation_.
+- **Log Shipping Monitor** displays the status of any log shipping activity whose status is available from the server instance to which you are connected. For more information, see [View the Log Shipping Report (SQL Server Management Studio)](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15") in the _SQL Server documentation_.
+- **Standard Performance Reports** is set of reports that show the most important performance metrics such as change history, memory usage, activity, transactions, HA, and more.
 
-```
-ALTER RESOURCE GOVERNOR RECONFIGURE;
-```
+### T-SQL
 
-For more information, see [Resource Governor](https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver15") in the _SQL Server documentation_.
+From the T-SQL interface, SQL Server provides many system stored procedures, system views, and functions for monitoring data.
+
+System stored procedures such as `sp_who` and `sp_lock` provide real-time information. The `sp_monitor` procedure provides aggregated data.
+
+Built in functions such as `@@CONNECTIONS`, `@@IO_BUSY`, `@@TOTAL_ERRORS`, and others provide high level server information.
+
+A rich set of System Dynamic Management functions and views are provided for monitoring almost every aspect of the server. These functions reside in the sys schema and are prefixed with `dm_string`. For more information, see [System Dynamic Management Views](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### Trace Flags
+
+You can set trace flags to log events. For example, set trace flag 1204 to log deadlock information. For more information, see [DBCC TRACEON - Trace Flags (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+### SQL Server Query Store
+
+Query Store is a database-level framework supporting automatic collection of queries, run plans, and run time statistics. This data is stored in system tables. You can use this data to diagnose performance issues, understand patterns, and understand trends. It can also be set to automatically revert plans when a performance regression is detected.
+
+For more information, see [Monitoring performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support a server-wide, granular, resource-based, workload resource isolation and management capability similar to SQL Server Resource Governor. However, Aurora MySQL does support the feature User Resource Limit Options that you can use to achieve similar high-level functionality for limiting resource consumption of user connections.
+The native features for monitoring MySQL databases such as innodb logging and the performance schema are turned off for Aurora MySQL. Most third-party tools that rely on these features can’t be used. Some vendors provide monitoring services specifically for Aurora MySQL.
 
-You can specify User Resource Limit Options as part of the `CREATE USER` statement to place the following limits on users:
+However, Amazon RDS provides a very rich monitoring infrastructure for Aurora MySQL clusters and instances with the native Amazon CloudWatch service.
 
-- The number of total queries in hour an account is allowed to issue.
-- The number of updates in hour an account is allowed to issue.
-- The number of times in hour an account can establish a server connection.
-- The total number of concurrent server connections allowed for the account.
+These services are improved frequently.
 
-For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md").
+Amazon RDS Performance Insights, an advanced database performance monitoring feature that makes it easy to diagnose and solve performance challenges on Amazon RDS databases, now supports additional counter metrics on Amazon RDS for MySQL and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL). With counter metrics, you can customize the Performance Insights dashboard to include up to 10 additional graphs that show a selection from dozens of operating system and database performance metrics. Counter metrics provide additional information that can be correlated with the database load chart to help identify performance issues and analyze performance. For more information, see [Performance Insights](https://aws.amazon.com/rds/performance-insights/ "https://aws.amazon.com/rds/performance-insights/").
 
-### Syntax
+![Performance Insights](images/pb-sql-server-aurora-mysql-performance-insights.png)
 
-```
-CREATE USER <User Name> ...
-WITH
-MAX_QUERIES_PER_HOUR count |
-MAX_UPDATES_PER_HOUR count |
-MAX_CONNECTIONS_PER_HOUR count |
-MAX_USER_CONNECTIONS count
-```
+To turn on Performance Insight for your instance, use the step-by-step walkthrough. For more information, see [Turning Performance Insights on and off](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md#USER_PerfInsights.Enabling.Console.Modifying "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md#USER_PerfInsights.Enabling.Console.Modifying") in the _Amazon Relational Database Service User Guide_.
 
-### Migration Considerations
+When the Performance Schema is turned on for Aurora MySQL, Performance Insights provides more detailed information. For example, Performance Insights displays DB load categorized by detailed wait events. When Performance Schema is turned off, Performance Insights displays DB load categorized by the list state of the MySQL process.
 
-Although both SQL Server Resource Manager and Aurora MySQL User Resource Limit Options provide the same basic function — limiting the amount of resources for distinct types of workloads — they differ significantly in scope and flexibility.
+The Performance Schema stores many useful metrics that will help you analyze and solve performance related issues.
 
-SQL Server Resource Manager is a dynamically configured independent framework based on actual run-time resource consumption. User Resource Limit Options are defined as part of the security objects and requires application connection changes to map to limited users. To modify these limits, you must alter the user object.
+You have the following options for enabling the Performance Schema:
 
-User Resource Limit Options don’t allow limiting workload activity based on actual resource consumption, but rather provides a quantitative limit for the number of queries or number of connections. A runaway query that consumes a large amount of resources may slow down the server.
+- Allow Performance Insights to manage required parameters automatically. When you create an Aurora MySQL DB instance with Performance Insights enabled, Performance Schema is turned on automatically. In this case, Performance Insights automatically manages your parameters.
 
-Another important difference is how exceeded resource limits are handled. SQL Server Resource Governor throttles the run; Aurora MySQL raises errors.
+###### Note
 
-### Example
+In this scenario, Performance Insights changes schema-related parameters on the DB instance. These changes aren’t visible in the parameter group associated with the DB instance. However, these changes are visible in the output of the `SHOW GLOBAL VARIABLES` command.
 
-Create a resource-limited user.
+- Set the required parameters yourself. For Performance Insights to list wait events, you must set all parameters as shown in the following table.
 
-```
-CREATE USER 'ReportUsers'@'localhost'
-IDENTIFIED BY 'ReportPassword'
-WITH
-MAX_QUERIES_PER_HOUR 60
-MAX_UPDATES_PER_HOUR 0
-MAX_CONNECTIONS_PER_HOUR 5
-MAX_USER_CONNECTIONS 2;
-```
+| Parameter name                                       | Value                                              |
+| ---------------------------------------------------- | -------------------------------------------------- |
+| `performance_schema`                                 | 1 (the Source column has the value engine-default) |
+| `performance-schema-consumer-events-waits-current`   | ON                                                 |
+| `performance-schema-instrument`                      | `wait/%=ON`                                        |
+| `performance-schema-consumer-global-instrumentation` | ON                                                 |
+| `performance-schema-consumer-thread-instrumentation` | ON                                                 |
 
-## Summary
-
-| Feature                                   | SQL Server Resource Governor                                                 | Aurora MySQL User Resource Limit Options  | Comments                                                           |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
-| Scope                                     | Dynamic workload pools and workload groups, mapped to a classifier function. | For each user.                            | Application connection strings need to use specific limited users. |
-| Limited resources                         | IO, CPU, and memory.                                                         | Number of queries, number of connections. |                                                                    |
-| Modifying limits                          | `ALTER RESOURCE POOL`                                                        | `ALTER USER`                              | Application may use a dynamic connection string.                   |
-| When resource threshold limit is reached. | Throttles and queues runs.                                                   | Raises an error.                          | Application retry logic may need to be added.                      |
-
-For more information, see [CREATE USER Resource-Limit Options](https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits "https://dev.mysql.com/doc/refman/5.7/en/create-user.html#create-user-resource-limits") and [Setting Account Resource Limits](https://dev.mysql.com/doc/refman/5.7/en/user-resources.html "https://dev.mysql.com/doc/refman/5.7/en/user-resources.html") in the _MySQL documentation_.
+For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md") and [Performance Schema Quick Start](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-quick-start.html "https://dev.mysql.com/doc/refman/5.7/en/performance-schema-quick-start.html") in the _MySQL documentation_, [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") and [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md") in the _Amazon Relational Database Service User Guide_.

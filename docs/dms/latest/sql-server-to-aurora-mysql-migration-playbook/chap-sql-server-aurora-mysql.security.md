@@ -1,87 +1,174 @@
-# Transparent data encryption Aurora MySQL
+# Column encryption for Aurora MySQL
 
-This topic provides reference information about data encryption capabilities in Microsoft SQL Server and Amazon Aurora MySQL. You can understand how Transparent Data Encryption (TDE) works in SQL Server to protect data at rest without requiring application changes.
+This topic provides reference information about encryption and decryption functions in SQL Server and Amazon Aurora MySQL. You can use these functions to secure sensitive data in your database, such as individual column contents or application user security tokens.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                        |
-| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------ |
-| Four star feature compatibility | N/A                                | N/A                       | Enable encryption when creating the database instance. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| -------------------------------- | ---------------------------------- | ------------------------- | --------------- |
+| Three star feature compatibility | No automation                      | N/A                       | Difference.     |
 
 ## SQL Server Usage
 
-Transparent data encryption (TDE) is an SQL Server feature designed to protect data at-rest in the event an attacker obtains the physical media containing database files.
+SQL Server provides encryption and decryption functions to secure the content of individual columns. The following list identifies common encryption functions:
 
-TDE doesn’t require application changes and is completely transparent to users. The storage engine encrypts and decrypts data on-the-fly. Data isn’t encrypted while in memory or on the network. TDE can be turned on or off individually for each database.
+- EncryptByKey and DecryptByKey.
+- EncryptByCert and DecruptByCert.
+- EncryptByPassPhrase and DecruptByPassPhrase.
+- EncryptByAsymKey and DecryptByAsymKey.
 
-TDE encryption uses a Database Encryption Key (DEK) stored in the database boot record, making it available during database recovery. The DEK is a symmetric key signed with a server certificate from the primary system database.
+You can use these functions anywhere in your code; they aren’t limited to encrypting table columns. A common use case is to increase run time security by encrypting of application user security tokens passed as parameters.
 
-In many instances, security compliance laws require TDE for data at rest.
+These functions follow the general SQL Server encryption hierarchy, which in turn use the Windows Server Data Protection API.
 
-### Examples
-
-The following example demonstrates how to enable TDE for a database.
-
-Create a master key and certificate.
-
-```
-USE master;
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MyPassword';
-CREATE CERTIFICATE TDECert WITH SUBJECT = 'TDE Certificate';
-```
-
-Create a database encryption key.
-
-```
-USE MyDatabase;
-CREATE DATABASE ENCRYPTION KEY
-WITH ALGORITHM = AES_128
-ENCRYPTION BY SERVER CERTIFICATE TDECert;
-```
-
-Enable TDE.
-
-```
-ALTER DATABASE MyDatabase SET ENCRYPTION ON;
-```
-
-For more information, see [Transparent data encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15") in the _SQL Server documentation_.
-
-## MySQL Usage
-
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides the ability to encrypt data at rest (data stored in persistent storage) for new database instances. When data encryption is enabled, Amazon Relational Database Service (RDS) automatically encrypts the database server storage, automated backups, read replicas, and snapshots using the AES-256 encryption algorithm.
-
-You can manage the keys used for Amazon Relational Database Service (Amazon RDS) encrypted instances from the Identity and Access Management (IAM) console using the AWS Key Management Service (AWS KMS). If you require full control of a key, you must manage it yourself. You can’t delete, revoke, or rotate default keys provisioned by AWS KMS.
-
-The following limitations exist for Amazon RDS encrypted instances:
-
-- You can only enable encryption for an Amazon RDS database instance when you create it, not afterward. It is possible to encrypt an existing database by creating a snapshot of the database instance and then creating an encrypted copy of the snapshot. You can restore the database from the encrypted snapshot. For more information, see [Copying a snapshot](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md").
-- Encrypted database instances can’t be modified to turn off encryption.
-- Encrypted Read Replicas must be encrypted with the same key as the source database instance.
-- An unencrypted backup or snapshot can’t be restored to an encrypted database instance.
-- KMS encryption keys are specific to the region where they are created. Copying an encrypted snapshot from one region to another requires the KMS key identifier of the destination region.
+Symmetric encryption and decryption consume minimal resources and can be used for large data sets.
 
 ###### Note
 
-Disabling the key for an encrypted database instance prevents reading from, or writing to, that instance. When Amazon RDS encounters a database instance encrypted by a key to which Amazon RDS doesn’t have access, it puts the database instance into a terminal state. In this state, the database instance is no longer available and the current state of the database can’t be recovered. To restore the database instance, you must re-enable access to the encryption key for Amazon RDS and then restore the database instance from a backup.
+This section doesn’t cover Transparent Data Encryption (TDE) or AlwaysEncrypted end-to-end encryption.
 
-Table encryption can now be managed globally by defining and enforcing encryption defaults. The `default_table_encryption` variable defines an encryption default for newly created schemas and general tablespace. The encryption default for a schema can also be defined using the `DEFAULT ENCRYPTION` clause when creating a schema. By default a table inherits the encryption of the schema or general tablespace it is created in. Encryption defaults are enforced by enabling the `table_encryption_privilege_check` variable. The privilege check occurs when creating or altering a schema or general tablespace with an encryption setting that differs from the `default_table_encryption` setting or when creating or altering a table with an encryption setting that differs from the default schema encryption. The `TABLE_ENCRYPTION_ADMIN` privilege permits overriding default encryption settings when `table_encryption_privilege_check` is enabled. For more information, see [Defining an Encryption Default for Schemas and General Tablespaces](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default "https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html#innodb-schema-tablespace-encryption-default").
+### Syntax
 
-### Creating an Encryption Key
+The following example includes the general syntax for EncryptByKey and DecryptByKey.
 
-To create your own key, browse to the Key Management Service (KMS) and choose **Customer managed keys** and create a new key.
+```
+EncryptByKey ( <key GUID> , { 'text to be encrypted' }, { <use authenticator flag>}, { <authenticator> } );
+```
 
-1. Choose relevant options and choose **Next**.
-2. Define alias as the name of the key and choose **Next**.
-3. You can skip **Define Key Administrative Permissions** and choose **Next**.
-4. On the next step make sure to assign the key to the relevant users who will need to interact with Amazon Aurora.
-5. On the last step you will be able to see the ARN of the key and its account.
-6. Choose **Finish** and now this key will be listed in under customer managed keys.
+```
+DecryptByKey ( 'Encrypted Text' , <use authenticator flag>, { <authenticator> )
+```
 
-Now you will be able to set Master encryption key by using the ARN of the key that you have created or picking it from the list.
+### Examples
 
-Proceed to finish and launch the instance.
+The following example demonstrates how to encrypt an employee Social Security Number.
 
-As part of the database settings, you will be prompted to enable encryption and select a master key.
+The following example creates a database master key.
 
-Encryption for an Amazon RDS DB instance can be enabled only during the instance creation.
+```
+USE MyDatabase;
+CREATE MASTER KEY
+ENCRYPTION BY PASSWORD = '<MyPassword>';
+```
 
-You can select the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
+The following examples create a certificate and a key.
+
+```
+CREATE CERTIFICATE Cert01
+WITH SUBJECT = 'SSN';
+```
+
+```
+CREATE SYMMETRIC KEY SSN_Key
+WITH ALGORITHM = AES_256
+ENCRYPTION BY CERTIFICATE Cert01;
+```
+
+The following example creates an employees table.
+
+```
+CREATE TABLE Employees
+(
+    EmployeeID INT PRIMARY KEY,
+    SSN_encrypted VARBINARY(128) NOT NULL
+);
+```
+
+Open the symmetric key for encryption.
+
+```
+OPEN SYMMETRIC KEY SSN_Key
+DECRYPTION BY CERTIFICATE Cert01;
+```
+
+Insert the encrypted data.
+
+```
+INSERT INTO Employees (EmployeeID, SSN_encrypted)
+VALUES
+(1, EncryptByKey(Key_GUID('SSN_Key') , '1112223333', 1, HashBytes('SHA1', CONVERT(VARBINARY, 1)));
+```
+
+```
+SELECT EmployeeID,
+CONVERT(CHAR(10), DecryptByKey(SSN, 1 , HashBytes('SHA1', CONVERT(VARBINARY, EmployeeID)))) AS SSN
+FROM Employees;
+
+EmployeeID  SSN_Encrypted              SSN
+1           0x00F983FF436E32418132...  1112223333
+```
+
+For more information, see [Encrypt a Column of Data](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=sql-server-ver15") and [Encryption Hierarchy](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/encryption-hierarchy?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## MySQL Usage
+
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides encryption and decryption functions similar to SQL Server with a much less elaborate security hierarchy that is easier to manage.
+
+The encryption functions require the actual key as a string, so you must take extra measures to protect the data. For example, hashing the key values on the client.
+
+Aurora MySQL supports the AES and DES encryption algorithms. You can use the following functions for data encryption and decryption:
+
+- `AES_DECRYPT`
+- `AES_ENCRYPT`
+- `DES_DECRYPT`
+- `DEC_ENCRYPT`
+
+###### Note
+
+The `ENCRYPT`, `DECRYPT`, `ENCODE`, and `DECODE` functions are deprecated beginning with MySQL version 5.7.2 and 5.7.6. Asymmetric encryption isn’t supported in Aurora MySQL.
+
+###### Note
+
+Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports FIPS mode if compiled using OpenSSL and an OpenSSL library and FIPS Object Module are available at runtime. FIPS mode imposes conditions on cryptographic operations such as restrictions on acceptable encryption algorithms or requirements for longer key lengths. For more information, see [FIPS Support](https://dev.mysql.com/doc/refman/8.0/en/fips-mode.html "https://dev.mysql.com/doc/refman/8.0/en/fips-mode.html") in the _MySQL documentation_.
+
+### Syntax
+
+The following example shows the general syntax for the encryption functions:
+
+```
+[A|D]ES_ENCRYPT(<string to be encrypted>, <key string> [,<initialization vector>])
+[A|D]ES_DECRYPT(<encrypted string>, <key string> [,<initialization vector>])
+```
+
+For more information, see [AES_ENCRYPT](https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt "https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt") in the _MySQL documentation_.
+
+It is highly recommended to use the optional initialization vector to circumvent whole value replacement attacks. When encrypting column data, it is common to use an immutable key as the initialization vector. With this approach, decryption fails if a whole value moves to another row.
+
+Consider using SHA2 instead of SHA1 or MD5 because there are known exploits available for the SHA1 and MD5. Passwords, keys, or any sensitive data passed to these functions from the client aren’t encrypted unless you are using an SSL connection. One benefit of using AWS IAM is that database connections are encrypted with SSL by default.
+
+### Examples
+
+The following examples demonstrate how to encrypt an employee Social Security Number.
+
+The following example creates an employees table.
+
+```
+CREATE TABLE Employees
+(
+    EmployeeID INT NOT NULL PRIMARY KEY,
+    SSN_Encrypted BINARY(32) NOT NULL
+);
+```
+
+The following example inserts the encrypted data.
+
+```
+INSERT INTO Employees (EmployeeID, SSN_Encrypted)
+VALUES (1, AES_ENCRYPT('1112223333', UNHEX(SHA2('MyPassword',512)), 1));
+```
+
+###### Note
+
+Use the UNHEX function for more efficient storage and comparisons.
+
+Verify decryption.
+
+```
+SELECT EmployeeID,
+SSN_Encrypted,
+AES_DECRYPT(SSN_Encrypted, UNHEX(SHA2('MyPassword',512)), EmployeeID) AS SSN
+FROM Employees
+
+EmployeeID SSN_Encrypted     SSN
+1          ` ©> +yp°øýNZ~Gø  1112223333
+```
+
+For more information, see [Encryption and Compression Functions](https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html "https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html") in the _MySQL documentation_.
