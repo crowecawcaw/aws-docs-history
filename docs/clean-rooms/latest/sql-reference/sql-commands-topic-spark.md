@@ -7,4 +7,5 @@ SQL:
 ###### Topics
 
 - [CACHE TABLE](sql-commands-cache-table.md "sql-commands-cache-table.md")
+- [Hints](sql-commands-hints-spark.md "sql-commands-hints-spark.md")
 - [SELECT](sql-commands-select-spark.md "sql-commands-select-spark.md")
