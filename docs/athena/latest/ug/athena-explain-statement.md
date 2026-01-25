@@ -88,7 +88,7 @@ The following examples for `EXPLAIN` progress from the more straightforward
 to the more complex.
 
 In the following example, `EXPLAIN` shows the execution plan for a
-`SELECT` query on ELB logs. The format defaults to text
+`SELECT` query on Elastic Load Balancing logs. The format defaults to text
 output.
 
 ```
