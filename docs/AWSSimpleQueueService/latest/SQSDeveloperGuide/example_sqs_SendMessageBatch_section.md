@@ -389,6 +389,43 @@ end
   [SendMessageBatch](../../../goto/SdkForRubyV3/sqs-2012-11-05/SendMessageBatch.md "../../../goto/SdkForRubyV3/sqs-2012-11-05/SendMessageBatch.md")
   in _AWS SDK for Ruby API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples").
+
+```
+    TRY.
+        oo_result = lo_sqs->sendmessagebatch(         " oo_result is returned for testing purposes. "
+           iv_queueurl = iv_queue_url
+           it_entries = it_messages ).
+        MESSAGE 'Messages sent to SQS queue.' TYPE 'I'.
+      CATCH /aws1/cx_sqsbtcentidsnotdist00.
+        MESSAGE 'Two or more batch entries in the request have the same ID.' TYPE 'E'.
+      CATCH /aws1/cx_sqsbatchreqtoolong.
+        MESSAGE 'The length of all the messages put together is more than the limit.' TYPE 'E'.
+      CATCH /aws1/cx_sqsemptybatchrequest.
+        MESSAGE 'The batch request does not contain any entries.' TYPE 'E'.
+      CATCH /aws1/cx_sqsinvbatchentryid.
+        MESSAGE 'The ID of a batch entry in a batch request is not valid.' TYPE 'E'.
+      CATCH /aws1/cx_sqstoomanyentriesin00.
+        MESSAGE 'The batch request contains more entries than allowed.' TYPE 'E'.
+      CATCH /aws1/cx_sqsunsupportedop.
+        MESSAGE 'Operation not supported.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SendMessageBatch](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SQS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

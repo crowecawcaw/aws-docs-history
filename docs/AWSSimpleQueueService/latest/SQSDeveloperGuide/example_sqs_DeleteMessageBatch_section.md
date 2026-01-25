@@ -390,6 +390,39 @@ def delete_messages(queue, messages):
   [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples").
+
+```
+    TRY.
+        oo_result = lo_sqs->deletemessagebatch(       " oo_result is returned for testing purposes. "
+           iv_queueurl = iv_queue_url
+           it_entries = it_entries ).
+        MESSAGE 'Messages deleted from SQS queue.' TYPE 'I'.
+      CATCH /aws1/cx_sqsbtcentidsnotdist00.
+        MESSAGE 'Two or more batch entries in the request have the same ID.' TYPE 'E'.
+      CATCH /aws1/cx_sqsemptybatchrequest.
+        MESSAGE 'The batch request does not contain any entries.' TYPE 'E'.
+      CATCH /aws1/cx_sqsinvbatchentryid.
+        MESSAGE 'The ID of a batch entry in a batch request is not valid.' TYPE 'E'.
+      CATCH /aws1/cx_sqstoomanyentriesin00.
+        MESSAGE 'The batch request contains more entries than allowed.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteMessageBatch](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**
