@@ -47,10 +47,10 @@ knowledge all in one place? Use the [agent
 workspace](agent-user-guide.md "agent-user-guide.md")!
 
 The _agent workspace_ is a single web browser
-interface that hosts the CCP, [Customer Profiles](ag-cp-select.md "ag-cp-select.md"), [Cases](search-cases.md "search-cases.md"), and [Amazon Q in Connect](search-for-answers.md "search-for-answers.md").
+interface that hosts the CCP, [Customer Profiles](ag-cp-select.md "ag-cp-select.md"), [Cases](search-cases.md "search-cases.md"), and [Connect AI agents](search-for-answers.md "search-for-answers.md").
 
 If you're using the CCP that is provided with Amazon Connect, after you enable
-Customer Profiles, Cases, or Amazon Q in Connect, share the following URL with your agents so they can
+Customer Profiles, Cases, or Connect AI agents, share the following URL with your agents so they can
 access it in the agent workspace:
 
 - **https://`instance

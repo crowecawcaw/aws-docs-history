@@ -118,7 +118,7 @@ separate Amazon Connect instances to logically partition your data or use Custom
 domain names within the same instance that do not start with the
 `amazon-connect-` prefix, thereby preventing cross-domain access.
 
-- Action: Amazon Q in Connect
+- Action: Connect AI agents
 
       + `wisdom:CreateContent`
       + `wisdom:DeleteContent`
@@ -193,13 +193,13 @@ domain names within the same instance that do not start with the
       + `wisdom:Retrieve`
       + `wisdom:ListAssistantAssociations`
 
-  with resource tag `'AmazonConnectEnabled':'True'` on all Amazon Connect Amazon Q in Connect
+  with resource tag `'AmazonConnectEnabled':'True'` on all Amazon Connect Connect AI agents
   resources associated with your Amazon Connect instance.
 
       + `wisdom:ListAssistants`
       + `wisdom:KnowledgeBases`
 
-  on all Amazon Q in Connect resources.
+  on all Connect AI agents resources.
 
 - Action: Amazon CloudWatch Metrics `cloudwatch:PutMetricData` to publish Amazon Connect usage
   metrics for an instance to your account.

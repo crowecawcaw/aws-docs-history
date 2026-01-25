@@ -1,16 +1,16 @@
-# Set up an Amazon Q in Connect knowledge base to store quick
+# Set up an Amazon Connect knowledge base to store quick
 
 responses
 
-You must create an [Amazon Q in Connect knowledge base](amazon-q-connect.md "amazon-q-connect.md") to
+You must create an [Amazon Connect knowledge base](connect-ai-agent.md "connect-ai-agent.md") to
 store quick responses. You can use the Amazon Connect admin website to create the knowledge base with a single click.
 The site uses AWS owned keys to encrypt data.
 
 ###### Note
 
-You can create your own key by providing a custom [ServerSideEncryptionConfiguration](../../../amazon-q-connect/latest/APIReference/API_ServerSideEncryptionConfiguration.md#wisdom-Type-ServerSideEncryptionConfiguration-kmsKeyId "../../../amazon-q-connect/latest/APIReference/API_ServerSideEncryptionConfiguration.md#wisdom-Type-ServerSideEncryptionConfiguration-kmsKeyId") in an [CreateKnowledgeBase](../../../amazon-q-connect/latest/APIReference/API_CreateKnowledgeBase.md "../../../amazon-q-connect/latest/APIReference/API_CreateKnowledgeBase.md") API call. For more information, see [Enable Amazon Q in Connect for your instance](enable-q.md "enable-q.md"), in this guide.
+You can create your own key by providing a custom [ServerSideEncryptionConfiguration](../../../amazon-q-connect/latest/APIReference/API_ServerSideEncryptionConfiguration.md#wisdom-Type-ServerSideEncryptionConfiguration-kmsKeyId "../../../amazon-q-connect/latest/APIReference/API_ServerSideEncryptionConfiguration.md#wisdom-Type-ServerSideEncryptionConfiguration-kmsKeyId") in an [CreateKnowledgeBase](../../../amazon-q-connect/latest/APIReference/API_CreateKnowledgeBase.md "../../../amazon-q-connect/latest/APIReference/API_CreateKnowledgeBase.md") API call. For more information, see [Initial set-up for AI agents](ai-agent-initial-setup.md "ai-agent-initial-setup.md"), in this guide.
 
-The following steps explain how to use the Amazon Connect admin website to create an Amazon Q in Connect knowledge
+The following steps explain how to use the Amazon Connect admin website to create an Amazon Connect knowledge
 base.
 
 ###### To create a knowledge base

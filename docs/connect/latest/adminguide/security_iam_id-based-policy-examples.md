@@ -28,7 +28,7 @@ _IAM User Guide_.
   tags](#connect-access-control-resources-example1 "#connect-access-control-resources-example1")
 - [Create and view Amazon AppIntegrations
   resources](#appintegration-resources-example1 "#appintegration-resources-example1")
-- [Create and view Amazon Q in Connect
+- [Create and view Connect AI agents
   Assistants](#wisdom-resources-example1 "#wisdom-resources-example1")
 - [Manage outbound campaigns
   resources](#outboundcommunications-policy-example1 "#outboundcommunications-policy-example1")
@@ -292,11 +292,11 @@ JSON
 
 ```
 
-## Create and view Amazon Q in Connect
+## Create and view Connect AI agents
 
 Assistants
 
-The following sample policy allows Amazon Q in Connect assistants to be created, listed,
+The following sample policy allows Connect AI agents assistants to be created, listed,
 fetched, and deleted.
 
 JSON

@@ -271,8 +271,8 @@ issue_.
 
 ### Generative AI-powered agent assist
 
-You can use [Amazon Q in Connect](amazon-q-connect.md "amazon-q-connect.md") to
-automatically detect customer intent during calls and chats. Amazon Q in Connect uses the
+You can use [Connect AI agents](connect-ai-agent.md "connect-ai-agent.md") to
+automatically detect customer intent during calls and chats. Connect AI agents uses the
 real-time conversation with the customer, along with relevant company content,
 to automatically recommend what to say or what actions an agent should take to
 better assist the customer. This improves both agent productivity and customer

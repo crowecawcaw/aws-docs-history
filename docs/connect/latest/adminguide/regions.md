@@ -10,7 +10,7 @@ available.
   guides](#agentworkspace_region "#agentworkspace_region")
 - [Agent workspace third-party
   applications](#agentworkspace_3p_region "#agentworkspace_3p_region")
-- [Amazon Q in Connect](#q-connect_region "#q-connect_region")
+- [Connect AI agents](#q-connect_region "#q-connect_region")
 - [Analytics data
   lake](#analytics_datalake_region "#analytics_datalake_region")
 - [AppIntegrations](#appintegrations_region "#appintegrations_region")
@@ -81,7 +81,7 @@ applications
 - Europe (Frankfurt)
 - Europe (London)
 
-## Amazon Q in Connect
+## Connect AI agents
 
 - US East (N. Virginia)
 - US West (Oregon)

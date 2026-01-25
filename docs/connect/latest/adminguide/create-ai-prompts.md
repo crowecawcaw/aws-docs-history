@@ -6,11 +6,11 @@ example, _Given a list of customer orders and available inventory, determine
 which orders can be fulfilled and which items have to be
 restocked_.
 
-Amazon Q in Connect includes a set of default system AI prompts that power the out-of-the-box
+Amazon Connect includes a set of default system AI prompts that power the out-of-the-box
 recommendations experience in the agent workspace. You can copy these default prompts to
 create your own new AI prompts.
 
-To make it easy for non-developers to create AI prompts, Amazon Q in Connect provides a set of
+To make it easy for non-developers to create AI prompts, Amazon Connect provides a set of
 templates that already contain instructions. You can use these templates to create new
 AI prompts. The templates contain placeholder text written in an easy-to-understand
 language called YAML. Just replace the placeholder text with your own
@@ -45,9 +45,9 @@ provides a template AI prompt to help you get started.
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
-   **Amazon Q** - **AI prompts** -
+   **AI agent designer** - **AI prompts** -
    **Create** permission in it's security profile.
-2. On the navigation menu, choose **Amazon Q**, **AI
+2. On the navigation menu, choose **AI agent designer**, **AI
    prompts**.
 3. On the **AI Prompts** page, choose **Create AI
    Prompt**. The Create AI Prompt dialog is displayed, as shown in
@@ -56,29 +56,31 @@ name`.my.connect.aws/. Use an admin account, or an account with
 ![The Create AI Prompt dialog box.](images/qic-create-ai-prompt.png) 4. In the **AI Prompt type** dropdown box, choose from the
 following types of prompts:
 
+    * **Orchestration**: Orchestrates different use cases as per customer needs.
     * **Answer generation**: Generates a solution to a
-     query by making use of knowledge base excerpts. The query is
-     generated using the **Query reformulation** AI
-     prompt.
-    * **Intent labeling generation**: Generates intents
-     for the customer service interaction. These intents are displayed in
-     the Amazon Q in Connect widget in the agent workspace so agents can select
-     them.
+     query by making use of knowledge base excerpts.
+    * **Intent labelling generation**: Generates intents
+     for the customer service interaction - these intents are displayed in
+     the Connect assistant widget for selection by agents.
     * **Query reformulation**: Constructs a relevant
      query to search for relevant knowledge base excerpts.
-    * **Self-service pre-processing**: Generates a
-     solution to a query by making use of knowledge base excerpts. The
-     query is generated using the **Self-service
-     pre-processing** AI prompt when the QUESTION tool is
-     selected.
-    * **Self-service answer generation**
-    * **Email response**: An AI agent that facilitates
+    * **Self-service pre-processing**: Evaluates the
+     conversation and selects the corresponding tool to generate a response.
+    * **Self-service answer generation**: Generates a
+     solution to a query by making use of knowledge base excerpts.
+    * **Email response**: Facilitates
      sending an email response of a conversation script to the end
      customer.
-    * **Email overview**: An AI agent that provides an
+    * **Email overview**: Provides an
      overview of email content.
-    * **Email generative answer**: An AI agent that
-     generates answers for email responses.
+    * **Email generative answer**: Generates answers for
+     email responses.
+    * **Email query reformulation**: Reformulates query
+     for email responses.
+    * **Note taking**: Generates concise, structured,
+     and actionable notes in real time based on live customer conversations
+     and contextual data.
+    * **Case Summarization**: Summarizes a case.
 
 5. Choose **Create**.
 
@@ -151,12 +153,12 @@ the AI agent. For instructions about how to put the AI prompt into production, s
 
 YAML
 
-Because Amazon Q in Connect uses templates, you don't need to know much about YAML to get
+Because AI prompts use templates, you don't need to know much about YAML to get
 started. However, if you want to write an AI prompt from scratch, or delete portions
 of the placeholder text provided for you, here are some things you need to
 know.
 
-- Amazon Q in Connect supports two formats: `MESSAGES` and
+- AI prompts support two formats: `MESSAGES` and
   `TEXT_COMPLETIONS`. The format dictates which fields are
   required and optional in the AI prompt.
 - If you delete a field that is required by one of the formats, or enter
@@ -209,7 +211,7 @@ the `MESSAGES` format.
       - **properties** – (Required)
       - **required** – (Required)
 
-For example, the following AI prompt instructs Amazon Q in Connect to construct appropriate
+For example, the following AI prompt instructs the AI agent to construct appropriate
 queries. The second line of the AI prompt shows that the format is
 `messages`.
 
@@ -481,19 +483,19 @@ The value of the variable is replaced with content when the instructions are sen
 the LLM to do.
 
 When you create AI prompt instructions, you can add variables that use system data
-that Amazon Q in Connect provides, or [custom data](custom-data-q.md "custom-data-q.md").
+that Amazon Connect provides, or [custom data](ai-agent-session.md "ai-agent-session.md").
 
 The following table lists the variables you can use in your AI prompts, and how to
 format them. You'll notice these variables are already used in the AI prompt
 templates.
 
-| Variable type              | Format                        | Description                                                                                                                                                                               |
-| -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| System variable            | {{$.transcript}}              | Inserts a transcript of up to the three most recent turns of<br>conversation so the transcript can be included in the instructions<br>that are sent to the LLM.                           |
-| System variable            | {{$.contentExcerpt}}          | Inserts relevant document excerpts found within the knowledge<br>base so the excerpts can be included in the instructions that are<br>sent to the LLM.                                    |
-| System variable            | {{$.locale}}                  | Defines the locale to be used for the inputs to the LLM and its<br>outputs in response.                                                                                                   |
-| System variable            | {{$.query}}                   | Inserts the query constructed by Amazon Q in Connect to find document excerpts<br>within the knowledge base so the query can be included in the<br>instructions that are sent to the LLM. |
-| Customer provided variable | {{$.Custom.<VARIABLE\_NAME>}} | Inserts any customer provided value that is added to an Amazon Q in Connect<br>session so that value can be included in the instructions that are<br>sent to the LLM.                     |
+| Variable type              | Format                        | Description                                                                                                                                                                              |
+| -------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System variable            | {{$.transcript}}              | Inserts a transcript of up to the three most recent turns of<br>conversation so the transcript can be included in the instructions<br>that are sent to the LLM.                          |
+| System variable            | {{$.contentExcerpt}}          | Inserts relevant document excerpts found within the knowledge<br>base so the excerpts can be included in the instructions that are<br>sent to the LLM.                                   |
+| System variable            | {{$.locale}}                  | Defines the locale to be used for the inputs to the LLM and its<br>outputs in response.                                                                                                  |
+| System variable            | {{$.query}}                   | Inserts the query constructed by a Connect AI agent to find document excerpts<br>within the knowledge base so the query can be included in the<br>instructions that are sent to the LLM. |
+| Customer provided variable | {{$.Custom.<VARIABLE\_NAME>}} | Inserts any customer provided value that is added to a Amazon Connect<br>session so that value can be included in the instructions that are<br>sent to the LLM.                          |
 
 ## Optimize your AI prompts
 
@@ -526,15 +528,15 @@ performance please adhere to the following guidelines:
 The following table lists the supported models for prompt caching. For token
 requirements, see [supported models, regions and limits](../../../bedrock/latest/userguide/prompt-caching.md#prompt-caching-models "../../../bedrock/latest/userguide/prompt-caching.md#prompt-caching-models").
 
-| Supported Models for Prompt Caching | Model name                                                                                                                               | Model ID |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Claude Opus 4                       | us.anthropic.claude-opus-4-20250514-v1:0                                                                                                 |
-| Claude Sonnet 4                     | us.anthropic.claude-sonnet-4-20250514-v1:0<br>eu.anthropic.claude-sonnet-4-20250514-v1:0<br>apac.anthropic.claude-sonnet-4-20250514-v1:0 |
-| Claude 3.7 Sonnet                   | us.anthropic.claude-3-7-sonnet-20250219-v1:0<br>eu.anthropic.claude-3-7-sonnet-20250219-v1:0                                             |
-| Claude 3.5 Haiku                    | anthropic.claude-3-5-haiku-20241022-v1:0<br>us.anthropic.claude-3-5-haiku-20241022-v1:0                                                  |
-| Amazon Nova Pro                     | us.amazon.nova-pro-v1:0<br>eu.amazon.nova-pro-v1:0<br>apac.amazon.nova-pro-v1:0                                                          |
-| Amazon Nova Lite                    | us.amazon.nova-lite-v1:0<br>apac.amazon.nova-lite-v1:0<br>apac.amazon.nova-lite-v1:0                                                     |
-| Amazon Nova Micro                   | us.amazon.nova-micro-v1:0<br>eu.amazon.nova-micro-v1:0<br>apac.amazon.nova-micro-v1:0                                                    |
+| Supported Models for Prompt Caching                                                                                                      | Model ID |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| us.anthropic.claude-opus-4-20250514-v1:0                                                                                                 |
+| us.anthropic.claude-sonnet-4-20250514-v1:0<br>eu.anthropic.claude-sonnet-4-20250514-v1:0<br>apac.anthropic.claude-sonnet-4-20250514-v1:0 |
+| us.anthropic.claude-3-7-sonnet-20250219-v1:0<br>eu.anthropic.claude-3-7-sonnet-20250219-v1:0                                             |
+| anthropic.claude-3-5-haiku-20241022-v1:0<br>us.anthropic.claude-3-5-haiku-20241022-v1:0                                                  |
+| us.amazon.nova-pro-v1:0<br>eu.amazon.nova-pro-v1:0<br>apac.amazon.nova-pro-v1:0                                                          |
+| us.amazon.nova-lite-v1:0<br>apac.amazon.nova-lite-v1:0<br>apac.amazon.nova-lite-v1:0                                                     |
+| us.amazon.nova-micro-v1:0<br>eu.amazon.nova-micro-v1:0<br>apac.amazon.nova-micro-v1:0                                                    |
 
 ## Supported models for system/custom
 
@@ -542,24 +544,40 @@ prompts
 
 After you create the YAML files for the AI prompt, you can choose
 **Publish** on the **AI Prompt builder** page,
-or call the [CreateAIPrompt](../APIReference/API_amazon-q-connect_CreateAIPrompt.md "../APIReference/API_amazon-q-connect_CreateAIPrompt.md") API to create the prompt. Amazon Q in Connect currently supports the
+or call the [CreateAIPrompt](../APIReference/API_amazon-q-connect_CreateAIPrompt.md "../APIReference/API_amazon-q-connect_CreateAIPrompt.md") API to create the prompt. Amazon Connect currently supports the
 following LLM models for a particular AWS Region. Some LLM model
 options support cross-region inference, which can improve performance and
 availability. Refer to the following table to see which models include cross-region
 inference support. For more information, see [Cross-region inference
-service](enable-q.md#enable-q-cross-region-inference-service "enable-q.md#enable-q-cross-region-inference-service").
+service](ai-agent-initial-setup.md#enable-ai-agents-cross-region-inference-service "ai-agent-initial-setup.md#enable-ai-agents-cross-region-inference-service").
 
-| **Region**              | **System Models Used**                                                                                                                                                                                                                                                     | **Models supported by system and custom<br>prompts**                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAD<br>(us-east-1)      | us.anthropic.claude-3-7-sonnet-20250219-v1:0<br>• AgentAssistant<br>RAG<br>us.amazon.nova-pro-v1:0<br>• SelfService RAG<br>us.amazon.nova-lite-v1:0<br>• Non RAG<br>us.amazon.nova-pro-v1:0<br>• Self service preprocessing                                                | anthropic.claude-3-haiku-20240307-v1:0<br>us.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>us.anthropic.claude-3-5-haiku-20241022-v1:0<br>(Cross-Region)<br>us.anthropic.claude-3-7-sonnet-20250219-v1:0<br>(Cross-Region)<br>us.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>us.amazon.nova-pro-v1:0 (Cross-Region)<br>us.amazon.nova-lite-v1:0 (Cross-Region)<br>us.amazon.nova-micro-v1:0 (Cross-Region) |
-| PDX<br>(us-west-2)      | us.anthropic.claude-3-7-sonnet-20250219-v1:0<br>• AgentAssistant<br>RAG<br>us.amazon.nova-pro-v1:0<br>• SelfService RAG<br>us.amazon.nova-lite-v1:0<br>• Non RAG<br>us.amazon.nova-pro-v1:0<br>• Self service preprocessing                                                | anthropic.claude-3-haiku-20240307-v1:0<br>us.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>us.anthropic.claude-3-5-haiku-20241022-v1:0<br>(Cross-Region)<br>us.anthropic.claude-3-7-sonnet-20250219-v1:0<br>(Cross-Region)<br>us.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>us.amazon.nova-pro-v1:0 (Cross-Region)<br>us.amazon.nova-lite-v1:0 (Cross-Region)<br>us.amazon.nova-micro-v1:0 (Cross-Region) |
-| YUL<br>(ca-central-1)   | anthropic.claude-3-haiku-20240307-v1:0                                                                                                                                                                                                                                     | anthropic.claude-3-haiku-20240307-v1:0                                                                                                                                                                                                                                                                                                                                                                                                    |
-| LHR<br>(eu-west-2)      | anthropic.claude-3-7-sonnet-20250219-v1:0<br>• AgentAssistant<br>RAG<br>anthropic.claude-3-haiku-20240307-v1:0<br>• SelfService<br>RAG<br>anthropic.claude-3-haiku-20240307-v1:0<br>• Non RAG<br>anthropic.claude-3-haiku-20240307-v1:0<br>• Self service<br>preprocessing | anthropic.claude-3-haiku-20240307-v1:0<br>anthropic.claude-3-7-sonnet-20250219-v1:0                                                                                                                                                                                                                                                                                                                                                       |
-| FRA<br>(eu-central-1)   | eu.anthropic.claude-3-7-sonnet-20250219-v1:0<br>• AgentAssistant<br>RAG<br>eu.amazon.nova-pro-v1:0<br>• SelfService RAG<br>eu.amazon.nova-lite-v1:0<br>• Non RAG<br>eu.amazon.nova-pro-v1:0<br>• Self service preprocessing                                                | anthropic.claude-3-haiku-20240307-v1:0<br>eu.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>eu.anthropic.claude-3-7-sonnet-20250219-v1:0<br>(Cross-Region)<br>eu.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>eu.amazon.nova-pro-v1:0 (Cross-Region)<br>eu.amazon.nova-lite-v1:0 (Cross-Region)<br>eu.amazon.nova-micro-v1:0 (Cross-Region)                                                                  |
-| NRT<br>(ap-northeast-1) | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 -<br>AgentAssistant RAG<br>apac.amazon.nova-pro-v1:0<br>• SelfService RAG<br>apac.amazon.nova-lite-v1:0<br>• Non RAG<br>apac.amazon.nova-pro-v1:0<br>• Self service preprocessing                                           | anthropic.claude-3-haiku-20240307-v1:0<br>apac.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0<br>(Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)                                                      |
-| SIN<br>(ap-southeast-1) | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 -<br>AgentAssistant RAG<br>apac.amazon.nova-pro-v1:0<br>• SelfService RAG<br>apac.amazon.nova-lite-v1:0<br>• Non RAG<br>apac.amazon.nova-pro-v1:0<br>• Self service preprocessing                                           | anthropic.claude-3-haiku-20240307-v1:0<br>apac.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0<br>(Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)                                                      |
-| SYD<br>(ap-southeast-2) | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 -<br>AgentAssistant RAG<br>apac.amazon.nova-pro-v1:0<br>• SelfService RAG<br>apac.amazon.nova-lite-v1:0<br>• Non RAG<br>apac.amazon.nova-pro-v1:0<br>• Self service preprocessing                                           | anthropic.claude-3-haiku-20240307-v1:0<br>apac.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0<br>(Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)                                                      |
-| ICN<br>(ap-northeast-2) | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 -<br>AgentAssistant RAG<br>apac.amazon.nova-pro-v1:0<br>• SelfService RAG<br>apac.amazon.nova-lite-v1:0<br>• Non RAG<br>apac.amazon.nova-pro-v1:0<br>• Self service preprocessing                                           | anthropic.claude-3-haiku-20240307-v1:0<br>apac.anthropic.claude-3-haiku-20240307-v1:0<br>(Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0<br>(Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0<br>(Cross-Region)<br>apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)                                                      |
+| Models used by system prompts | **System prompt**                                           | **us-east-1, us-west-2**                                      | **ca-central-1**                                              | **eu-west-2**                                                 | **eu-central-1**                                               | **ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2** |
+| ----------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------ |
+| AgentAssistanceOrchestration  | us.anthropic.claude-4-5-sonnet-20250929-v1:0 (Cross-Region) | global.anthropic.claude-4-5-sonnet-20250929-v1:0              | eu.anthropic.claude-4-5-sonnet-20250929-v1:0 (Cross-Region)   | eu.anthropic.claude-4-5-sonnet-20250929-v1:0 (Cross-Region)   | global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS) |
+| AnswerGeneration              | us.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region) | anthropic.claude-3-haiku-20240307-v1:0                        | anthropic.claude-3-7-sonnet-20250219-v1:0                     | eu.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)   | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)  |
+| CaseSummarization             | us.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)   | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS) | anthropic.claude-3-7-sonnet-20250219-v1:0                     | eu.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)     | apac.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)    |
+| EmailGenerativeAnswer         | us.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region) | anthropic.claude-3-haiku-20240307-v1:0                        | anthropic.claude-3-7-sonnet-20250219-v1:0                     | eu.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)   | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)  |
+| EmailOverview                 | us.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region) | anthropic.claude-3-haiku-20240307-v1:0                        | anthropic.claude-3-7-sonnet-20250219-v1:0                     | eu.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)   | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)  |
+| EmailQueryReformulation       | us.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region) | anthropic.claude-3-haiku-20240307-v1:0                        | anthropic.claude-3-7-sonnet-20250219-v1:0                     | eu.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)   | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)  |
+| EmailResponse                 | us.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region) | anthropic.claude-3-haiku-20240307-v1:0                        | anthropic.claude-3-7-sonnet-20250219-v1:0                     | eu.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)   | apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)  |
+| IntentLabelingGeneration      | us.amazon.nova-pro-v1:0 (Cross-Region)                      | anthropic.claude-3-haiku-20240307-v1:0                        | amazon.nova-pro-v1:0                                          | eu.amazon.nova-pro-v1:0 (Cross-Region)                        | apac.amazon.nova-pro-v1:0 (Cross-Region)                       |
+| NoteTaking                    | us.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)  | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS) | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS) | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS) | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)  |
+| QueryReformulation            | us.amazon.nova-lite-v1:0 (Cross-Region)                     | anthropic.claude-3-haiku-20240307-v1:0                        | amazon.nova-lite-v1:0                                         | eu.amazon.nova-lite-v1:0 (Cross-Region)                       | apac.amazon.nova-lite-v1:0 (Cross-Region)                      |
+| SalesAgent                    | us.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)  | global.anthropic.claude-4-5-haiku-20251001-v1:0               | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS) | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS) | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)  |
+| SelfServiceAnswerGeneration   | us.amazon.nova-pro-v1:0 (Cross-Region)                      | anthropic.claude-3-haiku-20240307-v1:0                        | amazon.nova-pro-v1:0                                          | eu.amazon.nova-pro-v1:0 (Cross-Region)                        | apac.amazon.nova-pro-v1:0 (Cross-Region)                       |
+| SelfServiceOrchestration      | us.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)  | global.anthropic.claude-4-5-haiku-20251001-v1:0               | eu.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)    | eu.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)    | apac.amazon.nova-pro-v1:0 (Cross-Region)                       |
+| SelfServicePreProcessing      | us.amazon.nova-pro-v1:0 (Cross-Region)                      | anthropic.claude-3-haiku-20240307-v1:0                        | amazon.nova-pro-v1:0                                          | eu.amazon.nova-pro-v1:0 (Cross-Region)                        | apac.amazon.nova-pro-v1:0 (Cross-Region)                       |
+
+| Models supported by custom prompts | **Region**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Supported models** |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| us-east-1, us-west-2               | us.anthropic.claude-3-5-haiku-20241022-v1:0 (Cross-Region)<br>us.amazon.nova-pro-v1:0 (Cross-Region)<br>us.amazon.nova-lite-v1:0 (Cross-Region)<br>us.amazon.nova-micro-v1:0 (Cross-Region)<br>us.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)<br>us.anthropic.claude-3-haiku-20240307-v1:0 (Cross-Region)<br>us.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)<br>us.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)<br>us.anthropic.claude-4-5-sonnet-20250929-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0<br>us.openai.gpt-oss-20b-v1:0<br>us.openai.gpt-oss-120b-v1:0 |
+| ca-central-1                       | global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| eu-west-2                          | eu.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)<br>eu.anthropic.claude-4-5-sonnet-20250929-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0<br>eu.amazon.nova-pro-v1:0<br>eu.amazon.nova-lite-v1:0<br>anthropic.claude-3-7-sonnet-20250219-v1:0<br>eu.openai.gpt-oss-20b-v1:0<br>eu.openai.gpt-oss-120b-v1:0                                                                                                                                                                                                                                                                                    |
+| eu-central-1                       | eu.amazon.nova-pro-v1:0 (Cross-Region)<br>eu.amazon.nova-lite-v1:0 (Cross-Region)<br>eu.amazon.nova-micro-v1:0 (Cross-Region)<br>eu.anthropic.claude-3-7-sonnet-20250219-v1:0 (Cross-Region)<br>eu.anthropic.claude-3-haiku-20240307-v1:0 (Cross-Region)<br>eu.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)<br>eu.anthropic.claude-4-5-haiku-20251001-v1:0 (Cross-Region)<br>eu.anthropic.claude-4-5-sonnet-20250929-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0<br>eu.openai.gpt-oss-20b-v1:0<br>eu.openai.gpt-oss-120b-v1:0                                                               |
+| ap-northeast-1                     | apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)<br>apac.anthropic.claude-3-haiku-20240307-v1:0 (Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0<br>apac.openai.gpt-oss-20b-v1:0<br>apac.openai.gpt-oss-120b-v1:0                                                                                                                                                                            |
+| ap-northeast-2                     | apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)<br>apac.anthropic.claude-3-haiku-20240307-v1:0 (Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0                                                                                                                                                                                                                                             |
+| ap-southeast-1                     | apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)<br>apac.anthropic.claude-3-haiku-20240307-v1:0 (Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0                                                                                                                                                                                                                                             |
+| ap-southeast-2                     | apac.amazon.nova-pro-v1:0 (Cross-Region)<br>apac.amazon.nova-lite-v1:0 (Cross-Region)<br>apac.amazon.nova-micro-v1:0 (Cross-Region)<br>apac.anthropic.claude-3-5-sonnet-20241022-v2:0 (Cross-Region)<br>apac.anthropic.claude-3-haiku-20240307-v1:0 (Cross-Region)<br>apac.anthropic.claude-sonnet-4-20250514-v1:0 (Cross-Region)<br>global.anthropic.claude-4-5-haiku-20251001-v1:0 (Global CRIS)<br>global.anthropic.claude-4-5-sonnet-20250929-v1:0 (Global CRIS)<br>anthropic.claude-3-haiku-20240307-v1:0<br>amazon.nova-pro-v1:0                                                                                                                                                                                                                     |
 
 For the `MESSAGES` format, invoke the API by using the following AWS
 CLI command.
@@ -568,7 +586,7 @@ CLI command.
 
 aws qconnect create-ai-prompt \
   --region us-west-2
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_messages_ai_prompt \
   --api-format MESSAGES \
   --model-id us.anthropic.claude-3-7-sonnet-20250219-v1:00 \
@@ -589,7 +607,7 @@ following AWS CLI command.
 
 aws qconnect create-ai-prompt \
   --region us-west-2
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_text_completion_ai_prompt \
   --api-format TEXT_COMPLETIONS \
   --model-id us.anthropic.claude-3-7-sonnet-20250219-v1:0 \
@@ -608,14 +626,14 @@ aws qconnect create-ai-prompt \
 version
 
 After an AI prompt has been created, you can create a version, which is an
-immutable instance of the AI prompt that can be used by Amazon Q in Connect at runtime.
+immutable instance of the AI prompt that can be used at runtime.
 
 Use the following AWS CLI command to create version of a prompt.
 
 ```
 
 aws qconnect create-ai-prompt-version \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --ai-prompt-id <YOUR_AI_PROMPT_ID>
 
 ```
@@ -632,13 +650,12 @@ of the AI prompt.
 ### CLI to list system AI prompts
 
 Use the following AWS CLI command to list system AI prompt versions. After
-the AI prompt versions are listed, you can use them to reset to the default
-Amazon Q in Connect experience.
+the AI prompt versions are listed, you can use them to reset to the default experience.
 
 ```
 
 aws qconnect list-ai-prompt-versions \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --origin SYSTEM
 
 ```

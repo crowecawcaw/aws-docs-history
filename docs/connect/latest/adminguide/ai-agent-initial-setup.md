@@ -1,31 +1,33 @@
-# Enable Amazon Q in Connect for your instance
+# Initial set-up for AI agents
 
-There are two ways you can enable Amazon Q in Connect:
+In order to start using Connect AI agents, you first need to create a domain.
+As part of this process you can also optionally:
 
-- Use the Amazon Connect console. There are instructions on this page.
-- Use the [Amazon Q in Connect
-  API](../APIReference/API_Operations_Amazon_Q_Connect.md "../APIReference/API_Operations_Amazon_Q_Connect.md") to ingest content.
-  The following sections explain how to use the Amazon Connect console to enable Amazon Q in Connect. Follow
-  them in the order listed. If you want to use the Amazon Q in Connect API, we assume you have the
+- Create an encryption key to encrypt the excerpts that are provided
+  in the recommendations to the agent.
+- Create a knowledge base using external data.
+- Encrypt the content importing from these applications using a KMS key.
+  The following sections explain how to use the Amazon Connect console to enable Connect AI agents. Follow
+  them in the order listed. If you want to use APIs, we assume you have the
   necessary programming skills.
 
 ###### Contents
 
 - [Supported content types](#q-content-types "#q-content-types")
-- [Integration overview](#q-overview "#q-overview")
-- [Before you begin](#enable-q-requirements "#enable-q-requirements")
-- [Step 1: Create an Amazon Q in Connect domain](#enable-q-step1 "#enable-q-step1")
-- [Step 2: Encrypt the domain](#enable-q-step-2 "#enable-q-step-2")
+- [Integration overview](#ai-agent-overview "#ai-agent-overview")
+- [Before you begin](#ai-agent-requirements "#ai-agent-requirements")
+- [Step 1: Create a domain](#enable-ai-agents-step1 "#enable-ai-agents-step1")
+- [Step 2: Encrypt the domain](#enable-ai-agents-step-2 "#enable-ai-agents-step-2")
 - [Step 3: Create an integration (knowledge
-  base)](#enable-q-step-3 "#enable-q-step-3")
-- [Step 4: Configure your flow for Amazon Q in Connect](#enable-q-step4 "#enable-q-step4")
-- [When was your knowledge base last updated?](#enable-q-tips "#enable-q-tips")
+  base)](#enable-ai-agents-step-3 "#enable-ai-agents-step-3")
+- [Step 4: Configure your flow for Connect AI agents](#enable-ai-agents-step4 "#enable-ai-agents-step4")
+- [When was your knowledge base last updated?](#enable-ai-agents-tips "#enable-ai-agents-tips")
 - [Cross-region inference
-  service](#enable-q-cross-region-inference-service "#enable-q-cross-region-inference-service")
+  service](#enable-ai-agents-cross-region-inference-service "#enable-ai-agents-cross-region-inference-service")
 
 ## Supported content types
 
-Amazon Q in Connect supports the ingestion of HTML, Word, PDF, and text files up to 1 MB. Note
+Amazon Connect supports the ingestion of HTML, Word, PDF, and text files up to 1 MB. Note
 the following:
 
 - Plain text files must be in UTF-8.
@@ -38,13 +40,13 @@ the following:
 - Actions and scripts embedded into PDF files are not supported.
 
 For a list of adjustable quotas, such as the number of quick responses per
-knowledge base, see [Amazon Q in Connect service quotas](amazon-connect-service-limits.md#q-in-connect-quotas "amazon-connect-service-limits.md#q-in-connect-quotas").
+knowledge base, see [Connect AI agents service quotas](amazon-connect-service-limits.md#q-in-connect-quotas "amazon-connect-service-limits.md#q-in-connect-quotas").
 
 ## Integration overview
 
-You follow these broad steps to enable Amazon Q in Connect:
+You follow these broad steps to enable Connect AI agents:
 
-1. Create an Amazon Q in Connect domain (assistant). A domain consists of a single
+1. Create a domain (assistant). A domain consists of a single
    knowledge base, such as SalesForce or Zendesk.
 2. Create an encryption key to encrypt the excerpts that are provided in the
    recommendations to the agent.
@@ -65,9 +67,7 @@ You follow these broad steps to enable Amazon Q in Connect:
 Following is an overview of key concepts and the information that you'll be
 prompted for during the setup process.
 
-### About the Amazon Q in Connect domain
-
-When you enable Amazon Q in Connect, you create an Amazon Q in Connect _domain_: an assistant that consists of one knowledge base. Follow
+To start using Connect AI agents, you must create a _domain_: an assistant that consists of one knowledge base. Follow
 these guidelines when creating domains:
 
 - You can create multiple domains, but they don't share external
@@ -77,8 +77,12 @@ these guidelines when creating domains:
 
 ###### Note
 
-If you want to use multiple data sources, we recommend collecting
-the data in Amazon Simple Storage Service and using that as your domain.
+All the external application integrations you create are at a
+domain level. All Amazon Connect instances associated with a domain
+inherit the domain's integrations.
+
+You can associate your Amazon Connect instance with a different
+domain at any time by choosing a different domain.
 
 - All the external application integrations you create are at a domain
   level. All of the Amazon Connect instances associated with a domain inherit the
@@ -86,27 +90,27 @@ the data in Amazon Simple Storage Service and using that as your domain.
 - You can associate your Amazon Connect instance with a different domain at any
   time by choosing a different domain.
 
-### How to name your Amazon Q in Connect domain
+### How to name your domain
 
-When you enable Amazon Q in Connect, you are prompted to provide a friendly domain name
+When you create a domain, you are prompted to provide a friendly domain name
 that's meaningful to you, such as your organization name.
 
 ### (Optional) Create AWS KMS keys to
 
 encrypt the domain and the content
 
-When you enable Amazon Q in Connect, by default the domain and connection are encrypted with
+When you enable Connect AI agents, by default the domain and connection are encrypted with
 an AWS owned key. However, if you want to manage the keys, you can create or
 provide two [AWS KMS keys](../../../kms/latest/developerguide/concepts.md#kms_keys "../../../kms/latest/developerguide/concepts.md#kms_keys"):
 
-- Use one key for the Amazon Q in Connect domain, used to encrypt the excerpt provided
+- Use one key for the Connect AI agents domain, used to encrypt the excerpt provided
   in the recommendations.
 - Use the second key to encrypt the content imported from Amazon S3,
   Microsoft SharePoint Online, Salesforce, ServiceNow, or ZenDesk. Note
-  that Amazon Q in Connect search indices are always encrypted at rest using an
+  that Connect AI agents search indices are always encrypted at rest using an
   AWS owned key.
 
-To create KMS keys, follow the steps in [Step 1: Create an Amazon Q in Connect domain](#enable-q-step1 "#enable-q-step1"), later in this section.
+To create KMS keys, follow the steps in [Step 1: Create a domain](#enable-ai-agents-step1 "#enable-ai-agents-step1"), later in this section.
 
 Your customer managed key is created, owned, and managed by you. You have full control
 over the KMS key, and AWS KMS charges apply.
@@ -115,14 +119,14 @@ If you choose to set up a KMS key where someone else is the administrator,
 the key must have a policy that allows `kms:CreateGrant`,
 `kms:DescribeKey`, and `kms:Decrypt` and
 `kms:GenerateDataKey*` permissions to the IAM identity using
-the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat and emails, the key policy for
-your Amazon Q in Connect domain must allow `kms:Decrypt`,
+the key to invoke Connect AI agents. To use Connect AI agents with chat and emails, the key policy for
+your Connect AI agents domain must allow `kms:Decrypt`,
 `kms:GenerateDataKey*`, and `kms:DescribeKey`
 permissions to the `connect.amazonaws.com` service principal.
 
 ###### Note
 
-To use Amazon Q in Connect with chat and emails, the key policy for your Amazon Q in Connect domain
+To use Connect AI agents with chat and emails, the key policy for your domain
 must grant the `connect.amazonaws.com` service principal the
 following permissions:
 
@@ -133,7 +137,7 @@ following permissions:
   policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") in the _AWS Key Management Service Developer
   Guide_.
 
-## Step 1: Create an Amazon Q in Connect domain
+## Step 1: Create a domain
 
 The following steps explain how to add a domain to an Amazon Connect instance, and how to
 add an integration to the domain. To complete these steps, you must have an instance
@@ -247,7 +251,7 @@ these steps:
 
     ###### Note
 
-    To use Amazon Q in Connect with chats and emails, modify the key policy
+    To use Connect AI agents with chats and emails, modify the key policy
      to allow the `kms:Decrypt`, `kms:GenerateDataKey*`, and
      `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. The
      following code shows a sample policy.
@@ -298,7 +302,7 @@ these steps:
 
     ![The Customer managed keys page showing a typical key.](images/customer-profiles-create-kms-key-note-key.png)
 
-2. Return to the **Amazon Q in Connect** browser tab, open the
+2. Return to the **Connect AI agents** browser tab, open the
    **AWS KMS key** list, and select the key that
    you created in the previous steps.
 
@@ -750,7 +754,7 @@ syncing
 Each time the Web Crawler runs, it retrieves content for all URLs
 that are reachable from the source URLs that match the scope and
 filters. For incremental syncs after the first sync of all content,
-Amazon Q in Connect will update your knowledge base with new and
+Amazon Connect will update your knowledge base with new and
 modified content, and will remove old content that is no longer present.
 Occasionally, the crawler may not be able to distinguish if content was
 removed from the website; and in this case it will preserve old content
@@ -759,49 +763,38 @@ in your knowledge base.
 ###### Note
 
 - If you delete objects from SaaS applications, such as SalesForce and
-  ServiceNow, Amazon Q in Connect does not process those deletions. You must archive
+  ServiceNow, Amazon Connect knowledge bases do not process those deletions. You must archive
   objects in SalesForce and retire articles in ServiceNow to remove them
   from those knowledge bases.
-- For Zendesk, Amazon Q in Connect does not process hard deletes or archives of
+- For Zendesk, Amazon Connect knowledge bases do not process hard deletes or archives of
   articles. You must unpublish articles in Zendesk to remove them from
   your knowledge base.
 - For Microsoft SharePoint Online, you can select a maximum of 10
   folders.
-- Amazon Q automatically adds an `AmazonConnectEnabled:True`
-  tag to the Amazon Q resources associated with your Amazon Connect instance, such
+- Amazon Connect automatically adds an `AmazonConnectEnabled:True`
+  tag to the Connect AI agent resources associated with your Amazon Connect instance, such
   as a knowledge base and an Assistant. It does this to authorize the
-  access from Amazon Connect to Amazon Q resources. This action is a result of the
+  access from Amazon Connect to Connect AI agent resources. This action is a result of the
   tag-based access control in the managed policy of the Amazon Connect service
   linked role. For more information, see [Service-linked role permissions for
   Amazon Connect](connect-slr.md#slr-permissions "connect-slr.md#slr-permissions").
 
-## Step 4: Configure your flow for Amazon Q in Connect
+## Step 4: Configure your flow for Connect AI agents
 
-1. Add a [Amazon Q in Connect](q-block.md "q-block.md") block to
-   your flow. The block associates an Amazon Q in Connect domain to the current contact. This
+1. Add a [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to
+   your flow. The block associates an Connect AI agents domain to the current contact. This
    enables you to display information from a specific domain, based on criteria
    about the contact.
 
-If you choose to [customize](customize-q.md "customize-q.md") the Amazon Q in Connect
+If you choose to [customize](customize-connect-ai-agents.md "customize-connect-ai-agents.md") the
 experience, you will instead create a Lambda and then use an [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block to add it to
-your flows. 2. To use Amazon Q in Connect with calls, you must enable Contact Lens
+your flows. 2. To use Connect AI agents with calls, you must enable Contact Lens
 conversational analytics in the flow by adding a [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block that is configured
 for Contact Lens conversational analytics real-time. It doesn't
 matter where in the flow you add the [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block.
-
-###### Note
-
-To use Amazon Q in Connect with calls, you must enable Contact Lens
-conversational analytics. Contact Lens conversational
-analytics real-time analytics is used recommend content that is related to
-customer issues detected during the current call.
-
-Contact Lens
-conversational analytics is not required to use Amazon Q in Connect with chats or emails, or to
-use Amazon Q in Connect self-service.
 
 ## When was your knowledge base last updated?
 
@@ -813,7 +806,7 @@ change in the content available), use the [GetKnowledgeBase](../../../amazon-q-c
 
 service
 
-Amazon Q in Connect uses [cross-region
+Connect AI agents uses [cross-region
 inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") to automatically select the optimal AWS Region
 for processing your data, improving the customer experience by maximizing available
 resources and model availability. If you do not want your data processed in a

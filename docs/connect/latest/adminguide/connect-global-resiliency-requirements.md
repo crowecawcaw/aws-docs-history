@@ -7,6 +7,9 @@ you, ensure you adhere to the following pre-requisites before onboarding:
 
 - [Port](about-porting.md "about-porting.md") all phone numbers you want to enable
   to be multi-region to Amazon Connect.
+- AWS Enterprise Support or AWS Unified Operations is required to onboard to Amazon Connect Global Resiliency.
+  For more information about AWS Support plans, see
+  [AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/") .
 - You must have an existing production [SAML 2.0-enabled](connect-identity-management.md "connect-identity-management.md") Amazon Connect instance
   in a Region where Amazon Connect Global Resiliency is available. To confirm, see [Global Resiliency availability by Region](regions.md#gr_region "regions.md#gr_region").
 - It is recommended to onboard and test Amazon Connect Global Resiliency services in a

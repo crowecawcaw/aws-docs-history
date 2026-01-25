@@ -1,7 +1,7 @@
 # Delete quick responses in Amazon Connect
 
 This topic explains how to use the Amazon Connect admin website to delete a quick response. To delete a quick
-response programmatically, see [DeleteQuickResponse](../../../amazon-q-connect/latest/APIReference/API_DeleteQuickResponse.md "../../../amazon-q-connect/latest/APIReference/API_DeleteQuickResponse.md") in the _Amazon Q in Connect API Reference Guide_.
+response programmatically, see [DeleteQuickResponse](../../../amazon-q-connect/latest/APIReference/API_DeleteQuickResponse.md "../../../amazon-q-connect/latest/APIReference/API_DeleteQuickResponse.md") in the _Connect AI agents API Reference Guide_.
 
 ###### Important
 

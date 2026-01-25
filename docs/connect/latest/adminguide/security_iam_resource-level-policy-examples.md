@@ -25,7 +25,7 @@ for an instance, as shown in the following policies.
   Profiles](#grant-access-to-customer-profiles "#grant-access-to-customer-profiles")
 - [Grant read-only access to
   Customer Profiles data](#grant-read-only-access-to-customer-profiles "#grant-read-only-access-to-customer-profiles")
-- [Query Amazon Q in Connect only for a specific
+- [Query Connect AI agents only for a specific
   Assistant](#query-wisdom-assistant "#query-wisdom-assistant")
 - [Grant full access to
   Amazon Connect Voice ID](#grant-read-only-access-to-voiceid "#grant-read-only-access-to-voiceid")
@@ -432,7 +432,7 @@ JSON
 
 ```
 
-## Query Amazon Q in Connect only for a specific
+## Query Connect AI agents only for a specific
 
 Assistant
 

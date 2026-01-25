@@ -1,12 +1,12 @@
-# Troubleshoot Amazon Q in Connect self-service issues
+# Troubleshoot Connect AI agents self-service issues
 
-Use this topic to help diagnose and resolve common issues with Amazon Q in Connect self-service
+Use this topic to help diagnose and resolve common issues with Connect AI agents self-service
 functionality.
 
 ###### Contents
 
 - [Enable logging for
-  Amazon Q in Connect self-service interactions](#viewing-logs-for-q-in-connect-self-service "#viewing-logs-for-q-in-connect-self-service")
+  Connect AI agents self-service interactions](#viewing-logs-for-connect-ai-agents-self-service "#viewing-logs-for-connect-ai-agents-self-service")
 - [Customers are
   unexpectedly receiving "Escalating to agent..."](#customers-unexpectedly-receiving-escalating-to-agent "#customers-unexpectedly-receiving-escalating-to-agent")
 - [Self-service chat or voice
@@ -14,15 +14,15 @@ functionality.
 
 ## Enable logging for
 
-Amazon Q in Connect self-service interactions
+Connect AI agents self-service interactions
 
 To troubleshoot self-service issues effectively, you need to view the logs for
-Amazon Q in Connect self-service interactions. Use the following instructions to enable CloudWatch
+Connect AI agents self-service interactions. Use the following instructions to enable CloudWatch
 Logging, Amazon Lex logging, and Amazon Connect logging.
 
 - **CloudWatch Logs**: Enable CloudWatch Logging for your
-  Amazon Q in Connect instance by following the steps in [Monitor
-  Amazon Q in Connect](monitor-q-assistants-cloudwatch.md "monitor-q-assistants-cloudwatch.md").
+  Connect AI agents by following the steps in [Monitor
+  Connect AI agents](monitor-ai-agents.md "monitor-ai-agents.md").
 
 Self-service interactions generate log entries with the event type
 `TRANSCRIPT_SELF_SERVICE_MESSAGE` in the following
@@ -61,7 +61,7 @@ response for `SELF_SERVICE_PRE_PROCESS`.
 
 ### Troubleshooting steps
 
-1. **Check the Amazon Q in Connect logs**: Examine the
+1. **Check the Connect AI agent logs**: Examine the
    `completion` attribute in the associated log
    entry.
 2. **Validate the stop reason**: Confirm
@@ -100,19 +100,19 @@ Pro configuration. These issues are described below.
   Server Error" for the [Get customer input](get-customer-input.md "get-customer-input.md") block
 - **Cause**: Your self-service bot timed
   out while providing results within the 10-second limit. Timeout errors
-  won't appear in Amazon Q in Connect logs.
+  won't appear in Connect AI agent logs.
 - **Solution**: Simplify your prompt by
   removing complex reasoning to reduce processing time.
 
 ### Errors from Amazon Lex
 
-- **Missing Amazon Q in Connect flow block**: Ensure
-  you've added the [Amazon Q in Connect](q-block.md "q-block.md")
+- **Missing Connect AI agents flow block**: Ensure
+  you've added the [Connect assistant](connect-assistant-block.md "connect-assistant-block.md")
   block to your Amazon Connect flow. A common oversight is missing this block,
   which results in the following error:
 
 ```
-com.amazonaws.services.lexruntimev2.model.ValidationException: Amazon Lex needs active session for Amazon Q in Connect.
+com.amazonaws.services.lexruntimev2.model.ValidationException: Amazon Lex needs active session for Connect AI agents.
                             Please provide valid session attribute x-amz-lex:q-in-connect:session-arn
 ```
 

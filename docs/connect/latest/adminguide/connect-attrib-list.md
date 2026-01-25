@@ -30,7 +30,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Apple Messages for Business attributes](#apple-messages-for-business-attributes "#apple-messages-for-business-attributes")
 - [Customer Profiles attributes](#customer-profiles-attributes "#customer-profiles-attributes")
 - [Outbound campaign attributes](#campaign-attributes "#campaign-attributes")
-- [Amazon Q in Connect attribute](#qic-attributes "#qic-attributes")
+- [Connect AI agents attribute](#qic-attributes "#qic-attributes")
 
 ## System attributes
 
@@ -483,13 +483,13 @@ data in a segment list, use **$.Attributes.`attribute coming in the
 For more information, see [Adding personalized
 content to message templates](../../../pinpoint/latest/userguide/message-templates-personalizing.md "../../../pinpoint/latest/userguide/message-templates-personalizing.md") in the _Amazon Pinpoint User Guide_.
 
-## Amazon Q in Connect attribute
+## Connect AI agents attribute
 
-The following attribute stores the Amazon Q in Connect session ARN. A use case for this attribute is
+The following attribute stores the Connect AI agents session ARN. A use case for this attribute is
 when you want to perform any API action, such as [UpdateSession](../APIReference/API_amazon-q-connect_UpdateSession.md "../APIReference/API_amazon-q-connect_UpdateSession.md")
 [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md"). You can pass the attribute as input to [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block. And Lambda can call those APIs against the input session ARN.
 
-| Attribute  | Description                                                      | Type | JSONPath Reference  |
-| ---------- | ---------------------------------------------------------------- | ---- | ------------------- |
-| SessionArn | The Amazon Resource Name (ARN) of a Amazon Q in Connect session. | Flow | $.Wisdom.SessionArn |
+| Attribute  | Description                                                    | Type | JSONPath Reference  |
+| ---------- | -------------------------------------------------------------- | ---- | ------------------- |
+| SessionArn | The Amazon Resource Name (ARN) of a Connect AI agents session. | Flow | $.Wisdom.SessionArn |

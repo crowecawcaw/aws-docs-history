@@ -16,7 +16,7 @@ The following image shows the parts of the agent workspace.
    handle calls, chats, emails, and tasks.
 2. **Third-party applications**, which reduce the number
    of windows an agent interacts with.
-3. Real-time recommendations, powered by **Amazon Q in Connect**.
+3. Real-time recommendations, powered by **Connect AI agents**.
 4. **Tasks** to assign work or follow-up
    activities.
 5. The case ID, and other info on the **Cases** tab, powered by

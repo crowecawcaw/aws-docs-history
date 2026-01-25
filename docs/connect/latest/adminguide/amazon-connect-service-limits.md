@@ -23,7 +23,7 @@ increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../
 - [Amazon Connect quotas](#connect-quotas "#connect-quotas")
 - [AppIntegrations
   quotas](#app-integration-quotas "#app-integration-quotas")
-- [Amazon Q in Connect quotas](#q-in-connect-quotas "#q-in-connect-quotas")
+- [Connect AI agents quotas](#q-in-connect-quotas "#q-in-connect-quotas")
 - [Cases quotas](#cases-quotas "#cases-quotas")
 - [Contact Lens
   quotas](#contactlens-quotas "#contactlens-quotas")
@@ -135,7 +135,7 @@ All AppIntegrations quotas are at the Account level.
 | Event integrations per Region                        | 10      | Yes        |
 | Application per region (third-party application)     | 25      | No         |
 
-## Amazon Q in Connect service quotas
+## Connect AI agents service quotas
 
 All Amazon Q quotas are at the Account level.
 
@@ -573,7 +573,7 @@ quotas
 | DescribeSpeaker, OptOutSpeaker, DeleteSpeaker,<br>DescribeFraudster, DeleteFraudster                                                                                                                                                                                                             | 10                            |
 | TagResource, UnTagResource, ListTagsForResource                                                                                                                                                                                                                                                  | 2                             |
 
-### Amazon Q in Connect Service API throttling
+### Connect AI agents Service API throttling
 
 quotas
 

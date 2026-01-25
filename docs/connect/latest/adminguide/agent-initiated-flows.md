@@ -38,7 +38,7 @@ Voice and other channels are not currently supported.
   agent-initiated workflow. The workflow needs to be either completed or
   cancelled before adding a new agent or contact.
 - Only one agent-initiated flow can execute at a time per contact
-- The following flow blocks are not supported: [**Connect assistant**](q-block.md "q-block.md"), [**Authenticate Customer**](authenticate-customer.md "authenticate-customer.md"), [**Create Persistent Contact
+- The following flow blocks are not supported: [**Connect assistant**](connect-assistant-block.md "connect-assistant-block.md"), [**Authenticate Customer**](authenticate-customer.md "authenticate-customer.md"), [**Create Persistent Contact
   Association**](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md"), [**Get Customer Input**](get-customer-input.md "get-customer-input.md")
 - Limited to 10 Agent-initiated flows per Chat
 

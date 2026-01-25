@@ -10,7 +10,7 @@ endpoints:
 - Customer Profiles
 - Outbound campaigns
 - Voice ID
-- Amazon Q in Connect
+- Connect AI agents
 - Amazon Connect Service
   Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you to privately access Amazon Connect APIs
   without an internet gateway, NAT device, VPN connection, or Direct Connect connection.
@@ -35,7 +35,7 @@ Amazon Connect supports the following service names:
 - com.amazonaws.`region`.connect-campaigns
 - com.amazonaws.`region`.voiceid
 - com.amazonaws.`region`.wisdom (This is for
-  Amazon Q in Connect.)
+  Connect AI agents.)
 - com.amazonaws.`region`.connect
 - com.amazonaws.`region`.connect-fips (This is for creating an endpoint for Amazon Connect Service that complies with the Federal Information Processing Standard (FIPS).)
 

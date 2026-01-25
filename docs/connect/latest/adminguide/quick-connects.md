@@ -36,6 +36,15 @@ Contacts are transferred to a queue as part of a flow.
 User and Queue quick connects only appear in the CCP when an agent goes to
 transfer a contact.
 
+### Flow quick connect
+
+Agent initiated contacts to provide interactive workflows during an active
+chat session. For more information, see [Agent-initiated flows](agent-initiated-flows.md "agent-initiated-flows.md").
+
+###### Important
+
+Flow quick connects are only supported for chat contacts.
+
 ## Step 1: Create quick connects
 
 Following are the instructions to add quick connects manually using the Amazon Connect

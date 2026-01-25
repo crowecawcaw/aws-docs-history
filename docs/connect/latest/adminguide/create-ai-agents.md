@@ -1,24 +1,29 @@
 # Create AI agents in Amazon Connect
 
-An _AI agent_ is an Amazon Q in Connect resource that configures and customizes
-the end-to-end Amazon Q in Connect experience. For example, the AI agent tells the AI Assistant how to
+An _AI agent_ is a resource that configures and customizes
+the end-to-end AI agent experience. For example, the AI agent tells the AI Assistant how to
 handle a manual search: which AI prompts and AI guardrails it should use, and which
 locale to use for the response.
 
-Amazon Q in Connect provides a system AI agent for each use case:
+Amazon Connect provides the following out of the box system AI agents:
 
-- Answer recommendation
-- Manual search
-- Self service
-- Email overview
-- Email generative answer
-  The system AI agents are populated with the default AI prompts for each use case.
+- Orchestration
+- Answer Recommendation
+- Manual Search
+- Self Service
+- Email Response
+- Email Overview
+- Email Generative Answer
+- Note Taking
+- Agent Assistance
+- Case Summarization
+  Each use case is configured to use a default AI system agent. This can also be customized.
 
-For example, the following image shows an Amazon Q in Connect experience that is configured to use
-customized AI agents for answer recommendations and manual searches, but uses the system
-default AI agent for self service use cases.
+For example, the following image shows a Connect AI agents experience that is configured to use
+a customized AI agent for the Agent Assistance use case and uses the system
+default AI agents for the rest.
 
-![The default AI agents specified for an Amazon Q in Connect experience.](images/ai-agent-default.png)
+![The default and custom AI agents specified for Amazon Connect](images/ai-agent-default.png)
 Here's how customized AI agents work:
 
 - You can override one or more of the system AI agents with your customized AI
@@ -33,21 +38,25 @@ Here's how customized AI agents work:
   prompts. If you choose to create a new AI prompt for one type but not the other,
   then the AI agent continues using the system default for the AI prompt you
   didn't override. This way you can choose to override only specific parts of the
-  default Amazon Q in Connect experience.
+  default Connect AI agents experience.
 
 ## How to create AI agents
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
-   **Amazon Q** - **AI agents** -
+   **AI agent designer** - **AI agents** -
    **Create** permission in it's security profile.
-2. On the navigation menu, choose **Amazon Q**, **AI
+2. On the navigation menu, choose **AI agent designer**, **AI
    agents**.
 3. On the **AI Agents** page, choose **Create AI
    Agent**.
 4. On the **Create AI Agent** dialog box, for **AI
    Agent type**, use the dropdown box to choose from one of the
    following types:
+   - **Orchestration**: An AI agent with agentic capabilities
+     that orchestrates different use cases per customer needs. It can engage in
+     multi-turn conversation and invoke pre-configured tools.
+     It uses the **Orchestration** type of AI prompt.
    - **Answer recommendation**: An AI agent that
      drives the automatic intent-based recommendations that are pushed to
      agents when they engage in a contact with customers. It uses the
@@ -86,11 +95,12 @@ name`.my.connect.aws/. Use an admin account, or an account with
 service** support two types of AI prompts. If you choose to
 create a new AI prompt for one type but not the other, then the AI agent
 continues using the system default for the one you didn't replace. This
-way you can choose to override only specific parts of the default Amazon Q in Connect
+way you can choose to override only specific parts of the default Connect AI agents
 experience. 5. On the **Agent builder** page, you can specify the locale
-to use for the response. For a list of supported locales, see [Supported locale codes](configure-language-support-for-q-in-connect.md#supported-locale-codes-q "configure-language-support-for-q-in-connect.md#supported-locale-codes-q").
+to use for the response. For a list of supported locales, see [Supported locale codes](ai-agent-configure-language-support.md#supported-locale-codes-q "ai-agent-configure-language-support.md#supported-locale-codes-q").
 
-You can choose the locale for **Answer recommendation**,
+You can choose the locale for **Orchestration**,
+**Answer recommendation**,
 **Manual search**, **Email response**,
 **Email overview**, and **Email generative
 answer** types of AI agents. You cannot choose the locale for
@@ -107,7 +117,7 @@ AI agent until you're satisfied it is complete. 8. To make the new AI agent vers
 
 ## Associate an AI agent with a flow
 
-To use the default out-of-the-box Amazon Q in Connect functionality, you add a [Amazon Q in Connect](q-block.md "q-block.md") block to your flows. This
+To use the default out-of-the-box Connect AI agents functionality, you add a [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to your flows. This
 block associates the Assistant and the default mapping of AI agents.
 
 To override this default behavior, create a Lambda, and then use the [AWS Lambda
@@ -131,14 +141,14 @@ manage AI agents.
 - [Use AI agents to override the knowledge
   base configuration](#cli-ai-agents-sample4 "#cli-ai-agents-sample4")
 - [Create AI agent versions](#cli-ai-agents-sample5 "#cli-ai-agents-sample5")
-- [Set AI agents for use with Amazon Q in Connect](#cli-ai-agents-sample6 "#cli-ai-agents-sample6")
+- [Set AI agents for use with Connect AI agents](#cli-ai-agents-sample6 "#cli-ai-agents-sample6")
 - [Revert to system defaults](#cli-ai-agents-sample6b "#cli-ai-agents-sample6b")
 
 ### Create an AI agent that uses every
 
 customized AI prompt version
 
-Amazon Q in Connect uses the AI prompt version for its functionality if one is specified
+Connect AI agents uses the AI prompt version for its functionality if one is specified
 for an AI agent. Otherwise it defaults to the system behavior.
 
 Use the following sample AWS CLI command to create an AI agent that uses
@@ -147,7 +157,7 @@ every customized AI prompt version for answer recommendations.
 ```
 
 aws qconnect create-ai-agent \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_answer_recommendation_ai_agent \
   --visibility-status PUBLISHED \
   --type ANSWER_RECOMMENDATION \
@@ -173,7 +183,7 @@ handle the rest.
 ```
 
 aws qconnect create-ai-agent \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_answer_recommendation_ai_agent \
   --visibility-status PUBLISHED \
   --type ANSWER_RECOMMENDATION \
@@ -197,7 +207,7 @@ manual search.
 ```
 
 aws qconnect create-ai-agent \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_manual_search_ai_agent \
   --visibility-status PUBLISHED \
   --type MANUAL_SEARCH \
@@ -212,7 +222,7 @@ aws qconnect create-ai-agent \
 
 base configuration
 
-You can use AI agents to configure which assistant associations Amazon Q in Connect should
+You can use AI agents to configure which assistant associations Connect AI agents should
 use and how it should use them. The association supported for customization is
 the knowledge base which supports:
 
@@ -232,7 +242,7 @@ customized knowledge base configuration.
 
 ```
 aws qconnect create-ai-agent \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_manual_search_ai_agent \
   --visibility-status PUBLISHED \
   --type MANUAL_SEARCH \
@@ -261,7 +271,7 @@ aws qconnect create-ai-agent \
 ### Create AI agent versions
 
 Just like AI prompts, after an AI agent has been created, you can create a
-version which is an immutable instance of the AI agent that can be used by Amazon Q in Connect
+version which is an immutable instance of the AI agent that can be used by Connect AI agents
 at runtime.
 
 Use the following sample AWS CLI command to create an AI agent
@@ -269,7 +279,7 @@ version.
 
 ```
 aws qconnect create-ai-agent-version \
-  --assistant-id <YOUR_Q_IN_CONNECT_ASSISTANT_ID> \
+  --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --ai-agent-id <YOUR_AI_AGENT_ID>
 ```
 
@@ -280,25 +290,25 @@ using the following format:
  <AI_AGENT_ID>:<VERSION_NUMBER>
 ```
 
-### Set AI agents for use with Amazon Q in Connect
+### Set AI agents for use with Connect AI agents
 
 After you have created AI prompt versions and AI agent versions for your use
-case, you can set them for use with Amazon Q in Connect.
+case, you can set them for use with Connect AI agents.
 
-#### Set AI agent versions in the Amazon Q in Connect
+#### Set AI agent versions in the Connect AI agents
 
 Assistant
 
-You can set an AI agent version as the default to be used in the Amazon Q in Connect
+You can set an AI agent version as the default to be used in the Connect AI agents
 Assistant.
 
 Use the following sample AWS CLI command to set the AI agent version as
 the default. After the AI agent version is set, it will be used when the
-next Amazon Connect contact and associated Amazon Q in Connect session are created.
+next Amazon Connect contact and associated Connect AI agents session are created.
 
 ```
 aws qconnect update-assistant-ai-agent \
-  --assistant-id `<YOUR_Q_IN_CONNECT_ASSISTANT_ID>` \
+  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
   --ai-agent-type MANUAL_SEARCH \
   --configuration '{
     "aiAgentId": "<MANUAL_SEARCH_AI_AGENT_ID_WITH_VERSION_QUALIFIER>"
@@ -307,9 +317,9 @@ aws qconnect update-assistant-ai-agent \
 
 #### Set
 
-AI agent versions in Amazon Q in Connect sessions
+AI agent versions in Connect AI agents sessions
 
-You can also set an AI agent version for every distinct Amazon Q in Connect session
+You can also set an AI agent version for every distinct Connect AI agents session
 when creating or updating a session.
 
 Use the following sample AWS CLI command to set the AI agent version for
@@ -317,8 +327,8 @@ every distinct session.
 
 ```
 aws qconnect update-session \
-  --assistant-id `<YOUR_Q_IN_CONNECT_ASSISTANT_ID>` \
-  --session-id `<YOUR_Q_IN_CONNECT_SESSION_ID>` \
+  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
+  --session-id `<YOUR_CONNECT_AI_AGENT_SESSION_ID>` \
   --ai-agent-configuration '{
     "ANSWER_RECOMMENDATION": { "aiAgentId": "<ANSWER_RECOMMENDATION_AI_AGENT_ID_WITH_VERSION_QUALIFIER>" },
     "MANUAL_SEARCH": { "aiAgentId": "<MANUAL_SEARCH_AI_AGENT_ID_WITH_VERSION_QUALIFIER>" }
@@ -326,7 +336,7 @@ aws qconnect update-session \
 ```
 
 AI agent versions set on sessions take precedence over those set at the
-level of the Amazon Q in Connect Assistant, which in turn takes precedence over system
+level of the Connect AI agents Assistant, which in turn takes precedence over system
 defaults. This order of precedence can be used to set AI agent versions on
 sessions created for particular contact center business segments. For
 example, by using flows to automate the setting of AI agent versions for
@@ -343,7 +353,7 @@ revert to the original ones.
 
 ```
 aws qconnect list-ai-agents \
-  --assistant-id `<YOUR_Q_IN_CONNECT_ASSISTANT_ID>` \
+  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
   --origin SYSTEM
 ```
 
@@ -352,5 +362,5 @@ aws qconnect list-ai-agents \
 `--origin SYSTEM` is specified as an argument to fetch the system
 AI agent versions. Without this argument, your customized AI agent versions
 will be listed. After the AI agent versions are listed, use them to reset to
-the default Amazon Q in Connect experience at the level of the Amazon Q in Connect Assistant or session;
-use the CLI command described in [Set AI agents for use with Amazon Q in Connect](#cli-ai-agents-sample6 "#cli-ai-agents-sample6").
+the default Connect AI agents experience at the level of the Connect AI agents Assistant or session;
+use the CLI command described in [Set AI agents for use with Connect AI agents](#cli-ai-agents-sample6 "#cli-ai-agents-sample6").

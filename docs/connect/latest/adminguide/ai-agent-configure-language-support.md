@@ -1,31 +1,11 @@
-# Set the language for
+# Set languages
 
-Amazon Q in Connect
-
-You can set up Amazon Q in Connect so agents can ask Q for assistance in the [language](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens") of your choice. Amazon Q in Connect
-then provides answers and recommended step-by-step guides in that language.
+Agents can ask for assistance in the [language](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens") of your choice when you set the locale on Connect AI agents. Connect AI agents then provide answers and recommended step-by-step guides in that language.
 
 ###### To set the locale
 
-1. Log in to the Amazon Connect admin website at https://`instance
-name`.my.connect.aws/. Use an admin account, or an account with
-   **Amazon Q** - **AI agents** -
-   **Create** or **Edit** permission in it's
-   security profile.
-2. On the navigation menu, choose **Amazon Q**, **AI
-   agents**.
-3. On the **AI Agents** page, choose **Create AI
-   Agent** and choose **Answer recommendation**,
-   **Manual search**, **Email response**,
-   **Email overview**, and **Email generative
-   answer** for the AI agent type. Or choose an existing customized
-   manual AI agent you want to edit.
-4. On the AI agent builder page, use the _Locale_ dropdown
-   menu to choose your locale.
-5. Choose **Save**, and then choose **Publish**
-   to create a version of the AI agent.
-6. In the **Defaults** section of the page, choose the new AI
-   agent version as a default for the appropriate use case.
+1. On the AI agent builder page, use the Locale dropdown menu to choose your locale.
+2. Choose **Save**, and then choose **Publish** to create a version of the AI agent.
 
 ## CLI command to set the locale
 
@@ -47,7 +27,7 @@ search** AI agent.
 
 ## Supported locale codes
 
-Amazon Q in Connect supports agent assistance uses cases in the following locales:
+Connect AI agents support the following locales for agent assistance:
 
 - Afrikaans (South Africa) / af_ZA
 - Arabic (General) / ar

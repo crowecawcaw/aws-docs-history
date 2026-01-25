@@ -74,7 +74,7 @@ permissions are added for the service-linked role to access the resources:
   for rules named `ConnectCampaignsRule*` managed by
   `connect-campaigns.amazonaws.com`.
 
-- Action: Amazon Q in Connect Message Templates:
+- Action: Connect AI agents Message Templates:
 
       + `wisdom:GetMessageTemplate`
       + `wisdom:RenderMessageTemplate`

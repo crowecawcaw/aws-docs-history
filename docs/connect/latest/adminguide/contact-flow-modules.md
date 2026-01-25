@@ -37,7 +37,7 @@ agent**, **Transfer to queue**.
   - External attributes
   - Amazon Lex attributes
   - Customer Profiles attributes
-  - Amazon Q in Connect attributes
+  - Connect AI agents attributes
   - Queue metrics
   - Stored customer input
 

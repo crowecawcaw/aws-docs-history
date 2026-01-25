@@ -1,16 +1,16 @@
-# Search for content using Amazon Q in Connect
+# Search for content using Connect AI agents
 
-|                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Powered by Amazon Bedrock**:<br>Amazon Q in Connect is built on Amazon Bedrock and includes [automated abuse<br>detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") implemented in Amazon Bedrock to enforce safety, security, and the<br>responsible use of artificial intelligence (AI). |
+|                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Powered by Amazon Bedrock**:<br>Connect AI agents is built on Amazon Bedrock and includes [automated abuse<br>detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") implemented in Amazon Bedrock to enforce safety, security, and the<br>responsible use of artificial intelligence (AI). |
 
-With Amazon Q in Connect agents can use natural language to search across connected knowledge
+With Connect AI agents agents can use natural language to search across connected knowledge
 sources to receive generated recommendations, like actions to take and links to more
 information.
 
 For example, you can type questions or phrases in the search box (such as, "how long
 after purchase can handbags be exchanged?") without having to guess which keywords will
-work. Amazon Q in Connect searches the connected sources, and returns a specific solution generated
+work. Connect AI agents searches the connected sources, and returns a specific solution generated
 from your knowledge content along with links to relevant information.
 
 You can search for content at any time: while on a contact, on After Contact Work, or

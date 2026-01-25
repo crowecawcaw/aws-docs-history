@@ -37,7 +37,7 @@ features, including:
 - Performance evaluations
 - Screen recording
 - Agent scheduling tools
-- AI-powered voice and chat through Amazon Lex and Amazon Q in Connect
+- AI-powered voice and chat through Amazon Lex and Connect AI agents
 - AI-powered generative voice for text-to-speech (TTS) in Amazon Connect
 
 ###### Note

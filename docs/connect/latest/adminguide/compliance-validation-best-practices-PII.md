@@ -14,7 +14,7 @@ PII (Personally Identifiable Information) compliant.
   sensitive DTMF information.
 - Use your own KMS key when ingesting data in Amazon Connect Customer Profile
   domains.
-- Do not upload content containing customer PII to Amazon Q in Connect.
+- Do not upload content containing customer PII to Connect AI agents.
 - When using Amazon Connect Voice ID, do not use PII in the
   `CustomerSpeakerId`.
 - As with any AWS service, we strongly recommend that you not use sensitive

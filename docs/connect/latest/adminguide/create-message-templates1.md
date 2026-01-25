@@ -10,7 +10,7 @@ templates using the Amazon Connect admin website.
 
 ###### Tip
 
-Even though message templates use the Amazon Q in Connect APIs, message templates don't lead to
+Even though message templates use the Connect AI agents APIs, message templates don't lead to
 additional billing. You only pay for the chat message price or email price. For more
 information, see [Amazon Connect
 Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").

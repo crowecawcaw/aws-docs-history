@@ -113,9 +113,9 @@ for the country code).
   the following AWS regions: Africa (Cape Town), Asia Pacific (Mumbai), Asia Pacific
   (Seoul) and AWS GovCloud (US-West).
 
-### Language support for Amazon Q in Connect
+### Language support for Connect AI agents
 
-Following is additional information about language support for Amazon Q in Connect.
+Following is additional information about language support for Connect AI agents.
 
 #### Agent assistance - Proactive Intent
 
@@ -124,7 +124,7 @@ Detection based on transcripts
 - **Supported languages:** English,
   Spanish, Portuguese, French, Korean, Japanese, and Chinese
 
-Amazon Q in Connect uses conversational analytics and natural language understanding (NLU)
+Connect AI agents uses conversational analytics and natural language understanding (NLU)
 to detect customer intent during calls and chats. It provides agents with
 real-time generative responses and suggested actions.
 
@@ -146,7 +146,7 @@ For more information on customizing prompts, see [Create AI prompts in Amazon Co
 
 #### Guardrails
 
-Amazon Q in Connect guardrails supports the same languages as Amazon Bedrock guardrails classic tier.
+Guardrails for Connect AI agents support the same languages as Amazon Bedrock guardrails classic tier.
 For a complete list of supported languages, see
 [Languages supported by Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported-languages.md "../../../bedrock/latest/userguide/guardrails-supported-languages.md").
 Evaluating text content in other languages will be ineffective.

@@ -20,7 +20,7 @@ and improve your experience. These feature-level opt-outs will be discontinued o
 - **Amazon Connect Customer Profiles**
 - **Amazon Connect forecasting, capacity planning, and scheduling**
 - **Outbound campaigns**
-- **Amazon Q in Connect**
+- **Connect AI agents**
   Only Amazon employees will have access to the data. Your trust, privacy, and the
   security of Your Content are our highest priority and ensure that our use complies with
   our commitments to you. For more information, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").

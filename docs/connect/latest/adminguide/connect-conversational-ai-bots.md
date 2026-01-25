@@ -17,7 +17,7 @@ bot.
   bot](create-bot-flow.md "create-bot-flow.md")
 - [Configure third-party speech
   providers](configure-third-party-speech-providers.md "configure-third-party-speech-providers.md")
-- [Create an Amazon Q in Connect intent](create-qic-intent-connect.md "create-qic-intent-connect.md")
+- [Create an Connect AI agents intent](create-qic-intent-connect.md "create-qic-intent-connect.md")
 - [Create bot versions and aliases](create-bot-version.md "create-bot-version.md")
 - [Evaluate the performance of your conversational AI
   bot](lex-bot-analytics.md "lex-bot-analytics.md")

@@ -1099,7 +1099,7 @@ Type: Array of [RecordingsInfo](#ctr-RecordingsInfo "#ctr-RecordingsInfo")
 The first recording for a contact will appear in both the Recording
 and Recordings sections of the contact record.
 
-**Amazon Q in Connect**
+**Connect AI agents**
 
 If Amazon Q was enabled on the contact, this is information about the
 Amazon Q session.
@@ -2041,11 +2041,11 @@ Type: Boolean
 
 ## WisdomInfo
 
-Information about an Amazon Q in Connect session.
+Information about an Connect AI agents session.
 
 **SessionArn**
 
-The Amazon Resource Name (ARN) of the Amazon Q in Connect session for the
+The Amazon Resource Name (ARN) of the Connect AI agents session for the
 contact.
 
 Type: ARN

@@ -1,12 +1,12 @@
-# Monitor Amazon Q in Connect by using CloudWatch Logs
+# Monitor Connect AI agents by using CloudWatch Logs
 
-To gain visibility into the real-time recommendations that Amazon Q in Connect provides to your
-agents, and the customer intents it detects through natural language understanding, you
+To gain visibility into the real-time recommendations that Connect AI agents provide to your
+agents, and the customer intents they detect through natural language understanding, you
 can query CloudWatch Logs. CloudWatch Logs give you visibility into the entire contact journey: the
 conversation, triggers, intents, recommendations. You can also use this information for
 debugging, or provide it to Support when you contact them for help.
 
-This topic explains how to enable logging for Amazon Q in Connect.
+This topic explains how to enable logging for Connect AI agents.
 
 ###### Contents
 
@@ -23,7 +23,7 @@ This topic explains how to enable logging for Amazon Q in Connect.
 
 ## Required IAM permissions
 
-Before you enable logging for an Amazon Q in Connect assistant, check that you have the
+Before you enable logging for a Connect assistant, check that you have the
 following AWS Identity and Access Management permissions. They are required for the user account that is
 signed into the Amazon Connect console:
 
@@ -36,12 +36,12 @@ examples for different logging destinations, such as logs sent to CloudWatch Log
 sent to Amazon S3 The examples show how to allow updates to your specific logging
 destination resource.
 
-## Enable logging for Amazon Q in Connect
+## Enable logging for Connect AI agents
 
-To enable logging for Amazon Q in Connect, you use the CloudWatch API. Complete the following steps.
+To enable logging for Connect AI agents, you use the CloudWatch API. Complete the following steps.
 
-1. Get the ARN of your Amazon Q in Connect _assistant_ (also known as
-   its [domain](enable-q.md#enable-q-requirements "enable-q.md#enable-q-requirements")). After you [create an assistant](enable-q.md#enable-q-step1 "enable-q.md#enable-q-step1"), you can obtain it's
+1. Get the ARN of your _assistant_ (also known as
+   its [domain](ai-agent-initial-setup.md#ai-agent-requirements "ai-agent-initial-setup.md#ai-agent-requirements")). After you [create an assistant](ai-agent-initial-setup.md#enable-ai-agents-step1 "ai-agent-initial-setup.md#enable-ai-agents-step1"), you can obtain it's
    ARN from the Amazon Connect console or by calling the [GetAssistant](../APIReference/API_amazon-q-connect_GetAssistant.md "../APIReference/API_amazon-q-connect_GetAssistant.md") API. The ARN follows this format:
 
 `arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant-id``2. Call [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md"): Use this CloudWatch API to create a delivery
@@ -97,9 +97,9 @@ Amazon CloudWatch Logs Group and in JSON format.
 
 ## Supported log types
 
-Amazon Q in Connect supports the following log type:
+Connect AI agents support the following log type:
 
-- `EVENT_LOGS`: Logs that track event of an Amazon Q in Connect assistant
+- `EVENT_LOGS`: Logs that track event of an Connect assistant
   during calls, chats, and emails.
 
 ## Check for CloudWatch Logs quotas
@@ -120,18 +120,18 @@ The following table describes each event type. Note that different event types
 contain different fields. Refer to the [Field Definitions](#field-definitions "#field-definitions") section for detailed information about
 each field.
 
-| EventType                                     | Definition                                                                                                                                                       |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TRANSCRIPT_CREATE_SESSION                     | Logged when a new Amazon Q in Connect session is created.<br>This marks the beginning of a conversation.                                                         |
-| TRANSCRIPT_INTENT_TRIGGERING_REFERENCE        | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                |
-| TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM. |
-| TRANSCRIPT_QUERY_ASSISTANT                    | Logged when a manual search or direct query is made to Amazon<br>Q in Connect                                                                                    |
-| TRANSCRIPT_RECOMMENDATION                     | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions. |
-| TRANSCRIPT_RESULT_FEEDBACK                    | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                    |
-| TRANSCRIPT_SELF_SERVICE_MESSAGE               | Logged when a customer interacts with self-service components<br>of Amazon Q in Connect                                                                          |
-| TRANSCRIPT_SESSION_POLLED                     | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                   |
-| TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                 |
-| TRANSCRIPT_UTTERANCE                          | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                              |
+| EventType                                     | Definition                                                                                                                                                                                   |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TRANSCRIPT_CREATE_SESSION                     | Logged when a new Connect AI agents session is created.<br>This marks the beginning of a conversation.                                                                                       |
+| TRANSCRIPT_INTENT_TRIGGERING_REFERENCE        | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                                            |
+| TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM.                             |
+| TRANSCRIPT_QUERY_ASSISTANT                    | Logged when one of the following Connect AI agents is invoked:<br>AnswerRecommendation, CaseSummarization, EmailGenerativeAnswer,<br>EmailOverview, EmailResponse, ManualSearch, NoteTaking. |
+| TRANSCRIPT_RECOMMENDATION                     | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions.                             |
+| TRANSCRIPT_RESULT_FEEDBACK                    | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                                                |
+| TRANSCRIPT_SELF_SERVICE_MESSAGE               | Logged when a customer interacts with a SelfService Connect AI agent                                                                                                                         |
+| TRANSCRIPT_SESSION_POLLED                     | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                                               |
+| TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                                             |
+| TRANSCRIPT_UTTERANCE                          | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                                                          |
 
 ### Field Definitions
 
@@ -139,8 +139,8 @@ The following table describes each field.
 
 | Field                    | Definition                                                                                                                                          |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ai_agent_id              | Unique identifier for the Amazon Q in Connect AI agent<br>resource.                                                                                 |
-| assistant_id             | Unique identifier for the Amazon Q in Connect assistant<br>resource.                                                                                |
+| ai_agent_id              | Unique identifier for the Connect AI agent<br>resource.                                                                                             |
+| assistant_id             | Unique identifier for the Connect assistant<br>resource.                                                                                            |
 | completion               | The raw completion text returned by the LLM or generated for<br>the message.                                                                        |
 | connect_user_arn         | Amazon Resource Name (ARN) of the Connect user accessing the<br>session.                                                                            |
 | event_timestamp          | Unix timestamp (in milliseconds) when the event<br>occurred.                                                                                        |
@@ -155,13 +155,13 @@ The following table describes each field.
 | model_id                 | Identifier of the AI model used to invoke the LLM.                                                                                                  |
 | parsed_response          | The processed/parsed version of the language model response,<br>often in structured format.                                                         |
 | prompt                   | The input prompt used to invoke the LLM.                                                                                                            |
-| prompt_type              | Type of Amazon Q in Connect prompt used for processing the<br>message or query.                                                                     |
+| prompt_type              | Type of AI prompt used for processing the<br>message or query.                                                                                      |
 | recommendation           | The actual recommendation text content provided to the<br>user                                                                                      |
 | recommendation_id        | Unique identifier for the recommendation.                                                                                                           |
 | response                 | The final response text generated for the user after<br>processing.                                                                                 |
 | session_event_id         | Unique identifier for a specific event within the<br>session.                                                                                       |
 | session_event_ids        | List of session event identifiers.                                                                                                                  |
-| session_id               | Unique identifier for the Amazon Q in Connect<br>session.                                                                                           |
+| session_id               | Unique identifier for the Connect AI agents session.                                                                                                |
 | session_message_id       | Unique identifier for a self-service message within a<br>session.                                                                                   |
 | session_name             | Name of the session.                                                                                                                                |
 | utterance                | The actual message text exchanged in the<br>conversation.                                                                                           |

@@ -17,11 +17,12 @@ Amazon Connect](tag-based-access-control.md "tag-based-access-control.md").
 
 ###### Contents
 
-- [How to enable tag-based access
-  control](#dashboard-tbac-enable "#dashboard-tbac-enable")
-- [Important things to
-  know](#dashboard-tbac-limitations "#dashboard-tbac-limitations")
-- [How to transition](#dashboard-tbac-transition "#dashboard-tbac-transition")
+- [How to enable tag-based access control for
+  dashboards and reports](#dashboard-tbac-enable "#dashboard-tbac-enable")
+- [Important things to know when using
+  tag-based access controls](#dashboard-tbac-limitations "#dashboard-tbac-limitations")
+- [How to transition to tag-based access
+  control](#dashboard-tbac-transition "#dashboard-tbac-transition")
 
 ## How to enable tag-based access control for
 

@@ -1,9 +1,9 @@
-# Add custom data to an Amazon Q in Connect session
+# Add customer data to an AI agent session
 
-Amazon Q in Connect supports adding custom data to an Amazon Q in Connect session so that it can be used to drive
-the generative AI driven solutions presented to agents. Custom data can be used by first
-adding it to a session using the [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API, and then using the data added to customize AI
-prompts.
+Amazon Connect supports adding custom data to a Connect AI agent session so that
+it can be used to drive the generative AI driven solutions.
+Custom data can be used by first adding it to a session using
+the [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API, and then using the data added to customize AI prompts..
 
 ## Add and update data on
 
@@ -14,35 +14,35 @@ You add data to a session by using the [UpdateSessionData](../APIReference/API_a
 ```
 
 aws qconnect update-session-data \
-  --assistant-id `<YOUR_Q_IN_CONNECT_ASSISTANT_ID>` \
-  --session-id `<YOUR_Q_IN_CONNECT_SESSION_ID>` \
+  --assistant-id `<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>` \
+  --session-id `<YOUR_CONNECT_AI_AGENT_SESSION_ID>` \
   --data '[
     { "key": "productId", "value": { "stringValue": "ABC-123" }},
   ]'
 
 ```
 
-Since sessions are created for contacts while customer service agents are using
-Amazon Connect and Amazon Q in Connect, a useful way to add session data is by using a flow: Use a [AWS Lambda
+Since sessions are created for contacts, a useful way to add
+session data is by using a flow: Use a [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block to call the [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API. The API can add information to the session.
 
 Here's what you do:
 
-1. Add a [Amazon Q in Connect](q-block.md "q-block.md") block to
-   your flow. It associates an Amazon Q in Connect domain to a contact so Amazon Connect can search
+1. Add a [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to
+   your flow. It associates an Connect AI agent domain to a contact so Amazon Connect can search
    knowledge bases for real-time recommendations.
 2. Place the [AWS Lambda
    function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block after your
-   [Amazon Q in Connect](q-block.md "q-block.md") block. The
-   [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API requires the sessionId from Amazon Q in Connect. You
+   [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block. The
+   [UpdateSessionData](../APIReference/API_amazon-q-connect_UpdateSessionData.md "../APIReference/API_amazon-q-connect_UpdateSessionData.md") API requires the sessionId. You
    can retrieve the sessionId by using the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API and the assistantId that is associated with
-   the [Amazon Q in Connect](q-block.md "q-block.md") block.
+   the [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block.
 
-The following image shows the two blocks, first [Amazon Q in Connect](q-block.md "q-block.md") and then
+The following image shows the two blocks, first [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") and then
 [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md").
 
-![The Amazon Q in Connect block and AWS Lambda function block configured to add session data.](images/add-session-data.png)
+![The Connect assistant block and AWS Lambda function block configured to add session data.](images/add-session-data.png)
 
 ## Use custom data with an AI
 
@@ -97,7 +97,7 @@ messages:
 
 ```
 
-If the value for the custom variable is not available in the session, Amazon Q in Connect
-interpolates it as an empty string. We recommend providing instructions in the AI
+If the value for the custom variable is not available in the session, it is interpolated
+as an empty string. We recommend providing instructions in the AI
 prompt so the system considers the presence of the value for any fallback
 behavior.

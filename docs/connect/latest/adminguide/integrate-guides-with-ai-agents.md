@@ -1,9 +1,9 @@
-# Integrate Amazon Q in Connect with step-by-step
+# Integrate Connect AI agents with step-by-step
 
 guides
 
 To help agents get to solutions faster, you can associate [step-by-step guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") with knowledge
-base content, such as knowledge articles. Then, when Amazon Q in Connect provides a recommended
+base content, such as knowledge articles. Then, when Connect AI agents provides a recommended
 solution to an agent, it also provides them with the option to start the step-by-step
 guide that you associated with the content.
 
@@ -195,21 +195,9 @@ Assign the following **Agent Applications** security profile
 permissions to the agents so they can view the knowledge base content and the
 step-by-step guides.
 
-- **Amazon Q in Connect - View**: Enables agents to search for and
+- **Connect AI agents - View**: Enables agents to search for and
   view content. They can also receive automatic recommendations during
   calls if Contact Lens conversational analytics is enabled.
-
-###### Note
-
-To use Amazon Q in Connect with calls, you must enable Contact Lens
-conversational analytics. Contact Lens conversational
-analytics real-time analytics is used recommend content that is related to
-customer issues detected during the current call.
-
-Contact Lens
-conversational analytics is not required to use Amazon Q in Connect with chats or emails, or to
-use Amazon Q in Connect self-service.
-
 - **Custom views - Access**: Enables agents to see
   step-by-step guides in their agent workspace.
 

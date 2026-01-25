@@ -20,14 +20,14 @@ the key for encryption and decryption. For example:
 For information about AWS KMS keys see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the
 _AWS Key Management Service Developer Guide_.
 
-## Amazon Q in Connect
+## Connect AI agents
 
-Amazon Q in Connect stores knowledge documents that are encrypted at rest in S3 using a
+Connect AI agents stores knowledge documents that are encrypted at rest in S3 using a
 BYOK or a service-owned key. The knowledge documents are encrypted at rest in
-Amazon OpenSearch Service using a service-owned key. Amazon Q in Connect stores agent queries and call
+Amazon OpenSearch Service using a service-owned key. Connect AI agents stores agent queries and call
 transcripts using a BYOK or a service-owned key.
 
-The knowledge documents used by Amazon Q in Connect are encrypted by an AWS KMS key.
+The knowledge documents used by Connect AI agents are encrypted by an AWS KMS key.
 
 ## Amazon AppIntegrations
 

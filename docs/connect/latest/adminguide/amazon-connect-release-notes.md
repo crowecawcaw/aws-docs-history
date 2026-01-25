@@ -31,6 +31,29 @@ available, then on January 2nd your contact center automatically returns to norm
 
 For more information, see [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md "hours-of-operation-overrides.md").
 
+### Cases now supports AWS CloudFormation
+
+Amazon Connect Cases now supports AWS CloudFormation, enabling you to model, provision, and manage case resources as infrastructure as code. With this launch, administrators can create CloudFormation templates to programmatically deploy and update their Cases configuration—such as templates, fields, and layouts—across Amazon Connect instances, reducing manual setup time and minimizing configuration errors.
+
+For more information, see [documentation](../../../AWSCloudFormation/latest/TemplateReference/AWS_Cases.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_Cases.md").
+
+### Agent screen recording status tracking
+
+Amazon Connect now offers customers the ability to view status of agent screen recordings in near real time in CloudWatch using Amazon EventBridge. With screen recording, supervisors can identify areas for agent coaching (e.g., non-compliance with business processes) by not only listening to customer calls or reviewing chat transcripts, but also watching agents' actions while handling a contact (i.e., a voice call, chat and task). Using Amazon EventBridge, customers can see status of each agent screen recording including success/failure, failure codes with description, installed client version, agent web browser version, agent operating system, screen recording start and end times from CloudWatch.
+
+Customers can start using Amazon Connect screen recording status tracking by subscribing to Screen Recording Status Changed event type in Amazon EventBridge event bus.
+
+For more information, see [Set up and review agent screen recordings in Amazon Connect
+Contact Lens](agent-screen-recording.md "agent-screen-recording.md").
+
+### Store nested JSON object and looping arrays
+
+Amazon Connect now enables you to store and work with complex data structures in your flows, making it easy to build dynamic automated experiences that use rich information returned from your internal business systems. You can save complete data records, including nested JSON objects and lists, and reference specific elements within them, such as a particular order from a list of orders returned in JSON format.
+
+Additionally, you can automatically loop through lists of items in your customer service flows, moving through each entry in sequence while tracking the current position in the loop. This allows you to easily access item-level details and present relevant information to end-customers. For example, a travel agency can retrieve all of a customer's itineraries in a single request and guide the caller through each booking to review or update their reservations. A bank can similarly walk customers through recent transactions one by one using data retrieved securely from its systems. These capabilities reduce the need for repeated calls to your business systems, simplify workflow design, and make it easier to deliver advanced automated experiences that adapt as your business requirements evolve.
+
+For more information, see [Flows in Amazon Connect](connect-contact-flows.md "connect-contact-flows.md").
+
 ## December 2025 Updates
 
 ### Workspace and data table resources provide business users with greater control over daily operations
@@ -47,6 +70,40 @@ that keeps contact center operations fast, consistent, and secure, all without r
 
 For more information, see [Set up workspaces for your admin website users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
 
+### Dashboards now support filtering metrics based on custom business dimensions
+
+Amazon Connect dashboards now support filtering metrics based on custom business dimensions such as business divisions, product lines, or customer segments. Using predefined attributes, you can create business dimensions to filter metrics helping you customize the dashboards based on your unique business need. For example, if your queue handles contacts across product lines, you can filter metrics by product line to compare handle times and determine where agents need product training.
+
+For more information, see [Dashboards in Amazon Connect for getting contact center performance
+data](dashboards.md "dashboards.md").
+
+### Automated agent performance evaluations support 5 additional languages
+
+Amazon Connect now automates agent performance evaluations in Portuguese, French, Italian, German, and Spanish using generative AI. Managers define custom evaluation criteria in natural language and receive AI-generated evaluations with justifications in their preferred language. Performance evaluations also supports cross-language evaluation and can complete assessments in English, even when the conversation is in another language. This enables multilingual contact centers to use a standardized evaluation framework across languages.
+
+For more information, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
+
+### Additional details available within real-time metric alerts
+
+Amazon Connect alerts on real-time metrics now provide the specific agents, queues, flows, or routing profiles that exceeded thresholds and triggered the alert. This enables managers to respond faster to customer experience and operational issues by eliminating the need to manually investigate the root cause of the alert. For example, alerts on elevated queue wait times now include the exact queues affected, so managers can reassign agents to those queues. These detailed alerts can be sent through email, tasks, and Amazon EventBridge.
+
+For more information, see [Create alerts on real-time metrics in
+Amazon Connect](rule-real-time-metrics.md "rule-real-time-metrics.md").
+
+### Multiple choice and date questions now possible in evaluation forms
+
+Amazon Connect provides two new evaluation question types to capture deeper insights on human and AI agent performance. Managers can now create questions that allow multiple answer selections, such as the products that the customer was interested in during a sales conversation. Additionally, managers can capture dates for customer and agent actions within evaluation forms. For example, you can record when a customer applied for a loan and when it was approved.
+
+For more information, see [Create an evaluation form in Amazon Connect](create-evaluation-forms.md "create-evaluation-forms.md").
+
+### WhatsApp channel for Outbound Campaigns
+
+Amazon Connect Outbound Campaigns now supports WhatsApp, expanding on the WhatsApp Business messaging capabilities that already allow customers to contact your agents. You can now engage customers through proactive, automated campaigns on their preferred messaging platform, delivering timely communications such as appointment reminders, payment notifications, order updates, and product recommendations directly through WhatsApp. Setting up WhatsApp campaigns uses the same familiar Amazon Connect interface, where you can define your target audience, choose personalized message templates, schedule delivery times, and apply compliance guardrails, just as you do for SMS, voice, and email campaigns.
+
+Previously, Outbound Campaigns supported SMS, email, and voice channels, while WhatsApp was available only for customers to initiate conversations with your agents. With WhatsApp support in Outbound Campaigns, you can now proactively reach customers through an additional messaging platform while maintaining a unified campaign management experience. You can personalize WhatsApp messages using real-time customer data, track delivery and engagement metrics, and manage communication frequency and timing to ensure compliance. This expansion provides greater flexibility to connect with customers on their preferred platforms while streamlining your omnichannel outreach strategy.
+
+For more information, see [Create an outbound campaign in Amazon Connect](how-to-create-campaigns.md "how-to-create-campaigns.md").
+
 ## November 2025 Updates
 
 ### Conditional case field visibility and dependent options
@@ -56,7 +113,8 @@ so you can simplify case layouts and ensure agents capture the right information
 For example, you can show a Return Reason field only when the case involves a return,
 and limit Issue Type choices to hardware-related options when Issue Category is set to Hardware.
 
-For more information, see [Add case field conditions to a case template in Amazon Connect](case-field-conditions.md "case-field-conditions.md").
+For more information, see [Add case field conditions to a case template in
+Amazon Connect](case-field-conditions.md "case-field-conditions.md").
 
 ### Custom metrics
 
@@ -67,7 +125,200 @@ subtraction, sum, average) on existing Connect data to build metrics that align 
 organization's specific business requirements. Custom metrics are available to use in the
 dashboards and APIs.
 
-For more information, see [Custom metrics](custom-metrics-topic.md "custom-metrics-topic.md").
+For more information, see [Custom metric primitives](metric-primitive-definitions.md "metric-primitive-definitions.md").
+
+### Native testing and simulation capabilities
+
+Amazon Connect now allows you to test and simulate contact center experiences in just a few clicks, making it easy to validate workflows, self-service voice interactions, and their outcomes. For each test, you can configure the test parameters including the caller's phone number or customer profile, the reason for the call (such as "I need to check my order status"), the expected responses (such as "Your request has been processed"), and business conditions like after-hours scenarios or full call queues. After executing tests, results show success or failure based on your defined criteria, along with the path taken by the simulated interaction and detailed logs to quickly diagnose potential issuesWith this launch, you can run multiple tests simultaneously to validate scenarios and workflows at scale, reducing testing time. Companies can view test results and identify common failure patterns across all their tests in Connect's analytics dashboards. These capabilities enable you to rapidly validate changes to your workflows and confidently deploy new experiences to adapt to your ever-changing business needs.
+
+For more information, see [Amazon Connect call simulation](testing-simulation.md "testing-simulation.md").
+
+### New criteria to automatically select relevant contacts for performance evaluation
+
+Amazon Connect provides managers with new criteria while setting up automated evaluations, making it easier to identify relevant contacts for evaluation, and providing additional insights to automatically populate evaluation forms. For example, managers can specify that inbound contacts with no connectivity issues, handled by agents in a specific department, should be automatically evaluated using a particular evaluation form. Additionally, managers can use new metrics criteria on agent call avoidance, contact handling efficiency, and audibility, to automatically fill the selected form.
+
+For more information, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
+
+### Support for third-party speech-to-text and text-to-speech AI models for end-customer self-service
+
+Amazon Connect now supports third-party speech providers for end-customer self-service, giving you greater flexibility in how you deliver voice experiences. You can integrate Deepgram for speech-to-text and ElevenLabs for text-to-speech directly within Amazon Connect, using them together with Amazon Connect's native speech capabilities, built-in orchestration, analytics, and compliance controls. This feature is available with Amazon Connect unlimited AI and in all commercial AWS regions where Amazon Connect is offered.
+
+For more information, see [Configure third-party speech-to-text (STT)
+providers](configure-third-party-stt.md "configure-third-party-stt.md").
+
+### Enhanced agent assistance capabilities
+
+Amazon Connect now provides customer service representatives with new AI agents that guide them through customer interactions by recommending actions, retrieving information, and executing tasks on their behalf. For example, an AI agent can guide a representative through processing a product return by automatically pulling order history, calculating refund amounts, and initiating the return process. These AI agents analyze conversation context and customer sentiment in real-time, actively completing tasks such as preparing documentation and handling routine processes. This enables representatives to focus on building customer relationships and handling complex situations while AI manages the background work, enhancing productivity and ensuring consistent outcomes. You can get started with out-of-the-box agents provided by Amazon Connect or easily customize AI agent behavior and actions to align with your business needs.
+
+For more information, see [Create AI agents in Amazon Connect](create-ai-agents.md "create-ai-agents.md").
+
+### Granular access controls for performance evaluations
+
+Amazon Connect now enables businesses to restrict access to specific performance evaluation forms, preventing unauthorized access to evaluation form templates and completed evaluations. Businesses can provide managers access to modify or use only the evaluation form templates that are relevant to their business line or function, improving security and making it easier for managers to select the right form while completing evaluations. Additionally, both managers and agents can be restricted from viewing certain completed evaluations. For example, you can restrict agents from viewing test evaluations filled with a form template that is yet to be finalized.
+
+For more information, see [Assign security profile permissions for
+users to create and access evaluation forms](evaluation-forms-permissions.md "evaluation-forms-permissions.md").
+
+### Simplified linking of related contacts to cases using flows
+
+Amazon Connect now makes it easier to link related contacts such as email replies, call transfers, persistent chats, and queued callbacks to the same case so agents can view the complete customer journey and resolve issues faster. You can use flows to link a follow-up contact to an existing case, eliminating the need for custom logic or manual linking.
+
+For more information, see [Flow block in Amazon Connect: Cases](cases-block.md "cases-block.md").
+
+### Chat now supports agent-initiated workflows
+
+Amazon Connect now supports agent-initiated workflows, enabling agents to send interactive forms to collect sensitive data or share general policies and disclosures within customer chat conversations, increasing efficiency and improving customer experience. For example, when a customer needs to update their address, agents can now send a form that customers complete without leaving the chat interface.Agents can trigger these workflows at any point during a chat conversation, making interactions more dynamic and responsive to customer needs. By handling everything within the ongoing chat conversation, businesses can maintain security and compliance standards while helping customers get faster solutions.
+
+For more information, see [Enable agent-initated flows during active chat
+sessions](agent-initiated-flows.md "agent-initiated-flows.md").
+
+### Agentic self-service with more natural, expressive, and adaptive voice interactions
+
+Amazon Connect is introducing agentic self-service capabilities that enable AI agents to understand, reason, and take action across voice and messaging channels to automate routine and complex customer service tasks. Connect enables you to blend deterministic and agentic experiences, allowing you to deploy these AI agents at scale, reliably and safely. With integration with advanced speech models from Amazon Nova Sonic, voice self-service experiences now deliver more natural and adaptive interactions. Connect's self-service voice AI agents understand not only what customers say but how they say it, adapting voice responses to match customer tone and sentiment while maintaining natural conversational pace across multiple languages and accents. For example, when a customer calls about an order issue, your AI agent can greet them by name, ask clarifying questions, look up their order status, and process a refund, with voice interactions that adapt to the customer's tone and respond expressively throughout the conversation. This enables your contact center to automate complex troubleshooting, account management, and consultative interactions while maintaining the ability to escalate to a live representative at any point.Nova Sonic support with Amazon Connect is available in two commercial AWS Regions: US East (N. Virginia) and US West (Oregon) and fully available in English and Spanish and in preview for French, Italian, and German.
+
+For more information, see [this blog post](https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai").
+
+### Chat now supports in-flight data redaction and message processing
+
+Amazon Connect now supports message processing that intercepts and processes chat messages before they reach any participant. This new capability enables automatic redaction of sensitive data and custom message processing, helping businesses maintain compliance and security standards while delivering personalized customer experiences.The built-in sensitive data redaction can automatically detect and remove sensitive information like credit card numbers and social security numbers across multiple languages, including English, French, Portuguese, German, Italian, and Spanish variants. You can choose to redact selected or all sensitive data entities, with options to replace them with generic or entity-specific placeholders (e.g., [PII] or [NAME]). Businesses can also integrate custom processors for use cases such as language translation or profanity filtering, ensuring compliant and effective communications for their specific business needs.
+
+For more information, see [Enable in-flight sensitive data redaction
+and message processing](redaction-message-processing.md "redaction-message-processing.md").
+
+### Automated email responses using conditional keywords and phrases
+
+Amazon Connect now allows you to automate email responses and agent routing logic using keyword and phrase conditions, helping organizations increase self-service, reduce manual handling time, and improve routing accuracy. For example, if a customer sends an email asking if a certain product is in stock, or is checking on their shipment status, an automated response can be sent without involving an agent.To enable this feature, add the Get stored content block to your flows and use accompanying flow blocks such as Check contact attributes and Send message to configure automated email responses and routing.
+
+For more information, see [How Amazon Connect email works](email-capabilities.md "email-capabilities.md").
+
+### AI agent assistance and summarization for Agentforce Service
+
+Amazon Connect launches real-time AI agent assistance and contact summarization for Salesforce Contact Center with Amazon Connect (SCC-AC). It enables Connect AI agents to automatically leverage customer information and knowledge base articles from Salesforce CRM for accelerated issue resolution and consistent outcomes across voice and chat interactions.When human intervention is required, the seamless integration within SCC-AC connects customers to agents who have a unified view of customer data, issue context, and interaction history within Agentforce Service and Agentforce Sales. Agents receive real-time voice transcripts and contextual recommendations, while supervisors gain enhanced call monitoring capabilities directly in Salesforce. Upon resolution, automated post-contact summarization enables agents to easily update Salesforce cases, streamlining administrative tasks. Administrators can deploy and configure this integrated contact center solution in minutes, leveraging Amazon Connect's voice, digital channels, and intelligent routing capabilities.
+
+### Support for multiple knowledge bases and integrates with your Amazon Bedrock Knowledge Bases
+
+Amazon Connect now allows you to bring your own Amazon Bedrock Knowledge Bases and supports multiple knowledge bases per AI agent, giving you greater flexibility in how you organize and access knowledge content for your AI agents. You can now connect your existing Bedrock Knowledge Bases directly to Amazon Connect AI agents in just a few clicks, with no additional setup or data duplication required. This allows you to leverage your current data sources and the Amazon Bedrock Knowledge Base connectors, including Adobe Experience Manager, Confluence, SharePoint, and OneDrive, giving you flexibility to use existing content repositories.With support for multiple knowledge bases per AI agent, you can configure AI agents to query multiple sources in parallel for more comprehensive responses. For example, a financial services company can easily connect separate knowledge bases for compliance documentation, product information, and internal policies, enabling AI agents to provide complete guidance across all relevant content during customer interactions.This feature is available in all AWS Regions where Amazon Connect AI agents and Amazon Bedrock Knowledge Bases are offered.
+
+For more information, see [Amazon Bedrock Knowledge Base configuration](../../../bedrock/latest/userguide/agents-kb-add.md "../../../bedrock/latest/userguide/agents-kb-add.md").
+
+### Stream messages for AI-powered interactions
+
+Amazon Connect now supports message streaming for AI-powered chat interactions. This new capability shows Connect AI agent responses as they're being generated, which reduces perceived wait times and improves the customer experience.When using Amazon Connect AI agents, customers see status updates like "One moment while I review your account" during processing, and watch responses appear progressively. This experience gives customers confidence their request is actively being worked on while AI agents reason, invoke tools, and craft comprehensive solutions.
+
+For more information, see [Enable message streaming for AI-powered
+chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+
+### Model Context Protocol (MCP) support
+
+Amazon Connect now supports Model Context Protocol (MCP), enabling AI agents for end-customer self-service and employee assistance to use standardized tools for retrieving information and completing actions. With this launch, businesses can enhance their AI agents with extensible tool capabilities that improve issue resolution. For example, an AI agent can automatically look up order status, process refunds, and update customer records during a self-service interaction without requiring human intervention.With this launch, Amazon Connect provides out-of-the-box MCP tools for common tasks such as updating contact attributes and retrieving case information. You can also use flow modules as MCP tools to reuse the same business logic across both deterministic and generative AI workflows. Additionally, you can integrate custom tools or third-party services through flow modules or the Amazon Bedrock AgentCore Gateway.
+
+For more information, see [this blog](https://aws.amazon.com/blogs/contact-center/using-mcp-with-amazon-connect-to-monitor-operational-readiness/ "https://aws.amazon.com/blogs/contact-center/using-mcp-with-amazon-connect-to-monitor-operational-readiness/").
+
+### Agent workspace now supports custom visual themes
+
+Amazon Connect now allows you to customize the visual appearance of the agent workspace. You can apply a custom theme, including a logo, font, and color palette for light and dark modes, so the agent workspace aligns with the brand identity of your company or business unit.Contact center agents spend hours each day in the Amazon Connect agent workspace, which provides them with all of the customer information, applications, and step-by-step guidance they need to deliver superior customer experiences. With today’s launch, organizations can change the default Amazon Connect theme to their own branded experience, creating a more familiar and intuitive experience for agents who use the agent workspace and other company applications. The agent workspace also has a new header bar where agents can easily access their settings, including their preference of light and dark mode, contributing to greater agent satisfaction and efficiency.
+
+For more information, see [Customize the Amazon Connect agent workspace](agent-workspace.md "agent-workspace.md").
+
+### AI-powered case summaries
+
+Amazon Connect now provides AI-powered case summaries that give agents complete context into customer issues, reduce manual wrap-up work, and help resolve cases faster. With a single click, agents can generate a concise case summary even when the case spans multiple interactions, follow-up tasks, and teams, capturing key details such as issue background, actions taken, and next steps. Administrators can configure custom prompts and guardrails to ensure that summaries align with organizational style and preferences.
+
+For more information, see [Amazon Connect Cases](cases.md "cases.md").
+
+### Outbound Campaigns now supports multi-step, multi-channel customer engagement journey builder
+
+Amazon Connect Outbound Campaigns now supports visual journey builder, a new feature that lets you create multi-step, multi-channel customer engagements directly in the Amazon Connect console. You can design end-to-end engagement experiences that combine voice, SMS, email, and WhatsApp interactions to reach customers proactively and reduce inbound contact volume.Outbound Campaigns help you automate personalized communication flows based on customer behavior or time-based triggers. For example, you can send an appointment reminder by SMS, follow up with a voice call if the customer does not respond, and send a confirmation email once the appointment is booked. You can also configure steps in the journey builder that offer customers the option to connect with a live agent through Amazon Connect when additional support is needed. You can use existing Amazon Connect Flow integrations, AI capabilities, and customer data from Amazon Connect Customer Profiles to tailor each interaction. This helps contact centers improve engagement rates, reduce manual effort, and deliver more consistent customer experiences.
+
+For more information, see [Set up Amazon Connect outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
+
+### Automated performance evaluations for self-service interactions
+
+Amazon Connect now provides businesses with the ability to automatically evaluate the quality of self-service interactions and get aggregated insights to improve customer experience. Managers can define custom criteria to assess the quality of self-service interactions, that can be filled manually or automatically using insights from conversational analytics, and other Connect data. For example, you can automatically assess if the AI agent repeatedly fails to understand the customer, resulting in poor customer sentiment and transfer to a human agent. Managers can review these insights in aggregate and on individual contacts, alongside self-service interaction recordings and transcripts, to identify opportunities to improve AI agent performance.Manually filled evaluations of self-service interactions are available in all regions where Amazon Connect is offered. Automated evaluations of self-service interactions are available in the following AWS regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), and Europe (Frankfurt).
+
+For more information, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
+
+### Improved analytics and monitoring for AI agents
+
+Amazon Connect now provides analytics and monitoring capabilities for AI agents across self-service and agent assistance experiences. With this launch, you can measure and continuously improve AI agent performance and customer outcomes through easy to customize dashboards that provide key metrics like number of AI agent led interactions, hand-off rates, conversation turns, and average handle time. You can also compare AI agent performance across versions to identify optimal configurations and review insights to understand where AI agents are performing well and where improvements are needed. Additionally, with this launch, you can configure rules to trigger automated actions, such as sending alerts when self-service contacts are transferred to human agents with low sentiment scores. Amazon Connect also provides AI agent traces via APIs with detailed information such as request and response payloads and tool invocations, enabling you to easily understand AI agent actions and decision-making for faster troubleshooting.
+
+For more information, see [Dashboards in Amazon Connect for getting contact center performance
+data](dashboards.md "dashboards.md").
+
+### Business users can create custom UIs to adjust contact center configurations in real time
+
+Amazon Connect now gives business users greater control over daily contact center operations without requiring technical resources. With new capabilities to create customer UIs that adjust queues, routing behavior, and customer experience settings in real time, business users can respond to changing conditions immediately while maintaining enterprise-grade governance and security. For example, during a weather disruption, an airline contact center operations manager can shift agents to rebooking queues, update after-hours routing, and activate a pre-approved protocol that refreshes IVR prompts and triggers customer notifications, all in minutes and without technical team intervention. This reduces wait times, increases agent productivity, and improves the customer experience at moments of peak demand.Contact center administrators can start by defining key business configurations such as queue assignments, operating hours, skill mappings, and escalation rules, in data tables that directly drive contact flows. Guides can then be configured to surface role-specific actions for each business user within persona based workspaces. Together, these updates enable a business-led operating model that keeps contact center operations fast, consistent, and secure, all without relying on IT.
+
+For more information, see [Set up workspaces for your admin website users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
+
+### Lex now supports LLMs as the primary option for natural language understanding
+
+Amazon Lex now allows you to use Large Language Models (LLMs) as the primary option to understand customer intent across voice and chat interactions. With this capability, your voice and chat bots can better understand customer requests, handle complex utterances, maintain accuracy despite spelling errors, and extract key information from verbose inputs. When customer intent is unclear, bots can intelligently ask follow-up questions to fulfill requests accurately. For example, when a customer says “I need help with my flight,” the LLM automatically clarifies whether the customer wants to check their flight status, upgrade their flight, or change their flight.
+
+For more information, see [Amazon Lex documentation](../../../lexv2/latest/dg/intent-structure.md "../../../lexv2/latest/dg/intent-structure.md").
+
+### Flow modules now support custom inputs, outputs, and version management
+
+Amazon Connect flow modules now support custom inputs, outputs, and branches, along with version and alias management. With this launch, you can now define flexible parameters for your reusable flow modules to math your specific business logic. For example, you can create an authentication module that accepts a phone number and PIN as inputs, then returns the customer name and authentication status as outputs with branches such as "authenticated" or "not authenticated". All parameters are customizable to meet your specific needs.Additionally, advanced versioning and aliasing capabilities allow you to manage module updates more seamlessly. You can create immutable version snapshots and map aliases to specific versions. When you update an alias to point to a new version, all flows using that module automatically reference the updated version. These new features make flow modules more powerful and reusable, allowing you to build and maintain flows more efficiently.
+
+For more information, see [Flow modules for reusable functions in Amazon Connect](contact-flow-modules.md "contact-flow-modules.md").
+
+### Agents can send follow-up replies to email contacts
+
+Amazon Connect now allows agents to send follow-up replies to email contacts, making it easier to share additional information or continue assisting customers without starting a new thread. This capability preserves the full conversation history, helping agents maintain context and deliver consistent, seamless support.
+
+For more information, see [Set up email in Amazon Connect](setup-email-channel.md "setup-email-channel.md").
+
+### Monitor contacts queued for callback
+
+Amazon Connect now provides you with the ability to monitor which contacts are queued for callback. This feature enables you to search for contacts queued for callback and view additional details such as the customer’s phone number and duration of being queued within the Connect UI and APIs. You can now pro-actively route contacts to agents that are at risk of exceeding the callback timelines communicated to customers. Businesses can also identify customers that have already successfully connected with agents, and clear them from the callback queue to remove duplicative work.
+
+For more information, see [Search for in-progress contacts in
+Amazon Connect](search-in-progress-contacts.md "search-in-progress-contacts.md").
+
+### Amazon Lex extends wait & continue feature in 10 new languages
+
+Amazon Lex now supports wait & continue functionality in 10 new languages, enabling more natural conversational experiences in Chinese, Japanese, Korean, Cantonese, Spanish, French, Italian, Portuguese, Catalan, and German. This feature allows deterministic voice and chat bots to pause while customers gather additional information, then seamlessly resume when ready. For example, when asked for payment details, customers can say "hold on a second" to retrieve their credit card, and the bot will wait before continuing.
+
+For more information, see [Lex documentation](../../../lexv2/latest/dg/wait-and-continue.md "../../../lexv2/latest/dg/wait-and-continue.md").
+
+### Multi skill agent scheduling
+
+Amazon Connect now enables you to optimize scheduling based on agent’s multiple specialized skills. You can now maximize agent utilization across multiple dimensions such as departments, languages, and customer tiers by intelligently matching agents with multiple skills to forecasted demand. You can now also preserve multi-skilled agents for high-value interactions when needed most. For example, bilingual agents can now be strategically scheduled to cover peak periods for high-value French language queues that frequently experience staffing shortages, while handling general inquiries during off-peak times.
+
+For more information, see [Scheduling in Amazon Connect](scheduling.md "scheduling.md").
+
+### Persistent agent connections for faster call handling
+
+Amazon Connect now offers the ability to maintain an open communication channel between your agents and Amazon Connect, helping reduce the time it takes to establish a connection with a customer. Contact center administrators can configure an agent’s user profile to maintain a persistent connection after a conversation ends, allowing for subsequent calls to connect faster. Amazon Connect persistent agent connection makes it easier to support compliance requirements with telemarketing laws such as the U.S. Telephone Consumer Protection Act (TCPA) for outbound campaigns’ calling by reducing the time it takes for a customer to connect with your agents.
+
+For more information, see [Enable persistent connection for Amazon Connect
+agents](enable-persistent-connection.md "enable-persistent-connection.md").
+
+### Conversational analytics for voice and chat bots
+
+Amazon Connect now provides conversational analytics for end-customer self-service interactions across voice and digital channels, helping you better understand and improve your customers' self-service experiences. This includes across PSTN/telephony, in-app and web-calling, web and mobile chat, SMS, WhatsApp Business messaging, and Apple Messages for Business.With this launch, Connect now provides rich conversational analytics across both human-agent interactions and end-customer self-service interactions. You can now automatically analyze the quality of automated self-service interactions including customer sentiment, redact sensitive data, discover top contact drivers and themes, identify compliance risks, and proactively identify areas for improvement through easy-to-customize dashboards. Connect’s conversational analytics also enables you to use semantic matching rules to categorize interactions based on customer behavior, keywords, sentiment, or issue types, such as billing inquiries or agent escalation requests.
+
+For more information, see [Enable persistent connection for Amazon Connect
+agents](enable-persistent-connection.md "enable-persistent-connection.md").
+
+### Outbound campaigns supports ring time configuration for unanswered calls
+
+Amazon Connect outbound campaigns now offers campaign managers the ability to configure how long voice calls should ring—between a range of 15 and 60 seconds—before marking a call as “no answer” and moving to the next contact. Each contact also records when ringing began and ended for precise reporting and traceability.When ring duration is static, businesses struggle to balance calling efficiency and customer reach. Calls that ring too briefly may miss customers who take longer to answer, while excessive ring times delay overall campaign pacing. This lack of control leads to inconsistent contact rates and reduced agent productivity.With configurable ring time, campaign managers can tune dialing behavior to their audience for each campaign, use analytics to see exactly how long each call rang, and understand where connections were missed. This visibility helps identify patterns, refine calling strategies, and continuously improve campaign effectiveness.
+
+For more information, see [Set up Amazon Connect outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
+
+### Metrics on completion of agent performance evaluations by managers
+
+Amazon Connect now provides metrics that measure completion of agent performance evaluations, improving manager productivity and evaluation consistency. Businesses can monitor if the required number of evaluations for their agents have been completed, ensuring compliance with internal policies (e.g., complete 5 evaluations per agent per month), regulatory requirements, and labor union agreements. Additionally, businesses can analyze evaluation scoring patterns across different managers, to identify opportunities to improve evaluation consistency and accuracy. These insights are available in real-time through analytics dashboards in the Connect UI, and APIs.
+
+For more information, see [Evaluate agent and self-service interaction performance in Amazon Connect](evaluations.md "evaluations.md").
+
+### Configuration of email address aliases
+
+Amazon Connect now lets you configure aliases for email addresses, so customers see trusted identities when sending or receiving messages, helping maintain a consistent brand experience and simplify email management. For example, when forwarding a customer-facing address such as support@company.com to an address in Amazon Connect, you can configure an alias to ensure customers continue to see support@company.com as the sender.
+
+For more information, see [Create email addresses](create-email-address1.md "create-email-address1.md").
 
 ## October 2025 Updates
 
@@ -187,6 +438,37 @@ chat transcripts, but also watching agent actions while handling a voice, chat, 
 Email is not supported.
 
 For more information, see [Amazon Connect Client Application](amazon-connect-client-app.md "amazon-connect-client-app.md").
+
+### Scheduling of individual agents
+
+Amazon Connect now supports scheduling of individual agents, giving you more flexibility in scheduling your workforce. For example, when onboarding 100 new agents to a business unit with schedules already published for next two months, you can create schedules for only those new agents and automatically merge them with existing schedules. This eliminates the need for workarounds such as manually copying schedules from existing agents to new agents or regenerating schedules for entire business unit, thus improving manager productivity and operational efficiency.
+
+For more information, see [Forecasting, capacity planning, and scheduling in Amazon Connect](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
+
+### Email supports threaded views and includes conversation history in replies
+
+Amazon Connect now includes the conversation history in agent replies and introduces threaded views of email exchanges, making it easier for both agents and customers to maintain context and continuity across interactions. This enhancement provides a more natural and familiar email experience for both agents and customers.
+
+For more information, see [Set up email in Amazon Connect](setup-email-channel.md "setup-email-channel.md").
+
+### Automate follow-up evaluations triggered by initial evaluation results
+
+Amazon Connect can now automatically initiate follow-up evaluations to analyze specific situations identified during initial evaluations. For example, when an initial customer service evaluation detects customer interest in a product, Amazon Connect can automatically trigger a follow-up evaluation focused on the agent's sales performance. This enables managers to maintain consistent evaluation standards across agent cohorts and over time, while capturing deeper insights on specific scenarios such as sales opportunities, escalations, and other critical interaction moments.
+
+For more information, see [Enable persistent connection for Amazon Connect
+agents](enable-persistent-connection.md "enable-persistent-connection.md").
+
+### Copy and bulk edit of agent scheduling configuration
+
+Amazon Connect now supports copy and bulk edit of agent scheduling configuration, making it easier to set up and maintain agent schedules. You can create new scheduling configurations by copying existing ones — for example, copy a weekday shift profile to create a weekend variant, or, copy scheduling configuration (time-zone, weekly working hours, days off, etc.) from an existing agent to multiple new hires. When bulk editing, you can select specific fields to update, such as update time-zone and start date for new hires without changing their weekly working hours. These updates reduce time spent by managers on configuration management, thus improving productivity and operational efficiency.
+
+For more information, see [Forecasting, capacity planning, and scheduling in Amazon Connect](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
+
+### Customize service level calculations
+
+Amazon Connect now enables you to customize service level calculations to your specific needs. Supervisors and managers can define time thresholds for when a contact is considered to meet service level standards and select which contact outcomes to include in the calculation. For example, managers can choose to count callback contacts, exclude contacts transferred out while waiting in queue, and exclude short abandons using a configurable time threshold. Customization of service level calculation is available from the metric configuration section on the analytics dashboards.With this feature supervisors and managers can now create a service level metric calculation that better aligns with their business operations. With a customized view of service level performance, operations managers can assess how effectively they have met their service standards.
+
+For more information, see [Metrics, dashboards, and reports in Amazon Connect](amazon-connect-metrics.md "amazon-connect-metrics.md").
 
 ## September 2025 Updates
 
@@ -1034,14 +1316,14 @@ evaluations for improving their performance.
 For more information, see [Acknowledge performance evaluations in
 Amazon Connect](acknowledge-evaluations.md "acknowledge-evaluations.md").
 
-### Configure Amazon Q in Connect directly from the Amazon Connect admin website
+### Configure Connect AI agents directly from the Amazon Connect admin website
 
-You can customize your Amazon Q in Connect experience directly from the Amazon Connect admin website. With this no-code
+You can customize your Connect AI agents experience directly from the Amazon Connect admin website. With this no-code
 approach, contact center administrators can configure AI agent behaviors, create or edit custom
 prompts and set appropriate guardrails. For example, users can update AI prompts when launching
 new products, adjust AI guardrails to filter inappropriate content, or refine AI agents.
 
-For more information, see [Customize Amazon Q in Connect](customize-q.md "customize-q.md").
+For more information, see [Customize Connect AI agents](customize-connect-ai-agents.md "customize-connect-ai-agents.md").
 
 ### Increased limit on number of routing criteria updates per
 
@@ -1331,7 +1613,7 @@ consolidating your routing profiles because you have reorganized agents, you can
 the unwanted resources by using the Amazon Connect admin website. For more information, see [Delete a queue](delete-queue.md "delete-queue.md") and [Delete a routing
 profile](delete-routing-profiles.md "delete-routing-profiles.md").
 
-#### Amazon Q in Connect supports 64 languages for agent assistance
+#### Connect AI agents supports 64 languages for agent assistance
 
 capabilities
 
@@ -1341,8 +1623,7 @@ New languages supported include: Chinese, French, French (Canadian), Italian, Ja
 Malay, Portuguese, Spanish, Swedish, and Tagalog. For the full list of supported languages, see
 [AI features](supported-languages.md#supported-languages-contact-lens "supported-languages.md#supported-languages-contact-lens").
 
-For more information, see [Set the language for
-Amazon Q in Connect](configure-language-support-for-q-in-connect.md "configure-language-support-for-q-in-connect.md").
+For more information, see [Set languages](ai-agent-configure-language-support.md "ai-agent-configure-language-support.md").
 
 #### Multi-party chat
 
@@ -1458,23 +1739,23 @@ event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-c
 
 #### Generative AI-powered self-service with
 
-Amazon Q in Connect
+Connect AI agents
 
-Amazon Q in Connect, a generative-AI powered assistant for customer service, supports end-customer
+Connect AI agents, a generative-AI powered assistant for customer service, supports end-customer
 self-service interactions across Interactive Voice Response (IVR) and digital channels. With
 this launch, businesses can augment their existing self-service experiences with generative AI
 capabilities to create more personalized and dynamic experiences to improve customer
 satisfaction and first contact resolution. For more information, see [Use generative AI-powered
-self-service with Amazon Q in Connect](generative-ai-powered-self-service-q.md "generative-ai-powered-self-service-q.md").
+self-service with Connect AI agents](generative-ai-powered-self-service.md "generative-ai-powered-self-service.md").
 
-#### AI guardrails for Amazon Q in Connect
+#### AI guardrails for Connect AI agents
 
-Amazon Q in Connect, a generative AI powered assistant for customer service, enables you to natively
+Connect AI agents, a generative AI powered assistant for customer service, enables you to natively
 configure AI guardrails to implement safeguards based on their use cases and responsible AI
-policies. Contact center administrators can configure company-specific guardrails for Amazon Q in Connect
+policies. Contact center administrators can configure company-specific guardrails for Connect AI agents
 to filter harmful and inappropriate responses, redact sensitive personal information, and limit
 incorrect information in the responses due to potential large language model (LLM)
-hallucination. For more information, see [Create AI guardrails for Amazon Q in Connect](create-ai-guardrails.md "create-ai-guardrails.md").
+hallucination. For more information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
 
 #### Built-in dashboards to analyze
 
@@ -1648,11 +1929,11 @@ available agent during normal business hours, without requiring them to stay on 
 more information, see [Callbacks from a chat, task, or email
 contact](setup-queued-cb.md#queued-callback-chat-task "setup-queued-cb.md#queued-callback-chat-task").
 
-#### Monitor Amazon Q in Connect by using CloudWatch Logs
+#### Monitor Connect AI agents by using CloudWatch Logs
 
-To gain visibility into the real-time recommendations that Amazon Q in Connect provides to your
+To gain visibility into the real-time recommendations that Connect AI agents provides to your
 agents, and the customer intents it detects through natural language understanding, you can
-query CloudWatch Logs. For more information, see [Monitor Amazon Q in Connect by using CloudWatch Logs](monitor-q-assistants-cloudwatch.md "monitor-q-assistants-cloudwatch.md").
+query CloudWatch Logs. For more information, see [Monitor Connect AI agents by using CloudWatch Logs](monitor-ai-agents.md "monitor-ai-agents.md").
 
 #### Forecasting data in Amazon Connect Analytics data lake
 
@@ -1684,17 +1965,16 @@ experiences that improve customer satisfaction and reduce operational costs. The
 pre-built components for network and session management. For more information, see [Integrate Amazon Connect chat into a mobile
 application](integrate-chat-with-mobile.md "integrate-chat-with-mobile.md").
 
-#### Amazon Q in Connect adds personalized guidance
+#### Connect AI agents adds personalized guidance
 
 for agents
 
-Amazon Q in Connect can recommend personalized guidance to agents using customer data from Amazon Connect and
-other third-party CRM systems. Amazon Q in Connect detects the customer's intent from the real-time voice
+Connect AI agents can recommend personalized guidance to agents using customer data from Amazon Connect and
+other third-party CRM systems. Connect AI agents detects the customer's intent from the real-time voice
 or chat conversation and understands customer data to recommend what an agent should say or
 what action they should take.
 
-For more information, see [Use Amazon Q in Connect for generative AI–powered agent
-assistance in real-time](amazon-q-connect.md "amazon-q-connect.md").
+For more information, see [Use Connect AI agents for real-time assistance](connect-ai-agent.md "connect-ai-agent.md").
 
 #### Added new configuration capabilities to metrics
 
@@ -1953,12 +2233,12 @@ criteria to instead offer the contact to any available agent in queue. For more 
 see [Set up routing in Amazon Connect based on agent
 proficiencies](proficiency-routing.md "proficiency-routing.md").
 
-#### Amazon Q in Connect recommends step-by-step guides
+#### Connect AI agents recommends step-by-step guides
 
-Amazon Q in Connect, a generative-AI powered assistant for contact center agents, recommends
+Connect AI agents, a generative-AI powered assistant for contact center agents, recommends
 step-by-step guides in real-time. Agents use step-by-step guides to quickly take action to
-resolve customer issues. For more information, see [Integrate Amazon Q in Connect with step-by-step
-guides](integrate-q-with-guides.md "integrate-q-with-guides.md").
+resolve customer issues. For more information, see [Integrate Connect AI agents with step-by-step
+guides](integrate-guides-with-ai-agents.md "integrate-guides-with-ai-agents.md").
 
 In addition, see the following new APIs that are part of this release:
 
@@ -2021,7 +2301,7 @@ information, see [Set the forecast time zone](set-forecast-timezone.md "set-fore
 
 service-linked role managed policy
 
-Updated the service-linked role managed policy with the Amazon Q in Connect API action
+Updated the service-linked role managed policy with the Connect AI agents API action
 `wisdom:ListContentAssociations`. For a description of the additional action, see
 [Amazon Connect updates to AWS managed policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
@@ -2410,19 +2690,18 @@ information, see the [Use the UI builder in Amazon Connect for resources
 in step-by-step guides](no-code-ui-builder.md "no-code-ui-builder.md")
 documentation.
 
-#### Added Amazon Q in Connect
+#### Added Connect AI agents
 
-Amazon Q in Connect is a generative AI customer service assistant. It is an LLM-enhanced
+Connect AI agents is a generative AI customer service assistant. It is an LLM-enhanced
 evolution of Amazon Connect Wisdom that delivers real-time recommendations to help contact center agents
 resolve customer issues quickly and accurately.
 
-Amazon Q in Connect automatically detects customer intent during calls and chats using
+Connect AI agents automatically detects customer intent during calls and chats using
 conversational analytics and natural language understanding (NLU). It then provides agents with
 immediate, real-time generative responses and suggested actions. It also provides links to
 relevant documents and articles.
 
-For more information, see [Use Amazon Q in Connect for generative AI–powered agent
-assistance in real-time](amazon-q-connect.md "amazon-q-connect.md") and the [Amazon Q in Connect API Reference](../../../amazon-q-connect/latest/APIReference/Welcome.md "../../../amazon-q-connect/latest/APIReference/Welcome.md").
+For more information, see [Use Connect AI agents for real-time assistance](connect-ai-agent.md "connect-ai-agent.md") and the [Connect AI agents API Reference](../../../amazon-q-connect/latest/APIReference/Welcome.md "../../../amazon-q-connect/latest/APIReference/Welcome.md").
 
 #### Amazon Connect Contact Lens provides real-time
 
@@ -2557,7 +2836,7 @@ adjustability you can also specify your Amazon Connect instance. For more inform
 
 `AmazonConnectServiceLinkedRolePolicy`
 
-Updated `AmazonConnectServiceLinkedRolePolicy` with an action for Amazon Q in Connect.
+Updated `AmazonConnectServiceLinkedRolePolicy` with an action for Connect AI agents.
 For a description of the additional action, see [Amazon Connect updates to AWS managed
 policies](security_iam_awsmanpol.md#security-iam-awsmanpol-updates "security_iam_awsmanpol.md#security-iam-awsmanpol-updates").
 
@@ -3291,8 +3570,8 @@ In November 2023 we released Amazon Q. It includes real-time agent assist functi
 along with generative AI-powered recommended responses, actions, and links to more information.
 
 You can choose Microsoft SharePoint Online as knowledge base for Wisdom articles.
-For more information, see [Enable Amazon Q in Connect for your instance](enable-q.md "enable-q.md"). Also see the
-[AppIntegrationsConfiguration](../../../amazon-q-connect/latest/APIReference/API_AppIntegrationsConfiguration.md "../../../amazon-q-connect/latest/APIReference/API_AppIntegrationsConfiguration.md") API in the _Amazon Q in Connect API
+For more information, see [Initial set-up for AI agents](ai-agent-initial-setup.md "ai-agent-initial-setup.md"). Also see the
+[AppIntegrationsConfiguration](../../../amazon-q-connect/latest/APIReference/API_AppIntegrationsConfiguration.md "../../../amazon-q-connect/latest/APIReference/API_AppIntegrationsConfiguration.md") API in the _Connect AI agents API
 Reference_.
 
 #### Create step-by-step guides for your agents
@@ -4262,8 +4541,7 @@ Guide](../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md "../../../AWSC
 In November 2023 we released Amazon Q. It includes real-time agent assist functionality formerly known as Amazon Connect Wisdom,
 along with generative AI-powered recommended responses, actions, and links to more information.
 
-For more information, see [Use Amazon Q in Connect for generative AI–powered agent
-assistance in real-time](amazon-q-connect.md "amazon-q-connect.md") and the [Amazon Q in Connect API Reference](../../../amazon-q-connect/latest/APIReference/Welcome.md "../../../amazon-q-connect/latest/APIReference/Welcome.md").
+For more information, see [Use Connect AI agents for real-time assistance](connect-ai-agent.md "connect-ai-agent.md") and the [Connect AI agents API Reference](../../../amazon-q-connect/latest/APIReference/Welcome.md "../../../amazon-q-connect/latest/APIReference/Welcome.md").
 
 #### Amazon Connect Voice ID - General Availability
 

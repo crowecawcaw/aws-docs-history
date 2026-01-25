@@ -1,5 +1,9 @@
 # Create a time off request in Amazon Connect
 
+Time off requests can be created by supervisors, managers, or agents in the published schedule.
+Once created, time off requests are visible in both published and draft schedules.
+Edits to time off requests can only be done in published schedules.
+
 ## Supervisor or manager initiated time off
 
 request

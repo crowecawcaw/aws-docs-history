@@ -154,16 +154,16 @@ The following table lists feature specifications for the integration association
 resource. It lists how many of each type of integration association resource can be
 ingested.
 
-| Item                               | Feature Specification                                              |
-| ---------------------------------- | ------------------------------------------------------------------ |
-| Attachment scanner                 | 1                                                                  |
-| Voice ID domain                    | 1                                                                  |
-| Amazon Pinpoint app                | 1                                                                  |
-| Event                              | 10<br>The event integration resource is used for task<br>triggers. |
-| Amazon Q in Connect assistant      | 1                                                                  |
-| Amazon Q in Connect knowledge base | 10                                                                 |
-| Cases domain                       | 1                                                                  |
-| Amazon Q in Connect knowledge base | 10                                                                 |
+| Item                             | Feature Specification                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| Attachment scanner               | 1                                                                  |
+| Voice ID domain                  | 1                                                                  |
+| Amazon Pinpoint app              | 1                                                                  |
+| Event                            | 10<br>The event integration resource is used for task<br>triggers. |
+| Connect AI agents assistant      | 1                                                                  |
+| Connect AI agents knowledge base | 10                                                                 |
+| Cases domain                     | 1                                                                  |
+| Connect AI agents knowledge base | 10                                                                 |
 
 ## Amazon Connect Contact Lens feature
 

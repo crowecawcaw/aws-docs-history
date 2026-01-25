@@ -1,9 +1,9 @@
-# Create AI guardrails for Amazon Q in Connect
+# Create AI guardrails for Connect AI agents
 
 An _AI guardrail_ is a resource that enables you to implement
 safeguards based on your use cases and responsible AI policies.
 
-Amazon Connect uses Amazon Bedrock guardrails. You can create and edit these guardrails in the
+Connect AI agents use Amazon Bedrock guardrails. You can create and edit these guardrails in the
 Amazon Connect admin website.
 
 ###### Contents
@@ -18,7 +18,7 @@ Amazon Connect admin website.
 ## Important things to know
 
 - You can create up to three custom guardrails.
-- Amazon Q in Connect guardrails supports the same languages as Amazon Bedrock guardrails classic tier.
+- Guardrails for Connect AI agents support the same languages as Amazon Bedrock guardrails classic tier.
   For a complete list of supported languages, see
   [Languages supported by Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported-languages.md "../../../bedrock/latest/userguide/guardrails-supported-languages.md").
   Evaluating text content in other languages will be ineffective.
@@ -29,11 +29,11 @@ Amazon Connect admin website.
 
 ## How to create an AI guardrail
 
-1.  Log in to the Amazon Connect admin website with an account that has **Amazon
-    Q**, **AI guardrails - Create** permission in its
+1.  Log in to the Amazon Connect admin website with an account that has **AI agent designer**,
+    **AI guardrails - Create** permission in its
     security profile.
-2.  In the Amazon Connect admin website, on the left navigation menu, choose **Amazon
-    Q**, **AI guardrails**.
+2.  In the Amazon Connect admin website, on the left navigation menu, choose **AI agent designer**,
+    **AI guardrails**.
 3.  On the **Guardrails** page, choose **Create
     Guardrail**.
 4.  On the **Create AI Guardrail** dialog box, enter a name
@@ -108,9 +108,9 @@ guardrail."
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an admin account, or an account with
-   **Amazon Q** - **AI guardrails** -
+   **AI agent designer** - **AI guardrails** -
    **Create** permission in it's security profile.
-2. On the navigation menu, choose **Amazon Q**, **AI
+2. On the navigation menu, choose **AI agent designer**, **AI
    guardrails**.
 3. On the **AI Guardrails** page, choose **Create AI
    Guardrail**. A dialog is displayed for to you assign a name and
