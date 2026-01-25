@@ -1,18 +1,18 @@
 # Connection logs for your Application Load Balancer
 
-ELB provides connection logs that capture detailed information about requests sent
+Elastic Load Balancing provides connection logs that capture detailed information about requests sent
 to your load balancer. Each log contains information such as the client's IP address
 and port, listener port, the TLS cipher and protocol used, TLS handshake latency,
 connection status, and client certificate details. You can use these connection logs
 to analyze request patterns and troubleshoot issues.
 
-Connection logs is an optional feature of ELB that is disabled by default. After you
-enable connection logs for your load balancer, ELB captures the logs and stores them in
+Connection logs is an optional feature of Elastic Load Balancing that is disabled by default. After you
+enable connection logs for your load balancer, Elastic Load Balancing captures the logs and stores them in
 the Amazon S3 bucket that you specify, as compressed files. You can disable connection logs at any
 time.
 
 You are charged storage costs for Amazon S3, but not charged for the bandwidth used by
-ELB to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+Elastic Load Balancing to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Contents
 
@@ -25,7 +25,7 @@ ELB to send log files to Amazon S3. For more information about storage costs, se
 
 ## Connection log files
 
-ELB publishes a log file for each load balancer node every 5 minutes. Log
+Elastic Load Balancing publishes a log file for each load balancer node every 5 minutes. Log
 delivery is eventually consistent. The load balancer can deliver multiple logs for
 the same period. This usually happens if the site has high traffic.
 

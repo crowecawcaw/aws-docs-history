@@ -1,12 +1,12 @@
 # What is an Application Load Balancer?
 
-ELB automatically distributes your incoming traffic across multiple targets, such as EC2
+Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2
 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the
-health of its registered targets, and routes traffic only to the healthy targets. ELB
+health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing
 scales your load balancer as your incoming traffic changes over time. It can automatically
 scale to the vast majority of workloads.
 
-ELB supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers.
+Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers.
 You can select the type of load balancer that best suits your needs. This guide
 discusses Application Load Balancers. For more information about the other load balancers, see the
 [User Guide for Network Load Balancers](../network.md "../network.md"), the [User Guide for Gateway Load Balancers](../gateway.md "../gateway.md"), and the [User Guide for Classic Load Balancers](../classic.md "../classic.md").
@@ -57,15 +57,15 @@ the target group level. The default routing algorithm is round robin; alternativ
 can specify the least outstanding requests routing algorithm.
 
 You can add and remove targets from your load balancer as your needs change, without
-disrupting the overall flow of requests to your application. ELB scales your load
-balancer as traffic to your application changes over time. ELB can scale to the vast
+disrupting the overall flow of requests to your application. Elastic Load Balancing scales your load
+balancer as traffic to your application changes over time. Elastic Load Balancing can scale to the vast
 majority of workloads automatically.
 
 You can configure health checks, which are used to monitor the health of the
 registered targets so that the load balancer can send requests only to the healthy
 targets.
 
-For more information, see [How ELB works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in
+For more information, see [How Elastic Load Balancing works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in
 the _Elastic Load Balancing User Guide_.
 
 ## Benefits of migrating from a
@@ -107,11 +107,11 @@ Using an Application Load Balancer instead of a Classic Load Balancer has the fo
 - Improved load balancer performance.
 
 For more information about the features supported by each load
-balancer type, see [ELB features](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
+balancer type, see [Elastic Load Balancing features](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
 
 ## Related services
 
-ELB works with the following services to improve the availability and scalability of
+Elastic Load Balancing works with the following services to improve the availability and scalability of
 your applications.
 
 - **Amazon EC2** — Virtual servers that run your applications
@@ -120,7 +120,7 @@ your applications.
 - **Amazon EC2 Auto Scaling** — Ensures that you are running your
   desired number of instances, even if an instance fails, and enables you to
   automatically increase or decrease the number of instances as the demand on your
-  instances changes. If you enable Auto Scaling with ELB, instances that are launched by
+  instances changes. If you enable Auto Scaling with Elastic Load Balancing, instances that are launched by
   Auto Scaling are automatically registered with the target group, and instances that are
   terminated by Auto Scaling are automatically de-registered from the target group.
 - **AWS Certificate Manager** — When you create an HTTPS listener, you
@@ -157,5 +157,5 @@ services** tab.
 ## Pricing
 
 With your load balancer, you pay only for what you use. For more information, see
-[ELB
+[Elastic Load Balancing
 pricing](https://aws.amazon.com/elasticloadbalancing/pricing/ "https://aws.amazon.com/elasticloadbalancing/pricing/").

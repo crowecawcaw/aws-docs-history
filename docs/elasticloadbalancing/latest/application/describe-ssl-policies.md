@@ -1,6 +1,6 @@
 # Security policies for your Application Load Balancer
 
-ELB uses a Secure Socket Layer (SSL) negotiation configuration, known as a
+Elastic Load Balancing uses a Secure Socket Layer (SSL) negotiation configuration, known as a
 security policy, to negotiate SSL connections between a client and the load
 balancer. A security policy is a combination of protocols and ciphers. The protocol
 establishes a secure connection between a client and a server and ensures that all
@@ -44,7 +44,7 @@ for the secure connection.
   your load balancer and examine the corresponding access log entries. For more information, see
   [Access logs](load-balancer-access-logs.md "load-balancer-access-logs.md").
 - You can restrict which security policies are available to users across your AWS accounts and AWS Organizations
-  by using the [ELB condition keys](../userguide/security_iam_service-with-iam.md "../userguide/security_iam_service-with-iam.md")
+  by using the [Elastic Load Balancing condition keys](../userguide/security_iam_service-with-iam.md "../userguide/security_iam_service-with-iam.md")
   in your IAM and service control policies (SCPs), respectively. For more information, see [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
   in the _AWS Organizations User Guide_.
 - Policies that support only TLS 1.3 support Forward Secrecy (FS). Policies that

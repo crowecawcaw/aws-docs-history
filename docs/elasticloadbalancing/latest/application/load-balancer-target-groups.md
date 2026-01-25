@@ -254,7 +254,7 @@ The following target group attributes are supported if the target group type is
 
 `deregistration_delay.timeout_seconds`
 
-The amount of time for ELB to wait before deregistering a target. The
+The amount of time for Elastic Load Balancing to wait before deregistering a target. The
 range is 0–3600 seconds. The default value is 300 seconds.
 
 `load_balancing.algorithm.type`

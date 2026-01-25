@@ -27,7 +27,7 @@ the case, then the load balancer sends an HTTP 502 Bad Gateway error to the clie
 
 Application Load Balancers do not support HTTP/2 PING frames. These do not reset the connection idle timeout.
 
-By default, ELB sets the idle timeout value for your load balancer to 60 seconds.
+By default, Elastic Load Balancing sets the idle timeout value for your load balancer to 60 seconds.
 
 Console
 

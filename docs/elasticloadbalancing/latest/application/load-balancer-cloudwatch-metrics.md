@@ -1,6 +1,6 @@
 # CloudWatch metrics for your Application Load Balancer
 
-ELB publishes data points to Amazon CloudWatch for your load balancers and your targets. CloudWatch
+Elastic Load Balancing publishes data points to Amazon CloudWatch for your load balancers and your targets. CloudWatch
 enables you to retrieve statistics about those data points as an ordered set of
 time-series data, known as _metrics_. Think of a metric as a variable
 to monitor, and the data points as the values of that variable over time. For example,
@@ -13,8 +13,8 @@ you can create a CloudWatch alarm to monitor a specified metric and initiate an 
 as sending a notification to an email address) if the metric goes outside what you
 consider an acceptable range.
 
-ELB reports metrics to CloudWatch only when requests are flowing through the load
-balancer. If there are requests flowing through the load balancer, ELB measures and
+Elastic Load Balancing reports metrics to CloudWatch only when requests are flowing through the load
+balancer. If there are requests flowing through the load balancer, Elastic Load Balancing measures and
 sends its metrics in 60-second intervals. If there are no requests flowing through the
 load balancer or no data for a metric, the metric is not reported.
 
@@ -157,7 +157,7 @@ To filter the metrics for your Application Load Balancer, use the following dime
 
 ## Statistics for Application Load Balancer metrics
 
-CloudWatch provides statistics based on the metric data points published by ELB.
+CloudWatch provides statistics based on the metric data points published by Elastic Load Balancing.
 Statistics are metric data aggregations over specified period of time. When you
 request statistics, the returned data stream is identified by the metric name and
 dimension. A dimension is a name-value pair that uniquely identifies a metric. For

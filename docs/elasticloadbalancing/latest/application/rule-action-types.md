@@ -115,7 +115,7 @@ group specified in the cookie.
 Application Load Balancers do not support cookie values that are URL encoded.
 
 With CORS (cross-origin resource sharing) requests, some browsers require
-`SameSite=None; Secure` to enable stickiness. In this case, ELB
+`SameSite=None; Secure` to enable stickiness. In this case, Elastic Load Balancing
 generates a second cookie, AWSALBTGCORS, which includes the same information as the
 original stickiness cookie plus this `SameSite` attribute. Clients
 receive both cookies.

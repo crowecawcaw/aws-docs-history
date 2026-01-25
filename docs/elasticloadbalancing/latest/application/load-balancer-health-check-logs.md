@@ -1,6 +1,6 @@
 # Health check logs
 
-ELB provides health check logs that capture detailed information
+Elastic Load Balancing provides health check logs that capture detailed information
 about the health check status of your registered targets, including failure reasons when
 health checks fail. Health check logs are supported for EC2 instances, IP address, and
 Lambda function targets. Each log entry contains information such as the health check request
@@ -9,10 +9,10 @@ You can use these health check logs to analyze target health patterns, monitor h
 and troubleshoot issues.
 
 Health check logs are an optional feature that is disabled by default. After you enable health check logs
-for your load balancer, ELB captures the logs and stores them as compressed files in the
+for your load balancer, Elastic Load Balancing captures the logs and stores them as compressed files in the
 Amazon S3 bucket that you specify. You can disable health check logs at any time.
 
-You are charged storage costs for Amazon S3, but not charged for the bandwidth used by ELB
+You are charged storage costs for Amazon S3, but not charged for the bandwidth used by Elastic Load Balancing
 to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Contents
@@ -27,7 +27,7 @@ to send log files to Amazon S3. For more information about storage costs, see [A
 
 ## Health check log files
 
-ELB publishes a log file for each load balancer node every 5 minutes.
+Elastic Load Balancing publishes a log file for each load balancer node every 5 minutes.
 The load balancer can deliver multiple logs for the same period when a large number
 of targets are attached to the load balancer or a small health check interval is
 configured (for example, every 5 seconds).
@@ -105,7 +105,7 @@ lifecycle management](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.m
 
 ## Health check log entries
 
-ELB logs target health check results including the failure reasons
+Elastic Load Balancing logs target health check results including the failure reasons
 for all registered targets of that load balancer. Each log entry contains the details of a
 single health check result made to the registered target.
 
@@ -169,8 +169,8 @@ http 2025-10-31T12:44:58.901409Z 1.121980746 172.31.31.9:80 HCLogsTestIPs FAIL 5
 
 ## Configure log delivery notifications
 
-To receive notifications when ELB delivers logs to your S3 bucket, use Amazon S3 Event
-Notifications. ELB uses [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md"),
+To receive notifications when Elastic Load Balancing delivers logs to your S3 bucket, use Amazon S3 Event
+Notifications. Elastic Load Balancing uses [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md"),
 [CreateMultipartUpload](../../../AmazonS3/latest/API/API_CreateMultipartUpload.md "../../../AmazonS3/latest/API/API_CreateMultipartUpload.md"),
 and [POST Object](../../../AmazonS3/latest/API/RESTObjectPOST.md "../../../AmazonS3/latest/API/RESTObjectPOST.md")
 to deliver logs to Amazon S3. To ensure that you receive all log delivery notifications,

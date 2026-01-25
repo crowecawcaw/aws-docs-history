@@ -1,17 +1,17 @@
 # Access logs for your Application Load Balancer
 
-ELB provides access logs that capture detailed information about requests sent to
+Elastic Load Balancing provides access logs that capture detailed information about requests sent to
 your load balancer. Each log contains information such as the time the request was
 received, the client's IP address, latencies, request paths, and server responses. You
 can use these access logs to analyze traffic patterns and troubleshoot issues.
 
-Access logs is an optional feature of ELB that is disabled by default. After you
-enable access logs for your load balancer, ELB captures the logs and stores them in
+Access logs is an optional feature of Elastic Load Balancing that is disabled by default. After you
+enable access logs for your load balancer, Elastic Load Balancing captures the logs and stores them in
 the Amazon S3 bucket that you specify as compressed files. You can disable access logs at any
 time.
 
 You are charged storage costs for Amazon S3, but not charged for the bandwidth used by
-ELB to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+Elastic Load Balancing to send log files to Amazon S3. For more information about storage costs, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Contents
 
@@ -25,7 +25,7 @@ ELB to send log files to Amazon S3. For more information about storage costs, se
 
 ## Access log files
 
-ELB publishes a log file for each load balancer node every 5 minutes. Log
+Elastic Load Balancing publishes a log file for each load balancer node every 5 minutes. Log
 delivery is eventually consistent. The load balancer can deliver multiple logs for
 the same period. This usually happens if the site has high traffic.
 
@@ -102,7 +102,7 @@ lifecycle management](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.m
 
 ## Access log entries
 
-ELB logs requests sent to the load balancer, including requests that never made
+Elastic Load Balancing logs requests sent to the load balancer, including requests that never made
 it to the targets. For example, if a client sends a malformed request, or there are
 no healthy targets to respond to the request, the request is still logged.
 
@@ -113,7 +113,7 @@ entry is the same as for an HTTP or HTTPS request.
 
 ###### Important
 
-ELB logs requests on a best-effort basis. We recommend that you use access
+Elastic Load Balancing logs requests on a best-effort basis. We recommend that you use access
 logs to understand the nature of the requests, not as a complete accounting of
 all requests.
 
@@ -444,8 +444,8 @@ TID_1234abcd5678ef90 "-" "-" "-"
 
 ## Configure log delivery notifications
 
-To receive notifications when ELB delivers logs to your S3 bucket, use Amazon S3 Event
-Notifications. ELB uses [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md"),
+To receive notifications when Elastic Load Balancing delivers logs to your S3 bucket, use Amazon S3 Event
+Notifications. Elastic Load Balancing uses [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md"),
 [CreateMultipartUpload](../../../AmazonS3/latest/API/API_CreateMultipartUpload.md "../../../AmazonS3/latest/API/API_CreateMultipartUpload.md"),
 and [POST Object](../../../AmazonS3/latest/API/RESTObjectPOST.md "../../../AmazonS3/latest/API/RESTObjectPOST.md")
 to deliver logs to Amazon S3. To ensure that you receive all log delivery notifications,

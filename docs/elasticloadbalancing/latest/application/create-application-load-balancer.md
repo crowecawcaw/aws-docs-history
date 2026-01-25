@@ -1,7 +1,7 @@
 # Create an Application Load Balancer
 
 An Application Load Balancer takes requests from clients and distributes them across targets in a
-target group, such as EC2 instances. For more information, see [How ELB works.](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in the _Elastic Load Balancing User Guide_.
+target group, such as EC2 instances. For more information, see [How Elastic Load Balancing works.](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in the _Elastic Load Balancing User Guide_.
 
 ###### Tasks
 

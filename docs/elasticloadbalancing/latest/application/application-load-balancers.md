@@ -6,7 +6,7 @@ such as EC2 instances. To configure your load balancer, you create [target group
 with your target groups. You also create [listeners](load-balancer-listeners.md "load-balancer-listeners.md") to check for connection requests from clients, and listener rules to
 route requests from clients to the targets in one or more target groups.
 
-For more information, see [How ELB works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in the _Elastic Load Balancing User Guide_.
+For more information, see [How Elastic Load Balancing works](../userguide/how-elastic-load-balancing-works.md "../userguide/how-elastic-load-balancing-works.md") in the _Elastic Load Balancing User Guide_.
 
 ###### Contents
 
@@ -36,7 +36,7 @@ For more information, see [How ELB works](../userguide/how-elastic-load-balancin
 ## Subnets for your load balancer
 
 When you create an Application Load Balancer, you must enable the zones that contain your targets.
-To enable a zone, specify a subnet in the zone. ELB creates a load balancer node
+To enable a zone, specify a subnet in the zone. Elastic Load Balancing creates a load balancer node
 in each zone that you specify.
 
 ###### Considerations
@@ -49,7 +49,7 @@ in each zone that you specify.
   the same type. For example, you can't enable both an Availability Zone and a
   Local Zone.
 - You can specify a subnet that was shared with you.
-- ELB creates network interfaces in the subnets where you configured your load
+- Elastic Load Balancing creates network interfaces in the subnets where you configured your load
   balancer. These network interfaces are reserved so that the load balancer can
   complete maintenance actions even when the subnet is running low on available IP
   addresses. They have the description "ENI reserved by ELB for subnet".
@@ -227,7 +227,7 @@ security risk to your application. The possible values are
 
 Indicates whether HTTP headers with header fields that are not valid are
 removed by the load balancer (`true`), or routed to targets
-(`false`). The default is `false`. ELB requires
+(`false`). The default is `false`. Elastic Load Balancing requires
 that valid HTTP header names conform to the regular expression
 `[-A-Za-z0-9]+`, as described in the HTTP Field Name
 Registry. Each name consists of alphanumeric characters or hyphens. Select
@@ -328,7 +328,7 @@ example, 2001:0db8:85a3:0:0:8a2e:0370:7334).
 
 - The load balancer communicates with targets based on the IP address type of
   the target group.
-- When you enable dualstack mode for the load balancer, ELB provides an AAAA
+- When you enable dualstack mode for the load balancer, Elastic Load Balancing provides an AAAA
   DNS record for the load balancer. Clients that communicate with the load
   balancer using IPv4 addresses resolve the A DNS record. Clients that communicate
   with the load balancer using IPv6 addresses resolve the AAAA DNS record.
@@ -382,7 +382,7 @@ IP addresses to IPAM](../../../vpc/latest/ipam/tutorials-byoip-ipam.md "../../..
   your load balancers. However, there might be charges related to IPAM, depending on
   which tier you use.
 
-If there are no more assignable IP addresses in your IPAM IP address pool, ELB
+If there are no more assignable IP addresses in your IPAM IP address pool, Elastic Load Balancing
 uses AWS managed IPv4 addresses instead. There are additional charges to use AWS
 managed IPv4 addresses. To avoid these costs, you can add IP address ranges to your
 existing IPAM IP address pool.
