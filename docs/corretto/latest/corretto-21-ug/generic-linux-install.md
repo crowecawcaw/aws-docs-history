@@ -59,7 +59,7 @@ sudo apt-get update && sudo apt-get install java-common
 3. Install the `.deb` file by using `sudo dpkg --install`. For example install x86_64 deb using the following command:
 
 ```
-sudo dpkg --install java-21-amazon-corretto-jdk_21.0.9.11-1_amd64.deb
+sudo dpkg --install java-21-amazon-corretto-jdk_21.0.10.7-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -70,12 +70,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 21.0.9:
+Expected output for 21.0.10:
 
 ```
-openjdk version "21.0.9" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-21.0.9.11.1 (build 21.0.9+11-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.9.11.1 (build 21.0.9+11-LTS, mixed mode, sharing)
+openjdk version "21.0.10" 2026-01-20 LTS
+OpenJDK Runtime Environment Corretto-21.0.10.7.1 (build 21.0.10+7-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.10.7.1 (build 21.0.10+7-LTS, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -144,7 +144,7 @@ sudo zypper install java-21-amazon-corretto-devel
 2. Install the downloaded `.rpm` file using `yum localinstall`. For example install x86_64 rpm using the following command:
 
 ```
-sudo yum localinstall java-21-amazon-corretto-devel-21.0.9.11-1.x86_64.rpm
+sudo yum localinstall java-21-amazon-corretto-devel-21.0.10.7-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -155,12 +155,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 21.0.9:
+Expected output for 21.0.10:
 
 ```
-openjdk version "21.0.9" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-21.0.9.11.1 (build 21.0.9+11-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.9.11.1 (build 21.0.9+11-LTS, mixed mode, sharing)
+openjdk version "21.0.10" 2026-01-20 LTS
+OpenJDK Runtime Environment Corretto-21.0.10.7.1 (build 21.0.10+7-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.10.7.1 (build 21.0.10+7-LTS, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
