@@ -136,7 +136,7 @@ Guide_.
 ###### Important
 
 To enable consuming accounts to use your VPC origin for their CloudFront distribution,
-you must also give them the VPC origin's ELB or Amazon EC2 endpoint.
+you must also give them the VPC origin's Elastic Load Balancing or Amazon EC2 endpoint.
 
 ###### To share a VPC origin that you own using the AWS RAM console
 
@@ -171,7 +171,7 @@ your CloudFront distributions.
    origin**, and then specify the VPC origin that was shared with
    you.
 4. For **VPC origin endpoint**, enter the private DNS name of
-   your Amazon EC2 instance or ELB load balancer, or the origin domain. If you don’t
+   your Amazon EC2 instance or Elastic Load Balancing load balancer, or the origin domain. If you don’t
    already have this value, you must get it from the AWS account that owns the
    VPC origin. If you don’t already have this endpoint, you can get it from the
    AWS account that owns the VPC origin.

@@ -134,9 +134,9 @@ Following are the settings that you can customize for your custom origin and EC2
 - Include query string in cache – (Default: Yes, if `Cache by Default` is already selected)
   - If `Do Not Cache by Default` is already selected and you then choose to include the query string in the cache, the `UseOriginCacheControlHeaders-QueryStrings` cache policy is used.
 
-## ELB origin
+## Elastic Load Balancing origin
 
-Following are the origin settings that CloudFront preconfigures for your ELB origin in a multi-tenant distribution.
+Following are the origin settings that CloudFront preconfigures for your Elastic Load Balancing origin in a multi-tenant distribution.
 
 ###### Origin settings (preconfigured)
 
@@ -150,7 +150,7 @@ Following are the origin settings that CloudFront preconfigures for your ELB ori
 - Response timeout – 30
 - Keep-alive timeout – 5
 
-Following are the cache settings that CloudFront preconfigures for your ELB origin in a multi-tenant distribution.
+Following are the cache settings that CloudFront preconfigures for your Elastic Load Balancing origin in a multi-tenant distribution.
 
 ###### Cache settings (preconfigured)
 
@@ -174,7 +174,7 @@ Following are the cache settings that CloudFront preconfigures for your ELB orig
 - Enable real-time access logs – No
 - Functions – No
 
-Following are the settings that you can customize for your ELB origin in a multi-tenant distribution.
+Following are the settings that you can customize for your Elastic Load Balancing origin in a multi-tenant distribution.
 
 ###### Customizable settings
 

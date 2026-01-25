@@ -202,7 +202,7 @@ This permission isn't required if you aren't using the CloudFront console.
 
 **`elasticloadbalancing:DescribeLoadBalancers`**
 
-When creating and updating distributions, lets you view a list of ELB load
+When creating and updating distributions, lets you view a list of Elastic Load Balancing load
 balancers in the list of available origins.
 
 This permission isn't required if you aren't using the CloudFront console.

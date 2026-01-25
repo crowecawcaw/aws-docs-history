@@ -119,7 +119,7 @@ origin](private-content-restricting-access-to-s3.md "private-content-restricting
 
 **Restrict access to content served by an Application Load Balancer**
 
-When you use CloudFront with an Application Load Balancer in ELB as the origin, you can configure
+When you use CloudFront with an Application Load Balancer in Elastic Load Balancing as the origin, you can configure
 CloudFront to prevent users from directly accessing the Application Load Balancer. This allows users
 to access the Application Load Balancer only through CloudFront, ensuring that you get the benefits of
 using CloudFront. For more information, see [Restrict access to Application Load Balancers](restrict-access-to-load-balancer.md "restrict-access-to-load-balancer.md").

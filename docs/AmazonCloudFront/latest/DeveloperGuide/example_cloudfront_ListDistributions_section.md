@@ -202,6 +202,31 @@ class CloudFrontWrapper:
   [ListDistributions](../../../goto/boto3/cloudfront-2020-05-31/ListDistributions.md "../../../goto/boto3/cloudfront-2020-05-31/ListDistributions.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples").
+
+```
+    TRY.
+        oo_result = lo_fnt->listdistributions( ). " oo_result is returned for testing purposes. "
+        MESSAGE 'Retrieved list of CloudFront distributions.' TYPE 'I'.
+      CATCH /aws1/cx_fntinvalidargument.
+        MESSAGE 'Invalid argument provided.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListDistributions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

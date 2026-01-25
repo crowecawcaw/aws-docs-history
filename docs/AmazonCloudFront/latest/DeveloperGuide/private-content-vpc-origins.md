@@ -231,6 +231,9 @@ Availability Zone (AZ) exceptions are noted.
 | Asia Pacific (Sydney)     | `ap-southeast-2`                          |
 | Asia Pacific (Tokyo)      | `ap-northeast-1 (except AZ<br>apne1-az3)` |
 | Asia Pacific (Seoul)      | `ap-northeast-2 (except AZ<br>apne2-az1)` |
+| Asia Pacific (Thailand)   | `ap-southeast-7`                          |
+| Asia Pacific (Malaysia)   | `ap-southeast-5`                          |
+| Asia Pacific (Taipei)     | `ap-east-2`                               |
 | Canada (Central)          | `ca-central-1 (except AZ<br>cac1-az3)`    |
 | Canada West (Calgary)     | `ca-west-1`                               |
 | Europe (Frankfurt)        | `eu-central-1`                            |
@@ -245,3 +248,4 @@ Availability Zone (AZ) exceptions are noted.
 | Middle East (Bahrain)     | `me-south-1`                              |
 | Middle East (UAE)         | `me-central-1`                            |
 | South America (São Paulo) | `sa-east-1`                               |
+| Mexico (Central)          | `mx-central-1`                            |

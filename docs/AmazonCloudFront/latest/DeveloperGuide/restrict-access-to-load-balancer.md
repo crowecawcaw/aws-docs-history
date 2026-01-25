@@ -15,7 +15,7 @@ If your use case requires dual access to web applications from both CloudFront a
 
 - APIs that must go through CloudFront. In this case, consider using a separate private Application Load Balancer as an origin.
 - APIs that require access through Application Load Balancer. In this case, you bypass CloudFront.
-  Alternatively, for a web application or other content that’s served by an internet-facing Application Load Balancer in ELB, CloudFront can cache objects and serve them directly to users (viewers), reducing the load on your Application Load Balancer. An internet-facing load balancer has a publicly resolvable DNS name and routes requests from clients to targets over the internet.
+  Alternatively, for a web application or other content that’s served by an internet-facing Application Load Balancer in Elastic Load Balancing, CloudFront can cache objects and serve them directly to users (viewers), reducing the load on your Application Load Balancer. An internet-facing load balancer has a publicly resolvable DNS name and routes requests from clients to targets over the internet.
 
 For more information, see the following topics. After you complete these steps, users can
 only access your Application Load Balancer through CloudFront.

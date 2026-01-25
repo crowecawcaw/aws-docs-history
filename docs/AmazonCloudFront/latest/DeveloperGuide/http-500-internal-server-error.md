@@ -24,7 +24,7 @@ following troubleshooting topics for more information:
 - **If API Gateway returns a 500 error**, see
   [How
   do I troubleshoot 5xx errors for API Gateway REST API?](https://repost.aws/knowledge-center/api-gateway-5xx-error "https://repost.aws/knowledge-center/api-gateway-5xx-error").
-- **If ELB returns a 500 error**, see
+- **If Elastic Load Balancing returns a 500 error**, see
   [HTTP 500: Internal server error](../../../elasticloadbalancing/latest/application/load-balancer-troubleshooting.md#http-500-issues "../../../elasticloadbalancing/latest/application/load-balancer-troubleshooting.md#http-500-issues") in the
   _User Guide for Application Load Balancers_.
 

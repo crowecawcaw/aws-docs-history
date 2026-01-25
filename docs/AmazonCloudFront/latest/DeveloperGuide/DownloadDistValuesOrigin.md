@@ -68,7 +68,7 @@ Request Redirection](../../../AmazonS3/latest/dev/Redirects.md#TemporaryRedirect
   ``examplemediapackage`.mediapackage.`us-west-1`.amazonaws.com`
 - **Amazon EC2 instance** –
   ``ec2-203-0-113-25`.compute-1.amazonaws.com`
-- **ELB load balancer** –
+- **Elastic Load Balancing load balancer** –
   ``example-load-balancer-1234567890`.`us-west-2`.elb.amazonaws.com`
 - **Your own web server** –
   `www.example.com`
