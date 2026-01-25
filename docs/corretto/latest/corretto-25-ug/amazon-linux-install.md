@@ -83,12 +83,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 25.0.1:
+Expected output for 25.0.2:
 
 ```
-openjdk version "25.0.1" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-25.0.1.9.1 (build 25.0.1+9-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.1.9.1 (build 25.0.1+9-LTS, mixed mode)
+openjdk version "25.0.2" 2026-01-20 LTS
+OpenJDK Runtime Environment Corretto-25.0.2.10.1 (build 25.0.2+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.2.10.1 (build 25.0.2+10-LTS, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
