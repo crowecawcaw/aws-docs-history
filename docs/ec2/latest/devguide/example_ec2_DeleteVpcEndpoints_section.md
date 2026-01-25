@@ -129,6 +129,32 @@ class VpcWrapper:
   [DeleteVpcEndpoints](../../../goto/boto3/ec2-2016-11-15/DeleteVpcEndpoints.md "../../../goto/boto3/ec2-2016-11-15/DeleteVpcEndpoints.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+
+```
+    TRY.
+        lo_ec2->deletevpcendpoints( it_vpcendpointids = it_vpc_endpoint_ids ).
+        MESSAGE 'Deleted VPC endpoint(s).' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteVpcEndpoints](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

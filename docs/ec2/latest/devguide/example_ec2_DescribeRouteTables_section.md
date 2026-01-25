@@ -358,6 +358,43 @@ class VpcWrapper:
   [DescribeRouteTables](../../../goto/boto3/ec2-2016-11-15/DescribeRouteTables.md "../../../goto/boto3/ec2-2016-11-15/DescribeRouteTables.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+
+```
+    " Create filter for VPC ID
+    " iv_vpc_id = 'vpc-abc123'
+    DATA lt_filters TYPE /aws1/cl_ec2filter=>tt_filterlist.
+    APPEND NEW /aws1/cl_ec2filter(
+      iv_name = 'vpc-id'
+      it_values = VALUE /aws1/cl_ec2valuestringlist_w=>tt_valuestringlist(
+        ( NEW /aws1/cl_ec2valuestringlist_w( iv_vpc_id ) )
+      )
+    ) TO lt_filters.
+
+    TRY.
+        oo_result = lo_ec2->describeroutetables( it_filters = lt_filters ).             " oo_result is returned for testing purposes. "
+        DATA(lt_route_tables) = oo_result->get_routetables( ).
+        MESSAGE 'Retrieved information about route tables.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeRouteTables](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -685,6 +685,51 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
   [DescribeInstanceTypes](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+
+```
+    " Create filters for architecture and instance type patterns
+    " iv_architecture = 'x86_64'
+    DATA lt_filters TYPE /aws1/cl_ec2filter=>tt_filterlist.
+    APPEND NEW /aws1/cl_ec2filter(
+      iv_name = 'processor-info.supported-architecture'
+      it_values = VALUE /aws1/cl_ec2valuestringlist_w=>tt_valuestringlist(
+        ( NEW /aws1/cl_ec2valuestringlist_w( iv_architecture ) )
+      )
+    ) TO lt_filters.
+    " Filter for instance type patterns like '*.micro', '*.small'
+    APPEND NEW /aws1/cl_ec2filter(
+      iv_name = 'instance-type'
+      it_values = VALUE /aws1/cl_ec2valuestringlist_w=>tt_valuestringlist(
+        ( NEW /aws1/cl_ec2valuestringlist_w( '*.micro' ) )
+        ( NEW /aws1/cl_ec2valuestringlist_w( '*.small' ) )
+      )
+    ) TO lt_filters.
+
+    TRY.
+        oo_result = lo_ec2->describeinstancetypes( it_filters = lt_filters ).             " oo_result is returned for testing purposes. "
+        DATA(lt_instance_types) = oo_result->get_instancetypes( ).
+        MESSAGE 'Retrieved information about EC2 instance types.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeInstanceTypes](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 Swift
 
 **SDK for Swift**

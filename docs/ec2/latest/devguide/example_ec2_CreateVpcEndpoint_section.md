@@ -391,6 +391,38 @@ class VpcWrapper:
   [CreateVpcEndpoint](../../../goto/boto3/ec2-2016-11-15/CreateVpcEndpoint.md "../../../goto/boto3/ec2-2016-11-15/CreateVpcEndpoint.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+
+```
+    " iv_vpc_id = 'vpc-abc123'
+    " iv_service_name = 'com.amazonaws.region.service'
+    TRY.
+        oo_result = lo_ec2->createvpcendpoint(             " oo_result is returned for testing purposes. "
+          iv_vpcid = iv_vpc_id
+          iv_servicename = iv_service_name
+          it_routetableids = it_route_table_ids ).
+        DATA(lv_vpc_endpoint_id) = oo_result->get_vpcendpoint( )->get_vpcendpointid( ).
+        MESSAGE 'Created VPC endpoint.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateVpcEndpoint](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

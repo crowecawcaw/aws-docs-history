@@ -1314,7 +1314,7 @@ public class AutoScalerWrapper
 
 ```
 
-Create a class that wraps ELB actions.
+Create a class that wraps Elastic Load Balancing actions.
 
 ```
 /// <summary>
@@ -2787,7 +2787,7 @@ public class AutoScaler {
 
 ```
 
-Create a class that wraps ELB actions.
+Create a class that wraps Elastic Load Balancing actions.
 
 ```
 public class LoadBalancer {
@@ -6148,7 +6148,7 @@ class AutoScalingWrapper:
 
 ```
 
-Create a class that wraps ELB actions.
+Create a class that wraps Elastic Load Balancing actions.
 
 ```
 class ElasticLoadBalancerWrapper:

@@ -411,7 +411,7 @@ The following `authorize-security-group-ingress` example uses the `ip-permission
 ```
 `aws ec2 authorize-security-group-ingress \
  --group-id `sg-1234567890abcdef0` \
- --ip-permissions '`IpProtocol=tcp,FromPort=3389,ToPort=3389,IpRanges=[{CidrIp=172.31.0.0/16}]" "IpProtocol=icmp,FromPort=-1,ToPort=-1,IpRanges=[{CidrIp=172.31.0.0/16}]`'`
+ --ip-permissions '`IpProtocol=tcp,FromPort=3389,ToPort=3389,IpRanges=[{CidrIp=172.31.0.0/16}]`' '`IpProtocol=icmp,FromPort=-1,ToPort=-1,IpRanges=[{CidrIp=172.31.0.0/16}]`'`
 
 ```
 
@@ -1117,6 +1117,47 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
 - For API details, see
   [AuthorizeSecurityGroupIngress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress")
   in _AWS SDK for Rust API reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+
+```
+    " Create IP permissions for SSH access (port 22)
+    " iv_cidr_ip = '192.0.2.0/24'
+    DATA lt_ip_permissions TYPE /aws1/cl_ec2ippermission=>tt_ippermissionlist.
+    DATA(lo_ip_permission) = NEW /aws1/cl_ec2ippermission(
+      iv_ipprotocol = 'tcp'
+      iv_fromport = 22
+      iv_toport = 22
+      it_ipranges = VALUE /aws1/cl_ec2iprange=>tt_iprangelist(
+        ( NEW /aws1/cl_ec2iprange( iv_cidrip = iv_cidr_ip ) )
+      )
+    ).
+    APPEND lo_ip_permission TO lt_ip_permissions.
+
+    TRY.
+        oo_result = lo_ec2->authsecuritygroupingress(             " oo_result is returned for testing purposes. "
+          iv_groupid = iv_group_id
+          it_ippermissions = lt_ip_permissions ).
+        MESSAGE 'Authorized ingress rule for security group.' TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_exception).
+        DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
+        MESSAGE lv_error TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [AuthorizeSecurityGroupIngress](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 Swift
 
