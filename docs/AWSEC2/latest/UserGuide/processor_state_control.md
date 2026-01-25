@@ -128,19 +128,15 @@ The following instance types provide the ability for an operating system to cont
   `i7ie.24xlarge` | `i7ie.48xlarge` | `r5b.12xlarge` |
   `r5b.24xlarge`
 - Accelerated computing:
-  `dl1.24xlarge` | `f2.6xlarge` |
-  `f2.12xlarge` | `f2.48xlarge` |
-  `g5.24xlarge` | `g5.48xlarge` | `g6.24xlarge` |
-  `g6.48xlarge` | `g6e.12xlarge` | `g6e.24xlarge` |
-  `g6e.48xlarge` |
-  `inf1.24xlarge` | `p3dn.24xlarge` |
-  `p4d.24xlarge` | `p4de.24xlarge` | `p5.48xlarge` |
-  `p5e.48xlarge` | `p5en.48xlarge` |
-  `p6-b200.48xlarge` | `p6-b300.48xlarge` |
-  `trn1.32xlarge` | `trn2.3xlarge` | `trn2.48xlarge` |
-  `trn2a.3xlarge` | `trn2a.48xlarge` |
-  `trn2n.3xlarge` | `trn2n.48xlarge` |
-  `trn2p.48xlarge` | `trn2u.48xlarge` | `vt1.24xlarge`
+  `dl1.24xlarge` | `f2.6xlarge` | `f2.12xlarge` | `f2.48xlarge` |
+  `g5.24xlarge` | `g5.48xlarge` | `g6.24xlarge` | `g6.48xlarge` |
+  `g6e.12xlarge` | `g6e.24xlarge` | `g6e.48xlarge` | `g7e.2xlarge` |
+  `g7e.4xlarge` | `g7e.8xlarge` | `g7e.12xlarge` | `g7e.24xlarge` |
+  `g7e.48xlarge` | `inf1.24xlarge` | `p3dn.24xlarge` | `p4d.24xlarge` |
+  `p4de.24xlarge` | `p5.48xlarge` | `p5e.48xlarge` | `p5en.48xlarge` |
+  `p6-b200.48xlarge` | `p6-b300.48xlarge` | `trn1.32xlarge` | `trn2.3xlarge` |
+  `trn2.48xlarge` | `trn2a.3xlarge` | `trn2a.48xlarge` | `trn2n.3xlarge` |
+  `trn2n.48xlarge` | `trn2p.48xlarge` | `trn2u.48xlarge` | `vt1.24xlarge`
   You might want to change the C-state or P-state settings to increase processor performance
   consistency, reduce latency, or tune your instance for a specific workload. The default
   C-state and P-state settings provide maximum performance, which is optimal for most

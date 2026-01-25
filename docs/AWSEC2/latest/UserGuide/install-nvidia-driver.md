@@ -17,9 +17,9 @@ instead.
 - [Installation options](#nvidia-installation-options "#nvidia-installation-options")
 - [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md "preinstalled-nvidia-driver.md")
 - [Install NVIDIA public drivers](public-nvidia-driver.md "public-nvidia-driver.md")
-- [Install NVIDIA GRID drivers (G6, Gr6, G6e, G6f, Gr6f, G5,
+- [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5,
   G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
-- [Install NVIDIA gaming drivers (G6, G6e, G5, and G4dn
+- [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn
   instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")
 
 ## Types of NVIDIA drivers
@@ -88,6 +88,7 @@ type.
 | G6f           | No           | Yes         | No            |
 | Gr6           | Yes          | Yes         | No            |
 | Gr6f          | No           | Yes         | No            |
+| G7e           | Yes          | Yes         | Yes           |
 | P2            | Yes          | No          | No            |
 | P3            | Yes          | No          | No            |
 | P4d           | Yes          | No          | No            |
@@ -111,7 +112,7 @@ instance.
 
 1. [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md "preinstalled-nvidia-driver.md")
 2. [Install NVIDIA public drivers](public-nvidia-driver.md "public-nvidia-driver.md")
-3. [Install NVIDIA GRID drivers (G6, Gr6, G6e, G6f, Gr6f, G5,
+3. [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5,
    G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
-4. [Install NVIDIA gaming drivers (G6, G6e, G5, and G4dn
+4. [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn
    instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")

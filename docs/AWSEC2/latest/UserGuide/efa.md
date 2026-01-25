@@ -120,6 +120,7 @@ Nitro v6
 | m8a.metal-48xl        | Yes               | Yes                |
 | m8gb.16xlarge         | Yes               | Yes                |
 | m8gb.24xlarge         | Yes               | Yes                |
+| m8gb.48xlarge         | Yes               | Yes                |
 | m8gn.16xlarge         | Yes               | Yes                |
 | m8gn.24xlarge         | Yes               | Yes                |
 | m8gn.48xlarge         | Yes               | Yes                |
@@ -132,7 +133,9 @@ Nitro v6
 | c8a.metal-48xl        | Yes               | Yes                |
 | c8gb.16xlarge         | Yes               | Yes                |
 | c8gb.24xlarge         | Yes               | Yes                |
+| c8gb.48xlarge         | Yes               | Yes                |
 | c8gb.metal-24xl       | Yes               | Yes                |
+| c8gb.metal-48xl       | Yes               | Yes                |
 | c8gn.16xlarge         | Yes               | Yes                |
 | c8gn.24xlarge         | Yes               | Yes                |
 | c8gn.48xlarge         | Yes               | Yes                |
@@ -147,7 +150,9 @@ Nitro v6
 | r8a.metal-48xl        | Yes               | Yes                |
 | r8gb.16xlarge         | Yes               | Yes                |
 | r8gb.24xlarge         | Yes               | Yes                |
+| r8gb.48xlarge         | Yes               | Yes                |
 | r8gb.metal-24xl       | Yes               | Yes                |
+| r8gb.metal-48xl       | Yes               | Yes                |
 | r8gn.16xlarge         | Yes               | Yes                |
 | r8gn.24xlarge         | Yes               | Yes                |
 | r8gn.48xlarge         | Yes               | Yes                |
@@ -168,6 +173,10 @@ Nitro v6
 | i8ge.48xlarge         | Yes               | No                 |
 | i8ge.metal-48xl       | Yes               | No                 |
 | Accelerated Computing |
+| g7e.8xlarge           | Yes               | Yes                |
+| g7e.12xlarge          | Yes               | Yes                |
+| g7e.24xlarge          | Yes               | Yes                |
+| g7e.48xlarge          | Yes               | Yes                |
 | p6-b200.48xlarge      | Yes               | Yes                |
 | p6-b300.48xlarge      | Yes               | Yes                |
 

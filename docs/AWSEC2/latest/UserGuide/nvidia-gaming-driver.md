@@ -1,12 +1,12 @@
-# Install NVIDIA gaming drivers (G6, G6e, G5, and G4dn
+# Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn
 
 instances)
 
-These drivers are available to AWS customers only. By downloading them, you agree to use
-the downloaded software only to develop AMIs for use with the NVIDIA L4, NVIDIA
-L40S, NVIDIA A10G, NVIDIA Tesla T4, or NVIDIA Tesla M60 hardware. You can use the
-GRID drivers to both create and use AMIs within the AWS environment. Upon
-installation of the software, you are bound by the terms of the [NVIDIA GRID Cloud End User License Agreement](https://aws-nvidia-license-agreement.s3.amazonaws.com/NvidiaGridAWSUserLicenseAgreement.DOCX "https://aws-nvidia-license-agreement.s3.amazonaws.com/NvidiaGridAWSUserLicenseAgreement.DOCX").
+These drivers are available to AWS customers only. By downloading them, you agree to use the
+downloaded software only to develop AMIs for use with the RTX PRO 6000 Blackwell, NVIDIA L4, NVIDIA L40S,
+NVIDIA A10G, NVIDIA Tesla T4, or NVIDIA Tesla M60 hardware. You can use the GRID drivers to both
+create and use AMIs within the AWS environment. Upon installation of the software, you are bound
+by the terms of the [NVIDIA GRID Cloud End User License Agreement](https://aws-nvidia-license-agreement.s3.amazonaws.com/NvidiaGridAWSUserLicenseAgreement.DOCX "https://aws-nvidia-license-agreement.s3.amazonaws.com/NvidiaGridAWSUserLicenseAgreement.DOCX").
 
 ###### Considerations
 

@@ -167,11 +167,15 @@ the number of network interfaces that an instance type supports, see
 | ---------------------- | ----------------------- |
 | `c6in.32xlarge`        | 2                       |
 | `c6in.metal`           | 2                       |
+| `c8gb.48xlarge`        | 2                       |
+| `c8gb.metal-48xl`      | 2                       |
 | `c8gn.48xlarge`        | 2                       |
 | `c8gn.metal-48xl`      | 2                       |
 | `dl1.24xlarge`         | 4                       |
 | `g6e.24xlarge`         | 2                       |
 | `g6e.48xlarge`         | 4                       |
+| `g7e.24xlarge`         | 2                       |
+| `g7e.48xlarge`         | 4                       |
 | `hpc6id.32xlarge`      | 2                       |
 | `hpc7a.12xlarge`       | 2                       |
 | `hpc7a.24xlarge`       | 2                       |
@@ -181,6 +185,7 @@ the number of network interfaces that an instance type supports, see
 | `m6idn.metal`          | 2                       |
 | `m6in.32xlarge`        | 2                       |
 | `m6in.metal`           | 2                       |
+| `m8gb.48xlarge`        | 2                       |
 | `m8gn.48xlarge`        | 2                       |
 | `p4d.24xlarge`         | 4                       |
 | `p4de.24xlarge`        | 4                       |
@@ -190,6 +195,8 @@ the number of network interfaces that an instance type supports, see
 | `p6-b200.48xlarge`     | 8                       |
 | `p6-b300.48xlarge`     | 17                      |
 | `p6e-gb200.36xlarge`   | 17                      |
+| `r8gb.48xlarge`        | 2                       |
+| `r8gb.metal-48xl`      | 2                       |
 | `r8gn.48xlarge`        | 2                       |
 | `r8gn.metal-48xl`      | 2                       |
 | `r6idn.32xlarge`       | 2                       |

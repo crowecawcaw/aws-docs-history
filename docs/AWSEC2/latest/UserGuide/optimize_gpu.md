@@ -62,6 +62,13 @@ clock speed, and display the error `"Setting applications clocks is not
     ```
     `[ec2-user ~]$` sudo nvidia-smi -ac `9001,2520`
     ```
+    * G7e instances:
+
+
+
+    ```
+    `[ec2-user ~]$` sudo nvidia-smi -ac `12481,2430`
+    ```
     * P2 instances:
 
 

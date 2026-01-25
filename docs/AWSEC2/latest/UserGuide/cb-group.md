@@ -113,7 +113,7 @@ ARNs of the UltraServer Capacity Blocks to add.
 ```
 aws resource-groups group-resources \
 --group `MyCRGroup` \
---resource-arns `capacity_block_arn`
+--resource-arns `CapacityReservationArn`
 ```
 
 PowerShell
@@ -129,5 +129,5 @@ The following example adds two Capacity Reservations to the specified group.
 ```
 Add-RGResource `
 -Group `MyCRGroup` `
--ResourceArn `capacity_block_arn`
+-ResourceArn `CapacityReservationArn`
 ```

@@ -114,7 +114,7 @@ using either the **Instances** or **Network Interfaces**
 page of the Amazon EC2 console.
 
 If you try to detach a network interface that is attached to a resource from another service,
-such as an ELB load balancer, a Lambda function, a WorkSpace, or a NAT gateway, you get an
+such as an Elastic Load Balancing load balancer, a Lambda function, a WorkSpace, or a NAT gateway, you get an
 error that you do not have permission to access the resource. To find which service created
 the resource attached to a network interface, check the description of the network interface.
 If you delete the resource, then its network interface is deleted.

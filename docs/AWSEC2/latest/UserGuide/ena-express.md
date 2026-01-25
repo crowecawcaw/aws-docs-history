@@ -189,6 +189,7 @@ General purpose
 | `m8gb.12xlarge`   | arm64        |
 | `m8gb.16xlarge`   | arm64        |
 | `m8gb.24xlarge`   | arm64        |
+| `m8gb.48xlarge`   | arm64        |
 | `m8gd.12xlarge`   | arm64        |
 | `m8gd.16xlarge`   | arm64        |
 | `m8gd.24xlarge`   | arm64        |
@@ -277,7 +278,9 @@ Compute optimized
 | `c8gb.12xlarge`   | arm64        |
 | `c8gb.16xlarge`   | arm64        |
 | `c8gb.24xlarge`   | arm64        |
+| `c8gb.48xlarge`   | arm64        |
 | `c8gb.metal-24xl` | arm64        |
+| `c8gb.metal-48xl` | arm64        |
 | `c8gd.12xlarge`   | arm64        |
 | `c8gd.16xlarge`   | arm64        |
 | `c8gd.24xlarge`   | arm64        |
@@ -371,7 +374,9 @@ Memory optimized
 | `r8gb.12xlarge`        | arm64        |
 | `r8gb.16xlarge`        | arm64        |
 | `r8gb.24xlarge`        | arm64        |
+| `r8gb.48xlarge`        | arm64        |
 | `r8gb.metal-24xl`      | arm64        |
+| `r8gb.metal-48xl`      | arm64        |
 | `r8gd.12xlarge`        | arm64        |
 | `r8gd.16xlarge`        | arm64        |
 | `r8gd.24xlarge`        | arm64        |
@@ -431,6 +436,9 @@ Accelerated computing
 | `g6e.12xlarge`     | x86_64       |
 | `g6e.24xlarge`     | x86_64       |
 | `g6e.48xlarge`     | x86_64       |
+| `g7e.12xlarge`     | x86_64       |
+| `g7e.24xlarge`     | x86_64       |
+| `g7e.48xlarge`     | x86_64       |
 | `p5.4xlarge`       | x86_64       |
 | `p5.48xlarge`      | x86_64       |
 | `p5e.48xlarge`     | x86_64       |

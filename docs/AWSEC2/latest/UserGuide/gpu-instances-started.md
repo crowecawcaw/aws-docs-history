@@ -23,6 +23,7 @@ we recommend that you install the following minimum software versions on top of 
 
 | Instance type | NVIDIA driver | CUDA | NVIDIA GDRCopy | EFA installer | NCCL     | EFA K8s ¹ |
 | ------------- | ------------- | ---- | -------------- | ------------- | -------- | --------- |
+| G7e           | 575           | 12.9 | 2.5            | 1.45.0        | 2.28.3   | 0.5.10    |
 | P5            | 530           | 12.1 | 2.3            | 1.24.1        | 2.18.3   | 0.4.4     |
 | P5.4xlarge    | 530           | 12.1 | 2.3            | 1.43.1 ²      | 2.18.3   | 0.4.4     |
 | P5e           | 550           | 12.1 | 2.3            | 1.24.1        | 2.18.3   | 0.5.5     |

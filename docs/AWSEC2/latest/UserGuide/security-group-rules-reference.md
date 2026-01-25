@@ -19,7 +19,7 @@ for specific kinds of access.
 - [Rules for ping/ICMP](#sg-rules-ping "#sg-rules-ping")
 - [DNS server rules](#sg-rules-dns "#sg-rules-dns")
 - [Amazon EFS rules](#sg-rules-efs "#sg-rules-efs")
-- [ELB rules](#sg-rules-elb "#sg-rules-elb")
+- [Elastic Load Balancing rules](#sg-rules-elb "#sg-rules-elb")
   For instructions, see [Create a security group](creating-security-group.md "creating-security-group.md") and [Configure security group rules](changing-security-group.md#add-remove-security-group-rules "changing-security-group.md#add-remove-security-group-rules").
 
 ## Web server rules
@@ -152,11 +152,11 @@ rules that allow inbound SSH from your local computer or local network.
 | ------------- | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | TCP           | 6               | 22 (SSH) | The IP address range of your local computer, or the range of IP<br>addresses (in CIDR block notation) for your network. | Allows inbound SSH access from your local computer. |
 
-## ELB rules
+## Elastic Load Balancing rules
 
 If you register your EC2 instances with a load balancer, the security group
 associated with your load balancer must allow communication with the instances.
-For more information, see the following in the ELB documentation.
+For more information, see the following in the Elastic Load Balancing documentation.
 
 - [Security groups for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-update-security-groups.md "../../../elasticloadbalancing/latest/application/load-balancer-update-security-groups.md")
 - [Security groups for your Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-security-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-security-groups.md")

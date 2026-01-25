@@ -5,7 +5,7 @@ use?
 As a general best practice, we recommend launching fleets of Spot and On-Demand Instances with
 Amazon EC2 Auto Scaling because it provides additional features you can use to manage your fleet. The
 list of additional features includes automatic health check replacements for both Spot
-and On-Demand Instances, application-based health checks, and an integration with ELB to ensure an
+and On-Demand Instances, application-based health checks, and an integration with Elastic Load Balancing to ensure an
 even distribution of application traffic to your healthy instances. You can also use
 Auto Scaling groups when you use AWS services such as Amazon ECS, Amazon EKS (self-managed node groups),
 and Amazon VPC Lattice. For more information, see the [Amazon EC2 Auto Scaling User Guide](../../../autoscaling/ec2/userguide.md "../../../autoscaling/ec2/userguide.md").

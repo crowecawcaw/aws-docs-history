@@ -90,6 +90,7 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8gb.12xlarge`     | 16                               | 64                               | 192                             |
 | `m8gb.16xlarge`     | 16                               | 64                               | 256                             |
 | `m8gb.24xlarge`     | 16                               | 128                              | 384                             |
+| `m8gb.48xlarge`     | 32                               | 128                              | 768 \*                          |
 | **M8gn**            |
 | `m8gn.medium`       | 1                                | 1                                | 2                               |
 | `m8gn.large`        | 2                                | 2                                | 6                               |
@@ -186,7 +187,9 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `c8gb.12xlarge`     | 16                               | 64                               | 192                             |
 | `c8gb.16xlarge`     | 16                               | 64                               | 256                             |
 | `c8gb.24xlarge`     | 16                               | 128                              | 384                             |
+| `c8gb.48xlarge`     | 32                               | 128                              | 768 \*                          |
 | `c8gb.metal-24xl`   | 32                               | 128                              | 768                             |
+| `c8gb.metal-48xl`   | 32                               | 128                              | 768 \*                          |
 | **C8gn**            |
 | `c8gn.medium`       | 1                                | 1                                | 2                               |
 | `c8gn.large`        | 2                                | 2                                | 6                               |
@@ -295,7 +298,9 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8gb.12xlarge`     | 16                               | 64                               | 192                             |
 | `r8gb.16xlarge`     | 16                               | 64                               | 256                             |
 | `r8gb.24xlarge`     | 16                               | 128                              | 384                             |
+| `r8gb.48xlarge`     | 32                               | 128                              | 768 \*                          |
 | `r8gb.metal-24xl`   | 32                               | 128                              | 768                             |
+| `r8gb.metal-48xl`   | 32                               | 128                              | 768 \*                          |
 | **R8gn**            |
 | `r8gn.medium`       | 1                                | 1                                | 2                               |
 | `r8gn.large`        | 2                                | 2                                | 6                               |

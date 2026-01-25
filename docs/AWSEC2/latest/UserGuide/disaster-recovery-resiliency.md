@@ -30,4 +30,4 @@ to support your data resiliency:
 - Automating EBS snapshots using Amazon Data Lifecycle Manager
 - Maintaining the health and availability of your fleet using Amazon EC2 Auto Scaling
 - Distributing incoming traffic across multiple instances in a single Availability Zone
-  or multiple Availability Zones using ELB
+  or multiple Availability Zones using Elastic Load Balancing
