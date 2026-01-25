@@ -14,6 +14,4 @@ modernized with automated refactoring.
 - [AWS Blu Age structure of a modernized application](ba-shared-structure.md "ba-shared-structure.md")
 - [What are data simplifiers in AWS Blu Age](ba-shared-data.md "ba-shared-data.md")
 - [AWS Blu Age Blusam](ba-shared-blusam.md "ba-shared-blusam.md")
-- [Available programs in utility web
-  application](applications-m2-ba-utility-programs.md "applications-m2-ba-utility-programs.md")
 - [AWS Blu Age Blusam Administration Console](ba-shared-bac-userguide.md "ba-shared-bac-userguide.md")

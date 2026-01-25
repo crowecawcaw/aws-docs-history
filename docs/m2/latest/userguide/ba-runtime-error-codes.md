@@ -14,6 +14,8 @@ where X is a letter and 1234 are four digits. In this documentation, errors are 
 
 - [AWS Blu Age Runtime Generic Error Codes](ba-runtime-error-codes-a.md "ba-runtime-error-codes-a.md")
 - [AWS Blu Age Runtime Error Codes related to Blusam](ba-runtime-error-codes-b.md "ba-runtime-error-codes-b.md")
+- [AWS Blu Age Runtime Error codes related to Files](ba-runtime-error-codes-f.md "ba-runtime-error-codes-f.md")
+- [AWS Blu Age Runtime Error Codes related to CL Command Programs](ba-runtime-error-codes-h.md "ba-runtime-error-codes-h.md")
 - [AWS Blu Age Runtime Error Codes related to JICS](ba-runtime-error-codes-j.md "ba-runtime-error-codes-j.md")
 - [AWS Blu Age Runtime Error Codes related to Queue](ba-runtime-error-codes-q.md "ba-runtime-error-codes-q.md")
 - [AWS Blu Age Runtime Redis Error Codes](ba-runtime-error-codes-r.md "ba-runtime-error-codes-r.md")
