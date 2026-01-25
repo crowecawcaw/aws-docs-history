@@ -8,7 +8,7 @@ AWS Elastic Beanstalk has released updates to a managed policy.
 
 AWS services maintains AWS managed policies, occasionally updating them to support new features or updated security standards. This release
 updates one Elastic Beanstalk managed policy: `AWSElasticBeanstalkService`. This policy was updated to allow Elastic Beanstalk to tag resources upon creation for
-ELB, Auto Scaling groups (ASG), and Amazon ECS.
+Elastic Load Balancing, Auto Scaling groups (ASG), and Amazon ECS.
 
 ###### Note
 
