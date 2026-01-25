@@ -5,7 +5,7 @@ might cause confusion when multiple developer teams use the same account.
 
 ###### Important
 
-Tag-based alert notifications only work for notifications related to Amazon EC2, Amazon EBS, ELB, Network Load Balancer, Application Load Balancer, Amazon RDS, Amazon Redshift, and OpenSearch.
+Tag-based alert notifications only work for notifications related to Amazon EC2, Amazon EBS, Elastic Load Balancing, Network Load Balancer, Application Load Balancer, Amazon RDS, Amazon Redshift, and OpenSearch.
 
 Don't add personally identifiable information (PII) in your tags.
 

@@ -12,7 +12,7 @@ Notes on bulk update tags:
   - For [Tag | Bulk Update](../ctref/management-advanced-tag-bulk-update.md "../ctref/management-advanced-tag-bulk-update.md"):
     - Auto Scaling
     - Amazon EC2
-    - ELB
+    - Elastic Load Balancing
     - Amazon RDS
     - Amazon S3 buckets
 
