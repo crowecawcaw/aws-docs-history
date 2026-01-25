@@ -10,7 +10,7 @@ The following prerequisites must be met to enable ROSA cluster creation.
   For more information, see [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - Install and configure the latest ROSA CLI and OpenShift Container Platform CLI.
   For more information, see [Getting started with the ROSA CLI](https://access.redhat.com/documentation/en-us/red_hat_openshift_service_on_aws/4/html/rosa_cli/rosa-get-started-cli "https://access.redhat.com/documentation/en-us/red_hat_openshift_service_on_aws/4/html/rosa_cli/rosa-get-started-cli").
-- You must have the required service quotas set for Amazon EC2, Amazon VPC, Amazon EBS, and ELB.
+- You must have the required service quotas set for Amazon EC2, Amazon VPC, Amazon EBS, and Elastic Load Balancing.
   AWS or Red Hat may request service quota increases on your behalf as required for issue resolution.
   To view the service quotas required for ROSA, see [Red Hat OpenShift Service on AWS endpoints and quotas](../../../general/latest/gr/rosa.md#limits_rosa "../../../general/latest/gr/rosa.md#limits_rosa") in the _AWS General Reference_.
 - To receive AWS support for ROSA, you must enable AWS Business, Enterprise On-Ramp, or Enterprise support plans.
@@ -24,7 +24,7 @@ The following prerequisites must be met to enable ROSA cluster creation.
   cluster with AWS STS into an enabled AWS Region that’s disabled by default, you must update the security token to version 2 for all the Regions in the AWS account with the following command.
 
 ```
- aws iam set-security-token-service-preferences --global-endpoint-token-version v2Token
+aws iam set-security-token-service-preferences --global-endpoint-token-version v2Token
 ```
 
 For more information about enabling Regions, see link:accounts/latest/reference/manage
@@ -35,7 +35,7 @@ To create a ROSA
 cluster, you must enable the ROSA service in the AWS
 ROSA console.
 The AWS
-ROSA console verifies if your AWS account has the necessary AWS Marketplace permissions, service quotas, and the ELB (ELB) service-linked role named `AWSServiceRoleForElasticLoadBalancing`.
+ROSA console verifies if your AWS account has the necessary AWS Marketplace permissions, service quotas, and the Elastic Load Balancing (ELB) service-linked role named `AWSServiceRoleForElasticLoadBalancing`.
 If any of these prerequisites are missing, the console provides guidance on how to configure your account to meet the prerequisites.
 
 1. Navigate to the [ROSA console](https://console.aws.amazon.com/rosa "https://console.aws.amazon.com/rosa").

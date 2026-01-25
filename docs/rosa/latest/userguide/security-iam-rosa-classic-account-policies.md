@@ -18,7 +18,7 @@ This policy grants required permissions that allow the ROSA installer to manage 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -234,12 +234,12 @@ Permissions defined in this policy document specify which actions are allowed or
 
 You can attach `[Prefix]-ControlPlane-Role-Policy` to your IAM entities.
 Before you can create a ROSA classic cluster, you must first attach this policy to an IAM role named `[Prefix]-ControlPlane-Role`.
-This policy grants required permissions to ROSA classic to manage Amazon EC2 and ELB resources that host the ROSA control plane, as well as read KMS keys.
+This policy grants required permissions to ROSA classic to manage Amazon EC2 and Elastic Load Balancing resources that host the ROSA control plane, as well as read KMS keys.
 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -299,7 +299,7 @@ This policy grants required permissions to ROSA classic to describe the EC2 inst
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -323,7 +323,7 @@ This policy grants required permissions to Red Hat site reliability engineering 
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

@@ -47,7 +47,7 @@ This example shows how you might create a policy that allows IAM users to view t
 This policy includes permissions to complete this action on the console or programmatically using the AWS CLI.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

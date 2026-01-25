@@ -17,7 +17,7 @@ For more information about the operator, see [OpenShift Ingress Operator](https:
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -44,7 +44,7 @@ For more information about the operator, see [aws-ebs-csi-driver-operator](https
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -83,7 +83,7 @@ For more information about the operator, see [machine-config-operator](https://g
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -150,7 +150,7 @@ For more information about the operator, see [cloud-credential-operator](https:/
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -176,7 +176,7 @@ For more information about the operator, see [Image Registry Operator](https://g
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
@@ -217,7 +217,7 @@ For more information about the operator, see [Cloud-network-config-controller](h
 Permissions defined in this policy document specify which actions are allowed or denied.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {

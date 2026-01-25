@@ -71,7 +71,7 @@ This policy includes the following permissions that allow Red Hat SREs to comple
 - `cloudtrail` — Read AWS CloudTrail events and trails relevant to the cluster.
 - `cloudwatch` — Read Amazon CloudWatch metrics relevant to the cluster.
 - `ec2` — Read, describe, and review Amazon EC2 components related to the cluster’s health such as security groups, VPC endpoint connections, and volume status. Launch, stop, reboot, and terminate Amazon EC2 instances.
-- `elasticloadbalancing` — Read, describe, and review ELB parameters related to the cluster’s health.
+- `elasticloadbalancing` — Read, describe, and review Elastic Load Balancing parameters related to the cluster’s health.
 - `iam` — Evaluate IAM roles that relate to the cluster’s health.
 - `route53` — Review DNS settings related to the cluster’s health.
 - `sts` — `DecodeAuthorizationMessage` — Read IAM messages for debugging purposes.
@@ -243,7 +243,7 @@ You can attach `ROSAKubeControllerPolicy` to your IAM entities.
 You must attach this policy to an operator IAM role to allow a ROSA with hosted control planes cluster to make calls to other AWS services.
 A unique set of operator roles is required for each cluster.
 
-This policy grants required permissions to the kube controller to manage Amazon EC2, ELB, and AWS KMS resources for a ROSA with hosted control planes cluster.
+This policy grants required permissions to the kube controller to manage Amazon EC2, Elastic Load Balancing, and AWS KMS resources for a ROSA with hosted control planes cluster.
 For more information about this controller, see [Controller architecture](https://hypershift-docs.netlify.app/reference/controller-architecture/ "https://hypershift-docs.netlify.app/reference/controller-architecture/") in the OpenShift documentation.
 
 **Permissions details**
@@ -278,9 +278,9 @@ This policy includes the following permissions that allow the NodePool controlle
 
 - `ec2` — Run Amazon EC2 instances using AMIs hosted in AWS accounts owned and managed by Red Hat.
   Manage EC2 lifecycles in the ROSA cluster.
-  Dynamically create and integrate worker nodes with ELB, Amazon VPC, Route 53, Amazon EBS, and Amazon EC2.
+  Dynamically create and integrate worker nodes with Elastic Load Balancing, Amazon VPC, Route 53, Amazon EBS, and Amazon EC2.
   Access and describe capacity reservations to support the Capacity Reservation feature in ROSA.
-- `iam` — Use ELB via the service-linked role named `AWSServiceRoleForElasticLoadBalancing`.
+- `iam` — Use Elastic Load Balancing via the service-linked role named `AWSServiceRoleForElasticLoadBalancing`.
   Assign roles to Amazon EC2 instance profiles.
 - `kms` — Read an AWS KMS key, create and manage grants to Amazon EC2, and return a unique symmetric data key for use outside of AWS KMS.
   This is required to allow for disk encryption of the worker node root volume.
@@ -355,7 +355,7 @@ For automatic alerts about changes to this page, subscribe to the RSS feed on th
 | ROSAInstallerPolicy — New policy added                    | ROSA added a new policy to allow the installer to manage AWS resources that support cluster installation.<br>To learn more, see [AWS managed policy: ROSAInstallerPolicy](#security-iam-awsmanpol-rosainstallerpolicy "#security-iam-awsmanpol-rosainstallerpolicy").                                                                                                                                                                                                                        | June 6, 2023      |
 | ROSASRESupportPolicy — New policy added                   | ROSA added a new policy to allow Red Hat SREs to directly observe, diagnose and support AWS resources associated with ROSA clusters, including the ability to change ROSA cluster node state.<br>To learn more, see [AWS managed policy: ROSASRESupportPolicy](#security-iam-awsmanpol-rosasresupportpolicy "#security-iam-awsmanpol-rosasresupportpolicy").                                                                                                                                 | June 1, 2023      |
 | ROSAKMSProviderPolicy — New policy added                  | ROSA added a new policy to allow the built-in AWS Encryption Provider to manage AWS KMS keys to support etcd data encryption.<br>To learn more, see [AWS managed policy: ROSAKMSProviderPolicy](#security-iam-awsmanpol-rosakmsproviderpolicy "#security-iam-awsmanpol-rosakmsproviderpolicy").                                                                                                                                                                                              | April 27, 2023    |
-| ROSAKubeControllerPolicy — New policy added               | ROSA added a new policy to allow the kube controller to manage Amazon EC2, ELB, and AWS KMS resources for ROSA with hosted control planes clusters.<br>To learn more, see [AWS managed policy: ROSAKubeControllerPolicy](#security-iam-awsmanpol-rosakubecontrollerpolicy "#security-iam-awsmanpol-rosakubecontrollerpolicy").                                                                                                                                                               | April 27, 2023    |
+| ROSAKubeControllerPolicy — New policy added               | ROSA added a new policy to allow the kube controller to manage Amazon EC2, Elastic Load Balancing, and AWS KMS resources for ROSA with hosted control planes clusters.<br>To learn more, see [AWS managed policy: ROSAKubeControllerPolicy](#security-iam-awsmanpol-rosakubecontrollerpolicy "#security-iam-awsmanpol-rosakubecontrollerpolicy").                                                                                                                                            | April 27, 2023    |
 | ROSAImageRegistryOperatorPolicy — New policy added        | ROSA added a new policy to allow the Image Registry Operator to provision and manage resources for the ROSA in-cluster image registry and dependent services, including S3.<br>To learn more, see [AWS managed policy: ROSAImageRegistryOperatorPolicy](#security-iam-awsmanpol-rosaimageregistryoperatorpolicy "#security-iam-awsmanpol-rosaimageregistryoperatorpolicy").                                                                                                                  | April 27, 2023    |
 | ROSAControlPlaneOperatorPolicy — New policy added         | ROSA added a new policy to allow the Control Plane Operator to manage Amazon EC2 and Route 53 resources for ROSA with hosted control planes clusters.<br>To learn more, see [AWS managed policy: ROSAControlPlaneOperatorPolicy](#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy "#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy").                                                                                                                                           | April 24, 2023    |
 | ROSACloudNetworkConfigOperatorPolicy — New policy added   | ROSA added a new policy to allow the Cloud Network Config Controller Operator to provision and manage networking resources for the ROSA cluster networking overlay.<br>To learn more, see [AWS managed policy: ROSACloudNetworkConfigOperatorPolicy](#security-iam-awsmanpol-rosacloudnetworkconfigoperatorpolicy "#security-iam-awsmanpol-rosacloudnetworkconfigoperatorpolicy").                                                                                                           | April 20, 2023    |

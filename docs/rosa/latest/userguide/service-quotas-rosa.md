@@ -68,7 +68,7 @@ in the _Service Quotas User Guide_.
 
 ### General AWS service quotas
 
-ROSA uses the following default quotas for Amazon EC2, Amazon VPC, Amazon EBS, and ELB.
+ROSA uses the following default quotas for Amazon EC2, Amazon VPC, Amazon EBS, and Elastic Load Balancing.
 
 ###### Amazon EC2
 
@@ -85,7 +85,7 @@ ROSA uses the following default quotas for Amazon EC2, Amazon VPC, Amazon EBS, a
 - [Snapshots per Region](../../../general/latest/gr/ebs-service.md#limits_ebs "../../../general/latest/gr/ebs-service.md#limits_ebs")
 - [IOPS for Provisioned IOPS SSD (io1) volumes](../../../general/latest/gr/ebs-service.md#limits_ebs "../../../general/latest/gr/ebs-service.md#limits_ebs")
 
-###### ELB
+###### Elastic Load Balancing
 
 - [Application Load Balancers per Region](../../../general/latest/gr/elb.md#limits_elastic_load_balancer "../../../general/latest/gr/elb.md#limits_elastic_load_balancer")
 - [Classic Load Balancers per Region](../../../general/latest/gr/elb.md#limits_elastic_load_balancer "../../../general/latest/gr/elb.md#limits_elastic_load_balancer")
