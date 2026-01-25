@@ -211,6 +211,50 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
   [StartQuery](../../../goto/boto3/logs-2014-03-28/StartQuery.md "../../../goto/boto3/logs-2014-03-28/StartQuery.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples").
+
+```
+    TRY.
+        " iv_log_group_name = '/aws/lambda/my-function'
+        " iv_query_string = 'fields @timestamp, @message | sort @timestamp desc | limit 20'
+        " iv_start_time and iv_end_time must be in Unix epoch milliseconds (ms since Jan 1, 1970 00:00:00 UTC)
+        oo_result = lo_cwl->startquery(
+          iv_loggroupname = iv_log_group_name
+          iv_starttime    = iv_start_time
+          iv_endtime      = iv_end_time
+          iv_querystring  = iv_query_string
+          iv_limit        = iv_limit ).
+
+        " Display the query ID for tracking
+        DATA(lv_query_id) = oo_result->get_queryid( ).
+        MESSAGE |Query started successfully with ID: { lv_query_id }| TYPE 'I'.
+      CATCH /aws1/cx_cwlinvalidparameterex.
+        MESSAGE 'Invalid parameter.' TYPE 'E'.
+      CATCH /aws1/cx_cwllimitexceededex.
+        MESSAGE 'Limit exceeded.' TYPE 'E'.
+      CATCH /aws1/cx_cwlmalformedqueryex.
+        MESSAGE 'Malformed query.' TYPE 'E'.
+      CATCH /aws1/cx_cwlresourcenotfoundex.
+        MESSAGE 'Resource not found.' TYPE 'E'.
+      CATCH /aws1/cx_cwlserviceunavailex.
+        MESSAGE 'Service unavailable.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [StartQuery](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

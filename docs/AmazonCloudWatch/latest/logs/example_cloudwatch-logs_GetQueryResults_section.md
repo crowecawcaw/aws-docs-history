@@ -120,6 +120,42 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
   [GetQueryResults](../../../goto/boto3/logs-2014-03-28/GetQueryResults.md "../../../goto/boto3/logs-2014-03-28/GetQueryResults.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwl#code-examples").
+
+```
+    TRY.
+        oo_result = lo_cwl->getqueryresults(
+          iv_queryid = iv_query_id ).
+
+        " Display query status and result count
+        DATA(lv_status) = oo_result->get_status( ).
+        DATA(lt_results) = oo_result->get_results( ).
+        DATA(lv_result_count) = lines( lt_results ).
+
+        MESSAGE |Query status: { lv_status }. Retrieved { lv_result_count } log event(s).| TYPE 'I'.
+      CATCH /aws1/cx_cwlinvalidparameterex.
+        MESSAGE 'Invalid parameter.' TYPE 'E'.
+      CATCH /aws1/cx_cwlresourcenotfoundex.
+        MESSAGE 'Resource not found.' TYPE 'E'.
+      CATCH /aws1/cx_cwlserviceunavailex.
+        MESSAGE 'Service unavailable.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetQueryResults](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using CloudWatch Logs with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
