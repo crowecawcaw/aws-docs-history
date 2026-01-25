@@ -229,7 +229,7 @@ Consider the following options for alternative access methods:
   s
 - **Use Systems Manager Session Manager** –
   Session Manager provides secure shell access to your Amazon EC2 instances without the need for inbound ports, managing SSH keys, or maintaining bastion hosts.
-- **Use WAF and ELB or Application Load Balancer** –
+- **Use WAF and Elastic Load Balancing or Application Load Balancer** –
   For instances that are running web applications, consider using an LB combined with AWS Web Application Firewall (WAF).
   LBs can be configured to allow your instances to run in private subnets while the LB runs in a public subnet and handles internet traffic.
   Adding a WAF to your load balancer provides additional protection against web exploits and bots.

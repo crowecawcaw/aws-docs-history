@@ -24,15 +24,15 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 **Parameters:** None
 
 This control checks whether an Amazon EC2 Auto Scaling group that is associated with a load balancer
-uses ELB (ELB) health checks. The control fails if the Auto Scaling group doesn't use ELB health checks.
+uses Elastic Load Balancing (ELB) health checks. The control fails if the Auto Scaling group doesn't use ELB health checks.
 
 ELB health checks help ensure that an Auto Scaling group can determine an instance's health based on additional tests
-provided by the load balancer. Using ELB health checks also helps support the availability of
+provided by the load balancer. Using Elastic Load Balancing health checks also helps support the availability of
 applications that use EC2 Auto Scaling groups.
 
 ### Remediation
 
-To add ELB health checks, see [Add ELB health checks](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console") in the _Amazon EC2 Auto Scaling User Guide_.
+To add Elastic Load Balancing health checks, see [Add Elastic Load Balancing health checks](../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console "../../../autoscaling/ec2/userguide/as-add-elb-healthcheck.md#as-add-elb-healthcheck-console") in the _Amazon EC2 Auto Scaling User Guide_.
 
 ## [AutoScaling.2] Amazon EC2 Auto Scaling group should cover multiple Availability Zones
 
