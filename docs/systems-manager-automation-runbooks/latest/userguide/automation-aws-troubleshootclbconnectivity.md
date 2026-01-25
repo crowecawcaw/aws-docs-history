@@ -118,7 +118,7 @@ use the runbook successfully.
   `InvestigationType` parameter.
 - `aws:executeScript` - Performs connectivity checks to the CLB.
 - `aws:executeScript` - Verifies that the CLB configuration adheres
-  to ELB best practices.
+  to Elastic Load Balancing best practices.
 - `aws:executeScript` - Creates an Amazon CloudWatch dashboard for your CLB.
 - `aws:executeScript` - Creates a text file with the results of the
   automation and uploads it to the Amazon S3 bucket you specify in the

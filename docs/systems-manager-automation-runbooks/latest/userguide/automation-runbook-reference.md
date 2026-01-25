@@ -62,7 +62,7 @@ For information about running automations, see [Running a simple automation](../
 - [Amazon EFS](automation-ref-efs.md "automation-ref-efs.md")
 - [Amazon EKS](automation-ref-eks.md "automation-ref-eks.md")
 - [Elastic Beanstalk](automation-ref-aeb.md "automation-ref-aeb.md")
-- [ELB](automation-ref-elb.md "automation-ref-elb.md")
+- [Elastic Load Balancing](automation-ref-elb.md "automation-ref-elb.md")
 - [Amazon EMR](automation-ref-emr.md "automation-ref-emr.md")
 - [Amazon OpenSearch Service](automation-ref-opensearch.md "automation-ref-opensearch.md")
 - [EventBridge](automation-ref-ev.md "automation-ref-ev.md")

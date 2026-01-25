@@ -117,7 +117,7 @@ use the runbook successfully.
 - `aws:executeScript` - Checks the Amazon VPC subnets for tags that are
   required as part of an Amazon EKS cluster.
 - `aws:executeScript` - Checks the Amazon VPC subnets for the tags that
-  are required for ELB subnets.
+  are required for Elastic Load Balancing subnets.
 - `aws:executeScript` - Checks if the worker node Amazon EC2 instances
   use the latest Amazon EKS optimized AMIs
 - `aws:executeScript` - Checks if the Amazon VPC security groups

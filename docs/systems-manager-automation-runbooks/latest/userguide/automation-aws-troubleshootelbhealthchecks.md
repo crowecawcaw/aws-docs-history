@@ -2,7 +2,7 @@
 
 **Description**
 
-The **AWSSupport-TroubleshootELBHealthChecks** runbook helps troubleshoot AWS Elastic Load Balancing (ELB) health check issues by analyzing its related Amazon CloudWatch (CloudWatch) metrics, verifying network connectivity, and executing diagnostic commands on its target instances.
+The **AWSSupport-TroubleshootELBHealthChecks** runbook helps troubleshoot AWS Elastic Load Balancing (Elastic Load Balancing) health check issues by analyzing its related Amazon CloudWatch (CloudWatch) metrics, verifying network connectivity, and executing diagnostic commands on its target instances.
 
 This runbook addresses the following use cases:
 
