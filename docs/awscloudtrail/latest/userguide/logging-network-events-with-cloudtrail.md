@@ -137,6 +137,7 @@ The following advanced event selector fields are required to log network activit
 
 Valid values include:
 
+    + `aco-automation.amazonaws.com`
     + `appconfig.amazonaws.com`
     + `application-signals.amazonaws.com`
     + `appmesh.amazonaws.com`
@@ -145,6 +146,7 @@ Valid values include:
     + `backup-gateway.amazonaws.com`
     + `bcm-data-exports.amazonaws.com`
     + `bcm-pricing-calculator.amazonaws.com`
+    + `bedrock-agentcore.amazonaws.com`
     + `bedrock.amazonaws.com`
     + `billing.amazonaws.com`
     + `cassandra.amazonaws.com`
@@ -152,6 +154,7 @@ Valid values include:
     + `cloudcontrolapi.amazonaws.com`
     + `cloudformation.amazonaws.com`
     + `cloudhsm.amazonaws.com`
+    + `cloudoptimization.amazonaws.com`
     + `cloudtrail.amazonaws.com`
     + `codedeploy.amazonaws.com`
     + `comprehend.amazonaws.com`
@@ -171,6 +174,7 @@ Valid values include:
     + `glue.amazonaws.com`
     + `healthlake.amazonaws.com`
     + `invoicing.amazonaws.com`
+    + `iot.amazonaws.com`
     + `iotfleetwise.amazonaws.com`
     + `iotsecuredtunneling.amazonaws.com`
     + `kms.amazonaws.com`
@@ -180,6 +184,7 @@ Valid values include:
     + `lookoutequipment.amazonaws.com`
     + `lookoutvision.amazonaws.com`
     + `monitoring.amazonaws.com`
+    + `nova-act.amazonaws.com`
     + `personalize.amazonaws.com`
     + `qbusiness.amazonaws.com`
     + `rds.amazonaws.com`
@@ -193,11 +198,14 @@ Valid values include:
     + `sns.amazonaws.com`
     + `sqs.amazonaws.com`
     + `ssm-contacts.amazonaws.com`
+    + `ssm.amazonaws.com`
     + `storagegateway.amazonaws.com`
     + `swf.amazonaws.com`
     + `textract.amazonaws.com`
     + `transcribe.amazonaws.com`
     + `transcribestreaming.amazonaws.com`
+    + `transform-agents.amazonaws.com`
+    + `transform-custom.amazonaws.com`
     + `transform.amazonaws.com`
     + `translate.amazonaws.com`
     + `user-subscriptions.amazonaws.com`
