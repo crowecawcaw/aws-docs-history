@@ -18,4 +18,4 @@ with AWS resources, command-line tools for working with Amazon EKS, and a contro
 - [Select an Amazon EMR release
   label](docker-custom-images-tag.md "docker-custom-images-tag.md") – the Apache Livy is supported with Amazon EMR releases 7.1.0 and higher.
 - [Install the ALB controller](../../../eks/latest/userguide/aws-load-balancer-controller.md "../../../eks/latest/userguide/aws-load-balancer-controller.md")
-  – the ALB controller manages AWS ELB for Kubernetes clusters. It creates an AWS Network Load Balancer (NLB) when you create a Kubernetes Ingress while setting up Apache Livy.
+  – the ALB controller manages AWS Elastic Load Balancing for Kubernetes clusters. It creates an AWS Network Load Balancer (NLB) when you create a Kubernetes Ingress while setting up Apache Livy.
