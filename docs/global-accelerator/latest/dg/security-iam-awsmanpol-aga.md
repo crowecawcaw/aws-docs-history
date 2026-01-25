@@ -40,8 +40,8 @@ it to IAM users and other principals who need full access to Global Accelerator 
 ###### Note
 
 If you create an identity-based permissions policy that does not include
-the required permissions for Amazon EC2 and ELB, users with that policy will not be able to
-add Amazon EC2 and ELB resources to accelerators.
+the required permissions for Amazon EC2 and Elastic Load Balancing, users with that policy will not be able to
+add Amazon EC2 and Elastic Load Balancing resources to accelerators.
 
 To view the permissions for this policy, see [GlobalAcceleratorFullAccess](../../../aws-managed-policy/latest/reference/GlobalAcceleratorFullAccess.md "../../../aws-managed-policy/latest/reference/GlobalAcceleratorFullAccess.md") in the _AWS Managed Policy Reference_.
 

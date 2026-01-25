@@ -121,13 +121,13 @@ use `List*` or `Describe*` operations.
 
 Attach the second policy, `GlobalAcceleratorFullAccess`, to users who need to create
 or make updates to accelerators. The full access policy includes _full_ permissions for Global Accelerator as
-well as _describe_ permissions for Amazon EC2 and ELB.
+well as _describe_ permissions for Amazon EC2 and Elastic Load Balancing.
 
 ###### Note
 
 If you create an identity-based permissions policy that does not include
-the required permissions for Amazon EC2 and ELB, users with that policy will not be able to
-add Amazon EC2 and ELB resources to accelerators.
+the required permissions for Amazon EC2 and Elastic Load Balancing, users with that policy will not be able to
+add Amazon EC2 and Elastic Load Balancing resources to accelerators.
 
 For more information, see the Global Accelerator [AWS
 managed policies page](security-iam-awsmanpol-aga.md "security-iam-awsmanpol-aga.md") or [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the

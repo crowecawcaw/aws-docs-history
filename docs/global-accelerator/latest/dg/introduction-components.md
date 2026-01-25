@@ -10,7 +10,7 @@ static IPv6 addresses. If you bring your own IP address range to AWS (BYOIP) to 
 Global Accelerator (IPv4 only), you can instead assign IPv4 addresses from your own pool to use with your accelerator.
 For more information, see [Bring your own IP addresses (BYOIP) in Global Accelerator](using-byoip.md "using-byoip.md").
 
-The IP addresses serve as single fixed entry points for your clients. If you already have ELB load balancers,
+The IP addresses serve as single fixed entry points for your clients. If you already have Elastic Load Balancing load balancers,
 Amazon EC2 instances, or Elastic IP address resources set up for your applications, you can easily add those to
 a standard accelerator in Global Accelerator. This allows Global Accelerator to use static IP addresses to access the resources. If
 you'd like to access an API Gateway by using Global Accelerator static IP addresses, see the following blog post for more information:
