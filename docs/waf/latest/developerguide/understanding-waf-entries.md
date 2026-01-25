@@ -20,6 +20,18 @@ identity information helps you determine the following:
   For more information, see [CloudTrail
   userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
+## Cross-account CloudTrail events
+
+For certain AWS WAF API operations that support cross-account access through resource-based policies, CloudTrail events are logged to both the caller account and the resource owner account. This applies to the following API operations:
+
+- `CreateWebACL`
+- `UpdateWebACL`
+- `GetWebACL`
+- `GetRuleGroup`
+- `PutFirewallManagerRuleGroups`
+
+When these operations are performed across accounts, CloudTrail events are generated for both successful API calls and access denied calls in both the caller's account and the resource owner's account.
+
 ## Example: AWS WAF log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3

@@ -96,7 +96,7 @@ automatically included at no extra cost beyond what you already pay for AWS WAF 
 other AWS services.
 
 Shield Advanced provides expanded DDoS attack protection for your
-Amazon EC2 instances, ELB load balancers, CloudFront distributions, Route 53 hosted zones, and AWS Global Accelerator standard accelerators.
+Amazon EC2 instances, Elastic Load Balancing load balancers, CloudFront distributions, Route 53 hosted zones, and AWS Global Accelerator standard accelerators.
 Shield Advanced incurs additional charges. Shield Advanced options and features include automatic application layer DDoS mitigation, advanced event visibility, and dedicated
 support from the Shield Response Team (SRT). If you own high visibility websites or are otherwise
 prone to frequent DDoS attacks, consider purchasing the additional protections that

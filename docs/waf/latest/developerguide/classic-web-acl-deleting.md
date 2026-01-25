@@ -18,6 +18,11 @@ migrated them over to the latest version yet. To migrate your web ACLs, see [Mig
 
 **For the latest version of AWS WAF**, see [AWS WAF](waf-chapter.md "waf-chapter.md").
 
+###### Important
+
+Deleting a web ACL is permanent and can't be undone. If the selected web ACL contains any rules or is associated with any CloudFront distributions,
+Application load balancer or API Gateway, remove the rules and associations before deleting. Otherwise, the delete will fail.
+
 To delete a web ACL, you must remove the rules that are included in the web ACL and
 disassociate all CloudFront distributions and
 Application

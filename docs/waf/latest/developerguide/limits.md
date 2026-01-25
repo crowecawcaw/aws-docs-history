@@ -74,6 +74,7 @@ AWS CloudFormation, the REST API, and the SDKs. These quotas can't be changed.
 | Maximum number of calls to `DisassociateWebACL`                                                                          | One request every 2 seconds  |
 | Maximum number of calls to `GetWebACLForResource`                                                                        | One request per second       |
 | Maximum number of calls to `ListResourcesForWebACL`                                                                      | One request per second       |
+| Maximum number of calls to `GetDecryptedAPIKey`                                                                          | One request every 2 seconds  |
 | Maximum number of calls to any individual `Get` or<br>`List` action, if no other quota is defined for it                 | Five requests per second     |
 | Maximum number of calls to any individual `Create`,<br>`Put`, or `Update` action, if no other quota is<br>defined for it | One request per second       |
 

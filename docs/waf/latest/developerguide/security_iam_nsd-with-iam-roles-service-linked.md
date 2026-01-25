@@ -312,8 +312,8 @@ AWS Shield network security director supports using service-linked roles in foll
 | ------------------------ | -------------- |
 | US East (N. Virginia)    | us-east-1      |
 | Europe (Stockholm)       | eu-north-1     |
-| Asia Pacific (Bangkok)   | ap-southeast-7 |
-| Asia Pacific (Mumbai)    | ap-south-1     |
+| Asia Pacific (Thailand)  | ap-southeast-7 |
+| Africa (Cape Town)       | ap-south-1     |
 | US East (Ohio)           | us-east-2      |
 | Asia Pacific (Malaysia)  | ap-southeast-5 |
 | Asia Pacific (Tokyo)     | ap-northeast-1 |

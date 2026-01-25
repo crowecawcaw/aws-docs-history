@@ -8,6 +8,10 @@ For more details, see [Working with the console](working-with-console.md "workin
 This section provides procedures for deleting protection packs (web ACLs) through
 the AWS console.
 
+###### Important
+
+Deleting a protection pack (web ACL) is permanent and can't be undone.
+
 To delete a protection pack (web ACL), you first disassociate all AWS resources from the protection pack (web ACL).
 Perform the following procedure.
 

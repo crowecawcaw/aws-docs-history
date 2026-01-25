@@ -21,7 +21,7 @@ types:
 - Amazon EC2 Elastic IP addresses. Shield Advanced protects the resources that are associated with
   protected Elastic IP addresses.
 - Amazon EC2 instances, through association to Amazon EC2 Elastic IP addresses.
-- The following ELB (ELB) load balancers:
+- The following Elastic Load Balancing (ELB) load balancers:
 
       + Application Load Balancers.
       + Classic Load Balancers.
