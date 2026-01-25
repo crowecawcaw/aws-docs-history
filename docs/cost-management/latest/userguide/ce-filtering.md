@@ -409,7 +409,7 @@ that your Amazon EBS-optimized instances use.
 - **EC2: ELB - Running Hours**
 
 Filters by the costs associated with how many hours that your
-ELB load balancers ran.
+Elastic Load Balancing load balancers ran.
 
 - **EC2: Elastic IP - Additional Address**
 
