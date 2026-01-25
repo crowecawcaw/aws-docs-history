@@ -339,6 +339,31 @@ async fn show_keys(client: &Client) -> Result<(), Error> {
   [ListKeys](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.list_keys "https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.list_keys")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+
+```
+    TRY.
+        oo_result = lo_kms->listkeys( ).
+        MESSAGE 'Retrieved KMS keys list.' TYPE 'I'.
+      CATCH /aws1/cx_kmskmsinternalex.
+        MESSAGE 'An internal error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ListKeys](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

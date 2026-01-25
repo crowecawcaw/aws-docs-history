@@ -60,6 +60,4 @@ create a case.
 
 AWS KMS [custom key store request
 quotas](requests-per-second.md#rps-key-stores "requests-per-second.md#rps-key-stores") do not appear in the Service Quotas console. You cannot view or manage these
-quotas by using Service Quotas API operations. To request a change to your external key store request
-quota, visit the [AWS Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home")
-and create a case.
+quotas by using Service Quotas API operations.

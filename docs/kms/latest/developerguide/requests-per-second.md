@@ -216,15 +216,13 @@ store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#cu
 | Custom key store request quota                                                      | Default value (requests per second) for each custom key store | Adjustable |
 | ----------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------- |
 | [AWS CloudHSM key store](keystore-cloudhsm.md "keystore-cloudhsm.md") request quota | 1800                                                          | No         |
-| [External key store](keystore-external.md "keystore-external.md") request quota     | 1800                                                          | Yes        |
+| [External key store](keystore-external.md "keystore-external.md") request quota     | 1800                                                          | No         |
 
 ###### Note
 
 AWS KMS custom key store request
 quotas do not appear in the Service Quotas console. You cannot view or manage these
-quotas by using Service Quotas API operations. To request a change to your external key store request
-quota, visit the [AWS Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home")
-and create a case.
+quotas by using Service Quotas API operations.
 
 If the AWS CloudHSM cluster associated with an AWS CloudHSM key store is processing numerous commands,
 including those unrelated to the custom key store, you might get an AWS KMS

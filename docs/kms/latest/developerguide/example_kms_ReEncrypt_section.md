@@ -232,6 +232,44 @@ async fn reencrypt_string(
   [ReEncrypt](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.re_encrypt "https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.re_encrypt")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+
+```
+    TRY.
+        " iv_source_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
+        " iv_destination_key_id = 'arn:aws:kms:us-east-1:123456789012:key/5678dcba-56cd-78ef-90ab-5678901234cd'
+        " iv_ciphertext_blob contains the encrypted data
+        oo_result = lo_kms->reencrypt(
+          iv_sourcekeyid = iv_source_key_id
+          iv_destinationkeyid = iv_destination_key_id
+          iv_ciphertextblob = iv_ciphertext_blob
+        ).
+        MESSAGE 'Ciphertext reencrypted successfully.' TYPE 'I'.
+      CATCH /aws1/cx_kmsdisabledexception.
+        MESSAGE 'The key is disabled.' TYPE 'E'.
+      CATCH /aws1/cx_kmsincorrectkeyex.
+        MESSAGE 'Incorrect source key for decryption.' TYPE 'E'.
+      CATCH /aws1/cx_kmsnotfoundexception.
+        MESSAGE 'Key not found.' TYPE 'E'.
+      CATCH /aws1/cx_kmskmsinternalex.
+        MESSAGE 'An internal error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [ReEncrypt](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

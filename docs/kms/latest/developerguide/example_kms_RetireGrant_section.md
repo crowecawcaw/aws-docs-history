@@ -78,6 +78,36 @@ class GrantManager:
   [RetireGrant](../../../goto/boto3/kms-2014-11-01/RetireGrant.md "../../../goto/boto3/kms-2014-11-01/RetireGrant.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+
+```
+    TRY.
+        " iv_grant_token = 'AQpAM2RhZ...'
+        lo_kms->retiregrant( iv_granttoken = iv_grant_token ).
+        MESSAGE 'Grant retired successfully.' TYPE 'I'.
+      CATCH /aws1/cx_kmsnotfoundexception.
+        MESSAGE 'Grant not found.' TYPE 'E'.
+      CATCH /aws1/cx_kmsinvgranttokenex.
+        MESSAGE 'Invalid grant token.' TYPE 'E'.
+      CATCH /aws1/cx_kmskmsinternalex.
+        MESSAGE 'An internal error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [RetireGrant](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

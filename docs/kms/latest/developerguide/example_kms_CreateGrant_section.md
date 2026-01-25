@@ -298,6 +298,42 @@ class GrantManager:
   [CreateGrant](../../../goto/boto3/kms-2014-11-01/CreateGrant.md "../../../goto/boto3/kms-2014-11-01/CreateGrant.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+
+```
+    TRY.
+        " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
+        " iv_grantee_principal = 'arn:aws:iam::123456789012:role/my-role'
+        " it_operations contains 'Encrypt', 'Decrypt', 'GenerateDataKey'
+        oo_result = lo_kms->creategrant(
+          iv_keyid = iv_key_id
+          iv_granteeprincipal = iv_grantee_principal
+          it_operations = it_operations
+        ).
+        MESSAGE 'Grant created successfully.' TYPE 'I'.
+      CATCH /aws1/cx_kmsdisabledexception.
+        MESSAGE 'The key is disabled.' TYPE 'E'.
+      CATCH /aws1/cx_kmsnotfoundexception.
+        MESSAGE 'Key not found.' TYPE 'E'.
+      CATCH /aws1/cx_kmskmsinternalex.
+        MESSAGE 'An internal error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateGrant](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

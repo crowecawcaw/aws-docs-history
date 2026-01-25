@@ -166,6 +166,40 @@ async fn make_key(client: &Client, key: &str) -> Result<(), Error> {
   [GenerateDataKey](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.generate_data_key "https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.generate_data_key")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+
+```
+    TRY.
+        " iv_key_id = 'arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab'
+        " iv_keyspec = 'AES_256'
+        oo_result = lo_kms->generatedatakey(
+          iv_keyid = iv_key_id
+          iv_keyspec = 'AES_256'
+        ).
+        MESSAGE 'Data key generated successfully.' TYPE 'I'.
+      CATCH /aws1/cx_kmsdisabledexception.
+        MESSAGE 'The key is disabled.' TYPE 'E'.
+      CATCH /aws1/cx_kmsnotfoundexception.
+        MESSAGE 'Key not found.' TYPE 'E'.
+      CATCH /aws1/cx_kmskmsinternalex.
+        MESSAGE 'An internal error occurred.' TYPE 'E'.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GenerateDataKey](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
