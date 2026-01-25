@@ -1,18 +1,12 @@
-# `pcluster get-cluster-stack-events`
+# `pcluster update-compute-fleet`
 
-Retrieve the events associated with the stack for the specified cluster.
-
-###### Note
-
-Starting in version 3.6.0, AWS ParallelCluster uses nested stacks to create the resources associated with queues and compute resources. The
-`GetClusterStackEvents` API and the `pcluster get-cluster-stack-events` command only return the cluster main stack events.
-You can view the cluster stack events, including those related to queues and compute resources, in the CloudFormation console.
+Updates the status of the cluster compute fleet.
 
 ```
-pcluster get-cluster-stack-events [-h]
+pcluster update-compute-fleet [-h]
                  --cluster-name `CLUSTER_NAME`
+                 --status {`START_REQUESTED`,`STOP_REQUESTED`,`ENABLED`,`DISABLED`}
                 [--debug]
-                [--next-token `NEXT_TOKEN`]
                 [--query `QUERY`]
                 [--region `REGION`]
 ```
@@ -21,19 +15,21 @@ pcluster get-cluster-stack-events [-h]
 
 `-h, --help`
 
-Shows the help text for `pcluster get-cluster-stack-events`.
+Shows the help text for `pcluster update-compute-fleet`.
 
 `--cluster-name, -n `CLUSTER_NAME``
 
 Specifies the name of the cluster.
 
+`--status {START_REQUESTED,STOP_REQUESTED,ENABLED,DISABLED}`
+
+Specifies the status applied to the cluster compute fleet. The statuses `START_REQUESTED` and
+`STOP_REQUESTED` correspond to the Slurm scheduler while the statuses `ENABLED` and
+`DISABLED` correspond to the AWS Batch scheduler.
+
 `--debug`
 
 Enables debug logging.
-
-`--next-token `NEXT_TOKEN``
-
-The token for the next set of results.
 
 `--query `QUERY``
 
@@ -48,17 +44,8 @@ environment variable, the `region` setting in the `[default]` section of the
 **Example using AWS ParallelCluster version 3.1.4:**
 
 ````
-`$` `pcluster get-cluster-stack-events \
- -n `cluster-v3` \
- -r `us-east-1` \
- --query `"events[0]"```{
- "eventId": "1234abcd-56ef-78gh-90ij-abcd1234efgh",
- "physicalResourceId": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
- "resourceStatus": "CREATE_COMPLETE",
- "stackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
- "stackName": "cluster-v3",
- "logicalResourceId": "cluster-v3",
- "resourceType": "AWS::CloudFormation::Stack",
- "timestamp": "2022-07-12T18:29:12.140Z"
+`$` `pcluster update-compute-fleet -n `cluster-v3` --status `STOP_REQUESTED```{
+ "status": "STOP_REQUESTED",
+ "lastStatusUpdatedTime": "2022-07-12T20:19:47.653Z"
 }`
 ````

@@ -1,27 +1,45 @@
-# `awsbkill`
+# `awsbout`
 
-Cancels or terminates jobs submitted in the cluster.
+Shows the output of a given job.
 
 ```
-awsbkill [-h] [-c `CLUSTER`] [-r `REASON`] `job_ids` [`job_ids` ... ]
+awsbout [-h] [-c `CLUSTER`] [-hd `HEAD`] [-t `TAIL`] [-s] [-sp `STREAM_PERIOD`] `job_id`
 ```
 
 ## Positional Arguments
 
-`job_ids`
+`job_id`
 
-Specifies the space-separated list of job IDs to cancel or terminate.
+Specifies the job ID.
 
 ## Named Arguments
 
 `-c `CLUSTER`, --cluster
  `CLUSTER``
 
-Indicates the name of the cluster to use.
+Indicates the cluster to use.
 
-`-r `REASON`, --reason
- `REASON``
+`-hd `HEAD`, --head
+ `HEAD``
 
-Indicates the message to attach to a job, explaining the reason for canceling it.
+Gets the first `HEAD` lines of the job output.
 
-Default: “Terminated by the user”
+`-t `TAIL`, --tail
+ `TAIL``
+
+Gets the last <tail> lines of the job output.
+
+`-s, --stream`
+
+Gets the job output, and then waits for additional output to be produced.
+This argument can be used together with –tail to start from the latest <tail>
+lines of the job output.
+
+Default: False
+
+`-sp `STREAM_PERIOD`, --stream-period
+ `STREAM_PERIOD``
+
+Sets the streaming period.
+
+Default: 5
