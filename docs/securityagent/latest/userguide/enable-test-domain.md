@@ -20,7 +20,7 @@ You do not need to validate ancillary domains that your application may use. You
      - The format for placing the tokens is:
 
      ```
-      {
+     {
        "tokens": ["<insert-token>"]
      }
      ```

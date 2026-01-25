@@ -44,7 +44,7 @@ Use this option to retrieve credentials securely from AWS Secrets Manager with e
 Format your secret with `username` and `password` fields:
 
 ```
- {
+{
   "username": "test-user@example.com",
   "password": "secure-password-here"
 }
@@ -59,7 +59,7 @@ Use this option for complex authentication systems, dynamic credential generatio
 Your Lambda function must return credentials in this format:
 
 ```
- {
+{
   "username": "generated-user@example.com",
   "password": "dynamic-password"
 }
