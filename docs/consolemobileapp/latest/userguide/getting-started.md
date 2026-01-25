@@ -35,7 +35,7 @@ To use AWS Billing and Cost Management in the Console Mobile Application, you ne
 The following example shows a JSON policy that allows the user to use the AWS Cost Explorer API:
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
