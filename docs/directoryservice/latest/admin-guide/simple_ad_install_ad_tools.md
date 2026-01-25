@@ -49,7 +49,7 @@ or ``DNS-Name`\administrator`. For example, `corp\administrator` would be the us
     Tools**, and **AD DS and AD LDS Tools**. With **AD DS and AD LDS Tools** selected, **Active Directory module for PowerShell**, **AD DS Tools**,
     and **AD LDS Snap-ins and Command-Line Tools** are selected. Scroll down and select **DNS Server Tools**, and then choose **Next**.
 
-![Installing Microsoft AD Tools, the Add Roles and Features Wizard Features Tree with tools selected.](/images/directoryservice/latest/admin-guide/images/ms-install-ad-tools.png) 12. Review the information and choose **Install**. When the
+![Installing Microsoft AD Tools, the Add Roles and Features Wizard Features Tree with tools selected.](images/ms-install-ad-tools.png) 12. Review the information and choose **Install**. When the
 feature installation is finished, the Active Directory Domain Services and
 Active Directory Lightweight Directory Services Tools are available from the Start
 menu in the **Administrative Tools** folder.

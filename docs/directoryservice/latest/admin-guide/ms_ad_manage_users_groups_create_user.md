@@ -25,7 +25,7 @@ open the Active Directory Users and Computers tool box directly.
    OU under your directory's NetBIOS name OU where you want to store your user (for example, `corp\Users`). For more information about the OU structure used by directories in AWS, see [What gets created with your
    AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
-![Active Directory Users and Computers tool showing example OU structure.](images/create-security-groups-OU.png) 4. On the **Action** menu, choose **New**, and then
+![Active Directory Users and Computers tool showing example OU structure.](/images/directoryservice/latest/admin-guide/images/create-security-groups-OU.png) 4. On the **Action** menu, choose **New**, and then
 choose **User** to open the new user wizard. 5. On the first page of the wizard, enter the values for the following fields, and then
 choose **Next**.
 

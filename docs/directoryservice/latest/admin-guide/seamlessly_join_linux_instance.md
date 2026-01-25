@@ -199,7 +199,7 @@ exactly as it is but replace `d-xxxxxxxxxx` with your
 directory ID. Make sure that there are no leading or ending spaces. Otherwise the
 domain join will fail.
 
-![In the AWS Secrets Manager console on the configure secret page. The secret name is entered and highlighted.](/images/directoryservice/latest/admin-guide/images/secrets_manager_2.png) 5. Leave everything else set to defaults, and then choose
+![In the AWS Secrets Manager console on the configure secret page. The secret name is entered and highlighted.](images/secrets_manager_2.png) 5. Leave everything else set to defaults, and then choose
 **Next**. 6. Under **Configure automatic rotation**, choose **Disable
 automatic rotation**, and then choose **Next**.
 
