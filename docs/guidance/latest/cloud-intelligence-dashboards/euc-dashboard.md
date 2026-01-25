@@ -98,13 +98,13 @@ Alternative method to install dashboards is the [cid-cmd](https://github.com/aws
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
- pip3 install --upgrade cid-cmd
+pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the dashboard:
 
 ```
- cid-cmd deploy --dashboard-id euc-dashboard
+cid-cmd deploy --dashboard-id euc-dashboard
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") or `cid-cmd --help`. 5. Select the EUC Dashboard and hit enter 6. Follow any instructions in the command line tool 7. EUC Dashboard will deploy with a link
@@ -119,7 +119,7 @@ In the EUC Dashboard, to view the WorkSpaces Cloudwatch metrics in the **WorkSpa
 - Run the following query to update **euc_metrics_view** view in Amazon Athena, **replacing the cur table name 'Line 89' based on version of cur running. e.g. "cid_data_export"."cur2" cur**
 
 ```
- CREATE OR REPLACE VIEW "euc_metrics_view" AS
+CREATE OR REPLACE VIEW "euc_metrics_view" AS
 WITH
   workspace_metrics AS (
    SELECT
@@ -213,7 +213,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 Please note that dashboards are not updated with update of CloudFormation Stack. When new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
 ```
- cid-cmd update --dashboard-id euc-dashboard
+cid-cmd update --dashboard-id euc-dashboard
 ```
 
 ## Authors

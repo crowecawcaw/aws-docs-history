@@ -154,7 +154,7 @@ You can also use following command in CloudShell to create this case via
 command line:
 
 ```
- aws support create-case \
+aws support create-case \
     --subject "Backfill Data" \
     --service-code "billing" \
     --severity-code "normal" \
@@ -184,7 +184,7 @@ Typically when deploying with CloudFormation the stack create a role **CidQuick 
 1. Open CloudShell in Data Collection Account and launch following script (can be just pasted to CloudShell):
 
 ```
- export qs_role=$(aws cloudformation describe-stacks --stack-name Cloud-Intelligence-Dashboards --query "Stacks[].Parameters[?ParameterKey=='Quick SightDataSourceRoleName'].ParameterValue" --output text)
+export qs_role=$(aws cloudformation describe-stacks --stack-name Cloud-Intelligence-Dashboards --query "Stacks[].Parameters[?ParameterKey=='Quick SightDataSourceRoleName'].ParameterValue" --output text)
 export policy_arn=$(aws cloudformation list-exports --query "Exports[?Name=='cid-DataExports-ReadAccessPolicyARN'].Value" --output text)
 
 if [ "$qs_role" -eq "CidQuick SightDataSourceRole" ]; then
@@ -211,7 +211,7 @@ Option1: use command line to attach access policy to the Quick Sight role
    (can be just pasted to CloudShell)
 
 ```
- # Check if policy_arn is empty or only whitespace
+# Check if policy_arn is empty or only whitespace
 export policy_arn=$(aws cloudformation list-exports --query "Exports[?Name=='cid-DataExports-ReadAccessPolicyARN'].Value" --output text)
 
 # Check if policy_arn is empty or only whitespace
@@ -233,7 +233,7 @@ Option2: Attach Policy to Role manually
 5. Add a following policy allowing read a bucket and database:
 
 ```
- [
+[
 	{
 		"Sid": "AllowGlue",
 		"Effect": "Allow",

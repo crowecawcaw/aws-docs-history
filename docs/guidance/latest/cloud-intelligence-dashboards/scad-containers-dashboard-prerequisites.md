@@ -92,7 +92,7 @@ Run the following Athena queryin against the CUR 2.0 table:
 EKS cost allocation tags columns (relevant only if you’re using EKS):
 
 ```
- SELECT DISTINCT "key"
+SELECT DISTINCT "key"
 FROM "<table_name>"
 CROSS JOIN UNNEST(MAP_KEYS("resource_tags")) AS "t"("key")
 WHERE "key" LIKE 'aws_eks%'
@@ -101,7 +101,7 @@ WHERE "key" LIKE 'aws_eks%'
 Expected result:
 
 ```
- +---+-----------------------+
++---+-----------------------+
 | # |          key          |
 +---+-----------------------+
 | 1 | aws_eks_node          |
@@ -116,7 +116,7 @@ Expected result:
 ECS cost allocation tags columns (relevant only if you’re using ECS):
 
 ```
- SELECT DISTINCT "key"
+SELECT DISTINCT "key"
 FROM "<table_name>"
 CROSS JOIN UNNEST(MAP_KEYS("resource_tags")) AS "t"("key")
 WHERE "key" LIKE 'aws_ecs%'
@@ -125,7 +125,7 @@ WHERE "key" LIKE 'aws_ecs%'
 Expected result:
 
 ```
- +---+----------------------+
++---+----------------------+
 | # |         key          |
 +---+----------------------+
 | 1 | aws_ecs_cluster_name |
@@ -136,7 +136,7 @@ Expected result:
 AWS Batch cost allocation tags columns (relevant only if you’re using AWS Batch on ECS):
 
 ```
- SELECT DISTINCT "key"
+SELECT DISTINCT "key"
 FROM "<table_name>"
 CROSS JOIN UNNEST(MAP_KEYS("resource_tags")) AS "t"("key")
 WHERE "key" LIKE 'aws_batch%'
@@ -145,7 +145,7 @@ WHERE "key" LIKE 'aws_batch%'
 Expected result:
 
 ```
- +---+-------------------------------+
++---+-------------------------------+
 | # |              key              |
 +---+-------------------------------+
 | 1 | aws_batch_job_definition      |

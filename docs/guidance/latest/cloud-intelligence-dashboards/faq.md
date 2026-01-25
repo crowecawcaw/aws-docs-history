@@ -473,7 +473,7 @@ Set up CID in the Organization and use Athena command
 source account to export a selection of data into parquet format. Please note, Legacy CUR is partitioned by "partitioned_by=ARRAY['year','month']" vs CUR 2.0 by partitioned_by=ARRAY['billing\_period']
 
 ```
- UNLOAD (
+UNLOAD (
           SELECT
          , "identity_line_item_id"
          , "identity_time_interval"
@@ -507,7 +507,7 @@ source account to export a selection of data into parquet format. Please note, L
 You can also use Athena command [CTAS](../../../athena/latest/ug/ctas.md "../../../athena/latest/ug/ctas.md") in the source account to export a selection of data into parquet format.
 
 ```
- CREATE TABLE (database).temp_table
+CREATE TABLE (database).temp_table
 WITH (
       format = 'Parquet',
       parquet_compression = 'SNAPPY',
@@ -519,7 +519,7 @@ WHERE line_item_usage_account_id IN( '(account ID)', '(account ID)', '(account I
 ```
 
 ```
- CREATE TABLE (database).temp_table
+CREATE TABLE (database).temp_table
 WITH (
       format = 'Parquet',
       parquet_compression = 'SNAPPY',
@@ -568,7 +568,7 @@ Assumptions:
 1. Rename file export
 
 ```
- cd /tmp
+cd /tmp
 mkdir cur_mig
 cd cur_mig
 
@@ -585,7 +585,7 @@ mv cost_report_001 cid
 1. Copy to new bucket
 
 ```
- With AWS Credentials with sufficient permissions to copy cid-111112222233-shared data
+With AWS Credentials with sufficient permissions to copy cid-111112222233-shared data
 aws s3 cp --recursive ./ s3://NewOrgBucket/cur/FromOrgAccountId/cid/cid
 
 # Resolved

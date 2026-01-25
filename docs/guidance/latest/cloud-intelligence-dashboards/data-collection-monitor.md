@@ -45,14 +45,14 @@ tool.
    and install the CID CLI tool:
 
 ```
-  pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the
    dashboard:
 
 ```
-  cid-cmd deploy --dashboard-id dc-monitor
+ cid-cmd deploy --dashboard-id dc-monitor
 ```
 
 Please follow the instructions from the deployment wizard. More info
@@ -67,7 +67,7 @@ CloudFormation Stack. When new version of the dashboard template is
 released, you can update your dashboard by running the following command in your command-line interface:
 
 ```
-  cid-cmd update --dashboard-id dc-monitor
+ cid-cmd update --dashboard-id dc-monitor
 ```
 
 ## Authors

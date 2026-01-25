@@ -65,7 +65,7 @@ of this scope and are "NOT AMI". Data must be collected and the
 crawler finished running before this query can be run.
 
 ```
-   SELECT *,
+  SELECT *,
   CASE
   WHEN snap_ami_id = imageid THEN
   'AMI Avalible'
@@ -222,7 +222,7 @@ WITH data as (
 If you wish to connect to your Cost and Usage report for snapshot costs please use the below:
 
 ```
-       WITH cur_mapping AS (
+      WITH cur_mapping AS (
         SELECT DISTINCT
         split_part(line_item_resource_id,'/',2) AS "snapshot_id",
         line_item_usage_account_id AS "linked_account_id",

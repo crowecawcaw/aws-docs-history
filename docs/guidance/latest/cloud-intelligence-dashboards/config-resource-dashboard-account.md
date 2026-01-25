@@ -101,7 +101,7 @@ At this step you will specify the tags to be used to display resources in the [R
 2. Install the latest pip package of the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") tool:
 
 ```
- pip3 install --upgrade cid-cmd
+pip3 install --upgrade cid-cmd
 ```
 
 1. Deploy the dashboard by running the following command (replace the parameters accordingly):
@@ -113,7 +113,7 @@ At this step you will specify the tags to be used to display resources in the [R
    - Leave all other parameters at their default value.
 
    ```
-    cid-cmd deploy \
+   cid-cmd deploy \
       --resources 'https://raw.githubusercontent.com/aws-samples/config-resource-compliance-dashboard/refs/heads/main/dashboard_template/cid-crcd.yaml' \
       --dashboard-id 'cid-crcd' \
       --athena-database 'cid_crcd_database' \

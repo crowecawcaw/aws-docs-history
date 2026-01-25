@@ -34,7 +34,7 @@ Follow these steps to have AWS Config generate a configuration snapshot and visu
 3. Run the following command:
 
 ```
- aws configservice describe-delivery-channels
+aws configservice describe-delivery-channels
 ```
 
 1. This command will provide information about your current delivery channel configuration, including the S3 bucket where configuration updates are sent and the configuration snapshot delivery properties. The output of the CLI command should look like this:
@@ -58,13 +58,13 @@ Follow these steps to have AWS Config generate a configuration snapshot and visu
 3. Run this command to generate an AWS Config snapshot (replace `"YOUR-DELIVERY-CHANNEL-NAME"` with the name reported above):
 
 ```
- aws configservice deliver-config-snapshot --delivery-channel-name "YOUR-DELIVERY-CHANNEL-NAME"
+aws configservice deliver-config-snapshot --delivery-channel-name "YOUR-DELIVERY-CHANNEL-NAME"
 ```
 
 The snapshot file will be delivered to the Log Archive bucket, optionally replicated to the Dashboard bucket, and indexed by the Lambda Partitioner function. 4. Optionally repeat these steps on other AWS accounts/Regions. We recommend doing this only for test purposes, or for rapidly checking the AWS Config data of a few accounts of your interest. AWS Config will deliver a snapshot file for all your resources within 24 hours. 5. Open Athena and query the table (or any view) to see if the data has been indexed. Mind that some dashboards elements will still need time to visualize your data.
 
 ```
- SELECT * FROM "cid_crcd_database"."cid_crcd_config" limit 10;
+SELECT * FROM "cid_crcd_database"."cid_crcd_config" limit 10;
 ```
 
 1. Log onto Quick Sight and [refresh](../../../quicksight/latest/user/refreshing-imported-data.md "../../../quicksight/latest/user/refreshing-imported-data.md") your datasets before opening the dashboard.

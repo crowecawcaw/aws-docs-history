@@ -22,7 +22,7 @@ please use the following steps.
 2. Install cid-cmd tool. Run the following command and make sure you hit enter :
 
 ```
- pip3 install --upgrade cid-cmd
+pip3 install --upgrade cid-cmd
 ```
 
 1. Start update. Run the following command and choose the dashboard to
@@ -49,7 +49,7 @@ provide you an interactive prompt when it will detect the difference and
 you can accept the changes or keep existing.
 
 ```
- cid-cmd update --force --recursive
+cid-cmd update --force --recursive
 ```
 
 ### Update from CUDOS v4 to v5

@@ -60,26 +60,26 @@ First save the dashboard as an analysis, and then edit the calculated field name
 As an example, here’s an existing line:
 
 ```
- ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label created-by", {cat_created_by},
+${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label created-by", {cat_created_by},
 ```
 
 Add your label cost allocation tag below it. Here’s an example of how the new line will look like, with the `business_unit` label:
 
 ```
- ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit", {cat_business_unit},
+${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit", {cat_business_unit},
 ```
 
 Save the calculated field. Now, edit the `aggregation_include_exclude_workloads_explorer` calculated field.
 Find a line of an existing cost allocation tag, and add yours below it. As an example, here’s an existing line:
 
 ```
- ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label created-by" AND {cat_created_by} = "No K8s label/AWS tag key: created-by", "Exclude",
+${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label created-by" AND {cat_created_by} = "No K8s label/AWS tag key: created-by", "Exclude",
 ```
 
 Add your label cost allocation tag below it. Here’s an example of how the new line will look like, with the `business_unit` label:
 
 ```
- ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit" AND {cat_business_unit} = "No K8s label/AWS tag key: business_unit", "Exclude",
+${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit" AND {cat_business_unit} = "No K8s label/AWS tag key: business_unit", "Exclude",
 ```
 
 Save the calculated field. Now, we’ll add the label to the "Group By" control. Edit the "Group By" control, and add the text "Amazon EKS: K8s Label app.kubernetes.io/business_unit" anywhere in the control options (below one of the existing options).
@@ -112,7 +112,7 @@ First, let’s see how the pods and AWS resources are consistently labeled and t
 Here’s an omitted output of the `kubectl describe pod` command for the application pod in question:
 
 ```
- kubectl describe pod/kubecost-eks-cost-analyzer-xxx-xxx -n kubecost-eks
+kubectl describe pod/kubecost-eks-cost-analyzer-xxx-xxx -n kubecost-eks
 Name:             kubecost-eks-cost-analyzer-xxx-xxx
 Namespace:        kubecost-eks
 Priority:         0

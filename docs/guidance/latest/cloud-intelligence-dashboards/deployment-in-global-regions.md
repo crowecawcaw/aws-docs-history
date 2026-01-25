@@ -139,7 +139,7 @@ You can also use following command in AWS CloudShell to create this case
 via command line (requires AWS Enterprise or OnRamp Support):
 
 ```
- aws support create-case \
+aws support create-case \
     --subject "Backfill Data" \
     --service-code "billing" \
     --severity-code "normal" \
@@ -235,13 +235,13 @@ Alternative method to install dashboards is the
 3. Install cid-cmd tool. Run the following command and make sure you hit enter :
 
 ```
-  pip3 install --upgrade cid-cmd
+ pip3 install --upgrade cid-cmd
 ```
 
 4. Deploy CUDOS Dashboard:
 
 ```
-  cid-cmd deploy --dashboard-id cudos-v5
+ cid-cmd deploy --dashboard-id cudos-v5
 ```
 
 Please follow the instructions from the deployment wizard.
@@ -250,7 +250,7 @@ More info about command line options are in the
 or `cid-cmd --help`. 5. Repeat deployment command for Cost Intelligence Dashboard and KPI:
 
 ```
-  cid-cmd deploy
+ cid-cmd deploy
 ```
 
 Please note that Advanced Dashboard will require Advanced [Data Collection](data-collection.md "data-collection.md")

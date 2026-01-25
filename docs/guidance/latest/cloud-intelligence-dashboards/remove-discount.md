@@ -42,7 +42,7 @@ Navigate in the AWS Console to the **Athena** service
 1. Modify the "Where" condition and include the two new "And" lines. In this example we also remove Refund, Credit and Tax along with Discounts
 
 ```
- WHERE (("bill_billing_period_start_date" >= ("date_trunc"('month', current_timestamp) - INTERVAL  '7' MONTH)) AND (CAST("concat"("year", '-', "month", '-01') AS date) >= ("date_trunc"('month', current_date) - INTERVAL  '7' MONTH)))
+WHERE (("bill_billing_period_start_date" >= ("date_trunc"('month', current_timestamp) - INTERVAL  '7' MONTH)) AND (CAST("concat"("year", '-', "month", '-01') AS date) >= ("date_trunc"('month', current_date) - INTERVAL  '7' MONTH)))
 AND line_item_line_item_type NOT LIKE '%Discount' -- New Line: remove all kind of discounts
 AND line_item_line_item_type NOT IN ('Refund',  'Credit' , 'Tax')   -- New Line: (optional) If Refund, Tax, Credit etc., also need to be removed
 ```

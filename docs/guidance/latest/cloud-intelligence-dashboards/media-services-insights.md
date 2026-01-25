@@ -67,13 +67,13 @@ Alternative method to install dashboards is the [cid-cmd](https://github.com/aws
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
- pip3 install --upgrade cid-cmd
+pip3 install --upgrade cid-cmd
 ```
 
 4. In your command-line interface run the following command to deploy the dashboard:
 
 ```
- cid-cmd deploy --dashboard-id media-services-insights
+cid-cmd deploy --dashboard-id media-services-insights
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the
@@ -88,7 +88,7 @@ When new version of the dashboard template is released, you can update your dash
 by running the following command in your command-line interface:
 
 ```
- cid-cmd update --dashboard-id media-services-insights
+cid-cmd update --dashboard-id media-services-insights
 ```
 
 ## Dashboard Customization

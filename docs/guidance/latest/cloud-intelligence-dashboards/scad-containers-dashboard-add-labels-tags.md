@@ -28,25 +28,25 @@ If you have other labels or tags you’d like to use, please continue reading th
   For example, find the following line:
 
 ```
- , COALESCE("resource_tags"['user_created_by'], 'No K8s label/AWS tag key: created-by') "cat_created_by"
+, COALESCE("resource_tags"['user_created_by'], 'No K8s label/AWS tag key: created-by') "cat_created_by"
 ```
 
 Add your cost allocation tag below it. Here’s an example, assuming your cost allocation tag is `business_unit`:
 
 ```
- , COALESCE("resource_tags"['user_business_unit'], 'No K8s label/AWS tag key: business_unit') "cat_business_unit"
+, COALESCE("resource_tags"['user_business_unit'], 'No K8s label/AWS tag key: business_unit') "cat_business_unit"
 ```
 
 - Bump the number in the `GROUP BY` clause of the left table. For example, if the `GROUP BY` looks like this:
 
 ```
- GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47
 ```
 
 You should add the number 48 at the end, like this:
 
 ```
- GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48
 ```
 
 - Repeat the same process in the `UNION ALL` section - find the last existing cost allocation tag line, add your cost allocation tag below it, and bump the `GROUP BY` numbers shown as above

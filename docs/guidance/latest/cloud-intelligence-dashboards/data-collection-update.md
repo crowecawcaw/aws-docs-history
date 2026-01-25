@@ -111,7 +111,7 @@ collection stack. Default in legacy versions of this lab is
 You can run following commands from your AWS CloudShell
 
 ```
- curl https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-collection/source/s3_files_migration.py -o s3_files_migration.py
+curl https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-collection/source/s3_files_migration.py -o s3_files_migration.py
 python3 s3_files_migration.py
 ```
 

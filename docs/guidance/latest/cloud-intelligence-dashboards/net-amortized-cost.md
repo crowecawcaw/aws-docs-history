@@ -37,7 +37,7 @@ Navigate in the AWS Console to the **Athena** service
    snippet
 
 ```
-     , SUM(CASE
+    , SUM(CASE
 WHEN "line_item_line_item_type" = 'SavingsPlanRecurringFee' THEN (("savings_plan_total_commitment_to_date" - "savings_plan_used_commitment") * COALESCE((COALESCE("savings_plan_net_amortized_upfront_commitment_for_billing_period" , "savings_plan_amortized_upfront_commitment_for_billing_period") / NULLIF("savings_plan_amortized_upfront_commitment_for_billing_period" , 0)), 1))
 WHEN "line_item_line_item_type" = 'RIFee' THEN COALESCE("reservation_net_unused_amortized_upfront_fee_for_billing_period" + "reservation_net_unused_recurring_fee", "reservation_unused_amortized_upfront_fee_for_billing_period" + "reservation_unused_recurring_fee")
 WHEN "line_item_line_item_type" = 'SavingsPlanCoveredUsage' THEN COALESCE("savings_plan_net_savings_plan_effective_cost", "savings_plan_savings_plan_effective_cost")
@@ -58,7 +58,7 @@ ELSE 0 END) "net_amortized_cost"
    snippet
 
 ```
- , "sum"("line_item_net_unblended_cost") "net_amortized_cost"
+, "sum"("line_item_net_unblended_cost") "net_amortized_cost"
 , "sum"("reservation_net_effective_cost") "reservation_net_effective_cost"
 , "sum"("savings_plan_net_savings_plan_effective_cost") "savings_plan_net_effective_cost"
 ```
@@ -71,7 +71,7 @@ ELSE 0 END) "net_amortized_cost"
    snippet
 
 ```
- , "sum"("line_item_net_unblended_cost") "net_amortized_cost"
+, "sum"("line_item_net_unblended_cost") "net_amortized_cost"
 , "sum"("reservation_net_effective_cost") "reservation_net_effective_cost"
 , "sum"("savings_plan_net_savings_plan_effective_cost") "savings_plan_net_effective_cost"
 ```
@@ -161,7 +161,7 @@ visualizations.
    field as shown below and click on save
 
 ```
- ifelse(
+ifelse(
 ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'amortized cost'), {savings_plan_effective_cost},
 ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'net amortized cost' ), {savings_plan_net_effective_cost},
 ({charge_type} = 'DiscountedUsage' and ${CostType} = 'amortized cost'), {reservation_effective_cost},
@@ -176,7 +176,7 @@ visualizations.
 **amortized cost**. Make changes as shown below and save
 
 ```
- ifelse(
+ifelse(
 ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'amortized cost'), {savings_plan_effective_cost},
 ({charge_type} = 'SavingsPlanCoveredUsage' and ${CostType} = 'net amortized cost' ), {savings_plan_net_effective_cost},
 ({charge_type} = 'DiscountedUsage' and ${CostType} = 'amortized cost'), {reservation_effective_cost},
