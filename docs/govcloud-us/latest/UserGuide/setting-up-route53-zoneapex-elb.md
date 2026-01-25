@@ -1,11 +1,11 @@
 # Setting Up Amazon Route 53 Zone Apex Support with an AWS GovCloud (US)Elastic Load Balancing Load Balancer
 
-Additionally, Route 53 supports the alias resource record set, which lets you map your zone apex (e.g. example.com) DNS name to your load balancer DNS name. IP addresses associated with ELB can change at any time due to scaling or software updates. Route 53 responds to each request for an alias resource record set with one IP address for the load balancer. If a load balancer has more than one IP address, ELB selects one of the IP addresses in a round-robin fashion and returns it to Route 53; Route 53 then responds to the request with that IP address.
+Additionally, Route 53 supports the alias resource record set, which lets you map your zone apex (e.g. example.com) DNS name to your load balancer DNS name. IP addresses associated with Elastic Load Balancing can change at any time due to scaling or software updates. Route 53 responds to each request for an alias resource record set with one IP address for the load balancer. If a load balancer has more than one IP address, Elastic Load Balancing selects one of the IP addresses in a round-robin fashion and returns it to Route 53; Route 53 then responds to the request with that IP address.
 
 Alias resource record sets are virtual records that work like CNAME records. But they differ from CNAME records in that they are not visible to resolvers. Resolvers only see the A record and the resulting IP address of the target record. As such, unlike CNAME records, alias resource record sets are available to configure a zone apex (also known as a root domain or naked domain) in a dynamic environment.
 
 This section provides a solution for Route 53 zone apex alias support by setting up an Amazon CloudFront distribution between Route 53 and an AWS GovCloud (US)
-ELB load balancer. The solution demonstrates how to configure Route 53 with a zone apex alias resource record set that maps to a CloudFront web distribution DNS name. The CloudFront distribution in turn points to the AWS GovCloud (US) load balancer DNS name as a custom origin.
+Elastic Load Balancing load balancer. The solution demonstrates how to configure Route 53 with a zone apex alias resource record set that maps to a CloudFront web distribution DNS name. The CloudFront distribution in turn points to the AWS GovCloud (US) load balancer DNS name as a custom origin.
 
 An additional benefit of this approach is that CloudFront can help improve the performance of your website, including both static and dynamic content. For more information about CloudFront, see the [CloudFront documentation](https://aws.amazon.com/documentation/cloudfront/ "https://aws.amazon.com/documentation/cloudfront/").
 
@@ -25,7 +25,7 @@ This solution requires creating Route 53 public hosted zone in commercial AWS be
 
 1. Create two web application Amazon EC2 servers via the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com/ec2/v2/home "https://console.amazonaws-us-gov.com/ec2/v2/home") and confirm that they are in a running state. Configuring the web servers on the Amazon EC2 instances is outside of the scope of this section.
 
-![EC2 dashboard showing two running web server instances in us-gov-west-1b with status checks passed.](images/Step2-Image1.png) 2. Create an ELB load balancer and add the two instances created in the previous step to a new target group. Confirm that the instances are healthy and registered. Note the DNS name of the newly created load balancer.
+![EC2 dashboard showing two running web server instances in us-gov-west-1b with status checks passed.](images/Step2-Image1.png) 2. Create an Elastic Load Balancing load balancer and add the two instances created in the previous step to a new target group. Confirm that the instances are healthy and registered. Note the DNS name of the newly created load balancer.
 
 ![Load balancer dashboard showing one active load balancer with its DNS name and availability zones.](images/Step2-Image2.png)
 
@@ -71,6 +71,6 @@ For information about how CloudFront processes and forwards requests to a custom
 
 ![Web browser displaying "Hello World / GovCloud Web Server 2" with backend instance IP.](images/r53_Step5.png)
 
-Congratulations! You have successfully pointed your zone apex at your ELB load balancer in the AWS GovCloud (US) Regions.
+Congratulations! You have successfully pointed your zone apex at your Elastic Load Balancing load balancer in the AWS GovCloud (US) Regions.
 
 For more information about Route 53, see the [Route 53 documentation](https://aws.amazon.com/documentation/route53/ "https://aws.amazon.com/documentation/route53/").

@@ -100,7 +100,7 @@ The following table lists the Trusted Advisor checks for operational excellence 
 | AWS Systems Manager State Manager Association in Non-compliant Status             | Business and Enterprise |
 | Application Load Balancers and Classic Load Balancers Without Access Logs Enabled | Business and Enterprise |
 | CloudTrail trails is not configured with Amazon CloudWatch Logs                   | Business and Enterprise |
-| ELB Deletion Protection Not Enabled for Load Balancers                            | Business and Enterprise |
+| Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers         | Business and Enterprise |
 | RDS Cluster Deletion Protection Check                                             | Business and Enterprise |
 | RDS DB Instance Automatic Minor Version Upgrade Check                             | Business and Enterprise |
 

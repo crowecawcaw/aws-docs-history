@@ -27,7 +27,7 @@ Other differences:
 - SSM Agent for AWS GovCloud (US) can be downloaded from the following locations:
 
 ```
- https://amazon-ssm-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe
+https://amazon-ssm-us-gov-east-1.s3.us-gov-east-1.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe
 ```
 
 ```

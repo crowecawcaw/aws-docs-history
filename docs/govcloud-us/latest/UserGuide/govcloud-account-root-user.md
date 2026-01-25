@@ -160,7 +160,7 @@ In this step, you create a support case to the Accounts and Billing support team
 If you are having issues signing in to your standard AWS account as the root user, see [Troubleshooting AWS sign-in or account issues](../../../signin/latest/userguide/troubleshooting-sign-in-issues.md "../../../signin/latest/userguide/troubleshooting-sign-in-issues.md") in the _AWS Sign-In User Guide_. 2. Navigate to [Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=aws-govcloud-us-request-root-credentials "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=aws-govcloud-us-request-root-credentials") by choosing the **?** icon in the navigation bar and then choose **Support Center** from the dropdown. 3. Choose **Create case** from the Open support cases section. 4. Choose **Account and billing**. 5. Use the dropdown box to choose **Account**. For **Category** choose **AWS GovCloud (US) – Request Root Credentials**, and then choose **Next step: Additional information**. 6. For **Subject** enter **AWS GovCloud (US) – Request Root Credentials**. 7. In the **Description** box, copy and paste the following template:
 
 ```
-     Company Name: [Company Name From Step 1]
+    Company Name: [Company Name From Step 1]
     Account Email: [Account Email  From Step 1]
     Address: [Address  From Step 1]
     {govcloud-us} Account ID: [{govcloud-us} Account ID From Step 1]

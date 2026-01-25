@@ -14,7 +14,7 @@ The following differences exist between AWS Signer in AWS GovCloud (US) and stan
   2.  In your trust policy, you must set `signingAuthority` to `aws-us-gov-signer-ts`. For example:
 
   ```
-   {
+  {
      "version":"1.0",
      "trustPolicies":[
         {

@@ -31,7 +31,7 @@ In contrast, the **Event history** in the CloudTrail console and the **aws cloud
 If the bucket already has one or more policies attached, add the statements for CloudTrail access to that policy or policies. We recommend that you evaluate the resulting set of permissions to be sure they are appropriate for the users who will be accessing the bucket.
 
 ```
- {
+{
     "Version":"2012-10-17",
     "Statement": [
         {
