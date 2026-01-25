@@ -11,7 +11,7 @@ servers data replication status. You can look up an individual source server
 **Source servers** table at the bottom of the
 page.
 
-![Pie chart showing data replication status: 66.7% healthy, 33.3% initial sync.](images/app-8.png)
+![Pie chart showing data replication status: 66.7% healthy, 33.3% initial sync.](/images/mgn/latest/ug/images/app-8.png)
 Source server **Data replication status** can
 have one of the following values:
 
