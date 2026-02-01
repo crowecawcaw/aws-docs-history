@@ -374,7 +374,7 @@ If you are planning to use [Local Zones](Local_zones.md "Local_zones.md"), ensur
 
 5. Choose **Save** when you finish.
 
-![Image: Screen for editing an inbound VPC rule](/images/AmazonElastiCache/latest/dg/images/VPC-Rules.png)
+![Image: Screen for editing an inbound VPC rule](images/VPC-Rules.png)
 
 Once you have enabled access, you are now ready to connect to the node, as discussed in the next section.
 
