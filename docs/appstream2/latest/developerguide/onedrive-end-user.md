@@ -69,7 +69,7 @@ OneDrive
      to download, choose the down arrow to the right of the file name,
      and choose **Download**.
 
-   ![File management interface showing PDF file with options to upload, download, and rename.](images/GoogleDrive_FileUploadDownload.png)
+   ![File management interface showing PDF file with options to upload, download, and rename.](/images/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
 
 ###### To remove OneDrive permissions from WorkSpaces Applications
 
