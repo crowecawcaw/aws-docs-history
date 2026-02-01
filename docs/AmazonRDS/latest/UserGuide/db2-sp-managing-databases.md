@@ -41,6 +41,8 @@ These stored procedures are used in a variety of tasks. This list isn't exhausti
 - [rdsadmin.set_archive_log_retention](#db2-sp-set-archive-log-retention "#db2-sp-set-archive-log-retention")
 - [rdsadmin.show_archive_log_retention](#db2-sp-show-archive-log-retention "#db2-sp-show-archive-log-retention")
 - [rdsadmin.list_archive_log_information](#db2-sp-list-archive-log-information "#db2-sp-list-archive-log-information")
+- [rdsadmin.enable_archive_log_copy](#db2-sp-enable_archive_log_copy "#db2-sp-enable_archive_log_copy")
+- [rdsadmin.disable_archive_log_copy](#db2-sp-disable_archive_log_copy "#db2-sp-disable_archive_log_copy")
 - [rdsadmin.fgac_command](#db2-sp-fgac-command "#db2-sp-fgac-command")
 - [rdsadmin.db2support_command](#db2-sp-db2support-command "#db2-sp-db2support-command")
 
@@ -1692,6 +1694,84 @@ The following example returns archive log information for a database called
 
 ```
 db2 "call rdsadmin.list_archive_log_information(
+    ?,
+    'TESTDB')"
+```
+
+## rdsadmin.enable_archive_log_copy
+
+Enables RDS Db2 database archive log copy to Amazon S3.
+
+### Syntax
+
+```
+db2 "call rdsadmin.enable_archive_log_copy(
+    ?,
+    '`database_name`')"
+```
+
+### Parameters
+
+The following output parameter is required:
+
+?
+
+A parameter marker that outputs an error message. This parameter only
+accepts `?`.
+
+The following input parameter is required:
+
+`database_name`
+
+The name of the database for which to enable archive log copy to Amazon S3. The data
+type is `varchar`.
+
+### Examples
+
+The following example enables archive log copy for a database called
+`TESTDB`.
+
+```
+db2 "call rdsadmin.enable_archive_log_copy(
+    ?,
+    'TESTDB')"
+```
+
+## rdsadmin.disable_archive_log_copy
+
+Disables RDS Db2 database archive log copy to Amazon S3.
+
+### Syntax
+
+```
+db2 "call rdsadmin.disable_archive_log_copy(
+    ?,
+    '`database_name`')"
+```
+
+### Parameters
+
+The following output parameter is required:
+
+?
+
+A parameter marker that outputs an error message. This parameter only
+accepts `?`.
+
+The following input parameter is required:
+
+`database_name`
+
+The name of the database for which to disable archive log copy to Amazon S3. The data
+type is `varchar`.
+
+### Examples
+
+The following example disables archive log copy for a database called
+`TESTDB`.
+
+```
+db2 "call rdsadmin.disable_archive_log_copy(
     ?,
     'TESTDB')"
 ```

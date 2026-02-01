@@ -1,24 +1,31 @@
-# Working with storage for Amazon RDS DB instances
+# I/O-intensive storage modifications
 
-To specify how you want your data stored in Amazon RDS, choose a storage type and provide a
-storage size when you create or modify a DB instance. Later, you can increase the amount or
-change the type of storage by modifying the DB instance. For more information about which
-storage type to use for your workload, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage").
+Amazon RDS DB instances use Amazon Elastic Block Store (EBS) volumes for database and log storage. Depending on the amount of storage requested, RDS
+(except for RDS for SQL Server) automatically _stripes_ across multiple Amazon EBS volumes to enhance performance. RDS DB
+instances with SSD storage types are backed by either one or four striped Amazon EBS volumes in a RAID 0 configuration. By design,
+storage modification operations for an RDS DB instance have minimal impact on ongoing database operations.
 
-If your instances run RDS for Oracle or RDS for SQL Server, you can add up to three additional volumes to each
-DB instance. You can choose either gp3 or io2 as the volume type, allowing you to optimize costs
-and performance based on your data access patterns. The maximum storage capacity of a DB instance that uses additional volumes is
-256 TiB.
+In most cases, storage scaling modifications are completely offloaded to the Amazon EBS layer and are transparent to the database.
+This process is typically completed within a few minutes. However, some older RDS storage volumes require a different process
+for modifying the size, Provisioned IOPS, or storage type. This involves making a full copy of the data using a potentially
+I/O-intensive operation.
 
-###### Topics
+Storage modification uses an I/O-intensive operation if any of the following factors apply:
 
-- [Viewing storage volume details for your DB instance](rds-storage-viewing.md "rds-storage-viewing.md")
-- [Increasing DB instance storage capacity](USER_PIOPS.md "USER_PIOPS.md")
-- [Removing additional storage volumes](USER_PIOPS.md "USER_PIOPS.md")
-- [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md")
-- [Upgrading the storage file system for a DB
-  instance](USER_PIOPS.md "USER_PIOPS.md")
-- [Modifying settings for Provisioned IOPS SSD storage](User_PIOPS.md "User_PIOPS.md")
-- [I/O-intensive storage modifications](USER_PIOPS.md "USER_PIOPS.md")
-- [Modifying settings for General Purpose SSD (gp3) storage](USER_PIOPS.md "USER_PIOPS.md")
-- [Using a dedicated log volume (DLV)](USER_PIOPS.md "USER_PIOPS.md")
+- The source storage type is magnetic. Magnetic storage doesn't support elastic volume modification.
+- The RDS DB instance isn't on a one- or four-volume Amazon EBS layout. You can view the number of Amazon EBS volumes in use
+  on your RDS DB instances by using Enhanced Monitoring metrics. For more information, see [Viewing OS metrics in the RDS console](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+- The target size of the modification request increases the allocated storage above 400 GiB for RDS for MariaDB, MySQL, and
+  PostgreSQL instances, and 200 GiB for RDS for Oracle. Storage autoscaling operations have the same effect when they increase
+  the allocated storage size of your DB instance above these thresholds.
+  If your storage modification involves an I/O-intensive operation, it consumes I/O resources and increases the load on your DB
+  instance. Storage modifications with I/O-intensive operations involving General Purpose SSD (gp2) storage can deplete your I/O
+  credit balance, resulting in longer conversion times.
+
+We recommend as a best practice to schedule these storage modification requests outside of peak hours to help reduce the time
+required to complete the storage modification operation. Alternatively, you can create a read replica of the DB instance and
+perform the storage modification on the read replica. Then promote the read replica to be the primary DB instance. For more
+information, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+
+For more information, see [Why is an
+Amazon RDS DB instance stuck in the modifying state when I try to increase the allocated storage?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-stuck-modifying/ "https://aws.amazon.com/premiumsupport/knowledge-center/rds-stuck-modifying/")

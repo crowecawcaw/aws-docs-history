@@ -1,30 +1,78 @@
-# Setting NNE values in the sqlnet.ora
+# Modifying NATIVE_NETWORK_ENCRYPTION
 
-With Oracle native network encryption, you can set network encryption on the server side and client side. The
-client is the computer used to connect to the DB instance. You can specify the following client settings in the
-sqlnet.ora:
+option settings
 
-- `SQLNET.ALLOW_WEAK_CRYPTO`
-- `SQLNET.ALLOW_WEAK_CRYPTO_CLIENTS`
-- `SQLNET.CRYPTO_CHECKSUM_CLIENT`
+After you enable the `NATIVE_NETWORK_ENCRYPTION` option, you can modify its
+settings. Currently, you can modify `NATIVE_NETWORK_ENCRYPTION` option
+settings only with the AWS CLI or RDS API. You can't use the console. The following
+example modifies two settings in the option.
+
+```
+aws rds add-option-to-option-group \
+    --option-group-name my-option-group \
+    --options "OptionName=NATIVE_NETWORK_ENCRYPTION,OptionSettings=[{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256},{Name=SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER,Value=SHA256}]" \
+    --apply-immediately
+```
+
+To learn how to modify option settings using the CLI, see [AWS CLI](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption.CLI "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption.CLI"). For more
+information about each setting, see [NATIVE_NETWORK_ENCRYPTION option
+settings](Oracle.Options.NNE.md "Oracle.Options.NNE.md").
+
+###### Topics
+
+- [Modifying CRYPTO_CHECKSUM\_\* values](#Oracle.Options.NNE.ModifySettings.checksum "#Oracle.Options.NNE.ModifySettings.checksum")
+- [Modifying ALLOW_WEAK_CRYPTO\* settings](#Oracle.Options.NNE.ModifySettings.encryption "#Oracle.Options.NNE.ModifySettings.encryption")
+
+## Modifying CRYPTO_CHECKSUM\_\* values
+
+If you modify **NATIVE_NETWORK_ENCRYPTION** option settings, make
+sure that the following option settings have at least one common cipher:
+
+- `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER`
 - `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`
-- `SQLNET.ENCRYPTION_CLIENT`
-- `SQLNET.ENCRYPTION_TYPES_CLIENT`
-  For information, see [Configuring network data encryption and integrity for Oracle servers and clients](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm") in the Oracle
-  documentation.
 
-Sometimes, the DB instance rejects a connection request from an application. For example, a rejection can occur
-when the encryption algorithms on the client and on the server don't match. To test Oracle native network
-encryption, add the following lines to the sqlnet.ora file on the client:
+The following example shows a scenario in which you modify
+`SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER`. The configuration is valid because the
+`CRYPTO_CHECKSUM_TYPES_CLIENT` and `CRYPTO_CHECKSUM_TYPES_SERVER` both use
+`SHA256`.
 
-```
-DIAG_ADR_ENABLED=off
-TRACE_DIRECTORY_CLIENT=/tmp
-TRACE_FILE_CLIENT=nettrace
-TRACE_LEVEL_CLIENT=16
-```
+| Option setting                        | Values before modification                         | Values after modification |
+| ------------------------------------- | -------------------------------------------------- | ------------------------- |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` | `**SHA256**`, `SHA384`,<br>`SHA512`                | No change                 |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` | `**SHA256**`, `SHA384`,<br>`SHA512`, `SHA1`, `MD5` | `SHA1,MD5,**SHA256**`     |
 
-When a connection is attempted, the preceding lines generate a trace file on the client called
-`/tmp/nettrace*`. The trace file contains information about the connection. For more information
-about connection-related issues when you are using Oracle Native Network Encryption, see [About negotiating
-encryption and integrity](http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12 "http://docs.oracle.com/cd/E11882_01/network.112/e40393/asoconfg.htm#autoId12") in the Oracle Database documentation.
+For another example, assume that you want to modify `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` from
+its default setting to `SHA1,MD5`. In this case, make sure you set
+`SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` to `SHA1` or `MD5`. These
+algorithms aren't included in the default values for `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT`.
+
+## Modifying ALLOW_WEAK_CRYPTO\* settings
+
+To set the `SQLNET.ALLOW_WEAK_CRYPTO*` options from the default value to `FALSE`,
+make sure that the following conditions are met:
+
+- `SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` have
+  one matching secure encryption method. A method is considered secure if it's not `DES`,
+  `3DES`, or `RC4` (all key lengths).
+- `SQLNET.CHECKSUM_TYPES_SERVER` and `SQLNET.CHECKSUM_TYPES_CLIENT` have one
+  matching secure checksumming method. A method is considered secure if it's not
+  `MD5`.
+- The client is patched with the July 2021 PSU. If the client isn't patched, the client loses the
+  connection and receives the `ORA-12269` error.
+
+The following example shows sample NNE settings. Assume that you want to set
+`SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` to FALSE,
+thereby blocking non-secure connections. The checksum option settings meet the prerequisites because they
+both have `SHA256`. However, `SQLNET.ENCRYPTION_TYPES_CLIENT` and
+`SQLNET.ENCRYPTION_TYPES_SERVER` use the `DES`, `3DES`, and
+`RC4` encryption methods, which are non-secure. Therefore, to set the
+`SQLNET.ALLOW_WEAK_CRYPTO*` options to `FALSE`, first set
+`SQLNET.ENCRYPTION_TYPES_SERVER` and `SQLNET.ENCRYPTION_TYPES_CLIENT` to a secure
+encryption method such as `AES256`.
+
+| Option setting                        | Values                        |
+| ------------------------------------- | ----------------------------- |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_CLIENT` | `SHA256`, `SHA384`, `SHA512`  |
+| `SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER` | `SHA1,MD5,SHA256`             |
+| `SQLNET.ENCRYPTION_TYPES_CLIENT`      | `RC4_256`, `3DES168`, `DES40` |
+| `SQLNET.ENCRYPTION_TYPES_SERVER`      | `RC4_256`, `3DES168`, `DES40` |

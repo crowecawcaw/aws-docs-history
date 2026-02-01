@@ -1,106 +1,47 @@
-# Starting a database activity stream
+# Monitoring database activity streams
 
-When you start an activity stream for the DB
-instance, each database activity event that you configured in the audit policy generates an activity stream event.
-SQL commands such as `CONNECT` and `SELECT`
-generate access events. SQL commands such as `CREATE` and `INSERT`
-generate change events.
+Database activity streams monitor and report activities. The stream of activity is collected and transmitted to Amazon Kinesis.
+From Kinesis, you can monitor the activity stream, or other services and applications can consume
+the activity stream for further analysis. You can find the underlying Kinesis stream name by
+using the AWS CLI command `describe-db-instances` or the RDS API
+`DescribeDBInstances` operation.
+
+Amazon RDS manages the Kinesis stream for
+you as follows:
+
+- Amazon RDS creates the Kinesis stream
+  automatically with a 24-hour retention period.
+- Amazon RDS scales the Kinesis stream if necessary.
+- If you stop the database activity stream or delete the DB instance, Amazon RDS deletes the Kinesis stream.
+  The following categories of activity are monitored and put in the activity stream audit log:
+
+- **SQL commands** – All SQL commands are audited,
+  and also prepared statements, built-in functions, and functions in PL/SQL. Calls to stored procedures
+  are audited. Any SQL statements issued inside stored procedures or functions are also audited.
+- **Other database information** – Activity monitored includes the full SQL statement,
+  the row count of affected rows from DML commands, accessed objects, and the unique database name. Database activity streams also monitor the bind variables and stored
+  procedure parameters.
 
 ###### Important
 
-Turning on an activity stream for an Oracle DB instance clears existing audit data. It
-also revokes audit trail privileges. When the stream is enabled, RDS for Oracle can no longer do the
-following:
-
-- Purge unified audit trail records.
-- Add, delete, or modify the unified audit policy.
-- Update the last archived time stamp.
-
-Console###### To start a database activity stream
-
-1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the Amazon RDS database instance on which you want to
-   start an activity stream. In a Multi-AZ deployment, start the stream on only the primary instance. The activity stream
-   audits both the primary and the standby instances.
-4. For **Actions**, choose **Start activity stream**.
-
-The **Start database activity stream:** `name` window appears,
-where `name` is your RDS instance. 5. Enter the following settings:
-
-    * For **AWS KMS key**, choose a key from the list of AWS KMS keys.
-
-
-    Amazon RDS uses the
-     KMS key to encrypt the key that in turn encrypts database activity. Choose a KMS key other than the
-     default key. For more information about encryption keys and AWS KMS, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the *AWS Key Management Service Developer Guide.*
-    * For **Database activity events**, choose **Enable
-     engine-native audit fields** to include the engine specific audit fields.
-    * Choose **Immediately**.
-
-
-    When you choose **Immediately**, the RDS instance restarts right away. If you choose
-     **During the next maintenance window**, the RDS instance doesn't restart right away. In
-     this case, the database activity stream doesn't start until the next maintenance window.
-
-6. Choose **Start database activity stream**.
-
-The status for the the database shows that the activity stream is
-starting.
-
-###### Note
-
-If you get the error `You can't start a database activity stream in this
- configuration`, check [Supported DB instance classes for database activity streams](DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes "DBActivityStreams.md#DBActivityStreams.Overview.requirements.classes") to see whether
-your RDS
-instance is using a supported instance class.
-
-AWS CLITo start database activity streams for
-a DB instance, configure the database using the [start-activity-stream](../../../cli/latest/reference/rds/start-activity-stream.md "../../../cli/latest/reference/rds/start-activity-stream.md")
-AWS CLI command.
-
-- `--resource-arn `arn`` – Specifies the Amazon Resource Name (ARN) of
-  the DB instance.
-- `--kms-key-id `key`` – Specifies the KMS key identifier for encrypting messages in the database
-  activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS key.
-- `--engine-native-audit-fields-included` – Includes engine-specific auditing fields in
-  the data stream. To exclude these fields, specify `--no-engine-native-audit-fields-included`
-  (default).
-
-The following example starts a database activity stream for
-a DB instance in asynchronous mode.
-
-For Linux, macOS, or Unix:
+The full SQL text of each statement is visible in the activity stream audit log,
+including any sensitive data. However, database user passwords are redacted if
+Oracle can
+determine them from the context, such as in the following SQL statement.
 
 ```
-aws rds start-activity-stream \
-    --mode async \
-    --kms-key-id `my-kms-key-arn` \
-    --resource-arn `my-instance-arn` \
-    --engine-native-audit-fields-included \
-    --apply-immediately
+ALTER ROLE role-name WITH password
 ```
 
-For Windows:
+- **Connection information** – Activity monitored includes session and
+  network information, the server process ID, and exit codes.
+  If an activity stream has a failure while monitoring your DB instance, you are notified through RDS events.
 
-```
-aws rds start-activity-stream ^
-    --mode async ^
-    --kms-key-id `my-kms-key-arn` ^
-    --resource-arn `my-instance-arn` ^
-    --engine-native-audit-fields-included ^
-    --apply-immediately
-```
+In the following sections, you can access, audit, and process database activity streams.
 
-Amazon RDS API
-To start database activity streams for a DB instance,
-configure the instance using the
-[StartActivityStream](../APIReference/API_StartActivityStream.md "../APIReference/API_StartActivityStream.md") operation.
+###### Topics
 
-Call the action with the parameters below:
-
-- `Region`
-- `KmsKeyId`
-- `ResourceArn`
-- `Mode`
-- `EngineNativeAuditFieldsIncluded`
+- [Accessing an activity stream from Amazon Kinesis](DBActivityStreams.md "DBActivityStreams.md")
+- [Audit log contents and examples for database activity streams](DBActivityStreams.md "DBActivityStreams.md")
+- [databaseActivityEventList JSON array for database activity streams](DBActivityStreams.AuditLog.md "DBActivityStreams.AuditLog.md")
+- [Processing a database activity stream using the AWS SDK](DBActivityStreams.md "DBActivityStreams.md")

@@ -1,74 +1,105 @@
-# Major version upgrades for RDS for SQL Server
+# Considerations for SQL Server upgrades
 
-Amazon RDS currently supports the following major version upgrades to a Microsoft SQL Server DB instance.
+Amazon RDS takes two DB snapshots during the upgrade process. The first DB snapshot is of the DB instance before any upgrade
+changes have been made. The second DB snapshot is taken after the upgrade finishes.
 
-You can upgrade your existing DB instance to SQL Server 2017 or 2019 from any version except SQL Server 2008. To upgrade from SQL
-Server 2008, first upgrade to one of the other versions.
+###### Note
 
-| Current version | Supported upgrade versions                            |
-| --------------- | ----------------------------------------------------- |
-| SQL Server 2019 | SQL Server 2022                                       |
-| SQL Server 2017 | SQL Server 2022<br>SQL Server 2019                    |
-| SQL Server 2016 | SQL Server 2022<br>SQL Server 2019<br>SQL Server 2017 |
+Amazon RDS only takes DB snapshots if you have set the backup retention period for your DB instance to a number greater than 0.
+To change your backup retention period, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-You can use an AWS CLI query, such as the following example, to find the available upgrades for a particular database engine
-version.
+After an upgrade is completed, you can't revert to the previous version of the database engine. If you want to return to the
+previous version, restore from the DB snapshot that was taken before the upgrade to create a new DB instance.
 
-For Linux, macOS, or Unix:
+During a minor or major version upgrade of SQL Server, the **Free Storage Space** and **Disk Queue
+Depth** metrics will display `-1`. After the upgrade is completed, both metrics will return to
+normal.
 
-```
-aws rds describe-db-engine-versions \
-    --engine sqlserver-se \
-    --engine-version 14.00.3281.6.v1 \
-    --query "DBEngineVersions[*].ValidUpgradeTarget[*].{EngineVersion:EngineVersion}" \
-    --output table
-```
+Before you upgrade your SQL Server instance, review the following information.
 
-For Windows:
+###### Topics
 
-```
-aws rds describe-db-engine-versions ^
-    --engine sqlserver-se ^
-    --engine-version 14.00.3281.6.v1 ^
-    --query "DBEngineVersions[*].ValidUpgradeTarget[*].{EngineVersion:EngineVersion}" ^
-    --output table
-```
+- [Best practices before initiating an upgrade](#USER_UpgradeDBInstance.SQLServer.BestPractices "#USER_UpgradeDBInstance.SQLServer.BestPractices")
+- [Multi-AZ considerations](#USER_UpgradeDBInstance.SQLServer.MAZ "#USER_UpgradeDBInstance.SQLServer.MAZ")
+- [Read replica considerations](#USER_UpgradeDBInstance.SQLServer.readreplica "#USER_UpgradeDBInstance.SQLServer.readreplica")
+- [Option group considerations](#USER_UpgradeDBInstance.SQLServer.OGPG.OG "#USER_UpgradeDBInstance.SQLServer.OGPG.OG")
+- [Parameter group considerations](#USER_UpgradeDBInstance.SQLServer.OGPG.PG "#USER_UpgradeDBInstance.SQLServer.OGPG.PG")
 
-The output shows that you can upgrade version 14.00.3281.6 to the latest available SQL Server 2017 or 2019 versions.
+## Best practices before initiating an upgrade
 
-```
---------------------------
-|DescribeDBEngineVersions|
-+------------------------+
-|      EngineVersion     |
-+------------------------+
-|  14.00.3294.2.v1       |
-|  14.00.3356.20.v1      |
-|  14.00.3381.3.v1       |
-|  14.00.3401.7.v1       |
-|  14.00.3421.10.v1      |
-|  14.00.3451.2.v1       |
-|  15.00.4043.16.v1      |
-|  15.00.4073.23.v1      |
-|  15.00.4153.1.v1       |
-|  15.00.4198.2.v1       |
-|  15.00.4236.7.v1       |
-+------------------------+
-```
+Before starting the upgrade process, implement the following preparatory stpes to allow optimal
+upgrade performance and minimize potential issues:
 
-## Database compatibility level
+Timing and workload management
 
-You can use Microsoft SQL Server database compatibility levels to adjust some
-database behaviors to mimic previous versions of SQL Server. For more information,
-see [Compatibility level](https://msdn.microsoft.com/en-us/library/bb510680.aspx "https://msdn.microsoft.com/en-us/library/bb510680.aspx") in the Microsoft documentation. When you upgrade
-your DB instance, all existing databases remain at their original compatibility
-level.
+- Schedule upgrades during low transaction volume periods.
+- Minimize write operations during the upgrade window.
 
-You can change the compatibility level of a database by using the ALTER DATABASE
-command. For example, to change a database named `customeracct` to be
-compatible with SQL Server 2016, issue the following command:
+This allows Amazon RDS to complete upgrades faster by reducing the number of transaction log backup files that RDS needs to restore
+during secondary-to-primary pairing.
 
-```
-ALTER DATABASE customeracct SET COMPATIBILITY_LEVEL = 130
+Transaction management
 
-```
+- Identify and monitor long-running transactions.
+- Ensure all critical transactions are commited before starting the upgrade.
+- Prevent long-running transactions during the upgrade window.
+
+Log file optimization
+
+Review and optimize transaction log files:
+
+- Shrink oversized log files.
+- Reduce high log consumption patterns.
+- Manage Virtual Log Files (VLFs).
+- Maintain adequate free space for normal operations.
+
+## Multi-AZ considerations
+
+Amazon RDS supports Multi-AZ deployments for DB instances running Microsoft SQL Server by using SQL Server Database Mirroring (DBM)
+or Always On Availability Groups (AGs). For more information, see [Multi-AZ deployments for Amazon RDS for Microsoft SQL Server](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md").
+
+In a Multi-AZ deployment (Mirroring/AlwaysOn), when an upgrade is requested, RDS follows a rolling upgrade strategy for the primary and secondary instances.
+Rolling upgrades ensure at least one instance is available for transactions while the secondary instance is upgraded.
+The outage is expected to only last the duration of a failover.
+
+During the upgrade, RDS removes the secondary instance from the Multi-AZ configuration, performs an upgrade of the secondary instance,
+and restores any transaction log backups from the primary taken during the time it was disconnected.
+After all the log backups are restored, RDS joins the upgraded secondary to the primary.
+When all the databases are in a synchronized state, RDS performs a failover to the upgraded secondary instance.
+Once the failover is completed, RDS proceeds with upgrading the old primary instance,
+restores any transaction log backups, and pairs it with the new primary.
+
+To minimize this failover duration, we recommend using AlwaysOn AGs availability group listener endpoint
+when using client libraries that support the `MultiSubnetFailover` connection option in the connection string.
+When using the availability group listener endpoint, failover times are typically less than 10 seconds,
+however, this duration does not include any additional crash recovery time.
+
+## Read replica considerations
+
+During a database version upgrade, Amazon RDS upgrades all of your read replicas along with the primary DB instance.
+Amazon RDS does not support database version upgrades on the read replicas separately.
+For more information on read replicas, see [Working with read replicas for Microsoft SQL Server in Amazon RDS](SQLServer.md "SQLServer.md").
+
+When you perform a database version upgrade of the primary DB instance, all its read-replicas are also automatically upgraded.
+Amazon RDS will upgrade all of the read replicas simultaneously before upgrading the primary DB instance.
+Read replicas may not be available until the database version upgrade on the primary DB instance is complete.
+
+## Option group considerations
+
+If your DB instance uses a custom DB option group, in some cases Amazon RDS can't automatically assign your DB instance a new
+option group. For example, when you upgrade to a new major version, you must specify a new option group. We recommend that you
+create a new option group, and add the same options to it as your existing custom option group.
+
+For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create") or [Copying an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy").
+
+## Parameter group considerations
+
+If your DB instance uses a custom DB parameter group:
+
+- Amazon RDS automatically reboots the DB instance after an upgrade.
+- In some cases, RDS can't automatically assign a new parameter group to your DB instance.
+
+For example, when you upgrade to a new major version, you must specify a new parameter group. We recommend that you
+create a new parameter group, and configure the parameters as in your existing custom parameter group.
+
+For more information, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") or [Copying a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

@@ -9,7 +9,7 @@ running the Db2 engine.
 
 - [rdsadmin.get_task_status](#db2-udf-get-task-status "#db2-udf-get-task-status")
 - [rdsadmin.list_databases](#db2-udf-list-databases "#db2-udf-list-databases")
-- [rdsadmin.list_modifiable_db_parms](#db2-udf-list-modi-db-parms "#db2-udf-list-modi-db-parms")
+- [rdsadmin.list_modifiable_db_params](#db2-udf-list-modi-db-params "#db2-udf-list-modi-db-params")
 
 ## rdsadmin.get_task_status
 
@@ -298,6 +298,36 @@ The name of a database.
 
 The date and time when the database was created.
 
+`DATABASE_UNIQUE_ID`
+
+The RDS created GUID to uniquely identify Db2 database.
+
+`ARCHIVE_LOG_RETENTION_HOUR`
+
+The number of hours to retain the archive log files.
+
+`ARCHIVE_LOG_COPY`
+
+Displays if the feature is ENABLED or DISABLED for the database.
+
+`ARCHIVE_LOG_LAST_UPLOAD_FILE`
+
+Indicates last archive log uploaded to S3.
+
+`ARCHIVE_LOG_LAST_UPLOAD_FILE_TIME`
+
+Indicates the time when the log file was archived.
+
+`ARCHIVE_LOG_COPY_STATUS`
+
+Displays the status of the archive log copy.
+
+UPLOADING : indicates that archive log files are being uploaded to S3.
+
+CONFIGURATION_ERROR : indicates that there is a configuration issue requiring your attention.
+
+To view detailed error look at RDS Event Messages for you Db Instance. The Event Messages can be viewed at [Viewing Amazon RDS events.](USER_ListEvents.md "USER_ListEvents.md")
+
 ### Response
 
 examples
@@ -307,22 +337,22 @@ were created. `rdsadmin` is a database that Amazon RDS manages and always
 appears in the output.
 
 ```
-DATABASE_NAME   CREATE_TIME
---------------- --------------------------
-rdsadmin        2024-10-22-03.37.48.535671
-TEST            2024-10-22-03.39.36.818679
-TEST1           2024-10-22-03.57.15.218009
-TEST2           2024-10-22-03.59.28.029556
+DATABASE_NAME   CREATE_TIME                DATABASE_UNIQUE_ID                                 ARCHIVE_LOG_RETENTION_HOURS ARCHIVE_LOG_COPY ARCHIVE_LOG_LAST_UPLOAD_FILE ARCHIVE_LOG_LAST_UPLOAD_FILE_TIME ARCHIVE_LOG_COPY_STATUS
+--------------- -------------------------- -------------------------------------------------- --------------------------- ---------------- ---------------------------- --------------------------------- ------------------------------
+RDSADMIN        2026-01-06-02.03.42.569069 RDSADMIN                                                                     0 DISABLED         -                            -                                 -
+FOO             2026-01-06-02.13.42.885650 F0D81C7E-7213-4565-B376-4F33FCF420E3                                         0 ENABLED          S0006536.LOG                 2026-01-28-19.15.10.000000        UPLOADING
+CODEP           2026-01-14-19.42.42.508476 106EEF95-6E30-4FFF-85AE-B044352DF095                                         0 DISABLED         -                            -                                 -
+...
 ```
 
-## rdsadmin.list_modifiable_db_parms
+## rdsadmin.list_modifiable_db_params
 
 Returns a list of all the modifiable database configuration parameters.
 
 ### Syntax
 
 ```
-db2 "select * from table(rdsadmin.list_modifiable_db_parms())"
+db2 "select * from table(rdsadmin.list_modifiable_db_params())"
 ```
 
 ### Usage notes
@@ -333,7 +363,7 @@ Any database parameter not included in this list has been restricted and cannot 
 
 ### Response
 
-The `rdsadmin.list_modifiable_db_parms` user-defined function returns the
+The `rdsadmin.list_modifiable_db_params` user-defined function returns the
 following columns:
 
 `PARAM_NAME`

@@ -1,141 +1,123 @@
-# Monitoring read replication
+# Creating a read replica
 
-You can monitor the status of a read replica in several ways. The Amazon RDS console shows the
-status of a read replica in the **Replication** section of the
-**Connectivity & security** tab in the read replica details. To
-view the details for a read replica, choose the name of the read replica in the list of
-DB instances in the Amazon RDS console.
+You can create a read replica from an existing DB instance using the AWS Management Console, AWS CLI, or RDS
+API. You create a read replica by specifying `SourceDBInstanceIdentifier`, which
+is the DB instance identifier of the source DB instance that you want to replicate from.
 
-![Read replica status](images/ReadReplicaStatus.png)
-You can also see the status of a read replica using the AWS CLI
-`describe-db-instances` command or the Amazon RDS API
-`DescribeDBInstances` operation.
+When you create a read replica, Amazon RDS takes a DB snapshot of your source DB instance and begins
+replication. The source DB instance experiences a very brief I/O suspension when the DB snapshot operation
+begins. The I/O suspension typically lasts about one second. You can avoid the I/O suspension if
+the source DB instance is a Multi-AZ deployment, because in that case the snapshot is taken from the
+secondary DB instance.
 
-The status of a read replica can be one of the following:
+An active, long-running transaction can slow the process of creating the read replica. We
+recommend that you wait for long-running transactions to complete before creating a read
+replica. If you create multiple read replicas in parallel from the same source DB instance, Amazon RDS
+takes only one snapshot at the start of the first create action.
 
-- **replicating** – The read
-  replica is replicating successfully.
-- **replication degraded** (SQL Server and
-  PostgreSQL only) – Replicas are receiving data from the primary
-  instance, but one or more databases might be not getting updates. This can occur,
-  for example, when a replica is in the process of setting up newly created databases.
-  It can also occur when unsupported DDL or large object changes are made in the blue
-  environment of a blue/green deployment.
-
-The status doesn't transition from `replication degraded` to
-`error`, unless an error occurs during the degraded state.
-
-- **error** – An error has
-  occurred with the replication. Check the **Replication Error**
-  field in the Amazon RDS console or the event log to determine the exact error. For more
-  information about troubleshooting a replication error, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
-- **terminated** (MariaDB, MySQL, or
-  PostgreSQL only) – Replication is terminated. This occurs if
-  replication is stopped for more than 30 consecutive days, either manually or due to
-  a replication error. In this case, Amazon RDS terminates replication between the primary
-  DB instance and all read replicas. Amazon RDS does this to prevent increased storage
-  requirements on the source DB instance and long failover times.
-
-Broken replication can affect storage because the logs can grow in size and number
-due to the high volume of errors messages being written to the log. Broken
-replication can also affect failure recovery due to the time Amazon RDS requires to
-maintain and process the large number of logs during recovery.
-
-- **terminated** (Oracle only)
-  – Replication is terminated. This occurs if replication is stopped for more
-  than 8 hours because there isn't enough storage remaining on the read replica. In
-  this case, Amazon RDS terminates replication between the primary DB instance and the affected
-  read replica. This status is a terminal state, and the read replica must be
-  re-created.
-- **stopped** (MariaDB or MySQL
-  only) – Replication has stopped because of a customer-initiated
-  request.
-- **replication stop point set** (MySQL
-  only) – A customer-initiated stop point was set using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and the
-  replication is in progress.
-- **replication stop point reached** (MySQL
-  only) – A customer-initiated stop point was set using the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure and
-  replication is stopped because the stop point was reached.
-  You can see where a DB instance is being replicated and if so, check its replication status. On
-  the **Databases** page in the RDS console, it shows
-  **Primary** in the **Role** column. Choose its DB instance
-  name. On its detail page, on the **Connectivity &
-  security** tab, its replication status is under **Replication**.
-
-## Monitoring replication lag
-
-You can monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS
-`ReplicaLag` metric.
-
-For Db2, the `ReplicaLag`
-metric is the maximum lag of databases that have fallen behind, in seconds. For example,
-if two databases lag 5 seconds and 10 seconds, respectively, then
-`ReplicaLag` is 10 seconds. Databases without available High Availability
-Disaster Recovery (HADR) statuses aren't included in the calculation.
-
-For MariaDB and MySQL, the `ReplicaLag` metric reports the value of the
-`Seconds_Behind_Master` field of the `SHOW REPLICA STATUS`
-command. Common causes for replication lag for MySQL and MariaDB are the
-following:
-
-- A network outage.
-- Writing to tables with indexes on a read replica. If the
-  `read_only` parameter is not set to 0 on the read replica, it can
-  break replication.
-- Using a nontransactional storage engine such as MyISAM. Replication is only
-  supported for the InnoDB storage engine on MySQL and the XtraDB storage engine
-  on MariaDB.
+When creating a read replica, there are a few things to consider. First, you must enable
+automatic backups on the source DB instance by setting the backup retention period to a value
+other than 0. This requirement also applies to a read replica that is the source DB instance for
+another read replica. To enable automatic backups on an RDS for MySQL read replica, first
+create the read replica, then modify the read replica to enable automatic backups.
 
 ###### Note
 
-Previous versions of MariaDB used `SHOW SLAVE STATUS` instead of
-`SHOW REPLICA STATUS`. If you are using a MariaDB version lower than
-10.5, then use `SHOW SLAVE STATUS`.
+Within an AWS Region, we strongly recommend that you create all read replicas in the
+same virtual private cloud (VPC) based on Amazon VPC as the source DB instance. If you create a
+read replica in a different VPC from the source DB instance, classless inter-domain routing
+(CIDR) ranges can overlap between the replica and the RDS system. CIDR overlap makes the
+replica unstable, which can negatively impact applications connecting to it. If you
+receive an error when creating the read replica, choose a different destination DB
+subnet group. For more information, see [Working with a DB instance in a VPC](USER_VPC.md "USER_VPC.md").
 
-When the `ReplicaLag` metric reaches 0, the replica has caught up to the
-primary DB instance. If the `ReplicaLag` metric returns `-1`, then
-replication is currently not active. `ReplicaLag = -1` is equivalent to
-`Seconds_Behind_Master = NULL`.
+There is no direct way to create a read replica in another AWS account using the
+console or AWS CLI.
 
-For Oracle, the `ReplicaLag` metric is the sum of the `Apply
- Lag` value and the difference between the current time and the apply lag's
-`DATUM_TIME` value. The `DATUM_TIME` value is the last time
-the read replica received data from its source DB instance. For more information, see [V$DATAGUARD_STATS](https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413 "https://docs.oracle.com/database/121/REFRN/GUID-B346DD88-3F5E-4F16-9DEE-2FDE62B1ABF7.htm#REFRN30413") in the Oracle documentation.
+###### To create a read replica from a source DB instance
 
-For SQL Server, the `ReplicaLag` metric is the maximum lag of databases
-that have fallen behind, in seconds. For example, if you have two databases that lag 5
-seconds and 10 seconds, respectively, then `ReplicaLag` is 10 seconds. The
-`ReplicaLag` metric returns the value of the following query.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB instance that you want to use as the source for a read
+   replica.
+4. For **Actions**, choose **Create read
+   replica**.
+5. For **DB instance identifier**, enter a name for the read
+   replica.
+6. Choose your instance configuration. We recommend that you use the same or
+   larger DB instance class and storage type as the source DB instance for the read
+   replica.
+7. For **AWS Region**, specify the destination
+   Region for the read replica.
+8. For **Storage**, specify the allocated storage size and
+   whether you want to use storage autoscaling.
 
-```
-SELECT MAX(secondary_lag_seconds) max_lag FROM sys.dm_hadr_database_replica_states;
-```
-
-For more information, see [secondary_lag_seconds](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-database-replica-states-transact-sql") in the Microsoft documentation.
-
-`ReplicaLag` returns `-1` if RDS can't determine the lag,
-such as during replica setup, or when the read replica is in the `error`
-state.
+If your source DB instance isn't on the latest storage configuration, the
+**Upgrade storage file system configuration** option is
+available. You can enable this setting to upgrade the storage file system of
+the read replica to the preferred configuration. For more information, see
+[Upgrading the storage file system for a DB
+instance](USER_PIOPS.md "USER_PIOPS.md"). 9. For **Availability**, choose whether to create a standby
+of your replica in another Availability Zone for failover support for the
+replica.
 
 ###### Note
 
-New databases aren't included in the lag calculation until they are
-accessible on the read replica.
+Creating your read replica as a Multi-AZ DB instance is independent of
+whether the source database is a Multi-AZ DB instance. 10. Specify other DB instance settings. For information about each available
+setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md"). 11. To create an encrypted read replica, expand **Additional
+configuration** and specify the following settings:
 
-For PostgreSQL, the `ReplicaLag` metric returns the value of the following
-query.
+    1. Choose **Enable encryption**.
+    2. For **AWS KMS key**, choose the AWS KMS key
+     identifier of the KMS key.###### Note
+
+The source DB instance must be encrypted. To learn more about encrypting
+the source DB instance, see [Encrypting Amazon RDS
+resources](Overview.md "Overview.md"). 12. Choose **Create read replica**.
+After the read replica is created, you can see it on the
+**Databases** page in the RDS console. It shows
+**Replica** in the **Role** column.
+
+To create a read replica from a source DB instance, use the AWS CLI command [create-db-instance-read-replica](../../../cli/latest/reference/rds/create-db-instance-read-replica.md "../../../cli/latest/reference/rds/create-db-instance-read-replica.md"). This example also sets the allocated
+storage size, enables storage autoscaling, and upgrades the file system to the
+preferred configuration.
+
+You can specify other settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+
+###### Example
+
+For Linux, macOS, or Unix:
 
 ```
-SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS reader_lag
+aws rds create-db-instance-read-replica \
+    --db-instance-identifier `myreadreplica` \
+    --source-db-instance-identifier `mydbinstance` \
+    --allocated-storage `100` \
+    --max-allocated-storage `1000` \
+    --upgrade-storage-config
 ```
 
-PostgreSQL versions 9.5.2 and later use physical replication slots to manage write
-ahead log (WAL) retention on the source instance. For each cross-Region read replica
-instance, Amazon RDS creates a physical replication slot and associates it with the instance.
-Two Amazon CloudWatch metrics, `Oldest Replication Slot Lag` and `Transaction
- Logs Disk Usage`, show how far behind the most lagging replica is in terms of
-WAL data received and how much storage is being used for WAL data. The `Transaction
- Logs Disk Usage` value can substantially increase when a cross-Region read
-replica is lagging significantly.
+For Windows:
 
-For more information about monitoring a DB instance with CloudWatch, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+```
+aws rds create-db-instance-read-replica ^
+    --db-instance-identifier `myreadreplica` ^
+    --source-db-instance-identifier `mydbinstance` ^
+    --allocated-storage `100` ^
+    --max-allocated-storage `1000` ^
+    --upgrade-storage-config
+```
+
+To create a read replica from a source Db2, MySQL, MariaDB, Oracle, PostgreSQL, or
+SQL Server DB instance, call the Amazon RDS API [CreateDBInstanceReadReplica](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md") operation with the following required
+parameters:
+
+- `DBInstanceIdentifier`
+- `SourceDBInstanceIdentifier`
+
+###### Note
+
+To create an RDS for Db2 standby replica, set the optional
+`ReplicaMode` operation to `mounted`.

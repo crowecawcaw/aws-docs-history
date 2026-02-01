@@ -1,95 +1,157 @@
-# Transporting PostgreSQL databases between
+# Managing custom casts in RDS for PostgreSQL
 
-DB instances
+**Type casting** in PostgreSQL is the process of converting a value from one data type to another. PostgreSQL provides built-in casts for many common conversions, but you can also create custom casts to define how specific type conversions should behave.
 
-By using PostgreSQL transportable databases for Amazon RDS, you can move a PostgreSQL
-database between two DB instances. This is a very fast way to migrate large
-databases between different DB instances. To use this approach, your DB
-instances must both run the same major version of PostgreSQL.
+A cast specifies how to perform a conversion from one data type to another. For example, converting text `'123'` to integer `123`, or numeric `45.67` to text `'45.67'`.
 
-This capability requires that you install the `pg_transport` extension on both the source
-and the destination DB instance. The `pg_transport`
-extension provides a physical transport mechanism that moves the
-database files with minimal processing. This mechanism moves data much faster than
-traditional dump and load processes, with less downtime.
+For comprehensive information about PostgreSQL casting concepts and syntax, refer to the [PostgreSQL CREATE CAST Documentation](https://www.postgresql.org/docs/current/sql-createcast.html "https://www.postgresql.org/docs/current/sql-createcast.html").
 
-###### Note
-
-PostgreSQL transportable databases are available in RDS for PostgreSQL 11.5 and higher, and RDS for PostgreSQL
-version 10.10 and higher.
-
-To transport a PostgreSQL DB instance from one RDS for PostgreSQL DB instance to another, you first
-set up the source and destination instances as detailed in [Setting up a DB instance for transport](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md"). You can then transport the database by
-using the function described in [Transporting a PostgreSQL database](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md").
+Starting with RDS for PostgreSQL versions 13.23, 14.20, 15.15, 16.11, 17.7, and 18.1, you can use the rds_casts extension to install additional casts for built-in types, while still being able to create your own casts for custom types.
 
 ###### Topics
 
-- [What happens during database transport](#PostgreSQL.TransportableDB.DuringTransport "#PostgreSQL.TransportableDB.DuringTransport")
-- [Limitations for using PostgreSQL
-  transportable databases](#PostgreSQL.TransportableDB.Limits "#PostgreSQL.TransportableDB.Limits")
-- [Setting up to transport a PostgreSQL
-  database](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md")
-- [Transporting a PostgreSQL database to the destination from the source](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md")
-- [Transportable databases function reference](PostgreSQL.TransportableDB.transport.md "PostgreSQL.TransportableDB.transport.md")
-- [Transportable databases parameter reference](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md")
+- [Installing and using the rds_casts extension](#PostgreSQL.CustomCasts.Installing "#PostgreSQL.CustomCasts.Installing")
+- [Supported casts](#PostgreSQL.CustomCasts.Supported "#PostgreSQL.CustomCasts.Supported")
+- [Creating or dropping casts](#PostgreSQL.CustomCasts.Creating "#PostgreSQL.CustomCasts.Creating")
+- [Creating custom casts with proper context strategy](#PostgreSQL.CustomCasts.BestPractices "#PostgreSQL.CustomCasts.BestPractices")
 
-## What happens during database transport
+## Installing and using the rds_casts extension
 
-The PostgreSQL transportable databases feature uses a pull model to import the database from
-the source DB instance to the destination. The `transport.import_from_server` function creates the in-transit database
-on the destination DB instance. The in-transit database is inaccessible on the
-destination DB instance for the duration of the transport.
-
-When transport begins, all current sessions on the source database are ended. Any
-databases other than the source database on the source DB instance aren't affected
-by the transport.
-
-The source database is put into a special read-only mode. While it's in this
-mode, you can connect to the source database and run read-only queries. However,
-write-enabled queries and some other types of commands are blocked. Only the specific
-source database that is being transported is affected by these restrictions.
-
-During transport, you can't restore the destination DB instance to a point in
-time. This is because the transport isn't transactional and doesn't use the
-PostgreSQL write-ahead log to record changes. If the destination DB instance has
-automatic backups enabled, a backup is automatically taken after transport completes.
-Point-in-time restores are available for times _after_ the backup finishes.
-
-If the transport fails, the `pg_transport` extension attempts to undo all
-changes to the source and destination DB instances. This includes removing the
-destination's partially transported database. Depending on the type of failure, the
-source database might continue to reject write-enabled queries. If this happens, use the
-following command to allow write-enabled queries.
+To create the `rds_casts` extension, connect to your RDS for PostgreSQL DB instance as an `rds_superuser` and run the following command:
 
 ```
-ALTER DATABASE `db-name` SET default_transaction_read_only = false;
+CREATE EXTENSION IF NOT EXISTS rds_casts;
 ```
 
-## Limitations for using PostgreSQL
+## Supported casts
 
-transportable databases
+Create the extension in each database where you want to use custom casts. After creating the extension, use the following command to view all available casts:
 
-Transportable databases have the following limitations:
+```
+SELECT * FROM rds_casts.list_supported_casts();
+```
 
-- **Read replicas** – You can't use transportable
-  databases on read replicas or parent instances of read replicas.
-- **Unsupported column types** – You
-  can't use the `reg` data types in any database tables that you
-  plan to transport with this method. These types depend on system catalog object
-  IDs (OIDs), which often change during transport.
-- **Tablespaces** – All source database
-  objects must be in the default `pg_default` tablespace.
-- **Compatibility** – Both the source and
-  destination DB instances must run the same major version of PostgreSQL.
-- **Extensions** – The source DB instance
-  can have only the `pg_transport` installed.
-- **Roles and ACLs** – The source database's
-  access privileges and ownership information aren't carried over to the
-  destination database. All database objects are created and owned by the local
-  destination user of the transport.
-- **Concurrent transports** – A single
-  DB instance can support up to 32 concurrent transports, including both imports and
-  exports, if worker processes have been configured properly.
-- **RDS for PostgreSQL DB instances only** – PostgreSQL
-  transportable databases are supported on RDS for PostgreSQL DB instances only. You can't
-  use it with on-premises databases or databases running on Amazon EC2.
+This function lists the available cast combinations (source type, target type, coercion context, and cast function). For example, if you want to create `text` to `numeric` as an `implicit` cast. You can use the following query to find if the cast is available to create:
+
+```
+SELECT * FROM rds_casts.list_supported_casts()
+WHERE source_type = 'text' AND target_type = 'numeric';
+ id | source_type | target_type |          qualified_function          | coercion_context
+----+-------------+-------------+--------------------------------------+------------------
+ 10 | text        | numeric     | rds_casts.rds_text_to_numeric_custom | implicit
+ 11 | text        | numeric     | rds_casts.rds_text_to_numeric_custom | assignment
+ 13 | text        | numeric     | rds_casts.rds_text_to_numeric_custom | explicit
+ 20 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | implicit
+ 21 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | assignment
+ 23 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | explicit
+```
+
+The rds_casts extension provides two types of conversion functions for each cast:
+
+- _\_inout functions_ - Use PostgreSQL's standard I/O conversion mechanism, behaving identically to casts created with the INOUT method
+- _\_custom functions_ - Provide enhanced conversion logic that handles edge cases, such as converting empty strings to NULL values to avoid conversion errors
+
+The `inout` functions replicate PostgreSQL's native casting behavior, while `custom` functions extend this functionality by handling scenarios that standard INOUT casts cannot accommodate, such as converting empty strings to integers.
+
+## Creating or dropping casts
+
+You can create and drop supported casts using two methods:
+
+### Cast creation
+
+**Method 1: Using native CREATE CAST command**
+
+```
+CREATE CAST (text AS numeric)
+WITH FUNCTION rds_casts.rds_text_to_numeric_custom
+AS IMPLICIT;
+```
+
+**Method 2: Using the rds_casts.create_cast function**
+
+```
+SELECT rds_casts.create_cast(10);
+```
+
+The `create_cast` function takes the ID from the `list_supported_casts()` output. This method is simpler and ensures you're using the correct function and context combination. This id is guaranteed to remain the same across different postgres versions.
+
+To verify the cast was created successfully, query the pg_cast system catalog:
+
+```
+SELECT oid, castsource::regtype, casttarget::regtype, castfunc::regproc, castcontext, castmethod
+FROM pg_cast
+WHERE castsource = 'text'::regtype AND casttarget = 'numeric'::regtype;
+  oid   | castsource | casttarget |               castfunc               | castcontext | castmethod
+--------+------------+------------+--------------------------------------+-------------+------------
+ 356372 | text       | numeric    | rds_casts.rds_text_to_numeric_custom | i           | f
+```
+
+The `castcontext` column shows: `e` for EXPLICIT, `a` for ASSIGNMENT, or `i` for IMPLICIT.
+
+### Dropping casts
+
+**Method 1: Using DROP CAST command**
+
+```
+DROP CAST IF EXISTS (text AS numeric);
+```
+
+**Method 2: Using the rds_casts.drop_cast function**
+
+```
+SELECT rds_casts.drop_cast(10);
+```
+
+The `drop_cast` function takes the same ID used when creating the cast. This method ensures you're dropping the exact cast that was created with the corresponding ID.
+
+## Creating custom casts with proper context strategy
+
+When creating multiple casts for integer types, operator ambiguity errors can occur if all casts are created as IMPLICIT. The following example demonstrates this issue by creating two implicit casts from text to different integer widths:
+
+```
+-- Creating multiple IMPLICIT casts causes ambiguity
+postgres=> CREATE CAST (text AS int4) WITH FUNCTION rds_casts.rds_text_to_int4_custom(text) AS IMPLICIT;
+CREATE CAST
+postgres=> CREATE CAST (text AS int8) WITH FUNCTION rds_casts.rds_text_to_int8_custom(text) AS IMPLICIT;
+CREATE CAST
+
+postgres=> CREATE TABLE test_cast(col int);
+CREATE TABLE
+postgres=> INSERT INTO test_cast VALUES ('123'::text);
+INSERT 0 1
+postgres=> SELECT * FROM test_cast WHERE col='123'::text;
+ERROR:  operator is not unique: integer = text
+LINE 1: SELECT * FROM test_cast WHERE col='123'::text;
+                                         ^
+HINT:  Could not choose a best candidate operator. You might need to add explicit type casts.
+```
+
+The error occurs because PostgreSQL cannot determine which implicit cast to use when comparing an integer column with a text value. Both the int4 and int8 implicit casts are valid candidates, creating ambiguity.
+
+To avoid this operator ambiguity, use ASSIGNMENT context for smaller integer widths and IMPLICIT context for larger integer widths:
+
+```
+-- Use ASSIGNMENT for smaller integer widths
+CREATE CAST (text AS int2)
+WITH FUNCTION rds_casts.rds_text_to_int2_custom(text)
+AS ASSIGNMENT;
+
+CREATE CAST (text AS int4)
+WITH FUNCTION rds_casts.rds_text_to_int4_custom(text)
+AS ASSIGNMENT;
+
+-- Use IMPLICIT for larger integer widths
+CREATE CAST (text AS int8)
+WITH FUNCTION rds_casts.rds_text_to_int8_custom(text)
+AS IMPLICIT;
+
+postgres=> INSERT INTO test_cast VALUES ('123'::text);
+INSERT 0 1
+postgres=> SELECT * FROM test_cast WHERE col='123'::text;
+ col
+-----
+ 123
+(1 row)
+```
+
+With this strategy, only the int8 cast is implicit, so PostgreSQL can unambiguously determine which cast to use.

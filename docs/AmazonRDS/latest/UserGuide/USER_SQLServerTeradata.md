@@ -1,67 +1,168 @@
-# Linked Servers with Teradata ODBC in RDS for SQL Server
+# Activating linked servers with Teradata
 
-Support for linked servers with the Teradata ODBC driver on RDS for SQL Server lets you access external data sources
-on a Teradata database. You can read data and run commands from remote Teradata database servers outside of your RDS for SQL Server instance.
-Use linked-servers with Teradata ODBC to enable the following capabilities:
-
-- Directly access data sources other than SQL Server.
-- Query against diverse Teradata data sources with the same query without moving the data.
-- Issue distributed queries, updates, commands, and transactions on data sources across an enterprise ecosystem.
-- Integrate connections to a Teradata database from within the Microsoft Business Intelligence Suite (SSIS, SSRS, SSAS).
-- Migrate from a Teradata database to RDS for SQL Server.
-  You can choose to activate one or more linked servers for Teradata on either an existing or new RDS for SQL Server DB instance. You can then integrate
-  external Teradata data sources with your DB instance.
+Activate linked servers with Teradata by adding the `ODBC_TERADATA` option to your
+RDS for SQL Server DB instance. Use the following process:
 
 ###### Topics
 
-- [Supported versions and Regions](#USER_SQLServerTeradata.VersionRegionSupport "#USER_SQLServerTeradata.VersionRegionSupport")
-- [Limitations and recommendations](#USER_SQLServerTeradata.LimitsandRecommendations "#USER_SQLServerTeradata.LimitsandRecommendations")
-- [Considerations for Multi-AZ deployment](#USER_SQLServerTeradata.MultiAZ "#USER_SQLServerTeradata.MultiAZ")
-- [Activating linked servers with Teradata](USER_SQLServerTeradata.md "USER_SQLServerTeradata.md")
-- [Creating linked servers with Teradata](USER_SQLServerTeradata.md "USER_SQLServerTeradata.md")
-- [Deactivating servers linked to Teradata](USER_SQLServerTeradata.md "USER_SQLServerTeradata.md")
+- [Creating the option group for ODBC_TERADATA](#USER_SQLServerTeradata.Activate.CreateOG "#USER_SQLServerTeradata.Activate.CreateOG")
+- [Adding the ODBC_TERADATA option to the option group](#USER_SQLServerTeradata.Activate.AddOG "#USER_SQLServerTeradata.Activate.AddOG")
+- [Associating the ODBC_TERADATA option with your DB instance](#USER_SQLServerTeradata.Activate.AssociateOG "#USER_SQLServerTeradata.Activate.AssociateOG")
 
-## Supported versions and Regions
+## Creating the option group for `ODBC_TERADATA`
 
-RDS for SQL Server supports linked servers with Teradata ODBC in all AWS Regions for SQL Server Standard and Enterprise Edition for the following versions:
+To work with linked servers with Teradata, create an option group or modify an option group that corresponds to the SQL Server eddition and
+version of the DB instance that you plan to use. To complete this procedure, use the AWS Management Console or the AWS CLI.
 
-- SQL Server 2022, all versions
-- SQL Server 2019, all versions
-- SQL Server 2017, all versions
+Use the following procedure to create an option group for SQL Server Standard Edition 2019.
 
-The following Teradata database versions support linking with RDS for SQL Server
+###### To create the option group
 
-- Teradata 17.20, all versions
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Choose **Create group**.
+4. In the **Create option group** window, do the following:
+   1. For **Name**, enter a name for the option group that is unique within your AWS account,
+      such as `teradata-odbc-se-2019`.
+      The name can contain only letters, digits, and hyphens.
+   2. For **Description**, enter a brief description of the option group.
+   3. For **Engine**, choose **sqlserver-se**.
+   4. For **Major engine version**, choose **15.00**.
 
-## Limitations and recommendations
+5. Choose **Create**.
 
-The following limitations apply to linked servers with Teradata ODBC:
+The following procedure creates an option group for SQL Server Standard Edition 2019.
 
-- RDS for SQL Server support only simple authentication with a username and password for the Teradata source.
-- RDS for SQL Server supports only Teradata ODBC driver version 17.20.0.33.
-- RDS for SQL Server does not support creating data source names (DSNs) to use as shortcuts for a connection string.
-- RDS for SQL Server does not support ODBC driver tracing. Use SQL Server Extended Events to trace ODBC events. For more information, see [Set up Extended Events in RDS for SQL Server](https://aws.amazon.com/blogs/database/set-up-extended-events-in-amazon-rds-for-sql-server/ "https://aws.amazon.com/blogs/database/set-up-extended-events-in-amazon-rds-for-sql-server/").
-- RDS for SQL Server does not support access to the catalogs folder for a Teradata linked server when using SQL Server Management Studio (SSMS).
+###### Example
 
-Consider the following recommendations when using linked servers with Teradata ODBC:
+For Linux, macOS, or Unix:
 
-- Allow network traffic by adding the applicable TCP port in the security group for each RDS for SQL Server DB instance.
-  If you're configuring a linked server between an EC2 Teradata DB instance and an RDS for SQL Server DB instance,
-  then you must allow traffic from the IP address of the EC2 Teradata DB instance. You also must allow traffic on the
-  port that the RDS for SQL Server DB instance is using to listen for database communication.
-  For more information on security groups, see [Controlling access with security
-  groups](Overview.md "Overview.md").
-- Distributed transactions (XA) are supported. To activate distributed transactions, turn on the `MSDTC` option in the
-  option group for your DB instance and make sure XA transactions are turned on. For more information, see [Support for Microsoft Distributed Transaction Coordinator in RDS for SQL Server](Appendix.SQLServer.Options.md "Appendix.SQLServer.Options.md").
-- Linked Teradata ODBC support SSL/TLS as long as configured on the Teradata Server.
-  For more information, see [Enable TLS Connectivity on Teradata Vantage](https://docs.teradata.com/r/Enterprise_IntelliFlex_Lake_VMware/Teradata-Call-Level-Interface-Version-2-Reference-for-Workstation-Attached-Systems-20.00/Mainframe-TLS-Connectivity-Supplement/Enable-TLS-Connectivity-on-Teradata-Vantage "https://docs.teradata.com/r/Enterprise_IntelliFlex_Lake_VMware/Teradata-Call-Level-Interface-Version-2-Reference-for-Workstation-Attached-Systems-20.00/Mainframe-TLS-Connectivity-Supplement/Enable-TLS-Connectivity-on-Teradata-Vantage").
+```
+aws rds create-option-group \
+    --option-group-name `teradata-odbc-se-2019` \
+    --engine-name sqlserver-se \
+    --major-engine-version 15.00 \
+    --option-group-description "`ODBC_TERADATA option group for SQL Server SE 2019`"
+```
 
-## Considerations for Multi-AZ deployment
+###### Example
 
-RDS for SQL Server currently doesn't replicate linked servers to the mirrored database server
-(or Always-On availability group secondary server) in a Multi-AZ deployment. If the linked servers
-are added before the configuration is changed to add mirroring or Always-On,
-then the linked servers are copied for the existing linked servers.
+For Windows:
 
-Alternatively, you can create the linked servers on the primary instance, fail over to the high
-availability server instance and then create the linked servers again so that they are on both RDS for SQL Server instances.
+```
+aws rds create-option-group ^
+    --option-group-name `teradata-odbc-se-2019` ^
+    --engine-name sqlserver-se ^
+    --major-engine-version 15.00 ^
+    --option-group-description "`ODBC_TERADATA option group for SQL Server SE 2019`"
+```
+
+## Adding the `ODBC_TERADATA` option to the option group
+
+Next, use the AWS Management Console or the AWS CLI to add the `ODBC_Teradata` option to your option group.
+
+Use the following procedure creates an option group for SQL Server Standard Edition 2019.
+
+###### To add the `ODBC_TERADATA` option
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Choose your new option group.
+4. Choose **Add option**.
+5. Under **Option details**:
+   1. Choose **ODBC_TERADATA** for **Option name**.
+   2. For `17.20.33.00` for **Option version**.
+
+6. Under scheduling, choose whether to add the option immediately or at the next maintenance window.
+7. Choose **Add option**.
+
+The following procedure adds the `ODBC_TERADATA` option to your option group.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds add-option-to-option-group \
+    --option-group-name `teradata-odbc-se-2019` \
+    --options "OptionName=ODBC_TERADATA,OptionVersion=17.20.33.00" \
+    --apply-immediately
+```
+
+###### Example
+
+For Windows:
+
+```
+aws rds add-option-to-option-group ^
+    --option-group-name `teradata-odbc-se-2019` ^
+    --options "OptionName=ODBC_TERADATA,OptionVersion=17.20.33.00" ^
+    --apply-immediately
+```
+
+## Associating the `ODBC_TERADATA` option with your DB instance
+
+To associate the `ODBC_TERADATA` option group with your DB instance, use the AWS Management Console or AWS CLI.
+
+To finish activating linked servers for Teradata, associate your option group with a new or existing DB instance:
+
+- For a new DB instance, associate it when you launch the instance. For more information, see
+  [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+- For an existing DB instance, associate it by modifying the instance. For more information, see
+  [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+
+Specify the same DB engine type and major version that you used when creating the option group.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds create-db-instance \
+    --db-instance-identifier `mytestsqlserverteradataodbcinstance` \
+    --db-instance-class db.m5.2xlarge \
+    --engine sqlserver-se \
+    --engine-version 15.00 \
+    --license-model license-included \
+    --allocated-storage 100 \
+    --master-username admin \
+    --master-user-password password \
+    --storage-type gp2 \
+    --option-group-name teradata-odbc-se-2019
+```
+
+For Windows:
+
+```
+aws rds create-db-instance ^
+    --db-instance-identifier `mytestsqlserverteradataodbcinstance` ^
+    --db-instance-class db.m5.2xlarge ^
+    --engine sqlserver-se ^
+    --engine-version 15.00 ^
+    --license-model license-included ^
+    --allocated-storage 100 ^
+    --master-username admin ^
+    --master-user-password password ^
+    --storage-type gp2 ^
+    --option-group-name teradata-odbc-se-2019
+```
+
+To modify an instance and associate the new option group:
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier `mytestsqlserverteradataodbcinstance` \
+    --option-group-name teradata-odbc-se-2019 \
+    --apply-immediately
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `mytestsqlserverteradataodbcinstance` ^
+    --option-group-name teradata-odbc-se-2019 ^
+    --apply-immediately
+```

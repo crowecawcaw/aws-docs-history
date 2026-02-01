@@ -1,92 +1,65 @@
-# Working with SQL Server Developer Edition on RDS for SQL Server
+# Viewing and managing custom engine versions
 
-RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature.
+To view all your RDS for SQL Server Developer Edition CEVs, use the `describe-db-engine-versions`
+command with the `--engine` input as `sqlserver-dev-ee`.
 
-## Benefits
+```
+aws rds describe-db-engine-versions \
+--engine sqlserver-dev-ee \
+--include-all \
+--region us-west-2
+```
 
-You can use RDS for SQL Server Developer Edition to:
+To view the details of a specific CEV, use the following command:
 
-- Lower costs in development and test environments while maintaining feature parity with production databases.
-- Access Enterprise Edition capabilities in non-production environments without Enterprise licensing fees.
-- Use Amazon RDS-automated management features, including backups, patching, and monitoring.
+```
+
+aws rds describe-db-engine-versions \
+--engine sqlserver-dev-ee \
+--engine-version `16.00.4215.2.cev-dev-ss2022-cu21` \
+--region us-west-2
+```
 
 ###### Note
 
-SQL Server Developer Edition is licensed for development and testing purposes only and cannot be used in production environments.
+This command only returns CEVs with an `available` status. To view CEVs in validating or other states, include the `--include-all` flag.
 
-## Region availability
+## Deleting custom engine versions
 
-RDS for SQL Server Developer Edition is available in the following AWS Regions:
+Before deleting a CEV, make sure it isn't being used by any of the following:
 
-- US East (N. Virginia)
-- US East (Ohio)
-- US West (Oregon)
-- US West (N. California)
-- Asia Pacific (Mumbai)
-- Asia Pacific (Seoul)
-- Asia Pacific (Singapore)
-- Asia Pacific (Osaka)
-- Asia Pacific (Sydney)
-- Asia Pacific (Tokyo)
-- Europe (Ireland)
-- Europe (Frankfurt)
-- Europe (London)
-- Europe (Stockholm)
-- Europe (Paris)
-- Canada (Central)
-- South America (São Paulo)
-- Africa (Cape Town)
+- An Amazon RDS DB instance
+- A snapshot of an Amazon RDS DB instance
+- An automated backup of an Amazon RDS DB instance
 
-## Licensing and usage
+###### Note
 
-SQL Server Developer Edition is licensed by Microsoft for development and test environments only. You cannot use Developer Edition as a production server. When you use SQL Server Developer Edition on Amazon RDS, you are responsible for complying with Microsoft's SQL Server Developer Edition licensing terms. You pay only for the AWS infrastructure costs - there is no additional SQL Server licensing fee. For pricing details, see [RDS for SQL Server pricing](https://aws.amazon.com/rds/sqlserver/pricing/ "https://aws.amazon.com/rds/sqlserver/pricing/").
+You can't delete a CEV if there are any resources associated with it.
 
-## Prerequisites
+To delete a custom engine version, use the [delete-custom-db-engine-version](../../../cli/latest/reference/rds/delete-custom-db-engine-version.md "../../../cli/latest/reference/rds/delete-custom-db-engine-version.md") command.
 
-Before using SQL Server Developer Edition on RDS for SQL Server, ensure you have the following requirements:
-
-- You must obtain the installation binaries directly from Microsoft and ensure compliance with Microsoft's licensing terms.
-- You must have access to use the following resources to create a Developer Edition DB instance:
-  - AWS account with `AmazonRDSFullAccess` and `s3:GetObject` permissions.
-
-- An Amazon S3 bucket is required for storing installation media. You will need an ISO and cumulative update file to upload to the Amazon S3 bucket as part of CEV creation. For more information, see [Uploading installation media to an Amazon S3 bucket](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").
-- All installation media files must reside within the same Amazon S3 bucket and the same folder path within that Amazon S3 bucket in the same Region where the custom engine version is created.
-
-### Supported versions
-
-Developer Edition on RDS for SQL Server supports the following versions:
-
-- SQL Server 2022 CU 21 (16.00.4215.2)
-
-To list all supported engine versions for Developer Edition CEV creation, use the following AWS CLI command:
+- `--engine`: Specify `sqlserver-dev-ee` for Developer Edition
+- `--engine-version`: The exact CEV version identifier to delete
+- `--region`: AWS Region where the CEV exists
 
 ```
-aws rds describe-db-engine-versions --engine sqlserver-dev-ee --output json --query "{DBEngineVersions: DBEngineVersions[?Status=='requires-custom-engine-version'].{Engine: Engine, EngineVersion: EngineVersion, Status: Status, DBEngineVersionDescription: DBEngineVersionDescription}}"
+aws rds delete-custom-db-engine-version \
+--engine sqlserver-dev-ee \
+--engine-version `16.00.4215.2.my-dev-cev` \
+--region us-west-2
 ```
 
-The command returns output similar to the following example:
+To monitor the CEV deletion process, use the `describe-db-engine-versions` command
+and specify your RDS for SQL Server CEV engine version
 
 ```
-{
-    "DBEngineVersions": [
-        {
-            "Engine": "sqlserver-dev-ee",
-            "EngineVersion": "`16.00.4215.2.v1`",
-            "Status": "requires-custom-engine-version",
-            "DBEngineDescription": "Microsoft SQL Server Enterprise Developer Edition",
-            "DBEngineVersionDescription": "SQL Server 2022 16.00.4215.2.v1"
-        }
-    ]
-}
+aws rds describe-db-engine-versions \
+--engine sqlserver-dev-ee \
+--engine-version `16.00.4215.2.my-dev-cev` \
+--region us-west-2
 ```
 
-The engine version status as `requires_custom_engine_version` identifies template engine versions that are supported. These templates show which SQL Server versions you can import.
+Status Values:
 
-## Limitations
-
-The following limitations apply to SQL Server Developer Edition on Amazon RDS:
-
-- Currently only supported on M6i and R6i instance classes.
-- Multi-AZ deployments and read replicas are not supported.
-- You must provide and manage your own SQL Server installation media.
-- Custom engine versions for SQL Server Developer Edition (sqlserver-dev-ee) cannot be shared cross-Region or cross-account.
+- `deleting`: CEV deletion in progress
+- No results returned: CEV successfully deleted

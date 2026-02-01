@@ -1,125 +1,146 @@
-# Lock:advisory
+# Client:ClientRead
 
-The `Lock:advisory` event occurs when a PostgreSQL application uses a lock to
-coordinate activity across multiple sessions.
+The `Client:ClientRead` event occurs when RDS for PostgreSQL is waiting to
+receive data from the client.
 
 ###### Topics
 
-- [Relevant engine versions](#wait-event.lockadvisory.context.supported "#wait-event.lockadvisory.context.supported")
-- [Context](#wait-event.lockadvisory.context "#wait-event.lockadvisory.context")
-- [Causes](#wait-event.lockadvisory.causes "#wait-event.lockadvisory.causes")
-- [Actions](#wait-event.lockadvisory.actions "#wait-event.lockadvisory.actions")
+- [Supported engine versions](#wait-event.clientread.context.supported "#wait-event.clientread.context.supported")
+- [Context](#wait-event.clientread.context "#wait-event.clientread.context")
+- [Likely causes of increased waits](#wait-event.clientread.causes "#wait-event.clientread.causes")
+- [Actions](#wait-event.clientread.actions "#wait-event.clientread.actions")
 
-## Relevant engine versions
+## Supported engine versions
 
-This wait event information is relevant for RDS for PostgreSQL versions 9.6 and higher.
+This wait event information is supported for RDS for PostgreSQL version 10 and higher.
 
 ## Context
 
-PostgreSQL advisory locks are application-level, cooperative locks explicitly locked
-and unlocked by the user's application code. An application can use PostgreSQL advisory
-locks to coordinate activity across multiple sessions. Unlike regular, object- or
-row-level locks, the application has full control over the lifetime of the lock. For
-more information, see [Advisory Locks](https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS "https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS") in the PostgreSQL documentation.
+An RDS for PostgreSQL DB instance is waiting to receive data from the client. The
+RDS for PostgreSQL DB instance must receive the data from the client before it can send more
+data to the client. The time that the instance waits before receiving data from the
+client is a `Client:ClientRead` event.
 
-Advisory locks can be released before a transaction ends or be held by a session across transactions. This isn't true for
-implicit, system-enforced locks, such as an access-exclusive lock on a table acquired by a `CREATE INDEX`
-statement.
+## Likely causes of increased waits
 
-For a description of the functions used to acquire (lock) and release (unlock) advisory locks, see [Advisory Lock Functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS "https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS")
-in the PostgreSQL documentation.
+Common causes for the `Client:ClientRead` event to appear in top waits include the
+following:
 
-Advisory locks are implemented on top of the regular PostgreSQL locking system and are visible in the `pg_locks`
-system view.
+**Increased network latency**
 
-## Causes
+There might be increased network latency between the RDS for PostgreSQL DB instance and client.
+Higher network latency increases the time required for DB instance to receive data from the client.
 
-This lock type is exclusively controlled by an application explicitly using it. Advisory locks that are acquired for each row
-as part of a query can cause a spike in locks or a long-term buildup.
+**Increased load on the client**
 
-These effects happen when the query is run in a way that acquires locks on more rows
-than are returned by the query. The application must eventually release every lock, but
-if locks are acquired on rows that aren't returned, the application can't find
-all of the locks.
+There might be CPU pressure or network saturation on the client. An increase in load on
+the client can delay transmission of data from the client to the RDS for PostgreSQL DB instance.
 
-The following example is from [Advisory Locks](https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS "https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS") in the PostgreSQL documentation.
+**Excessive network round trips**
 
-```
-SELECT pg_advisory_lock(id) FROM foo WHERE id > 12345 LIMIT 100;
-```
+A large number of network round trips between the RDS for PostgreSQL DB instance and the client
+can delay transmission of data from the client to the RDS for PostgreSQL DB instance.
 
-In this example, the `LIMIT` clause can only stop the query's output
-after the rows have already been internally selected and their ID values locked. This
-can happen suddenly when a growing data volume causes the planner to choose a different
-execution plan that wasn't tested during development. The buildup in this case
-happens because the application explicitly calls `pg_advisory_unlock` for
-every ID value that was locked. However, in this case it can't find the set of
-locks acquired on rows that weren't returned. Because the locks are acquired on the
-session level, they aren't released automatically at the end of the
-transaction.
+**Large copy operation**
 
-Another possible cause for spikes in blocked lock attempts is unintended conflicts. In
-these conflicts, unrelated parts of the application share the same lock ID space by
-mistake.
+During a copy operation, the data is transferred from the client's file system to
+the RDS for PostgreSQL DB instance. Sending a large amount of data to the DB instance can delay
+transmission of data from the client to the DB instance.
+
+**Idle client connection**
+
+When a client connects to the RDS for PostgreSQL DB instance in an `idle in
+ transaction` state, the DB instance might wait for the client to send more data or issue a
+command. A connection in this state can lead to an increase in `Client:ClientRead`
+events.
+
+**PgBouncer used for connection pooling**
+
+PgBouncer has a low-level network configuration setting called `pkt_buf`, which
+is set to 4,096 by default. If the workload is sending query packets larger than 4,096 bytes through
+PgBouncer, we recommend increasing the `pkt_buf` setting to 8,192. If the new setting
+doesn't decrease the number of `Client:ClientRead` events, we recommend increasing
+the `pkt_buf` setting to larger values, such as 16,384 or 32,768. If the query text is
+large, the larger setting can be particularly helpful.
 
 ## Actions
 
-Review application usage of advisory locks and detail where and when in the application flow each type of advisory lock is
-acquired and released.
+We recommend different actions depending on the causes of your wait event.
 
-Determine whether a session is acquiring too many locks or a long-running session
-isn't releasing locks early enough, leading to a slow buildup of locks. You can
-correct a slow buildup of session-level locks by ending the session using
-`pg_terminate_backend(pid)`.
+###### Topics
 
-A client waiting for an advisory lock appears in `pg_stat_activity` with `wait_event_type=Lock` and
-`wait_event=advisory`. You can obtain specific lock values by querying the `pg_locks` system view for
-the same `pid`, looking for `locktype=advisory` and `granted=f`.
+- [Place the clients in the same Availability Zone and VPC subnet as the instance](#wait-event.clientread.actions.az-vpc-subnet "#wait-event.clientread.actions.az-vpc-subnet")
+- [Scale your client](#wait-event.clientread.actions.scale-client "#wait-event.clientread.actions.scale-client")
+- [Use current generation
+  instances](#wait-event.clientread.actions.db-instance-class "#wait-event.clientread.actions.db-instance-class")
+- [Increase network bandwidth](#wait-event.clientread.actions.increase-network-bandwidth "#wait-event.clientread.actions.increase-network-bandwidth")
+- [Monitor maximums for network performance](#wait-event.clientread.actions.monitor-network-performance "#wait-event.clientread.actions.monitor-network-performance")
+- [Monitor for transactions in
+  the "idle in transaction" state](#wait-event.clientread.actions.check-idle-in-transaction "#wait-event.clientread.actions.check-idle-in-transaction")
 
-You can then identify the blocking session by querying `pg_locks` for the
-same advisory lock having `granted=t`, as shown in the following
-example.
+### Place the clients in the same Availability Zone and VPC subnet as the instance
+
+To reduce network latency and increase network throughput, place clients
+in the same Availability Zone and virtual private cloud (VPC) subnet as the
+RDS for PostgreSQL DB instance. Make sure that the clients are as geographically close to
+the DB instance as possible.
+
+### Scale your client
+
+Using Amazon CloudWatch or other host metrics, determine if your client is
+currently constrained by CPU or network bandwidth, or both. If the client is
+constrained, scale your client accordingly.
+
+### Use current generation
+
+instances
+
+In some cases, you might not be using a DB instance class that supports jumbo frames. If you're
+running your application on Amazon EC2, consider using a current generation instance for the client. Also,
+configure the maximum transmission unit (MTU) on the client operating system. This technique might reduce the
+number of network round trips and increase network throughput. For more information, see [Jumbo frames
+(9001 MTU)](../../../AWSEC2/latest/UserGuide/network_mtu.md#jumbo_frame_instances "../../../AWSEC2/latest/UserGuide/network_mtu.md#jumbo_frame_instances") in the _Amazon EC2 User Guide_.
+
+For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md"). To determine the DB instance class that is equivalent to an Amazon EC2
+instance type, place `db.` before the Amazon EC2 instance type name. For example, the
+`r5.8xlarge` Amazon EC2 instance is equivalent to the `db.r5.8xlarge` DB instance
+class.
+
+### Increase network bandwidth
+
+Use `NetworkReceiveThroughput` and `NetworkTransmitThroughput` Amazon CloudWatch
+metrics to monitor incoming and outgoing network traffic on the DB instance. These metrics can help you to
+determine if network bandwidth is sufficient for your workload.
+
+If your network bandwidth isn't enough, increase it. If the AWS client or your DB instance is reaching the
+network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size. For more
+information, see [DB instance class types](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+
+For more information about CloudWatch metrics, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
+
+### Monitor maximums for network performance
+
+If you are using Amazon EC2 clients, Amazon EC2 provides maximums for network
+performance metrics, including aggregate inbound and outbound network bandwidth. It
+also provides connection tracking to ensure that packets are returned as expected
+and link-local services access for services such as the Domain Name System (DNS). To
+monitor these maximums, use a current enhanced networking driver and monitor network
+performance for your client.
+
+For more information, see [Monitor network performance for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md") in the _Amazon EC2 User Guide_ and [Monitor network performance for your Amazon EC2 instance](../../../AWSEC2/latest/WindowsGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/WindowsGuide/monitoring-network-performance-ena.md")
+in the _Amazon EC2 User Guide_.
+
+### Monitor for transactions in
+
+the "idle in transaction" state
+
+Check whether you have an increasing number of `idle in transaction` connections. To do
+this, monitor the `state` column in the `pg_stat_activity` table. You might be able to
+identify the connection source by running a query similar to the following.
 
 ```
-SELECT blocked_locks.pid AS blocked_pid,
-         blocking_locks.pid AS blocking_pid,
-         blocked_activity.usename AS blocked_user,
-         blocking_activity.usename AS blocking_user,
-         now() - blocked_activity.xact_start AS blocked_transaction_duration,
-         now() - blocking_activity.xact_start AS blocking_transaction_duration,
-         concat(blocked_activity.wait_event_type,':',blocked_activity.wait_event) AS blocked_wait_event,
-         concat(blocking_activity.wait_event_type,':',blocking_activity.wait_event) AS blocking_wait_event,
-         blocked_activity.state AS blocked_state,
-         blocking_activity.state AS blocking_state,
-         blocked_locks.locktype AS blocked_locktype,
-         blocking_locks.locktype AS blocking_locktype,
-         blocked_activity.query AS blocked_statement,
-         blocking_activity.query AS blocking_statement
-    FROM pg_catalog.pg_locks blocked_locks
-    JOIN pg_catalog.pg_stat_activity blocked_activity ON blocked_activity.pid = blocked_locks.pid
-    JOIN pg_catalog.pg_locks blocking_locks
-        ON blocking_locks.locktype = blocked_locks.locktype
-        AND blocking_locks.DATABASE IS NOT DISTINCT FROM blocked_locks.DATABASE
-        AND blocking_locks.relation IS NOT DISTINCT FROM blocked_locks.relation
-        AND blocking_locks.page IS NOT DISTINCT FROM blocked_locks.page
-        AND blocking_locks.tuple IS NOT DISTINCT FROM blocked_locks.tuple
-        AND blocking_locks.virtualxid IS NOT DISTINCT FROM blocked_locks.virtualxid
-        AND blocking_locks.transactionid IS NOT DISTINCT FROM blocked_locks.transactionid
-        AND blocking_locks.classid IS NOT DISTINCT FROM blocked_locks.classid
-        AND blocking_locks.objid IS NOT DISTINCT FROM blocked_locks.objid
-        AND blocking_locks.objsubid IS NOT DISTINCT FROM blocked_locks.objsubid
-        AND blocking_locks.pid != blocked_locks.pid
-    JOIN pg_catalog.pg_stat_activity blocking_activity ON blocking_activity.pid = blocking_locks.pid
-    WHERE NOT blocked_locks.GRANTED;
+select client_addr, state, count(1) from pg_stat_activity
+where state like 'idle in transaction%'
+group by 1,2
+order by 3 desc
 ```
-
-All of the advisory lock API functions have two sets of arguments, either one `bigint` argument or two
-`integer` arguments:
-
-- For the API functions with one `bigint` argument, the upper 32 bits are in `pg_locks.classid`
-  and the lower 32 bits are in `pg_locks.objid`.
-- For the API functions with two `integer` arguments, the first argument is `pg_locks.classid` and
-  the second argument is `pg_locks.objid`.
-
-The `pg_locks.objsubid` value indicates which API form was used: `1` means one `bigint`
-argument; `2` means two `integer` arguments.

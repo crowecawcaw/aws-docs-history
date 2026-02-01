@@ -45,6 +45,7 @@ Following are some common DBA tasks for RDS for PostgreSQL.
   with PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Badger "#Appendix.PostgreSQL.CommonDBATasks.Badger")
 - [Using PGSnapper for monitoring
   PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Snapper "#Appendix.PostgreSQL.CommonDBATasks.Snapper")
+- [Managing custom casts in RDS for PostgreSQL](PostgreSQL.md "PostgreSQL.md")
 - [Working with parameters on
   your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
 

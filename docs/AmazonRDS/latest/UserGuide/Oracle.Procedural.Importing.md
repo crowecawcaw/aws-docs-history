@@ -1,83 +1,71 @@
-# Migrating with Oracle materialized views
+# Importing using Oracle SQL\*Loader
 
-To migrate large datasets efficiently, you can use Oracle materialized view replication. With replication, you can keep the target tables
-synchronized with the source tables. Thus, you can switch over to Amazon RDS later, if needed.
+You might consider Oracle SQL\*Loader for large databases that contain a limited number of objects. Because the process of exporting from a
+source database and loading to a target database is specific to the schema, the following example creates the sample schema objects, exports
+from a source, and then loads the data into a target database.
 
-Before you can migrate using materialized views, make sure that you meet the following requirements:
+The easiest way to install Oracle SQL\*Loader is to install the Oracle Instant Client. To
+download the software, go to [https://www.oracle.com/database/technologies/instant-client.html](https://www.oracle.com/database/technologies/instant-client.html "https://www.oracle.com/database/technologies/instant-client.html"). For
+documentation, see [Instant Client for SQL\*Loader, Export, and Import](https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/instant-client-sql-loader-export-import.html#GUID-FF1B6F75-09F5-4911-9317-9776FAD15965 "https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/instant-client-sql-loader-export-import.html#GUID-FF1B6F75-09F5-4911-9317-9776FAD15965") in the _Oracle
+Database Utilities_ manual.
 
-- Configure access from the target database to the source database. In the following example, access rules were enabled on the source
-  database to allow the RDS for Oracle target database to connect to the source over SQL\*Net.
-- Create a database link from the RDS for Oracle DB instance to the source database.
+###### To import data using Oracle SQL\*Loader
 
-###### To migrate data using materialized views
-
-1. Create a user account on both source and RDS for Oracle target instances that can authenticate with the same password. The following
-   example creates a user named `dblink_user`.
-
-```
-CREATE USER dblink_user IDENTIFIED BY `my-password`
-  DEFAULT TABLESPACE users
-  TEMPORARY TABLESPACE temp;
-
-GRANT CREATE SESSION TO dblink_user;
-
-GRANT SELECT ANY TABLE TO dblink_user;
-
-GRANT SELECT ANY DICTIONARY TO dblink_user;
-```
-
-###### Note
-
-Specify a password other than the prompt shown here as a security best practice. 2. Create a database link from the RDS for Oracle target instance to the source instance using your newly created user.
-
-```
-CREATE DATABASE LINK remote_site
-  CONNECT TO dblink_user IDENTIFIED BY `my-password`
-  USING '(description=(address=(protocol=tcp) (host=`my-host`)
-    (port=`my-listener-port`)) (connect_data=(sid=`my-source-db-sid`)))';
-```
-
-###### Note
-
-Specify a password other than the prompt shown here as a security best practice. 3. Test the link:
-
-```
-SELECT * FROM V$INSTANCE@remote_site;
-```
-
-4. Create a sample table with primary key and materialized view log on the source instance.
+1. Create a sample source table using the following SQL statement.
 
 ```
 CREATE TABLE customer_0 TABLESPACE users
-  AS (SELECT ROWNUM id, o.*
-      FROM   ALL_OBJECTS o, ALL_OBJECTS x
-      WHERE  ROWNUM <= 1000000);
-
-ALTER TABLE customer_0 ADD CONSTRAINT pk_customer_0 PRIMARY KEY (id) USING INDEX;
-
-CREATE MATERIALIZED VIEW LOG ON customer_0;
+   AS (SELECT ROWNUM id, o.*
+       FROM   ALL_OBJECTS o, ALL_OBJECTS x
+       WHERE  ROWNUM <= 1000000);
 ```
 
-5. On the target RDS for Oracle DB instance, create a materialized view.
+2. On the target RDS for Oracle DB instance, create a destination table for loading the data. The clause `WHERE 1=2` ensures that
+   you copy the structure of `ALL_OBJECTS`, but don't copy any rows.
 
 ```
-CREATE MATERIALIZED VIEW customer_0
-  BUILD IMMEDIATE REFRESH FAST
-  AS (SELECT *
-      FROM   cust_dba.customer_0@remote_site);
+CREATE TABLE customer_1 TABLESPACE users
+  AS (SELECT 0 AS ID, OWNER, OBJECT_NAME, CREATED
+      FROM   ALL_OBJECTS
+      WHERE  1=2);
 ```
 
-6. On the target RDS for Oracle DB instance, refresh the materialized view.
+3. Export the data from the source database to a text file. The following example uses SQL\*Plus. For your data, you will likely need to
+   generate a script that does the export for all the objects in the database.
 
 ```
-EXEC DBMS_MVIEW.REFRESH('CUSTOMER_0', 'f');
+ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY/MM/DD HH24:MI:SS'
+
+SET LINESIZE 800 HEADING OFF FEEDBACK OFF ARRAY 5000 PAGESIZE 0
+SPOOL customer_0.out
+SET MARKUP HTML PREFORMAT ON
+SET COLSEP ','
+
+SELECT id, owner, object_name, created
+FROM   customer_0;
+
+SPOOL OFF
 ```
 
-7. Drop the materialized view and include the `PRESERVE TABLE` clause to retain the materialized view container table and
-   its contents.
+4. Create a control file to describe the data. You might need to write a script to perform this step.
 
 ```
-DROP MATERIALIZED VIEW customer_0 PRESERVE TABLE;
+cat << EOF > sqlldr_1.ctl
+load data
+infile customer_0.out
+into table customer_1
+APPEND
+fields terminated by "," optionally enclosed by '"'
+(
+  id           POSITION(01:10)    INTEGER EXTERNAL,
+  owner        POSITION(12:41)    CHAR,
+  object_name  POSITION(43:72)    CHAR,
+  created      POSITION(74:92)    date "YYYY/MM/DD HH24:MI:SS"
+)
 ```
 
-The retained table has the same name as the dropped materialized view.
+If needed, copy the files generated by the preceding code to a staging area, such as an Amazon EC2 instance. 5. Import the data using SQL\*Loader with the appropriate user name and password for the target database.
+
+```
+sqlldr cust_dba@targetdb CONTROL=sqlldr_1.ctl BINDSIZE=10485760 READSIZE=10485760 ROWS=1000
+```

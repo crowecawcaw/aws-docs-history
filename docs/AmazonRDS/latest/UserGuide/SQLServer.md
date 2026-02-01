@@ -1,144 +1,71 @@
-# Working with read replicas for Microsoft SQL Server in Amazon RDS
+# Using Database Mail on Amazon RDS for SQL Server
 
-You usually use read replicas to configure replication between Amazon RDS DB instances. For
-general information about read replicas, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+You can use Database Mail to send email messages to users from your Amazon RDS on SQL Server database instance. The messages can contain
+files and query results. Database Mail includes the following components:
 
-In this section, you can find specific information about working with read replicas on Amazon RDS for SQL Server.
+- **Configuration and security objects** – These objects create profiles and accounts,
+  and are stored in the `msdb` database.
+- **Messaging objects** – These objects include the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure used to send messages, and data structures that hold information about
+  messages. They're stored in the `msdb` database.
+- **Logging and auditing objects** – Database Mail writes logging information to the
+  `msdb` database and the Microsoft Windows application event log.
+- **Database Mail executable** – `DatabaseMail.exe` reads from a queue in the
+  `msdb` database and sends email messages.
+  RDS supports Database Mail for all SQL Server versions on the Web, Standard, and Enterprise Editions.
 
-- [Synchronizing database users and objects with a SQL Server read replica](SQLServer.ReadReplicas.md "SQLServer.ReadReplicas.md")
-- [Troubleshooting a SQL Server read replica problem](SQLServer.ReadReplicas.md "SQLServer.ReadReplicas.md")
+## Limitations
 
-## Configuring read replicas for SQL Server
+The following limitations apply to using Database Mail on your SQL Server DB instance:
 
-Before a DB instance can serve as a source instance for replication, you must enable
-automatic backups on the source DB instance. To do so, you set the backup retention
-period to a value other than 0. Setting this type of deployment also enforces
-that automatic backups are enabled.
+- Database Mail isn't supported for SQL Server Express Edition.
+- Modifying Database Mail configuration parameters isn't supported. To see the preset (default) values, use the
+  [sysmail_help_configure_sp](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sysmail-help-configure-sp-transact-sql") stored procedure.
+- File attachments aren't fully supported. For more information, see [Working with file attachments](#SQLServer.DBMail.Files "#SQLServer.DBMail.Files").
+- The maximum file attachment size is 1 MB.
+- Database Mail requires additional configuration on Multi-AZ DB instances. For more information, see [Considerations for Multi-AZ deployments](#SQLServer.DBMail.MAZ "#SQLServer.DBMail.MAZ").
+- Configuring SQL Server Agent to send email messages to predefined operators isn't supported.
 
-Creating a SQL Server read replica doesn't require an outage for the primary DB
-instance. Amazon RDS sets the necessary parameters and permissions for the source DB instance
-and the read replica without any service interruption. A snapshot is taken of the source
-DB instance, and this snapshot becomes the read replica. No outage occurs when you
-delete a read replica.
+## Amazon RDS stored procedures and functions for Database Mail
 
-You can create up to 15 read replicas from one source DB instance. For replication to operate effectively, we recommend that
-you configure each read replica with the same amount of compute and storage resources as the source DB instance. If you scale
-the source DB instance, also scale the read replicas.
+Microsoft provides [stored procedures](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/database-mail-stored-procedures-transact-sql") for using Database Mail, such as creating, listing, updating, and deleting accounts and profiles.
+In addition, RDS provides the stored procedures and functions for Database Mail shown in the following table.
 
-The SQL Server DB engine version of the source DB instance and all of its read
-replicas must be the same. Amazon RDS upgrades the primary immediately after upgrading the
-read replicas, regardless of the maintenance window. For more information about
-upgrading the DB engine version, see [Upgrades of the Microsoft SQL Server DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+| Procedure/Function              | Description                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| rds_fn_sysmail_allitems         | Shows sent messages, including those submitted by other users.                   |
+| rds_fn_sysmail_event_log        | Shows events, including those for messages submitted by other users.             |
+| rds_fn_sysmail_mailattachments  | Shows attachments, including those to messages submitted by other users.         |
+| rds_sysmail_control             | Starts and stops the mail queue (DatabaseMail.exe process).                      |
+| rds_sysmail_delete_mailitems_sp | Deletes email messages sent by all users from the Database Mail internal tables. |
 
-For a read replica to receive and apply changes from the source, it should have
-sufficient compute and storage resources. If a read replica reaches compute, network, or
-storage resource capacity, the read replica stops receiving or applying changes from its
-source. You can modify the storage and CPU resources of a read replica independently
-from its source and other read replicas.
+## Working with file attachments
 
-For more information about how to create a read replica, see
-[Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md").
+The following file attachment extensions aren't supported in Database Mail messages from RDS on SQL Server: .ade, .adp,
+.apk, .appx, .appxbundle, .bat, .bak, .cab, .chm, .cmd, .com, .cpl, .dll, .dmg, .exe, .hta, .inf1, .ins, .isp, .iso, .jar, .job,
+.js, .jse, .ldf, .lib, .lnk, .mde, .mdf, .msc, .msi, .msix, .msixbundle, .msp, .mst, .nsh, .pif, .ps, .ps1, .psc1, .reg, .rgs,
+.scr, .sct, .shb, .shs, .svg, .sys, .u3p, .vb, .vbe, .vbs, .vbscript, .vxd, .ws, .wsc, .wsf, and .wsh.
 
-## Read replica limitations with SQL Server
+Database Mail uses the Microsoft Windows security context of the current user to control access to files. Users who log in
+with SQL Server Authentication can't attach files using the `@file_attachments` parameter with the
+`sp_send_dbmail` stored procedure. Windows doesn't allow SQL Server to provide credentials from a remote
+computer to another remote computer. Therefore, Database Mail can't attach files from a network share when the command is
+run from a computer other than the computer running SQL Server.
 
-The following limitations apply to SQL Server read replicas on Amazon RDS:
+However, you can use SQL Server Agent jobs to attach files. For more information on SQL Server Agent, see [Using SQL Server Agent for Amazon RDS](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md") and [SQL Server Agent](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent "https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent") in the Microsoft
+documentation.
 
-- Read replicas are only available on the SQL Server Enterprise Edition (EE)
-  engine.
-- Read replicas are available for SQL Server versions 2016–2022.
-- You can create up to 15 read replicas from one source DB instance.
-  Replication might lag when your source DB instance has more than 5 read replicas.
-- Read replicas are only available for DB instances running on DB instance classes
-  with four or more vCPUs.
-- A read replica supports up to 100 databases depending on the instance class type and availability mode.
-  You must create databases on the source DB instance to
-  automatically replicate them to the read replicas.
-  You can't choose individual databases to replicate.
-  For more information,
-  see [Limitations for Microsoft SQL Server DB instances](CHAP_SQLServer.md#SQLServer.Concepts.General.FeatureSupport.Limits "CHAP_SQLServer.md#SQLServer.Concepts.General.FeatureSupport.Limits").
-- You can't drop a database from a read replica.
-  To drop a database, drop it from the source DB instance with the `rds_drop_database`
-  stored procedure.
-  For more information,
-  see [Dropping a database in an Amazon RDS for Microsoft SQL Server DB instance](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").
-- If the source DB instance uses Transparent Data Encryption (TDE) to encrypt data,
-  the read replica also automatically
-  configures TDE.
+## Considerations for Multi-AZ deployments
 
-If the source DB instance uses a KMS key to encrypt data,
-read replicas in the same region use the same KMS key.
-For cross-region read replicas, you must specify a KMS key from the read replica’s region when creating the read replica.
-You can't change the KMS key for a read replica.
+When you configure Database Mail on a Multi-AZ DB instance, the configuration isn't automatically propagated to the
+secondary. We recommend converting the Multi-AZ instance to a Single-AZ instance, configuring Database Mail, and then converting
+the DB instance back to Multi-AZ. Then both the primary and secondary nodes have the Database Mail configuration.
 
-- Read replicas have the same time zone and collation as the source DB instance,
-  regardless of Availabilty Zone they're created in.
-- The following aren't supported on Amazon RDS for SQL Server:
-  - Backup retention of read replicas
-  - Point-in-time recovery from read replicas
-  - Manual snapshots of read replicas
-  - Multi-AZ read replicas
-  - Creating read replicas of read replicas
-  - Synchronization of user logins to read replicas
+If you create a read replica from your Multi-AZ instance that has Database Mail configured, the replica inherits the
+configuration, but without the password to the SMTP server. Update the Database Mail account with the password.
 
-- Amazon RDS for SQL Server doesn't intervene to mitigate high replica lag between a
-  source DB instance and its read replicas. Make sure that the source DB instance
-  and its read replicas are sized properly, in terms of computing power and
-  storage, to suit their operational load.
-- You can replicate between the AWS GovCloud (US-East) and AWS GovCloud (US-West)
-  Regions, but not into or out of AWS GovCloud (US) Regions.
+## Removing the SMTP (port 25) restriction
 
-## Option considerations for RDS for SQL Server replicas
-
-Before you create an RDS for SQL Server replica, consider the following requirements, restrictions, and recommendations:
-
-- If your SQL Server replica is in the same Region as its source DB instance, make sure that it belongs
-  to the same option group as the source DB instance. Modifications to the source option group or source option
-  group membership propagate to replicas. These changes are applied to the replicas immediately after they are
-  applied to the source DB instance, regardless of the replica's maintenance window.
-
-For more information about option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
-
-- When you create a SQL Server cross-Region replica, Amazon RDS creates a dedicated option group for it.
-
-You can't remove an SQL Server cross-Region replica from its dedicated option group. No other DB
-instances can use the dedicated option group for a SQL Server cross-Region replica.
-
-The following options are replicated options. To add replicated options to a SQL Server cross-Region replica,
-add it to the source DB instance's option group. The option is also installed on all of the source DB instance's replicas.
-
-    + `TDE`
-
-The following options are non-replicated options. You can add or remove non-replicated options from a dedicated option group.
-
-    + `MSDTC`
-    + `SQLSERVER_AUDIT`
-    + To enable the `SQLSERVER_AUDIT` option on cross-Region read replica, add the `SQLSERVER_AUDIT` option
-     on the dedicated option group on the cross-region read replica and the source instance’s option group.
-     By adding the `SQLSERVER_AUDIT` option on the source instance of SQL Server cross-Region read replica, you can
-     create Server Level Audit Object and Server Level Audit Specifications on each of the cross-Region read replicas
-     of the source instance. To allow the cross-Region read replicas access to upload the completed audit logs
-     to an Amazon S3 bucket, add the `SQLSERVER_AUDIT` option to the dedicated option group and configure the
-     option settings. The Amazon S3 bucket that you use as a target for audit files must be in the same Region as the cross-Region read replica.
-     You can modify the option setting of the `SQLSERVER_AUDIT` option for each cross region read replica independently so
-     each can access an Amazon S3 bucket in their respective Region.
-
-The following options are not supported for read replicas.
-
-    + `SSRS`
-    + `SSAS`
-    + `SSIS`
-
-The following options are partially supported for cross-Region read replicas.
-
-    + `SQLSERVER_BACKUP_RESTORE`
-    + The source DB instance of a SQL Server cross-Region replica can have the `SQLSERVER_BACKUP_RESTORE` option,
-     but you can not perform native restores on the source DB instance until you delete all its cross-Region replicas.
-     Any existing native restore tasks will be cancelled during the creation of a cross-Region replica.
-     You can't add the `SQLSERVER_BACKUP_RESTORE` option to a dedicated option group.
-
-
-    For more information on native backup and restore, see [Importing and exporting SQL Server databases using native
-     backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md")
-
-When you promote a SQL Server cross-Region read replica, the promoted replica behaves the same as other SQL Server DB instances,
-including the management of its options. For more information about option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
+By default, AWS blocks outbound traffic on SMTP (port 25) for RDS for SQL Server DB instances.
+This is done to prevent spam based on the elastic network interface owner's policies.
+You can remove this restriction if needed. For more information, see
+[How do I remove the restriction on port 25 from my Amazon EC2 instance or Lambda function?](https://repost.aws/knowledge-center/ec2-port-25-throttle "https://repost.aws/knowledge-center/ec2-port-25-throttle").

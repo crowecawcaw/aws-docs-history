@@ -21,6 +21,7 @@ collection of information about your databases.
 - [Reactivating a database](#db2-reactivating-database "#db2-reactivating-database")
 - [Dropping a database](#db2-dropping-database "#db2-dropping-database")
 - [Backing up a database](#db2-backing-up-database "#db2-backing-up-database")
+- [Copying archive logs to Amazon S3](#db2-copying-archive-logs-to-s3 "#db2-copying-archive-logs-to-s3")
 - [Restoring a database](#db2-restoring-database "#db2-restoring-database")
 - [Listing databases](#db2-listing-databases "#db2-listing-databases")
 - [Collecting information about databases](#db2-collecting-info-db "#db2-collecting-info-db")
@@ -422,6 +423,72 @@ terminate
 7. (Optional) After the backup to Amazon S3 completes, you can restore the backup to
    an RDS for Db2 DB instance or to another location such as a local server. For
    information about restoring to an RDS for Db2 DB instance, see [Restoring a database](#db2-restoring-database "#db2-restoring-database").
+
+## Copying archive logs to Amazon S3
+
+Db2 archive logs can now be copied from your RDS for Db2 DB instance to Amazon S3. The archive logs
+combined with native backup created using `rdsadmin.backup_database` can be
+used to restore and rollforward database to point in time on another RDS for Db2 instance or EC2 database.
+
+Before configuring this feature, use the stored procedure `rdsadmin.backup_database` to set up RDS for Db2 database.
+
+This feature operates at the RDS for Db2 DB instance level, though archive log copying can be enabled
+or disabled per database.
+
+###### To configure archive log copying to Amazon S3
+
+1. Connect to the `rdsadmin` database using the master username and
+   master password for your RDS for Db2 DB Instance. In the following example, replace
+   `master_username` and
+   `master_password` with your own information.
+
+```
+db2 "connect to rdsadmin user `master_username` using `master_password`"
+```
+
+2. Setup archive log backup to S3 by calling [rdsadmin.set_configuration](db2-sp-managing-databases.md#db2-sp-set-configuration "db2-sp-managing-databases.md#db2-sp-set-configuration").
+
+```
+db2 "call rdsadmin.set_configuration(
+    '`name'`,
+    '`value`')"
+```
+
+**Example:**
+
+```
+db2 "call rdsadmin.set_configuration('ARCHIVE_LOG_COPY_TARGET_S3_ARN', 'arn:aws:s3:::my_rds_db2_backups/archive-log-copy/')"
+```
+
+3. Enable archive log copying for a database by calling `rdsadmin.enable_archive_log_copy`.
+   Replace `database_name` with your database name.
+
+```
+db2 "call rdsadmin.enable_archive_log_copy(?, '`database_name`')"
+```
+
+4. Similarly,to disable archive log copying for a database, call `rdsadmin.disable_archive_log_copy`.
+
+```
+db2 "call rdsadmin.disable_archive_log_copy(?, '`database_name`')"
+```
+
+5. Confirm the archive log copy status by calling `rdsadmin.list_databases`.
+
+```
+db2 "select * from table(rdsadmin.list_databases())"
+```
+
+**Sample output:**
+
+```
+DATABASE_NAME   CREATE_TIME                DATABASE_UNIQUE_ID                                 ARCHIVE_LOG_RETENTION_HOURS ARCHIVE_LOG_COPY ARCHIVE_LOG_LAST_UPLOAD_FILE ARCHIVE_LOG_LAST_UPLOAD_FILE_TIME ARCHIVE_LOG_COPY_STATUS
+--------------- -------------------------- -------------------------------------------------- --------------------------- ---------------- ---------------------------- --------------------------------- ------------------------------
+RDSADMIN        2026-01-06-02.03.42.569069 RDSADMIN                                                                     0 DISABLED         -                            -                                 -
+FOO             2026-01-06-02.13.42.885650 F0D81C7E-7213-4565-B376-4F33FCF420E3                                         7 ENABLED          S0006536.LOG                 2026-01-28-19.15.10.000000        UPLOADING
+CODEP           2026-01-14-19.42.42.508476 106EEF95-6E30-4FFF-85AE-B044352DF095                                         0 DISABLED         -                            -                                 -
+...
+```
 
 ## Restoring a database
 

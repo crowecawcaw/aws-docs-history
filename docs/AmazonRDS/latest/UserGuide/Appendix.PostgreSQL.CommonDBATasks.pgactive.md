@@ -1,325 +1,51 @@
-# Setting up
+# Configuring parameter
 
-active-active replication for RDS for PostgreSQL DB instances
+settings for the pgactive extension
 
-The following procedure shows you how to start active-active replication between two
-RDS for PostgreSQL DB instances where `pgactive` is available. To run the
-multi-region high availability example, you need to deploy Amazon RDS for PostgreSQL instances
-in two different regions and set up VPC Peering. For more information, see [VPC
-peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md").
-
-###### Note
-
-Sending traffic between multiple regions may incur additional costs.
-
-These steps assume that the RDS for PostgreSQL DB instance has been enabled with the
-`pgactive` extension. For more information, see [Initializing the
-pgactive extension capability](Appendix.PostgreSQL.CommonDBATasks.pgactive.md "Appendix.PostgreSQL.CommonDBATasks.pgactive.md").
-
-###### To configure the first RDS for PostgreSQL DB instance with the `pgactive`
-
-extension
-
-The following example illustrates how the `pgactive` group is created, along
-with other steps required to create the `pgactive` extension on the RDS for PostgreSQL
-DB instance.
-
-1. Use `psql` or another client tool to connect to your first RDS for PostgreSQL
-   DB instance.
+You can use the following query to view all the parameters associated with
+`pgactive` extension.
 
 ```
-psql --host=`firstinstance.111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password=`PASSWORD` --dbname=`postgres`
-
+`app=>` SELECT * FROM pg_settings WHERE name LIKE 'pgactive.%';
 ```
 
-2. Create a database on the RDS for PostgreSQL instance using the following command:
-
-```
-`postgres=>` CREATE DATABASE `app`;
-```
-
-3. Switch connection to the new database using the following command:
-
-```
-\c `app`
-```
-
-4. Create and populate a sample table using the following SQL statements:
-   1. Create an example table using the following SQL statement.
-
-   ```
-   `app=>` CREATE SCHEMA inventory;
-   CREATE TABLE inventory.products (
-   id int PRIMARY KEY, product_name text NOT NULL,
-   created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP);
-   ```
-
-   2. Populate the table with some sample data by using the following SQL
-      statement.
-
-   ```
-   `app=>` INSERT INTO inventory.products (id, product_name)
-   VALUES (1, 'soap'), (2, 'shampoo'), (3, 'conditioner');
-
-   ```
-
-   3. Verify that data exists in the table by using the following SQL statement.
-
-   ```
-    `app=>`SELECT count(*) FROM inventory.products;
-   `count
-   -------
-    3`
-   ```
-
-5. Create `pgactive` extension on the existing database.
-
-```
-`app=>` CREATE EXTENSION pgactive;
-```
-
-6. To securely create and initialize the pgactive group use the following
-   commands:
-
-```
-`app=>`
--- connection info for endpoint1
-CREATE SERVER pgactive_server_endpoint1
-    FOREIGN DATA WRAPPER pgactive_fdw
-    OPTIONS (host '<endpoint1>', dbname 'app');
-CREATE USER MAPPING FOR postgres
-    SERVER pgactive_server_endpoint1
-    OPTIONS (user 'postgres', password '<password>');
-      -- connection info for endpoint2
-CREATE SERVER pgactive_server_endpoint2
-    FOREIGN DATA WRAPPER pgactive_fdw
-    OPTIONS (host '<endpoint2>', dbname 'app');
-CREATE USER MAPPING FOR postgres
-    SERVER pgactive_server_endpoint2
-    OPTIONS (user 'postgres', password '<password>');
-
-```
-
-Now you can initialize the replication group and add this first instance:
-
-```
-
-SELECT pgactive.pgactive_create_group(
-    node_name := `'endpoint1-app'`,
-    node_dsn := 'user_mapping=postgres pgactive_foreign_server=pgactive_server_endpoint1'
-
-);
-
-```
-
-Use the following commands as an alternate but less secure method to create and
-initialize the pgactive group:
-
-```
-`app=>` SELECT pgactive.pgactive_create_group(
-    node_name := `'node1-app'`,
-    node_dsn := 'dbname=`app` host=`firstinstance.111122223333`.`aws-region`.rds.amazonaws.com user=`postgres` password=`PASSWORD`');
-```
-
-node1-app is the name that you assign to uniquely identify a node in the
-`pgactive` group.
-
-###### Note
-
-To perform this step successfully on a DB instance that is publicly accessible, you must
-turn on the `rds.custom_dns_resolution` parameter by setting it to
-`1`. 7. To check if the DB instance is ready, use the following command:
-
-```
-`app=>` SELECT pgactive.pgactive_wait_for_node_ready();
-```
-
-If the command succeeds, you can see the following output:
-
-```
-
-`pgactive_wait_for_node_ready
-------------------------------
-(1 row)`
-```
-
-###### To configure the second RDS for PostgreSQL instance and join it to the `pgactive`
-
-group
-
-The following example illustrates how you can join an RDS for PostgreSQL DB instance to the
-`pgactive` group, along with other steps that are required to create the
-`pgactive` extension on the DB instance.
-
-These steps assume that another
-RDS for PostgreSQL DB instances has been set up with the
-`pgactive` extension. For more information, see [Initializing the
-pgactive extension capability](Appendix.PostgreSQL.CommonDBATasks.pgactive.md "Appendix.PostgreSQL.CommonDBATasks.pgactive.md").
-
-1. Use `psql` to connect to the instance that you want to receive updates from
-   the publisher.
-
-```
-psql --host=`secondinstance.111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=`postgres` --password=`PASSWORD` --dbname=`postgres`
-
-```
-
-2. Create a database on the second RDS for PostgreSQL DB instance using the following
-   command:
-
-```
-`postgres=>` CREATE DATABASE `app`;
-```
-
-3. Switch connection to the new database using the following command:
-
-```
-\c `app`
-```
-
-4. Create the `pgactive` extension on the existing database.
-
-```
-`app=>` CREATE EXTENSION pgactive;
-```
-
-5. Join the RDS for PostgreSQL second DB instance to the
-   `pgactive` group in a more secure way using the following commands:
-
-```
-
--- connection info for endpoint1
-CREATE SERVER pgactive_server_endpoint1
-    FOREIGN DATA WRAPPER pgactive_fdw
-    OPTIONS (host '<endpoint1>', dbname 'app');
-CREATE USER MAPPING FOR postgres
-    SERVER pgactive_server_endpoint1
-    OPTIONS (user 'postgres', password '<password>');
-
--- connection info for endpoint2
-CREATE SERVER pgactive_server_endpoint2
-    FOREIGN DATA WRAPPER pgactive_fdw
-    OPTIONS (host '<endpoint2>', dbname 'app');
-CREATE USER MAPPING FOR postgres
-    SERVER pgactive_server_endpoint2
-    OPTIONS (user 'postgres', password '<password>');
-
-```
-
-```
-
-SELECT pgactive.pgactive_join_group(
-    node_name := 'endpoint2-app',
-    node_dsn := 'user_mapping=postgres pgactive_foreign_server=pgactive_server_endpoint2',
-    join_using_dsn := 'user_mapping=postgres pgactive_foreign_server=pgactive_server_endpoint1'
-);
-
-```
-
-Use the following commands as an alternate but less secure method to join the RDS for PostgreSQL second DB instance to the `pgactive` group
-
-```
-`app=>` SELECT pgactive.pgactive_join_group(
-node_name := `'node2-app'`,
-node_dsn := 'dbname=`app` host=`secondinstance.111122223333`.`aws-region`.rds.amazonaws.com user=`postgres` password=`PASSWORD`',
-join_using_dsn := 'dbname=`app` host=`firstinstance.111122223333`.`aws-region`.rds.amazonaws.com user=`postgres` password=`PASSWORD`');
-```
-
-node2-app is the name that you assign to uniquely identify a node in the
-`pgactive` group. 6. To check if the DB instance is ready, use the following command:
-
-```
-`app=>` SELECT pgactive.pgactive_wait_for_node_ready();
-```
-
-If the command succeeds, you can see the following output:
-
-```
-
-`pgactive_wait_for_node_ready
-------------------------------
-(1 row)`
-```
-
-If the first RDS for PostgreSQL database is relatively large, you can see
-`pgactive.pgactive_wait_for_node_ready()` emitting the progress report of the
-restore operation. The output looks similar to the following:
-
-```
-`NOTICE: restoring database 'app', 6% of 7483 MB complete
-NOTICE: restoring database 'app', 42% of 7483 MB complete
-NOTICE: restoring database 'app', 77% of 7483 MB complete
-NOTICE: restoring database 'app', 98% of 7483 MB complete
-NOTICE: successfully restored database 'app' from node node1-app in 00:04:12.274956
- pgactive_wait_for_node_ready
-------------------------------
-(1 row)`
-```
-
-From this point forward, `pgactive` synchronizes the data between the two
-DB instances. 7. You can use the following command to verify if the database of the second DB instance has
-the data:
-
-```
-`app=>` SELECT count(*) FROM inventory.products;
-```
-
-If the data is successfully synchronized, you’ll see the following output:
-
-```
-`count
--------
- 3`
-```
-
-8. Run the following command to insert new values:
-
-```
-`app=>` INSERT INTO inventory.products (id, product_name) VALUES (4, 'lotion');
-```
-
-9. Connect to the database of the first DB instance and run the following query:
-
-```
-`app=>` SELECT count(*) FROM inventory.products;
-```
-
-If the active-active replication is initialized, the output is similar to the
-following:
-
-```
-`count
--------
- 4`
-```
-
-###### To detach and remove a DB instance from the `pgactive` group
-
-You can detach and remove a DB instance from the `pgactive` group using these
-steps:
-
-1. You can detach the second DB instance from the first DB instance using the following
-   command:
-
-```
-`app=>` SELECT * FROM pgactive.pgactive_detach_nodes(ARRAY[‘`node2-app`']);
-```
-
-2. Remove the `pgactive` extension from the second DB instance using the following
-   command:
-
-```
-`app=>` SELECT * FROM pgactive.pgactive_remove();
-```
-
-To forcefully remove the extension:
-
-```
-`app=>` SELECT * FROM pgactive.pgactive_remove(true);
-```
-
-3. Drop the extension using the following command:
-
-```
-`app=>` DROP EXTENSION pgactive;
-```
+You can configure the `pgactive` extension using various parameters. These
+parameters can be set through either the AWS Management Console or the AWS CLI interface.
+
+## Main pgactive
+
+extension parameters
+
+The following table provides a reference for the main parameters of the
+`pgactive` extension:
+
+| Parameter                                  | Unit           | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------ | -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pgactive.conflict_logging_include_tuples` | `boolean`      | –       | Logs complete tuple information for the `pgactive`<br>extension.<br>NoteA server restart is required for changes to take effect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `pgactive.log_conflicts_to_table`          | `boolean`      | –       | Determines whether the `pgactive` extension logs the detected<br>conflicts to the `pgactive.pgactive_conflict_history` table. For more<br>information, see Conflict logging for details.<br>NoteA server restart is required for changes to take effect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `pgactive.log_conflicts_to_logfile`        | `boolean`      | –       | Determines whether the `pgactive` extension logs the detected<br>conflicts to the PostgreSQL log file. For more information, see Conflict logging<br>for details.<br>NoteA server restart is required for changes to take effect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `pgactive.synchronous_commit`              | `boolean`      | off     | Determines the commit behavior for pgactive apply workers. When<br>disabled(off), apply workers perform asynchronous commits, which improves<br>PostgreSQL throughput during apply operations but delays replay confirmations to<br>the upstream. Setting it to `off` is always safe and won't cause<br>transaction loss or skipping. This setting only affects the timing of disk flushes<br>on the downstream node and when confirmations are sent upstream. The system delays<br>sending replay flush confirmations until commits are flushed to disk through<br>unrelated operations like checkpoints or periodic work. However, if the upstream<br>has the downstream listed in `synchronous_standby_names`, setting it to<br>`off` causes synchronous commits on the upstream to take longer to<br>report success to the client. In this case, set the parameter to<br>`on`.<br>NoteEven when this parameter is set to `on` with nodes listed in<br>`synchronous_standby_names`, replication conflicts can still occur<br>in active-active configurations. This is because the system lacks inter-node<br>locking and global snapshot management, allowing concurrent transactions on<br>different nodes to modify the same tuple. Additionally, transactions only begin<br>replication after committing on the upstream node. Enabling synchronous commit<br>doesn't transform the pgactive extension into an always-consistent<br>system. |
+| `pgactive.temp_dump_directory`             | `string`       | –       | Defines the temporary storage path required for database cloning<br>operations during initial setup. This directory must be writable by the postgres<br>user and have sufficient storage space to contain a complete database dump. The<br>system uses this location only during initial database setup with logical copy<br>operations. This parameter isn't used by the `pgactive_init_copy<br>command`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `pgactive.max_ddl_lock_delay`              | `milliseconds` | `-1`    | Specifies the maximum wait time for DDL lock before forcibly aborting<br>concurrent write transactions. The default value is `-1`, which adopts<br>the value set in `max_standby_streaming_delay`. This parameter accepts<br>time units. For example, you can set it to 10s for 10 seconds. During this wait<br>period, the system attempts to acquire DDL locks while waiting for ongoing write<br>transactions to either commit or roll back. For more information, see the DDL<br>Locking.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `pgactive.ddl_lock_timeout`                | `milliseconds` | `-1`    | Specifies how long a DDL lock attempt waits to obtain the lock. The<br>default value is `-1`, which uses the value specified in lock_timeout.<br>You can set this parameter using time units such as 10s for 10 seconds. This timer<br>only controls the waiting period for obtaining a DDL lock. Once the system obtains<br>the lock and begins the DDL operation, the timer stops. This parameter doesn't<br>limit the total duration a DDL lock can be held or the overall DDL operation time.<br>To control the total duration of the operation, use `statement_timeout`<br>instead. For more information, see DDL Locking.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `pgactive.debug_trace_ddl_locks_level`     | `boolean`      | –       | Overrides the default debug log level for DDL locking operations in the<br>`pgactive` extension. When configured, this setting causes DDL<br>lock-related messages to be emitted at the LOG debug level instead of their<br>default level. Use this parameter to monitor DDL locking activity without enabling<br>the verbose `DEBUG1` or `DEBUG2` log levels across your<br>entire server.<br>Available log levels, in increasing order of verbosity:<br>• **none** - DDL lock messages appear only at<br>DEBUG1 and lower server log levels.<br>• **statement** - Adds LOG output for DDL lock<br>acquisition attempts.<br>• **acquire_release** - Records lock acquisition,<br>release, declination events, and peer node applications of remote DDL<br>locks.<br>• **peers** - Provides additional details about DDL<br>lock negotiations between peer nodes.<br>• **debug** - Logs all DDL lock-related activities<br>at LOG level.<br>For more information about monitoring options, see Monitoring global DDL<br>locks.<br>NoteChanges to this setting take effect when you reload the configuration. You<br>don't need to restart the server.                                                                                                                                                                                                                                                                                             |
+
+## Additional pgactive
+
+extension parameters
+
+The following table presents less frequently used and internal configuration options
+available for the `pgactive` extension.
+
+| Parameter                                                  | Unit      | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------------------------------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pgactive.debug_apply_delay`                               | `integer` | –       | Sets an apply delay (in milliseconds) for configured connections that don't<br>have an explicit apply delay in their `pgactive.pgactive_connections`<br>entry. This delay is set during node creation or join time, and pgactive won't<br>replay a transaction on peer nodes until at least the specified number of<br>milliseconds have elapsed since it was committed.<br>Primarily used to simulate high-latency networks in testing environments to<br>make it easier to create conflicts. For example, with a 500ms delay on nodes A and<br>B, you have at least 500ms to perform a conflicting insert on node B after<br>inserting a value on node A.<br>NoteRequires a server reload or restart of apply workers to take effect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `pgactive.connectability_check_duration`                   | `integer` | –       | Specifies the duration (in seconds) that a database worker attempts to<br>establish connections during failed attempts. The worker makes one connection<br>attempt per second until it succeeds or reaches this timeout value. This setting<br>is useful when the database engine starts before the worker is ready to establish<br>connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `pgactive.skip_ddl_replication`                            | `boolean` | `on`    | Controls how DDL changes are replicated or handled in Amazon RDS with<br>`pgactive` enabled. When set to `on`, the node processes<br>DDL changes like a non-pgcctive node. The following requirements apply when<br>working with this parameter:<br>• New nodes can't join a pgactive group if their<br>`skip_ddl_replication` value differs from the upstream<br>node.<br>• Existing nodes can't start pgactive workers if their parameter value<br>doesn't match the upstream node.<br>• All pgactive members must use the same parameter value.<br>You can modify this parameter in two ways with super user privileges:<br>globally, locally (session level).<br>NoteChanging this parameter incorrectly can break your replication<br>setups.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `pgactive.do_not_replicate`                                | `boolean` | –       | This parameter is for internal use only. When you set this parameter in a<br>transaction, the changes are not replicated to other nodes in your DB cluster.<br>NoteChanging this parameter incorrectly can break your replication<br>setups.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `pgactive.discard_mismatched_row_attributes`               | `boolean` | –       | This parameter is intended for specialist use only. We recommend using<br>this parameter only when troubleshooting specific replication issues. Use this<br>parameter when:<br>• The incoming replication stream contains rows with more columns than your<br>local table.<br>• These remote rows contain non-null values.<br>This setting overrides the following error message and allows data divergence<br>to arise to let replication continue: `cannot right-pad mismatched<br>attributes; attno %u is missing in local table and remote row has non-null,<br>non-dropped value for this attribute`<br>NoteChanging this parameter incorrectly can break your replication<br>setups.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `pgactive.debug_trace_replay`                              | `boolean` | –       | When set to `on`, it emits a log message for each remote<br>action that downstream apply workers process. The logs include:<br>• Change type<br>• Affected table name<br>• Number of changes since transaction start<br>• Transaction commit LSN<br>• Commit timestamp<br>• Upstream node identifier<br>• Forwarding node identifier (if applicable)<br>The logs also capture queued DDL commands and table drops.para><br>By default, the logs do not include row field contents. To include row<br>values in the logs, you must recompile with the following flags enabled:<br>• VERBOSE_INSERT<br>• VERBOSE_UPDATE<br>• VERBOSE_DELETE<br>NoteEnabling this logging setting can impact performance. We recommend enabling<br>it only when needed for troubleshooting. Changes to this setting take effect<br>when you reload the configuration. You don't need to restart the server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `pgactive.extra_apply_connection_options`                  |           | –       | You can configure connection parameters for all peer node connections<br>with pgactive nodes. These parameters control settings such as keepalives and SSL<br>modes. By default, pgactive uses the following connection parameters:<br>• connect_timeout=30<br>• keepalives=1<br>• keepalives_idle=20<br>• keepalives_interval=20<br>• keepalives_count=5<br>To override the default parameters, use the following similar command:<br>`pgactive.extra_apply_connection_options = 'keepalives=0'`<br>Individual node connection strings take precedence over both these settings<br>and pgactive's built-in connection options. For more information about connection<br>string formats, see [libpq connection strings](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING "https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING").<br>We recommend keeping the default keepalive settings enabled. Only disable<br>keepalives if you experience issues with large transactions completing over<br>unreliable networks.<br>NoteWe recommend keeping the default keepalive settings enabled. Only disable<br>keepalives if you experience issues with large transactions completing over<br>unreliable networks. Changes to this setting take effect when you reload the<br>configuration. You don't need to restart the server. |
+| `pgactive.init_node_parallel_jobs` (`int`)                 |           | –       | Specifies the number of parallel jobs that `pg_dump` and<br>`pg_restore` can use during logical node joins with the<br>`pgactive.pgactive_join_group` function.<br>Changes to this setting take effect when you reload the configuration. You<br>don't need to restart the server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `pgactive.max_nodes`                                       | `int`     | 4       | Specifies the maximum number of nodes allowed in a pgactive extension group.<br>The default value is 4 nodes. You must consider the following when setting the<br>value of this parameter:<br>• All nodes in a pgactive extension group must use the same parameter<br>value.<br>• A new node can't join if its parameter value differs from the upstream<br>node.<br>• Existing nodes can't start pgactive extension workers if their parameter<br>value differs from the upstream node.<br>• Larger groups require additional monitoring and maintenance effort, so the<br>value of this parameter wisely.<br>You can set this parameter in two ways: in the configuration file, using the<br>`ALTER SYSTEM SET` command<br>Default value for this parameter is `4`, meaning, there can be<br>maximum of 4 nodes allowed in the `pgactive` extension group at any<br>point of time.<br>NoteThe change takes effect after you restart the server.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `pgactive.permit_node_identifier_getter_function_creation` | `boolean` | –       | This parameter is intended for internal use only. When enabled,<br>`pgactive` extension allows creation of pgactive node identifier<br>getter function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |

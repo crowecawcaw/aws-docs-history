@@ -1,49 +1,55 @@
-# Working with container databases (CDBs) in
+# Deleting an RDS Custom for Oracle DB instance
 
-RDS Custom for Oracle
+###### Warning
 
-You can either create your RDS Custom for Oracle DB instance with the Oracle multitenant architecture
-(`custom-oracle-ee-cdb` or `custom-oracle-se2-cdb` engine type) or
-with the traditional non-CDB architecture (`custom-oracle-ee` or
-`custom-oracle-se2` engine type). When you create a container database (CDB), it
-contains one pluggable database (PDB) and one PDB seed. You can create additional PDBs manually
-using Oracle SQL.
+Deleting a DB instance is a permanent action. You can't recover a DB instance after deletion unless you have a backup or snapshot.
 
-## PDB and CDB names
+When you delete an RDS Custom DB instance, AWS automatically deletes the underlying Amazon EC2 instance and EBS volumes. Don't manually terminate the Amazon EC2 instance or delete the EBS volumes before deleting the DB instance through Amazon RDS. Manual deletion of these resources causes DB instance deletion and final snapshot creation to fail, preventing any possibility of recovery.
 
-When you create an RDS Custom for Oracle CDB instance, you specify a name for the initial PDB. By
-default, your initial PDB is named `ORCL`. You can choose a different name.
+To delete an RDS Custom DB instance, do the following:
 
-By default, your CDB is named `RDSCDB`. You can choose a different name. The CDB
-name is also the name of your Oracle system identifier (SID), which uniquely identifies
-the memory and processes that manage your CDB. For more information about the Oracle SID, see
-[Oracle System Identifier (SID)](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D") in _Oracle Database
-Concepts_.
+- Provide the name of the DB instance.
+- Clear the option to take a final DB snapshot of the DB instance.
+- Choose or clear the option to retain automated backups.
+  You can delete an RDS Custom DB instance using the console or the CLI. The time required
+  to delete the DB instance can vary depending on the backup retention period (that is,
+  how many backups to delete) and how much data is deleted.
 
-You can't rename existing PDBs using Amazon RDS APIs. You also can't rename the CDB using the
-`modify-db-instance` command.
+###### To delete an RDS Custom DB instance
 
-## PDB management
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**, and then choose the RDS Custom DB
+   instance that you want to delete. RDS Custom DB instances show the role **Instance (RDS Custom)**.
+3. For **Actions**, choose **Delete**.
+4. To retain automated backups, choose **Retain automated
+   backups**.
+5. Enter `delete me` in the box.
+6. Choose **Delete**.
+   You delete an RDS Custom DB instance by using the [delete-db-instance](../../../cli/latest/reference/rds/delete-db-instance.md "../../../cli/latest/reference/rds/delete-db-instance.md") AWS CLI command. Identify the DB instance using the required parameter
+   `--db-instance-identifier`. The remaining parameters are the same as for an Amazon RDS DB instance, with the
+   following exceptions:
 
-In the RDS Custom for Oracle shared responsibility model, you are responsible for managing PDBs
-and creating any additional PDBs. RDS Custom doesn't restrict the number of PDBs. You can
-manually create, modify, and delete PDBs by connecting to the CDB root and running a SQL
-statement. Create PDBs on an Amazon EBS data volume to prevent the DB instance from going outside
-the support perimeter.
+- `--skip-final-snapshot` is required.
+- `--no-skip-final-snapshot` isn't supported.
+- `--final-db-snapshot-identifier` isn't supported.
+  The following example deletes the RDS Custom DB instance named `my-custom-instance`, and retains automated
+  backups.
 
-To modify your CDBs or PDBs, complete the following steps:
+For Linux, macOS, or Unix:
 
-1. Pause automation to prevent interference with RDS Custom actions.
-2. Modify your CDB or PDBs.
-3. Back up any modified PDBs.
-4. Resume RDS Custom automation.
+```
+aws rds delete-db-instance \
+    --db-instance-identifier `my-custom-instance` \
+    --skip-final-snapshot \
+    --no-delete-automated-backups
+```
 
-## Automatic recovery of the CDB root
+For Windows:
 
-RDS Custom keeps the CDB root open in the same way as it keeps a non-CDB open. If the
-state of the CDB root changes, the monitoring and recovery automation attempts to
-recover the CDB root to the desired state. You receive RDS event notifications when the
-root CDB is shut down (`RDS-EVENT-0004`) or restarted
-(`RDS-EVENT-0006`), similar to the non-CDB architecture. RDS Custom attempts
-to open all PDBs in `READ WRITE` mode at DB instance startup. If some PDBs can't be
-opened, RDS Custom publishes the following event: `tenant database shutdown`.
+```
+aws rds delete-db-instance ^
+    --db-instance-identifier `my-custom-instance` ^
+    --skip-final-snapshot ^
+    --no-delete-automated-backups
+```

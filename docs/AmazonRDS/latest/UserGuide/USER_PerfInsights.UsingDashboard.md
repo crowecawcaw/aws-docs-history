@@ -1,36 +1,40 @@
-# Analyzing database performance for a period of time
+# Viewing a performance analysis
 
-Analyze database performance with on-demand analysis by creating a performance analysis report for a period of time. View performance analysis reports to find
-performance issues, such as resource bottlenecks or changes in a query in your DB instance.
-The Performance Insights dashboard allows you to select a time period and create a performance analysis
-report. You can also add one or more tags to the report.
+report in Performance Insights
 
-To use this feature, you must be using the paid tier retention period. For more information, see
-[Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
+The **Performance analysis reports - new** tab lists all the reports
+that are created for the DB instance. The following are displayed for each report:
 
-The report is available in the **Performance analysis reports - new** tab
-to select and view. The report contains the insights, related metrics, and recommendations
-to resolve the performance issue. The report is available to view for the duration of Performance Insights retention period.
+- **ID**: Unique identifier of the report.
+- **Name**: Tag key added to the report.
+- **Report creation time**: Time you created the report.
+- **Analysis start time**: Start time of the analysis in the report.
+- **Analysis end time**: End time of the analysis in the report.
 
-The report is deleted if the start time of the report analysis period is outside of the
-retention period. You can also delete the report before the retention period ends.
+###### To view a performance analysis report
 
-To detect the performance issues and generate the analysis report for your DB instance, you must turn on Performance Insights. For more information about
-turning on Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance for which you want to view the analysis report.
+4. Scroll down and choose **Performance analysis reports - new** tab in the Performance Insights dashboard.
 
-For the region, DB engine, and instance class support information for this feature, see
-[Amazon RDS DB engine, Region, and instance class support
-for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
+All the analysis reports for the different time periods are displayed. 5. Choose **ID** of the report you want to view.
 
-In the following sections, you can create, view, add tags, and delete a performance analysis report.
+The DB load chart displays the entire analysis period by default if more than one insight is identified.
+If the report has identified one insight then the DB load chart displays the insight by default.
 
-###### Topics
+The dashboard also lists the tags for the report in the **Tags** section.
 
-- [Creating a
-  performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Viewing a performance analysis
-  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Adding tags to a performance
-  analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
-- [Deleting a performance analysis
-  report in Performance Insights](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md")
+The following example shows the entire analysis period for the report.
+
+![DB load chart showing entire analysis report period](images/PI_EntireAnalysisRep.png) 6. Choose the insight in the **Database load insights** list you want to view if more than one insight is identified in the report.
+
+The dashboard displays the insight message, DB load chart highlighting the time period of the insight,
+analysis and recommendations, and the list of report tags.
+
+The following example shows the DB load insight in the report.
+
+![DB load chart showing insight in the report](images/PI_AnalysisRepInsight_chart.png)
+
+![Report insight analysis and recommendation section](images/PI_AnalysisRepInsight_Recommendations.png)
