@@ -134,7 +134,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/timestream-write-2018-11-01/UpdateDatabase.md "../../../goto/cli2/timestream-write-2018-11-01/UpdateDatabase.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/timestream-write-2018-11-01/UpdateDatabase.md "../../../goto/DotNetSDKV3/timestream-write-2018-11-01/UpdateDatabase.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/timestream-write-2018-11-01/UpdateDatabase.md "../../../goto/DotNetSDKV4/timestream-write-2018-11-01/UpdateDatabase.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/timestream-write-2018-11-01/UpdateDatabase.md "../../../goto/SdkForCpp/timestream-write-2018-11-01/UpdateDatabase.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/timestream-write-2018-11-01/UpdateDatabase.md "../../../goto/SdkForGoV2/timestream-write-2018-11-01/UpdateDatabase.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/timestream-write-2018-11-01/UpdateDatabase.md "../../../goto/SdkForJavaV2/timestream-write-2018-11-01/UpdateDatabase.md")

@@ -1,11 +1,33 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# The COALESCE statement
+# The CASE statement
 
-**COALESCE** returns the first non-null value in an argument list. The syntax is
-as follows:
+The **CASE** statement searches each value expression from left to right
+until it finds one that equals `expression`. If it finds a match, the result for the
+matching value is returned. If no match is found, the result from the `ELSE` clause is
+returned if it exists; otherwise `null` is returned. The syntax is as follows:
 
 ```
-coalesce(value1, value2[,...])
+CASE expression
+    WHEN value THEN result
+    [ WHEN ... ]
+    [ ELSE result ]
+END
+
+```
+
+Timestream also supports the following syntax for **CASE** statements. In
+this syntax, the "searched" form evaluates each boolean condition from left to right until one is
+`true` and returns the matching result. If no conditions are `true`, the
+result from the `ELSE` clause is returned if it exists; otherwise `null` is
+returned. See below for the alternate syntax:
+
+```
+CASE
+    WHEN condition THEN result
+    [ WHEN ... ]
+    [ ELSE result ]
+END
+
 ```
