@@ -1,5 +1,10 @@
-AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
+ 
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
+[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
 
 # Troubleshooting Patch Manager
 
@@ -19,6 +24,8 @@ in AWS Systems Manager.
   AWS-RunPatchBaseline on Linux](#patch-manager-troubleshooting-linux "#patch-manager-troubleshooting-linux")
 - [Errors when running
   AWS-RunPatchBaseline on Windows Server](#patch-manager-troubleshooting-windows "#patch-manager-troubleshooting-windows")
+- [Errors when running
+  AWS-RunPatchBaseline on macOS](#patch-manager-troubleshooting-macos "#patch-manager-troubleshooting-macos")
 - [Using
   AWS Support Automation runbooks](#patch-manager-troubleshooting-using-support-runbooks "#patch-manager-troubleshooting-using-support-runbooks")
 - [Contacting
@@ -98,37 +105,6 @@ cause or error message
 **Problem**: A patching operation fails without
 returning an error message.
 
-**Possible cause**: If more than one invocation of
-`AWS-RunPatchBaseline` occurs at a time, they can conflict with one
-another, causing patching tasks to fail. This might not be indicated in patching
-logs.
-
-To check whether concurrent patching operations might have interrupted each other,
-review the command history in Run Command, a tool in AWS Systems Manager. For a managed node with
-a patching failure, check to see if multiple operations attempted to patch the
-machine within 2 minutes of one another. This scenario can sometimes cause a
-failure.
-
-You can also use the AWS Command Line Interface (AWS CLI) to check for concurrent patching attempts
-by using the following command. Replace the value for
-`node-id` with the ID for your managed node.
-
-```
-aws ssm list-commands \
-    --filter "key=DocumentName,value=AWS-RunPatchBaseline" \
-    --query 'Commands[*].{CommandId:CommandId,RequestedDateTime:RequestedDateTime,Status:Status}' \
-    --instance-id `node-id` \
-    --output table
-```
-
-**Solution**: If you determine that patching failed
-because of competing patching operations on the same managed node, adjust your
-patching configurations to avoid this occurring again. For example, if two
-maintenance windows specify overlapping patching times, remove or revise one of
-them. If a maintenance windows specifies one patching operation, but a patch policy
-specifies a different one for the same time, consider removing the task from the
-maintenance window.
-
 **Possible cause**: When patching managed nodes, the document execution may be interrupted and
 marked as failed even though patches were successfully installed. This can occur if the system initiates
 an unexpected reboot during the patching operation (for example, to apply updates to firmware or
@@ -139,7 +115,7 @@ across external reboots, resulting in the execution being reported as failed.
 run a `Scan` patching operations, then check the patch compliance data in Patch Manager
 to assess the current compliance state.
 
-If you determine that conflicting patching operations or external reboots weren't the cause of the
+If you determine that external reboots weren't the cause of the
 failure in this scenario, we recommend contacting [AWS Support](#patch-manager-troubleshooting-contact-support "#patch-manager-troubleshooting-contact-support").
 
 ## Issue: Unexpected patch
@@ -221,6 +197,8 @@ execution that created patch compliance data](patch-manager-compliance-data-over
   resolve a package dependency](#unresolved-dependency "#unresolved-dependency")
 - [Issue: Zypper
   package lock dependency failures on SLES managed nodes](#patch-manager-troubleshooting-linux-zypper-locks "#patch-manager-troubleshooting-linux-zypper-locks")
+- [Issue:
+  Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-linux-concurrent-lock "#patch-manager-troubleshooting-linux-concurrent-lock")
 
 ### Issue: 'No such file or
 
@@ -878,6 +856,38 @@ conflicts:
   with system reboots or other actions that could prevent proper cleanup
   of temporary locks.
 
+### Issue:
+
+Cannot acquire lock. Another patching operation is in progress.
+
+**Problem**: When you run
+`AWS-RunPatchBaseline`, patching fails with error code 4 and the
+following error message.
+
+```
+[ERROR]: Cannot acquire lock on /var/log/amazon/ssm/patch-baseline-concurrent.lock. Another patching operation is in progress.
+```
+
+**Cause**: This error occurs when multiple
+patching operations are attempting to run on the same managed node at the same
+time. The lock file prevents concurrent patching operations to avoid conflicts
+and ensure system stability.
+
+**Solution**: Ensure that patching operations are
+not scheduled to run at the same time on the same managed node. Review the
+following configurations to identify and resolve scheduling conflicts:
+
+- **Patch policies**: Check your Quick
+  Setup patch policy configurations to ensure they don't overlap with
+  other patching schedules.
+- **Maintenance windows**: Review your
+  maintenance window associations to verify that multiple windows aren't
+  targeting the same managed nodes with patching tasks at overlapping
+  times.
+- **Manual Patch now operations**: Avoid
+  initiating manual **Patch now** operations while
+  scheduled patching is in progress.
+
 ## Errors when running
 
 `AWS-RunPatchBaseline` on Windows Server
@@ -895,6 +905,8 @@ conflicts:
   PatchBaselineOperations PowerShell module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable "#patch-manager-troubleshooting-module-not-downloadable")
 - [Issue: missing
   patches](#patch-manager-troubleshooting-missing-patches "#patch-manager-troubleshooting-missing-patches")
+- [Issue:
+  Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-windows-concurrent-lock "#patch-manager-troubleshooting-windows-concurrent-lock")
 
 ### Issue:
 
@@ -1169,6 +1181,79 @@ Release Channels by Microsoft.
 **Solution 3**: Check the patch eligibility. If
 the package isn't available under WSUS, install [OS Build 14393.3115](https://support.microsoft.com/en-us/topic/july-16-2019-kb4507459-os-build-14393-3115-511a3df6-c07e-14e3-dc95-b9898a7a7a57 "https://support.microsoft.com/en-us/topic/july-16-2019-kb4507459-os-build-14393-3115-511a3df6-c07e-14e3-dc95-b9898a7a7a57"). If the package is available for all operating
 system builds, install [OS Builds 18362.1256 and 18363.1256](https://support.microsoft.com/en-us/topic/december-8-2020-kb4592449-os-builds-18362-1256-and-18363-1256-c448f3df-a5f1-1d55-aa31-0e1cf7a440a9 "https://support.microsoft.com/en-us/topic/december-8-2020-kb4592449-os-builds-18362-1256-and-18363-1256-c448f3df-a5f1-1d55-aa31-0e1cf7a440a9").
+
+### Issue:
+
+Cannot acquire lock. Another patching operation is in progress.
+
+**Problem**: When you run
+`AWS-RunPatchBaseline`, patching fails with error code 4 and the
+following error message.
+
+```
+Cannot acquire lock on C:\ProgramData\Amazon\SSM\patch-baseline-concurrent.lock. Another patching operation is in progress.
+```
+
+**Cause**: This error occurs when multiple
+patching operations are attempting to run on the same managed node at the same
+time. The lock file prevents concurrent patching operations to avoid conflicts
+and ensure system stability.
+
+**Solution**: Ensure that patching operations are
+not scheduled to run at the same time on the same managed node. Review the
+following configurations to identify and resolve scheduling conflicts:
+
+- **Patch policies**: Check your Quick
+  Setup patch policy configurations to ensure they don't overlap with
+  other patching schedules.
+- **Maintenance windows**: Review your
+  maintenance window associations to verify that multiple windows aren't
+  targeting the same managed nodes with patching tasks at overlapping
+  times.
+- **Manual Patch now operations**: Avoid
+  initiating manual **Patch now** operations while
+  scheduled patching is in progress.
+
+## Errors when running
+
+`AWS-RunPatchBaseline` on macOS
+
+###### Topics
+
+- [Issue:
+  Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-macos-concurrent-lock "#patch-manager-troubleshooting-macos-concurrent-lock")
+
+### Issue:
+
+Cannot acquire lock. Another patching operation is in progress.
+
+**Problem**: When you run
+`AWS-RunPatchBaseline`, patching fails with error code 4 and the
+following error message.
+
+```
+[ERROR]: Cannot acquire lock on /var/log/amazon/ssm/patch-baseline-concurrent.lock. Another patching operation is in progress.
+```
+
+**Cause**: This error occurs when multiple
+patching operations are attempting to run on the same managed node at the same
+time. The lock file prevents concurrent patching operations to avoid conflicts
+and ensure system stability.
+
+**Solution**: Ensure that patching operations are
+not scheduled to run at the same time on the same managed node. Review the
+following configurations to identify and resolve scheduling conflicts:
+
+- **Patch policies**: Check your Quick
+  Setup patch policy configurations to ensure they don't overlap with
+  other patching schedules.
+- **Maintenance windows**: Review your
+  maintenance window associations to verify that multiple windows aren't
+  targeting the same managed nodes with patching tasks at overlapping
+  times.
+- **Manual Patch now operations**: Avoid
+  initiating manual **Patch now** operations while
+  scheduled patching is in progress.
 
 ## Using
 
