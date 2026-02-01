@@ -34,7 +34,7 @@ for your game, and define a set of custom rules for creating matches and teams.
   player teams. When using Amazon GameLift Servers for hosting, also specify how to create a new
   game session for the match.
 - [DescribeMatchmakingConfigurations](../../../gamelift/latest/apireference/API_DescribeMatchmakingConfigurations.md "../../../gamelift/latest/apireference/API_DescribeMatchmakingConfigurations.md") – Retrieve matchmaking
-  configurations defined a Amazon GameLift Servers region.
+  configurations defined an Amazon GameLift Servers region.
 - [UpdateMatchmakingConfiguration](../../../gamelift/latest/apireference/API_UpdateMatchmakingConfiguration.md "../../../gamelift/latest/apireference/API_UpdateMatchmakingConfiguration.md") – Change settings for
   matchmaking configuration. queue.
 - [DeleteMatchmakingConfiguration](../../../gamelift/latest/apireference/API_DeleteMatchmakingConfiguration.md "../../../gamelift/latest/apireference/API_DeleteMatchmakingConfiguration.md") – Remove a matchmaking
@@ -45,7 +45,7 @@ for your game, and define a set of custom rules for creating matches and teams.
 - [CreateMatchmakingRuleSet](../../../gamelift/latest/apireference/API_CreateMatchmakingRuleSet.md "../../../gamelift/latest/apireference/API_CreateMatchmakingRuleSet.md") – Create a set of rules to use when
   searching for player matches.
 - [DescribeMatchmakingRuleSets](../../../gamelift/latest/apireference/API_DescribeMatchmakingRuleSets.md "../../../gamelift/latest/apireference/API_DescribeMatchmakingRuleSets.md") – Retrieve matchmaking rule sets
-  defined in a Amazon GameLift Servers region.
+  defined in an Amazon GameLift Servers region.
 - [ValidateMatchmakingRuleSet](../../../gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.md "../../../gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.md") – Verify syntax for a set of
   matchmaking rules.
 - [DeleteMatchmakingRuleSet](../../../gamelift/latest/apireference/API_DeleteMatchmakingRuleSet.md "../../../gamelift/latest/apireference/API_DeleteMatchmakingRuleSet.md") – Remove a matchmaking rule set

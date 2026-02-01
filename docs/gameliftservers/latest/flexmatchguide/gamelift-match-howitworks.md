@@ -55,8 +55,8 @@ successful matchmaking event is generated for each matched ticket.
   all matched players and their team assignments. If your match
   requests contain player latency info, the results also suggest an
   optimal geographic location for the match.
-- FlexMatch with a Amazon GameLift Servers hosting solution: Match results are
-  automatically passed to a Amazon GameLift Servers queue for game session placement.
+- FlexMatch with an Amazon GameLift Servers hosting solution: Match results are
+  automatically passed to an Amazon GameLift Servers queue for game session placement.
   The matchmaker determines which queue is used for game session
   placement.
 
@@ -74,7 +74,7 @@ for the match.
   resource is found, the match placement service coordinates with your
   existing hosting system to start a new game session and acquire
   connection information.
-- FlexMatch with a Amazon GameLift Servers hosting solution: The game session queue
+- FlexMatch with an Amazon GameLift Servers hosting solution: The game session queue
   locates the best available game server for the match. Depending on
   how the queue is configured, it tries to place the game session with
   the lowest-cost resources and where players will experience low
@@ -91,6 +91,6 @@ their team assignment, and begin gameplay.
 - FlexMatch as a standalone service: Your game uses the existing game
   session management system to provide connection information back to
   players.
-- FlexMatch with a Amazon GameLift Servers hosting solution: On a successful game session
+- FlexMatch with an Amazon GameLift Servers hosting solution: On a successful game session
   placement, FlexMatch updates all of the matched tickets with game
   session connection information and a player session ID.

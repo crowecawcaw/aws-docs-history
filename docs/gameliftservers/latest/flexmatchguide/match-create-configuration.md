@@ -1,6 +1,6 @@
 # Create a matchmaking configuration
 
-To set up a Amazon GameLift Servers FlexMatch matchmaker to process matchmaking requests, create a matchmaking
+To set up an Amazon GameLift Servers FlexMatch matchmaker to process matchmaking requests, create a matchmaking
 configuration. Use either the Amazon GameLift Servers console or the AWS Command Line Interface (AWS CLI). For more information
 about creating a matchmaker, see [Design a FlexMatch matchmaker](match-configuration.md "match-configuration.md").
 
