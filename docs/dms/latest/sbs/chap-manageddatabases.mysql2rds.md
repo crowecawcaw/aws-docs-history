@@ -1,9 +1,21 @@
-# Full load MySQL database migration options performance comparison
+# Migrate MySQL database with AWS DMS ongoing replication
 
-We tested these three full load options using a Mysql 5.7 database on EC2 as the source and Aurora MySQL 5.7 as the target. The source database contained the AWS DMS
-[sample database](https://github.com/aws-samples/aws-database-migration-samples/tree/master/mysql/sampledb/v1 "https://github.com/aws-samples/aws-database-migration-samples/tree/master/mysql/sampledb/v1") with a total of 9 GB of data. The following image shows the performance results.
+To configure the ongoing replication in AWS DMS, enter the native start point for MySQL, which you have retrieved at the end of the full load process as described for each tool. The native start point will be similar to `mysql-bin-changelog.000024:373`.
 
-![Performance comparison of mysqldump](images/sbs-mysql2rds-performance-comparison.png)
-Percona XtraBackup performed 4x faster than mysqldump and 2x faster than mydumper backups. We tested larger datasets, for example with a total of 400 GB of data, and found that the performance scaled proportionally to the dataset size.
+In the **Create database migration task** page, follow these three steps to create the migration task.
 
-Percona XtraBackup creates a physical backup of the database files whereas the other tools create logical backups. Percona XtraBackup is the best option for full load if your use case conforms to the restrictions listed in the Percona XtraBackup section above. If Percona XtraBackup isn’t compatible with your use case, mydumper is the next best option. For more information about physical and logical backups, see [Backup and Recovery Types](https://dev.mysql.com/doc/refman/8.0/en/backup-types.html "https://dev.mysql.com/doc/refman/8.0/en/backup-types.html").
+1. For **Migration type**, choose **Replicate ongoing changes**.
+2. Under **CDC start mode for source transactions**, choose **Enable custom CDC start mode**.
+3. Under **Custom CDC start point**, paste the native start point you saved earlier.
+   For more information, see [Creating tasks for ongoing replication](../userguide/CHAP_Task.md "../userguide/CHAP_Task.md") and [Migrate from MySQL to Amazon RDS](https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds "https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-my-sql-to-amazon-rds").
+
+###### Note
+
+The AWS DMS CDC replication uses plain SQL statements from the binary log to apply data changes in the target database. Therefore, it is slower and more resource-intensive than the native Primary/Replica binary log replication in MySQL. For more information, see [Replication with a MySQL or MariaDB instance running external to Amazon RDS](../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.md "../../../AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.md").
+
+You should always remove triggers from the target during the AWS DMS CDC replication. For example, the following command generates the script to remove triggers.
+
+```
+# In case required to generate drop triggers script
+SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA not in ('sys','mysql');
+```

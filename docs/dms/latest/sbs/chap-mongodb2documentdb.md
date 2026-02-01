@@ -1,92 +1,22 @@
-# Create source and target endpoints for MongoDB migration
+# Migrating from MongoDB to Amazon DocumentDB
 
-The source endpoint is the endpoint for your MongoDB installation running on your Amazon EC2 instance.
+Use the following tutorial to guide you through the process of migrating from MongoDB to Amazon DocumentDB (with MongoDB compatibility). In this tutorial, you do the following:
 
-1.  Open the AWS DMS console at https://console.aws.amazon.com/dms/v2/.
-2.  In the navigation pane, choose **Endpoints**.
-3.  Choose **Create endpoint** and enter the following information:
-
-        * For **Endpoint type**, choose **Source**.
-        * For **Endpoint identifier**, enter a name that’s easy to remember, for example `mongodb-source`.
-        * For **Source engine**, choose **mongodb**.
-        * For **Server name**, enter the public DNS name of your Amazon EC2 instance, for example `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`.
-        * For **Port**, enter `27017`.
-        * For **SSL mode**, choose **none**.
-        * For **Authentication mode**, choose **none**.
-        * For **Database name**, enter `zips-db`.
-        * For **Authentication mechanism**, choose **default**.
-        * For **Metadata mode**, choose **document**.
-
-
-        When the settings are as you want them, choose **Create endpoint**.
-
-    Next, you create a target endpoint. This endpoint is for your Amazon DocumentDB cluster, which should already be running. For more information about launching your Amazon DocumentDB cluster, see [Getting started](../../../documentdb/latest/developerguide/getting-started.md "../../../documentdb/latest/developerguide/getting-started.md") in the _Amazon DocumentDB Developer Guide._
+- Install MongoDB on an Amazon EC2 instance.
+- Populate MongoDB with sample data.
+- Create an AWS DMS replication instance, a source endpoint (for MongoDB), and a target endpoint (for Amazon DocumentDB).
+- Run an AWS DMS task to migrate the data from the source endpoint to the target endpoint.
 
 ###### Important
 
-Before you proceed, do the following:
+Before you begin, make sure to launch an Amazon DocumentDB cluster in your default virtual private cloud (VPC). For more information, see [Getting started](../../../documentdb/latest/developerguide/getting-started.md "../../../documentdb/latest/developerguide/getting-started.md") in the _Amazon DocumentDB Developer Guide._
 
-- Create indexes on your Amazon DocumentDB cluster before you begin migration because it can reduce the overall time and increase the speed of the migration. To extract indexes from a running MongoDB instance, you can use the [Amazon DocumentDB Index Tool](https://github.com/awslabs/amazon-documentdb-tools "https://github.com/awslabs/amazon-documentdb-tools").
-- Get the master user name and password for your Amazon DocumentDB cluster.
-- Get the DNS name and port number of your Amazon DocumentDB cluster, so that AWS DMS can connect to it. To determine this information, use the following AWS CLI command, replacing `cluster-id` with the name of your Amazon DocumentDB cluster.
+To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/").
 
-```
-aws docdb describe-db-clusters \
-    --db-cluster-identifier cluster-id \
-    --query "DBClusters[*].[Endpoint,Port]"
-```
+###### Topics
 
-- Download a certificate bundle that Amazon DocumentDB can use to verify SSL connections. To do this, enter the following command. Here, `aws-api-domain` completes the Amazon S3 domain in your AWS Region required to access the specified S3 bucket and the `rds-combined-ca-bundle.pem` file that it provides.
-
-```
-wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
-```
-
-To create a target endpoint, do the following:
-
-1.  In the navigation pane, choose **Endpoints**.
-2.  Choose **Create endpoint** and enter the following information:
-
-        * For **Endpoint type**, choose **Target**.
-        * For **Endpoint identifier**, enter a name that’s easy to remember, for example `docdb-target`.
-        * For **Target engine**, choose **docdb**.
-        * For **Server name**, enter the DNS name of your Amazon DocumentDB cluster.
-        * For **Port**, enter the port number of your Amazon DocumentDB cluster.
-        * For **SSL mode**, choose **verify-full**.
-        * For **CA certificate**, do one of the following to attach the SSL certificate to your endpoint:
-
-
-
-
-        	+ If available, choose the existing **rds-combined-ca-bundle** certificate from the **Choose a certificate** drop down.
-        	+ Choose **Add new CA certificate**. Then, for **Certificate identifier**, enter `rds-combined-ca-bundle`. For **Import certificate file**, choose **Choose file** and navigate to the `rds-combined-ca-bundle.pem` file that you previously downloaded. Select and open the file. Choose **Import certificate**, then choose **rds-combined-ca-bundle** from the **Choose a certificate** drop down.
-        * For **User name**, enter the master user name of your Amazon DocumentDB cluster.
-        * For **Password**, enter the master password of your Amazon DocumentDB cluster.
-        * For **Database name**, enter `zips-db`.
-
-
-        When the settings are as you want them, choose **Create endpoint**.
-
-    Now that you’ve created the source and target endpoints, test them to ensure that they work correctly. Also, to ensure that AWS DMS can access the database objects at each endpoint, refresh the endpoints' schemas.
-
-To test an endpoint, do the following:
-
-1. In the navigation pane, choose **Endpoints**.
-2. Choose the source endpoint (`mongodb-source`), and then choose **Test connection**.
-3. Choose your replication instance (`mongodb2docdb`), and then choose **Run test**. It takes a few minutes for the test to complete, and for the **Status** to change to **successful**.
-
-If the **Status** changes to **failed** instead, review the failure message. Correct any errors that might be present, and test the endpoint again.
-
-###### Note
-
-Repeat this procedure for the target endpoint (`docdb-target`).
-
-To refresh schemas, do the following:
-
-1. In the navigation pane, choose **Endpoints**.
-2. Choose the source endpoint (`mongodb-source`), and then choose **Refresh schemas**.
-3. Choose your replication instance (`mongodb2docdb`), and then choose **Refresh schemas**.
-
-###### Note
-
-Repeat this procedure for the target endpoint (`docdb-target`).
+- [Launch an Amazon EC2 instance for MongoDB migration](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
+- [Install and configure MongoDB community edition](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
+- [Create an AWS DMS replication instance for MongoDB migration](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
+- [Create source and target endpoints for MongoDB migration](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")
+- [Create and run a MongoDB migration task](chap-mongodb2documentdb.md "chap-mongodb2documentdb.md")

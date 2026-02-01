@@ -1,94 +1,21 @@
-# Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema
+# Step 4: Test the Connectivity to the Amazon Redshift Database
 
-After the AWS CloudFormation stack has been created, test the connection to the Oracle DB instance by using SQL Workbench/J and then create the HR sample schema.
+Next, test your connection to your Amazon Redshift database.
 
-1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information.
+1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **Create a new connection profile** icon. Connect to the Amazon Redshift database in SQL Workbench/J by using the information shown following.
 
-| Parameter            | Action                                                                                                                                       |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **New profile name** | Enter `RDSOracleConnection`.                                                                                                                 |
-| **Driver**           | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                  |
-| **URL**              | Use the \*_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
-| **Username**         | Enter `oraadmin`.                                                                                                                            |
-| **Password**         | Enter `oraadmin123`.                                                                                                                         |
+| Parameter                 | Action                                                                                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_New profile_<br>• name | Enter `RedshiftConnection`.                                                                                                                    |
+| **Driver**                | Choose `Redshift (com.amazon.redshift.jdbc42.Driver)`.                                                                                         |
+| **URL**                   | Use the \*_RedshiftJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
+| **Username**              | Enter `redshiftadmin`.                                                                                                                         |
+| **Password**              | Enter `Redshift#123`.                                                                                                                          |
 
 2. Test the connection by choosing **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
 
-![Connecting to the Oracle DB instance](images/sbs-rdsor2redshift9.png)
+![Connecting to the Amazon Redshift DB instance](images/sbs-rdsor2redshift10.png)
 
 ###### Note
 
-If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This issue is the most common one when trying to connect to an instance. 3. Create the **SH** schema you will use for migration using a custom `Oraclesalesstarschema.sql` SQL script. To obtain this script, do the following:
-
-    * Download the following archive to your computer: `http://docs.aws.amazon.com/dms/latest/sbs/samples/dms-sbs-RDSOracle2Redshift.zip`
-    * Extract the `Oraclesalesstarschema.sql` SQL script from the archive.
-    * Copy and paste the `Oraclesalesstarschema.sql` file into your current directory.
-
-
-
-
-    	1. Open the SQL script in a text editor. Copy the entire script.
-    	2. In SQL Workbench/J, paste the SQL script in the Default.wksp window showing **Statement 1**.
-    	3. Choose **SQL**, then choose **Execute All**.
-
-
-
-    	![SQL script to install the demo schema](images/sbs-rdsor2redshift9.5.png)
-
-4. Verify the object types and count in **SH** Schema were created successfully by running the following SQL query.
-
-```
-Select OBJECT_TYPE, COUNT(*) from dba_OBJECTS where owner='SH'
-GROUP BY OBJECT_TYPE;
-```
-
-The results of this query should be similar to the following.
-
-```
-OBJECT_TYPE     | COUNT(*)
-----------------+---------
-INDEX PARTITION |       40
-TABLE PARTITION |        8
-TABLE           |        5
-INDEX           |       15
-```
-
-5. Verify the total number of tables and number of rows for each table by running the following SQL query.
-
-```
-Select table_name, num_rows from dba_tables where owner='SH'  order by 1;
-```
-
-The results of this query should be similar to the following.
-
-```
-TABLE_NAME | NUM_ROWS
------------+---------
-CHANNELS   |        5
-CUSTOMERS  |        8
-PRODUCTS   |       66
-PROMOTIONS |      503
-SALES      |      553
-```
-
-6. Verify the integrity in tables. Check the number of sales made in different channels by running the following SQL query.
-
-```
-Select b.channel_desc,count(*) from SH.SALES a,SH.CHANNELS b where a.channel_id=b.channel_id
-group by b.channel_desc
-order by 1;
-```
-
-The results of this query should be similar to the following.
-
-```
-CHANNEL_DESC | COUNT(*)
--------------+---------
-Direct Sales |      710
-Internet     |       52
-Partners     |      344
-```
-
-###### Note
-
-The preceding examples are representative of validation queries. When you perform actual migrations, you should develop similar queries to validate the schema and the data integrity.
+If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This issue is the most common one when trying to connect to an instance. 3. Verify your connectivity to the Amazon Redshift DB instance by running a sample SQL command, such as `select current_date;`.

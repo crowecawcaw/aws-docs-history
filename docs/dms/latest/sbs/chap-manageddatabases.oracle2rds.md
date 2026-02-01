@@ -1,10 +1,22 @@
-# Migrate Oracle database with AWS DMS ongoing replication
+# Full load Oracle database migration options performance comparison
 
-After you complete the full load, make sure that you perform ongoing replication using AWS DMS to keep the source and target databases in sync. To configure the ongoing replication task, sign in to the AWS Management Console and follow these steps.
+We analyzed the Oracle Export/Import, Oracle Data Pump, database link, and SQL\*Loader tools for their performance in a full load migration. We populated the `sporting_event_ticket` table with 10 GB of data to use as a test environment.
 
-1. Choose **Database Migration Service**, and then choose **Database migration tasks**.
-2. Choose **Create task**.
-3. For **Migration type**, choose **Replicate data changes only**.
-4. For **CDC start mode for source transactions**, choose **Enable custom CDC start mode**.
-5. For **Custom CDC start point**, choose **Specify a log sequence number** and enter the SCN that you captured before starting the full load.
-   For more information, see [Continuous replication tasks](../userguide/CHAP_Task.md "../userguide/CHAP_Task.md") and [Migrate from Oracle to Amazon RDS](https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-oracle-to-amazon-rds/ "https://aws.amazon.com/getting-started/hands-on/move-to-managed/migrate-oracle-to-amazon-rds/").
+We expect the similar trend for larger data sets too. We didn’t include Oracle materialized views or SQL Developer database copy because those tools aren’t recommended for data sets larger than 1 GB.
+
+![Performance comparison of Oracle Export/Import](images/oracle2rds-performance-comparison.png)
+
+- 18:08 minutes is the total elapsed time for Oracle Data Pump. This time includes:
+  - 3:07 minutes to unload data and metadata using `expdp`.
+  - 2:00 minutes to upload the data dump to Amazon S3 from Amazon EC2.
+  - 3:01 minutes to download the data dump to Amazon RDS instance.
+  - 7:00 Minutes to load data and metadata into Amazon RDS using `impdp`.
+
+- 22 minutes is the total elapsed time for Oracle SQL\*Loader. This time includes:
+  - 15 minutes to unload data.
+  - 7 minutes to load data into the target using `direct=y`.
+
+- 29 minutes is the total elapsed time for database link.
+- 52 minutes is the total elapsed time for Oracle Export/Import. This time includes:
+  - 14 minutes to unload data using `exp`.
+  - 38 minutes to load data using `imp`.

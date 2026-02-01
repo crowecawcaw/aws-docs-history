@@ -1,39 +1,110 @@
-# Step 5: Use the AWS Schema Conversion Tool to Convert the Oracle Schema to Aurora MySQL
+# Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema
 
-Before you migrate data to Aurora MySQL, you convert the Oracle schema to an Aurora MySQL schema. [This video covers all the steps of this process](https://youtu.be/ClAJUNa1Ucc "https://youtu.be/ClAJUNa1Ucc").
+After the AWS CloudFormation stack has been created, test the connection to the Oracle DB instance by using SQL Workbench/J and then create the **HR** sample schema.
 
-To convert an Oracle schema to an Aurora MySQL schema using AWS Schema Conversion Tool (AWS SCT), do the following:
+To test the connection to your Oracle DB instance and create the sample schema, do the following:
 
-1. Launch AWS SCT. In AWS SCT, choose **File**, then choose **New Project**. Create a new project named `DMSDemoProject`, specify the **Location** of the project folder, and then choose **OK**.
-2. Choose **Add source** to add a source Oracle database to your project, then choose **Oracle**, and choose **Next**.
-3. Enter the following information, and then choose **Test Connection**.
+1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information as shown following
 
-| For This Parameter  | Do This                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Connection name** | Enter `Amazon RDS for Oracle`. AWS SCT displays this name in the tree in the left panel.                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Type**            | Choose **SID**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Server name**     | Use the **OracleJDBCConnectionString\*<br>• value you used to connect to the Oracle DB instance, but remove the JDBC prefix information. For example, a sample connection string you use with SQL Workbench/J might be "jdbc:oracle:thin:@do1xa4grferti8y.cqiw4tcs0mg7.us-west-2.rds.amazonaws.com:1521:ORCL". For AWS SCT<br>**Server name\*\*, you remove "jdbc:oracle:thin:@//" and ":1521" to use just the server name: "do1xa4grferti8y.cqiw4tcs0mg7.us-west-2.rds.amazonaws.com" |
-| **Server port**     | Enter `1521`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Oracle SID**      | Enter `ORCL`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **User name**       | Enter `oraadmin`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Password**        | Enter the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.                                                                                                                                                                                                                                                                                                                                                    |
+| For This Parameter        | Do This                                                                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_New profile_<br>• name | Enter `RDSOracleConnection`.                                                                                                                 |
+| **Driver**                | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                  |
+| **URL**                   | Use the \*_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
+| **Username**              | Enter `oraadmin`.                                                                                                                            |
+| **Password**              | Provide the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.        |
 
-![Connecting to an Amazon RDS for Oracle DB instance](images/sbs-rdsor2aurora11.png) 4. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance. 5. Choose **Add target** to add a target Amazon Aurora MySQL database to your project, then choose **Amazon Aurora (MySQL compatible)**, and choose **Next**. 6. Enter the following information and then choose **Test Connection**.
+2. To test the connection, choose **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
 
-| For This Parameter  | Do This                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Connection name** | Enter `Aurora MySQL`. AWS SCT displays this name in the tree in the right panel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Server name**     | Use the **AuroraJDBCConnectionString\*<br>• value you used to connect to the Aurora MySQL DB instance, but remove the JDBC prefix information and the port suffix. For example, a sample connection string you use with SQL Workbench/J might be "jdbc:mysql://dmsdemo-auroracluster-1u1ogdfg35v.cluster-cqiw4tcs0mg7.us-west-2.rds.amazonaws.com:3306". For AWS SCT<br>**Server name\*\*, you remove "jdbc:mysql://" and ":3306" to use just the server name: "dmsdemo-auroracluster-1u1ogdfg35v.cluster-cqiw4tcs0mg7.us-west-2.rds.amazonaws.com" |
-| **Server port**     | Enter `3306`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **User name**       | Enter `auradmin`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Password**        | Enter the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+![Connecting to the Oracle DB instance](images/sbs-rdsor2aurora9.png)
 
-7. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon Aurora MySQL DB instance.
-8. In the tree in the left panel, select only the **HR** schema. In the tree in the right panel, select your target Aurora MySQL database. Choose **Create mapping**.
+###### Note
 
-![Creating a mapping rule](images/sbs-rdsor2aurora12.7.png) 9. Choose **Main view**. In the tree in the left panel, right-click the **HR** schema and choose **Create report**. 10. Check the report and the action items it suggests. The report discusses the type of objects that can be converted by using AWS SCT, along with potential migration issues and actions to resolve these issues. For this walkthrough, you should see something like the following:
+If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This is the most common issue when trying to connect to an instance. 3. Create the HR schema you will use for migration using a custom SQL script (Oracle-HR-Schema-Build.sql). To obtain this script, do the following:
 
-![Database migration report](images/sbs-rdsor2aurora13.png)
+    1. Download the following archive to your computer: [`dms-sbs-RDSOracle2Aurora.zip`](samples/dms-sbs-RDSOracle2Aurora.md "samples/dms-sbs-RDSOracle2Aurora.md").
+    2. Extract the SQL script(`Oracle-HR-Schema-Build.sql`) from the archive.
+    3. Copy and paste the `Oracle-HR-Schema-Build.sql` file into your current directory.
 
-You can optionally save the report as .csv or .pdf format for later analysis. 11. Choose **Action Items**, and review any recommendations that you see. 12. In the tree in the left panel, right-click the **HR** schema and then choose **Convert schema**. 13. Choose **Yes** for the confirmation message. AWS SCT then converts your schema to the target database format. 14. In the tree in the right panel, choose the converted **hr** schema, and then choose **Apply to database** to apply the schema scripts to the target Aurora MySQL instance. 15. Choose the **hr** schema, and then choose **Refresh from Database** to refresh from the target database.
-The database schema has now been converted and imported from source to target.
+4. Open the provided SQL script in a text editor. Copy the entire script.
+5. In SQL Workbench/J, paste the SQL script in the Default.wksp window showing **Statement 1**.
+6. Choose **SQL**, then choose **Execute All**.
+
+When you run the script, you will get an error message indicating that user **HR** does not exist. You can ignore this error and run the script. The script drops the user before creating it, which generates the error. 7. Verify the object types and count in **HR** Schema were created successfully by running the following SQL query.
+
+```
+Select OBJECT_TYPE, COUNT(*) from dba_OBJECTS where owner='HR'
+GROUP BY OBJECT_TYPE;
+```
+
+The results of this query should be similar to the following:
+
+```
+OBJECT_TYPE    COUNT(*)
+INDEX          8
+PROCEDURE      2
+SEQUENCE       3
+TABLE          7
+VIEW           1
+```
+
+8. Verify the number of constraints in the **HR** schema by running the following SQL query:
+
+```
+Select CONSTRAINT_TYPE,COUNT(*) from dba_constraints  where owner='HR'
+	AND (CONSTRAINT_TYPE IN ('P','R')OR SEARCH_CONDITION_VC NOT LIKE '%NOT NULL%')
+	GROUP BY CONSTRAINT_TYPE;
+```
+
+The results of this query should be similar to the following:
+
+```
+CONSTRAINT_TYPE	COUNT(*)
+	R	         10
+	P	          7
+	C	          1
+```
+
+9. Analyze the **HR** schema by running the following:
+
+```
+BEGIN
+    dbms_stats.gather_schema_stats('HR');
+END;
+/
+```
+
+10. Verify the total number of tables and number of rows for each table by running the following SQL query:
+
+```
+SELECT table_name, num_rows from dba_tables where owner='HR'  order by 1;
+```
+
+The results of this query should be similar to the following:
+
+```
+TABLE_NAME      NUM_ROWS
+COUNTRIES        25
+DEPARTMENTS      27
+EMPLOYEES       107
+JOBS             19
+JOB_HISTORY      10
+LOCATIONS        23
+REGIONS           4
+```
+
+11. Verify the relationships of the tables. Check the departments with employees greater than 10 by running the following SQL query:
+
+```
+Select b.department_name,count(*) from HR.Employees a,HR.departments b where a.department_id=b.department_id
+group by b.department_name having count(*) > 10
+order by 1;
+```
+
+The results of this query should be similar to the following:
+
+```
+DEPARTMENT_NAME      COUNT(*)
+Sales                34
+Shipping             45
+```

@@ -1,55 +1,36 @@
-# Step 2: Configure Your Microsoft SQL Server Source Database
+# Step 5: Create an AWS DMS Replication Instance
 
-After installing the SQL drivers and AWS Schema Conversion Tool, you can configure your Microsoft SQL Server source database using one of several options, depending on how you plan to migrate your data.
+After validating the schema structure between source and target databases, continue with the core part of this walkthrough, which is the data migration. The following illustration shows a high-level view of the migration process.
 
-When configuring your source database, you can choose to migrate existing data only, migrate existing data and replicate ongoing changes, or migrate existing data and use change data capture (CDC) to replicate ongoing changes. For more information about these options, see
-[Prerequisites](chap-sqlserver2aurora.md "chap-sqlserver2aurora.md").
+![Migration process diagram showing source and target databases](images/datarep-conceptual2.png)
+An AWS DMS replication instance performs the actual data migration between source and target. The replication instance also caches the transaction logs during the migration. The amount of CPU and memory capacity a replication instance has influences the overall time that is required for the migration.
 
-**Migrating existing data only**
+For information about best practices for using AWS DMS, see [AWS Database Migration Service Best Practices](https://d0.awsstatic.com/whitepapers/RDS/AWS_Database_Migration_Service_Best_Practices.pdf "https://d0.awsstatic.com/whitepapers/RDS/AWS_Database_Migration_Service_Best_Practices.pdf").
 
-No configuration steps are necessary for the SQL Server database. You can move on to [Step 3: Configure Your Aurora MySQL Target Database](chap-sqlserver2aurora.steps.md "chap-sqlserver2aurora.steps.md").
+To create an AWS DMS replication instance, do the following:
 
-###### Note
+1. Sign in to the AWS Management Console, and open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2").
+2. In the console, choose **Create migration**. If you are signed in as an AWS Identity and Access Management (IAM) user, you must have the appropriate permissions to access AWS DMS. For more information about the permissions required, see [IAM Permissions](../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions "../userguide/CHAP_Security.md#CHAP_Security.IAMPermissions").
+3. On the Welcome page, choose **Next** to start a database migration.
+4. On the **Create replication instance** page, specify your replication instance information.
 
-If the SQL Server database is an Amazon RDS database, replication is not supported, and you must use the option for migrating existing data only.
+| Parameter               | Description                                                                                                                                                                                                                                        |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                | Select a name for your replication instance. If you are using multiple replication servers or sharing a user, choose a name that helps you quickly differentiate between the different servers.                                                    |
+| **Description**         | Enter a brief description.                                                                                                                                                                                                                         |
+| **Instance class**      | Select the type of replication server to create. Each size and type of instance class has increasing CPU, memory, and I/O capacity. Generally, `t2` instances are for lower load tasks, and the `c4` instances are for higher load and more tasks. |
+| **VPC**                 | Choose the virtual private cloud (VPC) in which your replication instance will launch. If possible, select the same VPC in which either your source or target database resides (or both).                                                          |
+| **Multi-AZ**            | If you choose **Yes**, AWS DMS creates a second replication server in a different Availability Zone for failover if there is a problem with the primary replication server.                                                                        |
+| **Publicly accessible** | If either your source or target database resides outside of the VPC in which your replication server resides, you must make your replication server policy publicly accessible.                                                                    |
 
-**Migrating existing data and replicating ongoing changes**
+5. For the **Advanced** section, specify the following information.
 
-To configure MS-REPLICATION, complete the following steps:
+| Parameter                    | Description                                                                                                                                                                                                                                                                                         |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Allocated storage (GB)**   | Amount of storage on the replication server for the AWS DMS task logs, including historical tasks logs. AWS DMS also uses disk storage to cache certain data while it replicates it from the source database to the target. Additionally, more storage generally enables better IOPS on the server. |
+| **Replication Subnet Group** | If you are running in a Multi-AZ configuration, you need at least two subnet groups.                                                                                                                                                                                                                |
+| **Availability zone**        | Generally, performance is better if you locate your primary replication server in the same Availability Zone as your target database.                                                                                                                                                               |
+| **VPC Security Group(s)**    | Security groups enable you to control ingress and egress to your VPC. AWS DMS lets you associate one or more security groups with the VPC in which your replication server is launched.                                                                                                             |
+| **KMS key**                  | With AWS DMS, all data is encrypted at rest using a KMS encryption key. By default, AWS DMS creates a new encryption key for your replication server. However, you might choose to use an existing key.                                                                                             |
 
-1. In Microsoft SQL Server Management Studio, open the context (right-click) menu for the **Replication** folder, and then choose **Configure Distribution**.
-2. In the **Distributor** step, choose **`db_name` will act as its own distributor**. SQL Server creates a distribution database and log.
-
-For more information, see [Microsoft documentation](https://docs.microsoft.com/en-us/sql/relational-databases/replication/enable-a-database-for-replication-sql-server-management-studio "https://docs.microsoft.com/en-us/sql/relational-databases/replication/enable-a-database-for-replication-sql-server-management-studio").
-
-When the configuration is complete, your server is enabled for replication. Either a distribution database is in place, or you have configured your server to use a remote distribution database.
-
-###### Note
-
-Replication requires a primary key for all tables that are being replicated. If your tables don’t have primary keys defined, consider using CDC instead.
-
-**Migrating existing data and using change data capture (CDC) to replicate ongoing changes**
-
-To configure MS-CDC, complete the following steps:
-
-1. Connect to SQL Server with a login that has SYSADMIN role membership.
-2. For each database containing data that is being migrated, run the following command within the database context:
-
-```
-use [DBname]
-EXEC sys.sp_cdc_enable_db
-```
-
-3. For each table that you want to configure for ongoing migration, run the following command:
-
-```
-EXEC sys.sp_cdc_enable_table @source_schema = N'schema_name', @source_name = N'table_name', @role_name = NULL;
-```
-
-For more information, see [Microsoft documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server").
-
-###### Note
-
-- If you are migrating databases that participate in an Always On Availability Group, it is best practice to use replication for migration. To use this option, publishing must be enabled, and a distribution database must be configured for each node of the Always On Availability Group. Additionally, ensure you are using the name of the availability group listener for the database rather than the name of the server currently hosting the availability group database for the target server name. These requirement apply to each instance of SQL Server in the cluster and must not be configured using the availability group listener.
-- If your database isn’t supported for MS-REPLICATION or MS-CDC (for example, if you are running the Workgroup Edition of SQL Server), some changes can still be captured, such as `INSERT` and `DELETE` statements, but other DML statements such as `UPDATE` and `TRUNCATE TABLE` will not be captured. Therefore, a migration with continuing data replication is not recommended in this configuration, and a static one time migration (or repeated one time full migrations) should be considered instead.
-  For more information about using MS-REPLICATION and MS-CDC, see [Configuring a Microsoft SQL Server Database as a Replication Source](../userguide/CHAP_Source.md#CHAP_Source.SQLServer.Configuration "../userguide/CHAP_Source.md#CHAP_Source.SQLServer.Configuration").
+For information about the KMS key, see [Setting an Encryption Key and Specifying KMS Permissions](../userguide/CHAP_Security.md "../userguide/CHAP_Security.md"). 6. Click **Next**.

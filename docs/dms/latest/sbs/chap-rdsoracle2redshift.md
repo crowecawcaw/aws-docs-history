@@ -1,28 +1,26 @@
-# Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift
+# Migrating an Amazon RDS for Oracle Database to Amazon Redshift
 
-This walkthrough uses AWS CloudFormation to create a simple network topology for database migration that includes the source database, the replication instance, and the target database in the same VPC. For more information about AWS CloudFormation, see the [AWS CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
+This walkthrough gets you started with heterogeneous database migration from Amazon RDS for Oracle to Amazon Redshift using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT). This introductory exercise doesn’t cover all scenarios but provides you with a good understanding of the steps involved in such a migration.
 
-We provision the AWS resources that are required for this AWS DMS walkthrough through AWS CloudFormation. These resources include a VPC and Amazon RDS instance for Oracle and an Amazon Redshift cluster. We provision through AWS CloudFormation because it simplifies the process, so we can concentrate on tasks related to data migration. When you create a stack from the AWS CloudFormation template, it provisions the following resources:
+It is important to understand that AWS DMS and AWS SCT are two different tools and serve different needs. They don’t interact with each other in the migration process. At a high level, the steps involved in this migration are the following:
 
-- A VPC with CIDR (10.0.0.0/24) with two public subnets in your region, DBSubnet1 at the address 10.0.0.0/26 in Availability Zone (AZ) 1 and DBSubnet2 at the address 10.0.0.64/26, in AZ 12.
-- A DB subnet group that includes DBSubnet1 and DBSubnet2.
-- Oracle RDS Standard Edition Two with these deployment options:
-  - License Included
-  - Single-AZ setup
-  - db.m3.medium or equivalent instance class
-  - Port 1521
-  - Default option and parameter groups
+1. Using AWS SCT to do the following:
+   - Run the conversion report for Oracle to Amazon Redshift to identify the issues, limitations, and actions required for the schema conversion.
+   - Generate the schema scripts and apply them on the target before performing the data load by using AWS DMS. AWS SCT performs the necessary code conversion for objects like procedures and views.
 
-- Amazon Redshift cluster with these deployment options:
-  - dc1.large
-  - Port 5439
-  - Default parameter group
+2. Identify and implement solutions to the issues reported by AWS SCT.
+3. Disable foreign keys or any other constraints that might impact the AWS DMS data load.
+4. AWS DMS loads the data from source to target using the Full Load approach. Although AWS DMS is capable of creating objects in the target as part of the load, it follows a minimalistic approach to efficiently migrate the data so that it doesn’t copy the entire schema structure from source to target.
+5. Perform postmigration activities such as creating additional indexes, enabling foreign keys, and making the necessary changes in the application to point to the new database.
+   This walkthrough uses a custom AWS CloudFormation template to create RDS DB instances for Oracle and Amazon Redshift. It then uses a SQL command script to install a sample schema and data onto the RDS Oracle DB instance that you then migrate to Amazon Redshift.
 
-- A security group with ingress access from your computer or 0.0.0.0/0 (access from anywhere) based on the input parameter
-  We have designed the AWS CloudFormation template to require few inputs from the user. It provisions the necessary AWS resources with minimum recommended configurations. However, if you want to change some of the configurations and parameters, such as the VPC CIDR block and Amazon RDS instance types, feel free to update the template.
+This walkthrough takes approximately two hours to complete. Be sure to follow the instructions to delete resources at the end of this walkthrough to avoid additional charges.
 
-We use the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") to provision the AWS DMS resources, such as the replication instance, endpoints, and tasks. You install client tools such as SQL Workbench/J and the AWS Schema Conversion Tool (AWS SCT) on your local computer to connect to the Amazon RDS instances.
+To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/").
 
-Following is an illustration of the migration architecture for this walkthrough.
+###### Topics
 
-![replication instance](images/sbs-rdsor2RedshiftMigrationArchitecture.png)
+- [Prerequisites for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
+- [Migration architecture for migrating from Amazon RDS for Oracle to Amazon Redshift](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
+- [Step-by-step Amazon RDS for Oracle to Amazon Redshift migration walkthrough](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
+- [Migration from Amazon RDS for Oracle to Amazon Redshift next steps](chap-rdsoracle2redshift.md "chap-rdsoracle2redshift.md")
