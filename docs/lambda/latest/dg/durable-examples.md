@@ -47,7 +47,7 @@ Python
 
 ```
 
-from aws_durable_execution_sdk import DurableContext, durable_execution
+from aws_durable_execution_sdk_python import DurableContext, durable_execution
 
 @durable_execution
 def lambda_handler(event, context: DurableContext):
@@ -140,7 +140,7 @@ Python
 
 ```
 
-from aws_durable_execution_sdk import DurableContext, durable_execution
+from aws_durable_execution_sdk_python import DurableContext, durable_execution
 
 @durable_execution
 def lambda_handler(event, context: DurableContext):
@@ -275,7 +275,7 @@ Python
 
 ```
 
-from aws_durable_execution_sdk import DurableContext, durable_execution, WaitConfig
+from aws_durable_execution_sdk_python import DurableContext, durable_execution, WaitConfig
 
 @durable_execution
 def lambda_handler(event, context: DurableContext):
@@ -411,7 +411,7 @@ Python
 
 ```
 
-from aws_durable_execution_sdk import DurableContext, durable_execution
+from aws_durable_execution_sdk_python import DurableContext, durable_execution
 from datetime import datetime
 
 @durable_execution
@@ -484,7 +484,203 @@ Each stage is wrapped in a step, creating a checkpoint that allows the pipeline 
 
 The `new Date()` call and `calculateMsUntilHour()` function are outside steps and will re-execute during replay. For time-based operations that must be consistent across replays, calculate the timestamp inside a step or use it only for wait durations (which are checkpointed).
 
-## Chained invocations across functions
+## Advanced patterns
+
+Use durable functions to build complex multi-step applications that combine multiple durable operations, parallel execution, array processing, conditional logic, and polling. These patterns let you build sophisticated applications that coordinate many tasks while maintaining fault tolerance and automatic recovery.
+
+Advanced patterns go beyond simple sequential steps. You can run operations concurrently with `parallel()`, process arrays with `map()`, wait for external conditions with `waitForCondition()`, and combine these primitives to build reliable applications. Each durable operation creates its own checkpoints, so your application can recover from any point if interrupted.
+
+### User onboarding processes
+
+Guide users through registration, email verification, profile setup, and initial configuration with retry handling. This example combines sequential steps, callbacks, and conditional logic to create a complete onboarding process.
+
+TypeScript
+
+```
+
+import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
+
+export const handler = withDurableExecution(
+  async (event: any, context: DurableContext) => {
+    const { userId, email } = event;
+
+    // Step 1: Create user account
+    const user = await context.step("create-account", async () => {
+      return await userService.createAccount(userId, email);
+    });
+
+    // Step 2: Send verification email
+    await context.step("send-verification", async () => {
+      return await emailService.sendVerification(email);
+    });
+
+    // Step 3: Wait for email verification (up to 48 hours)
+    const verified = await context.waitForCallback(
+      "email-verification",
+      async (callbackId) => {
+        await notificationService.sendVerificationLink({
+          email,
+          callbackId,
+          expiresIn: 172800
+        });
+      },
+      {
+        timeout: { seconds: 172800 }
+      }
+    );
+
+    if (!verified) {
+      await context.step("send-reminder", async () => {
+        await emailService.sendReminder(email);
+      });
+
+      return {
+        status: "verification_timeout",
+        userId,
+        message: "Email verification not completed within 48 hours"
+      };
+    }
+
+    // Step 4: Initialize user profile in parallel
+    const setupResults = await context.parallel("profile-setup", [
+      async (ctx: DurableContext) => {
+        return await ctx.step("create-preferences", async () => {
+          return await preferencesService.createDefaults(userId);
+        });
+      },
+
+      async (ctx: DurableContext) => {
+        return await ctx.step("setup-notifications", async () => {
+          return await notificationService.setupDefaults(userId);
+        });
+      },
+
+      async (ctx: DurableContext) => {
+        return await ctx.step("create-welcome-content", async () => {
+          return await contentService.createWelcome(userId);
+        });
+      }
+    ]);
+
+    // Step 5: Send welcome email
+    await context.step("send-welcome", async () => {
+      const [preferences, notifications, content] = setupResults.getResults();
+      return await emailService.sendWelcome({
+        email,
+        preferences,
+        notifications,
+        content
+      });
+    });
+
+    return {
+      status: "onboarding_complete",
+      userId,
+      completedAt: new Date().toISOString()
+    };
+  }
+);
+
+```
+
+Python
+
+```
+
+from aws_durable_execution_sdk_python import DurableContext, durable_execution, WaitConfig
+from datetime import datetime
+
+@durable_execution
+def lambda_handler(event, context: DurableContext):
+    user_id = event['userId']
+    email = event['email']
+
+    # Step 1: Create user account
+    user = context.step(
+        lambda _: user_service.create_account(user_id, email),
+        name='create-account'
+    )
+
+    # Step 2: Send verification email
+    context.step(
+        lambda _: email_service.send_verification(email),
+        name='send-verification'
+    )
+
+    # Step 3: Wait for email verification (up to 48 hours)
+    def send_verification_link(callback_id):
+        notification_service.send_verification_link({
+            'email': email,
+            'callbackId': callback_id,
+            'expiresIn': 172800
+        })
+
+    verified = context.wait_for_callback(
+        send_verification_link,
+        name='email-verification',
+        config=WaitConfig(timeout=172800)
+    )
+
+    if not verified:
+        context.step(
+            lambda _: email_service.send_reminder(email),
+            name='send-reminder'
+        )
+
+        return {
+            'status': 'verification_timeout',
+            'userId': user_id,
+            'message': 'Email verification not completed within 48 hours'
+        }
+
+    # Step 4: Initialize user profile in parallel
+    def create_preferences(ctx: DurableContext):
+        return ctx.step(
+            lambda _: preferences_service.create_defaults(user_id),
+            name='create-preferences'
+        )
+
+    def setup_notifications(ctx: DurableContext):
+        return ctx.step(
+            lambda _: notification_service.setup_defaults(user_id),
+            name='setup-notifications'
+        )
+
+    def create_welcome_content(ctx: DurableContext):
+        return ctx.step(
+            lambda _: content_service.create_welcome(user_id),
+            name='create-welcome-content'
+        )
+
+    setup_results = context.parallel(
+        [create_preferences, setup_notifications, create_welcome_content],
+        name='profile-setup'
+    )
+
+    # Step 5: Send welcome email
+    def send_welcome(_):
+        results = setup_results.get_results()
+        preferences, notifications, content = results[0], results[1], results[2]
+        return email_service.send_welcome({
+            'email': email,
+            'preferences': preferences,
+            'notifications': notifications,
+            'content': content
+        })
+
+    context.step(send_welcome, name='send-welcome')
+
+    return {
+        'status': 'onboarding_complete',
+        'userId': user_id,
+        'completedAt': datetime.now().isoformat()
+    }
+
+```
+
+The process combines sequential steps with checkpoints for account creation and email sending, then pauses for up to 48 hours waiting for email verification without consuming resources. Conditional logic handles different paths based on whether verification completes or times out. Profile setup tasks run concurrently using parallel operations to reduce total execution time, and each step retries automatically on transient failures to ensure the onboarding completes reliably.
+
+### Chained invocations across functions
 
 Invoke other Lambda functions from within a durable function using `context.invoke()`. The calling function suspends while waiting for the invoked function to complete, creating a checkpoint that preserves the result. If the calling function is interrupted after the invoked function completes, it resumes with the stored result without re-invoking the function.
 
@@ -627,202 +823,6 @@ The invoked functions can be either durable or standard Lambda functions. If you
 
 Cross-account invocations are not supported. All invoked functions must be in the same AWS account as the calling function.
 
-## Advanced patterns
-
-Use durable functions to build complex multi-step applications that combine multiple durable operations, parallel execution, array processing, conditional logic, and polling. These patterns let you build sophisticated applications that coordinate many tasks while maintaining fault tolerance and automatic recovery.
-
-Advanced patterns go beyond simple sequential steps. You can run operations concurrently with `parallel()`, process arrays with `map()`, wait for external conditions with `waitForCondition()`, and combine these primitives to build reliable applications. Each durable operation creates its own checkpoints, so your application can recover from any point if interrupted.
-
-### User onboarding processes
-
-Guide users through registration, email verification, profile setup, and initial configuration with retry handling. This example combines sequential steps, callbacks, and conditional logic to create a complete onboarding process.
-
-TypeScript
-
-```
-
-import { DurableContext, withDurableExecution } from "@aws/durable-execution-sdk-js";
-
-export const handler = withDurableExecution(
-  async (event: any, context: DurableContext) => {
-    const { userId, email } = event;
-
-    // Step 1: Create user account
-    const user = await context.step("create-account", async () => {
-      return await userService.createAccount(userId, email);
-    });
-
-    // Step 2: Send verification email
-    await context.step("send-verification", async () => {
-      return await emailService.sendVerification(email);
-    });
-
-    // Step 3: Wait for email verification (up to 48 hours)
-    const verified = await context.waitForCallback(
-      "email-verification",
-      async (callbackId) => {
-        await notificationService.sendVerificationLink({
-          email,
-          callbackId,
-          expiresIn: 172800
-        });
-      },
-      {
-        timeout: { seconds: 172800 }
-      }
-    );
-
-    if (!verified) {
-      await context.step("send-reminder", async () => {
-        await emailService.sendReminder(email);
-      });
-
-      return {
-        status: "verification_timeout",
-        userId,
-        message: "Email verification not completed within 48 hours"
-      };
-    }
-
-    // Step 4: Initialize user profile in parallel
-    const setupResults = await context.parallel("profile-setup", [
-      async (ctx: DurableContext) => {
-        return await ctx.step("create-preferences", async () => {
-          return await preferencesService.createDefaults(userId);
-        });
-      },
-
-      async (ctx: DurableContext) => {
-        return await ctx.step("setup-notifications", async () => {
-          return await notificationService.setupDefaults(userId);
-        });
-      },
-
-      async (ctx: DurableContext) => {
-        return await ctx.step("create-welcome-content", async () => {
-          return await contentService.createWelcome(userId);
-        });
-      }
-    ]);
-
-    // Step 5: Send welcome email
-    await context.step("send-welcome", async () => {
-      const [preferences, notifications, content] = setupResults.getResults();
-      return await emailService.sendWelcome({
-        email,
-        preferences,
-        notifications,
-        content
-      });
-    });
-
-    return {
-      status: "onboarding_complete",
-      userId,
-      completedAt: new Date().toISOString()
-    };
-  }
-);
-
-```
-
-Python
-
-```
-
-from aws_durable_execution_sdk import DurableContext, durable_execution, WaitConfig
-from datetime import datetime
-
-@durable_execution
-def lambda_handler(event, context: DurableContext):
-    user_id = event['userId']
-    email = event['email']
-
-    # Step 1: Create user account
-    user = context.step(
-        lambda _: user_service.create_account(user_id, email),
-        name='create-account'
-    )
-
-    # Step 2: Send verification email
-    context.step(
-        lambda _: email_service.send_verification(email),
-        name='send-verification'
-    )
-
-    # Step 3: Wait for email verification (up to 48 hours)
-    def send_verification_link(callback_id):
-        notification_service.send_verification_link({
-            'email': email,
-            'callbackId': callback_id,
-            'expiresIn': 172800
-        })
-
-    verified = context.wait_for_callback(
-        send_verification_link,
-        name='email-verification',
-        config=WaitConfig(timeout=172800)
-    )
-
-    if not verified:
-        context.step(
-            lambda _: email_service.send_reminder(email),
-            name='send-reminder'
-        )
-
-        return {
-            'status': 'verification_timeout',
-            'userId': user_id,
-            'message': 'Email verification not completed within 48 hours'
-        }
-
-    # Step 4: Initialize user profile in parallel
-    def create_preferences(ctx: DurableContext):
-        return ctx.step(
-            lambda _: preferences_service.create_defaults(user_id),
-            name='create-preferences'
-        )
-
-    def setup_notifications(ctx: DurableContext):
-        return ctx.step(
-            lambda _: notification_service.setup_defaults(user_id),
-            name='setup-notifications'
-        )
-
-    def create_welcome_content(ctx: DurableContext):
-        return ctx.step(
-            lambda _: content_service.create_welcome(user_id),
-            name='create-welcome-content'
-        )
-
-    setup_results = context.parallel(
-        [create_preferences, setup_notifications, create_welcome_content],
-        name='profile-setup'
-    )
-
-    # Step 5: Send welcome email
-    def send_welcome(_):
-        results = setup_results.get_results()
-        preferences, notifications, content = results[0], results[1], results[2]
-        return email_service.send_welcome({
-            'email': email,
-            'preferences': preferences,
-            'notifications': notifications,
-            'content': content
-        })
-
-    context.step(send_welcome, name='send-welcome')
-
-    return {
-        'status': 'onboarding_complete',
-        'userId': user_id,
-        'completedAt': datetime.now().isoformat()
-    }
-
-```
-
-The process combines sequential steps with checkpoints for account creation and email sending, then pauses for up to 48 hours waiting for email verification without consuming resources. Conditional logic handles different paths based on whether verification completes or times out. Profile setup tasks run concurrently using parallel operations to reduce total execution time, and each step retries automatically on transient failures to ensure the onboarding completes reliably.
-
 ### Batch processing with checkpoints
 
 Process millions of records with automatic recovery from the last successful checkpoint after failures. This example demonstrates how durable functions combine `map()` operations with chunking and rate limiting to handle large-scale data processing.
@@ -912,7 +912,7 @@ Python
 
 ```
 
-from aws_durable_execution_sdk import DurableContext, durable_execution, MapConfig
+from aws_durable_execution_sdk_python import DurableContext, durable_execution, MapConfig
 from datetime import datetime
 from typing import List, Dict
 
@@ -995,3 +995,4 @@ Records are split into manageable batches to avoid overwhelming memory or downst
 - Explore [basic concepts](durable-basic-concepts.md "durable-basic-concepts.md") to understand DurableContext, steps, and waits
 - Review [best practices](durable-best-practices.md "durable-best-practices.md") for writing deterministic code and optimizing performance
 - Learn about [testing durable functions](durable-testing.md "durable-testing.md") locally and in the cloud
+- Compare durable functions with Step Functions to understand when each approach is most effective. See [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").

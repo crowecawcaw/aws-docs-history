@@ -9,6 +9,10 @@ create checkpoints with steps, and pause execution with waits. You'll also learn
 To keep things simple, you create your function using either the Python or Node.js runtime. With these interpreted languages, you can edit
 function code directly in the console's built-in code editor.
 
+###### Note
+
+Durable functions currently support Python and Node.js (JavaScript/TypeScript) runtimes. For a complete list of supported runtime versions and container image options, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md").
+
 ###### Tip
 
 To learn how to build **serverless solutions**, check out the [Serverless Developer Guide](../../../serverless/latest/devguide.md "../../../serverless/latest/devguide.md").
@@ -277,7 +281,8 @@ Note that the Python SDK doesn't use `await`. All durable operations are synchro
 
 ## Invoke the durable function using the console code editor
 
-Durable functions require a qualified ARN for invocation. Before you can invoke your durable function, publish a version.
+When no explicit version is specified (or published), the console invokes the durable function using the `$LATEST` version qualifier.
+However, for deterministic execution of your code, you must always use a qualified ARN pointing to a stable version.
 
 ###### To publish a version of your function
 
@@ -334,6 +339,10 @@ You can also view your function's logs in CloudWatch Logs to see the console out
 
 You should see log entries for each invocation of your function, including the initial execution and the replay after the wait.
 
+###### Note
+
+When you use the logger from the `DurableContext` (such as `context.logger` or `stepContext.logger`), logs also appear in the durable execution and step views in the Lambda console. These logs may take a moment to load.
+
 ## Clean up
 
 When you're finished working with the example durable function, delete it. You can also delete the log group that stores
@@ -376,3 +385,5 @@ Now that you've created and tested a simple durable function using the console, 
   See [Best practices](durable-best-practices.md "durable-best-practices.md").
 - Learn how to test durable functions locally and in the cloud.
   See [Testing durable functions](durable-testing.md "durable-testing.md").
+- Compare durable functions with Step Functions to understand when each approach is most effective.
+  See [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").

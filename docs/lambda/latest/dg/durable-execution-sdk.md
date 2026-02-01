@@ -348,7 +348,7 @@ TypeScript
 
 const result = await context.invoke(
   'invoke-processor',
-  'arn:aws:lambda:us-east-1:123456789012:function:processor',
+  'arn:aws:lambda:us-east-1:123456789012:function:processor:1',
   { data: inputData }
 );
 
@@ -359,7 +359,7 @@ Python
 ```
 
 result = context.invoke(
-    'arn:aws:lambda:us-east-1:123456789012:function:processor',
+    'arn:aws:lambda:us-east-1:123456789012:function:processor:1',
     {'data': input_data},
     name='invoke-processor'
 )

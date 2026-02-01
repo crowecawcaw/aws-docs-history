@@ -142,7 +142,7 @@ If you're using a language that doesn't have an AWS-provided runtime interface c
 
 Before you create a Lambda function from a container image, you must build the image locally and upload it to an Amazon ECR repository. When you create the function, specify the Amazon ECR repository URI.
 
-Make sure that the permissions for the user or role that creates the function includes `GetRepositoryPolicy` and `SetRepositoryPolicy`.
+Make sure that the permissions for the user or role that creates the function includes `GetRepositoryPolicy`, `SetRepositoryPolicy`, `BatchGetImage`, and `GetDownloadUrlForLayer`.
 
 For example, use the IAM console to create a role with the following policy:
 
@@ -157,7 +157,9 @@ JSON
  "Effect": "Allow",
  "Action": [
  "ecr:SetRepositoryPolicy",
- "ecr:GetRepositoryPolicy"
+ "ecr:GetRepositoryPolicy",
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer"
  ],
  "Resource": "arn:aws:ecr:`us-east-1``:111122223333`:repository/`hello-world`"
  }

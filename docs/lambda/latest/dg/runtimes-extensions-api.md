@@ -244,7 +244,6 @@ the following variables that are specific to the runtime process:
 - `AWS_EXECUTION_ENV`
 - `AWS_LAMBDA_LOG_GROUP_NAME`
 - `AWS_LAMBDA_LOG_STREAM_NAME`
-- `AWS_LAMBDA_MAX_CONCURRENCY` (Lambda Managed Instances only)
 - `AWS_XRAY_CONTEXT_MISSING`
 - `AWS_XRAY_DAEMON_ADDRESS`
 - `LAMBDA_RUNTIME_DIR`

@@ -15,42 +15,15 @@ Unlike external orchestration services, durable functions keep your workflow log
 
 Durable functions are ideal when you need:
 
-- **Code-first workflow definition:** Define workflows using familiar programming languages rather than JSON or visual designers
+- **Use standard programming languages:** Define workflows using familiar programming languages like JavaScript and Python
 - **Long-running processes:** Execute workflows that can run for up to one year, far beyond the 15-minute limit of standard Lambda functions
 - **Simplified development:** Keep workflow logic and business logic in the same codebase for easier maintenance and testing
 - **Cost-effective waiting:** Pause execution during wait states without consuming compute resources
 - **Built-in state management:** Automatic checkpointing and state persistence without external storage configuration
 
-### Choosing between durable functions and Step Functions
+For help choosing between durable functions and Step Functions, see [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").
 
-Both durable functions and Step Functions provide workflow orchestration capabilities, but they serve different use cases:
-
-| Consideration        | Durable Functions                                                      | Step Functions                                                       |
-| -------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Workflow definition  | Code-first (JavaScript, Python, Java)                                  | JSON-based Amazon States Language or visual designer                 |
-| Development approach | Single codebase with business logic                                    | Separate workflow definition and function code                       |
-| Service integration  | Through Lambda function code and AWS SDKs                              | Native integrations with many AWS services                           |
-| Execution duration   | Up to 1 year                                                           | Up to 1 year (Standard), 5 minutes (Express)                         |
-| Parallel processing  | Promise.all() and code-based patterns                                  | Parallel state and Distributed Map                                   |
-| Error handling       | Try-catch blocks and custom retry logic                                | Built-in retry and catch states                                      |
-| Visual monitoring    | CloudWatch logs and custom dashboards                                  | Visual execution graph and detailed history                          |
-| Best for             | Developer-centric workflows, complex business logic, rapid prototyping | Multi-service orchestration, visual workflows, enterprise governance |
-
-**Use durable functions when:**
-
-- Your team prefers code-first development approaches
-- Workflow logic is tightly coupled with business logic
-- You need rapid prototyping and iteration
-- Your workflows primarily involve Lambda functions and simple service calls
-
-**Use Step Functions when:**
-
-- You need visual workflow design and monitoring
-- Your workflows orchestrate multiple AWS services extensively
-- You require enterprise governance and compliance features
-- Non-technical stakeholders need to understand workflow logic
-
-For more information on durable functions, see [Durable functions for Lambda](durable-functions.md "durable-functions.md").
+For more information on durable functions, see [Lambda durable functions](durable-functions.md "durable-functions.md").
 
 ## Orchestrating workflows with Step Functions
 

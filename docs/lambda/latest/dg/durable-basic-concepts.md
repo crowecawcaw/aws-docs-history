@@ -205,3 +205,7 @@ After the retention period expires, Lambda deletes the execution history and che
 You can configure the retention period when creating a durable function using the Lambda console, AWS CLI, or AWS SAM. In the Lambda console, choose your function, then Configuration, Durable execution. Set the Retention period value in days (default: 14 days, minimum: 1 day, maximum: 90 days).
 
 Choose a retention period based on your compliance requirements, debugging needs, and cost considerations. Longer retention periods provide more time for debugging and auditing but increase storage costs.
+
+## See also
+
+- [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md") – Compare durable functions with Step Functions to understand when each approach is most effective.

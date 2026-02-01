@@ -129,7 +129,7 @@ export const handler = async (event, context) => {
 
 3. In the **DEPLOY** section, choose **Deploy** to update your function's code:
 
-![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](/images/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ###### Understanding your function code
 
@@ -215,7 +215,7 @@ def calculate_area(length, width):
 
 3. In the **DEPLOY** section, choose **Deploy** to update your function's code:
 
-![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](/images/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ###### Understanding your function code
 

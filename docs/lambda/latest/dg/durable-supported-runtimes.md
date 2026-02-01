@@ -4,7 +4,7 @@ Durable functions are available for Node.js and Python runtimes. You can create 
 
 ## Lambda managed runtimes
 
-The following managed runtimes support durable functions when you create functions in the Lambda console or using the AWS CLI with the `--durable-config '{"ExecutionTimeout": 10, "RetentionPeriodInDays":1}'` parameter. For complete information about Lambda runtimes, see [Lambda runtimes](lambda-runtimes.md "lambda-runtimes.md").
+The following managed runtimes support durable functions when you create functions in the Lambda console or using the AWS CLI with the `--durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 7}'` parameter. For complete information about Lambda runtimes, see [Lambda runtimes](lambda-runtimes.md "lambda-runtimes.md").
 
 | Language | Runtime    |
 | -------- | ---------- |
@@ -106,7 +106,7 @@ aws lambda create-function \
   --package-type Image \
   --code ImageUri=123456789012.dkr.ecr.us-east-1.amazonaws.com/my-durable-function:latest \
   --role arn:aws:iam::123456789012:role/lambda-execution-role \
-  --durable-config '{"ExecutionTimeout": 10, "RetentionPeriodInDays":1}'
+  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays": 7}'
 
 ```
 

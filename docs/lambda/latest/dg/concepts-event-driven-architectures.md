@@ -78,6 +78,8 @@ A payment processing service, which is typically slower due to the complexity of
 can take a steady stream of messages from the Amazon SQS queue. It can orchestrate complex retry and error
 handling logic using AWS Step Functions, and coordinate active payment workflows for hundreds of thousands of orders.
 
+**Alternative approach:** For orchestration using standard programming languages, you can use [Lambda durable functions](durable-functions.md "durable-functions.md"). Durable functions let you write the order acceptance, payment processing, and notification logic in code with automatic checkpointing and retry. This approach works well when the workflow primarily involves Lambda functions and you prefer keeping orchestration logic in code.
+
 ### Improving scalability and extensibility
 
 Microservices generate events that are typically published to messaging services like Amazon SNS and Amazon SQS.

@@ -39,43 +39,15 @@ aws iam create-role \
   --assume-role-policy-document file://trust-policy.json
 ```
 
-3. Attach the basic execution policy:
+3. Attach the durable execution policy for checkpoint operations and basic execution:
 
 ```
 aws iam attach-role-policy \
   --role-name durable-function-role \
-  --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+  --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
 ```
 
-4. Create a policy for checkpoint operations. Save this as `checkpoint-policy.json`:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "lambda:CheckpointDurableExecutions",
-        "lambda:GetDurableExecutionState"
-      ],
-      "Resource": "arn:aws:lambda:REGION:ACCOUNT_ID:function:myDurableFunction"
-    }
-  ]
-}
-```
-
-5. Create and attach the checkpoint policy:
-
-```
-aws iam create-policy \
-  --policy-name durable-checkpoint-policy \
-  --policy-document file://checkpoint-policy.json
-
-aws iam attach-role-policy \
-  --role-name durable-function-role \
-  --policy-arn arn:aws:iam::ACCOUNT_ID:policy/durable-checkpoint-policy
-```
+The `AWSLambdaBasicDurableExecutionRolePolicy` managed policy includes the required permissions for checkpoint operations (`lambda:CheckpointDurableExecutions` and `lambda:GetDurableExecutionState`) and basic Lambda execution.
 
 ## Create the durable function
 
@@ -98,7 +70,7 @@ aws lambda create-function \
   --role arn:aws:iam::ACCOUNT_ID:role/durable-function-role \
   --handler index.handler \
   --zip-file fileb://function.zip \
-  --durable-config '{"ExecutionTimeout": 10, "RetentionPeriodInDays":1}'
+  --durable-config '{"ExecutionTimeout": 3600, "RetentionPeriodInDays":7}'
 ```
 
 ###### Note
@@ -107,7 +79,7 @@ You can only enable durable execution when creating the function. You cannot ena
 
 ## Publish a version
 
-Durable functions require a qualified ARN (with version or alias) for invocation. Publish a version of your function:
+While durable functions can be invoked using the `$LATEST` version qualifier, you must always use a qualified ARN pointing to a stable version to ensure deterministic execution of your code.
 
 ```
 aws lambda publish-version \
@@ -129,6 +101,10 @@ aws lambda create-alias \
 ## Invoke the durable function
 
 Invoke your durable function using the qualified ARN (version or alias).
+
+###### Note
+
+**Idempotent invocations:** To prevent duplicate executions when retrying failed invocations, you can provide an execution name that ensures at-most-once execution semantics. See [Idempotency](durable-execution-idempotency.md "durable-execution-idempotency.md") for details.
 
 ###### Synchronous invocation
 
@@ -166,6 +142,10 @@ aws lambda invoke \
 ```
 
 With asynchronous invocation, Lambda returns immediately. The function continues executing in the background.
+
+###### Note
+
+You can use `$LATEST` for prototyping and testing in the console. For production workloads, use a published version or alias.
 
 ## Manage durable executions
 
@@ -283,10 +263,7 @@ aws iam detach-role-policy \
 
 aws iam detach-role-policy \
   --role-name durable-function-role \
-  --policy-arn arn:aws:iam::ACCOUNT_ID:policy/durable-checkpoint-policy
-
-aws iam delete-policy \
-  --policy-arn arn:aws:iam::ACCOUNT_ID:policy/durable-checkpoint-policy
+  --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
 
 # Delete the role
 aws iam delete-role --role-name durable-function-role

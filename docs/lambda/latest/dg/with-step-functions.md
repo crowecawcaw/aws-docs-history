@@ -1,12 +1,14 @@
 # Orchestrating Lambda functions with Step Functions
 
-Lambda functions that manage multiple tasks, implement retry logic, or contain branching logic are anti-patterns. Instead, we recommend writing Lambda functions that perform single tasks and using AWS Step Functions to orchestrate your application workflows.
+AWS Step Functions provides visual workflow orchestration for coordinating Lambda functions with other AWS services. With native integrations to 220+ AWS services and fully managed, zero-maintenance infrastructure, Step Functions is ideal when you need visual workflow design and fully-managed service integrations.
+
+For orchestration using standard programming languages within Lambda where workflow logic lives alongside business logic, consider [Lambda durable functions](durable-functions.md "durable-functions.md"). For help choosing between these options, see [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").
 
 For example, processing an order might require validating the order details, checking inventory levels, processing payment, and generating an invoice. Write separate Lambda functions for each task and use Step Functions to manage the workflow. Step Functions coordinates the flow of data between your functions and handles errors at each step. This separation makes your workflows easier to visualize, modify, and maintain as they grow more complex.
 
 ## When to use Step Functions with Lambda
 
-The following scenarios are good examples of when to use Step Functions to orchestrate Lambda-based applications.
+The following scenarios are good examples of when Step Functions is a particularly good fit for orchestrating Lambda-based applications.
 
 - [Sequential processing](#sequential-processing "#sequential-processing")
 - [Complex error handling](#complex-error-handling "#complex-error-handling")
@@ -34,6 +36,10 @@ A single Lambda function manages the entire order processing workflow by:
 
 ![Step Functions workflow graph showing order validation, a choice state, and payment processing with success and failure paths](images/sequential_workflow.png)
 
+###### Note
+
+**Code-first alternative:** For sequential processing with code-based checkpointing and retry, see [Lambda durable functions steps](durable-basic-concepts.md "durable-basic-concepts.md").
+
 ### Complex error handling
 
 While Lambda provides [retry capabilities for asynchronous invocations and event source mappings](invocation-retries.md "invocation-retries.md"), Step Functions offers more sophisticated error handling for complex workflows. You can [configure automatic retries](../../../step-functions/latest/dg/concepts-error-handling.md#error-handling-retrying-after-an-error "../../../step-functions/latest/dg/concepts-error-handling.md#error-handling-retrying-after-an-error") with exponential backoff and set different retry policies for different types of errors. When retries are exhausted, use `Catch` to route errors to a [fallback state](../../../step-functions/latest/dg/concepts-error-handling.md#error-handling-fallback-states "../../../step-functions/latest/dg/concepts-error-handling.md#error-handling-fallback-states"). This is particularly useful when you need workflow-level error handling that coordinates multiple functions and services.
@@ -56,6 +62,10 @@ A single Lambda function handles all of the following:
 ###### Example workflow graph
 
 ![Step Functions workflow graph for payment processing with three outcomes: payment succeeded, payment invalid, and payment failed](images/error_handling_workflow.png)
+
+###### Note
+
+**Code-first alternative:** Durable functions provide try-catch error handling with configurable retry strategies. See [Error handling in durable functions](durable-execution-sdk-retries.md "durable-execution-sdk-retries.md").
 
 ### Conditional workflows and human approvals
 
@@ -80,6 +90,10 @@ A single Lambda function manages a complex approval workflow by:
 ###### Example workflow graph
 
 ![Step Functions workflow graph showing credit request evaluation branching to automatic or manager approval based on risk](images/conditional_workflow.png)
+
+###### Note
+
+**Code-first alternative:** Durable functions support callbacks for human-in-the-loop workflows. See [Callbacks in durable functions](durable-execution-sdk.md "durable-execution-sdk.md").
 
 ### Parallel processing
 
@@ -106,6 +120,10 @@ A single Lambda function attempts to manage parallel processing by:
 
 ![Step Functions workflow graph with three parallel Lambda functions: create thumbnail, add watermark, and extract metadata](images/parallel_workflow.png)
 
+###### Note
+
+**Code-first alternative:** Durable functions provide `parallel()` and `map()` operations. See [Parallel execution](durable-execution-sdk.md "durable-execution-sdk.md").
+
 ## When not to use Step Functions with Lambda
 
 Not all Lambda-based applications benefit from using Step Functions. Consider these scenarios when choosing your application architecture.
@@ -115,6 +133,10 @@ Not all Lambda-based applications benefit from using Step Functions. Consider th
 - [CPU-intensive workloads](#cpu-intensive "#cpu-intensive")
 
 ### Simple applications
+
+###### Note
+
+For workflows that don't require visual design or extensive service integrations, [Lambda durable functions](durable-functions.md "durable-functions.md") may be a simpler alternative that keeps workflow logic in code within Lambda.
 
 For applications that don't require complex orchestration, using Step Functions might add unnecessary complexity. For example, if you're simply processing messages from an Amazon SQS queue or responding to Amazon EventBridge events, you can configure these services to invoke your Lambda functions directly. Similarly, if your application consists of only one or two Lambda functions with straightforward error handling, direct Lambda invocation or event-driven architectures might be simpler to deploy and maintain.
 

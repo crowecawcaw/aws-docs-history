@@ -12,6 +12,29 @@ Within each function, you use durable operations as fundamental building blocks.
 
 **Operational simplicity:** With Lambda's serverless model, you get automatic scaling, including scale-to-zero, without managing infrastructure. Durable functions handle state management, retry logic, and failure recovery automatically, reducing operational overhead.
 
+## When to use durable functions
+
+**Short-lived coordination:** Coordinate payments, inventory, and shipping across multiple services with automatic rollback on failures. Process orders through validation, payment authorization, inventory allocation, and fulfillment with guaranteed completion.
+
+**Process payments with confidence:** Build resilient payment flows that maintain transaction state through failures and handle retries automatically. Coordinate multi-step authorization, fraud checks, and settlement across payment providers with full auditability across steps.
+
+**Build reliable AI workflows:** Create multi-step AI workflows that chain model calls, incorporate human feedback, and handle long-running tasks deterministically during failures. Automatically resume after suspension, and only pay for active execution time.
+
+**Orchestrate complex order fulfillment:** Coordinate order processing across inventory, payment, shipping, and notification systems with built-in resilience. Automatically handle partial failures, preserve order state despite interruptions, and efficiently wait for external events without consuming compute resources.
+
+**Automate multi-step business workflows:** Build reliable workflows for employee onboarding, loan approvals, and compliance processes that span days or weeks. Maintain workflow state across human approvals, system integrations, and scheduled tasks while providing full visibility into process status and history.
+
+### How durable functions compare to Step Functions
+
+Both, durable functions and Step Functions, provide workflow orchestration with automatic state management. The key differences are where they run and how you define workflows:
+
+- **Durable functions:** Run within Lambda, use standard programming languages, managed within Lambda environment
+- **Step Functions:** Standalone service, graph-based DSL or visual designer, fully managed with zero maintenance
+
+Durable functions are ideal for application development in Lambda where workflows are tightly coupled with business logic. Step Functions excels at workflow orchestration across AWS services where you need visual design, native integrations to 220+ services, and zero-maintenance infrastructure.
+
+For a detailed comparison, see [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").
+
 ## How it works
 
 Under the hood, durable functions are regular Lambda functions using a checkpoint/replay mechanism to track progress and support long-running operations through user-defined suspension points,
@@ -27,22 +50,11 @@ With the SDK, you wrap your Lambda event handler, which then provides a DurableC
 
 ![Filter for Amazon Inspector results related to Lambda functions](images/how_durable_works.png)
 
-## When to use durable functions
-
-**Short-lived coordination:** Coordinate payments, inventory, and shipping across multiple services with automatic rollback on failures. Process orders through validation, payment authorization, inventory allocation, and fulfillment with guaranteed completion.
-
-**Process payments with confidence:** Build resilient payment flows that maintain transaction state through failures and handle retries automatically. Coordinate multi-step authorization, fraud checks, and settlement across payment providers with full auditability across steps.
-
-**Build reliable AI workflows:** Create multi-step AI workflows that chain model calls, incorporate human feedback, and handle long-running tasks deterministically during failures. Automatically resume after suspension, and only pay for active execution time.
-
-**Orchestrate complex order fulfillment:** Coordinate order processing across inventory, payment, shipping, and notification systems with built-in resilience. Automatically handle partial failures, preserve order state despite interruptions, and efficiently wait for external events without consuming compute resources.
-
-**Automate multi-step business workflows:** Build reliable workflows for employee onboarding, loan approvals, and compliance processes that span days or weeks. Maintain workflow state across human approvals, system integrations, and scheduled tasks while providing full visibility into process status and history.
-
 ## Next steps
 
 - [Get started with durable functions](durable-getting-started.md "durable-getting-started.md")
 - [Explore the durable execution SDK](durable-execution-sdk.md "durable-execution-sdk.md")
+- [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md")
 - [Monitor and debug durable functions](durable-monitoring.md "durable-monitoring.md")
 - [Review security and permissions](durable-security.md "durable-security.md")
 - [Follow best practices](durable-best-practices.md "durable-best-practices.md")

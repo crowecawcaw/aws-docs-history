@@ -27,7 +27,7 @@ application development. The overall goal is to develop workloads that are:
 - [Implement statelessness in functions](#statelessness-functions "#statelessness-functions")
 - [Minimize coupling](#minimize-coupling "#minimize-coupling")
 - [Build for on-demand data instead of batches](#on-demand-batches "#on-demand-batches")
-- [Consider AWS Step Functions for orchestration](#orchestration "#orchestration")
+- [Choose an orchestration option for complex workflows](#orchestration "#orchestration")
 - [Implement idempotency](#retries-failures "#retries-failures")
 - [Use multiple AWS accounts for managing quotas](#multiple-accounts "#multiple-accounts")
 
@@ -43,7 +43,7 @@ applications are:
 | Data storage                 | Amazon S3<br>Amazon DynamoDB<br>Amazon RDS     |
 | API                          | Amazon API Gateway                             |
 | Application integration      | Amazon EventBridge<br>Amazon SNS<br>Amazon SQS |
-| Orchestration                | AWS Step Functions                             |
+| Orchestration                | Lambda durable functions<br>AWS Step Functions |
 | Streaming data and analytics | Amazon Data Firehose                           |
 
 ###### Note
@@ -58,14 +58,14 @@ or implement using AWS services. For most customers, there is little commercial 
 to develop these patterns from scratch. When your application needs one of these patterns, use the
 corresponding AWS service:
 
-| Pattern                     | AWS service        |
-| --------------------------- | ------------------ |
-| Queue                       | Amazon SQS         |
-| Event bus                   | Amazon EventBridge |
-| Publish/subscribe (fan-out) | Amazon SNS         |
-| Orchestration               | AWS Step Functions |
-| API                         | Amazon API Gateway |
-| Event streams               | Amazon Kinesis     |
+| Pattern                     | AWS service                                    |
+| --------------------------- | ---------------------------------------------- |
+| Queue                       | Amazon SQS                                     |
+| Event bus                   | Amazon EventBridge                             |
+| Publish/subscribe (fan-out) | Amazon SNS                                     |
+| Orchestration               | Lambda durable functions<br>AWS Step Functions |
+| API                         | Amazon API Gateway                             |
+| Event streams               | Amazon Kinesis                                 |
 
 These services are designed to integrate with Lambda and you can use infrastructure as code (IaC) to
 create and discard resources in the services. You can use any of these services via the
@@ -146,20 +146,31 @@ is significantly more scalable and works in near-real time.
 
 ![event driven architectures figure 11](images/event-driven-architectures-figure-11.png)
 
-## Consider AWS Step Functions for orchestration
+## Choose an orchestration option for complex workflows
 
 Workflows that involve branching logic, different types of failure models, and retry logic typically use
-an orchestrator to keep track of the state of the overall execution. Avoid using Lambda functions for this purpose,
-since it results in tight coupling and complex code handling routing.
+an orchestrator to keep track of the state of the overall execution. Don't build ad-hoc orchestration in
+standard Lambda functions. This results in tight coupling, complex routing code, and no automatic state recovery.
 
-With [AWS Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/"), you use state machines
+Instead, use one of these purpose-built orchestration options:
+
+- **[Lambda durable functions](durable-functions.md "durable-functions.md"):** Application-centric orchestration
+  using standard programming languages with automatic checkpointing, built-in retry, and execution recovery.
+  Ideal for developers who prefer keeping workflow logic in code alongside business logic within Lambda.
+- **[AWS Step Functions](with-step-functions.md "with-step-functions.md"):** Visual workflow orchestration with
+  native integrations to 220+ AWS services. Ideal for multi-service coordination, zero-maintenance
+  infrastructure, and visual workflow design.
+
+For guidance on choosing between these options, see [Durable functions or Step Functions](durable-step-functions.md "durable-step-functions.md").
+
+With [Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/"), you use state machines
 to manage orchestration. This extracts the error handling, routing, and branching logic from your code, replacing
 it with state machines declared using JSON. Apart from making workflows more robust and observable, you can also
 add versioning to workflows and make the state machine a codified resource that you can add to a code repository.
 
 It’s common for simpler workflows in Lambda functions to become more complex over time. When operating a
 production serverless application, it’s important to identify when this is happening, so you can migrate this
-logic to a state machine.
+logic to a state machine or durable function.
 
 ## Implement idempotency
 

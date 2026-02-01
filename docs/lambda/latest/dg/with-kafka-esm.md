@@ -31,4 +31,5 @@ There are two main ways to use Lambda with Apache Kafka:
 - [Configuring error handling controls for Kafka event sources](kafka-retry-configurations.md "kafka-retry-configurations.md")
 - [Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources](kafka-on-failure.md "kafka-on-failure.md")
 - [Using a Kafka topic as an on-failure destination](kafka-on-failure-destination.md "kafka-on-failure-destination.md")
+- [Kafka event source mapping logging](esm-logging.md "esm-logging.md")
 - [Troubleshooting Kafka event source mapping errors](with-kafka-troubleshoot.md "with-kafka-troubleshoot.md")

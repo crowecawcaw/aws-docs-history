@@ -165,14 +165,11 @@ a long time to be processed (`AsyncEventAge`).
 ## Event source mapping metrics
 
 Event source mapping metrics provide insights into the processing behavior of your event
-source mapping. These metrics help you monitor the flow and status of events, including
-events that your event source mapping successfully processed, filtered, or dropped.
+source mapping.
 
-You must opt-in to receive metrics related to counts (`PolledEventCount`,
-`FilteredOutEventCount`, `InvokedEventCount`,
-`FailedInvokeEventCount`, `DroppedEventCount`,
-`OnFailureDestinationDeliveredEventCount`, and `DeletedEventCount`).
-To opt-in, you can use the console or the Lambda API.
+Currently, event source mapping metrics are available for Amazon SQS, Kinesis, DynamoDB, Amazon MSK and self-managed Apache Kafka event sources.
+
+For event source mapping with metrics config, you can also check all the ESM related metrics in the **Monitor** tab from the page Console **Lambda** > **Additional resources** > **event source mappings** now.
 
 ###### To enable metrics or an event source mapping (console)
 
@@ -181,7 +178,7 @@ To opt-in, you can use the console or the Lambda API.
 3. Choose **Configuration**, then choose **Triggers**.
 4. Choose the event source mapping that you want to enable metrics for, then choose
    **Edit**.
-5. Under **Event source mapping configuration**, choose **Enable metrics**.
+5. Under **Event source mapping configuration**, choose **Enable metrics** or select from the **Metrics** dropdown list.
 6. Choose **Save**.
 
 Alternatively, you can enable metrics for your event source mapping programmatically using
@@ -196,13 +193,46 @@ aws lambda update-event-source-mapping \
     --metrics-config Metrics=EventCount
 ```
 
-View metrics related to event counts with the `Sum` statistic.
+There are 3 metric goups: `EventCount`, `ErrorCount` and `KafkaMetrics`, and each group has multi metrics.
+Not every metric is available for each event source.
+The following table summarizes the supported metrics for each type of event source.
 
-###### Warning
+You must opt-in the metric group to receive metrics related metrics. for example set EventCount in metrics config to have: (`PolledEventCount`,
+`FilteredOutEventCount`, `InvokedEventCount`,
+`FailedInvokeEventCount`, `DroppedEventCount`,
+`OnFailureDestinationDeliveredEventCount`, and `DeletedEventCount`).
 
-Lambda event source mappings process each event at least once, and duplicate processing of
-records can occur. Because of this, events may be counted multiple times in metrics that
-involve event counts.
+| Event source mapping metric               | Metric group   | Amazon SQS | Kinesis and DynamoDB streams | Amazon MSK and self-managed Apache Kafka |
+| ----------------------------------------- | -------------- | ---------- | ---------------------------- | ---------------------------------------- |
+| `PolledEventCount`                        | `EventCount`   | Yes        | Yes                          | Yes                                      |
+| `FilteredOutEventCount`                   | `EventCount`   | Yes        | Yes                          | Yes                                      |
+| `InvokedEventCount`                       | `EventCount`   | Yes        | Yes                          | Yes                                      |
+| `FailedInvokeEventCount`                  | `EventCount`   | Yes        | Yes                          | Yes                                      |
+| `DroppedEventCount`                       | `EventCount`   | No         | Yes                          | Yes                                      |
+| `OnFailureDestinationDeliveredEventCount` | `EventCount`   | No         | Yes                          | Yes                                      |
+| `DeletedEventCount`                       | `EventCount`   | Yes        | No                           | No                                       |
+| `CommittedEventCount`                     | `EventCount`   | No         | No                           | Yes                                      |
+| `PollingErrorCount`                       | `ErrorCount`   | No         | No                           | Yes                                      |
+| `InvokeErrorCount`                        | `ErrorCount`   | No         | No                           | Yes                                      |
+| `OnFailureDestinationDeliveryErrorCount`  | `ErrorCount`   | No         | No                           | Yes                                      |
+| `SchemaRegistryErrorCount`                | `ErrorCount`   | No         | No                           | Yes                                      |
+| `CommitErrorCount`                        | `ErrorCount`   | No         | No                           | Yes                                      |
+| `MaxOffsetLag`                            | `KafkaMetrics` | No         | No                           | Yes                                      |
+| `SumOffsetLag`                            | `KafkaMetrics` | No         | No                           | Yes                                      |
+
+In addition, if your event source mapping is in [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode"), Lambda provides the following metric:
+
+- `ProvisionedPollers` – For event source mappings in provisioned mode,
+  the number of event pollers that are actively running. View this metric using the
+  `MAX` math.
+- (Amazon MSK and self-managed Apache Kafka event sources only) `EventPollerUnit` – For event source mappings in provisioned mode,
+  the number of event poller units that are actively running. View this metric using the
+  `SUM` math.
+- (Amazon MSK and self-managed Apache Kafka event sources) `EventPollerThroughputInBytes` – For event source mappings in provisioned mode,
+  the total record size of event pollers polled from the event source. It can tell you the current polling throughput. View this metric using the
+  `SUM` math.
+
+Here is more detail about each of the metric:
 
 - `PolledEventCount` – The number of events that Lambda reads
   successfully from the event source. If Lambda polls for events but receives an empty
@@ -217,6 +247,13 @@ involve event counts.
   function. Use this metric to verify that events are properly invoking your function. If an
   event results in a function error or throttling, `InvokedEventCount` may count
   multiple times for the same polled event due to automatic retries.
+
+###### Warning
+
+Lambda event source mappings process each event at least once, and duplicate processing of
+records can occur. Because of this, events may be counted multiple times in metrics that
+involve event counts.
+
 - `FailedInvokeEventCount` – The number of events that Lambda tried to
   invoke your function with, but failed. Invocations can fail due to reasons such as network
   configuration issues, incorrect permissions, or a deleted Lambda function, version, or
@@ -250,26 +287,21 @@ metrics, which are timestamped at the start of the function invocation.
   deletes after processing. If Lambda tries to delete an event but fails, Lambda emits a 0
   metric. Use this metric to ensure that successfully processed events are deleted from
   your event source.
+- `CommittedEventCount` – The number of events that Lambda successfully
+  committed after processing. It's a sum of the deltas of last and current committted offset
+  from each partition in the Kafka event source mapping.
+- `PollingErrorCount` – The number of errors that Lambda failed to
+  poll requests from event source. Lambda only emits this metric data when error happened.
+- `InvokeErrorCount` – The number of errors that Lambda failed to
+  invoke your function. Notice the invocation is records in batch.
+  The number is on batch level, not on record count level. Lambda only emits this metric data when error happened.
+- `SchemaRegistryErrorCount` – The number of errors that Lambda failed to
+  fetch the schema or deserialize with the scheme. Lambda only emits this metric data when error happened.
+- `CommitErrorCount` – The number of errors that Lambda failed to commit to Kafka cluster.
+  Lambda only emits this metric data when error happened.
+- `MaxOffsetLag` – The max of offset lags (difference between latest and committed offsets)
+  accross all partitions in the event source mapping.
+- `SumOffsetLag` – The sum of the offset lags across all partitions in the event source mapping.
 
 If your event source mapping is disabled, you won't receive event source mapping metrics. You
 may also see missing metrics if CloudWatch or Lambda is experiencing degraded availability.
-
-Not every event source mapping metric is available for each event source. Currently, event
-source mapping metrics are available for Amazon SQS, Kinesis, and DynamoDB streams event sources. The
-following availability matrix summarizes the supported metrics for each type of event source.
-
-| Event source mapping metric               | Support for Amazon SQS | Support for Kinesis and DynamoDB streams |
-| ----------------------------------------- | ---------------------- | ---------------------------------------- |
-| `PolledEventCount`                        | Yes                    | Yes                                      |
-| `FilteredOutEventCount`                   | Yes                    | Yes                                      |
-| `InvokedEventCount`                       | Yes                    | Yes                                      |
-| `FailedInvokeEventCount`                  | Yes                    | Yes                                      |
-| `DroppedEventCount`                       | No                     | Yes                                      |
-| `OnFailureDestinationDeliveredEventCount` | No                     | Yes                                      |
-| `DeletedEventCount`                       | Yes                    | No                                       |
-
-In addition, if your event source mapping is in [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode"), Lambda provides the following metric:
-
-- `ProvisionedPollers` – For event source mappings in provisioned mode,
-  the number of event pollers that are actively running. View this metric using the
-  `MAX` metric.

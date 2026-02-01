@@ -33,7 +33,7 @@ Lambda currently supports the option to output JSON structured application logs 
 | Language | Supported versions                                |
 | -------- | ------------------------------------------------- |
 | Java     | All Java runtimes except Java 8 on Amazon Linux 1 |
-| .NET     | .NET 8                                            |
+| .NET     | .NET 8 and later                                  |
 | Node.js  | Node.js 16 and later                              |
 | Python   | Python 3.8 and later                              |
 | Rust     | n/a                                               |

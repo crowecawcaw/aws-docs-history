@@ -1,6 +1,6 @@
 # Deploy Lambda durable functions with Infrastructure as Code
 
-You can deploy Lambda durable functions using Infrastructure as Code (IaC) tools like AWS CloudFormation, AWS CDK, or AWS Serverless Application Model. These tools let you define your function, execution role, and permissions in code, making deployments repeatable and version-controlled.
+You can deploy Lambda durable functions using Infrastructure as Code (IaC) tools like AWS CloudFormation, AWS CDK, AWS Serverless Application Model, or Terraform. These tools let you define your function, execution role, and permissions in code, making deployments repeatable and version-controlled.
 
 All three tools require you to:
 
@@ -28,17 +28,7 @@ Resources:
               Service: lambda.amazonaws.com
             Action: sts:AssumeRole
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-      Policies:
-        - PolicyName: DurableExecutionPolicy
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-              - Effect: Allow
-                Action:
-                  - lambda:CheckpointDurableExecutions
-                  - lambda:GetDurableExecutionState
-                Resource: !GetAtt DurableFunction.Arn
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
 
   DurableFunction:
     Type: AWS::Lambda::Function
@@ -54,8 +44,8 @@ Resources:
             return { statusCode: 200 };
           };
       DurableConfig:
-        ExecutionTimeout: 10
-        RetentionPeriodInDays: 1
+        ExecutionTimeout: 3600
+        RetentionPeriodInDays: 7
 
   DurableFunctionVersion:
     Type: AWS::Lambda::Version
@@ -113,15 +103,6 @@ export class DurableFunctionStack extends cdk.Stack {
       durableConfig: { executionTimeout: Duration.hours(1), retentionPeriod: Duration.days(30) },
     });
 
-    // Add checkpoint permissions
-    durableFunction.addToRolePolicy(new iam.PolicyStatement({
-      actions: [
-        'lambda:CheckpointDurableExecutions',
-        'lambda:GetDurableExecutionState',
-      ],
-      resources: [durableFunction.functionArn],
-    }));
-
     // Create version and alias
     const version = durableFunction.currentVersion;
     const alias = new lambda.Alias(this, 'ProdAlias', {
@@ -163,14 +144,10 @@ class DurableFunctionStack(Stack):
             durable_execution={execution_timeout: Duration.hours(1), retention_period: Duration.days(30)}
         )
 
-        # Add checkpoint permissions
-        durable_function.add_to_role_policy(iam.PolicyStatement(
-            actions=[
-                'lambda:CheckpointDurableExecutions',
-                'lambda:GetDurableExecutionState',
-            ],
-            resources=[durable_function.function_arn]
-        ))
+        # Add durable execution managed policy for checkpoint permissions
+        durable_function.role.add_managed_policy(
+            iam.ManagedPolicy.from_aws_managed_policy_name('service-role/AWSLambdaBasicDurableExecutionRolePolicy')
+        )
 
         # Create version and alias
         version = durable_function.current_version
@@ -212,16 +189,10 @@ Resources:
       Handler: index.handler
       CodeUri: ./src
       DurableConfig:
-        ExecutionTimeout: 10
-        RetentionPeriodInDays: 1
+        ExecutionTimeout: 3600
+        RetentionPeriodInDays: 7
       Policies:
-        - Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Action:
-                - lambda:CheckpointDurableExecutions
-                - lambda:GetDurableExecutionState
-              Resource: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${DurableFunction}'
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy
       AutoPublishAlias: prod
 
 Outputs:
@@ -240,21 +211,108 @@ sam build
 sam deploy --guided
 ```
 
+## Terraform
+
+Terraform is a popular open-source IaC tool that supports AWS resources. The following example creates a durable function with Terraform using the AWS provider version 6.25.0 or later.
+
+```
+terraform {
+  required_version = ">= 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 6.25.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-2"
+}
+
+# IAM Role for Lambda Function
+resource "aws_iam_role" "lambda_role" {
+  name = "durable-function-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "lambda.amazonaws.com"
+      }
+    }]
+  })
+}
+
+# Attach durable execution policy for checkpoint operations
+resource "aws_iam_role_policy_attachment" "lambda_durable" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicDurableExecutionRolePolicy"
+  role       = aws_iam_role.lambda_role.name
+}
+
+# Lambda Function with Durable Execution enabled
+resource "aws_lambda_function" "durable_function" {
+  filename      = "function.zip"
+  function_name = "myDurableFunction"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = "index.handler"
+  runtime       = "nodejs22.x"
+  timeout       = 30
+  memory_size   = 512
+
+  durable_config {
+    execution_timeout = 900
+    retention_period  = 7
+  }
+}
+
+# Publish a version
+resource "aws_lambda_alias" "prod" {
+  name             = "prod"
+  function_name    = aws_lambda_function.durable_function.function_name
+  function_version = aws_lambda_function.durable_function.version
+}
+
+output "function_arn" {
+  description = "ARN of the Lambda function"
+  value       = aws_lambda_function.durable_function.arn
+}
+
+output "alias_arn" {
+  description = "ARN of the function alias (use this for invocations)"
+  value       = aws_lambda_alias.prod.arn
+}
+```
+
+**To deploy with Terraform**
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+###### Note
+
+Terraform support for Lambda durable functions requires AWS provider version 6.25.0 or later. Update your provider version if you're using an older version.
+
 ## Common configuration patterns
 
 Regardless of which IaC tool you use, follow these patterns for durable functions:
 
 ###### Enable durable execution
 
-Set the `DurableExecution.Enabled` property to `true`. This property is only available when creating the function—you cannot enable durable execution on existing functions.
+Set the `DurableConfig` property on your function to enable durable execution. This property is only available when creating the function. You cannot enable durable execution on existing functions.
 
 ###### Grant checkpoint permissions
 
-Add `lambda:CheckpointDurableExecutions` and `lambda:GetDurableExecutionState` to the execution role. Scope these permissions to the specific function ARN.
+Attach the `AWSLambdaBasicDurableExecutionRolePolicy` managed policy to the execution role. This policy includes the required `lambda:CheckpointDurableExecutions` and `lambda:GetDurableExecutionState` permissions.
 
 ###### Use qualified ARNs
 
-Create a version or alias for your function. Durable functions require qualified ARNs (with version or alias) for invocation. Use `AutoPublishAlias` in AWS SAM or create explicit versions in CloudFormation and AWS CDK.
+Create a version or alias for your function. Durable functions require qualified ARNs (with version or alias) for invocation. Use `AutoPublishAlias` in AWS SAM or create explicit versions in CloudFormation, AWS CDK, and Terraform.
 
 ###### Package dependencies
 
