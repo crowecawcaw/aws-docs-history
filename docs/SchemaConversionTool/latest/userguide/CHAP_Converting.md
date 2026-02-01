@@ -1,42 +1,32 @@
-# Converting application SQL using AWS SCT
+# Comparing schemas in AWS Schema Conversion Tool
 
-When you convert your database schema from one engine to another, you also need to update
-the SQL code in your applications to interact with the new database engine instead of the
-old one. You can view, analyze, edit, and save the converted SQL code.
+If you made changes to your source or target schema after you migrated, you can
+compare the two database schemas using AWS SCT. You can compare schemas for versions
+the same as or earlier than the source schema.
 
-You can use the AWS Schema Conversion Tool (AWS SCT) to convert the SQL code in your C++, C#, Java, or
-other application code. For an Oracle to PostgreSQL conversion, you can use AWS SCT to
-convert SQL\*Plus code to PSQL. Also, for an Oracle to PostgreSQL conversion, you can use
-AWS SCT to convert SQL code embedded into C#, C++, Java, and Pro\*C applications.
+The following schema comparisons are supported:
 
-###### Topics
+- Oracle to Oracle, versions 12.1.0.2.0, 11.1.0.7.0, 11.2.0.1.0, 10
+- SQL Server to SQL Server, versions 2016, 2014, 2012, 2008 RD2, 2008
+- PostgreSQL to PostgreSQL and Aurora PostgreSQL-Compatible Edition, versions 9.6, 9.5.9, 9.5.4
+- MySQL to MySQL, versions 5.6.36, 5.7.17, 5.5
+  You specify settings for the schema comparison on the **Compare
+  Schema** tab of the **Project Settings** page.
 
-- [Overview of converting application SQL](#CHAP_Converting.App.Overview "#CHAP_Converting.App.Overview")
-- [Converting SQL code in your applications with
-  AWS SCT](CHAP_Converting.App.md "CHAP_Converting.App.md")
-- [Converting SQL code in C# applications with AWS Schema Conversion Tool](CHAP_Converting.App.md "CHAP_Converting.App.md")
-- [Converting SQL code in C++ applications with AWS Schema Conversion Tool](CHAP_Converting.App.md "CHAP_Converting.App.md")
-- [Converting SQL code in Java applications with AWS Schema Conversion Tool](CHAP_Converting.App.md "CHAP_Converting.App.md")
-- [Converting SQL code in Pro\*C applications with AWS Schema Conversion Tool](CHAP_Converting.App.md "CHAP_Converting.App.md")
+![Schema compare settings](images/schema-compare-settings.png)
+To compare schemas, you select the schemas, and AWS SCT indicates the objects
+that differ between the two schemas and the objects that don't.
 
-## Overview of converting application SQL
+###### To compare two schemas
 
-To convert the SQL code in your application, take the following high-level steps:
+1. Open an existing AWS SCT project, or create a project and connect to
+   the source and target endpoints.
+2. Choose the schema you want to compare.
+3. Open the context menu (right-click) and choose **Compare Schema**.
+   AWS SCT indicates objects that are different between the two schemas
+   by adding a black circle to the object's icon.
 
-- **Create an application conversion project**
-  – The application conversion project is a child of the database schema
-  conversion project. Each database schema conversion project can have one or more
-  child application conversion projects. For more information, see [Creating generic application conversion projects in AWS SCT](CHAP_Converting.App.md#CHAP_Converting.App.Project "CHAP_Converting.App.md#CHAP_Converting.App.Project").
-- **Analyze and convert your SQL code** –
-  AWS SCT analyzes your application, extracts the SQL code, and creates a local
-  version of the converted SQL for you to review and edit. The tool doesn't change
-  the code in your application until you are ready. For more information, see
-  [Analyzing and converting your SQL code in AWS SCT](CHAP_Converting.App.md#CHAP_Converting.App.Convert "CHAP_Converting.App.md#CHAP_Converting.App.Convert").
-- **Create an application assessment report**
-  – The application assessment report provides important information about
-  the conversion of the application SQL code from your source database schema to
-  your target database schema. For more information, see [Creating and using the AWS SCT assessment report in AWS SCT](CHAP_Converting.App.md#CHAP_Converting.App.AssessmentReport "CHAP_Converting.App.md#CHAP_Converting.App.AssessmentReport").
-- **Edit, apply changes to, and save your converted SQL
-  code** – The assessment report includes a list of SQL code
-  items that can't be converted automatically. For these items, you can edit the
-  SQL code manually to perform the conversion. For more information, see [Editing and saving your converted SQL code with AWS SCT](CHAP_Converting.App.md#CHAP_Converting.App.Edit "CHAP_Converting.App.md#CHAP_Converting.App.Edit").
+![Schema compare result](images/schema-compare-results.png)
+You can apply the results of the schema comparison to a single object, to a single category
+of objects, or to the entire schema. Choose the box next to the category, object, or
+schema that you want to apply the results to.
