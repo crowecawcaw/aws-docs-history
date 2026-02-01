@@ -9,6 +9,7 @@ When deploying nodes, you can specify an ID for a pre-built Amazon EKS optimized
 You can retrieve the image ID of the latest recommended Amazon EKS optimized Windows AMI with the following command, which uses the sub-parameter `image_id`. Make the following modifications to the command as needed and then run the modified command:
 
 - Replace `release` with one of the following options.
+  - Use `2025` for Windows Server 2025.
   - Use `2022` for Windows Server 2022.
   - Use `2019` for Windows Server 2019.
 

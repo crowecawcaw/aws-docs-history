@@ -22,6 +22,7 @@ You can use any of the following Amazon EKS add-ons.
 | SageMaker HyperPod task governance optimizes compute resource allocation and usage across teams in Amazon EKS clusters, addressing inefficiencies in task prioritization and resource sharing.                                                        | [Amazon SageMaker HyperPod task governance](#addons-hyperpod "#addons-hyperpod")                                                         | EC2, EKS Auto Mode,                           |
 | The Amazon SageMaker HyperPod Observability AddOn provides comprehensive monitoring and observability capabilities for HyperPod clusters.                                                                                                             | [Amazon SageMaker HyperPod Observability Add-on](#addons-hyperpod-observability "#addons-hyperpod-observability")                        | EC2, EKS Auto Mode,                           |
 | Amazon SageMaker HyperPod training operator enables efficient distributed training on Amazon EKS clusters with advanced scheduling and resource management capabilities.                                                                              | [Amazon SageMaker HyperPod training operator](#addons-hyperpod-training-operator "#addons-hyperpod-training-operator")                   | EC2, EKS Auto Mode                            |
+| Amazon SageMaker HyperPod inference operator enables deployment and management of high-performance AI inference workloads with optimized resource utilization and cost efficiency.                                                                    | [Amazon SageMaker HyperPod inference operator](#addons-hyperpod-inference-operator "#addons-hyperpod-inference-operator")                | EC2, EKS Auto Mode                            |
 | A Kubernetes agent that collects and reports network flow data to Amazon CloudWatch, enabling comprehensive monitoring of TCP connections across cluster nodes.                                                                                       | [AWS Network Flow Monitor Agent](#addons-network-flow "#addons-network-flow")                                                            | EC2, EKS Auto Mode                            |
 | Secure, production-ready, AWS supported distribution of the OpenTelemetry project                                                                                                                                                                     | [AWS Distro for OpenTelemetry](#add-ons-adot "#add-ons-adot")                                                                            | EC2, Fargate, EKS Auto Mode, EKS Hybrid Nodes |
 | Security monitoring service that analyzes and processes foundational data sources including AWS CloudTrail management events and Amazon VPC flow logs. Amazon GuardDuty also processes features, such as Kubernetes audit logs and runtime monitoring | [Amazon GuardDuty agent](#add-ons-guard-duty "#add-ons-guard-duty")                                                                      | EC2, EKS Auto Mode                            |
@@ -308,6 +309,51 @@ For more information, see [Installing the training operator](../../../sagemaker/
 ### Additional information
 
 To learn more about the add-on, see [SageMaker HyperPod training operator](../../../sagemaker/latest/dg/sagemaker-eks-operator.md "../../../sagemaker/latest/dg/sagemaker-eks-operator.md").
+
+## Amazon SageMaker HyperPod inference operator
+
+Amazon SageMaker HyperPod offers an end-to-end experience supporting the full lifecycle of AI development from interactive experimentation and training to inference and post training workflows. It now provides a comprehensive inference platform that combines the flexibility of Kubernetes with the operational excellence of a managed experience. Deploy, scale, and optimize your GenAI models with enterprise-grade reliability using the same HyperPod compute throughout the entire model lifecycle.
+
+Amazon SageMaker HyperPod offers flexible deployment interfaces that allow you to deploy models through multiple methods including kubectl, Python SDK, Amazon SageMaker Studio UI, or HyperPod CLI. The capability provides advanced autoscaling capabilities with dynamic resource allocation that automatically adjusts based on demand. Additionally, it includes comprehensive observability and monitoring features that track critical metrics such as time-to-first-token, latency, and GPU utilization to help you optimize performance.
+
+The Amazon EKS add-on name is `amazon-sagemaker-hyperpod-inference`.
+
+### Installation methods
+
+You can install this add-on using one of the following methods:
+
+- **SageMaker Console (Recommended)**: Provides a streamlined installation experience with guided configuration.
+- **EKS Add-ons Console or CLI**: Requires manual installation of dependency add-ons before installing the inference operator. See the prerequisites section below for required dependencies.
+
+### Prerequisites
+
+Before installing the inference operator add-on via the EKS Add-ons Console or CLI, ensure the following dependencies are installed.
+
+Required EKS add-ons:
+
+- Amazon S3 Mountpoint CSI Driver (minimum version: v1.14.1-eksbuild.1)
+- Metrics Server (minimum version: v0.7.2-eksbuild.4)
+- Amazon FSx CSI Driver (minimum version: v1.6.0-eksbuild.1)
+- Cert Manager (minimum version: v1.18.2-eksbuild.2)
+
+For detailed installation instructions for each dependency, see [Installing the inference operator](../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-setup.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-setup.md").
+
+### Required IAM permissions
+
+This add-on requires IAM permissions, and uses OIDC/IRSA.
+
+The following managed policies are recommended as they provide the minimum scoped permissions:
+
+- `AmazonSageMakerHyperPodInferenceAccess` - provides admin privileges required for setting up the inference operator
+- `AmazonSageMakerHyperPodGatedModelAccess` - provides SageMaker HyperPod access to gated models in SageMaker Jumpstart (e.g., Meta Llama, GPT-Neo)
+
+For more information, see [Installing the inference operator](../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-setup.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-setup.md").
+
+### Additional information
+
+To learn more about the Amazon SageMaker HyperPod inference operator, see [SageMaker HyperPod inference operator](../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment.md").
+
+For troubleshooting information, see [Troubleshooting SageMaker HyperPod model deployment](../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-ts.md "../../../sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-ts.md").
 
 ## AWS Network Flow Monitor Agent
 

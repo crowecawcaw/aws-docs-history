@@ -10,6 +10,32 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This topic gives important changes to be aware of for each Kubernetes version in standard support. When upgrading, carefully review the changes that have occurred between the old and new versions for your cluster.
 
+## Kubernetes 1.35
+
+Kubernetes `1.35` is now available in Amazon EKS. For more information about Kubernetes `1.35`, see the [official release announcement](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/ "https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/").
+
+###### Important
+
+- Cgroup v1 Support Removed: Kubernetes 1.35 deprecates cgroup v1 support, meaning the kubelet will refuse to start by default on nodes using cgroup v1.
+  - AL2023: AL2023 uses cgroup v2 by default and aligns with Kubernetes upstream behavior.
+    - Action required: Customers who manually configured AL2023 to use cgroup v1 must either [migrate to cgroups v2](https://kubernetes.io/docs/concepts/architecture/cgroups/ "https://kubernetes.io/docs/concepts/architecture/cgroups/") or manually set `failCgroupV1: false` in kubelet configuration.
+
+  - Bottlerocket: Bottlerocket 1.35 uses cgroup v2 by default, however sets `failCgroupV1: false` in the kubelet configuration, maintaining backward compatibility.
+  - Fargate: Fargate continues to use cgroup v1.
+
+- Containerd 1.x End of Support: Kubernetes 1.35 is the last release supporting containerd 1.x. You must switch to containerd 2.0 or later before upgrading to the next Kubernetes version.
+
+- **In-Place Pod Resource Updates (Stable):** In-Place Pod Resource Updates allows users to adjust CPU and memory resources without restarting Pods or containers. Previously, such modifications required recreating Pods, which could disrupt workloads, particularly for stateful or batch applications. The new in-place functionality allows for smoother, non-disruptive vertical scaling, improves efficiency, and can also simplify development.
+  - For more information, see [Kubernetes 1.35: In-Place Pod Resize Graduates to Stable](https://kubernetes.io/blog/2025/12/19/kubernetes-v1-35-in-place-pod-resize-ga/ "https://kubernetes.io/blog/2025/12/19/kubernetes-v1-35-in-place-pod-resize-ga/") on the _Kubernetes Blog_.
+
+- **PreferSameNode Traffic Distribution (Stable):** The `trafficDistribution` field for Services has been updated to provide more explicit control over traffic routing. A new option, `PreferSameNode`, has been introduced to allow services to strictly prioritize endpoints on the local node when available, falling back to remote endpoints otherwise. This change makes the API more explicit about preferring traffic within the current node.
+- **StatefulSet MaxUnavailable (Beta):** This feature enables parallel Pod updates by setting `maxUnavailable` (e.g., 3 or 10%), allowing stateful applications like database clusters to update up to 60% faster than sequential one-at-a-time updates, significantly reducing maintenance windows.
+- **Windows Server 2025 Support:** EKS 1.35 adds support for [Windows Server 2025](eks-optimized-windows-ami.md "eks-optimized-windows-ami.md") for self-managed node groups.
+- **Kubelet Flag Removal:** The `--pod-infra-container-image` flag has been removed from kubelet. Custom AMI users must remove this flag from kubelet configuration before upgrading to 1.35.
+- **Deprecation Notice - IPVS Mode:** IPVS mode in kube-proxy is deprecated and will be removed in Kubernetes 1.36.
+
+For the complete Kubernetes `1.35` changelog, see https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md
+
 ## Kubernetes 1.34
 
 Kubernetes `1.34` is now available in Amazon EKS. For more information about Kubernetes `1.34`, see the [official release announcement](https://kubernetes.io/blog/2025/08/27/kubernetes-v1-34-release/ "https://kubernetes.io/blog/2025/08/27/kubernetes-v1-34-release/").

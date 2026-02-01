@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Create nodes with optimized Windows AMIs
 
-Windows Amazon EKS optimized AMIs are built on top of Windows Server 2019 and Windows Server 2022. They are configured to serve as the base image for Amazon EKS nodes. By default, the AMIs include the following components:
+Windows Amazon EKS optimized AMIs are built on top of Windows Server 2019, Windows Server 2022, and Windows Server 2025. They are configured to serve as the base image for Amazon EKS nodes. By default, the AMIs include the following components:
 
 - [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/")
 - [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/")
@@ -22,6 +22,8 @@ Amazon EKS offers AMIs that are optimized for Windows containers in the followin
 - Amazon EKS-optimized Windows Server 2019 Full AMI
 - Amazon EKS-optimized Windows Server 2022 Core AMI
 - Amazon EKS-optimized Windows Server 2022 Full AMI
+- Amazon EKS-optimized Windows Server 2025 Core AMI
+- Amazon EKS-optimized Windows Server 2025 Full AMI
 
 ###### Important
 
@@ -34,6 +36,8 @@ The following table lists the release and end of support dates for Windows versi
 
 | Windows version          | Amazon EKS release | Amazon EKS end of support |
 | ------------------------ | ------------------ | ------------------------- |
+| Windows Server 2025 Core | 01/27/2026         |                           |
+| Windows Server 2025 Full | 01/27/2026         |                           |
 | Windows Server 2022 Core | 10/17/2022         |                           |
 | Windows Server 2022 Full | 10/17/2022         |                           |
 | Windows Server 20H2 Core | 8/12/2021          | 8/9/2022                  |

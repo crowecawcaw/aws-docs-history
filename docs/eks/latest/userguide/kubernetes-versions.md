@@ -20,6 +20,7 @@ We recommend that you create your cluster with the latest available Kubernetes v
 
 The following Kubernetes versions are currently available in Amazon EKS standard support:
 
+- `1.35`
 - `1.34`
 - `1.33`
 - `1.32`
@@ -52,6 +53,7 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/vers
 
 | Kubernetes version | Upstream release  | Amazon EKS release | End of standard support | End of extended support |
 | ------------------ | ----------------- | ------------------ | ----------------------- | ----------------------- |
+| `1.35`             | December 17, 2025 | January 27, 2026   | March 27, 2027          | March 27, 2028          |
 | `1.34`             | August 27, 2025   | October 2, 2025    | December 2, 2026        | December 2, 2027        |
 | `1.33`             | April 23, 2025    | May 29, 2025       | July 29, 2026           | July 29, 2027           |
 | `1.32`             | December 11, 2024 | January 23, 2025   | March 23, 2026          | March 23, 2027          |
