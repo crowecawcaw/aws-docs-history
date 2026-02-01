@@ -27,7 +27,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     LiveRamp, see [Step 1: Subscribe to a provider service on
     AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service "prepare-third-party-input-data.md#subscribe-provider-service").
 
-    ![The Subscribed status for the LiveRamp ID mapping method on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/id-mapping-method.PNG)
+    ![The Subscribed status for the LiveRamp ID mapping method on the Specify ID mapping workflow page](images/id-mapping-method.PNG)
 
     ###### Note
 
