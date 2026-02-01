@@ -28,7 +28,7 @@ alternately. 4. Push the **Config** button on the gateway to put it
 into commissioning mode. The Bluetooth and network LED lights will start
 flashing rapidly.
 
-![Button labeled "CONFIG" with a circular indicator light next to it.](images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the
+![Button labeled "CONFIG" with a circular indicator light next to it.](/images/Monitron/latest/user-guide/images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the
 **Gateways** page, choose **Add
 gateway**.
 
@@ -60,7 +60,7 @@ gateway device ID and MAC ID in the mobile app. 8. After it connects to the gate
 options for you to configure the network connection for your
 gateway.
 
-![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
+![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](/images/Monitron/latest/user-guide/images/ethernet-network-configuration.png) 9. Choose your network configuation.
 
 It can take a few minutes for the gateway to be commissioned and to
 connect to the network.

@@ -274,7 +274,7 @@ ticket
    right corner of any page, then choose **Support
    Center**.
 
-![AWS console interface showing IAM dashboard with Support Center dropdown menu highlighted.](images/gdpr-support-question-mark.png) 2. On the next page, choose **Create case**.
+![AWS console interface showing IAM dashboard with Support Center dropdown menu highlighted.](/images/Monitron/latest/user-guide/images/gdpr-support-question-mark.png) 2. On the next page, choose **Create case**.
 
 ![Support Center interface with Quick solutions, Active cases, and Create case button.](images/s3-export-4.png) 3. On the **How can we help?** page, do the
 following:
@@ -312,12 +312,12 @@ following:
    1. In **Solve now**, select
       **Next**.
 
-   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](images/s3-export-7.png) 2. In **Contact us**, choose your
+   ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](/images/Monitron/latest/user-guide/images/s3-export-7.png) 2. In **Contact us**, choose your
    **Preferred contact language** and
    preferred method of contact. 3. Choose **Submit**. A confirmation screen with
    your case ID and details will be displayed.
 
-   ![Contact options with language selection and choices for Web, Phone, or Chat communication.](/images/Monitron/latest/user-guide/images/s3-export-8.png)
+   ![Contact options with language selection and choices for Web, Phone, or Chat communication.](images/s3-export-8.png)
 
 An AWS customer support specialist will get back to you as soon as
 possible. If there are any issues with the steps listed, the specialist may ask
