@@ -16,3 +16,4 @@ Use the following sections to help troubleshoot FSx for ONTAP file systems.
 - [Your backups fail due to insufficient volume capacity](backups-failing.md "backups-failing.md")
 - [Recovering deleted FSx for ONTAP volumes](recovering-deleted-volumes.md "recovering-deleted-volumes.md")
 - [Troubleshooting network issues](network-issues.md "network-issues.md")
+- [Troubleshooting I/O errors and NFS lock reclaim failures](nfs-failover-issues.md "nfs-failover-issues.md")
