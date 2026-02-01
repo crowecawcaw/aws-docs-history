@@ -333,7 +333,7 @@ For more information about using this API in one of the language-specific AWS SD
 ### GetApplication
 
 - [AWS Command Line Interface V2](../../../goto/cli2/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/cli2/serverlessrepo-2017-09-08/GetApplication.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/GetApplication.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/GetApplication.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/SdkForCpp/serverlessrepo-2017-09-08/GetApplication.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/GetApplication.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/GetApplication.md "../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/GetApplication.md")
@@ -346,7 +346,7 @@ For more information about using this API in one of the language-specific AWS SD
 ### DeleteApplication
 
 - [AWS Command Line Interface V2](../../../goto/cli2/serverlessrepo-2017-09-08/DeleteApplication.md "../../../goto/cli2/serverlessrepo-2017-09-08/DeleteApplication.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/DeleteApplication.md "../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/DeleteApplication.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/DeleteApplication.md "../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/DeleteApplication.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/serverlessrepo-2017-09-08/DeleteApplication.md "../../../goto/SdkForCpp/serverlessrepo-2017-09-08/DeleteApplication.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/DeleteApplication.md "../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/DeleteApplication.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/DeleteApplication.md "../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/DeleteApplication.md")
@@ -359,7 +359,7 @@ For more information about using this API in one of the language-specific AWS SD
 ### UpdateApplication
 
 - [AWS Command Line Interface V2](../../../goto/cli2/serverlessrepo-2017-09-08/UpdateApplication.md "../../../goto/cli2/serverlessrepo-2017-09-08/UpdateApplication.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/UpdateApplication.md "../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/UpdateApplication.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/UpdateApplication.md "../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/UpdateApplication.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/serverlessrepo-2017-09-08/UpdateApplication.md "../../../goto/SdkForCpp/serverlessrepo-2017-09-08/UpdateApplication.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/UpdateApplication.md "../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/UpdateApplication.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/UpdateApplication.md "../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/UpdateApplication.md")

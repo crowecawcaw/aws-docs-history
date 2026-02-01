@@ -167,7 +167,7 @@ For more information about using this API in one of the language-specific AWS SD
 ### ListApplicationVersions
 
 - [AWS Command Line Interface V2](../../../goto/cli2/serverlessrepo-2017-09-08/ListApplicationVersions.md "../../../goto/cli2/serverlessrepo-2017-09-08/ListApplicationVersions.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/ListApplicationVersions.md "../../../goto/DotNetSDKV3/serverlessrepo-2017-09-08/ListApplicationVersions.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/ListApplicationVersions.md "../../../goto/DotNetSDKV4/serverlessrepo-2017-09-08/ListApplicationVersions.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/serverlessrepo-2017-09-08/ListApplicationVersions.md "../../../goto/SdkForCpp/serverlessrepo-2017-09-08/ListApplicationVersions.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/ListApplicationVersions.md "../../../goto/SdkForGoV2/serverlessrepo-2017-09-08/ListApplicationVersions.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/ListApplicationVersions.md "../../../goto/SdkForJavaV2/serverlessrepo-2017-09-08/ListApplicationVersions.md")
