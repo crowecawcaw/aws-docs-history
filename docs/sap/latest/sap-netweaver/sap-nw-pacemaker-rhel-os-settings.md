@@ -87,17 +87,6 @@ else
         dnf install -y $missingpackages
     fi
 fi
-
-# Check sap-cluster-connector version if installed
-if rpm -q sap-cluster-connector --quiet; then
-    version=$(rpm -q sap-cluster-connector --qf '%{VERSION}')
-    echo "sap-cluster-connector version: $version"
-    if [[ $(echo "$version" | cut -d. -f1) -ge 3 ]] && [[ $(echo "$version" | cut -d. -f2) -ge 1 ]] && [[ $(echo "$version" | cut -d. -f3) -ge 1 ]]; then
-        echo "sap-cluster-connector version is suitable for SimpleMount architecture"
-    else
-        echo "WARNING: SimpleMount architecture requires sap-cluster-connector version 3.1.1 or higher"
-    fi
-fi
 ```
 
 If a package is not installed, and you are unable to install it using dnf, it may be because Red Hat Enterprise Linux High Availability Add-On is not available as a repository in your chosen image. You can verify the availability of the add-on using the following command:
