@@ -3,9 +3,8 @@
 If you are an Enterprise customer, it can be difficult to complete the standard migration process due to the large number of accounts you might manage.
 For example, you might have difficulty obtaining approval to migrate all invited accounts in large organizations.
 
-Assisted migration help with this process by enabling customers with an Enterprise Support plan to request that AWS migrate their organization to all
-features on your behalf. This process requires that you sign an agreement contract affirming that you own all accounts,
-followed by a 14-day waiting period. This waiting period provides accounts time to leave the organization if the accounts want to before the migration to all features takes effect.
+Assisted migration helps with this process by enabling customers with an Enterprise Support plan to request that AWS migrate their organization to all
+features on your behalf. This process requires that you sign an agreement affirming that you own all accounts. Then, all member accounts in the organization will be notified by email of the migration, and the email notifications will trigger a a 14-day waiting period. This waiting period provides accounts time to leave the organization before the migration to all features takes effect.
 
 AWS Management Console
 

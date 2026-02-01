@@ -169,6 +169,7 @@ Organizations supports the following resource types for the `resource_types` and
 - Amazon Timestream databases: `"arn:aws:timestream:*:*:database/*"`
 - Amazon FSx file systems: `"arn:aws:fsx:*:*:file-system/*"`
 - Amazon FSx volumes: `"arn:aws:fsx:*:*:volume/*"`
+- Amazon Elastic Kubernetes Service volumes: `"arn:aws:eks:*:*:cluster/*"`
 
 **Code examples**
 

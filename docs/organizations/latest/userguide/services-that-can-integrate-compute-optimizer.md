@@ -24,6 +24,7 @@ You can delete or modify this role only if you disable trusted access between
 Compute Optimizer and Organizations, or if you remove the member account from the organization.
 
 - `AWSServiceRoleForComputeOptimizer`
+- `AWSServiceRoleForComputeOptimizerAutomation`
 
 ## Service principals used by the
 
