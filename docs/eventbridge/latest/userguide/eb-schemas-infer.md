@@ -39,3 +39,7 @@ event bus, choose to use an AWS owned key. For more information, see [KMS key op
 - To start schema discovery, use [create-discoverer](../../../cli/latest/reference/schemas/create-discoverer.md "../../../cli/latest/reference/schemas/create-discoverer.md").
 
 To stop schema discovery, use [delete-discoverer](../../../cli/latest/reference/schemas/delete-discoverer.md "../../../cli/latest/reference/schemas/delete-discoverer.md").
+
+###### Note
+
+Schema discovery does not support events larger than 1000 KiB. These events will not be discovered and no error notification will be generated. To track schemas for larger events, you must manually create schemas using the schema registry.

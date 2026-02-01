@@ -21,7 +21,11 @@ the same time that you create the API destination. For more information, see [Co
 
 The name must be unique to your account in the current Region. You can use up
 to 64 uppercase or lowercase letters, numbers, dot (.), dash (-), or underscore
-(\_) characters. 5. Enter an **API destination endpoint** for the API
+(\_) characters.
+
+###### Important
+
+When creating a new API destination for your connection, ensure that the connection reaches the AUTHORIZED state before creating the API destination. 5. Enter an **API destination endpoint** for the API
 destination.
 
 The **API destination endpoint** is an HTTP invocation
