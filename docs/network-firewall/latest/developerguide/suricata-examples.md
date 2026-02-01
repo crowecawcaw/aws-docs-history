@@ -315,6 +315,112 @@ the United Kingdom:
  }
 ```
 
+## Stateful rules examples: URL/Domain Category filter
+
+###### Note
+
+Before using any example rule, test and adapt it to your needs.
+
+For information about URL and Domain Category filtering in Network Firewall, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md") .
+
+aws_url_category evaluates complete URLs (with TLS inspection) and domains, while aws_domain_category evaluates only domain information from TLS SNI or HTTP host headers.
+
+The following shows an example Suricata rule string that generates an alert for traffic categorized as malicious:
+
+```
+alert http any any -> any any (msg:"URL Category is Malicious"; aws_url_category:Malicious; sid:55555555; rev:1;)
+```
+
+The following shows an example that blocks traffic categorized under gambling and social networking categories:
+
+```
+drop http any any -> any any (msg:"Block gambling and social sites"; aws_url_category:Gambling,Social Networking; sid:55555556; rev:1;)
+```
+
+The following shows an example standard stateful rule group that drops traffic to malware and phishing sites using `aws_url_category`:
+
+```
+{
+    "RulesSource": {
+      "StatefulRules": [
+        {
+          "Action": "DROP",
+          "Header": {
+            "DestinationPort": "ANY",
+            "Direction": "FORWARD",
+            "Destination": "ANY",
+            "Source": "ANY",
+            "SourcePort": "ANY",
+            "Protocol": "HTTP"
+          },
+          "RuleOptions": [
+            {
+              "Settings": [
+                "1"
+              ],
+              "Keyword": "sid"
+            },
+            {
+              "Settings": [
+                "Malware,Phishing"
+              ],
+              "Keyword": "aws_url_category"
+            }
+          ]
+        }
+      ]
+    },
+    "StatefulRuleOptions": {
+      "RuleOrder": "STRICT_ORDER"
+    }
+}
+```
+
+The following shows an example using domain-level filtering that generates an alert for traffic categorized as cryptocurrency:
+
+```
+alert tls any any -> any any (msg:"Domain Category is Cryptocurrency"; aws_domain_category:Cryptocurrency; sid:55555557; rev:1;)
+```
+
+The following shows an example standard stateful rule group that drops traffic to malware and phishing sites using `aws_domain_category`:
+
+```
+{
+    "RulesSource": {
+      "StatefulRules": [
+        {
+          "Action": "DROP",
+          "Header": {
+            "DestinationPort": "ANY",
+            "Direction": "FORWARD",
+            "Destination": "ANY",
+            "Source": "ANY",
+            "SourcePort": "ANY",
+            "Protocol": "HTTP"
+          },
+          "RuleOptions": [
+            {
+              "Settings": [
+                "1"
+              ],
+              "Keyword": "sid"
+            },
+            {
+              "Settings": [
+                "Malware,Phishing"
+              ],
+              "Keyword": "aws_domain_category"
+            }
+          ]
+        }
+      ]
+    },
+    "StatefulRuleOptions": {
+      "RuleOrder": "STRICT_ORDER"
+    }
+}
+```
+
 ## Stateful rules examples: manage rule evaluation order
 
 ###### Note

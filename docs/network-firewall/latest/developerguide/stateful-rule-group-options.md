@@ -30,3 +30,4 @@ provide the rules to the rule group creation operation in one of the following w
   domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md "stateful-rule-groups-domain-names.md")
 - [IP set references in Suricata compatible AWS Network Firewall rule groups](rule-groups-ip-set-references.md "rule-groups-ip-set-references.md")
 - [Geographic IP filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-geo-ip-filtering.md "rule-groups-geo-ip-filtering.md")
+- [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md")

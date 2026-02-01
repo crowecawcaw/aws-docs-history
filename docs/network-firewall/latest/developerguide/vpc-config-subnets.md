@@ -25,8 +25,7 @@ To prepare a VPC for your Network Firewall firewall, in each Availability Zone w
 create the subnets that you will use for the endpoints. Each subnet must have at least one IP address available. Your can't change the IP address type after you create the subnet.
 
 Network Firewall supports up to 100 Gbps of network traffic per firewall endpoint. If you require more traffic
-bandwidth, you can define additional endpoints in VPC endpoint associations, or you can
-split your resources into subnets and create a Network Firewall firewall in each subnet.
+bandwidth, you can split your resources into subnets and create a Network Firewall firewall in each subnet.
 
 ###### Note
 

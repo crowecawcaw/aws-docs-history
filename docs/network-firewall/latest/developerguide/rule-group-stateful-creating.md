@@ -92,6 +92,47 @@ _AWS CloudFormation User Guide_.
     	 currently supports Amazon VPC prefix lists and resource groups as IP
     	 set references. For more information about working
     	 with IP set references in Network Firewall, see [Referencing Amazon VPC prefix lists](rule-groups-ip-set-references.md#rule-groups-referencing-prefix-lists "rule-groups-ip-set-references.md#rule-groups-referencing-prefix-lists").
+    For enhanced filtering options, you can specify the following:
+
+
+    **Geographic IP filtering -** To filter traffic based on country:
+
+
+
+
+    	+ Choose to enable **Geographic IP filtering**
+    	+ Select the matching option:
+
+
+
+
+    		- Match only selected countries
+    		- Match all but selected countries
+    	+ Choose the **Geographic IP traffic direction** (source, destination, or any)
+    	+ Choose the **Country codes** from the dropdown list
+    	+ For more information, see [Geographic IP filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-geo-ip-filtering.md "rule-groups-geo-ip-filtering.md")
+    **URL and Domain Category filtering -** To filter traffic based on web content categories:
+
+
+
+
+    	+ Choose to enable **URL and Domain Category filtering**
+    	+ Select the matching option:
+
+
+
+
+    		- Match all selected categories
+    		- Match all unselected categories
+    	+ Choose the **AWS category type:**
+
+
+
+
+    		- aws\_url\_category (for HTTP protocol, requires TLS inspection for HTTPS)
+    		- aws\_domain\_category (for TLS and HTTP protocols)
+    	+ Choose the **categories** from the dropdown list
+    	+ For more information, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md")
     For information about these rules, see
      [Standard
      stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md").

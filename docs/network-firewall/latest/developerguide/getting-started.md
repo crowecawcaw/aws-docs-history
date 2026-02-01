@@ -185,7 +185,7 @@ that's running in your VPC, ready to filter network traffic.
 ###### Note
 
 Network Firewall supports up to 100 Gbps of network traffic per firewall endpoint. If you require more traffic
-bandwidth, you can split your resources into subnets and create a Network Firewall firewall in
+bandwidth, you can split your resources into subnets and create a Network Firewall in
 each subnet.
 
 The next step is to route the VPC's network traffic through the firewall endpoint. You'll insert it into the
