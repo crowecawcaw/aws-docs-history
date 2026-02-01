@@ -1,4 +1,4 @@
-# AWS Regions and remote locations supported by
+# AWS Regions and streaming locations supported by
 
 Amazon GameLift Streams
 
@@ -26,16 +26,23 @@ interact with the service using IPv6 or IPv4.
 | Asia Pacific (Tokyo) | ap-northeast-1 | gameliftstreams.ap-northeast-1.api.aws | HTTPS    |
 | Europe (Frankfurt)   | eu-central-1   | gameliftstreams.eu-central-1.api.aws   | HTTPS    |
 
-## Remote locations
+## Streaming locations
 
-Amazon GameLift Streams can extend coverage to remote locations, enabling you to host your
-application and stream sessions in more locations. The remote locations available to you
-depend on your primary location. We recommend that you choose locations that are
-geographically close to your users to optimize latency and stream quality.
+Amazon GameLift Streams supports streaming from all the following locations from any of the service endpoints. We
+recommend that you choose streaming locations that are geographically close to your users to
+optimize latency and stream quality.
 
-| Primary location                        | Remote locations                                                                                                                                                                                    |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (Ohio) – `us-east-2`            | • US East (N. Virginia) – `us-east-1`<br>• US West (Oregon) – `us-west-2`<br>• Europe (Ireland) – `eu-west-1`<br>• Europe (Frankfurt) – `eu-central-1`<br>• Asia Pacific (Tokyo) – `ap-northeast-1` |
-| US West (Oregon) – `us-west-2`          | • US East (N. Virginia) – `us-east-1`<br>• US East (Ohio) – `us-east-2`<br>• Europe (Ireland) – `eu-west-1`<br>• Europe (Frankfurt) – `eu-central-1`<br>• Asia Pacific (Tokyo) – `ap-northeast-1`   |
-| Asia Pacific (Tokyo) – `ap-northeast-1` | • US East (N. Virginia) – `us-east-1`<br>• US West (Oregon) – `us-west-2`<br>• US East (Ohio) – `us-east-2`<br>• Europe (Ireland) – `eu-west-1`<br>• Europe (Frankfurt) – `eu-central-1`            |
-| Europe (Frankfurt) – `eu-central-1`     | • US East (N. Virginia) –<br>`us-east-1`<br>• US West (Oregon) – `us-west-2`<br>• US East (Ohio) – `us-east-2`<br>• Europe (Ireland) – `eu-west-1`<br>• Asia Pacific (Tokyo) – `ap-northeast-1`     |
+| Region name               | AWS Region     |
+| ------------------------- | -------------- |
+| US East (N. Virginia)     | us-east-1      |
+| US East (Ohio)            | us-east-2      |
+| US West (Oregon)          | us-west-2      |
+| Asia Pacific (Mumbai)     | ap-south-1     |
+| Asia Pacific (Seoul)      | ap-northeast-2 |
+| Asia Pacific (Sydney)     | ap-southeast-2 |
+| Asia Pacific (Tokyo)      | ap-northeast-1 |
+| Europe (Frankfurt)        | eu-central-1   |
+| Europe (Ireland)          | eu-west-1      |
+| Europe (London)           | eu-west-2      |
+| Europe (Stockholm)        | eu-north-1     |
+| South America (São Paulo) | sa-east-1      |

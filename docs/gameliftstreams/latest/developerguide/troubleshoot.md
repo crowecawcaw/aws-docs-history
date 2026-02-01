@@ -277,7 +277,7 @@ stream groups can contain updated GPU drivers from the service.
 When you [set up your Amazon GameLift Streams backend service](sdk.md "sdk.md"), check the following:
 
 - Choose the closest AWS Region possible to the end user. High latency from your clients to the Region hosting your stream can
-  impact stream quality. Refer to [AWS Regions and remote locations supported by
+  impact stream quality. Refer to [AWS Regions and streaming locations supported by
   Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md") for a list of
   locations where you can stream from. You can ping AWS console endpoints in the Region to get an approximate latency
   measurement.

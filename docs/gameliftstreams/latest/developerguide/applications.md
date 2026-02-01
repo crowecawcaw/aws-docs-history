@@ -44,7 +44,7 @@ To optimize storage cost, you can delete the application from your S3 bucket aft
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Create an Amazon S3 bucket. Enter a bucket name and select an AWS Region. This region must be the same as the application and stream group that you will create later.
-   See [AWS Regions and remote locations supported by
+   See [AWS Regions and streaming locations supported by
    Amazon GameLift Streams](regions-quotas-rande.md "regions-quotas-rande.md") for a list of
    AWS Regions where Amazon GameLift Streams is available. For the remaining fields, keep the default settings.
 
