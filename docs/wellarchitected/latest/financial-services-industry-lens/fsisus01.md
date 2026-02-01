@@ -1,12 +1,15 @@
-# FSISUS01: How do you select the most sustainable Regions in your area?
+# FSISUS01: How do you select the most sustainable Regions in your
 
-The choice of Region for your workload significantly affects its KPIs, including performance, cost, and carbon footprint. To effectively improve these KPIs, you should choose Regions for your workloads based on both business requirements and sustainability goals.
+area?
 
-## FSISUS01-BP01 Select a Region with lower environmental impact that meets your
+The choice of Region for your workload significantly affects its KPIs, including
+performance, cost, and carbon footprint. To effectively improve these KPIs, you should
+choose Regions for your workloads based on both business requirements and sustainability
+goals.
 
-financial services industry business and compliance considerations
+## FSISUS01-BP01 Select a Region with lower environmental impact that meets your business and compliance considerations
 
-**Prescriptive guidance**
+### Prescriptive guidance
 
 The following guidance is provided to aid your selection of most sustainable
 Regions in your area:
@@ -24,3 +27,12 @@ Regions in your area:
 - Wherever possible, choose a Region that provides better than 95% renewable
   energy, using the market-based method and low grid carbon intensity, as well as
   using a typical location-based method.
+
+**Generative AI considerations**
+
+- Select Regions with lower carbon intensity for generative AI model training and
+  inference workloads.
+- Consider AWS Regions that offer specialized generative AI instances with
+  improved performance per watt.
+- Evaluate Region-specific availability of managed generative AI services like
+  Amazon Bedrock to reduce infrastructure overhead.

@@ -2,4 +2,5 @@
 
 ###### Best practice questions
 
-- [FSIOPS1: Have you defined risk management roles for the cloud?](fsiops1.md "fsiops1.md")
+- [FSIOPS01: Have you defined risk management roles for the
+  cloud?](fsiops01.md "fsiops01.md")

@@ -1,21 +1,22 @@
-# FSISUS15: What is your testing process for workloads that require floating point
+# FSISUS15: What is your testing process for workloads that require
 
-precision?
+floating point precision?
 
 ## FSISUS15-BP01 Minimize the bit count while maintaining precision
 
-**Prescriptive guidance**
+### Prescriptive guidance
 
 Floating point precision is a way to represent real numbers in a finite binary
 format. It stores a number in a fixed-width field with the intent to reduce the memory
 bandwidth and storage requirements compared to double-precision arithmetic results.
 Although double-precision can sometimes lead to more accurate results, single-precision
-calculations can be faster and thus reduce overall energy consumption for particular
-workloads. Determine which of your workloads is suitable for use of floating-point
-accuracy, performance, and efficiency. Consider testing with a cluster of instances to
-see how well it performs at scale.
+calculations can be faster and thus
 
-**Implementation guidance:**
+reduce overall energy consumption for particular workloads. Determine which of your
+workloads is suitable for use of floating-point accuracy, performance, and efficiency.
+Consider testing with a cluster of instances to see how well it performs at scale.
+
+### Implementation guidance:
 
 - For intensive financial simulations and calculations, test the number of bits
   that are required to achieve your floating point precision and consider reducing
@@ -33,3 +34,10 @@ see how well it performs at scale.
   - [AWS Parallel
     Cluster](https://aws.amazon.com/hpc/parallelcluster/ "https://aws.amazon.com/hpc/parallelcluster/")
   - [Graviton3](https://aws.amazon.com/about-aws/whats-new/2022/05/amazon-ec2-c7g-instances-powered-aws-graviton3-processors/ "https://aws.amazon.com/about-aws/whats-new/2022/05/amazon-ec2-c7g-instances-powered-aws-graviton3-processors/")
+
+- Test generative AI models with reduced precision (quantization) to maintain
+  accuracy while reducing resource consumption.
+- Validate generative AI model performance with different floating-point
+  precisions.
+- Use mixed-precision training for generative AI models to optimize resource
+  usage.

@@ -1,22 +1,78 @@
 # FSISEC11: How are you protecting against ransomware?
 
 Ransomware refers to a business model and a wide range of
-associated technologies that bad actors use to extort money. The
-bad actors use a range of tactics to gain unauthorized access to
-their victims data and systems, including exploiting unpatched
-vulnerabilities, taking advantage of weak or stolen credentials,
-and using social engineering. Access to the data and systems is
-restricted by the bad actors, and a ransom demand is made for
-the safe return of these digital assets.
+associated technologies that bad actors use to extort money.
+The bad actors use a range of tactics to gain unauthorized
+access to their victims data and systems, including exploiting
+unpatched vulnerabilities, taking advantage of weak or stolen
+credentials, and using social engineering. Access to the data
+and systems is restricted by the bad actors, and a ransom
+demand is made for the safe return of these digital assets.
+Protection against ransomware now includes securing AI models,
+model registries, prompts, prompt catalogs and training data
+from manipulation or compromise.
 
 ## FSISEC11-BP01 Prevent malware infiltration by securing compute resources
 
 To detect malware that may be the source of a ransomware
 incident, enable
-[malware protection in Amazon GuardDuty](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"). This feature automatically
-initiates an agentless scan on the Amazon Elastic Block Store
-(EBS) volumes attached to the impacted EC2 instance or
-container workload to detect the presence of malware.
+[malware
+protection in](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md")
+[Amazon GuardDuty](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"). This feature automatically
+initiates an agentless scan on the Amazon Elastic Block Store (EBS) volumes attached to the impacted EC2 instance or
+container workload to detect the presence of malware. For AI
+workloads, implement secure prompts, prompt catalogs and
+validate user inputs while monitoring for potential model
+manipulation and enforcing response filtering mechanisms.
+
+### Prescriptive guidance
+
+- Use
+  [Amazon S3 Object Lock](https://aws.amazon.com/s3/features/object-lock/ "https://aws.amazon.com/s3/features/object-lock/") for object storage
+  immutability and ransomware protection within cloud
+  storage.
+- Implement backup and restore processes to help you
+  restore data to a point in time before data corruption,
+  modification or destruction. AWS
+  [provides
+  several solutions](https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/ "https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/") for backups to
+  integrate with your operational and security incident
+  recovery procedures.
+  - Use
+    [AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/") with AWS Organizations to
+    centrally deploy data protection policies to
+    configure, manage, and govern your backup activities
+    across your AWS accounts and resources.
+  - Enable
+    [AWS Backup Vault Lock](../../../aws-backup/latest/devguide/vault-lock.md "../../../aws-backup/latest/devguide/vault-lock.md"), which enforces
+    WORM (write-once-read-many) setting for the backups
+    you store and create in a backup vault.
+
+- Because many ransomware events arise from unintended
+  disclosure of static IAM access keys, AWS recommends
+  that you use IAM roles that provide short-term
+  credentials, rather than using long-term IAM access
+  keys. This includes using
+  [identity
+  federation](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/") for your developers who are
+  accessing AWS, using IAM roles for system-to-system
+  access, and using
+  [IAM
+  Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md") for hybrid access.
+- Enable
+  [Amazon S3 protection in Amazon GuardDuty](../../../guardduty/latest/ug/s3-protection.md "../../../guardduty/latest/ug/s3-protection.md").
+  With Amazon S3 protection, GuardDuty monitors
+  object-level API operations to identify potential
+  security risks for data in your Amazon S3 buckets. This
+  includes findings related to anomalous API activity and
+  unusual behavior related to your data in Amazon S3, and
+  can help you identify a security event early on.
+- Enable
+  [Amazon GuardDuty Malware Protection](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md") across
+  all AWS accounts in your organization, to help you
+  detect the potential presence of malware by scanning the
+  Amazon EBS volumes that are attached to the Amazon EC2
+  instances and container workloads.
 
 ## FSISEC11-BP02 Prevent threats from accessing your data stores
 

@@ -1,8 +1,7 @@
 # Resources
 
-Refer to the following resources to learn more about our best
-practices related to performance efficiency of financial services
-industry solutions.
+Refer to the following resources to learn more about our best practices related to
+performance efficiency of financial services industry solutions.
 
 ## Documentation and blogs
 
@@ -22,10 +21,9 @@ industry solutions.
 
 ## Partner solutions
 
-- [AWS STAC-M3
-  benchmark results: Low-latency tick analytics made easy](https://aws.amazon.com/blogs/storage/low-latency-tick-analytics-made-easy-with-aws/ "https://aws.amazon.com/blogs/storage/low-latency-tick-analytics-made-easy-with-aws/")
-- [Scaling and
-  Managing TIBCO DataSynapse GridServer on AWS](https://aws.amazon.com/blogs/apn/scaling-and-managing-tibco-datasynapse-gridserver-on-aws/ "https://aws.amazon.com/blogs/apn/scaling-and-managing-tibco-datasynapse-gridserver-on-aws/")
+- [AWS
+  STAC-M3 benchmark results: Low-latency tick analytics made easy](https://aws.amazon.com/blogs/storage/low-latency-tick-analytics-made-easy-with-aws/ "https://aws.amazon.com/blogs/storage/low-latency-tick-analytics-made-easy-with-aws/")
+- [Scaling and Managing TIBCO DataSynapse GridServer on AWS](https://aws.amazon.com/blogs/apn/scaling-and-managing-tibco-datasynapse-gridserver-on-aws/ "https://aws.amazon.com/blogs/apn/scaling-and-managing-tibco-datasynapse-gridserver-on-aws/")
 
 ## Reference architectures
 
@@ -35,22 +33,25 @@ industry solutions.
 
 ## Videos
 
-- [NYSE: Protecting markets through real-time data processing](https://www.youtube.com/watch?v=zyhLkvhRlnI "https://www.youtube.com/watch?v=zyhLkvhRlnI")
-- [Nasdaq: Moving mission-critical, low-latency workloads to
-  AWS](https://www.youtube.com/watch?v=GCjx8GVIIIA "https://www.youtube.com/watch?v=GCjx8GVIIIA")
-- [HSBC Uses Serverless to Process Millions of Transactions in
-  Real Time](https://www.youtube.com/watch?v=_UiyIJqDXXQ&t=8s "https://www.youtube.com/watch?v=_UiyIJqDXXQ&t=8s")
-- [FINRA Collects, Analyzes Billions of Brokerage Transaction
-  Records Daily Using AWS](https://www.youtube.com/watch?v=rHUQQzYoRtE "https://www.youtube.com/watch?v=rHUQQzYoRtE")
-- [How FINRA operates PB-scale analytics on data lakes with
-  Amazon Athena](https://www.youtube.com/watch?v=72c_klMZdZ8 "https://www.youtube.com/watch?v=72c_klMZdZ8")
+- [NYSE: Protecting markets
+  through real-time data processing](https://www.youtube.com/watch?v=zyhLkvhRlnI "https://www.youtube.com/watch?v=zyhLkvhRlnI")
+- [Nasdaq: Moving
+  mission-critical, low-latency workloads to AWS](https://www.youtube.com/watch?v=GCjx8GVIIIA "https://www.youtube.com/watch?v=GCjx8GVIIIA")
+- [HSBC Uses Serverless
+  to Process Millions of Transactions in Real Time](https://www.youtube.com/watch?v=_UiyIJqDXXQ&t=8s "https://www.youtube.com/watch?v=_UiyIJqDXXQ&t=8s")
+- [FINRA Collects, Analyzes
+  Billions of Brokerage Transaction Records Daily Using AWS](https://www.youtube.com/watch?v=rHUQQzYoRtE "https://www.youtube.com/watch?v=rHUQQzYoRtE")
+- [How FINRA operates PB-scale
+  analytics on data lakes with Amazon Athena](https://www.youtube.com/watch?v=72c_klMZdZ8 "https://www.youtube.com/watch?v=72c_klMZdZ8")
 - [How Morgan Stanley leveraged
   Amazon EC2 Spot to Scale on Demand](https://www.youtube.com/watch?v=opnpOOPoxWc "https://www.youtube.com/watch?v=opnpOOPoxWc")
-- [Risk calculations using HPC and Spot Instances with Morgan
-  Stanley](https://www.youtube.com/watch?v=gTwkVchhzes "https://www.youtube.com/watch?v=gTwkVchhzes")
-- [DBS Bank: Scalable Serverless Compute Grid on AWS](https://www.youtube.com/watch?v=T048vs9p1h4&t=50s "https://www.youtube.com/watch?v=T048vs9p1h4&t=50s")
-- [Temenos: Building Serverless Banking Software at Scale](https://www.youtube.com/watch?v=mtZvA7ARepM "https://www.youtube.com/watch?v=mtZvA7ARepM")
-- [How AWS Helped a Financial Services Company Adopt a
-  Serverless Architecture to Effectively Scale](https://www.youtube.com/watch?v=BM3rQXPcarI "https://www.youtube.com/watch?v=BM3rQXPcarI")
-- [How a Financial Services Company Addressed a 4X Increase in
-  Call Volume with Cloud](https://www.youtube.com/watch?v=MhG2vyQWjhc "https://www.youtube.com/watch?v=MhG2vyQWjhc")
+- [Risk calculations using HPC and
+  Spot Instances with Morgan Stanley](https://www.youtube.com/watch?v=gTwkVchhzes "https://www.youtube.com/watch?v=gTwkVchhzes")
+- [DBS Bank: Scalable
+  Serverless Compute Grid on AWS](https://www.youtube.com/watch?v=T048vs9p1h4&t=50s "https://www.youtube.com/watch?v=T048vs9p1h4&t=50s")
+- [Temenos: Building Serverless
+  Banking Software at Scale](https://www.youtube.com/watch?v=mtZvA7ARepM "https://www.youtube.com/watch?v=mtZvA7ARepM")
+- [How AWS Helped a Financial
+  Services Company Adopt a Serverless Architecture to Effectively Scale](https://www.youtube.com/watch?v=BM3rQXPcarI "https://www.youtube.com/watch?v=BM3rQXPcarI")
+- [How a Financial Services
+  Company Addressed a 4X Increase in Call Volume with Cloud](https://www.youtube.com/watch?v=MhG2vyQWjhc "https://www.youtube.com/watch?v=MhG2vyQWjhc")

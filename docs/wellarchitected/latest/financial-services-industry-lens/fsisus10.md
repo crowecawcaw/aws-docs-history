@@ -1,19 +1,19 @@
-# FSISUS10: Have you selected the storage class with the lowest carbon
+# FSISUS10: Have you selected the storage class with the lowest
 
-footprint?
+carbon footprint?
 
-Data is at the heart of strategic innovations for the financial services industry.
-This can have many use cases ranging from providing hyperpersonalised experiences for
-customers, training machine learning models to better understand risk and fraud detection.
-Each use case requires different levels of data availability, processing, and storage and
-therefore varies in storage technologies from transactional databases, to data lakes and
-data warehouses. These come with various considerations from a sustainability perspective.
+Data is at the heart of strategic innovations for the financial services industry. This
+can have many use cases ranging from providing hyperpersonalised experiences for customers,
+training machine learning models to better understand risk and fraud detection. Each use
+case requires different levels of data availability, processing, and storage and therefore
+varies in storage technologies from transactional databases, to data lakes and data
+warehouses. These come with various considerations from a sustainability perspective.
 
 ## FSISUS10-BP01 Balance your data performance requirements against its carbon
 
 footprint
 
-**Prescriptive guidance**
+### Prescriptive guidance
 
 To balance data performance requirements against its carbon footprint:
 
@@ -22,22 +22,23 @@ To balance data performance requirements against its carbon footprint:
   efficiency of the AI/ML service to help detect fraud faster (with the associated
   cost saving) and the carbon footprint of training and storing the data. These proxy
   metrics then become the vehicle to balance your performance requirements against its
-  carbon footprint. Proxy metrics can be collected by importing AWS Cost and Usage Report as well as
-  Amazon CloudWatch metrics into Amazon S3 and monitored using Amazon Athena and Amazon Quick Suite.
+  carbon footprint. Proxy metrics can be collected by importing AWS Cost and Usage
+  Report as well as Amazon CloudWatch metrics into Amazon S3 and monitored using Amazon Athena and Quick Suite.
 - Use the right storage class for Amazon S3 Storage Classes based on the data
   performance requirements. The storage class impacts the environmental impact of the
   dataset through its access patterns and its architecture. For example, in [Amazon S3
   One Zone-IA](../../../AmazonS3/latest/userguide/storage-class-intro.md "../../../AmazonS3/latest/userguide/storage-class-intro.md"), energy and server capacity are reduced because data is stored
-  only within one Availability Zone. Amazon S3 Storage Classes can be configured at the
-  object level and a single bucket can contain objects stored across all of the
-  storage classes.
-  - Learn more about [Amazon S3
-    Storage Classes](https://aws.amazon.com/s3/storage-classes/ "https://aws.amazon.com/s3/storage-classes/") and their use cases.
-  - You can also use Amazon S3 lifecycle policies to transition objects
-    automatically between storage classes without application changes. In
-    general, you have to make a trade-off between resource efficiency, access
-    latency, and reliability when considering these storage mechanisms.
+  only within one Availability Zone. Amazon
 
+S3 Storage Classes can be configured at the object level and a single bucket can
+contain objects stored across all of the storage classes.
+
+- Learn more about [Amazon S3 Storage
+  Classes](https://aws.amazon.com/s3/storage-classes/ "https://aws.amazon.com/s3/storage-classes/") and their use cases.
+- You can also use Amazon S3 lifecycle policies to transition objects automatically
+  between storage classes without application changes. In general, you must make a
+  trade-off between resource efficiency, access latency, and reliability when
+  considering these storage mechanisms.
 - For storage systems that are a fixed size, such as Amazon EBS or Amazon FSx, monitor
   the available storage space and automate storage allocation on reaching a threshold.
   You can use Amazon CloudWatch to collect and analyze different metrics for [Amazon EBS](../../../AWSEC2/latest/UserGuide/using_cloudwatch_ebs.md "../../../AWSEC2/latest/UserGuide/using_cloudwatch_ebs.md") and [Amazon FSx](../../../fsx/latest/WindowsGuide/monitoring-cloudwatch.md "../../../fsx/latest/WindowsGuide/monitoring-cloudwatch.md").
@@ -53,9 +54,11 @@ Data types may include the following:
 - Unstructured data such as biometrics, facial images, and documents.
 - Structured data like fund movements or, transaction attempts.
 
-## FSISUS10-BP02 Separate data into hot, warm, cold storage
+## FSISUS10-BP02
 
-**Prescriptive guidance**
+Separate data into hot, warm, and cold storage
+
+### Prescriptive guidance
 
 - Implement a data classification policy to understand its criticality to
   business outcomes and choose the right energy-efficient storage tier. Determine
@@ -74,7 +77,12 @@ Data types may include the following:
 - Use these requirements to group data into one of the data classification tiers
   that you adopt. For more detail on data classification categories, see the [Data
   Classification whitepaper](../../../whitepapers/latest/data-classification/data-classification.md "../../../whitepapers/latest/data-classification/data-classification.md").
-- [AWS Glue Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro") lets you store, annotate, and share metadata in the AWS
-  cloud while providing comprehensive audit and governance capabilities, in order to
+- [AWSAWS Glue Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro") lets you store, annotate, and share metadata in the AWS
+  cloud while providing comprehensive audit and governance capabilities, to
   periodically audit your environment for untagged and unclassified data and tag the
   data appropriately.
+- Optimize storage for generative AI training data and model artifacts using
+  appropriate storage classes.
+- Implement data purification filters to reduce unnecessary generative AI
+  training data storage.
+- Use columnar formats and compression for generative AI datasets.

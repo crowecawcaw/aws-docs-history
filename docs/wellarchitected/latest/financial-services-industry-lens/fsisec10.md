@@ -2,29 +2,36 @@
 
 Data loss as part of a security event, accident or business
 process can affect both your operation and state of compliance.
-The following recommendations can help with the protection from
-theft and inadvertent or malicious loss.
+The following recommendations can help with the protection
+from theft and inadvertent or malicious loss. Generative AI
+systems introduce new considerations for data loss prevention,
+including model outputs, prompt security, training data, model
+artifacts, and AI-generated content.
 
 ## FSISEC10-BP01 Prevent modifications and deletions of logs and data
 
 Financial services agencies around the world, including the
 Securities and Exchange Commission (SEC) and the Financial
-Industry Regulatory Authority (FINRA) in the US, have created
-rules that require a broker-dealer to maintain and preserve
-electronic records exclusively in a non-rewriteable,
+Industry Regulatory Authority (FINRA) in the US, have
+created rules
+
+that require a broker-dealer to maintain and preserve
+electronic records exclusively in a non- rewriteable,
 non-erasable format, also known as a write once, read many
 (WORM) format.
 
 For object data, Amazon
 [S3
 Object Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md") allows you to store objects
-using a WORM model. You can use WORM protection for scenarios
-where it is imperative that data is not changed or deleted
-after it has been written. With S3 Object lock, you can
-securely deliver logs to a designated S3 bucket, and use the
-S3 Object Lock feature to make the logs immutable. It blocks
-object version deletion during a customer- defined retention
-period so that you can enforce retention policies. In
+using a WORM model. You can use WORM protection for
+scenarios where it is imperative that data is not changed or
+deleted after it has been written. With S3 Object lock, you
+can securely deliver logs to a designated S3 bucket, and use
+the S3 Object Lock feature to make the logs immutable. It
+blocks object version deletion during a customer- defined
+retention period so that you can enforce retention policies.
+In
+
 conjunction with
 [S3
 versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md"), which protects objects from
@@ -34,7 +41,6 @@ as long as S3 Object Lock protection is applied.
 For file data, use
 [SnapLock](../../../fsx/latest/ONTAPGuide/snaplock.md "../../../fsx/latest/ONTAPGuide/snaplock.md"),
 a feature on
-
 [Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/what-is-fsx-ontap.md "../../../fsx/latest/ONTAPGuide/what-is-fsx-ontap.md") that allows you to
 store files using a WORM model, helping prevent accidental or
 malicious attempts at modification and deletion for a
@@ -42,6 +48,12 @@ customizable retention period. You can also back up data on
 FSx for ONTAP using AWS Backup and WORM-protect your backups
 using
 [AWS Backup Vault Lock](../../../aws-backup/latest/devguide/vault-lock.md "../../../aws-backup/latest/devguide/vault-lock.md").
+
+For AI systems, implement secure prompt catalogs and
+validate model responses for potential data leakage while
+protecting training data integrity and maintaining
+continuous monitoring of AI system outputs and establishing
+audit trails for all AI data interactions.
 
 ## FSISEC10-BP02 Limit and monitor key deletes
 

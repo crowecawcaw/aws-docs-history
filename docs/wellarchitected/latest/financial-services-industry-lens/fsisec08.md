@@ -1,11 +1,15 @@
 # FSISEC08: How do you isolate your software development lifecycle (SDLC) environments (like development, test, and production)?
 
 We recommend that you separate production workloads from
-non-production workloads. Maintaining resource isolation between
-software development lifecycle (SDLC) environments reduces the
-chance of misuse and accidents in production environments. This
-is an important guidance for all financial institutions, including those that are subject to Payment Card
-Industry Data Security Standard (PCI DSS).
+non-production workloads. Maintaining resource isolation
+between software development lifecycle (SDLC) environments
+reduces the chance of misuse and accidents in production
+environments. This is an important guidance for all financial
+institutions, including those that are subject to Payment Card
+Industry Data Security Standard (PCI DSS). For generative AI
+workloads, environment isolation extends to model artifacts,
+prompt catalogs, AI service endpoints, and data isolation for
+training datasets and inference data.
 
 ## FSISEC08-BP01 Implement a multi-account strategy
 
@@ -14,40 +18,48 @@ business applications and data can help you optimize across
 most of the
 [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/") pillars,
 including operational excellence, security, reliability, and
-cost optimization. We recommend organizing your overall AWS environment with a
+cost optimization. We recommend organizing your overall AWS
+environment with a
 [multi-account
-strategy](../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md "../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md"). The extent to which you use these
-best practices depends on your stage of the cloud adoption
-journey and specific business needs.
+strategy](../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md "../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md"). The extent to which you use
+these best practices depends on your stage of the cloud
+adoption journey and specific business needs.
 
-We recommend that you isolate production workload environments
-and data in production accounts housed within production OUs,
-under your top-level workload-oriented OUs. Apart from
-production OUs, we recommend that you define one or more
-non-production OUs that contain accounts and workload
-environments that are used to develop and test workloads.
+We recommend that you isolate production workload
+environments and data in production accounts housed within
+production OUs, under your top-level workload-oriented OUs.
+Apart from production OUs, we recommend that you define one
+or more non-production OUs that contain accounts and
+workload environments that are used to develop and test
+workloads.
+
+For AI systems, establish clear separation between
+development and production environments while isolating
+model training and inference environments, maintaining
+separate prompt catalogs for each environment, and
+implementing strict controls for cross-environment AI
+service access.
 
 Having different accounts dedicated to different SDLC
 environments provides a natural isolation in managing
 privileges in IAM. AWS Organizations facilitates the
 management of account hierarchy. Define service control
-policies (SCPs) to limit the actions a user can perform inside
-these accounts. For example, you could minimize changes in
-production to CloudTrail logging, help prevent internet
-gateways set up in a VPC, or help prevent modifying AWS Config
-tracking.
+policies (SCPs) to limit the actions a user can perform
+inside these accounts. For example, you could minimize
+changes in production to CloudTrail logging, help prevent
+internet gateways set up in a VPC, or help prevent modifying
+AWS Config tracking.
 
 To offer a straightforward way to set up and govern an AWS
 multi-account environment that follows prescriptive best
 practices, AWS has created
 [AWS Control Tower](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md"), which extends the
 capabilities of AWS Organizations. To help keep your
-organizations and accounts from _drift_, or
-divergence from best practices, AWS Control Tower applies
+organizations and accounts from _drift_,
+or divergence from best practices, AWS Control Tower applies
 [comprehensive
 controls](https://aws.amazon.com/blogs/aws/new-for-aws-control-tower-comprehensive-controls-management-preview/ "https://aws.amazon.com/blogs/aws/new-for-aws-control-tower-comprehensive-controls-management-preview/") (sometimes called
 _guardrails_). For more detail, see
-
 [Limitations
 and quotas in AWS Control Tower](../../../controltower/latest/userguide/limits.md "../../../controltower/latest/userguide/limits.md").
 

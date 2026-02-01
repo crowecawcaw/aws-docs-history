@@ -15,7 +15,7 @@ financial services workloads.
    - The second line establishes various risk management and compliance functions to
      help build and/or monitor the first line-of-defense controls.
    - As the third line of defense, internal auditors provide the governing body and
-     senior management with comprehensive assurance based on the highest level of independence and objectivity within the
+     senior management with comprehensive assurance based on the highest level of empowerment and objectivity within the
      organization.
      Establishing clear roles and responsibilities across the three lines of defense is
      vital to developing an effective operating model for regulated cloud adoption, see [Three Lines of Defense](https://www.theiia.org/en/content/position-papers/2020/the-iias-three-lines-model-an-update-of-the-three-lines-of-defense/ "https://www.theiia.org/en/content/position-papers/2020/the-iias-three-lines-model-an-update-of-the-three-lines-of-defense/") from the Institute of Internal Auditors (IIA).

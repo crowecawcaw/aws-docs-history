@@ -83,14 +83,26 @@ acceptable limits, even under extreme load.
 
 ## FSIREL03-BP04 Model failures to identify resilience requirements
 
-Resilience requirements, like other system requirements, can be tested and should
-be documented in response to a business need. A resilience requirement must be met by
-the workload in order to achieve the RTO, RPO, and availability objective of the
-business function the workload supports. The resilience requirement does this by
-defining a control, which must be designed and implemented to mitigate the impact of a
-failure somewhere within the workload, with the workload's dependencies, or in the
-workload's environment. Use modeling techniques (for example, failure modes and
-effects analysis (FMEA)), combined with Operational Readiness Reviews (ORR), to
-anticipate the scenarios that could disrupt the workload's ability to meet its
-objectives. Create resilience requirements to mitigate any harm anticipated by the
-failure modeling analysis.
+Resilience requirements, like other system requirements, can
+be tested and should be documented in response to a business
+need. A resilience requirement must be met by the workload
+in order
+
+to achieve the RTO, RPO, and availability objective of the
+business function the workload supports. The resilience
+requirement does this by defining a control, which must be
+designed and implemented to mitigate the impact of a failure
+somewhere within the workload, with the
+
+workload's dependencies, or in the workload's environment.
+
+Use modeling techniques (for example, failure modes and
+effects analysis (FMEA)), combined with Operational Readiness
+Reviews (ORR), to anticipate the scenarios that could
+disrupt the workload's ability to meet its objectives.
+Create resilience requirements to mitigate any harm
+anticipated by the failure modeling analysis.
+
+As failures are modeled, implement appropriate tooling to
+detect these failures in the future. Create runbooks for
+documentation on resolving failures to minimize impact.

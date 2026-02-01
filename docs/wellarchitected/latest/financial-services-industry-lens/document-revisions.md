@@ -4,6 +4,7 @@ To be notified about updates to this whitepaper, subscribe to the RSS feed.
 
 | Change              | Description                                                                              | Date              |
 | ------------------- | ---------------------------------------------------------------------------------------- | ----------------- |
+| Major update        | Updated all pillars with new generative AI guidance.                                     | January 27, 2026  |
 | Major update        | Added the sustainability pillar and numerous updates and changes throughout.             | May 15, 2024      |
 | Minor update        | Improved formatting of best practices.                                                   | March 3, 2022     |
 | Minor update        | Updated links.                                                                           | March 10, 2021    |

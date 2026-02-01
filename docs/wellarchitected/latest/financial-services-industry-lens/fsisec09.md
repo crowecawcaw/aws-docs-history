@@ -6,7 +6,9 @@ protection recommendations](../security-pillar/data-protection.md "../security-p
 company seen in the AWS Well-Architected Framework Security
 Pillar, financial institutions often have additional
 industry-specific requirements that can influence the management
-of cryptographic keys.
+of cryptographic keys. With generative AI systems, key
+management extends to protecting model artifacts, training
+data, knowledge bases, sensitive prompts and prompt catalogs.
 
 ## FSISEC09-BP01 Consider compliance obligations regarding location of cryptographic keys
 
@@ -21,14 +23,15 @@ AWS KMS supports three types of keys: customer-managed keys,
 AWS managed keys, and AWS owned keys (for more information,
 see the
 [AWS KMS concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md")). For many FSI customers,
-customer-managed keys are the preferred option, because they
-allow for control of the permissions to use keys from their
-applications or AWS services. It also provides added
+customer- managed keys are the preferred option, because
+they allow for control of the permissions to use keys from
+their applications or AWS services. It also provides added
 flexibility for key generation and storage.
 
-Although it's less common, AWS customers who have a compliance
-or regulatory need to store and use their encryption keys
-on-premises or outside of the AWS Cloud can do so by using
+Although it's less common, AWS customers who have a
+compliance or regulatory need to store and use their
+encryption keys on-premises or outside of the AWS Cloud can
+do so by using
 [external
 key stores](../../../kms/latest/developerguide/keystore-external.md "../../../kms/latest/developerguide/keystore-external.md").
 
@@ -45,7 +48,9 @@ key stores](../../../kms/latest/developerguide/keystore-external.md "../../../km
     AWS KMS.
   - Review the list of services that you are using for
     your workload to understand
-    [how AWS KMS integrates with the service](../../../kms/latest/developerguide/service-integration.md "../../../kms/latest/developerguide/service-integration.md").
+    [how
+    AWS KMS integrates
+    with the service](../../../kms/latest/developerguide/service-integration.md "../../../kms/latest/developerguide/service-integration.md").
   - Review
     [AWS Encryption SDK](../../../encryption-sdk/latest/developer-guide/introduction.md "../../../encryption-sdk/latest/developer-guide/introduction.md") with AWS KMS
     integration if your application needs to encrypt
@@ -59,10 +64,13 @@ key stores](../../../kms/latest/developerguide/keystore-external.md "../../../km
   security, data sovereignty, and availability.
 - Consider using custom key stores with
   [AWS CloudHSM](https://aws.amazon.com/cloudhsm/ "https://aws.amazon.com/cloudhsm/") or the
-
-[external
-key store](../../../kms/latest/developerguide/keystore-external.md "../../../kms/latest/developerguide/keystore-external.md") to adhere to specific
-compliance obligations.
+  [external
+  key store](../../../kms/latest/developerguide/keystore-external.md "../../../kms/latest/developerguide/keystore-external.md") to adhere to specific
+  compliance obligations.
+- For AI workloads, implement comprehensive encryption for
+  model artifacts and sensitive training data while
+  protecting prompt catalogs and verifying compliant key
+  management across all AI data flows.
 
 ## Resources
 

@@ -3,14 +3,23 @@
 ## Documents and blogs
 
 - [Build Your Own Game Day to Support Operational Resilience](https://aws.amazon.com/blogs/architecture/build-your-own-game-day-to-support-operational-resilience/ "https://aws.amazon.com/blogs/architecture/build-your-own-game-day-to-support-operational-resilience/")
-- [How Financial Institutions can use AWS to Address Regulatory Reporting](https://aws.amazon.com/blogs/architecture/how-banks-can-use-aws-to-meet-compliance/ "https://aws.amazon.com/blogs/architecture/how-banks-can-use-aws-to-meet-compliance/")
-- [How Financial Institutions can Select the Appropriate Controls to Protect Sensitive Data](https://aws.amazon.com/blogs/industries/how-financial-institutions-can-select-the-appropriate-controls-to-protect-sensitive-data/ "https://aws.amazon.com/blogs/industries/how-financial-institutions-can-select-the-appropriate-controls-to-protect-sensitive-data/")
+- [How Financial
+  Institutions can use AWS to Address Regulatory Reporting](https://aws.amazon.com/blogs/architecture/how-banks-can-use-aws-to-meet-compliance/ "https://aws.amazon.com/blogs/architecture/how-banks-can-use-aws-to-meet-compliance/")
+- [How Financial Institutions can Select the Appropriate Controls to Protect Sensitive
+  Data](https://aws.amazon.com/blogs/industries/how-financial-institutions-can-select-the-appropriate-controls-to-protect-sensitive-data/ "https://aws.amazon.com/blogs/industries/how-financial-institutions-can-select-the-appropriate-controls-to-protect-sensitive-data/")
 - [Automating and Scaling Chaos Engineering using AWS Fault Injection Service](https://aws.amazon.com/blogs/industries/automating-and-scaling-chaos-engineering-using-aws-fault-injection-simulator/ "https://aws.amazon.com/blogs/industries/automating-and-scaling-chaos-engineering-using-aws-fault-injection-simulator/")
-- [Goldman Sachs, an established financial services firm, transforms its operations on AWS](https://aws.amazon.com/blogs/industries/goldman-sachs-a-legacy-financial-services-firm-transforms-its-operations-on-aws/ "https://aws.amazon.com/blogs/industries/goldman-sachs-a-legacy-financial-services-firm-transforms-its-operations-on-aws/")
-- [Best Practices for AWS Organizations Service Control Policies in a Multi-Account Environment](https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/ "https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/")
-- [How Cover-More launched their insurance platform into a new Region and improved worldwide operations using AWS Managed Services](https://aws.amazon.com/blogs/industries/how-cover-more-launched-their-insurance-platform/ "https://aws.amazon.com/blogs/industries/how-cover-more-launched-their-insurance-platform/")
+- [Goldman Sachs, an established financial services firm, transforms its operations on
+  AWS](https://aws.amazon.com/blogs/industries/goldman-sachs-a-legacy-financial-services-firm-transforms-its-operations-on-aws/ "https://aws.amazon.com/blogs/industries/goldman-sachs-a-legacy-financial-services-firm-transforms-its-operations-on-aws/")
+- [Best Practices for AWS Organizations Service Control Policies in a Multi-Account
+  Environment](https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/ "https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/")
+- [How
+  Cover-More launched their insurance platform into a new Region and improved worldwide
+  operations using AWS Managed Services](https://aws.amazon.com/blogs/industries/how-cover-more-launched-their-insurance-platform/ "https://aws.amazon.com/blogs/industries/how-cover-more-launched-their-insurance-platform/")
 - [How financial institutions modernize record retention on AWS](https://aws.amazon.com/blogs/industries/how-financial-services-institutions-modernize-record-retention-on-aws/ "https://aws.amazon.com/blogs/industries/how-financial-services-institutions-modernize-record-retention-on-aws/")
-- [What AWS customers need to know about DORA and the UK financial regulators’ approach to outsourcing: the plan to optimize resiliency and innovation for the financial services sector](https://aws.amazon.com/blogs/industries/what-aws-customers-need-to-know-about-dora/ "https://aws.amazon.com/blogs/industries/what-aws-customers-need-to-know-about-dora/")
+- [What AWS
+  customers need to know about DORA and the UK financial regulators’ approach to
+  outsourcing: the plan to optimize resiliency and innovation for the financial services
+  sector](https://aws.amazon.com/blogs/industries/what-aws-customers-need-to-know-about-dora/ "https://aws.amazon.com/blogs/industries/what-aws-customers-need-to-know-about-dora/")
 - [Resilience lifecycle framework: A continuous approach to resilience improvement](../../../prescriptive-guidance/latest/resilience-lifecycle-framework/introduction.md "../../../prescriptive-guidance/latest/resilience-lifecycle-framework/introduction.md")
 - [Resilience analysis framework](../../../prescriptive-guidance/latest/resilience-analysis-framework/introduction.md "../../../prescriptive-guidance/latest/resilience-analysis-framework/introduction.md")
 
@@ -25,15 +34,22 @@
 
 ## Videos
 
-- [AWS re:Invent 2019: Leadership session: Running critical FSI applications on AWS
-  (FSI201-L)](https://www.youtube.com/watch?v=UXn4WbrrleU "https://www.youtube.com/watch?v=UXn4WbrrleU")
-- [Simplify the AWS Shared Responsibility Model](https://www.youtube.com/watch?v=o13js0hIO_o "https://www.youtube.com/watch?v=o13js0hIO_o")
-- [AWS re:Invent 2021 - Cloud compliance, assurance, and auditing](https://www.youtube.com/watch?v=pdrYGVgb08Y "https://www.youtube.com/watch?v=pdrYGVgb08Y")
-- [Simplify Operational Change Management with Change Manager](https://www.youtube.com/watch?v=SyNz2W93eDs "https://www.youtube.com/watch?v=SyNz2W93eDs")
-- [AWS re:Invent 2021 - Intelligently automating cloud operations](https://www.youtube.com/watch?v=m0S8eAF0l54 "https://www.youtube.com/watch?v=m0S8eAF0l54")
-- [Building a Robust Monitoring Strategy - AWS Virtual Workshop](https://www.youtube.com/watch?v=Mj-5oqUYKD8 "https://www.youtube.com/watch?v=Mj-5oqUYKD8")
-- [Supports You - Getting Started with AWS Health Aware (AHA)](https://www.youtube.com/watch?v=v3Pobmx9zIg "https://www.youtube.com/watch?v=v3Pobmx9zIg")
-- [AWS re:Invent 2022 - AWS Incident Detection and Response (SUP201)](https://www.youtube.com/watch?v=IbSgM4IP9IE "https://www.youtube.com/watch?v=IbSgM4IP9IE")
+- [AWS re:Invent 2019:
+  Leadership session: Running critical FSI applications on AWS (FSI201-L)](https://www.youtube.com/watch?v=UXn4WbrrleU "https://www.youtube.com/watch?v=UXn4WbrrleU")
+- [Simplify the AWS Shared
+  Responsibility Model](https://www.youtube.com/watch?v=o13js0hIO_o "https://www.youtube.com/watch?v=o13js0hIO_o")
+- [AWS re:Invent 2021 -
+  Cloud compliance, assurance, and auditing](https://www.youtube.com/watch?v=pdrYGVgb08Y "https://www.youtube.com/watch?v=pdrYGVgb08Y")
+- [Simplify Operational Change
+  Management with Change Manager](https://www.youtube.com/watch?v=SyNz2W93eDs "https://www.youtube.com/watch?v=SyNz2W93eDs")
+- [AWS re:Invent 2021 -
+  Intelligently automating cloud operations](https://www.youtube.com/watch?v=m0S8eAF0l54 "https://www.youtube.com/watch?v=m0S8eAF0l54")
+- [Building a Robust
+  Monitoring Strategy - AWS Virtual Workshop](https://www.youtube.com/watch?v=Mj-5oqUYKD8 "https://www.youtube.com/watch?v=Mj-5oqUYKD8")
+- [Supports You - Getting
+  Started with AWS Health Aware (AHA)](https://www.youtube.com/watch?v=v3Pobmx9zIg "https://www.youtube.com/watch?v=v3Pobmx9zIg")
+- [AWS re:Invent 2022 -
+  AWS Incident Detection and Response (SUP201)](https://www.youtube.com/watch?v=IbSgM4IP9IE "https://www.youtube.com/watch?v=IbSgM4IP9IE")
 
 ## Training
 
@@ -53,7 +69,21 @@
 
 customers
 
-- [AWS Countdown](https://aws.amazon.com/premiumsupport/aws-countdown/ "https://aws.amazon.com/premiumsupport/aws-countdown/") - Plan and execute successful events with AWS Countdown, a service designed for a broad range of cloud use cases, including migrations, modernizations, product launches, streaming, and go-live events. AWS Countdown helps you throughout the project lifecycle to assess operational readiness, identify and mitigate risks, and plan capacity, using proven playbooks developed by AWS experts. AWS Countdown Premium tier provides critical support across all phases of your cloud projects from design to post-launch retrospectives. It offers designated engineers selected from a team of AWS experts who provide proactive guidance and troubleshooting. Designated engineers get involved from project inception to facilitate continuity, provide access to subject matter experts, and use support tools for faster issue resolution. They participate in critical events calls, like sales events or migration cutovers, to provide rapid issue resolution. AWS Countdown Premium helps you increase your infrastructure investment return through the acceleration of migrations and modernizations and delivery of high impact go-live events and achieve your business goals.
+- [AWS Countdown](https://aws.amazon.com/premiumsupport/aws-countdown/ "https://aws.amazon.com/premiumsupport/aws-countdown/") -
+  Plan and execute successful events with AWS Countdown, a service designed for a broad
+  range of cloud use cases, including migrations, modernizations, product launches,
+  streaming, and go-live events. AWS Countdown helps you throughout the project
+  lifecycle to assess operational readiness, identify and mitigate risks, and plan
+  capacity, using proven playbooks developed by AWS experts. AWS Countdown Premium
+  tier provides critical support across all phases of your cloud projects from design to
+  post-launch retrospectives. It offers designated engineers selected from a team of AWS
+  experts who provide proactive guidance and troubleshooting. Designated engineers get
+  involved from project inception to facilitate continuity, provide access to subject
+  matter experts, and use support tools for faster issue resolution. They participate in
+  critical events calls, like sales events or migration cutovers, to provide rapid issue
+  resolution. AWS Countdown Premium helps you increase your infrastructure investment
+  return through the acceleration of migrations and modernizations and delivery of high
+  impact go-live events and achieve your business goals.
 - [Operational
   Excellence Deep Dive](https://aws.amazon.com/premiumsupport/technology-and-programs/proactive-services/ "https://aws.amazon.com/premiumsupport/technology-and-programs/proactive-services/") - The Operational Excellence Deep-Dive extends the
   coverage of the Well-Architected Operational Excellence Pillar through an expert-led

@@ -10,7 +10,7 @@ enhance customer interactions, and improve operational efficiency.
 
 Integration of AI/ ML technologies into day-to-day operations has advanced slowly due to a lack of in-house data science and machine learning operations (MLOps) expertise and insufficient tools and services orchestrating these complex workflows. AWS provides a set of tools that make AI/ML readily accessible to any organization. Financial institutions have the following common design requirements in order to make AI/ML workloads successful in their organizations:
 
-- **Secure ML environment**:
+- **Secure ML environment:**
   Financial institutions have stringent security requirements for
   several reasons, including data protection, regulatory
   compliance, prevention of adversarial exploits, and to maintain
@@ -83,7 +83,7 @@ workflows:
    values within specified ranges to automatically identify the
    best model.
 
-**Continuous delivery phase**:
+**Continuous delivery phase:**
 SageMaker AI MLOps capability automates deploying and delivering
 machine learning models into production in a consistent manner. ML
 operations teams can leverage AWS continuous integration

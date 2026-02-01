@@ -8,8 +8,11 @@ Issuances](https://www.occ.treas.gov/topics/laws-and-regulations/occ-regulations
 Comptroller of the Currency (OCC), Security and Exchanges
 Commision (SEC)
 [Cybersecurity
-Disclosure](https://www.sec.gov/news/statement/gerding-cybersecurity-disclosure-20231214 "https://www.sec.gov/news/statement/gerding-cybersecurity-disclosure-20231214") or the Network and Information Systems (NIS)
-regulation.
+Disclosure](https://www.sec.gov/news/statement/gerding-cybersecurity-disclosure-20231214 "https://www.sec.gov/news/statement/gerding-cybersecurity-disclosure-20231214") or the Network and Information
+Systems (NIS) regulation. Incident reporting now includes
+AI-specific events such as harmful model responses or
+unauthorized model access, model manipulation and poisoning
+attacks.
 
 ## FSISEC12-BP01 Regularly review your incident response plan for regulatory compliance
 
@@ -21,34 +24,41 @@ operating in and any local data residency requirements (such
 as
 [GDPR](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/")).
 With local data residency requirements, you cannot copy the
-data to a different Region for analysis purposes. In this case,
-you may need to consider the latency aspects if you have a
-global team that needs to access and analyze data from a
-different Region. Consider setting up a local incident response
-team that can act on the incident in a timely manner and
-report to local regulators as necessary.
+data to a different Region for analysis purposes. In this
+case, you may need to consider the latency aspects if you
+have a global team that needs to access and analyze data
+from a different Region. Consider setting up a local incident
+response team that can act on the incident in a timely
+manner and report to local regulators as necessary.
 
 As mentioned before, as part of your incident response plan,
 you should
 [develop
 playbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md") to standardize response process
-for cybersecurity incidents. With the ever-changing regulatory
-requirements of the financial industry and the dynamic nature
-of cloud environments, it is important to establish a process
-that reviews the playbooks in use to perform incident or
-recovery communications as required.
+for cybersecurity incidents. With the ever-changing
+regulatory requirements of the financial industry and the
+dynamic nature of cloud environments, it is important to
+establish a process that reviews the playbooks in use to
+perform incident or recovery communications as required.
 
 ### Prescriptive guidance
 
 - Create your own playbooks to facilitate responses during
   cybersecurity incidents. Refer to
-  [building incident
-  response playbooks for AWS](https://github.com/aws-samples/aws-incident-response-playbooks-workshop "https://github.com/aws-samples/aws-incident-response-playbooks-workshop") for sample
-  playbooks.
+  [building
+  incident response playbooks for AWS](https://github.com/aws-samples/aws-incident-response-playbooks-workshop "https://github.com/aws-samples/aws-incident-response-playbooks-workshop")
+  for sample playbooks.
 - Use
   [AWS Compliance Center](https://aws.amazon.com/financial-services/security-compliance/compliance-center/?country-compliance-center-cards.sort-by=item.additionalFields.headline&country-compliance-center-cards.sort-order=asc&awsf.country-compliance-center-master-filter=%2Aall "https://aws.amazon.com/financial-services/security-compliance/compliance-center/?country-compliance-center-cards.sort-by=item.additionalFields.headline&country-compliance-center-cards.sort-order=asc&awsf.country-compliance-center-master-filter=%2Aall") for information on
-  regulatory responsibilities that can be related to incident
-  responses.
+  regulatory responsibilities that can be related to
+  incident responses.
+- For AI systems:
+  - Include AI-specific incidents in response
+    procedures.
+  - Develop playbooks for model misuse.
+  - Establish reporting procedures for AI incidents.
+  - Include AI events in regulatory reporting
+    requirements.
 
 ## Resources
 

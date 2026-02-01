@@ -2,12 +2,14 @@
 
 Financial services organizations require in-depth visibility
 into the security of their infrastructure and applications.
-Achieving this high level of visibility requires the collection
-of logs and audit trails and the reservation of these logs for
-analytics and reporting. AWS services and partners' cloud-native
-solutions help you implement real-time monitoring in your
-environment for security threats and alerting on threats once
-detected.
+Achieving this high level of visibility requires the
+collection of logs and audit trails and the reservation of
+these logs for analytics and reporting. AWS services and
+partners' cloud-based solutions help you implement real-time
+monitoring in your environment for security threats and
+alerting on threats once detected. With generative AI systems,
+monitoring extends to model behaviors, response validation,
+and potential misuse of AI capabilities.
 
 ## FSISEC05-BP01 Track configuration changes
 
@@ -15,23 +17,28 @@ As part of monitoring the environment against threats, it is
 critical to identify changes in the security settings that
 keep the environment protected. One of the benefits of the
 cloud is being able to maintain full visibility of what is
-changing in the environment. Establishing a security baseline
-of the deployed resources is key for a FIs first line of defense to
-manage the risk of its infrastructure, as well as to track
-changes over time.
+changing in the environment. Establishing a security
+baseline of the deployed resources is key for a FIs first
+line of defense to manage the risk of its infrastructure, as
+well as to track changes over time.
 
 Use
-[AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md") to audit and evaluate the configuration
-settings of your AWS resources. AWS Config continually tracks
-the configuration changes that occur in your resources, and by
-using
-[AWS Config](../../../config/latest/developerguide/evaluate-config_use-managed-rules.md "../../../config/latest/developerguide/evaluate-config_use-managed-rules.md")
-[Managed
+[AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md") to audit and evaluate the
+configuration settings of your AWS resources. AWS Config
+continually tracks the configuration changes that occur in
+your resources, and by using
+[AWS Config Managed
 Rules](../../../config/latest/developerguide/evaluate-config_use-managed-rules.md "../../../config/latest/developerguide/evaluate-config_use-managed-rules.md"), it checks to see if these changes
-comply with the your defined desired state. This allows you to
-identify and correct configuration deviations as soon as they
-happen, and also helps the second and third lines of defense
-respond quickly.
+comply with the your defined desired state. This allows you
+to identify and correct configuration deviations as soon as
+they happen, and also helps the second and third lines of
+defense respond quickly.
+
+For generative AI systems, establish comprehensive
+monitoring of model endpoint configurations, prompt catalog
+changes, and AI service policy modifications while
+implementing guardrails for response validation and tracking
+data access patterns across AI workflows.
 
 ## FSISEC05-BP02 Detect unusual and unauthorized activity early
 

@@ -2,4 +2,5 @@
 
 ###### Best practice questions
 
-- [FSIPERF05: How do you evaluate compliance with performance requirements?](fsiperf05.md "fsiperf05.md")
+- [FSIPERF06: How do you evaluate compliance with performance
+  requirements?](fsiperf06.md "fsiperf06.md")

@@ -7,20 +7,32 @@ primary objectives. The first objective is the prevention of
 conflict of interest, abuse, and errors. The second objective
 is the detection of control failures that include security
 breaches, information theft, and circumvention of security
-controls. While robust automation of infrastructure and
-application deployments helps reduce the need for human access,
-there can be instances where individuals need to complete key
+controls.
+
+While robust automation of infrastructure and application
+deployments helps reduce the need for human access, there
+can be instances where individuals need to complete key
 functions. For users with increased privileges, it is
 important to distribute system administration activities, so
 no one administrator can hide their activities or control an
-entire system. Separation of duties can help mitigate risk on
-critical tasks by ensuring different people are required to
-perform a task where the requestor and the approver can't be
-the same person. A common example is the use of an approver
-during the [running of an automation
-on AWS Systems Manager](../../../systems-manager/latest/userguide/running-automations-require-approvals.md "../../../systems-manager/latest/userguide/running-automations-require-approvals.md"). This principle can be used to
-implement numerous tasks including controlling access to your
-cloud resources.
+entire system. Separation of duties can help mitigate risk
+on critical tasks by ensuring different people are required
+to perform a task where the requestor and the approver can't
+be the same person. A common example is the use of an
+approver during the
+[running
+of an automation on AWS Systems Manager](../../../systems-manager/latest/userguide/running-automations-require-approvals.md "../../../systems-manager/latest/userguide/running-automations-require-approvals.md").
+This principle can be used to implement numerous tasks
+including controlling access to your cloud resources.
+
+For generative AI workloads, implement clear separation of
+duties by creating distinct roles for prompt engineering,
+security administration, and model governance, while
+maintaining separate permissions for model access,
+management and deployment as well as establishing dedicated
+approval workflows for AI system changes, and enforcing
+strict boundaries between development and production AI
+environments.
 
 ## FSISEC04-BP02 Use AWS Config to view historical IAM configuration and changes over time
 

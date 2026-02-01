@@ -56,3 +56,19 @@ telemetry across multiple systems and on a transaction-by-transaction basis. Ado
 tools like AWS X-Ray and [Open Telemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/")
 as integrated tools that provide tracing and data as transactions span across multiple
 services.
+
+## FSIREL08-BP05 Monitor AI model performance and drift
+
+Continuous monitoring should track key performance
+indicators against established baselines, with automated
+alerts for significant deviations and configurable
+thresholds with escalation procedures. Establish regular
+cadences for model evaluation using production data,
+comparing predictions against actual outcomes. Implement
+comprehensive logging systems that capture input data
+characteristics, prediction outputs, and environmental
+factors to facilitate root cause analysis when performance
+issues arise. For regulated applications, consider deploying
+parallel inference systems where both current and candidate
+models run simultaneously to compare outputs before
+deployment.

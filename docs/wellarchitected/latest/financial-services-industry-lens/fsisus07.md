@@ -1,14 +1,20 @@
-# FSISUS07: How do you optimize batch processing components for sustainability?
+# FSISUS07: How do you optimize batch processing components for
 
-Because batch processing is often found within many workloads across financial systems, verify that the minimum number of resources are consumed by batching transactions together while meeting your customer SLA and system requirements.
+sustainability?
 
-## FSISUS07-BP01 Optimize your batch processing systems
+Because batch processing is often found within many workloads across financial systems,
+verify that the minimum number of resources are consumed by batching transactions together
+while meeting your customer SLA and system requirements.
+
+## FSISUS07-BP01
+
+Optimize your batch processing systems
 
 Because batch processing is often found within many workloads across financial
-systems, verify that the minimum number of resources are consumed by batching
-transactions together while meeting your customer SLA and system requirements.
+systems, verify that the minimum number of resources are consumed by batching transactions
+together while meeting your customer SLA and system requirements.
 
-**Prescriptive guidance**
+### Prescriptive guidance
 
 - Queue up several requests together that don't require immediate processing.
 - Increase serialization to flatten utilization across your pipeline.
@@ -20,3 +26,8 @@ transactions together while meeting your customer SLA and system requirements.
   software.
 - If possible, schedule jobs during times of day where carbon intensity for power
   is lowest.
+- Use managed spot training for generative AI model training to utilize spare EC2
+  capacity efficiently.
+- Implement parameter-efficient fine-tuning (PEFT) techniques like LoRA to reduce
+  computational requirements.
+- Optimize generative AI batch inference jobs using serverless architectures.

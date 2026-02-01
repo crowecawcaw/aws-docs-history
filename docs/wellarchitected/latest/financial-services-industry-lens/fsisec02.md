@@ -37,33 +37,50 @@ measure what level of security is present in cloud
 environments. These templates are available both for best
 practices in technology such as database, serverless, and
 networking, and are aligned to frameworks that are widely
-accepted and recognized. Among the most suitable templates are
-[managed
-rules](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md"),
 
-AWS Config
+accepted and recognized. Among the most suitable templates
+are
+[managed
+rules](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md"), AWS Config
 [Conformance
 Packs](../../../config/latest/developerguide/conformance-packs.md "../../../config/latest/developerguide/conformance-packs.md") in AWS Config, and
-
-[AWS Security Hub CSPM standards](../../../securityhub/latest/userguide/standards-available.md "../../../securityhub/latest/userguide/standards-available.md"). FIs can benefit from
-Conformance Packs that are available and ready to be used for
-alignment to the financial services industry's standards and
-regulatory requirements, such as PCI-DSS, NYDFS, and FFIEC.
+[AWS Security Hub CSPM standards](../../../securityhub/latest/userguide/standards-available.md "../../../securityhub/latest/userguide/standards-available.md"). FIs can benefit
+from Conformance Packs that are available and ready to be
+used for alignment to the financial services industry's
+standards and regulatory requirements, such as PCI-DSS,
+NYDFS, and FFIEC.
 
 ### Prescriptive guidance
+
+- Use Amazon Bedrock Guardrails for automated response
+  validation and content filtering.
+- Use pre-configured security controls for AI service
+  endpoints and model access.
+- Use compliance templates for AI model governance
+  including model cards and documentation.
+- Deploy standard configurations for secure prompt
+  management and version control.
+- Use automated monitoring for AI system outputs and
+  potential security issues.
 
 - A Conformance Pack can be deployed as is or it can be
   edited to include your specific resources and use cases.
   For more information, see
-  [Deploying a Conformance Pack Using the AWS Config Console](../../../config/latest/developerguide/conformance-pack-console.md "../../../config/latest/developerguide/conformance-pack-console.md").
+  [Deploying
+  a Conformance Pack Using the AWS Config](../../../config/latest/developerguide/conformance-pack-console.md "../../../config/latest/developerguide/conformance-pack-console.md")
+  [Console](../../../config/latest/developerguide/conformance-pack-console.md "../../../config/latest/developerguide/conformance-pack-console.md").
 - When adding a new rule, choose how it evaluates your
   resources, as well as how it is initiated. For more
   information, see
-  [Evaluation Mode and Trigger Types for AWS Config Rules](../../../config/latest/developerguide/evaluate-config-rules.md "../../../config/latest/developerguide/evaluate-config-rules.md").
+  [Evaluation
+  Mode and Trigger Types for AWS Config Rules](../../../config/latest/developerguide/evaluate-config-rules.md "../../../config/latest/developerguide/evaluate-config-rules.md").
 - To determine if requirements in a standard are being
   met, enable the controls from AWS Security Hub CSPM
   standards. For more information, see
-  [Security standards and controls in AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-standards.md "../../../securityhub/latest/userguide/securityhub-standards.md").
+  [Security
+  standards and controls in AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-standards.md "../../../securityhub/latest/userguide/securityhub-standards.md").
+- Leverage Amazon Bedrock's Prompt Management catalog for
+  secure prompt storage and version control.
 
 ## Resources
 

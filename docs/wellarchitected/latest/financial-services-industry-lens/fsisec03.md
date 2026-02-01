@@ -1,6 +1,12 @@
 # FSISEC03: How do you monitor the use of elevated credentials, such as administrative accounts, and guard against privilege escalation?
 
-IAM policies are powerful and complex, so it's important to study and understand the permissions that are granted by each policy. Mitigate privilege escalation and monitor unauthorized activity in your AWS accounts.
+IAM policies are powerful and complex, so it's important to
+study and understand the permissions that are granted by each
+policy. Mitigate privilege escalation and monitor unauthorized
+activity in your AWS accounts. With the introduction of
+generative AI systems, monitoring elevated credentials extends
+to model access, prompt engineering, and AI service
+management.
 
 ## FSISEC03-BP01 Review IAM policies and permissions
 
@@ -11,19 +17,27 @@ granted by each policy.
 
 As part of the tight controls FIs implement around identity
 management and broader identity management policies, it is
-important to perform periodic reviews of your IAM roles using
-[last
-accessed](../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data.md "../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data.md")
-[information](../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data.md "../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data.md")
+important to perform periodic reviews of your IAM roles
+using
+[last accessed
+information](../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data.md "../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data.md")
 to get a report about the last time that an IAM entity (user
-or role) attempted to access
-a service, and
-[delete roles that are not in use](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md"). Before you delete
-a role, review its recent service-level activity by viewing
-service last accessed data report. Use that information to
-refine your policies to allow access to only the services that
-are in use. Repeat this process to generate a report for each
-type of resource in IAM.
+or role) attempted to access a service, and
+[delete
+roles that are not in use](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md"). Before you
+delete a role, review its recent service-level activity by
+viewing service last accessed data report. Use that
+information to refine your policies to allow access to only
+the services that are in use. Repeat this process to
+generate a report for each type of resource in IAM.
+
+For generative AI services, implement comprehensive IAM
+policies that grant least privilege access to foundation
+model endpoints while establishing private network
+communication, monitoring elevated credential usage in AI
+workflows, and implementing permissions boundaries for AI
+service roles including attribute-based access controls for
+dynamic AI resource management.
 
 ## FSISEC03-BP02 Mitigate privilege escalation
 

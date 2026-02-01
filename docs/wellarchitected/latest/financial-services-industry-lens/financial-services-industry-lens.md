@@ -1,6 +1,6 @@
 # Financial Services Industry Lens - AWS Well-Architected Framework
 
-Publication date: **May 15, 2024** ([Document revisions](document-revisions.md "document-revisions.md"))
+Publication date: **January 27, 2026** ([Document revisions](document-revisions.md "document-revisions.md"))
 
 This document describes the Financial Services Industry Lens for the AWS Well-Architected
 Framework. The document describes general design principles, as well as specific best practices

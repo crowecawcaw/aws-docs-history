@@ -1,11 +1,14 @@
 # FSISEC07: How are you inspecting your financial services infrastructure and network for unauthorized traffic?
 
 Monitor network traffic for expected and unexpected traffic to
-identify irregularities and gain key insights into the security
-of the system. For example, a poorly-performing network can
-indicate that the network is under threat, and irregular
-attempts to contact unexpected external systems can indicate
-that an internal host has been compromised.
+identify irregularities and gain key insights into the
+security of the system. For example, a poorly-performing
+network can indicate that the network is under threat, and
+irregular attempts to contact unexpected external systems can
+indicate that an internal host has been compromised. With
+generative AI services, inspection includes monitoring AI
+endpoint access and authentication attempts, model
+invocations, and data flow patterns.
 
 ## FSISEC07-BP01 Monitor instance traffic
 
@@ -17,15 +20,19 @@ notification.
 [Create
 profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") for the expected network behavior
 for each EC2 instance and
-
 [generate
 alarms when deviations are detected](../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md "../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md"). For
 example, system or web logs sent to Amazon CloudWatch Logs
-could generate alarms based on the number of login failures or
-web request latencies. Similarly, TCP connection or
+could generate alarms based on the number of login failures
+or web request latencies. Similarly, TCP connection or
 outstanding connection request counts could be stored in
-Amazon CloudWatch and used to detect security threats like SYN
-flood threats.
+Amazon CloudWatch and used to detect security threats like
+SYN flood threats.
+
+For AI workloads, implement comprehensive monitoring of
+model endpoint access and API usage patterns while
+establishing private network communication and tracking data
+access across AI systems.
 
 ## FSISEC07-BP02 Use VPC Traffic Mirroring
 

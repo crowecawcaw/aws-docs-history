@@ -1,12 +1,16 @@
 # FSISEC01: How does your governance enable secure cloud adoption at scale?
 
 Cloud infrastructure provides more agility and responsiveness
-than traditional IT environments. This requires organizations to
-think differently about how they design, build, and manage
-applications. Cloud resources can be disposable. Because it is a
-pay-per-use model, it often requires a strong integration between IT governance and organizational governance. Financial
-services companies need to operate in a cloud environment that's
-agile and safe at the same time.
+than traditional IT environments. This requires organizations
+to think differently about how they design, build, and manage
+applications. Cloud resources can be disposable. Because it is
+a pay-per-use model, it often requires a strong integration
+between IT governance and organizational governance. Financial
+services companies need to operate in a cloud environment
+that's agile and safe at the same time. With the adoption of
+generative AI capabilities, organizations need to implement
+comprehensive security controls across AI components while
+maintaining agility and innovation.
 
 ## FSISEC01-BP01 Consider and leverage a Cloud Center of Excellence (CCoE)
 
@@ -14,12 +18,24 @@ When it comes to cloud adoption and governance, CCoEs (also
 referred as Cloud Enablement Engine (CEE)) are known drivers
 of change across the enterprise and the focal point for its
 transformation. CCoEs should have a functional model that is
-more aligned to provisioning and operating cloud resources, or
-they should act as the advisory group for cloud migrations and
-security baseline definitions. CCoEs help create and manage
-governance and security policies in collaboration with a
-cross-functional team and select governance tools to provide
-financial and risk management.
+more aligned to provisioning and operating cloud resources,
+or they should act as the advisory group for cloud
+migrations and security baseline definitions. CCoEs help
+create and manage governance and security policies in
+collaboration with a cross-functional team and select
+governance tools to provide financial and risk management.
+
+When implementing generative AI workloads, CCoEs should
+establish comprehensive governance frameworks that
+encompass:
+
+- AI model lifecycle management and approval processes
+- Data governance for training datasets and model inputs
+- Model performance monitoring and drift detection
+- Compliance tracking for AI regulatory requirements
+- Risk assessment frameworks for AI model deployment
+- Guardrails to control system behaviors
+- Standardized resource management for prompts and models
 
 The following tenets are key guiding principles for
 [creating
@@ -43,8 +59,8 @@ a CCoE](https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of
 
 Traditionally, companies in the financial sector have
 distributed internal teams with distinct roles, as part of
-their division of duties policies. Even so, you can still get
-the benefits described here if the duties of a CCoE are
+their division of duties policies. Even so, you can still
+get the benefits described here if the duties of a CCoE are
 distributed among multidisciplinary teams.
 
 ## FSISEC01-BP02 Use cloud-native services for management and governance

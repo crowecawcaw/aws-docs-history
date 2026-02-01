@@ -12,5 +12,5 @@ responsibilities and liabilities of AWS to its customers are
 controlled by AWS agreements, and this document is not part of, nor
 does it modify, any agreement between AWS and its customers.
 
-© 2024 Amazon Web Services, Inc. or its affiliates. All rights
+© 2026 Amazon Web Services, Inc. or its affiliates. All rights
 reserved.

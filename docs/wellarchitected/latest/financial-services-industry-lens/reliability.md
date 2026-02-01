@@ -10,18 +10,69 @@ In this section, we provide in-depth best practices that financial institutions 
 
 Financial institutions can leverage AWS services to provide the
 levels of resilience and availability that their workloads need
-based on their criticality. The AWS Global infrastructure is built
-around Regions, Availability Zones (AZs), Local Zones, and edge locations. Our AWS services are of global, Regional, or zonal
-nature. For example, Amazon Elastic Compute Cloud (Amazon EC2)
-and Amazon Elastic Block Store (Amazon EBS) are zonal services. A
-zonal service is one that provides the ability to specify which
-Availability Zone the resources are deployed into.
+based on their criticality. The AWS Global infrastructure is
+built around Regions, Availability Zones (AZs), Local Zones, and
+edge locations. Our AWS services are of global, Regional, or
+zonal nature. For example, Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Elastic Block Store (Amazon EBS) are zonal
+services. A zonal service is one that provides the ability to
+specify which Availability Zone the resources are deployed into.
 
-These services operate independently in each Availability Zone within a Region, and more importantly, fail independently in each Availability Zone as well. This means that components of a service in one Availability Zone don't have dependencies on components in other Availability Zones. We can do this because a zonal service has zonal data planes. Services like Amazon Simple Storage Service (Amazon S3), Amazon Simple Queue Service (Amazon SQS) and Amazon DynamoDB are Regional services.
+These services operate independently in each Availability Zone
+within a Region, and more importantly, fail independently in
+each Availability Zone as well. This means that components of a
+service in one Availability Zone don't have dependencies on
+components in other Availability Zones. We can do this because a
+zonal service has zonal data planes. Services like Amazon Simple Storage Service (Amazon S3), Amazon Simple Queue Service (Amazon SQS) and Amazon DynamoDB are Regional services.
 
-[Regional services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") are services that AWS has built on top of multiple Availability Zones so that customers don't have to figure out how to make the best use of zonal services. We logically group together the service deployed across multiple Availability Zones to present a single Regional endpoint to customers. In addition to Regional and zonal AWS services, there is a small set of AWS services like IAM and Amazon Route 53, that do not have control planes and data planes that exist independently in each Region. Because their resources are not Region-specific, they are commonly referred to as _global_. Global AWS services still follow the conventional AWS design pattern of separating the control plane and data plane in order to achieve [static stability](../../../whitepapers/latest/aws-fault-isolation-boundaries/aws-infrastructure.md#static-stability "../../../whitepapers/latest/aws-fault-isolation-boundaries/aws-infrastructure.md#static-stability"). The significant difference for most global services is that their control plane is hosted in a _single_ AWS Region, while their data plane is globally distributed. Therefore, when building critical workloads on AWS it is important to understand the services [fault isolation boundary](../../../whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md") and how the boundary defines the resilience of your workload.
+[Regional
+services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") are services that AWS has built on
+top of multiple Availability Zones so that customers don't have
+to figure out how to make the best use of zonal services. We
+logically group together the service deployed across multiple
+Availability Zones to present a single Regional endpoint to
+customers. In addition to Regional and zonal AWS services, there
+is a small set of AWS services like IAM and Amazon Route 53,
+that do not have control planes and data planes that exist
+independently in each Region. Because their resources are not
+Region-specific, they are commonly referred to as
+_global_. Global AWS services still follow
+the conventional AWS design pattern of separating the control
+plane and data plane in order to achieve
+[static
+stability](../../../whitepapers/latest/aws-fault-isolation-boundaries/aws-infrastructure.md#static-stability "../../../whitepapers/latest/aws-fault-isolation-boundaries/aws-infrastructure.md#static-stability"). The significant difference for most
+global services is that their control plane is hosted in a
+_single_ AWS Region, while their data plane
+is globally distributed. Therefore, when building critical
+workloads on AWS it is important to understand the services
+[fault
+isolation boundary](../../../whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md") and how the boundary defines
+the resilience of your workload.
 
-The global infrastructure outlined gives AWS the ability to provide fault isolation to its customers. The disruption of a zonal resource has no impact on resources in other Availability Zones. The disruption of a Regional service has no impact on services in other AWS Regions. For global services, mitigation techniques such as splitting the control plane and data plane mean that the services core functionality continues to operate when the control plane is disrupted, as they can operate independently of one another.
+The global infrastructure outlined gives AWS the ability to
+provide fault isolation to its customers. The disruption of a
+zonal resource has no impact on resources in other Availability
+Zones. The disruption of a Region service has no impact on
+services in other AWS Regions. For global services, mitigation
+techniques such as splitting the control plane and data plane
+mean that the services core functionality continues to operate
+when the control plane is disrupted, as they can operate
+independently of one another.
+
+- **Agent failover mechanisms:**
+  Design resilient agent architectures with graceful
+  degradation.
+- **Agent decision consistency:**
+  Implement validation mechanisms to ensure consistent agent
+  behavior.
+- **Agent recovery procedures:**
+  Define procedures for recovering from agent failures or
+  incorrect decisions.
+- **Agent testing framework:**
+  Create comprehensive testing frameworks for agent behaviors
+  under various conditions.
+- **Agent observability:**
+  Implement specialized monitoring for agent reasoning chains
+  and decision paths.
 
 ## Definitions
 
@@ -38,10 +89,15 @@ The global infrastructure outlined gives AWS the ability to provide fault isolat
    include those imposed on your workload such as spikes in demand, as well as those from
    within, such as feature deployments and security patches.
 4. [Failure
-   management](../reliability-pillar/failure-management.md "../reliability-pillar/failure-management.md"): Failures are a given, and everything eventually fails
-   over time. This is a given, whether you are using the highest-quality hardware or lowest
-   cost components. _“Everything fails all the time. We needed to
-   build systems that embrace failure as a natural occurrence.”_ — Werner Vogels
+   management](../reliability-pillar/failure-management.md "../reliability-pillar/failure-management.md"): While on-premises data centers
+   face daily hardware component failures, cloud services like
+   Amazon EBS and Amazon S3 are designed to provide built-in
+   protection with high levels of availability and durability.
+   Despite these robust protections, implementing additional
+   resiliency measures remains essential for reliable workloads,
+   requiring teams to be thoroughly trained on business
+   objectives and reliability requirements to effectively design,
+   implement, and operate mission-critical systems.
 5. [Reliability](../reliability-pillar/reliability.md "../reliability-pillar/reliability.md"): Reliability is the ability of a workload to perform its
    intended function correctly and consistently when it's expected to. This includes the
    ability to operate and test the workload through its total lifecycle.

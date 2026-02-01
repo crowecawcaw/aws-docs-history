@@ -1,37 +1,117 @@
-# FSIPERF06: How do you make trade-offs in your architecture?
+# FSIPERF06: How do you evaluate compliance with performance
 
-Financial services workloads often have to make trade-offs in their architecture to
-meet their most important goals and KPIs, where performance of the system is deemed more
-important than other factors, or vice-versa.
+requirements?
 
-## FSIPERF06-BP01 Understand your priorities and architect to meet them
+Here are several methods for doing so:
 
-For example, a low-latency trading system needs to preserve the performance of the
-system above all other factors, and be prepared to compromise on the cost of
-infrastructure to meet their goals. In this situation it is still important not to
-compromise on availability, and this may require significant investment in parallel,
-independent, deployments for example an independent deployment of the application stack
-in multiple AWS Availability Zones or Regions rather than a failover architecture.
+- Monitoring of your workload at multiple levels helps verify
+  that your resources are performing as expected and you are
+  aware of deviations.
+- Consider all dimensions of the solution for monitoring, for
+  example client-side and server-side metrics, application
+  metrics and infrastructure metrics, technical and functional
+  metrics.
+- Monitor for failure rates and alert when they are above
+  expected values.
+- Identify KPIs and create threshold alerts for them and
+  determine what actions to take (like autoscaling) when
+  thresholds are breached - this allows you to observe the
+  overall health of your system and identify
+  [non-binary,
+  or grey, failure states](../../../whitepapers/latest/advanced-multi-az-resilience-patterns/gray-failures.md "../../../whitepapers/latest/advanced-multi-az-resilience-patterns/gray-failures.md").
+- Provide visibility of data loss in your metrics, for example
+  by monitoring for lost messages.
+- Where possible capture inter-solution and inter-process
+  communication streams to aid with the reproduction of
+  issues.
 
-Within the workload it may be necessary to trade-off between persistent capacity
-and elasticity to make sure that the application always has the ability to handle peak
-workloads without needing timed or reactive scaling up. Consider how much of your peak
-workload you need to be able to service at any time.
+## FSIPERF06-BP01 Use Application Performance Monitoring
 
-When choosing services consider performance determinism. AWS serverless services
-like AWS Lambda and AWS Fargate can bring significant performance benefits due to their
-ability to scale elastically on demand, without intervention, but this is often coupled
-with less fine control over the underlying environment, for example CPU clock speed, and
-this can introduce an element of variability into workload performance. Where the
-workload performance must be as consistent as possible, consider using Amazon EC2, where you
-get the widest choice, and greatest level of control, over the production environment.
-For example, using Amazon EC2 directly enables the use of [ENA Express](../../../AWSEC2/latest/UserGuide/ena-express.md "../../../AWSEC2/latest/UserGuide/ena-express.md"), to increase
-network throughput and reduce latency, but brings restrictions on the Amazon EC2 instances
-that support this feature.
+(APM) tools
 
-Consider trade-offs in your application architecture. For example, to preserve
-network latency you may choose to use certain services and configurations that are more
-complex to implement and maintain, but offer better performance, such as using [VPC Peering instead of AWS Transit Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-and-considerations-to-migrate-from-vpc-peering-to-aws-transit-gateway/ "https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-and-considerations-to-migrate-from-vpc-peering-to-aws-transit-gateway/") to minimize the number of network hops for
-your most critical traffic. For optimal connectivity to on-premises workloads consider
-the best position for your AWS Direct Connect Gateway to bring it closest to the most
-sensitive workloads.
+Use APM tools to provide your organization the capability to verify that application
+performance meets its defined requirements. AWS offers features and services to monitor
+and subsequently right-size the cloud services that you need to meet performance
+requirements.
+
+For example, you can monitor and set alarms on latency and error rates for each user
+request using Amazon CloudWatch metrics and alarms, or on your downstream dependencies, or on the
+success and failure of key operations. Amazon CloudWatch Synthetics can be used to create
+_canaries_, configurable scripts that run on a schedule, or to
+monitor your endpoints, and APIs.
+
+The required level of monitoring generates huge amounts of data, which can be
+challenging for operation teams to store, analyze, and visualize, so make use of services
+including Amazon Managed Service for Prometheus to monitor and alert on containers, Amazon Managed Grafana to visualize metrics and
+logs, and the wide range of features found in Amazon CloudWatch, to provide the appropriate tools
+for monitoring your systems without the overhead of managing additional infrastructure.
+Teams need training to update their skills and processes and take full advantage of this
+new fidelity of insight.
+
+## FSIPERF06-BP02 Integrate performance testing into the
+
+release cycle
+
+Rather than considering performance testing to be a separate part of the workload
+release cycle, integrate performance testing into your release process and CI/CD tooling.
+This allows you to record and evaluate performance metrics across releases, being aware of
+and taking action when metrics change as early as possible.
+
+## FSIPERF06-BP03 Verify consistency and failure recovery
+
+during load tests
+
+You must verify data consistency and recovery during periods of high load. Ensuring
+that your workload's RTO and RPO is still valid under the highest load can uncover gaps in
+your architecture and operational resilience.
+
+## FSIPERF06-BP04 Understand performance of the system under
+
+peak load and in failure scenarios
+
+Include testing of common failure scenarios in your performance testing suites to
+understand your workload behaviour in these situations and determine areas for
+improvement.
+
+Extend the range of performance testing scenarios to cover testing at loads beyond
+current peak loads, and testing the scaling processes themselves of the application to
+understand how the environment behaves under increasing load.
+
+Under common or anticipated failure scenarios, workloads should exhibit predictable
+failure patterns with performance degrading gracefully using techniques such as [fail-open behavior,](https://www.wellarchitectedlabs.com/reliability/300_labs/300_health_checks_and_dependencies/4_fail_open/ "https://www.wellarchitectedlabs.com/reliability/300_labs/300_health_checks_and_dependencies/4_fail_open/") and the transformation of [hard dependencies into soft dependencies.](../reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.md "../reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.md")
+
+## FSIPERF06-BP05 Include dependencies in your load
+
+tests
+
+Financial institutions need to map resources they need to continuously deliver their
+important business services. These resources are your people, processes, technology,
+facilities, and information, including third-party service providers. This mapping allows
+the identification of operational dependencies, vulnerabilities, and threats.
+Incorporating the dependencies of your workload (such as on financial messaging providers)
+as part of your performance tests enables you to demonstrate the overall resiliency of
+your workload.
+
+## FSIPERF06-BP06 Collect and analyze
+
+generative AI performance metrics
+
+For financial services workloads using generative AI,
+implement comprehensive monitoring of model performance,
+including response latency, accuracy metrics, and token usage.
+Set up monitoring specifically for regulatory adherence
+concerns, such as bias detection and unexpected outputs that
+might impact financial decisions or customer interactions.
+
+**Implementation steps:**
+
+- Configure CloudWatch metrics for AI services like Amazon
+  Bedrock or Amazon SageMaker AI endpoints.
+- Implement trace frameworks like OpenLLMetry to capture model
+  performance metrics.
+- Establish alert thresholds specific to AI components in
+  financial workloads.
+- Create dashboards that visualize AI model performance
+  alongside other application metrics.
+- Set up automated remediation actions for common performance
+  issues.

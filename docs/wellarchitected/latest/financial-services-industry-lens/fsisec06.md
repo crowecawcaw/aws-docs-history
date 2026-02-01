@@ -1,24 +1,44 @@
 # FSISEC06: How do you address emerging threats?
 
-Security-focused enterprises are improving threat identification
-and remediation with DevSecOps. This approach accelerates
-application development and identifies threats early, and
-security testing is performed at each step of the software
-development lifecycle. Applying a DevSecOps framework is critical for an FI's software development, meeting the needs of
-a rapidly-changing product and a highly- regulated environment.
+Security-focused enterprises are improving threat
+identification and remediation with DevSecOps. This approach
+accelerates application development and identifies threats
+early, and security testing is performed at each step of the
+software development lifecycle. Applying a DevSecOps framework
+is critical for an FI's software development, meeting the
+needs of a rapidly-changing product and a highly regulated
+environment.
+
+Emerging threats now include AI-specific concerns such as
+prompt injection, model manipulation, harmful model responses,
+and excessive agency risks from autonomous AI systems.
+Integrate AI-specific vulnerability scanning into CI/CD
+pipelines.
 
 ## FSISEC06-BP01 Automate remediation of common vulnerabilities and exposures (CVEs)
 
-Scanning servers for common vulnerabilities is a long-standing
-best practice. However, in the cloud, you should not only
-automate the evaluation of operating environments and
-applications, but also remediate known and emerging security
-vulnerabilities automatically. For example, you can use
+Scanning servers for common vulnerabilities is a
+long-standing best practice. However, in the cloud, you
+should not only automate the evaluation of operating
+environments and applications, but also remediate known and
+emerging security vulnerabilities automatically. For
+example, you can use
 [Amazon Inspector](../../../inspector/latest/user/what-is-inspector.md "../../../inspector/latest/user/what-is-inspector.md") service to automatically scan
 servers in production, publish security findings to an Amazon Simple Notification Service (SNS) topic, run an AWS Lambda
 function from those notifications to examine the findings, and
 implement the appropriate remediation based on the type of
 issue.
+
+For generative AI systems, implement automated response
+validation through multiple complementary patterns with
+custom code validation using AWS Lambda with input and
+output validation logic and AWS Step Functions for
+orchestrated validation workflows. Consider LLM-as-a-judge
+where a specialized model (like Amazon Nova Premier)
+evaluates primary responses for safety and accuracy. Use
+Amazon Bedrock Guardrails with built-in content filters,
+prompt injection detection, and contextual grounding checks
+that can be applied at both input and output stages.
 
 ## FSISEC06-BP02 Perform static analysis on all code deploys
 
