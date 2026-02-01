@@ -63,7 +63,7 @@ Provide the following information.
     Alternatively, you can create the role yourself, as described in [Configure IAM roles for Transfer Family web apps](webapp-roles.md "webapp-roles.md"), and then
      enter its ARN here.
 
-![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](/images/transfer/latest/userguide/images/webapp-grants-register-new.png)
+![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](images/webapp-grants-register-new.png)
 
 Choose **Next** to continue. 6. In the **Create Grant** screen, provide the following
 details.

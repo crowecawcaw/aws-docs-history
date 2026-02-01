@@ -48,7 +48,7 @@ For AS2, you cannot choose an identity provider because basic
 authentication is not supported for the AS2 protocol. Instead, you control
 access through virtual private cloud (VPC) security groups. 5. On the **Choose an endpoint** page, do the following:
 
-![Console screenshot showing the Choose an endpoint page with VPC hosted selected.](/images/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png)
+![Console screenshot showing the Choose an endpoint page with VPC hosted selected.](images/create-server-choose-endpoint-vpc-internal.png)
 
     1. For **Endpoint type**, choose **VPC
      hosted** to host your server's endpoint. For

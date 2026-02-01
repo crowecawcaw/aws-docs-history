@@ -18,6 +18,7 @@ or more of the SFTP, FTPS, and FTP protocols.
 - [Managing users for server endpoints](create-user.md "create-user.md")
 - [Using logical directories to simplify your Transfer Family
   directory structures](logical-dir-mappings.md "logical-dir-mappings.md")
+- [Access your FSx for NetApp ONTAP file systems with Transfer Family](fsx-s3-access-points.md "fsx-s3-access-points.md")
 
 ## Identity provider options
 
