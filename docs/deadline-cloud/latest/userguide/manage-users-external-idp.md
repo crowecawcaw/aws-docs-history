@@ -5,7 +5,7 @@ or Microsoft Entra ID, users must be created and managed in that external system
 The Deadline Cloud console cannot create new users when an external IdP is configured.
 
 After users are created in your external IdP and synchronized to IAM Identity Center, you can assign them
-permissions to Deadline Cloud resources. See [Assign permissions to users and groups](manage-users-by-farm.md "manage-users-by-farm.md") for information about
+permissions to Deadline Cloud resources. See [Understanding access levels](manage-users-by-farm.md "manage-users-by-farm.md") for information about
 assigning permissions at the farm, queue, and fleet level.
 
 For information about managing your external identity provider configuration, see [Manage

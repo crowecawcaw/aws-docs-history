@@ -46,7 +46,7 @@ for a number of reasons. Common reasons include:
   on-premises or other cloud providers. Actual costs of these resources are not
   calculated.
 - _Idle worker costs_. Idle worker costs are not included
-  when the worker status is IDLE. This can happen for fleets with a minimum
+  when the worker status is IDLE. This situation can happen for fleets with a minimum
   instance count greater than zero, or when workers transition between jobs. Idle
   worker cost are not included in calculations.
 - _Worker stop and start time_. After workers complete a

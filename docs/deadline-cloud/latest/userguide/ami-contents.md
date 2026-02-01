@@ -97,7 +97,7 @@ safely take dependencies on these packages.
 
 All other software on the AMI can be updated, removed, or changed without notice. Do not take
 dependencies on any software not explicitly listed in the _Supported Software Packages_
-section above. This includes but is not limited to:
+section above. This restriction includes but is not limited to:
 
 - Operating system packages and libraries
 - Service management components

@@ -52,10 +52,10 @@ There are three considerations:
 - For service-managed fleets, you can choose to have one or more instances
   available at all times by setting the minimum worker count for the fleet.
   When you set the minimum worker count above 0, the fleet always has this
-  many workers running. This can reduce the amount of time that it takes for
+  many workers running. This setting can reduce the amount of time that it takes for
   Deadline Cloud to start processing jobs, however you are charged for the instance's
   idle time.
-- For service-managed fleets, set a maximum size for the fleet. This limits
+- For service-managed fleets, set a maximum size for the fleet. This setting limits
   the number of instances that a fleet can auto scale to. Fleets won't grow
   past this size even if there are more jobs waiting to be processed.
 - For both service-managed and customer-managed fleets, you can specify the

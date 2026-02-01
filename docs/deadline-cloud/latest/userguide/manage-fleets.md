@@ -10,7 +10,7 @@ You can set up two types of Deadline Cloud fleets:
   effective.
 - Customer-managed fleets (CMFs) provide you with full control over your processing
   pipeline. A CMF can reside within AWS infrastructure, on premises, or in a
-  co-located data center. This includes provisioning, operations, management, and
+  co-located data center. CMFs include provisioning, operations, management, and
   decommissioning workers in the fleet.
   When you associate a fleet with multiple queues, it divides its workers evenly among those
   queues.

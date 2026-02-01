@@ -1,7 +1,7 @@
 # Storage profiles for job attachments
 
 You can configure your Deadline Cloud queue to use job attachments for transferring asset data referenced by your jobs to and from AWS. When workstations mount the same shared file systems,
-but your fleets do not, you can create file system locations of the local type in your storage profiles. This lets you configure where you will upload and download files from, and how to
+but your fleets do not, you can create file system locations of the local type in your storage profiles. This configuration lets you configure where you will upload and download files from, and how to
 map paths between operating systems.
 
 For example, suppose you have one shared file system for projects and another one for tools. Your workstations and fleets include the three operating systems Windows, macOS, and Linux.

@@ -24,7 +24,7 @@ role, you must grant the role permissions to access the S3 bucket.
 
 buckets
 
-Job attachment files are encrypted in your S3 bucket by default. This helps secure your
+Job attachment files are encrypted in your S3 bucket by default. This encryption helps secure your
 information from unauthorized access. You don't need to do anything to have your files encrypted
 with keys provided by Deadline Cloud. For more information, see [Amazon S3 now automatically encrypts all
 new objects](../../../AmazonS3/latest/userguide/default-encryption-faq.md "../../../AmazonS3/latest/userguide/default-encryption-faq.md") in the _Amazon S3 User Guide_.

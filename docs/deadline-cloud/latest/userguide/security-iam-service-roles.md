@@ -345,22 +345,60 @@ Attach all of the following AWS managed policies to your monitor role for basic 
 
 ### How the monitor role works
 
-When using the Deadline Cloud monitor, when a service user signs in using the monitor role is assumed. The assume role credentials are used by the monitor application to display the monitor UI, including the list of farms, fleet, queues and other information.
+When using the Deadline Cloud monitor, a service user signs in using (), and the monitor role is assumed. The assumed role credentials are used by the monitor application to display the monitor UI, including the list of farms, fleets, queues, and other information.
 
 When using the Deadline Cloud monitor desktop application, these credentials are additionally made available on the workstation using a named AWS credential profile corresponding to the profile name provided by the end user. Learn more about named profiles in the [AWS SDK and Tools reference guide](../../../sdkref/latest/guide/file-format.md "../../../sdkref/latest/guide/file-format.md").
 
 This named profile is how the Deadline CLI and submitters access Deadline Cloud resources.
 
-### Customizing the monitor role for advanced desktop use cases
+### Customizing the monitor role for advanced use cases
+
+You can customize the monitor role to modify what users can do at each access level
+(Viewer, Contributor, Manager, Owner) or to add permissions for advanced workflows.
+
+#### Customizing access level permissions
+
+The four AWS managed policies attached to the monitor role control what each access
+level can do. You can add custom policies to the monitor role to grant or restrict
+permissions for specific access levels using the `deadline:MembershipLevel`
+condition key.
+
+For example, to allow Contributors to update and cancel jobs (which is normally
+restricted to Managers and Owners), add a policy like the following:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "deadline:UpdateJob",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "deadline:MembershipLevel": "CONTRIBUTOR"
+        }
+      }
+    }
+  ]
+}
+```
+
+With this policy, Contributors can update and cancel jobs in addition to submitting them.
+
+#### Adding permissions for advanced workflows
+
+You can add custom IAM policies to the monitor role to grant additional permissions
+to all monitor users. This is useful for advanced scripting workflows where users need
+access to AWS services beyond the standard Deadline Cloud functionality.
 
 Follow these guidelines when modifying your monitor role:
 
-- Don't remove any of the managed policies. This will break monitor functionality.
-- You can add additional permissions for advanced scripting workflows.
+- Don't remove any of the managed policies. Removing these policies breaks monitor functionality.
 
 ### How Deadline Cloud monitor uses monitor role credentials
 
-Deadline Cloud monitor automatically obtains monitor role credentials when you authenticate. This enables the desktop application to provide enhanced monitoring capabilities beyond what's available in a standard web browser.
+Deadline Cloud monitor automatically obtains monitor role credentials when you authenticate. This capability enables the desktop application to provide enhanced monitoring capabilities beyond what's available in a standard web browser.
 
 When you log in with Deadline Cloud monitor, it automatically creates a profile that you can use with the AWS CLI or any other AWS tool. This profile uses the monitor role credentials, giving you programmatic access to AWS services based on the permissions in your monitor role.
 

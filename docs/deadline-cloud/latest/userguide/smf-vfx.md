@@ -27,7 +27,7 @@ following:
   version 1.75, which is not compatible with the VFX Reference Platform. If your application uses
   Boost, you must provide your own version of the library for
   compatibility.
-- Intel TBB update 3 is provided in the service-managed fleet. This is
+- Intel TBB update 3 is provided in the service-managed fleet. This version is
   compatible with VFX Reference Platform CY2022, CY2023, and CY2024.
 - Other libraries with versions specified by the VFX Reference Platform are not provided by the
   service-managed fleet. You must provide the library with any application used on

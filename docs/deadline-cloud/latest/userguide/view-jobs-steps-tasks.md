@@ -17,8 +17,8 @@ For jobs, steps, and tasks, you can do the following:
   For the selected job, you can:
 
 - Archive the job.
-- Modify the job properties, such as changing prioritization or viewing step to
-  step dependencies.
+- Modify the job properties, including name, description, priority, or max worker count.
+- View step to step dependencies.
 - View additional details using the job's parameters.
 - Resubmit the job.
   For for more information, see [View and manage job details in Deadline Cloud](view-a-job.md "view-a-job.md").

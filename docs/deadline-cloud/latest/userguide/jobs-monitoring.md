@@ -16,6 +16,7 @@ Right click on a job, step, or task to see the options for the item. You can:
 - Suspend and resume the item
 - Requeue the item
 - Download the output
+- For jobs: Modify job properties like the name, description, priority, or max worker count.
 - For tasks: View task and worker logs.
   For more information, see [Using the Deadline Cloud monitor](working-with-deadline-monitor.md "working-with-deadline-monitor.md").
 

@@ -1,7 +1,7 @@
 # Automatic downloads
 
 The Deadline CLI provides a command to download the output of all tasks in a queue that completed since the last
-time the same command ran. You can configure this as a cron job or scheduled task to run repeatedly. This creates automatic
+time the same command ran. You can configure this as a cron job or scheduled task to run repeatedly. This configuration creates automatic
 downloading of output on a continuous basis.
 
 Before setting up automatic downloads, follow the steps in [Storage profiles for job attachments](storage-profile.md "storage-profile.md")

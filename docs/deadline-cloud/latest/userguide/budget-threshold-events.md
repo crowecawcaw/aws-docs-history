@@ -4,7 +4,7 @@ Deadline Cloud sends budget-related events, using Amazon EventBridge, to your de
 can create custom functions that receive the events and act on them to send
 notifications to automatically notify users via email, Slack, or other channels when a
 budget reaches predefined levels. For example, you can send SMS messages when a budget
-reaches a certain threshold. This helps you stay on top of your spending and make
+reaches a certain threshold. These notifications help you stay on top of your spending and make
 informed decisions before your budget is exhausted.
 
 Deadline Cloud periodically aggregates usage and cost data for each render farm. Then it checks
@@ -15,7 +15,7 @@ percent of the budget used:
 
 - 10, 20, 30, 40, 50, 60, 70, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100
   The budget usage thresholds get closer together as a budget approaches 100 percent
-  usage. This helps you closely monitor usage as the budget reaches its limit. You can
+  usage. This frequency helps you closely monitor usage as the budget reaches its limit. You can
   also set your own budget thresholds. Deadline Cloud sends an event when usage passes your custom
   thresholds. After your budget reaches 100 percent, Deadline Cloud stops sending events. If you
   adjust your budget, Deadline Cloud sends events for your thresholds based on the new budget

@@ -27,6 +27,7 @@ For additional information about allowlisting domains for AWS Sign-In, see [Doma
 - `prod.log.shortbread.analytics.console.aws.a2z.com`
 - `prod.tools.shortbread.analytics.console.aws.a2z.com`
 - `global.help-panel.docs.aws.a2z.com`
+- ``[Region]`.signin.aws`
 - ``[Region]`.signin.aws.amazon.com`
 - `sso.`[Region]`.amazonaws.com`
 - `portal.sso.`[Region]`.amazonaws.com`
@@ -50,7 +51,7 @@ This domain is tied to the IAM Identity Center setup and should be the same for 
 
 - ``[Monitor alias]`.`[Region]`.deadlinecloud.amazonaws.com`
 
-This is the domain of the Monitor setup in Deadline Cloud. This is the link that artists will enter into their browser or Deadline Cloud monitor application. If Deadline Cloud is set up in additional accounts or regions in the future this domain will change. This value can be found in the Deadline Cloud console in the _Dashboard_ → _Monitor overview_ → _Monitor details_ → _URL_.
+This domain is for the Monitor setup in Deadline Cloud. Artists enter this link into their browser or Deadline Cloud monitor application. If Deadline Cloud is set up in additional accounts or regions in the future, this domain will change. You can find this value in the Deadline Cloud console in the _Dashboard_ → _Monitor overview_ → _Monitor details_ → _URL_.
 
 - ``[Bucket name]`.`[Region]`.s3.amazonaws.com`
 

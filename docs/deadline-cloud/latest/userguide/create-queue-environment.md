@@ -31,7 +31,7 @@ console.
 environment
 
 When you create a queue associated with a service-managed fleet, you have the
-option of adding a default queue environment that supports [Conda](https://docs.conda.io/en/latest/ "https://docs.conda.io/en/latest/") to download
+option of adding a default queue environment that supports [conda](https://docs.conda.io/en/latest/ "https://docs.conda.io/en/latest/") to download
 and install packages in a virtual environment for your jobs.
 
 If you add a default queue environment with the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), the environment is
@@ -45,7 +45,7 @@ starting point for your own needs.
 
 Conda provides packages from _channels_. A
 channel is a location where packages are stored. Deadline Cloud provides a channel,
-`deadline-cloud`, that hosts Conda packages that
+`deadline-cloud`, that hosts conda packages that
 support partner DCC applications and renderers. Select each tab below to view the
 available packages for Linux or Windows.
 
@@ -130,14 +130,20 @@ Windows
 
 ###### Note
 
-For **Cinema 4D**, the Linux Conda package does not
-support substance 3D materials. Jobs with this material will fail with the following message:
+For **Cinema 4D**, the Linux conda package does not
+support substance 3D materials. In Cinema 4D 2025, jobs with this material fail with the following message:
 
 ```
 Commandline: ./modules/io_substance/source/substance_framework/src/details/detailsengine.cpp:794: SubstanceAir::Details::Engine::Context::Context(SubstanceAir::Details::Engine&, SubstanceAir::RenderCallbacks*): Assertion `res==0' failed.
 ```
 
-We recommend that you submit those jobs to Windows instead.
+In Cinema 4D 2026 on Linux, jobs with this material stall at 0% progress.
+We recommend that you submit jobs with substance materials to Windows instead.
+
+In Cinema 4D 2025.3.3 on Linux, globalized asset paths can cause segmentation faults.
+Therefore, the Linux conda package contains Cinema 4D 2025.3.1 with Redshift 2025.6.0 instead.
+If you need features or bug fixes from Cinema 4D 2025.3.3, we recommend two options: upgrade
+to Cinema 4D 2026 or submit those jobs to Windows instead.
 
 For **Cinema 4D OpenJD,** to prevent any timeout issues,
 we recommend you set task run timeouts to double their expected render time,
@@ -145,13 +151,13 @@ instead of using the default 2 day timeout.
 
 When you submit a job to a queue with the default Conda
 environment, the environment adds two parameters to the job. These parameters
-specify the Conda packages and channels to use to configure the job's
+specify the conda packages and channels to use to configure the job's
 environment before tasks are processed. The parameters are:
 
 - `CondaPackages` – a space-separated list of [package match specifications](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications "https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications"), such as `blender=3.6`
   or `numpy>1.22`. The default is empty to skip creating a virtual
   environment.
-- `CondaChannels` – a space separated list of [Conda channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") such as
+- `CondaChannels` – a space separated list of [conda channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") such as
   `deadline-cloud`, `conda-forge`, or
   `s3://`amzn-s3-demo-bucket`/conda/channel`.
   The default is `deadline-cloud`, a channel available to
@@ -164,7 +170,7 @@ the DCC application and submitter. For example, if you are using Blender the
  blender-openjd=0.4.*`.
 
 We recommend you pin any submissions to only the versions listed in the table
-above, for example blender=3.6. This is because patch releases affect the available
+above, for example blender=3.6. Pinning to the major.minor version is recommended because patch releases affect the available
 packages. For example, when we release Blender 3.6.17, we will no
 longer distribute Blender 3.6.16. Any submissions pinned to
 blender=3.6.16 will fail. If you pin to blender=3.6, then you will get the latest
