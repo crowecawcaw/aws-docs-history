@@ -161,7 +161,7 @@ HTTP Status Code: 401
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md "../../../goto/cli2/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md "../../../goto/DotNetSDKV3/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md "../../../goto/DotNetSDKV4/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md "../../../goto/SdkForCpp/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md "../../../goto/SdkForGoV2/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md "../../../goto/SdkForJavaV2/kinesisvideo-2017-09-30/ListEdgeAgentConfigurations.md")
