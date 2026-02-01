@@ -81,7 +81,7 @@ administrator access will display.
 Choose
 **Grant access**.
 
-![Console screenshot showing the connector access request.](/images/dtconsole/latest/userguide/images/bitbucket-access-popup.png) 4. In **Bitbucket apps**, the connection ID for your new
+![Console screenshot showing the connector access request.](images/bitbucket-access-popup.png) 4. In **Bitbucket apps**, the connection ID for your new
 installation is displayed. Choose **Connect**. The created
 connection displays in the connections list.
 
