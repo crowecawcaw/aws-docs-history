@@ -17,7 +17,9 @@ ACLs.
 
 Every Amazon FSx file system comes with a default Windows file share called
 `share`. The Windows ACLs for this shared folder are configured to allow
-read/write access to domain users. They also allow full control to the delegated
+read/write access to **Authenticated Users**,
+including users in the domain the file system is joined to,
+and users in domains with a trust relationship. They also allow full control to the delegated
 administrators group in your Active Directory that is delegated to perform
 administrative actions on your file systems. If you're integrating your file system
 with AWS Managed Microsoft AD, this group is AWS Delegated FSx Administrators. If
