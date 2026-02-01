@@ -1,27 +1,106 @@
-# Opting out of using your data
+# Data protection in AWS Database Migration Service
 
-for service improvement in AWS Database Migration Service
+## Data
 
-You can choose to opt out of having your data used to develop and improve AWS DMS by
-using the AWS Organizations opt-out policy. You can choose to opt out even if
-AWS DMS does not currently collect any such data. For more information, see [AI services opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md") in the _AWS Organizations User Guide_.
+encryption
 
-Presently, AWS Database Migration Service (AWS DMS) does not collect any of the data that it processes on
-your behalf. To develop and improve DMS and the functionalities of other AWS
-services, DMS may collect such data in the future. We will update this documentation
-page when DMS is configured to collect any data. You will have an option to opt out
-at any time.
+You can enable encryption for data resources of supported AWS DMS target endpoints.
+AWS DMS also encrypts connections to AWS DMS and between AWS DMS and all its source and
+target endpoints. In addition, you can manage the keys that AWS DMS and its supported
+target endpoints use to enable this encryption.
 
-###### Note
+###### Topics
 
-For you to use the opt-out policy, your AWS accounts must be centrally
-managed by AWS Organizations. If you have not created an organization for your
-AWS accounts, see [Managing an
-organization with AWS Organizations](../../../organizations/latest/userguide/orgs_manage_org.md "../../../organizations/latest/userguide/orgs_manage_org.md") in the _AWS Organizations User Guide_.
+- [Encryption at rest](#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest "#CHAP_Security.DataProtection.DataEncryption.EncryptionAtRest")
+- [Encryption in transit](#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit "#CHAP_Security.DataProtection.DataEncryption.EncryptionInTransit")
+- [Key
+  management](#CHAP_Security.DataProtection.DataEncryption.KeyManagement "#CHAP_Security.DataProtection.DataEncryption.KeyManagement")
 
-Opting out has the following effects:
+### Encryption at rest
 
-- AWS DMS deletes the data that it collected and stored for service
-  improvement purposes prior to your opt out (if any).
-- After you opt out, AWS DMS no longer collect or store this data for service
-  improvement purposes.
+AWS DMS supports encryption at rest by allowing you to specify the server-side
+encryption mode that you want used to push your replicated data to Amazon S3 before it is
+copied to supported AWS DMS target endpoints. You can specify this encryption mode by
+setting the `encryptionMode` extra connection attribute for the endpoint.
+If this `encryptionMode` setting specifies KMS key encryption mode, you
+can also create custom AWS KMS keys specifically to encrypt the target data for the
+following AWS DMS target endpoints:
+
+- Amazon Redshift – For more information about setting
+  `encryptionMode`, see [Endpoint settings
+  when using Amazon Redshift as a target for AWS DMS](CHAP_Target.md#CHAP_Target.Redshift.ConnectionAttrib "CHAP_Target.md#CHAP_Target.Redshift.ConnectionAttrib"). For more
+  information about creating a custom AWS KMS encryption key, see [Creating and using AWS KMS keys to
+  encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys").
+- Amazon S3 – For more information about setting
+  `encryptionMode`, see [Endpoint settings when using
+  Amazon S3 as a target for AWS DMS](CHAP_Target.md#CHAP_Target.S3.Configuring "CHAP_Target.md#CHAP_Target.S3.Configuring"). For more information about
+  creating a custom AWS KMS encryption key, see [Creating AWS KMS keys to encrypt Amazon S3 target
+  objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
+
+### Encryption in transit
+
+AWS DMS supports encryption in transit by ensuring that the data it replicates
+moves securely from the source endpoint to the target endpoint. This includes
+encrypting an S3 bucket on the replication instance that your replication task
+uses for intermediate storage as the data moves through the replication
+pipeline. To encrypt task connections to source and target endpoints AWS DMS uses
+Secure Socket Layer (SSL) or Transport Layer Security (TLS). By encrypting
+connections to both endpoints, AWS DMS ensures that your data is secure as it
+moves both from the source endpoint to your replication task and from your task
+to the target endpoint. For more information about using SSL/TLS with AWS DMS, see
+[Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md")
+
+AWS DMS supports both default and custom keys to encrypt both intermediate
+replication storage and connection information. You manage these keys by using
+AWS KMS. For more information, see [Setting an encryption key and
+specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
+
+### Key
+
+management
+
+AWS DMS supports default or custom keys to encrypt replication storage,
+connection information, and the target data storage for certain target
+endpoints. You manage these keys by using AWS KMS. For more information, see [Setting an encryption key and
+specifying AWS KMS permissions](CHAP_Security.md#CHAP_Security.EncryptionKey "CHAP_Security.md#CHAP_Security.EncryptionKey").
+
+## Internetwork
+
+traffic privacy
+
+Connections are provided with protection between AWS DMS and source and target
+endpoints in the same AWS Region, whether running on premises or as part of an
+AWS service in the cloud. (At least one endpoint, source or target, must run as
+part of an AWS service in the cloud.) This protection applies whether these
+components share the same virtual private cloud (VPC) or exist in separate VPCs, if
+the VPCs are all in the same AWS Region. For more information about the supported
+network configurations for AWS DMS, see [Setting up a network for a replication
+instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). For more information about the
+security considerations when using these network configurations, see [Network security for AWS Database Migration Service](CHAP_Security.md#CHAP_Security.Network "CHAP_Security.md#CHAP_Security.Network").
+
+## Data protection in DMS Fleet Advisor
+
+DMS Fleet Advisor collects and analyzes your database metadata to determine the right size of
+the migration target. DMS Fleet Advisor doesn't access data in your tables and doesn't transfer
+it. Also, DMS Fleet Advisor doesn't track database feature usage and doesn't access your usage
+statistics.
+
+You control access to your databases when you create database users which DMS Fleet Advisor
+uses to work with your databases. You grant the required privileges to these users.
+To use DMS Fleet Advisor, you grant your database users with read permissions. DMS Fleet Advisor doesn't
+modify your databases and doesn't require write permissions. For more information, see
+[Creating database users for AWS DMS Fleet Advisor](fa-database-users.md "fa-database-users.md").
+
+You can use data encryption in your databases. AWS DMS also encrypts connections
+within DMS Fleet Advisor and within its data collectors.
+
+DMS data collector uses the Data Protection application programming interface (DPAPI) to encrypt,
+protect, and store information about customer's environment and database credentials.
+DMS Fleet Advisor stores this encrypted data in a file on the server where your DMS data collector works.
+DMS Fleet Advisor doesn't transfer this data from this server. For more information about
+DPAPI, see [How to: Use Data Protection](https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection "https://learn.microsoft.com/en-us/dotnet/standard/security/how-to-use-data-protection").
+
+After you install the DMS data collector, you can view all queries that this application runs
+to collect metrics. You can run the DMS data collector in an offline mode and then review the
+collected data on your server. Also, you can review this collected data in your Amazon S3
+bucket. For more information, see [How does DMS data collector work?](fa-collecting.md#fa-data-collectors-how-it-works "fa-collecting.md#fa-data-collectors-how-it-works").

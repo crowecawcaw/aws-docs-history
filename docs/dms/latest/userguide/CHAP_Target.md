@@ -1,742 +1,284 @@
-# Using Amazon Neptune as a target for
+# Using an Oracle database as a target for
 
 AWS Database Migration Service
 
-Amazon Neptune is a fast, reliable, fully managed graph database service that makes it
-easy to build and run applications that work with highly connected datasets. The core of
-Neptune is a purpose-built, high-performance graph database engine. This engine is
-optimized for storing billions of relationships and querying the graph with milliseconds
-latency. Neptune supports the popular graph query languages Apache TinkerPop Gremlin
-and W3C's SPARQL. For more information on Amazon Neptune, see [What is
-Amazon Neptune?](../../../neptune/latest/userguide/intro.md "../../../neptune/latest/userguide/intro.md") in the _Amazon Neptune User Guide_.
+You can migrate data to Oracle database targets using AWS DMS, either from another
+Oracle database or from one of the other supported databases. You can use Secure Sockets
+Layer (SSL) to encrypt connections between your Oracle endpoint and the replication
+instance. For more information on using SSL with an Oracle endpoint, see [Using SSL with AWS Database Migration Service](CHAP_Security.md "CHAP_Security.md"). AWS DMS also supports
+the use of Oracle transparent data encryption (TDE) to encrypt data at rest in the
+target database because Oracle TDE does not require an encryption key or password to
+write to the database.
 
-Without a graph database such as Neptune, you probably model highly connected data
-in a relational database. Because the data has potentially dynamic connections,
-applications that use such data sources have to model connected data queries in SQL.
-This approach requires you to write an extra layer to convert graph queries into SQL.
-Also, relational databases come with schema rigidity. Any changes in the schema to model
-changing connections require downtime and additional maintenance of the query conversion
-to support the new schema. The query performance is also another big constraint to
-consider while designing your applications.
+For information about versions
+of Oracle that AWS DMS supports as a target, see [Targets for AWS DMS](CHAP_Introduction.md "CHAP_Introduction.md").
 
-Graph databases can greatly simplify such situations. Free from a schema, a rich graph
-query layer (Gremlin or SPARQL) and indexes optimized for graph queries increase
-flexibility and performance. The Amazon Neptune graph database also has enterprise
-features such as encryption at rest, a secure authorization layer, default backups,
-Multi-AZ support, read replica support, and others.
+When you use Oracle as a target, we assume that the data is to be migrated into the
+schema or user that is used for the target connection. If you want to migrate data to a
+different schema, use a schema transformation to do so. For example, suppose that your
+target endpoint connects to the user `RDSMASTER` and you want to migrate from
+the user `PERFDATA1` to `PERFDATA2`. In this case, create a
+transformation like the following.
 
-Using AWS DMS, you can migrate relational data that models a highly connected graph to a
-Neptune target endpoint from a DMS source endpoint for any supported SQL
-database.
+```
 
-For more details, see the following.
+{
+   "rule-type": "transformation",
+   "rule-id": "2",
+   "rule-name": "2",
+   "rule-action": "rename",
+   "rule-target": "schema",
+   "object-locator": {
+   "schema-name": "PERFDATA1"
+},
+"value": "PERFDATA2"
+}
+
+```
+
+When using Oracle as a target, AWS DMS migrates all tables and indexes to default table
+and index tablespaces in the target. If you want to migrate tables and indexes to
+different table and index tablespaces, use a tablespace transformation to do so. For
+example, suppose that you have a set of tables in the `INVENTORY` schema
+assigned to some tablespaces in the Oracle source. For the migration, you want to assign
+all of these tables to a single `INVENTORYSPACE` tablespace in the target. In
+this case, create a transformation like the following.
+
+```
+{
+   "rule-type": "transformation",
+   "rule-id": "3",
+   "rule-name": "3",
+   "rule-action": "rename",
+   "rule-target": "table-tablespace",
+   "object-locator": {
+      "schema-name": "INVENTORY",
+      "table-name": "%",
+      "table-tablespace-name": "%"
+   },
+   "value": "INVENTORYSPACE"
+}
+```
+
+For more information about transformations, see [Specifying table selection and transformations rules using
+JSON](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+
+If Oracle is both source and target, you can preserve existing table or index
+tablespace assignments by setting the Oracle source extra connection attribute,
+`enableHomogenousTablespace=true`. For more information, see [Endpoint settings
+when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib")
+
+For additional details on working with Oracle databases as a target for AWS DMS, see the
+following sections:
 
 ###### Topics
 
-- [Overview of migrating to
-  Amazon Neptune as a target](#CHAP_Target.Neptune.MigrationOverview "#CHAP_Target.Neptune.MigrationOverview")
-- [Specifying endpoint settings
-  for Amazon Neptune as a target](#CHAP_Target.Neptune.EndpointSettings "#CHAP_Target.Neptune.EndpointSettings")
-- [Creating an IAM service role for
-  accessing Amazon Neptune as a target](#CHAP_Target.Neptune.ServiceRole "#CHAP_Target.Neptune.ServiceRole")
-- [Specifying graph-mapping rules
-  using Gremlin and R2RML for Amazon Neptune as a target](#CHAP_Target.Neptune.GraphMapping "#CHAP_Target.Neptune.GraphMapping")
-- [Data types for Gremlin and R2RML
-  migration to Amazon Neptune as a target](#CHAP_Target.Neptune.DataTypes "#CHAP_Target.Neptune.DataTypes")
-- [Limitations of using Amazon Neptune
-  as a target](#CHAP_Target.Neptune.Limitations "#CHAP_Target.Neptune.Limitations")
+- [Limitations on Oracle as a target
+  for AWS Database Migration Service](#CHAP_Target.Oracle.Limitations "#CHAP_Target.Oracle.Limitations")
+- [User account privileges required for
+  using Oracle as a target](#CHAP_Target.Oracle.Privileges "#CHAP_Target.Oracle.Privileges")
+- [Configuring an Oracle database as
+  a target for AWS Database Migration Service](#CHAP_Target.Oracle.Configuration "#CHAP_Target.Oracle.Configuration")
+- [Endpoint settings
+  when using Oracle as a target for AWS DMS](#CHAP_Target.Oracle.ConnectionAttrib "#CHAP_Target.Oracle.ConnectionAttrib")
+- [Target data types for Oracle](#CHAP_Target.Oracle.DataTypes "#CHAP_Target.Oracle.DataTypes")
 
-## Overview of migrating to
+## Limitations on Oracle as a target
 
-Amazon Neptune as a target
+for AWS Database Migration Service
 
-Before starting a migration to a Neptune target, create the following resources
-in your AWS account:
+Limitations when using Oracle as a target for data migration include the
+following:
 
-- A Neptune cluster for the target endpoint.
-- A SQL relational database supported by AWS DMS for the source
-  endpoint.
-- An Amazon S3 bucket for the target endpoint. Create this S3 bucket in the same
-  AWS Region as your Neptune cluster. AWS DMS uses this S3 bucket as
-  intermediate file storage for the target data that it bulk loads to the
-  Neptune database. For more information on creating an S3 bucket, see
-  [Creating a bucket](../../../AmazonS3/latest/gsg/CreatingABucket.md "../../../AmazonS3/latest/gsg/CreatingABucket.md") in the _Amazon Simple Storage Service User Guide._
-- A virtual private cloud (VPC) endpoint for S3 in the same VPC as the
-  Neptune cluster.
-- An AWS Identity and Access Management (IAM) role that includes an IAM policy. This policy should
-  specify the `GetObject`, `PutObject`,
-  `DeleteObject` and `ListObject` permissions to the
-  S3 bucket for your target endpoint. This role is assumed by both AWS DMS and
-  Neptune with IAM access to both the target S3 bucket and the Neptune
-  database. For more information, see [Creating an IAM service role for
-  accessing Amazon Neptune as a target](#CHAP_Target.Neptune.ServiceRole "#CHAP_Target.Neptune.ServiceRole").
-
-After you have these resources, setting up and starting a migration to a Neptune
-target is similar to any full load migration using the console or DMS API. However,
-a migration to a Neptune target requires some unique steps.
-
-###### To migrate an AWS DMS relational database to Neptune
-
-1. Create a replication instance as described in
-   [Creating a replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
-2. Create and test a SQL relational database supported by AWS DMS for the
-   source endpoint.
-3. Create and test the target endpoint for your Neptune database.
-
-To connect the target endpoint to the Neptune database, specify the
-server name for either the Neptune cluster endpoint or the Neptune
-writer instance endpoint. Also, specify the S3 bucket folder for AWS DMS to
-store its intermediate files for bulk load to the Neptune database.
-
-During migration, AWS DMS stores all migrated target data in this S3 bucket
-folder up to a maximum file size that you specify. When this file storage
-reaches this maximum size, AWS DMS bulk loads the stored S3 data into the
-target database. It clears the folder to enable storage of any additional
-target data for subsequent loading to the target database. For more
-information on specifying these settings, see [Specifying endpoint settings
-for Amazon Neptune as a target](#CHAP_Target.Neptune.EndpointSettings "#CHAP_Target.Neptune.EndpointSettings"). 4. Create a full-load replication task with the resources created in steps
-1–3 and do the following:
-
-    1. Use task table mapping as usual to identify
-     specific source schemas, tables, and views to migrate from your
-     relational database using appropriate selection and transformation
-     rules. For more information, see [Using table mapping to
-     specify task settings](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
-    2. Specify target mappings by choosing one of the following to
-     specify mapping rules from source tables and views to your Neptune
-     target database graph:
-
-
-
-
-    	* Gremlin JSON – For information on using Gremlin JSON to
-    	 load a Neptune database, see [Gremlin load data format](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md") in the
-    	 *Amazon Neptune User Guide*.
-    	* SPARQL RDB to Resource Description Framework Mapping Language
-    	 (R2RML) – For information on using SPARQL R2RML, see
-    	 the W3C specification [R2RML: RDB to RDF mapping language](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/").
-    3. Do one of the following:
-
-
-
-
-    	* Using the AWS DMS console, specify graph-mapping options
-    	 using **Graph mapping rules** on the
-    	 **Create database migration task**
-    	 page.
-    	* Using the AWS DMS API, specify these options using the
-    	 `TaskData` request parameter of the
-    	 `CreateReplicationTask` API call.
-    For more information and examples using Gremlin JSON and SPARQL
-     R2RML to specify graph-mapping rules, see [Specifying graph-mapping rules
-     using Gremlin and R2RML for Amazon Neptune as a target](#CHAP_Target.Neptune.GraphMapping "#CHAP_Target.Neptune.GraphMapping").
-
-5. Start the replication for your migration task.
-
-## Specifying endpoint settings
-
-for Amazon Neptune as a target
-
-To create or modify a target endpoint, you can use the console or the
-`CreateEndpoint` or `ModifyEndpoint` API operations.
-
-For a Neptune target in the AWS DMS console, specify **Endpoint-specific
-settings** on the **Create endpoint** or
-**Modify endpoint** console page. For
-`CreateEndpoint` and `ModifyEndpoint`, specify request
-parameters for the `NeptuneSettings` option. The following example shows
-how to do this using the CLI.
+- AWS DMS doesn't create schema on the target Oracle database. You have
+  to create any schemas you want on the target Oracle database. The schema
+  name must already exist for the Oracle target. Tables from source schema are
+  imported to the user or schema, which AWS DMS uses to connect to the
+  target instance. To migrate multiple schemas, you can create multiple replication
+  tasks. You can also migrate data to different schemas on a target. To do this,
+  you need to use schema transformation rules on the AWS DMS table mappings.
+- AWS DMS doesn't support the `Use direct path full load`
+  option for tables with INDEXTYPE CONTEXT. As a workaround, you can use array
+  load.
+- With the batch optimized apply option, loading into the net changes table
+  uses a direct path, which doesn't support XML type. As a workaround, you can
+  use transactional apply mode.
+- Empty strings migrated from source databases can be treated differently
+  by the Oracle target (converted to one-space strings, for example). This
+  can result in AWS DMS validation reporting a mismatch.
+- You can express the total number of columns per table supported in Batch
+  optimized apply mode, using the following formula:
 
 ```
-dms create-endpoint --endpoint-identifier my-neptune-target-endpoint
---endpoint-type target --engine-name neptune
---server-name my-neptune-db.cluster-cspckvklbvgf.us-east-1.neptune.amazonaws.com
---port 8192
---neptune-settings
-     '{"ServiceAccessRoleArn":"arn:aws:iam::123456789012:role/myNeptuneRole",
-       "S3BucketName":"amzn-s3-demo-bucket",
-       "S3BucketFolder":"amzn-s3-demo-bucket-folder",
-       "ErrorRetryDuration":57,
-       "MaxFileSize":100,
-       "MaxRetryCount": 10,
-       "IAMAuthEnabled":false}‘
-
+2 * `columns_in_original_table` + `columns_in_primary_key` <= 999
 ```
 
-Here, the CLI `--server-name` option specifies the server name for the
-Neptune cluster writer endpoint. Or you can specify the server name for a
-Neptune writer instance endpoint.
+For example, if the original table has 25 columns and its Primary Key consists of 5 columns, then the total number of columns
+is 55. If a table exceeds the supported number of columns, then all of the changes are applied in one-by-one mode.
 
-The `--neptune-settings` option request parameters follow:
+- AWS DMS doesn't support Autonomous DB on Oracle Cloud Infrastructure (OCI).
+- In transactional apply mode, an Oracle target can process DML statements up to
+  32 KB in size. While this limit is sufficient for many use cases, DML statements
+  exceeding 32 KB will fail with the error: "ORA-01460: unimplemented or
+  unreasonable conversion requested." To resolve this issue, you must enable the
+  batch apply feature by setting the `BatchApplyEnabled` task setting
+  to `true`. Batch apply reduces the overall statement size, allowing
+  you to bypass the 32 KB limitation. For more information, see [Target
+  metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+- AWS DMS Direct path full load for LOB tables may fail with error ORA-39777 due
+  to special handling requirements for LOB data. This error occurs during the
+  direct path load process and can disrupt migration tasks involving LOB columns.
+  To resolve, disable the `useDirectPathFullLoad` setting on the target
+  endpoint and retry the load operation.
 
-- `ServiceAccessRoleArn` – (Required) The Amazon Resource
-  Name (ARN) of the service role that you created for the Neptune target
-  endpoint. For more information, see [Creating an IAM service role for
-  accessing Amazon Neptune as a target](#CHAP_Target.Neptune.ServiceRole "#CHAP_Target.Neptune.ServiceRole").
-- `S3BucketName` – (Required) The name of the S3 bucket
-  where DMS can temporarily store migrated graph data in .csv files before
-  bulk loading it to the Neptune target database. DMS maps the SQL source
-  data to graph data before storing it in these .csv files.
-- `S3BucketFolder` – (Required) A folder path where you
-  want DMS to store migrated graph data in the S3 bucket specified by
-  `S3BucketName`.
-- `ErrorRetryDuration` – (Optional) The number of
-  milliseconds for DMS to wait to retry a bulk load of migrated graph data to
-  the Neptune target database before raising an error. The default is
+## User account privileges required for
 
-250.
+using Oracle as a target
 
-- `MaxFileSize` – (Optional) The maximum size in KB of
-  migrated graph data stored in a .csv file before DMS bulk loads the data to
-  the Neptune target database. The default is 1,048,576 KB (1 GB). If
-  successful, DMS clears the bucket, ready to store the next batch of migrated
-  graph data.
-- `MaxRetryCount` – (Optional) The number of times for DMS
-  to retry a bulk load of migrated graph data to the Neptune target database
-  before raising an error. The default is 5.
-- `IAMAuthEnabled` – (Optional) If you want IAM
-  authorization enabled for this endpoint, set this parameter to
-  `true` and attach the appropriate IAM policy document to your
-  service role specified by `ServiceAccessRoleArn`. The default is
-  `false`.
+To use an Oracle target in an AWS Database Migration Service task, grant the following privileges in
+the Oracle database. You grant these to the user account specified in the Oracle
+database definitions for AWS DMS.
 
-## Creating an IAM service role for
+- SELECT ANY TRANSACTION
+- SELECT on V$NLS_PARAMETERS
+- SELECT on V$TIMEZONE_NAMES
+- SELECT on ALL_INDEXES
+- SELECT on ALL_OBJECTS
+- SELECT on DBA_OBJECTS
+- SELECT on ALL_TABLES
+- SELECT on ALL_USERS
+- SELECT on ALL_CATALOG
+- SELECT on ALL_CONSTRAINTS
+- SELECT on ALL_CONS_COLUMNS
+- SELECT on ALL_TAB_COLS
+- SELECT on ALL_IND_COLUMNS
+- DROP ANY TABLE
+- SELECT ANY TABLE
+- INSERT ANY TABLE
+- UPDATE ANY TABLE
+- CREATE ANY VIEW
+- DROP ANY VIEW
+- CREATE ANY PROCEDURE
+- ALTER ANY PROCEDURE
+- DROP ANY PROCEDURE
+- CREATE ANY SEQUENCE
+- ALTER ANY SEQUENCE
+- DROP ANY SEQUENCE
+- DELETE ANY TABLE
 
-accessing Amazon Neptune as a target
+For the following requirements, grant these additional
+privileges:
 
-To access Neptune as a target, create a service role using IAM. Depending on your
-Neptune endpoint configuration, attach to this role some or all of the following IAM policy
-and trust documents. When you create the Neptune endpoint, you
-provide the ARN of this service role. Doing so enables AWS DMS and Amazon Neptune to
-assume permissions to access both Neptune and its associated Amazon S3 bucket.
+- To use a specific table list, grant SELECT on any replicated table and
+  also ALTER on any replicated table.
+- To allow a user to create a table in a default tablespace, grant the
+  privilege GRANT UNLIMITED TABLESPACE.
+- For logon, grant the privilege CREATE SESSION.
+- If you are using a direct path (which is the default for full load), `GRANT LOCK ANY TABLE to `dms_user`;`.
+- If schema is different when using “DROP and CREATE” table prep mode, `GRANT CREATE ANY INDEX to `dms_user`;`.
+- For some full load scenarios, you might choose the "DROP and CREATE table"
+  or "TRUNCATE before loading" option where a target table schema is different
+  from the DMS user's. In this case, grant DROP ANY TABLE.
+- To store changes in change tables or an audit table where the target table
+  schema is different from the DMS user's, grant CREATE ANY TABLE and CREATE
+  ANY INDEX.
+- To validate LOB columns with the validation feature, grant EXECUTE privelege
+  on `SYS.DBMS_CRYPTO` to the DMS user.
 
-If you set the `IAMAuthEnabled` parameter in
-`NeptuneSettings` to `true` in your Neptune endpoint
-configuration, attach an IAM policy like the following to your service role. If you
-set `IAMAuthEnabled` to `false`, you can ignore this
-policy.
+### Read privileges required
 
-```
-// Policy to access Neptune
+for AWS Database Migration Service on the target database
 
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "VisualEditor0",
-                "Effect": "Allow",
-                "Action": "neptune-db:*",
-                "Resource": "arn:aws:neptune-db:us-east-1:123456789012:cluster-CLG7H7FHK54AZGHEH6MNS55JKM/*"
-            }
-        ]
-    }
-```
+The AWS DMS user account must be granted read permissions for the following
+DBA tables:
 
-The preceding IAM policy allows full access to the Neptune target cluster
-specified by `Resource`.
+- SELECT on DBA_USERS
+- SELECT on DBA_TAB_PRIVS
+- SELECT on DBA_OBJECTS
+- SELECT on DBA_SYNONYMS
+- SELECT on DBA_SEQUENCES
+- SELECT on DBA_TYPES
+- SELECT on DBA_INDEXES
+- SELECT on DBA_TABLES
+- SELECT on DBA_TRIGGERS
+- SELECT on SYS.DBA_REGISTRY
 
-Attach an IAM policy like the following to your service role. This policy allows
-DMS to temporarily store migrated graph data in the S3 bucket that you created for
-bulk loading to the Neptune target database.
+If any of the required privileges cannot be granted to V$xxx, then grant them
+ to V\_$xxx.
 
-```
-//Policy to access S3 bucket
+### Premigration assessments
 
-{
-	"Version": "2012-10-17",
-	"Statement": [{
-			"Sid": "ListObjectsInBucket0",
-			"Effect": "Allow",
-			"Action": "s3:ListBucket",
-			"Resource": [
-				"arn:aws:s3:::amzn-s3-demo-bucket"
-			]
-		},
-		{
-			"Sid": "AllObjectActions",
-			"Effect": "Allow",
-			"Action": ["s3:GetObject",
-				"s3:PutObject",
-				"s3:DeleteObject"
-			],
-
-			"Resource": [
-				"arn:aws:s3:::amzn-s3-demo-bucket/"
-			]
-		},
-		{
-			"Sid": "ListObjectsInBucket1",
-			"Effect": "Allow",
-			"Action": "s3:ListBucket",
-			"Resource": [
-				"arn:aws:s3:::amzn-s3-demo-bucket",
-				"arn:aws:s3:::amzn-s3-demo-bucket/"
-			]
-		}
-	]
-}
-```
-
-The preceding IAM policy allows your account to query the contents of the S3
-bucket (`arn:aws:s3:::amzn-s3-demo-bucket`) created for your Neptune target. It
-also allows your account to fully operate on the contents of all bucket files and
-folders (`arn:aws:s3:::amzn-s3-demo-bucket/`).
-
-Edit the trust relationship and attach the following IAM role to your service role
-to allow both AWS DMS and Amazon Neptune database service to assume the role.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Principal": {
- "Service": "dms.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- },
- {
- "Sid": "neptune",
- "Effect": "Allow",
- "Principal": {
- "Service": "rds.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
+To use the premigration assessments listed in [Oracle assessments](CHAP_Tasks.AssessmentReport.md "CHAP_Tasks.AssessmentReport.md") with Oracle as a Target,
+you must add the following permissions to the user account specified in the Oracle
+database target endpoint:
 
 ```
 
-For information about specifying this service role for your Neptune target
-endpoint, see [Specifying endpoint settings
-for Amazon Neptune as a target](#CHAP_Target.Neptune.EndpointSettings "#CHAP_Target.Neptune.EndpointSettings").
-
-## Specifying graph-mapping rules
-
-using Gremlin and R2RML for Amazon Neptune as a target
-
-The graph-mapping rules that you create specify how data extracted from an SQL
-relational database source is loaded into a Neptune database cluster target. The
-format of these mapping rules differs depending on whether the rules are for loading
-property-graph data using Apache TinkerPop Gremlin or Resource Description Framework
-(RDF) data using R2RML. Following, you can find information about these formats and
-where to learn more.
-
-You can specify these mapping rules when you create the migration task using
-either the console or DMS API.
-
-Using the console, specify these mapping rules using **Graph mapping
-rules** on the **Create database migration task**
-page. In **Graph mapping rules**, you can enter and edit the
-mapping rules directly using the editor provided. Or you can browse for a file that
-contains the mapping rules in the appropriate graph-mapping format.
-
-Using the API, specify these options using the `TaskData` request
-parameter of the `CreateReplicationTask` API call. Set
-`TaskData` to the path of a file containing the mapping rules in the
-appropriate graph-mapping format.
-
-### Graph-mapping rules
-
-for generating property-graph data using Gremlin
-
-Using Gremlin to generate the property-graph data, specify a JSON object with
-a mapping rule for each graph entity to be generated from the source data. The
-format of this JSON is defined specifically for bulk loading Amazon Neptune. The following
-template shows what each rule in this object looks like.
+GRANT SELECT ON V_$INSTANCE TO dms_user;
+GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
 
 ```
 
-{
-    "rules": [
-        {
-            "rule_id": "(an identifier for this rule)",
-            "rule_name": "(a name for this rule)",
-            "table_name": "(the name of the table or view being loaded)",
-            "vertex_definitions": [
-                {
-                    "vertex_id_template": "{col1}",
-                    "vertex_label": "(the vertex to create)",
-                    "vertex_definition_id": "(an identifier for this vertex)",
-                    "vertex_properties": [
-                        {
-                            "property_name": "(name of the property)",
-                            "property_value_template": "{col2} or text",
-                            "property_value_type": "(data type of the property)"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "rule_id": "(an identifier for this rule)",
-            "rule_name": "(a name for this rule)",
-            "table_name": "(the name of the table or view being loaded)",
-            "edge_definitions": [
-                {
-                    "from_vertex": {
-                        "vertex_id_template": "{col1}",
-                        "vertex_definition_id": "(an identifier for the vertex referenced above)"
-                    },
-                    "to_vertex": {
-                        "vertex_id_template": "{col3}",
-                        "vertex_definition_id": "(an identifier for the vertex referenced above)"
-                    },
-                    "edge_id_template": {
-                        "label": "(the edge label to add)",
-                        "template": "{col1}_{col3}"
-                    },
-                    "edge_properties":[
-                        {
-                            "property_name": "(the property to add)",
-                            "property_value_template": "{col4} or text",
-                            "property_value_type": "(data type like String, int, double)"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
-
-```
-
-The presence of a vertex label implies that the vertex is being created here.
-Its absence implies that the vertex is created by a different source, and this
-definition is only adding vertex properties. Specify as many vertex and edge
-definitions as required to specify the mappings for your entire relational
-database source.
-
-A sample rule for an `employee` table follows.
-
-```
-
-{
-    "rules": [
-        {
-            "rule_id": "1",
-            "rule_name": "vertex_mapping_rule_from_nodes",
-            "table_name": "nodes",
-            "vertex_definitions": [
-                {
-                    "vertex_id_template": "{emp_id}",
-                    "vertex_label": "employee",
-                    "vertex_definition_id": "1",
-                    "vertex_properties": [
-                        {
-                            "property_name": "name",
-                            "property_value_template": "{emp_name}",
-                            "property_value_type": "String"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "rule_id": "2",
-            "rule_name": "edge_mapping_rule_from_emp",
-            "table_name": "nodes",
-            "edge_definitions": [
-                {
-                    "from_vertex": {
-                        "vertex_id_template": "{emp_id}",
-                        "vertex_definition_id": "1"
-                    },
-                    "to_vertex": {
-                        "vertex_id_template": "{mgr_id}",
-                        "vertex_definition_id": "1"
-                    },
-                    "edge_id_template": {
-                        "label": "reportsTo",
-                        "template": "{emp_id}_{mgr_id}"
-                    },
-                    "edge_properties":[
-                        {
-                            "property_name": "team",
-                            "property_value_template": "{team}",
-                            "property_value_type": "String"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
-
-```
-
-Here, the vertex and edge definitions map a reporting relationship from an
-`employee` node with employee ID (`EmpID`) and an
-`employee` node with a manager ID
-(`managerId`).
-
-For more information about creating graph-mapping rules using Gremlin JSON,
-see [Gremlin load data format](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md") in the
-_Amazon Neptune User Guide_.
-
-### Graph-mapping rules for
-
-generating RDF/SPARQL data
-
-If you are loading RDF data to be queried using SPARQL, write the
-graph-mapping rules in R2RML. R2RML is a standard W3C language for mapping
-relational data to RDF. In an R2RML file, a _triples map_
-(for example, `<#TriplesMap1>` following) specifies a rule for
-translating each row of a logical table to zero or more RDF triples. A
-_subject map_ (for example, any
-`rr:subjectMap` following) specifies a rule for generating the
-subjects of the RDF triples generated by a triples map. A
-_predicate-object map_ (for example, any
-`rr:predicateObjectMap` following) is a function that creates one
-or more predicate-object pairs for each logical table row of a logical
-table.
-
-A simple example for a `nodes` table follows.
-
-```
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix ex: <http://example.com/ns#>.
-
-<#TriplesMap1>
-    rr:logicalTable [ rr:tableName "nodes" ];
-    rr:subjectMap [
-        rr:template "http://data.example.com/employee/{id}";
-        rr:class ex:Employee;
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ex:name;
-        rr:objectMap [ rr:column "label" ];
-    ]
-```
-
-In the previous example, the mapping defines graph nodes mapped from a table
-of employees.
-
-Another simple example for a `Student` table follows.
-
-```
-@prefix rr: <http://www.w3.org/ns/r2rml#>.
-@prefix ex: <http://example.com/#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-
-<#TriplesMap2>
-    rr:logicalTable [ rr:tableName "Student" ];
-    rr:subjectMap   [ rr:template "http://example.com/{ID}{Name}";
-                      rr:class foaf:Person ];
-    rr:predicateObjectMap [
-        rr:predicate ex:id ;
-        rr:objectMap  [ rr:column "ID";
-                        rr:datatype xsd:integer ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate foaf:name ;
-        rr:objectMap  [ rr:column "Name" ]
-    ].
-```
-
-In the previous example, the mapping defines graph nodes mapping
-friend-of-a-friend relationships between persons in a `Student`
-table.
-
-For more information about creating graph-mapping rules using SPARQL R2RML,
-see the W3C specification [R2RML: RDB to RDF mapping language](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/").
-
-## Data types for Gremlin and R2RML
-
-migration to Amazon Neptune as a target
-
-AWS DMS performs data type mapping from your SQL source endpoint to your Neptune
-target in one of two ways. Which way you use depends on the graph mapping format
-that you're using to load the Neptune database:
-
-- Apache TinkerPop Gremlin, using a JSON representation of the migration
-  data.
-- W3C's SPARQL, using an R2RML representation of the migration data.
-
-For more information on these two graph mapping formats, see [Specifying graph-mapping rules
-using Gremlin and R2RML for Amazon Neptune as a target](#CHAP_Target.Neptune.GraphMapping "#CHAP_Target.Neptune.GraphMapping").
-
-Following, you can find descriptions of the data type mappings for each
-format.
-
-### SQL source to Gremlin
-
-target data type mappings
-
-The following table shows the data type mappings from a SQL source to a
-Gremlin formatted target.
-
-AWS DMS maps any unlisted SQL source data type to a Gremlin
-`String`.
-
-| SQL source data types      | Gremlin target data types |
-| -------------------------- | ------------------------- |
-| `NUMERIC` (and variants)   | `Double`                  |
-| `DECIMAL`                  |
-| `TINYINT`                  | `Byte`                    |
-| `SMALLINT`                 | `Short`                   |
-| `INT, INTEGER`             | `Int`                     |
-| `BIGINT`                   | `Long`                    |
-| `FLOAT`                    | `Float`                   |
-| `DOUBLE PRECISION`         |
-| `REAL`                     | `Double`                  |
-| `BIT`                      | `Boolean`                 |
-| `BOOLEAN`                  |
-| `DATE`                     | `Date`                    |
-| `TIME`                     |
-| `TIMESTAMP`                |
-| `CHARACTER` (and variants) | `String`                  |
-
-For more information on the Gremlin data types for loading Neptune, see
-[Gremlin data types](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md#bulk-load-tutorial-format-gremlin-datatypes "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md#bulk-load-tutorial-format-gremlin-datatypes") in the
-_Neptune User Guide._
-
-### SQL source to R2RML (RDF)
-
-target data type mappings
-
-The following table shows the data type mappings from a SQL source to an R2RML
-formatted target.
-
-All listed RDF data types are case-sensitive, except RDF literal. AWS DMS maps
-any unlisted SQL source data type to an RDF literal.
-
-An _RDF literal_ is one of a variety of literal lexical
-forms and data types. For more information, see [RDF literals](https://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#section-Graph-Literal "https://www.w3.org/TR/2004/REC-rdf-concepts-20040210/#section-Graph-Literal") in the W3C specification
-_Resource Description Framework (RDF): Concepts and Abstract
-Syntax_.
-
-| SQL source data types      | R2RML (RDF) target data types |
-| -------------------------- | ----------------------------- |
-| `BINARY` (and variants)    | `xsd:hexBinary`               |
-| `NUMERIC` (and variants)   | `xsd:decimal`                 |
-| `DECIMAL`                  |
-| `TINYINT`                  | `xsd:integer`                 |
-| `SMALLINT`                 |
-| `INT`, `INTEGER`           |
-| `BIGINT`                   |
-| `FLOAT`                    | `xsd:double`                  |
-| `DOUBLE PRECISION`         |
-| `REAL`                     |
-| `BIT`                      | `xsd:boolean`                 |
-| `BOOLEAN`                  |
-| `DATE`                     | `xsd:date`                    |
-| `TIME`                     | `xsd:time`                    |
-| `TIMESTAMP`                | `xsd:dateTime`                |
-| `CHARACTER` (and variants) | RDF literal                   |
-
-For more information on the RDF data types for loading Neptune and their
-mappings to SQL source data types, see [Datatype conversions](https://www.w3.org/TR/r2rml/#datatype-conversions "https://www.w3.org/TR/r2rml/#datatype-conversions") in the W3C specification _R2RML: RDB
-to RDF Mapping Language_.
-
-## Limitations of using Amazon Neptune
-
-as a target
-
-The following limitations apply when using Neptune as a target:
-
-- AWS DMS currently supports full load tasks only for migration to a Neptune
-  target. Change data capture (CDC) migration to a Neptune target isn't
-  supported.
-- Make sure that your target Neptune database is manually cleared of all
-  data before starting the migration task, as in the following examples.
-
-To drop all data (vertices and edges) within the graph, run the following Gremlin
-command.
-
-```
-gremlin> g.V().drop().iterate()
-```
-
-To drop vertices that have the label `'customer'`, run the following
-Gremlin command.
-
-```
-gremlin> g.V().hasLabel('customer').drop()
-```
-
-###### Note
-
-It can take some time to drop a large dataset. You might want to
-iterate `drop()` with a limit, for example,
-`limit(1000)`.
-
-To drop edges that have the label `'rated'`, run the following Gremlin
-command.
-
-```
-gremlin> g.E().hasLabel('rated').drop()
-```
-
-###### Note
-
-It can take some time to drop a large dataset. You might want to
-iterate `drop()` with a limit, for example
-`limit(1000)`.
-
-- The DMS API operation `DescribeTableStatistics` can return
-  inaccurate results about a given table because of the nature of Neptune
-  graph data structures.
-
-During migration, AWS DMS scans each source table and uses graph mapping to
-convert the source data into a Neptune graph. The converted data is first
-stored in the S3 bucket folder specified for the target endpoint. If the
-source is scanned and this intermediate S3 data is generated successfully,
-`DescribeTableStatistics` assumes that the data was
-successfully loaded into the Neptune target database. But this isn't
-always true. To verify that the data was loaded correctly for a given table,
-compare `count()` return values at both ends of the migration for
-that table.
-
-In the following example, AWS DMS has loaded a `customer` table
-from the source database, which is assigned the label
-`'customer'` in the target Neptune database graph. You can
-make sure that this label is written to the target database. To do this,
-compare the number of `customer` rows available from the source
-database with the number of `'customer'` labeled rows loaded in
-the Neptune target database after the task completes.
-
-To get the number of customer rows available from the source database
-using SQL, run the following.
-
-```
-select count(*) from customer;
-```
-
-To get the number of `'customer'` labeled rows loaded into the
-target database graph using Gremlin, run the following.
-
-```
-gremlin> g.V().hasLabel('customer').count()
-```
-
-- Currently, if any single table fails to load, the whole task fails. Unlike
-  in a relational database target, data in Neptune is highly connected,
-  which makes it impossible in many cases to resume a task. If a task can't be
-  resumed successfully because of this type of data load failure, create a new
-  task to load the table that failed to load. Before running this new task,
-  manually clear the partially loaded table from the Neptune target.
-
-###### Note
-
-You can resume a task that fails migration to a Neptune target if
-the failure is recoverable (for example, a network transit
-error).
-
-- AWS DMS supports most standards for R2RML. However, AWS DMS doesn't support
-  certain R2RML standards, including inverse expressions, joins, and views. A
-  work-around for an R2RML view is to create a corresponding custom SQL view
-  in the source database. In the migration task, use table mapping to choose
-  the view as input. Then map the view to a table that is then consumed by
-  R2RML to generate graph data.
-- When you migrate source data with unsupported SQL data types, the
-  resulting target data can have a loss of precision. For more information,
-  see [Data types for Gremlin and R2RML
-  migration to Amazon Neptune as a target](#CHAP_Target.Neptune.DataTypes "#CHAP_Target.Neptune.DataTypes").
-- AWS DMS doesn't support migrating LOB data into a Neptune target.
+## Configuring an Oracle database as
+
+a target for AWS Database Migration Service
+
+Before using an Oracle database as a data migration target, you must provide an
+Oracle user account to AWS DMS. The user account must have read/write privileges
+on the Oracle database, as specified in [User account privileges required for
+using Oracle as a target](#CHAP_Target.Oracle.Privileges "#CHAP_Target.Oracle.Privileges").
+
+## Endpoint settings
+
+when using Oracle as a target for AWS DMS
+
+You can use endpoint settings to configure your Oracle target database similar to using
+extra connection attributes. You specify the settings when you create the target
+endpoint using the AWS DMS console, or by using the `create-endpoint` command in the
+[AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the
+`--oracle-settings '{"`EndpointSetting"`:
+ `"value"`, `...`}'` JSON syntax.
+
+The following table shows the endpoint settings that you can use with
+Oracle as a target.
+
+| Name                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `UseDirectPathFullLoad`    | When set to `Y`, AWS DMS uses a direct path full load.<br>Specify this value to enable<br>the direct path protocol in the Oracle Call Interface (OCI).<br>This OCI protocol enables the bulk loading of Oracle target<br>tables during a full load.<br>Default value: `true`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"UseDirectPathFullLoad": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `DirectPathParallelLoad`   | When set to `true`, this attribute specifies a<br>parallel load when `UseDirectPathFullLoad` is set to<br>`Y`. This attribute also only applies when you<br>use the AWS DMS parallel load feature. For more information, see<br>the description of the `parallel-load` operation in<br>[Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").<br>A limitation on specifying this parallel load setting is that<br>the target table cannot have any constraints or indexes. For<br>more information on this limitation, see [Enabling Constraints After a Parallel<br>Direct Path Load](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader-conventional-and-direct-loads.html#GUID-E2A3A8A3-78FF-45B6-90C0-14211621E77C "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader-conventional-and-direct-loads.html#GUID-E2A3A8A3-78FF-45B6-90C0-14211621E77C"). If constraints or indexes are<br>enabled, setting this attribute to `true` has no<br>effect.<br>Default value: `false`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"DirectPathParallelLoad": true}'` |
+| `DirectPathNoLog`          | When set to `true`, this attribute helps to<br>increase the commit rate on the Oracle target database by<br>writing directly to tables and not writing a trail to database<br>logs. For more information, see [Direct-Load INSERT](https://docs.oracle.com/cd/A87860_01/doc/server.817/a76965/c21dlins.htm "https://docs.oracle.com/cd/A87860_01/doc/server.817/a76965/c21dlins.htm"). This attribute<br>also only applies when you set<br>`UseDirectPathFullLoad` to `Y`.<br>Default value: `false`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"DirectPathNoLog": true}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `CharLengthSemantics`      | Specifies whether the length of a character column is in bytes or in characters. To indicate<br>that the character column length is in characters, set this<br>attribute to `CHAR`. Otherwise, the character column<br>length is in bytes.<br>Default value: Not set to `CHAR`<br>Valid values: `CHAR`<br>Example: `--oracle-settings '{"CharLengthSemantics": "CHAR"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `AlwaysReplaceEmptyString` | AWS DMS adds an extra space to replicate an empty string when<br>migrating to an Oracle target. In general, Oracle doesn't have a notation for an empty string.<br>When you insert an empty string on varchar2, you load empty strings as NULL. If you want to insert<br>the data as NULL on Oracle, set this attribute to FALSE.<br>Default value: `true`<br>Valid values: `true`/`false`<br>Example: `--oracle-settings '{"AlwaysReplaceEmptyString": false}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+## Target data types for Oracle
+
+A target Oracle database used with AWS DMS supports most Oracle data types. The
+following table shows the Oracle target data types that are supported when using
+AWS DMS and the default mapping from AWS DMS data types. For more information
+about how to view the data type that is mapped from the source, see the section for
+the source you are using.
+
+| AWS DMS data type | Oracle data type                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BOOLEAN           | NUMBER (1)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| BYTES             | RAW (length)                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| DATE              | DATETIME                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| TIME              | TIMESTAMP (0)                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| DATETIME          | TIMESTAMP (scale)                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| INT1              | NUMBER (3)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| INT2              | NUMBER (5)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| INT4              | NUMBER (10)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| INT8              | NUMBER (19)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| NUMERIC           | NUMBER (p,s)                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| REAL4             | FLOAT                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| REAL8             | FLOAT                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| STRING            | With date indication: DATE<br>With time indication: TIMESTAMP<br>With timestamp indication: TIMESTAMP<br>With timestamp_with_timezone indication: TIMESTAMP WITH<br>TIMEZONE<br>With timestamp_with_local_timezone indication: TIMESTAMP WITH<br>LOCAL TIMEZONE With interval_year_to_month indication: INTERVAL<br>YEAR TO MONTH<br>With interval_day_to_second indication: INTERVAL DAY TO SECOND<br>If length > 4000: CLOB<br>In all other cases: VARCHAR2 (length) |
+| UINT1             | NUMBER (3)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| UINT2             | NUMBER (5)                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| UINT4             | NUMBER (10)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| UINT8             | NUMBER (19)                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| WSTRING           | If length > 2000: NCLOB<br>In all other cases: NVARCHAR2 (length)                                                                                                                                                                                                                                                                                                                                                                                                      |
+| BLOB              | BLOB<br>To use this data type with AWS DMS, you must enable the use<br>of BLOBs for a specific task. BLOB data types are supported only<br>in tables that include a primary key                                                                                                                                                                                                                                                                                        |
+| CLOB              | CLOB<br>To use this data type with AWS DMS, you must enable the use<br>of CLOBs for a specific task. During change data capture (CDC),<br>CLOB data types are supported only in tables that include a<br>primary key.<br>STRING<br>An Oracle VARCHAR2 data type on<br>the source with a declared size greater than 4000 bytes maps<br>through the AWS DMS CLOB to a STRING on the Oracle target.                                                                       |
+| NCLOB             | NCLOB<br>To use this data type with AWS DMS, you must enable the use<br>of NCLOBs for a specific task. During CDC, NCLOB data types are<br>supported only in tables that include a primary key.<br>WSTRING<br>An Oracle VARCHAR2 data type on<br>the source with a declared size greater than 4000 bytes maps<br>through the AWS DMS NCLOB to a WSTRING on the Oracle target.                                                                                          |
+| XMLTYPE           | The XMLTYPE target data type is only relevant in<br>Oracle-to-Oracle replication tasks.<br>When the source database is Oracle, the source data types are<br>replicated as-is to the Oracle target. For example, an XMLTYPE<br>data type on the source is created as an XMLTYPE data type on<br>the target.                                                                                                                                                             |

@@ -1,28 +1,61 @@
-# Stream
+# Full-load
 
-buffer task settings
+task settings
 
-You can set stream buffer settings using the AWS CLI, including the
-following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
+Full-load settings include the following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-- `StreamBufferCount` – Use this option to specify the
-  number of data stream buffers for the migration task. The default stream
-  buffer number is 3. Increasing the value of this setting might increase
-  the speed of data extraction. However, this performance increase is
-  highly dependent on the migration environment, including the source
-  system and instance class of the replication server. The default is
-  sufficient for most situations.
-- `StreamBufferSizeInMB` – Use this option to indicate
-  the maximum size of each data stream buffer. The default size is 8 MB.
-  You might need to increase the value for this option when you work with
-  very large LOBs. You also might need to increase the value if you
-  receive a message in the log files that the stream buffer size is
-  insufficient. When calculating the size of this option, you can use the
-  following equation: `[Max LOB size (or LOB chunk size)]*[number of
-LOB columns]*[number of stream buffers]*[number of tables loading in
-parallel per task(MaxFullLoadSubTasks)]*3`
-- `CtrlStreamBufferSizeInMB` – Use this option to set
-  the size of the control stream buffer. The value is in megabytes, and
-  can be 1–8. The default value is 5. You might need to increase
-  this when working with a very large number of tables, such as tens of
-  thousands of tables.
+- To indicate how to handle loading the target at full-load startup,
+  specify one of the following values for the
+  `TargetTablePrepMode` option:
+  - `DO_NOTHING` – Data and metadata of the
+    existing target table aren't affected.
+  - `DROP_AND_CREATE` – The existing table is
+    dropped and a new table is created in its place.
+  - `TRUNCATE_BEFORE_LOAD` – Data is truncated
+    without affecting the table metadata.
+
+- To delay primary key or unique index creation until after a full load
+  completes, set the `CreatePkAfterFullLoad` option to
+  `true`.
+- For full-load and CDC-enabled tasks, you can set the following options
+  for `Stop task after full load completes`:
+  - `StopTaskCachedChangesApplied` – Set this
+    option to `true` to stop a task after a full load
+    completes and cached changes are applied.
+  - `StopTaskCachedChangesNotApplied` – Set this
+    option to `true` to stop a task before cached changes
+    are applied.
+
+- To indicate the maximum number of tables to load in parallel, set the
+  `MaxFullLoadSubTasks` option. The default is 8; the
+  maximum value is 49.
+- Set the `ParallelLoadThreads` option to indicate how many
+  concurrent threads DMS will employ during a full-load process to push data
+  records to a target endpoint. Zero is the default value (0).
+
+###### Important
+
+`MaxFullLoadSubTasks` controls the number of tables or
+table segments to load in parallel. `ParallelLoadThreads`
+controls the number of threads that are used by a migration task to
+execute the loads in parallel. _These settings are
+multiplicative_. As such, the total number of threads that
+are used during a full load task is approximately the result of the
+value of `ParallelLoadThreads` multiplied by the value of
+`MaxFullLoadSubTasks` (`ParallelLoadThreads`
+**\***
+`MaxFullLoadSubtasks)`.
+
+If you create tasks with a high number of Full Load sub tasks and a high number of parallel
+load threads, your task can consume too much memory and fail.
+
+- You can set the number of seconds that AWS DMS waits for transactions to
+  close before beginning a full-load operation. To do so, if transactions
+  are open when the task starts set the
+  `TransactionConsistencyTimeout` option. The default value
+  is 600 (10 minutes). AWS DMS begins the full load after the timeout value
+  is reached, even if there are open transactions. A full-load-only task
+  doesn't wait for 10 minutes but instead starts immediately.
+- To indicate the maximum number of records that can be transferred
+  together, set the `CommitRate` option. The default value is
+  10000, and the maximum value is 50000.

@@ -13,6 +13,6 @@ data provider and DMS Schema Conversion. For more information, see [Setting up a
 - [Using an Oracle Data Warehouse database as a source in DMS Schema Conversion](data-providers-oracle-dw.md "data-providers-oracle-dw.md")
 - [Using a PostgreSQL database as a source in DMS Schema Conversion](sc-data-providers-postgresql.md "sc-data-providers-postgresql.md")
 - [Using a MySQL database as a source in DMS Schema Conversion](sc-data-providers-mysql.md "sc-data-providers-mysql.md")
-- [Using an IBM Db2 for z/OS database as a source in
-  DMS Schema Conversion](sc-data-providers-db2.md "sc-data-providers-db2.md")
+- [Using an IBM Db2 for Linux, UNIX and Windows database as a source in DMS Schema Conversion](sc-data-providers-db2luw.md "sc-data-providers-db2luw.md")
+- [Using an IBM Db2 for z/OS database as a source in DMS Schema Conversion](sc-data-providers-db2zos.md "sc-data-providers-db2zos.md")
 - [Using a SAP ASE (Sybase ASE) database as a source in AWS DMS Schema Conversion](dm-data-providers-source-sybase-ASE.md "dm-data-providers-source-sybase-ASE.md")

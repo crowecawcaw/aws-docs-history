@@ -1,869 +1,352 @@
-# Oracle assessments
+# MySQL assessments
 
-For more information about permissions when using Oracle as a source, see [User account
-privileges required on a self-managed Oracle source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.Privileges "CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.Privileges") or [User account privileges required on an AWS-managed Oracle source for
-AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed "CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed").
-
-###### Note
-
-This section describes individual premigration assessments for migration tasks
-that use Oracle as a source or a target for AWS DMS.
-
-If you are using self-managed Oracle database as a source for AWS DMS, please
-use following permission set:
-
-```
-grant select on gv_$parameter to dms_user;
-grant select on v_$instance to dms_user;
-grant select on v_$version to dms_user;
-grant select on gv_$ASM_DISKGROUP to dms_user;
-grant select on gv_$database to dms_user;
-grant select on DBA_DB_LINKS to to dms_user;
-grant select on gv_$log_History to dms_user;
-grant select on gv_$log to dms_user;
-grant select on dba_types to dms_user;
-grant select on dba_users to dms_user;
-grant select on dba_directories to dms_user;
-grant execute on SYS.DBMS_XMLGEN to dms_user;
-```
-
-Additional permissions is required if you are using a self-managed Oracle
-database as a source for AWS DMS Serverless:
-
-```
-grant select on dba_segments to dms_user;
-grant select on v_$tablespace to dms_user;
-grant select on dba_tab_subpartitions to dms_user;
-grant select on dba_extents to dms_user;
-```
-
-If you are using an AWS-managed Oracle database as a source for AWS DMS, use
-the following set of permissions:
-
-```
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$PARAMETER', 'dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$INSTANCE', 'dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$VERSION','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('GV_$ASM_DISKGROUP','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('GV_$DATABASE','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_DB_LINKS','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('GV_$LOG_HISTORY','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('GV_$LOG','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_TYPES','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_USERS','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_DIRECTORIES','dms_user', 'SELECT');
-GRANT SELECT ON RDSADMIN.RDS_CONFIGURATION to dms_user;
-GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
-
-```
-
-Additional permissions is required if you are using an AWS-managed Oracle
-database as a source for AWS DMS Serverless:
-
-```
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_SEGMENTS','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_TAB_SUBPARTITIONS','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_EXTENTS','dms_user', 'SELECT');
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$TABLESPACE','dms_user', 'SELECT');
-```
-
-If you are using a self-managed Oracle database as a target for AWS DMS, use the
-following set of permissions:
-
-```
-grant select on v_$instance to dms_user;
-grant execute on SYS.DBMS_XMLGEN to dms_user;
-```
-
-If you are using an AWS-managed Oracle database as a target for AWS DMS, use
-the following set of permissions:
-
-```
-EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$INSTANCE', 'dms_user', 'SELECT');
-GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
-```
+This section describes individual premigration assessments for migration tasks that
+use a MySQL, Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition Serverless source endpoint.
 
 ###### Topics
 
-- [Validate that limited LOB mode only is used when BatchApplyEnabled is enabled](#CHAP_Tasks.AssessmentReport.Oracle.LimitedLOBMode "#CHAP_Tasks.AssessmentReport.Oracle.LimitedLOBMode")
-- [Validate if tables on the source has columns without scale specified for the Number data type](#CHAP_Tasks.AssessmentReport.Oracle.NumberTypeWithoutScale "#CHAP_Tasks.AssessmentReport.Oracle.NumberTypeWithoutScale")
-- [Validate triggers on the target database](#CHAP_Tasks.AssessmentReport.Oracle.TriggersOnTargetDatabase "#CHAP_Tasks.AssessmentReport.Oracle.TriggersOnTargetDatabase")
-- [Validate if source has archivelog DEST_ID set to 0](#CHAP_Tasks.AssessmentReport.Oracle.UseZeroDestIDTrue "#CHAP_Tasks.AssessmentReport.Oracle.UseZeroDestIDTrue")
-- [Validate if secondary indexes are enabled on the target database during full-load](#CHAP_Tasks.AssessmentReport.Oracle.SecondaryIndexesEnabled "#CHAP_Tasks.AssessmentReport.Oracle.SecondaryIndexesEnabled")
-- [Validate if tables used in the DMS task scope with BatchApplyEnabled have more than 999 columns](#CHAP_Tasks.AssessmentReport.Oracle.SetBatchApplyEnabledTrue "#CHAP_Tasks.AssessmentReport.Oracle.SetBatchApplyEnabledTrue")
-- [Check supplemental logging on database level](#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLogging "#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLogging")
-- [Validate if required DB link is created for Standby](#CHAP_Tasks.AssessmentReport.Oracle.DbLink "#CHAP_Tasks.AssessmentReport.Oracle.DbLink")
-- [Oracle validation for LOB datatype and if binary reader is configured](#CHAP_Tasks.AssessmentReport.Oracle.Lob "#CHAP_Tasks.AssessmentReport.Oracle.Lob")
-- [Validate if the database is CDB](#CHAP_Tasks.AssessmentReport.Oracle.Cdb "#CHAP_Tasks.AssessmentReport.Oracle.Cdb")
-- [Check the Oracle Database Edition](#CHAP_Tasks.AssessmentReport.Oracle.Express "#CHAP_Tasks.AssessmentReport.Oracle.Express")
-- [Validate Oracle CDC method for DMS](#CHAP_Tasks.AssessmentReport.Oracle.CdcConfigurations "#CHAP_Tasks.AssessmentReport.Oracle.CdcConfigurations")
-- [Validate Oracle RAC configuration for DMS](#CHAP_Tasks.AssessmentReport.Oracle.Rac "#CHAP_Tasks.AssessmentReport.Oracle.Rac")
-- [Validate if DMS user has permissions on target](#CHAP_Tasks.AssessmentReport.Oracle.TargetPermissions "#CHAP_Tasks.AssessmentReport.Oracle.TargetPermissions")
-- [Validate if supplemental logging is
-  required for all columns](#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLoggingColumns "#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLoggingColumns")
-- [Validate if supplemental
-  logging is enabled on tables with Primary or Unique keys](#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLoggingIndexes "#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLoggingIndexes")
-- [Validate if there are SecureFile LOBs and the task is
-  configured for Full LOB mode](#CHAP_Tasks.AssessmentReport.Oracle.SecureFileLOBs "#CHAP_Tasks.AssessmentReport.Oracle.SecureFileLOBs")
-- [Validate whether Function-Based
-  Indexes are being used within the tables included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.FunctionBasedIndexes "#CHAP_Tasks.AssessmentReport.Oracle.FunctionBasedIndexes")
-- [Validate whether global
-  temporary tables are being used on the tables included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.GlobalTemporaryTables "#CHAP_Tasks.AssessmentReport.Oracle.GlobalTemporaryTables")
-- [Validate whether
-  index-organized tables with an overflow segment are being used on the tables included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.IndexOrganizedTables "#CHAP_Tasks.AssessmentReport.Oracle.IndexOrganizedTables")
-- [Validate if multilevel nesting
-  tables are used on the tables included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.MultilevelNestingTables "#CHAP_Tasks.AssessmentReport.Oracle.MultilevelNestingTables")
-- [Validate if invisible columns are
-  used on the tables included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.InvisibleColumns "#CHAP_Tasks.AssessmentReport.Oracle.InvisibleColumns")
-- [Validate if materialized views based on
-  a ROWID column are used on the tables included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.RowIDMaterialViews "#CHAP_Tasks.AssessmentReport.Oracle.RowIDMaterialViews")
-- [Validate if Active Data Guard DML
-  Redirect feature is used.](#CHAP_Tasks.AssessmentReport.Oracle.ActiveDataGuard "#CHAP_Tasks.AssessmentReport.Oracle.ActiveDataGuard")
-- [Validate if Hybrid Partitioned
-  Tables are used.](#CHAP_Tasks.AssessmentReport.Oracle.HybridPartitionedTables "#CHAP_Tasks.AssessmentReport.Oracle.HybridPartitionedTables")
-- [Validate if schema-only Oracle
-  accounts are used](#CHAP_Tasks.AssessmentReport.Oracle.SchemaOnly "#CHAP_Tasks.AssessmentReport.Oracle.SchemaOnly")
-- [Validate if Virtual Columns are used](#CHAP_Tasks.AssessmentReport.Oracle.VirtualColumns "#CHAP_Tasks.AssessmentReport.Oracle.VirtualColumns")
-- [Validate whether table names defined in the task
-  scope contain apostrophes.](#CHAP_Tasks.AssessmentReport.Oracle.NamesWithApostrophes "#CHAP_Tasks.AssessmentReport.Oracle.NamesWithApostrophes")
-- [Validate whether the
-  columns defined in the task scope have
-  XMLType, Long, or Long Raw datatypes and verify the LOB mode configuration in the task settings.](#CHAP_Tasks.AssessmentReport.Oracle.XMLLongRawDatatypes "#CHAP_Tasks.AssessmentReport.Oracle.XMLLongRawDatatypes")
-- [Validate whether the source Oracle
-  version is supported by AWS DMS.](#CHAP_Tasks.AssessmentReport.Oracle.SourceOracleVersion "#CHAP_Tasks.AssessmentReport.Oracle.SourceOracleVersion")
-- [Validate whether the target Oracle
-  version is supported by AWS DMS.](#CHAP_Tasks.AssessmentReport.Oracle.TargetOracleVersion "#CHAP_Tasks.AssessmentReport.Oracle.TargetOracleVersion")
-- [Validate whether the DMS user has the
-  required permissions to use data validation.](#CHAP_Tasks.AssessmentReport.Oracle.DataValidation "#CHAP_Tasks.AssessmentReport.Oracle.DataValidation")
-- [Validate if the DMS user has permissions
-  to use Binary Reader with Oracle ASM](#CHAP_Tasks.AssessmentReport.Oracle.BinaryReaderPrivilegesASM "#CHAP_Tasks.AssessmentReport.Oracle.BinaryReaderPrivilegesASM")
-- [Validate if the DMS user has permissions
-  to use Binary Reader with Oracle non-ASM](#CHAP_Tasks.AssessmentReport.Oracle.BinaryReaderPrivilegesNonASM "#CHAP_Tasks.AssessmentReport.Oracle.BinaryReaderPrivilegesNonASM")
-- [Validate if the DMS user has permissions to use
-  Binary Reader with CopyToTempFolder method](#CHAP_Tasks.AssessmentReport.Oracle.BinaryReaderTemp "#CHAP_Tasks.AssessmentReport.Oracle.BinaryReaderTemp")
-- [Validate if the DMS user has permissions to
-  use Oracle Standby as a Source](#CHAP_Tasks.AssessmentReport.Oracle.StandbySource "#CHAP_Tasks.AssessmentReport.Oracle.StandbySource")
-- [Validate if the DMS source is connected
-  to an application container PDB](#CHAP_Tasks.AssessmentReport.Oracle.AppPdb "#CHAP_Tasks.AssessmentReport.Oracle.AppPdb")
-- [Validate if the table has XML datatypes
-  included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.XmlColumns "#CHAP_Tasks.AssessmentReport.Oracle.XmlColumns")
-- [Validate whether archivelog mode is
-  enabled on the source database.](#CHAP_Tasks.AssessmentReport.Oracle.Archivelog "#CHAP_Tasks.AssessmentReport.Oracle.Archivelog")
-- [Validates the archivelog
-  retention for RDS Oracle.](#CHAP_Tasks.AssessmentReport.Oracle.ArchivelogRetention "#CHAP_Tasks.AssessmentReport.Oracle.ArchivelogRetention")
-- [Validate if the table has
-  Extended datatypes included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.ExtendedColumns "#CHAP_Tasks.AssessmentReport.Oracle.ExtendedColumns")
-- [Validate the length of the object
-  name included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.30ByteLimit "#CHAP_Tasks.AssessmentReport.Oracle.30ByteLimit")
-- [Validate if the DMS source is
-  connected to an Oracle PDB](#CHAP_Tasks.AssessmentReport.Oracle.PDBEnabled "#CHAP_Tasks.AssessmentReport.Oracle.PDBEnabled")
-- [Validate if the table has spatial
-  columns included in the task scope.](#CHAP_Tasks.AssessmentReport.Oracle.SpatialColumns "#CHAP_Tasks.AssessmentReport.Oracle.SpatialColumns")
-- [Validate if the DMS source is connected
-  to an Oracle standby.](#CHAP_Tasks.AssessmentReport.Oracle.StandbyDB "#CHAP_Tasks.AssessmentReport.Oracle.StandbyDB")
-- [Validate if the source
-  database tablespace is encrypted using TDE.](#CHAP_Tasks.AssessmentReport.Oracle.StandbyDB "#CHAP_Tasks.AssessmentReport.Oracle.StandbyDB")
-- [Validates if the source database
-  uses Automatic Storage Management (ASM)](#CHAP_Tasks.AssessmentReport.Oracle.ASMSource "#CHAP_Tasks.AssessmentReport.Oracle.ASMSource")
-- [Validate if batch apply is
-  enabled and whether the table on the target Oracle database has parallelism enabled at the
-  table or index level](#CHAP_Tasks.AssessmentReport.Oracle.batchapply "#CHAP_Tasks.AssessmentReport.Oracle.batchapply")
-- [Recommend
-  “Bulk Array Size” parameter by validating the tables in the task
-  scope](#CHAP_Tasks.AssessmentReport.Oracle.bulkarraysize "#CHAP_Tasks.AssessmentReport.Oracle.bulkarraysize")
-- [Validate if HandleCollationDiff task setting is Configured](#CHAP_Tasks.AssessmentReport.Oracle.handlecollationdiff "#CHAP_Tasks.AssessmentReport.Oracle.handlecollationdiff")
-- [Validate if
-  table has primary key or unique index and its state is VALID when DMS
-  validation is enabled](#CHAP_Tasks.AssessmentReport.Oracle.pkvalidity "#CHAP_Tasks.AssessmentReport.Oracle.pkvalidity")
-- [Validate if
-  Binary Reader is used for Oracle Standby as a source](#CHAP_Tasks.AssessmentReport.Oracle.binaryreader "#CHAP_Tasks.AssessmentReport.Oracle.binaryreader")
-- [Validate if the AWS DMS user has the required directory permissions to
-  replicate data from an Oracle RDS Standby database.](#CHAP_Tasks.AssessmentReport.Oracle.directorypermissions "#CHAP_Tasks.AssessmentReport.Oracle.directorypermissions")
-- [Validate the type of Oracle Standby used for replication](#CHAP_Tasks.AssessmentReport.Oracle.physicalstandby "#CHAP_Tasks.AssessmentReport.Oracle.physicalstandby")
-- [Validate if
-  required directories are created for RDS Oracle standby](#CHAP_Tasks.AssessmentReport.Oracle.rdsstandby "#CHAP_Tasks.AssessmentReport.Oracle.rdsstandby")
-- [Validate if
-  Primary Key or Unique Index exists on target for Batch Apply](#CHAP_Tasks.AssessmentReport.Oracle.batchapplypkui "#CHAP_Tasks.AssessmentReport.Oracle.batchapplypkui")
-- [Validate if both Primary Key and Unique index exist on target for Batch
-  Apply](#CHAP_Tasks.AssessmentReport.Oracle.batchapplypkuitarget "#CHAP_Tasks.AssessmentReport.Oracle.batchapplypkuitarget")
-- [Validate if
-  unsupported HCC levels are used for Full Load](#CHAP_Tasks.AssessmentReport.Oracle.hccfullload "#CHAP_Tasks.AssessmentReport.Oracle.hccfullload")
-- [Validate if
-  unsupported HCC levels are used for Full Load with CDC](#CHAP_Tasks.AssessmentReport.Oracle.hccandcdc "#CHAP_Tasks.AssessmentReport.Oracle.hccandcdc")
+- [Validate if Binary Log transaction
+  compression is disabled](#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogTransaction "#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogTransaction")
+- [Validate if DMS user has REPLICATION CLIENT and
+  REPLICATION SLAVE permissions for the source database](#CHAP_Tasks.AssessmentReport.MySQL.ReplicationClientPermissions "#CHAP_Tasks.AssessmentReport.MySQL.ReplicationClientPermissions")
+- [Validate if DMS user has SELECT permissions
+  for the source database tables](#CHAP_Tasks.AssessmentReport.MySQL.DMSUserSelectPermissions "#CHAP_Tasks.AssessmentReport.MySQL.DMSUserSelectPermissions")
+- [Validate if the server_id is set to 1 or greater in the source database](#CHAP_Tasks.AssessmentReport.MySQL.ServerID "#CHAP_Tasks.AssessmentReport.MySQL.ServerID")
+- [Validate if DMS user has necessary permissions for the
+  MySQL database as a target](#CHAP_Tasks.AssessmentReport.MySQL.UserNecessaryPermissions "#CHAP_Tasks.AssessmentReport.MySQL.UserNecessaryPermissions")
+- [Validate if automatic removal of binary logs is set for the source database](#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogAutomaticRemoval "#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogAutomaticRemoval")
+- [Validate that limited LOB mode only is used
+  when BatchApplyEnabled is set to true](#CHAP_Tasks.AssessmentReport.MySQL.LimitedLOBMode "#CHAP_Tasks.AssessmentReport.MySQL.LimitedLOBMode")
+- [Validate if a
+  table uses a storage engine other than Innodb](#CHAP_Tasks.AssessmentReport.MySQL.Innodb "#CHAP_Tasks.AssessmentReport.MySQL.Innodb")
+- [Validate if auto-increment
+  is enabled on any tables used for migration](#CHAP_Tasks.AssessmentReport.MySQL.AutoIncrement "#CHAP_Tasks.AssessmentReport.MySQL.AutoIncrement")
+- [Validate if the database binlog image
+  is set to FULL to support DMS CDC](#CHAP_Tasks.AssessmentReport.MySQL.BinlogImage "#CHAP_Tasks.AssessmentReport.MySQL.BinlogImage")
+- [Validate if the source database
+  is a MySQL Read-Replica](#CHAP_Tasks.AssessmentReport.MySQL.ReadReplica "#CHAP_Tasks.AssessmentReport.MySQL.ReadReplica")
+- [Validate if a table
+  has partitions, and recommend target_table_prep_mode for full-load task settings](#CHAP_Tasks.AssessmentReport.MySQL.FullLoadTaskSettings "#CHAP_Tasks.AssessmentReport.MySQL.FullLoadTaskSettings")
+- [Validate if DMS
+  supports the database version](#CHAP_Tasks.AssessmentReport.MySQL.DatabaseVersion "#CHAP_Tasks.AssessmentReport.MySQL.DatabaseVersion")
+- [Validate if the target database
+  is configured to set local_infile to 1](#CHAP_Tasks.AssessmentReport.MySQL.LocalInfile "#CHAP_Tasks.AssessmentReport.MySQL.LocalInfile")
+- [Validate if target database has
+  tables with foreign keys](#CHAP_Tasks.AssessmentReport.MySQL.ForeignKeys "#CHAP_Tasks.AssessmentReport.MySQL.ForeignKeys")
+- [Validate if source tables in the task
+  scope have cascade constraints](#CHAP_Tasks.AssessmentReport.MySQL.Cascade "#CHAP_Tasks.AssessmentReport.MySQL.Cascade")
+- [Validate if the timeout values are
+  appropriate for a MySQL source or target](#CHAP_Tasks.AssessmentReport.MySQL.Timeout "#CHAP_Tasks.AssessmentReport.MySQL.Timeout")
 - [Validate
-  if unsupported HCC compression used for CDC](#CHAP_Tasks.AssessmentReport.Oracle.binaryreaderhcccdc "#CHAP_Tasks.AssessmentReport.Oracle.binaryreaderhcccdc")
-- [CDC
-  Recommendation based on source compression method](#CHAP_Tasks.AssessmentReport.Oracle.cdcmethodbycompression "#CHAP_Tasks.AssessmentReport.Oracle.cdcmethodbycompression")
-- [Check if
-  batch apply is enabled and validate whether the table has more than 999
-  columns](#CHAP_Tasks.AssessmentReport.Oracle.batchapplylob "#CHAP_Tasks.AssessmentReport.Oracle.batchapplylob")
+  max_statement_time database parameter](#CHAP_Tasks.AssessmentReport.MySQL.max_statement_time "#CHAP_Tasks.AssessmentReport.MySQL.max_statement_time")
+- [Validate
+  if Primary Key or Unique Index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.MySQL.batchapply_absence "#CHAP_Tasks.AssessmentReport.MySQL.batchapply_absence")
+- [Validate if
+  both Primary Key and Unique index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.MySQL.batchapply_simul "#CHAP_Tasks.AssessmentReport.MySQL.batchapply_simul")
+- [Validate if
+  secondary indexes are enabled during full load on the target
+  database](#CHAP_Tasks.AssessmentReport.MySQL.secondaryindexes "#CHAP_Tasks.AssessmentReport.MySQL.secondaryindexes")
+- [Validate if
+  table has primary key or unique index when DMS validation is enabled](#CHAP_Tasks.AssessmentReport.MySQL.pk_validity "#CHAP_Tasks.AssessmentReport.MySQL.pk_validity")
+- [Recommendation
+  on using MaxFullLoadSubTasks setting](#CHAP_Tasks.AssessmentReport.MySQL.fullload_subtasks "#CHAP_Tasks.AssessmentReport.MySQL.fullload_subtasks")
 - [Check
-  Transformation Rule for Digits Randomize](#CHAP_Tasks.AssessmentReport.Oracle.digits.randomize "#CHAP_Tasks.AssessmentReport.Oracle.digits.randomize")
-- [Check
-  Transformation Rule for Digits mask](#CHAP_Tasks.AssessmentReport.Oracle.digits.mask "#CHAP_Tasks.AssessmentReport.Oracle.digits.mask")
-- [Check
-  Transformation Rule for Hashing mask](#CHAP_Tasks.AssessmentReport.Oracle.hash.mask "#CHAP_Tasks.AssessmentReport.Oracle.hash.mask")
+  Transformation Rule for Digits Randomize](#CHAP_Tasks.AssessmentReport.MySQL.digits.randomise "#CHAP_Tasks.AssessmentReport.MySQL.digits.randomise")
+- [Check Transformation
+  Rule for Digits mask](#CHAP_Tasks.AssessmentReport.MySQL.digits.mask "#CHAP_Tasks.AssessmentReport.MySQL.digits.mask")
+- [Check Transformation
+  Rule for Hashing mask](#CHAP_Tasks.AssessmentReport.MYSQL.hash.mask "#CHAP_Tasks.AssessmentReport.MYSQL.hash.mask")
 - [Verify
   that Data Validation task settings and Data Masking Digit randomization are
-  not enabled simultaneously](#CHAP_Tasks.AssessmentReport.Oracle.all.digit.random "#CHAP_Tasks.AssessmentReport.Oracle.all.digit.random")
+  not enabled simultaneously](#CHAP_Tasks.AssessmentReport.MYSQL.all.digits.random "#CHAP_Tasks.AssessmentReport.MYSQL.all.digits.random")
 - [Verify that
   Data Validation task settings and Data Masking Hashing mask are not enabled
-  simultaneously](#CHAP_Tasks.AssessmentReport.Oracle.all.hash.mask "#CHAP_Tasks.AssessmentReport.Oracle.all.hash.mask")
+  simultaneously](#CHAP_Tasks.AssessmentReport.MYSQL.all.hash.mask "#CHAP_Tasks.AssessmentReport.MYSQL.all.hash.mask")
 - [Verify that
   Data Validation task settings and Data Masking Digit mask are not enabled
-  simultaneously](#CHAP_Tasks.AssessmentReport.Oracle.all.digit.mask "#CHAP_Tasks.AssessmentReport.Oracle.all.digit.mask")
-- [Validate
-  that replication to a streaming target does not include LOBs or extended
-  data type columns](#CHAP_Tasks.AssessmentReport.Oracle.streaming-target "#CHAP_Tasks.AssessmentReport.Oracle.streaming-target")
+  simultaneously](#CHAP_Tasks.AssessmentReport.MYSQL.all.digit.mask "#CHAP_Tasks.AssessmentReport.MYSQL.all.digit.mask")
+- [Check if source
+  Amazon Aurora MySQL instance is not a read replica](#CHAP_Tasks.AssessmentReport.MYSQL.read.only "#CHAP_Tasks.AssessmentReport.MYSQL.read.only")
+- [Check if
+  binary log retention time is set properly](#CHAP_Tasks.AssessmentReport.MYSQL.retention.time "#CHAP_Tasks.AssessmentReport.MYSQL.retention.time")
+- [Check if
+  source tables do not have invisible columns.](#CHAP_Tasks.AssessmentReport.MYSQL.invisible.columns "#CHAP_Tasks.AssessmentReport.MYSQL.invisible.columns")
+- [Validate if
+  the database binlog format is set to ROW to support DMS CDC](#CHAP_Tasks.AssessmentReport.MYSQL.binlog.format "#CHAP_Tasks.AssessmentReport.MYSQL.binlog.format")
 - [Validate that
-  CDC-only task is configured to use the OpenTransactionWindow endpoint
-  setting](#CHAP_Tasks.AssessmentReport.Oracle.open.tx.window "#CHAP_Tasks.AssessmentReport.Oracle.open.tx.window")
-- [Validate
-  that at least one selected object exists in the source database](#CHAP_Tasks.AssessmentReport.Oracle.all.check.source.selection.rules "#CHAP_Tasks.AssessmentReport.Oracle.all.check.source.selection.rules")
-- [Validate
-  that target foreign key constraints are disabled for migration](#CHAP_Tasks.AssessmentReport.Oracle.target.foreign.key.constraints.check "#CHAP_Tasks.AssessmentReport.Oracle.target.foreign.key.constraints.check")
+  at least one selected object exists in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.selection.rules "#CHAP_Tasks.AssessmentReport.MYSQL.selection.rules")
 - [Validate that
-  the Oracle database and AWS DMS versions are compatible](#CHAP_Tasks.AssessmentReport.Oracle.dms.compatibility.version.check "#CHAP_Tasks.AssessmentReport.Oracle.dms.compatibility.version.check")
+  tables with generated columns exist in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.generated.columns "#CHAP_Tasks.AssessmentReport.MYSQL.generated.columns")
 - [Validate that
-  secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.Oracle.all.check.secondary.constraints "#CHAP_Tasks.AssessmentReport.Oracle.all.check.secondary.constraints")
-- [Validate that session timeout
-  settings (IDLE_TIME) are set to UNLIMITED](#CHAP_Tasks.AssessmentReport.Oracle.check.idle.time "#CHAP_Tasks.AssessmentReport.Oracle.check.idle.time")
+  skipTableSuspensionForPartitionDdl is enabled for partitioned tables](#CHAP_Tasks.AssessmentReport.MYSQL.tablepartition.ddl "#CHAP_Tasks.AssessmentReport.MYSQL.tablepartition.ddl")
 - [Validate that
-  the AWS DMS user has all required permissions on the source database](#CHAP_Tasks.AssessmentReport.Oracle.validate.permissions.on.source "#CHAP_Tasks.AssessmentReport.Oracle.validate.permissions.on.source")
+  max_allowed_packet size can handle source LOB columns](#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob "#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob")
 - [Validate that
-  XMLTYPE or LOB columns exist when Oracle LogMiner is used](#CHAP_Tasks.AssessmentReport.Oracle.update.lob.columns "#CHAP_Tasks.AssessmentReport.Oracle.update.lob.columns")
+  secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.secondary.constraints "#CHAP_Tasks.AssessmentReport.MYSQL.secondary.constraints")
 
-##
+## Validate if Binary Log transaction
 
-Validate that limited LOB mode only is used when `BatchApplyEnabled` is enabled
+compression is disabled
 
-**API key:** `oracle-batch-apply-lob-mode`
+**API key:** `mysql-check-binlog-compression`
 
-This premigration assessment validates whether tables in the DMS task includes LOB columns. If LOB columns are
-included in the scope of the task, you must use `BatchApplyEnabled` together with
-limited LOB mode only.
-
-For more information, see
-[Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
-
-##
-
-Validate if tables on the source has columns without scale specified for the Number data type
-
-**API key:** `oracle-number-columns-without-scale`
-
-This premigration assessment validates whether the DMS task includes columns of NUMBER data type without
-scale specified. We recommend that you set the endpoint setting `NumberDataTypeScale` to the value specified
-in the assessment report.
+This premigration assessment validates whether binary Log transaction compression is disabled.
+AWS DMS doesn't support binary log transaction compression.
 
 For more information, see
-[Endpoint settings when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib").
+[Limitations on using a MySQL database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Limitations "CHAP_Source.md#CHAP_Source.MySQL.Limitations").
 
-##
+## Validate if DMS user has REPLICATION CLIENT and
 
-Validate triggers on the target database
+REPLICATION SLAVE permissions for the source database
 
-**API key:** `oracle-target-triggers-are-enabled`
+**API key:** `mysql-check-replication-privileges`
 
-This premigration assessment validates whether triggers are enabled on the target database. The assessment will fail if triggers are enabled. We
-recommend that you disable or remove the triggers during the migration.
-
-For more information, see
-[For more information, see DMS best practices](CHAP_BestPractices.md "CHAP_BestPractices.md").
-
-##
-
-Validate if source has archivelog `DEST_ID` set to 0
-
-**API key:** `oracle-zero-archive-log-dest-id`
-
-This premigration assessment validates whether endpoint extra connection attribute
-`useZeroDestid=true` is set for source if archived log `DEST_ID` is set to 0.
+This premigration assessment validates whether the DMS user specified in the source endpoint connection
+settings has `REPLICATION CLIENT` and `REPLICATION SLAVE` permissions for the source database if the
+DMS task migration type is CDC or full-load + CDC.
 
 For more information, see
-[How to handle AWS DMS replication when used with Oracle database in fail-over scenarios](https://aws.amazon.com/blogs/database/how-to-handle-aws-dms-replication-when-used-with-oracle-database-in-fail-over-scenarios/ "https://aws.amazon.com/blogs/database/how-to-handle-aws-dms-replication-when-used-with-oracle-database-in-fail-over-scenarios/").
+[Using any MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Prerequisites "CHAP_Source.md#CHAP_Source.MySQL.Prerequisites").
 
-##
+## Validate if DMS user has SELECT permissions
 
-Validate if secondary indexes are enabled on the target database during full-load
+for the source database tables
 
-**API key:** `oracle-check-secondary-indexes`
+**API key:** `mysql-check-select-privileges`
 
-This premigration assessment validates whether secondary indexes are enabled during a full-load on the target database.
-We recommend that you disable or remove the secondary indexes during full-load.
-
-For more information,
-[Best practices for AWS Database Migration Service](CHAP_BestPractices.md "CHAP_BestPractices.md").
-
-##
-
-Validate if tables used in the DMS task scope with BatchApplyEnabled have more than 999 columns
-
-**API key:** `oracle-batch-apply-lob-999`
-
-Tables with batch optimized apply mode enabled can't have more than a total of 999 columns.
-Tables that have more than 999 columns will cause AWS DMS to process the batch one by one, which increases latency.
-DMS uses the formula **2 \* columns_in_original_table + columns_in_primary_key <= 999**
-to calculate the total number of columns per table supported in batch-optimized apply mode.
+This premigration assessment validates whether the DMS user specified in the source endpoint
+connection settings has SELECT permissions for the source database tables.
 
 For more information, see
-[Limitations on Oracle as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Oracle.Limitations "CHAP_Target.md#CHAP_Target.Oracle.Limitations").
+[Using any MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Prerequisites "CHAP_Source.md#CHAP_Source.MySQL.Prerequisites").
 
-## Check supplemental logging on database level
+## Validate if the server_id is set to 1 or greater in the source database
 
-**API key:** `oracle-supplemental-db-level`
+**API key:** `mysql-check-server-id`
 
-This premigration assessment validates if minimum supplemental logging is enabled at the database level.
-You must enable supplemental logging to use an Oracle database as a source for migration.
+This premigration assessment validates whether the `server_id` server variable is set to 1 or
+greater in the source database for CDC migration type.
 
-To enable supplemental logging, use the following query:
+For more information about sources for AWS DMS, see
+[Using a self-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged").
 
-```
-ALTER DATABASE ADD SUPPLEMENTAL LOG DATA
-```
+## Validate if DMS user has necessary permissions for the
 
-For more information, see
-[Setting up supplemental logging](CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging "CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging").
+MySQL database as a target
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+**API key:** `mysql-check-target-privileges`
 
-## Validate if required DB link is created for Standby
+This premigration assessment validates whether the DMS user specified in the target endpoint connection settings
+has the necessary permissions for the MySQL database as a target.
 
-**API key:** `oracle-validate-standby-dblink`
+For more information about MySQL source endpoint prerequisites, see
+[Using any MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Prerequisites "CHAP_Source.md#CHAP_Source.MySQL.Prerequisites").
 
-This premigration assessment validates if Dblink is created for the Oracle standby database source. AWSDMS_DBLINK is a
-prerequisite for using a standby database as a source. When using Oracle Standby as a source,
-AWS DMS does not validate open transactions by default.
+## Validate if automatic removal of binary logs is set for the source database
 
-For more information, see
-[Working with a self-managed Oracle
-database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Self-Managed "CHAP_Source.md#CHAP_Source.Oracle.Self-Managed").
+**API key:** `mysql-check-expire-logs-days`
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+This premigration assessment validates whether your database is configured to automatically remove
+binary logs. The values of either `EXPIRE_LOGS_DAYS` or `BINLOG_EXPIRE_LOGS_SECONDS`
+global system variables should be greater than zero to prevent overuse of disk space during migration.
 
-## Oracle validation for LOB datatype and if binary reader is configured
+For more information about sources for AWS DMS, see
+[Using a self-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged").
 
-**API key:** `oracle-binary-lob-source-validation`
+## Validate that limited LOB mode only is used
 
-This premigration assessment validates if Oracle LogMiner is used for an Oracle database endpoint version 12c or later.
-AWS DMS does not support Oracle LogMiner for migrations of LOB columns from Oracle databases version 12c. This assessment
-also checks for the presence of LOB columns and provides appropriate recommendations.
+when `BatchApplyEnabled` is set to true
 
-To configure your migration to not use Oracle LogMiner, add the following configuration to your source endpoint:
+**API key:** `mysql-batch-apply-lob-mode`
 
-```
-useLogMinerReader=N;useBfile=Y;
-```
+This premigration assessment validates whether the DMS task includes LOB columns. If LOB columns are
+included into the scope of the task, you must use `BatchApplyEnabled` together with limited LOB mode only.
 
-For more information, see
-[Using Oracle LogMiner or AWS DMS Binary
-Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
+For more information about the `BatchApplyEnabled` setting, see
+[How can I use the DMS batch apply feature to improve CDC replication performance?](https://repost.aws/knowledge-center/dms-batch-apply-cdc-replication "https://repost.aws/knowledge-center/dms-batch-apply-cdc-replication").
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+## Validate if a
 
-## Validate if the database is CDB
+table uses a storage engine other than Innodb
 
-**API key:** `oracle-validate-cdb`
+**API key:** `mysql-check-table-storage-engine`
 
-This premigration assessment validates if the database is a container database.
-AWS DMS doesn't support the multi-tenant container root database (CDB$ROOT).
+This premigration assessment validates whether the storage engine used for any table in the Source MySQL database
+is an engine other than Innodb. DMS creates target tables with the InnoDB storage engine by default. If you
+need to use a storage engine other than InnoDB, you must manually create the table on the target database
+and configure your DMS task to use `TRUNCATE_BEFORE_LOAD` or `DO_NOTHING` as the full-load
+task setting. For more information about full-load task settings, see
+[Full-load
+task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
 ###### Note
 
-This assessment is only required for Oracle versions 12.1.0.1 or later. This assessment
-is not applicable for Oracle versions prior to 12.1.0.1.
+This premigration assessment is not available for Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition Serverless.
 
-For more information, see
-[Limitations on using Oracle as a
-source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Limitations "CHAP_Source.md#CHAP_Source.Oracle.Limitations").
+For more information about MySQL endpoint limitations, see
+[Limitations on using a MySQL
+database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Limitations "CHAP_Source.md#CHAP_Source.MySQL.Limitations").
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+## Validate if auto-increment
 
-## Check the Oracle Database Edition
+is enabled on any tables used for migration
 
-**API key:** `oracle-check-cdc-support-express-edition`
+**API key:** `mysql-check-auto-increment`
 
-This premigration assessment validates if the Oracle source database is Express Edition. AWS DMS
-doesn't support CDC for Oracle Express Edition (Oracle Database XE) version 18.0 and later.
+This premigration assessment validates whether the source tables that are used in the task have
+auto-increment enabled. DMS doesn't migrate the AUTO_INCREMENT attribute on a column to a target database.
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+For more information about MySQL endpoint limitations, see
+[Limitations on using a MySQL
+database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Limitations "CHAP_Source.md#CHAP_Source.MySQL.Limitations"). For information about handling identity columns in MySQL,
+see [Handle IDENTITY columns in AWS DMS: Part 2](https://aws.amazon.com/blogs/database/handle-identity-columns-in-aws-dms-part-2/ "https://aws.amazon.com/blogs/database/handle-identity-columns-in-aws-dms-part-2/").
 
-## Validate Oracle CDC method for DMS
+## Validate if the database binlog image
 
-**API key:** `oracle-recommendation-cdc-method`
+is set to `FULL` to support DMS CDC
 
-This premigration assessment validates redo log generation for the last seven days, and makes a recommendation
-whether to use AWS DMS Binary Reader or Oracle LogMiner for CDC.
+**API key:** `mysql-check-binlog-image`
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+This premigration assessment checks whether the source database's binlog image is set to `FULL`.
+In MySQL, the `binlog_row_image` variable determines how a binary log event is written when using
+the `ROW` format. To ensure compatibility with DMS and support CDC, set the `binlog_row_image`
+variable to `FULL`. This setting ensures that DMS receives sufficient information to construct
+the full Data Manipulation Language (DML) for the target database during migration.
 
-For more information about deciding which CDC method to use, see
-[Using Oracle LogMiner or AWS DMS Binary
-Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
+To set the binlog image to `FULL`, do the following:
 
-## Validate Oracle RAC configuration for DMS
+- For Amazon RDS, this value is `FULL` by default.
+- For databases hosed on-premises or on Amazon EC2, set the `binlog_row_image`
+  value in `my.ini` (Microsoft Windows) or `my.cnf` (UNIX).
 
-**API key:** `oracle-check-rac`
+This assessment is only valid for a full-load and CDC migration, or a CDC-only migration.
+This assessment is not valid for a full-load only migration.
 
-This premigration assessment validates if the oracle database is a Real Application Cluster. Real Application Cluster databases
-must be configured correctly. If the database is based on RAC, we recommend that you use AWS DMS Binary Reader for CDC
-rather than Oracle LogMiner.
+## Validate if the source database
 
-This assessment is only valid for a full-load and CDC migration, or a CDC-only migration. This assessment is not
-valid for a full-load only migration.
+is a MySQL Read-Replica
 
-For more information, see
-[Using Oracle LogMiner or AWS DMS Binary
-Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
+**API key:** `mysql-check-database-role`
 
-## Validate if DMS user has permissions on target
+This premigration assessment verifies whether the source database is a read replica. To enable
+CDC support for DMS when connected to a read replica, set the `log_slave_updates` parameter
+to `True`. For more information about using a self-managed MySQL database, see
+[Using a self-managed
+MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged").
 
-**API key:** `oracle-validate-permissions-on-target`
+To set the `log_slave_updates` value to `True`, do the following:
 
-This premigration assessment validates whether DMS users have all the required permissions on the target database.
+- For Amazon RDS, use the database's parameter group. For information about using RDS database
+  parameter groups, see [Working with parameter groups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md") in the _Amazon RDS User Guide_.
+- For databases hosed on-premises or on Amazon EC2, set the `log_slave_updates`
+  value in `my.ini` (Microsoft Windows) or `my.cnf` (UNIX).
 
-## Validate if supplemental logging is
+This assessment is only valid for a full-load and CDC migration, or a CDC-only migration.
+This assessment is not valid for a full-load only migration.
 
-required for all columns
+## Validate if a table
 
-**API key:** `oracle-validate-supplemental-logging-all-columns`
+has partitions, and recommend `target_table_prep_mode` for full-load task settings
 
-This premigration assessment validates, for the tables mentioned in the task scope, whether supplemental
-logging has been added to all columns of tables without a primary or unique key. Without supplemental
-logging on all columns for a table lacking a primary or unique key, the before-and-after image of the data
-won't be available in the redo logs. DMS requires supplemental logging for tables without a primary or
-unique key to generate DML statements.
+**API key:** `mysql-check-table-partition`
 
-## Validate if supplemental
+This premigration assessment checks for the presence of tables with partitions in the source database.
+DMS creates tables without partitions on the MySQL target. To migrate partitioned tables to a partitioned
+table on the target, you must do the following:
 
-logging is enabled on tables with Primary or Unique keys
+- Pre-create the partitioned tables in the target MySQL database.
+- Configure your DMS task to use `TRUNCATE_BEFORE_LOAD` or `DO_NOTHING` as the full-load
+  task setting.
 
-**API key:** `oracle-validate-supplemental-logging-for-pk`
+For more information about MySQL endpoint limitations, see
+[Limitations on using a MySQL
+database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Limitations "CHAP_Source.md#CHAP_Source.MySQL.Limitations").
 
-This premigration assessment validates whether supplemental logging is enabled for tables with a primary
-key or unique index and also checks if `AddSupplementalLogging` is enabled at the endpoint level.
-To ensure DMS can replicate changes, you can either manually add supplemental logging on the table level
-based on the primary key or unique key or utilize the endpoint setting `AddSupplementalLogging = true`
-with a DMS user having the ALTER permission on any replicated table.
+## Validate if DMS
 
-## Validate if there are SecureFile LOBs and the task is
+supports the database version
 
-configured for Full LOB mode
+**API key:** `mysql-check-supported-version`
 
-**API key:** `oracle-validate-securefile-lobs`
+This premigration assessment verifies whether the source database version is compatible with
+DMS. For more information about supported MySQL versions, see [Source endpoints for data migration](CHAP_Introduction.md#CHAP_Introduction.Sources.DataMigration "CHAP_Introduction.md#CHAP_Introduction.Sources.DataMigration").
 
-This premigration assessment checks for the presence of SecureFile LOBs in tables within the
-task scope and verifies their LOB settings. It's important to note that SecureFile LOBs are
-currently supported only during FULL LOB mode. Consider assigning LOB tables to a separate task
-to enhance performance, as running tasks in full LOB mode may result in slower performance.
+## Validate if the target database
 
-## Validate whether Function-Based
+is configured to set `local_infile` to 1
 
-Indexes are being used within the tables included in the task scope.
+**API key:** `mysql-check-target-localinfile-set`
 
-**API key:** `oracle-validate-function-based-indexes`
+This premigration assessment checks whether the `local_infile` parameter in the
+target database is set to 1. DMS requires the 'local_infile' parameter to be set to 1 during full
+load in your target database. For more information, see
+[Migrating from MySQL to MySQL using
+AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Homogeneous "CHAP_Source.md#CHAP_Source.MySQL.Homogeneous").
 
-This premigration assessment checks for function-based indexes on tables within the task scope.
-Note that AWS DMS doesn't support replicating function-based indexes. Consider creating the indexes
-after your migration on your target database.
+This assessment is only valid for a full-load or full-load and CDC task.
 
-## Validate whether global
+## Validate if target database has
 
-temporary tables are being used on the tables included in the task scope.
+tables with foreign keys
 
-**API key:** `oracle-validate-global-temporary-tables`
+**API key:** `mysql-check-fk-target`
 
-This premigration assessment checks whether global temporary tables are used within the task
-table-mapping scope. Note that AWS DMS doesn't support migrating or replicating global temporary tables.
+This premigration assessment checks whether a full load or full and CDC task migrating to
+a MySQL database has tables with foreign keys. The default setting in DMS is to load tables
+in alphabetical order. Tables with foreign keys and referential integrity constraints can cause
+the load to fail, as the parent and child tables may not be loaded at the same time.
 
-## Validate whether
+For more information about referential integrity in DMS, see
+**Working with indexes, triggers, and referential integrity constraints** in the
+[Improving the performance of an AWS DMS migration](CHAP_BestPractices.md#CHAP_BestPractices.Performance "CHAP_BestPractices.md#CHAP_BestPractices.Performance") topic.
 
-index-organized tables with an overflow segment are being used on the tables included in the task scope.
+## Validate if source tables in the task
 
-**API key:** `oracle-validate-iot-overflow-segments`
+scope have cascade constraints
 
-Validate whether index-organized tables with an overflow segment are being used on the tables
-included in the task scope. AWS DMS doesn't support CDC for index-organized tables with an overflow segment.
+**API key:** `mysql-check-cascade-constraints`
 
-## Validate if multilevel nesting
+This premigration assessment checks if any of the MySQL source tables have cascade constraints. Cascade
+constraints are not migrated or replicated by DMS tasks, because MySQL doesn't record the changes for these events
+in the binlog. While AWS DMS doesn't support these constraints, you can use workarounds for relational database targets.
 
-tables are used on the tables included in the task scope.
+For information about supporting cascase constrains and other constraints, see
+[Indexes, Foreign Keys, or Cascade Updates or Deletes Not Migrated](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.FKsAndIndexes "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.FKsAndIndexes")
+in the **Troubleshooting migration tasks in AWS DMS** topic.
 
-**API key:** `oracle-validate-more-than-one-nesting-table-level`
+## Validate if the timeout values are
 
-This premigration assessment checks the nesting level of the nested table used on the task scope.
-AWS DMS supports only one level of table nesting.
+appropriate for a MySQL source or target
 
-## Validate if invisible columns are
+**API key:** `mysql-check-target-network-parameter`
 
-used on the tables included in the task scope.
+This premigration assessment checks whether a task’s MySQL endpoint has the
+`net_read_timeout`, `net_write_timeout` and
+`wait_timeout` settings set to at least 300 seconds. This is
+needed to prevent disconnects during the migration.
 
-**API key:** `oracle-validate-invisible-columns`
+For more information, see [Connections to a
+target MySQL instance are disconnected during a task](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ConnectionDisconnect "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ConnectionDisconnect").
 
-This premigration assessment validates whether the tables used in the task scope have invisible columns.
-AWS DMS doesn't migrate data from invisible columns in your source database. To migrate the columns that
-are invisible, you need to modify them to be visible.
+## Validate
 
-## Validate if materialized views based on
-
-a ROWID column are used on the tables included in the task scope.
-
-**API key:** `oracle-validate-rowid-based-materialized-views`
-
-This premigration assessment validates whether the materialized views used in the migration are created
-based on the ROWID column. AWS DMS doesn't support the ROWID data type or materialized views based on a ROWID column.
-
-## Validate if Active Data Guard DML
-
-Redirect feature is used.
-
-**API key:** `oracle-validate-adg-redirect-dml`
-
-This premigration assessment validates whether the Active Data Guard DML Redirect feature is used.
-When using Oracle 19.0 as the source, AWS DMS doesn't support the Data Guard DML Redirect feature.
-
-## Validate if Hybrid Partitioned
-
-Tables are used.
-
-**API key:** `oracle-validate-hybrid-partitioned-tables`
-
-This premigration assessment validates whether hybrid partitioned tables are used for the tables
-defined in the task scope.
-
-## Validate if schema-only Oracle
-
-accounts are used
-
-**API key:** `oracle-validate-schema-only-accounts`
-
-This premigration assessment validates whether Schema-Only Accounts are found within the task scope.
-
-## Validate if Virtual Columns are used
-
-**API key:** `oracle-validate-virtual-columns`
-
-This premigration assessment validates whether the Oracle Instance has Virtual Columns in tables within the task scope.
-
-## Validate whether table names defined in the task
-
-scope contain apostrophes.
-
-**API key:** `oracle-validate-names-with-apostrophes`
-
-This premigration assessment validates whether the tables used in the task scope contain apostrophes.
-AWS DMS doesn't replicate tables with names containing apostrophes. If identified, consider renaming such tables.
-Alternatively, you could create a view or materialized view without apostrophes to load these tables.
-
-## Validate whether the
-
-columns defined in the task scope have
-`XMLType`, `Long`, or `Long Raw` datatypes and verify the LOB mode configuration in the task settings.
-
-**API key:** `oracle-validate-limited-lob-mode-for-longs`
-
-This premigration assessment validates whether the tables defined in the task scope have the
-datatypes `XMLType`, `Long`, or `Long Raw`, and checks if the task setting
-is configured to use Limited Size LOB Mode. AWS DMS doesn't support replicating these datatypes using FULL LOB
-mode. Consider changing the task setting to use Limited Size LOB mode upon identifying tables with such datatypes.
-
-## Validate whether the source Oracle
-
-version is supported by AWS DMS.
-
-**API key:** `oracle-validate-supported-versions-of-source`
-
-This premigration assessment validates if the source Oracle instance version is supported by AWS DMS.
-
-## Validate whether the target Oracle
-
-version is supported by AWS DMS.
-
-**API key:** `oracle-validate-supported-versions-of-target`
-
-This premigration assessment validates if the target Oracle instance version is supported by AWS DMS.
-
-## Validate whether the DMS user has the
-
-required permissions to use data validation.
-
-**API key:** `oracle-prerequisites-privileges-of-validation-feature`
-
-This premigration assessment validates whether the DMS user has the necessary privileges to use
-DMS Data Validation. You can ignore enabling this validation if you do not intend to use data validation.
-
-## Validate if the DMS user has permissions
-
-to use Binary Reader with Oracle ASM
-
-**API key:** `oracle-prerequisites-privileges-of-binary-reader-asm`
-
-This premigration assessment validates whether the DMS user has the necessary privileges to use
-Binary Reader on the Oracle ASM instance. You can ignore enabling this assessment if your source
-is not an Oracle ASM instance or if you are not using Binary Reader for CDC.
-
-## Validate if the DMS user has permissions
-
-to use Binary Reader with Oracle non-ASM
-
-**API key:** `oracle-prerequisites-privileges-of-binary-reader-non-asm`
-
-This premigration assessment validates whether the DMS user has the necessary privileges to use
-Binary Reader on the Oracle non-ASM instance. This assessment is only valid if you have an Oracle non-ASM instance.
-
-## Validate if the DMS user has permissions to use
-
-Binary Reader with CopyToTempFolder method
-
-**API key:** `oracle-prerequisites-privileges-of-binary-reader-copy-to-temp-folder`
-
-This premigration assessment validates whether the DMS user has the necessary privileges to use
-the Binary Reader with the 'Copy to Temp Folder' method. This assessment is relevant only if you are planning to use
-CopyToTempFolder to read CDC changes while using the Binary Reader, and have an ASM instance connected to the source.
-You can ignore enabling this assessment if you don't intend to use the CopyToTempFolder feature.
-
-We recommend not using the CopyToTempFolder feature because it is deprecated.
-
-## Validate if the DMS user has permissions to
-
-use Oracle Standby as a Source
-
-**API key:** `oracle-prerequisites-privileges-of-standby-as-source`
-
-This premigration assessment validates whether the DMS user has the necessary privileges to use a
-StandBy Oracle Instance as a source. You can ignore enabling this assessment if you don't intend to use a
-StandBy Oracle Instance as a source.
-
-## Validate if the DMS source is connected
-
-to an application container PDB
-
-**API key:** `oracle-check-app-pdb`
-
-This premigration assessment validates whether the DMS source is connected to an application container PDB.
-DMS doesn't support replication from an application container PDB.
-
-## Validate if the table has XML datatypes
-
-included in the task scope.
-
-**API key:** `oracle-check-xml-columns`
-
-This premigration assessment validates whether the tables used in the task scope have XML datatypes.
-It also checks if the task is configured for Limited LOB mode when the table contains an XML datatype.
-DMS only supports Limited LOB mode for migrating Oracle XML Columns.
-
-## Validate whether archivelog mode is
-
-enabled on the source database.
-
-**API key:** `oracle-check-archivelog-mode`
-
-This premigration assessment validates whether archivelog mode is enabled on the source database.
-Enabling archive log mode on the source database is necessary for DMS to replicate changes.
-
-## Validates the archivelog
-
-retention for RDS Oracle.
-
-**API key:** `oracle-check-archivelog-retention-rds`
-
-This premigration assessment validates whether archivelog retention on your RDS Oracle database
-is configured for at least 24 hours.
-
-## Validate if the table has
-
-Extended datatypes included in the task scope.
-
-**API key:** `oracle-check-extended-columns`
-
-This premigration assessment validates whether the tables used in the task scope have extended datatypes.
-Note that extended datatypes are supported only with DMS version 3.5 onwards.
-
-## Validate the length of the object
-
-name included in the task scope.
-
-**API key:** `oracle-check-object-30-bytes-limit`
-
-This premigration assessment validates whether the length of the object name exceeds 30 bytes.
-DMS doesn't support long object names (over 30 bytes).
-
-## Validate if the DMS source is
-
-connected to an Oracle PDB
-
-**API key:** `oracle-check-pdb-enabled`
-
-This premigration assessment validates whether the DMS source is connected to a PDB.
-DMS supports CDC only when using the Binary Reader with Oracle PDB as the source.
-The assessment also evaluates if the task is configured to use the binary reader when
-DMS is connected to Oracle PDB.
-
-## Validate if the table has spatial
-
-columns included in the task scope.
-
-**API key:** `oracle-check-spatial-columns`
-
-This premigration assessment validates whether the table has spatial columns included in the task scope.
-DMS supports Spatial datatypes only using Full LOB mode. The assessment also evaluates whether the task
-is configured to use Full LOB mode when DMS identifies spatial columns.
-
-## Validate if the DMS source is connected
-
-to an Oracle standby.
-
-**API key:** `oracle-check-standby-db`
-
-This premigration assessment validates whether the source is connected to an Oracle standby.
-DMS supports CDC only when using the binary reader with Oracle Standby as the source. The
-assessment also evaluates if the task is configured to use binary reader when DMS
-is connected to Oracle Standby.
-
-## Validate if the source
-
-database tablespace is encrypted using TDE.
-
-**API key:** `oracle-check-tde-enabled`
-
-This premigration assessment validates whether the source has TDE Encryption enabled on the tablespace.
-DMS supports TDE only with encrypted tablespaces when using Oracle LogMiner for RDS Oracle.
-
-## Validates if the source database
-
-uses Automatic Storage Management (ASM)
-
-**API key:** `oracle-check-asm`
-
-This premigration assessment detects if your source database uses ASM. For optimal performance,
-configure Binary Reader with `parallelASMReadThreads` and `readAheadBlocks`
-parameters in your endpoint settings. These settings enhance data extraction performance when working
-with ASM storage
-
-For more information, see [Using Oracle LogMiner or AWS DMS Binary
-Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
-
-## Validate if batch apply is
-
-enabled and whether the table on the target Oracle database has parallelism enabled at the
-table or index level
+`max_statement_time` database parameter
 
 **API key:**
-`oracle-check-degree-of-parallelism`
+`mysql-check-max-statement-time`
 
-AWS DMS validates that the table in the target database has any parallelism
-enabled. Having parallelism enabled on the target database causes the batch
-process to fail. Therefore, it is required to disable parallelism at the table
-or index level when using the batch apply feature.
+Check source parameter - `max_Statement_time` for MySQL based
+sources. If there are tables larger than 1 billion, validate the value
+`max_Statement_time` and recommend setting to higher value to
+avoid any potential data loss.
 
-## Recommend
+## Validate
 
-“Bulk Array Size” parameter by validating the tables in the task
-scope
-
-**API key:**
-`oracle-check-bulk-array-size`
-
-This assessment recommends setting the `BulkArraySize` ECA (Extra
-Connection Attribute) if there are no tables with LOB (Large Object) data types
-found within the task scope. Setting the `BulkArraySize` ECA can
-improve performance of the full load phase of the migration. You can set the
-bulk array size using the ECA on the Source/Target endpoint to get optimal
-performance during the full load phase of the migration.
-
-## Validate if HandleCollationDiff task setting is Configured
+if Primary Key or Unique Index exist on target for Batch Apply
 
 **API key:**
-`oracle-check-handlecollationdiff`
-
-This assessment validates if DMS task is configured for validation and
-recommend `HandleCollationDiff` task setting to avoid any incorrect
-validation results while validating data between Oracle and PostgreSQL.
-
-For more information, see [Data
-validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
-
-## Validate if
-
-table has primary key or unique index and its state is VALID when DMS
-validation is enabled
-
-**API key:**
-`oracle-check-pk-validity`
-
-Data validation requires that the table has a primary key or unique index on
-both source and target.
-
-For more information, see [AWS DMS data validation](CHAP_Validating.md "CHAP_Validating.md").
-
-## Validate if
-
-Binary Reader is used for Oracle Standby as a source
-
-**API key:**
-`oracle-check-binary-reader`
-
-This assessment validates if the source database is a standby database and is
-using the Binary Reader for Change Data Capture (CDC).
-
-For more information, see [Using an Oracle database as a source for
-AWS DMS](CHAP_Source.md "CHAP_Source.md").
-
-## Validate if the AWS DMS user has the required directory permissions to
-
-replicate data from an Oracle RDS Standby database.
-
-**API key:**
-`oracle-check-directory-permissions`
-
-This assessment validates if the AWS DMS user has the required read privileges
-on the `ARCHIVELOG_DIR_%` and `ONLINELOG_DIR_%`
-directories when the source database is an Oracle RDS Standby.
-
-For more information, see [Working with an AWS-managed
-Oracle database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed "CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed").
-
-## Validate the type of Oracle Standby used for replication
-
-**API key:**
-`oracle-check-physical-standby-with-apply`
-
-This assessment validates the type of Oracle standby database used for the
-AWS DMS replication. AWS DMS only supports Physical standby databases, which must be
-opened in Read Only mode with the redo logs being applied automatically. AWS DMS
-does not support Snapshot or Logical standby databases for replication.
-
-For more information, see [Using a
-self-managed Oracle Standby as a source with Binary Reader for CDC in
-AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.BinaryStandby "CHAP_Source.md#CHAP_Source.Oracle.Self-Managed.BinaryStandby").
-
-## Validate if
-
-required directories are created for RDS Oracle standby
-
-**API key:**
-`oracle-check-rds-standby-directories`
-
-This assessment validates if the required oracle directories are created for
-archive logs and online logs on the RDS Standby instance.
-
-For more information, see [Using an Amazon RDS
-Oracle Standby (read replica) as a source with Binary Reader for CDC in
-AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.StandBy "CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.StandBy").
-
-## Validate if
-
-Primary Key or Unique Index exists on target for Batch Apply
-
-**API key:**
-`oracle-check-batch-apply-target-pk-ui-absence`
+`mysql-check-batch-apply-target-pk-ui-absence`
 
 Batch apply is only supported on tables with Primary Keys or Unique Indexes on
 the target table. Tables without Primary Keys or Unique Indexes causes the batch
@@ -871,15 +354,15 @@ to fail, and changes are processed one by one. It is advisable to move such
 tables to their own tasks and utilize transactional apply mode instead.
 Alternatively, you can create a unique key on the target table.
 
-For more information, see [Using an Oracle database as a target for
-AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
+For more information, see [Using
+a MySQL-compatible database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
 
-## Validate if both Primary Key and Unique index exist on target for Batch
+## Validate if
 
-Apply
+both Primary Key and Unique index exist on target for Batch Apply
 
 **API key:**
-`oracle-check-batch-apply-target-pk-ui-simultaneously`
+`mysql-check-batch-apply-target-pk-ui-simultaneously`
 
 Batch apply is only supported on tables with Primary Keys or Unique Indexes on
 the target table. Tables with Primary Keys and Unique Indexes simultaneously
@@ -888,85 +371,58 @@ to move such tables to their own tasks and utilize transactional apply mode
 instead. Alternatively, you can drop a unique key(s) or primary key on the
 target table and rebuild it if you are doing migration.
 
-For more information, see [Using an Oracle database as a target for
-AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
+For more information, see [Using
+a MySQL-compatible database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
 
 ## Validate if
 
-unsupported HCC levels are used for Full Load
+secondary indexes are enabled during full load on the target
+database
 
 **API key:**
-`oracle-check-binary-reader-hcc-full-load`
+`mysql-check-secondary-indexes`
 
-The Oracle source endpoint is configured to use Binary Reader, the Query Low
-level of the HCC compression method is supported for full-load tasks
-only.
+Consider disabling or removing the secondary indexes from the target database.
+Secondary indexes can affect your migration performance during full load. It is
+advisable to enable secondary indexes before applying the cached changes.
 
-For more information, see [Supported compression methods for
-using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Compression "CHAP_Source.md#CHAP_Source.Oracle.Compression").
+For more information, see [Best practices for
+AWS Database Migration Service](CHAP_BestPractices.md "CHAP_BestPractices.md").
 
 ## Validate if
 
-unsupported HCC levels are used for Full Load with CDC
+table has primary key or unique index when DMS validation is enabled
 
 **API key:**
-`oracle-check-binary-reader-hcc-full-load-and-cdc`
+`mysql-check-pk-validity`
 
-The Oracle source endpoint is configured to use Binary Reader, HCC with Query
-low is supported for Full Load task only.
+Data validation requires that the table has a primary key or unique
+index.
 
-[Supported compression methods for
-using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Compression "CHAP_Source.md#CHAP_Source.Oracle.Compression")
+For more information, see [AWS DMS data
+validation](CHAP_Validating.md "CHAP_Validating.md").
 
-## Validate
+## Recommendation
 
-if unsupported HCC compression used for CDC
-
-**API key:**
-`oracle-check-binary-reader-hcc-cdc`
-
-The Oracle source endpoint is configured to use Binary Reader. Binary Reader
-doesn't support Query low for tasks with CDC.
-
-For more information, see [Using Oracle LogMiner or AWS DMS Binary
-Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
-
-## CDC
-
-Recommendation based on source compression method
+on using `MaxFullLoadSubTasks` setting
 
 **API key:**
-`oracle-recommend-cdc-method-by-compression`
+`mysql-tblnum-for-max-fullload-subtasks`
 
-Compressed objects are detected. Please navigate into the Result section of
-the specific assessment for further recommendation.
+This assessment checks the number of tables included in the task and
+recommends increasing the `MaxFullLoadSubTasks` parameter for optimal
+performance during the full load process. By default, AWS DMS migrates 8 tables
+simultaneously. Changing the `MaxFullLoadSubTasks` parameter to a
+higher value improves the full load performance.
 
-For more information, see [Using Oracle LogMiner or AWS DMS Binary
-Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
-
-## Check if
-
-batch apply is enabled and validate whether the table has more than 999
-columns
-
-**API key:**
-`oracle-batch-apply-lob-999`
-
-DMS uses the `2 * columns_in_original_table +
- columns_in_primary_key` formula to determine the number of columns on
-customer table. Based on this formula, we have identified tables with more than
-999 columns. This impacts the batch process, causing it to fail and switch to
-one-by-one mode.
-
-For more information, see [Limitations on Oracle as a target
-for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Oracle.Limitations "CHAP_Target.md#CHAP_Target.Oracle.Limitations").
+For more information, see [Full-load task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
 ## Check
 
 Transformation Rule for Digits Randomize
 
 **API key**:
-`oracle-datamasking-digits-randomize`
+`mysql-datamasking-digits-randomize`
 
 This assessment validates whether columns used in table mappings are
 compatible with the Digits Randomize transformation rule. Additionally, the
@@ -974,12 +430,12 @@ assessment checks if any columns selected for transformation are part of primary
 keys, unique constraints, or foreign keys, as applying digits randomize
 transformations does not guarantee any uniqueness.
 
-## Check
+## Check Transformation
 
-Transformation Rule for Digits mask
+Rule for Digits mask
 
 **API key**:
-`oracle-datamasking-digits-mask`
+`mysql-datamasking-digits-mask`
 
 This assessment validates whether any columns used in the table mapping are
 not supported by the Digits Mask transformation rule. Additionally, the
@@ -988,12 +444,12 @@ keys, unique constraints, or foreign keys, as applying Digits Mask
 transformations to such columns could cause DMS task failures since uniqueness
 cannot be guaranteed.
 
-## Check
+## Check Transformation
 
-Transformation Rule for Hashing mask
+Rule for Hashing mask
 
 **API key**:
-`oracle-datamasking-hash-mask`
+`mysql-datamasking-hash-mask`
 
 This assessment validates whether any of the columns used in the table mapping
 are not supported by the Hashing Mask transformation rule. It also checks if the
@@ -1039,63 +495,109 @@ This premigration assessment verifies that Data Validation setting and Data
 Masking Digit mask are not simultaneously enabled, as these features are
 incompatible.
 
-## Validate
+## Check if source
 
-that replication to a streaming target does not include LOBs or extended
-data type columns
+Amazon Aurora MySQL instance is not a read replica
 
 **API key**:
-`oracle-validate-lob-to-streaming-target`
+`mysql-check-aurora-read-only`
 
-This assessment identifies potential data loss when migrating LOB or extended
-data types to streaming target endpoints (such as S3, Kinesis, or Kafka). Oracle
-database does not track changes to these data types in its log files causing DMS
-to write `NULL` values to the streaming target. To prevent data loss,
-you can implement a '`before`' trigger on the source database which
-forces Oracle to log these changes.
+This premigration assessment validates whether migrating between two Amazon
+Aurora MySQL clusters, the source endpoint must be a read/write instance, not a
+replica instance.
+
+## Check if
+
+binary log retention time is set properly
+
+**API key**:
+`mysql-check-binlog-retention-time`
+
+This premigration assessment validates whether the value of 'binlog retention
+hours' is larger than 24 hours.
+
+## Check if
+
+source tables do not have invisible columns.
+
+**API key**:
+`mysql-check-invisible-columns`
+
+This premigration assessment validates whether source tables do not have
+invisible columns. AWS DMS does not migrate data from invisible columns in your
+source database.
+
+## Validate if
+
+the database binlog format is set to ROW to support DMS CDC
+
+**API key**:
+`mysql-check-binlog-format`
+
+This premigration assessment validates whether the source database binlog
+format is configured to ROW to support Change Data Capture (CDC). To set the
+binlog format to ROW, do the following:
+
+- For Amazon RDS, use the database's parameter group. For information, see
+  [Configuring MySQL binary logging for Single-AZ
+  databases](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.md") in the Amazon Relational Database Service User Guide.
+- For databases hosed on-premises or on Amazon EC2, set the
+  `binlog_format` value in `my.ini` (Microsoft
+  Windows) or `my.cnf` (UNIX).
+
+This assessment is only valid for a full-load and CDC migration, or a CDC-only
+migration. This assessment is not valid for a full-load only migration. For more
+information about self-hosted MySQL servers, see [Using a self-managed MySQL-compatible database as a
+source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged "CHAP_Source.md#CHAP_Source.MySQL.CustomerManaged").
 
 ## Validate that
 
-CDC-only task is configured to use the `OpenTransactionWindow` endpoint
-setting
-
-**API key**:
-`oracle-check-cdc-open-tx-window`
-
-For CDC-only tasks, use `OpenTransactionWindow` to avoid missing data. For more
-information, see [Creating tasks for ongoing replication using
-AWS DMS](CHAP_Task.md "CHAP_Task.md").
-
-## Validate
-
-that at least one selected object exists in the source database
+at least one selected object exists in the source database
 
 **API key**:
 `all-check-source-selection-rules`
 
-This premigration assessment verifies that at least one object specified in the selection rules
-exists in the source database, including pattern matching for wildcard-based rules.
-
-## Validate
-
-that target foreign key constraints are disabled for migration
-
-**API key**:
-`oracle-target-foreign-key-constraints-check`
-
-This premigration assessment detects active foreign key constraints on the target database that
-can cause migration failures (ORA-02291).
+This premigration assessment verifies that at least one object specified in the
+selection rules exists in the source database, including pattern matching for
+wildcard-based rules.
 
 ## Validate that
 
-the Oracle database and AWS DMS versions are compatible
+tables with generated columns exist in the source database
 
 **API key**:
-`oracle-dms-compatibility-version-check`
+`mysql-check-generated-columns`
 
-This premigration assessment detects if your Oracle database version is incompatible with your
-AWS DMS version. This mismatch can cause task failures due to unsupported Oracle Redo compatibility
-settings.
+This premigration assessment checks whether any of the MySQL
+source tables have generated columns. AWS DMS tasks don't migrate or replicate
+generated columns. For information about how to migrate generated
+columns, see [Limitations on using a MySQL
+database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Limitations "CHAP_Source.md#CHAP_Source.MySQL.Limitations").
+
+## Validate that
+
+skipTableSuspensionForPartitionDdl is enabled for partitioned tables
+
+**API key**:
+`mysql-check-skip-table-suspension-partition-ddl`
+
+This premigration assessment detects partitioned tables in the source database
+and verifies the `skipTableSuspensionForPartitionDdl` parameter setting. Failure
+to set this parameter may result in unnecessary table suspensions during migration.
+For more details, refer to the following link: [Limitations on using a MySQL
+database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.Limitations "CHAP_Source.md#CHAP_Source.MySQL.Limitations").
+
+## Validate that
+
+max_allowed_packet size can handle source LOB columns
+
+**API key**:
+`mysql-check-max-allowed-packet-lob`
+
+AWS DMS detects LOB columns in source tables that exceed your current
+`max_allowed_packet` setting. This mismatch can cause replication failures during
+data migration. For more information, see
+[Troubleshooting issues with MySQL](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL").
 
 ## Validate that
 
@@ -1106,34 +608,3 @@ secondary constraints and indexes (non-primary) are present in the source databa
 
 This premigration assessment verifies that secondary constraints and indexes (foreign keys,
 check constraints, non-clustered indexes) are present in the source database.
-
-## Validate that session timeout
-
-settings (`IDLE_TIME`) are set to `UNLIMITED`
-
-**API key**:
-`oracle-check-idle-time`
-
-This premigration assessment verifies that the Oracle database `IDLE_TIME` parameter
-is set to `UNLIMITED` for the AWS DMS user. Limited session timeout can cause migration
-task failures due to connection timeouts.
-
-## Validate that
-
-the AWS DMS user has all required permissions on the source database
-
-**API key**:
-`oracle-validate-permissions-on-source`
-
-This premigration assessment verifies that the AWS DMS user has been configured with all required
-permissions on the source database.
-
-## Validate that
-
-`XMLTYPE` or LOB columns exist when Oracle LogMiner is used
-
-**API key**:
-`oracle-update-lob-columns`
-
-This premigration assessment warns that `XMLTYPE` or LOB columns exist in the
-source database when Oracle LogMiner is used.

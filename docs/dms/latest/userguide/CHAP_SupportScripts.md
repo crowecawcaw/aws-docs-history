@@ -1,69 +1,99 @@
-# Working with diagnostic support scripts in AWS DMS
+# Diagnostic support scripts for MySQL-compatible
 
-If you encounter an issue when working with AWS DMS, your support engineer might need more
-information about either your source or target database. We want to make sure that AWS Support
-gets as much of the required information as possible in the shortest possible time. Therefore, we
-developed scripts to query this information for several of the major relational database
-engines.
+databases
 
-If a support script is available for your database, you can download it using the link in the
-corresponding script topic described following. After verifying and reviewing the script
-(described following), you can run it according to the procedure described in the script topic.
-When the script run is complete, you can upload its output to your AWS Support case (again,
-described following).
+Following, you can find the diagnostic support scripts available to analyze an on-premises
+or Amazon RDS for MySQL-compatible database in your AWS DMS migration configuration. These scripts
+work with either a source or target endpoint. The scripts are all written to run on the MySQL
+SQL command line.
 
-Before running the script, you can detect any errors that might have been introduced when
-downloading or storing the support script. To do this, compare the checksum for the script file
-with a value provided by AWS. AWS uses the SHA256 algorithm for the checksum.
+For information about installing the MySQL client, see [Installing
+MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html") in the MySQL documentation. For information about using the MySQL
+client, see [Using MySQL
+Shell Commands](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-configuring.html "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-configuring.html") in the MySQL documentation.
 
-###### To verify the support script file using a checksum
+Before running a script, ensure that the user account that you use has the necessary
+permissions to access your MySQL-compatible database. Use the following procedure to create a
+user account and provide the minimum permissions needed to run this script.
 
-1. Open the latest checksum file provided to verify these support scripts at [https://d2pwp9zz55emqw.cloudfront.net/sha256Check.txt](https://d2pwp9zz55emqw.cloudfront.net/sha256Check.txt "https://d2pwp9zz55emqw.cloudfront.net/sha256Check.txt"). For example,
-   the file might have content like the following.
+###### To set up a user account with the minimum permissions to run these scripts
 
-```
-MYSQL  dfafd0d511477c699f96c64693ad0b1547d47e74d5c5f2f2025b790b1422e3c8
-ORACLE  6c41ebcfc99518cfa8a10cb2ce8943b153b2cc7049117183d0b5de3d551bc312
-POSTGRES  6ccd274863d14f6f3146fbdbbba43f2d8d4c6a4c25380d7b41c71883aa4f9790
-SQL_SERVER  971a6f2c46aec8d083d2b3b6549b1e9990af3a15fe4b922e319f4fdd358debe7
+1. Create the user to run the scripts.
 
 ```
-
-2. Run the SHA256 validation command for your operating system in the directory that contains
-   the support file. For example, on the macOS operating system you can run the following command
-   on an Oracle support script described later in this topic.
-
-```
-shasum -a 256 awsdms_support_collector_oracle.sql
-
+create user '`username`'@'`hostname`' identified by `password`;
 ```
 
-3. Compare the results of the command with the value shown in the latest
-   `sha256Check.txt` file that you opened. The two values should match. If they
-   don't, contact your support engineer about the mismatch and how you can obtain a clean
-   support script file.
-   If you have a clean support script file, before running the script make sure to read and
-   understand the SQL from both a performance and security perspective. If you aren't
-   comfortable running any of the SQL in this script, you can comment out or remove the problem SQL.
-   You can also consult with your support engineer about any acceptable workarounds.
+2. Grant the `select` command on databases to analyze them.
 
-Upon successful completion and unless otherwise noted, the script returns output in a
-readable HTML format. The script is designed to exclude from this HTML any data or security
-details that might compromise your business. It also makes no modifications to your database or
-its environment. However, if you find any information in the HTML that you are uncomfortable
-sharing, feel free to remove the problem information before uploading the HTML. When the HTML is
-acceptable, upload it using the **Attachments** in the **Case
-details** of your support case.
+```
+grant select on `database-name`.* to `username`;
+grant replication client on *.* to `username`;
+```
 
-Each of the following topics describes the scripts available for a supported AWS DMS database
-and how to run them. Your support engineer will direct you to a specific script documented
-following.
+3. ```
+   grant execute on procedure mysql.rds_show_configuration to `username`;
+   ```
+
+```
+The following topics describe how to download, review, and run each support script
+ available for a MySQL-compatible database. They also describe how to review and upload the
+ script output to your AWS Support case.
 
 ###### Topics
 
-- [Oracle diagnostic support scripts](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
-- [SQL Server diagnostic support scripts](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
-- [Diagnostic support scripts for MySQL-compatible
-  databases](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
-- [PostgreSQL diagnostic support
-  scripts](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
+* [awsdms\_support\_collector\_MySQL.sql script](#CHAP_SupportScripts.MySQL.Awsdms_Support_Collector_MySQL_Script "#CHAP_SupportScripts.MySQL.Awsdms_Support_Collector_MySQL_Script")
+
+## awsdms\_support\_collector\_MySQL.sql script
+
+
+Download the [`awsdms_support_collector_MySQL.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_MySQL.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_MySQL.sql") script.
+
+
+This script collects information about your MySQL-compatible database configuration.
+ Remember to verify the checksum on the script, and if the checksum verifies, review the SQL
+ code in the script to comment out any of the code that you are uncomfortable running. After
+ you are satisfied with the integrity and content of the script, you can run it.
+
+
+Run the script after connecting to your database environment using the command
+ line.
+
+
+###### To run this script and upload the results to your support case
+
+1. Connect to your database using the following `mysql` command.
+
+
+
+```
+
+mysql -p -h `hostname` -P port -u `username` `database-name`
+
+```
+2. Run the script using the following mysql `source` command.
+
+
+
+```
+
+source awsdms_support_collector_MySQL.sql
+
+```
+
+Review the generated report and remove any information that you are uncomfortable
+ sharing. When the content is acceptable for you to share, upload the file to your AWS
+ Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+
+###### Note
+
+
+* If you already have a user account with required privileges described in [Diagnostic support scripts for MySQL-compatible
+ databases](CHAP_SupportScripts.md "CHAP_SupportScripts.md") , you
+ can use the existing user account as well to run the script.
+* Remember to connect to your database before running the script.
+* The script generates its output in text format.
+* Keeping security best practices in mind, if you create a new user account only to
+ execute this MySQL diagnostic support script, we recommend that you delete this user
+ account after successful execution of the script.
+```

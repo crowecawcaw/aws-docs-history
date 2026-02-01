@@ -1,12 +1,8 @@
-# Using an IBM Db2 for z/OS database as a source in
+# Using an IBM Db2 for z/OS database as a source in DMS Schema Conversion
 
-DMS Schema Conversion
+You can use an IBM Db2 for z/OS databases as a migration source in DMS Schema Conversion.
 
-You can use an IBM Db2 for z/OS databases as a migration source in
-DMS Schema Conversion.
-
-You can use DMS Schema Conversion to convert database code objects from Db2 for z/OS Database
-to the following targets:
+You can use DMS Schema Conversion to convert database code objects from Db2 for z/OS Database to the following targets:
 
 - Amazon RDS for Db2
   For more information regarding the supported IBM Db2 for z/OS database versions, see
