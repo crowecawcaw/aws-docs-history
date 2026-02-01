@@ -280,7 +280,7 @@ Date: Tue, 13 Dec 2016 23:52:26 GMT
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/ds-2015-04-16/CreateTrust.md "../../../goto/cli2/ds-2015-04-16/CreateTrust.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/ds-2015-04-16/CreateTrust.md "../../../goto/DotNetSDKV3/ds-2015-04-16/CreateTrust.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/ds-2015-04-16/CreateTrust.md "../../../goto/DotNetSDKV4/ds-2015-04-16/CreateTrust.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/ds-2015-04-16/CreateTrust.md "../../../goto/SdkForCpp/ds-2015-04-16/CreateTrust.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/ds-2015-04-16/CreateTrust.md "../../../goto/SdkForGoV2/ds-2015-04-16/CreateTrust.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/ds-2015-04-16/CreateTrust.md "../../../goto/SdkForJavaV2/ds-2015-04-16/CreateTrust.md")
