@@ -1,45 +1,27 @@
-# `awsbout`
+# `awsbqueues`
 
-Shows the output of a given job.
+Shows the job queue that is associated with the cluster.
 
 ```
-awsbout [-h] [-c `CLUSTER`] [-hd `HEAD`] [-t `TAIL`] [-s] [-sp `STREAM_PERIOD`] `job_id`
+awsbqueues [-h] [-c `CLUSTER`] [-d] [`job_queues` [`job_queues` ... ]]
 ```
 
-## Positional Arguments
+## Positional arguments
 
-`job_id`
+`job_queues`
 
-Specifies the job ID.
+Specifies the space-separated list of queue names to show. If a single queue is
+requested, it is shown in a detailed version.
 
-## Named Arguments
+## Named arguments
 
 `-c `CLUSTER`, --cluster
  `CLUSTER``
 
-Indicates the cluster to use.
+Specifies the name of the cluster to use.
 
-`-hd `HEAD`, --head
- `HEAD``
+`-d, --details`
 
-Gets the first `HEAD` lines of the job output.
-
-`-t `TAIL`, --tail
- `TAIL``
-
-Gets the last <tail> lines of the job output.
-
-`-s, --stream`
-
-Gets the job output, and then waits for additional output to be produced.
-This argument can be used together with –tail to start from the latest <tail>
-lines of the job output.
+Indicates whether to show the details of the queues.
 
 Default: False
-
-`-sp `STREAM_PERIOD`, --stream-period
- `STREAM_PERIOD``
-
-Sets the streaming period.
-
-Default: 5
