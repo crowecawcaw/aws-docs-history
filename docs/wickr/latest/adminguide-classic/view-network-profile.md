@@ -13,7 +13,7 @@ ID.
 2. On the **Networks** page, choose the **Admin** link,
    to navigate to Wickr Admin Console for that network.
 
-![The Networks page.](images/wickr-admin-console-network-page-admin-link.png)
+![The Networks page.](/images/wickr/latest/adminguide-classic/images/wickr-admin-console-network-page-admin-link.png)
 
 You're redirected to the Wickr Admin Console for a specific network.
 
