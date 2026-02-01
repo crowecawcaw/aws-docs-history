@@ -184,14 +184,14 @@ INCIDENT_ID="test-alert-$(date +%s)"
 
 PAYLOAD=$(cat <<EOF
 {
-  "eventType": "incident",
-  "incidentId": "$INCIDENT_ID",
-  "action": "created",
-  "priority": "HIGH",
-  "title": "Test Alert",
-  "description": "Test alert description",
-  "service": "TestService",
-  "timestamp": "$TIMESTAMP"
+"eventType": "incident",
+"incidentId": "$INCIDENT_ID",
+"action": "created",
+"priority": "HIGH",
+"title": "Test Alert",
+"description": "Test alert description",
+"service": "TestService",
+"timestamp": "$TIMESTAMP"
 }
 EOF
 )
@@ -201,10 +201,10 @@ SIGNATURE=$(echo -n "${TIMESTAMP}:${PAYLOAD}" | openssl dgst -sha256 -hmac "$SEC
 
 # Send webhook
 curl -X POST "$WEBHOOK_URL" \
-  -H "Content-Type: application/json" \
-  -H "x-amzn-event-timestamp: $TIMESTAMP" \
-  -H "x-amzn-event-signature: $SIGNATURE" \
-  -d "$PAYLOAD"
+-H "Content-Type: application/json" \
+-H "x-amzn-event-timestamp: $TIMESTAMP" \
+-H "x-amzn-event-signature: $SIGNATURE" \
+-d "$PAYLOAD"
 ```
 
 **Version 2 (Bearer token authentication) - JavaScript:**
@@ -252,24 +252,24 @@ INCIDENT_ID="test-alert-$(date +%s)"
 
 PAYLOAD=$(cat <<EOF
 {
-  "eventType": "incident",
-  "incidentId": "$INCIDENT_ID",
-  "action": "created",
-  "priority": "HIGH",
-  "title": "Test Alert",
-  "description": "Test alert description",
-  "service": "TestService",
-  "timestamp": "$TIMESTAMP"
+"eventType": "incident",
+"incidentId": "$INCIDENT_ID",
+"action": "created",
+"priority": "HIGH",
+"title": "Test Alert",
+"description": "Test alert description",
+"service": "TestService",
+"timestamp": "$TIMESTAMP"
 }
 EOF
 )
 
 # Send webhook
 curl -X POST "$WEBHOOK_URL" \
-  -H "Content-Type: application/json" \
-  -H "x-amzn-event-timestamp: $TIMESTAMP" \
-  -H "Authorization: Bearer $SECRET" \
-  -d "$PAYLOAD"
+-H "Content-Type: application/json" \
+-H "x-amzn-event-timestamp: $TIMESTAMP" \
+-H "Authorization: Bearer $SECRET" \
+-d "$PAYLOAD"
 ```
 
 ## Troubleshooting webhooks

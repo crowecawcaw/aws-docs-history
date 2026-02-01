@@ -29,4 +29,4 @@ Consider creating multiple Agent Spaces to support different organizational need
 
 ###### Note
 
-When creating multiple Agent Spaces, you can use a dedicated AWS account as the primary account for an Agent Space and connect distinct application accounts as secondary accounts. This approach allows you to maintain granular access controls while ensuring that each Agent Space can access only the resources specific to its intended scope, even when using auto roll creation.
+When creating multiple Agent Spaces, you can use a dedicated AWS account as the primary account for an Agent Space and connect distinct application accounts as secondary accounts. This approach allows you to maintain granular access controls while ensuring that each Agent Space can access only the resources specific to its intended scope, even when using automatic role creation.
