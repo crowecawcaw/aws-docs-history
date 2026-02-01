@@ -2,31 +2,73 @@ Amazon CodeCatalyst will no longer be open to new customers starting on November
 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
 more information, see [Migrating from Amazon CodeCatalyst](../userguide/migration.md "../userguide/migration.md").
 
-# Removing VPC connections for a space
+# Configuring VPC endpoints for a space
 
-You can remove a VPC connection that is no longer needed or that no longer has an owner.
+VPCs allow you to define a virtual network that isolates AWS resources, securely connects to remote networks,
+and safely accesses service endpoints through AWS PrivateLink. AWS PrivateLink is used to generate private endpoints which keep all
+the network traffic within the AWS network. When connected to a VPC, you can create VPC endpoints that will
+allow CodeCatalyst to communicate directly with certain services rather than through the internet.
 
-You must have the **Space administrator** role or **Power user** role to
-manage VPC connections at the space level.
+For more information about PrivateLink and VPC endpoints,
+see [What is AWS PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md").
 
-###### Warning
+Use the following procedure to configure VPC endpoints for a space.
 
-While VPC-connected workflows are in progress, we recommended that you do not delete your VPC connection or your VPC role. If
-the associated VPC is deleted while your workflow is in progress, your workﬂow will continue to run with the initial VPC connection.
+AWS console
 
-###### To remove VPC connections
+###### To configure VPC endpoints using the AWS console
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your CodeCatalyst space.
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints** and then choose **Create endpoint**.
+3. In **Endpoint settings**, do the following:
+   - (Optional) For **Name tag**, enter a reference name for your endpoint.
 
-###### Tip
+4. In **Services**, enter your specified service name and
+   then select it. For more information, see [CodeCatalyst VPC endpoint service names](#managing-vpcs.endpoint-service-names "#managing-vpcs.endpoint-service-names").
+5. In **VPC**, choose the VPC in which to create your endpoint.
+   - For **Additional settings**, leave the default.
 
-If you belong to more than one space, choose a space in the top
-navigation bar. 3. Choose **Settings**, and then choose
-**VPC connections**.
+6. In **Subnets**, select the same private subnets that you associated with your
+   VPC connection to connect to in each availability zone:
+   - In **IP address type**, select **IPv4**. This enables the endpoint service to accept IPv4 requests.
 
-The page lists all VPC connections in your space. You can view the
-**VPC connection name** name, the **VPC ID**, and
-the associated **AWS account connection**. 4. Choose the selector next to the VPC connection you want to manage. Choose
-**Remove VPC connection**. To confirm, type the VPC connection name, and then choose
-**Remove**.
+7. In **Security groups**, select the same security groups that you associated with your
+   VPC connection then choose **Create endpoint**.
+8. After your VPC endpoint is created, choose that endpoint, and then choose **Modify private DNS name**.
+9. In **Enable private DNS names**, select **Enable for this endpoint**.
+
+AWS CLI
+
+###### To configure VPC endpoints using the AWS CLI
+
+1. If you haven't done so already, [set up the AWS CLI for CodeCatalyst](../userguide/set-up-cli.md "../userguide/set-up-cli.md").
+2. Run this command to sign-in to Amazon CodeCatalyst using AWS IAM Identity Center:
+
+```
+aws sso login --profile codecatalyst
+```
+
+3. Create your VPC endpoint:
+
+```
+aws ec2 create-vpc-endpoint --vpc-id `<vpc-id>` --service-name `<service-name>` --subnet-ids `<subnet-ids>` --security-group-ids `<security-group-ids>` --private-dns-enabled
+```
+
+For more information on service names, see [CodeCatalyst VPC endpoint service names](#managing-vpcs.endpoint-service-names "#managing-vpcs.endpoint-service-names").
+
+## CodeCatalyst VPC endpoint service names
+
+You can create VPC endpoints for these services, if you would prefer for CodeCatalyst to utilize these endpoints.
+
+- Source:
+  - Regions: `us-west-2`, `eu-west-1`
+  - Service name: `com.amazonaws.`<region>`.codecatalyst.git`
+
+- API:
+  - Regions: `us-west-2`, `eu-west-1`
+  - Service name: `aws.api.global.codecatalyst`
+
+- Packages:
+  - Regions: `us-west-2`, `eu-west-1`
+  - Service name: `com.amazonaws.`<region>`.codecatalyst.packages`
