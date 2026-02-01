@@ -49,6 +49,7 @@ see [View runbook content](automation-runbook-reference.md#view-automation-json 
 - [AWSSupport-ResetLinuxUserPassword](automation-awssupport-resetlinuxuserpassword.md "automation-awssupport-resetlinuxuserpassword.md")
 - [AWSSupport-RunEC2RescueForWindowsTool](automation-awssupport-runec2rescueforwindowstool.md "automation-awssupport-runec2rescueforwindowstool.md")
 - [AWSPremiumSupport-ResizeNitroInstance](automation-aws-resizenitroinstance.md "automation-aws-resizenitroinstance.md")
+- [AWSSupport-ShareEncryptedAMIOrEBSSnapshot](awssupport-share-encrypted-ami-or-ebs-snapshot.md "awssupport-share-encrypted-ami-or-ebs-snapshot.md")
 - [AWSSupport-RestoreEC2InstanceFromSnapshot](automation-awssupport-restoreec2instancefromsnapshot.md "automation-awssupport-restoreec2instancefromsnapshot.md")
 - [AWSSupport-SendLogBundleToS3Bucket](automation-awssupport-sendlogbundletos3bucket.md "automation-awssupport-sendlogbundletos3bucket.md")
 - [AWSSupport-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md "automation-awssupport-startec2rescueworkflow.md")

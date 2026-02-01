@@ -16,13 +16,6 @@ when packet loss and/or latency reach a threshold. The data can also be used whe
 opening a case with AWS Support, to help isolate an issue quickly and reduce time to
 resolution when investigating a network issue.
 
-###### Note
-
-To clean up resources created by
-`AWSSupport-SetupIPMonitoringFromVPC`, you can use the runbook
-`AWSSupport-TerminateIPMonitoringFromVPC` . For more information,
-see [AWSSupport-TerminateIPMonitoringFromVPC](automation-awssupport-terminateipmonitoringfromvpc.md "automation-awssupport-terminateipmonitoringfromvpc.md") .
-
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC")
 
 **Document type**
@@ -248,319 +241,72 @@ IAM permissions are not required to execute the runbook:
 
 **Document Steps**
 
-1. **`aws:executeAwsApi`** - describe the provided subnet.
-2. **`aws:branch`** - evaluate the TargetIPs input.
-
-(IPv6) If TargetIPs contains an IPv6:
-
-**`aws:assertAwsResourceProperty`** - check the provided subnet has an IPv6 pool associated 3. **`aws:executeScript`** - get the architecture of instance type and public parameter
-path for latest Amazon Linux 2 AMI. 4. **`aws:executeAwsApi`** - get the latest Amazon Linux 2 AMI from Parameter Store. 5. **`aws:executeAwsApi`** - create a security group for the test in the subnet's VPC.
-
-(Cleanup) If the security group creation fails:
-
-**`aws:executeAwsApi`** - delete the security group created by the automation, if it
-exists. 6. **`aws:executeAwsApi`** - allow all outbound traffic in the test security group.
-
-(Cleanup) If the security group egress rule creation fails:
-
-**`aws:executeAwsApi`** - delete the security group created by the automation, if it
-exists. 7. **`aws:executeAwsApi`** - create an IAM role for the test EC2 instance
-
-(Cleanup) If the role creation fails:
-
-    1. **`aws:executeAwsApi`** - delete the IAM role created by the automation, if it
-     exists.
-    2. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-8. **`aws:executeAwsApi`** - attach the AmazonSSMManagedInstanceCore managed policy
-
-(Cleanup) If the policy attachment fails:
-
-    1. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation, if attached.
-    2. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    3. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-9. **`aws:executeAwsApi`** - attach an inline policy to allow setting CloudWatch log group
-   retentions and creating a CloudWatch dashboard
-
-(Cleanup) If the inline policy attachment fails:
-
-    1. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation, if created.
-    2. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    3. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    4. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-10. **`aws:executeAwsApi`** - create an IAM instance profile.
-
-(Cleanup) If the instance profile creation fails:
-
-    1. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation, if it exists.
-    2. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    3. **`aws:executeAwsApi`** - delete the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    4. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    5. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-11. **`aws:executeAwsApi`** - associate the IAM instance profile to the IAM role.
-
-(Cleanup) If the instance profile and role association fails:
-
-    1. **`aws:executeAwsApi`** - remove the IAM instance profile from the role, if
-     associated.
-    2. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    3. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    4. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    5. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-12. **`aws:sleep`** - wait for the instance profile to become available.
-13. **`aws:runInstances`** - create the test instance in the specified subnet, and with the
-    instance profile created earlier attached.
+1. **`aws:executeAwsApi`** - describe the provided subnet to get the VPC ID and IPv6 CIDR block association state.
+2. **`aws:executeScript`** - validate the provided target IPs are syntactically correct IPv4 and/or IPv6 addresses, get the architecture of the selected instance type, and verify the subnet has an IPv6 pool association if any target IP is IPv6.
+3. **`aws:createStack`** - create an AWS CloudFormation stack that provisions the test Amazon EC2 instance, IAM instance profile (if not provided), security group (if not provided), CloudWatch log groups, and CloudWatch dashboard.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
+**`aws:executeScript`** - describe the CloudFormation stack events to identify the failure reason.
 
-14. **`aws:branch`** - evaluate the TargetIPs input.
-
-(IPv6) If TargetIPs contains an IPv6:
-
-**`aws:executeAwsApi`** - assign an IPv6 to the test instance. 15. **`aws:waitForAwsResourceProperty`** - wait for the test instance to become a managed instance.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 4. **`aws:waitForAwsResourceProperty`** - wait for the CloudFormation stack to complete creation.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
+**`aws:executeScript`** - describe the CloudFormation stack events to identify the failure reason.
 
-16. **`aws:runCommand`** - install test pre-requisites:
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 5. **`aws:executeScript`** - describe the CloudFormation stack resources to get the test instance ID, security group ID, IAM role, instance profile, and dashboard name.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
+**`aws:executeScript`** - describe the CloudFormation stack events to identify the failure reason.
 
-17. **`aws:runCommand`** - validate the provided IPs are syntactically correct IPv4
-    and/or IPv6 addresses:
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 6. **`aws:waitForAwsResourceProperty`** - wait for the test instance to become a managed instance.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-18. **`aws:runCommand`** - define the MTR test for each of the provided IPs.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 7. **`aws:runCommand`** - install the CloudWatch agent on the test instance.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-19. **`aws:runCommand`** - define the first ping test for each of the provided IPs.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 8. **`aws:runCommand`** - define the network test scripts (MTR, ping, tracepath, and traceroute) for each of the provided IPs.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-20. **`aws:runCommand`** - define the second ping test for each of the provided IPs.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 9. **`aws:runCommand`** - start the network tests and schedule subsequent executions using cronjobs that run every TestInterval minutes.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-21. **`aws:runCommand`** - define the tracepath test for each of the provided IPs.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 10. **`aws:runCommand`** - configure the CloudWatch agent to push test results from `/home/ec2-user/logs/` to CloudWatch Logs.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-22. **`aws:runCommand`** - define the traceroute test for each of the provided IPs.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 11. **`aws:runCommand`** - configure log rotation for the test results in `/home/ec2-user/logs/`. 12. **`aws:executeScript`** - set the retention policy for all CloudWatch log groups created by the CloudFormation stack. 13. **`aws:executeScript`** - create CloudWatch log group metric filters for ping latency and ping packet loss.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-23. **`aws:runCommand`** - configure CloudWatch logs.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 14. **`aws:executeScript`** - update the CloudWatch dashboard to include widgets for ping latency and ping packet loss statistics.
 
 (Cleanup) If the step fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
+**`aws:executeAwsApi`** - delete the CloudWatch dashboard, if it exists.
 
-24. **`aws:runCommand`** - schedule cronjobs to run each test every minute.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 15. **`aws:branch`** - evaluate the SleepTime parameter. If set to `0`, the automation ends without deleting the stack. 16. **`aws:sleep`** - wait for the specified SleepTime duration before deleting the CloudFormation stack. 17. **`aws:deleteStack`** - delete the CloudFormation stack. Based on the RetainDashboardAndLogsOnDeletion parameter, the CloudWatch dashboard and log groups are either retained or deleted.
 
-(Cleanup) If the step fails:
+(Cleanup) If the stack deletion fails:
 
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-25. **`aws:sleep`** - wait for the tests to generate some data.
-26. **`aws:runCommand`** - set the desired CloudWatch log group retentions.
-
-(Cleanup) If the step fails:
-
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-27. **`aws:runCommand`** - set the CloudWatch log group metric filters.
-
-(Cleanup) If the step fails:
-
-    1. **`aws:changeInstanceState`** - terminate the test instance.
-    2. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    3. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    4. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    5. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    6. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
-
-28. **`aws:runCommand`** - create the CloudWatch dashboard.
-
-(Cleanup) If the step fails:
-
-    1. **`aws:executeAwsApi`** - delete the CloudWatch dashboard, if it exists.
-    2. **`aws:changeInstanceState`** - terminate the test instance.
-    3. **`aws:executeAwsApi`** - remove the IAM instance profile from the role.
-    4. **`aws:executeAwsApi`** - delete the IAM instance profile created by the
-     automation.
-    5. **`aws:executeAwsApi`** - delete the CloudWatch inline policy from the role created by
-     the automation.
-    6. **`aws:executeAwsApi`** - detach the AmazonSSMManagedInstanceCore managed policy
-     from the role created by the automation.
-    7. **`aws:executeAwsApi`** - delete the IAM role created by the automation.
-    8. **`aws:executeAwsApi`** - delete the security group created by the automation,
-     if it exists.
+**`aws:executeScript`** - describe the CloudFormation stack events to identify the deletion failure reason.
 
 **Outputs**
 
-createCloudWatchDashboards.Output - the URL of the CloudWatch dashboard.
+updateCloudWatchDashboard.StackUrl - the URL of the CloudFormation stack.
 
-createManagedInstance.InstanceIds - the test instance ID.
+updateCloudWatchDashboard.DashboardUrl - the URL of the CloudWatch dashboard.
+
+updateCloudWatchDashboard.DashboardName - the name of the CloudWatch dashboard.
+
+updateCloudWatchDashboard.LogGroups - the list of CloudWatch log groups created.
+
+describeStackResources.HelperInstanceId - the test instance ID.
+
+describeStackResources.StackName - the CloudFormation stack name.

@@ -4,7 +4,11 @@
 
 Update a Microsoft Windows Amazon Machine Image (AMI). By default, this runbook installs
 all Windows updates, Amazon software, and Amazon drivers. It then runs Sysprep to
-create a new AMI. Supports Windows Server 2008 R2 or later.
+create a new AMI. Supports Windows Server 2008 R2 through Windows Server 2022.
+
+###### Important
+
+This runbook does not support Windows Server 2025 and later versions, as AWS Paravirtual drivers are not compatible with these versions. For more information, see [Paravirtual drivers for Windows instances](../../../AWSEC2/latest/UserGuide/xen-drivers-overview.md "../../../AWSEC2/latest/UserGuide/xen-drivers-overview.md").
 
 ###### Important
 
