@@ -1,4 +1,4 @@
-# Viewing Aurora Serverless v1 DB clusters
+# Scaling Aurora Serverless v1 DB cluster capacity manually
 
 ###### Important
 
@@ -7,63 +7,75 @@ not migrated by March 31, 2025 will be migrated to Aurora Serverless v2 during t
 cluster to a provisioned cluster with the equivalent engine version during the maintenance window. If applicable, Amazon Aurora will enroll the
 converted provisioned cluster in Amazon RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon Aurora](extended-support.md "extended-support.md").
 
-After you create one or more Aurora Serverless v1 DB clusters, you can view which DB clusters are type
-**Serverless** and which are type **Instance**. You can also view the
-current number of Aurora capacity units (ACUs) each Aurora Serverless v1 DB cluster is using. Each ACU is a
-combination of processing (CPU) and memory (RAM) capacity.
+Typically, Aurora Serverless v1 DB clusters scale seamlessly based on the workload. However, capacity might not
+always scale fast enough to meet sudden extremes, such as an exponential increase in transactions. In such
+cases you can initiate the scaling operation manually by setting a new capacity value. After you set the
+capacity explicitly, Aurora Serverless v1 automatically scales the DB cluster. It does so based on the cooldown
+period for scaling down.
 
-###### To view your Aurora Serverless v1 DB clusters
+You can explicitly set the capacity of an Aurora Serverless v1 DB cluster to a specific value with the
+AWS Management Console, the AWS CLI, or the RDS API.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
+You can set the capacity of an Aurora DB cluster with the AWS Management Console.
+
+###### To modify an Aurora Serverless v1 DB cluster
+
+1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the AWS Management Console, choose the AWS Region in which you created the
-   Aurora Serverless v1 DB clusters.
-3. In the navigation pane, choose **Databases**.
+2. In the navigation pane, choose **Databases**.
+3. Choose the Aurora Serverless v1 DB cluster that you want to modify.
+4. For **Actions**, choose **Set capacity**.
+5. In the **Scale database capacity** window, choose the following:
+   1. For the **Scale DB cluster to** drop-down selector, choose the new capacity that
+      you want for your DB cluster.
+   2. For the **If a seamless scaling point cannot be found**
+      check box, choose the behavior that you want for your Aurora Serverless v1 DB
+      cluster's `TimeoutAction` setting, as follows:
+      - Clear this option if you want your capacity to remain unchanged if
+        Aurora Serverless v1 can't find a scaling point before timing out.
+      - Select this option if you want to force your Aurora Serverless v1 DB
+        cluster change its capacity even if it can't find a scaling point before
+        timing out. This option can result Aurora Serverless v1 dropping connections
+        that prevent it from finding a scaling point.
 
-For each DB cluster, the DB cluster type is shown under **Role**. The Aurora Serverless v1
-DB clusters show **Serverless** for the type. You can view an Aurora Serverless v1 DB
-cluster's current capacity under **Size**.
+   3. For **seconds**, enter the amount of time you want to allow
+      your Aurora Serverless v1 DB cluster to look for a scaling point before timing out.
+      You can specify anywhere from 10 seconds to 600 seconds (10 minutes). The default
+      is five minutes (300 seconds). This following example forces the
+      Aurora Serverless v1 DB cluster to scale down to 2 ACUs even if it can't find a
+      scaling point within five minutes.
 
-![Viewing Aurora Serverless v1 DB clusters](images/aurora-serverless-viewing.png) 4. Choose the name of an Aurora Serverless v1 DB cluster to display its details.
+   ![Setting capacity for an Aurora Serverless v1 DB cluster with console](images/aurora-serverless-set-capacity.png)
 
-On the **Connectivity & security** tab, note the database endpoint. Use this endpoint
-to connect to your Aurora Serverless v1 DB cluster.
+6. Choose **Apply**.
 
-![Viewing Aurora Serverless v1 DB cluster database endpoint](images/aurora-serverless-endpoint.png)
+To learn more about scaling points, `TimeoutAction`, and cooldown periods, see
+[Autoscaling for Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.how-it-works.auto-scaling "aurora-serverless-v1.md#aurora-serverless.how-it-works.auto-scaling").
 
-Choose the **Configuration** tab to view the capacity settings.
+To set the capacity of an Aurora Serverless v1 DB cluster using the AWS CLI, run the
+[modify-current-db-cluster-capacity](../../../cli/latest/reference/rds/modify-current-db-cluster-capacity.md "../../../cli/latest/reference/rds/modify-current-db-cluster-capacity.md")
+AWS CLI command, and specify the `--capacity` option. Valid capacity values include the
+following:
 
-![Viewing Aurora Serverless v1 DB cluster capacity settings](images/aurora-serverless-capacity-settings.png)
+- Aurora MySQL: `1`, `2`, `4`, `8`, `16`,
+  `32`, `64`, `128`, and `256`.
+- Aurora PostgreSQL: `2`, `4`, `8`, `16`, `32`,
+  `64`, `192`, and `384`.
 
-A _scaling event_ is generated when the DB cluster scales up, scales
-down, pauses, or resumes. Choose the **Logs & events** tab to see recent events. The
-following image shows examples of these events.
+In this example, you set the capacity of an Aurora Serverless v1 DB cluster named
+`sample-cluster` to `64`.
 
-![Viewing Aurora Serverless v1 DB cluster capacity settings](images/aurora-serverless-scaling.png)
+```
 
-## Monitoring capacity and scaling events for your Aurora Serverless v1 DB cluster
+aws rds modify-current-db-cluster-capacity --db-cluster-identifier sample-cluster --capacity 64
 
-You can view your Aurora Serverless v1 DB cluster in CloudWatch to monitor the capacity allocated to the DB cluster
-with the `ServerlessDatabaseCapacity` metric. You can also monitor all of the standard Aurora CloudWatch
-metrics, such as `CPUUtilization`, `DatabaseConnections`, `Queries`, and so
-on.
+```
 
-You can have Aurora publish some or all database logs to CloudWatch. You select the logs to publish by enabling the
-[configuration parameters such as general_log
-and slow_query_log in the DB cluster parameter group](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups") associated with
-theAurora Serverless v1 cluster. Unlike provisioned clusters, Aurora Serverless v1 clusters don't require
-you to specify in the DB cluster settings which log types to upload to CloudWatch. Aurora Serverless v1 clusters
-automatically upload all the available logs. When you disable a log configuration parameter, publishing of
-the log to CloudWatch stops. You can also delete the logs in CloudWatch if they are no longer needed.
+You can set the capacity of an Aurora DB cluster with the
+[ModifyCurrentDBClusterCapacity](../APIReference/API_ModifyCurrentDBClusterCapacity.md "../APIReference/API_ModifyCurrentDBClusterCapacity.md")
+API operation. Specify the `Capacity` parameter. Valid capacity values include the following:
 
-To get started with Amazon CloudWatch for your Aurora Serverless v1 DB cluster, see
-[Viewing Aurora Serverless v1 logs with Amazon CloudWatch](aurora-serverless-v1.md#aurora-serverless.logging.monitoring "aurora-serverless-v1.md#aurora-serverless.logging.monitoring").
-To learn more about how to monitor Aurora DB clusters through CloudWatch, see
-[Monitoring log events in Amazon CloudWatch](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.CloudWatch.Monitor").
-
-To connect to an Aurora Serverless v1 DB cluster, use the database endpoint. For more information, see
-[Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
-
-###### Note
-
-You can't connect directly to specific DB instances in your Aurora Serverless v1 DB clusters.
+- Aurora MySQL: `1`, `2`, `4`, `8`, `16`,
+  `32`, `64`, `128`, and `256`.
+- Aurora PostgreSQL: `2`, `4`, `8`, `16`, `32`,
+  `64`, `192`, and `384`.

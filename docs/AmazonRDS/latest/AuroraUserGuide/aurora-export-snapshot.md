@@ -1,17 +1,43 @@
-# Export performance in Aurora MySQL
+# Canceling a snapshot export task
 
-Aurora MySQL version 2 and version 3 DB cluster snapshots use an advanced export mechanism to improve performance and reduce
-export time. The mechanism includes optimizations such as multiple export threads and Aurora MySQL parallel query to take
-advantage of the Aurora shared storage architecture. The optimizations are applied adaptively, depending on the data set size
-and structure.
+You can cancel a DB snapshot export task using the AWS Management Console, the AWS CLI, or the RDS
+API.
 
-You don't need to turn on parallel query to use the faster export process, but the process does have the same limitations as
-parallel query. In addition, some data values aren't supported, such as dates where the day of the month is `0` or
-the year is `0000`. For more information, see [Parallel query for Amazon Aurora MySQL](aurora-mysql-parallel-query.md "aurora-mysql-parallel-query.md").
+###### Note
 
-When performance optimizations are applied, you might also see much larger (~200 GB) Parquet files for Aurora MySQL version 2
-and 3 exports.
+Canceling a snapshot export task doesn't remove any data that was exported to Amazon S3. For information about how to delete the
+data using the console, see [How do I
+delete objects from an S3 bucket?](../../../AmazonS3/latest/user-guide/delete-objects.md "../../../AmazonS3/latest/user-guide/delete-objects.md") To delete the data using the CLI, use the [delete-object](../../../cli/latest/reference/s3api/delete-object.md "../../../cli/latest/reference/s3api/delete-object.md") command.
 
-If the faster export process can't be used, for example because of incompatible data types or values, Aurora automatically
-switches to a single-threaded export mode without parallel query. Depending on which process is used, and the amount of data to
-be exported, export performance can vary.
+###### To cancel a snapshot export task
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Exports in Amazon S3**.
+
+DB snapshot exports are indicated in the **Source type** column. Export status is displayed
+in the **Status** column. 3. Choose the snapshot export task that you want to cancel. 4. Choose **Cancel**. 5. Choose **Cancel export task** on the confirmation page.
+
+To cancel a snapshot export task using the AWS CLI, use the [cancel-export-task](../../../cli/latest/reference/rds/cancel-export-task.md "../../../cli/latest/reference/rds/cancel-export-task.md")
+command. The command requires the `--export-task-identifier`
+option.
+
+```
+aws rds cancel-export-task --export-task-identifier my_export
+{
+    "Status": "CANCELING",
+    "S3Prefix": "",
+    "ExportTime": "2019-08-12T01:23:53.109Z",
+    "S3Bucket": "`amzn-s3-demo-bucket`",
+    "PercentProgress": 0,
+    "KmsKeyId": "arn:aws:kms:`AWS_Region`:123456789012:key/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "ExportTaskIdentifier": "my_export",
+    "IamRoleArn": "arn:aws:iam::123456789012:role/export-to-s3",
+    "TotalExtractedDataInGB": 0,
+    "TaskStartTime": "2019-11-13T19:46:00.173Z",
+    "SourceArn": "arn:aws:rds:`AWS_Region`:123456789012:snapshot:export-example-1"
+}
+```
+
+To cancel a snapshot export task using the Amazon RDS API, use the [CancelExportTask](../APIReference/API_CancelExportTask.md "../APIReference/API_CancelExportTask.md")
+operation with the `ExportTaskIdentifier` parameter.

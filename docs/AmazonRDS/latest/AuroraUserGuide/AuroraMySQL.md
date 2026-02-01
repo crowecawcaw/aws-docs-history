@@ -1,254 +1,269 @@
-# Comparing Aurora MySQL version 3 and MySQL 8.0 Community Edition
+# Comparing Aurora MySQL version 2 and Aurora MySQL version 3
 
-You can use the following information to learn about the changes to be aware of when you convert from a different MySQL
-8.0–compatible system to Aurora MySQL version 3.
-
-In general, Aurora MySQL version 3 supports the feature set of community MySQL 8.0.23. Some new features from MySQL 8.0
-community edition don't apply to Aurora MySQL. Some of those features aren't compatible with some aspect of Aurora, such
-as the Aurora storage architecture. Other features aren't needed because the Amazon RDS management service provides equivalent
-functionality. The following features in community MySQL 8.0 aren't supported or work differently in Aurora MySQL version 3.
-
-For release notes for all Aurora MySQL version 3 releases, see [Database engine updates for
-Amazon Aurora MySQL version 3](../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md "../AuroraMySQLReleaseNotes/AuroraMySQL.Updates.md") in the _Release Notes for Aurora MySQL_.
+Use the following to learn about changes to be aware of when you upgrade your Aurora MySQL version 2 cluster to version 3.
 
 ###### Topics
 
-- [MySQL 8.0 features not available in Aurora MySQL version 3](#AuroraMySQL.Compare-80-v3-features "#AuroraMySQL.Compare-80-v3-features")
-- [Role-based privilege model](#AuroraMySQL.privilege-model "#AuroraMySQL.privilege-model")
-- [Finding the database server ID](#AuroraMySQL.server-id "#AuroraMySQL.server-id")
-- [Authentication](#AuroraMySQL.mysql80-authentication "#AuroraMySQL.mysql80-authentication")
+- [Atomic Data Definition Language (DDL) support](#AuroraMySQL.Compare-v2-v3-atomic-ddl "#AuroraMySQL.Compare-v2-v3-atomic-ddl")
+- [Feature differences between Aurora MySQL version 2 and 3](#AuroraMySQL.Compare-v2-v3-features "#AuroraMySQL.Compare-v2-v3-features")
+- [Instance class support](#AuroraMySQL.mysql80-instance-classes "#AuroraMySQL.mysql80-instance-classes")
+- [Parameter changes for Aurora MySQL version 3](#AuroraMySQL.mysql80-parameter-changes "#AuroraMySQL.mysql80-parameter-changes")
+- [Status variables](#AuroraMySQL.mysql80-status-vars "#AuroraMySQL.mysql80-status-vars")
+- [Inclusive language changes for Aurora MySQL version 3](#AuroraMySQL.8.0-inclusive-language "#AuroraMySQL.8.0-inclusive-language")
+- [AUTO_INCREMENT values](#AuroraMySQL.mysql80-autoincrement "#AuroraMySQL.mysql80-autoincrement")
+- [Binary log replication](#AuroraMySQL.mysql80-binlog "#AuroraMySQL.mysql80-binlog")
 
-## MySQL 8.0 features not available in Aurora MySQL version 3
+## Atomic Data Definition Language (DDL) support
 
-The following features from community MySQL 8.0 aren't available or work differently in Aurora MySQL version 3.
+One of the largest changes from MySQL 5.7 to 8.0 is the introduction of the [Atomic Data Dictionary](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html "https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html"). Before MySQL 8.0, the MySQL
+data dictionary used a file-based approach to store metadata such as table definitions (.frm), triggers (.trg), and functions separately from
+the storage engine's metadata (such as InnoDB's). This had some issues, including the risk of tables becoming "[orphaned](https://dev.mysql.com/doc/refman/5.7/en/innodb-troubleshooting-datadict.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-troubleshooting-datadict.html")" if something unexpected happened during
+a DDL operation, causing the file-based and storage engine metadata to get out of sync.
 
-- Resource groups and associated SQL statements aren't supported in Aurora MySQL.
-- Aurora MySQL doesn't support user-defined undo tablespaces and associated SQL statements, such as `CREATE
-UNDO TABLESPACE`, `ALTER UNDO TABLESPACE ... SET INACTIVE`, and `DROP UNDO
-TABLESPACE`.
-- Aurora MySQL doesn't support undo tablespace truncation for Aurora MySQL versions lower than 3.06. In Aurora MySQL
-  version 3.06 and higher, [automated
-  undo tablespace truncation](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html#truncate-undo-tablespace "https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html#truncate-undo-tablespace") is supported.
-- Password validation plugin is supported.
-- You can't modify the settings of any MySQL plugins, including password validation plugin.
-- The X plugin isn't supported.
-- Multisource replication isn't supported.
+To fix this, MySQL 8.0 introduced the Atomic Data Dictionary, which stores all metadata in a set of internal InnoDB tables in the
+`mysql` schema. This new architecture provides a transactional, [ACID](https://en.wikipedia.org/wiki/ACID "https://en.wikipedia.org/wiki/ACID")-compliant way to manage database metadata, solving the "atomic DDL" problem from the old file-based approach. For more information
+on the Atomic Data Dictionary, see [Removal of file-based
+metadata storage](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html "https://dev.mysql.com/doc/refman/8.0/en/data-dictionary-file-removal.html") and [Atomic data definition statement
+support](https://dev.mysql.com/doc/refman/8.0/en/atomic-ddl.html "https://dev.mysql.com/doc/refman/8.0/en/atomic-ddl.html") in the _MySQL Reference Manual_.
 
-## Role-based privilege model
+Due to this architectural change, you must consider the following when upgrading from Aurora MySQL version 2 to version 3:
 
-With Aurora MySQL version 3, you can't modify the tables in the `mysql` database directly. In particular,
-you can't set up users by inserting into the `mysql.user` table. Instead, you use SQL statements to grant
-role-based privileges. You also can't create other kinds of objects such as stored procedures in the `mysql`
-database. You can still query the `mysql` tables. If you use binary log replication, changes made directly to the
-`mysql` tables on the source cluster aren't replicated to the target cluster.
+- The file-based metadata from version 2 must be migrated to the new data dictionary tables during the upgrade process to version 3.
+  Depending on how many database objects are migrated, this could take some time.
+- The changes have also introduced some new incompatibilities that might need to be addressed before you can upgrade from MySQL 5.7 to
+  8.0. For example, 8.0 has some new reserved keywords that could conflict with existing database object names.
 
-In some cases, your application might use shortcuts to create users or other objects by inserting into the
-`mysql` tables. If so, change your application code to use the corresponding statements such as `CREATE
- USER`. If your application creates stored procedures or other objects in the `mysql` database, use a
-different database instead.
+To help you identify these incompatibilities before upgrading the engine, Aurora MySQL runs a series of upgrade compatibility checks (prechecks)
+to determine whether there are any incompatible objects in your database dictionary, before performing the data dictionary upgrade. For more
+information on the prechecks, see [Major version upgrade prechecks for Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md").
 
-To export metadata for database users during the migration from an external MySQL database, you can use a MySQL Shell
-command instead of `mysqldump`. For more information, see
-[Instance
-Dump Utility, Schema Dump Utility, and Table Dump Utility](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html#mysql-shell-utilities-dump-about "https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-utilities-dump-instance-schema.html#mysql-shell-utilities-dump-about").
+## Feature differences between Aurora MySQL version 2 and 3
 
-To simplify managing permissions for many users or applications, you can use the
-`CREATE ROLE` statement to create a role that has a set of
-permissions. Then you can use the `GRANT` and `SET ROLE`
-statements and the `current_role` function to assign roles to users or
-applications, switch the current role, and check which roles are in effect. For more
-information on the role-based permission system in MySQL 8.0, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in
-the MySQL Reference Manual.
+The following Amazon Aurora MySQL features are supported in Aurora MySQL for MySQL 5.7, but these features aren't supported
+in Aurora MySQL for MySQL 8.0:
 
-###### Important
+- You can't use Aurora MySQL version 3 for Aurora Serverless v1 clusters. Aurora MySQL version 3
+  works with Aurora Serverless v2.
+- Lab mode doesn't apply to Aurora MySQL version 3. There aren't any lab mode features in Aurora MySQL version
 
-We strongly recommend that you do not use the master user directly in your applications. Instead, adhere to the best
-practice of using a database user created with the minimal privileges required for your application.
+3.  Instant DDL supersedes the fast online DDL feature that was formerly available in lab mode. For an example, see
+    [Instant DDL (Aurora MySQL version 3)](AuroraMySQL.Managing.md#AuroraMySQL.mysql80-instant-ddl "AuroraMySQL.Managing.md#AuroraMySQL.mysql80-instant-ddl").
 
-###### Topics
+- The query cache is removed from community MySQL 8.0 and also from Aurora MySQL version 3.
+- Aurora MySQL version 3 is compatible with the community MySQL hash join feature. The Aurora-specific implementation
+  of hash joins in Aurora MySQL version 2 isn't used. For information about using hash joins with Aurora parallel
+  query, see [Turning on hash join for
+  parallel query clusters](aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join "aurora-mysql-parallel-query-enabling.md#aurora-mysql-parallel-query-enabling-hash-join") and [Aurora MySQL hints](AuroraMySQL.Reference.md "AuroraMySQL.Reference.md"). For general usage information about hash joins, see [Hash Join Optimization](https://dev.mysql.com/doc/refman/8.0/en/hash-joins.html "https://dev.mysql.com/doc/refman/8.0/en/hash-joins.html") in the
+  _MySQL Reference Manual_.
+- The `mysql.lambda_async` stored procedure that was deprecated in Aurora MySQL version 2 is removed in
+  version 3. For version 3, use the asynchronous function `lambda_async` instead.
+- The default character set in Aurora MySQL version 3 is `utf8mb4`. In Aurora MySQL version 2, the default
+  character set was `latin1`. For information about this character set, see [The utf8mb4 Character Set (4-Byte
+  UTF-8 Unicode Encoding)](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb4.html "https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb4.html") in the _MySQL Reference Manual_.
 
-- [rds_superuser_role](#AuroraMySQL.privilege-model.rds_superuser_role "#AuroraMySQL.privilege-model.rds_superuser_role")
-- [Privilege checks user for
-  binary log replication](#AuroraMySQL.privilege-model.binlog "#AuroraMySQL.privilege-model.binlog")
-- [Roles for accessing other AWS services](#AuroraMySQL.privilege-model.other "#AuroraMySQL.privilege-model.other")
+Some Aurora MySQL features are available for certain combinations of AWS Region and DB engine version. For details, see
+[Supported features in
+Amazon Aurora by AWS Region and Aurora DB engine](Concepts.AuroraFeaturesRegionsDBEngines.md "Concepts.AuroraFeaturesRegionsDBEngines.md").
 
-### rds_superuser_role
+## Instance class support
 
-Aurora MySQL version 3 includes a special role that has all of the following
-privileges. This role is named `rds_superuser_role`. The primary
-administrative user for each cluster already has this role granted. The
-`rds_superuser_role` role includes the following privileges for
-all database objects:
+Aurora MySQL version 3 supports a different set of instance classes from Aurora MySQL version 2:
 
-- `ALTER`
-- `APPLICATION_PASSWORD_ADMIN`
-- `ALTER ROUTINE`
-- `CONNECTION_ADMIN`
-- `CREATE`
-- `CREATE ROLE`
-- `CREATE ROUTINE`
-- `CREATE TEMPORARY TABLES`
-- `CREATE USER`
-- `CREATE VIEW`
-- `DELETE`
-- `DROP`
-- `DROP ROLE`
-- `EVENT`
-- `EXECUTE`
-- `FLUSH_OPTIMIZER_COSTS` (Aurora MySQL version 3.09 and higher)
-- `FLUSH_STATUS` (Aurora MySQL version 3.09 and higher)
-- `FLUSH_TABLES` (Aurora MySQL version 3.09 and higher)
-- `FLUSH_USER_RESOURCES` (Aurora MySQL version 3.09 and higher)
-- `INDEX`
-- `INSERT`
-- `LOCK TABLES`
-- `PROCESS`
-- `REFERENCES`
-- `RELOAD`
-- `REPLICATION CLIENT`
-- `REPLICATION SLAVE`
-- `ROLE_ADMIN`
-- `SET_USER_ID`
-- `SELECT`
-- `SHOW DATABASES`
-- `SHOW_ROUTINE` (Aurora MySQL version 3.04 and higher)
-- `SHOW VIEW`
-- `TRIGGER`
-- `UPDATE`
-- `XA_RECOVER_ADMIN`
+- For larger instances, you can use the modern instance classes such as `db.r5`, `db.r6g`, and
+  `db.x2g`.
+- For smaller instances, you can use the modern instance classes such as `db.t3` and
+  `db.t4g`.
 
-The role definition also includes `WITH GRANT OPTION` so that an
-administrative user can grant that role to other users. In particular, the
-administrator must grant any privileges needed to perform binary log replication
-with the Aurora MySQL cluster as the target.
+###### Note
+
+We recommend using the T DB instance classes only for development and test servers, or other non-production
+servers. For more details on the T instance classes, see [Using T instance classes for development and testing](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.T2Medium").
+
+The following instance classes from Aurora MySQL version 2 aren't available for Aurora MySQL version 3:
+
+- `db.r4`
+- `db.r3`
+- `db.t3.small`
+- `db.t2`
+
+Check your administration scripts for any CLI statements that create Aurora MySQL
+DB instances. Hardcode instance class names that aren't available for
+Aurora MySQL version 3. If necessary, modify the instance class names to ones that
+Aurora MySQL version 3 supports.
 
 ###### Tip
 
-To see the full details of the permissions, enter the following
-statements.
+To check the instance classes that you can use for a specific combination of Aurora MySQL version and AWS Region, use
+the `describe-orderable-db-instance-options` AWS CLI command.
 
-```
-SHOW GRANTS FOR rds_superuser_role@'%';
-SHOW GRANTS FOR `name_of_administrative_user_for_your_cluster`@'%';
+For full details about Aurora instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
 
-```
+## Parameter changes for Aurora MySQL version 3
 
-### Privilege checks user for
+Aurora MySQL version 3 includes new cluster-level and instance-level configuration parameters. Aurora MySQL version 3 also
+removes some parameters that were present in Aurora MySQL version 2. Some parameter names are changed as a result of the
+initiative for inclusive language. For backward compatibility, you can still retrieve the parameter values using either the
+old names or the new names. However, you must use the new names to specify parameter values in a custom parameter
+group.
 
-binary log replication
+In Aurora MySQL version 3, the value of the `lower_case_table_names` parameter is set permanently at the time the
+cluster is created. If you use a nondefault value for this option, set up your Aurora MySQL version 3 custom parameter group
+before upgrading. Then specify the parameter group during the create cluster or snapshot restore operation.
 
-Aurora MySQL version 3 includes a privilege checks user for binary log (binlog)
-replication, `rdsrepladmin_priv_checks_user`. In addition to the
-privileges of `rds_superuser_role`, this user has the
-`replication_applier` privilege.
+###### Note
 
-When you turn on binlog replication by calling the
-`mysql.rds_start_replication` stored procedure,
-`rdsrepladmin_priv_checks_user` is created.
+With an Aurora global database based on Aurora MySQL, you can't perform an in-place upgrade from Aurora MySQL version
+2 to version 3 if the `lower_case_table_names` parameter is turned on. Use the snapshot restore method
+instead.
 
-The `rdsrepladmin_priv_checks_user@localhost` user is a reserved
-user. Don't modify it.
+In Aurora MySQL version 3, the `init_connect` and `read_only` parameters don't apply for users who
+have the `CONNECTION_ADMIN` privilege. This includes the Aurora master user. For more information, see [Role-based privilege model](AuroraMySQL.md#AuroraMySQL.privilege-model "AuroraMySQL.md#AuroraMySQL.privilege-model").
 
-### Roles for accessing other AWS services
+For the full list of Aurora MySQL cluster parameters, see [Cluster-level parameters](AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Cluster "AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Cluster"). The table covers all the parameters from Aurora MySQL version
+2 and 3. The table includes notes showing which parameters are new in Aurora MySQL version 3 or were removed from Aurora MySQL
+version 3.
 
-Aurora MySQL version 3 includes roles that you can use to access other AWS services. You can set many of these roles as an alternative to
-granting privileges. For example, you specify `GRANT AWS_LAMBDA_ACCESS TO `user`` instead of `GRANT
- INVOKE LAMBDA ON *.* TO `user``. For the procedures to access other AWS services, see [Integrating Amazon Aurora MySQL with other AWS
-services](AuroraMySQL.md "AuroraMySQL.md"). Aurora MySQL version 3 includes the following roles related
-to accessing other AWS services:
+For the full list of Aurora MySQL instance parameters, see [Instance-level parameters](AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Instance "AuroraMySQL.Reference.md#AuroraMySQL.Reference.Parameters.Instance"). The table covers all the parameters from Aurora MySQL version
+2 and 3. The table includes notes showing which parameters are new in Aurora MySQL version 3 and which parameters were removed
+from Aurora MySQL version 3. It also includes notes showing which parameters were modifiable in earlier versions but not
+Aurora MySQL version 3.
 
-- `AWS_LAMBDA_ACCESS` – An alternative to the `INVOKE LAMBDA` privilege. For usage information, see
-  [Invoking a Lambda function from an Amazon Aurora MySQL DB
-  cluster](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
-- `AWS_LOAD_S3_ACCESS` – An alternative to the `LOAD FROM S3` privilege. For usage information, see
-  [Loading data into an Amazon Aurora MySQL DB cluster from
-  text files in an Amazon S3 bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
-- `AWS_SELECT_S3_ACCESS` – An alternative to the `SELECT INTO S3` privilege. For usage information, see
-  [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3
-  bucket](AuroraMySQL.Integrating.md "AuroraMySQL.Integrating.md").
-- `AWS_COMPREHEND_ACCESS` – An alternative to the `INVOKE COMPREHEND` privilege. For usage information, see
-  [Granting database users access to Aurora machine learning](mysql-ml.md#aurora-ml-sql-privileges "mysql-ml.md#aurora-ml-sql-privileges").
-- `AWS_SAGEMAKER_ACCESS` – An alternative to the `INVOKE SAGEMAKER` privilege. For usage information, see
-  [Granting database users access to Aurora machine learning](mysql-ml.md#aurora-ml-sql-privileges "mysql-ml.md#aurora-ml-sql-privileges").
-- `AWS_BEDROCK_ACCESS` – There's no analogous `INVOKE` privilege for Amazon Bedrock. For usage information, see
-  [Granting database users access to Aurora machine learning](mysql-ml.md#aurora-ml-sql-privileges "mysql-ml.md#aurora-ml-sql-privileges").
+For information about parameter names that changed, see [Inclusive language changes for Aurora MySQL version 3](#AuroraMySQL.8.0-inclusive-language "#AuroraMySQL.8.0-inclusive-language").
 
-When you grant access by using roles in Aurora MySQL version 3, you also activate the role by using the `SET ROLE `role_name``
- or`SET ROLE ALL`statement. The following example shows how. Substitute the appropriate role name for`AWS_SELECT_S3_ACCESS`.
+## Status variables
 
-```
-# Grant role to user.
+For information about status variables that aren't applicable to Aurora MySQL, see [MySQL status variables that don't apply to
+Aurora MySQL](AuroraMySQL.Reference.md#AuroraMySQL.Reference.StatusVars.Inapplicable "AuroraMySQL.Reference.md#AuroraMySQL.Reference.StatusVars.Inapplicable").
 
-`mysql>` GRANT AWS_SELECT_S3_ACCESS TO '`user`'@'`domain-or-ip-address`'
+## Inclusive language changes for Aurora MySQL version 3
 
-# Check the current roles for your user. In this case, the AWS_SELECT_S3_ACCESS role has not been activated.
-# Only the rds_superuser_role is currently in effect.
-`mysql>` SELECT CURRENT_ROLE();
-`+--------------------------+
-| CURRENT_ROLE() |
-+--------------------------+
-| `rds_superuser_role`@`%` |
-+--------------------------+
-1 row in set (0.00 sec)`
+Aurora MySQL version 3 is compatible with version 8.0.23 from the MySQL community edition. Aurora MySQL version 3 also
+includes changes from MySQL 8.0.26 related to keywords and system schemas for inclusive language. For example, the
+`SHOW REPLICA STATUS` command is now preferred instead of `SHOW SLAVE STATUS`.
 
-# Activate all roles associated with this user using SET ROLE.
-# You can activate specific roles or all roles.
-# In this case, the user only has 2 roles, so we specify ALL.
-`mysql>` SET ROLE ALL;
-`Query OK, 0 rows affected (0.00 sec)`
+The following Amazon CloudWatch metrics have new names in Aurora MySQL version 3.
 
-# Verify role is now active
-`mysql>` SELECT CURRENT_ROLE();
-`+-----------------------------------------------------+
-| CURRENT_ROLE() |
-+-----------------------------------------------------+
-| `AWS_SELECT_S3_ACCESS`@`%`,`rds_superuser_role`@`%` |
-+-----------------------------------------------------+`
+In Aurora MySQL version 3, only the new metric names are available. Make sure to update any alarms or other automation that
+relies on metric names when you upgrade to Aurora MySQL version 3.
 
-```
+| Old name                        | New name                        |
+| ------------------------------- | ------------------------------- |
+| `ForwardingMasterDMLLatency`    | `ForwardingWriterDMLLatency`    |
+| `ForwardingMasterOpenSessions`  | `ForwardingWriterOpenSessions`  |
+| `AuroraDMLRejectedMasterFull`   | `AuroraDMLRejectedWriterFull`   |
+| `ForwardingMasterDMLThroughput` | `ForwardingWriterDMLThroughput` |
 
-## Finding the database server ID
+The following status variables have new names in Aurora MySQL version 3.
 
-The database server ID (`server_id`) is required for binary logging (binlog) replication. The way to find the server ID is
-different in Aurora MySQL from Community MySQL.
+For compatibility, you can use either name in the initial Aurora MySQL version 3 release. The old status variable names are
+to be removed in a future release.
 
-In Community MySQL, the server ID is a number, which you obtain by using the following syntax while logged into the server:
+| Name to be removed                         | New or preferred name                      |
+| ------------------------------------------ | ------------------------------------------ |
+| `Aurora_fwd_master_dml_stmt_duration`      | `Aurora_fwd_writer_dml_stmt_duration`      |
+| `Aurora_fwd_master_dml_stmt_count`         | `Aurora_fwd_writer_dml_stmt_count`         |
+| `Aurora_fwd_master_select_stmt_duration`   | `Aurora_fwd_writer_select_stmt_duration`   |
+| `Aurora_fwd_master_select_stmt_count`      | `Aurora_fwd_writer_select_stmt_count`      |
+| `Aurora_fwd_master_errors_session_timeout` | `Aurora_fwd_writer_errors_session_timeout` |
+| `Aurora_fwd_master_open_sessions`          | `Aurora_fwd_writer_open_sessions`          |
+| `Aurora_fwd_master_errors_session_limit`   | `Aurora_fwd_writer_errors_session_limit`   |
+| `Aurora_fwd_master_errors_rpc_timeout`     | `Aurora_fwd_writer_errors_rpc_timeout`     |
 
-```
-mysql> select @@server_id;
+The following configuration parameters have new names in Aurora MySQL version 3.
 
-+-------------+
-| @@server_id |
-+-------------+
-| 2           |
-+-------------+
-1 row in set (0.00 sec)
-```
+For compatibility, you can check the parameter values in the `mysql` client by using either name in the initial
+Aurora MySQL version 3 release. You can use only the new names when modifying values in a custom parameter group. The old
+parameter names are to be removed in a future release.
 
-In Aurora MySQL, the server ID is the DB instance ID, which you obtain by using the following syntax while logged into the DB instance:
+| Name to be removed                      | New or preferred name                   |
+| --------------------------------------- | --------------------------------------- |
+| `aurora_fwd_master_idle_timeout`        | `aurora_fwd_writer_idle_timeout`        |
+| `aurora_fwd_master_max_connections_pct` | `aurora_fwd_writer_max_connections_pct` |
+| `master_verify_checksum`                | `source_verify_checksum`                |
+| `sync_master_info`                      | `sync_source_info`                      |
+| `init_slave`                            | `init_replica`                          |
+| `rpl_stop_slave_timeout`                | `rpl_stop_replica_timeout`              |
+| `log_slow_slave_statements`             | `log_slow_replica_statements`           |
+| `slave_max_allowed_packet`              | `replica_max_allowed_packet`            |
+| `slave_compressed_protocol`             | `replica_compressed_protocol`           |
+| `slave_exec_mode`                       | `replica_exec_mode`                     |
+| `slave_type_conversions`                | `replica_type_conversions`              |
+| `slave_sql_verify_checksum`             | `replica_sql_verify_checksum`           |
+| `slave_parallel_type`                   | `replica_parallel_type`                 |
+| `slave_preserve_commit_order`           | `replica_preserve_commit_order`         |
+| `log_slave_updates`                     | `log_replica_updates`                   |
+| `slave_allow_batching`                  | `replica_allow_batching`                |
+| `slave_load_tmpdir`                     | `replica_load_tmpdir`                   |
+| `slave_net_timeout`                     | `replica_net_timeout`                   |
+| `sql_slave_skip_counter`                | `sql_replica_skip_counter`              |
+| `slave_skip_errors`                     | `replica_skip_errors`                   |
+| `slave_checkpoint_period`               | `replica_checkpoint_period`             |
+| `slave_checkpoint_group`                | `replica_checkpoint_group`              |
+| `slave_transaction_retries`             | `replica_transaction_retries`           |
+| `slave_parallel_workers`                | `replica_parallel_workers`              |
+| `slave_pending_jobs_size_max`           | `replica_pending_jobs_size_max`         |
+| `pseudo_slave_mode`                     | `pseudo_replica_mode`                   |
 
-```
-mysql> select @@aurora_server_id;
+The following stored procedures have new names in Aurora MySQL version 3.
 
-+------------------------+
-| @@aurora_server_id     |
-+------------------------+
-| mydbcluster-instance-2 |
-+------------------------+
-1 row in set (0.00 sec)
-```
+For compatibility, you can use either name in the initial Aurora MySQL version 3 release. The old procedure names are to be
+removed in a future release.
 
-For more information on binlog replication, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
+| Name to be removed                                 | New or preferred name                              |
+| -------------------------------------------------- | -------------------------------------------------- |
+| `mysql.rds_set_master_auto_position`               | `mysql.rds_set_source_auto_position`               |
+| `mysql.rds_set_external_master`                    | `mysql.rds_set_external_source`                    |
+| `mysql.rds_set_external_master_with_auto_position` | `mysql.rds_set_external_source_with_auto_position` |
+| `mysql.rds_reset_external_master`                  | `mysql.rds_reset_external_source`                  |
+| `mysql.rds_next_master_log`                        | `mysql.rds_next_source_log`                        |
+
+## AUTO_INCREMENT values
+
+In Aurora MySQL version 3, Aurora preserves the `AUTO_INCREMENT` value for each table when it restarts each DB
+instance. In Aurora MySQL version 2, the `AUTO_INCREMENT` value wasn't preserved after a restart.
+
+The `AUTO_INCREMENT` value isn't preserved when you set up a new cluster by restoring from a snapshot,
+performing a point-in-time recovery, and cloning a cluster. In these cases, the `AUTO_INCREMENT` value is
+initialized to the value based on the largest column value in the table at the time the snapshot was created. This behavior
+is different than in RDS for MySQL 8.0, where the `AUTO_INCREMENT` value is preserved during these operations.
+
+## Binary log replication
+
+In MySQL 8.0 community edition, binary log replication is turned on by default. In Aurora MySQL version 3, binary log
+replication is turned off by default.
+
+###### Tip
+
+If your high availability requirements are fulfilled by the Aurora built-in replication features, you can leave binary
+log replication turned off. That way, you can avoid the performance overhead of binary log replication. You can also
+avoid the associated monitoring and troubleshooting that are needed to manage binary log replication.
+
+Aurora supports binary log replication from a MySQL 5.7–compatible source to Aurora MySQL version 3. The source
+system can be an Aurora MySQL DB cluster, an RDS for MySQL DB instance, or an on-premises MySQL instance.
+
+As does community MySQL, Aurora MySQL supports replication from a source running a specific version to a target running the
+same major version or one major version higher. For example, replication from a MySQL 5.6–compatible system to
+Aurora MySQL version 3 isn't supported. Replicating from Aurora MySQL version 3 to a MySQL 5.7–compatible or MySQL
+5.6–compatible system isn't supported. For details about using binary log replication, see [Replication between Aurora and MySQL or between Aurora and another Aurora DB
 cluster (binary log replication)](AuroraMySQL.Replication.md "AuroraMySQL.Replication.md").
 
-## Authentication
+Aurora MySQL version 3 includes improvements to binary log replication in community MySQL 8.0, such as filtered
+replication. For details about the community MySQL 8.0 improvements, see [How Servers Evaluate Replication Filtering
+Rules](https://dev.mysql.com/doc/refman/8.0/en/replication-rules.html "https://dev.mysql.com/doc/refman/8.0/en/replication-rules.html") in the _MySQL Reference Manual_.
 
-In community MySQL 8.0, the default authentication plugin is
-`caching_sha2_password`. Aurora MySQL version 3 still uses the
-`mysql_native_password` plugin. You can't change the
-`default_authentication_plugin` setting. You can, however, create new users and alter current users, and their individual passwords use the new authentication plugin. Following is an example.
+### Transaction compression for binary log replication
 
-```
-mysql> CREATE USER 'testnewsha'@'%' IDENTIFIED WITH caching_sha2_password BY 'aNewShaPassword';
-Query OK, 0 rows affected (0.74 sec)
-```
+For usage information about binary log compression, see [Binary Log Transaction
+Compression](https://dev.mysql.com/doc/refman/8.0/en/binary-log-transaction-compression.html "https://dev.mysql.com/doc/refman/8.0/en/binary-log-transaction-compression.html") in the MySQL Reference Manual.
+
+The following limitations apply to binary log compression in Aurora MySQL version 3:
+
+- Transactions whose binary log data is larger than the maximum allowed
+  packet size aren't compressed. This is true regardless of whether
+  the Aurora MySQL binary log compression setting is turned on. Such
+  transactions are replicated without being compressed.
+- If you use a connector for change data capture (CDC) that
+  doesn't support MySQL 8.0 yet, you can't use this feature. We
+  recommend that you test any third-party connectors thoroughly with
+  binary log compression. Also, we recommend that you do so before turning
+  on binlog compression on systems that use binlog replication for CDC.

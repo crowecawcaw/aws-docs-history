@@ -1,47 +1,63 @@
-# Logging autovacuum and
+# Determining if
 
-vacuum activities
+the tables in your database need vacuuming
 
-Information about autovacuum activities is sent to the `postgresql.log` based
-on the level specified in the `rds.force_autovacuum_logging_level` parameter.
-Following are the values allowed for this parameter and the PostgreSQL versions for which that
-value is the default setting:
+You can use the following query to show the number of unfrozen transactions in a database.
+The `datfrozenxid` column of a database's `pg_database` row is a lower
+bound on the normal transaction IDs appearing in that database. This column is the minimum of
+the per-table `relfrozenxid` values within the database.
 
-- `disabled` (PostgreSQL 10, PostgreSQL 9.6)
-- `debug5`, `debug4`, `debug3`, `debug2`,
-  `debug1`
-- `info` (PostgreSQL 12, PostgreSQL 11)
-- `notice`
-- `warning` (PostgreSQL 13 and above)
-- `error`, log, `fatal`, `panic`
-  The `rds.force_autovacuum_logging_level` works with the
-  `log_autovacuum_min_duration` parameter. The
-  `log_autovacuum_min_duration` parameter's value is the threshold (in
-  milliseconds) above which autovacuum actions get logged. A setting of `-1` logs
-  nothing, while a setting of 0 logs all actions. As with
-  `rds.force_autovacuum_logging_level`, default values for
-  `log_autovacuum_min_duration` are version dependent, as follows:
+```
+SELECT datname, age(datfrozenxid) FROM pg_database ORDER BY age(datfrozenxid) desc limit 20;
+```
 
-- `10000 ms` – PostgreSQL 14, PostgreSQL 13, PostgreSQL 12, and
-  PostgreSQL 11
-- `(empty)` – No default value for PostgreSQL 10 and PostgreSQL
-  9.6
-  We recommend that you set `rds.force_autovacuum_logging_level` to
-  `WARNING`. We also recommend that you set
-  `log_autovacuum_min_duration` to a value from 1000 to 5000. A setting of 5000
-  logs activity that takes longer than 5,000 milliseconds. Any setting other than -1 also logs
-  messages if the autovacuum action is skipped because of a conflicting lock or concurrently
-  dropped relations. For more information, see [Automatic
-  Vacuuming](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html") in the PostgreSQL documentation.
+For example, the results of running the preceding query might be the following.
 
-To troubleshoot issues, you can change the `rds.force_autovacuum_logging_level`
-parameter to one of the debug levels, from `debug1` up to `debug5` for
-the most verbose information. We recommend that you use debug settings for short periods of
-time and for troubleshooting purposes only. To learn more, see [When to log](https://www.postgresql.org/docs/current/static/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN "https://www.postgresql.org/docs/current/static/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN") in the PostgreSQL documentation.
+```
+datname    | age
+mydb       | 1771757888
+template0  | 1721757888
+template1  | 1721757888
+rdsadmin   | 1694008527
+postgres   | 1693881061
+(5 rows)
+```
 
-###### Note
+When the age of a database reaches 2 billion transaction IDs, transaction ID (XID)
+wraparound occurs and the database becomes read-only. You can use this query to produce a
+metric and run a few times a day. By default, autovacuum is set to keep the age of
+transactions to no more than 200,000,000 ([`autovacuum_freeze_max_age`](https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-FREEZE-MAX-AGE "https://www.postgresql.org/docs/current/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-FREEZE-MAX-AGE")).
 
-PostgreSQL allows the `rds_superuser` account to view autovacuum sessions in
-`pg_stat_activity`. For example, you can identify and end an autovacuum session
-that is blocking a command from running, or running slower than a manually issued vacuum
-command.
+A sample monitoring strategy might look like this:
+
+- Set the `autovacuum_freeze_max_age` value to 200 million
+  transactions.
+- If a table reaches 500 million unfrozen transactions, that triggers a low-severity
+  alarm. This isn't an unreasonable value, but it can indicate that autovacuum
+  isn't keeping up.
+- If a table ages to 1 billion, this should be treated as an alarm to take action on. In
+  general, you want to keep ages closer to `autovacuum_freeze_max_age` for
+  performance reasons. We recommend that you investigate using the recommendations that
+  follow.
+- If a table reaches 1.5 billion unvacuumed transactions, that triggers a high-severity
+  alarm. Depending on how quickly your database uses transaction IDs, this alarm can
+  indicate that the system is running out of time to run autovacuum. In this case, we
+  recommend that you resolve this immediately.
+  If a table is constantly breaching these thresholds, modify your autovacuum parameters
+  further. By default, using VACUUM manually (which has cost-based delays disabled) is more
+  aggressive than using the default autovacuum, but it is also more intrusive to the system as a
+  whole.
+
+We recommend the following:
+
+- Be aware and turn on a monitoring mechanism so that you are aware of the age of your
+  oldest transactions.
+
+For information on creating a process that warns you about transaction ID wraparound,
+see the AWS Database Blog post [Implement an early warning system for transaction ID wraparound in Amazon RDS for
+PostgreSQL](https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/ "https://aws.amazon.com/blogs/database/implement-an-early-warning-system-for-transaction-id-wraparound-in-amazon-rds-for-postgresql/").
+
+- For busier tables, perform a manual vacuum freeze regularly during a maintenance
+  window, in addition to relying on autovacuum. For information on performing a manual
+  vacuum freeze, see [Performing a
+  manual vacuum freeze](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").

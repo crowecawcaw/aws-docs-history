@@ -1,323 +1,309 @@
-# Data filtering for Aurora zero-ETL integrations
+# Adding data to a source Aurora DB cluster and querying it
 
-Aurora
-zero-ETL integrations support data filtering, which lets you control which data is replicated from
-your source Aurora DB cluster to your target data warehouse. Instead of replicating the entire
-database, you can apply one or more filters to selectively include or exclude specific tables.
-This helps you optimize storage and query performance by ensuring that only relevant data is
-transferred. Currently, filtering is limited to the database and table levels. Column- and
-row-level filtering are not supported.
+To finish creating a zero-ETL integration that replicates data from Amazon Aurora into
+Amazon Redshift, you must create a database in the target destination.
 
-Data filtering can be useful when you want to:
-
-- Join certain tables from two or more different source clusters, and you don't need
-  complete data from either cluster.
-- Save costs by performing analytics using only a subset of tables rather than an entire
-  fleet of databases.
-- Filter out sensitive information—such as phone numbers, addresses, or credit card
-  details—from certain tables.
-  You can add data filters to a zero-ETL integration using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or
-  the Amazon RDS API.
-
-If the integration has a provisioned cluster as its target, the cluster must be on [patch 180](../../../redshift/latest/mgmt/cluster-versions.md#cluster-version-180 "../../../redshift/latest/mgmt/cluster-versions.md#cluster-version-180") or higher to
-use data filtering.
+For connections with Amazon Redshift, connect to your Amazon Redshift cluster or workgroup and create a database with a
+reference to your integration identifier. Then, you can add data to your source Aurora
+DB cluster and see it replicated in Amazon Redshift or Amazon SageMaker.
 
 ###### Topics
 
-- [Format of a data filter](#zero-etl.filtering-format "#zero-etl.filtering-format")
-- [Filter logic](#zero-etl.filtering-evaluate "#zero-etl.filtering-evaluate")
-- [Filter precedence](#zero-etl.filtering-precedence "#zero-etl.filtering-precedence")
-- [Aurora MySQL
-  examples](#zero-etl.filtering-examples-mysql "#zero-etl.filtering-examples-mysql")
-- [Aurora PostgreSQL examples](#zero-etl.filtering-examples-postgres "#zero-etl.filtering-examples-postgres")
-- [Adding data filters to an integration](#zero-etl.add-filter "#zero-etl.add-filter")
-- [Removing data filters from an integration](#zero-etl.remove-filter "#zero-etl.remove-filter")
+- [Creating a target database](#zero-etl.create-db "#zero-etl.create-db")
+- [Adding data to the source DB cluster](#zero-etl.add-data-rds "#zero-etl.add-data-rds")
+- [Querying your Aurora
+  data in Amazon Redshift](#zero-etl.query-data-redshift "#zero-etl.query-data-redshift")
+- [Data type differences between Aurora and
+  Amazon Redshift databases](#zero-etl.data-type-mapping "#zero-etl.data-type-mapping")
+- [DDL operations for Aurora PostgreSQL](#zero-etl.ddl-postgres "#zero-etl.ddl-postgres")
 
-## Format of a data filter
+## Creating a target database
 
-You can define multiple filters for a single integration. Each filter either includes or
-excludes any existing and future database tables that match one of the patterns in the filter
-expression. Aurora zero-ETL integrations use [Maxwell filter syntax](https://maxwells-daemon.io/filtering/ "https://maxwells-daemon.io/filtering/") for data filtering.
+Before you can start replicating data into Amazon Redshift, after you create an integration,
+you must create a database in your target data warehouse. This
+database must include a reference to the integration identifier. You can use the Amazon Redshift
+console or the Query editor v2 to create the database.
 
-Each filter has the following elements:
+For instructions to create a destination database, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db").
 
-| Element           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Filter type       | An `Include` filter type *includes<br>• all tables<br>that match one of the patterns in the filter expression. An `Exclude`<br>filter type *excludes<br>• all tables that match one of the<br>patterns.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Filter expression | A comma-separated list of patterns. Expressions must use [Maxwell filter syntax](https://maxwells-daemon.io/filtering/ "https://maxwells-daemon.io/filtering/").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Pattern           | A filter pattern in the format<br>``database`.`table``<br>for Aurora MySQL, or<br>``database`.`schema`.`table``<br>for Aurora PostgreSQL. You can specify literal names, or define regular<br>expressions.<br>NoteFor Aurora MySQL, regular expressions are supported in both the database and<br>table name. For Aurora PostgreSQL, regular expressions are supported only in the<br>schema and table name, not in the database name.<br>You can't include column-level filters or denylists.<br>A single integration can have a maximum of 99 total patterns. In the console, you<br>can enter patterns within a single filter expression, or spread them out among<br>multiple expressions. A single pattern can't exceed 256 characters in length. |
+## Adding data to the source DB cluster
+
+After you configure your integration, you can populate the source Aurora DB cluster
+with data that you want to replicate into your data warehouse.
+
+###### Note
+
+There are differences between data types in Amazon Aurora and the target analytics warehouse. For a
+table of data type mappings, see [Data type differences between Aurora and
+Amazon Redshift databases](#zero-etl.data-type-mapping "#zero-etl.data-type-mapping").
+
+First, connect to the source DB cluster using the MySQL or
+PostgreSQL client of your choice. For instructions, see [Connecting to an Amazon Aurora DB cluster](Aurora.md "Aurora.md").
+
+Then, create a table and insert a row of sample data.
 
 ###### Important
 
-If you select an Aurora PostgreSQL source DB cluster, you must specify at least one
-data filter pattern. At minimum, the pattern must include a single database
-(``database-name`._._`) for replication to
+Make sure that the table has a primary key. Otherwise, it can't be replicated to
 the target data warehouse.
 
-The following image shows the structure of Aurora MySQL data filters in the
-console:
+The pg_dump and pg_restore PostgreSQL utilities initially create tables without a primary key and then add it afterwards. If you're using one of these utilities, we recommend first creating a schema and then loading data in a separate command.
 
-![Data filters for a zero-ETL integration](images/zero-etl-filter.png)
+**MySQL**
 
-###### Important
-
-Do not include personally identifying, confidential, or sensitive information in your
-filter patterns.
-
-### Data filters in the AWS CLI
-
-When using the AWS CLI to add a data filter, the syntax differs slightly from the console.
-You must assign a filter type (`Include` or `Exclude`) to each pattern
-individually, so you can't group multiple patterns under one filter type.
-
-For example, in the console you can group the following comma-separated patterns under a
-single `Include` statement:
-
-**Aurora MySQL**
+The following example uses the [MySQL Workbench utility](https://dev.mysql.com/downloads/workbench/ "https://dev.mysql.com/downloads/workbench/").
 
 ```
-`mydb`.`mytable`, `mydb`.`/table_\d+/`
+CREATE DATABASE `my_db`;
+
+USE `my_db`;
+
+CREATE TABLE `books_table` (ID int NOT NULL, Title VARCHAR(50) NOT NULL, Author VARCHAR(50) NOT NULL,
+Copyright INT NOT NULL, Genre VARCHAR(50) NOT NULL, **PRIMARY KEY** (ID));
+
+INSERT INTO `books_table` VALUES (1, 'The Shining', 'Stephen King', 1977, 'Supernatural fiction');
 ```
 
-**Aurora PostgreSQL**
+**PostgreSQL**
+
+The following example uses the `psql`
+PostgreSQL interactive terminal. When connecting to the cluster, include the named
+database that you specified when creating the integration.
 
 ```
-`mydb`.`myschema`.`mytable`, `mydb`.`myschema`.`/table_\d+/`
+psql -h `mycluster`.cluster-`123456789012`.us-east-2.rds.amazonaws.com -p 5432 -U `username` -d `named_db`;
+
+named_db=> CREATE TABLE `books_table` (ID int NOT NULL, Title VARCHAR(50) NOT NULL, Author VARCHAR(50) NOT NULL,
+Copyright INT NOT NULL, Genre VARCHAR(50) NOT NULL, **PRIMARY KEY** (ID));
+
+named_db=> INSERT INTO `books_table` VALUES (1, 'The Shining', 'Stephen King', 1977, 'Supernatural fiction');
 ```
 
-However, when using the AWS CLI, the same data filter must be in the following
-format:
+## Querying your Aurora
 
-**Aurora MySQL**
+data in Amazon Redshift
 
-```
-'include: `mydb.mytable`, include: `mydb./table_\d+/`'
-```
+After you add data to the Aurora DB cluster, it's replicated into the destination database and is ready to be
+queried.
 
-**Aurora PostgreSQL**
+###### To query the replicated data
 
-```
-'include: `mydb.myschema.mytable`, include: `mydb.myschema./table_\d+/`'
-```
-
-## Filter logic
-
-If you don't specify any data filters in your integration, Aurora assumes a default filter of
-`include:*.*`, which replicates all tables to the target data warehouse. However,
-if you add at least one filter, the default logic switches to `exclude:*.*`, which
-excludes all tables by default. This lets you explicitly define which databases and tables to
-include in replication.
-
-For example, if you define the following filter:
+1. Navigate to the Amazon Redshift console and choose **Query editor
+   v2** from the left navigation pane.
+2. Connect to your cluster or workgroup and choose your destination database
+   (which you created from the integration) from the dropdown menu
+   (**destination_database** in this example). For
+   instructions to create a destination database, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db").
+3. Use a SELECT statement to query your data. In this example, you can run the
+   following command to select all data from the table that you created in the
+   source Aurora DB cluster:
 
 ```
-'include: db.table1, include: db.table2'
+SELECT * from `my_db`."`books_table`";
 ```
 
-Aurora
-evaluates the filter as follows:
+![Run a SELECT statement within the query editor. The result is a single row of sample data that was added to the Amazon RDS database.](images/zero-etl-redshift-editor.png)
+
+    * ``my_db`` is the Aurora database schema name. This option is only needed for MySQL databases.
+    * ``books_table`` is the Aurora table name.
+
+You can also query the data using the a command line client. For example:
 
 ```
-'**exclude:\*.\***, include: db.table1, include: db.table2'
+destination_database=# select * from `my_db`."`books_table`";
+
+ ID |       Title |        Author |   Copyright |                  Genre |  txn_seq |  txn_id
+----+–------------+---------------+-------------+------------------------+----------+--------+
+  1 | The Shining |  Stephen King |        1977 |   Supernatural fiction |        2 |   12192
 ```
 
-Therefore, Aurora only replicates `table1` and `table2` from the
-database named `db` to the target data warehouse.
+###### Note
 
-## Filter precedence
+For case-sensitivity, use double quotes (" ") for schema, table, and column
+names. For more information, see [enable_case_sensitive_identifier](../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md "../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md").
 
-Aurora
-evaluates data filters in the order you specify. In the AWS Management Console, it processes filter
-expressions from left to right and top to bottom. A second filter or an individual pattern
-that follows the first can override it.
+## Data type differences between Aurora and
 
-For example, if the first filter is `Include books.stephenking`, it includes
-only the `stephenking` table from the `books` database. However, if you
-add a second filter, `Exclude books.*`, it overrides the first filter. This
-prevents any tables from the `books` index from being replicated to the target data warehouse.
+Amazon Redshift databases
 
-When you specify at least one filter, the logic starts by assuming
-`exclude:*.*` by default, which automatically _excludes_ all
-tables from replication. As a best practice, define filters from broadest to most specific.
-Start with one or more `Include` statements to specify the data to replicate, then
-add `Exclude` filters to selectively remove certain tables.
+The following tables show the mappings of
+Aurora MySQL and Aurora PostgreSQL data types to corresponding destination data types.
+_Amazon Aurora currently supports only these data types for
+zero-ETL integrations._
 
-The same principle applies to filters that you define using the AWS CLI. Aurora evaluates
-these filter patterns in the order that you specify them, so a pattern might override one that
-you specify before it.
+If a table in your source DB cluster includes an unsupported data type, the table goes
+out of sync and isn't consumable by the destination target. Streaming from the source to the
+target continues, but the table with the unsupported data type isn't available. To fix
+the table and make it available in the target destination, you must manually revert the breaking change
+and then refresh the integration by running `ALTER DATABASE...INTEGRATION
+ REFRESH`.
 
-## Aurora MySQL
+###### Note
 
-examples
+You can't refresh zero-ETL integrations with an Amazon SageMaker lakehouse. Instead, delete and
+try to create the integration again.
 
-The following examples demonstrate how data filtering works for
-Aurora MySQL
-examples zero-ETL integrations:
+###### Topics
 
-- Include all databases and all tables:
+- [Aurora MySQL](#zero-etl.data-type-mapping-mysql "#zero-etl.data-type-mapping-mysql")
+- [Aurora PostgreSQL](#zero-etl.data-type-mapping-postgres "#zero-etl.data-type-mapping-postgres")
 
-```
-'include: *.*'
-```
+### Aurora MySQL
 
-- Include all tables within the `books` database:
+| Aurora MySQL data type                           | Target data type | Description                                             | Limitations                                                          |
+| ------------------------------------------------ | ---------------- | ------------------------------------------------------- | -------------------------------------------------------------------- |
+| INT                                              | INTEGER          | Signed four-byte integer                                | None                                                                 |
+| SMALLINT                                         | SMALLINT         | Signed two-byte integer                                 | None                                                                 |
+| TINYINT                                          | SMALLINT         | Signed two-byte integer                                 | None                                                                 |
+| MEDIUMINT                                        | INTEGER          | Signed four-byte integer                                | None                                                                 |
+| BIGINT                                           | BIGINT           | Signed eight-byte integer                               | None                                                                 |
+| INT UNSIGNED                                     | BIGINT           | Signed eight-byte integer                               | None                                                                 |
+| TINYINT UNSIGNED                                 | SMALLINT         | Signed two-byte integer                                 | None                                                                 |
+| MEDIUMINT UNSIGNED                               | INTEGER          | Signed four-byte integer                                | None                                                                 |
+| BIGINT UNSIGNED                                  | DECIMAL(20,0)    | Exact numeric of selectable precision                   | None                                                                 |
+| DECIMAL(p,s) = NUMERIC(p,s)                      | DECIMAL(p,s)     | Exact numeric of selectable precision                   | Precision greater than 38 and scale greater than 37 not<br>supported |
+| DECIMAL(p,s) UNSIGNED = NUMERIC(p,s)<br>UNSIGNED | DECIMAL(p,s)     | Exact numeric of selectable precision                   | Precision greater than 38 and scale greater than 37 not<br>supported |
+| FLOAT4/REAL                                      | REAL             | Single precision floating-point number                  | None                                                                 |
+| FLOAT4/REAL UNSIGNED                             | REAL             | Single precision floating-point number                  | None                                                                 |
+| DOUBLE/REAL/FLOAT8                               | DOUBLE PRECISION | Double precision floating-point number                  | None                                                                 |
+| DOUBLE/REAL/FLOAT8 UNSIGNED                      | DOUBLE PRECISION | Double precision floating-point number                  | None                                                                 |
+| BIT(n)                                           | VARBYTE(8)       | Variable-length binary value                            | None                                                                 |
+| BINARY(n)                                        | VARBYTE(n)       | Variable-length binary value                            | None                                                                 |
+| VARBINARY(n)                                     | VARBYTE(n)       | Variable-length binary value                            | None                                                                 |
+| CHAR(n)                                          | VARCHAR(n)       | Variable-length string value                            | None                                                                 |
+| VARCHAR(n)                                       | VARCHAR(n)       | Variable-length string value                            | None                                                                 |
+| TEXT                                             | VARCHAR(65535)   | Variable-length string value up to 65,535<br>characters | None                                                                 |
+| TINYTEXT                                         | VARCHAR(255)     | Variable-length string value up to 255<br>characters    | None                                                                 |
+| MEDIUMTEXT                                       | VARCHAR(65535)   | Variable-length string value up to 65,535<br>characters | None                                                                 |
+| LONGTEXT                                         | VARCHAR(65535)   | Variable-length string value up to 65,535<br>characters | None                                                                 |
+| ENUM                                             | VARCHAR(1020)    | Variable-length string value up to 1,020<br>characters  | None                                                                 |
+| SET                                              | VARCHAR(1020)    | Variable-length string value up to 1,020<br>characters  | None                                                                 |
+| DATE                                             | DATE             | Calendar date (year, month, day)                        | None                                                                 |
+| DATETIME                                         | TIMESTAMP        | Date and time (without time zone)                       | None                                                                 |
+| TIMESTAMP(p)                                     | TIMESTAMP        | Date and time (without time zone)                       | None                                                                 |
+| TIME                                             | VARCHAR(18)      | Variable-length string value up to 18<br>characters     | None                                                                 |
+| YEAR                                             | VARCHAR(4)       | Variable-length string value up to 4<br>characters      | None                                                                 |
+| JSON                                             | SUPER            | Semistructured data or documents as values              | None                                                                 |
 
-```
-'include: books.*'
-```
+### Aurora PostgreSQL
 
-- Exclude any tables named `mystery`:
+Zero-ETL integrations for Aurora PostgreSQL don't support custom data types or data
+types created by extensions.
 
-```
-'include: *.*, exclude: *.mystery'
-```
+| Aurora PostgreSQL data type       | Amazon Redshift data type | Description                                                       | Limitations                                                                                                                                                              |
+| --------------------------------- | ------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| array                             | SUPER                     | Semistructured data or documents as values                        | None                                                                                                                                                                     |
+| bigint                            | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
+| bigserial                         | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
+| bit varying(n)                    | VARBYTE(n)                | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
+| bit(n)                            | VARBYTE(n)                | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
+| bit, bit varying                  | VARBYTE(16777216)         | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
+| boolean                           | BOOLEAN                   | Logical boolean (true/false)                                      | None                                                                                                                                                                     |
+| bytea                             | VARBYTE(16777216)         | Variable-length binary value up to 16,777,216<br>bytes            | None                                                                                                                                                                     |
+| char(n)                           | CHAR(n)                   | Fixed-length character string value up to 65,535<br>bytes         | None                                                                                                                                                                     |
+| char varying(n)                   | VARCHAR(65535)            | Variable-length character string value up to<br>65,535 characters | None                                                                                                                                                                     |
+| cid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
+| cidr                              | VARCHAR(19)               | Variable-length string value up to 19 characters                  | None                                                                                                                                                                     |
+| date                              | DATE                      | Calendar date (year, month, day)                                  | Values greater than 294,276 A.D. not supported                                                                                                                           |
+| double precision                  | DOUBLE PRECISION          | Double precision floating-point numbers                           | Subnormal values not fully supported                                                                                                                                     |
+| gtsvector                         | VARCHAR(65535)            | Variable-length string value up to 65,535 characters              | None                                                                                                                                                                     |
+| inet                              | VARCHAR(19)               | Variable-length string value up to 19 characters                  | None                                                                                                                                                                     |
+| integer                           | INTEGER                   | Signed four-byte integer                                          | None                                                                                                                                                                     |
+| int2vector                        | SUPER                     | Semistructured data or documents as<br>values.                    | None                                                                                                                                                                     |
+| interval                          | INTERVAL                  | Duration of time                                                  | Only INTERVAL types that specify either a year to month or a day<br>to second qualifier are supported.                                                                   |
+| json                              | SUPER                     | Semistructured data or documents as values                        | None                                                                                                                                                                     |
+| jsonb                             | SUPER                     | Semistructured data or documents as values                        | None                                                                                                                                                                     |
+| jsonpath                          | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| macaddr                           | VARCHAR(17)               | Variable-length string value up to 17<br>characters               | None                                                                                                                                                                     |
+| macaddr8                          | VARCHAR(23)               | Variable-length string value up to 23<br>characters               | None                                                                                                                                                                     |
+| money                             | DECIMAL(20,3)             | Currency amount                                                   | None                                                                                                                                                                     |
+| name                              | VARCHAR(64)               | Variable-length string value up to 64<br>characters               | None                                                                                                                                                                     |
+| numeric(p,s)                      | DECIMAL(p,s)              | User-defined fixed precision value                                | • `NaN` values not supported<br>• Precision and scale must be explicitly defined and not<br>greater than 38 (precision) and 37 (scale)<br>• Negative scale not supported |
+| oid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
+| oidvector                         | SUPER                     | Semistructured data or documents as<br>values.                    | None                                                                                                                                                                     |
+| pg_brin_bloom_summary             | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg_dependencies                   | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg_lsn                            | VARCHAR(17)               | Variable-length string value up to 17<br>characters               | None                                                                                                                                                                     |
+| pg_mcv_list                       | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg_ndistinct                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg_node_tree                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg_snapshot                       | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| real                              | REAL                      | Single precision floating-point number                            | Subnormal values not fully supported                                                                                                                                     |
+| refcursor                         | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| smallint                          | SMALLINT                  | Signed two-byte integer                                           | None                                                                                                                                                                     |
+| smallserial                       | SMALLINT                  | Signed two-byte integer                                           | None                                                                                                                                                                     |
+| serial                            | INTEGER                   | Signed four-byte integer                                          | None                                                                                                                                                                     |
+| text                              | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| tid                               | VARCHAR(23)               | Variable-length string value up to 23<br>characters               | None                                                                                                                                                                     |
+| time [(p)] without time zone      | VARCHAR(19)               | Variable-length string value up to 19<br>characters               | `Infinity` and `-Infinity` values not<br>supported                                                                                                                       |
+| time [(p)] with time zone         | VARCHAR(22)               | Variable-length string value up to 22<br>characters               | `Infinity` and `-Infinity` values not<br>supported                                                                                                                       |
+| timestamp [(p)] without time zone | TIMESTAMP                 | Date and time (without time zone)                                 | • `Infinity` and `-Infinity`<br>values not supported<br>• Values greater than `9999-12-31` not<br>supported<br>• B.C. values not supported                               |
+| timestamp [(p)] with time zone    | TIMESTAMPTZ               | Date and time (with time zone)                                    | • `Infinity` and `-Infinity`<br>values not supported<br>• Values greater than `9999-12-31` not<br>supported<br>• B.C. values not supported                               |
+| tsquery                           | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| tsvector                          | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| txid_snapshot                     | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| uuid                              | VARCHAR(36)               | Variable-length 36 character string                               | None                                                                                                                                                                     |
+| xid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
+| xid8                              | DECIMAL(20, 0)            | Fixed precision decimal                                           | None                                                                                                                                                                     |
+| xml                               | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
 
-- Include two specific tables within the `books` database:
+## DDL operations for Aurora PostgreSQL
 
-```
-'include: books.stephen_king, include: books.carolyn_keene'
-```
+Amazon Redshift is derived from PostgreSQL, so it shares several features with Aurora PostgreSQL due to their common PostgreSQL architecture. Zero-ETL integrations
+leverage these similarities to streamline data replication from Aurora PostgreSQL to Amazon Redshift, mapping databases by name and utilizing the shared
+database, schema, and table structure.
 
-- Include all tables in the `books` database, except for those containing the
-  substring `mystery`:
-
-```
-'include: books.*, exclude: books./.*mystery.*/'
-```
-
-- Include all tables in the `books` database, except those starting with
-  `mystery`:
-
-```
-'include: books.*, exclude: books./mystery.*/'
-```
-
-- Include all tables in the `books` database, except those ending with
-  `mystery`:
-
-```
-'include: books.*, exclude: books./.*mystery/'
-```
-
-- Include all tables in the `books` database that start with
-  `table_`, except for the one named `table_stephen_king`. For
-  example, `table_movies` or `table_books` would be replicated, but
-  not `table_stephen_king`.
-
-```
-'include: books./table_.*/, exclude: books.table_stephen_king'
-```
-
-## Aurora PostgreSQL examples
-
-The following examples demonstrate how data filtering works for Aurora PostgreSQL
+Consider the following points when managing Aurora PostgreSQL
 zero-ETL integrations:
 
-- Include all tables within the `books` database:
+- Isolation is managed at the database level.
+- Replication occurs at the database level.
+- Aurora PostgreSQL databases are mapped to Amazon Redshift databases by name, with
+  data flowing to the corresponding renamed Redshift database if the original is
+  renamed.
 
-```
-'include: books.*.*'
-```
+Despite their similarities, Amazon Redshift and Aurora PostgreSQL have important
+differences. The following sections outline Amazon Redshift system responses for common DDL
+operations.
 
-- Exclude any tables named `mystery` in the `books`
-  database:
+###### Topics
 
-```
-'include: books.*.*, exclude: books.*.mystery'
-```
+- [Database operations](#zero-etl.ddl-postgres-database "#zero-etl.ddl-postgres-database")
+- [Schema operations](#zero-etl.ddl-postgres-schema "#zero-etl.ddl-postgres-schema")
+- [Table operations](#zero-etl.ddl-postgres-table "#zero-etl.ddl-postgres-table")
 
-- Include one table within the `books` database in the `mystery`
-  schema, and one table within `employee` database in the `finance`
-  schema:
+### Database operations
 
-```
-'include: books.mystery.stephen_king, include: employee.finance.benefits'
-```
+The following table shows the system responses for database DDL operations.
 
-- Include all tables in the `books` database and `science_fiction`
-  schema, except for those containing the substring `king`:
+| DDL operation     | Redshift system response                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CREATE DATABASE` | No operation                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `DROP DATABASE`   | Amazon Redshift drops all the data in the target Redshift<br>database.                                                                                                                                                                                                                                                                                                                                                            |
+| `RENAME DATABASE` | Amazon Redshift drops all the data in the original target<br>database and resynchronize the data in the new target database. If<br>the new database doesn't exist, you must manually create it. For<br>instructions, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.create-db"). |
 
-```
-'include: books.science_fiction.*, exclude: books.*./.*king.*/
-```
+### Schema operations
 
-- Include all tables in the `books` database, except those with a schema name
-  starting with `sci`:
+The following table shows the system responses for schema DDL operations.
 
-```
-'include: books.*.*, exclude: books./sci.*/.*'
-```
+| DDL operation   | Redshift system response                                                                     |
+| --------------- | -------------------------------------------------------------------------------------------- |
+| `CREATE SCHEMA` | No operation                                                                                 |
+| `DROP SCHEMA`   | Amazon Redshift drops the original schema.                                                   |
+| `RENAME SCHEMA` | Amazon Redshift drops the original schema then resynchronizes the<br>data in the new schema. |
 
-- Include all tables in the `books` database, except those in the
-  `mystery` schema ending with `king`:
+### Table operations
 
-```
-'include: books.*.*, exclude: books.mystery./.*king/'
-```
+The following table shows the system responses for table DDL operations.
 
-- Include all tables in the `books` database that start with
-  `table_`, except for the one named `table_stephen_king`. For
-  example, `table_movies` in the `fiction` schema and
-  `table_books` in the `mystery` schema are replicated, but not
-  `table_stephen_king` in either schema:
-
-```
-'include: books.*./table_.*/, exclude: books.*.table_stephen_king'
-```
-
-## Adding data filters to an integration
-
-You can configure data filtering using the AWS Management Console, the AWS CLI, or the Amazon RDS API.
-
-###### Important
-
-If you add a filter after you create an integration, Aurora treats it as if it always
-existed. It removes any data in the target data warehouse that doesn’t match the new
-filtering criteria and resynchronizes all affected tables.
-
-###### To add data filters to a zero-ETL integration
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Zero-ETL integrations**. Select the
-   integration that you want to add data filters to, and then choose
-   **Modify**.
-3. Under **Source**, add one or more `Include` and
-   `Exclude` statements.
-
-The following image shows an example of data filters for a MySQL integration:
-
-![Data filters for a zero-ETL integration in the RDS console](images/zero-etl-filter-data.png) 4. When you're satisfied with the changes, choose **Continue** and
-**Save changes**.
-To add data filters to a zero-ETL integration using the AWS CLI, call the [modify-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html") command. In addition to the integration identifier, specify
-the `--data-filter` parameter with a comma-separated list of
-`Include` and `Exclude` Maxwell filters.
-
-The following example adds filter patterns to `my-integration`.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-integration \
-    --integration-identifier `my-integration` \
-    --data-filter `'include: foodb.*, exclude: foodb.tbl, exclude: foodb./table_\d+/'`
-```
-
-For Windows:
-
-```
-aws rds modify-integration ^
-    --integration-identifier `my-integration` ^
-    --data-filter `'include: foodb.*, exclude: foodb.tbl, exclude: foodb./table_\d+/'`
-```
-
-To modify a zero-ETL integration using the RDS API, call the [ModifyIntegration](../APIReference/API_ModifyIntegration.md "../APIReference/API_ModifyIntegration.md")
-operation. Specify the integration identifier and provide a comma-separated list of filter
-patterns.
-
-## Removing data filters from an integration
-
-When you remove a data filter from an integration, Aurora reevaluates the remaining filters
-as if the removed filter never existed. It then replicates any previously excluded data that
-now meets the criteria into the target data warehouse. This triggers a resynchronization
-of all affected tables.
+| DDL operation                            | Redshift system response                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CREATE TABLE`                           | Amazon Redshift creates the table.<br>Some operations cause table creation to fail, such as creating<br>a table without a primary key or performing declarative<br>partitioning. For more information, see [Limitations](zero-etl.md#zero-etl.reqs-lims "zero-etl.md#zero-etl.reqs-lims") and [Troubleshooting Aurora zero-ETL integrations](zero-etl.md "zero-etl.md"). |
+| `DROP TABLE`                             | Amazon Redshift drops the table.                                                                                                                                                                                                                                                                                                                                         |
+| `TRUNCATE TABLE`                         | Amazon Redshift truncates the table.                                                                                                                                                                                                                                                                                                                                     |
+| `ALTER TABLE`<br>(`RENAME...`)           | Amazon Redshift renames the table or column.                                                                                                                                                                                                                                                                                                                             |
+| `ALTER TABLE` (`SET<br>SCHEMA`)          | Amazon Redshift drops the table in the original schema and resynchronizes<br>the table in the new schema.                                                                                                                                                                                                                                                                |
+| `ALTER TABLE` (`ADD PRIMARY<br>KEY`)     | Amazon Redshift adds a primary key and resynchronizes the<br>table.                                                                                                                                                                                                                                                                                                      |
+| `ALTER TABLE` (`ADD<br>COLUMN`)          | Amazon Redshift adds a column to the table.                                                                                                                                                                                                                                                                                                                              |
+| `ALTER TABLE` (`DROP<br>COLUMN`)         | Amazon Redshift drops the column if it's not a primary key column.<br>Otherwise, it resynchronizes the table.                                                                                                                                                                                                                                                            |
+| `ALTER TABLE` (`SET<br>LOGGED/UNLOGGED`) | If you change the table to logged, Amazon Redshift<br>resynchronizes the table. If you change the table to unlogged, Amazon Redshift<br>drops the table.                                                                                                                                                                                                                 |

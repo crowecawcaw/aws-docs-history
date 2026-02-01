@@ -1,48 +1,42 @@
-# Best practices with
+# Publishing Aurora PostgreSQL logs to Amazon CloudWatch Logs
 
-Amazon Aurora PostgreSQL
+You can configure your Aurora PostgreSQL DB cluster to export log data to Amazon CloudWatch Logs on a
+regular basis. When you do so, events from your Aurora PostgreSQL DB cluster's PostgreSQL
+log are automatically _published_ to Amazon CloudWatch, as Amazon CloudWatch Logs. In CloudWatch, you
+can find the exported log data in a _Log group_ for your Aurora PostgreSQL DB
+cluster. The log group contains one or more _log streams_ that contain
+the events from the PostgreSQL log from each instance in the cluster.
 
-Following, you can find several best practices for managing your Amazon Aurora PostgreSQL DB
-cluster. Be sure to also review basic maintenance tasks. For more information, see [Performance and scaling for
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+Publishing the logs to CloudWatch Logs allows you to keep your cluster's PostgreSQL log records
+in highly durable storage. With the log data available in CloudWatch Logs, you can evaluate and
+improve your cluster's operations. You can also use CloudWatch to create alarms and view
+metrics. To learn more, see [Monitoring log events in
+Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md").
+
+###### Note
+
+Publishing your PostgreSQL logs to CloudWatch Logs consumes storage, and
+you incur charges for that storage. Be sure to delete any CloudWatch Logs
+that you no longer need.
+
+Turning the export log option off for an existing Aurora PostgreSQL DB cluster doesn't
+affect any data that's already held in CloudWatch Logs. Existing logs remain available in
+CloudWatch Logs based on your log retention settings. To learn more about CloudWatch Logs, see [What
+is Amazon CloudWatch Logs?](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+
+Aurora PostgreSQL supports publishing logs to CloudWatch Logs for the following versions.
+
+- 16.1 and all higher versions
+- 15.2 and higher 15 versions
+- 14.3 and higher 14 versions
+- 13.3 and higher 13 versions
+- 12.8 and higher 12 versions
+- 11.9 and higher 11 versions
+  For information about turning on the option to publish logs to CloudWatch Logs, monitoring log events in CloudWatch Logs, and analyzing logs using CloudWatch Logs Insights, see the following topics.
 
 ###### Topics
 
-- [Avoiding slow performance,
-  automatic restart, and failover for Aurora PostgreSQL DB instances](#AuroraPostgreSQL.BestPractices.Avoiding "#AuroraPostgreSQL.BestPractices.Avoiding")
-- [Diagnosing table and index bloat](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
-- [Improved memory
-  management in Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.memory.md "AuroraPostgreSQL.BestPractices.memory.md")
-- [Fast failover with
-  Amazon Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.md "AuroraPostgreSQL.BestPractices.md")
-- [Fast recovery after failover with
-  cluster cache management for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
-- [Managing Aurora PostgreSQL connection churn with pooling](AuroraPostgreSQL.BestPractices.md "AuroraPostgreSQL.BestPractices.md")
-- [Dead connection
-  handling in PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Tuning memory parameters for
-  Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.md "AuroraPostgreSQL.BestPractices.md")
-- [Using Amazon CloudWatch metrics to analyze
-  resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md "AuroraPostgreSQL_AnayzeResourceUsage.md")
-- [Using logical replication to perform a major version upgrade for Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md")
-- [Troubleshooting
-  storage issues in Aurora PostgreSQL](AuroraPostgreSQL.BestPractices.md "AuroraPostgreSQL.BestPractices.md")
-
-## Avoiding slow performance,
-
-automatic restart, and failover for Aurora PostgreSQL DB instances
-
-If you're running a heavy workload or workloads that spike beyond the allocated
-resources of your DB instance, you can exhaust the resources on which you're running
-your application and Aurora database. To get metrics on your database instance such as
-CPU utilization, memory usage, and number of database connections used, you can refer to
-the metrics provided by Amazon CloudWatch, Performance Insights, and Enhanced Monitoring. For more information on monitoring
-your DB instance, see [Monitoring metrics in an Amazon Aurora cluster](MonitoringAurora.md "MonitoringAurora.md").
-
-If your workload exhausts the resources you're using, your DB instance might slow
-down, restart, or even fail over to another DB instance. To avoid this, monitor your
-resource utilization, examine the workload running on your DB instance, and make
-optimizations where necessary. If optimizations don't improve the instance metrics and
-mitigate the resource exhaustion, consider scaling up your DB instance before you reach
-its limits. For more information on available DB instance classes and their
-specifications, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+- [Turning on the option to publish logs to Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md")
+- [Monitoring log events in
+  Amazon CloudWatch](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md")
+- [Analyzing PostgreSQL logs using CloudWatch Logs Insights](AuroraPostgreSQL.CloudWatch.md "AuroraPostgreSQL.CloudWatch.md")

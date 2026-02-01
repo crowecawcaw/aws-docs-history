@@ -1,4 +1,6 @@
-# Choosing the new monitoring view from the Monitoring tab
+# Choosing the new monitoring
+
+view from the Performance Insights page
 
 ###### Important
 
@@ -21,25 +23,14 @@ For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/
 
 From the Amazon RDS console, you can choose the new monitoring view to view Performance Insights and CloudWatch metrics for your DB instance.
 
-###### To choose the new monitoring view in the Monitoring tab
+###### To choose the new monitoring view with Performance Insights in the
+
+navigation pane
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Databases**.
-3. Choose the Aurora DB cluster that you want to monitor.
-4. Scroll down and choose the **Monitoring** tab.
+2. In the left navigation pane, choose **Performance Insights**.
+3. Choose a DB instance to view the Performance Insights dashboard that shows both Performance Insights and CloudWatch metrics for
+   your DB instance.
 
-A banner appears with the option to choose the new monitoring view. The following
-example shows the banner to choose the new monitoring view.
-
-![Banner with navigation to new monitoring view.](images/NewMonitoringViewOption.png) 5. Choose **Go to new monitoring view** to open the Performance Insights dashboard
-with Performance Insights and CloudWatch metrics for your DB cluster. 6. (Optional) If Performance Insights is turned off for your DB instance, a banner appears with the option
-to modify your DB instance and turn on Performance Insights.
-
-The following example shows the banner to modify the DB instance in the
-**Monitoring** tab .
-
-![Modify DB instance to turn on Performance Insights.](images/Monitoring_modifyInstnc_banner.png)
-
-Choose **Modify** to modify your DB instance and turn on Performance Insights.
-For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md")
+![Consolidated Performance Insights and CloudWatch metrics dashboard.](images/Monitoring_UnifiedDashboard.png)

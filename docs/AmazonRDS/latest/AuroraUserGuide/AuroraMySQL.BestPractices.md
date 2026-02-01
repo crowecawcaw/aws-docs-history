@@ -1,42 +1,65 @@
-# Evaluating DB instance usage for Aurora MySQL with Amazon CloudWatch metrics
+# Best practices for Aurora MySQL high availability
 
-You can use CloudWatch metrics to monitor your DB instance throughput and determine whether your DB instance class provides sufficient resources for
-your applications. For information about your DB instance class limits, see [Hardware specifications for DB instance
-classes for Aurora](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). Find the specifications for your DB instance class to find the network performance.
+You can apply the following best practices to improve the availability of your Aurora MySQL clusters.
 
-If your DB instance usage is near the instance class limit, then performance may begin to slow. The CloudWatch metrics can confirm this situation so you
-can plan to manually scale-up to a larger instance class.
+###### Topics
 
-Combine the following CloudWatch metrics values to find out if you are nearing the instance class limit:
+- [Using Amazon Aurora for
+  Disaster Recovery with your MySQL databases](#AuroraMySQL.BestPractices.DisasterRecovery "#AuroraMySQL.BestPractices.DisasterRecovery")
+- [Migrating from MySQL to Amazon Aurora MySQL with reduced downtime](#AuroraMySQL.BestPractices.Migrating "#AuroraMySQL.BestPractices.Migrating")
+- [Avoiding slow performance, automatic restart, and failover for
+  Aurora MySQL DB instances](#AuroraMySQL.BestPractices.Avoiding "#AuroraMySQL.BestPractices.Avoiding")
 
-- **NetworkThroughput** – The amount of network throughput received and transmitted by the clients for each instance
-  in the Aurora DB cluster. This throughput value doesn't include network traffic between instances in the DB cluster and the cluster volume.
-- **StorageNetworkThroughput** – The amount of network throughput received and sent to the Aurora storage subsystem
-  by each instance in the Aurora DB cluster.
-  Add the **NetworkThroughput** to the **StorageNetworkThroughput** to find the network throughput received from
-  and sent to the Aurora storage subsystem by each instance in your Aurora DB cluster. The instance class limit for your instance should be greater than
-  the sum of these two combined metrics.
+## Using Amazon Aurora for
 
-You can use the following metrics to review additional details of the network traffic from your client applications when sending and
-receiving:
+Disaster Recovery with your MySQL databases
 
-- **NetworkReceiveThroughput** – The amount of network throughput received from clients by each DB instance in the
-  Aurora MySQL DB cluster. This throughput doesn't include network traffic between instances in the DB cluster and the cluster volume.
-- **NetworkTransmitThroughput** – The amount of network throughput sent to clients by each instance in the Aurora DB
-  cluster. This throughput doesn't include network traffic between instances in the DB cluster and the cluster volume.
-- **StorageNetworkReceiveThroughput** – The amount of network throughput received from the Aurora storage subsystem
-  by each instance in the DB cluster.
-- **StorageNetworkTransmitThroughput** – The amount of network throughput sent to the Aurora storage subsystem by
-  each instance in the DB cluster.
-  Add all of these metrics together to evaluate how your network usage compares to the DB instance class limit. The instance class limit should be greater
-  than the sum of these combined metrics.
+You can use Amazon Aurora with your MySQL DB instance to create an offsite backup for
+disaster recovery. To use Aurora for disaster recovery of your MySQL DB instance, create
+an Amazon Aurora DB cluster and make it a read replica of your MySQL DB instance. This
+applies to an RDS for MySQL DB instance, or a MySQL database running external to
+Amazon RDS.
 
-The network limits and CPU usage for storage are directly related. When the network throughput increases, then the CPU usage also increases.
-Monitoring the CPU and network usage provides information about how and why the resources are being exhausted.
+###### Important
 
-To help minimize network usage, you can consider the following:
+When you set up replication between a MySQL DB instance and an Amazon Aurora MySQL DB
+cluster, you should monitor the replication
+to ensure that it remains healthy and repair it if necessary.
 
-- Using a larger DB instance class.
-- Dividing the write requests in batches to reduce overall transactions.
-- Directing the read-only workload to a read-only instance.
-- Deleting any unused indexes.
+For instructions on how to create an Amazon Aurora MySQL DB cluster and make it a
+read replica of your MySQL DB instance, follow the procedure in
+[Using Amazon Aurora to scale reads for
+your MySQL database](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.ReadScaling "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.ReadScaling").
+
+For more information on disaster recovery models, see [How to choose the best disaster recovery option for your Amazon Aurora MySQL cluster](https://aws.amazon.com/blogs/database/how-to-choose-the-best-disaster-recovery-option-for-your-amazon-aurora-mysql-cluster/ "https://aws.amazon.com/blogs/database/how-to-choose-the-best-disaster-recovery-option-for-your-amazon-aurora-mysql-cluster/").
+
+## Migrating from MySQL to Amazon Aurora MySQL with reduced downtime
+
+When importing data from a MySQL database that supports a live application to an
+Amazon Aurora MySQL DB cluster, you might want to reduce the time that service is interrupted
+while you migrate. To do so, you can use the procedure documented in
+[Importing data to an Amazon RDS for MySQL DB instance with reduced downtime](../UserGuide/mysql-importing-data-reduced-downtime.md "../UserGuide/mysql-importing-data-reduced-downtime.md")
+in the _Amazon Relational Database Service User Guide_. This procedure can
+especially help if you are working with a very large database. You can use the procedure
+to reduce the cost of the import by minimizing the amount of data that is passed across
+the network to AWS.
+
+The procedure lists steps to transfer a copy of your database data to an Amazon EC2
+instance and import the data into a new RDS for MySQL DB instance. Because Amazon Aurora is
+compatible with MySQL, you can instead use an Amazon Aurora DB cluster for the target Amazon RDS
+MySQL DB instance.
+
+## Avoiding slow performance, automatic restart, and failover for
+
+Aurora MySQL DB instances
+
+If you're running a heavy workload or workloads that spike beyond the allocated resources of your DB instance, you can
+exhaust the resources on which you're running your application and Aurora database. To get metrics on your database instance
+such as CPU utilization, memory usage, and number of database connections used, you can refer to the metrics provided by
+Amazon CloudWatch, Performance Insights, and Enhanced Monitoring. For more information on monitoring your DB instance, see [Monitoring metrics in an Amazon Aurora cluster](MonitoringAurora.md "MonitoringAurora.md").
+
+If your workload exhausts the resources you're using, your DB instance might slow down, restart, or even fail over to
+another DB instance. To avoid this, monitor your resource utilization, examine the workload running on your DB instance, and
+make optimizations where necessary. If optimizations don't improve the instance metrics and mitigate the resource
+exhaustion, consider scaling up your DB instance before you reach its limits. For more information on available DB instance
+classes and their specifications, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").

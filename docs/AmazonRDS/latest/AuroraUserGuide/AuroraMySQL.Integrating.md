@@ -1,246 +1,185 @@
-# Invoking a Lambda function with an Aurora MySQL native function
+# Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs
+
+You can configure your Aurora MySQL DB cluster to publish general, slow, audit, and error log data
+to a log group in Amazon CloudWatch Logs. With CloudWatch Logs, you can perform real-time analysis of the log data, and
+use CloudWatch to create alarms and view metrics. You can use CloudWatch Logs to store your log records in highly
+durable storage.
+
+To publish logs to CloudWatch Logs, the respective logs must be enabled. Error logs are enabled
+by default, but you must enable the other types of logs explicitly. For information about
+enabling logs in MySQL, see [Selecting general
+query and slow query log output destinations](https://dev.mysql.com/doc/refman/8.0/en/log-destinations.html "https://dev.mysql.com/doc/refman/8.0/en/log-destinations.html") in the MySQL documentation. For
+more information about enabling Aurora MySQL audit logs, see [Enabling Advanced Auditing](AuroraMySQL.md#AuroraMySQL.Auditing.Enable "AuroraMySQL.md#AuroraMySQL.Auditing.Enable").
 
 ###### Note
 
-You can call the native functions `lambda_sync` and `lambda_async` when you use Aurora MySQL version
-2, or Aurora MySQL version 3.01 and higher. For more information about Aurora MySQL versions, see [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md").
+- If exporting log data is disabled, Aurora doesn't delete existing log
+  groups or log streams. If exporting log data is disabled, existing log data
+  remains available in CloudWatch Logs, depending on log retention, and you still incur
+  charges for stored audit log data. You can delete log streams and log groups
+  using the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API.
+- An alternative way to publish audit logs to CloudWatch Logs is by enabling Advanced Auditing, then creating a custom DB
+  cluster parameter group and setting the `server_audit_logs_upload` parameter to `1`. The default
+  for the `server_audit_logs_upload` DB cluster parameter is `0`. For information on enabling
+  Advanced Auditing, see [Using Advanced Auditing with an Amazon Aurora MySQL DB cluster](AuroraMySQL.md "AuroraMySQL.md").
 
-You can invoke an AWS Lambda function from an Aurora MySQL DB cluster by calling the
-native functions `lambda_sync` and `lambda_async`. This approach
-can be useful when you want to integrate your database running on Aurora MySQL with other AWS services.
-For example, you might want to send a notification using Amazon Simple Notification Service (Amazon SNS) whenever a row is inserted into a
-specific table in your database.
+If you use this alternative method, you must have an IAM role to access
+CloudWatch Logs and set the `aws_default_logs_role` cluster-level parameter to
+the ARN for this role. For information about creating the role, see [Setting up IAM roles to
+access AWS services](AuroraMySQL.Integrating.Authorizing.md "AuroraMySQL.Integrating.Authorizing.md"). However, if you have
+the `AWSServiceRoleForRDS` service-linked role, it provides access to
+CloudWatch Logs and overrides any custom-defined roles. For information about
+service-linked roles for Amazon RDS, see [Using service-linked roles for
+Amazon Aurora](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 
-###### Contents
+- If you don't want to export audit logs to CloudWatch Logs, make sure that all methods of exporting audit logs are disabled. These methods are the
+  AWS Management Console, the AWS CLI, the RDS API, and the `server_audit_logs_upload` parameter.
+- The procedure is slightly different for Aurora Serverless v1 DB clusters than
+  for DB clusters with provisioned or Aurora Serverless v2 DB instances.
+  Aurora Serverless v1 clusters automatically upload all of the logs that you enable
+  through configuration parameters.
 
-- [Working with native functions to invoke a Lambda
-  function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions")
-  - [Granting the role in Aurora MySQL version
-    3](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3 "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3")
-  - [Granting the privilege in Aurora MySQL version
-    2](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2 "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2")
-  - [Syntax for the lambda_sync
-    function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax")
-  - [Parameters for the lambda_sync
-    function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Parameters")
-  - [Example for the lambda_sync
-    function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Example "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Example")
-  - [Syntax for the lambda_async
-    function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Syntax "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Syntax")
-  - [Parameters for the lambda_async
-    function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Parameters "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Parameters")
-  - [Example for the lambda_async
-    function](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Example "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Async.Example")
-  - [Invoking a Lambda function within a
-    trigger](AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.trigger "AuroraMySQL.Integrating.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.trigger")
+Therefore, you turn on or turn off log upload for Aurora Serverless v1 DB
+clusters by turning different log types on and off in the DB cluster parameter
+group. You don't modify the settings of the cluster itself through the
+AWS Management Console, AWS CLI, or RDS API. For information about turning on and off MySQL
+logs for Aurora Serverless v1 clusters, see [Parameter groups for
+Aurora Serverless v1](aurora-serverless-v1.md#aurora-serverless.parameter-groups "aurora-serverless-v1.md#aurora-serverless.parameter-groups").
+You can publish Aurora MySQL logs for provisioned clusters to CloudWatch Logs with the console.
 
-## Working with native functions to invoke a Lambda
+###### To publish Aurora MySQL logs from the console
 
-function
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the Aurora MySQL DB cluster that you want to publish the log data
+   for.
+4. Choose **Modify**.
+5. In the **Log exports** section, choose the logs that
+   you want to start publishing to CloudWatch Logs.
+6. Choose **Continue**, and then choose **Modify DB
+   Cluster** on the summary page.
+   You can publish Aurora MySQL logs for provisioned clusters with the AWS CLI. To do so, you
+   run the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md")
+   AWS CLI command with the following options:
 
-The `lambda_sync` and `lambda_async` functions are built-in, native functions that invoke a Lambda
-function synchronously or asynchronously. When you must know the result of the Lambda function before moving on to another
-action, use the synchronous function `lambda_sync`. When you don't need to know the result of the Lambda
-function before moving on to another action, use the asynchronous function `lambda_async`.
+- `--db-cluster-identifier`—The DB cluster identifier.
+- `--cloudwatch-logs-export-configuration`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  You can also publish Aurora MySQL logs by running one of the following AWS CLI
+  commands:
 
-### Granting the role in Aurora MySQL version
+- [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md")
+- [restore-db-cluster-from-s3](../../../cli/latest/reference/rds/restore-db-cluster-from-s3.md "../../../cli/latest/reference/rds/restore-db-cluster-from-s3.md")
+- [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md")
+- [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")
+  Run one of these AWS CLI commands with the following options:
 
-3
+- `--db-cluster-identifier`—The DB cluster identifier.
+- `--engine`—The database engine.
+- `--enable-cloudwatch-logs-exports`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  Other options might be required depending on the AWS CLI command that you
+  run.
 
-In Aurora MySQL version 3, the user invoking a native function must be granted the `AWS_LAMBDA_ACCESS` role.
-To grant this role to a user, connect to the DB instance as the administrative user, and run the following
-statement.
+The following command modifies an existing Aurora MySQL DB cluster to publish log files to CloudWatch Logs.
 
-```
-GRANT AWS_LAMBDA_ACCESS TO `user`@`domain-or-ip-address`
-
-```
-
-You can revoke this role by running the following statement.
-
-```
-REVOKE AWS_LAMBDA_ACCESS FROM `user`@`domain-or-ip-address`
-
-```
-
-###### Tip
-
-When you use the role technique in Aurora MySQL version 3, you can also activate the role by
-using the `SET ROLE `role_name``or`SET ROLE
-ALL` statement. If you aren't familiar with the MySQL 8.0 role system, you can
-learn more in [Role-based privilege model](AuroraMySQL.md#AuroraMySQL.privilege-model "AuroraMySQL.md#AuroraMySQL.privilege-model"). For more details, see [Using roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in the
-_MySQL Reference Manual_.
-
-This only applies to the current active session. When you reconnect, you must run the
-`SET ROLE` statement again to grant privileges. For more information, see
-[SET ROLE
-statement](https://dev.mysql.com/doc/refman/8.0/en/set-role.html "https://dev.mysql.com/doc/refman/8.0/en/set-role.html") in the _MySQL Reference Manual_.
-
-You can use the `activate_all_roles_on_login` DB cluster parameter to
-automatically activate all roles when a user connects to a DB instance. When this
-parameter is set, you generally don't have to call the `SET ROLE` statement
-explicitly to activate a role. For more information, see [activate_all_roles_on_login](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login") in the _MySQL Reference
-Manual_.
-
-However, you must call `SET ROLE ALL` explicitly at the beginning of a
-stored procedure to activate the role, when the stored procedure is called by a
-different user.
-
-If you get an error such as the following when you try to invoke a Lambda function, then run a `SET ROLE`
-statement.
+For Linux, macOS, or Unix:
 
 ```
-SQL Error [1227] [42000]: Access denied; you need (at least one of) the Invoke Lambda privilege(s) for this operation
-```
-
-Make sure that you're granting the role to the correct user, as shown in the `mysql.users` table entries. There might be
-multiple users with the same name, but on different hosts. Depending on which application or host is invoking the `lambda_sync`
-function, MySQL selects the user with the best match according to the `host` column entries.
-
-### Granting the privilege in Aurora MySQL version
-
-2
-
-In Aurora MySQL version 2, the user invoking a native function must be granted the `INVOKE LAMBDA` privilege.
-To grant this privilege to a user, connect to the DB instance as the administrative user, and run the following
-statement.
-
-```
-GRANT INVOKE LAMBDA ON *.* TO `user`@`domain-or-ip-address`
+aws rds modify-db-cluster \
+    --db-cluster-identifier `mydbcluster` \
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["error","general","slowquery","audit","instance"]}'
 
 ```
 
-You can revoke this privilege by running the following statement.
+For Windows:
 
 ```
-REVOKE INVOKE LAMBDA ON *.* FROM `user`@`domain-or-ip-address`
-
-```
-
-### Syntax for the lambda_sync
-
-function
-
-You invoke the `lambda_sync` function synchronously with the `RequestResponse` invocation type.
-The function returns the result of the Lambda invocation in a JSON payload. The function has the following syntax.
-
-```
-lambda_sync (
-  `lambda_function_ARN`,
-  `JSON_payload`
-)
-```
-
-### Parameters for the lambda_sync
-
-function
-
-The `lambda_sync` function has the following parameters.
-
-_lambda_function_ARN_
-
-The Amazon Resource Name (ARN) of the Lambda function to invoke.
-
-_JSON_payload_
-
-The payload for the invoked Lambda function, in JSON format.
-
-###### Note
-
-Aurora MySQL version 3 supports the JSON parsing functions from MySQL 8.0. However, Aurora MySQL version 2
-doesn't include those functions. JSON parsing isn't required when a Lambda function returns an atomic
-value, such as a number or a string.
-
-### Example for the lambda_sync
-
-function
-
-The following query based on `lambda_sync` invokes the Lambda function `BasicTestLambda`
-synchronously using the function ARN. The payload for the function is `{"operation": "ping"}`.
-
-```
-SELECT lambda_sync(
-    'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
-    '{"operation": "ping"}');
+aws rds modify-db-cluster ^
+    --db-cluster-identifier `mydbcluster` ^
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["error","general","slowquery","audit","instance"]}'
 
 ```
 
-### Syntax for the lambda_async
+The following command creates an Aurora MySQL DB cluster to publish log files to
+CloudWatch Logs.
 
-function
-
-You invoke the `lambda_async` function asynchronously with the `Event` invocation type. The
-function returns the result of the Lambda invocation in a JSON payload. The function has the following syntax.
+For Linux, macOS, or Unix:
 
 ```
-lambda_async (
-  `lambda_function_ARN`,
-  `JSON_payload`
-)
-```
-
-### Parameters for the lambda_async
-
-function
-
-The `lambda_async` function has the following parameters.
-
-_lambda_function_ARN_
-
-The Amazon Resource Name (ARN) of the Lambda function to invoke.
-
-_JSON_payload_
-
-The payload for the invoked Lambda function, in JSON format.
-
-###### Note
-
-Aurora MySQL version 3 supports the JSON parsing functions from MySQL 8.0. However, Aurora MySQL version 2
-doesn't include those functions. JSON parsing isn't required when a Lambda function returns an atomic
-value, such as a number or a string.
-
-### Example for the lambda_async
-
-function
-
-The following query based on `lambda_async` invokes the Lambda function `BasicTestLambda`
-asynchronously using the function ARN. The payload for the function is `{"operation": "ping"}`.
-
-```
-SELECT lambda_async(
-    'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
-    '{"operation": "ping"}');
+aws rds create-db-cluster \
+    --db-cluster-identifier `mydbcluster` \
+    --engine aurora \
+    --enable-cloudwatch-logs-exports '["error","general","slowquery","audit","instance"]'
 
 ```
 
-### Invoking a Lambda function within a
-
-trigger
-
-You can use triggers to call Lambda on data-modifying statements. The following example uses the
-`lambda_async` native function and stores the result in a variable.
+For Windows:
 
 ```
-`mysql>`SET @result=0;
-`mysql>`DELIMITER //
-`mysql>`CREATE TRIGGER myFirstTrigger
-      AFTER INSERT
-          ON Test_trigger FOR EACH ROW
-      BEGIN
-      SELECT lambda_async(
-          'arn:aws:lambda:us-east-1:123456789012:function:BasicTestLambda',
-          '{"operation": "ping"}')
-          INTO @result;
-      END; //
-`mysql>`DELIMITER ;
+aws rds create-db-cluster ^
+    --db-cluster-identifier `mydbcluster` ^
+    --engine aurora ^
+    --enable-cloudwatch-logs-exports '["error","general","slowquery","audit","instance"]'
+
 ```
 
-###### Note
+You can publish Aurora MySQL logs for provisioned clusters with the RDS API. To do so, you
+run the [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") operation
+with the following options:
 
-Triggers aren't run once per SQL statement, but once per row modified, one row at a time. When a trigger runs, the
-process is synchronous. The data-modifying statement only returns when the trigger completes.
+- `DBClusterIdentifier`—The DB cluster identifier.
+- `CloudwatchLogsExportConfiguration`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  You can also publish Aurora MySQL logs with the RDS API by running one of the
+  following RDS API operations:
 
-Be careful when invoking an AWS Lambda function from triggers on tables that experience high write traffic.
-`INSERT`, `UPDATE`, and `DELETE` triggers are activated per row. A write-heavy
-workload on a table with `INSERT`, `UPDATE`, or `DELETE` triggers results in a
-large number of calls to your AWS Lambda function.
+- [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md")
+- [RestoreDBClusterFromS3](../APIReference/API_RestoreDBClusterFromS3.md "../APIReference/API_RestoreDBClusterFromS3.md")
+- [RestoreDBClusterFromSnapshot](../APIReference/API_RestoreDBClusterFromSnapshot.md "../APIReference/API_RestoreDBClusterFromSnapshot.md")
+- [RestoreDBClusterToPointInTime](../APIReference/API_RestoreDBClusterToPointInTime.md "../APIReference/API_RestoreDBClusterToPointInTime.md")
+  Run the RDS API operation with the following parameters:
+
+- `DBClusterIdentifier`—The DB cluster identifier.
+- `Engine`—The database engine.
+- `EnableCloudwatchLogsExports`—The configuration setting for the log types to
+  be enabled for export to CloudWatch Logs for the DB cluster.
+  Other parameters might be required depending on the AWS CLI command that you
+  run.
+
+## Monitoring log events in Amazon CloudWatch
+
+After enabling Aurora MySQL log events, you can monitor the events in Amazon CloudWatch Logs. A new
+log group is automatically created for the Aurora DB cluster under the following
+prefix, in which `cluster-name` represents the
+DB cluster name, and `log_type` represents the log type.
+
+```
+/aws/rds/cluster/`cluster-name`/`log_type`
+```
+
+For example, if you configure the export function to include the slow query log for a DB cluster
+named `mydbcluster`, slow query data is stored in the
+`/aws/rds/cluster/mydbcluster/slowquery` log group.
+
+The events from all instances in your cluster are pushed to a log group using different log streams.
+The behavior depends on which of the following conditions is true:
+
+- A log group with the specified name exists.
+
+Aurora uses the existing log group to export log data for the cluster. To create log groups with
+predefined log retention periods, metric filters, and customer access, you can use automated
+configuration, such as AWS CloudFormation.
+
+- A log group with the specified name doesn't exist.
+
+When a matching log entry is detected in the log file for the instance, Aurora MySQL creates a new log
+group in CloudWatch Logs automatically. The log group uses the default log retention period of
+**Never Expire**.
+
+To change the log retention period, use the CloudWatch Logs console, the AWS CLI, or the CloudWatch Logs API. For more
+information about changing log retention periods in CloudWatch Logs, see [Change log data retention in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md "../../../AmazonCloudWatch/latest/logs/SettingLogRetention.md").
+
+To search for information within the log events for a DB cluster, use the CloudWatch Logs console, the AWS CLI, or
+the CloudWatch Logs API. For more information about searching and filtering log data, see [Searching and filtering log data](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md").

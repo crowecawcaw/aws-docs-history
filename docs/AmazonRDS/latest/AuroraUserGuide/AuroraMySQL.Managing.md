@@ -1,47 +1,187 @@
-# Displaying volume status for an Aurora MySQL DB cluster
+# Testing Amazon Aurora MySQL using fault injection queries
 
-In Amazon Aurora, a DB cluster volume consists of a collection of logical blocks. Each of
-these represents 10 gigabytes of allocated storage. These blocks are called
-_protection groups_.
+You can test the fault tolerance of your Aurora MySQL DB cluster by using fault injection queries. Fault injection queries are
+issued as SQL commands to an Amazon Aurora instance. They let you schedule a simulated occurrence of one of the following events:
 
-The data in each protection group is replicated across six physical storage devices,
-called _storage nodes_. These storage nodes are allocated across
-three Availability Zones (AZs) in the AWS Region where the DB cluster resides. In turn, each
-storage node contains one or more logical blocks of data for the DB cluster volume. For
-more information about protection groups and storage nodes, see
-[Introducing the Aurora storage engine](https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/ "https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/") on the AWS Database Blog.
+- A crash of a writer or reader DB instance
+- A failure of an Aurora Replica
+- A disk failure
+- Disk congestion
+  When a fault injection query specifies a crash, it forces a crash of the Aurora MySQL DB instance. The other fault injection queries
+  result in simulations of failure events, but don't cause the event to occur. When you submit a fault injection query, you also
+  specify an amount of time for the failure event simulation to occur for.
 
-You can simulate the failure of an entire storage node, or a single logical block of
-data within a storage node. To do so, you use the `ALTER SYSTEM SIMULATE DISK
- FAILURE` fault injection statement. For the statement, you specify the index value of
-a specific logical block of data or storage node. However, if you specify an index value
-greater than the number of logical blocks of data or storage nodes used by the DB
-cluster volume, the statement returns an error. For more information about fault injection
-queries, see [Testing Amazon Aurora MySQL using fault injection queries](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+You can submit a fault injection query to one of your Aurora Replica instances by
+connecting to the endpoint for the Aurora Replica. For more information, see
+[Amazon Aurora endpoint connections](Aurora.Overview.md "Aurora.Overview.md").
 
-You can avoid that error by using the `SHOW VOLUME STATUS` statement. The statement
-returns two server status variables, `Disks` and `Nodes`. These
-variables represent the total number of logical blocks of data and storage nodes,
-respectively, for the DB cluster volume.
+Running fault injection queries requires all of the master user privileges. For more information, see [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
 
-## Syntax
+## Testing an instance crash
 
-```
-SHOW VOLUME STATUS
-```
+You can force a crash of an Amazon Aurora instance using the `ALTER SYSTEM
+ CRASH` fault injection query.
 
-## Example
+For this fault injection query, a failover will not occur. If you want to test a
+failover, then you can choose the **Failover** instance action for
+your DB cluster in the RDS console, or use the
+[failover-db-cluster](../../../cli/latest/reference/rds/failover-db-cluster.md "../../../cli/latest/reference/rds/failover-db-cluster.md")
+AWS CLI command or the [FailoverDBCluster](../APIReference/API_FailoverDBCluster.md "../APIReference/API_FailoverDBCluster.md")
+RDS API operation.
 
-The following example illustrates a typical SHOW VOLUME STATUS result.
+### Syntax
 
 ```
+ALTER SYSTEM CRASH [ INSTANCE | DISPATCHER | NODE ];
+```
 
-`mysql>` **SHOW VOLUME STATUS**;
-`+---------------+-------+
-| Variable_name | Value |
-+---------------+-------+
-| Disks | 96 |
-| Nodes | 74 |
-+---------------+-------+`
+### Options
+
+This fault injection query takes one of the following crash types:
+
+- `INSTANCE` — A crash of
+  the MySQL-compatible database for the Amazon Aurora instance is
+  simulated.
+- `DISPATCHER` — A crash
+  of the dispatcher on the writer instance for the Aurora DB cluster is
+  simulated. The _dispatcher_ writes updates to the
+  cluster volume for an Amazon Aurora DB cluster.
+- `NODE` — A crash of both
+  the MySQL-compatible database and the dispatcher for the Amazon Aurora
+  instance is simulated. For this fault injection simulation, the cache is
+  also deleted.
+
+The default crash type is `INSTANCE`.
+
+## Testing an Aurora replica failure
+
+You can simulate the failure of an Aurora Replica using the `ALTER SYSTEM
+ SIMULATE READ REPLICA FAILURE` fault injection query.
+
+An Aurora Replica failure blocks all requests from the writer instance to an Aurora Replica or all Aurora
+Replicas in the DB cluster for a specified time interval. When the time interval
+completes, the affected Aurora Replicas will be automatically synced up with the writer
+instance.
+
+### Syntax
 
 ```
+ALTER SYSTEM SIMULATE `percentage_of_failure` PERCENT READ REPLICA FAILURE
+    [ TO ALL | TO "replica name" ]
+    FOR INTERVAL `quantity` { YEAR | QUARTER | MONTH | WEEK | DAY | HOUR | MINUTE | SECOND };
+```
+
+### Options
+
+This fault injection query takes the following parameters:
+
+- `percentage_of_failure` — The percentage of
+  requests to block during the failure event. This value can be a double
+  between 0 and 100. If you specify 0, then no requests are blocked. If
+  you specify 100, then all requests are blocked.
+- Failure type — The type of failure
+  to simulate. Specify `TO ALL` to simulate failures for all
+  Aurora Replicas in the DB cluster. Specify `TO` and the name
+  of the Aurora Replica to simulate a failure of a single Aurora Replica.
+  The default failure type is `TO ALL`.
+- `quantity` — The amount
+  of time for which to simulate the Aurora Replica failure. The interval is
+  an amount followed by a time unit. The simulation will occur for that
+  amount of the specified unit. For example, `20 MINUTE` will
+  result in the simulation running for 20 minutes.
+
+###### Note
+
+Take care when specifying the time interval for your Aurora Replica
+failure event. If you specify too long of a time interval, and your
+writer instance writes a large amount of data during the failure
+event, then your Aurora DB cluster might assume that your Aurora
+Replica has crashed and replace it.
+
+## Testing a
+
+disk failure
+
+You can simulate a disk failure for an Aurora DB cluster using the
+`ALTER SYSTEM SIMULATE DISK FAILURE` fault injection query.
+
+During a disk failure simulation, the Aurora DB cluster randomly marks disk
+segments as faulting. Requests to those segments will be blocked for the duration of
+the simulation.
+
+### Syntax
+
+```
+ALTER SYSTEM SIMULATE `percentage_of_failure` PERCENT DISK FAILURE
+    [ IN DISK `index` | NODE `index` ]
+    FOR INTERVAL `quantity` { YEAR | QUARTER | MONTH | WEEK | DAY | HOUR | MINUTE | SECOND };
+```
+
+### Options
+
+This fault injection query takes the following parameters:
+
+- `percentage_of_failure`
+  — The percentage of the disk to mark as faulting during the
+  failure event. This value can be a double between 0 and 100. If you
+  specify 0, then none of the disk is marked as faulting. If you specify
+  100, then the entire disk is marked as faulting.
+- `DISK index` — A
+  specific logical block of data to simulate the failure event for. If you
+  exceed the range of available logical blocks of data, you will receive
+  an error that tells you the maximum index value that you can specify.
+  For more information, see [Displaying volume status for an Aurora MySQL DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+- `NODE index` — A
+  specific storage node to simulate the failure event for. If you exceed
+  the range of available storage nodes, you will receive an error that
+  tells you the maximum index value that you can specify. For more
+  information, see [Displaying volume status for an Aurora MySQL DB cluster](AuroraMySQL.Managing.md "AuroraMySQL.Managing.md").
+- `quantity` — The
+  amount of time for which to simulate the disk failure. The interval is
+  an amount followed by a time unit. The simulation will occur for that
+  amount of the specified unit. For example, `20 MINUTE` will
+  result in the simulation running for 20 minutes.
+
+## Testing
+
+disk congestion
+
+You can simulate a disk failure for an Aurora DB cluster using the
+`ALTER SYSTEM SIMULATE DISK CONGESTION` fault injection query.
+
+During a disk congestion simulation, the Aurora DB cluster randomly marks disk
+segments as congested. Requests to those segments will be delayed between the
+specified minimum and maximum delay time for the duration of the simulation.
+
+### Syntax
+
+```
+ALTER SYSTEM SIMULATE `percentage_of_failure` PERCENT DISK CONGESTION
+    BETWEEN `minimum` AND `maximum` MILLISECONDS
+    [ IN DISK `index` | NODE `index` ]
+    FOR INTERVAL `quantity` { YEAR | QUARTER | MONTH | WEEK | DAY | HOUR | MINUTE | SECOND };
+```
+
+### Options
+
+This fault injection query takes the following parameters:
+
+- `percentage_of_failure` — The percentage of
+  the disk to mark as congested during the failure event. This value can
+  be a double between 0 and 100. If you specify 0, then none of the disk
+  is marked as congested. If you specify 100, then the entire disk is
+  marked as congested.
+- `DISK index` Or `NODE index` — A specific disk or node to simulate
+  the failure event for. If you exceed the range of indexes for the disk
+  or node, you will receive an error that tells you the maximum index
+  value that you can specify.
+- `minimum` And `maximum` — The minimum and maximum amount
+  of congestion delay, in milliseconds. Disk segments marked as congested
+  will be delayed for a random amount of time within the range of the
+  minimum and maximum amount of milliseconds for the duration of the
+  simulation.
+- `quantity` — The amount
+  of time for which to simulate the disk congestion. The interval is an
+  amount followed by a time unit. The simulation will occur for that
+  amount of the specified time unit. For example, `20 MINUTE`
+  will result in the simulation running for 20 minutes.

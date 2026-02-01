@@ -1,48 +1,101 @@
-# Retrieving metrics with the Performance Insights API for Aurora
+# Amazon CloudWatch metrics for Amazon RDS Performance Insights
 
-When Performance Insights is turned on, the API provides visibility into instance
-performance. Amazon CloudWatch Logs provides the authoritative source for vended monitoring metrics for
-AWS services.
+Performance Insights automatically publishes some metrics to Amazon CloudWatch. The same data can be
+queried from Performance Insights, but having the metrics in CloudWatch makes it easy to add CloudWatch
+alarms. It also makes it easy to add the metrics to existing CloudWatch Dashboards.
 
-Performance Insights offers a domain-specific view of database load measured as average active sessions (AAS). This
-metric appears to API consumers as a two-dimensional time-series dataset. The time dimension of the data provides DB
-load data for each time point in the queried time range. Each time point decomposes overall load in relation to the
-requested dimensions, such as `SQL`, `Wait-event`, `User`, or `Host`,
-measured at that time point.
+| Metric                   | Description                                                                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DBLoad                   | The number of active sessions for the database. Typically, you want the data for the average number of active sessions.<br>In Performance Insights, this data is queried as `db.load.avg`. |
+| DBLoadCPU                | The number of active sessions where the wait event type is CPU. In Performance Insights, this data is queried as `db.load.avg`,<br>filtered by the wait event type `CPU`.                  |
+| DBLoadNonCPU             | The number of active sessions where the wait event type is not CPU.                                                                                                                        |
+| DBLoadRelativeToNumVCPUs | The ratio of the DB load to the number of virtual CPUs for the database.                                                                                                                   |
 
-Amazon RDS Performance Insights monitors your Amazon Aurora cluster so that you can analyze and troubleshoot database performance. One
-way to view Performance Insights data is in the AWS Management Console. Performance Insights also provides a public API so that
-you can query your own data. You can use the API to do the following:
+###### Note
 
-- Offload data into a database
-- Add Performance Insights data to existing monitoring dashboards
-- Build monitoring tools
-  To use the Performance Insights API, enable Performance Insights on one of your Amazon RDS DB instances. For information
-  about enabling Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). For more information about the Performance Insights API, see the
-  [Amazon RDS Performance Insights API
-  Reference](../../../performance-insights/latest/APIReference/Welcome.md "../../../performance-insights/latest/APIReference/Welcome.md").
+These metrics are published to CloudWatch only if there is load on the DB instance.
 
-The Performance Insights API provides the following operations.
+You can examine these metrics using the CloudWatch console, the AWS CLI, or the CloudWatch API. You can
+also examine other Performance Insights counter metrics using a special metric math
+function. For more information, see [Querying other Performance Insights counter metrics in CloudWatch](#USER_PerfInsights.Cloudwatch.ExtraMetrics "#USER_PerfInsights.Cloudwatch.ExtraMetrics").
 
-| Performance Insights action                                                                                                                                                                                              | AWS CLI command                                                                                                                                                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`CreatePerformanceAnalysisReport`](../../../performance-insights/latest/APIReference/API_CreatePerformanceAnalysisReport.md "../../../performance-insights/latest/APIReference/API_CreatePerformanceAnalysisReport.md") | [`aws pi<br>create-performance-analysis-report`](../../../cli/latest/reference/pi/CreatePerformanceAnalysisReport.md "../../../cli/latest/reference/pi/CreatePerformanceAnalysisReport.md")       | Creates a performance analysis report for a specific time period for the DB instance.<br>The result is `AnalysisReportId` which is the unique<br>identifier of the report.                                                                                                                                                                                                                                                                        |
-| [`DeletePerformanceAnalysisReport`](../../../performance-insights/latest/APIReference/API_DeletePerformanceAnalysisReport.md "../../../performance-insights/latest/APIReference/API_DeletePerformanceAnalysisReport.md") | [`aws pi<br>delete-performance-analysis-report`](../../../cli/latest/reference/pi/DeletePerformanceAnalysisReport.md "../../../cli/latest/reference/pi/DeletePerformanceAnalysisReport.md")       | Deletes a performance analysis report.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| [`DescribeDimensionKeys`](../../../performance-insights/latest/APIReference/API_DescribeDimensionKeys.md "../../../performance-insights/latest/APIReference/API_DescribeDimensionKeys.md")                               | [`aws pi<br>describe-dimension-keys`](../../../cli/latest/reference/pi/describe-dimension-keys.md "../../../cli/latest/reference/pi/describe-dimension-keys.md")                                  | Retrieves the top N dimension keys for a metric for a specific time period.                                                                                                                                                                                                                                                                                                                                                                       |
-| [`GetDimensionKeyDetails`](../../../performance-insights/latest/APIReference/API_GetDimensionKeyDetails.md "../../../performance-insights/latest/APIReference/API_GetDimensionKeyDetails.md")                            | [`aws pi<br>get-dimension-key-details`](../../../cli/latest/reference/pi/get-dimension-key-details.md "../../../cli/latest/reference/pi/get-dimension-key-details.md")                            | Retrieves the attributes of the specified dimension group for a DB instance or data source. For<br>example, if you specify a SQL ID, and if the dimension details are available,<br>`GetDimensionKeyDetails` retrieves the full text of the dimension<br>`db.sql.statement` associated with this ID. This operation is useful because<br>`GetResourceMetrics` and `DescribeDimensionKeys` don't support<br>retrieval of large SQL statement text. |
-| [`GetPerformanceAnalysisReport`](../../../performance-insights/latest/APIReference/API_GetPerformanceAnalysisReport.md "../../../performance-insights/latest/APIReference/API_GetPerformanceAnalysisReport.md")          | [`aws pi<br>get-performance-analysis-report`](../../../cli/latest/reference/pi/GetPerformanceAnalysisReport.md "../../../cli/latest/reference/pi/GetPerformanceAnalysisReport.md")                | Retrieves the report including the insights for the report. The result includes the<br>report status, report ID, report time details, insights, and<br>recommendations.                                                                                                                                                                                                                                                                           |
-| `GetResourceMetadata`                                                                                                                                                                                                    | [`aws pi<br>get-resource-metadata`](../../../cli/latest/reference/pi/get-resource-metadata.md "../../../cli/latest/reference/pi/get-resource-metadata.md")                                        | Retrieve the metadata for different features. For example, the metadata might indicate that a<br>feature is turned on or off on a specific DB instance.                                                                                                                                                                                                                                                                                           |
-| [`GetResourceMetrics`](../../../performance-insights/latest/APIReference/API_GetResourceMetrics.md "../../../performance-insights/latest/APIReference/API_GetResourceMetrics.md")                                        | [`aws pi<br>get-resource-metrics`](../../../cli/latest/reference/pi/get-resource-metrics.md "../../../cli/latest/reference/pi/get-resource-metrics.md")                                           | Retrieves Performance Insights metrics for a set of data sources over a time period. You can<br>provide specific dimension groups and dimensions, and provide aggregation and filtering criteria<br>for each group.                                                                                                                                                                                                                               |
-| `ListAvailableResourceDimensions`                                                                                                                                                                                        | [`aws pi<br>list-available-resource-dimensions`](../../../cli/latest/reference/pi/list-available-resource-dimensions.md "../../../cli/latest/reference/pi/list-available-resource-dimensions.md") | Retrieve the dimensions that can be queried for each specified metric type on a specified<br>instance.                                                                                                                                                                                                                                                                                                                                            |
-| `ListAvailableResourceMetrics`                                                                                                                                                                                           | [`aws pi<br>list-available-resource-metrics`](../../../cli/latest/reference/pi/list-available-resource-metrics.md "../../../cli/latest/reference/pi/list-available-resource-metrics.md")          | Retrieve all available metrics of the specified metric types that can be queried for a<br>specified DB instance.                                                                                                                                                                                                                                                                                                                                  |
-| `ListPerformanceAnalysisReports`                                                                                                                                                                                         | [`aws pi<br>list-performance-analysis-reports`](../../../cli/latest/reference/pi/list-performance-analysis-reports.md "../../../cli/latest/reference/pi/list-performance-analysis-reports.md")    | Retrieves all the analysis reports available for the DB instance. The reports are listed<br>based on the start time of each report.                                                                                                                                                                                                                                                                                                               |
-| `ListTagsForResource`                                                                                                                                                                                                    | [`aws pi<br>list-tags-for-resource`](../../../cli/latest/reference/pi/list-tags-for-resource.md "../../../cli/latest/reference/pi/list-tags-for-resource.md")                                     | Lists all the metadata tags added to the resource. The list includes the name and value<br>of the tag.                                                                                                                                                                                                                                                                                                                                            |
-| `TagResource`                                                                                                                                                                                                            | [`aws pi<br>tag-resource`](../../../cli/latest/reference/pi/tag-resource.md "../../../cli/latest/reference/pi/tag-resource.md")                                                                   | Adds metadata tags to the Amazon RDS resource. The tag includes a name and a value.                                                                                                                                                                                                                                                                                                                                                               |
-| `UntagResource`                                                                                                                                                                                                          | [`aws pi<br>untag-resource`](../../../cli/latest/reference/pi/untag-resource.md "../../../cli/latest/reference/pi/untag-resource.md")                                                             | Removes the metadata tag from the resource.                                                                                                                                                                                                                                                                                                                                                                                                       |
+For example, you can get the statistics for the `DBLoad` metric by running the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command.
 
-For more information about retrieving time-series metrics and AWS CLI examples for Performance Insights, see the following topics.
+```
+aws cloudwatch get-metric-statistics \
+    --region us-west-2 \
+    --namespace AWS/RDS \
+    --metric-name DBLoad  \
+    --period 60 \
+    --statistics Average \
+    --start-time 1532035185 \
+    --end-time 1532036185 \
+    --dimensions Name=DBInstanceIdentifier,Value=db-loadtest-0
+```
 
-###### Topics
+This example generates output similar to the following.
 
-- [Retrieving time-series metrics for Performance Insights](USER_PerfInsights.API.md "USER_PerfInsights.API.md")
-- [AWS CLI examples for Performance Insights](USER_PerfInsights.API.md "USER_PerfInsights.API.md")
+```
+{
+		"Datapoints": [
+		{
+		"Timestamp": "2021-07-19T21:30:00Z",
+		"Unit": "None",
+		"Average": 2.1
+		},
+		{
+		"Timestamp": "2021-07-19T21:34:00Z",
+		"Unit": "None",
+		"Average": 1.7
+		},
+		{
+		"Timestamp": "2021-07-19T21:35:00Z",
+		"Unit": "None",
+		"Average": 2.8
+		},
+		{
+		"Timestamp": "2021-07-19T21:31:00Z",
+		"Unit": "None",
+		"Average": 1.5
+		},
+		{
+		"Timestamp": "2021-07-19T21:32:00Z",
+		"Unit": "None",
+		"Average": 1.8
+		},
+		{
+		"Timestamp": "2021-07-19T21:29:00Z",
+		"Unit": "None",
+		"Average": 3.0
+		},
+		{
+		"Timestamp": "2021-07-19T21:33:00Z",
+		"Unit": "None",
+		"Average": 2.4
+		}
+		],
+		"Label": "DBLoad"
+		}
+
+```
+
+For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
+
+## Querying other Performance Insights counter metrics in CloudWatch
+
+###### Note
+
+If you enable the Advanced mode of Database Insights, Amazon RDS publishes Performance Insights counter metrics to Amazon CloudWatch. With Database Insights, you don't need to use the `DB_PERF_INSIGHTS` metric math function. You can use the CloudWatch Database Insights dashboard to search, query, and set alarms for Performance Insights counter metrics.
+
+You can query, alarm, and graphs on RDS Performance Insights metrics from CloudWatch.
+You can access information about your DB cluster
+by using the `DB_PERF_INSIGHTS` metric math function for CloudWatch.
+This function allows you to use the Performance Insights metrics
+that are not directly reported to CloudWatch to create a new time series.
+
+You can use the new Metric Math function by clicking on the **Add Math** drop-down menu in the **Select metric** screen in the CloudWatch console.
+You can use it to create alarms and graphs on Performance Insights metrics or on combinations of CloudWatch and Performance Insights metrics,
+including high-resolution alarms for sub-minute metrics.
+You can also use the function programmatically by including the Metric Math expression in a [`get-metric-data`](../../../cli/latest/reference/cloudwatch/get-metric-data.md "../../../cli/latest/reference/cloudwatch/get-metric-data.md") request.
+For more information, see [Metric math syntax and functions](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#metric-math-syntax-functions-list "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md#metric-math-syntax-functions-list") and
+[Create an alarm on Performance Insights counter metrics from an AWS database](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_alarm_database_performance_insights.md").

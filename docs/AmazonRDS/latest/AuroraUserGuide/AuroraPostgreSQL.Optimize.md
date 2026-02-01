@@ -1,34 +1,357 @@
-# Reference for the
+# Overview of Aurora PostgreSQL query
 
-apg_plan_mgmt.dba_plans view for Aurora PostgreSQL-Compatible Edition
+plan management
 
-The columns of plan information in the `apg_plan_mgmt.dba_plans` view
-include the following.
+Aurora PostgreSQL query plan management is designed to ensure plan stability regardless of
+changes to the database that might cause query plan regression. _Query plan
+regression_ occurs when the optimizer chooses a sub-optimal plan for a
+given SQL statement after system or database changes. Changes to statistics,
+constraints, environment settings, query parameter bindings, and upgrades to the
+PostgreSQL database engine can all cause plan regression.
 
-| dba_plans column            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cardinality_error`         | A measure of the error between the estimated cardinality versus<br>the actual cardinality. \*Cardinality<br>• is the number of table rows that the<br>plan is to process. If the cardinality error is large, then it<br>increases the likelihood that the plan isn't optimal. This<br>column is populated by the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `compatibility_level`       | This parameter shows when a query plan was last validated. In<br>Aurora PostgreSQL versions 12.19, 13.15, 14.12, 15.7, 16.3, and later,<br>it displays the Aurora version number. For earlier versions, it<br>displays a feature specific version number.<br>NoteKeep this parameter value at its default setting.<br>Aurora PostgreSQL automatically sets and updates this value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `created_by`                | The authenticated user (`session_user`) who created the<br>plan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `enabled`                   | An indicator of whether the plan is enabled or disabled. All plans<br>are enabled by default. You can disable plans to prevent them from<br>being used by the optimizer. To modify this value, use the [apg_plan_mgmt.set_plan_enabled](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.set_plan_enabled "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.set_plan_enabled") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `environment_variables`     | The PostgreSQL Grand Unified Configuration (GUC) parameters and<br>values that the optimizer has overridden at the time the plan was<br>captured.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `estimated_startup_cost`    | The estimated optimizer setup cost before the optimizer delivers rows<br>of a table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `estimated_total_cost`      | The estimated optimizer cost to deliver the final table row.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `execution_time_benefit_ms` | The execution time benefit in milliseconds of enabling the plan. This<br>column is populated by the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `execution_time_ms`         | The estimated time in milliseconds that the plan would run. This<br>column is populated by the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `has_side_effects`          | A value that indicates that the SQL statement is a data manipulation<br>language (DML) statement or a SELECT statement that contains a VOLATILE<br>function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `last_used`                 | This value is updated to the current date whenever the plan is either<br>executed or when the plan is the query optimizer's minimum-cost<br>plan. This value is stored in shared memory and periodically flushed to<br>disk. To get the most up-to-date value, read the date from shared memory<br>by calling the function `apg_plan_mgmt.plan_last_used(sql_hash,<br>plan_hash)` instead of reading the `last_used`<br>value. For additional information, see the [apg_plan_mgmt.plan_retention_period](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Parameters.plan_retention_period "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Parameters.plan_retention_period") parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `last_validated`            | The most recent date and time when it was verified that the plan<br>could be recreated by either the [apg_plan_mgmt.validate_plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.validate_plans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.validate_plans")<br>function or the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `last_verified`             | The most recent date and time when a plan was verified to be the<br>best-performing plan for the specified parameters by the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `origin`                    | How the plan was captured with the [apg_plan_mgmt.capture_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Parameters.capture_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Parameters.capture_plan_baselines") parameter. Valid values include the following:<br>`M` – The plan was captured with manual plan<br>capture.<br>`A` – The plan was captured with automatic plan<br>capture.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `param_list`                | The parameter values that were passed to the statement if this is<br>a prepared statement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `plan_created`              | The date and time the plan that was created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `plan_hash`                 | The plan identifier. The combination of `plan_hash` and<br>`sql_hash` uniquely identifies a specific plan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `plan_outline`              | A representation of the plan that is used to recreate the actual<br>execution plan, and that is database-independent. Operators in the tree<br>correspond to operators that appear in the EXPLAIN output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `planning_time_ms`          | The actual time to run the planner, in milliseconds. This column<br>is populated by the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `queryId`                   | A statement hash, as calculated by the<br>`pg_stat_statements` extension. This isn't a stable<br>or database-independent identifier because it depends on object<br>identifiers (OIDs). The value will be `0` if<br>`compute_query_id` is `off` when capturing the<br>query plan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `sql_hash`                  | A hash value of the SQL statement text, normalized with literals<br>removed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `sql_text`                  | The full text of the SQL statement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `status`                    | A plan's status, which determines how the optimizer uses a<br>plan. Valid values include the following.<br>• `Approved` – A usable plan that the<br>optimizer can choose to run. The optimizer runs the<br>least-cost plan from a managed statement's set of<br>approved plans (baseline). To reset a plan to approved, use<br>the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.<br>• `Unapproved` – A captured plan that you<br>have not verified for use. For more information, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance").<br>• `Rejected` – A plan that the optimizer<br>won't use. For more information, see [Rejecting or disabling slower plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Rejecting "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Rejecting").<br>• `Preferred` – A plan that you have<br>determined is a preferred plan to use for a managed<br>statement.<br>If the optimizer's minimum-cost plan isn't an<br>approved or preferred plan, you can reduce plan enforcement<br>overhead. To do so, make a subset of the approved plans<br>`Preferred`. When the optimizer's<br>minimum cost isn't an `Approved` plan, a<br>`Preferred` plan is chosen before an<br>`Approved` plan.<br>To reset a plan to `Preferred`, use the [apg_plan_mgmt.set_plan_status](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.set_plan_status "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.set_plan_status") function. |
-| `stmt_name`                 | The name of the SQL statement within a PREPARE statement. This value<br>is an empty string for an unnamed prepared statement. This value is NULL<br>for a nonprepared statement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `total_time_benefit_ms`     | The total time benefit in milliseconds of enabling this plan. This<br>value considers both planning time and execution time.<br>If this value is negative, there is a disadvantage to enabling<br>this plan. This column is populated by the [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines") function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+With Aurora PostgreSQL query plan management, you can control how and when query execution
+plans change. The benefits of Aurora PostgreSQL query plan management include the following.
+
+- Improve plan stability by forcing the optimizer to choose from a small number
+  of known, good plans.
+- Optimize plans centrally and then distribute the best plans globally.
+- Identify indexes that aren't used and assess the impact of creating or
+  dropping an index.
+- Automatically detect a new minimum-cost plan discovered by the
+  optimizer.
+- Try new optimizer features with less risk, because you can choose to approve
+  only the plan changes that improve performance.
+  You can use the tools provided by query plan management proactively, to specify the
+  best plan for certain queries. Or you can use query plan management to react to changing
+  circumstances and avoid plan regressions. For more information, see [Best practices for
+  Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+
+###### Topics
+
+- [Supported SQL
+  statements](#AuroraPostgreSQL.Optimize.overview.features "#AuroraPostgreSQL.Optimize.overview.features")
+- [Query plan
+  management limitations](#AuroraPostgreSQL.Optimize.overview.limitations "#AuroraPostgreSQL.Optimize.overview.limitations")
+- [Query plan management
+  terminology](#AuroraPostgreSQL.Optimize.Start-terminology "#AuroraPostgreSQL.Optimize.Start-terminology")
+- [Aurora PostgreSQL query
+  plan management versions](#AuroraPostgreSQL.Optimize.overview.versions "#AuroraPostgreSQL.Optimize.overview.versions")
+- [Turning on Aurora PostgreSQL query
+  plan management](#AuroraPostgreSQL.Optimize.Enable "#AuroraPostgreSQL.Optimize.Enable")
+- [Upgrading Aurora PostgreSQL query
+  plan management](#AuroraPostgreSQL.Optimize.Upgrade "#AuroraPostgreSQL.Optimize.Upgrade")
+- [Turning off Aurora PostgreSQL
+  query plan management](#AuroraPostgreSQL.Optimize.Enable.turnoff "#AuroraPostgreSQL.Optimize.Enable.turnoff")
+
+## Supported SQL
+
+statements
+
+Query plan management supports the following types of SQL statements.
+
+- Any SELECT, INSERT, UPDATE, or DELETE statement, regardless of complexity.
+- Prepared statements. For more information, see [PREPARE](https://www.postgresql.org/docs/14/sql-prepare.html "https://www.postgresql.org/docs/14/sql-prepare.html") in the PostgreSQL documentation.
+- Dynamic statements, including those run in immediate-mode. For more
+  information, see [Dynamic
+  SQL](https://www.postgresql.org/docs/current/ecpg-dynamic.html "https://www.postgresql.org/docs/current/ecpg-dynamic.html") and [EXECUTE IMMEDIATE](https://www.postgresql.org/docs/current/ecpg-sql-execute-immediate.html "https://www.postgresql.org/docs/current/ecpg-sql-execute-immediate.html") in PostgreSQL documentation.
+- Embedded SQL commands and statements. For more information, see [Embedded SQL Commands](https://www.postgresql.org/docs/current/ecpg-sql-commands.html "https://www.postgresql.org/docs/current/ecpg-sql-commands.html") in the PostgreSQL documentation.
+- Statements inside named functions. For more information, see [CREATE FUNCTION](https://www.postgresql.org/docs/current/sql-createfunction.html "https://www.postgresql.org/docs/current/sql-createfunction.html") in the PostgreSQL documentation.
+- Statements containing temp tables.
+- Statements inside procedures and DO-blocks.
+
+You can use query plan management with `EXPLAIN` in manual mode to
+capture a plan without actually running it. For more information, see [Analyzing the
+optimizer's chosen plan](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.UsePlans.AnalyzePlans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.UsePlans.AnalyzePlans"). To learn more
+about query plan management's modes (manual, automatic), see [Capturing Aurora PostgreSQL
+execution plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+
+Aurora PostgreSQL query plan management supports all PostgreSQL language features,
+including partitioned tables, inheritance, row-level security, and recursive common
+table expressions (CTEs). To learn more about these PostgreSQL language features,
+see [Table
+Partitioning](https://www.postgresql.org/docs/current/ddl-partitioning.html "https://www.postgresql.org/docs/current/ddl-partitioning.html"), [Row Security
+Policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"), and [WITH Queries
+(Common Table Expressions)](https://www.postgresql.org/docs/current/queries-with.html "https://www.postgresql.org/docs/current/queries-with.html") and other topics in the PostgreSQL
+documentation.
+
+For information about different versions of the Aurora PostgreSQL query plan
+management feature, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+_Release Notes for Aurora PostgreSQL_.
+
+## Query plan
+
+management limitations
+
+The current release of Aurora PostgreSQL query plan management has the following
+limitations.
+
+- Plans aren't captured for statements that
+  reference system relations – Statements that reference
+  system relations, such as `pg_class`, aren't captured. This
+  is by design, to prevent a large number of system-generated plans that are
+  used internally from being captured. This also applies to system tables
+  inside views.
+- Larger DB instance class might be needed for your
+  Aurora PostgreSQL DB cluster – Depending on the workload,
+  query plan management might need a DB instance class that has more than 2
+  vCPUs. The number of `max_worker_processes` is limited by the DB
+  instance class size. The number of `max_worker_processes`
+  provided by a 2-vCPU DB instance class (db.t3.medium, for example) might not
+  be sufficient for a given workload. We recommend that you choose a DB
+  instance class with more than 2 vCPUs for your Aurora PostgreSQL DB cluster if
+  you use query plan managment.
+
+When the DB instance class can't support the workload, query plan
+management raises an error message such as the following.
+
+```
+WARNING: could not register plan insert background process
+HINT: You may need to increase max_worker_processes.
+```
+
+In this case, you should scale up your Aurora PostgreSQL DB cluster to a DB
+instance class size with more memory. For more information, see [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+
+- Plans already stored in sessions aren't
+  affected – Query plan management provides a way to
+  influence query plans without changing the application code. However, when a
+  generic plan is already stored in an existing session and if you want to
+  change its query plan, then you must first set`plan_cache_mode`
+  to `force_custom_plan` in the DB cluster parameter group.
+- `queryid` in `apg_plan_mgmt.dba_plans` and
+  `pg_stat_statements` can diverge when:
+  - Objects are dropped and recreated after storing in
+    apg_plan_mgmt.dba_plans.
+  - `apg_plan_mgmt.plans` table is imported from another
+    cluster.
+
+For information about different versions of the Aurora PostgreSQL query plan
+management feature, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+_Release Notes for Aurora PostgreSQL_.
+
+## Query plan management
+
+terminology
+
+The following terms are used throughout this topic.
+
+**managed statement**
+
+A SQL statement captured by the optimizer under query plan management.
+A managed statement has one or more query execution plans stored in the
+`apg_plan_mgmt.dba_plans` view.
+
+**plan baseline**
+
+The set of approved plans for a given managed statement. That is, all
+the plans for the managed statement that have "Approved" for their
+`status` column in the `dba_plan` view.
+
+**plan history**
+
+The set of all captured plans for a given managed statement. The plan
+history contains all plans captured for the statement, regardless of
+status.
+
+**query plan regression**
+
+The case when the optimizer chooses a less optimal plan than it did
+before a given change to the database environment, such as a new
+PostgreSQL version or changes to statistics.
+
+## Aurora PostgreSQL query
+
+plan management versions
+
+Query plan management is supported by all currently available Aurora PostgreSQL
+releases. For more information, see the list of [Amazon Aurora PostgreSQL updates](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in the
+_Release Notes for Aurora PostgreSQL_.
+
+Query plan management functionality is added to your Aurora PostgreSQL DB cluster when
+you install the `apg_plan_mgmt` extension. Different versions of
+Aurora PostgreSQL support different versions of the `apg_plan_mgmt`
+extension. We recommend that you upgrade the query plan management extension to the
+latest release for your version of Aurora PostgreSQL.
+
+###### Note
+
+For release notes for each `apg_plan_mgmt` extension versions, see
+[Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+_Release Notes for Aurora PostgreSQL_.
+
+You can identify the version running on your cluster by connecting to an instance
+using `psql` and using the metacommand \dx to list extensions as shown
+following.
+
+```
+`labdb=>` \dx
+ `List of installed extensions
+ Name | Version | Schema | Description
+---------------+---------+---------------+-------------------------------------------------------------------
+ apg_plan_mgmt | 1.0 | apg_plan_mgmt | Amazon Aurora with PostgreSQL compatibility Query Plan Management
+ plpgsql | 1.0 | pg_catalog | PL/pgSQL procedural language
+(2 rows)`
+```
+
+The output shows that this cluster is using 1.0 version of the extension. Only
+certain `apg_plan_mgmt` versions are available for a given Aurora PostgreSQL
+version. In some cases, you might need to upgrade the Aurora PostgreSQL DB cluster to a
+new minor release or apply a patch so that you can upgrade to the most recent
+version of query plan management. The `apg_plan_mgmt` version 1.0 shown
+in the output is from an Aurora PostgreSQL version 10.17 DB cluster, which doesn't
+have a newer version of `apg_plan_mgmt` available. In this case, the
+Aurora PostgreSQL DB cluster should be upgraded to a more recent version of
+PostgreSQL.
+
+For more information about upgrading your Aurora PostgreSQL DB cluster to a new
+version of PostgreSQL, see [Database engine updates for
+Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+
+To learn how to upgrade the `apg_plan_mgmt` extension, see [Upgrading Aurora PostgreSQL query
+plan management](#AuroraPostgreSQL.Optimize.Upgrade "#AuroraPostgreSQL.Optimize.Upgrade").
+
+## Turning on Aurora PostgreSQL query
+
+plan management
+
+Setting up query plan management for your Aurora PostgreSQL DB cluster involves
+installing an extension and changing several DB cluster parameter settings. You need
+`rds_superuser` permissions to install the `apg_plan_mgmt`
+extension and to turn on the feature for the Aurora PostgreSQL DB cluster.
+
+Installing the extension creates a new role, `apg_plan_mgmt`. This role
+allows database users to view, manage, and maintain query plans. As an administrator
+with `rds_superuser` privileges, be sure to grant the
+`apg_plan_mgmt` role to database users as needed.
+
+Only users with the `rds_superuser` role can complete the following
+procedure. The `rds_superuser` is required for creating the
+`apg_plan_mgmt` extension and its `apg_plan_mgmt` role.
+Users must be granted the `apg_plan_mgmt` role to administer the
+`apg_plan_mgmt` extension.
+
+###### To turn on query plan management for your Aurora PostgreSQL DB cluster
+
+The following steps turn on query plan management for all SQL statements that
+get submitted to the Aurora PostgreSQL DB cluster. This is known as
+_automatic_ mode. To learn more about the difference
+between modes, see [Capturing Aurora PostgreSQL
+execution plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Create a custom DB cluster parameter group for your Aurora PostgreSQL DB
+   cluster. You need to change certain parameters to activate query plan
+   management and to set its behavior. For more information, see [Creating a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+3. Open the custom DB cluster parameter group and set the
+   `rds.enable_plan_management` parameter to `1`, as
+   shown in the following image.
+
+![Image of the DB cluster parameter group.](images/aurora-qpm-custom-db-cluster-param-change-1.png)
+
+For more information, see [Modifying parameters in a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. Create a custom DB parameter group that you can use to set query plan
+parameters at the instance level. For more information, see [Creating a DB cluster parameter group in Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 5. Modify the writer instance of the Aurora PostgreSQL DB cluster to use the
+custom DB parameter group. For more information, see [Modifying a DB instance in a DB cluster](Aurora.md#Aurora.Modifying.Instance "Aurora.md#Aurora.Modifying.Instance"). 6. Modify the Aurora PostgreSQL DB cluster to use the custom DB cluster parameter
+group. For more information, see [Modifying the DB cluster by using the console, CLI, and API](Aurora.md#Aurora.Modifying.Cluster "Aurora.md#Aurora.Modifying.Cluster"). 7. Reboot your DB instance to enable the custom parameter group
+settings. 8. Connect to your Aurora PostgreSQL DB cluster's DB instance endpoint using
+`psql` or `pgAdmin`. The following example uses
+the default `postgres` account for the `rds_superuser`
+role.
+
+```
+psql --host=`cluster-instance-1.111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password --dbname=`my-db`
+```
+
+9. Create the `apg_plan_mgmt` extension for your DB instance, as
+   shown following.
+
+```
+`labdb=>` CREATE EXTENSION apg_plan_mgmt;
+`CREATE EXTENSION`
+```
+
+###### Tip
+
+Install the `apg_plan_mgmt` extension in the template
+database for your application. The default template database is named
+`template1`. To learn more, see [Template Databases](https://www.postgresql.org/docs/current/manage-ag-templatedbs.html "https://www.postgresql.org/docs/current/manage-ag-templatedbs.html") in the PostgreSQL documentation. 10. Change the `apg_plan_mgmt.capture_plan_baselines` parameter to
+`automatic`. This setting causes the optimizer to generate
+plans for every SQL statement that is either planned or executed two or more
+times.
+
+###### Note
+
+Query plan management also has a _manual_ mode that
+you can use for specific SQL statements. To learn more, see [Capturing Aurora PostgreSQL
+execution plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md"). 11. Change the value of `apg_plan_mgmt.use_plan_baselines`
+parameter to "on." This parameter causes the optimizer to choose a plan for
+the statement from its plan baseline. To learn more, see [Using Aurora PostgreSQL managed
+plans](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+
+###### Note
+
+You can modify the value of either of these dynamic parameters for the
+session without needing to reboot the instance.
+
+When your query plan management set up is complete, be sure to grant the
+`apg_plan_mgmt` role to any database users that need to view, manage,
+or maintain query plans.
+
+## Upgrading Aurora PostgreSQL query
+
+plan management
+
+We recommend that you upgrade the query plan management extension to the latest
+release for your version of Aurora PostgreSQL.
+
+1. Connect to the writer instance of your Aurora PostgreSQL DB cluster as a user
+   that has `rds_superuser` privileges. If you kept the default name
+   when you set up your instance, you connect as `postgres` This
+   example shows how to use `psql`, but you can also use pgAdmin if
+   you prefer.
+
+```
+psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username=postgres --password
+```
+
+2. Run the following query to upgrade the extension.
+
+```
+ALTER EXTENSION apg_plan_mgmt UPDATE TO '2.1';
+```
+
+3. Use the [apg_plan_mgmt.validate_plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.validate_plans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.validate_plans")
+   function to update the hashes of all plans. The optimizer validates all
+   Approved, Unapproved, and Rejected plans to ensure that they's still
+   viable plans for new version of the extension.
+
+```
+SELECT apg_plan_mgmt.validate_plans('update_plan_hash');
+```
+
+To learn more about using this function, see [Validating
+plans](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans"). 4. Use the [apg_plan_mgmt.reload](AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.reload "AuroraPostgreSQL.Optimize.md#AuroraPostgreSQL.Optimize.Functions.reload") function to
+refresh any plans in the shared memory with the validated plans from the
+dba_plans view.
+
+```
+SELECT apg_plan_mgmt.reload();
+```
+
+To learn more about all functions available for query plan management, see [Function reference for
+Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
+
+## Turning off Aurora PostgreSQL
+
+query plan management
+
+You can disable query plan management at any time by turning off the
+`apg_plan_mgmt.use_plan_baselines` and
+`apg_plan_mgmt.capture_plan_baselines`.
+
+```
+`labdb=>` SET apg_plan_mgmt.use_plan_baselines = off;
+
+`labdb=>` SET apg_plan_mgmt.capture_plan_baselines = off;
+
+```

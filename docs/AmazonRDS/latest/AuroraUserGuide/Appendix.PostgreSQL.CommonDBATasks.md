@@ -1,42 +1,62 @@
-# Using pgAudit to log database activity
+# Using pglogical to synchronize
 
-Financial institutions, government agencies, and many industries need to keep
-_audit logs_ to meet regulatory requirements. By using the PostgreSQL Audit
-extension (pgAudit) with your Aurora PostgreSQL DB
-cluster, you can
-capture the detailed records that are typically needed by auditors or to meet regulatory
-requirements. For example, you can set up the pgAudit extension to track changes made to
-specific databases and tables, to record the user who made the change, and many other
-details.
+data across instances
 
-The pgAudit extension builds on the functionality of the native PostgreSQL
-logging infrastructure by extending the log messages with more detail. In other words, you use the same
-approach to view your audit log as you do to view any log messages. For more information about PostgreSQL logging,
-see [Aurora PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
+All currently available Aurora PostgreSQL versions support the `pglogical`
+extension. The pglogical extension predates the functionally similar logical replication feature
+that was introduced by PostgreSQL in version 10. For more
+information, see [Overview of PostgreSQL logical
+replication with Aurora](AuroraPostgreSQL.Replication.md "AuroraPostgreSQL.Replication.md").
 
-The pgAudit extension redacts sensitive data such as cleartext passwords from the logs.
-If your Aurora PostgreSQL DB cluster is configured to log data manipulation language (DML) statements as detailed in
-[Turning on query
-logging for your Aurora PostgreSQL DB cluster](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md"),
-you can avoid the cleartext password issue by using the PostgreSQL Audit extension.
+The `pglogical` extension supports logical replication between two or more
+Aurora PostgreSQL DB clusters.
+It also supports replication
+between different PostgreSQL versions, and between databases running on RDS for PostgreSQL DB
+instances and Aurora PostgreSQL DB clusters. The `pglogical` extension uses a
+publish-subscribe model to replicate changes to tables and other objects, such as sequences,
+from a publisher to a subscriber. It relies on a replication slot to ensure that changes are
+synchronized from a publisher node to a subscriber node, defined as follows.
 
-You can configure auditing on your database instances with a great degree of specificity. You can audit
-all databases and all users. Or, you can choose to audit only certain databases, users, and other objects.
-You can also explicitly exclude certain users and databases from being audited. For more information, see
-[Excluding users or databases from audit logging](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
-
-Given the amount of detail that can be captured, we recommend that if you do use pgAudit, you monitor
-your storage consumption.
-
-The pgAudit extension is supported on all available Aurora PostgreSQL versions.
-For a list of pgAudit versions supported by Aurora PostgreSQL version,
-see [Extension
-versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.md") in the _Release Notes for Aurora PostgreSQL_.
+- The _publisher node_ is the Aurora PostgreSQL
+  DB cluster
+  that's the source of data to be replicated to other nodes. The publisher node defines
+  the tables to be replicated in a publication set.
+- The _subscriber node_ is the Aurora PostgreSQL
+  DB cluster that
+  receives WAL updates from the publisher. The subscriber creates a subscription to connect to
+  the publisher and get the decoded WAL data. When the subscriber creates the subscription,
+  the replication slot is created on the publisher node.
+  Following, you can find information about setting up the `pglogical` extension.
 
 ###### Topics
 
-- [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Auditing database objects](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Excluding users or databases from audit logging](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
-- [Reference for the pgAudit
-  extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md")
+- [Requirements and limitations for the pglogical extension](#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations "#Appendix.PostgreSQL.CommonDBATasks.pglogical.requirements-limitations")
+- [Setting up the
+  pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Setting up
+  logical replication for Aurora PostgreSQL DB cluster](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Managing logical
+  replication slots for Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+- [Parameter reference
+  for the pglogical extension](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md")
+
+## Requirements and limitations for the pglogical extension
+
+All currently available releases of Aurora PostgreSQL support the
+`pglogical` extension.
+
+Both the publisher node and the subscriber node must be set up for logical
+replication.
+
+The tables that you want to replicate from a publisher to a subscriber must have the same
+names and the same schema. These tables must also contain the same columns, and the columns
+must use the same data types. Both publisher and subscriber tables must have the same primary
+keys. We recommend that you use only the PRIMARY KEY as the unique constraint.
+
+The tables on the subscriber node can have more permissive constraints than those on the
+publisher node for CHECK constraints and NOT NULL constraints.
+
+The `pglogical` extension provides features such as two-way replication that
+aren't supported by the logical replication feature built into PostgreSQL (version 10 and
+higher). For more information, see [PostgreSQL bi-directional replication using pglogical](https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/ "https://aws.amazon.com/blogs/database/postgresql-bi-directional-replication-using-pglogical/").

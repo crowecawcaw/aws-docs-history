@@ -1,127 +1,66 @@
-# Calling the Amazon RDS Data API from a Python application
+# Calling the Amazon RDS Data API from a Java application
 
-You can call the Amazon RDS Data API (Data API) from a Python application.
+You can call the Amazon RDS Data API (Data API) from a Java application.
 
-The following examples use the AWS SDK for Python (Boto). For more information about Boto, see the
-[AWS SDK for Python (Boto 3) documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html").
+The following examples use the AWS SDK for Java. For more information, see the
+[AWS SDK for Java Developer Guide](../../../sdk-for-java/latest/developer-guide/welcome.md "../../../sdk-for-java/latest/developer-guide/welcome.md").
 
-In each example, replace the DB cluster's Amazon Resource Name (ARN) with
-the ARN for your Aurora DB cluster. Also, replace the secret ARN with
-the ARN of the secret in Secrets Manager that allows access to the DB cluster.
+In each example, replace the DB cluster's Amazon Resource Name (ARN) with the
+ARN for your Aurora DB cluster. Also, replace the secret ARN with the
+ARN of the secret in Secrets Manager that allows access to the DB cluster.
 
 ###### Topics
 
-- [Running a SQL query](#data-api.calling.python.run-query "#data-api.calling.python.run-query")
-- [Running a DML SQL statement](#data-api.calling.python.run-inert "#data-api.calling.python.run-inert")
-- [Running a SQL transaction](#data-api.calling.python.run-transaction "#data-api.calling.python.run-transaction")
+- [Running a SQL query](#data-api.calling.java.run-query "#data-api.calling.java.run-query")
+- [Running a SQL transaction](#data-api.calling.java.run-transaction "#data-api.calling.java.run-transaction")
+- [Running a batch SQL operation](#data-api.calling.java.run-batch "#data-api.calling.java.run-batch")
 
 ## Running a SQL query
 
-You can run a `SELECT` statement and fetch the results with a Python application.
+You can run a `SELECT` statement and fetch the results with a Java application.
 
 The following example runs a SQL query.
 
 ```
-import boto3
+package com.amazonaws.rdsdata.examples;
 
-rdsData = boto3.client('rds-data')
+import com.amazonaws.services.rdsdata.AWSRDSData;
+import com.amazonaws.services.rdsdata.AWSRDSDataClient;
+import com.amazonaws.services.rdsdata.model.ExecuteStatementRequest;
+import com.amazonaws.services.rdsdata.model.ExecuteStatementResult;
+import com.amazonaws.services.rdsdata.model.Field;
 
-cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
-secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
+import java.util.List;
 
-response1 = rdsData.execute_statement(
-            resourceArn = cluster_arn,
-            secretArn = secret_arn,
-            database = '`mydb`',
-            sql = '`select * from employees limit 3`')
+public class FetchResultsExample {
+  public static final String RESOURCE_ARN = "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`";
+  public static final String SECRET_ARN = "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`";
 
-print (response1['records'])
-[
-    [
-        {
-            'longValue': 1
-        },
-        {
-            'stringValue': 'ROSALEZ'
-        },
-        {
-            'stringValue': 'ALEJANDRO'
-        },
-        {
-            'stringValue': '2016-02-15 04:34:33.0'
-        }
-    ],
-    [
-        {
-            'longValue': 1
-        },
-        {
-            'stringValue': 'DOE'
-        },
-        {
-            'stringValue': 'JANE'
-        },
-        {
-            'stringValue': '2014-05-09 04:34:33.0'
-        }
-    ],
-    [
-        {
-            'longValue': 1
-        },
-        {
-            'stringValue': 'STILES'
-        },
-        {
-            'stringValue': 'JOHN'
-        },
-        {
-            'stringValue': '2017-09-20 04:34:33.0'
-        }
-    ]
-]
-```
+  public static void main(String[] args) {
+    AWSRDSData rdsData = AWSRDSDataClient.builder().build();
 
-## Running a DML SQL statement
+    ExecuteStatementRequest request = new ExecuteStatementRequest()
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withDatabase("`mydb`")
+            .withSql("`select * from mytable`");
 
-You can run a data manipulation language (DML) statement to insert, update, or delete data in your database.
-You can also use parameters in DML statements.
+    ExecuteStatementResult result = rdsData.executeStatement(request);
 
-###### Important
+    for (List<Field> fields: result.getRecords()) {
+      String stringValue = fields.get(0).getStringValue();
+      long numberValue = fields.get(1).getLongValue();
 
-If a call isn't part of a transaction because it doesn't include
-the `transactionID` parameter, changes that result from the
-call are committed automatically.
-
-The following example runs an insert SQL statement and uses
-parameters.
-
-```
-import boto3
-
-cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
-secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
-
-rdsData = boto3.client('rds-data')
-
-
-param1 = {'name':'firstname', 'value':{'stringValue': '`JACKSON`'}}
-param2 = {'name':'lastname', 'value':{'stringValue': '`MATEO`'}}
-paramSet = [param1, param2]
-
-response2 = rdsData.execute_statement(resourceArn=cluster_arn,
-                                      secretArn=secret_arn,
-                                      database='`mydb`',
-                                      sql='`insert into employees(first_name, last_name) VALUES(:firstname, :lastname)`',
-                                      parameters = paramSet)
-
-print (response2["numberOfRecordsUpdated"])
+      System.out.println(String.format("Fetched row: string = %s, number = %d", stringValue, numberValue));
+    }
+  }
+}
 ```
 
 ## Running a SQL transaction
 
 You can start a SQL transaction, run one or more SQL statements, and then
-commit the changes with a Python application.
+commit the changes with a Java application.
 
 ###### Important
 
@@ -132,39 +71,46 @@ committed, it's rolled back automatically.
 If you don't specify a transaction ID, changes that result from
 the call are committed automatically.
 
-The following example runs a SQL transaction that inserts a row in a
-table.
+The following example runs a SQL transaction.
 
 ```
-import boto3
+package com.amazonaws.rdsdata.examples;
 
-rdsData = boto3.client('rds-data')
+import com.amazonaws.services.rdsdata.AWSRDSData;
+import com.amazonaws.services.rdsdata.AWSRDSDataClient;
+import com.amazonaws.services.rdsdata.model.BeginTransactionRequest;
+import com.amazonaws.services.rdsdata.model.BeginTransactionResult;
+import com.amazonaws.services.rdsdata.model.CommitTransactionRequest;
+import com.amazonaws.services.rdsdata.model.ExecuteStatementRequest;
 
-cluster_arn = '`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`'
-secret_arn = '`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`'
+public class TransactionExample {
+  public static final String RESOURCE_ARN = "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`";
+  public static final String SECRET_ARN = "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`";
 
-tr = rdsData.begin_transaction(
-     resourceArn = cluster_arn,
-     secretArn = secret_arn,
-     database = '`mydb`')
+  public static void main(String[] args) {
+    AWSRDSData rdsData = AWSRDSDataClient.builder().build();
 
-response3 = rdsData.execute_statement(
-     resourceArn = cluster_arn,
-     secretArn = secret_arn,
-     database = '`mydb`',
-     sql = '`insert into employees(first_name, last_name) values('XIULAN', 'WANG')`',
-     transactionId = tr['transactionId'])
+    BeginTransactionRequest beginTransactionRequest = new BeginTransactionRequest()
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withDatabase("`mydb`");
+    BeginTransactionResult beginTransactionResult = rdsData.beginTransaction(beginTransactionRequest);
+    String transactionId = beginTransactionResult.getTransactionId();
 
-cr = rdsData.commit_transaction(
-     resourceArn = cluster_arn,
-     secretArn = secret_arn,
-     transactionId = tr['transactionId'])
+    ExecuteStatementRequest executeStatementRequest = new ExecuteStatementRequest()
+            .withTransactionId(transactionId)
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withSql("`INSERT INTO test_table VALUES ('hello world!')`");
+    rdsData.executeStatement(executeStatementRequest);
 
-cr['transactionStatus']
-'Transaction Committed'
-
-response3['numberOfRecordsUpdated']
-1
+    CommitTransactionRequest commitTransactionRequest = new CommitTransactionRequest()
+            .withTransactionId(transactionId)
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN);
+    rdsData.commitTransaction(commitTransactionRequest);
+  }
+}
 ```
 
 ###### Note
@@ -174,3 +120,54 @@ the call times out. When a DDL statement terminates before it is finished
 running, it can result in errors and possibly corrupted data structures. To
 continue running a statement after a call exceeds the RDS Data API timeout interval of 45 seconds, set the `continueAfterTimeout`
 parameter to `true`.
+
+## Running a batch SQL operation
+
+You can run bulk insert and update operations over an array of data with a Java application.
+You can run a DML statement with array of parameter sets.
+
+###### Important
+
+If you don't specify a transaction ID, changes that result from the call
+are committed automatically.
+
+The following example runs a batch insert operation.
+
+```
+package com.amazonaws.rdsdata.examples;
+
+import com.amazonaws.services.rdsdata.AWSRDSData;
+import com.amazonaws.services.rdsdata.AWSRDSDataClient;
+import com.amazonaws.services.rdsdata.model.BatchExecuteStatementRequest;
+import com.amazonaws.services.rdsdata.model.Field;
+import com.amazonaws.services.rdsdata.model.SqlParameter;
+
+import java.util.Arrays;
+
+public class BatchExecuteExample {
+  public static final String RESOURCE_ARN = "`arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster`";
+  public static final String SECRET_ARN = "`arn:aws:secretsmanager:us-east-1:123456789012:secret:mysecret`";
+
+  public static void main(String[] args) {
+      AWSRDSData rdsData = AWSRDSDataClient.builder().build();
+
+    BatchExecuteStatementRequest request = new BatchExecuteStatementRequest()
+            .withDatabase("test")
+            .withResourceArn(RESOURCE_ARN)
+            .withSecretArn(SECRET_ARN)
+            .withSql("INSERT INTO test_table2 VALUES (:string, :number)")
+            .withParameterSets(Arrays.asList(
+                    Arrays.asList(
+                            new SqlParameter().withName("string").withValue(new Field().withStringValue("Hello")),
+                            new SqlParameter().withName("number").withValue(new Field().withLongValue(1L))
+                    ),
+                    Arrays.asList(
+                            new SqlParameter().withName("string").withValue(new Field().withStringValue("World")),
+                            new SqlParameter().withName("number").withValue(new Field().withLongValue(2L))
+                    )
+            ));
+
+    rdsData.batchExecuteStatement(request);
+  }
+}
+```

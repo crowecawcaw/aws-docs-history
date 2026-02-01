@@ -1,199 +1,451 @@
-# LWLock:buffer_content (BufferContent)
+# IO:DataFileRead
 
-The `LWLock:buffer_content` event occurs when a session is waiting to read or
-write a data page in memory while another session has that page locked for writing. In
-Aurora PostgreSQL 13 and higher, this wait event is called `BufferContent`.
+The `IO:DataFileRead` event occurs when a connection waits
+on a backend process to read a required page from storage because
+the page isn't available in shared memory.
 
 ###### Topics
 
-- [Supported engine
-  versions](#apg-waits.lockbuffercontent.context.supported "#apg-waits.lockbuffercontent.context.supported")
-- [Context](#apg-waits.lockbuffercontent.context "#apg-waits.lockbuffercontent.context")
-- [Likely causes of increased
-  waits](#apg-waits.lockbuffercontent.causes "#apg-waits.lockbuffercontent.causes")
-- [Actions](#apg-waits.lockbuffercontent.actions "#apg-waits.lockbuffercontent.actions")
+- [Supported engine versions](#apg-waits.iodatafileread.context.supported "#apg-waits.iodatafileread.context.supported")
+- [Context](#apg-waits.iodatafileread.context "#apg-waits.iodatafileread.context")
+- [Likely causes of increased waits](#apg-waits.iodatafileread.causes "#apg-waits.iodatafileread.causes")
+- [Actions](#apg-waits.iodatafileread.actions "#apg-waits.iodatafileread.actions")
 
-## Supported engine
-
-versions
+## Supported engine versions
 
 This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-To read or manipulate data, PostgreSQL accesses it through shared memory buffers. To
-read from the buffer, a process gets a lightweight lock (LWLock) on the buffer content
-in shared mode. To write to the buffer, it gets that lock in exclusive mode. Shared
-locks allow other processes to concurrently acquire shared locks on that content.
-Exclusive locks prevent other processes from getting any type of lock on it.
+All queries and data manipulation (DML) operations access pages in the buffer
+pool. Statements that can induce reads include `SELECT`, `UPDATE`,
+and `DELETE`. For example, an `UPDATE` can read pages from tables
+or indexes. If the page being requested or updated isn't in the shared buffer pool, this
+read can lead to the `IO:DataFileRead` event.
 
-The `LWLock:buffer_content` (`BufferContent`) event indicates
-that multiple processes are attempting to get lightweight locks (LWLocks) on contents of
-a specific buffer.
+Because the shared buffer pool is finite, it can fill up. In this case, requests for pages that aren't
+in memory force the database to read blocks from disk. If the `IO:DataFileRead` event occurs
+frequently, your shared buffer pool might be too small to accommodate your workload. This problem is acute for
+`SELECT` queries that read a large number of rows that don't fit in the buffer
+pool. For more information about the buffer pool, see [Buffer pool](AuroraMySQL.Managing.Tuning.md#AuroraMySQL.Managing.Tuning.concepts.memory.buffer-pool "AuroraMySQL.Managing.Tuning.md#AuroraMySQL.Managing.Tuning.concepts.memory.buffer-pool").
 
-## Likely causes of increased
+## Likely causes of increased waits
 
-waits
+Common causes for the `IO:DataFileRead` event include the following:
 
-When the `LWLock:buffer_content` (`BufferContent`) event appears
-more than normal, possibly indicating a performance problem, typical causes include the
-following:
+**Connection spikes**
 
-**Increased concurrent updates to the same data**
+You might find multiple connections generating the same number of
+IO:DataFileRead wait events. In this case, a spike (sudden and large
+increase) in `IO:DataFileRead` events can occur.
 
-There might be an increase in the number of concurrent sessions with
-queries that update the same buffer content. This contention can be more
-pronounced on tables with a lot of indexes.
+**SELECT and DML statements performing sequential scans**
 
-**Workload data is not in memory**
+Your application might be performing a new operation. Or an existing operation might change
+because of a new execution plan. In such cases, look for tables (particularly large tables) that have
+a greater `seq_scan` value. Find them by querying `pg_stat_user_tables`. To
+track queries that are generating more read operations, use the extension
+`pg_stat_statements`.
 
-When data that the active workload is processing is not in memory, these
-wait events can increase. This effect is because processes holding locks can
-keep them longer while they perform disk I/O operations.
+**CTAS and CREATE INDEX for large data sets**
 
-**Excessive use of foreign key constraints**
+A _CTAS_ is a `CREATE TABLE AS SELECT` statement. If you run
+a CTAS using a large data set as a source, or create an index on a large table, the
+`IO:DataFileRead` event can occur. When you create an index, the database might need
+to read the entire object using a sequential scan. A CTAS generates `IO:DataFile` reads
+when pages aren't in memory.
 
-Foreign key constraints can increase the amount of time a process holds
-onto a buffer content lock. This effect is because read operations require a
-shared buffer content lock on the referenced key while that key is being
-updated.
+**Multiple vacuum workers running at the same time**
+
+Vacuum workers can be triggered manually or automatically. We recommend adopting an
+aggressive vacuum strategy. However, when a table has many updated or deleted rows, the
+`IO:DataFileRead` waits increase. After space is reclaimed, the vacuum time spent on
+`IO:DataFileRead` decreases.
+
+**Ingesting large amounts of data**
+
+When your application ingests large amounts of data, `ANALYZE` operations might
+occur more often. The `ANALYZE` process can be triggered by an autovacuum launcher or
+invoked manually.
+
+The `ANALYZE` operation reads a subset of the table.
+The number of pages that must be scanned is calculated by multiplying 30 by
+the `default_statistics_target` value. For more information, see
+the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET "https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET"). The
+`default_statistics_target` parameter accepts values between
+1 and 10,000, where the default is 100.
+
+**Resource starvation**
+
+If instance network bandwidth or CPU are consumed, the `IO:DataFileRead` event
+might occur more frequently.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event. You might
-identify `LWLock:buffer_content` (`BufferContent`) events by using
-Amazon RDS Performance Insights or by querying the view `pg_stat_activity`.
+We recommend different actions depending on the causes of your wait event.
 
 ###### Topics
 
-- [Improve in-memory
-  efficiency](#apg-waits.lockbuffercontent.actions.in-memory "#apg-waits.lockbuffercontent.actions.in-memory")
-- [Reduce usage of
-  foreign key constraints](#apg-waits.lockbuffercontent.actions.foreignkey "#apg-waits.lockbuffercontent.actions.foreignkey")
-- [Remove unused
-  indexes](#apg-waits.lockbuffercontent.actions.indexes "#apg-waits.lockbuffercontent.actions.indexes")
-- [Remove
-  duplicate indexes](#apg-waits.lockbuffercontent.actions.duplicate-indexes "#apg-waits.lockbuffercontent.actions.duplicate-indexes")
-- [Drop or
-  REINDEX invalid indexes](#apg-waits.lockbuffercontent.actions.invalid-indexes "#apg-waits.lockbuffercontent.actions.invalid-indexes")
-- [Use partial
-  indexes](#apg-waits.lockbuffercontent.actions.partial-indexes "#apg-waits.lockbuffercontent.actions.partial-indexes")
-- [Remove table and index
-  bloat](#apg-waits.lockbuffercontent.actions.bloat "#apg-waits.lockbuffercontent.actions.bloat")
+- [Check predicate filters for queries that
+  generate waits](#apg-waits.iodatafileread.actions.filters "#apg-waits.iodatafileread.actions.filters")
+- [Minimize the effect of maintenance
+  operations](#apg-waits.iodatafileread.actions.maintenance "#apg-waits.iodatafileread.actions.maintenance")
+- [Respond to high numbers of
+  connections](#apg-waits.iodatafileread.actions.connections "#apg-waits.iodatafileread.actions.connections")
 
-### Improve in-memory
+### Check predicate filters for queries that
 
-efficiency
+generate waits
 
-To increase the chance that active workload data is in memory, partition tables or
-scale up your instance class. For information about DB instance classes, see [Amazon Aurora DB instance classes](Concepts.md "Concepts.md").
+Assume that you identify specific queries that are generating `IO:DataFileRead` wait
+events. You might identify them using the following techniques:
 
-Monitor the `BufferCacheHitRatio` metric, which measures the percentage
-of requests served by the buffer cache of a DB instance in your DB cluster. This
-metric provides insight into the amount of data being served from memory. A high hit
-ratio indicates that your DB instance has sufficient memory available for your
-working data set, while a low ratio suggests that your queries are frequently
-accessing data from storage.
+- Performance Insights
+- Catalog views such as the one provided by the extension
+  `pg_stat_statements`
+- The catalog view `pg_stat_all_tables`, if it periodically shows an increased
+  number of physical reads
+- The `pg_statio_all_tables` view, if it shows that `_read` counters
+  are increasing
 
-The cache read hit per table and cache read hit per index under Memory setting
-section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into the tables and indexes
-cache hit ratio.
+We recommend that you determine which filters are used in the predicate (`WHERE` clause)
+of these queries. Follow these guidelines:
 
-### Reduce usage of
+- Run the `EXPLAIN` command. In the output, identify which types of scans are
+  used. A sequential scan doesn't necessarily indicate a problem. Queries that use sequential scans
+  naturally produce more `IO:DataFileRead` events when compared to queries that use
+  filters.
 
-foreign key constraints
+Find out whether the column listed in the `WHERE` clause is indexed. If not,
+consider creating an index for this column. This approach avoids the sequential scans and reduces the
+`IO:DataFileRead` events. If a query has restrictive filters and still produces
+sequential scans, evaluate whether the proper indexes are being used.
 
-Investigate workloads experiencing high numbers of
-`LWLock:buffer_content` (`BufferContent`) wait events for
-usage of foreign key constraints. Remove unnecessary foreign key constraints.
+- Find out whether the query is accessing a very large table. In some cases, partitioning a
+  table can improve performance, allowing the query to only read necessary partitions.
+- Examine the cardinality (total number of rows) from your join operations. Note how
+  restrictive the values are that you're passing in the filters for your `WHERE` clause. If
+  possible, tune your query to reduce the number of rows that are passed in each step of the
+  plan.
 
-### Remove unused
+### Minimize the effect of maintenance
 
-indexes
+operations
 
-For workloads experiencing high numbers of `LWLock:buffer_content`
-(`BufferContent`) wait events, identify unused indexes and remove
-them.
+Maintenance operations such as `VACUUM` and
+`ANALYZE` are important. We recommend that you don't turn them off
+because you find `IO:DataFileRead` wait events related to these
+maintenance operations. The following approaches can minimize the effect of these
+operations:
 
-The unused indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
-the unused indexes in the database.
+- Run maintenance operations manually during off-peak hours. This technique prevents the
+  database from reaching the threshold for automatic operations.
+- For very large tables, consider partitioning the table. This technique reduces the overhead
+  of maintenance operations. The database only accesses the partitions that require
+  maintenance.
+- When you ingest large amounts of data, consider disabling the autoanalyze feature.
 
-### Remove
+The autovacuum feature is automatically triggered for a table when the
+following formula is true.
 
-duplicate indexes
+```
+pg_stat_user_tables.n_dead_tup > (pg_class.reltuples x autovacuum_vacuum_scale_factor) + autovacuum_vacuum_threshold
+```
 
-Identify duplicate indexes and remove them.
+The view `pg_stat_user_tables` and catalog `pg_class` have multiple rows. One
+row can correspond to one row in your table. This formula assumes that the `reltuples` are
+for a specific table. The parameters `autovacuum_vacuum_scale_factor` (0.20 by default)
+and `autovacuum_vacuum_threshold` (50 tuples by default) are usually set globally for the
+whole instance. However, you can set different values for a specific table.
 
-The duplicate indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
-the duplicate indexes in the database.
+###### Topics
 
-### Drop or
+- [Find tables consuming
+  space unnecessarily](#apg-waits.iodatafileread.actions.maintenance.tables "#apg-waits.iodatafileread.actions.maintenance.tables")
+- [Find indexes consuming
+  unnecessary space](#apg-waits.iodatafileread.actions.maintenance.indexes "#apg-waits.iodatafileread.actions.maintenance.indexes")
+- [Find tables that
+  are eligible to be autovacuumed](#apg-waits.iodatafileread.actions.maintenance.autovacuumed "#apg-waits.iodatafileread.actions.maintenance.autovacuumed")
 
-REINDEX invalid indexes
+#### Find tables consuming
 
-Invalid indexes typically occur when using `CREATE INDEX CONCURRENTLY`
-or `REINDEX CONCURRENTLY` and the command fails or is aborted.
+space unnecessarily
 
-Invalid indexes can't be used for queries, though they will still be updated and
-take up disk space.
+To find tables consuming more space than necessary, run the following query. When this query
+is run by a database user role that doesn't have the `rds_superuser` role, it returns
+information about only those tables that the user role has permissions to read. This query is supported
+by PostgreSQL version 12 and later versions.
 
-The Invalid indexes section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide insights into
-the invalid indexes in the database.
+```
+WITH report AS (
+   SELECT   schemaname
+           ,tblname
+           ,n_dead_tup
+           ,n_live_tup
+           ,block_size*tblpages AS real_size
+           ,(tblpages-est_tblpages)*block_size AS extra_size
+           ,CASE WHEN tblpages - est_tblpages > 0
+              THEN 100 * (tblpages - est_tblpages)/tblpages::float
+              ELSE 0
+            END AS extra_ratio, fillfactor, (tblpages-est_tblpages_ff)*block_size AS bloat_size
+           ,CASE WHEN tblpages - est_tblpages_ff > 0
+              THEN 100 * (tblpages - est_tblpages_ff)/tblpages::float
+              ELSE 0
+            END AS bloat_ratio
+           ,is_na
+    FROM (
+           SELECT  ceil( reltuples / ( (block_size-page_hdr)/tpl_size ) ) + ceil( toasttuples / 4 ) AS est_tblpages
+                  ,ceil( reltuples / ( (block_size-page_hdr)*fillfactor/(tpl_size*100) ) ) + ceil( toasttuples / 4 ) AS est_tblpages_ff
+                  ,tblpages
+                  ,fillfactor
+                  ,block_size
+                  ,tblid
+                  ,schemaname
+                  ,tblname
+                  ,n_dead_tup
+                  ,n_live_tup
+                  ,heappages
+                  ,toastpages
+                  ,is_na
+             FROM (
+                    SELECT ( 4 + tpl_hdr_size + tpl_data_size + (2*ma)
+                               - CASE WHEN tpl_hdr_size%ma = 0 THEN ma ELSE tpl_hdr_size%ma END
+                               - CASE WHEN ceil(tpl_data_size)::int%ma = 0 THEN ma ELSE ceil(tpl_data_size)::int%ma END
+                           ) AS tpl_size
+                           ,block_size - page_hdr AS size_per_block
+                           ,(heappages + toastpages) AS tblpages
+                           ,heappages
+                           ,toastpages
+                           ,reltuples
+                           ,toasttuples
+                           ,block_size
+                           ,page_hdr
+                           ,tblid
+                           ,schemaname
+                           ,tblname
+                           ,fillfactor
+                           ,is_na
+                           ,n_dead_tup
+                           ,n_live_tup
+                          FROM (
+                                SELECT  tbl.oid                       AS tblid
+                                       ,ns.nspname                    AS schemaname
+                                       ,tbl.relname                   AS tblname
+                                       ,tbl.reltuples                 AS reltuples
+                                       ,tbl.relpages                  AS heappages
+                                       ,coalesce(toast.relpages, 0)   AS toastpages
+                                       ,coalesce(toast.reltuples, 0)  AS toasttuples
+                                       ,psat.n_dead_tup               AS n_dead_tup
+                                       ,psat.n_live_tup               AS n_live_tup
+                                       ,24                            AS page_hdr
+                                       ,current_setting('block_size')::numeric AS block_size
+                                       ,coalesce(substring( array_to_string(tbl.reloptions, ' ') FROM 'fillfactor=([0-9]+)')::smallint, 100) AS fillfactor
+                                       ,CASE WHEN version()~'mingw32' OR version()~'64-bit|x86_64|ppc64|ia64|amd64' THEN 8 ELSE 4 END        AS ma
+                                       ,23 + CASE WHEN MAX(coalesce(null_frac,0)) > 0 THEN ( 7 + count(*) ) / 8 ELSE 0::int END              AS tpl_hdr_size
+                                       ,sum( (1-coalesce(s.null_frac, 0)) * coalesce(s.avg_width, 1024) )                                    AS tpl_data_size
+                                       ,bool_or(att.atttypid = 'pg_catalog.name'::regtype) OR count(att.attname) <> count(s.attname)         AS is_na
+                                  FROM  pg_attribute       AS att
+                                  JOIN  pg_class           AS tbl    ON (att.attrelid = tbl.oid)
+                                  JOIN  pg_stat_all_tables AS psat   ON (tbl.oid = psat.relid)
+                                  JOIN  pg_namespace       AS ns     ON (ns.oid = tbl.relnamespace)
+                             LEFT JOIN  pg_stats           AS s      ON (s.schemaname=ns.nspname AND s.tablename = tbl.relname AND s.inherited=false AND s.attname=att.attname)
+                             LEFT JOIN  pg_class           AS toast  ON (tbl.reltoastrelid = toast.oid)
+                                 WHERE  att.attnum > 0
+                                   AND  NOT att.attisdropped
+                                   AND  tbl.relkind = 'r'
+                              GROUP BY  tbl.oid, ns.nspname, tbl.relname, tbl.reltuples, tbl.relpages, toastpages, toasttuples, fillfactor, block_size, ma, n_dead_tup, n_live_tup
+                              ORDER BY  schemaname, tblname
+                           ) AS s
+                 ) AS s2
+       ) AS s3
+ ORDER BY bloat_size DESC
+)
+  SELECT *
+    FROM report
+   WHERE bloat_ratio != 0
+ -- AND schemaname = 'public'
+ -- AND tblname = 'pgbench_accounts'
+;
 
-### Use partial
+-- WHERE NOT is_na
+--   AND tblpages*((pst).free_percent + (pst).dead_tuple_percent)::float4/100 >= 1
+```
 
-indexes
+You can check for table and index bloat in your application. For more information, see [Diagnosing table and index bloat](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
 
-Partial indexes can be leveraged to enhance query performance and reduce index
-size. A partial index is an index built over a subset of a table, with the subset
-defined by a conditional expression. As detailed in the [partial index](https://www.postgresql.org/docs/current/indexes-partial.html "https://www.postgresql.org/docs/current/indexes-partial.html") documentation,
-partial indexes can reduce the overhead of maintaining indexes, as PostgreSQL does
-not need to update the index in all cases.
+#### Find indexes consuming
 
-### Remove table and index
+unnecessary space
 
-bloat
+To find indexes consuming unnecessary space, run the following
+query.
 
-Excessive table and index bloat can negatively impact database performance.
-Bloated tables and indexes increase the active working set size, degrading in-memory
-efficiency. Additionally, bloat increases storage costs and slows query execution.
-To diagnose bloat, refer to the [Diagnosing table and index bloat](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
-Further, the Fragmentation (Bloat) section of the [PG Collector](https://github.com/awslabs/pg-collector "https://github.com/awslabs/pg-collector") report can provide
-insights into tables and indexes bloat.
+```
+-- WARNING: run with a nonsuperuser role, the query inspects
+-- only indexes on tables you have permissions to read.
+-- WARNING: rows with is_na = 't' are known to have bad statistics ("name" type is not supported).
+-- This query is compatible with PostgreSQL 8.2 and later.
 
-To address table and index bloat, there are a few options:
+SELECT current_database(), nspname AS schemaname, tblname, idxname, bs*(relpages)::bigint AS real_size,
+  bs*(relpages-est_pages)::bigint AS extra_size,
+  100 * (relpages-est_pages)::float / relpages AS extra_ratio,
+  fillfactor, bs*(relpages-est_pages_ff) AS bloat_size,
+  100 * (relpages-est_pages_ff)::float / relpages AS bloat_ratio,
+  is_na
+  -- , 100-(sub.pst).avg_leaf_density, est_pages, index_tuple_hdr_bm,
+  -- maxalign, pagehdr, nulldatawidth, nulldatahdrwidth, sub.reltuples, sub.relpages
+  -- (DEBUG INFO)
+FROM (
+  SELECT coalesce(1 +
+       ceil(reltuples/floor((bs-pageopqdata-pagehdr)/(4+nulldatahdrwidth)::float)), 0
+       -- ItemIdData size + computed avg size of a tuple (nulldatahdrwidth)
+    ) AS est_pages,
+    coalesce(1 +
+       ceil(reltuples/floor((bs-pageopqdata-pagehdr)*fillfactor/(100*(4+nulldatahdrwidth)::float))), 0
+    ) AS est_pages_ff,
+    bs, nspname, table_oid, tblname, idxname, relpages, fillfactor, is_na
+    -- , stattuple.pgstatindex(quote_ident(nspname)||'.'||quote_ident(idxname)) AS pst,
+    -- index_tuple_hdr_bm, maxalign, pagehdr, nulldatawidth, nulldatahdrwidth, reltuples
+    -- (DEBUG INFO)
+  FROM (
+    SELECT maxalign, bs, nspname, tblname, idxname, reltuples, relpages, relam, table_oid, fillfactor,
+      ( index_tuple_hdr_bm +
+          maxalign - CASE -- Add padding to the index tuple header to align on MAXALIGN
+            WHEN index_tuple_hdr_bm%maxalign = 0 THEN maxalign
+            ELSE index_tuple_hdr_bm%maxalign
+          END
+        + nulldatawidth + maxalign - CASE -- Add padding to the data to align on MAXALIGN
+            WHEN nulldatawidth = 0 THEN 0
+            WHEN nulldatawidth::integer%maxalign = 0 THEN maxalign
+            ELSE nulldatawidth::integer%maxalign
+          END
+      )::numeric AS nulldatahdrwidth, pagehdr, pageopqdata, is_na
+      -- , index_tuple_hdr_bm, nulldatawidth -- (DEBUG INFO)
+    FROM (
+      SELECT
+        i.nspname, i.tblname, i.idxname, i.reltuples, i.relpages, i.relam, a.attrelid AS table_oid,
+        current_setting('block_size')::numeric AS bs, fillfactor,
+        CASE -- MAXALIGN: 4 on 32bits, 8 on 64bits (and mingw32 ?)
+          WHEN version() ~ 'mingw32' OR version() ~ '64-bit|x86_64|ppc64|ia64|amd64' THEN 8
+          ELSE 4
+        END AS maxalign,
+        /* per page header, fixed size: 20 for 7.X, 24 for others */
+        24 AS pagehdr,
+        /* per page btree opaque data */
+        16 AS pageopqdata,
+        /* per tuple header: add IndexAttributeBitMapData if some cols are null-able */
+        CASE WHEN max(coalesce(s.null_frac,0)) = 0
+          THEN 2 -- IndexTupleData size
+          ELSE 2 + (( 32 + 8 - 1 ) / 8)
+          -- IndexTupleData size + IndexAttributeBitMapData size ( max num filed per index + 8 - 1 /8)
+        END AS index_tuple_hdr_bm,
+        /* data len: we remove null values save space using it fractionnal part from stats */
+        sum( (1-coalesce(s.null_frac, 0)) * coalesce(s.avg_width, 1024)) AS nulldatawidth,
+        max( CASE WHEN a.atttypid = 'pg_catalog.name'::regtype THEN 1 ELSE 0 END ) > 0 AS is_na
+      FROM pg_attribute AS a
+        JOIN (
+          SELECT nspname, tbl.relname AS tblname, idx.relname AS idxname,
+            idx.reltuples, idx.relpages, idx.relam,
+            indrelid, indexrelid, indkey::smallint[] AS attnum,
+            coalesce(substring(
+              array_to_string(idx.reloptions, ' ')
+               from 'fillfactor=([0-9]+)')::smallint, 90) AS fillfactor
+          FROM pg_index
+            JOIN pg_class idx ON idx.oid=pg_index.indexrelid
+            JOIN pg_class tbl ON tbl.oid=pg_index.indrelid
+            JOIN pg_namespace ON pg_namespace.oid = idx.relnamespace
+          WHERE pg_index.indisvalid AND tbl.relkind = 'r' AND idx.relpages > 0
+        ) AS i ON a.attrelid = i.indexrelid
+        JOIN pg_stats AS s ON s.schemaname = i.nspname
+          AND ((s.tablename = i.tblname AND s.attname = pg_catalog.pg_get_indexdef(a.attrelid, a.attnum, TRUE))
+          -- stats from tbl
+          OR  (s.tablename = i.idxname AND s.attname = a.attname))
+          -- stats from functionnal cols
+        JOIN pg_type AS t ON a.atttypid = t.oid
+      WHERE a.attnum > 0
+      GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9
+    ) AS s1
+  ) AS s2
+    JOIN pg_am am ON s2.relam = am.oid WHERE am.amname = 'btree'
+) AS sub
+-- WHERE NOT is_na
+ORDER BY 2,3,4;
+```
 
-**VACUUM FULL**
+#### Find tables that
 
-`VACUUM FULL` creates a new copy of the table, copying over
-only the live tuples, and then replaces the old table with the new one
-while holding an `ACCESS EXCLUSIVE` lock. This prevents any
-reading or writing to the table, which can cause an outage.
-Additionally, `VACUUM FULL` will take longer if the table is
-large.
+are eligible to be autovacuumed
 
-**pg_repack**
+To find tables that are eligible to be autovacuumed, run the following
+query.
 
-The `pg_repack` is helpful in situations where `VACUUM
- FULL` might not be suitable. It creates a new table that
-contains the data of the bloated table, tracks the changes from the
-original table, and then replaces the original table with the new one.
-It doesn't lock the original table for read or write operations while
-it's building the new table. For more information, for how to use
-`pg_repack`, see [Removing bloat with pg_repack](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md") and
-[pg_repack](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/").
+```
+--This query shows tables that need vacuuming and are eligible candidates.
+--The following query lists all tables that are due to be processed by autovacuum.
+-- During normal operation, this query should return very little.
+WITH  vbt AS (SELECT setting AS autovacuum_vacuum_threshold
+              FROM pg_settings WHERE name = 'autovacuum_vacuum_threshold')
+    , vsf AS (SELECT setting AS autovacuum_vacuum_scale_factor
+              FROM pg_settings WHERE name = 'autovacuum_vacuum_scale_factor')
+    , fma AS (SELECT setting AS autovacuum_freeze_max_age
+              FROM pg_settings WHERE name = 'autovacuum_freeze_max_age')
+    , sto AS (SELECT opt_oid, split_part(setting, '=', 1) as param,
+                split_part(setting, '=', 2) as value
+              FROM (SELECT oid opt_oid, unnest(reloptions) setting FROM pg_class) opt)
+SELECT
+    '"'||ns.nspname||'"."'||c.relname||'"' as relation
+    , pg_size_pretty(pg_table_size(c.oid)) as table_size
+    , age(relfrozenxid) as xid_age
+    , coalesce(cfma.value::float, autovacuum_freeze_max_age::float) autovacuum_freeze_max_age
+    , (coalesce(cvbt.value::float, autovacuum_vacuum_threshold::float) +
+         coalesce(cvsf.value::float,autovacuum_vacuum_scale_factor::float) * c.reltuples)
+         as autovacuum_vacuum_tuples
+    , n_dead_tup as dead_tuples
+FROM pg_class c
+JOIN pg_namespace ns ON ns.oid = c.relnamespace
+JOIN pg_stat_all_tables stat ON stat.relid = c.oid
+JOIN vbt on (1=1)
+JOIN vsf ON (1=1)
+JOIN fma on (1=1)
+LEFT JOIN sto cvbt ON cvbt.param = 'autovacuum_vacuum_threshold' AND c.oid = cvbt.opt_oid
+LEFT JOIN sto cvsf ON cvsf.param = 'autovacuum_vacuum_scale_factor' AND c.oid = cvsf.opt_oid
+LEFT JOIN sto cfma ON cfma.param = 'autovacuum_freeze_max_age' AND c.oid = cfma.opt_oid
+WHERE c.relkind = 'r'
+AND nspname <> 'pg_catalog'
+AND (
+    age(relfrozenxid) >= coalesce(cfma.value::float, autovacuum_freeze_max_age::float)
+    or
+    coalesce(cvbt.value::float, autovacuum_vacuum_threshold::float) +
+      coalesce(cvsf.value::float,autovacuum_vacuum_scale_factor::float) * c.reltuples <= n_dead_tup
+    -- or 1 = 1
+)
+ORDER BY age(relfrozenxid) DESC;
+```
 
-**REINDEX**
+### Respond to high numbers of
 
-The `REINDEX` command can be leveraged to address index
-bloat. `REINDEX` writes a new version of the index without
-the dead pages or the empty or nearly-empty pages, thereby reducing the
-space consumption of the index. For detailed information about the
-[`REINDEX`](https://www.postgresql.org/docs/current/sql-reindex.html "https://www.postgresql.org/docs/current/sql-reindex.html") command, please refer to the REINDEX
-documentation.
+connections
 
-After removing bloat from tables and indexes, it may be necessary to increase the
-autovacuum frequency on those tables. Implementing aggressive autovacuum settings at
-the table level can help prevent future bloat from occurring. For more information,
-please refer to the documentation on [`Vacuuming and analyzing tables
- automatically`](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/autovacuum.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/autovacuum.md").
+When you monitor Amazon CloudWatch, you might find that the
+`DatabaseConnections` metric spikes. This increase indicates an
+increased number of connections to your database. We recommend the following
+approach:
+
+- Limit the number of connections that the application can open with each instance. If your
+  application has an embedded connection pool feature, set a reasonable number of connections. Base the
+  number on what the vCPUs in your instance can parallelize effectively.
+
+If your application doesn't use a connection pool feature, considering using Amazon RDS Proxy or
+an alternative. This approach lets your application open multiple connections with the load balancer.
+The balancer can then open a restricted number of connections with the database. As fewer connections
+are running in parallel, your DB instance performs less context switching in the kernel. Queries
+should progress faster, leading to fewer wait events. For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md "rds-proxy.md").
+
+- Whenever possible, take advantage of reader nodes for Aurora PostgreSQL and read replicas for
+  RDS for PostgreSQL. When your application runs a read-only operation, send these requests to the
+  reader-only endpoint. This technique spreads application requests across all reader nodes,
+  reducing the I/O pressure on the writer node.
+- Consider scaling up your DB instance. A higher-capacity instance class gives more memory,
+  which gives Aurora PostgreSQL a larger shared buffer pool to hold pages. The larger size also gives the
+  DB instance more vCPUs to handle connections. More vCPUs are particularly helpful when the operations
+  that are generating `IO:DataFileRead` wait events are writes.

@@ -1,173 +1,161 @@
-# io/aurora_redo_log_flush
+# io/table/sql/handler
 
-The `io/aurora_redo_log_flush` event occurs when a session is writing
-persistent data to Amazon Aurora storage.
+The `io/table/sql/handler` event occurs when work has been delegated to a storage engine.
 
 ###### Topics
 
-- [Supported engine versions](#ams-waits.io-auredologflush.context.supported "#ams-waits.io-auredologflush.context.supported")
-- [Context](#ams-waits.io-auredologflush.context "#ams-waits.io-auredologflush.context")
-- [Likely causes of increased waits](#ams-waits.io-auredologflush.causes "#ams-waits.io-auredologflush.causes")
-- [Actions](#ams-waits.io-auredologflush.actions "#ams-waits.io-auredologflush.actions")
+- [Supported engine versions](#ams-waits.waitio.context.supported "#ams-waits.waitio.context.supported")
+- [Context](#ams-waits.waitio.context "#ams-waits.waitio.context")
+- [Likely causes of increased waits](#ams-waits.waitio.causes "#ams-waits.waitio.causes")
+- [Actions](#ams-waits.waitio.actions "#ams-waits.waitio.actions")
 
 ## Supported engine versions
 
 This wait event information is supported for the following engine versions:
 
-- Aurora MySQL version 2
+- Aurora MySQL versions 2 and 3
 
 ## Context
 
-The `io/aurora_redo_log_flush` event is for a write input/output (I/O) operation in Aurora MySQL.
+The event `io/table` indicates a wait for access to a table. This event occurs regardless of whether
+the data is cached in the buffer pool or accessed on disk. The `io/table/sql/handler` event indicates
+an increase in workload activity.
 
-###### Note
+A _handler_ is a routine specialized in a certain type of data or
+focused on certain special tasks. For example, an event handler receives and digests
+events and signals from the operating system or from a user interface. A memory handler
+performs tasks related to memory. A file input handler is a function that receives file
+input and performs special tasks on the data, according to context.
 
-In Aurora MySQL version 3, this wait event is named [io/redo_log_flush](ams-waits.md "ams-waits.md").
+Views such as `performance_schema.events_waits_current` often show `io/table/sql/handler` when the
+actual wait is a nested wait event such as a lock. When the actual wait isn't `io/table/sql/handler`, Performance Insights reports
+the nested wait event. When Performance Insights reports `io/table/sql/handler`, it represents InnoDB processing of the I/O request
+and not a hidden nested wait event. For more information, see [Performance Schema Atom and
+Molecule Events](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html "https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html") in the _MySQL Reference Manual_.
+
+The `io/table/sql/handler` event often appears in top wait events with I/O waits such as `io/aurora_redo_log_flush`.
 
 ## Likely causes of increased waits
 
-For data persistence, commits require a durable write to stable storage. If the
-database is doing too many commits, there is a wait event on the write I/O operation,
-the `io/aurora_redo_log_flush` wait event.
+In Performance Insights, sudden spikes in the `io/table/sql/handler` event
+indicate an increase in workload activity. Increased activity means increased I/O.
 
-In the following examples, 50,000 records are inserted into an Aurora MySQL DB cluster using the db.r5.xlarge DB instance
-class:
+Performance Insights filters the nesting event IDs and doesn't report a `io/table/sql/handler` wait when the
+underlying nested event is a lock wait. For example, if the root cause event is [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.md "ams-waits.md"), Performance Insights displays this wait in top wait events and not
+`io/table/sql/handler`.
 
-- In the first example, each session inserts 10,000 records row by row. By default, if a data manipulation language
-  (DML) command isn't within a transaction, Aurora MySQL uses implicit commits. Autocommit is turned on. This means
-  that for each row insertion there is a commit. Performance Insights shows that the connections spend most of their time waiting on the
-  `io/aurora_redo_log_flush` wait event.
-
-![Performance Insights example of the wait event](images/auredologflush_PI_example1.png)
-
-This is caused by the simple insert statements used.
-
-![Insert statements in Top SQL](images/auredologflush_top_SQL1.png)
-
-The 50,000 records take 3.5 minutes to be inserted.
-
-- In the second example, inserts are made in 1,000 batches, that is each connection performs 10 commits instead of
-  10,000. Performance Insights shows that the connections don't spend most of their time on the `io/aurora_redo_log_flush`
-  wait event.
-
-![Performance Insights example of the wait event having less impact](images/auredologflush_PI_example2.png)
-
-The 50,000 records take 4 seconds to be inserted.
+In views such as `performance_schema.events_waits_current`, waits for `io/table/sql/handler` often
+appear when the actual wait is a nested wait event such as a lock. When the actual wait differs from
+`io/table/sql/handler`, Performance Insights looks up the nested wait and reports the actual wait instead of
+`io/table/sql/handler`. When Performance Insights reports `io/table/sql/handler`, the real wait is
+`io/table/sql/handler` and not a hidden nested wait event. For more information, see [Performance Schema Atom and
+Molecule Events](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html "https://dev.mysql.com/doc/refman/5.7/en/performance-schema-atom-molecule-events.html") in the _MySQL 5.7 Reference Manual_.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+If this wait event dominates database activity, it doesn't necessarily indicate a performance problem.
+A wait event is always on top when the database is active. You need to act only when performance
+degrades.
+
+We recommend different actions depending on the other wait events that you see.
 
 ###### Topics
 
-- [Identify the problematic sessions and
-  queries](#ams-waits.io-auredologflush.actions.identify-queries "#ams-waits.io-auredologflush.actions.identify-queries")
-- [Group your write operations](#ams-waits.io-auredologflush.actions.action0 "#ams-waits.io-auredologflush.actions.action0")
-- [Turn off
-  autocommit](#ams-waits.io-auredologflush.actions.action1 "#ams-waits.io-auredologflush.actions.action1")
-- [Use transactions](#ams-waits.io-auredologflush.action2 "#ams-waits.io-auredologflush.action2")
-- [Use batches](#ams-waits.io-auredologflush.action3 "#ams-waits.io-auredologflush.action3")
+- [Identify the sessions and queries causing the
+  events](#ams-waits.waitio.actions.identify "#ams-waits.waitio.actions.identify")
+- [Check for a correlation with Performance Insights counter metrics](#ams-waits.waitio.actions.filters "#ams-waits.waitio.actions.filters")
+- [Check for other correlated wait
+  events](#ams-waits.waitio.actions.maintenance "#ams-waits.waitio.actions.maintenance")
 
-### Identify the problematic sessions and
+### Identify the sessions and queries causing the
 
-queries
+events
 
-If your DB instance is experiencing a bottleneck, your first task is to find the sessions and queries that
-cause it. For a useful AWS Database Blog post, see [Analyze Amazon Aurora
-MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
+Typically, databases with moderate to significant load have wait events. The wait
+events might be acceptable if performance is optimal. If performance is isn't
+optimal, then examine where the database is spending the most time. Look at the wait
+events that contribute to the highest load, and find out whether you can optimize
+the database and application to reduce those events.
 
-###### To identify sessions and queries causing a bottleneck
+###### To find SQL queries that are responsible for high load
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Performance Insights**.
-3. Choose your DB instance.
-4. In **Database load**, choose **Slice by wait**.
+3. Choose a DB instance. The Performance Insights dashboard is shown for that DB instance.
+4. In the **Database load** chart, choose **Slice by
+   wait**.
 5. At the bottom of the page, choose **Top SQL**.
 
-The queries at the top of the list are causing the highest load on the database.
+The chart lists the SQL queries that are responsible for the load. Those at the top of the
+list are most responsible. To resolve a bottleneck, focus on these statements.
 
-### Group your write operations
+For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-The following examples trigger the `io/aurora_redo_log_flush` wait
-event. (Autocommit is turned on.)
+### Check for a correlation with Performance Insights counter metrics
 
-```
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-....
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+Check for Performance Insights counter metrics such as `Innodb_rows_changed`. If counter metrics
+are correlated with `io/table/sql/handler`, follow these steps:
 
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
-....
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE id=xx;
+1. In Performance Insights, look for the SQL statements accounting for the
+   `io/table/sql/handler` top wait event. If possible, optimize
+   this statement so that it returns fewer rows.
+2. Retrieve the top tables from the `schema_table_statistics` and
+   `x$schema_table_statistics` views. These views show the amount of time spent
+   per table. For more information, see [The
+   schema_table_statistics and x$schema_table_statistics Views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html") in the
+   _MySQL Reference Manual_.
 
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-....
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-```
-
-To reduce the time spent waiting on the `io/aurora_redo_log_flush` wait event, group your write operations
-logically into a single commit to reduce persistent calls to storage.
-
-### Turn off
-
-autocommit
-
-Turn off autocommit before making large changes that aren't within a
-transaction, as shown in the following example.
+By default, rows are sorted by descending total wait time. Tables with the most contention appear first. The output indicates whether
+time is spent on reads, writes, fetches, inserts, updates, or deletes.
 
 ```
-SET SESSION AUTOCOMMIT=OFF;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
-....
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1=xx;
--- Other DML statements here
-COMMIT;
+mysql> select * from sys.schema_table_statistics limit 1\G
 
-SET SESSION AUTOCOMMIT=ON;
+*************************** 1. row ***************************
+     table_schema: read_only_db
+       table_name: sbtest41
+    total_latency: 54.11 m
+     rows_fetched: 6001557
+    fetch_latency: 39.14 m
+    rows_inserted: 14833
+   insert_latency: 5.78 m
+     rows_updated: 30470
+   update_latency: 5.39 m
+     rows_deleted: 14833
+   delete_latency: 3.81 m
+ io_read_requests: NULL
+          io_read: NULL
+  io_read_latency: NULL
+io_write_requests: NULL
+         io_write: NULL
+ io_write_latency: NULL
+ io_misc_requests: NULL
+  io_misc_latency: NULL
+1 row in set (0.11 sec)
 ```
 
-### Use transactions
+### Check for other correlated wait
 
-You can use transactions, as shown in the following example.
+events
 
-```
-BEGIN
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
-....
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES ('xxxx','xxxxx');
+If `synch/sxlock/innodb/btr_search_latch` and `io/table/sql/handler` contribute most to the DB load
+anomaly together, check whether the `innodb_adaptive_hash_index` variable is turned on. If it is, consider
+increasing the `innodb_adaptive_hash_index_parts` parameter value.
 
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
-....
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1=xx;
+If the Adaptive Hash Index is turned off, consider turning it on. To learn more about the MySQL Adaptive Hash Index, see
+the following resources:
 
--- Other DML statements here
-END
-```
+- The article [Is Adaptive Hash Index in InnoDB right for my workload?](https://www.percona.com/blog/2016/04/12/is-adaptive-hash-index-in-innodb-right-for-my-workload "https://www.percona.com/blog/2016/04/12/is-adaptive-hash-index-in-innodb-right-for-my-workload") on the Percona website
+- [Adaptive Hash
+  Index](https://dev.mysql.com/doc/refman/5.7/en/innodb-adaptive-hash.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-adaptive-hash.html") in the _MySQL Reference Manual_
+- The article [Contention in MySQL InnoDB: Useful Info From the Semaphores Section](https://www.percona.com/blog/2019/12/20/contention-in-mysql-innodb-useful-info-from-the-semaphores-section/ "https://www.percona.com/blog/2019/12/20/contention-in-mysql-innodb-useful-info-from-the-semaphores-section/")
+  on the Percona website
 
-### Use batches
+###### Note
 
-You can make changes in batches, as shown in the following example. However, using
-batches that are too large can cause performance issues, especially in read replicas
-or when doing point-in-time recovery (PITR).
+The Adaptive Hash Index isn't supported on Aurora reader DB instances.
 
-```
-INSERT INTO `sampleDB`.`sampleTable` (sampleCol2, sampleCol3) VALUES
-('xxxx','xxxxx'),('xxxx','xxxxx'),...,('xxxx','xxxxx'),('xxxx','xxxxx');
-
-UPDATE `sampleDB`.`sampleTable` SET sampleCol3='xxxxx' WHERE sampleCol1 BETWEEN xx AND xxx;
-
-DELETE FROM `sampleDB`.`sampleTable` WHERE sampleCol1<xx;
-```
+In some cases, performance might be poor on a reader instance when `synch/sxlock/innodb/btr_search_latch`
+and `io/table/sql/handler` are dominant. If so, consider redirecting the workload temporarily to the writer
+DB instance and turning on the Adaptive Hash Index.
