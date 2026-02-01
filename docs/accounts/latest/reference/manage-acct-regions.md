@@ -55,6 +55,11 @@ you lose IAM access to the resources in that opt-in Region. Disabling an opt-in 
 does not delete the resources in that Region and charges for resources (if any) in that
 disabled opt-in Region continue to accrue at the standard rate.
 
+###### Important
+
+Disabling a Region disables IAM access to resources in the Region. This does not delete the resources in question,
+which continue to incur charges. Remove any remaining resources prior to disabling a Region.
+
 AWS groups Regions into [partitions](../../../whitepapers/latest/aws-fault-isolation-boundaries/partitions.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/partitions.md"). Every Region is in exactly one partition, and each partition
 has one or more Regions. Partitions have independent instances of AWS Identity and Access Management (IAM) and
 provide a hard boundary between Regions in different partitions. AWS commercial
