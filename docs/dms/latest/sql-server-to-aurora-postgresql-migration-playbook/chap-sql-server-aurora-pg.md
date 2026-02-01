@@ -1,12 +1,17 @@
-# Migration tools and services overview
+# Migrating management features to Aurora PostgreSQL
 
-This topic provides conceptual content about migrating from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. It introduces you to the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS), explaining how these tools can streamline your database migration process. The content covers various aspects of the migration, including schema conversion, data transfer, and handling different database features. It also touches on related services like Amazon RDS on Outposts, Amazon RDS Proxy, and Amazon Aurora Serverless v1, providing a comprehensive overview of the AWS database ecosystem. By understanding these concepts, you can better plan and execute your database migration strategy, anticipate potential challenges, and leverage AWS tools and services to ensure a smooth transition to Aurora PostgreSQL.
+This topic provides conceptual content comparing various aspects of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL in the context of database migration. It covers key differences in features and functionalities such as task scheduling, alerting, email capabilities, ETL processes, data export/import, logging, maintenance tasks, monitoring, resource management, linked servers, and scripting. By understanding these differences, you can better plan and execute your migration strategy from SQL Server to Aurora PostgreSQL. The content highlights alternative solutions and workarounds available in the AWS ecosystem to replicate or replace SQL Server-specific features, helping you anticipate challenges and adapt your database management practices. This comprehensive comparison enables database administrators and developers to make informed decisions and smooth their transition when migrating from SQL Server to Aurora PostgreSQL.
 
 ###### Topics
 
-- [AWS Schema Conversion Tool overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [AWS SCT Action Code Index overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [AWS Database Migration Service overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon RDS on Outposts overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon RDS Proxy overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
-- [Amazon Aurora Serverless v1 overview](chap-sql-server-aurora-pg.tools.md "chap-sql-server-aurora-pg.tools.md")
+- [SQL Server Agent and PostgreSQL](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Alerting features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Database mail features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [ETL features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Export and import features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Viewing server logs](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Maintenance plans](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Monitoring features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Resource governor features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Linked servers](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Scripting features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")

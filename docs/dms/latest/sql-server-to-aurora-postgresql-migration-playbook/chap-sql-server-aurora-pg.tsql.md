@@ -1,171 +1,109 @@
-# Service Broker functionality for T-SQL
+# String functions for T-SQL
 
-This topic provides reference information about migrating from Microsoft SQL Server 2019’s Service Broker functionality to Amazon Aurora PostgreSQL. You can understand the challenges and alternatives available when moving from SQL Server’s native messaging and queuing capabilities to Aurora PostgreSQL, which doesn’t offer a direct equivalent. The topic explores how you can achieve similar functionality using a combination of AWS services, including DB Links, AWS Lambda, and Amazon SQS.
+Compare string function compatibility between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. Gain insights into how various string functions in SQL Server map to their PostgreSQL equivalents, which is crucial for database migration projects. The information highlights supported functions, unsupported ones, and alternative approaches in PostgreSQL.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                   | Key differences                              |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| No compatibility      | No automation                      | [Service Broker](chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker "chap-sql-server-aurora-pg.tools.md#chap-sql-server-aurora-pg.tools.actioncode.servicebroker") | Use Amazon Lambda for similar functionality. |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                |
+| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------ |
+| Four star feature compatibility | Four star automation level         | N/A                       | Syntax and option differences. |
 
 ## SQL Server Usage
 
-SQL Server Service Broker provides native support for messaging and queuing applications. Developers use Server Broker to create complex applications that use the database engine components to communicate between several SQL Server databases. Developers can use Service Broker to easily build distributed and more reliable applications.
+String functions are typically scalar functions that perform an operation on string input and return a string or a numeric value.
 
-Benefits of using messaging queues:
+### Syntax and Examples
 
-- Decouple dependencies between applications by communicating through messages.
-- Scale out your architecture by moving queues or message processors to separate servers as needed.
-- Maintain individual parts with a minimal impact to the end users.
-- Control when the messages are processed, for example, off-peak hours.
-- Process queued messages on multiple servers or processes or threads.
+The following table includes the most commonly used string functions.
 
-The following sections describe the Service Broker commands.
+| Function                         | Purpose                                                                                                                     | Example                                                                                   | Result      | Comments                                   |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- | ------------------------------------------ |
+| `ASCII` and `UNICODE`            | Convert an ASCII or UNICODE character to its ASCII or UNICODE code.                                                         | `SELECT ASCII ('A')`                                                                      | 65          | Returns a numeric integer value.           |
+| `CHAR` and `NCHAR`               | Convert between ASCII or UNICODE code to a string character.                                                                | `SELECT CHAR(65)`                                                                         | 'A'         | Numeric integer value as input.            |
+| `CHARINDEX` and `PATINDEX`       | Find the starting position of one string expression or string pattern within another string expression.                     | `SELECT CHARINDEX('ab','xabcdy')`                                                         | 2           | Returns a numeric integer value.           |
+| `CONCAT` and `CONCAT_WS`         | Combine multiple string input expressions into a single string with, or without, a separator character (WS).                | `SELECT CONCAT ('a','b'), CONCAT_WS(',','a','b')`                                         | 'ab', 'a,b' |                                            |
+| `LEFT`, `RIGHT`, and `SUBSTRING` | Return a partial string from another string expression based on position and length.                                        | `SELECT LEFT ('abs',2),SUBSTRING ('abcd',2,2)`                                            | 'ab', 'bc'  |                                            |
+| `LOWER` and `UPPER`              | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. | `SELECT LOWER('ABcd')`                                                                    | 'abcd'      |                                            |
+| `LTRIM`, `RTRIM`, and `TRIM`     | Remove leading and trailing spaces.                                                                                         | `SELECT LTRIM ('abc d ')`                                                                 | 'abc d '    |                                            |
+| `STR`                            | Convert a numeric value to a string.                                                                                        | `SELECT STR(3.1415927,5,3)`                                                               | 3.142       | Numeric expressions as input.              |
+| `REVERSE`                        | Return a string in reverse order.                                                                                           | `SELECT REVERSE('abcd')`                                                                  | 'dcba'      |                                            |
+| `REPLICATE`                      | Return a string that consists of zero or more concatenated copies of another string expression.                             | `SELECT REPLICATE ('abc', 3)`                                                             | 'abcabcabc' |                                            |
+| `REPLACE`                        | Replace all occurrences of a string expression with another.                                                                | `SELECT REPLACE('abcd', 'bc', 'xy')`                                                      | 'axyd'      |                                            |
+| `STRING_SPLIT`                   | Parse a list of values with a separator and return a set of all individual elements.                                        | `SELECT<br>• FROM STRING_SPLIT('1,2',',') AS X©`                                          | 12          | `STRING_SPLIT` is a table-valued function. |
+| `STRING_AGG`                     | Return a string that consists of concatenated string values in row groups.                                                  | `SELECT STRING_AGG(C, ',') FROM VALUES(1, 'a'), (1, 'b'), (2,'c') AS X (ID,C) GROUP BY I` | 1 'ab'      | 2 'c'                                      |
 
-### CREATE MESSAGE TYPE
-
-The following example creates a message with name and structure.
-
-```
-CREATE MESSAGE TYPE message_type_name
-  [ AUTHORIZATION owner_name ]
-  [ VALIDATION = { NONE
-    | EMPTY
-    | WELL_FORMED_XML
-    | VALID_XML WITH SCHEMA COLLECTION schema_collection_name
-  } ]
-[ ; ]
-```
-
-For more information, see [CREATE MESSAGE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
-
-### CREATE QUEUE
-
-The following example creates a queue to store messages.
-
-```
-CREATE QUEUE <object>
-  [ WITH
-    [ STATUS = { ON | OFF } [ , ] ]
-    [ RETENTION = { ON | OFF } [ , ] ]
-    [ ACTIVATION (
-      [ STATUS = { ON | OFF } , ]
-        PROCEDURE_NAME = <procedure> ,
-        MAX_QUEUE_READERS = max_readers ,
-        EXECUTE AS { SELF | 'user_name' | OWNER }
-        ) [ , ] ]
-    [ POISON_MESSAGE_HANDLING (
-      [ STATUS = { ON | OFF } ] ) ]
-    ]
-      [ ON { filegroup | [ DEFAULT ] } ]
-[ ; ]
-
-<object> ::=
-{
-  [ database_name. [ schema_name ] . | schema_name. ]
-    queue_name
-}
-
-<procedure> ::=
-{
-  [ database_name. [ schema_name ] . | schema_name. ]
-    stored_procedure_name
-}
-```
-
-For more information, see [CREATE QUEUE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
-
-### CREATE CONTRACT
-
-The following example specifies the role and what type of messages a service can handle.
-
-```
-CREATE CONTRACT contract_name
-  [ AUTHORIZATION owner_name ]
-    ( { { message_type_name | [ DEFAULT ] }
-      SENT BY { INITIATOR | TARGET | ANY }
-    } [ ,...n] )
-[ ; ]
-```
-
-For more information, see [CREATE CONTRACT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
-
-### CREATE SERVICE
-
-The following example creates a named Service Broker for a specified task or set of tasks.
-
-```
-CREATE SERVICE service_name
-  [ AUTHORIZATION owner_name ]
-  ON QUEUE [ schema_name. ]queue_name
-  [ ( contract_name | [DEFAULT][ ,...n ] ) ]
-[ ; ]
-```
-
-For more information, see [CREATE SERVICE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
-
-### BEGIN DIALOG CONVERSATION
-
-The following example starts the interaction between Service Brokers.
-
-```
-BEGIN DIALOG [ CONVERSATION ] @dialog_handle
-  FROM SERVICE initiator_service_name
-  TO SERVICE 'target_service_name'
-    [ , { 'service_broker_guid' | 'CURRENT DATABASE' }]
-  [ ON CONTRACT contract_name ]
-  [ WITH
-  [ { RELATED_CONVERSATION = related_conversation_handle
-    | RELATED_CONVERSATION_GROUP = related_conversation_group_id } ]
-  [ [ , ] LIFETIME = dialog_lifetime ]
-  [ [ , ] ENCRYPTION = { ON | OFF } ] ]
-[ ; ]
-```
-
-For more information, see [BEGIN DIALOG CONVERSATION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
-
-### WAITFOR(RECEIVE TOP(1))
-
-The following example specifies that a code block has to wait until one message is received.
-
-```
-[ WAITFOR ( ]
-  RECEIVE [ TOP ( n ) ]
-  <column_specifier> [ ,...n ]
-  FROM <queue>
-  [ INTO table_variable ]
-  [ WHERE { conversation_handle = conversation_handle
-    | conversation_group_id = conversation_group_id } ]
-  [ ) ] [ , TIMEOUT timeout ]
-[ ; ]
-
-<column_specifier> ::=
-{ *
-  | { column_name | [ ] expression } [ [ AS ] column_alias ]
-  | column_alias = expression
-} [ ,...n ]
-
-<queue> ::=
-{
-  [ database_name . [ schema_name ] . | schema_name . ]
-    queue_name
-}
-```
-
-For more information, see [RECEIVE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-2017") in the _SQL Server documentation_.
-
-You can combine all of the preceding commands to achieve your architecture goals.
-
-For more information, see [Service Broker](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-service-broker?view=sql-server-2017") in the _SQL Server documentation_.
+For more information, see [String Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t provide a compatible solution to the SQL Server Service Broker. However, you can use DB Links and AWS Lambda to achieve similar functionality.
+Most of SQL Server string functions are supported in PostgreSQL, there are few which aren’t:
 
-You can combine AWS Lambda with AWS SQS to reduce costs and remove some loads from the database into the AWS Lambda and Amazon Simple Queue Service (Amazon SQS). This will be much more efficient. For more information, see [Using Lambda with Amazon SQS](../../../lambda/latest/dg/with-sqs.md "../../../lambda/latest/dg/with-sqs.md").
+- `UNICODE` returns the integer value of the first character as defined by the Unicode standard. If you will use UTF8 input, ASCII can be used to get the same results.
+- `PATINDEX` returns the starting position of the first occurrence of a pattern in a specified expression, or zeros if the pattern isn’t found, there is no equivalent function for that but you can create the same function with the same name so it will be fully compatible.
 
-For example, you can create a table in each database and connect each database with a DB link to read the tables and process the data. For more information, see DB Links.
+Some of the functions aren’t supported but they have an equivalent function in PostgreSQL that you can use to get the same functionality.
 
-You can also use AWS Lambda to query a table from the database, process the data, and insert it to another database (even another database type). This approach is the best option for moving workloads out of the database to a less expensive instance type.
+Some of the functions such as regular expressions don’t exist in SQL Server and may be useful for your application.
 
-For even more decoupling and reducing workloads from the database, you can use Amazon SQS with Lambda.
+### Syntax and Examples
 
-For more information, see [Database Mail](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md").
+The following table includes the most commonly used string functions.
+
+| PostgreSQL function             | Function definition                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------------------------ | --- | --- | --- | ----------- |
+| `CONCAT`                        | Concatenate the text representations of all the arguments: `concat('a', 1)` → a1. Also, can use the (                                                                                                                                                                                                                                                                                                     |     | ) operators: `select 'a' |     | ' ' |     | 'b'` → a b. |
+| `LOWER` or `UPPER`              | Returns char, with all letters lowercase or uppercase: `lower ('MR. Smith')` → mr. smith.                                                                                                                                                                                                                                                                                                                 |
+| `LPAD` or `RPAD`                | Returns `expr1`, left or right padded to length n characters with the sequence of characters in `expr2`: `LPAD('Log-1',10,'@')` → @@@@@Log-1.                                                                                                                                                                                                                                                             |
+| `REGEXP_REPLACE`                | Replace substrings matching a POSIX regular expression: `regexp_replace('John', '[hn].', '1')` → Jo1.                                                                                                                                                                                                                                                                                                     |
+| `REGEXP_MATCHES` or `SUBSTRING` | Return all captured substrings resulting from matching a POSIX regular expression against the string:<br>`<br>REGEXP_MATCHES ('http://www.aws.com/products', '(http://[[: alnum:]]+.*/)')<br>`<br>The result is `{http://www.aws.com/}`.<br>You can use the following example<br>`<br>SUBSTRING ('http://www.aws.com/products', '(http://[[: alnum:]]+.*/)')<br>`<br>The result is `http://www.aws.com/`. |
+| `REPLACE`                       | Returns char with every occurrence of search string replaced with a replacement string: `replace ('abcdef', 'abc', '123')` → 123def.                                                                                                                                                                                                                                                                      |
+| `LTRIM` or `RTRIM`              | Remove the longest string containing only characters from characters (a space by default) from the start of string: `ltrim('zzzyaws', 'xyz')` → aws.                                                                                                                                                                                                                                                      |
+| `SUBSTRING`                     | Extract substring: `substring ( 'John Smith', 6 ,1)` → S.                                                                                                                                                                                                                                                                                                                                                 |
+| `TRIM`                          | Remove the longest string containing only characters from characters (a space by default) from the start, end, or both ends: `trim (both from 'yxJohnxx', 'xyz')` → John.                                                                                                                                                                                                                                 |
+| `ASCII`                         | Returns the decimal representation in the database character set of the first character of char: `ascii('a')` → 97.                                                                                                                                                                                                                                                                                       |
+| `LENGTH`                        | Return the length of char: `length ('John S.')` → 7.                                                                                                                                                                                                                                                                                                                                                      |
+
+To create the `PATINDEX` function, use the following code snippet. Note the 0 means that the expression doesn’t exist so the first position will be 1.
+
+```
+CREATE OR REPLACE FUNCTION "patindex"( "pattern" VARCHAR, "expression" VARCHAR )
+RETURNS INT AS $BODY$
+SELECT COALESCE(STRPOS($2,(
+  SELECT(REGEXP_MATCHES($2,'(' ||
+  REPLACE( REPLACE(TRIM( $1, '%' ), '%', '.*?' ), '_', '.' )
+    || ')','i') )[ 1 ] LIMIT 1)),0);
+$BODY$ LANGUAGE 'sql' IMMUTABLE;
+
+SELECT patindex( 'Lo%', 'Long String' );
+
+patindex
+1
+
+SELECT patindex( '%rin%', 'Long String' );
+patindex
+8
+
+SELECT patindex( '%g_S%', 'Long String' );
+patindex
+4
+```
+
+## Summary
+
+| SQL Server function              | Aurora PostgreSQL function                         |
+| -------------------------------- | -------------------------------------------------- |
+| `ASCII`                          | `ASCII`                                            |
+| `UNICODE`                        | For UTF8 inputs, you can use only `ASCII`.         |
+| `CHAR` and `NCHAR`               | `CHR`                                              |
+| `CHARINDEX`                      | `POSITION`                                         |
+| `PATINDEX`                       | See examples                                       |
+| `CONCAT` and `CONCAT_WS`         | `CONCAT` and `CONCAT_WS`                           |
+| `LEFT`, `RIGHT`, and `SUBSTRING` | `LEFT`, `RIGHT`, and `SUBSTRING`                   |
+| `LOWER` and `UPPER`              | `LOWER` and `UPPER`                                |
+| `LTRIM`, `RTRIM` and `TRIM`      | `LTRIM`, `RTRIM` and `TRIM`                        |
+| `STR`                            | `TO_CHAR`                                          |
+| `REVERSE`                        | `REVERSE`                                          |
+| `REPLICATE`                      | `LPAD`                                             |
+| `REPLACE`                        | `REPLACE`                                          |
+| `STRING_SPLIT`                   | `regexp_split_to_array` or `regexp_split_to_table` |
+| `STRING_AGG`                     | `STRING_AGG`                                       |
+
+For more information, see [String Functions and Operators](https://www.postgresql.org/docs/13/functions-string.html "https://www.postgresql.org/docs/13/functions-string.html") in the _PostgreSQL documentation_.

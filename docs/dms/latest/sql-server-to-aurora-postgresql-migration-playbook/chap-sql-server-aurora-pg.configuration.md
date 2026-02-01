@@ -1,125 +1,56 @@
-# Configuring server options
+# Configuring database options
 
-This topic provides reference information about parameter configuration in SQL Server and PostgreSQL, specifically in the context of migrating from SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand the differences in how server-level settings and parameters are managed between these two database systems.
+This topic provides reference information about the differences in database options and features between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can understand how SQL Server’s database-level options and features translate to cluster and instance-level parameters. The topic helps you grasp the architectural differences between the two database systems, particularly in terms of database configuration, security settings, and high availability options.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                             |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------- |
-| One star feature compatibility | N/A                                | N/A                       | Use Cluster and Database/Cluster Parameter. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
+| ------------------------------ | ---------------------------------- | ------------------------- | --------------- |
+| One star feature compatibility | N/A                                | N/A                       | Difference.     |
 
 ## SQL Server Usage
 
-SQL Server provides server-level settings that affect all databases and all sessions. You can modify these settings using the `sp_configure` system stored procedure.
+SQL Server provides database level options that you can set using the `ALTER DATABASE …​ SET` command. You can use these settings to:
 
-You can use server options to perform the following configuration tasks:
-
-- Define hardware utilization such as memory management, affinity mask, priority boost, network packet size, and soft Non-Uniform Memory Access (NUMA).
-- Alter run time global values such as recovery interval, remote login timeout, optimization for ad-hoc workloads, and cost threshold for parallelism.
-- Enable and disable global features such as C2 Audit, OLE, procedures, CLR procedures, and allow trigger recursion.
-- Configure global security settings such as server authentication mode, remote access, shell access with `xp_cmdshell`, CLR access level, and database chaining.
-- Set default values for sessions such as user options, default language, backup compression, and fill factor.
-
-Some settings require an explicit `RECONFIGURE` command to apply the changes to the server. High risk settings require `RECONFIGURE WITH OVERRIDE` for the changes to be applied. Some advanced options are hidden by default. To view and modify these settings, set `show advanced options` to 1 and run `sp_configure`.
-
-###### Note
-
-Server audits are managed with the T-SQL commands `CREATE` and `ALTER SERVER AUDIT`.
+- Set default session options. For more information, see [Session Options](chap-sql-server-aurora-pg.configuration.md "chap-sql-server-aurora-pg.configuration.md").
+- Enable or disable database features such as `SNAPSHOT_ISOLATION`, `CHANGE_TRANCKING`, and `ENABLE_BROKER`.
+- Configure high availability and disaster recovery options such as always on availability groups.
+- Configure security access control such as restricting access to a single user, setting the database offline, or setting the database to read-only.
 
 ### Syntax
 
+Syntax for setting database options:
+
 ```
-EXECUTE sp_configure <option>, <value>;
+ALTER DATABASE { <database name> } SET { <option> [ ,...n ] };
 ```
 
 ### Examples
 
-Limit server memory usage to 4 GB.
+Set a database to read-only and use ARITHABORT by default.
 
 ```
-EXECUTE sp_configure 'show advanced options', 1;
+ALTER DATABASE Demo SET READ_ONLY, ARITHABORT ON;
 ```
 
-```
-RECONFIGURE;
-```
+Set a database to use automatic statistic creation.
 
 ```
-sp_configure 'max server memory', 4096;
+ALTER DATABASE Demo SET AUTO_CREATE_STATISTICS ON;
 ```
 
-```
-RECONFIGURE;
-```
-
-Allow command shell access from T-SQL.
+Set a database offline immediately.
 
 ```
-EXEC sp_configure 'show advanced options', 1;
+ALTER DATABASE DEMO SET OFFLINE WITH ROLLBACK IMMEDIATE;
 ```
 
-```
-RECONFIGURE;
-```
-
-```
-EXEC sp_configure 'xp_cmdshell', 1;
-```
-
-```
-RECONFIGURE;
-```
-
-View the current values.
-
-```
-EXECUTE sp_configure
-```
-
-For more information, see [Server Configuration Options (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## PostgreSQL Usage
 
-When running PostgreSQL databases as Amazon Aurora Clusters, Parameter Groups are used to change to cluster-level and database-level parameters.
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports `CREATE SCHEMA` and `CREATE DATABASE` statements.
 
-Most of the PostgreSQL parameters are configurable in an Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) cluster, but some are disabled and can’t be modified. Because Amazon Aurora clusters restrict access to the underlying operating system, modification to PostgreSQL parameters must be made using Parameter Groups.
+As with SQL Server, Aurora PostgreSQL does have the concept of an instance hosting multiple databases, which in turn contain multiple schemas. Objects in Aurora PostgreSQL are referenced as a three-part name: `<database>.<schema>.<object>`.
 
-Amazon Aurora is a cluster of database instances and, as a direct result, some of the PostgreSQL parameters apply to the entire cluster while other parameters apply only to a particular database instance.
+Database options are related to the cluster-level parameters which are managed by the AWS Cluster Parameter Groups. You can find some SQL Server equivalent parameters at the instance level in the AWS Database Parameter Group.
 
-| Aurora PostgreSQL parameter class                                                                                                              | Controlled by                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Cluster-level parameters**<br>Single cluster parameter group for each Amazon Aurora Cluster.                                                 | Managed by cluster parameter groups. For example,<br>• The PostgreSQL `wal_buffers` parameter is controlled by a cluster parameter group.<br>+ The PostgreSQL `autovacuum` parameter is controlled by a cluster parameter group.<br>+ The `client_encoding` parameter is controlled by a cluster parameter group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **Database instance-level parameters**<br>You can associate every instance in an Amazon Aurora cluster with a unique database parameter group. | Managed by database parameter groups. For example,<br>• The PostgreSQL `shared_buffers` memory cache configuration parameter is controlled by a database parameter group with an optimized default value based on the configured database class: `{DBInstanceClassMemory/10922}`.<br>• The PostgreSQL `max_connections` parameter, which controls the maximum number of client connections allowed to the PostgreSQL instance, is controlled by a database parameter group. The default value is optimized by AWS based on the configured database class: `LEAST({DBInstanceClassMemory/9531392},5000)`.<br>• The `authentication_timeout` parameter, which controls the maximum time to complete client authentication (in seconds), is controlled by a database parameter group.<br>• The `superuser_reserved_connections` parameter, which determines the number of reserved connection slots for PostgreSQL superusers, is configured by a database parameter group.<br>• The PostgreSQL `effective_cache_size`, which informs the query optimizer how much cache is present in the kernel and helps control how expensive large index scans will be, is controlled by a database level parameter group. The default value is optimized by AWS based on database class (RAM): `{DBInstanceClassMemory/10922}`. |
-
-New parameters in PostgreSQL 10:
-
-1. `enable_gathermerge` enables the gather merge run plan.
-2. `max_parallel_workers` stands for the maximum number of parallel workers process.
-3. `max_sync_workers_per_subscription` stands for the maximum number of synchronous workers for subscription.
-4. `wal_consistency_checking` checks consistency of WAL on the standby instance (can’t be set in Aurora PostgreSQL).
-5. `max_logical_replication_workers` stands for the maximum number of logical replication worker process.
-6. `max_pred_locks_per_relation` stands for the maximum number of records that you can predicate-lock before locking the entire relation.
-7. `max_pred_locks_per_page` stands for the maximum number of records that you can predicate-lock before locking the entire page.
-8. `min_parallel_table_scan_size` stands for the minimum table size to consider parallel table scan.
-9. `min_parallel_index_scan_size` stands for the minimum table size to consider parallel index scan.
-
-### Examples
-
-**To create and configure a new parameter group**
-
-1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose **Parameter groups**.
-
-###### Note
-
-You can’t edit the default parameter group. Create a custom parameter group to apply changes to your Amazon Aurora cluster and its database instances.
-
-![Parameter groups](images/pb-sql-server-aurora-pg-parameter-groups.png) 3. Select the DB family from the Parameter group family drop-down list. 4. For **Type**, select the DB parameter group. 5. Choose **Create**.
-
-**To modify an existing parameter group**
-
-1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose **Parameter groups**.
-3. Choose the name of the parameter to edit.
-4. Choose **Edit parameters**.
-5. Change parameter values and choose **Save changes**.
-
-For more information, see [Working with parameter groups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.md") in the _Amazon RDS User Guide_.
+Datable options are being compared to AWS Database Parameter Group and Server Options are being compared to AWS Cluster Parameter Group. For more information, see [Server Options](chap-sql-server-aurora-pg.configuration.md "chap-sql-server-aurora-pg.configuration.md").
