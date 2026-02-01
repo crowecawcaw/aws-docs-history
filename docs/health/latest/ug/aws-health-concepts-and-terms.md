@@ -71,7 +71,7 @@ such as an upcoming maintenance issue for a service in a Region. You can also us
 learn about events that might affect you directly, such as a deprecated resource in your
 account.
 
-You can sign in to the AWS Management Console to view your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home").
+You can sign in to the AWS Management Console to view your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home").
 
 For more information, see [Getting started with your
 AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
