@@ -25,16 +25,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server hav
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server 2022 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server 2019 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server 2016 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2025 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2022 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2019 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2016 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
 
 ## December 19, 2025 – January 21, 2026
 
@@ -55,16 +55,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server 2022 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server 2019 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server 2016 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       |           | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server 2025 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server 2022 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server 2019 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server 2016 with IIS 10.0 version 2.22.0**      | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.22.0** | 2025.12.10  | 3.7.1181.0       | 2.3.56    | 3.3.3185.0 | 4.0        | 3.6.1     |
 
 ## November 19, 2025 – December 18, 2025
 
@@ -85,16 +85,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server 2022 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server 2019 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server 2016 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2025 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2022 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2019 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2016 with IIS 10.0 version 2.21.1**      | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.21.1** | 2025.11.12  | 3.7.1163.0       | 2.3.56    | 3.3.3050.0 | 4.0        | 3.6.1     |
 
 ## October 23, 2025 – November 18, 2025
 
@@ -115,16 +115,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server 2022 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server 2019 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server 2016 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       |           | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2025 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2022 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2019 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server 2016 with IIS 10.0 version 2.21.0**      | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.21.0** | 2025.10.15  | 3.7.1144.0       | 2.2.63    | 3.3.3050.0 | 4.0        | 3.6.1     |
 
 ## September 22, 2025 – October 22, 2025
 
@@ -145,16 +145,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server 2022 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       |           | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server 2025 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.20.0**      | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.20.0** | 2025.09.10  | 3.7.1120.0       | 2.2.63    | 3.3.3050.0 | 3.6        | 3.6.0     |
 
 ## August 19, 2025 – September 21, 2025
 
@@ -175,16 +175,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server 2022 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server 2019 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server 2016 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       |           | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server 2025 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server 2022 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server 2019 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server 2016 with IIS 10.0 version 2.19.4**      | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.4** | 2025.08.13  | 3.7.1101.0       | 2.2.63    | 3.3.2656.0 | 3.6        | 3.3.15    |
 
 ## July 17, 2025 – August 18, 2025
 
@@ -205,16 +205,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server 2022 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server 2019 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server 2016 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       |           | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server 2025 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server 2022 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server 2019 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server 2016 with IIS 10.0 version 2.19.3**      | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.3** | 2025.07.09  | 3.7.1077.0       | 2.1.1     | 3.3.2471.0 | 3.6        | 3.3.15    |
 
 ## June 19, 2025 – July 16, 2025
 
@@ -235,16 +235,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server 2022 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server 2019 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server 2016 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2025 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2022 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2019 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2016 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       | 2.1.1     | 3.3.2299.0 | 3.6        | 3.3.14    |
 
 ## May 20, 2025 – June 18, 2025
 
@@ -265,16 +265,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server 2022 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server 2019 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server 2016 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch   | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ----------- | ---------- | ---------- | --------- |
+| **Windows Server 2025 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       | 2.0.2107    | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       | 2.0.2107    | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2022 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       | 2.0.2107    | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       | 2.0.2107    | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2019 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       | 2.0.2107    | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       | 1.3.2005119 | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2016 with IIS 10.0 version 2.19.1**      | 2025.05.15  | 3.7.1044.0       | 1.3.2005119 | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.1** | 2025.05.15  | 3.7.1044.0       | 1.3.2005119 | 3.3.2299.0 | 3.6        | 3.3.14    |
 
 ## April 17, 2025 – May 19, 2025
 
@@ -295,16 +295,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server 2022 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server 2019 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server 2016 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       |           | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server 2025 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server 2022 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server 2019 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server 2016 with IIS 10.0 version 2.19.0**      | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.0** | 2025.04.09  | 3.7.1020.0       | 2.0.2107  | 3.3.1957.0 | 3.6        | 3.3.14    |
 
 ## March 26, 2025 – April 16, 2025
 
@@ -325,16 +325,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server 2022 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server 2019 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server 2016 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       |           | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server 2025 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server 2022 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server 2019 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server 2016 with IIS 10.0 version 2.18.0**      | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.18.0** | 2025.03.12  | 3.7.1000.0       | 2.0.2081  | 3.3.1611.0 | 3.6        | 3.3.14    |
 
 ## February 19, 2025 – March 25, 2025
 
@@ -355,16 +355,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2025 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server 2022 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        |           | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server 2025 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.17.0**      | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.17.0** | 2025.02.13  | 3.7.981.0        | 2.0.2046  | 3.3.1611.0 | 3.6        | 3.3.13    |
 
 ## January 22, 2025 – February 18, 2025
 
@@ -383,14 +383,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.16.2**      | 2025.01.15  | 3.7.962.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.16.2** | 2025.01.15  | 3.7.962.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.16.2**      | 2025.01.15  | 3.7.962.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.16.2** | 2025.01.15  | 3.7.962.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.16.2**      | 2025.01.15  | 3.7.962.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.16.2** | 2025.01.15  | 3.7.962.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.16.2**      | 2025.01.15  | 3.7.962.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.16.2** | 2025.01.15  | 3.7.962.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.16.2**      | 2025.01.15  | 3.7.962.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.16.2** | 2025.01.15  | 3.7.962.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.16.2**      | 2025.01.15  | 3.7.962.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.16.2** | 2025.01.15  | 3.7.962.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
 
 ## December 19, 2024 – January 21, 2025
 
@@ -409,14 +409,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.16.1**      | 2024.12.13  | 3.7.945.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.16.1** | 2024.12.13  | 3.7.945.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.16.1**      | 2024.12.13  | 3.7.945.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.16.1** | 2024.12.13  | 3.7.945.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.16.1**      | 2024.12.13  | 3.7.945.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.16.1** | 2024.12.13  | 3.7.945.0        |           | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.16.1**      | 2024.12.13  | 3.7.945.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.16.1** | 2024.12.13  | 3.7.945.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.16.1**      | 2024.12.13  | 3.7.945.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.16.1** | 2024.12.13  | 3.7.945.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.16.1**      | 2024.12.13  | 3.7.945.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.16.1** | 2024.12.13  | 3.7.945.0        | 2.0.2046  | 3.3.1345.0 | 3.6        | 3.3.13    |
 
 ## November 20, 2024 – December 18, 2024
 
@@ -435,14 +435,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.16.0**      | 2024.11.13  | 3.7.925.0        |           | 3.3.1230.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.16.0** | 2024.11.13  | 3.7.925.0        |           | 3.3.1230.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.16.0**      | 2024.11.13  | 3.7.925.0        |           | 3.3.1230.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.16.0** | 2024.11.13  | 3.7.925.0        |           | 3.3.1230.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.16.0**      | 2024.11.13  | 3.7.925.0        |           | 3.3.1230.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.16.0** | 2024.11.13  | 3.7.925.0        |           | 3.3.1230.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.16.0**      | 2024.11.13  | 3.7.925.0        | 2.0.2046  | 3.3.1230.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.16.0** | 2024.11.13  | 3.7.925.0        | 2.0.2046  | 3.3.1230.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.16.0**      | 2024.11.13  | 3.7.925.0        | 2.0.2046  | 3.3.1230.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.16.0** | 2024.11.13  | 3.7.925.0        | 2.0.2046  | 3.3.1230.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.16.0**      | 2024.11.13  | 3.7.925.0        | 2.0.2046  | 3.3.1230.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.16.0** | 2024.11.13  | 3.7.925.0        | 2.0.2046  | 3.3.1230.0 | 3.6        | 3.3.13    |
 
 ## October 16, 2024 – November 19, 2024
 
@@ -461,14 +461,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.6**      | 2024.10.09  | 3.7.901.0        |           | 3.3.859.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.6** | 2024.10.09  | 3.7.901.0        |           | 3.3.859.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.6**      | 2024.10.09  | 3.7.901.0        |           | 3.3.859.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.6** | 2024.10.09  | 3.7.901.0        |           | 3.3.859.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.6**      | 2024.10.09  | 3.7.901.0        |           | 3.3.859.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.6** | 2024.10.09  | 3.7.901.0        |           | 3.3.859.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.15.6**      | 2024.10.09  | 3.7.901.0        | 2.0.2046  | 3.3.859.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.6** | 2024.10.09  | 3.7.901.0        | 2.0.2046  | 3.3.859.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.6**      | 2024.10.09  | 3.7.901.0        | 2.0.2046  | 3.3.859.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.6** | 2024.10.09  | 3.7.901.0        | 2.0.2046  | 3.3.859.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.6**      | 2024.10.09  | 3.7.901.0        | 2.0.2046  | 3.3.859.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.6** | 2024.10.09  | 3.7.901.0        | 2.0.2046  | 3.3.859.0 | 3.6        | 3.3.13    |
 
 ## September 19, 2024 – October 15, 2024
 
@@ -487,14 +487,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.5**      | 2024.09.11  | 3.7.883.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.5** | 2024.09.11  | 3.7.883.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.5**      | 2024.09.11  | 3.7.883.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.5** | 2024.09.11  | 3.7.883.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.5**      | 2024.09.11  | 3.7.883.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.5** | 2024.09.11  | 3.7.883.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.15.5**      | 2024.09.11  | 3.7.883.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.5** | 2024.09.11  | 3.7.883.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.5**      | 2024.09.11  | 3.7.883.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.5** | 2024.09.11  | 3.7.883.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.5**      | 2024.09.11  | 3.7.883.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.5** | 2024.09.11  | 3.7.883.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
 
 ## August 20, 2024 – September 18, 2024
 
@@ -513,14 +513,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.4**      | 2024.08.14  | 3.7.864.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.4** | 2024.08.14  | 3.7.864.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.4**      | 2024.08.14  | 3.7.864.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.4** | 2024.08.14  | 3.7.864.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.4**      | 2024.08.14  | 3.7.864.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.4** | 2024.08.14  | 3.7.864.0        |           | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server 2022 with IIS 10.0 version 2.15.4**      | 2024.08.14  | 3.7.864.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.4** | 2024.08.14  | 3.7.864.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.4**      | 2024.08.14  | 3.7.864.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.4** | 2024.08.14  | 3.7.864.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.4**      | 2024.08.14  | 3.7.864.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.4** | 2024.08.14  | 3.7.864.0        | 2.0.1981  | 3.3.551.0 | 3.6        | 3.3.13    |
 
 ## July 18, 2024 – August 19, 2024
 
@@ -539,14 +539,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.3**      | 2024.07.10  | 3.7.847.0        |           | 3.3.551.0 | 3.6        | 3.3.12    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.3** | 2024.07.10  | 3.7.847.0        |           | 3.3.551.0 | 3.6        | 3.3.12    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.3**      | 2024.07.10  | 3.7.847.0        |           | 3.3.551.0 | 3.6        | 3.3.12    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.3** | 2024.07.10  | 3.7.847.0        |           | 3.3.551.0 | 3.6        | 3.3.12    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.3**      | 2024.07.10  | 3.7.847.0        |           | 3.3.551.0 | 3.6        | 3.3.12    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.3** | 2024.07.10  | 3.7.847.0        |           | 3.3.551.0 | 3.6        | 3.3.12    |
+| **Windows Server 2022 with IIS 10.0 version 2.15.3**      | 2024.07.10  | 3.7.847.0        | 2.0.1948  | 3.3.551.0 | 3.6        | 3.3.12    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.3** | 2024.07.10  | 3.7.847.0        | 2.0.1948  | 3.3.551.0 | 3.6        | 3.3.12    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.3**      | 2024.07.10  | 3.7.847.0        | 2.0.1948  | 3.3.551.0 | 3.6        | 3.3.12    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.3** | 2024.07.10  | 3.7.847.0        | 2.0.1948  | 3.3.551.0 | 3.6        | 3.3.12    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.3**      | 2024.07.10  | 3.7.847.0        | 2.0.1948  | 3.3.551.0 | 3.6        | 3.3.12    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.3** | 2024.07.10  | 3.7.847.0        | 2.0.1948  | 3.3.551.0 | 3.6        | 3.3.12    |
 
 ## June 18, 2024 – July 17, 2024
 
@@ -565,14 +565,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.2**      | 2024.06.13  | 3.7.830.0        |           | 3.3.484.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.2** | 2024.06.13  | 3.7.830.0        |           | 3.3.484.0 | 3.6        | 3.3.11    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.2**      | 2024.06.13  | 3.7.830.0        |           | 3.3.484.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.2** | 2024.06.13  | 3.7.830.0        |           | 3.3.484.0 | 3.6        | 3.3.11    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.2**      | 2024.06.13  | 3.7.830.0        |           | 3.3.484.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.2** | 2024.06.13  | 3.7.830.0        |           | 3.3.484.0 | 3.6        | 3.3.11    |
+| **Windows Server 2022 with IIS 10.0 version 2.15.2**      | 2024.06.13  | 3.7.830.0        | 2.0.1924  | 3.3.484.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.2** | 2024.06.13  | 3.7.830.0        | 2.0.1924  | 3.3.484.0 | 3.6        | 3.3.11    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.2**      | 2024.06.13  | 3.7.830.0        | 2.0.1924  | 3.3.484.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.2** | 2024.06.13  | 3.7.830.0        | 2.0.1924  | 3.3.484.0 | 3.6        | 3.3.11    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.2**      | 2024.06.13  | 3.7.830.0        | 2.0.1924  | 3.3.484.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.2** | 2024.06.13  | 3.7.830.0        | 2.0.1924  | 3.3.484.0 | 3.6        | 3.3.11    |
 
 ## May 21, 2024 – June 17, 2024
 
@@ -591,14 +591,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.1**      | 2024.05.15  | 3.7.810.0        |           | 3.3.380.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.1** | 2024.05.15  | 3.7.810.0        |           | 3.3.380.0 | 3.6        | 3.3.11    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.1**      | 2024.05.15  | 3.7.810.0        |           | 3.3.380.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.1** | 2024.05.15  | 3.7.810.0        |           | 3.3.380.0 | 3.6        | 3.3.11    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.1**      | 2024.05.15  | 3.7.810.0        |           | 3.3.380.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.1** | 2024.05.15  | 3.7.810.0        |           | 3.3.380.0 | 3.6        | 3.3.11    |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch  | SSM Agent | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ---------- | --------- | ---------- | --------- |
+| **Windows Server 2022 with IIS 10.0 version 2.15.1**      | 2024.05.15  | 3.7.810.0        | 2.0.1881.0 | 3.3.380.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.1** | 2024.05.15  | 3.7.810.0        | 2.0.1881.0 | 3.3.380.0 | 3.6        | 3.3.11    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.1**      | 2024.05.15  | 3.7.810.0        | 2.0.1881.0 | 3.3.380.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.1** | 2024.05.15  | 3.7.810.0        | 2.0.1881.0 | 3.3.380.0 | 3.6        | 3.3.11    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.1**      | 2024.05.15  | 3.7.810.0        | 2.0.1881.0 | 3.3.380.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.1** | 2024.05.15  | 3.7.810.0        | 2.0.1881.0 | 3.3.380.0 | 3.6        | 3.3.11    |
 
 ## April 18, 2024 – May 20, 2024
 
@@ -617,14 +617,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.15.0**      | 2024.04.10  | 3.7.766.0        |           | 3.3.131.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2022 with IIS 10.0 version 2.15.0** | 2024.04.10  | 3.7.766.0        |           | 3.3.131.0 | 3.6        | 3.3.11    |
-| **Windows Server 2019 with IIS 10.0 version 2.15.0**      | 2024.04.10  | 3.7.766.0        |           | 3.3.131.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2019 with IIS 10.0 version 2.15.0** | 2024.04.10  | 3.7.766.0        |           | 3.3.131.0 | 3.6        | 3.3.11    |
-| **Windows Server 2016 with IIS 10.0 version 2.15.0**      | 2024.04.10  | 3.7.766.0        |           | 3.3.131.0 | 3.6        | 3.3.11    |
-| **Windows Server Core 2016 with IIS 10.0 version 2.15.0** | 2024.04.10  | 3.7.766.0        |           | 3.3.131.0 | 3.6        | 3.3.11    |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch  | SSM Agent | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ---------- | --------- | ---------- | --------- |
+| **Windows Server 2022 with IIS 10.0 version 2.15.0**      | 2024.04.10  | 3.7.766.0        | 2.0.1815.0 | 3.3.131.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.15.0** | 2024.04.10  | 3.7.766.0        | 2.0.1815.0 | 3.3.131.0 | 3.6        | 3.3.11    |
+| **Windows Server 2019 with IIS 10.0 version 2.15.0**      | 2024.04.10  | 3.7.766.0        | 2.0.1815.0 | 3.3.131.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.15.0** | 2024.04.10  | 3.7.766.0        | 2.0.1815.0 | 3.3.131.0 | 3.6        | 3.3.11    |
+| **Windows Server 2016 with IIS 10.0 version 2.15.0**      | 2024.04.10  | 3.7.766.0        | 2.0.1815.0 | 3.3.131.0 | 3.6        | 3.3.11    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.15.0** | 2024.04.10  | 3.7.766.0        | 2.0.1815.0 | 3.3.131.0 | 3.6        | 3.3.11    |
 
 ## March 21, 2024 – April 17, 2024
 
@@ -643,14 +643,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.14.1**      | 2024.03.13  | 3.7.766.0        |           | 3.2.2303.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.14.1** | 2024.03.13  | 3.7.766.0        |           | 3.2.2303.0 | 3.6        | 3.2.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.14.1**      | 2024.03.13  | 3.7.766.0        |           | 3.2.2303.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.14.1** | 2024.03.13  | 3.7.766.0        |           | 3.2.2303.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.14.1**      | 2024.03.13  | 3.7.766.0        |           | 3.2.2303.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.14.1** | 2024.03.13  | 3.7.766.0        |           | 3.2.2303.0 | 3.6        | 3.2.0     |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch  | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ---------- | ---------- | ---------- | --------- |
+| **Windows Server 2022 with IIS 10.0 version 2.14.1**      | 2024.03.13  | 3.7.766.0        | 2.0.1815.0 | 3.2.2303.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.14.1** | 2024.03.13  | 3.7.766.0        | 2.0.1815.0 | 3.2.2303.0 | 3.6        | 3.2.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.14.1**      | 2024.03.13  | 3.7.766.0        | 2.0.1815.0 | 3.2.2303.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.14.1** | 2024.03.13  | 3.7.766.0        | 2.0.1815.0 | 3.2.2303.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.14.1**      | 2024.03.13  | 3.7.766.0        | 2.0.1815.0 | 3.2.2303.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.14.1** | 2024.03.13  | 3.7.766.0        | 2.0.1815.0 | 3.2.2303.0 | 3.6        | 3.2.0     |
 
 ## February 21, 2024 – March 20, 2024
 
@@ -669,14 +669,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2022 with IIS 10.0 version 2.14.0**      | 2024.02.14  | 3.7.747.0        |           | 3.2.2222.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.14.0** | 2024.02.14  | 3.7.747.0        |           | 3.2.2222.0 | 3.6        | 3.2.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.14.0**      | 2024.02.14  | 3.7.747.0        |           | 3.2.2222.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.14.0** | 2024.02.14  | 3.7.747.0        |           | 3.2.2222.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.14.0**      | 2024.02.14  | 3.7.747.0        |           | 3.2.2222.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.14.0** | 2024.02.14  | 3.7.747.0        |           | 3.2.2222.0 | 3.6        | 3.2.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.14.0**      | 2024.02.14  | 3.7.747.0        | 2.0.1739  | 3.2.2222.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.14.0** | 2024.02.14  | 3.7.747.0        | 2.0.1739  | 3.2.2222.0 | 3.6        | 3.2.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.14.0**      | 2024.02.14  | 3.7.747.0        | 2.0.1739  | 3.2.2222.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.14.0** | 2024.02.14  | 3.7.747.0        | 2.0.1739  | 3.2.2222.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.14.0**      | 2024.02.14  | 3.7.747.0        | 2.0.1739  | 3.2.2222.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.14.0** | 2024.02.14  | 3.7.747.0        | 2.0.1739  | 3.2.2222.0 | 3.6        | 3.2.0     |
 
 ## January 18, 2024 – February 20, 2024
 
@@ -693,12 +693,12 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.13.2**      | 2024.01.10  | 3.7.722.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.13.2** | 2024.01.10  | 3.7.722.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.13.2**      | 2024.01.10  | 3.7.722.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.13.2** | 2024.01.10  | 3.7.722.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.13.2**      | 2024.01.10  | 3.7.722.0        | 2.0.1702  | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.13.2** | 2024.01.10  | 3.7.722.0        | 2.0.1702  | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.13.2**      | 2024.01.10  | 3.7.722.0        | 2.0.1702  | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.13.2** | 2024.01.10  | 3.7.722.0        | 2.0.1702  | 3.2.1705.0 | 3.6        | 3.2.0     |
 
 ## December 21, 2023 – January 17, 2024
 
@@ -715,12 +715,12 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.13.1**      | 2023.12.13  | 3.7.707.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.13.1** | 2023.12.13  | 3.7.707.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.13.1**      | 2023.12.13  | 3.7.707.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.13.1** | 2023.12.13  | 3.7.707.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch  | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ---------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.13.1**      | 2023.12.13  | 3.7.707.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.13.1** | 2023.12.13  | 3.7.707.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.13.1**      | 2023.12.13  | 3.7.707.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.13.1** | 2023.12.13  | 3.7.707.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
 
 ## December 5, 2023 – December 20, 2023
 
@@ -737,12 +737,12 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.13.0**      | 2023.11.15  | 3.7.686.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.13.0** | 2023.11.15  | 3.7.686.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.13.0**      | 2023.11.15  | 3.7.686.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.13.0** | 2023.11.15  | 3.7.686.0        |           | 3.2.1705.0 | 3.6        | 3.2.0     |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch  | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ---------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.13.0**      | 2023.11.15  | 3.7.686.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.13.0** | 2023.11.15  | 3.7.686.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.13.0**      | 2023.11.15  | 3.7.686.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.13.0** | 2023.11.15  | 3.7.686.0        | 2.0.1643.0 | 3.2.1705.0 | 3.6        | 3.2.0     |
 
 ## December 4, 2023 – December 4, 2023
 
@@ -759,12 +759,12 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.12.0**      | 2023.10.11  | 3.7.661.0        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.12.0** | 2023.10.11  | 3.7.661.0        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.12.0**      | 2023.10.11  | 3.7.661.0        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.12.0** | 2023.10.11  | 3.7.661.0        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch  | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | ---------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.12.0**      | 2023.10.11  | 3.7.661.0        | 2.0.1643.0 | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.12.0** | 2023.10.11  | 3.7.661.0        | 2.0.1643.0 | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.12.0**      | 2023.10.11  | 3.7.661.0        | 2.0.1643.0 | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.12.0** | 2023.10.11  | 3.7.661.0        | 2.0.1643.0 | 3.2.1630.0 | 3.6        | 3.2.0     |
 
 ## October 17, 2023 – December 3, 2023
 
@@ -783,14 +783,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.12.0**               | 2023.10.11  | 3.15.2072        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.12.0**          | 2023.10.11  | 3.15.2072        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.12.0**               | 2023.10.11  | 3.15.2072        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.12.0**          | 2023.10.11  | 3.15.2072        |           | 3.2.1630.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.8**             | 2023.09.13  | 3.15.2072        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.8** | 2023.09.13  | 3.15.2072        | 4.9.5467  | 3.1.2282.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.12.0**               | 2023.10.11  | 3.15.2072        | 2.0.1643.0           | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.12.0**          | 2023.10.11  | 3.15.2072        | 2.0.1643.0           | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.12.0**               | 2023.10.11  | 3.15.2072        | 2.0.1643.0           | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.12.0**          | 2023.10.11  | 3.15.2072        | 2.0.1643.0           | 3.2.1630.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.8**             | 2023.09.13  | 3.15.2072        | 2.0.1580.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.8** | 2023.09.13  | 3.15.2072        | 4.9.5467 (EC2Config) | 3.1.2282.0 | 3.6        | 3.2.0     |
 
 ## September 22, 2023 – October 16, 2023
 
@@ -809,14 +809,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.8**               | 2023.09.13  | 3.7.643.0        |           | 3.2.1377.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.8**          | 2023.09.13  | 3.7.643.0        |           | 3.2.1377.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.8**               | 2023.09.13  | 3.7.643.0        |           | 3.2.1377.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.8**          | 2023.09.13  | 3.7.643.0        |           | 3.2.1377.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.8**             | 2023.09.13  | 3.7.643.0        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.8** | 2023.09.13  | 3.7.643.0        | 4.9.5467  | 3.1.2282.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.8**               | 2023.09.13  | 3.7.643.0        | 2.0.1580.0           | 3.2.1377.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.8**          | 2023.09.13  | 3.7.643.0        | 2.0.1580.0           | 3.2.1377.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.8**               | 2023.09.13  | 3.7.643.0        | 2.0.1580.0           | 3.2.1377.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.8**          | 2023.09.13  | 3.7.643.0        | 2.0.1580.0           | 3.2.1377.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.8**             | 2023.09.13  | 3.7.643.0        | 2.0.1580.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.8** | 2023.09.13  | 3.7.643.0        | 4.9.5467 (EC2Config) | 3.1.2282.0 | 3.6        | 3.2.0     |
 
 ## August 25, 2023 – September 21, 2023
 
@@ -835,14 +835,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.7**               | 2023.08.10  | 3.7.617.0        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.7**          | 2023.08.10  | 3.7.617.0        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.7**               | 2023.08.10  | 3.7.617.0        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.7**          | 2023.08.10  | 3.7.617.0        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.7**             | 2023.08.10  | 3.7.617.0        |           | 3.1.2282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.7** | 2023.08.10  | 3.7.617.0        | 4.9.5467  | 3.1.2282.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.7**               | 2023.08.10  | 3.7.617.0        | 2.0.1521.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.7**          | 2023.08.10  | 3.7.617.0        | 2.0.1521.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.7**               | 2023.08.10  | 3.7.617.0        | 2.0.1521.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.7**          | 2023.08.10  | 3.7.617.0        | 2.0.1521.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.7**             | 2023.08.10  | 3.7.617.0        | 2.0.1521.0           | 3.1.2282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.7** | 2023.08.10  | 3.7.617.0        | 4.9.5467 (EC2Config) | 3.1.2282.0 | 3.6        | 3.2.0     |
 
 ## July 18, 2023 – August 24, 2023
 
@@ -861,14 +861,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.6**               | 2023.07.12  | 3.7.587.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.6**          | 2023.07.12  | 3.7.587.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.6**               | 2023.07.12  | 3.7.587.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.6**          | 2023.07.12  | 3.7.587.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.6**             | 2023.07.12  | 3.7.587.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.6** | 2023.07.12  | 3.7.587.0        | 4.9.5288  | 3.1.2144.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.6**               | 2023.07.12  | 3.7.587.0        | 2.0.1521.0           | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.6**          | 2023.07.12  | 3.7.587.0        | 2.0.1521.0           | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.6**               | 2023.07.12  | 3.7.587.0        | 2.0.1521.0           | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.6**          | 2023.07.12  | 3.7.587.0        | 2.0.1521.0           | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.6**             | 2023.07.12  | 3.7.587.0        | 2.0.1521.0           | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.6** | 2023.07.12  | 3.7.587.0        | 4.9.5288 (EC2Config) | 3.1.2144.0 | 3.6        | 3.2.0     |
 
 ## June 26, 2023 – July 17, 2023
 
@@ -887,14 +887,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.5**               | 2023.06.14  | 3.7.568.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.5**          | 2023.06.14  | 3.7.568.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.5**               | 2023.06.14  | 3.7.568.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.5**          | 2023.06.14  | 3.7.568.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.5**             | 2023.06.14  | 3.7.568.0        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.5** | 2023.06.14  | 3.7.568.0        | 4.9.5288  | 3.1.2144.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.5**               | 2023.06.14  | 3.7.568.0        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.5**          | 2023.06.14  | 3.7.568.0        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.5**               | 2023.06.14  | 3.7.568.0        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.5**          | 2023.06.14  | 3.7.568.0        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.5**             | 2023.06.14  | 3.7.568.0        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.5** | 2023.06.14  | 3.7.568.0        | 4.9.5288 (EC2Config) | 3.1.2144.0 | 3.6        | 3.2.0     |
 
 ## May 19, 2023 – June 25, 2023
 
@@ -913,14 +913,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.4**               | 2023.05.10  | 3.15.2072        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.4**          | 2023.05.10  | 3.15.2072        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.4**               | 2023.05.10  | 3.15.2072        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.4**          | 2023.05.10  | 3.15.2072        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.4**             | 2023.05.10  | 3.15.2072        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.4** | 2023.05.10  | 3.15.2072        | 4.9.5288  | 3.1.2144.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.4**               | 2023.05.10  | 3.15.2072        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.4**          | 2023.05.10  | 3.15.2072        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.4**               | 2023.05.10  | 3.15.2072        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.4**          | 2023.05.10  | 3.15.2072        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.4**             | 2023.05.10  | 3.15.2072        | 2.0.1303             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.4** | 2023.05.10  | 3.15.2072        | 4.9.5288 (EC2Config) | 3.1.2144.0 | 3.6        | 3.2.0     |
 
 ## April 20, 2023 – May 18, 2023
 
@@ -939,14 +939,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.3**               | 2023.04.12  | 3.15.2035        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.3**          | 2023.04.12  | 3.15.2035        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.3**               | 2023.04.12  | 3.15.2035        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.3**          | 2023.04.12  | 3.15.2035        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.3**             | 2023.04.12  | 3.15.2035        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.3** | 2023.04.12  | 3.15.2035        | 4.9.5288  | 3.1.2144.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.3**               | 2023.04.12  | 3.15.2035        | 2.0.1245             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.3**          | 2023.04.12  | 3.15.2035        | 2.0.1245             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.3**               | 2023.04.12  | 3.15.2035        | 2.0.1245             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.3**          | 2023.04.12  | 3.15.2035        | 2.0.1245             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.3**             | 2023.04.12  | 3.15.2035        | 2.0.1245             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.3** | 2023.04.12  | 3.15.2035        | 4.9.5288 (EC2Config) | 3.1.2144.0 | 3.6        | 3.2.0     |
 
 ## March 28, 2023 – April 19, 2023
 
@@ -965,14 +965,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.2**               | 2023.03.15  | 3.15.1998        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.2**          | 2023.03.15  | 3.15.1998        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.2**               | 2023.03.15  | 3.15.1998        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.2**          | 2023.03.15  | 3.15.1998        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.2**             | 2023.03.15  | 3.15.1998        |           | 3.1.2144.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.2** | 2023.03.15  | 3.15.1998        | 4.9.5288  | 3.1.2144.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.2**               | 2023.03.15  | 3.15.1998        | 2.0.1245             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.2**          | 2023.03.15  | 3.15.1998        | 2.0.1245             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.2**               | 2023.03.15  | 3.15.1998        | 2.0.1245             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.2**          | 2023.03.15  | 3.15.1998        | 2.0.1245             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.2**             | 2023.03.15  | 3.15.1998        | 2.0.1245             | 3.1.2144.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.2** | 2023.03.15  | 3.15.1998        | 4.9.5288 (EC2Config) | 3.1.2144.0 | 3.6        | 3.2.0     |
 
 ## February 21, 2023 – March 27, 2023
 
@@ -991,14 +991,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.1**               | 2023.02.15  | 3.15.1958        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.1**          | 2023.02.15  | 3.15.1958        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.1**               | 2023.02.15  | 3.15.1958        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.1**          | 2023.02.15  | 3.15.1958        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.1**             | 2023.02.15  | 3.15.1958        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.1** | 2023.02.15  | 3.15.1958        | 4.9.5103  | 3.1.1856.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.1**               | 2023.02.15  | 3.15.1958        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.1**          | 2023.02.15  | 3.15.1958        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.1**               | 2023.02.15  | 3.15.1958        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.1**          | 2023.02.15  | 3.15.1958        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.1**             | 2023.02.15  | 3.15.1958        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.1** | 2023.02.15  | 3.15.1958        | 4.9.5103 (EC2Config) | 3.1.1856.0 | 3.6        | 3.2.0     |
 
 ## January 24, 2023 – February 20, 2023
 
@@ -1017,14 +1017,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.11.0**               | 2023.01.11  | 3.15.1919        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.11.0**          | 2023.01.11  | 3.15.1919        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.11.0**               | 2023.01.11  | 3.15.1919        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.11.0**          | 2023.01.11  | 3.15.1919        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.11.0**             | 2023.01.11  | 3.15.1919        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.0** | 2023.01.11  | 3.15.1919        | 4.9.5103  | 3.1.1856.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.11.0**               | 2023.01.11  | 3.15.1919        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.11.0**          | 2023.01.11  | 3.15.1919        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.11.0**               | 2023.01.11  | 3.15.1919        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.11.0**          | 2023.01.11  | 3.15.1919        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.11.0**             | 2023.01.11  | 3.15.1919        | 2.0.1121             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.11.0** | 2023.01.11  | 3.15.1919        | 4.9.5103 (EC2Config) | 3.1.1856.0 | 3.6        | 3.2.0     |
 
 ## December 28, 2022 – January 23, 2023
 
@@ -1043,14 +1043,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.7**               | 2022.12.14  | 3.15.1886        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.7**          | 2022.12.14  | 3.15.1886        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.7**               | 2022.12.14  | 3.15.1886        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.7**          | 2022.12.14  | 3.15.1886        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.7**             | 2022.12.14  | 3.15.1886        |           | 3.1.1856.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.7** | 2022.12.14  | 3.15.1886        | 4.9.5103  | 3.1.1856.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.7**               | 2022.12.14  | 3.15.1886        | 2.0.1082             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.7**          | 2022.12.14  | 3.15.1886        | 2.0.1082             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.7**               | 2022.12.14  | 3.15.1886        | 2.0.1082             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.7**          | 2022.12.14  | 3.15.1886        | 2.0.1082             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.7**             | 2022.12.14  | 3.15.1886        | 2.0.1082             | 3.1.1856.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.7** | 2022.12.14  | 3.15.1886        | 4.9.5103 (EC2Config) | 3.1.1856.0 | 3.6        | 3.2.0     |
 
 ## November 18, 2022 – December 27, 2022
 
@@ -1069,14 +1069,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.6**               | 2022.10.27  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.6**          | 2022.10.27  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.6**               | 2022.10.27  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.6**          | 2022.10.27  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.6**             | 2022.10.27  | 3.15.1809        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.6** | 2022.10.27  | 3.15.1809        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.6**               | 2022.10.27  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.6**          | 2022.10.27  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.6**               | 2022.10.27  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.6**          | 2022.10.27  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.6**             | 2022.10.27  | 3.15.1809        | 2.0.863              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.6** | 2022.10.27  | 3.15.1809        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## October 24, 2022 – November 17, 2022
 
@@ -1095,14 +1095,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.5**               | 2022.10.12  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.5**          | 2022.10.12  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.5**               | 2022.10.12  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.5**          | 2022.10.12  | 3.15.1809        |           | 3.1.1732.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.5**             | 2022.10.12  | 3.15.1809        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.5** | 2022.10.12  | 3.15.1809        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.5**               | 2022.10.12  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.5**          | 2022.10.12  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.5**               | 2022.10.12  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.5**          | 2022.10.12  | 3.15.1809        | 2.0.863              | 3.1.1732.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.5**             | 2022.10.12  | 3.15.1809        | 2.0.863              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.5** | 2022.10.12  | 3.15.1809        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## September 21, 2022 – October 23, 2022
 
@@ -1121,14 +1121,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.4**               | 2022.09.14  | 3.15.1772        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.4**          | 2022.09.14  | 3.15.1772        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.4**               | 2022.09.14  | 3.15.1772        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.4**          | 2022.09.14  | 3.15.1772        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.4**             | 2022.09.14  | 3.15.1772        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.4** | 2022.09.14  | 3.15.1772        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.4**               | 2022.09.14  | 3.15.1772        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.4**          | 2022.09.14  | 3.15.1772        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.4**               | 2022.09.14  | 3.15.1772        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.4**          | 2022.09.14  | 3.15.1772        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.4**             | 2022.09.14  | 3.15.1772        | 2.0.863              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.4** | 2022.09.14  | 3.15.1772        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## August 25, 2022 – September 20, 2022
 
@@ -1147,14 +1147,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.3**               | 2022.08.10  | 3.15.1737        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.3**          | 2022.08.10  | 3.15.1737        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.3**               | 2022.08.10  | 3.15.1737        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.3**          | 2022.08.10  | 3.15.1737        |           | 3.1.1634.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.3**             | 2022.08.10  | 3.15.1737        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.3** | 2022.08.10  | 3.15.1737        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.3**               | 2022.08.10  | 3.15.1737        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.3**          | 2022.08.10  | 3.15.1737        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.3**               | 2022.08.10  | 3.15.1737        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.3**          | 2022.08.10  | 3.15.1737        | 2.0.863              | 3.1.1634.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.3**             | 2022.08.10  | 3.15.1737        | 2.0.863              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.3** | 2022.08.10  | 3.15.1737        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## July 29, 2022 – August 24, 2022
 
@@ -1173,14 +1173,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.2**               | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.2**          | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.2**               | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.2**          | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.2**             | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.2** | 2022.06.15  | 3.15.1678        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.2**               | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.2**          | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.2**               | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.2**          | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.2**             | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.2** | 2022.06.15  | 3.15.1678        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## June 29, 2022 – July 28, 2022
 
@@ -1199,14 +1199,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.1**             | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.1** | 2022.06.15  | 3.15.1678        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.1**             | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.1** | 2022.06.15  | 3.15.1678        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## June 22, 2022 – June 28, 2022
 
@@ -1225,14 +1225,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.1**             | 2022.06.15  | 3.15.1678        |           | 3.1.1188.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.1** | 2022.06.15  | 3.15.1678        | 4.9.4588  | 3.1.1188.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.1**               | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.1**          | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.1**             | 2022.06.15  | 3.15.1678        | 2.0.698              | 3.1.1188.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.1** | 2022.06.15  | 3.15.1678        | 4.9.4588 (EC2Config) | 3.1.1188.0 | 3.6        | 3.2.0     |
 
 ## May 27, 2022 – June 21, 2022
 
@@ -1253,16 +1253,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.10.0**               | 2022.05.11  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.10.0**          | 2022.05.11  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.10.0**               | 2022.05.11  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.10.0**          | 2022.05.11  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.10.0**             | 2022.05.11  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.0** | 2022.05.11  | 3.15.1620        | 4.9.4556  | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                   | 2022.05.11  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                   | 2022.05.11  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.1.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.10.0**               | 2022.05.11  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.10.0**          | 2022.05.11  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.10.0**               | 2022.05.11  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.10.0**          | 2022.05.11  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.10.0**             | 2022.05.11  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.10.0** | 2022.05.11  | 3.15.1620        | 4.9.4556 (EC2Config) | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                   | 2022.05.11  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                   | 2022.05.11  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.1.0     |
 
 ## April 30, 2022 – May 26, 2022
 
@@ -1283,16 +1283,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.9.1**               | 2022.04.13  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.9.1**          | 2022.04.13  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.9.1**               | 2022.04.13  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.9.1**          | 2022.04.13  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.9.1**             | 2022.04.13  | 3.15.1620        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.9.1** | 2022.04.13  | 3.15.1620        | 4.9.4556  | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.9.1**               | 2022.04.13  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.9.1**          | 2022.04.13  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.9.1**               | 2022.04.13  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.9.1**          | 2022.04.13  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.9.1**             | 2022.04.13  | 3.15.1620        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.9.1** | 2022.04.13  | 3.15.1620        | 4.9.4556 (EC2Config) | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.1.0     |
 
 ## March 16, 2022 – April 29, 2022
 
@@ -1313,16 +1313,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.9.0**               | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.9.0**          | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.9.0**               | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.9.0**          | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.9.0**             | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.9.0** | 2022.03.09  | 3.15.1583        | 4.9.4556  | 3.1.1045.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2022.03.09  | 3.15.1583        |           | 3.1.1045.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.9.0**               | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.9.0**          | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.9.0**               | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.9.0**          | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.9.0**             | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.9.0** | 2022.03.09  | 3.15.1583        | 4.9.4556 (EC2Config) | 3.1.1045.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2022.03.09  | 3.15.1583        | 2.0.698              | 3.1.1045.0 | 3.6        | 3.1.0     |
 
 ## February 18, 2022 – March 15, 2022
 
@@ -1343,16 +1343,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.8.3**               | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.8.3**          | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.8.3**               | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.8.3**          | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.8.3**             | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.3** | 2022.02.10  | 3.15.1546        | 4.9.4536  | 3.1.804.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2022.02.10  | 3.15.1546        |           | 3.1.804.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.8.3**               | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.8.3**          | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.8.3**               | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.8.3**          | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.8.3**             | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.3** | 2022.02.10  | 3.15.1546        | 4.9.4536 (EC2Config) | 3.1.804.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2022.02.10  | 3.15.1546        | 2.0.698              | 3.1.804.0 | 3.6        | 3.1.0     |
 
 ## January 27, 2022 – February 17, 2022
 
@@ -1373,16 +1373,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.8.2**               | 2022.01.19  | 3.15.1511        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.8.2**          | 2022.01.19  | 3.15.1511        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.8.2**               | 2022.01.19  | 3.15.1511        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.8.2**          | 2022.01.19  | 3.15.1511        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.8.2**             | 2022.01.19  | 3.15.1511        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.2** | 2022.01.19  | 3.15.1511        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.12.15  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.12.15  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.8.2**               | 2022.01.19  | 3.15.1511        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.8.2**          | 2022.01.19  | 3.15.1511        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.8.2**               | 2022.01.19  | 3.15.1511        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.8.2**          | 2022.01.19  | 3.15.1511        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.8.2**             | 2022.01.19  | 3.15.1511        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.2** | 2022.01.19  | 3.15.1511        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.1.0     |
 
 ## January 5, 2022 – January 26, 2022
 
@@ -1403,16 +1403,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.8.1**               | 2021.12.15  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.8.1**          | 2021.12.15  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.8.1**               | 2021.12.15  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.8.1**          | 2021.12.15  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.8.1**             | 2021.12.15  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.1** | 2021.12.15  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.12.15  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.12.15  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.8.1**               | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.8.1**          | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.8.1**               | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.8.1**          | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.8.1**             | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.1** | 2021.12.15  | 3.15.1451        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.12.15  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.1.0     |
 
 ## November 23, 2021 – January 4, 2022
 
@@ -1433,16 +1433,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.8.0**               | 2021.11.10  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.8.0**          | 2021.11.10  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.8.0**               | 2021.11.10  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.8.0**          | 2021.11.10  | 3.15.1451        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.8.0**             | 2021.11.10  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.0** | 2021.11.10  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.11.10  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.11.10  | 3.15.1451        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.8.0**               | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.8.0**          | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.8.0**               | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.8.0**          | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.8.0**             | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.8.0** | 2021.11.10  | 3.15.1451        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.11.10  | 3.15.1451        | 2.0.651              | 3.1.338.0 | 3.6        | 3.1.0     |
 
 ## October 22, 2021 – November 22, 2021
 
@@ -1463,16 +1463,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.7.2**               | 2021.10.13  | 3.15.1421        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.7.2**          | 2021.10.13  | 3.15.1421        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.7.2**               | 2021.10.13  | 3.15.1421        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.7.2**          | 2021.10.13  | 3.15.1421        |           | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.7.2**             | 2021.10.13  | 3.15.1421        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.7.2** | 2021.10.13  | 3.15.1421        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.10.13  | 3.15.1421        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.10.13  | 3.15.1421        | 4.9.4508  | 3.1.338.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.7.2**               | 2021.10.13  | 3.15.1421        |                      | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.7.2**          | 2021.10.13  | 3.15.1421        |                      | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.7.2**               | 2021.10.13  | 3.15.1421        |                      | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.7.2**          | 2021.10.13  | 3.15.1421        |                      | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.7.2**             | 2021.10.13  | 3.15.1421        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.7.2** | 2021.10.13  | 3.15.1421        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.10.13  | 3.15.1421        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.10.13  | 3.15.1421        | 4.9.4508 (EC2Config) | 3.1.338.0 | 3.6        | 3.1.0     |
 
 ## October 5, 2021 – October 21, 2021
 
@@ -1493,16 +1493,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.7.1**               | 2021.09.15  | 3.15.1398        |           | 3.1.282.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.7.1**          | 2021.09.15  | 3.15.1398        |           | 3.1.282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.7.1**               | 2021.09.15  | 3.15.1398        |           | 3.1.282.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.7.1**          | 2021.09.15  | 3.15.1398        |           | 3.1.282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.7.1**             | 2021.09.15  | 3.15.1398        | 4.9.4500  | 3.1.282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.7.1** | 2021.09.15  | 3.15.1398        | 4.9.4500  | 3.1.282.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.09.15  | 3.15.1398        | 4.9.4500  | 3.1.282.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.09.15  | 3.15.1398        | 4.9.4500  | 3.1.282.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.7.1**               | 2021.09.15  | 3.15.1398        |                      | 3.1.282.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.7.1**          | 2021.09.15  | 3.15.1398        |                      | 3.1.282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.7.1**               | 2021.09.15  | 3.15.1398        |                      | 3.1.282.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.7.1**          | 2021.09.15  | 3.15.1398        |                      | 3.1.282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.7.1**             | 2021.09.15  | 3.15.1398        | 4.9.4500 (EC2Config) | 3.1.282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.7.1** | 2021.09.15  | 3.15.1398        | 4.9.4500 (EC2Config) | 3.1.282.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.09.15  | 3.15.1398        | 4.9.4500 (EC2Config) | 3.1.282.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.09.15  | 3.15.1398        | 4.9.4500 (EC2Config) | 3.1.282.0 | 3.6        | 3.1.0     |
 
 ## August 23, 2021 – October 4, 2021
 
@@ -1523,16 +1523,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.7.0**               | 2021.08.11  | 3.15.1371        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.7.0**          | 2021.08.11  | 3.15.1371        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.7.0**               | 2021.08.11  | 3.15.1371        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.7.0**          | 2021.08.11  | 3.15.1371        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.7.0**             | 2021.08.11  | 3.15.1371        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.7.0** | 2021.08.11  | 3.15.1371        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.08.11  | 3.15.1371        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.08.11  | 3.15.1371        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.7.0**               | 2021.08.11  | 3.15.1371        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.7.0**          | 2021.08.11  | 3.15.1371        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.7.0**               | 2021.08.11  | 3.15.1371        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.7.0**          | 2021.08.11  | 3.15.1371        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.7.0**             | 2021.08.11  | 3.15.1371        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.7.0** | 2021.08.11  | 3.15.1371        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.08.11  | 3.15.1371        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.08.11  | 3.15.1371        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.1.0     |
 
 ## July 20, 2021 – August 22, 2021
 
@@ -1553,16 +1553,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.8**               | 2021.07.14  | 3.15.1350        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.8**          | 2021.07.14  | 3.15.1350        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.8**               | 2021.07.14  | 3.15.1350        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.8**          | 2021.07.14  | 3.15.1350        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.8**             | 2021.07.14  | 3.15.1350        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.8** | 2021.07.14  | 3.15.1350        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.07.14  | 3.15.1350        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.07.14  | 3.15.1350        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.8**               | 2021.07.14  | 3.15.1350        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.8**          | 2021.07.14  | 3.15.1350        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.8**               | 2021.07.14  | 3.15.1350        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.8**          | 2021.07.14  | 3.15.1350        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.8**             | 2021.07.14  | 3.15.1350        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.8** | 2021.07.14  | 3.15.1350        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2021.07.14  | 3.15.1350        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2021.07.14  | 3.15.1350        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.1.0     |
 
 ## July 2, 2021 – July 19, 2021
 
@@ -1583,16 +1583,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.7**               | 2021.06.09  | 3.15.1326        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.7**          | 2021.06.09  | 3.15.1326        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.7**               | 2021.06.09  | 3.15.1326        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.7**          | 2021.06.09  | 3.15.1326        |           | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.7**             | 2021.06.09  | 3.15.1326        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.7** | 2021.06.09  | 3.15.1326        | 4.9.4419  | 3.0.1124.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0  | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0  | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.7**               | 2021.06.09  | 3.15.1326        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.7**          | 2021.06.09  | 3.15.1326        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.7**               | 2021.06.09  | 3.15.1326        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.7**          | 2021.06.09  | 3.15.1326        |                      | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.7**             | 2021.06.09  | 3.15.1326        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.7** | 2021.06.09  | 3.15.1326        | 4.9.4419 (EC2Config) | 3.0.1124.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0  | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0  | 3.6        | 3.1.0     |
 
 ## June 3, 2021 – July 1, 2021
 
@@ -1613,16 +1613,16 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.6**               | 2021.05.11  | 3.15.1302        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.6**          | 2021.05.11  | 3.15.1302        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.6**               | 2021.05.11  | 3.15.1302        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.6**          | 2021.05.11  | 3.15.1302        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.6**             | 2021.05.11  | 3.15.1302        | 4.9.4381  | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.6** | 2021.05.11  | 3.15.1302        | 4.9.4381  | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.6**               | 2021.05.11  | 3.15.1302        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.6**          | 2021.05.11  | 3.15.1302        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.6**               | 2021.05.11  | 3.15.1302        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.6**          | 2021.05.11  | 3.15.1302        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.6**             | 2021.05.11  | 3.15.1302        | 4.9.4381 (EC2Config) | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.6** | 2021.05.11  | 3.15.1302        | 4.9.4381 (EC2Config) | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 0.1.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
 
 ## April 22, 2021 – June 2, 2021
 
@@ -1641,14 +1641,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.5**               | 2021.04.14  | 3.15.1280        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.5**          | 2021.04.14  | 3.15.1280        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.5**               | 2021.04.14  | 3.15.1280        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.5**          | 2021.04.14  | 3.15.1280        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.5**             | 2021.04.14  | 3.15.1280        | 4.9.4326  | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.5** | 2021.04.14  | 3.15.1280        | 4.9.4326  | 3.0.431.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.5**               | 2021.04.14  | 3.15.1280        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.5**          | 2021.04.14  | 3.15.1280        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.5**               | 2021.04.14  | 3.15.1280        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.5**          | 2021.04.14  | 3.15.1280        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.5**             | 2021.04.14  | 3.15.1280        | 4.9.4326 (EC2Config) | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.5** | 2021.04.14  | 3.15.1280        | 4.9.4326 (EC2Config) | 3.0.431.0 | 3.6        | 3.2.0     |
 
 ## March 19, 2021 – April 21, 2021
 
@@ -1667,14 +1667,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.4**               | 2021.03.10  | 3.15.1248        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.4**          | 2021.03.10  | 3.15.1248        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.4**               | 2021.03.10  | 3.15.1248        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.4**          | 2021.03.10  | 3.15.1248        |           | 3.0.529.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.4**             | 2021.03.10  | 3.15.1248        | 4.9.4326  | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.4** | 2021.03.10  | 3.15.1248        | 4.9.4326  | 3.0.431.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.4**               | 2021.03.10  | 3.15.1248        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.4**          | 2021.03.10  | 3.15.1248        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.4**               | 2021.03.10  | 3.15.1248        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.4**          | 2021.03.10  | 3.15.1248        |                      | 3.0.529.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.4**             | 2021.03.10  | 3.15.1248        | 4.9.4326 (EC2Config) | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.4** | 2021.03.10  | 3.15.1248        | 4.9.4326 (EC2Config) | 3.0.431.0 | 3.6        | 3.2.0     |
 
 ## February 16, 2021 – March 18, 2021
 
@@ -1693,14 +1693,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.3**               | 2021.02.10  | 3.15.1224        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.3**          | 2021.02.10  | 3.15.1224        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.3**               | 2021.02.10  | 3.15.1224        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.3**          | 2021.02.10  | 3.15.1224        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.3**             | 2021.02.10  | 3.15.1224        | 4.9.4279  | 2.3.871.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.3** | 2021.02.10  | 3.15.1224        | 4.9.4279  | 2.3.871.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.3**               | 2021.02.10  | 3.15.1224        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.3**          | 2021.02.10  | 3.15.1224        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.3**               | 2021.02.10  | 3.15.1224        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.3**          | 2021.02.10  | 3.15.1224        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.3**             | 2021.02.10  | 3.15.1224        | 4.9.4279 (EC2Config) | 2.3.871.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.3** | 2021.02.10  | 3.15.1224        | 4.9.4279 (EC2Config) | 2.3.871.0 | 3.6        | 3.2.0     |
 
 ## January 22, 2021 – February 15, 2021
 
@@ -1719,14 +1719,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.2**               | 2021.01.13  | 3.15.1204        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.2**          | 2021.01.13  | 3.15.1204        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.2**               | 2021.01.13  | 3.15.1204        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.2**          | 2021.01.13  | 3.15.1204        |           | 3.0.431.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.2**             | 2021.01.13  | 3.15.1204        | 4.9.4279  | 2.3.871.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.2** | 2021.01.13  | 3.15.1204        | 4.9.4279  | 2.3.871.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.2**               | 2021.01.13  | 3.15.1204        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.2**          | 2021.01.13  | 3.15.1204        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.2**               | 2021.01.13  | 3.15.1204        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.2**          | 2021.01.13  | 3.15.1204        |                      | 3.0.431.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.2**             | 2021.01.13  | 3.15.1204        | 4.9.4279 (EC2Config) | 2.3.871.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.2** | 2021.01.13  | 3.15.1204        | 4.9.4279 (EC2Config) | 2.3.871.0 | 3.6        | 3.2.0     |
 
 ## January 7, 2021 – January 21, 2021
 
@@ -1745,14 +1745,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.1**               | 2020.12.09  | 3.15.1181        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.1**          | 2020.12.09  | 3.15.1181        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.1**               | 2020.12.09  | 3.15.1181        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.1**          | 2020.12.09  | 3.15.1181        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.1**             | 2020.12.09  | 3.15.1181        | 4.9.4279  | 2.3.871.0  | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.1** | 2020.12.09  | 3.15.1181        | 4.9.4279  | 2.3.871.0  | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.1**               | 2020.12.09  | 3.15.1181        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.1**          | 2020.12.09  | 3.15.1181        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.1**               | 2020.12.09  | 3.15.1181        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.1**          | 2020.12.09  | 3.15.1181        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.1**             | 2020.12.09  | 3.15.1181        | 4.9.4279 (EC2Config) | 2.3.871.0  | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.1** | 2020.12.09  | 3.15.1181        | 4.9.4279 (EC2Config) | 2.3.871.0  | 3.6        | 3.2.0     |
 
 ## November 20, 2020 – January 6, 2021
 
@@ -1771,14 +1771,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.0**               | 2020.11.11  | 3.15.1160        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.0**          | 2020.11.11  | 3.15.1160        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.0**               | 2020.11.11  | 3.15.1160        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.0**          | 2020.11.11  | 3.15.1160        |           | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.0**             | 2020.11.11  | 3.15.1160        | 4.9.4222  | 2.3.842.0  | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.0** | 2020.11.11  | 3.15.1160        | 4.9.4222  | 2.3.842.0  | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent  | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | ---------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.6.0**               | 2020.11.11  | 3.15.1160        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.6.0**          | 2020.11.11  | 3.15.1160        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.6.0**               | 2020.11.11  | 3.15.1160        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.6.0**          | 2020.11.11  | 3.15.1160        |                      | 2.3.1644.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.6.0**             | 2020.11.11  | 3.15.1160        | 4.9.4222 (EC2Config) | 2.3.842.0  | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.0** | 2020.11.11  | 3.15.1160        | 4.9.4222 (EC2Config) | 2.3.842.0  | 3.6        | 3.2.0     |
 
 ## November 5, 2020 – November 19, 2020
 
@@ -1797,14 +1797,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.11**               | 2020.10.14  | 3.15.1140        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.11**          | 2020.10.14  | 3.15.1140        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.11**               | 2020.10.14  | 3.15.1140        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.11**          | 2020.10.14  | 3.15.1140        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.11**             | 2020.10.14  | 3.15.1140        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.11** | 2020.10.14  | 3.15.1140        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.11**               | 2020.10.14  | 3.15.1140        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.11**          | 2020.10.14  | 3.15.1140        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.11**               | 2020.10.14  | 3.15.1140        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.11**          | 2020.10.14  | 3.15.1140        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.11**             | 2020.10.14  | 3.15.1140        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.11** | 2020.10.14  | 3.15.1140        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
 
 ## October 7, 2020 – November 4, 2020
 
@@ -1823,14 +1823,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ------------------------------------------------------------------ | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.10**               | 2020.09.09  | 3.15.1110        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.10**          | 2020.09.09  | 3.15.1110        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.10**               | 2020.09.09  | 3.15.1110        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.10**          | 2020.09.09  | 3.15.1110        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.10**             | 2020.09.09  | 3.15.1110        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.10** | 2020.09.09  | 3.15.1110        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
+| Platform Version                                                   | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ------------------------------------------------------------------ | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.10**               | 2020.09.09  | 3.15.1110        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.10**          | 2020.09.09  | 3.15.1110        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.10**               | 2020.09.09  | 3.15.1110        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.10**          | 2020.09.09  | 3.15.1110        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.10**             | 2020.09.09  | 3.15.1110        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.10** | 2020.09.09  | 3.15.1110        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
 
 ## September 4, 2020 – October 6, 2020
 
@@ -1849,14 +1849,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.9**               | 2020.08.12  | 3.15.1084        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.9**          | 2020.08.12  | 3.15.1084        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.9**               | 2020.08.12  | 3.15.1084        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.9**          | 2020.08.12  | 3.15.1084        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.9**             | 2020.08.12  | 3.15.1084        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.9** | 2020.08.12  | 3.15.1084        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.9**               | 2020.08.12  | 3.15.1084        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.9**          | 2020.08.12  | 3.15.1084        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.9**               | 2020.08.12  | 3.15.1084        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.9**          | 2020.08.12  | 3.15.1084        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.9**             | 2020.08.12  | 3.15.1084        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.9** | 2020.08.12  | 3.15.1084        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
 
 ## July 28, 2020 – September 3, 2020
 
@@ -1875,14 +1875,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.8**               | 2020.07.15  | 3.15.1064        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.8**          | 2020.07.15  | 3.15.1064        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.8**               | 2020.07.15  | 3.15.1064        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.8**          | 2020.07.15  | 3.15.1064        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.8**             | 2020.07.15  | 3.15.1064        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.8** | 2020.07.15  | 3.15.1064        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.8**               | 2020.07.15  | 3.15.1064        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.8**          | 2020.07.15  | 3.15.1064        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.8**               | 2020.07.15  | 3.15.1064        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.8**          | 2020.07.15  | 3.15.1064        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.8**             | 2020.07.15  | 3.15.1064        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.8** | 2020.07.15  | 3.15.1064        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
 
 ## June 29, 2020 – July 27, 2020
 
@@ -1901,14 +1901,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.7**               | 2020.06.10  | 3.15.1034        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.7**          | 2020.06.10  | 3.15.1034        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.7**               | 2020.06.10  | 3.15.1034        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.7**          | 2020.06.10  | 3.15.1034        |           | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.7**             | 2020.06.10  | 3.15.1034        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.7** | 2020.06.10  | 3.15.1034        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.2.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.7**               | 2020.06.10  | 3.15.1034        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.7**          | 2020.06.10  | 3.15.1034        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.7**               | 2020.06.10  | 3.15.1034        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.7**          | 2020.06.10  | 3.15.1034        |                      | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.7**             | 2020.06.10  | 3.15.1034        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.7** | 2020.06.10  | 3.15.1034        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.2.0     |
 
 ## May 20, 2020 – June 28, 2020
 
@@ -1927,14 +1927,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.6**               | 2020.05.13  | 3.15.1013        |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.6**          | 2020.05.13  | 3.15.1013        |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.6**               | 2020.05.13  | 3.15.1013        |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.6**          | 2020.05.13  | 3.15.1013        |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.6**             | 2020.05.13  | 3.15.1013        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.6** | 2020.05.13  | 3.15.1013        | 4.9.4222  | 2.3.842.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.6**               | 2020.05.13  | 3.15.1013        |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.6**          | 2020.05.13  | 3.15.1013        |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.6**               | 2020.05.13  | 3.15.1013        |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.6**          | 2020.05.13  | 3.15.1013        |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.6**             | 2020.05.13  | 3.15.1013        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.6** | 2020.05.13  | 3.15.1013        | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.1.0     |
 
 ## May 1, 2020 – May 19, 2020
 
@@ -1953,14 +1953,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.5**               | 2020.04.15  | 3.15.998         |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.5**          | 2020.04.15  | 3.15.998         |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.5**               | 2020.04.15  | 3.15.998         |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.5**          | 2020.04.15  | 3.15.998         |           | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.5**             | 2020.04.15  | 3.15.998         | 4.9.4222  | 2.3.842.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.5** | 2020.04.15  | 3.15.998         | 4.9.4222  | 2.3.842.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.5**               | 2020.04.15  | 3.15.998         |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.5**          | 2020.04.15  | 3.15.998         |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.5**               | 2020.04.15  | 3.15.998         |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.5**          | 2020.04.15  | 3.15.998         |                      | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.5**             | 2020.04.15  | 3.15.998         | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.5** | 2020.04.15  | 3.15.998         | 4.9.4222 (EC2Config) | 2.3.842.0 | 3.6        | 3.1.0     |
 
 ## March 31, 2020 – April 30, 2020
 
@@ -1979,14 +1979,14 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.2**               | 2020.03.11  | 3.15.969         |           | 2.3.814.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.2**          | 2020.03.11  | 3.15.969         |           | 2.3.814.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.2**               | 2020.03.11  | 3.15.969         |           | 2.3.814.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.2**          | 2020.03.11  | 3.15.969         |           | 2.3.814.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.2**             | 2020.03.11  | 3.15.969         | 4.9.4122  | 2.3.814.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.2** | 2020.03.11  | 3.15.969         | 4.9.4122  | 2.3.814.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.2**               | 2020.03.11  | 3.15.969         |                      | 2.3.814.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.2**          | 2020.03.11  | 3.15.969         |                      | 2.3.814.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.2**               | 2020.03.11  | 3.15.969         |                      | 2.3.814.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.2**          | 2020.03.11  | 3.15.969         |                      | 2.3.814.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.2**             | 2020.03.11  | 3.15.969         | 4.9.4122 (EC2Config) | 2.3.814.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.2** | 2020.03.11  | 3.15.969         | 4.9.4122 (EC2Config) | 2.3.814.0 | 3.6        | 3.1.0     |
 
 ## February 24, 2020 – March 30, 2020
 
@@ -2013,22 +2013,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.1**               | 2020.02.12  | 3.15.945         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.1**          | 2020.02.12  | 3.15.945         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.1**               | 2020.02.12  | 3.15.945         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.1**          | 2020.02.12  | 3.15.945         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.1**             | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.1** | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2020.02.12  | 3.15.945         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2020.02.12  | 3.15.945         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2020.02.12  | 3.15.945         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.1**               | 2020.02.12  | 3.15.945         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.1**          | 2020.02.12  | 3.15.945         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.1**               | 2020.02.12  | 3.15.945         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.1**          | 2020.02.12  | 3.15.945         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.1**             | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.1** | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2020.02.12  | 3.15.945         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2020.02.12  | 3.15.945         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2020.02.12  | 3.15.945         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
 
 ## January 22, 2020 – February 23, 2020
 
@@ -2055,22 +2055,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.5.0**               | 2020.01.15  | 3.15.925         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.5.0**          | 2020.01.15  | 3.15.925         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.5.0**               | 2020.01.15  | 3.15.925         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.5.0**          | 2020.01.15  | 3.15.925         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.5.0**             | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.0** | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2020.01.15  | 3.15.925         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2020.01.15  | 3.15.925         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2020.01.15  | 3.15.925         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.5.0**               | 2020.01.15  | 3.15.925         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.5.0**          | 2020.01.15  | 3.15.925         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.5.0**               | 2020.01.15  | 3.15.925         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.5.0**          | 2020.01.15  | 3.15.925         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.5.0**             | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.5.0** | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2020.01.15  | 3.15.925         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2020.01.15  | 3.15.925         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2020.01.15  | 3.15.925         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
 
 ## January 15, 2020 – January 21, 2020
 
@@ -2097,22 +2097,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.4.0**               | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.4.0**          | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.4.0**               | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.4.0**          | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.4.0**             | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.4.0** | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2019 with IIS 10.0 version 2.4.0**               | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.4.0**          | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.4.0**               | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.4.0**          | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.4.0**             | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.4.0** | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
 
 ## December 23, 2019 – January 14, 2020
 
@@ -2137,20 +2137,20 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.3.2**               | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.3.2**          | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.3.2**             | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.3.2** | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.12.16  | 3.15.903         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.12.16  | 3.15.903         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.3.2**               | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.3.2**          | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.3.2**             | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.3.2** | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.12.16  | 3.15.903         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.12.16  | 3.15.903         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
 
 ## December 1, 2019 – December 22, 2019
 
@@ -2175,20 +2175,20 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.3.1**               | 2019.11.13  | 3.15.876         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.3.1**          | 2019.11.13  | 3.15.876         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.3.1**             | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.3.1** | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.11.13  | 3.15.876         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.11.13  | 3.15.876         |           | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.11.13  | 3.15.876         | 4.9.3865  | 2.3.722.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.3.1**               | 2019.11.13  | 3.15.876         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.3.1**          | 2019.11.13  | 3.15.876         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.3.1**             | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.3.1** | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.11.13  | 3.15.876         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.11.13  | 3.15.876         |                      | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.11.13  | 3.15.876         | 4.9.3865 (EC2Config) | 2.3.722.0 | 3.6        | 3.1.0     |
 
 ## October 28, 2019 – November 30, 2019
 
@@ -2213,20 +2213,20 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.3.0**               | 2019.10.09  | 3.15.846         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.3.0**          | 2019.10.09  | 3.15.846         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.3.0**             | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.3.0** | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.10.09  | 3.15.846         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.10.09  | 3.15.846         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.10.09  | 3.15.846         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.3.0**               | 2019.10.09  | 3.15.846         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.3.0**          | 2019.10.09  | 3.15.846         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.3.0**             | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.3.0** | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.10.09  | 3.15.846         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.10.09  | 3.15.846         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.10.09  | 3.15.846         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
 
 ## September 24, 2019 – October 27, 2019
 
@@ -2253,22 +2253,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.2.2**               | 2019.09.11  | 3.15.826         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.2.2**          | 2019.09.11  | 3.15.826         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.2.2**             | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.2.2** | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.09.11  | 3.15.826         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.09.11  | 3.15.826         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.09.11  | 3.15.826         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.2.2**               | 2019.09.11  | 3.15.826         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.2.2**          | 2019.09.11  | 3.15.826         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.2.2**             | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.2.2** | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.09.11  | 3.15.826         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.09.11  | 3.15.826         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.09.11  | 3.15.826         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
 
 ## August 26, 2019 – September 23, 2019
 
@@ -2295,22 +2295,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.2.1**               | 2019.08.16  | 3.15.802         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.2.1**          | 2019.08.16  | 3.15.802         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.2.1**             | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.2.1** | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.08.16  | 3.15.802         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.08.16  | 3.15.802         |           | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
-| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.08.16  | 3.15.802         | 4.9.3519  | 2.3.634.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.2.1**               | 2019.08.16  | 3.15.802         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.2.1**          | 2019.08.16  | 3.15.802         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.2.1**             | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.2.1** | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.08.16  | 3.15.802         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.08.16  | 3.15.802         |                      | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
+| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.08.16  | 3.15.802         | 4.9.3519 (EC2Config) | 2.3.634.0 | 3.6        | 3.1.0     |
 
 ## August 8, 2019 – August 25, 2019
 
@@ -2337,22 +2337,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.2.0**               | 2019.07.12  | 3.15.780         |           | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.2.0**          | 2019.07.12  | 3.15.780         |           | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.2.0**             | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.2.0** | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.07.12  | 3.15.780         |           | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.07.12  | 3.15.780         |           | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
-| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.07.12  | 3.15.780         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.1.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.2.0**               | 2019.07.12  | 3.15.780         |                      | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.2.0**          | 2019.07.12  | 3.15.780         |                      | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.2.0**             | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.2.0** | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.07.12  | 3.15.780         |                      | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.07.12  | 3.15.780         |                      | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
+| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.07.12  | 3.15.780         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.1.0     |
 
 ## June 28, 2019 – August 7, 2019
 
@@ -2379,22 +2379,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.1.0**               | 2019.06.12  | 3.15.756         |           | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.1.0**          | 2019.06.12  | 3.15.756         |           | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.1.0**             | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.1.0** | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.06.12  | 3.15.756         |           | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.06.12  | 3.15.756         |           | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.06.12  | 3.15.756         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.1.0**               | 2019.06.12  | 3.15.756         |                      | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.1.0**          | 2019.06.12  | 3.15.756         |                      | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.1.0**             | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.1.0** | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.06.12  | 3.15.756         |                      | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.06.12  | 3.15.756         |                      | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.06.12  | 3.15.756         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
 
 ## May 22, 2019 – June 27, 2019
 
@@ -2421,22 +2421,22 @@ The following Elastic Beanstalk platform versions for .NET on Windows Server wer
 
 ### More details
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------- | --------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.0.4**               | 2019.05.15  | 3.15.735         |           | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.0.4**          | 2019.05.15  | 3.15.735         |           | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.0.4**             | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.0.4** | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 3.0.0     |
-| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.05.15  | 3.15.735         |           | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.05.15  | 3.15.735         |           | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2012 with IIS 8**                                | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
-| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.05.15  | 3.15.735         | 4.9.3429  | 2.3.542.0 | 3.6        | 1.0.0     |
+| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Launch            | SSM Agent | Web Deploy | AWS X-Ray |
+| ----------------------------------------------------------------- | ----------- | ---------------- | -------------------- | --------- | ---------- | --------- |
+| **Windows Server 2016 with IIS 10.0 version 2.0.4**               | 2019.05.15  | 3.15.735         |                      | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.0.4**          | 2019.05.15  | 3.15.735         |                      | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 2.0.4**             | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.0.4** | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 3.0.0     |
+| **Windows Server 2016 with IIS 10.0 version 1.2.0**               | 2019.05.15  | 3.15.735         |                      | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 1.2.0**          | 2019.05.15  | 3.15.735         |                      | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 with IIS 8.5 version 1.2.0**             | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5 version 1.2.0** | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 with IIS 8 version 1.2.0**                  | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 with IIS 8.5**                           | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 R2 Server Core with IIS 8.5**               | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2012 with IIS 8**                                | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2008 R2 with IIS 7.5 version 1.2.0**             | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
+| **Windows Server 2008 R2 with IIS 7.5**                           | 2019.05.15  | 3.15.735         | 4.9.3429 (EC2Config) | 2.3.542.0 | 3.6        | 1.0.0     |
 
 ## May 2, 2019 – May 21, 2019
 

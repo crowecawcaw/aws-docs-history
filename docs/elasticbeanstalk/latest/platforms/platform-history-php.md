@@ -6,9 +6,22 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## January 15, 2026 – present
+## January 30, 2026 – present
 
-The following Elastic Beanstalk platform versions for PHP have been current since January 15, 2026:
+The following Elastic Beanstalk platform versions for PHP have been current since January 30, 2026:
+
+| Platform Version and _Solution Stack Name_                                           | AMI              | Language   | Composer | Proxy Server                          |
+| ------------------------------------------------------------------------------------ | ---------------- | ---------- | -------- | ------------------------------------- |
+| **PHP 8.5 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.5_ | 2023.10.20260120 | PHP 8.5.2  | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.4 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.4_ | 2023.10.20260120 | PHP 8.4.17 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.3 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.3_ | 2023.10.20260120 | PHP 8.3.29 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.2 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.2_ | 2023.10.20260120 | PHP 8.2.30 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.1 AL2023 version 4.9.2**<br>_64bit Amazon Linux 2023 v4.9.2 running PHP 8.1_ | 2023.10.20260120 | PHP 8.1.34 | 2.9.4    | nginx 1.28.1 (default), Apache 2.4.66 |
+| **PHP 8.1 AL2 version 3.12.2**<br>_64bit Amazon Linux 2 v3.12.2 running PHP 8.1_     | 2.0.20260120     | PHP 8.1.33 | 2.9.5    | nginx 1.28.1 (default), Apache 2.4.66 |
+
+## January 15, 2026 – January 29, 2026
+
+The following Elastic Beanstalk platform versions for PHP were current between January 15, 2026 and January 29, 2026:
 
 | Platform Version and _Solution Stack Name_                                           | AMI              | Language   | Composer | Proxy Server                          |
 | ------------------------------------------------------------------------------------ | ---------------- | ---------- | -------- | ------------------------------------- |
