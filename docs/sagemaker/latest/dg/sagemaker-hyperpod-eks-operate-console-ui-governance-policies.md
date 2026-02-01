@@ -30,31 +30,33 @@ compute is borrowed and how tasks are prioritized by teams.
 - **Task prioritization** defines how tasks are queued as
   compute becomes available. When choosing a **Task
   prioritization**, you can choose between:
+  - **First-come first-serve**: When applied, tasks are
+    queued in the order they are requested.
+  - **Task ranking**: When applied, tasks are queued in
+    the order defined by their prioritization. If this option is chosen, you
+    must add priority classes along with the weights at which they should be
+    prioritized. Tasks of the same priority class will be executed on a
+    first-come first-serve basis. When enabled in Compute allocation, tasks
+    are preempted from lower priority tasks by higher priority tasks within
+    the team.
 
-      + **First-come first-serve**: When applied, tasks are
-       queued in the order they are requested.
-      + **Task ranking**: When applied, tasks are queued in
-       the order defined by their prioritization. If this option is chosen, you
-       must add priority classes along with the weights at which they should be
-       prioritized. Tasks of the same priority class will be executed on a
-       first-come first-serve basis. When enabled in Compute allocation, tasks
-       are preempted from lower priority tasks by higher priority tasks within
-       the team.
+  When data scientists submit jobs to the cluster, they use the priority
+  class name in the YAML file. The priority class is in the format
+  ``priority-class-name`-priority`.
+  For an example, see [Submit a job to SageMaker AI-managed queue and
+  namespace](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job").
+  - **Priority classes**: These classes establish a
+    relative priority for tasks when borrowing capacity. When a task is
+    running using borrowed quota, it may be preempted by another task of
+    higher priority than it, if no more capacity is available for the
+    incoming task. If **Preemption** is enabled in the
+    **Compute allocation**, a higher priority task may
+    also preempt tasks within its own team.
 
-
-      When data scientists submit jobs to the cluster, they use the priority
-       class name in the YAML file. The priority class is in the format
-       ``priority-class-name`-priority`.
-       For an example, see [Submit a job to SageMaker AI-managed queue and
-       namespace](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job").
-      + **Priority classes**: These classes establish a
-       relative priority for tasks when borrowing capacity. When a task is
-       running using borrowed quota, it may be preempted by another task of
-       higher priority than it, if no more capacity is available for the
-       incoming task. If **Preemption** is enabled in the
-       **Compute allocation**, a higher priority task may
-       also preempt tasks within its own team.
-
+- **Unallocated resource sharing** enables teams to borrow
+  compute resources that are not allocated to any team through compute quota. When
+  enabled, unallocated cluster capacity becomes available for teams to borrow
+  automatically. For more information, see [How unallocated resource sharing works](#sagemaker-hyperpod-eks-operate-console-ui-governance-policies-idle-resource-sharing-how-it-works "#sagemaker-hyperpod-eks-operate-console-ui-governance-policies-idle-resource-sharing-how-it-works").
   **Compute allocation**, or compute quota, defines a team’s compute
   allocation and what weight (or priority level) a team is given for fair-share idle
   compute allocation.
@@ -85,13 +87,10 @@ than Team B.
 - **Task preemption**: Compute is taken over from a task based
   on priority. By default, the team loaning idle compute will preempt tasks from
   other teams.
-- **Lending and borrowing**: How idle compute is being lent by
-  the team and if the team can borrow from other teams.
+- **Lending and borrowing**: How idle compute is being lent by the team and if the team can borrow from other teams.
 
-      + **Borrow limit**: The limit of idle compute that a
-       team is allowed to borrow. A team can borrow up to 500% of allocated
-       compute. The value you provide here is interpreted as a percentage. For
-       example, a value of 500 will be interpreted as 500%.
+      + **Percentage-based borrow limit**: The limit of idle compute that a team is allowed to borrow, expressed as a percentage of their guaranteed quota. A team can borrow up to 10,000% of allocated compute. The value you provide here is interpreted as a percentage. For example, a value of 500 will be interpreted as 500%. This percentage applies uniformly across all resource types (CPU, GPU, Memory) and instance types in the team's quota.
+      + **Absolute borrow limit**: The limit of idle compute that a team is allowed to borrow, defined as absolute resource values per instance type. This provides granular control over borrowing behavior for specific instance types. You need to specify absolute limits using the same schema as **Compute quota**, including instance count, accelerators, vCPU, memory, or accelerator partitions. You can specify absolute limits for one or more instance types in your team's quota.
 
   For information on how these concepts are used, such as priority classes and name
   spaces, see [Example
@@ -118,17 +117,71 @@ If any team's **Compute allocation** policy is set to
 **Don't Lend**, the team would not be able to borrow any
 additional capacity beyond its own allocations.
 
-To maintain a pool or a set of resources that all teams can borrow from, you can
-set up a dedicated team with resources that bridge the gap between other teams'
-allocations and the total cluster capacity. Ensure that this cumulative resource
-allocation includes the appropriate instance types and does not exceed the total
-cluster capacity. To ensure that these resources can be shared among teams, enable
-the participating teams to have their compute allocations set to **Lend and
-Borrow** or **Lend** for this common pool of
-resources. Every time new teams are introduced, quota allocations are changed, or
-there are any changes to the cluster capacity, revisit the quota allocations of all
-the teams and ensure the cumulative quota remains at or below cluster
-capacity.
+## How unallocated resource sharing works
+
+Unallocated resource sharing automatically manages the pool of resources that are not allocated to any compute quota in your cluster. This means HyperPod continuously monitors your cluster state and automatically updates to the correct configuration over time.
+
+**Initial Setup**
+
+- When you set `IdleResourceSharing` to `Enabled` in your ClusterSchedulerConfig (by default it is `Disabled`), HyperPod task governance begins monitoring your cluster and calculates available idle resources by subtracting team quotas from total node capacity.
+- Unallocated resource sharing ClusterQueues are created to represent the
+  borrowable resource pool.
+- When you first enable unallocated resource sharing, infrastructure setup
+  takes several mins. You can monitor the progress through policy
+  `Status` and `DetailedStatus` in
+  ClusterSchedulerConfig.
+
+**Ongoing Reconciliation**
+
+- HyperPod task governance continuously monitors for changes such as node
+  additions or removals and cluster queue quota updates.
+- When changes occur, unallocated resource sharing recalculates quota and
+  updates ClusterQueues. Reconciliation typically completes within seconds.
+
+**Monitoring**
+
+You can verify that unallocated resource sharing is fully configured by
+checking for unallocated resource sharing ClusterQueues:
+
+```
+kubectl get clusterqueue | grep hyperpod-ns-idle-resource-sharing
+```
+
+When you see ClusterQueues with names like
+`hyperpod-ns-idle-resource-sharing-cq-1`, unallocated resource
+sharing is active. Note that multiple unallocated resource sharing ClusterQueues
+may exist depending on the number of resource flavors in your cluster.
+
+## Node eligibility for unallocated resource sharing
+
+Unllocated Resource Sharing only includes nodes that meet the following
+requirements:
+
+1. **Node Ready Status**
+   - Nodes must be in `Ready` status to contribute to the
+     unallocated resource pool.
+   - Nodes in `NotReady` or other non-ready states are
+     excluded from capacity calculations.
+   - When a node becomes `Ready`, it is automatically
+     included in the next reconciliation cycle.
+
+2. **Node Schedulable Status**
+   - Nodes with `spec.unschedulable: true` are excluded
+     from unallocated resource sharing.
+   - When a node becomes schedulable again, it is automatically
+     included in the next reconciliation cycle.
+
+3. **MIG Configuration (GPU nodes only)**
+   - For GPU nodes with MIG (Multi-Instance GPU) partitioning, the
+     `nvidia.com/mig.config.state` label must show
+     `success` for the node to contribute MIG profiles to
+     unallocated resource sharing.
+   - These nodes will be retried automatically once MIG configuration
+     completes successfully.
+
+4. **Supported Instance Types**
+   - The instance must be a supported SageMaker HyperPod instance type.
+   - See the list of supported instance types in the SageMaker HyperPod cluster.
 
 ###### Topics
 

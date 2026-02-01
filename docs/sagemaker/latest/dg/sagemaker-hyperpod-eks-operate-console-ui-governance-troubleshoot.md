@@ -9,6 +9,7 @@ EKS clusters.
 - [Tasks tab](#hp-eks-troubleshoot-tasks "#hp-eks-troubleshoot-tasks")
 - [Policies](#hp-eks-troubleshoot-policies "#hp-eks-troubleshoot-policies")
 - [Deleting clusters](#hp-eks-troubleshoot-delete-policies "#hp-eks-troubleshoot-delete-policies")
+- [Unallocated resource sharing](#hp-eks-troubleshoot-unallocated-resource-sharing "#hp-eks-troubleshoot-unallocated-resource-sharing")
 
 ## Dashboard tab
 
@@ -90,3 +91,51 @@ clusters.
   - `sagemaker:ListClusterSchedulerConfig`
   - `sagemaker:DeleteComputeQuota`
   - `sagemaker:DeleteClusterSchedulerConfig`
+
+## Unallocated resource sharing
+
+If your unallocated resource pool capacity is less than expected:
+
+1. **Check node ready status**
+
+```
+kubectl get nodes
+```
+
+Verify all nodes show `Ready` status in the STATUS
+column. 2. **Check node schedulable status**
+
+```
+kubectl get nodes -o custom-columns=NAME:.metadata.name,UNSCHEDULABLE:.spec.unschedulable
+```
+
+Verify nodes show `<none>` or `false` (not
+`true`). 3. **List unallocated resource sharing
+ClusterQueues:**
+
+```
+kubectl get clusterqueue | grep hyperpod-ns-idle-resource-sharing
+```
+
+This shows all unallocated resource sharing ClusterQueues. If the
+ClusterQueues are not showing up, check the `FailureReason` under
+ClusterSchedulerConfig policy to see if there are any failure messages to
+continue the debugging. 4. **Verify unallocated resource sharing
+quota:**
+
+```
+kubectl describe clusterqueue hyperpod-ns-idle-resource-sharing-<index>
+```
+
+Check the `spec.resourceGroups[].flavors[].resources` section
+to see the quota allocated for each resource flavor.
+
+Multiple unallocated resource sharing ClusterQueues may exist depending on
+the number of resource flavors in your cluster. 5. **Check MIG configuration status (GPU
+nodes):**
+
+```
+kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.nvidia\.com/mig\.config\.state}{"\n"}{end}'
+```
+
+Verify MIG-enabled nodes show `success` state.
