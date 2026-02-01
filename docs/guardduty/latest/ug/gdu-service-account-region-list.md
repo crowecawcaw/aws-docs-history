@@ -67,5 +67,6 @@ The following table shows the GuardDuty service accounts for each Region. The
 | Middle East (UAE) (Opt-in)        | me-central-1   | 828603743433                            |
 | Mexico (Central) (Opt-in)         | mx-central-1   | 557690616787                            |
 | Asia Pacific (Taipei)             | ap-east-2      | 863518437308                            |
+| Asia Pacific (New Zealand)        | ap-southeast-6 | 686255982852                            |
 | AWS GovCloud (US-East)            | us-gov-east-1  | 226283551151                            |
 | AWS GovCloud (US-West)            | us-gov-west-1  | 226300430612                            |
