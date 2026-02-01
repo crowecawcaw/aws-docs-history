@@ -30,6 +30,7 @@ _of_ the cloud and security _in_ the cloud:
   Unified Studio](security-best-practices.md "security-best-practices.md")
 - [Resilience in Amazon SageMaker Unified Studio](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon SageMaker Unified Studio](infrastructure-security.md "infrastructure-security.md")
+- [Network isolation in Amazon SageMaker Unified Studio](network-isolation.md "network-isolation.md")
 - [Configuration and vulnerability
   analysis for Amazon SageMaker Unified Studio](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Cross-service confused deputy
