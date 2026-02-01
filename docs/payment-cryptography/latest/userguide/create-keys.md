@@ -13,6 +13,17 @@ this key will automatically become a [Primary Region key
 `--replication-regions` parameter in the **CreateKey**
 command. For more information, see [How Multi-Region key replication works](keys-multi-region-replication.md#how-mrr-works "keys-multi-region-replication.md#how-mrr-works").
 
+###### Examples
+
+- [Creating a 3KEY TDES base derivation
+  key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
+- [Creating a 2KEY TDES key for CVV/CVV2](#cvvkey-example "#cvvkey-example")
+- [Creating an HMAC key](#hmac-example "#hmac-example")
+- [Creating a PIN Encryption Key (PEK)](#pekkey-example "#pekkey-example")
+- [Creating an asymmetric (RSA) key](#asymmetrickey-example "#asymmetrickey-example")
+- [Creating a PIN Verification Value (PVV) Key](#pvv-example "#pvv-example")
+- [Creating an asymmetric ECC key](#ECDH-example "#ECDH-example")
+
 ## Creating a 3KEY TDES base derivation
 
 key
@@ -106,6 +117,49 @@ Example output:
         "KeyState": "CREATE_COMPLETE",
         "UsageStartTimestamp": "2022-10-26T16:04:11.559000-07:00"
     }
+}
+```
+
+## Creating an HMAC key
+
+HMAC keys are used for generating or verifying hash message authentication codes (HMAC). With HMAC keys,
+the hash type is assigned at the time of key creation (such as HMAC_SHA224 and HMAC_SHA512) and cannot be modified.
+
+```
+`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=HMAC_SHA512,KeyUsage=TR31_M7_HMAC_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Generate = true,Verify = true}'`
+```
+
+Example output:
+
+```
+{
+ "Key": {
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6",
+ "KeyAttributes": {
+ "KeyUsage": "TR31_M7_HMAC_KEY",
+ "KeyClass": "SYMMETRIC_KEY",
+ "KeyAlgorithm": "HMAC_SHA512",
+ "KeyModesOfUse": {
+ "Encrypt": false,
+ "Decrypt": false,
+ "Wrap": false,
+ "Unwrap": false,
+ "Generate": true,
+ "Sign": false,
+ "Verify": true,
+ "DeriveKey": false,
+ "NoRestrictions": false
+ }
+ },
+ "KeyCheckValue": "2976E7",
+ "KeyCheckValueAlgorithm": "HMAC",
+ "Enabled": true,
+ "Exportable": true,
+ "KeyState": "CREATE_COMPLETE",
+ "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+ "CreateTimestamp": "2025-07-30T10:06:12.142000-07:00",
+ "UsageStartTimestamp": "2025-07-30T10:06:12.128000-07:00"
+ }
 }
 ```
 

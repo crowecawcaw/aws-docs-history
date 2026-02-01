@@ -32,6 +32,23 @@ Denoted by `KeyUsage` of TR31_M6_ISO_9797_5_CMAC_KEY
 
 Denoted by `KeyUsage` of TR31_M7_HMAC_KEY including HMAC_SHA224, HMAC_SHA256, HMAC_SHA384 and HMAC_SHA512
 
+**AS2805.4.1 MAC**
+
+Denoted by `KeyUsage` of TR31_M0_ISO_16609_MAC_KEY. For more details on AS2805, see [AS2805](advanced.regional.md "advanced.regional.md")
+
+**DUKPT MAC**
+
+DUKPT MAC is typically used to confirm the source and payload of messages to/from payment terminals. It derives a key using DUKPT
+derivation techniques and then performs the MAC.
+Keys used with this option are denoted by a `KeyUsage` of TR31_B0_BASE_DERIVATION_KEY.
+
+**EMV MAC**
+
+EMV MAC is typically referred to as an integrity key in EMV documentation. It derives a key using EMV derivation techniques and then utilizes ISO9797_ALGORITHM3 internally.
+It is typically used to send issuer scripts to a chip card for reprogramming.
+Keys used with this option are denoted by a `KeyUsage` of TR31_E2_EMV_MKEY_INTEGRITY. If you are both sending a script and
+update an offline pin, see [GenerateMacEmvPinChange](../DataAPIReference/API_GenerateMacEmvPinChange.md "../DataAPIReference/API_GenerateMacEmvPinChange.md") that performs both of these operations.
+
 ###### Topics
 
 - [Generate MAC](generate-mac.md "generate-mac.md")

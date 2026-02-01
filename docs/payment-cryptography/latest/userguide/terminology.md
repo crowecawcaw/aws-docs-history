@@ -31,8 +31,7 @@ A card master key (CMK) is one or more card specific key(s) typically derived fr
 [Issuer Master Key](#terms.imk "#terms.imk"), _PAN_ and
 _PSN_ and are typically _3DES_ keys. These keys
 are stored on the EMV Chip during personalization. Examples of CMKs include AC, SMI and
-SMC keys. These are also known as a unique derived key (UDK). AWS Payment Cryptography doesn't expose these derived keys directly but they
-are calculated in real-time for any commands tha are based on EMV standards such as ValidateAuthRequestCryptogram.
+SMC keys.
 
 **CMK-AC**
 
@@ -361,10 +360,6 @@ X9.143-2022](https://webstore.ansi.org/standards/ascx9/ansix91432022 "https://we
 TR-34 is an implementation of ANSI X9.24-2 that described a protocol to securely
 distribute symmetric keys (such as 3DES and AES) using asymmetric techniques (such as
 RSA). AWS Payment Cryptography uses TR-34 methods to permit secure import and export of keys.
-
-**UDK**
-
-Unique Derived Key. Synonymous with [CMK](#terms.cmk "#terms.cmk")
 
 **X9.143**
 
