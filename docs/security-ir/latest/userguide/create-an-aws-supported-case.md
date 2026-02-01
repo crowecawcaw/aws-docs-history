@@ -9,6 +9,14 @@ AWS Security Incident Response engineers will respond to your case within 15 min
 from AWS Security Incident Response engineers. We will make every reasonable effort to respond to your initial request within
 this time frame. This response time does not apply to subsequent responses.
 
+###### Note
+
+You can create AWS supported cases not only for active security incidents and investigations,
+but also for inquiries about AWS Security Incident Response capabilities. This includes questions
+about GuardDuty suppression rules, alert triaging configurations, proactive response workflows,
+and general guidance on security posture. Select the **Investigations and
+Inquiries** case type for these purposes.
+
 The following example covers use of the console.
 
 1. Sign into AWS Security Incident Response via the AWS Management Console.
@@ -17,12 +25,13 @@ The following example covers use of the console.
    AWS**
 4. Select the type of request
    1. **Active Security
-      Incident**: This type is for urgent incident
+      Incident**: This type is for urgent incident
       response support and services.
-   2. **Investigations**: Investigations
-      allow you to get support for perceived security incidents where
-      the AWS Security Incident Response engineers can support in log dive and secondary confirmation of
-      incident response investigation.
+   2. **Investigations and Inquiries**: Use this type for perceived security incidents where
+      AWS Security Incident Response engineers can support in log analysis and secondary confirmation of
+      incident response investigation. You can also use this type for inquiries about GuardDuty findings,
+      suppression rules, alert triaging configurations, proactive response workflows, and general security
+      posture questions related to AWS Security Incident Response capabilities.
 
 5. Set the start date estimate to the date of your earliest
    indicator of the incident. For example, when you experienced
@@ -79,7 +88,7 @@ incident response team are immediately notified.
 
 **To create an AWS-supported case with AI investigation**
 
-1. Open the AWS Security Incident Response console at [console.aws.amazon.com/security-ir/](../../../console.aws.amazon.md "../../../console.aws.amazon.md").
+1. Open the AWS Security Incident Response console at [console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. Choose **Cases** from the navigation pane.
 3. Choose **Create case**.
 4. For **Case type**, select **AWS-supported

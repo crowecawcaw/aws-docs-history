@@ -1,14 +1,21 @@
 # Contain
 
-AWS Security Incident Response partners with you to contain events. You can configure a service role for AWS Security Incident Response
-to take automated and manual actions in your account as a response to alerts. You can also perform containment yourself or in
-partnership with your third party relationships by using SSM documents.
+AWS Security Incident Response partners with you to contain events. You can configure the service to take proactive containment actions in your account in response to security findings. You can also perform containment yourself or in partnership with your third party relationships by using SSM documents.
 
-An essential part of containment is decision-making; such as whether to shut down a system, isolate
-a resource from the network, turn off access, or end sessions. These decisions are made easier when there
-are predetermined strategies and procedures to contain the event. AWS Security Incident Response provides the containment strategy,
-informs you of potential impact, and guides you on implementing the solution only after you have considered and agreed to the
-risks involved.
+###### Important
+
+AWS Security Incident Response does not enable containment capabilities by default.
+
+Two steps are required to enable proactive containment capabilities:
+
+- Grant the necessary permissions to the service using IAM roles. You can create these roles individually per account or across your entire organization by Working with AWS CloudFormation stacksets, which create the required roles.
+- Define your containment preferences per account or across your organization to authorize proactive containment actions. Account-level preferences supersede organization-level preferences. This may be done by creating an AWS Support Case (Technical: Security Incident Response Service/Other). The available containment preferences are:
+
+      + **Approval Required (default):** Do not perform proactive containment of any resource without explicit authorization on a case-by-case basis.
+      + **Contain Confirmed:** Perform proactive containment of a resource confirmed to be compromised.
+      + **Contain Suspected:** Perform proactive containment of a resource with a high likelihood of having been compromised, based on analysis performed by AWS Security Incident Response Engineering.
+
+  An essential part of containment is decision-making; such as whether to shut down a system, isolate a resource from the network, turn off access, or end sessions. These decisions are made easier when there are predetermined strategies and procedures to contain the event. AWS Security Incident Response provides the containment strategy, informs you of potential impact, and guides you on implementing the solution only after you have considered and agreed to the risks involved.
 
 AWS Security Incident Response executes supported containment actions on your behalf to expedite response and reduce the time a
 threat actor has to potentially cause damage in your environment. This capability allows for faster mitigation
@@ -33,12 +40,6 @@ More information is available in the [source containment](source-containment.md 
 - _S3 Containment:_
   The `AWSSupport-ContainS3Resource` containment automation performs a reversible containment
   of a S3 bucket, leaving the objects in the bucket, and isolating the Amazon S3 bucket or object by modifying its access policies.
-
-###### Important
-
-AWS Security Incident Response does not enable containment capabilities by default, to execute these containment actions,
-you must first grant the necessary permissions to the service using roles. You can create these roles individually
-per account or across your entire organization by [Working with AWS CloudFormation stacksets](working-with-stacksets.md "working-with-stacksets.md"), which create the required roles.
 
 AWS Security Incident Response encourages you to consider
 containment strategies for each major event type that fit within

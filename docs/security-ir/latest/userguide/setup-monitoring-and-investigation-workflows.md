@@ -13,6 +13,14 @@ AWS Security Incident Response triages low-priority alerts with service automati
 so your team can focus on the most critical issues. For additional information on how AWS Security Incident Response works with
 Amazon GuardDuty and AWS Security Hub CSPM, please review the [Detect and Analyze](detect-and-analyze.md "detect-and-analyze.md") section of the user guide.
 
+###### Note
+
+If you have questions about Amazon GuardDuty suppression rules, alert triaging configurations, or proactive
+response workflows, you can create an AWS-supported case with the case type
+**Investigations and Inquiries** to consult with the AWS Security
+Incident Response team. For more information, see
+[Create an AWS supported case](create-an-aws-supported-case.md "create-an-aws-supported-case.md").
+
 This feature enables AWS Security Incident Response to monitor and investigate findings across all covered accounts
 and active supported AWS Regions in your organization. To facilitate this functionality, AWS Security Incident Response automatically creates a
 service-linked role in all covered member accounts within your AWS Organizations.
