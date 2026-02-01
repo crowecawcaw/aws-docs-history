@@ -18,7 +18,7 @@ GitHub organization.](https://github.com/amazon-gamelift/ "https://github.com/am
 | Service release                                                 | AWS SDK                                                                                                                                  | Server SDK | Plugin for Unreal | Plugin for Unity | Realtime client SDK |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | ---------------- | ------------------- | ----- | ----- | ----- | ----- |
 |                                                                 | C++                                                                                                                                      | C#         | Unity (C#)        | C++              | Unreal (C++)        | Go    |       |       |       |
-| [2025-10-28](#release-notes-10282025 "#release-notes-10282025") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0      | 5.4.0             | 5.4.0            | 5.4.0               | 5.4.0 | 3.1.0 | 3.2.0 | 1.1.0 |
+| [2025-10-28](#release-notes-10282025 "#release-notes-10282025") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0      | 5.4.0             | 5.4.0            | 5.4.0               | 5.4.0 | 3.1.0 | 3.2.0 | 1.2.0 |
 
 | Service release                                                                                                                                                       | AWS SDK                                                                                                                                  | Server SDK            | Plugin for Unreal | Plugin for Unity | Realtime client SDK |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------- | ---------------- | ------------------- | ----- | ----- | ----- | ----- |
@@ -93,7 +93,19 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-Amazon GameLift Servers Realtime now supports Node.js 24.x on Amazon Linux 2023. This update provides access to the latest Node.js features and security improvements while running on the modern Amazon Linux 2023 operating system.
+Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity.
+Fleets scale down to zero following a defined period of no game session activity and scale up from
+zero when game sessions are requested, providing an option for cost optimization.
+
+Amazon GameLift Servers API Reference links:
+
+- [AWS SDK
+  action `UpdateFleetCapacity`](../apireference/API_UpdateFleetCapacity.md "../apireference/API_UpdateFleetCapacity.md")
+
+###### **Learn more:**
+
+- [Manage Scaling an Amazon GameLift Servers Fleet To/From Zero](fleets_scale-to-from-zero.md "fleets_scale-to-from-zero.md")
+  Amazon GameLift Servers Realtime now supports Node.js 24.x on Amazon Linux 2023. This update provides access to the latest Node.js features and security improvements while running on the modern Amazon Linux 2023 operating system.
 
 You can now also include an optional install script when creating a Realtime fleet, allowing the installation of software during instance startup for your specific requirements. To use the new runtime version, specify Node.js 24.x when creating Realtime scripts.
 
@@ -1613,7 +1625,7 @@ This general availability release includes the following updates to the Amazon G
 FleetIQ solution:
 
 - New API operation `DescribeGameServerInstances` returns
-  information, including status, on all active instances for a Amazon GameLift Servers FleetIQ
+  information, including status, on all active instances for an Amazon GameLift Servers FleetIQ
   game server group.
 - New balancing strategy, `ON_DEMAND_ONLY`, configures a game
   server group to use On-Demand Instances only. You can update a game

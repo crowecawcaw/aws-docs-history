@@ -14,7 +14,7 @@ You can use Amazon GameLift Servers scaling features to change capacity manually
 based on player demand:
 
 - Set up automatic scaling with target tracking. See [Target-based auto scaling](fleets-autoscaling-target.md "fleets-autoscaling-target.md").
-- Manually change the capacity of your fleet. See [Manually set capacity for a Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md").
+- Manually change the capacity of your fleet. See [Manually set capacity for an Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md").
   When scaling a container fleet, consider how adding or removing instances impacts the
   fleet's capacity to host game sessions and players.
 

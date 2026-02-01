@@ -200,7 +200,7 @@ configures three fleets. It creates the following resources:
   for Spot unavailability.
 - An On-Demand fleet that acts as a backup for the other Spot fleets. For more
   information on designing your fleets, see [Hosting resource customizations](fleets-design.md "fleets-design.md").
-- A Amazon GameLift Servers queue to keep server availability high and cost low. For more
+- An Amazon GameLift Servers queue to keep server availability high and cost low. For more
   information and best practices about queues, see [Customize a game session queue](queues-design.md "queues-design.md").
 
 ###### FlexMatch
@@ -456,7 +456,7 @@ Run the sample game you imported using Amazon GameLift Servers Local.
    name. For example,
    `C:/MyGame/GameServer/MyGameServer.exe`.
 4. Choose **Deploy and Run**. The plugin for Unity launches the
-   game server and opens a Amazon GameLift Servers Local log window. The windows contains log
+   game server and opens an Amazon GameLift Servers Local log window. The windows contains log
    messages including messages sent between the game server and Amazon GameLift Servers Local.
 5. Launch the game client. Find the build location with the sample game
    client and choose the executable file .

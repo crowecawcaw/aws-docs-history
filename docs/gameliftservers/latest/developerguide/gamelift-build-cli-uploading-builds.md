@@ -1,4 +1,4 @@
-# Create a Amazon GameLift Servers build resource for
+# Create an Amazon GameLift Servers build resource for
 
 managed hosting
 

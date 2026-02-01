@@ -49,7 +49,7 @@ usage patterns. If you have pricing-related questions, reach out to your
 ###### Fleet capacity scaling
 
 - **Scale to zero** – When fleets are not in
-  use, manually set fleet capacity to zero to avoid unnecessary charges. See [Manually set capacity for a Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md").
+  use, manually set fleet capacity to zero to avoid unnecessary charges. See [Manually set capacity for an Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md").
 - **Add auto scaling** – Avoid
   over-provisioning hosting resources by using auto scaling to adjust game hosting
   capacity. Match capacity to fluctuating player demand and other key metrics. See

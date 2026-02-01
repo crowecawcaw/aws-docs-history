@@ -11,7 +11,7 @@ build files directly from Amazon S3.
 1. **Store your build files in Amazon S3.** Create a
    .zip file containing the packaged build files and upload it to an S3 bucket
    in your AWS account. Take note of the bucket label and the file name,
-   you'll need these when creating a Amazon GameLift Servers build.
+   you'll need these when creating an Amazon GameLift Servers build.
 2. **Give Amazon GameLift Servers access to your build files.**
    Create an IAM role by following the instructions in [Access a
    game build file in Amazon S3](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc"). After you've created the role, take note of the new role's Amazon

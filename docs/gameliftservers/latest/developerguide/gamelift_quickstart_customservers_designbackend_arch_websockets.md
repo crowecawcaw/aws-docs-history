@@ -25,7 +25,7 @@ list provides a description for each numbered callout in the diagram.
 5. A Lambda function receives the message and then requests a match through Amazon GameLift Servers
    FlexMatch matchmaking.
 6. After FlexMatch matches a group of players, FlexMatch requests a game session
-   placement through a Amazon GameLift Servers queue.
+   placement through an Amazon GameLift Servers queue.
 7. After Amazon GameLift Servers places the session on one of the fleet's locations, Amazon GameLift Servers sends an
    event notification to an Amazon Simple Notification Service (Amazon SNS) topic.
 8. A Lambda function receives the Amazon SNS event and processes it.

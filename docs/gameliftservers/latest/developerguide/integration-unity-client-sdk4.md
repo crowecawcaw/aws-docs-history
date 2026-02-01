@@ -64,7 +64,7 @@ other Amazon GameLift Servers functions.
 2. Generate a unique player id for each player to connect to a game session. For
    more information see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md").
 
-The following examples shows how to set up a Amazon GameLift Servers client.
+The following examples shows how to set up an Amazon GameLift Servers client.
 
 ```
 public class GameLiftClient

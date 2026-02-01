@@ -103,7 +103,7 @@ The process of locating available game servers to host new game sessions. Uses r
 
 **Game session protection**
 
-A setting that prevents Amazon GameLift Servers from terminating game server processes that are hosting active game sessions during scaling events or fleet updates. Ensures ongoing games are not interrupted. See [Manually set capacity for a Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md").
+A setting that prevents Amazon GameLift Servers from terminating game server processes that are hosting active game sessions during scaling events or fleet updates. Ensures ongoing games are not interrupted. See [Manually set capacity for an Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md").
 
 **Game session queue**
 

@@ -73,7 +73,7 @@ structure:
   stack should include the S3 bucket where you store your custom game server
   or Realtime script files. The stack should also include an IAM role that
   gives Amazon GameLift Servers permission to retrieve your files from the S3 bucket when
-  creating a Amazon GameLift Servers build or script resource. This stack might also contain
+  creating an Amazon GameLift Servers build or script resource. This stack might also contain
   other AWS resources that are used with your game, such as DynamoDB tables,
   Amazon Redshift clusters, and Lambda functions.
 - **Amazon GameLift Servers stack** – This stack contains
@@ -96,7 +96,7 @@ multiple regions
 
 When deploying your game in more than one Region, keep in mind how resources can
 interact across Regions. Some resources, such as Amazon GameLift Servers fleets, can only reference
-other resources in the same Region. Other resources, such as a Amazon GameLift Servers queue, are
+other resources in the same Region. Other resources, such as an Amazon GameLift Servers queue, are
 Region agnostic. To manage Amazon GameLift Servers resources in multiple Regions, we recommend the
 following structure.
 

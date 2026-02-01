@@ -20,7 +20,7 @@ description for each numbered callout in the diagram. To try out this example, s
    function provides the Amazon Cognito identity in the request context data.
 5. The Lambda function requests a match through Amazon GameLift Servers FlexMatch matchmaking.
 6. FlexMatch matches a group of players with suitable latency, and then requests a
-   game session placement through a Amazon GameLift Servers queue. The queue has fleets with one or
+   game session placement through an Amazon GameLift Servers queue. The queue has fleets with one or
    more AWS Region locations in it.
 7. After Amazon GameLift Servers places the session on one of the fleet's locations, Amazon GameLift Servers sends an
    event notification to an Amazon Simple Notification Service (Amazon SNS) topic.

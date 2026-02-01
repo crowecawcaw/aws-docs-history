@@ -5,7 +5,7 @@ destinations tell Amazon GameLift Servers where to look for available resources 
 players. Aliases are useful in the following scenarios:
 
 - If your game doesn't use multi-fleet queues for game session placement, it
-  requests new game sessions by specifying a Amazon GameLift Servers fleet ID. During the life of a
+  requests new game sessions by specifying an Amazon GameLift Servers fleet ID. During the life of a
   game, you'll replace the fleet multiple times, to update a server build, update
   hosting hardware and operating system, or resolve performance issues. Use an alias
   to abstract the fleet ID so that you can seamlessly switch player traffic from an

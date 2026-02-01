@@ -38,7 +38,7 @@ and launching on hosting resources.
 - [CreateBuild](../../../gamelift/latest/apireference/API_CreateBuild.md "../../../gamelift/latest/apireference/API_CreateBuild.md") –
   Create a new build using files stored in an Amazon S3 bucket.
 - [ListBuilds](../../../gamelift/latest/apireference/API_ListBuilds.md "../../../gamelift/latest/apireference/API_ListBuilds.md") –
-  Get a list of all builds uploaded to a Amazon GameLift Servers region.
+  Get a list of all builds uploaded to an Amazon GameLift Servers region.
 - [DescribeBuild](../../../gamelift/latest/apireference/API_DescribeBuild.md "../../../gamelift/latest/apireference/API_DescribeBuild.md")
   – Retrieve information associated with a build.
 - [UpdateBuild](../../../gamelift/latest/apireference/API_UpdateBuild.md "../../../gamelift/latest/apireference/API_UpdateBuild.md") –
@@ -52,7 +52,7 @@ and launching on hosting resources.
   – Upload JavaScript files and create a new Amazon GameLift Servers script
   resource.
 - [ListScripts](../../../gamelift/latest/apireference/API_ListScripts.md "../../../gamelift/latest/apireference/API_ListScripts.md") –
-  Get a list of all Realtime scripts uploaded to a Amazon GameLift Servers region.
+  Get a list of all Realtime scripts uploaded to an Amazon GameLift Servers region.
 - [DescribeScript](../../../gamelift/latest/apireference/API_DescribeScript.md "../../../gamelift/latest/apireference/API_DescribeScript.md")
   – Retrieve information associated with a Realtime script.
 - [UpdateScript](../../../gamelift/latest/apireference/API_UpdateScript.md "../../../gamelift/latest/apireference/API_UpdateScript.md")
@@ -74,7 +74,7 @@ Realtime configuration script.
   game servers. Once deployed, game servers are automatically launched as
   configured and ready to host game sessions.
 - [ListFleets](../../../gamelift/latest/apireference/API_ListFleets.md "../../../gamelift/latest/apireference/API_ListFleets.md") –
-  Get a list of all fleets in a Amazon GameLift Servers region.
+  Get a list of all fleets in an Amazon GameLift Servers region.
 - [DeleteFleet](../../../gamelift/latest/apireference/API_DeleteFleet.md "../../../gamelift/latest/apireference/API_DeleteFleet.md") –
   Remove a fleet that's no longer running game servers or hosting
   players.
@@ -144,7 +144,7 @@ available hosting resources for cost, latency, and resiliency.
 - [CreateGameSessionQueue](../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md "../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md") – Create a queue for use when
   processing requests for game session placements.
 - [DescribeGameSessionQueues](../../../gamelift/latest/apireference/API_DescribeGameSessionQueues.md "../../../gamelift/latest/apireference/API_DescribeGameSessionQueues.md") – Retrieve game session queues
-  defined in a Amazon GameLift Servers region.
+  defined in an Amazon GameLift Servers region.
 - [UpdateGameSessionQueue](../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md "../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md") – Change the configuration of a
   game session queue.
 - [DeleteGameSessionQueue](../../../gamelift/latest/apireference/API_DeleteGameSessionQueue.md "../../../gamelift/latest/apireference/API_DeleteGameSessionQueue.md") – Remove a game session queue
@@ -159,7 +159,7 @@ as during game server build updates.
 - [CreateAlias](../../../gamelift/latest/apireference/API_CreateAlias.md "../../../gamelift/latest/apireference/API_CreateAlias.md") –
   Define a new alias and optionally assign it to a fleet.
 - [ListAliases](../../../gamelift/latest/apireference/API_ListAliases.md "../../../gamelift/latest/apireference/API_ListAliases.md") –
-  Get all fleet aliases defined in a Amazon GameLift Servers region.
+  Get all fleet aliases defined in an Amazon GameLift Servers region.
 - [DescribeAlias](../../../gamelift/latest/apireference/API_DescribeAlias.md "../../../gamelift/latest/apireference/API_DescribeAlias.md")
   – Retrieve information on an existing alias.
 - [UpdateAlias](../../../gamelift/latest/apireference/API_UpdateAlias.md "../../../gamelift/latest/apireference/API_UpdateAlias.md") –
@@ -194,11 +194,11 @@ other AWS resources.
 - [DeleteVpcPeeringAuthorization](../../../gamelift/latest/apireference/API_DeleteVpcPeeringAuthorization.md "../../../gamelift/latest/apireference/API_DeleteVpcPeeringAuthorization.md") – Delete a peering
   connection authorization.
 - [CreateVpcPeeringConnection](../../../gamelift/latest/apireference/API_CreateVpcPeeringConnection.md "../../../gamelift/latest/apireference/API_CreateVpcPeeringConnection.md") – Establish a peering
-  connection between the VPC for a Amazon GameLift Servers fleet and one of your VPCs.
+  connection between the VPC for an Amazon GameLift Servers fleet and one of your VPCs.
 - [DescribeVpcPeeringConnections](../../../gamelift/latest/apireference/API_DescribeVpcPeeringConnections.md "../../../gamelift/latest/apireference/API_DescribeVpcPeeringConnections.md") – Retrieve information on
-  active or pending VPC peering connections with a Amazon GameLift Servers fleet.
+  active or pending VPC peering connections with an Amazon GameLift Servers fleet.
 - [DeleteVpcPeeringConnection](../../../gamelift/latest/apireference/API_DeleteVpcPeeringConnection.md "../../../gamelift/latest/apireference/API_DeleteVpcPeeringConnection.md") – Delete a VPC peering
-  connection with a Amazon GameLift Servers fleet.
+  connection with an Amazon GameLift Servers fleet.
 
 ## Start game sessions and join players
 

@@ -27,5 +27,5 @@ activity back to the service.
 - [Package your game build files](gamelift-build-packaging.md "gamelift-build-packaging.md")
 - [Add a build install
   script](gamelift-build-cli-uploading-install.md "gamelift-build-cli-uploading-install.md")
-- [Create a Amazon GameLift Servers build resource for
+- [Create an Amazon GameLift Servers build resource for
   managed hosting](gamelift-build-cli-uploading-builds.md "gamelift-build-cli-uploading-builds.md")

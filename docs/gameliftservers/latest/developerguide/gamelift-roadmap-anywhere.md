@@ -59,7 +59,7 @@ service when it's deployed for hosting.
 
 - **Get the server SDK for Amazon GameLift Servers (version
   5.x) for your game project.** The server SDK is
-  available in C++, C#, and Go. [Download a Amazon GameLift Servers server
+  available in C++, C#, and Go. [Download an Amazon GameLift Servers server
   SDK](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/").
 - **Modify your game server code to add server SDK
   functionality.** For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the following:

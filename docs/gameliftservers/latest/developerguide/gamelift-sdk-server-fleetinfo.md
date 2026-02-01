@@ -16,7 +16,7 @@ to:
 
 - Windows: `C:\GameMetadata\gamelift-metadata.json`
 - Linux: `/local/gamemetadata/gamelift-metadata.json`
-  The `gamelift-metadata.json` file includes the [attributes of a Amazon GameLift Servers fleet
+  The `gamelift-metadata.json` file includes the [attributes of an Amazon GameLift Servers fleet
   resource](../../../gamelift/latest/apireference/API_FleetAttributes.md "../../../gamelift/latest/apireference/API_FleetAttributes.md").
 
 Example JSON file:

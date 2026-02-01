@@ -96,7 +96,7 @@ Instances.
 - **Instance type**
 
 Amazon GameLift Servers fleets can use a range of Amazon EC2 instance types that vary in computing power,
-memory, storage, and networking capabilities. When you configure a Amazon GameLift Servers fleet, choose an
+memory, storage, and networking capabilities. When you configure an Amazon GameLift Servers fleet, choose an
 instance type that best fits your game's needs. For information about selecting an instance
 type with Amazon GameLift Servers, see [Choose compute resources for a managed fleet](gamelift-compute.md "gamelift-compute.md").
 
