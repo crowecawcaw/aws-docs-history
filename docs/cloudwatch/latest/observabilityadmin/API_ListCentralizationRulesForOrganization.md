@@ -159,7 +159,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md "../../../goto/cli2/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md "../../../goto/DotNetSDKV3/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md "../../../goto/DotNetSDKV4/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md "../../../goto/SdkForCpp/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md "../../../goto/SdkForGoV2/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md "../../../goto/SdkForJavaV2/observabilityadmin-2018-05-10/ListCentralizationRulesForOrganization.md")
