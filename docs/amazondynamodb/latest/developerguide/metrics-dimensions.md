@@ -45,6 +45,7 @@ Amazon CloudWatch aggregates these metrics at one-minute intervals:
 - `WriteMaxOnDemandThroughputThrottleEvents`
 - `WriteProvisionedThroughputThrottleEvents`
 - `WriteThrottleEvents`
+- `FaultInjectionServiceInducedErrors`
   For all other DynamoDB metrics, the aggregation granularity is five
   minutes.
 
@@ -102,6 +103,7 @@ applicable to that metric.
 - [WriteProvisionedThroughputThrottleEvents](#WriteProvisionedThroughputThrottleEvents "#WriteProvisionedThroughputThrottleEvents")
 - [WriteThrottleEvents](#WriteThrottleEvents "#WriteThrottleEvents")
 - [Usage metrics](#w2aac41c15c13b7c11 "#w2aac41c15c13b7c11")
+- [FaultInjectionServiceInducedErrors](#FaultInjectionServiceInducedErrors "#FaultInjectionServiceInducedErrors")
 
 ### AccountMaxReads
 
@@ -323,7 +325,11 @@ The `TableName` dimension returns the
 `ConsumedWriteCapacityUnits` for the table, but not for any
 global secondary indexes. To view `ConsumedWriteCapacityUnits` for a
 global secondary index, you must specify both `TableName` and
-`GlobalSecondaryIndexName`.
+`GlobalSecondaryIndexName`. The `Source` dimension can
+return either of two values: `Customer` and `GlobalTable`.
+Replicated writes will have `ConsumedWriteCapacityUnits` with the source
+`GlobalTable`, but regional table writes will have
+`ConsumedWriteCapacityUnits` with the source `Customer`.
 
 ###### Note
 
@@ -337,7 +343,7 @@ the provisioned throughput value that you provide DynamoDB.
 
 Units: `Count`
 
-Dimensions: `TableName, GlobalSecondaryIndexName`
+Dimensions: `TableName, GlobalSecondaryIndexName, Source`
 
 Valid Statistics:
 
@@ -1219,6 +1225,20 @@ Valid Statistics:
 - `Maximum` – The highest number of tables during a time
   period.
 - `Average` - The average number tables during a time period.
+
+### FaultInjectionServiceInducedErrors
+
+The requests to DynamoDB that generate a simulated HTTP 500 status code during the specified
+time period and during the catchup as a result of AWS FIS experiment.
+
+Units: `Count`
+
+Dimensions: `TableName`, `Operation`
+
+Valid Statistics:
+
+- `Sum`
+- `SampleCount`
 
 ## Understanding metrics and
 

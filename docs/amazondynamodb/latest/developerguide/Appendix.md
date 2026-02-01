@@ -1,11 +1,15 @@
-# AWS SDK for Java 1.x examples
-
-This section contains example code for DAX applications using SDK for Java 1.x.
+# DynamoDB Appendix
 
 ###### Topics
 
-- [Using DAX with AWS SDK for Java 1.x](DAX.client.md "DAX.client.md")
-- [Modifying an existing SDK for Java 1.x
-  application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md")
-- [Querying global secondary indexes with SDK for Java
-  1.x](DAX.client.QueryGSI.md "DAX.client.QueryGSI.md")
+- [Troubleshooting SSL/TLS connection
+  establishment issues with DynamoDB](ats-certs.md "ats-certs.md")
+- [Example tables and data for use in DynamoDB](AppendixSampleTables.md "AppendixSampleTables.md")
+- [Creating example tables and
+  uploading data in DynamoDB](AppendixSampleDataCode.md "AppendixSampleDataCode.md")
+- [DynamoDB example application using the AWS SDK for Python (Boto):
+  Tic-tac-toe](TicTacToe.md "TicTacToe.md")
+- [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md")
+- [AWS SDK for Java 1.x examples](Appendix.md "Appendix.md")
+- [AWS SDK for Go 1.x examples](Appendix.md "Appendix.md")
+- [AWS SDK for Node.js 2.x examples](Appendix.md "Appendix.md")

@@ -1,267 +1,56 @@
-# Change data capture for DynamoDB Streams
+# DynamoDB Streams and AWS Lambda triggers
 
-DynamoDB Streams captures a time-ordered sequence of item-level modifications in any DynamoDB table
-and stores this information in a log for up to 24 hours. Applications can access this
-log and view the data items as they appeared before and after they were modified, in
-near-real time.
-
-Encryption at rest encrypts the data in DynamoDB streams. For more information, see
-[DynamoDB encryption at rest](EncryptionAtRest.md "EncryptionAtRest.md").
-
-A _DynamoDB stream_ is an ordered flow of information about changes to
-items in a DynamoDB table. When you enable a stream on a table, DynamoDB captures information
-about every modification to data items in the table.
-
-Whenever an application creates, updates, or deletes items in the table, DynamoDB Streams writes a
-stream record with the primary key attributes of the items that were modified. A
-_stream record_ contains information about a data modification to
-a single item in a DynamoDB table. You can configure the stream so that the stream records
-capture additional information, such as the "before" and "after" images of modified
-items.
-
-DynamoDB Streams helps ensure the following:
-
-- Each stream record appears exactly once in the stream.
-- For each item that is modified in a DynamoDB table, the stream records appear in
-  the same sequence as the actual modifications to the item.
-  DynamoDB Streams writes stream records in near-real time so that you can build applications that
-  consume these streams and take action based on the contents.
+Amazon DynamoDB is integrated with AWS Lambda so that you can create
+_triggers_—pieces of code that automatically respond to events
+in DynamoDB Streams. With triggers, you can build applications that react to data modifications in DynamoDB
+tables.
 
 ###### Topics
 
-- [Endpoints for DynamoDB Streams](#Streams.Endpoints "#Streams.Endpoints")
-- [Enabling a stream](#Streams.Enabling "#Streams.Enabling")
-- [Reading and processing a stream](#Streams.Processing "#Streams.Processing")
-- [DynamoDB Streams and Time to Live](time-to-live-ttl-streams.md "time-to-live-ttl-streams.md")
-- [Using the DynamoDB Streams Kinesis adapter to process stream
-  records](Streams.md "Streams.md")
-- [DynamoDB Streams low-level API: Java example](Streams.LowLevel.md "Streams.LowLevel.md")
-- [DynamoDB Streams and AWS Lambda triggers](Streams.md "Streams.md")
-- [DynamoDB Streams and Apache Flink](StreamsApacheFlink.md "StreamsApacheFlink.md")
-
-## Endpoints for DynamoDB Streams
-
-AWS maintains separate endpoints for DynamoDB and DynamoDB Streams. To work with database
-tables and indexes, your application must access a DynamoDB endpoint. To read and
-process DynamoDB Streams records, your application must access a DynamoDB Streams endpoint in the same
-Region.
-
-DynamoDB Streams offers two sets of endpoints. They are:
-
-- **IPv4-only endpoints**: Endpoints with the
-  `streams.dynamodb.`<region>`.amazonaws.com`
-  naming convention.
-- **Dual-stack endpoints**: New endpoints that
-  are compatible with both IPv4 and IPv6 and follows the
-  `streams-dynamodb.`<region>`.api.aws`
-  naming convention.
+- [Tutorial #1: Using filters to process all
+  events with Amazon DynamoDB and AWS Lambda using the AWS CLI](Streams.Lambda.md "Streams.Lambda.md")
+- [Tutorial #2: Using filters to process some
+  events with DynamoDB and Lambda](Streams.Lambda.md "Streams.Lambda.md")
+- [Best practices using DynamoDB Streams with
+  Lambda](Streams.Lambda.md "Streams.Lambda.md")
+  If you enable DynamoDB Streams on a table, you can associate the stream Amazon Resource Name (ARN)
+  with an AWS Lambda function that you write. All mutation actions to that DynamoDB table can then
+  be captured as an item on the stream. For example, you can set a trigger so that when an
+  item in a table is modified a new record immediately appears in that table's stream.
 
 ###### Note
 
-For a complete list of DynamoDB and DynamoDB Streams Regions and endpoints, see [Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the
-_AWS General Reference_.
+If you subscribe more than two Lambda functions to one DynamoDB stream, read throttling might occur.
 
-The AWS SDKs provide separate clients for DynamoDB and DynamoDB Streams. Depending on your
-requirements, your application can access a DynamoDB endpoint, a DynamoDB Streams endpoint, or both
-at the same time. To connect to both endpoints, your application must instantiate
-two clients—one for DynamoDB and one for DynamoDB Streams.
+The [AWS Lambda](../../../lambda/latest/dg/with-ddb.md "../../../lambda/latest/dg/with-ddb.md")
+service polls the stream for new records four times per second. When new stream records are
+available, your Lambda function is synchronously invoked. You can subscribe up to two Lambda
+functions to the same DynamoDB stream. If you subscribe more than two Lambda functions to the same DynamoDB stream, read throttling might occur.
 
-## Enabling a stream
+The Lambda function can send a notification, initiate a workflow, or perform many other
+actions that you specify. You can write a Lambda function to simply copy each stream record
+to persistent storage, such as Amazon S3 File Gateway (Amazon S3), and create a permanent audit trail of
+write activity in your table. Or suppose that you have a mobile gaming app that writes to a
+`GameScores` table. Whenever the `TopScore` attribute of the
+`GameScores` table is updated, a corresponding stream record is written to
+the table's stream. This event could then trigger a Lambda function that posts a
+congratulatory message on a social media network. This function could also be written to
+ignore any stream records that are not updates to `GameScores`, or that do not
+modify the `TopScore` attribute.
 
-You can enable a stream on a new table when you create it using the AWS CLI or one
-of the AWS SDKs. You can also enable or disable a stream on an existing table, or
-change the settings of a stream. DynamoDB Streams operates asynchronously, so there is no
-performance impact on a table if you enable a stream.
+If your function returns an error, Lambda retries the batch until it processes successfully
+or the data expires. You can also configure Lambda to retry with a smaller batch, limit the
+number of retries, discard records once they become too old, and other options.
 
-The easiest way to manage DynamoDB Streams is by using the AWS Management Console.
+As performance best practices, the Lambda function needs to be short lived. To avoid
+introducing unnecessary processing delays, it also should not execute complex logic. For a
+high velocity stream in particular, it is better to trigger an asynchronous post-processing
+step function workflows than synchronous long running Lambdas.
 
-1.  Sign in to the AWS Management Console and open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  On the DynamoDB console dashboard, choose **Tables** and
-    select an existing table.
-3.  Choose the **Exports and streams** tab.
-4.  In the **DynamoDB stream details** section, choose **Turn on**.
-5.  On the **Turn on DynamoDB stream** page, choose the
-    information that will be written to the stream whenever the data in the
-    table is modified:
+You can use Lambda triggers across different AWS accounts by configuring a resource-based
+policy on the DynamoDB stream to grant the cross-account read access to Lambda function. To
+learn more about how to configure your stream to allow cross-account access, see
+[Share access with cross-account AWS Lambda functions](rbac-cross-account-access.md#shared-access-cross-acount-lambda "rbac-cross-account-access.md#shared-access-cross-acount-lambda")
+in the DynamoDB Developer Guide.
 
-        * **Key attributes only** — Only the key
-         attributes of the modified item.
-        * **New image** — The entire item, as it
-         appears after it was modified.
-        * **Old image** — The entire item, as it
-         appeared before it was modified.
-        * **New and old images** — Both the new and
-         the old images of the item.
-
-    When the settings are as you want them, choose **Turn on
-    stream**.
-
-6.  (Optional) To disable an existing stream, choose
-    **Turn off** under **DynamoDB stream
-    details**.
-
-You can also use the `CreateTable` or `UpdateTable` API
-operations to enable or modify a stream. The `StreamSpecification`
-parameter determines how the stream is configured:
-
-- `StreamEnabled` — Specifies whether a stream is enabled
-  (`true`) or disabled (`false`) for the
-  table.
-- `StreamViewType` — Specifies the information that will be
-  written to the stream whenever data in the table is modified:
-  - `KEYS_ONLY` — Only the key attributes of the
-    modified item.
-  - `NEW_IMAGE` — The entire item, as it appears
-    after it was modified.
-  - `OLD_IMAGE` — The entire item, as it appeared
-    before it was modified.
-  - `NEW_AND_OLD_IMAGES` — Both the new and the old
-    images of the item.
-
-You can enable or disable a stream at any time. However, you receive a `ValidationException` if you try to enable a stream on a table that already has a stream. You also receive a `ValidationException` if you try to disable a stream on a table that doesn't have a stream.
-
-When you set `StreamEnabled` to `true`, DynamoDB creates a new
-stream with a unique stream descriptor assigned to it. If you disable and then
-re-enable a stream on the table, a new stream is created with a different stream
-descriptor.
-
-Every stream is uniquely identified by an Amazon Resource Name (ARN). The
-following is an example ARN for a stream on a DynamoDB table named
-`TestTable`.
-
-```
-arn:aws:dynamodb:us-west-2:111122223333:table/TestTable/stream/2015-05-11T21:21:33.291
-```
-
-To determine the latest stream descriptor for a table, issue a DynamoDB
-`DescribeTable` request and look for the `LatestStreamArn`
-element in the response.
-
-###### Note
-
-It is not possible to edit a `StreamViewType` once a stream has
-been setup. If you need to make changes to a stream after it has been setup, you
-must disable the current stream and create a new one.
-
-## Reading and processing a stream
-
-To read and process a stream, your application must connect to a DynamoDB Streams endpoint and
-issue API requests.
-
-A stream consists of _stream records_. Each stream record
-represents a single data modification in the DynamoDB table to which the stream
-belongs. Each stream record is assigned a sequence number, reflecting the order in
-which the record was published to the stream.
-
-Stream records are organized into groups, or _shards_. Each
-shard acts as a container for multiple stream records, and contains information
-required for accessing and iterating through these records. The stream records
-within a shard are removed automatically after 24 hours.
-
-Shards are ephemeral: They are created and deleted automatically, as needed. Any
-shard can also split into multiple new shards; this also occurs automatically. (It's
-also possible for a parent shard to have just one child shard.) A shard might split
-in response to high levels of write activity on its parent table, so that
-applications can process records from multiple shards in parallel.
-
-If you disable a stream, any shards that are open will be closed. The data in the
-stream will continue to be readable for 24 hours.
-
-Because shards have a lineage (parent and children), an application must always
-process a parent shard before it processes a child shard. This helps ensure that the
-stream records are also processed in the correct order. (If you use the DynamoDB Streams Kinesis
-Adapter, this is handled for you. Your application processes the shards and stream
-records in the correct order. It automatically handles new or expired shards, in
-addition to shards that split while the application is running. For more
-information, see [Using the DynamoDB Streams Kinesis adapter to process stream
-records](Streams.md "Streams.md").)
-
-The following diagram shows the relationship between a stream, shards in the
-stream, and stream records in the shards.
-
-![DynamoDB Streams structure. Stream records that represent data modifications are organized into shards.](images/streams-terminology.png)
-
-###### Note
-
-If you perform a `PutItem` or `UpdateItem` operation
-that does not change any data in an item, DynamoDB Streams does _not_
-write a stream record for that operation.
-
-To access a stream and process the stream records within, you must do the
-following:
-
-- Determine the unique ARN of the stream that you want to access.
-- Determine which shards in the stream contain the stream records that you
-  are interested in.
-- Access the shards and retrieve the stream records that you want.
-
-###### Note
-
-No more than two processes at most should be reading from the same stream's
-shard at the same time. Having more than two readers per shard can result in
-throttling.
-
-The DynamoDB Streams API provides the following actions for use by application
-programs:
-
-- `ListStreams` — Returns a list of stream descriptors
-  for the current account and endpoint. You can optionally request just the
-  stream descriptors for a particular table name.
-- `DescribeStream` — Returns information about a
-  stream, including the current status of the stream, its Amazon Resource Name
-  (ARN), the composition of its shards, and its corresponding DynamoDB table. You
-  can optionally use the `ShardFilter` field to retrieve the
-  existing child shard associated with the parent shard.
-- `GetShardIterator` — Returns a _shard
-  iterator_, which describes a location within a shard. You can
-  request that the iterator provide access to the oldest point, the newest
-  point, or a particular point in the stream.
-- `GetRecords` — Returns the stream records from
-  within a given shard. You must provide the shard iterator returned from a
-  `GetShardIterator` request.
-
-For complete descriptions of these API operations, including example requests and
-responses, see the [Amazon DynamoDB Streams API Reference](../APIReference/API_Operations_Amazon_DynamoDB_Streams.md "../APIReference/API_Operations_Amazon_DynamoDB_Streams.md").
-
-### Shard discovery
-
-Discover new shards in your DynamoDB stream with two powerful methods.
-As a Amazon DynamoDB Streams user, you have two effective ways to track and identify new shards:
-
-**Polling the entire stream topology**
-Use the `DescribeStream` API to regularly poll the stream. This returns all shards
-in the stream, including any new shards that have been created. By
-comparing results over time, you can detect newly added
-shards.
-
-**Discovering child shards**
-Use the `DescribeStream` API with the `ShardFilter` parameter to find a
-subset of shards. By specifying a parent shard in the request,
-DynamoDB Streams will return its immediate child shards. This
-approach is useful when you only need to track shard lineage without
-scanning the entire stream.
-
-Applications consuming data from DynamoDB Streams can efficiently
-transition from reading a closed shard to its child shard using this
-`ShardFilter` parameter, avoiding repeated calls to
-the `DescribeStream` API to retrieve and traverse the
-shard map for all closed and open shards. This helps to quickly
-discover child shards after a parent shard has been closed, making
-your stream processing applications more responsive and
-cost-effective.
-
-Both methods empower you to stay on top of your DynamoDB Streams' evolving structure, ensuring you never
-miss critical data updates or shard modifications.
-
-### Data retention limit for DynamoDB Streams
-
-All data in DynamoDB Streams is subject to a 24-hour lifetime. You can retrieve and
-analyze the last 24 hours of activity for any given table. However, data that is
-older than 24 hours is susceptible to trimming (removal) at any moment.
-
-If you disable a stream on a table, the data in the stream continues to be
-readable for 24 hours. After this time, the data expires and the stream records
-are automatically deleted. There is no mechanism for manually deleting an
-existing stream. You must wait until the retention limit expires (24 hours), and
-all the stream records will be deleted.
+For more information about AWS Lambda, see the [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md").

@@ -1,145 +1,103 @@
-# Key condition expressions for the Query
+# Other aspects of working with the Query operation in
 
-operation in DynamoDB
+DynamoDB
 
-You can use any attribute name in a key condition expression, provided that the first
-character is `a-z` or `A-Z` and the rest of the characters
-(starting from the second character, if present) are `a-z`, `A-Z`,
-or `0-9`. In addition, the attribute name must not be a DynamoDB reserved word.
-(For a complete list of these, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").) If an attribute name does not meet these
-requirements, you must define an expression attribute name as a placeholder. For more
-information, see [Expression attribute names (aliases)
-in DynamoDB](Expressions.md "Expressions.md").
+This section covers additional aspects of the DynamoDB Query operation, including
+limiting result size, counting scanned vs. returned items, monitoring read capacity
+consumption, and controlling read consistency.
 
-For items with a given partition key value, DynamoDB stores these items close together,
-in sorted order by sort key value. In a `Query` operation, DynamoDB retrieves
-the items in sorted order, and then processes the items using
-`KeyConditionExpression` and any `FilterExpression` that might
-be present. Only then are the `Query` results sent back to the client.
+## Limiting the number of items in the result set
 
-A `Query` operation always returns a result set. If no matching items are
-found, the result set is empty.
+With the `Query` operation, you can limit the number of items that it
+reads. To do this, set the `Limit` parameter to the maximum number of
+items that you want.
 
-`Query` results are always sorted by the sort key value. If the data type
-of the sort key is `Number`, the results are returned in numeric order.
-Otherwise, the results are returned in order of UTF-8 bytes. By default, the sort order
-is ascending. To reverse the order, set the `ScanIndexForward` parameter to
-`false`.
+For example, suppose that you `Query` a table, with a
+`Limit` value of `6`, and without a filter expression. The
+`Query` result contains the first six items from the table that match
+the key condition expression from the request.
 
-A single `Query` operation can retrieve a maximum of 1 MB of
-data. This limit applies before any `FilterExpression` or
-`ProjectionExpression` is applied to the results. If
-`LastEvaluatedKey` is present in the response and is non-null, you must
-paginate the result set (see [Paginating table query results in DynamoDB](Query.md "Query.md")).
+Now suppose that you add a filter expression to the `Query`. In this
+case, DynamoDB reads up to six items, and then returns only those that match the filter
+expression. The final `Query` result contains six items or fewer, even if
+more items would have matched the filter expression if DynamoDB had kept reading more
+items.
 
-## Key condition expression
+## Counting the items in the results
 
-examples
+In addition to the items that match your criteria, the `Query` response
+contains the following elements:
 
-To specify the search criteria, you use a _key condition
-expression_—a string that determines the items to be read from
-the table or index.
+- `ScannedCount` — The number of items that matched the key
+  condition expression _before_ a filter
+  expression (if present) was applied.
+- `Count` — The number of items that remain _after_ a filter expression (if present) was
+  applied.
 
-You must specify the partition key name and value as an equality condition. You
-cannot use a non-key attribute in a key condition expression.
+###### Note
 
-You can optionally provide a second condition for the sort key (if present). The
-sort key condition must use one of the following comparison operators:
+If you don't use a filter expression, `ScannedCount` and
+`Count` have the same value.
 
-- ``a` = `b``
-  — true if the attribute `a` is equal to the
-  value `b`
-- ``a` <
-`b`` — true if
-  `a` is less than
-  `b`
-- ``a` <=
-`b`` — true if
-  `a` is less than or equal to
-  `b`
-- ``a` >
-`b`` — true if
-  `a` is greater than
-  `b`
-- ``a` >=
-`b`` — true if
-  `a` is greater than or equal to
-  `b`
-- ``a` BETWEEN `b`
-AND `c`` — true if
-  `a` is greater than or equal to
-  `b`, and less than or equal to
-  `c`.
+If the size of the `Query` result set is larger than
+1 MB, `ScannedCount` and `Count` represent only
+a partial count of the total items. You need to perform multiple `Query`
+operations to retrieve all the results (see [Paginating table query results in DynamoDB](Query.md "Query.md")).
 
-The following function is also supported:
+Each `Query` response contains the `ScannedCount` and
+`Count` for the items that were processed by that particular
+`Query` request. To obtain grand totals for all of the
+`Query` requests, you could keep a running tally of both
+`ScannedCount` and `Count`.
 
-- `begins_with (`a`,
-`substr`)`— true if the value
-  of attribute `a` begins with a
-  particular substring.
+## Capacity units consumed by query
 
-The following AWS Command Line Interface (AWS CLI) examples demonstrate the use of key condition
-expressions. These expressions use placeholders (such as `:name` and
-`:sub`) instead of actual values. For more information, see [Expression attribute names (aliases)
-in DynamoDB](Expressions.md "Expressions.md") and [Using expression attribute
-values in DynamoDB](Expressions.md "Expressions.md").
+You can `Query` any table or secondary index, as long as you provide the name of
+the partition key attribute and a single value for that attribute.
+`Query` returns all items with that partition key value. Optionally,
+you can provide a sort key attribute and use a comparison operator to refine the
+search results. `Query` API operations consume read capacity units, as
+follows.
 
-###### Example
+| If you `Query` a...    | DynamoDB consumes read capacity units from... |
+| ---------------------- | --------------------------------------------- |
+| Table                  | The table's provisioned read capacity.        |
+| Global secondary index | The index's provisioned read capacity.        |
+| Local secondary index  | The base table's provisioned read capacity.   |
 
-Query the `Thread` table for a particular `ForumName`
-(partition key). All of the items with that `ForumName` value are
-read by the query because the sort key (`Subject`) is not included in
-`KeyConditionExpression`.
+By default, a `Query` operation does not return any data on how much
+read capacity it consumes. However, you can specify the
+`ReturnConsumedCapacity` parameter in a `Query` request to
+obtain this information. The following are the valid settings for
+`ReturnConsumedCapacity`:
 
-```
-aws dynamodb query \
-    --table-name Thread \
-    --key-condition-expression "ForumName = :name" \
-    --expression-attribute-values  '{":name":{"S":"Amazon DynamoDB"}}'
-```
+- `NONE` — No consumed capacity data is returned. (This is
+  the default.)
+- `TOTAL` — The response includes the aggregate number of
+  read capacity units consumed.
+- `INDEXES` — The response shows the aggregate number of
+  read capacity units consumed, together with the consumed capacity for each
+  table and index that was accessed.
 
-###### Example
+DynamoDB calculates the number of read capacity units consumed based on the number of
+items and the size of those items, not on the amount of data that is returned to an
+application. For this reason, the number of capacity units consumed is the same
+whether you request all of the attributes (the default behavior) or just some of
+them (using a projection expression). The number is also the same whether or not you
+use a filter expression. `Query` consumes a minimum read capacity unit to
+perform one strongly consistent read per second, or two eventually consistent reads
+per second for an item up to 4 KB. If you need to read an item that is larger than 4
+KB, DynamoDB needs additional read request units. Empty tables and very large tables
+which have a sparse amount of partition keys might see some additional RCUs charged
+beyond the amount of data queried. This covers the cost of serving the
+`Query` request, even if no data exists.
 
-Query the `Thread` table for a particular `ForumName`
-(partition key), but this time return only the items with a given
-`Subject` (sort key).
+## Read consistency for query
 
-```
-aws dynamodb query \
-    --table-name Thread \
-    --key-condition-expression "ForumName = :name and Subject = :sub" \
-    --expression-attribute-values  file://values.json
-```
+A `Query` operation performs eventually consistent reads, by default.
+This means that the `Query` results might not reflect changes due to
+recently completed `PutItem` or `UpdateItem` operations. For
+more information, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
 
-The arguments for `--expression-attribute-values` are stored in the
-`values.json` file.
-
-```
-{
-    ":name":{"S":"Amazon DynamoDB"},
-    ":sub":{"S":"DynamoDB Thread 1"}
-}
-```
-
-###### Example
-
-Query the `Reply` table for a particular `Id` (partition
-key), but return only those items whose `ReplyDateTime` (sort key)
-begins with certain characters.
-
-```
-aws dynamodb query \
-    --table-name Reply \
-    --key-condition-expression "Id = :id and begins_with(ReplyDateTime, :dt)" \
-    --expression-attribute-values  file://values.json
-```
-
-The arguments for `--expression-attribute-values` are stored in the
-`values.json` file.
-
-```
-{
-    ":id":{"S":"Amazon DynamoDB#DynamoDB Thread 1"},
-    ":dt":{"S":"2015-09"}
-}
-```
+If you require strongly consistent reads, set the `ConsistentRead`
+parameter to `true` in the `Query` request.

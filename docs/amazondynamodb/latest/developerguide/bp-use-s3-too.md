@@ -1,6 +1,6 @@
 # Best practices for storing large items and attributes in DynamoDB
 
-Amazon DynamoDB limits the size of each item that you store in a table to 400 KB (see [Quotas in Amazon DynamoDB](ServiceQuotas.md "ServiceQuotas.md")). If your application needs to store
+Amazon DynamoDB limits the size of each item that you store in a table to 400 KB (see [Item size](Constraints.md#limits-items-size "Constraints.md#limits-items-size")). If your application needs to store
 more data in an item than the DynamoDB size limit permits, you can try compressing one or more
 large attributes or breaking the item into multiple items (efficiently indexed by sort keys).
 You can also store the item as an object in Amazon Simple Storage Service (Amazon S3) and store the Amazon S3 object identifier

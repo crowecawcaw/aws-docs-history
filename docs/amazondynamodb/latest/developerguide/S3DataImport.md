@@ -1,84 +1,56 @@
-# Best practices for importing from Amazon S3 into
+# DynamoDB data import from Amazon S3: how it works
 
-DynamoDB
+To import data into DynamoDB, your data must be in an Amazon S3 bucket in CSV, DynamoDB JSON, or
+Amazon Ion format. Data can be compressed in ZSTD or GZIP format, or can be directly
+imported in uncompressed form. Source data can either be a single Amazon S3 object or multiple
+Amazon S3 objects that use the same prefix.
 
-The following are the best practices for importing data from Amazon S3 into DynamoDB.
-
-## Stay under the limit of 50,000 S3
-
-objects
-
-Each import job supports a maximum of 50,000 S3 objects. If your dataset contains more
-than 50,000 objects, consider consolidating them into larger objects.
-
-## Avoid excessively large
-
-S3 objects
-
-S3 objects are imported in parallel. Having numerous mid-sized S3 objects allows for
-parallel execution without excessive overhead. For items under 1 KB, consider placing
-4,000,000 items into each S3 object. If you have a larger average item size, place
-proportionally fewer items into each S3 object.
-
-## Randomize sorted
-
-data
-
-If an S3 object holds data in sorted order, it can create a _rolling hot partition_. This is a situation where one partition receives
-all the activity, and then the next partition after that, and so on. Data in sorted
-order is defined as items in sequence in the S3 object that will be written to the same
-target partition during the import. One common situation where data is in sorted order
-is a CSV file where items are sorted by partition key so that repeated items share the
-same partition key.
-
-To avoid a rolling hot partition, we recommend that you randomize the order in these
-cases. This can improve performance by spreading the write operations. For more
-information, see [Distributing write activity efficiently during
-data upload in DynamoDB](bp-partition-key-data-upload.md "bp-partition-key-data-upload.md").
-
-## Compress data to keep the
-
-total S3 object size below the Regional limit
-
-In the [import from S3 process](S3DataImport.md "S3DataImport.md"), there is
-a limit on the sum total size of the S3 object data to be imported. The limit is 15 TB
-in the us-east-1, us-west-2, and eu-west-1 Regions, and 1 TB in all other Regions. The
-limit is based on the raw S3 object sizes.
-
-Compression allows more raw data to fit within the limit. If compression alone isn’t
-sufficient to fit the import within the limit, you can also contact [AWS Premium Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") for a quota
-increase.
-
-## Be aware of how item size impacts
-
-performance
-
-If your average item size is very small (below 200 bytes), the import process might
-take a little longer than for larger item sizes.
-
-## Do not modify S3 objects
-
-during active imports
-
-Ensure that your source S3 objects remain unchanged while an import operation is in
-progress. If an S3 object is modified during an import, the operation will fail with
-error code `ObjectModifiedInS3DuringImport` and the message "The S3 object
-could not be imported because it was overwritten."
-
-If you encounter this error, restart the import operation with a stable version of
-your S3 object. To avoid this issue, wait for the current import to complete before
-making changes to the source files.
-
-## Consider importing without any Global
-
-Secondary Indexes
-
-The duration of an import task may depend on the presence of one or multiple global
-secondary indexes (GSIs). If you plan to establish indexes with partition keys that have
-low cardinality, you may see a faster import if you defer index creation until after the
-import task is finished (rather than including them in the import job).
+Your data will be imported into a new DynamoDB table, which will be created when you initiate
+the import request. You can create this table with secondary indexes, then query and update
+your data across all primary and secondary indexes as soon as the import is complete. You
+can also add a global table replica after the import is complete.
 
 ###### Note
 
-Creating a GSI during the import does not incur write charges (creating a GSI
-after the import would).
+During the Amazon S3 import process, DynamoDB creates a new target table that will be imported
+into. Import into existing tables is not currently supported by this feature.
+
+Import from Amazon S3 does not consume write capacity on the new table, so you do not need to
+provision any extra capacity for importing data into DynamoDB. Data import pricing is based on
+the uncompressed size of the source data in Amazon S3, that is processed as a result of the
+import. Items that are processed but fail to load into the table due to formatting or other
+inconsistencies in the source data are also billed as part of the import process. See [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing") for details.
+
+You can import data from an Amazon S3 bucket owned by a different account if you have the
+correct permissions to read from that specific bucket. The new table may also be in a
+different Region from the source Amazon S3 bucket. For more information, see [Amazon Simple Storage Service setup
+and permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md") .
+
+Import times are directly related to your data’s characteristics in Amazon S3. This includes
+data size, data format, compression scheme, uniformity of data distribution, number of Amazon S3
+objects, and other related variables. In particular, data sets with uniformly distributed
+keys will be faster to import than skewed data sets. For example, if your secondary index's
+key is using the month of the year for partitioning, and all your data is from the month of
+December, then importing this data may take significantly longer.
+
+The attributes associated with keys are expected to be unique on the base table. If any
+keys are not unique, the import will overwrite the associated items until only the last
+overwrite remains. For example, if the primary key is the month and multiple items are set
+to the month of September, each new item will overwrite the previously written items and
+only one item with the primary key of "month" set to September will remain. In such cases,
+the number of items processed in the import table description will not match the number of
+items in the target table.
+
+AWS CloudTrail logs all console and API actions for table import. For more information, see
+[Logging DynamoDB operations by using
+AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+
+The following video is an introduction to importing directly from Amazon S3 into DynamoDB.
+
+###### Topics
+
+- [Requesting a table import in DynamoDB](S3DataImport.md "S3DataImport.md")
+- [Amazon S3 import formats for DynamoDB](S3DataImport.md "S3DataImport.md")
+- [Import format quotas and validation](S3DataImport.md "S3DataImport.md")
+- [Best practices for importing from Amazon S3 into
+  DynamoDB](S3DataImport.md "S3DataImport.md")

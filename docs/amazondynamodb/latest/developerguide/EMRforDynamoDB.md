@@ -1,48 +1,65 @@
-# Tutorial: Working with Amazon DynamoDB and Apache
+# Processing DynamoDB data with Apache Hive on Amazon EMR
 
-Hive
+Amazon DynamoDB is integrated with Apache Hive, a data warehousing application that runs on
+Amazon EMR. Hive can read and write data in DynamoDB tables, allowing you to:
 
-In this tutorial, you will launch an Amazon EMR cluster, and then use Apache Hive to
-process data stored in a DynamoDB table.
-
-_Hive_ is a data warehouse application for Hadoop that allows you
-to process and analyze data from multiple sources. Hive provides a SQL-like language,
-_HiveQL_, that lets you work with data stored locally in the
-Amazon EMR cluster or in an external data source (such as Amazon DynamoDB).
-
-For more information, see to the [Hive
-Tutorial](https://cwiki.apache.org/confluence/display/Hive/Tutorial "https://cwiki.apache.org/confluence/display/Hive/Tutorial").
+- Query live DynamoDB data using a SQL-like language (HiveQL).
+- Copy data from a DynamoDB table to an Amazon S3 bucket, and vice-versa.
+- Copy data from a DynamoDB table into Hadoop Distributed File System (HDFS), and
+  vice-versa.
+- Perform join operations on DynamoDB tables.
 
 ###### Topics
 
-- [Before you begin](#EMRforDynamoDB.Tutorial.BeforeYouBegin "#EMRforDynamoDB.Tutorial.BeforeYouBegin")
-- [Step 1: Create an Amazon EC2 key
-  pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 2: Launch an Amazon EMR
-  cluster](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 3: Connect
-  to the Leader node](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 4: Load data into
-  HDFS](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 5: Copy data to
-  DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 6: Query the data
-  in the DynamoDB table](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
-- [Step 7: (Optional) clean
-  up](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+- [Overview](#EMRforDynamoDB.Overview "#EMRforDynamoDB.Overview")
+- [Tutorial: Working with Amazon DynamoDB and Apache
+  Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")
+- [Creating an external table in
+  Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")
+- [Processing HiveQL statements](EMRforDynamoDB.md "EMRforDynamoDB.md")
+- [Querying data in DynamoDB](EMRforDynamoDB.md "EMRforDynamoDB.md")
+- [Copying data to and from Amazon DynamoDB](EMRforDynamoDB.md "EMRforDynamoDB.md")
+- [Performance tuning](EMRforDynamoDB.md "EMRforDynamoDB.md")
 
-## Before you begin
+## Overview
 
-For this tutorial, you will need the following:
+Amazon EMR is a service that makes it easy to quickly and cost-effectively process vast
+amounts of data. To use Amazon EMR, you launch a managed cluster of Amazon EC2 instances running
+the Hadoop open source framework. _Hadoop_ is a distributed
+application that implements the MapReduce algorithm, where a task is mapped to multiple
+nodes in the cluster. Each node processes its designated work, in parallel with the
+other nodes. Finally, the outputs are reduced on a single node, yielding the final
+result.
 
-- An AWS account. If you do not have one, see [Signing up for AWS](SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS "SettingUp.md#SettingUp.DynamoWebService.SignUpForAWS").
-- An SSH client (Secure Shell). You use the SSH client to connect to the
-  leader node of the Amazon EMR cluster and run interactive commands. SSH
-  clients are available by default on most Linux, Unix, and Mac OS X
-  installations. Windows users can download and install the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/")
-  client, which has SSH support.
+You can choose to launch your Amazon EMR cluster so that it is persistent or
+transient:
 
-###### Next step
+- A _persistent_ cluster runs until you shut it down.
+  Persistent clusters are ideal for data analysis, data warehousing, or any other
+  interactive use.
+- A _transient_ cluster runs long enough to process a job
+  flow, and then shuts down automatically. Transient clusters are ideal for
+  periodic processing tasks, such as running scripts.
 
-[Step 1: Create an Amazon EC2 key
-pair](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+For information about Amazon EMR architecture and administration, see the [Amazon EMR Management
+Guide](../../../ElasticMapReduce/latest/ManagementGuide.md "../../../ElasticMapReduce/latest/ManagementGuide.md").
+
+When you launch an Amazon EMR cluster, you specify the initial number and type of Amazon EC2
+instances. You also specify other distributed applications (in addition to Hadoop
+itself) that you want to run on the cluster. These applications include Hue, Mahout,
+Pig, Spark, and more.
+
+For information about applications for Amazon EMR, see the [Amazon EMR Release
+Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md").
+
+Depending on the cluster configuration, you might have one or more of the following
+node types:
+
+- Leader node — Manages the cluster, coordinating the distribution of the
+  MapReduce executable and subsets of the raw data, to the core and task instance
+  groups. It also tracks the status of each task performed and monitors the health
+  of the instance groups. There is only one leader node in a
+  cluster.
+- Core nodes — Runs MapReduce tasks and stores data using the Hadoop Distributed
+  File System (HDFS).
+- Task nodes (optional) — Runs MapReduce tasks.

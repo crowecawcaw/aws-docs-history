@@ -202,11 +202,38 @@ Global tables configured for multi-Region strong consistency (MRSC) do not publi
 
 ## Fault injection testing
 
-MREC global tables integrate with the [AWS Fault Injection
-Service](../../../resilience-hub/latest/userguide/testing.md "../../../resilience-hub/latest/userguide/testing.md") (AWS FIS) for performing fault injection experiments on your
-global table workloads. This enables you to test your application's response to a
-simulated Region isolation by pausing replication to and from a selected replica. For
-more information, see [pausing global table replication](../../../fis/latest/userguide/fis-actions-reference.md#dynamodb-actions-reference "../../../fis/latest/userguide/fis-actions-reference.md#dynamodb-actions-reference").
+Both MREC and MRSC global tables integrate with [AWS Fault Injection
+Service](../../../resilience-hub/latest/userguide/testing.md "../../../resilience-hub/latest/userguide/testing.md") (AWS FIS), a fully managed service for running controlled fault injection
+experiments to improve an application's resilience. Using AWS FIS, you can:
+
+- Create experiment templates that define specific failure scenarios.
+- Inject failures to validate application resilience by simulating Region isolation (that is,
+  pausing replication to and from a selected replica) to test error handling, recovery mechanisms,
+  and multi-Region traffic shift behavior when one AWS Region experiences disruption.
+
+For example, in a global table with replicas in US East (N. Virginia), US East (Ohio), and
+US West (Oregon), you can run an experiment in US East (Ohio) to test region isolation there
+while US East (N. Virginia) and US West (Oregon) continue normal operations. This controlled
+testing helps you identify and resolve potential issues before they affect production workloads.
+
+See [Action targets](../../../fis/latest/userguide/action-sequence.md#action-targets "../../../fis/latest/userguide/action-sequence.md#action-targets") in the _AWS FIS user guide_ for a complete list of
+AWS FIS supported actions and [Cross-Region Connectivity](../../../fis/latest/userguide/cross-region-scenario.md "../../../fis/latest/userguide/cross-region-scenario.md") to pause DynamoDB replication between regions.
+
+For information about Amazon DynamoDB global table actions available in AWS FIS,
+see [DynamoDB
+global tables actions reference](../../../fis/latest/userguide/fis-actions-reference.md#dynamodb-actions-reference "../../../fis/latest/userguide/fis-actions-reference.md#dynamodb-actions-reference") in the _AWS FIS User Guide_.
+
+To get started running fault injection experiments,
+see [Planning
+your AWS FIS experiments](../../../fis/latest/userguide/getting-started-planning.md "../../../fis/latest/userguide/getting-started-planning.md") in the AWS FIS user guide.
+
+###### Note
+
+During AWS FIS experiments in MRSC, eventually consistent
+reads are permitted, but table setting updates - such as changing billing mode
+or configuring table throughput - are not allowed, similar to MREC. Please check the
+CloudWatch metric [FaultInjectionServiceInducedErrors](metrics-dimensions.md#FaultInjectionServiceInducedErrors "metrics-dimensions.md#FaultInjectionServiceInducedErrors")
+for additional details regarding the error code.
 
 ## Time To Live (TTL)
 
@@ -269,17 +296,24 @@ MRSC replica.
 
 ## Read and write throughput
 
-Replication consumes write capacity. Replicas configured for provisioned capacity may
-throttle requests if the combination of write throughput and replication throughput is
-higher than the provisioned write capacity. Write capacity in on-demand mode is
-synchronized for all replicas in a global table. Global tables configured for
-provisioned capacity synchronize auto scaling settings between replicas. The actual
-provisioned write capacity setting may vary between replicas according to consumed write
-throughput.
+### Provisioned mode
 
-You can independently configure read capacity settings for each replica in a global
-table. When adding a replica to a global table, the read capacity of the source table or
-replica is used as the initial value unless an override value is specified.
+Replication consumes write capacity. Replicas configured for provisioned capacity may throttle requests
+if the combination of application write throughput and replication write throughput exceeds the provisioned
+write capacity. For global tables using provisioned mode, auto scaling settings for both read and write capacities
+are synchronized between replicas.
+
+You can independently configure read capacity settings for each replica in a global table by
+using the [`ProvisionedThroughputOverride`](../APIReference/API_ProvisionedThroughputOverride.md "../APIReference/API_ProvisionedThroughputOverride.md") parameter at the replica level. By default, changes to
+provisioned read capacity are applied to all replicas in the global table. When adding a new
+replica to a global table, the read capacity of the source table or replica is used as the
+initial value unless a replica-level override is explicitly specified.
+
+### On-demand mode
+
+For global tables configured for on-demand mode, write capacity is automatically synchronized
+across all replicas. DynamoDB automatically adjusts capacity based on traffic, and there are no
+replica-specific read or write capacity settings to manage.
 
 ## Settings
 
