@@ -11,6 +11,37 @@ The naming convention for these runtime versions is
 
 ##
 
+syn-nodejs-playwright-5.1
+
+###### Important
+
+Starting Synthetics `syn-nodejs-playwright-5.1` and later, Synthetics runtime uses the new namespace.
+Please migrate the canary script to use the new namespace. Legacy namespace will be deprecated in a future release.
+
+- @amzn/synthetics-playwright → @aws/synthetics-playwright
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+- Playwright version 1.57.0
+- Playwright/test version 1.57.0
+- Chromium version 143.0.7499.169
+- Firefox version 142.0.1
+
+**Changes in syn-nodejs-playwright-5.1**
+
+- Synthetics runtime namespace migration.
+- Type definition is available in [npm Registry](https://www.npmjs.com/package/@aws/synthetics-playwright "https://www.npmjs.com/package/@aws/synthetics-playwright"). Please ensure the type definition package version matches your canary's runtime version.
+
+For more information, see the following:
+
+- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
+- [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
+
+The following earlier runtime versions for Node.js and Playwright are still supported.
+
+###
+
 syn-nodejs-playwright-5.0
 
 **Major dependencies**:
@@ -29,8 +60,6 @@ For more information, see the following:
 
 - [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
 - [Playwright API reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
-The following earlier runtime versions for Node.js and Playwright are still supported.
 
 ###
 

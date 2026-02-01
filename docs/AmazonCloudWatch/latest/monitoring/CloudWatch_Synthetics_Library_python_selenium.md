@@ -133,6 +133,9 @@ syn-python-selenium-4.0
 
 - **Bug fixes** for errors in HAR parser logging.
 
+The following earlier runtime versions for Python and Selenium have been deprecated. For information about
+runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates "CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates").
+
 ###
 
 syn-python-selenium-3.0
@@ -162,9 +165,6 @@ syn-python-selenium-2.1
 
 - **Updated versions of the bundled libraries in Chromium**— The Chromium and
   Selenium dependencies are updated to new versions.
-
-The following earlier runtime versions for Python and Selenium have been deprecated. For information about
-runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates "CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates").
 
 ###
 

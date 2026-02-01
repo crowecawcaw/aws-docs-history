@@ -590,7 +590,7 @@ First, import the synthetics dependency and fetch the configuration.
 
 ```
 // Import Synthetics dependency
-const synthetics = require('Synthetics');
+const synthetics = require('@aws/synthetics-puppeteer');
 
 // Get Synthetics configuration
 const synConfig = synthetics.getConfiguration();
@@ -698,7 +698,7 @@ to the results location in S3 as artifacts.
 To use the Synthetics Library logger:
 
 ```
-const log = require('SyntheticsLogger');
+const log = require('@aws/synthetics-logger');
 ```
 
 Useful function definitions:
@@ -817,10 +817,10 @@ The first step is to set the Synthetics configuration.
 
 ```
 // Import Synthetics dependency
-const synthetics = require('Synthetics');
+const synthetics = require('@aws/synthetics-puppeteer');
 
 // Import Synthetics logger for logging url
-const log = require('SyntheticsLogger');
+const log = require('@aws/synthetics-logger');
 
 // Get Synthetics configuration
 const synConfig = synthetics.getConfiguration();
@@ -830,7 +830,7 @@ synConfig.setConfig({
    restrictedUrlParameters: ['access_token'];
 });
 // Import SyntheticsLogHelper dependency
-const syntheticsLogHelper = require('SyntheticsLogHelper');
+const syntheticsLogHelper = require('@aws/synthetics-log-helper');
 
 const sanitizedUrl = syntheticsLogHelper.getSanitizedUrl('`URL`');
 
@@ -848,7 +848,7 @@ Next, sanitize and log the URL
 
 ```
 // Import SyntheticsLogHelper dependency
-const syntheticsLogHelper = require('SyntheticsLogHelper');
+const syntheticsLogHelper = require('@aws/synthetics-log-helper');
 
 const sanitizedUrl = syntheticsLogHelper.getSanitizedUrl('https://example.com/learn/home?access_token=12345&token_type=Bearer&expires_in=1200');
 ```
@@ -900,10 +900,10 @@ The first step is to set the Synthetics configuration.
 
 ```
 // Import Synthetics dependency
-const synthetics = require('Synthetics');
+const synthetics = require('@aws/synthetics-puppeteer');
 
 // Import Synthetics logger for logging url
-const log = require('SyntheticsLogger');
+const log = require('@aws/synthetics-logger');
 
 // Get Synthetics configuration
 const synConfig = synthetics.getConfiguration();
@@ -918,7 +918,7 @@ Next, sanitize and log the error message
 
 ```
 // Import SyntheticsLogHelper dependency
-const syntheticsLogHelper = require('SyntheticsLogHelper');
+const syntheticsLogHelper = require('@aws/synthetics-log-helper');
 
 try {
    // Your code which can throw an error containing url which your script logs
@@ -1287,7 +1287,7 @@ canaries that use the `syn-nodejs-2.0-beta` version of the runtime or later.
 To use `BrokenLinkCheckerReport`, include the following lines in the script:
 
 ```
-const BrokenLinkCheckerReport = require('BrokenLinkCheckerReport');
+const BrokenLinkCheckerReport = require('@aws/synthetics-broken-link-checker-report');
 
 const brokenLinkCheckerReport = new BrokenLinkCheckerReport();
 ```
@@ -1328,11 +1328,11 @@ link and adding it to the broken link checker report.
    and `Synthetics`.
 
 ```
-const BrokenLinkCheckerReport = require('BrokenLinkCheckerReport');
-const SyntheticsLink = require('SyntheticsLink');
+const BrokenLinkCheckerReport = require('@aws/synthetics-broken-link-checker-report');
+const SyntheticsLink = require('@aws/synthetics-link');
 
 // Synthetics dependency
-const synthetics = require('Synthetics');
+const synthetics = require('@aws/synthetics-puppeteer');
 ```
 
 2. To add a link to the report, create an instance of `BrokenLinkCheckerReport`.
@@ -1393,7 +1393,7 @@ that use the `syn-nodejs-2.0-beta` version of the runtime or later.
 To use `SyntheticsLink`, include the following lines in the script:
 
 ```
-const SyntheticsLink = require('SyntheticsLink');
+const SyntheticsLink = require('@aws/synthetics-link');
 
 const syntheticsLink = new SyntheticsLink("https://www.amazon.com");
 ```

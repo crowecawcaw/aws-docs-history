@@ -72,7 +72,7 @@ the response to the request and logs either pass or fail depending on whether
 the request was successful.
 
 ```
-const log = require('SyntheticsLogger');
+const log = require('@aws/synthetics-logger');
 const AWS = require('aws-sdk');
 // Require any dependencies that your script needs
 // Bundle additional files and dependencies into a .zip file with folder structure
@@ -229,7 +229,7 @@ exports.handler = async () => {
 - Use the `Synthetics` dependency.
 
 ```
-var synthetics = require('Synthetics');
+var synthetics = require('@aws/synthetics-puppeteer');
 ```
 
 - Use the `Synthetics.getPage` function to get a Puppeteer `Page`
@@ -249,7 +249,7 @@ outgoing requests on the page.
 The script is now ready to be run as a Synthetics canary. Here is the updated script:
 
 ```
-var synthetics = require('Synthetics');  // Synthetics dependency
+var synthetics = require('@aws/synthetics-puppeteer');  // Synthetics dependency
 
 const basicPuppeteerExample = async function () {
     const page = await synthetics.getPage(); // Get instrumented page from Synthetics
@@ -313,8 +313,8 @@ values for the `LOG_LEVEL` and `URL`
 environment variables.
 
 ```
-var synthetics = require('Synthetics');
-const log = require('SyntheticsLogger');
+var synthetics = require('@aws/synthetics-puppeteer');
+const log = require('@aws/synthetics-logger');
 
 const pageLoadEnvironmentVariable = async function () {
 
@@ -427,8 +427,8 @@ The following canary script code snippet demonstrates an example of integration 
 Secrets Manager in more detail.
 
 ```
-var synthetics = require('Synthetics');
-const log = require('SyntheticsLogger');
+var synthetics = require('@aws/synthetics-puppeteer');
+const log = require('@aws/synthetics-logger');
 
 const AWS = require('aws-sdk');
 const secretsManager = new AWS.SecretsManager();

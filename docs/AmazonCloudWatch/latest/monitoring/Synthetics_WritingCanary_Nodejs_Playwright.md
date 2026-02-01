@@ -111,7 +111,7 @@ exports.handler = async () => {
 2. Import the `Synthetics Playwright module` as a dependency.
 
 ```
-import { synthetics } from '@amzn/synthetics-playwright';
+import { synthetics } from '@aws/synthetics-playwright';
 ```
 
 3. Launch a browser using the Synthetics `Launch` function.
@@ -135,7 +135,7 @@ updated script:
 The script file saved with a `.mjs` extension.
 
 ```
-import { synthetics } from '@amzn/synthetics-playwright';
+import { synthetics } from '@aws/synthetics-playwright';
 import { expect } from '@playwright/test';
 
 export const handler = async (event, context) => {
@@ -167,7 +167,7 @@ export const handler = async (event, context) => {
 The script file saved with a `.js` extension.
 
 ```
-const { synthetics } = require('@amzn/synthetics-playwright');
+const { synthetics } = require('@aws/synthetics-playwright');
 const { expect } = require('@playwright/test');
 
 exports.handler = async (event) => {

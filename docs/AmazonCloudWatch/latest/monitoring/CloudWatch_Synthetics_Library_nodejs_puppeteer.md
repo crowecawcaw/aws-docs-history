@@ -23,15 +23,52 @@ based on the canary's frequency. If you configure a timeout value, make it no sh
 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary
 instrumentation.
 
-## syn-nodejs-puppeteer-13.0
+## syn-nodejs-puppeteer-13.1
 
-`syn-nodejs-puppeteer-13.0` is the most recent Synthetics runtime for Node.js and Puppeteer.
+`syn-nodejs-puppeteer-13.1` is the most recent Synthetics runtime for Node.js and Puppeteer.
 
 ###### Important
 
 Starting Synthetics `syn-nodejs-puppeteer-8.0` and later, runtimes use AWS SDK for JavaScript V3.
 If you need to migrate a canary from an earlier runtime, follow the aws-sdk-js-v3 Migration Workshop on GitHub. For more information about AWS SDK for JavaScript version 3, see
 [this blog post](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/ "https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/").
+
+###### Important
+
+Starting Synthetics `syn-nodejs-puppeteer-13.1` and later, Synthetics runtime uses the new namespace.
+Please migrate the canary script to use new namespaces. Legacy namespaces will be deprecated in a future release.
+
+- Synthetics → @aws/synthetics-puppeteer
+- SyntheticsLink → @aws/synthetics-link
+- SyntheticsLogger → @aws/synthetics-logger
+- SyntheticsLogHelper → @aws/synthetics-log-helper
+- BrokenLinkCheckerReport → @aws/synthetics-broken-link-checker-report
+
+For more information, see the following:
+
+- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24250-2025-10-15 "https://pptr.dev/CHANGELOG#24250-2025-10-15")
+- [Puppeteer API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md")
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
+- Puppeteer-core version 24.25.0
+- Chromium version 142.0.7444.175
+- Firefox version 145.x
+
+**Changes in syn-nodejs-puppeteer-13.1**
+
+- Synthetics runtime namespace migration.
+- Type definitions are available in npm Registry. Please ensure the type definition package version matches your canary's runtime version.
+  - [@aws/synthetics-puppeteer](https://www.npmjs.com/package/@aws/synthetics-puppeteer "https://www.npmjs.com/package/@aws/synthetics-puppeteer")
+  - [@aws/synthetics-link](https://www.npmjs.com/package/@aws/synthetics-link "https://www.npmjs.com/package/@aws/synthetics-link")
+  - [@aws/synthetics-broken-link-checker-report](https://www.npmjs.com/package/@aws/synthetics-broken-link-checker-report "https://www.npmjs.com/package/@aws/synthetics-broken-link-checker-report")
+  - [@aws/synthetics-log-helper](https://www.npmjs.com/package/@aws/synthetics-log-helper "https://www.npmjs.com/package/@aws/synthetics-log-helper")
+  - [@aws/synthetics-logger](https://www.npmjs.com/package/@aws/synthetics-logger "https://www.npmjs.com/package/@aws/synthetics-logger")
+
+The following earlier runtime versions for Node.js and Puppeteer are still supported.
+
+### syn-nodejs-puppeteer-13.0
 
 For more information, see the following:
 
@@ -49,8 +86,6 @@ For more information, see the following:
 
 - Applied security patches and updated Puppeteer and browser versions.
 - Bug fix – Fixed intermittent runtime extension crash issue caused by concurrent map access
-
-The following earlier runtime versions for Node.js and Puppeteer are still supported.
 
 ### syn-nodejs-puppeteer-12.0
 
@@ -166,6 +201,9 @@ For more information about AWS SDK for JavaScript version 3, see
 - **Bug fixes** related to some service clients losing data
   in Node.js SDK V3 responses is fixed.
 
+The following runtimes for Node.js and Puppeteer have been deprecated. For information about
+runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates "CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates").
+
 ### syn-nodejs-puppeteer-7.0
 
 **Major dependencies**:
@@ -208,22 +246,6 @@ strongly recommend that you migrate to AWS SDK v3.
 - **Ephemeral storage monitoring**— This runtime adds ephemeral storage monitoring
   in customer accounts.
 - **Bug fixes**
-
-### syn-nodejs-puppeteer-5.2
-
-**Major dependencies**:
-
-- Lambda runtime Node.js 16.x
-- Puppeteer-core version 19.7.0
-- Chromium version 111.0.5563.146
-
-**Updates in syn-nodejs-puppeteer-5.2**:
-
-- **Updated versions of the bundled libraries in Chromium**
-- **Bug fixes**
-
-The following runtimes for Node.js and Puppeteer have been deprecated. For information about
-runtime deprecation dates, see [CloudWatch Synthetics runtime deprecation dates](CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates "CloudWatch_Synthetics_Runtime_Support_Policy.md#runtime_deprecation_dates").
 
 ### syn-nodejs-puppeteer-6.1
 
@@ -281,6 +303,19 @@ IMPORTANT: The included AWS SDK for JavaScript v2 dependency will be removed and
 updated to use AWS SDK for JavaScript v3 in a future runtime release. When that happens, you can
 update your canary code references. Alternatively, you can continue referencing and using the included
 AWS SDK for JavaScript v2 dependency by adding it as a dependency to your source code zip file.
+
+### syn-nodejs-puppeteer-5.2
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 16.x
+- Puppeteer-core version 19.7.0
+- Chromium version 111.0.5563.146
+
+**Updates in syn-nodejs-puppeteer-5.2**:
+
+- **Updated versions of the bundled libraries in Chromium**
+- **Bug fixes**
 
 ### syn-nodejs-puppeteer-5.1
 

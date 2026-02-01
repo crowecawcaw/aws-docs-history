@@ -13,7 +13,7 @@ The following script is an example of a Node.js Playwright canary with multiple
 steps.
 
 ```
-import { synthetics } from '@amzn/synthetics-playwright';
+import { synthetics } from '@aws/synthetics-playwright';
 
 export async function handler(event, context) {
   try {
@@ -65,7 +65,7 @@ The following script is an example of a Node.js Playwright canary setting three
 cookies.
 
 ```
-import { synthetics } from '@amzn/synthetics-playwright';
+import { synthetics } from '@aws/synthetics-playwright';
 
 export const handler = async (event, context) => {
   try {
@@ -111,8 +111,8 @@ For example, a web site might display a **Login** link for a revisiting user
 instead of a **Register** link.
 
 ```
-var synthetics = require('Synthetics');
-const log = require('SyntheticsLogger');
+var synthetics = require('@aws/synthetics-puppeteer');
+const log = require('@aws/synthetics-logger');
 
 const pageLoadBlueprint = async function () {
 
@@ -163,8 +163,8 @@ The following sample emulates an iPhone 6 device. For more information about emu
 see [page.emulate(options)](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions "https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions") in the Puppeteer documentation.
 
 ```
-var synthetics = require('Synthetics');
-const log = require('SyntheticsLogger');
+var synthetics = require('@aws/synthetics-puppeteer');
+const log = require('@aws/synthetics-logger');
 const puppeteer = require('puppeteer-core');
 
 const pageLoadBlueprint = async function () {
@@ -213,8 +213,8 @@ for your canary run.
 
 ```
 
-var synthetics = require('Synthetics');
-const log = require('SyntheticsLogger');
+var synthetics = require('@aws/synthetics-puppeteer');
+const log = require('@aws/synthetics-logger');
 
 const apiCanaryBlueprint = async function () {
 
