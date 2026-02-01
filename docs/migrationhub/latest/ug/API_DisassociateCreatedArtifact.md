@@ -174,7 +174,7 @@ The following example disassociates an AWS resource from the migration task
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md "../../../goto/cli2/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md "../../../goto/DotNetSDKV3/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md "../../../goto/DotNetSDKV4/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md "../../../goto/SdkForCpp/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md "../../../goto/SdkForGoV2/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md "../../../goto/SdkForJavaV2/AWSMigrationHub-2017-05-31/DisassociateCreatedArtifact.md")
