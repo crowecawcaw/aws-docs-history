@@ -112,7 +112,7 @@ group.
 2. On the left navigation bar of the home page, choose **Users and Groups**.
 3. Choose the **Permission Groups** tab.
 4. From the list, select a group and choose the more (
-   ![An image of the vertical ellipsis icon.](images/04a-configuring-the-catalog/kebab-menu.png)
+   ![An image of the vertical ellipsis icon.](/images/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)
    ) icon.
 5. Choose **Remove Group**.
 
