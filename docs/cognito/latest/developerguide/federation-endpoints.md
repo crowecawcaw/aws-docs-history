@@ -2,7 +2,7 @@
 
 endpoints
 
-_Federation endpoints_ are user pool endpoints serve
+_Federation endpoints_ are user pool endpoints that serve
 a purpose for one of the authentication standards used by user pools. They include SAML
 ACS URLs, OIDC discovery endpoints, and service endpoints for user pool roles both as
 identity provider and relying party. Federation endpoints initiate authentication flows,

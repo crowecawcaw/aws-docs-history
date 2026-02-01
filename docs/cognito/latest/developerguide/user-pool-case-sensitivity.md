@@ -31,7 +31,7 @@ Creating a case-sensitive user pool
 If you create resources with the AWS Command Line Interface (AWS CLI) and API operations such as [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md"), you must set the
 Boolean `CaseSensitive` parameter to `false`. This setting creates
 a case-insensitive user pool. If you do not specify a value, `CaseSensitive`
-defaults to `true`. User pools that you create in the Amazon Cognito console are note
+defaults to `true`. User pools that you create in the Amazon Cognito console are not
 case-sensitive. To produce a case-sensitive user pool, you must use the
 `CreateUserPool` operation. Before February 12, 2020, user pools defaulted
 to case sensitive regardless of platform.

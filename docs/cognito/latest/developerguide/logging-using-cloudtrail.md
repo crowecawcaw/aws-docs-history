@@ -62,7 +62,7 @@ For more information, see the [CloudTrail userIdentity element](../../../awsclou
 ###### Confidential data in AWS CloudTrail
 
 Because user pools and identity pools process user data, Amazon Cognito obscures some private
-fields in your CloudTrail events with the value `HIDDEN_FOR_SECURITY_REASONS`. For
+fields in your CloudTrail events with the value `HIDDEN_DUE_TO_SECURITY_REASONS`. For
 examples of fields that Amazon Cognito doesn't populate to events, see [Example Amazon Cognito events](understanding-amazon-cognito-entries.md "understanding-amazon-cognito-entries.md"). Amazon Cognito only obscures some fields that
 commonly contain user information, like passwords and tokens. Amazon Cognito doesn't perform any
 automatic detection or masking of personally-identifying information that you populate to

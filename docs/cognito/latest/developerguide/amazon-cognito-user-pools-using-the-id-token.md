@@ -193,7 +193,7 @@ token.
 The unique identifier of the JWT.
 
 The ID token can contain OIDC standard claims that are defined in [OIDC standard
-claims](http://openid.net/specs/openid-connect-core-1_0.html#Claims "http://openid.net/specs/openid-connect-core-1_0.html#Claims"). The ID token can also contain custom attributes that you define in your
+claims](https://openid.net/specs/openid-connect-core-1_0.html#Claims "https://openid.net/specs/openid-connect-core-1_0.html#Claims"). The ID token can also contain custom attributes that you define in your
 user pool. Amazon Cognito writes custom attribute values to the ID token as strings regardless of
 attribute type.
 

@@ -35,20 +35,21 @@ unchanged for external and administrator-created users.
 The following table summarizes some of the ways you can use Lambda triggers to customize
 user pool operations:
 
-| User Pool Flow                                                                                                                    | Operation                                                                                                                         | Description                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| **Custom Authentication Flow**                                                                                                    | **Define Auth Challenge**                                                                                                         | Determines the next challenge in a custom auth flow                      |
+| User Pool Flow                                                                                                                    | Operation                                                                                                                         | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Custom Authentication Flow**                                                                                                    | **Define Auth Challenge**                                                                                                         | Determines the next challenge in a custom auth flow                                                 |
 | **Create Auth Challenge**                                                                                                         | Creates a challenge in a custom auth flow                                                                                         |
 | **Verify Auth Challenge Response**                                                                                                | Determines if a response is correct in a custom auth flow                                                                         |
-| **Authentication<br>Events**                                                                                                      | **[Pre authentication Lambda<br>trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")**       | Custom validation to accept or deny the sign-in request                  |
+| **Authentication<br>Events**                                                                                                      | **[Pre authentication Lambda<br>trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")**       | Custom validation to accept or deny the sign-in request                                             |
 | **[Post authentication Lambda<br>trigger](user-pool-lambda-post-authentication.md "user-pool-lambda-post-authentication.md")**    | Logs events for custom analytics                                                                                                  |
 | **[Pre token generation Lambda<br>trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Augments or suppresses token claims                                                                                               |
-| **Sign-Up**                                                                                                                       | **[Pre sign-up Lambda trigger](user-pool-lambda-pre-sign-up.md "user-pool-lambda-pre-sign-up.md")**                               | Performs custom validation that accepts or denies the sign-up<br>request |
+| **Federation**                                                                                                                    | **[Inbound federation Lambda trigger](user-pool-lambda-inbound-federation.md "user-pool-lambda-inbound-federation.md")**          | Transforms federated user attributes before user creation or update in<br>Amazon Cognito user pools |
+| **Sign-Up**                                                                                                                       | **[Pre sign-up Lambda trigger](user-pool-lambda-pre-sign-up.md "user-pool-lambda-pre-sign-up.md")**                               | Performs custom validation that accepts or denies the sign-up<br>request                            |
 | **[Post confirmation Lambda trigger](user-pool-lambda-post-confirmation.md "user-pool-lambda-post-confirmation.md")**             | Adds custom welcome messages or event logging for custom<br>analytics                                                             |
 | **[Migrate user Lambda trigger](user-pool-lambda-migrate-user.md "user-pool-lambda-migrate-user.md")**                            | Migrates a user from an existing user directory to user pools                                                                     |
-| **Messages**                                                                                                                      | **[Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md")**                      | Performs advanced customization and localization of messages             |
-| **Token Creation**                                                                                                                | **[Pre token generation Lambda<br>trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Adds or removes attributes in ID and access tokens                       |
-| **Email and SMS third-party<br>providers**                                                                                        | **[Custom sender Lambda<br>triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md")**   | Uses a third-party provider to send SMS and email messages               |
+| **Messages**                                                                                                                      | **[Custom message Lambda trigger](user-pool-lambda-custom-message.md "user-pool-lambda-custom-message.md")**                      | Performs advanced customization and localization of messages                                        |
+| **Token Creation**                                                                                                                | **[Pre token generation Lambda<br>trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md")** | Adds or removes attributes in ID and access tokens                                                  |
+| **Email and SMS third-party<br>providers**                                                                                        | **[Custom sender Lambda<br>triggers](user-pool-lambda-custom-sender-triggers.md "user-pool-lambda-custom-sender-triggers.md")**   | Uses a third-party provider to send SMS and email messages                                          |
 
 ###### Topics
 
@@ -70,6 +71,7 @@ user pool operations:
   trigger](user-pool-lambda-pre-authentication.md "user-pool-lambda-pre-authentication.md")
 - [Post authentication Lambda
   trigger](user-pool-lambda-post-authentication.md "user-pool-lambda-post-authentication.md")
+- [Inbound federation Lambda trigger](user-pool-lambda-inbound-federation.md "user-pool-lambda-inbound-federation.md")
 - [Custom authentication challenge Lambda
   triggers](user-pool-lambda-challenge.md "user-pool-lambda-challenge.md")
 - [Pre token generation Lambda
@@ -603,6 +605,10 @@ and pre authentication triggers, they activate both.
 | Define auth challenge                    | `DefineAuthChallenge_Authentication`         | Define Auth Challenge.          |
 | Create auth challenge                    | `CreateAuthChallenge_Authentication`         | Create Auth Challenge.          |
 | Verify auth challenge                    | `VerifyAuthChallengeResponse_Authentication` | Verify Auth Challenge Response. |
+
+| Federation triggers | Trigger                              | triggerSource value | Event |
+| ------------------- | ------------------------------------ | ------------------- | ----- |
+| Inbound federation  | `InboundFederation_ExternalProvider` | Inbound federation. |
 
 | Pre token generation triggers | Trigger                                | triggerSource value                                                                                    | Event |
 | ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----- |
