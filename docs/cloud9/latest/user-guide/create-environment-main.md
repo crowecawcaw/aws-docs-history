@@ -42,7 +42,7 @@ you can sign in to the AWS Cloud9 console and create environments.
    AWS Region to create the environment in. For a list of available AWS Regions, see [AWS Cloud9](../../../general/latest/gr/rande.md#cloud9_region "../../../general/latest/gr/rande.md#cloud9_region") in the
    _AWS General Reference_.
 
-![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png) 3. Choose the large **Create environment** button in one of the locations
+![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png) 3. Choose the large **Create environment** button in one of the locations
 shown.
 
 If you don't already have AWS Cloud9 environments, the button is shown on a welcome
