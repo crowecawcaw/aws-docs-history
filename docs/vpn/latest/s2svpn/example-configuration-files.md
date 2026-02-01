@@ -38,6 +38,8 @@ example configuration files are added.
 
 | Vendor                 | Platform             | Software             |
 | ---------------------- | -------------------- | -------------------- |
+| AXGATE                 | NF                   | AOS 3.2+             |
+| AXGATE                 | UTM                  | AOS 2.1+             |
 | Checkpoint             | Gaia                 | R80.10+              |
 | Cisco Meraki           | MX Series            | 15.12+ (WebUI)       |
 | Cisco Systems, Inc.    | ASA 5500 Series      | ASA 9.7+ VTI         |
