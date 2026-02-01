@@ -54,13 +54,13 @@ The following table lists the changes included in this release.
 
 #### More details
 
-| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server 2022 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server 2019 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server 2016 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       |           | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2025 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2022 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2019 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server 2016 with IIS 10.0 version 2.22.1**      | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.22.1** | 2026.01.14  | 3.7.1201.0       | 2.3.108   | 3.3.3270.0 | 4.0        | 3.6.1     |
