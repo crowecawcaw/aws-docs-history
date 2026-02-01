@@ -327,7 +327,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/cli2/polly-2016-06-10/StartSpeechSynthesisTask.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/DotNetSDKV3/polly-2016-06-10/StartSpeechSynthesisTask.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/DotNetSDKV4/polly-2016-06-10/StartSpeechSynthesisTask.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/SdkForCpp/polly-2016-06-10/StartSpeechSynthesisTask.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/SdkForGoV2/polly-2016-06-10/StartSpeechSynthesisTask.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/polly-2016-06-10/StartSpeechSynthesisTask.md "../../../goto/SdkForJavaV2/polly-2016-06-10/StartSpeechSynthesisTask.md")
