@@ -63,7 +63,7 @@ Create an Express Mode service application with the minimum required parameters:
 
 ```
 aws ecs create-express-gateway-service \
-    --image "public.ecr.aws/nginx/nginx:latest" \
+    --primary-container "image"="public.ecr.aws/nginx/nginx:latest" \
     --execution-role-arn arn:aws:iam::123456789012:role/ecsTaskExecutionRole \
     --infrastructure-role-arn arn:aws:iam::123456789012:role/ecsInfrastructureRoleForExpressServices \
     --monitor-resources
@@ -106,15 +106,12 @@ You can customize your Express Mode service application by specifying additional
 aws ecs create-express-gateway-service \
     --execution-role-arn arn:aws:iam::123456789012:role/ecsTaskExecutionRole \
     --infrastructure-role-arn arn:aws:iam::123456789012:role/ecsInfrastructureRoleForExpressServices \
-    --primary-container \
-        ‘{“image”=“123456789012.dkr.ecr.region.amazonaws.com/my-app:latest", \
-        “containerPort”=8080, \
-        “environment”=[{“name”=“ENV”,”value”=“production”},{“name”=“DEBUG”,”value”=“false”}]}’ \
+    --primary-container '{"image":"123456789012.dkr.ecr.region.amazonaws.com/my-app:latest","containerPort":8080,"environment":[{"name":"ENV","value":"production"},{"name":"DEBUG","value":"false"}]}' \
     --service-name "my-web-app" \
     --cpu 2 \
     --memory 4 \
     --health-check-path "/health" \
-    --scaling-target ‘{“minTaskCount”=3,”maxTaskCount”=100}’
+    --scaling-target '{"minTaskCount":3,"maxTaskCount":100}' \
     --monitor-resources
 
 ```

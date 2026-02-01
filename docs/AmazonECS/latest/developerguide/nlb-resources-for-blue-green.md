@@ -1,11 +1,10 @@
-# Network Load Balancer resources for Amazon ECS blue/green deployments
+# Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments
 
 To use a Network Load Balancer with Amazon ECS blue/green deployments, you need to configure specific resources that enable traffic routing between the blue and green service revisions. This section explains the required components and their configuration.
 
 When your configuration includes a Network Load Balancer, Amazon ECS adds a 10 minute delay to the following
 lifecycle stages:
 
-- PRE_SCALE_UP
 - TEST_TRAFFIC_SHIFT
 - PRODUCTION_TRAFFIC_SHIFT
   This delay accounts for Network Load Balancer timing issues that can cause a
@@ -95,7 +94,7 @@ For blue/green deployments with a Network Load Balancer, you need to configure l
   - Initially forwards traffic to the primary target group (blue service revision)
   - After deployment, forwards traffic to the alternate target group (green service revision)
 
-- Test listener (required): Handles test traffic to validate the green service revision before shifting production traffic
+- Test listener (optional): Handles test traffic to validate the green service revision before shifting production traffic
   - Can be configured on a different port (e.g., 8080 or 8443)
   - Forwards traffic to the alternate target group (green service revision) during testing
 
@@ -138,7 +137,7 @@ The key components in this configuration are:
 - `roleArn`: The ARN of the role that allows Amazon ECS to manage Network Load Balancer
   resources
 - `strategy`: Set to `BLUE_GREEN` to enable blue/green deployments
-- `bakeTimeInMinutes`: The duration to wait after the green service revision is deployed before shifting production traffic
+- `bakeTimeInMinutes`: The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted
 
 ```
 {

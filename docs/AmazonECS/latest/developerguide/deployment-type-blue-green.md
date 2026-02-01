@@ -41,4 +41,4 @@ Consider the following when choosing a deployment type:
 - Resource usage: Blue/green deployments temporarily run both the blue and green service revisions simultaneously, which may double your resource usage during deployments.
 - Deployment monitoring: Blue/green deployments provide more detailed deployment status information, allowing you to monitor each stage of the deployment process.
 - Rollback: Blue/green deployments make it easier to roll back to the previous version if issues are detected, as the blue revision is kept running until the bake time expires.
-- Network Load Balancer lifecycle hooks: If you use a Network Load Balancer for blue/green deployments, there is an additional 10 minutes for each lifecycle hook. This is because Amazon ECS makes sure that it is safe to shift traffic.
+- Network Load Balancer lifecycle hooks: If you use a Network Load Balancer for blue/green deployments, there is an additional 10 minutes for the TEST_TRAFFIC_SHIFT and PRODUCTION_TRAFFIC_SHIFT lifecycle stages. This is because Amazon ECS makes sure that it is safe to shift traffic.

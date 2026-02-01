@@ -52,15 +52,6 @@ _Error message_: `The following rules cannot be used as both production and test
 
 _Solution_: You must use different listener rules for production and test traffic. Create a separate listener rule for test traffic that routes to your test target group.
 
-Missing test listener rule for a Network Load Balancer
-
-_Error message_: `TestListenerRule is required for NLB with arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/nlb-targetgroup/abc123`
-
-_Solution_: When you use a Network Load Balancer, you must specify both
-`productionListenerRule` and `testListenerRule`. Add a
-`testListenerRule` with a valid listener ARN to your configuration. For
-more information, see [Create a listener for your Network Load Balancer](../../../elasticloadbalancing/latest/network/create- listener.md "../../../elasticloadbalancing/latest/network/create- listener.md") in the _Network Load Balancer User Guide_
-
 Target group not associated with listener rules
 
 _Error message_: `Service deployment rolled back because of invalid networking configuration: Target group arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/myAlternateTG/abc123 is not associated with either productionListenerRule or testListenerRule.`

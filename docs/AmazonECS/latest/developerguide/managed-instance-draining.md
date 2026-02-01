@@ -132,11 +132,12 @@ can turn off managed termination and allow managed draining to handle instance r
 
 ## Draining behavior for Amazon ECS Managed Instances
 
-Amazon ECS Managed Instances implement sophisticated draining and termination processes that ensure graceful workload transitions while optimizing costs and maintaining system health. The termination system provides three distinct decision paths for instance termination, each with different timing characteristics and customer impact profiles.
+Amazon ECS Managed Instances termination ensures graceful workload transitions while
+optimizing costs and maintaining system health. The termination system provides three
+distinct decision paths for instance termination, each with different timing
+characteristics and customer impact profiles.
 
 ### Termination decision paths
-
-All termination paths converge on the same execution mechanism through the POST_DEREGISTER lifecycle hook that triggers Node Manager's ReleaseNode API for immediate Amazon EC2 instance termination.
 
 Customer-initiated termination
 
@@ -144,11 +145,11 @@ Provides direct control over instance removal when you need to remove container 
 
 System-initiated idle termination
 
-Implements cost optimization through intelligent idle detection that identifies instances no longer serving workloads. The Elastic Workload Service (EWS) implements sophisticated idle detection algorithms that monitor instance utilization and initiate termination for instances that remain idle for configurable periods.
+Amazon ECS Managed Instances continuously monitors and proactively optimizes costs by terminating idle Amazon ECS container instances not running any tasks. ECS uses a heuristic delay to give container instances a chance to acquire newly launched tasks before being terminated. This can be customized with the `scaleInAfter` Amazon ECS Managed Instances capacity provider configuration parameter.
 
 Infrastructure refresh termination
 
-Implements proactive infrastructure management through Node Manager's natural decay policy, where instances are periodically refreshed to ensure they run on the latest platform versions and maintain security posture. Node Manager implements time-to-live (TTL) policies that initiate graceful termination for instances that have reached their maximum operational lifetime.
+Amazon ECS Managed Instances automatically manages and updates software on managed container instances to ensure security and compliance while maintaining workload availability. For more information, see [patching in Amazon ECS Managed Instances](managed-instances-patching.md "managed-instances-patching.md").
 
 ### Graceful draining and workload migration
 
@@ -173,15 +174,3 @@ During this phase, the system implements graceful draining strategies that prior
 ###### Phase 2: Hard deadline enforcement
 
 When graceful completion does not achieve termination objectives within acceptable timeframes, the system implements hard deadline enforcement. The hard deadline is typically set to draining initiation time plus seven days, providing substantial time for graceful completion while maintaining operational requirements. The enforcement includes automatic invocation of force deregistration procedures and immediate termination of all remaining tasks regardless of completion status.
-
-### Cross-service coordination and state management
-
-The termination process requires sophisticated coordination between the Cluster Management Backend Service (CMBS) and Node Manager to ensure that container instance deregistration and Amazon EC2 resource cleanup occur in the proper sequence while maintaining consistency.
-
-###### POST_DEREGISTER hook execution
-
-The POST_DEREGISTER lifecycle hook represents the convergence point where all three termination decision paths execute the same cleanup logic. When a container instance reaches DEREGISTERED state, the POST_DEREGISTER hook automatically triggers Node Manager's ReleaseNode API to begin Amazon EC2 resource cleanup operations. The hook implementation includes sophisticated error handling for various failure scenarios including network connectivity issues, Amazon EC2 service availability problems, and coordination failures between system components.
-
-###### Amazon EC2 resource cleanup and deallocation
-
-The Amazon EC2 instance termination process implements comprehensive coordination with AWS services to ensure that underlying compute resources are properly deallocated. This includes network interface cleanup to prevent resource leaks, database record management with comprehensive audit trails, and appropriate error handling and recovery mechanisms for various failure scenarios.

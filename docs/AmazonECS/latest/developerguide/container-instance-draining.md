@@ -62,7 +62,7 @@ container instance will remain in `DRAINING` status.
 
 ## Draining behavior for Amazon ECS Managed Instances
 
-Amazon ECS Managed Instances termination processes ensure graceful workload transitions while
+Amazon ECS Managed Instances termination ensures graceful workload transitions while
 optimizing costs and maintaining system health. The termination system provides three
 distinct decision paths for instance termination, each with different timing
 characteristics and customer impact profiles.
@@ -72,16 +72,16 @@ Customer-initiated termination
 Provides direct control over instance removal when you need to remove
 container instances from service immediately. You run
 `deregister-container-instance` with the
-`force` request parameter set to true, This means that
+`force` request parameter set to true. This means that
 immediate termination is required despite any running workloads.
 
 System-initiated idle termination
 
-Implements cost optimization through intelligent idle detection that identifies instances no longer serving workloads. The Elastic Workload Service (EWS) implements sophisticated idle detection algorithms that monitor instance utilization and initiate termination for instances that remain idle for configurable periods.
+Amazon ECS Managed Instances continuously monitors and proactively optimizes costs by terminating idle Amazon ECS container instances not running any tasks. ECS uses a heuristic delay to give container instances a chance to acquire newly launched tasks before being terminated. This can be customized with the `scaleInAfter` Amazon ECS Managed Instances capacity provider configuration parameter.
 
 Infrastructure refresh termination
 
-Implements proactive infrastructure management through Node Manager's natural decay policy, where instances are periodically refreshed to ensure they run on the latest platform versions and maintain security posture. Node Manager implements time-to-live (TTL) policies that initiate graceful termination for instances that have reached their maximum operational lifetime.
+Amazon ECS Managed Instances automatically manages and updates software on managed container instances to ensure security and compliance while maintaining workload availability. For more information, see [patching in Amazon ECS Managed Instances](managed-instances-patching.md "managed-instances-patching.md").
 
 The termination system implements a two-phase approach that balances workload continuity against infrastructure management requirements.
 
