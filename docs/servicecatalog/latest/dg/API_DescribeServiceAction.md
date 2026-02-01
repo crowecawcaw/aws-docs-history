@@ -83,7 +83,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/servicecatalog-2015-12-10/DescribeServiceAction.md "../../../goto/cli2/servicecatalog-2015-12-10/DescribeServiceAction.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/servicecatalog-2015-12-10/DescribeServiceAction.md "../../../goto/DotNetSDKV3/servicecatalog-2015-12-10/DescribeServiceAction.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/servicecatalog-2015-12-10/DescribeServiceAction.md "../../../goto/DotNetSDKV4/servicecatalog-2015-12-10/DescribeServiceAction.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/servicecatalog-2015-12-10/DescribeServiceAction.md "../../../goto/SdkForCpp/servicecatalog-2015-12-10/DescribeServiceAction.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/servicecatalog-2015-12-10/DescribeServiceAction.md "../../../goto/SdkForGoV2/servicecatalog-2015-12-10/DescribeServiceAction.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/servicecatalog-2015-12-10/DescribeServiceAction.md "../../../goto/SdkForJavaV2/servicecatalog-2015-12-10/DescribeServiceAction.md")
