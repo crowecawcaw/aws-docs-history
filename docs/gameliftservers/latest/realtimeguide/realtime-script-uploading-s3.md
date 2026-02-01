@@ -9,7 +9,7 @@ script files from Amazon S3.
 1. **Store your script files in an S3 bucket.**
    Create a .zip file containing your server script files and upload it to an S3
    bucket in an AWS account that you control. Take note of the object
-   URI—you need this when creating a Amazon GameLift Servers script.
+   URI—you need this when creating an Amazon GameLift Servers script.
 
 ###### Note
 

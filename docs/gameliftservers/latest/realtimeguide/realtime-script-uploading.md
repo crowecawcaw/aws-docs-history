@@ -1,7 +1,7 @@
 # Upload a script for Amazon GameLift Servers Realtime servers
 
 When you're ready to deploy Amazon GameLift Servers Realtime for your game, upload completed Realtime server script
-files to Amazon GameLift Servers. Do this by creating a Amazon GameLift Servers script resource and specifying the location of
+files to Amazon GameLift Servers. Do this by creating an Amazon GameLift Servers script resource and specifying the location of
 your script files. You can also update server script files that are already deployed by
 uploading new files for an existing script resource.
 
@@ -39,6 +39,13 @@ scripts using Node.js version 24.x and later.
 To add an install script, include a file named
 `install.sh` in the root directory of your script .zip file. Amazon GameLift Servers will automatically
 detect and execute this script during fleet deployment.
+
+###### Note
+
+The install script only executes during fleet creation. If you update an existing script using
+[UpdateScript](../apireference/API_UpdateScript.md "../apireference/API_UpdateScript.md"),
+the install script will not be executed on fleets that are already running. To apply install script
+changes, you must create a new fleet with the updated script.
 
 ###### Example Install script example
 
