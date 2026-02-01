@@ -87,8 +87,8 @@ Expected output for 17.0.18:
 
 ```
 openjdk version "17.0.18" 2026-01-20 LTS
-OpenJDK Runtime Environment Corretto-17.0.18.8.1 (build 17.0.18+8-LTS)
-OpenJDK 64-Bit Server VM Corretto-17.0.18.8.1 (build 17.0.18+8-LTS, mixed mode, sharing)
+OpenJDK Runtime Environment Corretto-17.0.18.9.1 (build 17.0.18+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.18.9.1 (build 17.0.18+9-LTS, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
