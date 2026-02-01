@@ -219,9 +219,68 @@ AWS FIS supports the following Amazon DynamoDB action.
 
 ### aws:dynamodb:global-table-pause-replication
 
-Pauses Amazon DynamoDB multi-Region eventually consistent (MREC) global table replication to any replica table. Tables may continue to be replicated for up to 5 minutes after action begins.
+Pauses Amazon DynamoDB multi-Region global table replication to any replica table. Tables may continue to be replicated for up to 5 minutes after action begins.
 
-This action does not support multi-Region strongly consistent (MRSC) global tables. For more information see [Consistency modes](../../../amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes "../../../amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes"), in the Amazon DynamoDB developer guide.
+###### Multi-Region strongly consistent (MRSC) global tables
+
+The following statements will be dynamically appended to the policy for the target DynamoDB MRSC global table:
+
+```
+{
+   "Statement":[
+      {
+         "Sid": "DoNotModifyFisDynamoDbPauseReplicationEXPxxxxxxxxxxxxxxx",
+         "Effect":"Deny",
+         "Principal":{
+            "AWS": "*"
+         },
+         "Action":[
+            "dynamodb:UpdateTable"
+         ],
+         "Resource":"arn:aws:dynamodb:us-east-1:123456789012:table/ExampleGlobalTable",
+         "Condition": {
+            "DateLessThan": {
+                "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+            },
+            "ArnEquals": {
+                "aws:PrincipalArn": "arn:aws:iam::123456789012:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication"
+            }
+         }
+      },
+      {
+         "Sid": "DoNotModifyFisDynamoDbPauseReplicationEXPxxxxxxxxxxxxxxxForApplicationAutoScaling",
+         "Effect":"Deny",
+         "Principal":{
+            "AWS": "*"
+         },
+         "Action":[
+            "dynamodb:DescribeTable",
+            "dynamodb:UpdateTable"
+         ],
+         "Resource":"arn:aws:dynamodb:us-east-1:123456789012:table/ExampleGlobalTable",
+         "Condition": {
+            "DateLessThan": {
+              "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+            },
+            "ArnEquals": {
+                "aws:PrincipalArn": "arn:aws:iam::123456789012:role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+            }
+         }
+      }
+   ]
+}
+
+```
+
+If a target table does not have any attached resource polices, a resource policy is created for the duration of the experiment,
+and automatically deleted when the experiment ends. Otherwise, the fault statement is inserted into an existing policy, without any additional
+modifications to the existing policy statements. The fault statement is then removed from the policy at the end of the experiment.
+
+Target Amazon DynamoDB MRSC global tables are subject to an additional quota. This quota enforces that no single table may be subject to more than 5,040 minutes of impairment in a 7-day rolling window.
+
+Only Amazon DynamoDB MRSC global tables in on-demand capacity mode are supported. Tables in provisioned capacity mode are not supported.
+
+###### Multi-Region eventually consistent (MREC) global tables
 
 The following statement will be dynamically appended to the policy for the target DynamoDB MREC global table:
 
@@ -232,7 +291,7 @@ The following statement will be dynamically appended to the policy for the targe
          "Sid": "DoNotModifyFisDynamoDbPauseReplicationEXPxxxxxxxxxxxxxxx",
          "Effect":"Deny",
          "Principal":{
-            "AWS":"arn:aws:iam::123456789012:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication"
+            "AWS": "*"
          },
          "Action":[
             "dynamodb:GetItem",
@@ -248,9 +307,12 @@ The following statement will be dynamically appended to the policy for the targe
          "Resource":"arn:aws:dynamodb:us-east-1:123456789012:table/ExampleGlobalTable",
          "Condition": {
             "DateLessThan": {
-            "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+              "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+            },
+            "ArnEquals": {
+                "aws:PrincipalArn": "arn:aws:iam::123456789012:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication"
+            }
          }
-       }
       }
    ]
 }
@@ -266,7 +328,7 @@ The following statement will be dynamically appended to the stream policy for th
          "Sid": "DoNotModifyFisDynamoDbPauseReplicationEXPxxxxxxxxxxxxxxx",
          "Effect":"Deny",
          "Principal":{
-            "AWS":"arn:aws:iam::123456789012:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication"
+            "AWS": "*"
          },
          "Action":[
             "dynamodb:GetRecords",
@@ -276,7 +338,11 @@ The following statement will be dynamically appended to the stream policy for th
          "Resource":"arn:aws:dynamodb:us-east-1:123456789012:table/ExampleGlobalTable/stream/2023-08-31T09:50:24.025",
          "Condition": {
             "DateLessThan": {
-            "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+              "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+            },
+            "ArnEquals": {
+                "aws:PrincipalArn": "arn:aws:iam::123456789012:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication"
+            }
          }
       }
    ]
@@ -305,6 +371,9 @@ modifications to the existing policy statements. The fault statement is then rem
 - `dynamodb:GetResourcePolicy`
 - `dynamodb:DescribeTable`
 - `tag:GetResources`
+- `dynamodb:InjectError` \*
+
+\* The permission is only required if you are targeting MRSC global tables
 
 ## Amazon Aurora DSQL actions
 
@@ -441,6 +510,12 @@ Injects `InsufficientInstanceCapacity` error responses on requests made
 by the target IAM roles. Supported operations are RunInstances, CreateCapacityReservation,
 StartInstances, CreateFleet calls. Requests that include capacity asks in multiple Availability Zones are not supported.
 This action doesn't support defining targets using resource tags, filters, or parameters.
+
+For the Auto Scaling LaunchInstances operation, InsufficientInstanceCapacity
+errors will be returned in the response's `errors` field, but the Auto Scaling group's
+desired capacity will still be updated, allowing the asynchronous scaling process to potentially
+launch instances. For broader testing of insufficient capacity handling with LaunchInstances, consider
+using this action together with [aws:ec2:asg-insufficient-instance-capacity-error](#asg-ice "#asg-ice").
 
 ###### Resource type
 

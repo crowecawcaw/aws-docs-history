@@ -100,8 +100,7 @@ The following resource types are supported by AWS FIS:
 - **aws:arc:zonal-shift-managed-resource** – An AWS resource that is registered with ARC zonal shift
 - **aws:directconnect:virtual-interface** – A Direct Connect Virtual Interface
 - **aws:dsql:cluster** – An Amazon Aurora DSQL cluster
-- **aws:dynamodb:global-table** – An Amazon DynamoDB
-  multi-Region eventually consistent global table
+- **aws:dynamodb:global-table** – An Amazon DynamoDB multi-Region global table
 - **aws:ec2:autoscaling-group** – An Amazon EC2 Auto Scaling group
 - **aws:ec2:ebs-volume** – An Amazon EBS volume
 - **aws:ec2:instance** – An Amazon EC2 instance

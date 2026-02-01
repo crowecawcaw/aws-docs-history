@@ -1,8 +1,8 @@
 # Cross-Region: Connectivity
 
-You can use the Cross-Region: Connectivity scenario to block application network traffic from the experiment Region to the destination Region and pause cross-Region replication for Amazon S3 and Amazon DynamoDB multi-Region eventually consistent global tables (MREC). Cross Region: Connectivity affects outbound application traffic from the Region in which you run the experiment (_experiment Region_). Stateless inbound traffic from the Region you wish to isolate from the _experiment region_ (_destination Region_) may not be blocked. Traffic from AWS managed services may not be blocked.
+You can use the Cross-Region: Connectivity scenario to block application network traffic from the experiment Region to the destination Region and pause cross-Region replication for Amazon S3 and Amazon DynamoDB multi-Region global tables. Cross Region: Connectivity affects outbound application traffic from the Region in which you run the experiment (_experiment Region_). Stateless inbound traffic from the Region you wish to isolate from the _experiment region_ (_destination Region_) may not be blocked. Traffic from AWS managed services may not be blocked.
 
-This scenario can be used to demonstrate that multi-Region applications operate as expected when resources in the destination Region are not accessible from the experiment Region. It includes blocking network traffic from the experiment Region to the destination Region by targeting transit gateways and route tables. It also pauses cross-Region replication for S3 and DynamoDB MREC global tables. By default, actions for which no targets are found will be skipped.
+This scenario can be used to demonstrate that multi-Region applications operate as expected when resources in the destination Region are not accessible from the experiment Region. It includes blocking network traffic from the experiment Region to the destination Region by targeting transit gateways and route tables. It also pauses cross-Region replication for S3 and DynamoDB global tables. By default, actions for which no targets are found will be skipped.
 
 ## Actions
 
@@ -41,7 +41,7 @@ This prevents replication into and out of the _experiment Region_ but does not a
 After the scenario ends, table replication will resume from the point it was paused.
 Note that the time it takes for replication to keep all data in sync will vary based on the duration of the experiment and the rate of changes to the table.
 
-This action targets DynamoDB multi-Region eventually consistent global tables in the experiment Region.
+This action targets both DynamoDB multi-Region strongly and eventually consistent global tables in the experiment Region.
 By default, it targets tables with a [tag](../../../amazondynamodb/latest/developerguide/Tagging.md "../../../amazondynamodb/latest/developerguide/Tagging.md") named `DisruptDynamoDb` with a
 value of `Allowed`. You can add this tag to your tables or replace the default tag with your own tag in the experiment template.
 By default, if no valid global tables are found this action will be skipped.
@@ -324,7 +324,7 @@ The following policy grants AWS FIS the necessary permissions to execute an expe
             }
         },
         {
-            "Sid": "DdbCrossRegion",
+            "Sid": "DynamoDbPauseReplication",
             "Effect": "Allow",
             "Action": [
                 "dynamodb:DescribeTable",
@@ -335,6 +335,14 @@ The following policy grants AWS FIS the necessary permissions to execute an expe
             "Resource": [
                 "arn:aws:dynamodb:*:*:table/*"
             ]
+        },
+        {
+            "Sid": "DynamoDbMrscPauseReplication",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:InjectError"
+            ],
+            "Resource": ["*"]
         },
         {
             "Sid": "ResolveResourcesViaTags",
@@ -448,14 +456,6 @@ The following content defines the scenario. This JSON can be saved and used to c
                         "resourceTags": {
                                 "DisruptDynamoDb": "Allowed"
                         },
-                        "filters": [
-                            {
-                                "path": "MultiRegionConsistency",
-                                "values": [
-                                    "EVENTUAL"
-                                ]
-                            }
-                        ],
                         "selectionMode": "ALL"
                 },
                 "MemoryDB-Multi-Region-Cluster": {

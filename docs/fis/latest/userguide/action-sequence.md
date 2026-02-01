@@ -135,7 +135,7 @@ AWS FIS actions support the following resource types for action targets:
 - **Roles** – IAM roles
 - **SpotInstances** – Amazon EC2 Spot Instances
 - **Subnets** – VPC subnets
-- **Tables** – Amazon DynamoDB multi-Region eventually consistent global tables
+- **Tables** – Amazon DynamoDB multi-Region strongly and eventually consistent global tables
 - **Tasks** – Amazon ECS tasks
 - **TransitGateways** – Transit gateways
 - **VirtualInterfaces** – Direct Connect Virtual Interfaces
