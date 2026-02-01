@@ -1,48 +1,60 @@
-# Grouping resources in an Application
+# Managing Application Components
 
-Component
+An Application Component (AppComponent) is a group of related AWS resources that work
+and fail as a single unit. For example, if you have a primary and replica database, both the
+databases belong to the same AppComponent. AWS Resilience Hub has rules that govern which AWS
+resources can belong to which AppComponent type. For example, a `DBInstance` can
+belong to `AWS::ResilienceHub::DatabaseAppComponent` and not to
+`AWS::ResilienceHub::ComputeAppComponent`.
 
-When the application is imported into AWS Resilience Hub along with its resources, AWS Resilience Hub
-makes its best effort to group related resources into the same AppComponent when you
-import your application, but the grouping might not always be 100 percent accurate. Some
-resources are blocked for manual grouping and will be grouped automatically when
-applicable because these services have strict dependencies that require specific
-grouping configurations. For a complete list of services that are blocked for manual
-grouping, see [Blocked services for manual
-grouping](blocked-services-for-manual-grouping.md "blocked-services-for-manual-grouping.md").
+The AWS Resilience Hub AppComponents support the following resources:
 
-AWS Resilience Hub performs the following activities after your application and its resources
-are successfully imported:
+- `AWS::ResilienceHub::ComputeAppComponent`
+  - `AWS::ApiGateway::RestApi`
+  - `AWS::ApiGatewayV2::Api`
+  - `AWS::AutoScaling::AutoScalingGroup`
+  - `AWS::EC2::Instance`
+  - `AWS::ECS::Service`
+  - `AWS::EKS::Deployment`
+  - `AWS::EKS::ReplicaSet`
+  - `AWS::EKS::Pod`
+  - `AWS::Lambda::Function`
+  - `AWS::StepFunctions::StateMachine`
 
-- Scans your resources to check if they can be re-grouped into new AppComponents
-  to improve the assessment accuracy.
-- If AWS Resilience Hub identifies resources that can be re-grouped into new
-  AppComponents, it displays the same as recommendations and allows you to either
-  accept or reject the same. In AWS Resilience Hub, the confidence level assigned to a
-  grouping recommendation indicates the degree of certainty with which the
-  resources should be grouped together based on their attributes and metadata. A
-  **High** confidence level indicates that AWS Resilience Hub has a
-  confidence level of 90% or above that the resources in that group are related
-  and should be grouped together. A **Medium** confidence level
-  indicates that AWS Resilience Hub has a confidence level between 70% and 90% that the
-  resources in that group are related and should be grouped together.
+- `AWS::ResilienceHub::DatabaseAppComponent`
+  - `AWS::DocDB::DBCluster`
+  - `AWS::DynamoDB::Table`
+  - `AWS::ElastiCache::CacheCluster`
+  - `AWS::ElastiCache::GlobalReplicationGroup`
+  - `AWS::ElastiCache::ReplicationGroup`
+  - `AWS::ElastiCache::ServerlessCache`
+  - `AWS::RDS::DBCluster`
+  - `AWS::RDS::DBInstance`
 
-###### Note
+- `AWS::ResilienceHub::NetworkingAppComponent`
+  - `AWS::EC2::NatGateway`
+  - `AWS::ElasticLoadBalancing::LoadBalancer`
+  - `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - `AWS::Route53::RecordSet`
 
-AWS Resilience Hub requires the correct grouping so that it can compute estimated
-workload RTO and estimated workload RPO to generate recommendations.
+- `AWS:ResilienceHub::NotificationAppComponent`
+  - `AWS::SNS::Topic`
 
-The following are examples of correct groupings:
+- `AWS::ResilienceHub::QueueAppComponent`
+  - `AWS::SQS::Queue`
 
-- Group primary databases and replicas under a single AppComponent.
-- Group Amazon EC2 instances that run the same application under a single
-  AppComponent.
-- Group Amazon ECS services in one Region and failover Amazon ECS services in another
-  Region under a single AppComponent.
-  For more information about reviewing and including resource grouping recommendations
-  by AWS Resilience Hub, see the following topics:
+- `AWS::ResilienceHub::StorageAppComponent`
+  - `AWS::Backup::BackupPlan`
+  - `AWS::EC2::Volume`
+  - `AWS::EFS::FileSystem`
+  - `AWS::FSx::FileSystem`
 
-- [AWS Resilience Hub resource grouping
-  recommendations](grouping-recommendation.md "grouping-recommendation.md")
-- [Manually grouping resources into an
-  AppComponent](AppComponent-manual-grouping.md "AppComponent-manual-grouping.md")
+  ###### Note
+
+  Currently, AWS Resilience Hub supports Amazon FSx for Windows File Server only.
+  - `AWS::S3::Bucket`
+
+###### Topics
+
+- [Grouping resources in an Application
+  Component](AppComponent.md "AppComponent.md")
