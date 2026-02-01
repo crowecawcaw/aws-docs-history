@@ -1,4 +1,4 @@
-# Security in Microsoft SQL Server on Amazon EC2
+# Security in Amazon EC2 High Availability for SQL Server
 
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
 data center and network architecture that is built to meet the requirements of the most

@@ -1,4 +1,4 @@
-# Service-linked role for SQL Server on EC2
+# Service-linked role for Amazon EC2 High Availability for SQL Server
 
 Amazon EC2 uses service-linked roles for the permissions that it requires to call other
 AWS services on your behalf. A service-linked role is a unique type of IAM role that
@@ -8,7 +8,7 @@ service-linked role. For more information about how Amazon EC2 uses IAM roles, i
 service-linked roles, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md")
 in the _Amazon EC2 User Guide_.
 
-SQL Server on EC2 uses the service-linked role named **AWSServiceRoleForEC2SqlHa**
+Amazon EC2 High Availability for SQL Server uses the service-linked role named **AWSServiceRoleForEC2SqlHa**
 to allow the service to detect whether an EC2 instance that's tagged with the EC2 SQL
 High Availability identifier (`SqlHaMonitored` set to `true`) is
 running in active or passive mode.
