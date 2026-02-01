@@ -4,11 +4,11 @@ With Region switch, you can orchestrate the specific steps to switch the AWS Reg
 multi-Region application is running in.
 
 Region switch is built around the concept of a _plan_, which you design and configure for your
-specific recovery needs. Each plan includes _workflows_ that are made up of steps. A step runs
+specific recovery needs. Each plan includes _workflows_ that are made up of steps. Each step runs
 one or more _execution blocks_, which Region switch runs in parallel or in sequence,
 to complete an application recovery. Each execution block handles a different task, such as switching
 over resources or managing traffic redirection for your application. For even more flexibility, you can
-create nested plans, by adding child plans.
+create parent plans, by adding child plans.
 
 Whenever you create, or update, a plan, Region switch performs a plan evaluation, to ensure that there
 aren't issues with IAM permissions, resource configurations, or running capacity.
@@ -68,14 +68,14 @@ include multiple child plans under the same parent plan.
 
 After you create a Region switch plan, you must add one or more workflows to the plan, to define the
 steps you want the plan to perform for your application recovery. For each workflow,
-you add execution blocks to complete specific tasks, like scaling up
-resources or updating routing controls to reroute traffic. Execution blocks enable
-you to specify these tasks and the order in which they're completed. By creating nested plans, you can
+you add steps that contain execution blocks. Each execution block performs a specific recovery action,
+such as scaling up resources or updating routing controls to reroute traffic. Steps organize these
+execution blocks and control whether they run in parallel or in sequence. By creating parent plans, you can
 also orchestrate the order in which multiple applications recover into the Region that you're activating.
 
-You can add execution blocks in a workflow sequentially, or you can add one or more execution blocks in parallel.
-Also, depending on the resource, you can have the option to run an execution block with graceful (planned) or
-ungraceful (unplanned) execution.
+You organize execution blocks into steps within a workflow. Each step can contain one or more execution blocks
+that run in parallel, and you arrange steps to run sequentially in your workflow. Also, depending on the resource,
+you can have the option to run an execution block with graceful (planned) or ungraceful (unplanned) execution.
 
 - Graceful execution: A planned execution workflow. When your environment is
   healthy, you can use the graceful workflow to run all steps for an orderly plan
@@ -87,7 +87,7 @@ ungraceful (unplanned) execution.
 Finally, you can also configure cross-account resources for an execution block. First, you must configure
 permissions, by following the guidance in [Cross-account support in Region switch](cross-account-resources-rs.md "cross-account-resources-rs.md"). After you've set up the required IAM roles,
 then you can add cross-acount resources in the execution blocks in your plan workflows. To add
-cross-account resources, when you add an execution block, you specify a
+cross-account resources, when you add a step, you specify a
 target IAM role that has permissions to the resource of other AWS accounts. You also must
 specify the external ID that you provided in the trust policy for the cross-account role.
 For details about creating the required IAM roles, see [Cross-account resource permissions](security_iam_region_switch_cross_account.md "security_iam_region_switch_cross_account.md").
@@ -105,7 +105,9 @@ The evaluations include verifying IAM permissions, resource configurations, and 
 If Region switch finds an issue that might prevent a successful plan execution, it
 generates a plan evaluation warning, which is highlighted on the plan details page in the console.
 You can also consume plan evaluation warnings with Amazon EventBridge, or you can view warnings by
-using the Region switch API.
+using the Region switch API. For more information about the Plan Evaluation API, see
+[GetPlanEvaluationStatus](../../../arc-region-switch/latest/api/API_GetPlanEvaluationStatus.md "../../../arc-region-switch/latest/api/API_GetPlanEvaluationStatus.md") in the
+_Region Switch API Reference Guide_ for Amazon Application Recovery Controller (ARC).
 
 You can see details and suggested remediation for issues that plan evaluation surfaces in the
 **Plan evaluation** tab on the plan details page. We recommend that you also
@@ -158,12 +160,12 @@ Actual recovery time is calculated as the total of the time is takes for a plan 
 to complete, and any additional time that elapses before specific Amazon CloudWatch alarms that you configure
 return to a green state.
 
-To support calculating an accurate actual recovery time for plan execution, add Regional
-Amazon CloudWatch alarms to a Region switch plan that provide a signal about the health of your application in each
+To support calculating an accurate actual recovery time for plan execution, you must configure
+Regional Amazon CloudWatch alarms for a Region switch plan that provide a signal about the health of your application in each
 Region. When a plan is executed, Region switch uses these application health alarms to determine when
 your application is healthy again. Then, Region switch calculates actual recovery time based on
 the time it takes for your plan to execute added to the time it takes for your application
-to return to healthy, based on the application health alarms that you specify.
+to return to healthy, based on the application health alarms that you configure.
 
 Before you add CloudWatch alarms to a Region switch plan, make sure that you have the correct IAM policy in place.
 For more information, see [CloudWatch alarms for application health permissions](security_iam_region_switch_cloudwatch.md "security_iam_region_switch_cloudwatch.md").

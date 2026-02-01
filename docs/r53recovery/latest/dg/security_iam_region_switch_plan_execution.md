@@ -18,8 +18,8 @@ JSON
  "arc-region-switch:ListPlanExecutions"
  ],
  "Resource": [
- "arn:aws:arc-region-switch:us-east-1:123456789012:plan/child-plan-1/abcde1",
- "arn:aws:arc-region-switch:us-west-2:123456789012:plan/child-plan-2/fghij2"
+ "arn:aws:arc-region-switch::123456789012:plan/child-plan-1/abcde1",
+ "arn:aws:arc-region-switch::123456789012:plan/child-plan-2/fghij2"
  ]
  }
  ]

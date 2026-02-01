@@ -14,7 +14,7 @@ plan, to coordinate more complex application recovery scenarios. You can nest Re
 
 **Workflow**
 A Region switch plan includes one or more workflows. A workflow is made up
-of execution blocks that you specify to be run in parallel or in sequence, which
+of steps that contain execution blocks, which you specify to be run in parallel or in sequence, to
 complete the activation or deactivation of a Region as part of a recovery plan. For a plan that
 you configure to have an active/passive approach, you create either one workflow that can be used
 to activate either of your Regions, or separate activation workflows, one for each Region. For
@@ -22,10 +22,10 @@ a plan that you configure for an active/active approach, you create one workflow
 your Regions and one workflow to deactivate your Regions.
 
 **Execution block**
-You add Region switch execution blocks to your Region switch plan workflows.
+You add steps to your Region switch plan workflows containing an execution block.
 Execution blocks allow you to specify the recovery for multiple applications or resources
-into an activating Region. When you add an execution block to a workflow, you can add it in
-sequence with other blocks, or in parallel with one or more other blocks.
+into an activating Region. When you add a step to a workflow, you can add it in
+sequence with other steps, or in parallel with one or more other steps.
 
 **Graceful and ungraceful configurations**
 You can choose to run specific execution blocks with graceful (planned) or ungraceful

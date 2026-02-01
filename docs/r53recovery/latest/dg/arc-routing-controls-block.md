@@ -1,7 +1,7 @@
 # ARC routing control execution block
 
 If you've configured Amazon Application Recovery Controller (ARC) routing control for your application, you can add a ARC
-routing control execution block to redirect application traffic. This execution block
+routing control step to redirect application traffic. This step
 enables you to change the state of one or more ARC routing controls
 to redirect your application traffic to a destination AWS Region. ARC routing control
 redirects traffic by using health checks in Amazon Route 53 that are configured with the DNS records

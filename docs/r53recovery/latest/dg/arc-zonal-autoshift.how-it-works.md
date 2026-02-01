@@ -1,33 +1,28 @@
-# Precedence for zonal shifts
+# About zonal autoshift
 
-There can be no more than one applied zonal shift at a given time. That is, only one practice run zonal shift,
-customer-initiated zonal shift, autoshift, or AWS FIS experiment for the resource. When a second zonal shift is started,
-ARC follows a precedence to determine which zonal shift type is in effect for a resource.
+Zonal autoshift is a capability where AWS shifts application resource
+traffic away from an Availability Zone, on your behalf. AWS starts an autoshift when internal
+telemetry indicates that there is an Availability Zone impairment
+that could potentially impact customers. The internal telemetry incorporates metrics from several
+sources, including the AWS network, and the Amazon EC2 and Elastic Load Balancing services.
 
-The general principle for precedence is that zonal shifts that you start as a customer take precedence over other
-shift types. However, be aware that a currently-running AWS-initiated practice run prevents you from starting an
-on-demand practice run.
+You must manually enable zonal autoshift for supported AWS resources.
 
-To illustrate precedence in ARC, the following is how precedence works for example scenarios:
+When you deploy and run AWS applications on load balancers in multiple (typically three) AZs in a Region,
+and you pre-scale to support static stability, AWS can quickly recover customer applications in an AZ by shifting
+traffic away with an autoshift. By shifting away resource traffic to other AZs in the Region, AWS can reduce
+the duration and severity of potential impact caused by power outages, hardware or software issues in an AZ,
+or other impairments.
 
-| Zonal shift type applied | Zonal shift type initiated | Result                                                                                                                                              |
-| ------------------------ | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS FIS experiment       | Practice run               | The practice run will fail to start, as the AWS FIS experiment takes precedence.                                                                    |
-| AWS FIS experiment       | Manual zonal shift         | The AWS FIS experiment will be canceled, and the manual zonal shift will be applied.                                                                |
-| AWS FIS experiment       | Zonal autoshift            | The AWS FIS experiment will be canceled, and the zonal autoshift will be applied.                                                                   |
-| AWS FIS experiment       | AWS FIS experiment         | The initiated AWS FIS experiment will fail to start because there is an existing<br>experiment running that triggered the AWS FIS autoshift action. |
-| Practice run             | Manual zonal shift         | The practice run will be canceled and the outcome set to `INTERRUPTED`, and the zonal<br>shift will be applied.                                     |
-| Practice run             | AWS FIS experiment         | The practice run will be canceled and the outcome set to `INTERRUPTED`,<br>and the AWS FIS experiment will be applied.                              |
-| Practice run             | Zonal autoshift            | The practice run will be canceled and the outcome set to `INTERRUPTED`,<br>and the zonal autoshift will be applied.                                 |
-| Manual zonal shift       | Practice run               | The practice run will fail to start.                                                                                                                |
-| Manual zonal shift       | AWS FIS experiment         | The AWS FIS experiment will fail to start, or fail if it's already<br>in progress.                                                                  |
-| Manual zonal shift       | Zonal autoshift            | The zonal autoshift will be `ACTIVE` but not `APPLIED` on the<br>resource. The manual zonal shift takes precedence.                                 |
-| Zonal autoshift          | AWS FIS experiment         | The AWS FIS experiment will fail to start, or will fail if it's in<br>progress.                                                                     |
-| Zonal autoshift          | Manual zonal shift         | The zonal autoshift will be `ACTIVE` but not `APPLIED` on the<br>resource. The manual zonal shift takes precedence.                                 |
-| Zonal autoshift          | Practice run               | The practice run will fail to start, as the zonal autoshift<br>takes precedence.                                                                    |
+The resources supported by ARC provide integrations that mark the specified AZ as unhealthy,
+which results in traffic being shifted away from the impaired AZ.
 
-The traffic shift that is currently in effect for the resource has an applied zonal shift
-status set to `APPLIED`. Only one shift is set to
-`APPLIED` at any time. Other shifts that are in progress are
-set to `NOT_APPLIED`, but remain with `ACTIVE`
-status.
+When you enable zonal autoshift for a resource, you must also configure a practice run for the resource. AWS
+performs practice runs about weekly, for 30 minutes, to help you make sure that you have enough capacity to
+run your application without one of the Availability Zones in the Region.
+
+As with zonal shift, there are a few specific scenarios where zonal autoshift does not shift traffic away from the AZ.
+For example, if the load balancer target groups in the AZs don't have any instances, or if all of the instances
+are unhealthy, then the load balancer is in a fail open state and you can't shift away one of the AZs.
+
+To learn more about zonal autoshift, see [Zonal autoshift in ARC](arc-zonal-autoshift.md "arc-zonal-autoshift.md").

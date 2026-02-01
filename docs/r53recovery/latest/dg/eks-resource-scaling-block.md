@@ -6,7 +6,7 @@ percentage of capacity to scale, relative to the capacity in the Region that is 
 
 ## Configure EKS access entry permissions
 
-Before you can add an execution block for EKS resource scaling, you must provide Region switch
+Before you can add a step for EKS resource scaling, you must provide Region switch
 with the necessary permissions to take actions with the Kubernetes resources in your EKS clusters.
 To provide access for Region switch, you must create an EKS access entry for the IAM role that
 Region switch uses for plan execution, by using the following Region switch access policy:
@@ -73,7 +73,7 @@ to ensure that both clusters can be accessed by Region switch.
 
 ###### Important
 
-Before you add an EKS resource scaling execution block, first, make sure that you have the
+Before you add an EKS resource scaling step, first, make sure that you have the
 configured the correct permissions. For more information, see [Configure EKS access entry permissions](#eks-resource-scaling-block-permissions "#eks-resource-scaling-block-permissions"). Also make sure that you have the correct IAM
 policy in place. For more information, see [Amazon EKS resource scaling execution block sample policy](security_iam_region_switch_eks.md "security_iam_region_switch_eks.md").
 

@@ -26,8 +26,8 @@ Then, choose **Save step.**
 
 ## How it works
 
-Use the Region switch plan execution block to create nested workflows with parent/child relationships.
-Note that this execution block does not support additional levels of child plans, and limits the number of nested child plans.
+Use the Region switch plan execution block to create parent workflows with parent/child relationships.
+Note that this execution block does not support additional levels of child plans, and limits the number of parent child plans.
 Child plans must support the same Regions that the parent plan supports, and must have the same recovery approach
 as the parent plan (that is, active/active or active/passive).
 

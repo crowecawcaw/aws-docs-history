@@ -13,7 +13,7 @@ JSON
  "Action": [
  "arc-region-switch:ApprovePlanExecutionStep"
  ],
- "Resource": "arn:aws:arc-region-switch:us-east-1:123456789012:plan/sample-plan:0123abc"
+ "Resource": "arn:aws:arc-region-switch::123456789012:plan/sample-plan:0123abc"
  }
  ]
 }`

@@ -6,6 +6,10 @@ health checks, which you then attach to Route 53 DNS records in your account. W
 execute your Region switch plan, the Route 53 health check state is updated, and traffic is
 redirected based on your DNS configuration.
 
+###### Important
+
+The Route 53 hosted zone must be in the same partition as the Region switch plan.
+
 ## Configuration
 
 To configure a Route 53 health check execution block, enter the following values.
@@ -47,7 +51,7 @@ for all execution blocks and Regions.
 
 ## How it works
 
-You add a health check execution block to your Region switch workflow so that you
+You add a health check step to your Region switch workflow so that you
 can redirect traffic to a secondary Region, for active/passive configurations,
 or away from a deactivated Region, for active/active configurations.
 If you add multiple workflows to your plan, provide the same

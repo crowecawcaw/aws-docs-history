@@ -1,60 +1,67 @@
-# Application Load Balancers
+# Amazon Elastic Kubernetes Service
 
-## Using zonal shift for Application Load Balancers
+Amazon EKS provides features that enable you to make your applications more resilient to events such as the degraded health or the impairment of an Availability Zone.
+When you run your workloads in an Amazon EKS cluster, you can further improve your application environment’s fault tolerance and application recovery by using zonal shift
+or zonal autoshift.
 
-To use Application Load Balancers with zonal shift, you must enable ARC zonal shift integration in the
-Application Load Balancer attributes. Application Load Balancer supports zonal shift with cross-zone enabled or
-cross-zone disabled configurations.
+## Using zonal shift with Amazon Elastic Kubernetes Service
 
-Before you enable the ARC integration and start using zonal shift, review the following information:
-
-- You can start a zonal shift for a specific load balancer only for a single Availability Zone. You can't
-  start a zonal shift for multiple Availability Zones.
-- AWS proactively removes zonal load balancer IP addresses from DNS when multiple infrastructure issues
-  impact services. Always check current Availability Zone capacity before you start a zonal shift.
-- When an Application Load Balancer is a target of a Network Load Balancer, always start the zonal shift from the Network Load Balancer. If you start a
-  zonal shift from the Application Load Balancer, the Network Load Balancer doesn't recognize the shift and continues to send traffic to the Application Load Balancer.
-
-You can start a zonal shift for a load balancer in the Elastic Load Balancing console (in most
-AWS Regions) or in the ARC console.
+To enable zonal shift, use one of the following methods. For more information, see [Learn about ARC zonal shift](../../../eks/latest/userguide/zone-shift-enable.md#zone-shift-enable-steps "../../../eks/latest/userguide/zone-shift-enable.md#zone-shift-enable-steps") in the _Amazon Elastic Kubernetes Service User Guide_.
 
 Console
 
-###### To enable zonal shift on a load balancer (Console)
+###### To enable zonal shift on a new Amazon EKS cluster (Console)
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the **Navigation** page, under **Load balancing**, choose **Load balancers**.
-3. Select the Application Load Balancer name.
-4. On the **Attributes** tab, **Edit**.
-5. Under **Availability Zone routing configuration**, for
-   > ARC zonal shift integration, choose **Enable**.
-6. Choose **Save**.
+1. Find the name and Region of the Amazon EKS cluster that you want to register with ARC.
+2. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+3. Select your cluster.
+4. On the **Cluster info** page, select the **Overview** tab.
+5. Under **Zonal shift**, choose **Manage**.
+6. For **EKS Zonal Shift**, choose **Enable** or **Disable**.
 
 AWS CLI
 
-###### To enable zonal shift on a load balancer (AWS CLI)
+###### To enable zonal shift on a new Amazon EKS cluster (AWS CLI)
 
 - Enter the following command:
 
 ```
-aws elbv2 modify-load-balancer-attributes --load-balancer-arn `my-alb-arn` --attributes Key=zonal_shift.config.enabled,Value=true
+aws eks create-cluster --name `my-eks-cluster` --role-arn `my-role-arn-to-create-cluster` --resources-vpc-config subnetIds=string,string,securityGroupIds=string,string,endpointPublicAccess=boolean,endpointPrivateAccess=boolean,publicAccessCidrs=string,string --zonal-shift-config enabled=true
 ```
+
+###### To enable zonal shift on an existing Amazon EKS cluster (AWS CLI)
+
+- Enter the following command:
+
+```
+aws eks update-cluster-config --name `my-eks-cluster` --zonal-shift-config enabled=true
+```
+
+You can start a zonal shift for an Amazon EKS cluster, or you can allow AWS to
+do it for you, by enabling zonal autoshift. After your Amazon EKS cluster zonal shift
+enabled with ARC, you can start a zonal shift or enable zonal autoshift
+using the ARC Console, the AWS CLI, or the zonal shift and zonal
+autoshift APIs.
 
 For more information on starting a zonal shift, see [Starting, updating, or canceling a zonal shift](arc-zonal-shift.md "arc-zonal-shift.md").
 
-You can use the `keepalive` option to configure how long connections
-continue. For more information, see [HTTP client keepalive duration](../../../elasticloadbalancing/latest/application/application-load-balancers.md#http-client-keep-alive-duration "../../../elasticloadbalancing/latest/application/application-load-balancers.md#http-client-keep-alive-duration") in the Application Load Balancer User Guide. By default,
-Application Load Balancers set the HTTP client keepalive duration value to 3600 seconds, or 1 hour. We
-suggest that you lower the value to be inline with your recovery time goal for your
-application, for example, 300 seconds. When you choose an HTTP client keepalive
-duration time, consider that this value is a trade off between reconnecting more
-frequently in general, which can affect latency, and more quickly moving all clients
-away from an impaired AZ or Region.
+For more information on enabling Amazon EKS with zonal shift, see [Learn about
+ARC Zonal Shift in Amazon EKS](../../../eks/latest/userguide/zone-shift.md "../../../eks/latest/userguide/zone-shift.md") in the _Amazon Elastic Kubernetes Service User Guide_.
 
-## How zonal shift works for Application Load Balancers
+## How zonal shift works for Amazon Elastic Kubernetes Service
 
-When a zonal shift is started on an Application Load Balancer with cross-zone load balancing enabled, all traffic to
-targets is blocked in the Availability Zone that is impacted, and the zonal shift removes the zonal IP address from DNS.
+During an Amazon EKS zonal shift, the following automatically takes place:
 
-For more information, see [Integrations for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-integrations.md#zonal-shift "../../../elasticloadbalancing/latest/application/load-balancer-integrations.md#zonal-shift") in the _Application Load Balancer User Guide_.
+- All the nodes in the impacted AZ are cordoned.
+  This prevents the Kubernetes Scheduler from scheduling new Pods onto the nodes in the unhealthy AZ.
+- If you’re using [Managed Node Groups](../../../eks/latest/userguide/managed-node-groups.md "../../../eks/latest/userguide/managed-node-groups.md"), [Availability Zone rebalancing](../../../autoscaling/ec2/userguide/auto-scaling-benefits.md#AutoScalingBehavior.InstanceUsage "../../../autoscaling/ec2/userguide/auto-scaling-benefits.md#AutoScalingBehavior.InstanceUsage")
+  is suspended, and your Auto Scaling group is updated to ensure that new Amazon EKS data plane nodes are only launched in healthy AZs.
+- The nodes in the unhealthy AZ are not terminated and the Pods are not evicted from these nodes. This is to ensure that when a
+  zonal shift expires or is canceled, your traffic can be safely returned to the AZ that still has full capacity.
+- The EndpointSlice controller finds all the Pod endpoints in the impaired AZ and removes them from the relevant
+  EndpointSlices. This ensures that only Pod endpoints in healthy AZs are targeted to receive network traffic.
+  When a zonal shift is canceled or expires, the EndpointSlice controller updates the EndpointSlices to include the
+  endpoints in the restored AZ.
+
+For more information, see the [AWS
+Containers blog](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/ "https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/").
