@@ -16,8 +16,9 @@ to retrieve.
 
 **namespace**
 
-The namespace where the memory records are stored. This is the same
-namespace you configured in your memory strategy.
+The namespace prefix of the namespace where the memory records are stored.
+The operation returns paginated memory records in namespaces that start with the
+provided prefix.
 
 **searchCriteria**
 

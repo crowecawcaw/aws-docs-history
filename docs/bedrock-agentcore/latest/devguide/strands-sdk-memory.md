@@ -77,19 +77,19 @@ comprehensive_memory = client.create_memory_and_wait(
         {
             "summaryMemoryStrategy": {
                 "name": "SessionSummarizer",
-                "namespaces": ["/summaries/{actorId}/{sessionId}"]
+                "namespaces": ["/summaries/{actorId}/{sessionId}/"]
             }
         },
         {
             "userPreferenceMemoryStrategy": {
                 "name": "PreferenceLearner",
-                "namespaces": ["/preferences/{actorId}"]
+                "namespaces": ["/preferences/{actorId}/"]
             }
         },
         {
             "semanticMemoryStrategy": {
                 "name": "FactExtractor",
-                "namespaces": ["/facts/{actorId}"]
+                "namespaces": ["/facts/{actorId}/"]
             }
         }
     ]

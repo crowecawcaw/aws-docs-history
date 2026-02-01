@@ -154,6 +154,7 @@ control vendors:
 - **Cloudflare**
 - **HUMAN Security**
 - **Akamai Technologies**
+- **DataDome**
 
 Additional bot control vendors will be supported as partnerships are established. The
 authentication works transparently - once enabled, your agents can browse websites protected

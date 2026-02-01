@@ -11,48 +11,42 @@ handling.
 
 ###### Topics
 
-- [Prerequisites](#browser-prerequisites "#browser-prerequisites")
-- [Using AgentCore Browser via AWS Strands](#browser-using-strands "#browser-using-strands")
+- [Step 0:Prerequisites](#browser-prerequisites "#browser-prerequisites")
+- [Step 1: Install dependencies](#browser-strands-install "#browser-strands-install")
+- [Step 2: Create your agent with AgentCore Browser](#browser-strands-create "#browser-strands-create")
+- [Step 3: Run the agent](#browser-strands-run "#browser-strands-run")
+- [Step 4: View the browser session live](#browser-strands-live-view "#browser-strands-live-view")
 - [Find your resources](#browser-find-resources "#browser-find-resources")
 - [Next steps](#browser-next-steps "#browser-next-steps")
 
-## Prerequisites
+## Step 0:Prerequisites
 
 Before you start, ensure you have:
 
-- AWS account with credentials configured. See [Configuring your credentials](#browser-credentials-config "#browser-credentials-config").
-- Python 3.10+ installed
+- Python version 3.10 or newer. You can check your version using the below command. If you need to update Python, visit [python.org/downloads](python.org/downloads.md "python.org/downloads.md").
+
+```
+python3 --version
+```
+
 - Boto3 installed. See [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html").
-- IAM execution role with the required permissions. See [Configuring your credentials](#browser-credentials-config "#browser-credentials-config").
 - Model access: Anthropic Claude Sonnet 4.0 [enabled](../../../bedrock/latest/userguide/model-access-modify.md "../../../bedrock/latest/userguide/model-access-modify.md") in the Amazon Bedrock console. For information about using a different model
   with the Strands Agents see the _Model Providers_ section in the
   [Strands Agents SDK
   documentation](https://strandsagents.com/latest/documentation/docs/ "https://strandsagents.com/latest/documentation/docs/").
 - AWS Region where Amazon Bedrock AgentCore is available. See [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 - Your network allows secure WebSocket connections
-
-### Configuring your credentials
-
-Perform the following steps to configure your AWS credentials and attach the
-required permissions to use AgentCore Browser.
-
-1. ###### Verify your AWS credentials
-
-Confirm your AWS credentials are configured:
+- Verify your AWS account using the below command. Take note of the user or credentials returned, as you'll be attaching
+  permissions to this identity in the next step. If this command fails, configure your credentials. For more information, see
+  [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the AWS CLI
+  documentation.
 
 ```
 aws sts get-caller-identity
 ```
 
-Take note of the user or credentials returned here, as you'll be attaching
-permissions to this identity in the next step.
-
-If this command fails, configure your credentials. For more information, see
-[Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the AWS CLI
-documentation. 2. ###### Attach required permissions
-
-Your IAM user or role needs permissions to use AgentCore Browser. Attach this policy to
-your IAM identity:
+- Attach IAM execution role with the required permissions. Attach this policy to
+  your IAM identity. To attach this policy in Console: Navigate to the IAM Console, Find your user or role (the one returned in previous step), Click Add permissions → Create inline policy, Switch to JSON view and paste the policy above, Name it AgentCoreBrowserAccess , and Save.
 
 ```
 {
@@ -91,58 +85,14 @@ your IAM identity:
 }
 ```
 
-**To attach this policy**:
-
-    * Navigate to the IAM Console
-    * Find your user or role (the one returned by `aws sts
-     get-caller-identity`)
-    * Click **Add permissions** → **Create inline policy**
-    * Switch to JSON view and paste the policy above
-    * Name it `AgentCoreBrowserAccess` and save
-
 ###### Note
 
 Replace `<Region>` with your actual AWS Region and
-`<account_id>` with your AWS account ID. 3. ###### Verify your setup
+`<account_id>` with your AWS account ID.
 
-Confirm your setup is correct by checking:
+## Step 1: Install dependencies
 
-    * Your AWS credentials are properly configured
-    * The IAM policy is attached to your user or role
-    * Model access is enabled in the Amazon Bedrock console
-
-The following sections show you how to use the Amazon Bedrock AgentCore Browser with and without the agent
-framework. Using the Browser directly without an agent framework is especially useful when you
-want to execute specific browser automation tasks programmatically.
-
-## Using AgentCore Browser via AWS Strands
-
-The following sections show you how to use the Amazon Bedrock AgentCore Browser with the Strands SDK.
-Before you go through the examples in this section, see [Prerequisites](#browser-prerequisites "#browser-prerequisites").
-
-###### Topics
-
-- [Step 1: Install dependencies](#browser-strands-install "#browser-strands-install")
-- [Step 2: Create your agent with AgentCore Browser](#browser-strands-create "#browser-strands-create")
-- [Step 3: Run the agent](#browser-strands-run "#browser-strands-run")
-- [Step 4: View the browser session live](#browser-strands-live-view "#browser-strands-live-view")
-
-### Step 1: Install dependencies
-
-Create a project folder and install the required packages:
-
-###### Note
-
-On Windows, use: `.venv\Scripts\activate`
-
-```
-mkdir agentcore-browser-quickstart
-cd agentcore-browser-quickstart
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Install the required packages:
+Before you start, make sure you have installed the required packages:
 
 ```
 pip install bedrock-agentcore strands-agents strands-agents-tools playwright nest-asyncio
@@ -160,7 +110,10 @@ These packages provide:
 - `nest-asyncio`: Allows running asyncio event loops within existing
   event loops
 
-### Step 2: Create your agent with AgentCore Browser
+If you face issues with pip install , review the instructions [here](https://packaging.python.org/en/latest/tutorials/installing-packages/ "https://packaging.python.org/en/latest/tutorials/installing-packages/"). Amazon Bedrock AgentCore requires requires Python version 3.10 or
+newer.
+
+## Step 2: Create your agent with AgentCore Browser
 
 Create a file named `browser_agent.py` and add the following code:
 
@@ -197,7 +150,7 @@ This code:
   question
 - Prints the agent's response with the information found
 
-### Step 3: Run the agent
+## Step 3: Run the agent
 
 Execute the following command:
 
@@ -217,7 +170,7 @@ If you encounter errors, verify:
 - You have model access enabled in the Amazon Bedrock console
 - Your AWS credentials are properly configured
 
-### Step 4: View the browser session live
+## Step 4: View the browser session live
 
 While your browser script is running, you can view the session in real-time through
 the AWS Console:
@@ -239,22 +192,6 @@ The live view interface provides:
 - Real-time video stream of the browser session
 - Interactive controls to take over or release control from automation
 - Ability to terminate the session
-
-This example:
-
-- Creates a browser session using the browser_session client
-- Retrieve the WebSocket connection details required for automation and live
-  view.
-- Start the viewer server, which launches a browser window to display the remote browser
-  session via Live View.
-- Connect Playwright to the remote browser via automation endpoint and navigate to
-  Amazon.com.
-- Keep the session alive until manually interrupted.
-- Handle cleanup gracefully by terminating the session and releasing resources when the
-  program exits.
-  The BrowserViewerServer component provides a local web server that connects to the remote
-  browser session and displays it in a browser window, allowing you to see and interact with the
-  browser in real-time.
 
 ## Find your resources
 
@@ -278,7 +215,5 @@ Now that you have AgentCore Browser working, explore these advanced features:
 - [Using AgentCore Browser with other Browser libraries and
   tools](browser-building-agents.md "browser-building-agents.md") -
   Use other frameworks like Nova Act or Playwright
-- [Use cases](browser-tool.md#browser-use-cases "browser-tool.md#browser-use-cases") - See
-  real-world implementation examples
 - [Resource and session management](browser-resource-session-management.md "browser-resource-session-management.md") - Learn about API operations and
   custom browsers

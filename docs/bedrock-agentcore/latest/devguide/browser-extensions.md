@@ -18,7 +18,7 @@ Browser Extensions in Amazon Bedrock AgentCore work as follows:
 
 Before using browser extensions, ensure you have:
 
-- Completed the general Browser [Prerequisites](browser-onboarding.md#browser-prerequisites "browser-onboarding.md#browser-prerequisites")
+- Completed the general Browser [Step 0:Prerequisites](browser-onboarding.md#browser-prerequisites "browser-onboarding.md#browser-prerequisites")
 - An Amazon Amazon S3 bucket to store your extension ZIP files
 - IAM permissions to access the Amazon S3 bucket containing your extensions. Add the following permissions to your IAM policy:
 

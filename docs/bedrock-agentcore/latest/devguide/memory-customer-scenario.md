@@ -38,7 +38,7 @@ Create memory with summary and user preference strategies:
 agentcore memory create ShoppingSupportAgentMemory \
   --region us-west-2 \
   --description "Memory for a customer support agent." \
-  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences"]}}]' \
+  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}/"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences/"]}}]' \
   --wait
 ```
 
@@ -74,11 +74,11 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         SummaryStrategy(
             name="SessionSummarizer",
-            namespaces=["/summaries/{actorId}/{sessionId}"]
+            namespaces=["/summaries/{actorId}/{sessionId}/"]
         ),
         UserPreferenceStrategy(
             name="PreferenceLearner",
-            namespaces=["/users/{actorId}/preferences"]
+            namespaces=["/users/{actorId}/preferences/"]
         )
     ]
 )
@@ -107,13 +107,13 @@ response = control_client.create_memory(
         {
             'summaryMemoryStrategy': {
                 'name': 'SessionSummarizer',
-                'namespaces': ['/summaries/{actorId}/{sessionId}']
+                'namespaces': ['/summaries/{actorId}/{sessionId}/']
             }
         },
         {
             'userPreferenceMemoryStrategy': {
                 'name': 'UserPreferenceExtractor',
-                'namespaces': ['/users/{actorId}/preferences']
+                'namespaces': ['/users/{actorId}/preferences/']
             }
         }
     ]
@@ -309,7 +309,7 @@ time.sleep(60)
 
 # --- Example 1: Retrieve the user’s shipping preference ---
 memories = session.search_long_term_memories(
-    namespace_prefix=f"/users/{sarah_actor_id}/preferences",
+    namespace_prefix=f"/users/{sarah_actor_id}/preferences/",
     query="Does the user have a preferred shipping carrier?",
     top_k=5
 )
@@ -321,7 +321,7 @@ for memory_record in memories:
 
 # --- Example 2: Broad query about the user’s issue ---
 memories = session.search_long_term_memories(
-    namespace_prefix=f"/summaries/{sarah_actor_id}/{support_session_id}",
+    namespace_prefix=f"/summaries/{sarah_actor_id}/{support_session_id}/",
     query="What problem did the user report with their order?",
     top_k=5
 )
@@ -343,7 +343,7 @@ time.sleep(60)
 print("\nRetrieving user preferences from long-term memory...")
 preference_response = data_client.retrieve_memory_records(
     memoryId=memory_id,
-    namespace=f"/users/{sarah_actor_id}/preferences",
+    namespace=f"/users/{sarah_actor_id}/preferences/",
     searchCriteria={"searchQuery": "Does the user have a preferred shipping carrier?"}
 )
 for record in preference_response.get('memoryRecordSummaries', []):
@@ -353,7 +353,7 @@ for record in preference_response.get('memoryRecordSummaries', []):
 print("\nPerforming a broad search for user's reported issues...")
 issue_response = data_client.retrieve_memory_records(
     memoryId=memory_id,
-    namespace=f"/summaries/{sarah_actor_id}/{support_session_id}",
+    namespace=f"/summaries/{sarah_actor_id}/{support_session_id}/",
     searchCriteria={"searchQuery": "What problem did the user report with their order?"}
 )
 for record in issue_response.get('memoryRecordSummaries', []):

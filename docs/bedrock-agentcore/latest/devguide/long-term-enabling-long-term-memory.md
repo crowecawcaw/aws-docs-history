@@ -19,7 +19,7 @@ Starter toolkit CLI
 ```
 agentcore memory create PersonalizedShoppingAgentMemory \
   --region us-west-2 \
-  --strategies '[{"userPreferenceMemoryStrategy": {"name": "UserShoppingPreferences", "namespaces": ["/users/{actorId}/preferences"]}}]' \
+  --strategies '[{"userPreferenceMemoryStrategy": {"name": "UserShoppingPreferences", "namespaces": ["/users/{actorId}/preferences/"]}}]' \
   --wait
 ```
 
@@ -38,7 +38,7 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         UserPreferenceStrategy(
             name="UserShoppingPreferences",
-            namespaces=["/users/{actorId}/preferences"]
+            namespaces=["/users/{actorId}/preferences/"]
         )
     ]
 )
@@ -77,7 +77,7 @@ memory_id = "your-existing-memory-id"
 summaryStrategy = SummaryStrategy(
     name="SessionSummarizer",
     description="Summarizes conversation sessions for context",
-    namespaces=["/summaries/{actorId}/{sessionId}"]
+    namespaces=["/summaries/{actorId}/{sessionId}/"]
 )
 
 memory = memory_manager.update_memory_strategies(

@@ -20,6 +20,10 @@ When you configure VPC connectivity for Amazon Bedrock AgentCore Runtime and too
 
 ###### Note
 
+ENIs are shared resources across agents that use the same subnet and security group configuration. When you delete an agent, the associated ENI may persist in your VPC for up to 8 hours before it is automatically removed.
+
+###### Note
+
 VPC connectivity impacts inbound and outbound network traffic from AgentCore services.
 When you host your application in an AWS VPC, you can establish private connectivity to the
 AgentCore Runtime and AgentCore Gateway APIs by adding the AgentCore VPC endpoint to your VPC. This enables
@@ -61,6 +65,11 @@ The following table shows the supported Availability Zone IDs for each region:
 | Asia Pacific (Tokyo)     | ap-northeast-1 | • apne1-az1<br>• apne1-az2<br>• apne1-az4 |
 | Europe (Ireland)         | eu-west-1      | • euw1-az1<br>• euw1-az2<br>• euw1-az3    |
 | Europe (Frankfurt)       | eu-central-1   | • euc1-az1<br>• euc1-az2<br>• euc1-az3    |
+| Europe (Stockholm)       | eu-north-1     | • eun1-az1<br>• eun1-az2<br>• eun1-az3    |
+| Europe (Paris)           | eu-west-3      | • euw3-az1<br>• euw3-az2<br>• euw3-az3    |
+| Asia Pacific (Seoul)     | ap-northeast-2 | • apne2-az1<br>• apne2-az2<br>• apne2-az3 |
+| Europe (London)          | eu-west-2      | • euw2-az1<br>• euw2-az2<br>• euw2-az3    |
+| Canada (Central)         | ca-central-1   | • cac1-az1<br>• cac1-az2<br>• cac1-az4    |
 
 ###### Important
 

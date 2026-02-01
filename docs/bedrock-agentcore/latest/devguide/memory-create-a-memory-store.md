@@ -38,7 +38,7 @@ agentcore memory create my_agent_memory --region us-west-2
 agentcore memory create ShoppingSupportAgentMemory \
   --region us-west-2 \
   --description "Memory for a customer support agent." \
-  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences"]}}]' \
+  --strategies '[{"summaryMemoryStrategy": {"name": "SessionSummarizer", "namespaces": ["/summaries/{actorId}/{sessionId}/"]}}, {"userPreferenceMemoryStrategy": {"name": "PreferenceLearner", "namespaces": ["/users/{actorId}/preferences/"]}}]' \
   --wait
 ```
 
@@ -83,11 +83,11 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         SummaryStrategy(
             name="SessionSummarizer",
-            namespaces=["/summaries/{actorId}/{sessionId}"]
+            namespaces=["/summaries/{actorId}/{sessionId}/"]
         ),
         UserPreferenceStrategy(
             name="PreferenceLearner",
-            namespaces=["/users/{actorId}/preferences"]
+            namespaces=["/users/{actorId}/preferences/"]
         )
     ]
 )
@@ -113,7 +113,7 @@ memory = client.create_memory_and_wait(
             "name": "SessionSummarizer",
             # Organize facts by session ID for easy retrieval
             # Example: "summaries/session123" contains summary of session123
-            "namespaces": ["/summaries/{actorId}/{sessionId}"]
+            "namespaces": ["/summaries/{actorId}/{sessionId}/"]
         }
     }]
 )
@@ -141,13 +141,13 @@ response = control_client.create_memory(
         {
             'summaryMemoryStrategy': {
                 'name': 'SessionSummarizer',
-                'namespaces': ['/summaries/{actorId}/{sessionId}']
+                'namespaces': ['/summaries/{actorId}/{sessionId}/']
             }
         },
         {
             'userPreferenceMemoryStrategy': {
                 'name': 'UserPreferenceExtractor',
-                'namespaces': ['/users/{actorId}/preferences']
+                'namespaces': ['/users/{actorId}/preferences/']
             }
         }
     ]

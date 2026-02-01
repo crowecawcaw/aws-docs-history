@@ -32,4 +32,4 @@ The user preference strategy returns JSON objects with context, preference, and 
 
 ###### Default namespace
 
-`/strategy/{memoryStrategyId}/actors/{actorId}`
+`/strategy/{memoryStrategyId}/actors/{actorId}/`

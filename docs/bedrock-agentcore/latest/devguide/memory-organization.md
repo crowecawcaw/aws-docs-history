@@ -37,7 +37,9 @@ Every time AgentCore Memory extracts a new long-term memory with a memory strate
 long-term memory is saved under the namespace you set. This means that all long-term
 memories are scoped to their specific namespace, keeping them organized and preventing
 any conflicts with other users or sessions. You should use a hierarchical format
-separated by forward slashes `/`. This helps keep memories organized clearly.
+separated by forward slashes `/`, ending with a trailing slash. The trailing
+slash prevents prefix collisions in multi-tenant applications—for example, use
+`/actors/Alice/` instead of `/actors/Alice`.
 As needed, you can use the following pre-defined variables within braces in the
 namespace based on your application's organization needs:
 
@@ -52,28 +54,28 @@ For example, if you define the following namespace as the input to your strategy
 creating an AgentCore Memory:
 
 ```
-/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}
+/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/
 ```
 
 After memory creation, this namespace might look like:
 
 ```
-/strategy/summarization-93483043/actor/actor-9830m2w3/session/session-9330sds8
+/strategy/summarization-93483043/actor/actor-9830m2w3/session/session-9330sds8/
 ```
 
 A namespace can have different levels of granularity:
 
 ###### Most granular Level of organization
 
-`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/`
 
 ###### Granular at the actor Level across sessions
 
-`/strategy/{memoryStrategyId}/actor/{actorId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/`
 
 ###### Granular at the strategy Level across actors
 
-`/strategy/{memoryStrategyId}`
+`/strategy/{memoryStrategyId}/`
 
 ###### Global across all strategies
 
@@ -87,8 +89,10 @@ You can create IAM policies to restrict memory access by the scopes you define,
 such as actor, session, and namespace. Use the scopes as context keys in your IAM
 polices.
 
-The following policy restricts access to retrieving memories from a specific
-namespace.
+The following policy restricts access to retrieving memories to a specific namespace prefix.
+In this example, the policy allows access only to memories in namespaces starting with
+`summaries/agent1/`, such as `summaries/agent1/session1/`
+or `summaries/agent1/session2/`.
 
 JSON
 
@@ -104,8 +108,8 @@ JSON
  ],
  "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory_id",
  "Condition": {
- "StringEquals": {
- "bedrock-agentcore:namespace": "summaries/agent1"
+ "StringLike": {
+ "bedrock-agentcore:namespace": "summaries/agent1/"
  }
  }
  }

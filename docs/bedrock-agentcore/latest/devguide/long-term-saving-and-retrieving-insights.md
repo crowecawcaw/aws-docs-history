@@ -94,7 +94,7 @@ summary of the conversation saved in the previous step.
 
 # --- Example 1: Retrieve the user’s shipping preference ---
 memories = session.search_long_term_memories(
-    namespace_prefix=f"/summaries/{actor_id}/{session_id}",
+    namespace_prefix=f"/summaries/{actor_id}/{session_id}/",
     query="What problem did the user report with their order?",
     top_k=5
 )

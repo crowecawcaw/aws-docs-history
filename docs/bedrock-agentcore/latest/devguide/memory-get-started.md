@@ -66,7 +66,7 @@ Create memory with semantic strategy:
 agentcore memory create CustomerSupportSemantic \
   --region us-west-2 \
   --description "Customer support memory store" \
-  --strategies '[{"semanticMemoryStrategy": {"name": "semanticLongTermMemory", "namespaces": ["/strategies/{memoryStrategyId}/actors/{actorId}"]}}]' \
+  --strategies '[{"semanticMemoryStrategy": {"name": "semanticLongTermMemory", "namespaces": ["/strategies/{memoryStrategyId}/actors/{actorId}/"]}}]' \
   --wait
 ```
 
@@ -95,7 +95,7 @@ memory = memory_manager.get_or_create_memory(
     strategies=[
         SemanticStrategy(
             name="semanticLongTermMemory",
-            namespaces=['/strategies/{memoryStrategyId}/actors/{actorId}'],
+            namespaces=['/strategies/{memoryStrategyId}/actors/{actorId}/'],
         )
     ]
 )

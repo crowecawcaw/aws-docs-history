@@ -248,7 +248,7 @@ memory = memory_manager.get_or_create_memory(
                 append_to_prompt=CUSTOM_CONSOLIDATION_INSTRUCTIONS,
                 model_id="anthropic.claude-3-sonnet-20240229-v1:0"
             ),
-            namespaces=["/users/{actorId}/travel_preferences"]
+            namespaces=["/users/{actorId}/travel_preferences/"]
         )
     ],
     memory_execution_role_arn=MEMORY_EXECUTION_ROLE_ARN

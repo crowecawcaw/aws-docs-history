@@ -32,4 +32,4 @@ The semantic memory strategy returns facts as JSON objects, each representing a 
 
 ###### Default namespace
 
-`/strategy/{memoryStrategyId}/actors/{actorId}`
+`/strategy/{memoryStrategyId}/actors/{actorId}/`

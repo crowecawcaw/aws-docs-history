@@ -34,7 +34,7 @@ For example, if you define the following namespace as the input to your strategy
 creating an AgentCore Memory:
 
 ```
-/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}
+/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/
 ```
 
 After memory creation, this namespace might look like:
@@ -47,15 +47,15 @@ A namespace can have different levels of granularity:
 
 ###### Most granular Level of organization
 
-`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/`
 
 ###### Granular at the actor Level across sessions
 
-`/strategy/{memoryStrategyId}/actor/{actorId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/`
 
 ###### Granular at the strategy Level across actors
 
-`/strategy/{memoryStrategyId}`
+`/strategy/{memoryStrategyId}/`
 
 ###### Global across all strategies
 
@@ -67,10 +67,12 @@ For example code, see [Enable long-term memory](long-term-enabling-long-term-mem
 
 You can create IAM policies to restrict memory access by the scopes you define,
 such as actor, session, and namespace. Use the scopes as context keys in your IAM
-polices.
+policies.
 
-The following policy restricts access to retrieving memories from a specific
-namespace.
+The following policy restricts access to retrieving memories to a specific namespace prefix.
+In this example, the policy allows access only to memories in namespaces starting with
+`summaries/agent1/`, such as `summaries/agent1/session1/`
+or `summaries/agent1/session2/`.
 
 JSON
 
@@ -86,8 +88,8 @@ JSON
  ],
  "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory_id",
  "Condition": {
- "StringEquals": {
- "bedrock-agentcore:namespace": "summaries/agent1"
+ "StringLike": {
+ "bedrock-agentcore:namespace": "summaries/agent1/"
  }
  }
  }

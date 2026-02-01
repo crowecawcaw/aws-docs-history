@@ -35,7 +35,7 @@ for your query.
 
 ###### Default namespace
 
-`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}`
+`/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}/`
 
 ###### Note
 

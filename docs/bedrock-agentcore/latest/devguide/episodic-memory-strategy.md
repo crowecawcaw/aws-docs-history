@@ -59,14 +59,14 @@ Regardless of the namespace you choose to store episodes in, episodes are always
 
 Episodes are commonly stored in one of the following namespaces:
 
-- `/strategy/`{memoryStrategyId}`` – Store episodes at the strategy level. Episodes that have different actors or that come from different sessions, but that belong to the same strategy, are stored in the same namespace.
-- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`` – Store all episodes at the actor level. Episodes that come from different sessions, but that belong to the same actor, are stored in the same namespace.
-- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/session/`{sessionId}`` – Store all episodes at the session level. Episodes that belong to the same session are stored in the same namespace.
+- `/strategy/`{memoryStrategyId}`/` – Store episodes at the strategy level. Episodes that have different actors or that come from different sessions, but that belong to the same strategy, are stored in the same namespace.
+- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/` – Store all episodes at the actor level. Episodes that come from different sessions, but that belong to the same actor, are stored in the same namespace.
+- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/session/`{sessionId}`/` – Store all episodes at the session level. Episodes that belong to the same session are stored in the same namespace.
 
-Reflections must match the same namespace pattern as episodes, but reflections can be less nested. For example, if your episodic namespace is `/strategy/`{memoryStrategyId}`/actor/`{actorId}``, you can use the following namespaces for reflections:
+Reflections must match the same namespace pattern as episodes, but reflections can be less nested. For example, if your episodic namespace is `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/`, you can use the following namespaces for reflections:
 
-- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`` – Insights will be extracted across all episodes for an actor.
-- `/strategy/`{memoryStrategyId}`` – Insights will be extracted across all episodes and across all actors for the strategy.
+- `/strategy/`{memoryStrategyId}`/actor/`{actorId}`/` – Insights will be extracted across all episodes for an actor.
+- `/strategy/`{memoryStrategyId}`/` – Insights will be extracted across all episodes and across all actors for the strategy.
 
 ###### Important
 
