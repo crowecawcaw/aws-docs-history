@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 03, 2021, 22:18 UTC
-- **Edited time:** February 27, 2025, 16:07 UTC
+- **Edited time:** January 27, 2026, 21:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -321,7 +321,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "ec2:CreateAction" : [
             "CreateLaunchTemplate",
-            "RunInstances"
+            "RunInstances",
+            "AllocateAddress"
           ]
         }
       }

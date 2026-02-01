@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:55 UTC
-- **Edited time:** November 21, 2025, 17:19 UTC
+- **Edited time:** January 27, 2026, 21:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -164,6 +164,24 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker-mlflow:*"
       ],
       "Resource" : "arn:aws:sagemaker:*:*:mlflow-tracking-server/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "SageMakerMlflowServerlessPermission",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:CreateMlflowApp",
+        "sagemaker:CreatePresignedMlflowAppUrl",
+        "sagemaker:DeleteMlflowApp",
+        "sagemaker:DescribeMlflowApp",
+        "sagemaker:UpdateMlflowApp",
+        "sagemaker:CallMlflowAppApi"
+      ],
+      "Resource" : "arn:aws:sagemaker:*:*:mlflow-app/*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
@@ -381,7 +399,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:ListArtifacts",
         "sagemaker:ListHubs",
         "sagemaker:ListPipelines",
-        "sagemaker:ListContexts"
+        "sagemaker:ListContexts",
+        "sagemaker:ListMlflowApps"
       ],
       "Resource" : "*",
       "Condition" : {

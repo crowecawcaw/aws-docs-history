@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** November 18, 2025, 23:34 UTC
+- **Edited time:** January 27, 2026, 21:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -269,6 +269,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:QueryLineage",
         "sagemaker:*InferenceComponent*",
         "sagemaker:*Job*",
+        "sagemaker:*MlflowApp*",
         "sagemaker:StartMlflowTrackingServer",
         "sagemaker:StopMlflowTrackingServer",
         "sagemaker:CreatePresignedMlflowTrackingServerUrl",

@@ -14,13 +14,13 @@ details
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** November 21, 2025, 00:04 UTC
+- **Edited time:** January 27, 2026, 21:04 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1964,7 +1964,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:sagemaker:*:*:domain/*",
-        "arn:aws:sagemaker:*:*:mlflow-tracking-server/*"
+        "arn:aws:sagemaker:*:*:mlflow-tracking-server/*",
+        "arn:aws:sagemaker:*:*:mlflow-app/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -1984,7 +1985,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:sagemaker:*:*:domain/*",
-        "arn:aws:sagemaker:*:*:mlflow-tracking-server/*"
+        "arn:aws:sagemaker:*:*:mlflow-tracking-server/*",
+        "arn:aws:sagemaker:*:*:mlflow-app/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -2193,6 +2195,33 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         },
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "MLFlowServerlessCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:CreateMlflowApp"
+      ],
+      "Resource" : "arn:aws:sagemaker:*:*:mlflow-app/*",
+      "Condition" : {
+        "Null" : {
+          "aws:RequestTag/AmazonDataZoneProject" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "MLFlowServerlessDescribeDelete",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:DeleteMlflowApp",
+        "sagemaker:DescribeMlflowApp"
+      ],
+      "Resource" : "arn:aws:sagemaker:*:*:mlflow-app/*",
+      "Condition" : {
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
