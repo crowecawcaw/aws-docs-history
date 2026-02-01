@@ -330,7 +330,8 @@ step.
    **External identity provider**, and then choose
    **Next**.
 4. On the **Configure external identity provider** page, under
-   **Service provider metadata**, choose **Download metadata
+   **Service provider metadata**, choose **Default IPv4** or
+   **Dual-stack**, then select **Download metadata
    file** to download the XML file.
 5. In the same section, locate the **AWS access portal sign-in URL**
    value and copy it. You will need to enter this value when prompted in the next
@@ -358,8 +359,10 @@ step.
    downloaded in the previous step, and then choose **Add**.
 4. On the **Basic SAML Configuration** page, verify that both the
    **Identifier** and **Reply URL** values now
-   point to endpoints in AWS that start with
-   `https://`<REGION>`.signin.aws.amazon.com/platform/saml/`.
+   point to endpoints in AWS:
+   - IPv4:`https://`[Region]`.signin.aws.amazon.com/platform/saml/`
+   - Dual-stack:`https://sso.`[Region]`.signin.aws/platform/saml/`
+
 5. Under **Sign on URL (Optional)**, paste in the
    **AWS access portal sign-in URL** value you copied in the previous step
    (**`Step 3.1`**), choose
@@ -537,7 +540,11 @@ of users and groups coming from Microsoft Entra ID into IAM Identity Center.
    of the values for the following options. You will need to paste these in the next
    step when you configure provisioning in Microsoft Entra ID.
    1. **SCIM endpoint** - For example,
-      https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
+      - IPv4:
+        `https://scim.`aws-region`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2`
+      - Dual stack:
+        `https://scim.`aws-region`.api.aws/`11111111111-2222-3333-4444-555555555555`/scim/v2`
+
    2. **Access token** - Choose **Show token**
       to copy the value.###### Warning
 

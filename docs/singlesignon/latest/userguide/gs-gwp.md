@@ -205,7 +205,9 @@ provisioning
    tutorial, you will enter these values to configure automatic provisioning in
    Google Workspace.
    1. **SCIM endpoint** - For example,
-      https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
+      - IPv4`https://scim.`Region`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2`
+      - Dual-stack`https://scim.`Region`.api.aws/`11111111111-2222-3333-4444-555555555555`/scim/v2`
+
    2. **Access token** - Choose **Show
       token** to copy the value.###### Warning
 

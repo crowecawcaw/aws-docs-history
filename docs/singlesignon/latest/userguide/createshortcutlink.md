@@ -70,12 +70,23 @@ Shortcut links extend the AWS access portal URL with the following path:
 
 The full URL in the classic AWS partition follows this pattern:
 
+**IPv4 endpoint:**
+
 `https://`[your_subdomain]`.awsapps.com/start/#/console?account_id=`[account_ID]`&role_name=`[permission_set_name]`&destination=`[destination_URL]``
+
+**Dual-stack endpoint**
+
+`https://`[identity_center_instance_id]`.portal.`[region]`.app.aws/#/console?account_id=`[account_ID]`&role_name=`[permission_set_name]`&destination=`[destination_URL]``
 
 Here's an example shortcut link that signs a user into account `123456789012`
 with the `S3FullAccess` permission set, and takes them to the S3 console home
 page:
 
-- `https://example.awsapps.com/start/#/console?account_id=123456789012&role_name=S3FullAccess&destination=https%3A%2F%2Fconsole.aws.amazon.com%2Fs3%2Fhome`
-- (AWS GovCloud (US) Region)
+- **IPv4 endpoint:**
+  `https://example.awsapps.com/start/#/console?account_id=123456789012&role_name=S3FullAccess&destination=https%3A%2F%2Fconsole.aws.amazon.com%2Fs3%2Fhome`
+- **Dual-stack endpoint:**
+  `https://ssoins-1234567890abcdef.portal.us-east-1.app.aws/#/console?account_id=123456789012&role_name=S3FullAccess&destination=https%3A%2F%2Fconsole.aws.amazon.com%2Fs3%2Fhome`
+- **(AWS GovCloud (US) Region) IPv4 endpoint:**
   `https://start.us-gov-west-1.us-gov-home.awsapps.com/directory/example/#/console?account_id=123456789012&role_name=S3FullAccess&destination=https%3A%2F%2Fconsole.amazonaws-us-gov.com%2Fs3%2Fhome`
+- **(AWS GovCloud (US) Region) Dual-stack endpoint:**
+  `https://ssoins-1234567890abcdef.portal.us-gov-west-1.app.aws/#/console?account_id=123456789012&role_name=S3FullAccess&destination=https%3A%2F%2Fconsole.amazonaws-us-gov.com%2Fs3%2Fhome`

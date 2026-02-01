@@ -16,7 +16,9 @@ If you filter access to specific AWS domains or URL endpoints by using a web con
 filtering solution such as next-generation firewalls (NGFW) or Secure Web Gateways (SWG),
 you must allowlist the domains and URL endpoints associated with the AWS access portal.
 
-The following list provides the domains and URL endpoints to add to your web-content filtering solution allowlists.
+The following list provides the IPv4 and dual-stack domains and URL endpoints to add to your web-content filtering solution allowlists.
+
+###### IPv4 allow list
 
 - ``[Directory ID or alias]`.awsapps.com`
 - `*.aws.dev`
@@ -32,6 +34,48 @@ The following list provides the domains and URL endpoints to add to your web-con
 - `signin.aws.amazon.com`
 - `*.cloudfront.net`
 - `opfcaptcha-prod.s3.amazonaws.com`
+
+###### Dual-stack allow list
+
+- `ssoins-`[IdC Instance ID]`.portal.`[Region]`.app.aws`
+- `*.aws.dev`
+- `*.awsstatic.com`
+- `*.console.aws.a2z.com`
+- `oidc.`[Region]`.api.aws`
+- `sso.`[Region]`.api.aws`
+- `portal.sso.`[Region]`.api.aws`
+- ``[Region]`.sso.signin.aws`
+- ``[Region]`.signin.aws.amazon.com`
+- `signin.aws.amazon.com`
+- `*.cloudfront.net`
+- `cdn.us-east-1.threat-mitigation.aws.amazon.com`
+- `us-east-1.threat-mitigation.aws.amazon.com`
+- `amcs-captcha-prod-us-east-1.s3.dualstack.us-east-1.amazonaws.com`
+
+###### Combined allow list (IPv4 + Dual-stack with backward compatibility)
+
+- ``[Directory ID or alias]`.awsapps.com`
+- `ssoins-`[IdC Instance ID]`.portal.`[Region]`.app.aws`
+- `*.aws.dev`
+- `*.awsstatic.com`
+- `*.console.aws.a2z.com`
+- `oidc.`[Region]`.amazonaws.com`
+- `oidc.`[Region]`.api.aws`
+- `*.sso.amazonaws.com`
+- `*.sso.`[Region]`.amazonaws.com`
+- `sso.`[Region]`.api.aws`
+- `*.sso-portal.`[Region]`.amazonaws.com`
+- `portal.sso.`[Region]`.api.aws`
+- ``[Region]`.prod.pr.panorama.console.api.aws/panoramaroute`
+- ``[Region]`.signin.aws`
+- ``[Region]`.sso.signin.aws`
+- ``[Region]`.signin.aws.amazon.com`
+- `signin.aws.amazon.com`
+- `*.cloudfront.net`
+- `opfcaptcha-prod.s3.amazonaws.com`
+- `cdn.us-east-1.threat-mitigation.aws.amazon.com`
+- `us-east-1.threat-mitigation.aws.amazon.com`
+- `amcs-captcha-prod-us-east-1.s3.dualstack.us-east-1.amazonaws.com`
 
 ## Considerations for allowlisting domains and URL endpoints
 

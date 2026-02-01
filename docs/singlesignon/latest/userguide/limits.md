@@ -77,11 +77,12 @@ that are associated with IAM roles, see [IAM and STS quotas](../../../IAM/latest
 
 ## Additional quotas
 
-| Resource                                                                           | Default quota | Can be increased |
-| ---------------------------------------------------------------------------------- | ------------- | ---------------- |
-| Total number of AWS accounts or applications that can be<br>configured \<br>• \*\* | 3000          | Yes              |
-| Total number of instances of IAM Identity Center per account                       | 1             | No               |
-| Total number of trusted token issuers                                              | 10            | No               |
+| Resource                                                                                              | Default quota | Can be increased |
+| ----------------------------------------------------------------------------------------------------- | ------------- | ---------------- |
+| Total number of AWS accounts or applications that can be<br>configured \<br>• \*\*                    | 3000          | Yes              |
+| Total number of instances of IAM Identity Center per account                                          | 1             | No               |
+| Total number of trusted token issuers                                                                 | 10            | No               |
+| Total number of groups that can be assigned to a permission set per AWS account, or to an application | 100           | No               |
 
 \* For example, you might configure 2750 accounts and 250 applications, resulting in a
 total of 3000 accounts and applications.

@@ -172,8 +172,10 @@ users
    information.
 2. In the **Inbound automatic provisioning** dialog box,
    copy each of the values for the following options:
-   1. **SCIM endpoint** - For example,
-      https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
+   1. **SCIM endpoint** - The endpoint format depends on your configuration:
+      - IPv4: https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
+      - Dual-stack: https://scim.`us-east-2`.api.aws/`11111111111-2222-3333-4444-555555555555`/scim/v2
+
    2. **Access token** - Choose **Show
       token** to copy the value.###### Warning
 
