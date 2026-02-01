@@ -11,12 +11,17 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name           | Region    | Endpoint                                                                                                                   | Protocol                         |
-| --------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| US East (Ohio)        | us-east-2 | b2bi.us-east-2.amazonaws.com<br>b2bi-fips.us-east-2.api.aws<br>b2bi-fips.us-east-2.amazonaws.com<br>b2bi.us-east-2.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia) | us-east-1 | b2bi.us-east-1.amazonaws.com<br>b2bi-fips.us-east-1.api.aws<br>b2bi-fips.us-east-1.amazonaws.com<br>b2bi.us-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)      | us-west-2 | b2bi.us-west-2.amazonaws.com<br>b2bi-fips.us-west-2.api.aws<br>b2bi-fips.us-west-2.amazonaws.com<br>b2bi.us-west-2.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Europe (Ireland)      | eu-west-1 | b2bi.eu-west-1.amazonaws.com<br>b2bi.eu-west-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
+| Region Name              | Region         | Endpoint                                                                                                                               | Protocol                         |
+| ------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| US East (Ohio)           | us-east-2      | b2bi.us-east-2.amazonaws.com<br>b2bi-fips.us-east-2.api.aws<br>b2bi-fips.us-east-2.amazonaws.com<br>b2bi.us-east-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US East (N. Virginia)    | us-east-1      | b2bi.us-east-1.amazonaws.com<br>b2bi-fips.us-east-1.api.aws<br>b2bi-fips.us-east-1.amazonaws.com<br>b2bi.us-east-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| US West (Oregon)         | us-west-2      | b2bi.us-west-2.amazonaws.com<br>b2bi-fips.us-west-2.api.aws<br>b2bi-fips.us-west-2.amazonaws.com<br>b2bi.us-west-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad) | ap-south-2     | b2bi.ap-south-2.amazonaws.com<br>b2bi.ap-south-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
+| Asia Pacific (Sydney)    | ap-southeast-2 | b2bi.ap-southeast-2.amazonaws.com<br>b2bi.ap-southeast-2.api.aws                                                                       | HTTPS<br>HTTPS                   |
+| Canada (Central)         | ca-central-1   | b2bi.ca-central-1.amazonaws.com<br>b2bi-fips.ca-central-1.api.aws<br>b2bi-fips.ca-central-1.amazonaws.com<br>b2bi.ca-central-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+| Europe (Frankfurt)       | eu-central-1   | b2bi.eu-central-1.amazonaws.com<br>b2bi.eu-central-1.api.aws                                                                           | HTTPS<br>HTTPS                   |
+| Europe (Ireland)         | eu-west-1      | b2bi.eu-west-1.amazonaws.com<br>b2bi.eu-west-1.api.aws                                                                                 | HTTPS<br>HTTPS                   |
+| Europe (Paris)           | eu-west-3      | b2bi.eu-west-3.amazonaws.com<br>b2bi.eu-west-3.api.aws                                                                                 | HTTPS<br>HTTPS                   |
 
 ## Service quotas
 

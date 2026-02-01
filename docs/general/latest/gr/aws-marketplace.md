@@ -21,9 +21,9 @@ are available.
 
 ### AWS Marketplace Catalog API
 
-| Region Name           | Region    | Endpoint                                    | Protocol |
-| --------------------- | --------- | ------------------------------------------- | -------- |
-| US East (N. Virginia) | us-east-1 | catalog.marketplace.us-east-1.amazonaws.com | HTTPS    |
+| Region Name           | Region    | Endpoint                                                                             | Protocol       |
+| --------------------- | --------- | ------------------------------------------------------------------------------------ | -------------- |
+| US East (N. Virginia) | us-east-1 | catalog.marketplace.us-east-1.amazonaws.com<br>catalog-marketplace.us-east-1.api.aws | HTTPS<br>HTTPS |
 
 ### AWS Marketplace Commerce Analytics
 
