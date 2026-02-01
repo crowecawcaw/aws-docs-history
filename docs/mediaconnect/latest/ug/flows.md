@@ -10,8 +10,11 @@ MediaConnect supports two types of flows:
 - **Transport stream flows** transport compressed
   content that is muxed (audio, video, and ancillary data are combined) into a single
   stream. The quality is high enough to use as a source for creating final encodes
-  that are delivered to consumer devices. You can add outputs to indicate where you
-  want the content to be sent and how you want it transported.
+  that are delivered to consumer devices.
+
+Transport stream flows also support converting NDI® to or from transport streams,
+enabling you to connect your NDI-enabled production systems with traditional contribution
+and distribution workflows.
 
 You can grant an entitlement to share the content with another AWS account. A
 user of the subscriber account can then create a new MediaConnect flow using your

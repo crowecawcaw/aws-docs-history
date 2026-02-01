@@ -14,7 +14,11 @@ flow.
 
 ###### Topics
 
-- [Adding a source to an existing MediaConnect flow](source-adding.md "source-adding.md")
+- [Using NDI®
+  sources in a MediaConnect flow](sources-using-ndi.md "sources-using-ndi.md")
+- [Adding a
+  second
+  source to an existing MediaConnect flow](source-adding.md "source-adding.md")
 - [Updating the source of a MediaConnect flow](source-update.md "source-update.md")
 - [Source failover on a MediaConnect flow](source-failover.md "source-failover.md")
 - [Managing tags on a MediaConnect source](sources-manage-tags.md "sources-manage-tags.md")

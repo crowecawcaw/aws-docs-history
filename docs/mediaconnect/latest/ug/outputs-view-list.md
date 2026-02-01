@@ -1,4 +1,6 @@
-# Viewing a list of outputs of a flow
+# Viewing the list of outputs for a MediaConnect
+
+flow
 
 You can view a list of a flow's outputs, along with the setup that is associated with
 each output. This list includes outputs that you added, as well as outputs that

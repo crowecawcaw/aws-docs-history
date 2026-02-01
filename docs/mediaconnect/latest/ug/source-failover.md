@@ -50,10 +50,11 @@ streams.
 
 ###### Note
 
-MediaConnect doesn't support source failover on CDI flows or on entitlement
-flows. For more information about creating redundancy with CDI flows, visit: [Creating a CDI flow](flows-create-cdi.md "flows-create-cdi.md"). Additionally, you
-cannot add a second source to an existing flow for failover if you are using the
-Zixi pull protocol.
+MediaConnect doesn't support source failover on CDI
+flows, on NDI®
+flows, or on entitlement flows. For more information about
+creating redundancy with CDI flows, visit: [Creating a flow that uses a CDI source](flows-create-cdi.md "flows-create-cdi.md"). Additionally, you cannot add a second source
+to an existing flow for failover if you are using the Zixi pull protocol.
 
 ## Failover support for source protocols in MediaConnect
 
@@ -72,3 +73,4 @@ The following table describes which source protocols support failover.
 | CDI                                  | No                                          | 1                                               | Source failover is not supported |
 | ST 2110 JPEG XS                      | No                                          | 1                                               | Source failover is not supported |
 | Entitlement flows                    | No                                          | 1                                               | Source failover is not supported |
+| NDI\*_®_<br>• Speed HQ               | No                                          | 1                                               | Source failover is not supported |

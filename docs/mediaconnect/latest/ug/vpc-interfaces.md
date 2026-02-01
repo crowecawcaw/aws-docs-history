@@ -10,7 +10,8 @@ For more information, see the following sections.
   VPC source](flows-create-vpc-source.md "flows-create-vpc-source.md")
 - [Adding a VPC interface to a MediaConnect flow](vpc-interface-add.md "vpc-interface-add.md")
 - [Removing a VPC interface from a MediaConnect flow](vpc-interface-remove.md "vpc-interface-remove.md")
-- [Adding a VPC source to an existing MediaConnect flow](source-adding-vpc.md "source-adding-vpc.md")
+- [Adding a VPC source to an existing MediaConnect
+  flow](source-adding-vpc.md "source-adding-vpc.md")
 - [Adding VPC outputs to a flow](outputs-add-vpc.md "outputs-add-vpc.md")
 - [Security group considerations for VPC
   interfaces](vpc-interface-security-groups.md "vpc-interface-security-groups.md")

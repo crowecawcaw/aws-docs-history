@@ -1,4 +1,6 @@
-# Adding a VPC source to an existing MediaConnect flow
+# Adding a VPC source to an existing MediaConnect
+
+flow
 
 You can add a second source to an existing transport stream flow for failover.
 Both sources on the flow must be binary identical (come from the same encoder) and
@@ -178,7 +180,8 @@ SRT listener
 
 SRT caller
 
-    1. For **Protocol**, **SRT caller** will automatically be selected.
+    1. For **Protocol**, **SRT
+     caller** will automatically be selected.
     2. For **Source description**, enter a
      description that will remind you later where this source
      is from. This might be the company name or notes about
@@ -191,8 +194,8 @@ SRT caller
      use for the SRT connection.
     5. For **Source listener
      address**, enter the address MediaConnect
-     will use for the SRT connection. The address can
-     be an IP address or a domain name.
+     will use for the SRT connection. The address can be an
+     IP address or a domain name.
     6. For **Maximum bitrate**, specify the
      maximum expected bitrate (in bits per second) for the
      flow. We recommend that you specify a value that is
@@ -224,10 +227,10 @@ SRT caller
      multiplied by the **minimum
      latency** value. For more information about
      the SRT buffer, see [the SRT Configuration Guidelines.](https://github.com/Haivision/srt/blob/master/docs/API/configuration-guidelines.md "https://github.com/Haivision/srt/blob/master/docs/API/configuration-guidelines.md")
-    8. For **Stream
-     ID** (optional), enter an identifier for
-     the stream. This identifier can be used to
-     communicate information about the stream.
+    8. For **Stream ID**
+     (optional), enter an identifier for the stream. This
+     identifier can be used to communicate information about
+     the stream.
     9. If the source is encrypted, choose
      **Enable** in the
      **Decryption** section and do the

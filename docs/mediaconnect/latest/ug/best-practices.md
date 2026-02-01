@@ -31,37 +31,24 @@ output, those outputs should be counted twice in this calculation.
 
 ###### Transport stream flows with NDI® outputs
 
-MediaConnect doesn’t impose a hard limit on the number of NDI outputs you can
-configure for each transport stream flow. However, as you scale your NDI outputs,
-keep in mind that each additional NDI output receiver connected to your flow
-increases the CPU and memory usage on the MediaConnect service. This is because
-MediaConnect is acting as the NDI sender, and needs to encode and transmit the
-video and audio streams to all connected receivers.
+The following best practices describe how to optimize the performance of
+flows with NDI outputs:
 
-The following best practices describe how to optimize the performance of NDI
-flows:
-
-- Monitor the performance of your MediaConnect flow as you scale NDI outputs.
-  In particular, watch for signs of over-subscription, such as:
+- Monitor the performance of your MediaConnect flow as you scale the number of receivers
+  connected to your NDI output. In particular, watch for signs of over-subscription, such as:
 
       + Dropped frames or stuttering video on your NDI receivers
       + Dropped NDI connections
 
-  If you notice these issues, consider reducing the number of outputs or
+  If you notice these issues, consider reducing the number of NDI receivers or
   investigating ways to optimize your workflow.
 
-- Calculate the aggregate bandwidth of your NDI outputs and ensure it fits
-  within the total throughput capacity of your MediaConnect flow size. The large
+- Calculate the aggregate bandwidth of your NDI output and all subscribed NDI receivers,
+  and ensure it fits within the total throughput capacity of your MediaConnect flow size. The large
   flow size supports up to 2.5 Gbps of aggregate throughput.
-- Use descriptive naming conventions for your NDI outputs to make it easier for
+- Use descriptive naming conventions for your NDI output to make it easier for
   production systems to quickly discover and connect to the correct
   sources.
-- Consider segmenting your NDI outputs across multiple MediaConnect flows,
-  rather than concentrating all outputs in a single flow. This can help distribute
-  the resource load. However, keep in mind that using multiple NDI flow outputs
-  will generate multiple NDI sources, each with their own unique machine name and
-  program name. This will need to be accounted for in your overall
-  workflow.
 - Test your full NDI workflow, including connecting multiple receivers, to
   understand the performance characteristics and limits for your specific use
   case.
@@ -69,6 +56,12 @@ flows:
   VPC interface has its own private IP address. When you use multiple VPC
   interfaces, this can confuse the NDI discovery server and lead to unexpected
   routing behavior.
+- MediaConnect doesn't impose a hard limit on the number of NDI receivers that can subscribe to
+  a MediaConnect NDI output. However, as you scale the number of NDI receivers,
+  keep in mind that each additional NDI receiver connected to your flow
+  increases the CPU and memory usage on the MediaConnect service. This is because
+  MediaConnect is acting as the NDI sender, and needs to encode and transmit the
+  video and audio streams to all connected receivers.
 
 ###### CDI flows
 

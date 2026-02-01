@@ -8,9 +8,8 @@ you would use the MediaConnect API to achieve the results that you want.
 Your MediaConnect implementation is dependent on your use case:
 
 - For **contribution**, use MediaConnect to ingest
-  content from an on-premises encoder into the AWS Cloud. Depending on the type of
-  content you are ingesting, you can create a transport stream flow or a CDI
-  flow.
+  content from an on-premises encoder into the AWS Cloud. MediaConnect supports MPEG transport
+  streams, AWS Cloud Digital Interface (CDI), SMPTE 2110 part 22 transports and NDI®.
 - For **distribution**, use MediaConnect to deliver
   content to different geographical areas.
 - For **entitlements**, use MediaConnect to share your

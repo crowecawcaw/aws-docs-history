@@ -76,7 +76,7 @@ The following table describes what protocols can be used for sources, outputs, o
 
 | Transport stream protocols | Protocol | Can this be used as a Source? | Can this be used as an Output? |
 | -------------------------- | -------- | ----------------------------- | ------------------------------ |
-| NDI-SpeedHQ                | No       | Yes                           |
+| NDI-SpeedHQ                | Yes      | Yes                           |
 | RIST                       | Yes      | Yes                           |
 | RTP                        | Yes      | Yes                           |
 | RTP-FEC                    | Yes      | Yes                           |

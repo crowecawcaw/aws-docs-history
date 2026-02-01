@@ -15,6 +15,8 @@ create and the type of content in the source:
 - [Transport stream flow with a VPC
   source](flows-create-vpc-source.md "flows-create-vpc-source.md") – Uses compressed content that comes from a VPC that you
   configure.
+- [NDI flow](flows-create-ndi.md "flows-create-ndi.md") – Uses content that comes from an
+  NDI® sender in a VPC that you configure.
 - [CDI flow](flows-create-cdi.md "flows-create-cdi.md") – Uses uncompressed
   content that comes from a VPC that you configure.
 

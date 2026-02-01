@@ -6,8 +6,8 @@ gateway and its components.
 
 ###### Contents
 
-- [Prerequisites](gateway-cleanup-console.md#gateway-create-prerequisites "gateway-cleanup-console.md#gateway-create-prerequisites")
-- [Procedure](gateway-cleanup-console.md#gateway-create-procedure "gateway-cleanup-console.md#gateway-create-procedure")
+- [Prerequisites](gateway-cleanup-console.md#gateway-cleanup-prerequisites "gateway-cleanup-console.md#gateway-cleanup-prerequisites")
+- [Procedure](gateway-cleanup-console.md#gateway-cleanup-procedure "gateway-cleanup-console.md#gateway-cleanup-procedure")
 
 ## Prerequisites
 

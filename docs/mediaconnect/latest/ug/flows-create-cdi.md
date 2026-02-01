@@ -1,4 +1,4 @@
-# Creating a CDI flow
+# Creating a flow that uses a CDI source
 
 A CDI flow transports high-quality uncompressed or lightly compressed content into and
 out of the AWS Cloud. You can configure a CDI flow to use JPEG XS to transport lightly
@@ -252,7 +252,7 @@ ST 2110 JPEG XS
 ###### Note
 
 The flow doesn't start automatically. You must [start the flow](flows-start.md "flows-start.md") manually. 15. [Add outputs](outputs-add-vpc.md "outputs-add-vpc.md") to specify where you want
-MediaConnect to send the content.
+your MediaConnect to send the content.
 
 ### Create an AWS CDI flow (AWS CLI)
 
@@ -629,7 +629,7 @@ The following example shows the return value:
 Now that you've created a flow, complete these steps to start delivering your content:
 
 - [Add outputs](outputs-add.md "outputs-add.md") to specify where you want
-  MediaConnect flow to send your content
+  your MediaConnect flow to send your content
 - [Grant entitlements](entitlements-grant.md "entitlements-grant.md") to allow
   users of other AWS accounts to subscribe to your content
 - [Start your flow](flows-start.md "flows-start.md") to begin content

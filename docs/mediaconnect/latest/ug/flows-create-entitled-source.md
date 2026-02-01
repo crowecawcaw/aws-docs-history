@@ -180,7 +180,7 @@ Now that you've created a flow, complete these steps to start delivering your
 content:
 
 - [Add outputs](outputs-add.md "outputs-add.md") to specify where you want
-  MediaConnect flow to send your content
+  your MediaConnect flow to send your content
 - [Grant entitlements](entitlements-grant.md "entitlements-grant.md") to allow
   users of other AWS accounts to subscribe to your content
 - [Start your flow](flows-start.md "flows-start.md") to begin content

@@ -20,10 +20,14 @@ delete an output that's associated with an entitlement, [revoke](entitlements-re
 
 ###### Topics
 
+- [Using NDI® outputs in a MediaConnect
+  flow](outputs-using-ndi.md "outputs-using-ndi.md")
 - [Adding outputs to a MediaConnect flow](outputs-add.md "outputs-add.md")
-- [Viewing a list of outputs of a flow](outputs-view-list.md "outputs-view-list.md")
+- [Viewing the list of outputs for a MediaConnect
+  flow](outputs-view-list.md "outputs-view-list.md")
 - [Updating outputs on a MediaConnect flow](outputs-update.md "outputs-update.md")
 - [Managing tags on a MediaConnect output](outputs-manage-tags.md "outputs-manage-tags.md")
-- [Disabling or removing outputs from a flow](outputs-remove.md "outputs-remove.md")
+- [Disabling or removing outputs from a MediaConnect
+  flow](outputs-remove.md "outputs-remove.md")
 - [Output destinations](destinations.md "destinations.md")
 - [Determining an output's IP address](output-ip-address.md "output-ip-address.md")

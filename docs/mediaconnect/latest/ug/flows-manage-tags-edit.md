@@ -12,5 +12,5 @@ _AWS Billing User Guide_.
 2. On the **Flows** page, choose the name of the flow that has
    the tags you want to edit.
 
-The details page for that flow appears. 3. In the **Details** section, choose **Manage
-tags**. 4. Choose **Manage tags**. 5. Update the tags, as needed. 6. Choose **Update**.
+The details page for that flow appears. 3. In the **Details** section, choose **Flow actions**
+and then choose **Manage tags**. 4. Choose **Edit tags**. 5. Update the tags, as needed. 6. Choose **Save changes**.

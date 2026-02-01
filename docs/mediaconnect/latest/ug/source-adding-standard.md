@@ -1,4 +1,6 @@
-# Adding a standard source to an existing MediaConnect flow
+# Adding a standard source to an existing
+
+MediaConnect flow
 
 You can add a second source to an existing flow for failover. Both sources on the
 flow must use
@@ -155,8 +157,8 @@ SRT listener
      port that the flow listens on for incoming content.
     5. For **Source listener
      address**, enter the address MediaConnect
-     will use for the SRT connection. The address can
-     be an IP address or a domain name.
+     will use for the SRT connection. The address can be an
+     IP address or a domain name.
     6. For **Maximum bitrate** (optional),
      specify the maximum expected bitrate (in bits per
      second) for the flow. We recommend that you specify a
@@ -212,8 +214,8 @@ SRT caller
      the setup.
     3. For **Source listener
      address**, enter the address MediaConnect
-     will use for the SRT connection. The address can
-     be an IP address or a domain name.
+     will use for the SRT connection. The address can be an
+     IP address or a domain name.
     4. For **Source listener
      port**, enter the port MediaConnect will
      use for the SRT connection.
@@ -248,10 +250,10 @@ SRT caller
      multiplied by the **minimum
      latency** value. For more information about
      the SRT buffer, see [the SRT Configuration Guidelines.](https://github.com/Haivision/srt/blob/master/docs/API/configuration-guidelines.md "https://github.com/Haivision/srt/blob/master/docs/API/configuration-guidelines.md")
-    7. For **Stream
-     ID** (optional), enter an identifier for
-     the stream. This identifier can be used to
-     communicate information about the stream.
+    7. For **Stream ID**
+     (optional), enter an identifier for the stream. This
+     identifier can be used to communicate information about
+     the stream.
     8. If the source is encrypted, choose
      **Enable** in the
      **Decryption** section and do the
