@@ -1,5 +1,9 @@
 # Prefix Mode for Linux
 
+###### Tip
+
+[Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") best practices through Amazon EKS workshops.
+
 Amazon VPC CNI assigns network prefixes to [Amazon EC2 network interfaces](../../../AWSEC2/latest/UserGuide/ec2-prefix-eni.md "../../../AWSEC2/latest/UserGuide/ec2-prefix-eni.md") to increase the number of IP addresses available to nodes and increase pod density per node. You can configure version 1.9.0 or later of the Amazon VPC CNI add-on to assign IPv4 and IPv6 CIDRs instead of assigning individual secondary IP addresses to network interfaces.
 
 Prefix mode is enabled by default on IPv6 clusters and is the only option supported. The VPC CNI assigns a /80 IPv6 prefix to a slot on an ENI. Please refer to the [IPv6 section of this guide](ipv6.md "ipv6.md") for further information.

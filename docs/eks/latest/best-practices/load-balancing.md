@@ -1,5 +1,9 @@
 # Load Balancing
 
+###### Tip
+
+[Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") best practices through Amazon EKS workshops.
+
 Load Balancers receive incoming traffic and distribute it across targets
 of the intended application hosted in an EKS Cluster. This improves the
 resilience of the application. When deployed in an EKS Cluster the

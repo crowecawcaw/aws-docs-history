@@ -2,7 +2,7 @@
 
 ###### Tip
 
-Interested in gaining hands-on experience with Amazon EKS Auto Mode? Join an upcoming virtual Kubernetes workshop led by AWS experts by signing up on [AWS Connected Community](https://aws-experience.com/emea/smb/events/series/simplifying-kubernetes-operations-with-amazon-eks-auto-mode?trk=e3d0398c-e0e9-4665-af82-a2e8124a6db8 "https://aws-experience.com/emea/smb/events/series/simplifying-kubernetes-operations-with-amazon-eks-auto-mode?trk=e3d0398c-e0e9-4665-af82-a2e8124a6db8").
+[Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") best practices through Amazon EKS workshops.
 
 Amazon EKS Auto Mode represents a significant evolution in Kubernetes infrastructure management, combining secure and scalable cluster infrastructure with integrated Kubernetes capabilities managed by AWS . The service provides fully-managed worker node operations, eliminating the need for customers to set up Managed Node Groups or AutoScaling groups .
 

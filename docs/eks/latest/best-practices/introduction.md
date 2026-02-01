@@ -1,5 +1,9 @@
 # Amazon EKS Best Practices Guide
 
+###### Tip
+
+[Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el") best practices through Amazon EKS workshops.
+
 Welcome to the EKS Best Practices Guides. The primary goal of this
 project is to offer a set of best practices for day 2 operations for
 Amazon EKS. We elected to publish this guidance to GitHub so we could
