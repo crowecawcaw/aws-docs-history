@@ -81,7 +81,7 @@ authorized to do so.
 In the following figure, the clients can communicate with both services, because the VPC
 and services are associated with the same service network.
 
-![A service network with servers and clients.](/images/vpc-lattice/latest/ug/images/service-network.png)
+![A service network with servers and clients.](images/service-network.png)
 
 **Service directory**
 
