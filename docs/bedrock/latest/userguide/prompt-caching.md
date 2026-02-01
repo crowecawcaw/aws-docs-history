@@ -227,7 +227,7 @@ In this example, you provide your system prompt in the
 tools checkpoints
 In this example, you provide your tool definition in the
 `toolSpec` field. (Alternatively, you can call a tool that
-you’ve previously defined. For more information, see [Call a tool with the Converse API](tool-use-inference-call.md "tool-use-inference-call.md").) Afterward, you can add
+you’ve previously defined. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").) Afterward, you can add
 a `cachePoint` field to cache the tool.
 
 ```

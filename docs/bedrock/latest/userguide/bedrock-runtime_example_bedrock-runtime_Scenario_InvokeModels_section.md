@@ -123,7 +123,7 @@ func (scenario InvokeModelsScenario) InvokeTitanImage(ctx context.Context, promp
 	if err != nil {
 		panic(err)
 	}
-	imagePath := saveImage(base64ImageData, "amazon.titan-image-generator-v1")
+	imagePath := saveImage(base64ImageData, "amazon.titan-image-generator-v2")
 	fmt.Printf("The generated image has been saved to %s\n", imagePath)
 }
 
@@ -271,7 +271,7 @@ class GettingStartedWithBedrockRuntime
         echo "\n\nAmazon Titan Image Generation:\n";
         $titanSeed = rand(0, 2147483647);
         $base64 = $bedrockRuntimeService->invokeTitanImage($image_prompt, $titanSeed);
-        $image_path = $this->saveImage($base64, 'amazon.titan-image-generator-v1');
+        $image_path = $this->saveImage($base64, 'amazon.titan-image-generator-v2');
         echo "The generated image has been saved to $image_path";
     }
 

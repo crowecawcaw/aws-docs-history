@@ -58,7 +58,7 @@ type TitanImageResponse struct {
 // Invokes the Titan Image model to create an image using the input provided
 // in the request body.
 func (wrapper InvokeModelWrapper) InvokeTitanImage(ctx context.Context, prompt string, seed int64) (string, error) {
-	modelId := "amazon.titan-image-generator-v1"
+	modelId := "amazon.titan-image-generator-v2:0"
 
 	body, err := json.Marshal(TitanImageRequest{
 		TaskType: "TEXT_IMAGE",
@@ -147,8 +147,8 @@ public class InvokeModel {
                 .region(Region.US_EAST_1)
                 .build();
 
-        // Set the model ID, e.g., Titan Image G1.
-        var modelId = "amazon.titan-image-generator-v1";
+        // Set the model ID, e.g., Titan Image G2.
+        var modelId = "amazon.titan-image-generator-v2:0";
 
         // The InvokeModel API uses the model's native payload.
         // Learn more about the available inference parameters and response fields at:
@@ -229,7 +229,7 @@ Create an image with the Amazon Titan Image Generator.
 
         $base64_image_data = "";
         try {
-            $modelId = 'amazon.titan-image-generator-v1';
+            $modelId = 'amazon.titan-image-generator-v2:0';
             $request = json_encode([
                 'taskType' => 'TEXT_IMAGE',
                 'textToImageParams' => [
@@ -290,7 +290,7 @@ import random
 client = boto3.client("bedrock-runtime", region_name="us-east-1")
 
 # Set the model ID, e.g., Titan Image Generator G1.
-model_id = "amazon.titan-image-generator-v1"
+model_id = "amazon.titan-image-generator-v2:0"
 
 # Define the image generation prompt for the model.
 prompt = "A stylized picture of a cute old steampunk robot."

@@ -10,7 +10,7 @@ For more information, see [https://docs.anthropic.com/claude/reference/messages_
 
 ###### Warning
 
-Claude Sonnet 4.5 and Claude Haiku 4.5 only support specification of one of `temperature` or `top_p` parameters, but cannot handle both. This does not apply to any older models.
+Claude Sonnet 4.5 and Claude Haiku 4.5 support specifying either the `temperature` or `top_p` parameter, but not both. This does not apply to any older models.
 
 Request
 Anthropic Claude has the following inference parameters for a messages
