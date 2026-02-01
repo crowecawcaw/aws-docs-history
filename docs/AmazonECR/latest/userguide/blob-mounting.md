@@ -24,6 +24,10 @@ OCI clients automatically include mounting parameters if they detect a blob may 
 
 You can use the AWS Management Console or AWS CLI to configure blob mounting for your registry.
 
+###### Note
+
+Users need `ecr:GetDownloadUrlForLayer` IAM permission on a repository to mount layers from it.
+
 AWS Management Console
 Use the following steps to update your registry's blob mounting configuration
 using the AWS Management Console.
