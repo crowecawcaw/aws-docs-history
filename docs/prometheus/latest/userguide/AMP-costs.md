@@ -40,8 +40,7 @@ Query costs are based on the number of samples processed. You can reduce the fre
 of queries to reduce your query costs.
 
 To get more visibility into the queries that are contributing the most to your query
-costs, you can reach out to file a ticket with your support contact. The Amazon Managed Service for Prometheus team
-can help you understand the queries that are contributing the most to your costs.
+costs, see [Managing the query cost in Amazon Managed Service for Prometheus](query-insights-control.md "query-insights-control.md").
 
 ## If I decrease the retention period of my
 
