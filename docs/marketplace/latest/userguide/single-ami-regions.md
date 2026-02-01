@@ -49,6 +49,16 @@ added Region. Customers who subscribe to your product at a future date can also
 access the Region, as long as the Region is included in the private offer. For more
 information about how to create a new private offer, see [Private offer upgrades, renewals, and amendments](private-offers-upgrades-and-renewals.md "private-offers-upgrades-and-renewals.md").
 
+###### Note
+
+**FPGA Regional Requirements**
+
+When adding regions to FPGA products, regional AFI clones are automatically created
+by AWS Marketplace to ensure your product is available across supported AWS Regions. This
+process ensures that buyers can deploy your FPGA-accelerated product in their preferred
+Region without requiring manual AFI replication. The automatic cloning process maintains
+consistency across all regions where your product is available.
+
 ## Restrict an AWS Region
 
 To prevent new buyers from using your product in a specific AWS Region, you can

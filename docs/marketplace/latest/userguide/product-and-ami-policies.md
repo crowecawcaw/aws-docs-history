@@ -13,6 +13,7 @@ Before submitting your product, we strongly recommend using the [Test 'Add Versi
 - [Architecture policies](#architecture "#architecture")
 - [AMI product usage instructions](#ami-product-usage-instructions "#ami-product-usage-instructions")
 - [AMI product version policies](#ami-product-version-policies "#ami-product-version-policies")
+- [FPGA Product Requirements](#ami-fpga-product-requirements "#ami-fpga-product-requirements")
 - [Customer information policies](#customer-information "#customer-information")
 - [Product usage policies](#product-usage "#product-usage")
 
@@ -119,6 +120,19 @@ new customers, however existing users can continue to use the archived version t
 templates and Amazon EC2 Auto Scaling groups by specifying the AMI ID. Any archived version that has not been
 used to launch a new instances in the past 13 months is deleted. Once an archived version is
 deleted, it is no longer available to launch for new or existing users.
+
+## FPGA Product Requirements
+
+In addition to standard AMI product requirements, FPGA products must meet the following
+requirements:
+
+- AFI IDs must be owned by your AWS Marketplace seller account.
+- Each product version supports a maximum of 15 AFI IDs, allowing you to provide
+  multiple FPGA configurations while maintaining manageable product complexity.
+- AFI IDs must be created and registered in the US East (N. Virginia) Region.
+- Regional availability is limited to regions where F2 instance types are supported.
+- The IAM access role provided during version creation has permissions to share the provided AFIs
+  with AWS Marketplace. For more details about the required permissions, see [Giving AWS Marketplace access to your FPGA images](single-ami-marketplace-ami-access.md#single-ami-marketplace-afi-access "single-ami-marketplace-ami-access.md#single-ami-marketplace-afi-access").
 
 ## Customer information policies
 

@@ -40,3 +40,50 @@ form _arn:aws:iam::123456789012:role/exampleRole_. Use the ARN for the
 **IAM access role ARN** when you create change requests, for example,
 when [adding a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version") to your
 product.
+
+## Giving AWS Marketplace access to your
+
+FPGA images
+
+If your AMI includes FPGA images (AFIs), you must also grant AWS Marketplace additional
+permissions to access and manage these FPGA images. In addition to the
+**AWSMarketplaceAmiIngestion** policy, you need to
+create an inline policy that allows AWS Marketplace to perform actions on your FPGA images.
+
+###### To add FPGA image permissions to your AWS Marketplace AMI assets ingestion role
+
+1. Sign in to the AWS Management Console, open the IAM console and go to the [Roles
+   page](https://console.aws.amazon.com/iam/home?region=us-east-1#/roles "https://console.aws.amazon.com/iam/home?region=us-east-1#/roles").
+2. Select the role that you created for AWS Marketplace AMI assets ingestion.
+3. On the role details page, select the **Permissions** tab, and
+   then select **Add inline policy**.
+4. Select the **JSON** tab and enter the following policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ec2:DescribeFpgaImages",
+ "ec2:DescribeFpgaImageAttribute",
+ "ec2:CopyFpgaImage",
+ "ec2:ModifyFpgaImageAttribute"
+ ],
+ "Resource":"*"
+ }
+ ]
+}`
+
+```
+
+5. Select **Review policy**.
+6. Provide a name for the policy, such as
+   **AWSMarketplaceAfiIngestion**, and then
+   select **Create policy**.
+
+After you add this inline policy, AWS Marketplace will have the necessary permissions to access
+and manage your FPGA images during the ingestion and scanning process.

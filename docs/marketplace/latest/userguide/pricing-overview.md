@@ -18,7 +18,4 @@ When you list a product or service, you must also include an end user license ag
 and terms of service. That combination of product and license becomes an _offer_. You can use a standard EULA for public offers, isted price
 using an ISV’s standard end user license agreement (EULA). In addition, software products can
 be offered with custom pricing and EULA through private offers. Products can also be purchased
-under a contract with specifed time or usage boundaries. After subscribing to a product, the
-buyer can use the AWS Service Catalog to copy the product and manage how the product is accessed and
-used in the buyer's organization. For more information about the buyer's experience, refer to
-[https://docs.aws.amazon.com/marketplace/latest/buyerguide/service-catalog.html](../buyerguide/service-catalog.md "../buyerguide/service-catalog.md").
+under a contract with specifed time or usage boundaries.

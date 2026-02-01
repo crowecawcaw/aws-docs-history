@@ -57,6 +57,15 @@ You can add a new instance which buyers can use as a single-AMI.
      instance is included in the private offer. For more information about how to
      create a new private offer, see [Amending agreements in AWS Marketplace](private-offers-upgrades-and-renewals.md "private-offers-upgrades-and-renewals.md") later in this guide.
 
+###### Note
+
+**FPGA Instance Type Support**
+
+Products with AFI IDs support F2 instance types only. You can offer your AMI on
+other instance types, however, the AFIs will not be loaded on other instance types.
+When buyers launch your product on non-F2 instances, the AMI will function without
+the FPGA acceleration capabilities provided by the AFI IDs.
+
 ## Restricting an instance
 
 To prevent new buyers from using an instance of an AMI product, you can restrict the instance. You can add the instance back at a later time,

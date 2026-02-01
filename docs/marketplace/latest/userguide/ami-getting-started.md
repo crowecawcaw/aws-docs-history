@@ -2,7 +2,7 @@
 
 As an AWS Marketplace seller, you can deliver your products to buyers with [Amazon Machine Images (AMIs)](../../../glossary/latest/reference/glos-chap.md#AmazonMachineImage "../../../glossary/latest/reference/glos-chap.md#AmazonMachineImage"). An AMI
 provides the information required to launch an Amazon Elastic Compute Cloud (Amazon EC2) instance.
-The following sections section explains the key concepts for working with AMI-based products.
+The following section explains the key concepts for working with AMI-based products.
 
 ###### Note
 
@@ -15,6 +15,7 @@ You can only use one AMI in an AMI product, but you can add versions of that AMI
 - [Change requests](#ami-change-requests "#ami-change-requests")
 - [Product Load Forms](#ami-product-load-forms "#ami-product-load-forms")
 - [Annual agreement amendments](#annual-agreement-amendments "#annual-agreement-amendments")
+- [FPGA Products](#ami-fpga-products "#ami-fpga-products")
 
 ## Product lifecycle
 
@@ -238,3 +239,27 @@ You can see the amendments made by your buyers on the following dashboards:
   revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md") – Charges to the customer.
 - [Collections and disbursement dashboard](collections-disbursement-dashboard.md "collections-disbursement-dashboard.md") – The
   disbursement.
+
+## FPGA Products
+
+FPGA (Field Programmable Gate Array) products are specialized AMI products that support
+F2 instance types with Amazon FPGA Image (AFI) configurations. Unlike standard AMIs,
+FPGA products include AFI IDs that are dynamically loaded by the AMI for hardware acceleration
+on supported instance types.
+
+**Key characteristics:**
+
+- FPGA products support F2 instance types exclusively for FPGA acceleration.
+- Each product version can include one or more AFI IDs, with a maximum of 15 AFI IDs per version.
+- AFIs are loaded on-the-fly rather than launched like AMIs, providing dynamic hardware
+  acceleration capabilities.
+- When you add new regions to your FPGA product, automated regional AFI cloning is performed by AWS Marketplace to ensure
+  your product is available across supported AWS Regions.
+- While FPGA products can be offered on other instance types, the AFIs will only be loaded and provide hardware acceleration on
+  F2 instance types. On other instance types, the AMI functions without the FPGA
+  acceleration capabilities.
+
+FPGA products are ideal for compute-intensive workloads requiring specialized hardware
+acceleration such as genomics research, financial analytics, real-time video processing,
+big data analytics, and machine learning inference. The dynamic loading of AFIs enables
+buyers to leverage FPGA acceleration without managing the underlying FPGA infrastructure.

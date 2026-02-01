@@ -129,6 +129,14 @@ following information:
      can be used to log into the operating system: the SSH port for a
      Linux AMI or the RDP port for a
      Windows AMI.
+    * **Amazon FPGA Image (AFI) IDs**  (Optional) –
+     Enter the AFI IDs to associate with your AMI. AFIs only support
+     F2 instance types. You can offer your AMI on other instance types, however, the AFIs
+     will not be loaded in those cases. You can add up to 15 AFI IDs using the
+     **Add AFI ID** button. This option is not available when using
+     CloudFormation templates. All AFI IDs you provide must originate from the US East (N. Virginia) region,
+     reside within your AWS Marketplace seller account, and the provided IAM access role should have permissions
+     to share this AFI with AWS Marketplace.For more details on the required permissions, see [Giving AWS Marketplace access to your FPGA images](single-ami-marketplace-ami-access.md#single-ami-marketplace-afi-access "single-ami-marketplace-ami-access.md#single-ami-marketplace-afi-access").
 
 7. Provide the following configurations for the **AMI
    delivery option** section, if applicable:
@@ -192,7 +200,26 @@ https://example.com/usage.htm.`
 ###### Note
 
 Adding a new version results in a scanning of the AMI. For more information, refer to
-[Scanning your AMI for publishing requirements](best-practices-for-building-your-amis.md#self-service-scanning "best-practices-for-building-your-amis.md#self-service-scanning"). 10. Verify that the request appears on the **Requests** tab with
+[Scanning your AMI for publishing requirements](best-practices-for-building-your-amis.md#self-service-scanning "best-practices-for-building-your-amis.md#self-service-scanning").
+
+###### Note
+
+**AFI ID Support in New Versions**
+
+When adding new AMI versions, AFI IDs can be configured if you select the
+AMI (standalone) delivery method. The same validation rules that apply during
+product creation also apply when adding new versions, including character
+restrictions, uniqueness requirements, regional constraints, and account
+ownership verification. Once a version is created with AFI IDs, those AFI IDs
+become immutable and cannot be edited later. If you need to modify AFI IDs,
+you must create a new version with the updated configuration. New versions
+with AFI IDs can coexist alongside existing versions that also have AFI IDs,
+allowing you to maintain multiple FPGA configurations across different product
+versions. During version preparation, AWS Marketplace creates regional AFI
+clones to ensure your product is available across supported AWS Regions,
+streamlining the deployment process for your buyers. This process is handled
+by the AWS Marketplace Seller Operations team and can take longer than other AMI
+Add Version requests. During this time, your the request will be 'Under Review'. 10. Verify that the request appears on the **Requests** tab with
 the **Under review** status. If there are errors to fix, the
 page displays the errors in a table at the top of the page, and the specific
 fields that need to be updated display in red.
