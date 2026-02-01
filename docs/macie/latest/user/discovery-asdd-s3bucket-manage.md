@@ -21,9 +21,9 @@ sensitivity score for an S3 bucket in the following ways:
   buckets](discovery-scoring-s3.md "discovery-scoring-s3.md").
 
 You can override a bucket's calculated score and manually assign the maximum score
-(_100_), which also applies the _Sensitive_ label to the bucket. If you do this, Macie continues to perform
-automated sensitive data discovery for the bucket. However, subsequent analyses don't affect the bucket's score. To
-calculate the score automatically again, change the setting again.
+(_100_), which also applies the _Sensitive_ label to the bucket. If you do this, Macie stops performing
+automated sensitive data discovery for the bucket, as buckets with a score of 100 are excluded from further scanning. To
+calculate the score automatically again and resume scanning, change the setting again.
 
 - **Exclude or include sensitive data types in the
   sensitivity score** – If it's calculated automatically, a bucket's sensitivity score

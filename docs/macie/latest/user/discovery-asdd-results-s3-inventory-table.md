@@ -31,7 +31,7 @@ token below the filter box. 3. Choose table (
 ![The table view button, which is a button that displays three black horizontal lines.](images/btn-s3-table-view.png)
 ) at the top of the page. Macie displays the number of
 buckets in your inventory and a table of the buckets. 4. To retrieve the latest bucket metadata from Amazon S3, choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
 ) at the
 top of the page.
 
