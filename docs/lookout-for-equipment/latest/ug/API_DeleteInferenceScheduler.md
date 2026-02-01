@@ -83,7 +83,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md "../../../goto/cli2/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md "../../../goto/DotNetSDKV3/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md "../../../goto/DotNetSDKV4/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md "../../../goto/SdkForCpp/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md "../../../goto/SdkForGoV2/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md "../../../goto/SdkForJavaV2/lookoutequipment-2020-12-15/DeleteInferenceScheduler.md")
