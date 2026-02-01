@@ -219,7 +219,7 @@ branches, and commit IDs, in the navigation pane, choose
 **Commits**, and then choose **Compare
 commits**.
 
-![Comparing a commit to the tip of a branch in Split view](/images/codecommit/latest/userguide/images/codecommit-compare-4.png)
+![Comparing a commit to the tip of a branch in Split view](images/codecommit-compare-4.png)
 
 For more information, see [Browse the commit history of a repository](how-to-view-commit-details.md#how-to-view-commit-details-console-history "how-to-view-commit-details.md#how-to-view-commit-details-console-history") and [Compare commits](how-to-compare-commits.md "how-to-compare-commits.md"). 9. In **Commits**, choose the **Commit
 visualizer** tab.
