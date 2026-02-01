@@ -31,6 +31,8 @@ A Capacity Reservation owner can share a Capacity Reservation with:
 - To share a Capacity Reservation with your AWS organization or an organizational unit in
   your AWS organization, you must enable sharing with AWS Organizations. For more
   information, see [Enable Sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md "../../../ram/latest/userguide/getting-started-sharing.md") in the _AWS RAM User Guide_.
+- You can share a Capacity Reservation in `active` or `scheduled` state.
+  You cannot share Capacity Reservation in other [states](../../../cli/latest/reference/ec2/purchase-capacity-block.md "../../../cli/latest/reference/ec2/purchase-capacity-block.md") , such as `assessing` or `unsupported`.
 
 ## Related services
 

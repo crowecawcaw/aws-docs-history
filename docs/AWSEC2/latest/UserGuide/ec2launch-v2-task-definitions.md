@@ -671,6 +671,11 @@ You can use the following settings to configure your wallpaper.
 Input parameters that you provide, and attributes that you can set
 to configure your wallpaper:
 
+**path (string)**
+
+(Required) The filename path of the local .jpg format image file to use for
+your wallpaper image.
+
 **attributes (list of strings)**
 
 (Optional) You can add one or more of the following attributes to your wallpaper:
@@ -705,11 +710,6 @@ instanceTags:
   - Tag 2
 ```
 
-**path (string)**
-
-(Required) The filename path of the local .jpg format image file to use for
-your wallpaper image.
-
 ###### Example
 
 The following example shows wallpaper configuration inputs that set the
@@ -727,7 +727,7 @@ inputs:
   - instanceId
   - privateIpAddress
   - publicIpAddress
-instanceTags:
+  instanceTags:
   - Tag 1
   - Tag 2
 ```

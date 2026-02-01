@@ -5,7 +5,7 @@ Only the management account can register or remove a delegated administrator wit
 
 ###### Note
 
-You can’t disable Capacity Manager for your organization while there is a registered delegated administrator.
+You can't disable Capacity Manager for your organization while there is a registered delegated administrator.
 
 ###### Topics
 

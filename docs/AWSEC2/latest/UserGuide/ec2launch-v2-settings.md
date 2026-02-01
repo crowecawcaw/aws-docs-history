@@ -204,46 +204,6 @@ and the action logged.
 
 ![EC2 Launch settings application.](images/ec2launchv2-volumes.png)
 
-The following is an example configuration YAML file created from the settings
-entered in the EC2Launch dialog.
-
-```
-version: 1.0
-config:
-  - stage: boot
-	tasks:
-      - task: extendRootPartition
-  - stage: preReady
-    tasks:
-      - task: activateWindows
-        inputs:
-          activation:
-            type: amazon
-      - task: setDnsSuffix
-        inputs:
-          suffixes:
-            - $REGION.ec2-utilities.amazonaws.com
-      - task: setAdminAccount
-        inputs:
-          password:
-            type: random
-      - task: setWallpaper
-        inputs:
-          path: C:\ProgramData\Amazon\EC2Launch\wallpaper\Ec2Wallpaper.jpg
-          attributes:
-            - hostName
-            - instanceId
-            - privateIpAddress
-            - publicIpAddress
-            - ipv6Address
-            - instanceSize
-            - availabilityZone
-            - architecture
-  - stage: postReady
-    tasks:
-      - task: startSsm
-```
-
 ## Configure EC2Launch v2 using the CLI
 
 You can use the Command Line Interface (CLI) to configure your EC2Launch settings
@@ -704,7 +664,6 @@ config:
       - instanceId
       - privateIpAddress
       - publicIpAddress
-      - ipv6Address
       - instanceSize
       - availabilityZone
       - architecture
