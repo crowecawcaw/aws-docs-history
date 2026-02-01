@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.1.1.0.R5 (2022-07-21)
+# Amazon Neptune Engine Version 1.1.1.0.R4 (2022-06-23)
 
-As of 2022-07-21, engine version 1.1.1.0.R5 is being generally deployed. Please note
+As of 2022-06-23, engine version 1.1.1.0.R4 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Important
@@ -61,16 +61,27 @@ See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-open
 
 ## Improvements in This Engine Release
 
-- Made improvements to support deadlock detection.
+- Updated instance configuration for `x2g` instance types.
+- Improved performance of vertex drops.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a bug that prevented a clean shutdown of DB clusters under
-  certain conditions.
+- Fixed a Gremlin bug where solutions were not maintaining a stable order
+  for a query called multiple times or across multiple readers for certain kinds of ASK
+  joins.
+- Also, narrowed the scope of a change in the previous release that was
+  causing performance regressions for certain kinds of ASK joins in Gremlin.
+- Fixed a Gremlin bug in the `union()` step that occurred
+  when there was an edge input and a traversal to a vertex within child traversals.
+- Fixed a Gremlin profile bug where some steps were reported as not
+  optimized when they actually were.
+- Fixed a SPARQL bug where variables used inside `FILTER`
+  expressions nested into `UNION` clauses were getting assigned invalid
+  scoping information.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.1.1.0.R5, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.1.1.0.R4, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
@@ -78,7 +89,7 @@ with these query-language versions:
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade paths to engine release 1.1.1.0.R5
+## Upgrade paths to engine release 1.1.1.0.R4
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.1.1.0`.

@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.0.0.R4 (2023-09-29)
+# Amazon Neptune Engine Version 1.2.0.0.R2 (2022-10-14)
 
-As of 2023-09-29, engine version 1.2.0.0.R4 is being generally deployed. Please note
+As of 2022-10-14, engine version 1.2.0.0.R2 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -41,58 +41,61 @@ a support case may help you explore additional strategies for bringing it down.
 
 ## Improvements in This Engine Release
 
-- Added an `enableInterContainerTrafficEncryption`
-  parameter to all [Neptune
-  ML APIs](machine-learning-api-reference.md "machine-learning-api-reference.md"), that you can use to enable and disable inter-container traffic
-  encryption in training or hyper-parameter tuning jobs.
-- For serverless DB clusters, changed the minimum capacity setting to
-  1.0 NCU, and the lowest valid maximum setting to 2.5 NCUs. See [Capacity scaling in a Neptune Serverless DB cluster](neptune-serverless-capacity-scaling.md "neptune-serverless-capacity-scaling.md") `(((before release,
-this change needs to be reflected in the serverless page too))).`
+- Improved performance of Gremlin `order-by` queries. Gremlin
+  queries with an `order-by` at the end of a `NeptuneGraphQueryStep`
+  now use a larger chunk size for better performance. This does not apply to
+  `order-by` on an internal (non-root) node of the query plan.
+- Improved performance of Gremlin update queries. Vertices and edges
+  must now be locked against deletion while adding edges or properties. This change
+  eliminates duplicate locks within a transaction, which improves performance.
+- Improved performance of Gremlin queries that use `dedup()`
+  inside of a `repeat()` subquery by pushing the `dedup` down
+  to the native execution layer.
+- Added the Gremlin `Neptune#cardinalityEstimates` query
+  hint. When set to `false`, this disables cardinality estimates.
+- Added user-friendly error messages for IAM authentication errors. These
+  messages now show the your IAM user or role ARN, the resource ARN, and a list of
+  unauthorized actions for the request. The list of unauthorized actions helps you
+  see what might be missing or explicitly denied in the IAM policy that you're using.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed an openCypher bug where update-and-return queries did not handle
-  `orderBy`, `limit`, or `skip` properly.
-- Fixed an openCypher bug that allowed parameters contained in one request
-  to be overridden by parameters contained in another simultaneous request.
-- Fixed an openCypher bug in Bolt transaction handling.
-- Fixed Gremlin correctness issues for DFE queries with `limit` as
-  a child traversal of non-union steps by falling back to Tinkerpop. For example, for queries
-  like this:
-
-```
-g.withSideEffect('Neptune#useDFE', true)
- .V()
- .as("a")
- .select("a")
- .by(out()
- .limit(1))
-```
-
-- Fixed a Gremlin bug where a query would fail because it contained too many
-  TinkerPop steps and then would not be cleaned up.
-- Fixed a Gremlin bug where `order()` would not properly sort
-  string outputs when some of them contained a space character.
-- Fixed a Gremlin bug where a transaction leak could occur when a query
-  was submitted as a String and contained `GroupCountStep`.
-- Fixed a Gremlin bug where a transaction leak would occur when checking
-  the Gremlin query status endpoint for queries with predicates in child traversals
-  for steps that are not processed natively.
-- Fixed a Gremlin bug where adding an Edge and its properties followed
-  by `inV()` or `outV()` caused an `InternalFailureException`.
-- Fixed a concurrency issue in the storage layer.
+- Fixed a Gremlin correctness bug involving `WherePredicateStep`
+  translation, where Neptune's query engine was producing incorrect results for queries
+  using `where(P.neq('x'))` and variations of that.
+- Fixed a Gremlin bug where using `PartitionStrategy` after
+  upgrading to TinkerPop 3.5 incorrectly resulted an error with the message,
+  "PartitionStrategy does not work with anonymous Traversals," which prevented
+  the traversal from being executed.
+- Fixed various Gremlin bugs related to the `joinTime` of
+  a final join and to statistics inside of `Project.ASK` subgroups.
+- Fixed an openCypher bug in the `MERGE` clause that in some
+  cases caused duplicate node and edge creation.
+- Fixed a transaction bug where a session could insert graph data
+  and commit even when the corresponding concurrent dictionary inserts got rolled back.
+- Fixed a bulk loader bug that caused performance regressions under heavy
+  insertion loads.
+- Fixed a SPARQL bug in the handling of queries that contain
+  `(NOT) EXISTS` within an `OPTIONAL` clause, where
+  in some cases query results were missing.
+- Fixed a bug where drivers could appear to hang in cases where requests
+  were cancelled due to a timeout prior to their start of evaluation. It was possible
+  to get into this state if all query processing threads on the server were consumed
+  while timeouts occurred to items in the request queue. Because the timeouts from the
+  request queue were not immediately sending messages, the responses appeared to the
+  client to remain pending.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.0.0.R4, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.0.0.R2, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.5.2`
-- _Gremlin latest version supported:_ `3.5.6`
+- _Gremlin latest version supported:_ `3.5.4`
 - _openCypher version:_ `Neptune-9.0.20190305-1.0`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.2.0.0.R4
+## Upgrade Paths to Engine Release 1.2.0.0.R2
 
 Your cluster will be upgraded to this patch release automatically during your next
 maintenance window if you are running engine version `1.2.0.0`.
