@@ -782,8 +782,6 @@ device ID:
   statement. Calling `get_dynamodb()` multiple times in a
   single SQL statement causes the rule to terminate without invoking any
   actions.
-- If `get_dynamodb()` returns more than 8 KB of data, the
-  rule's action may not be invoked.
 
 ## get_mqtt_property(name)
 

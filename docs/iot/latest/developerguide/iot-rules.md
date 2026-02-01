@@ -17,7 +17,6 @@ following tasks:
 - Send the data from an MQTT message to Amazon SageMaker AI to make predictions based on a
   machine learning (ML) model.
 - Send a message to a Salesforce IoT Input Stream.
-- Send message data to an AWS IoT Analytics channel.
 - Start process of a Step Functions state machine.
 - Send message data to an AWS IoT Events input.
 - Send message data to an asset property in AWS IoT SiteWise.
