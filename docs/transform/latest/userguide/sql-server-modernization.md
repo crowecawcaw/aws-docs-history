@@ -92,7 +92,7 @@ Legacy .NET Framework 4.x and earlier versions are not supported. If your applic
 AWS Transform supports the following repository platforms via AWS CodeConnections:
 
 - GitHub and GitHub Enterprise
-- GitLab.com and GitLab self-managed
+- GitLab.com
 - Bitbucket Cloud
 - Azure Repositories
 

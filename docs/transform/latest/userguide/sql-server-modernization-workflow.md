@@ -49,7 +49,7 @@ AWS Transform needs access to your .NET application source code to analyze and t
    connection**
 4. Select your repository provider:
    - GitHub / GitHub Enterprise
-   - GitLab.com / GitLab self-managed
+   - GitLab.com
    - Bitbucket Cloud
    - Azure Repositories
 

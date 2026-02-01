@@ -1,19 +1,17 @@
 # Migrate network
 
 AWS Transform migrates VMware networks to AWS by translating your source environment configuration into AWS-equivalent network resources. AWS Transform
-analyzes your source network data and creates VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables as needed. You can review and modify the generated network configuration before deployment. For deployment, you can either have AWS Transform deploy the configuration for you and analyze deployed network connectivity, or choose self-deployment—in which case AWS Transform generates Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK) (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
+analyzes your source network data and creates VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables as needed. You can review and modify the generated network configuration before deployment. For deployment, you can either have AWS Transform deploy the configuration for you and analyze deployed network connectivity, or choose self-deployment—in which case AWS Transform generates Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
 
 ## Source Network Mapping
 
-The network mapping process requires uploading a configuration file from your
-source environment. You can use RVTools, Export for vCenter, Import/Export for
-NSX, or modelizeIT to capture on-premises network data and import it to
-AWS Transform. The tool you choose depends on your source network type:
+The network mapping process requires uploading a configuration file from your source environment. The tool you choose depends on your source network type:
 
-- **NSX-defined network:** Upload an NSX configuration file using Import/Export for NSX.
-- **vSphere-defined network:** Upload an RVTools file or Export for vCenter file. When using RVTools files, AWS Transform will focus on generate Amazon VPC configurations,
-  while security group configurations require additional input. For network security settings, you may upload configuration files from additional sources like firewalls and software-defined networks. See [Additional Configuration Files](#transform-vmware-additional-config-files "#transform-vmware-additional-config-files") for more details.
-- **Non-Windows workstation or need granular control:** Use Export for vCenter, which generates files in the same format as RVTools.
+- **Software Defined Networks (SDN):** Import/Export for VMware NSX network virtualization or Cisco ACI config for Cisco Application Centric Infrastructure.
+- **VMware vSphere networks:** [RVTools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools"). Note: when using RVTools files, AWS Transform will focus on generate Amazon VPC configurations,
+  while security group configurations require additional input. For network security settings, you may upload configuration files from additional sources like firewalls and software-defined networks. See [Firewall and Software-Defined Network Configuration Files](#transform-vmware-firewall-and-sdn-config-files "#transform-vmware-firewall-and-sdn-config-files") for more details.
+- **Networks based on firewall configuration data:** Export files from Palo Alto Networks Firewall or Fortinet FortiGate Firewall.
+- **Hybrid networks running both VMware and non-VMware workloads:** Application mapping tools - modelizeIT.
 
 ###### Warning
 
@@ -34,27 +32,30 @@ The network mapping process generates these key resources:
 
 AWS Transform tags all generated resources with "CreatedBy": "AWSTransform" along with definition and execution IDs for tracking and management purposes.
 
-## Additional Configuration Files
+## Firewall and Software-Defined Network Configuration Files
 
-AWS Transform supports additional configuration files that enable automated security group generation when combined with RVTools files. You can upload configuration files from the following enterprise solutions:
+AWS Transform supports configuration files that enable automated network and security group generation, based on firewall and policies configurations. These files can be used standalone or as a complement to RVTools file.
 
 - Cisco Application Centric Infrastructure (ACI): Network policy configurations
 - Palo Alto Networks: Firewall security policies
 - Fortinet FortiGate: Firewall security policies
 
-When you upload a combination of RVTools and one or more of these configuration files, AWS Transform generates both the target VPC network infrastructure and corresponding security groups based on your existing security policies. This preserves your security investments and ensures consistent policy enforcement in AWS.
+When you upload a firewall or Cisco ACI file, AWS Transform generates network infrastructure and security groups. When you upload an RVTools file, AWS Transform generates network infrastructure only. You can optionally add firewall or Cisco ACI file to generate security groups.
 
 To extract configuration files from firewall and network environments, follow these procedures. Consult vendor documentation for the latest information.
 
 ### Fortinet FortiGate
 
-- Firmware: 7.0 - 7.6
-- Requirements: super_admin or super_admin_readonly privileges
-- Steps: Connect via SSH, run `show | grep ""` (| grep "", save output to file
+- Firmware: v7.0 and up
+- Requirements: `super_admin` or `super_admin_readonly` privileges on global level
+- Steps:
+  - 1.  Connect to the firewall via SSH or built-in CLI client
+  - 2.  Run: `show | grep ""` (`| grep ""` disables pagination)
+  - 3.  Save all output to a file starting from the `show` command
 
 ### Palo Alto Networks
 
-- Firmware: 10.1.X
+- Firmware: 10.1 and up
 - Requirements: superadmin role
 - Steps: Connect via SSH, run commands below, save outputs to palo-conf.txt and palo-default.txt:
   - `set cli pager off`
@@ -65,13 +66,13 @@ To extract configuration files from firewall and network environments, follow th
 
 ### Cisco ACI
 
-- Firmware: 6.3+
+- Firmware: 6.0 and up
 - Requirements: Admin role with all privileges; SCP/SFTP/FTP destination configured
 - Steps:
   - Connect to APIC controller via browser
-  - Go to Admin and Config Rollbacks
-  - Select remote location and select "Create a snapshot now" option
-  - Retrieve .gz file after "Transfer successful" message.
+  - Go to Admin >> Config Rollbacks
+  - In “Take a snapshot” select remote location and push “Create a snapshot now” button
+  - After receiving “Transfer successful” message, connect to the remote location server and retrieve the latest snapshot file (.gz file)
 
 ## Network Topologies
 
@@ -206,9 +207,26 @@ AWS Transform converts the following configurations to security groups:
 
 ## Tag network resources
 
-To use existing AWS network resources not created by AWS Transform, you must tag the resources (including VPCs and subnets). AWS Transform can tag resources during migration wave execution—it will tag all network resources in the target AWS account and Region. Alternatively, you can manually tag network resources you've created with the following tags:
+AWS Transform automatically tags all generated resources with `"CreatedBy": "AWSTransform"` along with definition and execution IDs for tracking purposes. You can also add custom tags to network resources during migration to track and manage your infrastructure.
 
-- **Key:** CreatedFor **Value:** AWSTransform
+You can apply custom tags at two levels:
+
+- **Job-level tags:** Applied to all resources created during the migration job, including VPCs, subnets, security groups, and route tables.
+- **VPC-level tags:** Applied to specific VPC resources and their associated components.
+
+###### Note
+
+If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)**, you can include the required MAP tag:
+
+- **Key:** `map-migrated` **Value:** `mig`MPE_ID``
+
+(where `MPE_ID` is your Migration Portfolio Evaluation identifier)
+
+AWS Transform automatically apply these tags during network deployment.
+
+To use existing AWS network resources not created by AWS Transform, you must tag the resources (including VPCs and subnets). AWS Transform can tag resources during migration wave execution — it will tag all network resources in the target AWS account and AWS Region. Alternatively, you can manually tag network resources you've created with the following tags:
+
+- **Key:** CreatedFor **Value:** AWS Transform
 - **Key:** ATWorkspace **Value:** workspace ID
 
 Find your workspace ID in the AWS Transform web app URL, https:// ... /workspace/`workspace-id`/job/job-id

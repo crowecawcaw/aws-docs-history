@@ -33,7 +33,7 @@ Guide_.
 
 This diagram displays an overview of AWS Transform VMware migration architecture.
 
-![AWS Transform VMware architecture](images/atx-vm-architecture.png)
+![AWS Transform VMware architecture](images/atx-vm-architecture_v2.png)
 
 ## Limitations
 
