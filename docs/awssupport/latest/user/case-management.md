@@ -124,7 +124,7 @@ In the AWS Management Console, you can also choose the question mark icon (
 ![Question mark icon representing help or information.](images/questionmark.png)
 ) and then choose **Support Center**. 2. Select the case that you want to change the severity level for. 3. In **Case details**, choose the pencil icon next to the **Severity** field, as shown in the following example.
 
-![The Case details section with the Severity field and pencil icon highlighted.](images/case-details-change-severity.png) 4. For **Severity**, choose the new severity level from the following options:
+![The Case details section with the Severity field and pencil icon highlighted.](/images/awssupport/latest/user/images/case-details-change-severity.png) 4. For **Severity**, choose the new severity level from the following options:
 
     * General guidance
     * System impaired
