@@ -27,8 +27,7 @@ products](buyer-paying-for-products.md "buyer-paying-for-products.md").
 After the subscription is processed, you can configure fulfillment options, software
 versions, and AWS Regions where you want to use the product, and then launch the software
 product. You can also find or launch your products by visiting [Your Marketplace
-Software](https://aws.amazon.com/marketplace/library?ref_=header_user_your_software "https://aws.amazon.com/marketplace/library?ref_=header_user_your_software") on the AWS Marketplace website, from your AWS Marketplace or Amazon Elastic Compute Cloud (Amazon EC2) console, or
-through the Service Catalog.
+Software](https://aws.amazon.com/marketplace/library?ref_=header_user_your_software "https://aws.amazon.com/marketplace/library?ref_=header_user_your_software") on the AWS Marketplace website, from your AWS Marketplace or Amazon Elastic Compute Cloud (Amazon EC2) console.
 
 For more information about product categories available using AWS Marketplace, see [Product categories in AWS Marketplace](buyer-product-categories.md "buyer-product-categories.md").
 

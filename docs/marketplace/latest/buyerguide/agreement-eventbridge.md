@@ -11,6 +11,7 @@ The following table lists the buyer events that AWS Marketplace sends to EventBr
 | Purchase Agreement Created<br>• Acceptor | Sent when a new purchase agreement is created, renewed, or replaced in your account    |
 | Purchase Agreement Amended<br>• Acceptor | Sent when modifications are made to an existing purchase agreement                     |
 | Purchase Agreement Ended<br>• Acceptor   | Sent when a purchase agreement is cancelled, expired, terminated, renewed, or replaced |
+| Purchase Agreement Ending<br>• Acceptor  | Sent 30, 60, and 90 days before a purchase agreement expires                           |
 
 ## Overview
 
@@ -19,6 +20,7 @@ Buyers receive EventBridge notifications for the following purchase agreement li
 - Agreement creation
 - Agreement amendments
 - Agreement ends (cancellation, expiration, or termination)
+- Agreement ending
 
 All events are sent to your default EventBridge event bus in the `us-east-1` region with
 the event source `aws.agreement-marketplace`.
@@ -156,6 +158,59 @@ AWS Marketplace sends this event when a purchase agreement ends.
     },
     "offer": {
       "id": "offer-abcdef123456"
+    }
+  }
+}
+```
+
+### Purchase Agreement Ending - Acceptor
+
+AWS Marketplace sends this event 30, 60, and 90 days before a purchase agreement expires.
+
+This event includes additional fields not present in other buyer events:
+
+- `agreement.autoRenewalEnabled` - Indicates whether auto-renewal is enabled for the agreement
+- `product.id` and `product.title` - Product information for the agreement
+- `proposer.name` and `offer.name` - Human-readable names for the seller and offer
+
+**Event schema:**
+
+```
+{
+  "version": "0",
+  "id": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+  "detail-type": "Purchase Agreement Ending - Acceptor",
+  "source": "aws.agreement-marketplace",
+  "account": "<Buyer Account ID>",
+  "time": "2025-03-31T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-9xyz8wmklp67rt32nb1qv45ds"
+  ],
+  "detail": {
+    "requestId": "7f3e2d1c-a9b8-4f5e-6d7c-1234567890ab",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-9xyz8wmklp67rt32nb1qv45ds",
+      "startTime": "2024-08-30T21:36:03Z",
+      "endTime": "2025-05-30T21:36:03Z",
+      "autoRenewalEnabled": true,
+      "status": "ACTIVE"
+    },
+    "product": {
+      "id": "prod-abc123xyz456",
+      "title": "Example Product Title"
+    },
+    "acceptor": {
+      "accountId": "<Buyer Account ID>"
+    },
+    "proposer": {
+      "name": "Example Seller Name",
+      "accountId": "<Proposer Account ID>"
+    },
+    "offer": {
+      "id": "offer-abcdef123456",
+      "name": "Example Offer Name"
     }
   }
 }

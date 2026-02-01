@@ -1,9 +1,5 @@
 # AMI-based products in AWS Marketplace
 
-###### Warning
-
-On December 31, 2025, AWS Marketplace will stop supporting the ability to copy AMIs and CloudFormation templates to Service Catalog. You can continue to deploy AMIs and CloudFormation templates through the AWS Marketplace website or Amazon EC2 console.
-
 An Amazon Machine Image (AMI) is an image of a server, including an operating system and
 often additional software, which runs on AWS.
 

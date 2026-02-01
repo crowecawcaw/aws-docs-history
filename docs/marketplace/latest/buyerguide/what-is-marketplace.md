@@ -51,11 +51,6 @@ license agreement (EULA) or by accepting a private offer with custom pricing and
 purchase products under a [standard
 contract](contract-structure.md#standard-contracts-for-aws-marketplace "contract-structure.md#standard-contracts-for-aws-marketplace") with specified time or usage boundaries.
 
-After the product subscriptions are in place, you can use AWS Service Catalog to copy the product and
-manage how the product is accessed and used in your organization. For more information, see
-[Adding
-AWS Marketplace Products to Your Portfolio](../../../servicecatalog/latest/adminguide/catalogs_marketplace-products.md "../../../servicecatalog/latest/adminguide/catalogs_marketplace-products.md") in the _Service Catalog Administrator Guide_.
-
 ## Differences between AWS Marketplace and
 
 Amazon DevPay
