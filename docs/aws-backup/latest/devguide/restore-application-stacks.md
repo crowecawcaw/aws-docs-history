@@ -46,6 +46,16 @@ stack, and then restore them using the AWS Backup console.
    resources, go back to the list of recovery points in the AWS Backup console, select the
    recovery point you need, and initiate a restore.
 
+###### Note
+
+If a CloudFormation restore operation fails, the stack may remain in `REVIEW_IN_PROGRESS`
+status with a `FAILED` change set. Delete these stacks manually to avoid naming conflicts when
+you retry the restore operation.
+
+For more information,
+see [Deleting a stack](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md")
+in the _AWS CloudFormation User Guide_.
+
 ## Restore CloudFormation with AWS CLI
 
 In the command line interface, [`start-restore-job`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/start-restore-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/start-restore-job.html") allows you to restore a CloudFormation stack.

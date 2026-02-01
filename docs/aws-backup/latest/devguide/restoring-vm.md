@@ -46,6 +46,10 @@ instance
   to your allowlist. Otherwise, restore operations of VM recovery points to EC2
   instances will fail with an error message, such as "Source AMI not found in
   Region".
+- For VMware restores involving more than 21 disks, you must limit the initial
+  VMware restore to no more than 21 disks, then use [VMware Restores to EBS](restoring-vm.md#restore-vm-ebs "restoring-vm.md#restore-vm-ebs") for
+  the remaining disks, and after all restore operations complete, attach the
+  EBS volumes to the restored instance.
 
 ## Use the AWS Backup console to restore virtual machine
 
