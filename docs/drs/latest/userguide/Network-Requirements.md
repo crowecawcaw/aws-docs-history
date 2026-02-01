@@ -41,12 +41,13 @@ Amazon S3 service URLs (required for downloading AWS Elastic Disaster Recovery s
 
 ```
 
-                        https://aws-drs-clients-<REGION>.s3.<REGION>.amazonaws.com/
-                        https://aws-drs-clients-hashes-<REGION>.s3.<REGION>.amazonaws.com/
-                        https://aws-drs-internal-<REGION>.s3.<REGION>.amazonaws.com/
-                        https://aws-drs-internal-hashes-<REGION>.s3.<REGION>.amazonaws.com/
-                        https://aws-elastic-disaster-recovery-<REGION>.s3.<REGION>.amazonaws.com/
-                        https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/
+https://aws-drs-clients-<REGION>.s3.<REGION>.amazonaws.com/
+https://aws-drs-clients-hashes-<REGION>.s3.<REGION>.amazonaws.com/
+https://aws-drs-internal-<REGION>.s3.<REGION>.amazonaws.com/
+https://aws-drs-internal-hashes-<REGION>.s3.<REGION>.amazonaws.com/
+https://aws-elastic-disaster-recovery-<REGION>.s3.<REGION>.amazonaws.com/
+https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/
+https://al2023-repos-<REGION>-de612dc2.s3.<REGION>.amazonaws.com/
 
 ```
 

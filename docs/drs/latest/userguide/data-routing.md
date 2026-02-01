@@ -10,7 +10,7 @@ data replication...** if you want to route the replicated data from
 your source servers to the staging area subnet through a private network with a
 VPN, AWS Direct Connect, VPC peering, or another type of existing private
 connection. Data replication does not work unless you have already set up the
-VPN, AWS Direct Connect, or VPC peering in the AWS Console. Usee this option
+VPN, AWS Direct Connect, or VPC peering in the AWS Console. Use this option
 if you want to:
 
 - Allocate a dedicated bandwidth for replication;

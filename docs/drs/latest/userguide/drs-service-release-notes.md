@@ -10,7 +10,6 @@
 
 - Added support for RHEL 9.5.
 - Added ability to add tags to Amazon EBS snapshots.
--
 
 ## October 2024
 
