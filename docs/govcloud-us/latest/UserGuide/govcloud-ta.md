@@ -1,4 +1,4 @@
-# AWS Trusted Advisorin AWS GovCloud (US)
+# AWS Trusted Advisor in AWS GovCloud (US)
 
 An online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment, Trusted Advisor provides real time guidance to help you provision your resources following AWS best practices.
 
