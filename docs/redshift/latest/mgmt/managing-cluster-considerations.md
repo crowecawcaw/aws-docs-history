@@ -1,6 +1,5 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
-If you would like to use Python UDFs, create the UDFs prior to that date.
-Existing Python UDFs will continue to function as normal. For more information, see the
+Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
+Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
 # Considerations for using Amazon Redshift provisioned
@@ -113,7 +112,7 @@ details regarding why this might occur.
 ### Deferring maintenance
 
 To reschedule your cluster's maintenance window, you can defer maintenance by
-up to 45 days. For example, if your cluster's maintenance window is set to
+up to 60 days. For example, if your cluster's maintenance window is set to
 Wednesday 08:30 – 09:00 UTC and you need to access your cluster at that time, you
 can defer the maintenance to a later time period.
 

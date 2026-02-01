@@ -1,6 +1,5 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
-If you would like to use Python UDFs, create the UDFs prior to that date.
-Existing Python UDFs will continue to function as normal. For more information, see the
+Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
+Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
 # Cluster versions for Amazon Redshift
@@ -61,6 +60,10 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.198462 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on January 21, 2026
+- 1.0.194394 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on January 13, 2026
 - 1.0.187928 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
   version – Released on January 08, 2026
 - 1.0.179517 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup

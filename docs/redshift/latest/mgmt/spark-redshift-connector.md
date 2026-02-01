@@ -1,6 +1,5 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
-If you would like to use Python UDFs, create the UDFs prior to that date.
-Existing Python UDFs will continue to function as normal. For more information, see the
+Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
+Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
 # Amazon Redshift integration for Apache Spark
@@ -20,7 +19,7 @@ of the data. This integration is automatically included in [Amazon EMR](../../..
 Apache Spark jobs that access and load data into Amazon Redshift as part of your data ingestion and
 transformation pipelines.
 
-Currently, you can use the versions 3.3.0, 3.3.1, 3.3.2, and 3.4.0 of Spark with this
+Currently, you can use the versions 3.3.x, 3.4.x, 3.5.x, and 4.0.0 of Spark with this
 integration.
 
 This integration provides the following:

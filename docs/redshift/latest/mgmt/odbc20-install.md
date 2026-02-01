@@ -1,17 +1,10 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
-If you would like to use Python UDFs, create the UDFs prior to that date.
-Existing Python UDFs will continue to function as normal. For more information, see the
+Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
+Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
 # Configuring a connection for ODBC driver version 2.x for
 
 Amazon Redshift
-
-###### Note
-
-The ODBC driver version 2.x doesn’t have full parity with the ODBC driver 1.x.
-We recommend that you confirm that the ODBC driver 2.x has all of the features
-that you need when considering moving from version 1.x to 2.x.
 
 You can use an ODBC connection to connect to your Amazon Redshift cluster from many third-party
 SQL client tools and applications. If your client tool supports JDBC, you can choose to use
