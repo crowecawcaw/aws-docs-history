@@ -1802,6 +1802,73 @@ class SnsWrapper:
 
 ```
 
+```
+class SnsWrapper:
+    """Wrapper class for managing Amazon SNS operations."""
+
+    def __init__(self, sns_client: Any) -> None:
+        """
+        Initialize the SnsWrapper.
+
+        :param sns_client: A Boto3 Amazon SNS client.
+        """
+        self.sns_client = sns_client
+
+    @classmethod
+    def from_client(cls) -> 'SnsWrapper':
+        """
+        Create an SnsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sns_client = boto3.client('sns')
+        return cls(sns_client)
+
+
+    def create_topic(
+        self,
+        topic_name: str,
+        is_fifo: bool = False,
+        content_based_deduplication: bool = False
+    ) -> str:
+        """
+        Create an SNS topic.
+
+        :param topic_name: The name of the topic to create.
+        :param is_fifo: Whether to create a FIFO topic.
+        :param content_based_deduplication: Whether to use content-based deduplication for FIFO topics.
+        :return: The ARN of the created topic.
+        :raises ClientError: If the topic creation fails.
+        """
+        try:
+            # Add .fifo suffix for FIFO topics
+            if is_fifo and not topic_name.endswith('.fifo'):
+                topic_name += '.fifo'
+
+            attributes = {}
+            if is_fifo:
+                attributes['FifoTopic'] = 'true'
+                if content_based_deduplication:
+                    attributes['ContentBasedDeduplication'] = 'true'
+
+            response = self.sns_client.create_topic(
+                Name=topic_name,
+                Attributes=attributes
+            )
+
+            topic_arn = response['TopicArn']
+            logger.info(f"Created topic: {topic_name} with ARN: {topic_arn}")
+            return topic_arn
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error creating topic {topic_name}: {error_code} - {e}")
+            raise
+
+
+
+```
+
 - For API details, see
   [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
   in _AWS SDK for Python (Boto3) API Reference_.
