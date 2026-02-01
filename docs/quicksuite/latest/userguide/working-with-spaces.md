@@ -122,7 +122,7 @@ The following list outlines the limitations of spaces:
 You can only upload JPG images to spaces. PNG is not supported at this
 time.
 
-- File uploads are limited to 5 MB for Excel and CSV files, and 50 MB for all
+- File uploads are limited to 10 MB for Excel and CSV files, and 50 MB for all
   other supported file types. You will get a "character limit exceeded" error when
   you upload larger documents.
 - Spaces support up to 10,000 files (compared to 20 files in regular chat

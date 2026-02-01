@@ -11,8 +11,9 @@ the data. When you share it with readers, however, they can only see the data re
 the permission dataset rules.
 
 Also, when you embed Amazon Quick Suite dashboards in your application for unregistered users of
-Quick Suite, you can use row-level security (RLS) with tags. In this case, you use tags to
-specify which data your users can see in the dashboard depending on who they are.
+Quick Suite, you can use row-level security (RLS) to filter/restrict data with tags. A tag is a user-specified string
+that identifies a session in your application. You can use tags to implement RLS controls for your datasets.
+By configuring RLS-based restrictions in datasets, Quick Suite filters the data based on the session tags tied to the user identity/session.
 
 You can restrict access to a dataset using username or group-based rules, tag-based rules,
 or both.

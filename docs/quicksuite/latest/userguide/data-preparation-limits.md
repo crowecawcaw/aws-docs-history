@@ -5,8 +5,8 @@ optimal performance. The following limits ensure reliable functionality.
 
 ## Dataset size limits (SPICE)
 
-- **Output size**: Up to 1TB or 2 billion rows
-- **Total input size**: Combined input sources cannot exceed 1TB
+- **Output size**: Up to 2TB or 2 billion rows
+- **Total input size**: Combined input sources cannot exceed 2TB
 - **Secondary tables size**: Combined size is limited to 20GB
 
 ###### Note

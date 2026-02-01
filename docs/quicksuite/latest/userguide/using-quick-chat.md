@@ -134,7 +134,7 @@ of recent documents, or drag and drop files directly into the conversation.
 You can upload up to 20 files at one time with the following size limits:
 
 - 10 MB for images (`.jpeg`, `.png`)
-- 5 MB for spreadsheet files (`.csv`, `.xls`,
+- 10 MB for spreadsheet files (`.csv`, `.xls`,
   `.xlsx`)
 - 50 MB for other supported formats
 

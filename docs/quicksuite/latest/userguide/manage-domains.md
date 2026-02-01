@@ -92,6 +92,19 @@ runtime also adds HTTP support for the domain `localhost`. The generated URL
 is then embedded in a developer's website. Only the domains that are listed in the
 parameter can access the embedded dashboard.
 
+###### Security best practice for IAM condition operators
+
+Improperly configured IAM condition operators can allow unauthorized access to your embedded Quick Suite resources through URL variations. When using the `quicksight:AllowedEmbeddingDomains` condition key in your IAM policies, use condition operators that either allow specific domains or deny all domains that are not specifically allowed. For more information about IAM condition operators, see [IAM JSON policy elements: Condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") in the IAM User Guide.
+
+Many different URL variations can point to the same resource. For example, the following URLs all resolve to the same content:
+
+- `https://example.com`
+- `https://example.com/`
+- `https://Example.com`
+  If your policy uses operators that do not account for these URL variations, an attacker can bypass your restrictions by providing equivalent URL variations.
+
+You must validate that your IAM policy uses appropriate condition operators to prevent bypass vulnerabilities and ensure that only your intended domains can access your embedded resources.
+
 To embed a dashboard to a domain at runtime, see [Embedding with the Amazon Quick Suite APIs](../../../quicksight/latest/user/embedded-analytics-api.md "../../../quicksight/latest/user/embedded-analytics-api.md").
 
 Make sure that you use a valid URL. The following list shows examples of URLs that are

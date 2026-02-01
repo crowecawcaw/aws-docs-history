@@ -85,8 +85,7 @@ both platforms without requiring additional configuration.
 
 ###### Topics
 
-- [Add Slack extension access
-  for accounts using IAM Identity Center and Entra ID](#add-slack-extension-access-idc "#add-slack-extension-access-idc")
+- [Add Slack extension access for accounts using IAM Identity Center](#add-slack-extension-access-idc "#add-slack-extension-access-idc")
 - [Add Slack extension
   access for accounts using other authentication methods](#add-slack-extension-access "#add-slack-extension-access")
 - [Edit Slack
@@ -94,19 +93,19 @@ both platforms without requiring additional configuration.
 - [Delete Slack
   extension access](#delete-slack-extension-access "#delete-slack-extension-access")
 
-### Add Slack extension access
+### Add Slack extension access for accounts using IAM Identity Center
 
-for accounts using IAM Identity Center and Entra ID
+Configuring extension access with IAM Identity Center requires completing steps specific to your identity provider (Entra ID or Okta) followed by common setup steps in AWS.
 
-Follow these steps to set up and configure an Azure tenant on your Microsoft Azure portal:
+#### Configure IAM Identity Center with Entra ID
+
+Follow these steps only if you are using IAM Identity Center with Entra ID to set up and configure an Azure tenant on your Microsoft Azure portal:
 
 ###### To set up an Azure tenant
 
 1. In the Azure account, create a new app registration.
    1. Go to **App registrations**.
-   2. In the **App registrations** screen, choose **New registration**.
-      Under the **Supported account types** option, choose **Accounts in this organizational directory only
-      (Personal use only - Single tenant)**. Once finished, choose **Register**.
+   2. In the **App registrations** screen, choose **New registration**. Under the **Supported account types** option, choose **Accounts in this organizational directory only (Personal use only - Single tenant)**. Once finished, choose **Register**.
    3. Note the client ID. You will need this later.
    4. Create a client secret for the app registration and keep note of it. You will need this later.
 
@@ -137,7 +136,60 @@ login.microsoftonline.com/`Tenant ID`/v2.0
 
 ###### Note
 
-The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See [Trusted token issuer configuration settings](../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md "../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md"). 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
+The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
+
+After completing these Entra ID-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-all-providers "#complete-aws-config-all-providers") section below.
+
+#### Configure IAM Identity Center with Okta
+
+Follow these steps only if you are using IAM Identity Center with Okta to set up and configure your App Integration in the Okta Admin console:
+
+###### To set up an Okta Application
+
+1. In your Okta account, create a new Okta App Integration.
+   1. In your Okta Admin console, navigate to **Applications** > **Applications**.
+   2. Click on **Create App Integration**.
+   3. For the Sign-in method, select **OIDC - OpenID Connect**.
+   4. For the Application type, select **Web Application**.
+   5. Click on **Next**.
+   6. Provide an App integration name.
+   7. Under **Grant type** > **Core grants**, ensure **Authorization Code** and **Refresh Token** are selected.
+   8. Under **Grant type** > **Advanced** > **Other grants**, ensure **Implicit (hybrid)** is selected.
+
+2. Add callback URIs for each Region in which your Slack extension will be installed
+   1. Compose a callback URI using the following format, replacing `your-region` with your Amazon Quick Suite instance Region for each region where you wish to configure the extension. The Slack extension supports the following Regions: `ap-southeast-2`, `eu-west-1`, `us-west-2`, and `us-east-1`.
+
+   ```
+   qbs-cell001.dp.appintegrations.`your-region`.prod.plato.ai.aws.dev/auth/idc-tti/callback
+   ```
+
+   2. Under **Sign-in redirect URIs**, click on **Add URI** and paste each of the URIs you generated from the previous step.
+
+3. Provide your organization access to the app:
+   1. Under **Assignments** > **Controlled access**, select the groups in your organization that need to have access.
+   2. Under **Assignments** > **Enable immediate access**, select **Enable immediate access with Federation Broker Mode**.
+   3. Click on **Save**.
+
+4. Note down the **Client ID** and **Client Secret** for the app integration you just created. You will need this in the next steps.
+
+###### To configure a Trusted Token Issuer
+
+1. Go to your AWS account and navigate to your IAM Identity Center instance.
+2. Navigate to **Settings** > **Authentication**.
+3. Choose **Create trusted token issuer**.
+4. Add the issuer URL, which should follow this template, where `yourOktaDomain` refers to the okta URL for your organization, which may look like `your-organization.okta.com`:
+
+```
+https://{`yourOktaDomain`}/oauth2/default
+```
+
+###### Note
+
+The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
+
+After completing these Okta-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-all-providers "#complete-aws-config-all-providers") section below.
+
+#### Complete AWS Configuration (all providers)
 
 Follow these steps to set up permissions on AWS Console:
 
@@ -161,9 +213,7 @@ Follow these steps to set up permissions on AWS Console:
 7. Choose **Access Management**, **Roles** in the left navigation bar.
 8. Choose **Create role**.
 9. Choose **Custom trust policy**.
-10. Configure the role to trust our service principal for the relevant Region that you selected when configuring
-    your Azure app registration by adding the following statement replacing `your-region` with the
-    Region you chose when creating the Azure app registration:
+10. Configure the role to trust our service principal for the relevant Region that you selected when configuring your identity provider app integration by adding the following statement replacing `your-region` with the Region you chose when creating your identity provider app integration:
 
 ```
 
@@ -210,8 +260,7 @@ Follow these steps to set up permissions on AWS Console:
 17. Provide a policy name and choose **Create policy**.
 18. Copy and save the ARN of the IAM role you created for later. You will need it in the next steps.
 
-Now you can follow these steps to create a new extension access configuration that will allow Amazon Quick Suite to integrate with
-your Slack environment:
+Now you can follow these steps to create a new extension access configuration that will allow Amazon Quick Suite to integrate with your Slack environment:
 
 ###### To create an extension access configuration
 
@@ -222,12 +271,8 @@ your Slack environment:
 5. In the top right, choose **New extension access**.
 6. Select **Slack**. Then, choose **Next**.
 7. Configure the following fields:
-   - **Name** - A name for your extension is pre-filled for you.
-     You can edit this and enter a descriptive name for the Slack extension
-     (maximum 512 alphanumeric characters, hyphens allowed but no spaces).
-   - **Description (optional)** - A description for your
-     extension is pre-filled for you. You can edit this and enter a new description to provide
-     additional context about this extension configuration (maximum 1000 characters).
+   - **Name** - A name for your extension is pre-filled for you. You can edit this and enter a descriptive name for the Slack extension (maximum 512 alphanumeric characters, hyphens allowed but no spaces).
+   - **Description (optional)** - A description for your extension is pre-filled for you. You can edit this and enter a new description to provide additional context about this extension configuration (maximum 1000 characters).
    - **Slack Workspace ID** - Enter your Slack workspace identifier. Workspace IDs must
      start with 'T' and be between 1 and 256 alphanumeric characters.
    - **Secrets Role ARN** - Paste the ARN of the IAM role you created from the previous steps.
@@ -239,21 +284,13 @@ A success message will open up on the top right of your screen. 9. From the succ
 
 ###### Note
 
-You can also navigate to the installation screen from **Connections** >
-**Extensions** in the Amazon Quick Suite menu.
+You can also navigate to the installation screen from **Connections** > **Extensions** in the Amazon Quick Suite menu.
 
-Once created, this extension access configuration enables authors and other
-admins in your organization to deploy Amazon Quick Suite Slack
-extensions in their workspace.
+Once created, this extension access configuration enables authors and other admin in your organization to create and deploy Amazon Quick Suite extensions within your Slack environment.
 
 ###### Note
 
-For your end users to begin using your Slack extension, an
-admin or author must finish deploying a extension after you configure
-extension access. Notify your authors that they can view, edit, and complete
-installation of this extension under **Extensions** in the
-left navigation once it has been shared. To learn how to do this see [Installing your Slack extension in
-the Slack extension author guide](slack-extension-author-guide.md#add-extensions-slack "slack-extension-author-guide.md#add-extensions-slack").
+For your end users to begin using your Slack extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Slack extension in the Slack extension author guide.
 
 ### Add Slack extension
 

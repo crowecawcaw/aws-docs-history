@@ -12,9 +12,9 @@ users
 | Intended audience:<br>Amazon Quick Suite Administrators and Amazon Quick Suite developers |
 
 When you embed Amazon Quick Suite dashboards in your application for users who are not
-provisioned (registered) in Quick Suite, you can use row-level security (RLS) with tags.
-In this case, you use tags to specify which data your users can see in the dashboard
-depending on who they are.
+provisioned (registered) in Quick Suite, you can use row-level security (RLS) to filter/restrict data with tags.
+A tag is a user-specified string that identifies a session in your application. You can use tags to implement RLS controls for your datasets.
+By configuring RLS-based restrictions in datasets, Quick Suite filters the data based on the session tags tied to the user identity/session.
 
 For example, let's say you're a logistics company that has a customer-facing
 application for various retailers. Thousands of users from these retailers access your
@@ -168,6 +168,12 @@ Alternatively, you can configure and enable tag-based row-level security on
 your dataset by calling the `CreateDataSet` or
 `UpdateDataSet` API operation. Use the following examples to
 learn how.
+
+###### Important
+
+Make this API call only from your secure, trusted environment.
+A secure, trusted environment has access controls that you implement.
+These controls ensure that only your server or authorized users can add or modify session tags.
 
 CreateDataSet
 The following is an example for creating a dataset that uses RLS
@@ -354,6 +360,12 @@ tags at runtime
 
 You can use tags for RLS only for anonymous embedding. You can set values for tags
 using the `GenerateEmbedUrlForAnonymousUser` API operation.
+
+###### Important
+
+Make this API call only from your secure, trusted environment.
+A secure, trusted environment has access controls that you implement.
+These controls ensure that only your server or authorized users can add or modify session tags.
 
 The following example shows how to assign values to RLS tags that were defined in
 the dataset in the previous step.
