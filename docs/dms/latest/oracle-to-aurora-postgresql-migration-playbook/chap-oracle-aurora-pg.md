@@ -1,9 +1,8 @@
-# Oracle and PostgreSQL security
+# Oracle and PostgreSQL physical storage
 
-This section includes pages about Oracle and PostgreSQL security-related topics.
+This section includes pages related to Oracle and PostgreSQL physical storage.
 
 ###### Topics
 
-- [Oracle transparent data encryption and PostgreSQL encryption](chap-oracle-aurora-pg.security.md "chap-oracle-aurora-pg.security.md")
-- [Oracle and PostgreSQL roles](chap-oracle-aurora-pg.security.md "chap-oracle-aurora-pg.security.md")
-- [Oracle database users and PostgreSQL users](chap-oracle-aurora-pg.security.md "chap-oracle-aurora-pg.security.md")
+- [Oracle table partitioning and PostgreSQL partitions and table inheritance](chap-oracle-aurora-pg.storage.md "chap-oracle-aurora-pg.storage.md")
+- [Oracle sharding](chap-oracle-aurora-pg.storage.md "chap-oracle-aurora-pg.storage.md")
