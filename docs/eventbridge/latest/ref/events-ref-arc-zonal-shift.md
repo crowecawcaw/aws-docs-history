@@ -15,6 +15,9 @@ AWS ARC - Zonal Shift sends the following events directly to EventBridge:
 - FIS Experiment Autoshift In Progress
 - FIS Experiment Autoshift Completed
 - FIS Experiment Autoshift Canceled
+- Manual Shift Started
+- Manual Shift Updated
+- Manual Shift Canceled
 
 _Delivery type_:
 [Best effort](event-delivery-level.md "event-delivery-level.md")
