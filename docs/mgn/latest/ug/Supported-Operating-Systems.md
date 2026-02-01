@@ -16,29 +16,9 @@ Cloud for multiple versions of Windows.
 
 **Support deprecation notes**
 
-- **Windows 2003**:
-  - As of May 15, 2025, the installation of new AWS Replication Agents on
-    source servers running any version of this operating system is no longer
-    permitted.
-  - Effective February 15, 2026, AWS Replication Agents that had been installed on
-    source servers running any version of this operating system will cease to
-    function.
-
-- **Windows 2008**:
-  - As of March 30, 2026, the installation of new AWS Replication Agents on
-    source servers running any version of this operating system, including all minor version
-    releases, is no longer permitted.
-  - Effective December 30, 2026, AWS Replication Agents that had been installed on
-    source servers running this operating system, including all minor version
-    releases, will cease to function.
-
-- **Windows 7**:
-  - As of March 30, 2026, the installation of new AWS Replication Agents on
-    source servers running any version of this operating system, including all minor version
-    releases, is no longer permitted.
-  - Effective December 30, 2026, AWS Replication Agents that had been installed on
-    source servers running this operating system, including all minor version
-    releases, will cease to function.
+- **Windows 2003**: Effective February 15, 2026, this operating system is no longer supported.
+- **Windows 2008**: Effective December 30, 2026, this operating system is no longer supported.
+- **Windows 7**: Effective December 30, 2026, this operating system is no longer supported.
 
 - [Review the AWS Replication Agent
   installation requirements.](installation-requirements.md "installation-requirements.md")
@@ -69,99 +49,22 @@ Cloud for multiple versions of Windows.
 **Support deprecation notes**
 
 - **Red Hat Enterprise Linux (RHEL) version 5.x and CentOS
-  version 5.x**:
-  - As of April 1, 2025, the installation of new AWS Replication Agents on
-    source servers running these operating systems, including all minor version
-    releases, is no longer permitted.
-  - Effective December 30, 2025, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **Debian 6.x- 9.x**:
-  - As of July 30, 2025, the installation of new AWS Replication Agents on
-    source servers running these operating systems, including all minor version
-    releases, is no longer permitted.
-  - Effective April 30, 2026, AWS Replication Agents that had been installed on
-    source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **Ubuntu 12.04**:
-  - As of November 20, 2025, the installation of new AWS Replication Agents on
-    source servers running this operating system, including all minor version
-    releases, will no longer be permitted.
-  - Effective August 20, 2026, AWS Replication Agents that had been installed
-    on source servers running this operating system, including all minor version
-    releases, will cease to function.
-
-- **Oracle versions 6.x**:
-  - As of November 28, 2025, the installation of new AWS Replication Agents on
-    source servers running these operating systems, including all minor version
-    releases, is no longer permitted.
-  - Effective August 28, 2026, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **CentOS versions 6.x**:
-  - As of November 28, 2025, the installation of new AWS Replication Agents on
-    source servers running these operating systems, including all minor version
-    releases, is no longer permitted.
-  - Effective August 28, 2026, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **SLES versions 11.x**:
-  - As of November 28, 2025, the installation of new AWS Replication Agents on
-    source servers running these operating systems, including all minor version
-    releases, is no longer permitted.
-  - Effective August 28, 2026, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **CentOS 7-7.9**:
-  - As of February 20, 2026, the installation of new AWS Replication Agents on
-    source servers running these operating systems, including all minor version
-    releases, is no longer permitted.
-  - Effective November 20, 2026, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **Amazon Linux 1 (AL1)**:
-  - As of February 20, 2026, the installation of new AWS Replication Agents on
-    source servers running this operating system is no longer permitted.
-  - Effective November 20, 2026, AWS Replication Agents that had been installed
-    on source servers running this operating system will cease to function.
-
-- **Ubuntu 14.04**:
-  - As of March 20, 2026, the installation of new AWS Replication Agents on
-    source servers running this operating system, including all minor version
-    releases, is no longer permitted.
-  - Effective December 20, 2026, AWS Replication Agents that had been installed
-    on source servers running this operating system, including all minor version
-    releases, will cease to function.
-
-- **Debian 10**:
-  - As of March 30, 2026, the installation of new AWS Replication Agents on
-    source servers running any version of this operating system including all
-    minor version releases, is no longer permitted.
-  - Effective December 30, 2026, AWS Replication Agents that had been installed
-    on source servers running this operating system, including all minor version
-    releases, will cease to function.
-
-- **Red Hat Enterprise Linux (RHEL) version 6.x**:
-  - As of March 30, 2026, the installation of new AWS Replication Agents on
-    source servers running any version of these operating systems including all minor version
-    releases, is no longer permitted.
-  - Effective December 30, 2026, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
-
-- **CentOS versions 8.x**:
-  - As of March 30, 2026, the installation of new AWS Replication Agents on
-    source servers running any version of these operating systems including all minor version
-    releases, is no longer permitted.
-  - Effective December 30, 2026, AWS Replication Agents that had been installed
-    on source servers running these operating systems, including all minor version
-    releases, will cease to function.
+  version 5.x**: Effective December 30, 2025, these operating systems are
+  no longer supported.
+- **Debian 6.x- 9.x**: Effective April 30, 2026, these operating systems are no longer supported.
+- **Ubuntu 12.04**: Effective August 20, 2026, this operating system is no longer supported.
+- **Oracle versions 6.x**: Effective August 28, 2026, these operating systems are no longer supported.
+- **CentOS versions 6.x**: Effective August 28, 2026, these operating systems are no longer supported.
+- **SLES versions 11.x**: Effective August 28, 2026, these operating systems are no longer supported.
+- **CentOS 7-7.9**: Effective November 20, 2026, these operating systems are no longer supported.
+- **Amazon Linux 1 (AL1)**: Effective November 20, 2026, this operating system is no longer supported.
+- **Ubuntu 14.04**: Effective December 20, 2026, this operating system is no longer supported.
+- **Debian 10**: Effective December 30, 2026, this
+  operating system is no longer supported.
+- **Red Hat Enterprise Linux (RHEL) versions 6.x**:
+  Effective December 30, 2026, these operating systems are no longer
+  supported.
+- **CentOS versions 8.x**: Effective December 30, 2026, these operating systems are no longer supported.
 
 - [Review the AWS Replication Agent
   installation requirements.](installation-requirements.md "installation-requirements.md")
