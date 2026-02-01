@@ -73,7 +73,7 @@ that include Microsoft SQL Server.
 ```
 `Get-SSMLatestEC2Image `
  -Path ami-windows-latest `
- -ImageName *Windows_Server-*SQL* | `
+ -ImageName *Windows_Server-*SQL* |
 Sort-Object Name`
 ```
 
@@ -98,11 +98,10 @@ image ID.
 `Get-EC2Image `
  -Owner amazon `
  -Filter @(
- @{Name = "name"; Values = @("*SQL*")},
- @{Name = "owner-alias"; Values = @("amazon")},
- @{Name = "platform"; Values = "windows"},
- @{Name = "creation-date"; Values = @("`2025-05`*")}
- ) | `
-Sort-Object Name |`
+ @{Name = "name"; Values = @("*SQL*")}
+ @{Name = "platform"; Values = @("windows")}
+ @{Name = "creation-date"; Values = @("`2025-`*")}
+ ) |
+Sort-Object Name |
 Format-Table Name, ImageID -AutoSize`
 ```
