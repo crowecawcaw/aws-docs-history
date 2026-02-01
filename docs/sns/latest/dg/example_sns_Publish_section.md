@@ -885,6 +885,85 @@ class SnsWrapper:
 
 ```
 
+```
+class SnsWrapper:
+    """Wrapper class for managing Amazon SNS operations."""
+
+    def __init__(self, sns_client: Any) -> None:
+        """
+        Initialize the SnsWrapper.
+
+        :param sns_client: A Boto3 Amazon SNS client.
+        """
+        self.sns_client = sns_client
+
+    @classmethod
+    def from_client(cls) -> 'SnsWrapper':
+        """
+        Create an SnsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sns_client = boto3.client('sns')
+        return cls(sns_client)
+
+
+    def publish_message(
+        self,
+        topic_arn: str,
+        message: str,
+        tone_attribute: Optional[str] = None,
+        deduplication_id: Optional[str] = None,
+        message_group_id: Optional[str] = None
+    ) -> str:
+        """
+        Publish a message to an SNS topic.
+
+        :param topic_arn: The ARN of the SNS topic.
+        :param message: The message content to publish.
+        :param tone_attribute: Optional tone attribute for message filtering.
+        :param deduplication_id: Optional deduplication ID for FIFO topics.
+        :param message_group_id: Optional message group ID for FIFO topics.
+        :return: The message ID of the published message.
+        :raises ClientError: If the message publication fails.
+        """
+        try:
+            publish_args = {
+                'TopicArn': topic_arn,
+                'Message': message
+            }
+
+            # Add message attributes if tone is specified
+            if tone_attribute:
+                publish_args['MessageAttributes'] = {
+                    'tone': {
+                        'DataType': 'String',
+                        'StringValue': tone_attribute
+                    }
+                }
+
+            # Add FIFO-specific parameters
+            if message_group_id:
+                publish_args['MessageGroupId'] = message_group_id
+
+            if deduplication_id:
+                publish_args['MessageDeduplicationId'] = deduplication_id
+
+            response = self.sns_client.publish(**publish_args)
+
+            message_id = response['MessageId']
+            logger.info(f"Published message to topic {topic_arn} with ID: {message_id}")
+            return message_id
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error publishing message to topic: {error_code} - {e}")
+            raise
+
+
+
+```
+
 - For API details, see
   [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
   in _AWS SDK for Python (Boto3) API Reference_.

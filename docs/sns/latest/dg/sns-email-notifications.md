@@ -1216,6 +1216,71 @@ class SnsWrapper:
 
 ```
 
+Subscribe a queue to a topic with optional filters.
+
+```
+class SnsWrapper:
+    """Wrapper class for managing Amazon SNS operations."""
+
+    def __init__(self, sns_client: Any) -> None:
+        """
+        Initialize the SnsWrapper.
+
+        :param sns_client: A Boto3 Amazon SNS client.
+        """
+        self.sns_client = sns_client
+
+    @classmethod
+    def from_client(cls) -> 'SnsWrapper':
+        """
+        Create an SnsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sns_client = boto3.client('sns')
+        return cls(sns_client)
+
+
+    def subscribe_queue_to_topic(
+        self,
+        topic_arn: str,
+        queue_arn: str,
+        filter_policy: Optional[str] = None
+    ) -> str:
+        """
+        Subscribe an SQS queue to an SNS topic.
+
+        :param topic_arn: The ARN of the SNS topic.
+        :param queue_arn: The ARN of the SQS queue.
+        :param filter_policy: Optional JSON filter policy for message filtering.
+        :return: The ARN of the subscription.
+        :raises ClientError: If the subscription fails.
+        """
+        try:
+            attributes = {}
+            if filter_policy:
+                attributes['FilterPolicy'] = filter_policy
+
+            response = self.sns_client.subscribe(
+                TopicArn=topic_arn,
+                Protocol='sqs',
+                Endpoint=queue_arn,
+                Attributes=attributes
+            )
+
+            subscription_arn = response['SubscriptionArn']
+            logger.info(f"Subscribed queue {queue_arn} to topic {topic_arn}")
+            return subscription_arn
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error subscribing queue to topic: {error_code} - {e}")
+            raise
+
+
+
+```
+
 - For API details, see
   [Subscribe](../../../goto/boto3/sns-2010-03-31/Subscribe.md "../../../goto/boto3/sns-2010-03-31/Subscribe.md")
   in _AWS SDK for Python (Boto3) API Reference_.

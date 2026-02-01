@@ -358,6 +358,57 @@ class SnsWrapper:
 
 ```
 
+```
+class SnsWrapper:
+    """Wrapper class for managing Amazon SNS operations."""
+
+    def __init__(self, sns_client: Any) -> None:
+        """
+        Initialize the SnsWrapper.
+
+        :param sns_client: A Boto3 Amazon SNS client.
+        """
+        self.sns_client = sns_client
+
+    @classmethod
+    def from_client(cls) -> 'SnsWrapper':
+        """
+        Create an SnsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sns_client = boto3.client('sns')
+        return cls(sns_client)
+
+
+    def unsubscribe(self, subscription_arn: str) -> bool:
+        """
+        Unsubscribe from an SNS topic.
+
+        :param subscription_arn: The ARN of the subscription to remove.
+        :return: True if successful.
+        :raises ClientError: If the unsubscribe operation fails.
+        """
+        try:
+            self.sns_client.unsubscribe(SubscriptionArn=subscription_arn)
+
+            logger.info(f"Unsubscribed: {subscription_arn}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+
+            if error_code == 'NotFound':
+                logger.warning(f"Subscription not found: {subscription_arn}")
+                return True  # Already unsubscribed
+            else:
+                logger.error(f"Error unsubscribing: {error_code} - {e}")
+                raise
+
+
+
+```
+
 - For API details, see
   [Unsubscribe](../../../goto/boto3/sns-2010-03-31/Unsubscribe.md "../../../goto/boto3/sns-2010-03-31/Unsubscribe.md")
   in _AWS SDK for Python (Boto3) API Reference_.

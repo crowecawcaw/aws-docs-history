@@ -3989,6 +3989,900 @@ suspend fun createFIFO(topicName: String?, duplication: String): String? {
   - [Subscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [Unsubscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples").
+
+Run an interactive scenario at a command prompt.
+
+```
+class TopicsAndQueuesScenario:
+    """Manages the Topics and Queues feature scenario."""
+
+    DASHES = "-" * 80
+
+    def __init__(self, sns_wrapper: SnsWrapper, sqs_wrapper: SqsWrapper) -> None:
+        """
+        Initialize the Topics and Queues scenario.
+
+        :param sns_wrapper: SnsWrapper instance for SNS operations.
+        :param sqs_wrapper: SqsWrapper instance for SQS operations.
+        """
+        self.sns_wrapper = sns_wrapper
+        self.sqs_wrapper = sqs_wrapper
+
+        # Scenario state
+        self.use_fifo_topic = False
+        self.use_content_based_deduplication = False
+        self.topic_name = None
+        self.topic_arn = None
+        self.queue_count = 2
+        self.queue_urls = []
+        self.subscription_arns = []
+        self.tones = ["cheerful", "funny", "serious", "sincere"]
+
+    def run_scenario(self) -> None:
+        """Run the Topics and Queues feature scenario."""
+        print(self.DASHES)
+        print("Welcome to messaging with topics and queues.")
+        print(self.DASHES)
+        print(f"""
+    In this scenario, you will create an SNS topic and subscribe {self.queue_count} SQS queues to the topic.
+    You can select from several options for configuring the topic and the subscriptions for the queues.
+    You can then post to the topic and see the results in the queues.
+        """)
+
+        try:
+            # Setup Phase
+            print(self.DASHES)
+            self._setup_topic()
+            print(self.DASHES)
+
+            self._setup_queues()
+            print(self.DASHES)
+
+            # Demonstration Phase
+            self._publish_messages()
+            print(self.DASHES)
+
+            # Examination Phase
+            self._poll_queues_for_messages()
+            print(self.DASHES)
+
+            # Cleanup Phase
+            self._cleanup_resources()
+            print(self.DASHES)
+
+        except Exception as e:
+            logger.error(f"Scenario failed: {e}")
+            print(f"There was a problem with the scenario: {e}")
+            print("\nInitiating cleanup...")
+            try:
+                self._cleanup_resources()
+            except Exception as cleanup_error:
+                logger.error(f"Error during cleanup: {cleanup_error}")
+
+        print("Messaging with topics and queues scenario is complete.")
+        print(self.DASHES)
+
+    def _setup_topic(self) -> None:
+        """Set up the SNS topic to be used with the queues."""
+        print("SNS topics can be configured as FIFO (First-In-First-Out).")
+        print("FIFO topics deliver messages in order and support deduplication and message filtering.")
+        print()
+
+        self.use_fifo_topic = q.ask("Would you like to work with FIFO topics? (y/n): ", q.is_yesno)
+
+        if self.use_fifo_topic:
+            print(self.DASHES)
+            self.topic_name = q.ask("Enter a name for your SNS topic: ", q.non_empty)
+            print("Because you have selected a FIFO topic, '.fifo' must be appended to the topic name.")
+            print()
+
+            print(self.DASHES)
+            print("""
+    Because you have chosen a FIFO topic, deduplication is supported.
+    Deduplication IDs are either set in the message or automatically generated
+    from content using a hash function.
+
+    If a message is successfully published to an SNS FIFO topic, any message
+    published and determined to have the same deduplication ID,
+    within the five-minute deduplication interval, is accepted but not delivered.
+
+    For more information about deduplication,
+    see https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html.
+            """)
+
+            self.use_content_based_deduplication = q.ask(
+                "Use content-based deduplication instead of entering a deduplication ID? (y/n): ",
+                q.is_yesno
+            )
+        else:
+            self.topic_name = q.ask("Enter a name for your SNS topic: ", q.non_empty)
+
+        print(self.DASHES)
+
+        # Create the topic
+        self.topic_arn = self.sns_wrapper.create_topic(
+            self.topic_name,
+            self.use_fifo_topic,
+            self.use_content_based_deduplication
+        )
+
+        print(f"Your new topic with the name {self.topic_name}")
+        print(f"  and Amazon Resource Name (ARN) {self.topic_arn}")
+        print(f"  has been created.")
+        print()
+
+    def _setup_queues(self) -> None:
+        """Set up the SQS queues and subscribe them to the topic."""
+        print(f"Now you will create {self.queue_count} Amazon Simple Queue Service (Amazon SQS) queues to subscribe to the topic.")
+
+        for i in range(self.queue_count):
+            queue_name = q.ask(f"Enter a name for SQS queue #{i+1}: ", q.non_empty)
+
+            if self.use_fifo_topic and i == 0:
+                print("Because you have selected a FIFO topic, '.fifo' must be appended to the queue name.")
+
+            # Create the queue
+            queue_url = self.sqs_wrapper.create_queue(queue_name, self.use_fifo_topic)
+            self.queue_urls.append(queue_url)
+
+            print(f"Your new queue with the name {queue_name}")
+            print(f"  and queue URL {queue_url}")
+            print(f"  has been created.")
+            print()
+
+            if i == 0:
+                print("The queue URL is used to retrieve the queue ARN,")
+                print("which is used to create a subscription.")
+                print(self.DASHES)
+
+            # Get queue ARN
+            queue_arn = self.sqs_wrapper.get_queue_arn(queue_url)
+
+            if i == 0:
+                print("An AWS Identity and Access Management (IAM) policy must be attached to an SQS queue,")
+                print("enabling it to receive messages from an SNS topic.")
+
+            # Set queue policy to allow SNS to send messages
+            self.sqs_wrapper.set_queue_policy_for_topic(queue_arn, self.topic_arn, queue_url)
+
+            # Set up message filtering if using FIFO
+            subscription_arn = self._setup_subscription_with_filter(i, queue_arn, queue_name)
+            self.subscription_arns.append(subscription_arn)
+
+    def _setup_subscription_with_filter(self, queue_index: int, queue_arn: str, queue_name: str) -> str:
+        """Set up subscription with optional message filtering."""
+        filter_policy = None
+
+        if self.use_fifo_topic:
+            print(self.DASHES)
+            if queue_index == 0:
+                print("Subscriptions to a FIFO topic can have filters.")
+                print("If you add a filter to this subscription, then only the filtered messages")
+                print("will be received in the queue.")
+                print()
+                print("For information about message filtering,")
+                print("see https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html")
+                print()
+                print("For this example, you can filter messages by a TONE attribute.")
+
+            use_filter = q.ask(f"Filter messages for {queue_name}'s subscription to the topic? (y/n): ", q.is_yesno)
+
+            if use_filter:
+                filter_policy = self._create_filter_policy()
+
+        subscription_arn = self.sns_wrapper.subscribe_queue_to_topic(
+            self.topic_arn, queue_arn, filter_policy
+        )
+
+        print(f"The queue {queue_name} has been subscribed to the topic {self.topic_name}")
+        print(f"  with the subscription ARN {subscription_arn}")
+
+        return subscription_arn
+
+    def _create_filter_policy(self) -> str:
+        """Create a message filter policy based on user selections."""
+        print(self.DASHES)
+        print("You can filter messages by one or more of the following TONE attributes.")
+
+        filter_selections = []
+        selection_number = 0
+
+        while True:
+            print("Enter a number to add a TONE filter, or enter 0 to stop adding filters.")
+            for i, tone in enumerate(self.tones, 1):
+                print(f"  {i}. {tone}")
+
+            selection = q.ask("Your choice: ", q.is_int, q.in_range(0, len(self.tones)))
+
+            if selection == 0:
+                break
+            elif selection > 0 and self.tones[selection - 1] not in filter_selections:
+                filter_selections.append(self.tones[selection - 1])
+                print(f"Added '{self.tones[selection - 1]}' to filter list.")
+
+        if filter_selections:
+            filters = {"tone": filter_selections}
+            return json.dumps(filters)
+        return None
+
+    def _publish_messages(self) -> None:
+        """Publish messages to the topic with various options."""
+        print("Now we can publish messages.")
+
+        keep_sending = True
+        while keep_sending:
+            print()
+            message = q.ask("Enter a message to publish: ", q.non_empty)
+
+            message_group_id = None
+            deduplication_id = None
+            tone_attribute = None
+
+            if self.use_fifo_topic:
+                print("Because you are using a FIFO topic, you must set a message group ID.")
+                print("All messages within the same group will be received in the order they were published.")
+                print()
+                message_group_id = q.ask("Enter a message group ID for this message: ", q.non_empty)
+
+                if not self.use_content_based_deduplication:
+                    print("Because you are not using content-based deduplication,")
+                    print("you must enter a deduplication ID.")
+                    deduplication_id = q.ask("Enter a deduplication ID for this message: ", q.non_empty)
+
+                # Ask about tone attribute
+                add_attribute = q.ask("Add an attribute to this message? (y/n): ", q.is_yesno)
+                if add_attribute:
+                    print("Enter a number for an attribute:")
+                    for i, tone in enumerate(self.tones, 1):
+                        print(f"  {i}. {tone}")
+
+                    selection = q.ask("Your choice: ", q.is_int, q.in_range(1, len(self.tones)))
+                    if 1 <= selection <= len(self.tones):
+                        tone_attribute = self.tones[selection - 1]
+
+            # Publish the message
+            message_id = self.sns_wrapper.publish_message(
+                self.topic_arn,
+                message,
+                tone_attribute,
+                deduplication_id,
+                message_group_id
+            )
+
+            print(f"Message published with ID: {message_id}")
+
+            keep_sending = q.ask("Send another message? (y/n): ", q.is_yesno)
+
+    def _poll_queues_for_messages(self) -> None:
+        """Poll all queues for messages and display results."""
+        for i, queue_url in enumerate(self.queue_urls):
+            print(f"Polling queue #{i+1} at {queue_url} for messages...")
+
+            q.ask("Press Enter to continue...")
+
+            messages = self._poll_queue_for_messages(queue_url)
+
+            if messages:
+                print(f"{len(messages)} message(s) were received by queue #{i+1}")
+                for j, message in enumerate(messages, 1):
+                    print(f"  Message {j}:")
+                    # Parse the SNS message body to get the actual message
+                    try:
+                        sns_message = json.loads(message['Body'])
+                        actual_message = sns_message.get('Message', message['Body'])
+                        print(f"    {actual_message}")
+                    except (json.JSONDecodeError, KeyError):
+                        print(f"    {message['Body']}")
+
+                # Delete the messages
+                self.sqs_wrapper.delete_messages(queue_url, messages)
+                print(f"Messages deleted from queue #{i+1}")
+            else:
+                print(f"No messages received by queue #{i+1}")
+
+            print(self.DASHES)
+
+    def _poll_queue_for_messages(self, queue_url: str) -> List[Dict[str, Any]]:
+        """Poll a single queue for messages."""
+        all_messages = []
+        max_polls = 3  # Limit polling to avoid infinite loops
+
+        for poll_count in range(max_polls):
+            messages = self.sqs_wrapper.receive_messages(queue_url, 10)
+
+            if messages:
+                all_messages.extend(messages)
+                print(f"  Received {len(messages)} messages in poll {poll_count + 1}")
+                # Small delay between polls
+                time.sleep(1)
+            else:
+                print(f"  No messages in poll {poll_count + 1}")
+                break
+
+        return all_messages
+
+    def _cleanup_resources(self) -> None:
+        """Clean up all resources created during the scenario."""
+        print("Cleaning up resources...")
+
+        # Delete queues
+        for i, queue_url in enumerate(self.queue_urls):
+            if queue_url:
+                delete_queue = q.ask(f"Delete queue #{i+1} with URL {queue_url}? (y/n): ", q.is_yesno)
+                if delete_queue:
+                    try:
+                        self.sqs_wrapper.delete_queue(queue_url)
+                        print(f"Deleted queue #{i+1}")
+                    except Exception as e:
+                        print(f"Error deleting queue #{i+1}: {e}")
+
+        # Unsubscribe from topic
+        for i, subscription_arn in enumerate(self.subscription_arns):
+            if subscription_arn:
+                try:
+                    self.sns_wrapper.unsubscribe(subscription_arn)
+                    print(f"Unsubscribed subscription #{i+1}")
+                except Exception as e:
+                    print(f"Error unsubscribing #{i+1}: {e}")
+
+        # Delete topic
+        if self.topic_arn:
+            delete_topic = q.ask(f"Delete topic {self.topic_name}? (y/n): ", q.is_yesno)
+            if delete_topic:
+                try:
+                    self.sns_wrapper.delete_topic(self.topic_arn)
+                    print(f"Deleted topic {self.topic_name}")
+                except Exception as e:
+                    print(f"Error deleting topic: {e}")
+
+        print("Resource cleanup complete.")
+
+
+
+```
+
+Create classes that wrap Amazon SNS and Amazon SQS operations for use in the scenario.
+
+```
+class SnsWrapper:
+    """Wrapper class for managing Amazon SNS operations."""
+
+    def __init__(self, sns_client: Any) -> None:
+        """
+        Initialize the SnsWrapper.
+
+        :param sns_client: A Boto3 Amazon SNS client.
+        """
+        self.sns_client = sns_client
+
+    @classmethod
+    def from_client(cls) -> 'SnsWrapper':
+        """
+        Create an SnsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sns_client = boto3.client('sns')
+        return cls(sns_client)
+
+
+    def create_topic(
+        self,
+        topic_name: str,
+        is_fifo: bool = False,
+        content_based_deduplication: bool = False
+    ) -> str:
+        """
+        Create an SNS topic.
+
+        :param topic_name: The name of the topic to create.
+        :param is_fifo: Whether to create a FIFO topic.
+        :param content_based_deduplication: Whether to use content-based deduplication for FIFO topics.
+        :return: The ARN of the created topic.
+        :raises ClientError: If the topic creation fails.
+        """
+        try:
+            # Add .fifo suffix for FIFO topics
+            if is_fifo and not topic_name.endswith('.fifo'):
+                topic_name += '.fifo'
+
+            attributes = {}
+            if is_fifo:
+                attributes['FifoTopic'] = 'true'
+                if content_based_deduplication:
+                    attributes['ContentBasedDeduplication'] = 'true'
+
+            response = self.sns_client.create_topic(
+                Name=topic_name,
+                Attributes=attributes
+            )
+
+            topic_arn = response['TopicArn']
+            logger.info(f"Created topic: {topic_name} with ARN: {topic_arn}")
+            return topic_arn
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error creating topic {topic_name}: {error_code} - {e}")
+            raise
+
+
+    def subscribe_queue_to_topic(
+        self,
+        topic_arn: str,
+        queue_arn: str,
+        filter_policy: Optional[str] = None
+    ) -> str:
+        """
+        Subscribe an SQS queue to an SNS topic.
+
+        :param topic_arn: The ARN of the SNS topic.
+        :param queue_arn: The ARN of the SQS queue.
+        :param filter_policy: Optional JSON filter policy for message filtering.
+        :return: The ARN of the subscription.
+        :raises ClientError: If the subscription fails.
+        """
+        try:
+            attributes = {}
+            if filter_policy:
+                attributes['FilterPolicy'] = filter_policy
+
+            response = self.sns_client.subscribe(
+                TopicArn=topic_arn,
+                Protocol='sqs',
+                Endpoint=queue_arn,
+                Attributes=attributes
+            )
+
+            subscription_arn = response['SubscriptionArn']
+            logger.info(f"Subscribed queue {queue_arn} to topic {topic_arn}")
+            return subscription_arn
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error subscribing queue to topic: {error_code} - {e}")
+            raise
+
+
+    def publish_message(
+        self,
+        topic_arn: str,
+        message: str,
+        tone_attribute: Optional[str] = None,
+        deduplication_id: Optional[str] = None,
+        message_group_id: Optional[str] = None
+    ) -> str:
+        """
+        Publish a message to an SNS topic.
+
+        :param topic_arn: The ARN of the SNS topic.
+        :param message: The message content to publish.
+        :param tone_attribute: Optional tone attribute for message filtering.
+        :param deduplication_id: Optional deduplication ID for FIFO topics.
+        :param message_group_id: Optional message group ID for FIFO topics.
+        :return: The message ID of the published message.
+        :raises ClientError: If the message publication fails.
+        """
+        try:
+            publish_args = {
+                'TopicArn': topic_arn,
+                'Message': message
+            }
+
+            # Add message attributes if tone is specified
+            if tone_attribute:
+                publish_args['MessageAttributes'] = {
+                    'tone': {
+                        'DataType': 'String',
+                        'StringValue': tone_attribute
+                    }
+                }
+
+            # Add FIFO-specific parameters
+            if message_group_id:
+                publish_args['MessageGroupId'] = message_group_id
+
+            if deduplication_id:
+                publish_args['MessageDeduplicationId'] = deduplication_id
+
+            response = self.sns_client.publish(**publish_args)
+
+            message_id = response['MessageId']
+            logger.info(f"Published message to topic {topic_arn} with ID: {message_id}")
+            return message_id
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error publishing message to topic: {error_code} - {e}")
+            raise
+
+
+    def unsubscribe(self, subscription_arn: str) -> bool:
+        """
+        Unsubscribe from an SNS topic.
+
+        :param subscription_arn: The ARN of the subscription to remove.
+        :return: True if successful.
+        :raises ClientError: If the unsubscribe operation fails.
+        """
+        try:
+            self.sns_client.unsubscribe(SubscriptionArn=subscription_arn)
+
+            logger.info(f"Unsubscribed: {subscription_arn}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+
+            if error_code == 'NotFound':
+                logger.warning(f"Subscription not found: {subscription_arn}")
+                return True  # Already unsubscribed
+            else:
+                logger.error(f"Error unsubscribing: {error_code} - {e}")
+                raise
+
+
+    def delete_topic(self, topic_arn: str) -> bool:
+        """
+        Delete an SNS topic.
+
+        :param topic_arn: The ARN of the topic to delete.
+        :return: True if successful.
+        :raises ClientError: If the topic deletion fails.
+        """
+        try:
+            self.sns_client.delete_topic(TopicArn=topic_arn)
+
+            logger.info(f"Deleted topic: {topic_arn}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+
+            if error_code == 'NotFound':
+                logger.warning(f"Topic not found: {topic_arn}")
+                return True  # Already deleted
+            else:
+                logger.error(f"Error deleting topic: {error_code} - {e}")
+                raise
+
+
+    def list_topics(self) -> list:
+        """
+        List all SNS topics in the account using pagination.
+
+        :return: List of topic ARNs.
+        :raises ClientError: If listing topics fails.
+        """
+        try:
+            topics = []
+            paginator = self.sns_client.get_paginator('list_topics')
+
+            for page in paginator.paginate():
+                topics.extend([topic['TopicArn'] for topic in page.get('Topics', [])])
+
+            logger.info(f"Found {len(topics)} topics")
+            return topics
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            if error_code == 'AuthorizationError':
+                logger.error("Authorization error listing topics - check IAM permissions")
+            else:
+                logger.error(f"Error listing topics: {error_code} - {e}")
+            raise
+
+
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def create_queue(self, queue_name: str, is_fifo: bool = False) -> str:
+        """
+        Create an SQS queue.
+
+        :param queue_name: The name of the queue to create.
+        :param is_fifo: Whether to create a FIFO queue.
+        :return: The URL of the created queue.
+        :raises ClientError: If the queue creation fails.
+        """
+        try:
+            # Add .fifo suffix for FIFO queues
+            if is_fifo and not queue_name.endswith('.fifo'):
+                queue_name += '.fifo'
+
+            attributes = {}
+            if is_fifo:
+                attributes['FifoQueue'] = 'true'
+
+            response = self.sqs_client.create_queue(
+                QueueName=queue_name,
+                Attributes=attributes
+            )
+
+            queue_url = response['QueueUrl']
+            logger.info(f"Created queue: {queue_name} with URL: {queue_url}")
+            return queue_url
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error creating queue {queue_name}: {error_code} - {e}")
+            raise
+
+
+    def get_queue_arn(self, queue_url: str) -> str:
+        """
+        Get the ARN of an SQS queue.
+
+        :param queue_url: The URL of the queue.
+        :return: The ARN of the queue.
+        :raises ClientError: If getting queue attributes fails.
+        """
+        try:
+            response = self.sqs_client.get_queue_attributes(
+                QueueUrl=queue_url,
+                AttributeNames=['QueueArn']
+            )
+
+            queue_arn = response['Attributes']['QueueArn']
+            logger.info(f"Queue ARN for {queue_url}: {queue_arn}")
+            return queue_arn
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error getting queue ARN: {error_code} - {e}")
+            raise
+
+
+    def set_queue_policy_for_topic(self, queue_arn: str, topic_arn: str, queue_url: str) -> bool:
+        """
+        Set the queue policy to allow SNS to send messages to the queue.
+
+        :param queue_arn: The ARN of the SQS queue.
+        :param topic_arn: The ARN of the SNS topic.
+        :param queue_url: The URL of the SQS queue.
+        :return: True if successful.
+        :raises ClientError: If setting the queue policy fails.
+        """
+        try:
+            # Create policy that allows SNS to send messages to the queue
+            policy = {
+                "Version":"2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "sns.amazonaws.com"
+                        },
+                        "Action": "sqs:SendMessage",
+                        "Resource": queue_arn,
+                        "Condition": {
+                            "ArnEquals": {
+                                "aws:SourceArn": topic_arn
+                            }
+                        }
+                    }
+                ]
+            }
+
+            self.sqs_client.set_queue_attributes(
+                QueueUrl=queue_url,
+                Attributes={
+                    'Policy': json.dumps(policy)
+                }
+            )
+
+            logger.info(f"Set queue policy for {queue_url} to allow messages from {topic_arn}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error setting queue policy: {error_code} - {e}")
+            raise
+
+
+    def receive_messages(self, queue_url: str, max_messages: int = 10) -> List[Dict[str, Any]]:
+        """
+        Receive messages from an SQS queue.
+
+        :param queue_url: The URL of the queue to receive messages from.
+        :param max_messages: Maximum number of messages to receive (1-10).
+        :return: List of received messages.
+        :raises ClientError: If receiving messages fails.
+        """
+        try:
+            # Ensure max_messages is within valid range
+            max_messages = max(1, min(10, max_messages))
+
+            response = self.sqs_client.receive_message(
+                QueueUrl=queue_url,
+                MaxNumberOfMessages=max_messages,
+                WaitTimeSeconds=2,  # Short polling
+                MessageAttributeNames=['All']
+            )
+
+            messages = response.get('Messages', [])
+            logger.info(f"Received {len(messages)} messages from {queue_url}")
+            return messages
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error receiving messages: {error_code} - {e}")
+            raise
+
+
+    def delete_messages(self, queue_url: str, messages: List[Dict[str, Any]]) -> bool:
+        """
+        Delete messages from an SQS queue in batches.
+
+        :param queue_url: The URL of the queue.
+        :param messages: List of messages to delete.
+        :return: True if successful.
+        :raises ClientError: If deleting messages fails.
+        """
+        try:
+            if not messages:
+                return True
+
+            # Build delete entries for batch delete
+            delete_entries = []
+            for i, message in enumerate(messages):
+                delete_entries.append({
+                    'Id': str(i),
+                    'ReceiptHandle': message['ReceiptHandle']
+                })
+
+            # Delete messages in batches of 10 (SQS limit)
+            batch_size = 10
+            for i in range(0, len(delete_entries), batch_size):
+                batch = delete_entries[i:i + batch_size]
+
+                response = self.sqs_client.delete_message_batch(
+                    QueueUrl=queue_url,
+                    Entries=batch
+                )
+
+                # Check for failures
+                if 'Failed' in response and response['Failed']:
+                    for failed in response['Failed']:
+                        logger.warning(f"Failed to delete message: {failed}")
+
+            logger.info(f"Deleted {len(messages)} messages from {queue_url}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error deleting messages: {error_code} - {e}")
+            raise
+
+
+    def delete_queue(self, queue_url: str) -> bool:
+        """
+        Delete an SQS queue.
+
+        :param queue_url: The URL of the queue to delete.
+        :return: True if successful.
+        :raises ClientError: If the queue deletion fails.
+        """
+        try:
+            self.sqs_client.delete_queue(QueueUrl=queue_url)
+
+            logger.info(f"Deleted queue: {queue_url}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+
+            if error_code == 'AWS.SimpleQueueService.NonExistentQueue':
+                logger.warning(f"Queue not found: {queue_url}")
+                return True  # Already deleted
+            else:
+                logger.error(f"Error deleting queue: {error_code} - {e}")
+                raise
+
+
+    def list_queues(self, queue_name_prefix: Optional[str] = None) -> List[str]:
+        """
+        List all SQS queues in the account using pagination.
+
+        :param queue_name_prefix: Optional prefix to filter queue names.
+        :return: List of queue URLs.
+        :raises ClientError: If listing queues fails.
+        """
+        try:
+            queue_urls = []
+            paginator = self.sqs_client.get_paginator('list_queues')
+
+            page_params = {}
+            if queue_name_prefix:
+                page_params['QueueNamePrefix'] = queue_name_prefix
+
+            for page in paginator.paginate(**page_params):
+                queue_urls.extend(page.get('QueueUrls', []))
+
+            logger.info(f"Found {len(queue_urls)} queues")
+            return queue_urls
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            if error_code == 'AccessDenied':
+                logger.error("Access denied listing queues - check IAM permissions")
+            else:
+                logger.error(f"Error listing queues: {error_code} - {e}")
+            raise
+
+    def send_message(self, queue_url: str, message_body: str, **kwargs) -> str:
+        """
+        Send a message to an SQS queue.
+
+        :param queue_url: The URL of the queue.
+        :param message_body: The message content.
+        :param kwargs: Additional message parameters (DelaySeconds, MessageAttributes, etc.).
+        :return: The message ID.
+        :raises ClientError: If sending the message fails.
+        """
+        try:
+            send_params = {
+                'QueueUrl': queue_url,
+                'MessageBody': message_body,
+                **kwargs
+            }
+
+            response = self.sqs_client.send_message(**send_params)
+
+            message_id = response['MessageId']
+            logger.info(f"Sent message to {queue_url} with ID: {message_id}")
+            return message_id
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error sending message: {error_code} - {e}")
+            raise
+
+
+
+```
+
+- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+  - [CreateQueue](../../../goto/boto3/sqs-2012-11-05/CreateQueue.md "../../../goto/boto3/sqs-2012-11-05/CreateQueue.md")
+  - [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
+  - [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")
+  - [DeleteQueue](../../../goto/boto3/sqs-2012-11-05/DeleteQueue.md "../../../goto/boto3/sqs-2012-11-05/DeleteQueue.md")
+  - [DeleteTopic](../../../goto/boto3/sns-2010-03-31/DeleteTopic.md "../../../goto/boto3/sns-2010-03-31/DeleteTopic.md")
+  - [GetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md")
+  - [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
+  - [ReceiveMessage](../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md")
+  - [SetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md")
+  - [Subscribe](../../../goto/boto3/sns-2010-03-31/Subscribe.md "../../../goto/boto3/sns-2010-03-31/Subscribe.md")
+  - [Unsubscribe](../../../goto/boto3/sns-2010-03-31/Unsubscribe.md "../../../goto/boto3/sns-2010-03-31/Unsubscribe.md")
+
 Swift
 
 **SDK for Swift**
