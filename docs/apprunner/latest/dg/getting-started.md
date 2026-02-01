@@ -95,7 +95,7 @@ The following diagram outlines the steps for creating an App Runner service:
     If the AWS account has existing services, the **Services** page with a list of your services is displayed. Choose **Create
     service**.
 
-    ![App Runner console services page](/images/apprunner/latest/dg/images/getting-started-services.png) 3. On the **Source and deployment** page, in the **Source** section, for **Repository type**,
+    ![App Runner console services page](images/getting-started-services.png) 3. On the **Source and deployment** page, in the **Source** section, for **Repository type**,
     choose **Source code repository**. 4. Select a **Provider Type**. Choose either **GitHub** or **Bitbucket**. 5. Next choose **Add new**. If prompted, provide your GitHub or Bitbucket credentials. 6. Choose the next set of steps based on the **Provider type** you previously selected.
 
     ###### Note
@@ -163,7 +163,7 @@ With automatic deployment, each new commit to your repository source directory a
 The Python 3 runtime builds a Docker image using a base Python 3 image and your example Python code. It then launches a service that runs a
 container instance of this image.
 
-![Build settings while creating an App Runner service](images/getting-started-create-build.png) 4. Configure your service.
+![Build settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-build.png) 4. Configure your service.
 
     1. On the **Configure service** page, in the **Service settings** section, enter a service name.
     2. Under **Environment variables**, select **Add environment variable**. Provide the following
