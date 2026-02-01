@@ -14,7 +14,7 @@ Tables are very flexible, supporting multiple modes for time series and for tabl
 annotation, and raw JSON data. This visualization also provides date formatting, value
 formatting, and coloring options.
 
-![An image showing an example of a table visualization in Grafana.](images/viz/table_example.png)
+![An image showing an example of a table visualization in Grafana.](/images/grafana/latest/userguide/images/viz/table_example.png)
 
 ###### Note
 
