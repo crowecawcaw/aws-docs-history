@@ -109,7 +109,7 @@ For information about the errors that are common to all actions, see [Common Err
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/cli2/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/DotNetSDKV3/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/DotNetSDKV4/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForCpp/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForGoV2/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForJavaV2/docdb-2014-10-31/DescribeOrderableDBInstanceOptions.md")

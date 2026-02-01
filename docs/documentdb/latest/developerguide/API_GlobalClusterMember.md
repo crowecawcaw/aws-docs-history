@@ -32,6 +32,16 @@ Type: Array of strings
 
 Required: No
 
+**SynchronizationStatus**
+
+The status of synchronization of each Amazon DocumentDB cluster in the global cluster.
+
+Type: String
+
+Valid Values: `connected | pending-resync`
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

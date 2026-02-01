@@ -40,6 +40,15 @@ Type: String
 
 Required: No
 
+**FailoverState**
+
+A data object containing all properties for the current state of an in-process or pending switchover or failover process for this global cluster.
+This object is empty unless the `SwitchoverGlobalCluster` or `FailoverGlobalCluster` operation was called on this global cluster.
+
+Type: [FailoverState](API_FailoverState.md "API_FailoverState.md") object
+
+Required: No
+
 **GlobalClusterArn**
 
 The Amazon Resource Name (ARN) for the global cluster.
@@ -90,6 +99,14 @@ Required: No
 The storage encryption setting for the global cluster.
 
 Type: Boolean
+
+Required: No
+
+**TagList.Tag.N**
+
+A list of global cluster tags.
+
+Type: Array of [Tag](API_Tag.md "API_Tag.md") objects
 
 Required: No
 

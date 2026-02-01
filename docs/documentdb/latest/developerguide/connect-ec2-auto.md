@@ -39,7 +39,7 @@ In this step, you will create an Amazon EC2 instance in the same Region and Amaz
 
 ![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](images/ec2/linux2-ami.png) 4. Locate and choose **t3.micro** in the **Instance type** drop-down list. 5. In the **Key pair (login)** section, enter the identifier of an existing key-pair, or choose **Create new key pair**.
 
-![The Key pair interface showing the key pair name field and the Create new key pair option.](images/ec2/key-pair.png)
+![The Key pair interface showing the key pair name field and the Create new key pair option.](/images/documentdb/latest/developerguide/images/ec2/key-pair.png)
 
 You must provide an Amazon EC2 key pair.
 

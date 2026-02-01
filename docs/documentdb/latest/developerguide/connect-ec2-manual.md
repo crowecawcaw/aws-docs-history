@@ -21,7 +21,7 @@ In this step, you will create an Amazon EC2 instance in the same Region and Amaz
 
 ![The Launch instance section on the Amazon EC2 console.](images/ec2/launch-instance.png) 2. Enter a name or identifier in the **Name** field located in the **Name and tags** section. 3. In the **Amazon Machine Image (AMI)** drop-down list, locate **Amazon Linux 2 AMI** and choose it.
 
-![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](images/ec2/linux2-ami.png) 4. Locate and choose **t3.micro** in the **Instance type** drop-down list. 5. In the **Key pair (login)** section, enter the identifier of an existing key-pair, or choose **Create new key pair**.
+![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](/images/documentdb/latest/developerguide/images/ec2/linux2-ami.png) 4. Locate and choose **t3.micro** in the **Instance type** drop-down list. 5. In the **Key pair (login)** section, enter the identifier of an existing key-pair, or choose **Create new key pair**.
 
 ![The Key pair interface showing the key pair name field and the Create new key pair option.](images/ec2/key-pair.png)
 
@@ -243,7 +243,7 @@ Transport Layer Security (TLS) is enabled by default for any new Amazon Document
 
 ![Amazon DocumentDB cluster list showing a regional cluster with primary instance details.](images/cluster-connect-choose.png) 2. In the **Connectivity and security** tab, locate **Connect to this cluster with the mongo shell** in the **Connect** box:
 
-![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](images/connect-mongosh.png)
+![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](/images/documentdb/latest/developerguide/images/connect-mongosh.png)
 
 Copy the connection string provided and paste it into your terminal.
 

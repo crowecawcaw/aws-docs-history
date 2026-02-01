@@ -23,6 +23,7 @@ The following data types are supported by Amazon DocumentDB (with MongoDB compat
 - [Event](API_Event.md "API_Event.md")
 - [EventCategoriesMap](API_EventCategoriesMap.md "API_EventCategoriesMap.md")
 - [EventSubscription](API_EventSubscription.md "API_EventSubscription.md")
+- [FailoverState](API_FailoverState.md "API_FailoverState.md")
 - [Filter](API_Filter.md "API_Filter.md")
 - [GlobalCluster](API_GlobalCluster.md "API_GlobalCluster.md")
 - [GlobalClusterMember](API_GlobalClusterMember.md "API_GlobalClusterMember.md")

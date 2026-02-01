@@ -23,7 +23,7 @@ Using the AWS Management Console
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
+(![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the **Cluster parameter groups** pane, select the name of the parameter group that you want to see the details of. 4. The resulting page shows the parameter group's parameters, recent
 activity, and tags.
 
