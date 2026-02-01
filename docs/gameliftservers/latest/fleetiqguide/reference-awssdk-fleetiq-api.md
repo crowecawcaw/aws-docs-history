@@ -14,7 +14,7 @@ optimizations.
   and corresponding Auto Scaling group, and begin launching instances to host your
   game server. CLI command: [create-game-server-group](../../../cli/latest/reference/gamelift/create-game-server-group.md "../../../cli/latest/reference/gamelift/create-game-server-group.md")
 - [ListGameServerGroups](../../../gamelift/latest/apireference/API_ListGameServerGroups.md "../../../gamelift/latest/apireference/API_ListGameServerGroups.md") – Get a list of all game server
-  groups in a Amazon GameLift Servers region. CLI command: [list-game-server-groups](../../../cli/latest/reference/gamelift/list-game-server-groups.md "../../../cli/latest/reference/gamelift/list-game-server-groups.md")
+  groups in an Amazon GameLift Servers region. CLI command: [list-game-server-groups](../../../cli/latest/reference/gamelift/list-game-server-groups.md "../../../cli/latest/reference/gamelift/list-game-server-groups.md")
 - [DescribeGameServerGroup](../../../gamelift/latest/apireference/API_DescribeGameServerGroup.md "../../../gamelift/latest/apireference/API_DescribeGameServerGroup.md") – Retrieve metadata for a game
   server group. CLI command: [describe-game-server-group](../../../cli/latest/reference/gamelift/describe-game-server-group.md "../../../cli/latest/reference/gamelift/describe-game-server-group.md")
 - [UpdateGameServerGroup](../../../gamelift/latest/apireference/API_UpdateGameServerGroup.md "../../../gamelift/latest/apireference/API_UpdateGameServerGroup.md") – Change game server group
