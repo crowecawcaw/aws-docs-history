@@ -1,226 +1,296 @@
-# Multi-Version Concurrency Control
+# Oracle sequences and identity columns and MySQL sequences and AUTO INCREMENT columns
 
-With AWS DMS, you can implement Multi-Version Concurrency Control (MVCC) to manage concurrent access to data during database migrations. MVCC is a concurrency control method that maintains multiple versions of database objects, allowing readers and writers to access the data simultaneously without blocking or causing conflicts.
+Oracle sequences and identity columns, as well as MySQL Sequences and `AUTO_INCREMENT` columns, are database objects used to generate unique sequential values, often employed as primary keys or unique identifiers. The following sections provide detailed guidance on handling Oracle sequences and identity columns, and MySQL sequences and AUTO_INCREMENT columns when using AWS DMS.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | N/A                                | N/A                       | N/A             |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                  | Key differences                                                                      |
+| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| Two star feature compatibility | One star automation level          | [Sequences](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.sequences "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.sequences") | MySQL doesn’t support sequences, identity columns have different syntax and options. |
 
 ## Oracle usage
 
-Two primary lock types exist in Oracle: exclusive locks and share locks, which implement the following high-level locking semantics:
+Sequences are database objects that serve as unique identity value generators. You can use them, for example, to automatically generate primary key values. Oracle treats sequences as independent objects. The same sequence can generate values for multiple tables.
 
-- Writers never block readers.
-- Readers never block writers.
-- Oracle never escalates locks from row to page and table level, which reduces potential deadlocks.
-- In Oracle, users can issue explicit locks on specific tables using the `LOCK TABLE` statement.
+You can configure sequences with multiple parameters to control their value-generating behavior. For example, the `INCREMENT BY` sequence parameter defines the interval between each generated sequence value. If more than one database user is generating incremented values from the same sequence, each user may encounter gaps in the generated values that are visible to them.
 
-Lock types can be divided into four categories: DML locks, DDL locks, Explicit (Manual) data locking, and System locks. The following sections describe each category.
+Oracle 18c introduced scalable sequences: a special class of sequences that are optimized for multiple concurrent session usage.
 
-### DML Locks
+This introduces three new options when creating a new sequence:
 
-DML locks preserve the integrity of data accessed concurrently by multiple users. DML statements acquire locks automatically both on row and table levels.
+- `SCALE` — Turns on the sequence scalability feature.
+  - `EXTEND` — Extends in additional 6 digits offset (as default) and the maximum number of digits in the sequence (`maxvalue` and `minvalue`).
+  - `NOEXTEND` — sequence value will be padded to the max value. This is the default option when using the SCALE option.
 
-- **Row locks or TX** — Obtained on a single row of a table by one the following statements: `INSERT`, `UPDATE`, `DELETE`, `MERGE`, and `SELECT …​ FOR UPDATE`. If a transaction obtains a row lock, a table lock is also acquired to prevent DDL modifications to the table that might cause conflicts. The lock exists until the transaction ends with a `COMMIT` or `ROLLBACK`.
-- **Table locks or TM** — When performing one of the following DML operations: `INSERT`, `UPDATE`, `DELETE`, `MERGE`, and `SELECT …​ FOR UPDATE`, a transaction automatically acquires a table lock to prevent DDL modifications to the table that might cause conflicts if the transaction did not issue a `COMMIT` or `ROLLBACK`.
+- `NOSCALE` - non-scalable sequence usage.
 
-All table lock types:
+### Oracle sequence options
 
-- **Row share lock or RS** — Occurs when the transaction holding the lock on the table has locked some rows in the table before updating them.
-- **Row Exclusive lock or RX** — Occurs when the transaction holding the lock has updated table rows or used the `SELECT …​ FOR UPDATE` command.
-- **Share table lock or S** — One transaction locks the table and allows other transactions to query the table (exclude `SELECT …​ FOR UPDATE`), it also allows updates only if a single transaction holds the share table lock. Multiple transactions may hold a share table lock concurrently.
-- **Share row exclusive table lock or SRX** — Similar to S lock but with this lock, only a single transaction at a time can acquire this lock on a given table.
-- **Exclusive table lock or X** — Most restrictive lock type, it allows the transaction that holds the lock an exclusive write access to the table. Only one transaction can obtain an X lock for a table.
+By default, the initial and increment values for a sequence are both 1, with no upper limit.
 
-The following table provides additional information regarding row and table locks.
-
-| Statement                              | Row locks | Table lock mode | RS  | RX  | S   | SRX | X   |
-| -------------------------------------- | --------- | --------------- | --- | --- | --- | --- | --- |
-| `SELECT …​ FROM table …​`              | —         | none            | Y   | Y   | Y   | Y   | Y   |
-| `INSERT INTO table …​`                 | Yes       | SX              | Y   | Y   | N   | N   | N   |
-| `UPDATE table …​`                      | Yes       | SX              | Y   | Y   | N   | N   | N   |
-| `MERGE INTO table …​`                  | Yes       | SX              | Y   | Y   | N   | N   | N   |
-| `DELETE FROM table …​`                 | Yes       | SX              | Y   | Y   | N   | N   | N   |
-| `SELECT …​ FROM table FOR UPDATE OF…​` | Yes       | SX              | Y   | Y   | N   | N   | N   |
-| `LOCK TABLE table IN…​`                | —         |                 |     |     |     |     |     |
-| `ROW SHARE MODE`                       |           | SS              | Y   | Y   | Y   | Y   | N   |
-| `ROW EXCLUSIVE MODE`                   |           | SX              | Y   | Y   | N   | N   | N   |
-| `SHARE MODE`                           |           | S               | Y   | N   | Y   | N   | N   |
-| `SHARE ROW EXCLUSIVE MODE`             |           | SSX             | Y   | N   | N   | N   | N   |
-| `EXCLUSIVE MODE`                       |           | X               | N   | N   | N   | N   | N   |
-
-### DDL Locks
-
-The main purpose of a DDL lock is to protect the definition of a schema object while it is modified by an ongoing DDL operation such as `ALTER TABLE EMPLOYEES ADD <COLUMN>`.
-
-### Explicit or manual data locking
-
-Users have the ability to explicitly create locks to achieve transaction-level read consistency for when an application requires transactional exclusive access to a resource without waiting for other transactions to complete. Explicit data locking can be performed at the transaction level or the session level:
-
-- Transaction level
-  - `SET TRANSACTION ISOLATION LEVEL`
-  - `LOCK TABLE`
-  - `SELECT … FOR UPDATE`
-
-- Session level
-  - `ALTER SESSION SET ISOLATION LEVEL`
-
-### System locks
-
-System locks include latches, mutexes, and internal locks.
+- `INCREMENT BY` — Controls the sequence interval value of the increment or decrement (if a negative value is specified). If the `INCREMENT BY` parameter isn’t specified during sequence creation, the value is set to 1. The increment cannot be assigned a value of 0.
+- `START WITH` — Defines the initial value of a sequence. The default value is 1.
+- `MAXVALUE` and `NOMAXVALUE` — Specifies the maximum limit for values generated by a sequence. It must be equal or greater than the `START WITH` parameter and must be greater in value than the `MINVALUE` parameter. The default for `NOMAXVALUE` is 1027 for an ascending sequence.
+- `MINVALUE` and `NOMINVALUE` — Specifies the minimum limit for values generated by a sequence. Must be less than or equal to the `START WITH` parameter and must be less than the `MAXVALUE` parameter. The default for `NOMINVALUE` is -1026 for a descending sequence.
+- `CYCLE` and `NOCYCLE` — Instructs a sequence to continue generating values despite reaching the maximum value or the minimum value. If the sequence reaches one of the defined ascending limits, it generates a new value according to the minimum value. If it reaches a descending limit, it generates a new value according to the maximum value. The default option is `NOCYCLE`.
+- `CACHE` and `NOCACHE` — Specifies the number of sequence values to keep cached in memory for improved performance. `CACHE` has a minimum value of 2. The `NOCACHE` parameter causes a sequence to not cache values in memory. Specifying neither CACHE nor NOCACHE will cache 20 values to memory. In the event of a database failure, all unused cached sequence values are lost and gaps in sequence values may occur.
+- `SCALE` and `NOSCALE`: Turns on the scalable sequences feature.
 
 ### Examples
 
-Explicitly lock data using the `LOCK TABLE` command.
+Create a sequence.
 
 ```
--- Session 1
-LOCK TABLE EMPLOYEES IN EXCLUSIVE MODE;
--- Session 2
-UPDATE EMPLOYEES
-SET SALARY=SALARY+1000
-WHERE EMPLOYEE_ID=114;
--- Session 2 waits for session 1 to COMMIT or ROLLBACK
+CREATE SEQUENCE SEQ_EMP
+START WITH 100
+INCREMENT BY 1
+MAXVALUE 99999999999
+CACHE 20
+NOCYCLE;
 ```
 
-Explicitly lock data using the `SELECT… FOR UPDATE` command. Oracle obtains exclusive row-level locks on all the rows identified by the `SELECT FOR UPDATE` statement.
+Drop a sequence.
 
 ```
--- Session 1
-SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID=114 FOR UPDATE;
--- Session 2
-UPDATE EMPLOYEES
-SET SALARY=SALARY+1000
-WHERE EMPLOYEE_ID=114;
--- Session 2 waits for session 1 to COMMIT or ROLLBACK
+DROP SEQUENCE SEQ_EMP;
 ```
 
-For more information, see [Automatic Locks in DDL Operations](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-Locks-in-DDL-Operations.html#GUID-84D392A3-94EC-444D-950F-7829DBCD43EE "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-Locks-in-DDL-Operations.html#GUID-84D392A3-94EC-444D-950F-7829DBCD43EE"), [Automatic Locks in DML Operations](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-Locks-in-DML-Operations.html#GUID-3D57596F-8B73-4C80-8F4D-79A12F781EFD "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-Locks-in-DML-Operations.html#GUID-3D57596F-8B73-4C80-8F4D-79A12F781EFD"), and [Automatic and Manual Locking Mechanisms During SQL Operations](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-and-Manual-Locking-Mechanisms-During-SQL-Operations.html#GUID-0304C4AA-BD28-4C2A-B7F5-267532FB9499 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-and-Manual-Locking-Mechanisms-During-SQL-Operations.html#GUID-0304C4AA-BD28-4C2A-B7F5-267532FB9499") in the _Oracle documentation_.
+View sequences created for the current schema or user.
+
+```
+SELECT * FROM USER_SEQUENCES;
+```
+
+Use a sequence as part of an `INSERT INTO` statement.
+
+```
+CREATE TABLE EMP_SEQ_TST (COL1 NUMBER PRIMARY KEY, COL2 VARCHAR2(30));
+INSERT INTO EMP_SEQ_TST VALUES(SEQ_EMP.NEXTVAL, 'A');
+
+COL1  COL2
+100   A
+```
+
+Query the current value of a sequence.
+
+```
+SELECT SEQ_EMP.CURRVAL FROM DUAL;
+```
+
+Manually increment the value of a sequence according to the `INCREMENT BY` specification.
+
+```
+SELECT SEQ_EMP.NEXTVAL FROM DUAL;
+```
+
+Alter an existing sequence.
+
+```
+ALTER SEQUENCE SEQ_EMP MAXVALUE 1000000;
+```
+
+Create a scalable sequence.
+
+```
+CREATE SEQUENCE scale_seq
+MINVALUE 1
+MAXVALUE 9999999999
+SCALE;
+
+select scale_seq.nextval as scale_seq from dual;
+
+NEXTVAL
+1010320001
+```
+
+### Oracle 12c default values using sequences
+
+Starting from Oracle 12c, you can assign a sequence to a table column with the `CREATE TABLE` statement and specify the `NEXTVAL` configuration of the sequence.
+
+Generate `DEFAULT` values using sequences.
+
+```
+CREATE TABLE SEQ_TST ( COL1 NUMBER DEFAULT SEQ_1.NEXTVAL PRIMARY KEY, COL2 VARCHAR(30));
+
+INSERT INTO SEQ_TST(COL2) VALUES('A');
+
+SELECT * FROM SEQ_TST;
+
+COL1  COL2
+100   A
+```
+
+### Oracle 12c session sequences
+
+Starting from Oracle 12c, you can create sequences as session-level or global-level. By adding the `SESSION` parameter to a `CREATE SEQUENCE` statement, the sequence is created as a session-level sequence. Optionally, the `GLOBAL` keyword can be used to create a global sequence to provide consistent results across sessions in the database. Global sequences are the default. Session sequences return a unique range of sequence numbers only within a session.
+
+The following example creates Oracle 12c `SESSION` and `GLOBAL` sequences.
+
+```
+CREATE SEQUENCE SESSION_SEQ SESSION;
+CREATE SEQUENCE SESSION_SEQ GLOBAL;
+```
+
+### Oracle 12c identity columns
+
+Oracle 12c introduced support for automatic generation of values to populate columns in database tables. The `IDENTITY` type generates a sequence and associates it with a table column without the need to manually create a separate Sequence object. It relies internally on sequences and can be manually configured.
+
+Sequences can be used as an `IDENTITY` type, which automatically creates a sequence and associates it with the table column. The main difference is that there is no need to create a sequence manually; the `IDENTITY` type does that for you. An `IDENTITY` type is a sequence that can be configured.
+
+Create a table with an Oracle 12c Identity Column.
+
+```
+CREATE TABLE IDENTITY_TST (
+  COL1 NUMBER GENERATED BY DEFAULT AS IDENTITY (START WITH 100
+  INCREMENT BY 10),
+COL2 VARCHAR2(30));
+```
+
+Insert records using an Oracle 12c IDENTITY column (explicitly/implicitly).
+
+```
+INSERT INTO IDENTITY_TST(COL2) VALUES('A');
+INSERT INTO IDENTITY_TST(COL1, COL2) VALUES(DEFAULT, 'B');
+INSERT INTO IDENTITY_TST(col1, col2) VALUES(NULL, 'C');
+
+SELECT * FROM IDENTITY_TST;
+
+COL1  COL2
+120   A
+130   B
+```
+
+For more information, see [CREATE SEQUENCE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html") in the _Oracle documentation_.
 
 ## MySQL usage
 
-When using InnoDB, MySQL provides various lock modes to control concurrent access to data in tables. Data consistency is maintained using a Multi-Version Concurrency Control (MVCC) mechanism. Most MySQL commands automatically acquire locks of appropriate modes to ensure that referenced tables are not dropped or modified in incompatible ways while the command runs.
+Aurora MySQL supports automatic sequence generation using the `AUTO_INCREMENT` column property, similar to the Oracle `IDENTITY` column property. It doesn’t support table-independent sequence objects.
 
-The MVCC mechanism prevents viewing inconsistent data produced by concurrent transactions performing updates on the same rows. MVCC provides strong transaction isolation for each database session and minimizes lock-contention in multi-user environments.
+Any numeric column may be assigned the `AUTO_INCREMENT` property. To make the system generate the next sequence value, the application must not mention the relevant column’s name in the insert command, in case the column was created with the NOT NULL definition then also inserting a NULL value into an `AUTO_INCREMENT` column will increment it. In most cases, the seed value is 1 and the increment is 1.
 
-- Similar to Oracle, MVCC locks acquired for querying (reading) data do not conflict with locks acquired for writing data. Reads never block writes and writes never blocks reads.
-- Similar to Oracle, MySQL does not escalate locks to table-level such as when an entire table is locked for writes when a certain threshold of row locks is exceeded.
+Client applications use the `LAST_INSERT_ID` function to obtain the last generated value.
 
-InnoDB uses three additional fields for each row:
+Each table can have only one `AUTO_INCREMENT` column. Make sure that the column is explicitly indexed or is a primary key (which is indexed by default).
 
-- `DB_TRX_ID` — Indicates the transaction identifier for the last transaction that inserted or updated the row.
-- `DB_ROLL_PTR` — Points to an undo log record written to the rollback segment.
-- `DB_ROW_ID` — Contains a row ID that increases monotonically as new rows are inserted.
+The `AUTO_INCREMENT` mechanism is designed to be used with positive numbers only. Do not use negative values because they are misinterpreted as a complementary positive value. This limitation is due to precision issues with sequences crossing a zero boundary.
 
-### Implicit and explicit transactions (Auto-commit behavior)
+There are two server parameters used to alter the default values for new `AUTO_INCREMENT` columns:
 
-Unlike Oracle, MySQL uses auto-commit for transactions by default. However, there are two options to support explicit transactions, which are similar to the default behavior in Oracle (non-auto-commit).
+- `auto_increment_increment` — Controls the sequence interval.
+- `auto_increment_offset` — Determines the starting point for the sequence.
 
-- Use the `START TRANSACTION` (or `BEGIN TRANSACTION`) statements and then `COMMIT` or `ROLLBACK`.
-- Set `AUTOCOMMIT` to `OFF` at the session level.
+To reseed the `AUTO_INCREMENT` value, use `ALTER TABLE <Table Name> AUTO_INCREMENT = <New Seed Value>`.
 
-With explicit transactions:
+### Migration considerations
 
-- Users can explicitly issue a lock similar to the `LOCK TABLE` statement in Oracle.
-- `SELECT… FOR UPDATE` is supported.
+Because Aurora MySQL doesn’t support table-independent `SEQUENCE` objects, applications that rely on its properties must use custom solutions to meet their requirements.
 
-Unlike Oracle there are only two types of table-level locks when using the `LOCK TABLE` command: read lock and write lock.
+You can use Aurora MySQL `AUTO_INCREMENT` instead of Oracle `IDENTITY` for most cases. For `AUTO_INCREMENT` columns, the application must explicitly `INSERT` a NULL or a 0.
 
-### Read lock or shared S lock
+###### Note
 
-- The session that holds the lock can only read the table.
-- Multiple sessions can acquire a `READ` lock for the table at the same time.
-- Other sessions can read the table without explicitly acquiring a `READ` lock.
-- For InnoDB tables, `READ LOCAL` is the same as `READ`.
+Omitting the `AUTO_INCREMENT` column from the `INSERT` column list has the same effect as inserting a NULL value.
 
-### Write lock or exclusive X lock
+Make sure that the `AUTO_INCREMENT` columns are indexed (the following section explains why) and cannot have default constraints assigned to the same column. There is a critical difference between `IDENTITY` and `AUTO_INCREMENT` in the way the sequence values are maintained upon service restart. Application developers must be aware of this difference.
 
-- The session that holds the lock can read and write the table.
-- Only the session that holds the lock can access the table. No other session can access it until the lock is released.
-- Lock requests for the table by other sessions block while the `WRITE` lock is held.
-- The `LOW_PRIORITY` modifier is deprecated and has no effect.
+### Sequence value initialization
 
-For row-level locking:
+Oracle stores the `IDENTITY` metadata in system tables on disk. Although some values may be cached and are lost when the service is restarted, the next time the server restarts, the sequence value continues after the last block of values that was assigned to cache. If you run out of values, you can explicitly set the sequence value to start the cycle over. As long as there are no key conflicts, it can be reused after the range has been exhausted.
 
-- **Intention shared IS lock** — Indicates that a transaction intends to set a shared lock.
-- **Intention exclusive IX lock** — Indicates that a transaction intends to set an exclusive lock.
-
-|     | X             | IX            | S             | IS            |
-| --- | ------------- | ------------- | ------------- | ------------- |
-| X   | Not permitted | Not permitted | Not permitted | Not permitted |
-| IX  | Not permitted | Permitted     | Not permitted | Permitted     |
-| S   | Not permitted | Not permitted | Permitted     | Permitted     |
-| IS  | Not permitted | Permitted     | Permitted     | Permitted     |
-
-### Records lock
-
-A record lock is a lock on an index record. For example, the `SELECT id FROM emps WHERE id = 50 FOR UPDATE` query prevents any other transaction from inserting, updating, or deleting rows where the value of `emps.id` is 50.
-
-Record locks always lock index records, even if a table is defined with no indexes. For such cases, InnoDB creates a hidden clustered index and uses it for record locking.
-
-### Gaps lock
-
-A gap lock is a lock on a gap between index records, before the first index record, or after the last index record. For example, `SELECT id FROM emps WHERE id BETWEEN 50 and 80 FOR UPDATE` prevents other transactions from inserting a value of 60 into the `emps.id` column whether or not there was already any value in the column because the gaps between all existing values in the range are locked.
-
-### Transaction-level locking
-
-- `SET TRANSACTION ISOLATION LEVEL`
-- `LOCK TABLE`
-- `SELECT …​ FOR UPDATE`
-
-### Syntax
+In Aurora MySQL, an `AUTO_INCREMENT` column for a table uses a special auto-increment counter to assign new values for the column. This counter is stored in cache memory only and is not persisted to disk. After a service restart, and when Aurora MySQL encounters an `INSERT` to a table that contains an `AUTO_INCREMENT` column, it issues an equivalent to the following statement:
 
 ```
-LOCK TABLES
-tbl_name [[AS] alias] lock_type [, tbl_name [[AS] alias] lock_type] ...
-
-lock_type:
-READ [LOCAL] | [LOW_PRIORITY] WRITE
+SELECT MAX(<Auto Increment Column>) FROM <Table Name> FOR UPDATE;
 ```
 
-### MySQL deadlocks
+###### Note
 
-Deadlocks occur when two or more transactions acquired locks on each other’s process resources such as table or row. MySQL can detect deadlocks automatically and resolve the event by aborting one of the transactions and allowing the other transaction to complete.
+The `FOR UPDATE CLAUSE` is required to maintain locks on the column until the read completes.
+
+Aurora MySQL then increments the value retrieved by the statement above and assigns it to the in-memory autoincrement counter for the table.
+
+By default, the value is incremented by one. You can change this default using the `auto_increment_increment` configuration setting. If the table has no values, Aurora MySQL uses the value 1. You can change the default using the `auto_increment_offset` configuration setting.
+
+Every server restart effectively cancels any `AUTO_INCREMENT = <Value>` table option in `CREATE TABLE` and `ALTER TABLE` statements.
+
+Unlike Oracle `IDENTITY` columns, which by default do not allow inserting explicit values, Aurora MySQL allows explicit values to be set. If a row has an explicitly specified AUTO_INCREMENT column value and the value is greater than the current counter value, the counter is set to the specified column value.
 
 ### Examples
 
-Obtain an explicit lock on a table using the `LOCK TABLE` command.
+Create a table with an AUTO_INCREMENT column.
 
 ```
--- Session 1
-START TRANSACTION;
-LOCK TABLE EMPLOYEES IN EXCLUSIVE MODE;
-
--- Session 2
-UPDATE EMPLOYEES
-SET SALARY=SALARY+1000
-WHERE EMPLOYEE_ID=114;
-
--- Session 2 waits for session 1 to COMMIT or ROLLBACK
+CREATE TABLE MyTable (Col1 INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+Col2 VARCHAR(20) NOT NULL);
 ```
 
-Explicit lock by the `SELECT… FOR UPDATE` command. MySQL obtains exclusive row-level locks on rows referenced by the `SELECT FOR UPDATE` statement. Make sure that this statement runs inside a transaction.
+Insert `AUTO_INCREMENT` values.
 
 ```
--- Session 1
-START TRANSACTION;
-SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID=114 FOR UPDATE;
+INSERT INTO MyTable (Col2) VALUES ('AI column omitted');
+```
 
--- Session 2
-UPDATE EMPLOYEES
-SET SALARY=SALARY+1000
-WHERE EMPLOYEE_ID=114;
+```
+INSERT INTO MyTable (Col1, Col2) VALUES (NULL, 'Explicit NULL');
+```
 
--- Session 2 waits for session 1 to COMMIT or ROLLBACK
+```
+INSERT INTO MyTable (Col1, Col2) VALUES (10, 'Explicit value');
+```
+
+```
+INSERT INTO MyTable (Col2) VALUES ('Post explicit value');
+```
+
+```
+SELECT * FROM MyTable;
+```
+
+```
+Col1  Col2
+1     AI column omitted
+2     Explicit NULL
+10    Explicit value
+11    Post explicit value
+```
+
+Reseed `AUTO_INCREMENT`.
+
+```
+ALTER TABLE MyTable AUTO_INCREMENT = 30;
+```
+
+```
+INSERT INTO MyTable (Col2) VALUES ('Post ALTER TABLE');
+```
+
+```
+SELECT * FROM MyTable;
+```
+
+```
+Col1  Col2
+1     AI column omitted
+2     Explicit NULL
+10    Explicit value
+11    Post explicit value
+30    Post ALTER TABLE
 ```
 
 ## Summary
 
-| Description                                         | Oracle                                                                    | MySQL                                                                     |
-| --------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Dictionary tables to obtain information about locks | `<br>v$lock;<br>v$locked_object;<br>v$session_blockers;<br>`              | `<br>SHOW OPEN TABLES WHERE in_use = 1;<br>`                              |
-| Lock a table                                        | `<br>BEGIN;<br>LOCK TABLE employees IN<br>SHARE ROW EXCLUSIVE MODE;<br>`  | `<br>LOCK TABLE employees READ<br>`                                       |
-| Explicit locking                                    | `<br>SELECT<br>• FROM employees<br>WHERE employee_id=102 FOR UPDATE;<br>` | `<br>SELECT<br>• FROM employees<br>WHERE employee_id=102 FOR UPDATE;<br>` |
-| Explicit locking, options                           | `<br>SELECT ... FOR UPDATE<br>`                                           | `<br>SELECT ... FOR UPDATE<br>`                                           |
+The following table identifies similarities, differences, and key migration considerations.
 
-For more information, see [InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/5.7/en/innodb-multi-versioning.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-multi-versioning.html"), [LOCK TABLES and UNLOCK TABLES Statements](https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html "https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html"), and [SET TRANSACTION Statement](https://dev.mysql.com/doc/refman/5.7/en/set-transaction.html "https://dev.mysql.com/doc/refman/5.7/en/set-transaction.html") in the _MySQL documentation_.
+| Feature                              | Oracle                                                                                                                                                   | Aurora MySQL                                                                                            | Comments                                                                                                                                                                  |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create a table                       | `<br>CREATE TABLE IDENTITY_TST (<br>COL1 NUMBER GENERATED BY DEFAULT<br>AS IDENTITY<br>(START WITH 100<br>INCREMENT BY 10),<br>COL2 VARCHAR2(30));<br>`  | `<br>CREATE TABLE AUTO_TST (<br>COL1 INT AUTO_INCREMENT PRIMARY KEY,<br>COL2 VARCHAR(30));<br>`         |                                                                                                                                                                           |
+| Set the starting number              | `<br>CREATE TABLE IDENTITY_TST (<br>COL1 NUMBER GENERATED BY DEFAULT<br>AS IDENTITY (<br>START WITH 100<br>INCREMENT BY 10),<br>COL2 VARCHAR2(30));<br>` | `<br>ALTER TABLE AUTO_TST<br>AUTO_INCREMENT = 100;<br>`<br>Or use the `auto_increment_offset` parameter |                                                                                                                                                                           |
+| Set the interval                     | `<br>CREATE TABLE IDENTITY_TST (<br>COL1 NUMBER GENERATED BY DEFAULT<br>AS IDENTITY (<br>START WITH 100<br>INCREMENT BY 10),<br>COL2 VARCHAR2(30));<br>` | Set the `auto_increment_increment` parameter                                                            |                                                                                                                                                                           |
+| Additional permitted values          | DEFAULT, NULL                                                                                                                                            | None                                                                                                    |                                                                                                                                                                           |
+| Independent `SEQUENCE` object        | `CREATE SEQUENCE`                                                                                                                                        | Not supported                                                                                           |                                                                                                                                                                           |
+| Automatic enumerator column property | `IDENTITY`                                                                                                                                               | `AUTO_INCREMENT`                                                                                        |                                                                                                                                                                           |
+| Reseed sequence value                | Recreate the sequence                                                                                                                                    | `ALTER TABLE`                                                                                           |                                                                                                                                                                           |
+| Column restrictions                  | Numeric                                                                                                                                                  | Numeric, indexed, and no `DEFAULT`                                                                      |                                                                                                                                                                           |
+| Controlling seed and interval values | `CREATE/ALTER TABLE`                                                                                                                                     | `auto_increment_increment` and `auto_increment_offset`                                                  | Aurora MySQL settings are global and can’t be customized for each column as with Oracle.                                                                                  |
+| Sequence setting initialization      | Maintained through service restarts                                                                                                                      | Re-initialized every service restart                                                                    | For more information, see [Sequence Value Initialization](#chap-oracle-aurora-mysql.sql.identity.mysql.sequence "#chap-oracle-aurora-mysql.sql.identity.mysql.sequence"). |
+| Explicit values to column            | Not supported                                                                                                                                            | Supported                                                                                               | Aurora MySQL requires explicit NULL or 0 to trigger sequence value assignment. Inserting an explicit value larger than all others reinitializes the sequence.             |
+
+For more information, see [Using AUTO_INCREMENT](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html "https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html"), [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), and [InnoDB AUTO_INCREMENT Counter Initialization](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization") in the _MySQL documentation_.
