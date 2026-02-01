@@ -223,6 +223,10 @@ The monitor command shows:
 - desiredVersion - target version to sync to
 - stateMessage - error details if sync failed
 
+###### Important
+
+To support rollback workflows, IPAM will retain copies of the previous 10 prefix list resolver versions for each of its targets; additionally, IPAM will delete versions which are older than this threshold if they remain unreferenced for an additional 7 days.
+
 ### Step 4: (Optional) Enable and disable IPAM prefix list sync
 
 If a managed prefix list has been configured as an IPAM prefix list target and you want to make changes to the prefix list without needing permission to access the IPAM prefix list resolver target, you can [modify the managed prefix list](../userguide/work-with-cust-managed-prefix-lists.md#modify-managed-prefix-list "../userguide/work-with-cust-managed-prefix-lists.md#modify-managed-prefix-list") and disable synchronization with the IPAM prefix list resolver. When disabled, the prefix list CIDRs are not automatically updated and you can make changes to them. When enabled, the prefix list CIDRs are automatically updated based on the associated resolver's CIDR selection rules.
