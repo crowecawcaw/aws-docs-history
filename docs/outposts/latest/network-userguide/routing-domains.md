@@ -12,7 +12,7 @@ Multiple LGW routing domains feature is not available on first-generation AWS Ou
 
 IP address ranges must not overlap within a routing domain to prevent routing conflicts. Multiple on-premises VLANs can be configured within a single domain. Traffic isolation across routing domains works through multiple layers of separation:
 
-- **Logical level** – Each routing domain maintains its own BGP sessions and independent route tables. VPCs are exclusively associated with one routing domain, preventing unintended cross-domain communication.
+- **Logical level** – Each routing domain maintains its own BGP sessions and independent route tables. VPCs are exclusively associated with one LGW routing domain per Outpost, preventing unintended cross-domain communication. This association is agnostic of the routing domain mode (DVR or CoIP).
 - **Data plane level** – Traffic remains confined within assigned `VLAN`s and VIFs, ensuring complete isolation.
 
 Each VIF within a VIF Group requires specific configuration including:
