@@ -20,6 +20,10 @@ as described in [Creating a channel from scratch](creating-channel-scratch.md "c
 
     MediaLive looks for the timecode in the source video, as follows:
 
+        + AV1 – A timecode inserted in a metadata OBU of type
+         timecode (METADATA\_TYPE\_TIMECODE), in accordance with section
+         5.8.3 of the AOM AV1 specification
+         (https://aomediacodec.github.io/av1-spec/)
         + H.264 – A timecode inserted in an SEI message of type
          pic\_timing, in accordance with section D.1.2 of ISO/IEC
          14496-10-2005

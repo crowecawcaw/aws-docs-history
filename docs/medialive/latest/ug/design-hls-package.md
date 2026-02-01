@@ -36,7 +36,7 @@ English and French encodes will appear in the low-resolution output.
 This diagram illustrates an HLS output group when the captions encodes are
 sidecars.
 
-![Output group diagram showing V, A, A components, V, A, A outputs, and two C outputs.](images/output12-ABR-2V-2A-2C.png)
+![Output group diagram showing V, A, A components, V, A, A outputs, and two C outputs.](/images/medialive/latest/ug/images/output12-ABR-2V-2A-2C.png)
 **Downstream players that require separate audio**
 
 Plan for the output group to contain the following:

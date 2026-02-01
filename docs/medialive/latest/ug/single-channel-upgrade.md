@@ -50,7 +50,7 @@ produces one instance of the output for the downstream system.
 The other pipeline in the input (the green pipeline) is always
 inactive.
 
-![Diagram showing single-pipeline channel with standard-class input connecting upstream and downstream systems.](/images/medialive/latest/ug/images/pipeline-redundancy-single-channel-standard-input.png)
+![Diagram showing single-pipeline channel with standard-class input connecting upstream and downstream systems.](images/pipeline-redundancy-single-channel-standard-input.png)
 
 ## Failure
 

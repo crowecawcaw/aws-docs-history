@@ -7,6 +7,9 @@ encode. Timecode metadata is supported in any type of output group except Frame 
 
 The timecode is inserted according to the standard for the output encode:
 
+- AV1 – The timecode is inserted in a metadata OBU of type timecode
+  (METADATA_TYPE_TIMECODE), in accordance with section 5.8.3 of the AOM AV1
+  specification (https://aomediacodec.github.io/av1-spec/)
 - H.264 – The timecode is inserted in an SEI message of type pic_timing,
   in accordance with section D.1.2 of ISO/IEC 14496-10-2005
 - H.265 – The timecode is inserted in an SEI message of type timecode, in
@@ -29,10 +32,7 @@ timecode. By default, the timecode is not included in the video encode.
    insertion**, choose an option:
    - **DISABLED** – This encode won't include
      timecode metadata.
-   - **PIC_TIMING_SEI** (for
-     AV1,
-     H.264,
-     or
-     H.265) or
-     **GOP_timecode**
-     (MPEG) – This encode will include timecode metadata.
+   - **METADATA_OBU** (for AV1) or
+     **PIC_TIMING_SEI** (for H.264 or H.265) or
+     **GOP_timecode** (MPEG) – This encode will
+     include timecode metadata.

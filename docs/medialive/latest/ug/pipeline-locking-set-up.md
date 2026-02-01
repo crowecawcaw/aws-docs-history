@@ -66,6 +66,12 @@ follows:
      video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
      input compatibility.
 
+6. (Optional) For CMAF Ingest and MediaPackage V2 output groups, you can
+   configure a custom epoch. Expand **Additional
+   settings**, then in **Output locking
+   settings**, locate the **Custom epoch** field
+   and enter a custom epoch time.
+
 ## Setting up an HLS, MediaPackage, or
 
 Microsoft Smooth output group
