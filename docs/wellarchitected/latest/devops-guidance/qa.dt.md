@@ -1,39 +1,34 @@
-# [QA.DT.5] Utilize incremental metrics computation
+# [QA.DT.4] Detect and mitigate data issues with anomaly detection
 
 **Category:** OPTIONAL
 
-Incremental metrics computation allows teams to efficiently
-monitor and maintain data quality without needing to recompute
-metrics on the entire dataset every time data is updated. Use
-this method to significantly reduce computational resources
-and time spent on data quality testing, allowing for more
-agile and responsive data management practices. 
+Data anomaly detection is a specialized form of anomaly
+detection which focuses on identifying unusual patterns or
+behaviors in data quality metrics that may indicate data
+quality issues.
 
-Start by identifying the specific data quality metrics that
-are essential for your system. This could include metrics
-related to accuracy, completeness, timeliness, and
-consistency. Depending on your dataset's size and complexity,
-select a tool or framework that supports incremental
-computation. Some modern data processing tools, such
-as [Apache
-Spark](https://spark.apache.org/ "https://spark.apache.org/")
-and [Deequ](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ"),
-provide built-in support for incremental computations.
-
-Segment your data into logical partitions, often based on
-time, such as daily or hourly partitions. As new data is
-added, it becomes a new partition. Automate the computation
-process by setting up triggers that initiate the metric
-computation whenever new data is added or an existing
-partition is updated.
-
-Continuously monitor the updated metrics to help ensure they reflect the true state
-of your data. Periodically validate the results of the incremental metrics computation
-against a full computation to ensure accuracy. As you get more familiar with the process,
-look for ways to optimize the computation to save even more on computational resources.
-This could involve refining your partitions or improving the computation logic.
+Consider integrating machine learning algorithms and
+statistical methods into your data quality monitoring
+processes. Use tools that can detect and address data
+anomalies in real-time and incorporate them into your
+development and deployment workflows. This enables automated
+assessment of the accuracy and reliability of data processing
+and analysis, enhancing the overall performance of your
+applications and systems.
 
 **Related information:**
 
+- [What
+  Is Anomaly Detection?](https://aws.amazon.com/what-is/anomaly-detection/ "https://aws.amazon.com/what-is/anomaly-detection/")
+- [Test
+  data quality at scale with Deequ](https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/ "https://aws.amazon.com/blogs/big-data/test-data-quality-at-scale-with-deequ/")
 - [Deequ
-  stateful metrics computation](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/algebraic_states_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/algebraic_states_example.md")
+  anomaly detection](https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/anomaly_detection_example.md "https://github.com/awslabs/deequ/blob/master/src/main/scala/com/amazon/deequ/examples/anomaly_detection_example.md")
+- [Amazon
+  Lookout for Metrics](https://aws.amazon.com/lookout-for-metrics/ "https://aws.amazon.com/lookout-for-metrics/")
+- [Introducing
+  Amazon Lookout for Metrics: An anomaly detection service
+  to proactively monitor the health of your business](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-lookout-for-metrics-an-anomaly-detection-service-to-proactively-monitor-the-health-of-your-business/ "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-lookout-for-metrics-an-anomaly-detection-service-to-proactively-monitor-the-health-of-your-business/")
+- [Quick Suite: ML-powered anomaly detection for
+  outliers](../../../quicksight/latest/user/anomaly-detection-function.md "../../../quicksight/latest/user/anomaly-detection-function.md")
+- [Amazon Kinesis: Detecting Data Anomalies on a Stream](../../../kinesisanalytics/latest/dev/app-anomaly-detection.md "../../../kinesisanalytics/latest/dev/app-anomaly-detection.md")

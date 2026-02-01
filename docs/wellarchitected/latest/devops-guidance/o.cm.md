@@ -1,29 +1,28 @@
-# [O.CM.2] Plan for large scale events
+# [O.CM.3] Conduct post-incident analysis for continuous improvement
 
 **Category:** FOUNDATIONAL
 
-A large scale event (LSE) is an incident that has a wide
-impact, such as service outages or major security
-incidents. Proper management of LSEs help to ensure business
-continuity, maintain customer trust, and reduce the negative
-impact of such events.
+Drive the continuous improvement of analysis and response mechanisms by holding
+post-incident retrospectives. The post-incident retrospectives allow teams to identify gaps
+and areas for improvement by analyzing the actions that were taken during an incident. These
+retrospectives should not be used to place blame or point fingers at individuals. Instead,
+they provide the time for teams to optimize their response process for future incidents and
+helps ensure that they are continuously learning and improving their incident response
+capabilities. This approach leads to more efficient and effective resolution of incidents
+over time.
 
-Prepare a detailed incident management plan, outlining the
-roles, responsibilities, and processes to be followed in the
-event of a large-scale incident. At a minimum, the plan should
-outline how teams expect to maintain availability and
-reliability of systems by having the capability to
-automatically scale resources, re-route traffic, and failover
-to backup systems when required.
+All relevant stakeholders involved with the incident and the system should attend the
+retrospective. At a minimum, this should include the leaders and individual contributors who
+support the system, the customer advocates, those who were impacted by the issue internally,
+as well as those involved with the resolution of the issue. The post-incident retrospective
+findings should be anonymized, as to not place blame onto any individuals, and should be
+well documented and shared with the broader organization so that others may learn as well.
 
 **Related information:**
 
-- [Disaster
-  Recovery of Workloads on AWS: Recovery in the Cloud](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md")
-- [Incident
-  management](../../../whitepapers/latest/tagging-best-practices/incident-management.md "../../../whitepapers/latest/tagging-best-practices/incident-management.md")
-- [Disaster
-  recovery plan](https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts "https://aws.amazon.com/disaster-recovery/faqs/#Core_concepts")
-- [Amazon's
-  approach to security during development: Handling a
-  security incident](https://youtu.be/NeR7FhHqDGQ?t=1962 "https://youtu.be/NeR7FhHqDGQ?t=1962")
+- [AWS Well-Architected Performance Pillar: PERF07-BP02 Analyze
+  metrics when events or incidents occur](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md")
+- [AWS Well-Architected Reliability Pillar: REL12-BP02 Perform
+  post-incident analysis](../reliability-pillar/rel_testing_resiliency_rca_resiliency.md "../reliability-pillar/rel_testing_resiliency_rca_resiliency.md")
+- [AWS Well-Architected Operational Excellence Pillar: OPS11-BP02
+  Perform post-incident analysis](../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md "../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md")

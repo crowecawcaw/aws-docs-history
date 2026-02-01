@@ -1,34 +1,42 @@
-# [AG.DEP.8] Implement a unified developer portal for self-service environment management
+# [AG.DEP.4] Codify environment vending
 
-**Category:** OPTIONAL
+**Category:** RECOMMENDED
 
-Consider implementing a self-service portal that empowers
-developers to create, manage, and decommission their own
-isolated development or sandbox environments, within the
-established boundaries set by the platform team. While
-fostering autonomy for development teams, this approach
-accelerates the development process and reduces the
-operational load on the supporting platform team. To ensure
-adherence to the organization's standards and ensure
-consistency, the portal could include predefined environment
-templates and resource bundles.
+A core benefit of the DevOps model is team autonomy and reducing cross-team
+dependencies. Through infrastructure as code (IaC), teams can establish and manage their
+environments autonomously in a self-service manner, shifting from traditional methods
+where operations teams would oversee these responsibilities.
 
-While beneficial, the implementation of a developer portal is optional, particularly
-if the organization is leveraging codified environment vending as recommended.
-Infrastructure as code (IaC) presents an alternative approach that reduces human
-intervention.
+By provisioning environments, and the accounts operating them,
+as IaC or API calls, teams are empowered with the flexibility
+to create environments according to their specific
+requirements and ways of working. Codifying the environment
+provisioning process provides teams with the flexibility to
+create both persistent and ephemeral environments based on
+their specific needs and workflows. In particular, this
+code-based approach enables the easy creation of ephemeral
+environments that can be automatically setup and torn down
+when not in use, optimizing resource utilization and cost.
 
-The self-service portal, if implemented, can adopt the _X as a
-Service_ (XaaS) interaction model as outlined in the [Team Topologies](https://teamtopologies.com/ "https://teamtopologies.com/") book by Matthew Skelton and
-Manuel Pais. The portal can evolve over time into a central resource for common, reusable
-tools and capabilities preconfigured to comply with organizational standards, facilitating
-streamlined automated governance activities. This might include centralized access to
-common tools into a unified developer portal, including observability, security, quality,
-cost, and organizational use cases. If adopted by many teams, this platform can become an
-excellent method for communicating changes within the organization.
+Use shared libraries or services that allow teams to request
+and manage environments using IaC. These libraries should
+encapsulate best practices for environment configuration and
+should be designed to be used directly in deployment
+pipelines, enabling individual teams to manage their
+environments autonomously. This reduces the need for manual
+requests or interactions with a developer portal, as well as
+reduces the reliance on platform teams for provisioning and
+managing environments on their behalf. This approach promotes
+consistency and reduces overhead from cross-team
+collaboration.
 
 **Related information:**
 
-- [The
-  Amazon Software Development Process: Self-Service
-  Tools](https://youtu.be/52SC80SFPOw?t=579 "https://youtu.be/52SC80SFPOw?t=579")
+- [What
+  is the AWS CDK?](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
+- [Create
+  an AWS Proton environment](../../../proton/latest/userguide/ag-create-env.md "../../../proton/latest/userguide/ag-create-env.md")
+- [Provision
+  and manage accounts with Account Factory](../../../controltower/latest/userguide/account-factory.md "../../../controltower/latest/userguide/account-factory.md")
+- [Provision
+  Accounts Through Service Catalog](../../../controltower/latest/userguide/service-catalog.md "../../../controltower/latest/userguide/service-catalog.md")

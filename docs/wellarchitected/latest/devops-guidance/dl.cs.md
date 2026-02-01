@@ -1,73 +1,26 @@
-# [DL.CS.2] Sign code artifacts after each build
+# [DL.CS.1] Implement automated digital attestation signing
 
-**Category:** RECOMMENDED
+**Category:** RECOMMENDED
 
-Code signing is the process of attaching a digital signature
-to build artifacts like binaries, containers, and other forms
-of packaged code to enable verifying its integrity and
-authenticity. Signing code artifacts minimizes risk of using
-or distributing tampered or counterfeit software.
+Digital attestations serve as verifiable evidence that
+software components were built, tested, and conform to
+organizational standards within a controlled environment.
+Signatures associated with each attestation can be verified to
+ensure that the component has not been tampered with and
+originated from a trusted source. Generating attestations
+throughout the development lifecycle provides a method of
+ensuring software quality, origin, and authenticity.
 
-Cryptographically sign code artifacts during the build
-process. Ideally this occurs after testing and before
-publishing to production. Follow
-[best
-practices for timestamping](https://www.digicert.com/blog/best-practices-timestamping "https://www.digicert.com/blog/best-practices-timestamping") while signing. Timestamping
-provides a verified date and time of the signing, serving as
-evidence that the code artifact existed and met the signature
-criteria while the certificate was still valid. To safeguard
-operations, ensure that the validity of the signed code
-artifact is recognized even after the signing certificate
-itself has expired.
-
-Store signatures in a location accessible to users and systems
-that need to verify signed code artifacts. When
-using [Open
-Containers Initiative (OCI)](https://opencontainers.org/ "https://opencontainers.org/") compliant artifact
-registries, it is encouraged to store digital signatures
-alongside the build artifacts being signed. This enables a
-consolidated retrieval process and allows verification systems
-to easily locate and validate signatures. Just as with
-artifacts, signatures can accumulate over time. Implement a
-lifecycle policy that archives or deletes older signatures
-that are no longer needed to help manage storage costs.
-
-After a signature has been stored, it should be immutable so that the signature
-cannot be tampered with or replaced. Use fine-grained access controls to ensure that only
-authorized entities can push or modify artifacts and their corresponding signatures.
-Regularly back up your digital signatures. Having a backup ensures you can still verify
-the integrity and authenticity of your artifacts in the event of storage failures. All
-access and operations on stored signatures should be logged to support forensic analysis
-and to adhere to compliance requirements.
-
-Implement cryptographic signing of artifacts during the build
-process. Ideally this occurs after testing and before
-publishing to production. This helps ensure the integrity of
-the artifacts and confirms their authenticity. We recommend
-using a managed service like
-[AWS Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") to reduce the complexity that comes with
-managing public key infrastructure. Refer
-to [AWS Signer workflows](../../../signer/latest/developerguide/workflows.md "../../../signer/latest/developerguide/workflows.md") for guidance that fits your use case.
-
-For more control over the signing process or for complex use
-cases, you can create and manage your own code signing
-platform using Public Key Infrastructure (PKI). While this
-approach offers precise control, it requires consistent upkeep
-and adherence to best practices.
-[AWS Private Certificate Authority](https://aws.amazon.com/private-ca/ "https://aws.amazon.com/private-ca/") is a managed private CA
-service that helps you manage the lifecycle of your private
-certificates easily, without the investment and ongoing
-maintenance costs of operating your own private CA.
+Embed automated tools into the deployment pipeline to produce digital
+attestations. Create an attestation for each action you want to create proof for, such as
+a test being run, software being packaged, or even manual approval acceptance steps. Sign
+these attestations using symmetric or asymmetric keys. Follow metadata frameworks such
+as [in-toto](https://in-toto.io/ "https://in-toto.io/") for best practices for formatting
+attestations to include metadata about the software, the build environment, and the
+authoring party. Store attestations either with build artifacts in a repository or within
+governance tools for deeper analysis.
 
 **Related information:**
 
-- [AWS Well-Architected Sustainability Pillar: SUS05-BP03 Use
-  managed services](../sustainability-pillar/sus_sus_hardware_a4.md "../sustainability-pillar/sus_sus_hardware_a4.md")
-- [Using
-  AWS Signer workflows](../../../signer/latest/developerguide/workflows.md "../../../signer/latest/developerguide/workflows.md")
-- [Configuring
-  code signing for AWS SAM applications - AWS Serverless Application Model](../../../serverless-application-model/latest/developerguide/authoring-codesigning.md "../../../serverless-application-model/latest/developerguide/authoring-codesigning.md")
-- [Security
-  Considerations for Code Signing](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.01262018.pdf "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.01262018.pdf")
-- [Code
-  signing using AWS Certificate Manager Private CA and AWS Key Management Service asymmetric keys](https://aws.amazon.com/blogs/security/code-signing-aws-certificate-manager-private-ca-aws-key-management-service-asymmetric-keys/ "https://aws.amazon.com/blogs/security/code-signing-aws-certificate-manager-private-ca-aws-key-management-service-asymmetric-keys/")
+- [Software
+  attestations](https://slsa.dev/attestation-model "https://slsa.dev/attestation-model")

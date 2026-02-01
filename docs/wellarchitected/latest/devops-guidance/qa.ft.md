@@ -1,63 +1,39 @@
-# [QA.FT.4] Balance developer feedback and test coverage using advanced test selection
+# [QA.FT.2] Validate system interactions and data flows with integration tests
 
-**Category:** OPTIONAL
+**Category:** FOUNDATIONAL
 
-In traditional software models, regression testing was a distinct form of functional
-testing, designed to ensure that new code integrations did not disrupt existing system
-functionalities. In a DevOps model, there is a new perspective: regression testing is no
-longer a testing activity with human involvement. Instead, every change triggers automated
-pipelines that conduct a new cycle of tests, making each pipeline execution effectively a
-_regression test_. As systems become more complex over time, so do
-the test suites. Running all tests every time a change is made can become time-consuming
-and inefficient as test suites grow, slowing down the development feedback loop.
+Integration tests evaluate the interactions between multiple components that make up
+the system, including infrastructure and external systems. The goal of integration testing
+is to help ensure that these interactions and data flows work together, ensuring that recent
+changes have not disrupted any interfaces or introduced undesired behaviors.
 
-Before choosing to implement advanced test selection methods using machine learning
-(ML). you should first optimize test execution through parallelization, reducing stale or
-ineffective tests, improving the infrastructure the tests are run on, and changing the
-order of tests to optimize for faster feedback. If these methods do not produce sufficient
-outcomes, there are algorithmic and ML methods that provide advanced test selection
-capabilities.
+Integration tests often run much slower than unit testing due to the fact that they
+interact with real system, such as databases, message queues, and external APIs. Strive to
+make integration tests as efficient as possible by optimizing setup and tear down using
+automation and infrastructure as code (IaC). Optimize test execution by running tests in
+parallel where possible. This allows for quicker feedback loops and makes it possible to run
+integration tests through continuous integration pipelines.
 
-Test Impact Analysis (TIA) offers a structured approach to
-advanced test selection. By examining the differences in the
-codebase, TIA determines the tests that are most likely to be
-affected by the recent changes. This results in running only a
-relevant subset of the entire test suite, ensuring efficiency
-without the need for machine learning models.
+While integration tests should involve real components, they should still be isolated
+from production or shared environments where possible. This helps ensure that tests do not
+inadvertently affect real data or services. Consider using dedicated emulation, containers,
+or cloud-based test environments to make tests more efficient, consistent, and safe.
 
-Predictive test selection is an evolving approach to test
-selection which uses ML models trained on historical code
-changes and test outcomes to determine how likely a test is to
-reveal errors based on the change. This results in a subset
-of tests to run tailored to the specific change that are
-most likely to detect regressions. Predictive test selection
-strikes a balance between providing faster feedback to
-developers and thorough test coverage.
+Just as with unit tests, adopting [Test-Driven Development (TDD)](https://www.agilealliance.org/glossary/tdd/ "https://www.agilealliance.org/glossary/tdd/") by
+writing tests before the software is developed helps to highlight potential integration pain
+points early, and verifies that the interfaces between components are correctly implemented
+from the start.
 
-Using ML for this purpose introduces a level of uncertainty
-into the quality assurance process. If you do choose to
-implement predictive test selection, we recommend putting
-additional controls in place, including:
+**Related information:**
 
-- Add manual approval stages that require developers to
-  assess and accept the level of tests that will be run
-  before they run. These manual approvals allow the team
-  to decide if the test coverage trade-off makes sense and
-  to accept the risk for the given change.
-- Provide eventual consistency of test results by running
-  the full set of tests asynchronously outside of the
-  development workflow. If there are tests that fail at this
-  stage, provide feedback to the development team so that
-  they can triage the issues and decide if they need to roll
-  back the change.
-- We do not recommend using predictive test selection to
-  exclude security-related tests or relying on this approach
-  for sensitive systems which are critical to your business.
-  **Related information:**
-
-- [Predictive
-  Test Selection](https://research.facebook.com/publications/predictive-test-selection/ "https://research.facebook.com/publications/predictive-test-selection/")
-- [Machine
-  Learning - Amazon Web Services](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/")
-- [The
-  Rise of Test Impact Analysis](https://martinfowler.com/articles/rise-test-impact-analysis.html "https://martinfowler.com/articles/rise-test-impact-analysis.html")
+- [AWS Well-Architected Reliability Pillar: REL12-BP03 Test
+  functional requirements](../reliability-pillar/rel_testing_resiliency_test_functional.md "../reliability-pillar/rel_testing_resiliency_test_functional.md")
+- [AWS Deployment Pipeline Reference Architecture](https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/application-pipeline/index.html "https://aws-samples.github.io/aws-deployment-pipeline-reference-architecture/application-pipeline/index.html")
+- [Getting
+  started with testing serverless applications](https://aws.amazon.com/blogs/compute/getting-started-with-testing-serverless-applications/ "https://aws.amazon.com/blogs/compute/getting-started-with-testing-serverless-applications/")
+- [Amazon's
+  approach to high-availability deployment: Integration
+  testing](https://youtu.be/bCgD2bX1LI4?t=1480 "https://youtu.be/bCgD2bX1LI4?t=1480")
+- [Building
+  hexagonal architectures on AWS - Write and run tests from
+  the beginning](../../../prescriptive-guidance/latest/hexagonal-architectures/best-practices.md "../../../prescriptive-guidance/latest/hexagonal-architectures/best-practices.md")

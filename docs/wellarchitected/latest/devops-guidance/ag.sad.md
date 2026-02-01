@@ -1,28 +1,42 @@
-# [AG.SAD.3] Treat pipelines as production resources
+# [AG.SAD.7] Implement rotation policies for secrets, keys, and certificates
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Pipelines become pivotal in every aspect of the software
-development lifecycle when practicing DevOps, as they become
-the sole method of moving code from development to production.
-During the process of building, testing, and deploying
-software, pipelines require access to all software components
-involved, including libraries, frameworks, repositories,
-modules, artifacts, and third-party dependencies. Due to this
-level of access and their role in deploying to potentially
-sensitive environments, pipelines should be recognized as
-integral components of your overall system and must be secured
-and managed to the same degree as the environments and data
-they interact with.
+Regular rotation of secrets, keys, and certificates is a best
+practice in securing access, limiting the potential damage
+that can occur should these security resources become
+compromised. In a DevOps environment, pipelines often require
+access to sensitive environments and workloads, making them
+potential targets for attacks. The routine rotation of these
+resources that are used by pipelines can help to significantly
+mitigate this risk.
 
-The [application of least-privilege principles](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege"), commonly applied
-to human users, should be extended to pipelines. To reduce the potential for pipelines to
-become a security threat, their roles and permissions should be confined to align with their
-precise responsibilities. Emphasizing pipeline governance and treating pipelines as
-first-class citizens within your security infrastructure can substantially decrease your
-potential attack surface and reinforce the security of your overall DevOps environment.
+Establish a policy that clearly defines the lifecycle of these
+resources, including their creation, usage, rotation, and
+retirement intervals. Enforce these policies by automatically
+rotating secrets and keys to reduce the risk of oversights,
+delays, and human error.
+
+Certificates play an important role in service-to-service
+authentication and providing encryption for both internal and
+external facing workloads and environments. When managing
+certificates, consider not only those issued within your
+organization but also those imported from external sources
+which may not be automatically renewable.
+
+Monitoring systems that track the lifespan of these assets and
+alert administrators as they near expiration can contribute to
+this process. This approach can help prevent service
+disruptions caused by expired certificates and, in some cases,
+can trigger automated renewal procedures.
 
 **Related information:**
 
-- [AWS Well-Architected Security Pillar: SEC11-BP07 Regularly
-  assess security properties of the pipelines](../framework/sec_appsec_regularly_assess_security_properties_of_pipelines.md "../framework/sec_appsec_regularly_assess_security_properties_of_pipelines.md")
+- [Blog: How
+  to monitor expirations of imported certificates in AWS Certificate Manager (ACM)](https://aws.amazon.com/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/ "https://aws.amazon.com/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/")
+- [Rotate
+  AWS Secrets Manager secrets - AWS Secrets Manager](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md")
+- [Managing
+  access keys for IAM users - AWS IAM](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md")
+- [Rotating
+  AWS KMS keys - AWS Key Management Service](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md")
