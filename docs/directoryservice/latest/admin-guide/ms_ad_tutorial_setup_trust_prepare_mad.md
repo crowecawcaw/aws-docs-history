@@ -94,7 +94,7 @@ directory. This is the default, but let's check to make sure nothing has changed
 3. Open Server Manager. On the **Tools** menu, choose **Active Directory Users and Computers**.
 4. Choose the **Users** folder in your domain. Note that this is the **Users** folder under your NetBIOS name, not the **Users** folder under the fully qualified domain name (FQDN).
 
-![In the Active Directory Users and Computers dialog box, the Users folder is highlighted.](images/correct_users_folder.png) 5. In the list of users, right-click on a user, and then choose
+![In the Active Directory Users and Computers dialog box, the Users folder is highlighted.](/images/directoryservice/latest/admin-guide/images/correct_users_folder.png) 5. In the list of users, right-click on a user, and then choose
 **Properties**. 6. Choose the **Account** tab. In the **Account options** list, ensure that **Do not require Kerberos preauthentication** is _not_ checked.
 
 **Next Step**
