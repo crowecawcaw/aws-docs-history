@@ -77,4 +77,4 @@ streams](case-event-streams.md "case-event-streams.md") to get near real-time up
 modified. 7. Optionally, set up a [Connect AI agents
 domain](ai-agent-initial-setup.md "ai-agent-initial-setup.md") and [Configure your
 flow](ai-agent-initial-setup.md#enable-ai-agents-step4 "ai-agent-initial-setup.md#enable-ai-agents-step4") to generate AI-powered Case Summaries in the agent
-workspace
+workspace 8. Optionally, [set up tag-based access controls for cases](cases-tag-based-access-control.md "cases-tag-based-access-control.md").

@@ -75,5 +75,5 @@ fields already there. Choose **Add fields**, and use the
 dropdown to choose the field. Fields that are gray-out are already a part of
 the template. If you want agents to complete the field in order to save the
 form, choose **Required**. 8. In the **More information** section, choose the fields
-you want to appear. 9. When you're done, choose **Save**. The template is
+you want to appear. 9. Optionally, add **Case tags** to automatically propagate tags to cases created from this template. See [Tag-based access controls](cases-tag-based-access-control.md "cases-tag-based-access-control.md") for more information. 10. When you're done, choose **Save**. The template is
 immediately made available to agents in the agent application.

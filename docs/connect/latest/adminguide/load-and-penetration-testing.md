@@ -52,8 +52,9 @@ a minimum of two weeks in advance of the test date.**
 
 ###### To submit a request for a load test
 
-1. Send email to
-   **Amazon-Connect-Load-Test-Requests@amazon.com**
+1. Send email to **amazon-connect-load-test-requests@amazon.com**
+   **and copy your AWS account team (Technical Account Manager or
+   Solution Architect).**
 2. Upon receipt, the Amazon Connect team will provide you with the Load Test Request
    intake form.
 

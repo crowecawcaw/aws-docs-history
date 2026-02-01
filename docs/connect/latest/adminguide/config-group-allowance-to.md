@@ -86,10 +86,14 @@ file.
 
 ## Import group allowance .csv file
 
-When you upload a .csv file that contains the time off allowance for a
-forecast group, it overwrites data already in Amazon Connect. For example, if you have
-100 agents, and a supervisor uploads data for 20 agents, the data for those 20
-agents is overwritten.
+You can upload multiple csv files for group allowance, Amazon Connect will combine them
+into a single csv file when you download it. If the same combination of forecast group,
+time off activities, and datetime exists in multiple files, most recent uploaded file will
+override the data from previous uploads. For example, you can upload one csv file with
+group allowance for all of 2026 that has non-zero allowance until June 2026 and zero allowance
+from July to December 2026. This will prevent all time-off bookings for second half of 2026.
+Then at a later date you can upload another csv file that contains non-zero allowances for
+July to December 2026, thus opening up these dates for agents to request time-offs.
 
 For the maximum file size that you can upload, see _File size per
 upload of time off group allowance data_ in [Forecasting, capacity

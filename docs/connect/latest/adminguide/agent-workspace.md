@@ -52,6 +52,8 @@ The following image shows the parts of the agent workspace.
   codes](disposition-codes-sg.md "disposition-codes-sg.md")
 - [PII
   Redaction](step-by-step-guides-pii-redaction.md "step-by-step-guides-pii-redaction.md")
+- [View Integrations](integrate-views-with-connect-resources.md "integrate-views-with-connect-resources.md")
+- [Use Guides in Workspace for Managers](use-guides-in-manager-workspace.md "use-guides-in-manager-workspace.md")
 - [Create persona-based Workspace pages](use-views-to-create-persona-based-workspace-pages.md "use-views-to-create-persona-based-workspace-pages.md")
 - [Customize the theme of the agent workspace](customize-theme-agent-workspace.md "customize-theme-agent-workspace.md")
 - [Integrate third-party applications (3p

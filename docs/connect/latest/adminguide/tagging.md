@@ -38,6 +38,7 @@ AWS SDK.
 | Agent group                                  | No       | Yes                                                     | Yes                                |
 | Agent group level                            | No       | No                                                      | Yes                                |
 | Agent state                                  | No       | Yes                                                     | Yes                                |
+| Case                                         | Yes      | Yes                                                     | Yes                                |
 | Contact                                      | No       | No                                                      | No                                 |
 | Contact evaluations                          | No       | Yes                                                     | No                                 |
 | Email addresses                              | Yes      | Yes                                                     | Yes                                |

@@ -1,7 +1,7 @@
 # Amazon Connect contact events
 
 Amazon Connect allows you to subscribe to a near real-time stream of contact (voice calls, chat,
-and task) events (for example, call is queued) in your Amazon Connect contact center.
+task, and email) events (for example, call is queued) in your Amazon Connect contact center.
 
 You can use contact events to create analytics dashboards to monitor and track contact
 activity, integrate into workforce management (WFM) solutions to better understand contact
@@ -48,7 +48,7 @@ target of your choice, as configured in the rule. The following contact events a
 available:
 
 - AMD_DISABLED - Answering machine detection is disabled.
-- INITIATED - A voice call, chat, or task is initiated or transferred.
+- INITIATED - A voice call, chat, task, or email is initiated or transferred.
 - CONNECTED_TO_SYSTEM - The contact has established media (for example, it was
   answered by a person or by voicemail). This event is generated for any of the
   [AnsweringMachineDetectionStatus](#AnsweringMachineDetectionStatus "#AnsweringMachineDetectionStatus")
@@ -60,20 +60,20 @@ This event is generated for outbound calls (including [Amazon Connect outbound c
 tasks, and chats.
 
 - CONTACT_DATA_UPDATED - One or more of the following contact properties were
-  updated on a voice call, chat, or task: scheduled timestamp (task only),
+  updated on a voice call, chat, task, or email: scheduled timestamp (task only),
   accepted by agent timestamp (outbound campaign voice contact in preview dialing
   mode only), user-defined attributes and tags, routing criteria is updated or
   step is expired, and if Contact Lens is enabled for a given
   contact.
-- QUEUED - A voice call, chat, or task is queued to be assigned to an
+- QUEUED - A voice call, chat, task, or email is queued to be assigned to an
   agent.
-- CONNECTED_TO_AGENT - A voice call, chat, or task is connected to an
+- CONNECTED_TO_AGENT - A voice call, chat, task, or email is connected to an
   agent.
 - COMPLETED - The COMPLETED event indicates when a contact has fully ended,
   including After Contact Work (ACW) if applicable.
   - For contacts with ACW:
 
-  When an agent completes ACW for a voice call, chat, or task, the
+  When an agent completes ACW for a voice call, chat, task, or email, the
   following fields are populated:
 
       - AgentInfo.afterContactWorkStartTimestamp
@@ -99,7 +99,7 @@ issues may occur:
     + The COMPLETED event might not be delivered.
     + The AfterContactWorkEndTimestamp may show discrepancies.
 
-- DISCONNECTED - A voice call, chat, or task is disconnected. For outbound
+- DISCONNECTED - A voice call, chat, task, or email is disconnected. For outbound
   calls, the dial attempt is not successful, the attempt is connected but the call
   is not picked up, or the attempt results in a [SIT
   tone](https://en.wikipedia.org/wiki/Special_information_tone "https://en.wikipedia.org/wiki/Special_information_tone").
@@ -309,8 +309,8 @@ Length: 1-256
 
 The type of channel.
 
-Type: `VOICE`, `CHAT`, or
-`TASK`
+Type: `VOICE`, `CHAT`, `TASK`, or
+`EMAIL`
 
 **InstanceArn**
 
@@ -325,10 +325,10 @@ Indicates how the contact was initiated.
 
 Valid values:
 
-- INBOUND: The customer initiated voice (phone) contact with
+- INBOUND: The customer initiated voice (phone) or email contact with
   your contact center.
 - OUTBOUND: Represents an agent-initiated outbound voice call
-  from the Contact Control Panel (CCP).
+  or email from the Contact Control Panel (CCP).
 - TRANSFER: The contact was transferred by an agent to another
   agent or to a queue, using quick connects in the CCP. This
   results in a new contact record being created.
@@ -341,7 +341,8 @@ Valid values:
   the [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md") API, or it could be a
   live chat that was initiated by the customer with your contact
   center, where you called the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, or it could be a tasks
-  initiated by the customer by calling the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API.
+  initiated by the customer by calling the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md") API, or it could be an email
+  initiated by the customer by calling the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API.
 - QUEUE_TRANSFER: While the contact is one queue, and was then
   transferred into another queue using a flow block.
 - EXTERNAL_OUTBOUND: An agent initiated voice (phone) contact
@@ -366,6 +367,12 @@ flow runs. If a new contact is created while running a
 disconnect flow, then the initiation method for that new contact
 is DISCONNECT.
 
+- AGENT_REPLY: Represents an agent reply email contact
+  corresponding to the inbound email contact accepted by an
+  agent.
+- FLOW: Represents an automated (flow-initiated) email
+  contact.
+
 **DisconnectReason code**
 
 Indicates how the contact was terminated. This is available for the
@@ -386,6 +393,8 @@ Valid values:
   from list; no further attempts will be made.
 - EXPIRED: Not enough agents available, or not enough telecom
   capacity for such calls.
+- DISCARDED: Represents that an agent discarded an email
+  contact.
 
 **AnsweringMachineDetectionStatus**
 
@@ -667,8 +676,11 @@ Type: Expiry
 ### SystemEndpoint
 
 The system endpoint. For example, for INBOUND, this is the phone number that the
-customer dialed. For OUTBOUND and EXTERNAL_OUTBOUND, this is the outbound caller ID
-number assigned to the outbound queue that is used to dial the customer.
+customer dialed or the email address where the customer reached out. For OUTBOUND
+and EXTERNAL_OUTBOUND, this is the outbound caller ID number assigned to the
+outbound queue that is used to dial the customer or the outbound email address
+that is assigned to the outbound queue that is used to reach out to the
+customer.
 
 ###### Note
 

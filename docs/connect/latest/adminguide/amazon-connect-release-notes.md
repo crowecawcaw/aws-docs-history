@@ -7,6 +7,20 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## January 2026 Updates
 
+### Amazon Connect now supports file attachments for tasks via StartTaskContact API
+
+Amazon Connect now enables you to include file attachments when creating tasks using the StartTaskContact API.
+You can attach up to 5 files per task in various formats such as .pdf, .docx, .csv, .txt, .png, .jpg, .mp4, and more.
+This capability allows you to provide agents with relevant documents, images, or other files directly within the
+task context, streamlining workflows and improving agent efficiency.
+
+### Amazon Connect now supports tag-based access controls for cases
+
+Amazon Connect now enables you to use tag-based access controls to define who can access specific cases. You can
+associate tags with case templates and configure security profiles to determine which users can access cases
+with those tags. For example, you can restrict access to fraud-related cases so that only agents in the fraud
+department can view or edit them.
+
 ### Amazon Connect now simplifies linking related contacts to cases using flows
 
 Amazon Connect now makes it easier to link related contacts such as email replies, call transfers,

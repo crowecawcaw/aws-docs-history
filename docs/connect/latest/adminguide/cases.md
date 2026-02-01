@@ -41,6 +41,7 @@ Amazon Connect admin website**
 - [Cases block](cases-block.md "cases-block.md")
 - [Case event streams](case-event-streams.md "case-event-streams.md")
 - [Cases quotas](amazon-connect-service-limits.md#cases-quotas "amazon-connect-service-limits.md#cases-quotas")
+- [Tag-based access controls](cases-tag-based-access-control.md "cases-tag-based-access-control.md")
 
 **Agent actions in the agent workspace**
 
