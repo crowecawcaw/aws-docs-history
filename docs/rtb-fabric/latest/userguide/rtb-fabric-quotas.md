@@ -18,7 +18,7 @@ The following quotas apply to RTB Fabric resources in your account.
 
 | Resource                          | Default quota | Adjustable | Description                                                                                          |
 | --------------------------------- | ------------- | ---------- | ---------------------------------------------------------------------------------------------------- |
-| Number of gateways                | 2             | Yes        | The maximum number of requester and responder gateways combined that you can create in your account. |
+| Number of Gateways                | 2             | Yes        | The maximum number of requester and responder gateways combined that you can create in your account. |
 | Links per Gateway                 | 2             | Yes        | The maximum number of links that can be created from a single gateway.                               |
 | Modules per Flow                  | 2             | Yes        | The maximum number of modules that can be configured in a single flow.                               |
 | Availability Zones per Gateway    | 1             | Yes        | The maximum number of Availability Zones that can be configured per gateway.                         |
@@ -33,7 +33,7 @@ The following quotas apply to RTB Fabric throughput and performance.
 | ------------------------------------------------------------------- | ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Transactions per second (TPS) per link                              | 1,000         | Yes        | The maximum number of transactions per second that can be processed through a single link.                                                                   |
 | Transactions per second (TPS) per inbound or outbound external link | 1,000         | Yes        | The maximum number of transactions per second that can be processed through an inbound or outbound external link.                                            |
-| HTTP request timeout                                                | 1 second      | Yes        | The maximum time RTB Fabric waits for a response from RTB applications before timing out the request. Contact your AWS account manager to request increases. |
+| HTTP request timeout                                                | 1.5 seconds   | Yes        | The maximum time RTB Fabric waits for a response from RTB applications before timing out the request. Contact your AWS account manager to request increases. |
 
 ## API request quotas
 
