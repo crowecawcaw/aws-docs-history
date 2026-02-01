@@ -386,6 +386,70 @@ Attributes                            : {[MaximumMessageSize, 262144], [Visibili
   [GetQueueAttributes](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
   in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples").
+
+```
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def get_queue_arn(self, queue_url: str) -> str:
+        """
+        Get the ARN of an SQS queue.
+
+        :param queue_url: The URL of the queue.
+        :return: The ARN of the queue.
+        :raises ClientError: If getting queue attributes fails.
+        """
+        try:
+            response = self.sqs_client.get_queue_attributes(
+                QueueUrl=queue_url,
+                AttributeNames=['QueueArn']
+            )
+
+            queue_arn = response['Attributes']['QueueArn']
+            logger.info(f"Queue ARN for {queue_url}: {queue_arn}")
+            return queue_arn
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error getting queue ARN: {error_code} - {e}")
+            raise
+
+
+
+```
+
+- For API details, see
+  [GetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
 Swift
 
 **SDK for Swift**

@@ -777,6 +777,65 @@ def create_queue(name, attributes=None):
 
 ```
 
+```
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def create_queue(self, queue_name: str, is_fifo: bool = False) -> str:
+        """
+        Create an SQS queue.
+
+        :param queue_name: The name of the queue to create.
+        :param is_fifo: Whether to create a FIFO queue.
+        :return: The URL of the created queue.
+        :raises ClientError: If the queue creation fails.
+        """
+        try:
+            # Add .fifo suffix for FIFO queues
+            if is_fifo and not queue_name.endswith('.fifo'):
+                queue_name += '.fifo'
+
+            attributes = {}
+            if is_fifo:
+                attributes['FifoQueue'] = 'true'
+
+            response = self.sqs_client.create_queue(
+                QueueName=queue_name,
+                Attributes=attributes
+            )
+
+            queue_url = response['QueueUrl']
+            logger.info(f"Created queue: {queue_name} with URL: {queue_url}")
+            return queue_url
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error creating queue {queue_name}: {error_code} - {e}")
+            raise
+
+
+
+```
+
 - For API details, see
   [CreateQueue](../../../goto/boto3/sqs-2012-11-05/CreateQueue.md "../../../goto/boto3/sqs-2012-11-05/CreateQueue.md")
   in _AWS SDK for Python (Boto3) API Reference_.

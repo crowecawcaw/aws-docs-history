@@ -386,6 +386,77 @@ def delete_messages(queue, messages):
 
 ```
 
+```
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def delete_messages(self, queue_url: str, messages: List[Dict[str, Any]]) -> bool:
+        """
+        Delete messages from an SQS queue in batches.
+
+        :param queue_url: The URL of the queue.
+        :param messages: List of messages to delete.
+        :return: True if successful.
+        :raises ClientError: If deleting messages fails.
+        """
+        try:
+            if not messages:
+                return True
+
+            # Build delete entries for batch delete
+            delete_entries = []
+            for i, message in enumerate(messages):
+                delete_entries.append({
+                    'Id': str(i),
+                    'ReceiptHandle': message['ReceiptHandle']
+                })
+
+            # Delete messages in batches of 10 (SQS limit)
+            batch_size = 10
+            for i in range(0, len(delete_entries), batch_size):
+                batch = delete_entries[i:i + batch_size]
+
+                response = self.sqs_client.delete_message_batch(
+                    QueueUrl=queue_url,
+                    Entries=batch
+                )
+
+                # Check for failures
+                if 'Failed' in response and response['Failed']:
+                    for failed in response['Failed']:
+                        logger.warning(f"Failed to delete message: {failed}")
+
+            logger.info(f"Deleted {len(messages)} messages from {queue_url}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error deleting messages: {error_code} - {e}")
+            raise
+
+
+
+```
+
 - For API details, see
   [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")
   in _AWS SDK for Python (Boto3) API Reference_.

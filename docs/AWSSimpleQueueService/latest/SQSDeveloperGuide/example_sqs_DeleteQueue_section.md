@@ -417,6 +417,57 @@ def remove_queue(queue):
 
 ```
 
+```
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def delete_queue(self, queue_url: str) -> bool:
+        """
+        Delete an SQS queue.
+
+        :param queue_url: The URL of the queue to delete.
+        :return: True if successful.
+        :raises ClientError: If the queue deletion fails.
+        """
+        try:
+            self.sqs_client.delete_queue(QueueUrl=queue_url)
+
+            logger.info(f"Deleted queue: {queue_url}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+
+            if error_code == 'AWS.SimpleQueueService.NonExistentQueue':
+                logger.warning(f"Queue not found: {queue_url}")
+                return True  # Already deleted
+            else:
+                logger.error(f"Error deleting queue: {error_code} - {e}")
+                raise
+
+
+
+```
+
 - For API details, see
   [DeleteQueue](../../../goto/boto3/sqs-2012-11-05/DeleteQueue.md "../../../goto/boto3/sqs-2012-11-05/DeleteQueue.md")
   in _AWS SDK for Python (Boto3) API Reference_.

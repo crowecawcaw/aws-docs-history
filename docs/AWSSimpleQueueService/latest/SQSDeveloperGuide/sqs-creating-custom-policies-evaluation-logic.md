@@ -37,7 +37,7 @@ instruction is found, the enforcement code looks for any **allow** instructions 
 even one, the enforcement code returns a decision of **allow** and the process finishes (the service continues to process
 the request).
 
-![In the previous diagram, number five.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-5-red.png)
+![In the previous diagram, number five.](images/number-5-red.png)
 If no **allow** instruction is
 found, then the final decision is **deny** (because
 there is no **explicit-deny** or **allow**, this is considered a **default-deny**).

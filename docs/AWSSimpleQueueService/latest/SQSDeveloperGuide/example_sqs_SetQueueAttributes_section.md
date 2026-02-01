@@ -618,6 +618,95 @@ Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" =
   [SetQueueAttributes](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
   in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
 
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples").
+
+Set the policy attribute of a queue for a topic.
+
+```
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def set_queue_policy_for_topic(self, queue_arn: str, topic_arn: str, queue_url: str) -> bool:
+        """
+        Set the queue policy to allow SNS to send messages to the queue.
+
+        :param queue_arn: The ARN of the SQS queue.
+        :param topic_arn: The ARN of the SNS topic.
+        :param queue_url: The URL of the SQS queue.
+        :return: True if successful.
+        :raises ClientError: If setting the queue policy fails.
+        """
+        try:
+            # Create policy that allows SNS to send messages to the queue
+            policy = {
+                "Version":"2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "sns.amazonaws.com"
+                        },
+                        "Action": "sqs:SendMessage",
+                        "Resource": queue_arn,
+                        "Condition": {
+                            "ArnEquals": {
+                                "aws:SourceArn": topic_arn
+                            }
+                        }
+                    }
+                ]
+            }
+
+            self.sqs_client.set_queue_attributes(
+                QueueUrl=queue_url,
+                Attributes={
+                    'Policy': json.dumps(policy)
+                }
+            )
+
+            logger.info(f"Set queue policy for {queue_url} to allow messages from {topic_arn}")
+            return True
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error setting queue policy: {error_code} - {e}")
+            raise
+
+
+
+```
+
+- For API details, see
+  [SetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
 Swift
 
 **SDK for Swift**

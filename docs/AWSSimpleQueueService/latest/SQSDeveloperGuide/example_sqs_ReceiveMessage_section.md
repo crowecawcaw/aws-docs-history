@@ -639,6 +639,62 @@ def receive_messages(queue, max_number, wait_time):
 
 ```
 
+```
+class SqsWrapper:
+    """Wrapper class for managing Amazon SQS operations."""
+
+    def __init__(self, sqs_client: Any) -> None:
+        """
+        Initialize the SqsWrapper.
+
+        :param sqs_client: A Boto3 Amazon SQS client.
+        """
+        self.sqs_client = sqs_client
+
+    @classmethod
+    def from_client(cls) -> 'SqsWrapper':
+        """
+        Create an SqsWrapper instance using a default boto3 client.
+
+        :return: An instance of this class.
+        """
+        sqs_client = boto3.client('sqs')
+        return cls(sqs_client)
+
+
+    def receive_messages(self, queue_url: str, max_messages: int = 10) -> List[Dict[str, Any]]:
+        """
+        Receive messages from an SQS queue.
+
+        :param queue_url: The URL of the queue to receive messages from.
+        :param max_messages: Maximum number of messages to receive (1-10).
+        :return: List of received messages.
+        :raises ClientError: If receiving messages fails.
+        """
+        try:
+            # Ensure max_messages is within valid range
+            max_messages = max(1, min(10, max_messages))
+
+            response = self.sqs_client.receive_message(
+                QueueUrl=queue_url,
+                MaxNumberOfMessages=max_messages,
+                WaitTimeSeconds=2,  # Short polling
+                MessageAttributeNames=['All']
+            )
+
+            messages = response.get('Messages', [])
+            logger.info(f"Received {len(messages)} messages from {queue_url}")
+            return messages
+
+        except ClientError as e:
+            error_code = e.response.get('Error', {}).get('Code', 'Unknown')
+            logger.error(f"Error receiving messages: {error_code} - {e}")
+            raise
+
+
+
+```
+
 - For API details, see
   [ReceiveMessage](../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md")
   in _AWS SDK for Python (Boto3) API Reference_.
