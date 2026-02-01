@@ -29,7 +29,7 @@ Use the Amazon Translate console to translate up to 10,000 bytes of text.
 5. Enter or paste text into the **Source language** text box. The console
    displays the translated text in the **Target language** text box.
 
-![The translate text page of the Amazon Translate console.](/images/translate/latest/dg/images/gs-10.png)
+![The translate text page of the Amazon Translate console.](images/gs-10.png)
 
 ## Translate a document
 
