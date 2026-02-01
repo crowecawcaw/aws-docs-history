@@ -14,7 +14,7 @@ OpenSearch Service sends storage-related OpenSearch optimized instance metrics t
 [OpenSearch Optimized Instances (OR1) metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-or1 "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-or1").
 
 OpenSearch optimized instances are available on-demand or with Reserved Instance pricing, with an hourly
-rate for the instances and storage provisioned in Amazon EBS and Amazon S3.
+rate for the instances and storage provisioned in Amazon EBS and Managed Storage Amazon S3.
 
 ###### Topics
 
@@ -40,6 +40,7 @@ Consider the following limitations when using OpenSearch optimized instances for
   Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
 - The refresh interval for indexes on OpenSearch optimized instances must be 10 seconds or
   higher. The default refresh interval for OpenSearch optimized instances is 10 seconds.
+- If your domain has transitioned to using OpenSearch optimized instances, you can no longer transition back to regular instances.
 
 ## Tuning for better ingestion throughput
 

@@ -29,6 +29,8 @@ pipelines.
   can offload failed events and make them accessible for analysis. If your sinks
   reject data due to incorrect mappings or other issues, you can route the data to
   the DLQ in order to troubleshoot and fix the issue.
+- If you are using aggregate processor in a pipeline,
+  we recommend using `“local_mode: true”` flag for optimal performance of the pipeline.
 
 ## Recommended CloudWatch alarms
 

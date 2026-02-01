@@ -10,7 +10,8 @@ Starting and stopping simplifies the setup and teardown processes for pipelines 
 for development, testing, or similar activities that don't require continuous availability.
 While your pipeline is stopped, you aren't charged for any Ingestion OCU hours. You can
 still update stopped pipelines, and they receive automatic minor version updates and
-security patches. Restarting a pipeline resumes processing from new incoming data.
+security patches.
+Stopping and starting a pipeline will result in reprocessing all the data from the beginning for pull based pipelines (DDB, S3, DocDB, etc).
 
 ###### Note
 

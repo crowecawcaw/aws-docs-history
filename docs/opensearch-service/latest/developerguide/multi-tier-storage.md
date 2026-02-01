@@ -8,7 +8,8 @@ Amazon OpenSearch Service offers two architecture options for hot/warm storage t
   - Combines Amazon S3 with local instance storage
   - Powered by OpenSearch Optimized Instances
   - Supports write operations in warm tier
-  - Supports seamless data migration between hot and warm tier
+  - Supports seamless data transition between hot and warm tier
+  - For warm nodes customer pay for instance and managed storage
   - Available on OpenSearch 3.3 and above
   - Does not support Cold Tier
 
@@ -51,8 +52,8 @@ For Ultrawarm storage architecture, see [Ultrawarm](ultrawarm.md "ultrawarm.md")
 
 - **Engine version:** OpenSearch **3.3 or later**
 - **Instance families:**
-  - Hot nodes: OR1, OR2, OM2, or OI2
-  - Warm Nodes: OI2
+  - Hot nodes: Any OpenSearch optimized instances
+  - Warm Nodes: OI2 large to 8xlarge
 
 - **Security:** Node-to-node encryption, encryption at rest, HTTPS enforced
 
@@ -113,7 +114,7 @@ Multi-tier domains support:
 
 #### New tiering APIs
 
-**Migrate an index to warm:**
+**Transition an index to warm:**
 
 ```
 curl -XPOST 'https://localhost:9200/index-name/_tier/warm'
@@ -125,7 +126,7 @@ Response:
 {"acknowledged": true}
 ```
 
-**Migrate an index to hot:**
+**Transition an index to hot:**
 
 ```
 curl -XPOST 'https://localhost:9200/index-name/_tier/hot'
@@ -169,13 +170,13 @@ Example response:
 curl 'https://localhost:9200/index1/_tier?detailed=true'
 ```
 
-**List all ongoing migrations (text):**
+**List all ongoing Transition (text):**
 
 ```
 curl 'https://localhost:9200/_tier/all'
 ```
 
-**List all ongoing migrations (JSON):**
+**List all ongoing Transition (JSON):**
 
 ```
 curl 'https://localhost:9200/_tier/all?format=json'

@@ -41,6 +41,7 @@ Consider the following when you configure VPC access for a pipeline.
 - You can only specify one VPC for your pipeline.
 - Unlike with public pipelines, a VPC pipeline must be in the same AWS Region
   as the domain or collection sink that it's writing to.
+  You can configure an S3 source for the pipeline in order to write cross-region.
 - You can choose to deploy a pipeline into one, two, or three subnets of your
   VPC. The subnets are distributed across the same Availability Zones that your
   Ingestion OpenSearch Compute Units (OCUs) are deployed in.
