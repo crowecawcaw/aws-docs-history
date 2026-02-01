@@ -95,14 +95,22 @@ Required: Yes
 
 **`<ROLE>`**
 
-Specifies the role assigned to this user. This parameter is required.
+Specifies the role assigned to this user.
 Valid values are **admin**, **crypto-user**.
 
-To get the user’s role, use the **user list** command. For detailed information about the user types on an HSM, see [Understanding HSM users](manage-hsm-users.md "manage-hsm-users.md").
+To get the user's role, use the **user list** command. For detailed information about the user types on an HSM, see [Understanding HSM users](manage-hsm-users.md "manage-hsm-users.md").
+
+Required: Yes
 
 **`<PASSWORD>`**
 
 Specifies the password of the user who is logging in to the HSMs.
+
+Required: Customers must provide the password either via the `--password` command line argument or omit it to be prompted interactively.
+
+###### Note
+
+Using the `--password` argument on the command line may expose credentials in your shell history. Consider prompting the password interactively or clear your shell history after use.
 
 ## Related topics
 

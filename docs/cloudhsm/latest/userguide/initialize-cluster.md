@@ -54,7 +54,7 @@ Console###### To get the CSR (console)
    **Create**.
 5. When the CSR is ready, you see a link to download it.
 
-![Download certificate signing request page in the AWS CloudHSM console.](/images/cloudhsm/latest/userguide/images/download-csr-hsm-cert.png) 6. Choose **Cluster CSR** to download and save the CSR.
+![Download certificate signing request page in the AWS CloudHSM console.](images/download-csr-hsm-cert.png) 6. Choose **Cluster CSR** to download and save the CSR.
 
 AWS CLI###### To get the CSR ([AWS CLI](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"))
 
