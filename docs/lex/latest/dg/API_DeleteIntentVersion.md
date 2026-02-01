@@ -126,7 +126,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/lex-models-2017-04-19/DeleteIntentVersion.md "../../../goto/cli2/lex-models-2017-04-19/DeleteIntentVersion.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/lex-models-2017-04-19/DeleteIntentVersion.md "../../../goto/DotNetSDKV3/lex-models-2017-04-19/DeleteIntentVersion.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/lex-models-2017-04-19/DeleteIntentVersion.md "../../../goto/DotNetSDKV4/lex-models-2017-04-19/DeleteIntentVersion.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/lex-models-2017-04-19/DeleteIntentVersion.md "../../../goto/SdkForCpp/lex-models-2017-04-19/DeleteIntentVersion.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/lex-models-2017-04-19/DeleteIntentVersion.md "../../../goto/SdkForGoV2/lex-models-2017-04-19/DeleteIntentVersion.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/lex-models-2017-04-19/DeleteIntentVersion.md "../../../goto/SdkForJavaV2/lex-models-2017-04-19/DeleteIntentVersion.md")

@@ -645,7 +645,7 @@ SignedHeaders=accept;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-lex
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/runtime.lex-2016-11-28/PostContent.md "../../../goto/cli2/runtime.lex-2016-11-28/PostContent.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/runtime.lex-2016-11-28/PostContent.md "../../../goto/DotNetSDKV3/runtime.lex-2016-11-28/PostContent.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/runtime.lex-2016-11-28/PostContent.md "../../../goto/DotNetSDKV4/runtime.lex-2016-11-28/PostContent.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/runtime.lex-2016-11-28/PostContent.md "../../../goto/SdkForCpp/runtime.lex-2016-11-28/PostContent.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/runtime.lex-2016-11-28/PostContent.md "../../../goto/SdkForGoV2/runtime.lex-2016-11-28/PostContent.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/runtime.lex-2016-11-28/PostContent.md "../../../goto/SdkForJavaV2/runtime.lex-2016-11-28/PostContent.md")
