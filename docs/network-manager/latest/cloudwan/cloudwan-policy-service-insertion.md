@@ -66,7 +66,7 @@ create using the console:
    only one Region, Cloud WAN uses the Region where the Inspection VPC resides
    to steer all cross-Region traffic. If the Inspection VPC exists in both
    Regions, service insertion will deterministically choose which Region to use
-   based on the default Region priority list. However, when setting the segment
+   based on the [default Region priority list](what-is-cloudwan.md#cloudwan-available-regions "what-is-cloudwan.md#cloudwan-available-regions"). However, when setting the segment
    actions, you can choose the Region priority order as well as choose the
    preferred Region to use. If the Inspection VPC doesn't exist in either
    Region, Cloud WAN uses the fallback Region specified in the segment policy.
