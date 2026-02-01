@@ -13,7 +13,9 @@ files and CloudFormation template files are the following:
 - **Globals section.** The `Globals` section
   is unique to AWS SAM. It defines properties that are common to all your serverless
   functions and APIs. All the `AWS::Serverless::Function`,
-  `AWS::Serverless::Api`, and `AWS::Serverless::SimpleTable`
+  `AWS::Serverless::Api`, `AWS::Serverless::CapacityProvider`,
+  `AWS::Serverless::HttpApi`, `AWS::Serverless::SimpleTable`,
+  and `AWS::Serverless::StateMachine`
   resources inherit the properties that are defined in the `Globals`
   section. For more information about this section, see [Globals section of the AWS SAM
   template](sam-specification-template-anatomy-globals.md "sam-specification-template-anatomy-globals.md").
@@ -90,8 +92,9 @@ see [Transform](../../../AWSCloudFormation/latest/UserGuide/transform-section-st
 
 Properties that are common to all your serverless functions, APIs, and
 simple tables. All the `AWS::Serverless::Function`,
-`AWS::Serverless::Api`, and
-`AWS::Serverless::SimpleTable` resources inherit the
+`AWS::Serverless::Api`, `AWS::Serverless::CapacityProvider`,
+`AWS::Serverless::HttpApi`, `AWS::Serverless::SimpleTable`,
+and `AWS::Serverless::StateMachine` resources inherit the
 properties that are defined in the `Globals` section.
 
 This section is unique to AWS SAM. There isn't a corresponding section in

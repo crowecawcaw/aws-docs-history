@@ -440,13 +440,13 @@ The following is an example:
 Package "aws-sam-cli-macos-arm64.pkg":
    Status: signed by a developer certificate issued by Apple for distribution
    Notarization: trusted by the Apple notary service
-   Signed with a trusted timestamp on: 2023-05-16 20:29:29 +0000
+   Signed with a trusted timestamp on: 2026-01-28 07:39:16 +0000
    Certificate Chain:
     1. Developer ID Installer: AMZN Mobile LLC (94KV3E626L)
-       Expires: 2027-06-28 22:57:06 +0000
+       Expires: 2030-09-26 00:18:06 +0000
        SHA256 Fingerprint:
-           49 68 39 4A BA 83 3B F0 CC 5E 98 3B E7 C1 72 AC 85 97 65 18 B9 4C
-           BA 34 62 BF E9 23 76 98 C5 DA
+           5C 45 BE 63 FD 52 10 07 2D 66 56 77 5C A9 FF 25 91 6D 3F 01 F7 0E
+           9A 8A 05 F6 2D 62 B2 88 8D A9
        ------------------------------------------------------------------------
     2. Developer ID Certification Authority
        Expires: 2031-09-17 00:00:00 +0000
@@ -465,7 +465,7 @@ Package "aws-sam-cli-macos-arm64.pkg":
    should match the following value:
 
 ```
-49 68 39 4A BA 83 3B F0 CC 5E 98 3B E7 C1 72 AC 85 97 65 18 B9 4C BA 34 62 BF E9 23 76 98 C5 DA
+5C 45 BE 63 FD 52 10 07 2D 66 56 77 5C A9 FF 25 91 6D 3F 01 F7 0E 9A 8A 05 F6 2D 62 B2 88 8D A9
 ```
 
 If the fingerprint string doesn’t match, do not use the AWS SAM CLI installer. Escalate

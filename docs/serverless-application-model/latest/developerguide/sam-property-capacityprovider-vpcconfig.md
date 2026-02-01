@@ -23,7 +23,9 @@ _Type_: List
 
 _Required_: Yes
 
-_CloudFormation compatibility_: This property is passed directly to the `SubnetIds` property of an `AWS::Lambda::CapacityProvider` resource.
+_CloudFormation compatibility_: This property is passed directly to the
+`SubnetIds` property of
+`VpcConfig` of an `AWS::Lambda::CapacityProvider` resource.
 
 `SecurityGroupIds`
 
@@ -33,7 +35,10 @@ _Type_: List
 
 _Required_: No
 
-_CloudFormation compatibility_: This property is passed directly to the `SecurityGroupIds` property of an `AWS::Lambda::CapacityProvider` resource.
+_CloudFormation compatibility_: This property is passed directly to the
+`SecurityGroupIds` property of
+`VpcConfig` property of an
+`AWS::Lambda::CapacityProvider` resource.
 
 ## Examples
 

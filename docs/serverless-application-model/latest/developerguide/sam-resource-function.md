@@ -197,7 +197,7 @@ _Required_: No
 _CloudFormation compatibility_: SAM flattens the property passed to the
 `CapacityProviderConfig` property of an
 `AWS::Lambda::Function` resource and reconstructs the nested
-structure..
+structure.
 
 `CodeSigningConfigArn`
 
@@ -754,7 +754,7 @@ _CloudFormation compatibility_: This property is passed directly to the
 `SnapStart` property of an `AWS::Lambda::Function`
 resource.
 
-`SourceKmsKeyArn`
+`SourceKMSKeyArn`
 
 Represents a KMS key ARN that is used to encrypt the customer's ZIP function code.
 
@@ -763,7 +763,7 @@ _Type_: String
 _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to the
-`SourceKmsKeyArn` property of an `AWS::Lambda::Function` `Code` data type.
+`SourceKMSKeyArn` property of an `AWS::Lambda::Function` `Code` data type.
 
 `Tags`
 

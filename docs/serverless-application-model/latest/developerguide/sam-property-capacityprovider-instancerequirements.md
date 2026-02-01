@@ -32,7 +32,10 @@ _Required_: No
 
 _Default_: `x86_64`
 
-_CloudFormation compatibility_: This property is passed directly to the `Architectures` property of an `AWS::Lambda::CapacityProvider` resource.
+_CloudFormation compatibility_: This property is passed directly to the
+`Architectures` property of
+`InstanceRequirements` of an
+`AWS::Lambda::CapacityProvider` resource.
 
 `AllowedTypes`
 
@@ -43,7 +46,8 @@ _Type_: List
 _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to the
-`AllowedInstanceTypes` property of an
+`AllowedInstanceTypes` property of
+`InstanceRequirements` of an
 `AWS::Lambda::CapacityProvider` resource.
 
 `ExcludedTypes`
@@ -55,7 +59,8 @@ _Type_: List
 _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to the
-`ExcludedInstanceTypes` property of an
+`ExcludedInstanceTypes` property of
+`InstanceRequirements` of an
 `AWS::Lambda::CapacityProvider` resource.
 
 ## Examples

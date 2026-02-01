@@ -24,19 +24,24 @@ _Type_: Integer
 
 _Required_: No
 
-_CloudFormation compatibility_: This property is passed directly to the `MaxVCpuCount` property of an `AWS::Lambda::CapacityProvider` resource.
+_CloudFormation compatibility_: This property is passed directly to the
+`MaxVCpuCount` property of
+`CapacityProviderScalingConfig` of an `AWS::Lambda::CapacityProvider` resource.
 
 `AverageCPUUtilization`
 
-The target average CPU utilization percentage (0-100) for scaling decisions. When the average CPU utilization exceeds this threshold, the capacity provider will scale up Amazon EC2 instances.
+The target average CPU utilization percentage (0-100) for scaling decisions. When the average CPU utilization exceeds this threshold, the capacity provider will scale up Amazon EC2 instances. When specified, AWS SAM constructs
+`CapacityProviderScalingConfig` of an
+`AWS::Lambda::CapacityProvider` resource with the
+`ScalingMode` set to `'Manual'` and
+`ScalingPolicies` set to
+`[{PredefinedMetricType: 'LambdaCapacityProviderAverageCPUUtilization', TargetValue: <this value>}]`.
 
 _Type_: Double
 
 _Required_: No
 
-_CloudFormation compatibility_: This property is passed directly to the
-`ScalingPolicies` property of an
-`AWS::Lambda::CapacityProvider` resource.
+_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
 

@@ -12,6 +12,7 @@ Instead of duplicating this information in every resource, you can declare them 
 The `Globals` section supports the following AWS SAM resource types:
 
 - `AWS::Serverless::Api`
+- `AWS::Serverless::CapacityProvider`
 - `AWS::Serverless::Function`
 - `AWS::Serverless::HttpApi`
 - `AWS::Serverless::SimpleTable`
@@ -80,19 +81,32 @@ Globals:
     TracingEnabled:
     Variables:
 
+  CapacityProvider:
+    InstanceRequirements:
+    KmsKeyArn:
+    OperatorRole:
+    PropagateTags:
+    ScalingConfig:
+    Tags:
+    VpcConfig:
+
   Function:
     Architectures:
     AssumeRolePolicyDocument:
     AutoPublishAlias:
+    AutoPublishAliasAllProperties:
+    CapacityProviderConfig:
     CodeSigningConfigArn:
     CodeUri:
     DeadLetterQueue:
     DeploymentPreference:
     Description:
+    DurableConfig:
     Environment:
     EphemeralStorage:
     EventInvokeConfig:
     FileSystemConfigs:
+    FunctionScalingConfig:
     FunctionUrlConfig:
     Handler:
     KmsKeyArn:
@@ -102,6 +116,7 @@ Globals:
     PermissionsBoundary:
     PropagateTags:
     ProvisionedConcurrencyConfig:
+    PublishToLatestPublished:
     RecursiveLoop:
     ReservedConcurrentExecutions:
     RolePath:
@@ -113,6 +128,7 @@ Globals:
     TenancyConfig:
     Timeout:
     Tracing:
+    VersionDeletionPolicy:
     VpcConfig:
 
   HttpApi:
