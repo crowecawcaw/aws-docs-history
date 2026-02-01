@@ -190,7 +190,7 @@ HTTP Status Code: 400
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/personalize-2018-05-22/CreateBatchSegmentJob.md "../../../goto/cli2/personalize-2018-05-22/CreateBatchSegmentJob.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/personalize-2018-05-22/CreateBatchSegmentJob.md "../../../goto/DotNetSDKV3/personalize-2018-05-22/CreateBatchSegmentJob.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/personalize-2018-05-22/CreateBatchSegmentJob.md "../../../goto/DotNetSDKV4/personalize-2018-05-22/CreateBatchSegmentJob.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/CreateBatchSegmentJob.md "../../../goto/SdkForCpp/personalize-2018-05-22/CreateBatchSegmentJob.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/personalize-2018-05-22/CreateBatchSegmentJob.md "../../../goto/SdkForGoV2/personalize-2018-05-22/CreateBatchSegmentJob.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/CreateBatchSegmentJob.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/CreateBatchSegmentJob.md")
