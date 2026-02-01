@@ -56,8 +56,8 @@ connection to access your source code repositories.
 
 ###### Note
 
-The AWS CodeConnections service is not available in the TLV region. For this region, configure service
-IAD connections to create workflows or workflow versions from a repository.
+The AWS CodeConnections service is not available in the il-central-1 region. For this region, configure service
+us-east-1 to create workflows or workflow versions from a repository.
 
 ### Create a connection
 

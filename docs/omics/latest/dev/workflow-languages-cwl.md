@@ -17,6 +17,8 @@ hardcode the dockerPull entry with a fixed Amazon ECR URI.
 
 - [Convert CWL workflows to use HealthOmics](#workflow-cwl-convert "#workflow-cwl-convert")
 - [Opt out of task retry using omicsRetryOn5xx](#workflow-cwl-retry-5xx "#workflow-cwl-retry-5xx")
+- [Loop a workflow step](#workflow-cwl-loop "#workflow-cwl-loop")
+- [Retry tasks with increased memory](#workflow-cwl-out-of-memory-retry "#workflow-cwl-out-of-memory-retry")
 - [Examples](#workflow-cwl-examples "#workflow-cwl-examples")
 
 ## Convert CWL workflows to use HealthOmics
@@ -96,6 +98,53 @@ steps:
           omicsRetryOn5xx: false
 
 ```
+
+## Loop a workflow step
+
+HealthOmics supports looping a workflow step. You can use loops to run workflow steps repeatedly until a specified condition is met. This is useful for iterative processes where you need to repeat a task multiple times or until a certain result is achieved.
+
+**Note:** Loop functionality requires CWL version 1.2 or later. Workflows using CWL versions earlier than 1.2 do not support loop operations.
+
+To use loops in your CWL workflow, define a Loop requirement. The following example shows the loop requirement configuration:
+
+```
+requirements:
+  - class: "http://commonwl.org/cwltool#Loop"
+    loopWhen: $(inputs.counter < inputs.max)
+    loop:
+      counter:
+        loopSource: result
+        valueFrom: $(self)
+    outputMethod: last
+```
+
+The `loopWhen` field controls when the loop terminates. In this example, the loop continues as long as the counter is less than the maximum value. The `loop` field defines how input parameters are updated between iterations. The `loopSource` specifies which output from the previous iteration feeds into the next iteration. The `outputMethod` field set to `last` returns only the final iteration's output.
+
+## Retry tasks with increased memory
+
+HealthOmics supports automatic retry of out-of-memory task failures. When a task exits with code 137 (out-of-memory), HealthOmics creates a new task with increased memory allocation based on the specified multiplier.
+
+###### Note
+
+HealthOmics retries out-of-memory failures up to 3 times or until the memory allocation reaches 1536 GiB, whichever limit is reached first.
+
+The following example shows how to configure out-of-memory retry:
+
+```
+hints:
+  ResourceRequirement:
+    ramMin: 4096
+  http://arvados.org/cwl#OutOfMemoryRetry:
+    memoryRetryMultiplier: 2.5
+```
+
+When a task fails due to out-of-memory, HealthOmics calculates the retry memory allocation using the formula: `previous_run_memory × memoryRetryMultiplier`. In the example above, if the task with 4096 MB of memory fails, the retry attempt uses 4096 × 2.5 = 10,240 MB of memory.
+
+The `memoryRetryMultiplier` parameter controls how much additional memory to allocate for retry attempts:
+
+- **Default value:** If you don't specify a value, it defaults to `2` (doubles the memory)
+- **Valid range:** Must be a positive number greater than `1`. Invalid values result in a 4XX validation error
+- **Minimum effective value:** Values between `1` and `1.5` are automatically increased to `1.5` to ensure meaningful memory increases and prevent excessive retry attempts
 
 ## Examples
 
