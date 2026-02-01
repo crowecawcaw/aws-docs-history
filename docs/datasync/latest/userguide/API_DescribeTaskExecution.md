@@ -902,7 +902,7 @@ mode.
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
 
 - [AWS Command Line Interface V2](../../../goto/cli2/datasync-2018-11-09/DescribeTaskExecution.md "../../../goto/cli2/datasync-2018-11-09/DescribeTaskExecution.md")
-- [AWS SDK for .NET](../../../goto/DotNetSDKV3/datasync-2018-11-09/DescribeTaskExecution.md "../../../goto/DotNetSDKV3/datasync-2018-11-09/DescribeTaskExecution.md")
+- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/datasync-2018-11-09/DescribeTaskExecution.md "../../../goto/DotNetSDKV4/datasync-2018-11-09/DescribeTaskExecution.md")
 - [AWS SDK for C++](../../../goto/SdkForCpp/datasync-2018-11-09/DescribeTaskExecution.md "../../../goto/SdkForCpp/datasync-2018-11-09/DescribeTaskExecution.md")
 - [AWS SDK for Go v2](../../../goto/SdkForGoV2/datasync-2018-11-09/DescribeTaskExecution.md "../../../goto/SdkForGoV2/datasync-2018-11-09/DescribeTaskExecution.md")
 - [AWS SDK for Java V2](../../../goto/SdkForJavaV2/datasync-2018-11-09/DescribeTaskExecution.md "../../../goto/SdkForJavaV2/datasync-2018-11-09/DescribeTaskExecution.md")
