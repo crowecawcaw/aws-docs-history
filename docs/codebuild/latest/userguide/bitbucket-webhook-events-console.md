@@ -40,7 +40,7 @@ that match the regular expression `^buildspec.*` change.
 In this example, a webhook filter group triggers a build only when files are changed in
 `src` or `test` folders.
 
-![A webhook filter group that triggers a build only when files are changed in specified folders.](images/pull-request-webhook-filter-file-name-combined-regex.png)
+![A webhook filter group that triggers a build only when files are changed in specified folders.](/images/codebuild/latest/userguide/images/pull-request-webhook-filter-file-name-combined-regex.png)
 In this example, a webhook filter group triggers a build only when a change is made by
 a Bitbucket user who does not have an account ID that matches the regular expression
 `actor-account-id`.
