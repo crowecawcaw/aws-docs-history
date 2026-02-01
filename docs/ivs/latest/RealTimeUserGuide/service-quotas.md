@@ -20,44 +20,47 @@ API call rate quotas are not adjustable.
 
 ## API Call Rate Quotas
 
-| Operation Type       | Operation                    | Default |
-| -------------------- | ---------------------------- | ------- |
-| Composition          | `GetComposition`             | 5 TPS   |
-| Composition          | `ListCompositions`           | 5 TPS   |
-| Composition          | `StartComposition`           | 5 TPS   |
-| Composition          | `StopComposition`            | 5 TPS   |
-| IngestConfiguration  | `CreateIngestConfiguration`  | 5 TPS   |
-| IngestConfiguration  | `DeleteIngestConfiguration`  | 5 TPS   |
-| IngestConfiguration  | `GetIngestConfiguration`     | 5 TPS   |
-| IngestConfiguration  | `ListIngestConfigurations`   | 5 TPS   |
-| IngestConfiguration  | `UpdateIngestConfiguration`  | 5 TPS   |
-| MediaEncoder         | `CreateEncoderConfiguration` | 5 TPS   |
-| MediaEncoder         | `DeleteEncoderConfiguration` | 5 TPS   |
-| MediaEncoder         | `GetEncoderConfiguration`    | 5 TPS   |
-| MediaEncoder         | `ListEncoderConfigurations`  | 5 TPS   |
-| PublicKey            | `DeletePublicKey`            | 3 TPS   |
-| PublicKey            | `GetPublicKey`               | 3 TPS   |
-| PublicKey            | `ImportPublicKey`            | 3 TPS   |
-| PublicKey            | `ListPublicKeys`             | 3 TPS   |
-| Stage                | `CreateParticipantToken`     | 50 TPS  |
-| Stage                | `CreateStage`                | 5 TPS   |
-| Stage                | `DeleteStage`                | 5 TPS   |
-| Stage                | `DisconnectParticipant`      | 5 TPS   |
-| Stage                | `GetParticipant`             | 5 TPS   |
-| Stage                | `GetStage`                   | 5 TPS   |
-| Stage                | `GetStageSession`            | 5 TPS   |
-| Stage                | `ListStages`                 | 5 TPS   |
-| Stage                | `UpdateStage`                | 5 TPS   |
-| Stage                | `ListParticipants`           | 5 TPS   |
-| Stage                | `ListParticipantEvents`      | 5 TPS   |
-| Stage                | `ListStageSessions`          | 5 TPS   |
-| StorageConfiguration | `CreateStorageConfiguration` | 5 TPS   |
-| StorageConfiguration | `DeleteStorageConfiguration` | 5 TPS   |
-| StorageConfiguration | `GetStorageConfiguration`    | 5 TPS   |
-| StorageConfiguration | `ListStorageConfigurations`  | 5 TPS   |
-| Tags                 | `ListTagsForResource`        | 10 TPS  |
-| Tags                 | `TagResource`                | 10 TPS  |
-| Tags                 | `UntagResource`              | 10 TPS  |
+| Operation Type         | Operation                     | Default |
+| ---------------------- | ----------------------------- | ------- |
+| Composition            | `GetComposition`              | 5 TPS   |
+| Composition            | `ListCompositions`            | 5 TPS   |
+| Composition            | `StartComposition`            | 5 TPS   |
+| Composition            | `StopComposition`             | 5 TPS   |
+| IngestConfiguration    | `CreateIngestConfiguration`   | 5 TPS   |
+| IngestConfiguration    | `DeleteIngestConfiguration`   | 5 TPS   |
+| IngestConfiguration    | `GetIngestConfiguration`      | 5 TPS   |
+| IngestConfiguration    | `ListIngestConfigurations`    | 5 TPS   |
+| IngestConfiguration    | `UpdateIngestConfiguration`   | 5 TPS   |
+| MediaEncoder           | `CreateEncoderConfiguration`  | 5 TPS   |
+| MediaEncoder           | `DeleteEncoderConfiguration`  | 5 TPS   |
+| MediaEncoder           | `GetEncoderConfiguration`     | 5 TPS   |
+| MediaEncoder           | `ListEncoderConfigurations`   | 5 TPS   |
+| ParticipantReplication | `ListParticipantReplicas`     | 5 TPS   |
+| ParticipantReplication | `StartParticipantReplication` | 5 TPS   |
+| ParticipantReplication | `StopParticipantReplication`  | 5 TPS   |
+| PublicKey              | `DeletePublicKey`             | 3 TPS   |
+| PublicKey              | `GetPublicKey`                | 3 TPS   |
+| PublicKey              | `ImportPublicKey`             | 3 TPS   |
+| PublicKey              | `ListPublicKeys`              | 3 TPS   |
+| Stage                  | `CreateParticipantToken`      | 50 TPS  |
+| Stage                  | `CreateStage`                 | 5 TPS   |
+| Stage                  | `DeleteStage`                 | 5 TPS   |
+| Stage                  | `DisconnectParticipant`       | 5 TPS   |
+| Stage                  | `GetParticipant`              | 5 TPS   |
+| Stage                  | `GetStage`                    | 5 TPS   |
+| Stage                  | `GetStageSession`             | 5 TPS   |
+| Stage                  | `ListStages`                  | 5 TPS   |
+| Stage                  | `UpdateStage`                 | 5 TPS   |
+| Stage                  | `ListParticipants`            | 5 TPS   |
+| Stage                  | `ListParticipantEvents`       | 5 TPS   |
+| Stage                  | `ListStageSessions`           | 5 TPS   |
+| StorageConfiguration   | `CreateStorageConfiguration`  | 5 TPS   |
+| StorageConfiguration   | `DeleteStorageConfiguration`  | 5 TPS   |
+| StorageConfiguration   | `GetStorageConfiguration`     | 5 TPS   |
+| StorageConfiguration   | `ListStorageConfigurations`   | 5 TPS   |
+| Tags                   | `ListTagsForResource`         | 10 TPS  |
+| Tags                   | `TagResource`                 | 10 TPS  |
+| Tags                   | `UntagResource`               | 10 TPS  |
 
 ## Other Quotas
 
