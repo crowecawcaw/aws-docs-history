@@ -18,6 +18,11 @@ You have a quota of certificates that you can create over a 365-day period. For 
 
 distribution
 
+###### Important
+
+The **Delete** option is unavailable if the certificate you want to delete is in use. To delete certificates that are in use, you must
+first change the custom domains of the distribution that are using the certificate, or disable custom domains on the distribution that are using the certificate.
+
 Complete the following procedure to delete an SSL/TLS certificate for your
 distribution.
 

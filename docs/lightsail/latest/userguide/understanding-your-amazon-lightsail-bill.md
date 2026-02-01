@@ -42,21 +42,29 @@ code, see the [Region
 codes in your bill](#amazon-lightsail-region-codes-in-bill "#amazon-lightsail-region-codes-in-bill") section of this guide to identify the corresponding
 AWS Region.
 
-- **Amazon Lightsail Bundle:SizeGB:** The Linux or Unix
-  instance plan used (in hours). The **Size** defines the
+- **Amazon Lightsail Bundle:{Size}GB:** The Linux or Unix
+  instance plan used (in hours). The **{Size}** defines the
   memory specification of the instance plan used. For example, if **4GB** of memory is specified, then the billed hours for the $24 USD/month
   Linux or Unix instance plan is displayed.
-- **Amazon Lightsail Bundle:SizeGB (Windows):** The Windows
-  instance plan used (in hours). The **Size** defines the
+- **Amazon Lightsail Bundle:{Size}GB (Windows):** The Windows
+  instance plan used (in hours). The **{Size}** defines the
   memory specification of the instance plan used. For example, if **4GB** of memory is specified, then the billed hours for the $44 USD/month
   Windows instance plan is displayed.
-- **Amazon Lightsail RelationalDatabase:SizeGB:** The
-  standard database plans used (in hours). The **Size** defines
+- **Amazon Lightsail MemoryOptimizedBundle:{Size}GB:** The Linux or Unix memory-optimized
+  instance plan used (in hours). The **{Size}** defines the
+  memory specification of the memory-optimized instance plan used. For example, if **16GB** of memory is specified, then the billed hours for the $74 USD/month
+  Linux or Unix memory-optimized instance plan is displayed.
+- **Amazon Lightsail MemoryOptimizedBundle:{Size}GB (Windows):** The Windows
+  memory-optimized instance plan used (in hours). The **{Size}** defines the
+  memory specification of the memory-optimized instance plan used. For example, if **16GB** of memory is specified, then the billed hours for the $134 USD/month
+  Windows memory-optimized instance plan is displayed.
+- **Amazon Lightsail RelationalDatabase:{Size}GB:** The
+  standard database plans used (in hours). The **{Size}** defines
   the memory specification of the database plan used. For example, if **4GB** of memory is specified, then the billed hours for the $60 USD/month
   standard database plan is displayed.
-- **Amazon Lightsail RelationalDatabase:SizeGB (high
+- **Amazon Lightsail RelationalDatabase:{Size}GB (high
   availability):** The high availability database plans used (in hours). The
-  **Size** defines the memory specification of the database
+  **{Size}** defines the memory specification of the database
   plan used. For example, if **4GB** of memory is specified,
   then the billed hours for the $120 USD/month high availability database plan is
   displayed.
