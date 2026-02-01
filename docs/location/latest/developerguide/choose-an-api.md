@@ -52,7 +52,7 @@ experience in search functions. For more information, See [Amazon Location Servi
   place names into geographic coordinates (longitude, latitude),
   supporting applications that require address-to-location
   transformation for mapping and spatial analysis. For more
-  information, see [Reverse Geocode](reverse-geocode.md "reverse-geocode.md").
+  information, see [Geocode](geocode.md "geocode.md").
 - **Reverse Geocode**: Converts
   geographic coordinates to the nearest address or place name,
   providing context for a location. For more information, See [Reverse Geocode](reverse-geocode.md "reverse-geocode.md").
