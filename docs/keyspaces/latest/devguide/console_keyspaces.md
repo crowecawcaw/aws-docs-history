@@ -11,7 +11,9 @@ You can use the console to do the following in Amazon Keyspaces:
   - Billable table size (Bytes)
   - Capacity metrics
 
-- Run queries using the CQL editor, for example insert, update, and delete data.
+- Run queries using the CQL editor or through the [integrated AWS CloudShell
+  experience](console_cloudshell_integration.md "console_cloudshell_integration.md"), for example insert, update, and delete data.
+- Connect to Amazon Keyspaces directly through AWS CloudShell with integrated CQLSH support.
 - Change the partitioner configuration of the account.
 - View performance and error metrics for the account on the dashboard.
   To learn how to create an Amazon Keyspaces keyspace and table and set it up with sample
