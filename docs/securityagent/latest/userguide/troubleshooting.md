@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Find solutions to commonly seen errors when using AWS Security Agent for code reviews.
+Find solutions to commonly seen errors when using AWS Security Agent.
 
 ## Access Denied: Incorrect GitHub account type selected or incorrect organization name specified
 
@@ -33,6 +33,13 @@ Possible solutions:
 
 - Have an owner approve your installation request BEFORE you try to create the integration
 - Have an owner update your role in the GitHub organization from a `Member` to an `Owner` and restart the integration process again
+
+## Agent cannot connect to endpoint during a penetration test
+
+If the penetration test agent is unable to make calls to the configured target URL or fails to successfully navigate the target endpoint:
+
+- If your endpoint makes calls to domains outside the configured target URL, verify the additional domains are added as **Additional allowed domains** in your pentest configuration
+- Penetration testing is currently only available for HTTP/HTTPS endpoints serving traffic on ports 80 or 443
 
 ## Getting additional help
 

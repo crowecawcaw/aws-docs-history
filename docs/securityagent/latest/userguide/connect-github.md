@@ -1,6 +1,6 @@
 # Connect AWS Security Agent to GitHub repositories
 
-Connect your AWS Security Agent to GitHub repositories to enable code review and penetration testing capabilities. GitHub integration serves multiple purposes:
+Connect your AWS Security Agent to GitHub repositories to enable code review and penetration testing capabilities. AWS Security Agent supports both cloud-hosted GitHub and cloud-hosted GitHub Enterprise. GitHub integration serves multiple purposes:
 
 - **Code review** - Automatically analyze pull requests against your organizational security requirements
 - **Penetration testing context** - Provide application understanding by analyzing source code, data flows, and architecture
