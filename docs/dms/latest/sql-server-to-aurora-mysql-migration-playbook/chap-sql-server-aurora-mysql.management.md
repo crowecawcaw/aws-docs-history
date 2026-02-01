@@ -1,128 +1,73 @@
-# Monitoring features
+# Viewing server logs
 
-This topic provides reference information about monitoring and performance management for Microsoft SQL Server and Amazon Aurora MySQL databases. You can learn about the different monitoring capabilities and tools available for each database system, including SQL Server’s dynamic management views and integration with Amazon CloudWatch and Performance Insights.
+This topic provides reference information about logging capabilities in SQL Server and Amazon Aurora MySQL. You can gain insights into how these database systems handle error logging, slow query logging, and general logging.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                                                                                                                  |
-| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") in the _Amazon Relational Database Service User Guide_. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                          |
+| -------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| Three star feature compatibility | N/A                                | N/A                       | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. |
 
 ## SQL Server Usage
 
-Monitoring server performance and behavior is a critical aspect of maintaining service quality and includes ad-hoc data collection, ongoing data collection, root cause analysis, preventative actions, and reactive actions. SQL Server provides an array of interfaces to monitor and collect server data.
+SQL Server logs system and user generated events to the _SQL Server Error Log_ and to the _Windows Application Log_. It logs recovery messages, kernel messages, security events, maintenance events, and other general server level error and informational messages. The Windows Application Log contains events from all windows applications including SQL Server and SQL Server agent.
 
-SQL Server 2017 introduces several new dynamic management views:
+SQL Server Management Studio Log Viewer unifies all logs into a single consolidated view. You can also view the logs with any text editor.
 
-- `sys.dm_db_log_stats` exposes summary level attributes and information on transaction log files, helpful for monitoring transaction log health.
-- `sys.dm_tran_version_store_space_usage` tracks version store usage for each database, useful for proactively planning `tempdb` sizing based on the version store usage for each database.
-- `sys.dm_db_log_info` exposes VLF information to monitor, alert, and avert potential transaction log issues.
-- `sys.dm_db_stats_histogram` is a new dynamic management view for examining statistics.
-- `sys.dm_os_host_info` provides operating system information for both Windows and Linux.
+Administrators typically use the SQL Server Error Log to confirm successful completion of processes, such as backup or batches, and to investigate the cause of run time errors. These logs can help detect current risks or potential future problem areas.
 
-SQL Server 2019 adds new configuration parameter, `LIGHTWEIGHT_QUERY_PROFILING`. It turns on or turns off the lightweight query profiling infrastructure. The lightweight query profiling infrastructure (LWP) provides query performance data more efficiently than standard profiling mechanisms and is enabled by default. For more information, see [Query Profiling Infrastructure](https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-profiling-infrastructure?view=sql-server-ver15") in the _SQL Server documentation_.
+To view the log for SQL Server, SQL Server Agent, Database Mail, and Windows applications, open the SQL Server Management Studio Object Explorer pane, navigate to **Management**, **SQL Server Logs**, and choose the current log.
 
-### Windows Operating System Level Tools
+The following table identifies some common error codes database administrators typically look for in the error logs:
 
-You can use the Windows Scheduler to trigger run of script files such as CMD, PowerShell, and so on to collect, store, and process performance data.
+| Error code | Error message                 |
+| ---------- | ----------------------------- |
+| 1105       | Couldn’t allocate space.      |
+| 3041       | Backup failed.                |
+| 9002       | Transaction log full.         |
+| 14151      | Replication agent failed.     |
+| 17053      | Operating system error.       |
+| 18452      | Login failed.                 |
+| 9003       | Possible database corruption. |
 
-System Monitor is a graphical tool for measuring and recording performance of SQL Server and other Windows-related metrics using the Windows Management Interface (WMI) performance objects.
+### Examples
 
-###### Note
+The following screenshot shows the typical log file viewer content:
 
-Performance objects can also be accessed directly from T-SQL using the SQL Server Operating System Related DMVs. For a full list of the DMVs, see [SQL Server Operating System Related Dynamic Management Views (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sql-server-operating-system-related-dynamic-management-views-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+![Log file viewer](images/pb-sql-server-aurora-mysql-log-file-viewer.png)
 
-Performance counters exist for real-time measurements such as CPU Utilization and for aggregated history such as average active transactions. For a full list of the object hierarchy, see: [Use SQL Server Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### SQL Server Extended Events
-
-SQL Server latest tracing framework provides very lightweight and robust event collection and storage. SQL Server Management Studio features the New Session Wizard and New Session graphic user interfaces for managing and analyzing captured data. SQL Server Extended Events consists of the following items:
-
-- SQL Server Extended Events Package is a logical container for Extended Events objects.
-- SQL Server Extended Events Targets are consumers of events. Targets include Event File, which writes data to the file Ring Buffer for retention in memory, or for processing aggregates such as Event Counters and Histograms.
-- SQL Server Extended Events Engine is a collection of services and tools that comprise the framework.
-- SQL Server Extended Events Sessions are logical containers mapped many-to-many with packages, events, and filters.
-
-The following example creates a session that logs lock escalations and lock timeouts to a file.
-
-```
-CREATE EVENT SESSION Locking_Demo
-ON SERVER
-    ADD EVENT sqlserver.lock_escalation,
-    ADD EVENT sqlserver.lock_timeout
-    ADD TARGET package0.etw_classic_sync_target
-        (SET default_etw_session_logfile_path = N'C:\ExtendedEvents\Locking\Demo_20180502.etl')
-    WITH (MAX_MEMORY=8MB, MAX_EVENT_SIZE=8MB);
-GO
-```
-
-### SQL Server Tracing Framework and the SQL Server Profiler Tool
-
-The SQL Server trace framework is the predecessor to the Extended Events framework and remains popular among database administrators. The lighter and more flexible Extended Events Framework is recommended for development of new monitoring functionality. For more information, see [SQL Server Profiler](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### SQL Server Management Studio
-
-SQL Server Management Studio (SSMS) provides several monitoring extensions:
-
-- **SQL Server Activity Monitor** is an in-process, real-time, basic high-level information graphical tool.
-- **Query Graphical Show Plan** provides easy exploration of estimated and actual query run plans.
-- **Query Live Statistics** displays query run progress in real time.
-- **Replication Monitor** presents a publisher-focused view or distributor-focused view of all replication activity. For more information, see [Overview of the Replication Monitor Interface](https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/overview-of-the-replication-monitor-interface?view=sql-server-ver15") in the _SQL Server documentation_.
-- **Log Shipping Monitor** displays the status of any log shipping activity whose status is available from the server instance to which you are connected. For more information, see [View the Log Shipping Report (SQL Server Management Studio)](https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/view-the-log-shipping-report-sql-server-management-studio?view=sql-server-ver15") in the _SQL Server documentation_.
-- **Standard Performance Reports** is set of reports that show the most important performance metrics such as change history, memory usage, activity, transactions, HA, and more.
-
-### T-SQL
-
-From the T-SQL interface, SQL Server provides many system stored procedures, system views, and functions for monitoring data.
-
-System stored procedures such as `sp_who` and `sp_lock` provide real-time information. The `sp_monitor` procedure provides aggregated data.
-
-Built in functions such as `@@CONNECTIONS`, `@@IO_BUSY`, `@@TOTAL_ERRORS`, and others provide high level server information.
-
-A rich set of System Dynamic Management functions and views are provided for monitoring almost every aspect of the server. These functions reside in the sys schema and are prefixed with `dm_string`. For more information, see [System Dynamic Management Views](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### Trace Flags
-
-You can set trace flags to log events. For example, set trace flag 1204 to log deadlock information. For more information, see [DBCC TRACEON - Trace Flags (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
-
-### SQL Server Query Store
-
-Query Store is a database-level framework supporting automatic collection of queries, run plans, and run time statistics. This data is stored in system tables. You can use this data to diagnose performance issues, understand patterns, and understand trends. It can also be set to automatically revert plans when a performance regression is detected.
-
-For more information, see [Monitoring performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Monitoring the Error Logs](https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15") in the _SQL Server documentation_.
 
 ## MySQL Usage
 
-The native features for monitoring MySQL databases such as innodb logging and the performance schema are turned off for Aurora MySQL. Most third-party tools that rely on these features can’t be used. Some vendors provide monitoring services specifically for Aurora MySQL.
+Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides administrators with access to the MySQL error log, slow query log, and the general log.
 
-However, Amazon RDS provides a very rich monitoring infrastructure for Aurora MySQL clusters and instances with the native Amazon CloudWatch service.
+The MySQL Error Log is generated by default. To generate the slow query and general logs, set the corresponding parameters in the database parameter group. For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md").
 
-These services are improved frequently.
+You can view Aurora MySQL logs directly from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. You can also direct the logs to a database table in the main database and use SQL queries to view the data. To download a binary log, use the `mysqlbinlog` utility.
 
-Amazon RDS Performance Insights, an advanced database performance monitoring feature that makes it easy to diagnose and solve performance challenges on Amazon RDS databases, now supports additional counter metrics on Amazon RDS for MySQL and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL). With counter metrics, you can customize the Performance Insights dashboard to include up to 10 additional graphs that show a selection from dozens of operating system and database performance metrics. Counter metrics provide additional information that can be correlated with the database load chart to help identify performance issues and analyze performance. For more information, see [Performance Insights](https://aws.amazon.com/rds/performance-insights/ "https://aws.amazon.com/rds/performance-insights/").
+The system writes error events to the `mysql-error.log` file, which you can view using the Amazon RDS console. Alternatively, you can use the Amazon RDS API, the Amazon RDS CLI, or the AWS SDKs retrieve to retrieve the log.
 
-![Performance Insights](images/pb-sql-server-aurora-mysql-performance-insights.png)
+The `mysql-error.log` file buffers are flushed every five minutes and are appended to the `filemysql-error-running.log`. The `mysql-error-running.log` file is rotated every hour and retained for 24 hours.
 
-To turn on Performance Insight for your instance, use the step-by-step walkthrough. For more information, see [Turning Performance Insights on and off](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md#USER_PerfInsights.Enabling.Console.Modifying "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.md#USER_PerfInsights.Enabling.Console.Modifying") in the _Amazon Relational Database Service User Guide_.
+Aurora MySQL writes to the error log only on server startup, server shutdown, or when an error occurs. A database instance may run for long periods without generating log entries.
 
-When the Performance Schema is turned on for Aurora MySQL, Performance Insights provides more detailed information. For example, Performance Insights displays DB load categorized by detailed wait events. When Performance Schema is turned off, Performance Insights displays DB load categorized by the list state of the MySQL process.
+You can turn on and configure the Aurora MySQL Slow Query and general logs to write log entries to a file or a database table by setting the corresponding parameters in the database parameter group. The following list identifies he parameters that control the log options:
 
-The Performance Schema stores many useful metrics that will help you analyze and solve performance related issues.
+- `slow_query_log` — Set to 1 to create the Slow Query Log. The default is 0.
+- `general_log` — Set to 1 to create the General Log. The default is 0.
+- `long_query_time` — Specify a value in seconds for the shortest query run time to be logged. The default is 10 seconds; the minimum is 0.
+- `log_queries_not_using_indexes` — Set to 1 to log all queries not using indexes to the slow query log. The default is 0. Queries using indexes are logged even if their run time is less than the value of the `long_query_time` parameter.
+- `log_output` — Specify one of the following options:
+  - **TABLE** — Write general queries to the `mysql.general_log` table and slow queries to the `mysql.slow_log` table. This option is set by default.
+  - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
+  - **NONE** — Disable logging.
 
-You have the following options for enabling the Performance Schema:
+### Examples
 
-- Allow Performance Insights to manage required parameters automatically. When you create an Aurora MySQL DB instance with Performance Insights enabled, Performance Schema is turned on automatically. In this case, Performance Insights automatically manages your parameters.
+The following walkthrough demonstrates how to view the Aurora PostgreSQL error logs in the Amazon RDS console.
 
-###### Note
+1. In the AWS console, choose **RDS**, and then choose **Databases**.
+2. Choose the instance for which you want to view the error log.
 
-In this scenario, Performance Insights changes schema-related parameters on the DB instance. These changes aren’t visible in the parameter group associated with the DB instance. However, these changes are visible in the output of the `SHOW GLOBAL VARIABLES` command.
+![Log file viewer](images/pb-sql-server-aurora-mysql-view-error-log.png) 3. Scroll down to the logs section and choose the log name. The log viewer displays the log content.
 
-- Set the required parameters yourself. For Performance Insights to list wait events, you must set all parameters as shown in the following table.
-
-| Parameter name                                       | Value                                              |
-| ---------------------------------------------------- | -------------------------------------------------- |
-| `performance_schema`                                 | 1 (the Source column has the value engine-default) |
-| `performance-schema-consumer-events-waits-current`   | ON                                                 |
-| `performance-schema-instrument`                      | `wait/%=ON`                                        |
-| `performance-schema-consumer-global-instrumentation` | ON                                                 |
-| `performance-schema-consumer-thread-instrumentation` | ON                                                 |
-
-For more information, see [Server Options](chap-sql-server-aurora-mysql.configuration.md "chap-sql-server-aurora-mysql.configuration.md") and [Performance Schema Quick Start](https://dev.mysql.com/doc/refman/5.7/en/performance-schema-quick-start.html "https://dev.mysql.com/doc/refman/5.7/en/performance-schema-quick-start.html") in the _MySQL documentation_, [Monitoring metrics in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md") and [Monitoring OS metrics with Enhanced Monitoring](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.md") in the _Amazon Relational Database Service User Guide_.
+For more information, see [MySQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.md") in the _Amazon Relational Database Service User Guide_.
