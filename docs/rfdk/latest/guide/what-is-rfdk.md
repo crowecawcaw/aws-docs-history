@@ -231,9 +231,9 @@ export class BareBonesDeadlineRenderFarm extends cdk.Stack {
 
 The RFDK is available today on:
 
-- The official RFDK GitHub — [https://github.com/aws/aws-rfdk](https://github.com/aws/aws-rfdk "https://github.com/aws/aws-rfdk")  — contributions welcome!
-- [pypi.org](http://pypi.org/ "http://pypi.org/") for Python developers to use via pip — [https://pypi.org/project/aws-rfdk](https://pypi.org/project/aws-rfdk "https://pypi.org/project/aws-rfdk")
-- [npmjs.org](http://npmjs.org/ "http://npmjs.org/") for Node.js developers to use via npm — [https://www.npmjs.com/package/aws-rfdk](https://www.npmjs.com/package/aws-rfdk "https://www.npmjs.com/package/aws-rfdk")
+- The official RFDK GitHub — https://github.com/aws/aws-rfdk  — contributions welcome!
+- [pypi.org](http://pypi.org/ "http://pypi.org/") for Python developers to use via pip — https://pypi.org/project/aws-rfdk
+- [npmjs.org](http://npmjs.org/ "http://npmjs.org/") for Node.js developers to use via npm — https://www.npmjs.com/package/aws-rfdk
 
 ## Additional documentation and resources
 

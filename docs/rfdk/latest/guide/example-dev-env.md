@@ -74,7 +74,7 @@ This panel provides an interactive terminal session where you can run arbitrary 
 You can toggle it being open or closed with the **F6** keyboard shortcut.
 
 By default, Cloud9 EC2 environments come preconfigured with almost all of the required [Prerequisites](getting-started.md#prerequisites "getting-started.md#prerequisites") for working with RFDK, except for the version of NodeJS.
-We recommend using the [LTS release]([https://nodejs.org/en/about/releases/](https://nodejs.org/en/about/releases/ "https://nodejs.org/en/about/releases/")) of NodeJS, which can be installed and configured with the following commands:
+We recommend using the [LTS release](https://nodejs.org/en/about/releases/) of NodeJS, which can be installed and configured with the following commands:
 
 ```
 nvm install 14
