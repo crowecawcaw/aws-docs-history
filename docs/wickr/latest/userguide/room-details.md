@@ -11,7 +11,7 @@ Complete the following steps to view room or group details and settings.
 2. In the navigation pane, locate and choose the name of the room or group for
    which you want to view details.
 3. Choose
-   ![Information icon](images/icon-wickr-room-information.png)
+   ![Information icon](/images/wickr/latest/userguide/images/icon-wickr-room-information.png)
    in the room or group window to view details.
 
 The **Room Details** pane displays the room's name, message
