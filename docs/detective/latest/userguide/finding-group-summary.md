@@ -3,7 +3,8 @@
 AI
 
 By default, Amazon Detective automatically provides summaries of an individual finding group.
-The summaries are powered by generative artificial intelligence (generative AI) models hosted on [Amazon Bedrock](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md").
+The summaries are powered by generative artificial intelligence (generative AI) models hosted on [Amazon Bedrock](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md"). Finding Group Summary
+is available at no extra cost if Detective is enabled.
 
 ###### Note
 
