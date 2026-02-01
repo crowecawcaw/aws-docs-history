@@ -205,51 +205,125 @@ By default, WorkSpaces enables Basic remote printing, which offers limited print
 capabilities because it uses a generic printer driver on the host side to ensure
 compatible printing.
 
-Advanced remote printing for Windows clients (not available for DCV)
-lets you use specific features of your printer, such as double-sided printing,
-but it requires installation of the matching printer driver on the host
-side.
+Advanced remote printing for Windows clients connecting to Windows WorkSpaces
+lets you use specific features of your printer, such as double-sided printing, but
+it requires installation of the matching printer drivers on the host side and the
+client side.
 
-Remote printing is implemented as a virtual channel. If virtual channels are
-disabled, remote printing does not function.
+You can use Group Policy settings to configure printer support as needed.
 
-For Windows WorkSpaces, you can use Group Policy settings to configure printer
-support as needed.
+| Basic vs. Advanced Printing | Aspect                 | Basic Printing                                                        | Advanced Printing |
+| --------------------------- | ---------------------- | --------------------------------------------------------------------- | ----------------- |
+| **Driver Used**             | Generic XPS driver     | Printer-specific driver                                               |
+| **Driver Installation**     | Automatic              | Manual (host and client)                                              |
+| **Features**                | Standard printing only | Full printer features (duplex, paper tray selection, finishing, etc.) |
+
+**When to use Advanced Printing:** - Double-sided (duplex) printing
+
+- Specific paper tray selection - Finishing options (stapling, hole-punching) - Label
+  printing (e.g., Zebra printers) - Color management and other advanced features of
+  a printer.
+
+#### Configure Printer Support
 
 ###### To configure printer support
 
-1.  In the Group Policy Management Editor, choose **Computer
-    Configuration**, **Policies**,
-    **Administrative Templates**, **Amazon**,
-    and **WSP**.
-2.  Open the **Configure remote printing**
-    setting.
-3.  In the **Configure remote printing** dialog box, do
-    one of the following:
-    - To enable local printer redirection, choose
-      **Enabled**, and then for
-      **Printing options**, choose
-      **Basic**. To automatically use the client
-      computer's current default printer, select **Map local
-      default printer to the remote host**.
-    - To disable printing, choose
-      **Disabled**.
+1. In the Group Policy Management Editor, choose **Computer
+   Configuration**, **Policies**,
+   **Administrative Templates**, **Amazon**,
+   and **WSP**.
+2. Open the **Configure remote printing**
+   setting.
+3. In the **Configure remote printing** dialog box, do
+   one of the following:
+   - **For Basic Printing:** choose
+     **Enabled**. To automatically
+     use the client computer's current default printer, select
+     **Map local default printer to the remote host.**
+   - **For Advanced Printing:** Choose
+     **Enabled**, then choose **Enable
+     Advanced Printing**.To automatically use the client
+     computer's current default printer, select **Map local
+     default printer to the remote host**. Once the policy
+     is enabled, you will need to install matching printer
+     drivers on the host and client side.
+   - To disable printing, choose
+     **Disabled**.
 
-4.  Choose **OK**.
-5.  The Group Policy setting change takes effect after the next Group
-    Policy update for the WorkSpace and after the WorkSpace session is
-    restarted. To apply the Group Policy changes, do one of the
-    following:
+4. Choose **OK**.
+5. The Group Policy setting change takes effect after the next Group
+   Policy update for the WorkSpace and after the WorkSpace session is
+   restarted. To apply the Group Policy changes, do one of the
+   following:
+   - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
+     WorkSpace, then choose **Actions**,
+     **Reboot WorkSpaces**).
+   - In an administrative command prompt, enter `gpupdate
+/force`.
 
-        * Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
-         WorkSpace, then choose **Actions**,
-         **Reboot WorkSpaces**).
-        * In an administrative command prompt, enter `gpupdate
-         /force`.
+#### Configure Advanced Printer Redirection
 
-    By default, WorkSpaces supports two-way (copy/paste) clipboard redirection. For
-    Windows WorkSpaces, you can use Group Policy settings to disable this feature or
-    configure the direction where clipboard redirection is allowed.
+###### Prerequisites
+
+1. **WorkSpaces Host Agent:** Version 2.2.0.2116 or later
+2. **Windows Client:** Version 5.31.0 or later
+3. **Printer drivers:** Matching printer drivers must be
+   installed on both the WorkSpace and the client device
+
+###### Note
+
+Advanced printing is only supported on Windows
+clients connecting to Windows WorkSpaces. MacOS, Linux, and Web clients
+will use basic printing.
+
+#### Driver Version Matching
+
+When Advanced printing is selected, three driver validation modes
+are supported:
+
+| Driver Validation Modes      | Mode                                         | Behavior                                          | Use When |
+| ---------------------------- | -------------------------------------------- | ------------------------------------------------- | -------- |
+| \*_Name Only_<br>• (Default) | Matches driver name only, ignores version    | Maximum compatibility needed                      |
+| **Partial Match**            | Matches Major.Minor version (e.g., 10.6.x.x) | Balancing compatibility and features              |
+| **Exact Match**              | Requires exact version match                 | Specialized printers (e.g., Zebra label printers) |
+
+**To configure validation mode**, set name only, partial match,
+or exact match in the printer driver validation dropdown in the GPO.
+
+###### Note
+
+When driver validation fails, WorkSpaces automatically
+falls back to basic printing.
+
+###### Verify Configuration
+
+1. Connect to the WorkSpace.
+2. Open **Settings** > **Devices** >
+   **Printers & scanners**.
+3. Verify your local printer appears with "Redirected" prefix.
+4. Print a test document and click Printer Properties to verify advanced options are available.
+
+#### Troubleshooting
+
+**Advanced features not available**: - Verify “Enable Advanced Printing” is selected in the GPO - Check driver
+versions match according to your validation mode - Consider using partial validation mode instead of exact. Make
+sure to restart for any changes on the GPO to take effect.
+
+**Printer not appearing**: - Verify **Configure remote printing** is **Enabled**
+
+- Ensure printer is connected to client device - Restart WorkSpace session
+
+**Print jobs fail**: - Check driver versions on both client and WorkSpace -
+Review logs at: `C:\ProgramData\Amazon\WSP\Logs\agentsession.log` - Look for
+"Advanced print is enabled" in logs
+
+Enable detailed logging: In Group Policy, set Configure log verbosity to debug under **Computer Configuration**
+
+> **Policies** > **Administrative Templates** > **Amazon** > **WSP**.
+
+By default, WorkSpaces supports two-way (copy/paste) clipboard redirection. For
+Windows WorkSpaces, you can use Group Policy settings to disable this feature or
+configure the direction where clipboard redirection is allowed.
 
 ###### To configure clipboard redirection for Windows WorkSpaces
 
@@ -987,6 +1061,70 @@ WorkSpaces
          WorkSpace, then choose **Actions**,
          **Reboot WorkSpaces**).
         * In an administrative command prompt, enter `gpupdate
+         /force`.
+
+    Screen Capture Protection prevents screenshots, screen recordings, and screen
+    sharing of WorkSpaces sessions from local client tools. When enabled, attempts
+    to capture screen content from client side will show either the background or
+    a black rectangle, helping protect sensitive information from exfiltration.
+
+#### Requirements
+
+Screen capture protection for DCV requires the following:
+
+- DCV host agent version 2.2.0.2116 or higher
+- WorkSpaces clients:
+  - Windows 5.30.2 or higher
+  - MacOS 5.30.2 or higher
+
+###### Note
+
+- This feature is not supported on Linux clients, Web Access,
+  or PCoIP protocol.
+- Protection applies to captures initiated from the client
+  device. Users can still take screenshots from within the
+  WorkSpace itself.
+- The feature is not compatible with screen sharing on MS
+  Teams.
+
+#### Known limitations
+
+- The feature cannot prevent physical camera captures of
+  screens.
+- The feature does not protect against direct RDP
+  connections to the host server.
+- The feature does not protect against capture attempts
+  initiated from within the WorkSpace itself, including screen
+  share features of collaboration and chat tools.
+- All capture methods are blocked when enabled (selective
+  blocking is not available).
+- MacOS client window may be grayed out if the feature
+  is enabled and a video capture is attempted (e.g. trying to screen
+  share the client window).
+
+###### To configure Screen Capture Protection for Windows
+
+WorkSpaces
+
+1.  In the Group Policy Management Editor, choose **Computer
+    Configuration**, **Policies**,
+    **Administrative Templates**, **Amazon**,
+    and **WSP**.
+2.  Open the **Configure Screen Capture Protection**
+    setting.
+3.  In the **Configure Screen Capture Protection**
+    dialog box, choose **Enabled** or
+    **Disabled**.
+4.  Choose **OK**.
+5.  The Group Policy setting change takes effect after the next Group
+    Policy update for the WorkSpace and after the WorkSpace session is
+    restarted. To apply the Group Policy changes, do one of the
+    following:
+
+        1. Reboot the WorkSpace (in the WorkSpaces console, select the
+         WorkSpace, then choose **Actions**,
+         **Reboot WorkSpaces**).
+        2. In an administrative command prompt, enter `gpupdate
          /force`.
 
     By default, WorkSpaces supports supports using Indirect Display Driver (IDD). If
