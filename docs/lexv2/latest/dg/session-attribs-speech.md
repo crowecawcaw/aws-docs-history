@@ -94,7 +94,7 @@ the length of the input when you expect long responses, or if
 you want to give customers more time to provide
 information.
 
-**Default:** 13,000 milliseconds (13 seconds). The
+**Default:** 55,000 milliseconds (55 seconds). The
 maximum value is 55,000 milliseconds (55 seconds)
 
 If you set the `max-length-ms` attribute to more
