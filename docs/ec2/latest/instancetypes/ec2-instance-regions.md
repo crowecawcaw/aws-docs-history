@@ -309,7 +309,7 @@ The following instance types are available in Europe (Paris).
 
 - **General Purpose:** M5 | M5a | M5ad | M5d | M6a | M6g | M6gd | M6i | M7g | M7gd | M7i | M7i-flex | M8g | T2 | T3 | T3a | T4g
 - **Compute Optimized:** C5 | C5a | C5d | C5n | C6g | C6gd | C6gn | C6i | C6id | C6in | C7g | C7gd | C7i | C7i-flex
-- **Memory Optimized:** R4 | R5 | R5a | R5ad | R5d | R5dn | R5n | R6g | R6gd | R6i | R7g | R7i | R8g | R8i | R8i-flex | U-3tb1 | U-6tb1 | U7i-6tb | X1 | X2idn | X2iedn
+- **Memory Optimized:** R4 | R5 | R5a | R5ad | R5d | R5dn | R5n | R6g | R6gd | R6i | R7g | R7gd | R7i | R8g | R8i | R8i-flex | U-3tb1 | U-6tb1 | U7i-6tb | X1 | X2idn | X2iedn
 - **Storage Optimized:** D2 | D3 | I3 | I3en | I4i | I7ie | Im4gn | Is4gen
 - **Accelerated Computing:** G4dn | G6 | Gr6 | Inf1 | Inf2
 - **High Performance Computing:** Hpc6id | Hpc7a
