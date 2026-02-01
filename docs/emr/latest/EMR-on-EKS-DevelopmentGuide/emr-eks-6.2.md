@@ -1,12 +1,12 @@
-# emr-6.2.0-20211008
+# emr-6.2.0-20210615
 
-**Release notes**: `emr-6.2.0-20211008` was
-released on Dec 9, 2021. Compared to the previous version, this version contains issue fixes and
-security updates.
+**Release notes**: `emr-6.2.0-20210615` was
+released on June 15, 2021. Compared to the previous version, this version contains issue fixes
+and security updates.
 
-**Regions**: `emr-6.2.0-20211008` is available in
+**Regions**: `emr-6.2.0-20210615` is available in
 the following Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), Europe
 (Ireland), South America (Sao Paulo).
 
 **Container image tag**:
-`emr-6.2.0:20211008`
+`emr-6.2.0:20210615`
