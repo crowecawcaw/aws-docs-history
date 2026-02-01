@@ -2,8 +2,7 @@
 
 Aurora DSQL
 
-Aurora DSQL and PostgreSQL return identical results for all SQL queries. Note that Aurora DSQL differs
-from PostgreSQL without an `ORDER BY` clause. In the following sections, learn about
+In the following sections, learn about
 Aurora DSQL support for PostgreSQL data types and SQL commands.
 
 ###### Topics

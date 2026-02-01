@@ -183,5 +183,5 @@ guide](authentication-authorization.md "authentication-authorization.md").
 
 ## Sample usage
 
-An JavaScript example using the Aurora DSQL Connector for
-Postgres.js is available [here](example.md "example.md").
+A JavaScript example using the Aurora DSQL Connector for
+Postgres.js is available [here](https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/postgres-js/example "https://github.com/awslabs/aurora-dsql-nodejs-connector/tree/main/packages/postgres-js/example").
