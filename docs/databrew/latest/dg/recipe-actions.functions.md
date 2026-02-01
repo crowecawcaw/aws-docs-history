@@ -1,27 +1,29 @@
-# KTH_LARGEST_UNIQUE
+# IS_ODD
 
-Returns the *k*th largest unique number from the
-selected source columns in a new column.
+Returns a Boolean value in a new column that indicates whether the source column or
+value is odd. If the source column or value is a decimal, the result is false.
 
 ###### Parameters
 
-- `sourceColumns` – A JSON-encoded string representing a list of existing
-  columns.
-- `targetColumn` – A name for the newly created column.
-
-`value` – A number representing
-_k_.
+- `sourceColumn` – The name of an existing column.
+- `targetColumn` – The name of the new column to be
+  created.
+- `trueString` – A string that indicates whether the value is
+  odd.
+- `falseString` – A string that indicates whether the value is
+  _not_ odd.
 
 ###### Example
 
 ```
 {
     "RecipeAction": {
-        "Operation": "KTH_LARGEST_UNIQUE",
+        "Operation": "IS_ODD",
         "Parameters": {
-            "sourceColumns": "[\"age\",\"height_cm\",\"weight_kg\"]",
-            "targetColumn": "KTH_LARGEST_UNIQUE Column 1",
-            "value": "3"
+            "falseString": "Value is even",
+            "sourceColumn": "weight_kg",
+            "targetColumn": "weight_kg_IS_ODD",
+            "trueString": "Value is odd"
         }
     }
 }

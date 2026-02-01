@@ -1,25 +1,63 @@
-# Creating a profile job using a ruleset
+# Available checks
 
-After you create a ruleset as described preceding, you are directed to the
-**Data quality rules** page, which displays all rulesets in
-your account.
+The following table lists references for all available conditions that can be used in your rules. Note that aggregated conditions cannot be combined
+with non-aggregated conditions in the same rule.
 
-###### To create a profile job including a ruleset
+###### Note
 
-1. Choose the name of the ruleset that you previously created to view its details.
-2. Choose **Create profile job with ruleset**.
+For SDK users, to apply the same rule to multiple columns use the [ColumnSelectors](API_ColumnSelector.md "API_ColumnSelector.md")
+attribute of a [Rule](API_Rule.md "API_Rule.md") and specify validated columns using either their names or a regular expression.
+In this case, you should use implicit _CheckExpression_. For example, `“> :val”` to compare values in each of the selected columns
+with the provided value. DataBrew uses implicit syntax for defining
+[FilterExpression](API_FilterExpression.md "API_FilterExpression.md") in dynamic datasets. If you want to specify column(s)
+for each check individually, don't set the _ColumnSelectors_ attribute. Instead, provide an explicit expression. For example,
+`“:col > :val”` as a _CheckExpression_ in a _Rule_.
 
-The **Job name** is automatically filled, but you can
-change it as needed. 3. For **Job run sample**, you can choose to run the entire dataset or a limited
-number of rows.
+| Condition type                         | Data quality check               | Additional parameters                                           | Comparison type                                                                                                                                                                                                                                                          | SDK syntax example                                                                                                                                                                                        |
+| -------------------------------------- | -------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Aggregate dataset conditions           | Number of rows                   |                                                                 | Numeric comparison against custom value                                                                                                                                                                                                                                  | `"CheckExpression": "AGG(ROWS_COUNT) > :val",<br>"SubstitutionMap": {":val", "10000"}`                                                                                                                    |
+| Number of columns                      |                                  | Numeric comparison against custom value                         | `"CheckExpression": "AGG(COLUMNS_COUNT) == :val",<br>"SubstitutionMap": {":val", "20"}`                                                                                                                                                                                  |
+| Duplicate rows                         |                                  | Numeric comparison against custom value                         | `"CheckExpression": "AGG(DUPLICATE_ROWS_COUNT) < :val",<br>"SubstitutionMap": {":val", "100"}`<br>or<br>`"CheckExpression": "AGG(DUPLICATE_ROWS_PERCENTAGE) < :val",<br>"SubstitutionMap": {":val", "5"}`                                                                |
+| Aggregate column statistics conditions | Missing values                   |                                                                 | Numeric comparison against custom value                                                                                                                                                                                                                                  | `"CheckExpression": "AGG(MISSING_VALUES_COUNT) < :val",<br>"SubstitutionMap": {":val", "100"}`<br>or<br>`"CheckExpression": "AGG(MISSING_VALUES_PERCENTAGE) < :val",<br>"SubstitutionMap": {":val", "5"}` |
+| Duplicate values                       |                                  | Numeric comparison against custom value                         | `"CheckExpression": "AGG(DUPLICATE_VALUES_COUNT) < :val",<br>"SubstitutionMap": {":val", "100"}`<br>or<br>`"CheckExpression": "AGG(DUPLICATE_VALUES_PERCENTAGE) < :val",<br>"SubstitutionMap": {":val", "5"}`                                                            |
+| Valid values                           |                                  | Numeric comparison against custom value                         | `"CheckExpression": "AGG(VALID_VALUES_COUNT) > :val",<br>"SubstitutionMap": {":val", "10000"}`<br>or<br>`"CheckExpression": "AGG(VALID_VALUES_PERCENTAGE) > :val",<br>"SubstitutionMap": {":val", "95"}`                                                                 |
+| Distinct values                        |                                  | Numeric comparison against custom value                         | `"CheckExpression": "AGG(DISTINCT_VALUES_COUNT) > :val",<br>"SubstitutionMap": {":val", "1000"}`<br>or<br>`"CheckExpression": "AGG(DISTINCT_VALUES_PERCENTAGE) >= :val",<br>"SubstitutionMap": {":val", "50"}`                                                           |
+| Unique values                          |                                  | Numeric comparison against custom value                         | `"CheckExpression": "AGG(UNIQUE_VALUES_COUNT) > :val",<br>"SubstitutionMap": {":val", "100"}`<br>or<br>`"CheckExpression": "AGG(UNIQUE_VALUES_PERCENTAGE) > :val",<br>"SubstitutionMap": {":val", "20"}`                                                                 |
+| Outliers                               | Z-score threshold                | Numeric comparison against custom value                         | `"CheckExpression": "AGG(Z_SCORE_OUTLIERS_COUNT, :zscore_dev) < :val",<br>"SubstitutionMap": {":zscore_dev": "4", ":val", "100"}`<br>or<br>`"CheckExpression": "AGG(Z_SCORE_OUTLIERS_PERCENTAGE) < :val",<br>"SubstitutionMap": {":val", "5"}`                           |
+| Value distribution statistics          | Statistics name (see next table) | Numeric comparison against custom value                         | `"CheckExpression": "AGG(<STAT_NAME>) < :val",<br>"SubstitutionMap": {":val", "100"}`<br>or<br>`"CheckExpression": "AGG(<STAT_NAME>, :param) < :val",<br>"SubstitutionMap": {":param": "0.25", :val", "5"}`<br>Note See next table for possible `STAT_NAME` values       |
+| Numerical statistics                   | Statistics name (see next table) | Numeric comparison against custom value                         | `"CheckExpression": "AGG(<STAT_NAME>) < :val",<br>"SubstitutionMap": {":val", "100"}`<br>or<br>`"CheckExpression": "AGG(<STAT_NAME>, :param) < :val",<br>"SubstitutionMap": {":param": "0.25", :val", "5"}`<br>Note See next table for possible `STAT_NAME` values       |
+| Non aggregate (accepts threshold)      | Value is exactly                 |                                                                 | Exact comparison against a list of values                                                                                                                                                                                                                                | `"CheckExpression": ":col IN :list",<br>"SubstitutionMap": {":col": "`size`", ":list": "[\"S\",\"M\",\"L\",\"XL\"]"}`                                                                                     |
+| Value is not exactly                   |                                  | Value shouldn't exactly match any value from a list             | `"CheckExpression": ":col NOT IN :list",<br>"SubstitutionMap": {":col": "`domain`", ":list": "[\"GOV\",\"ORG\"]"}`                                                                                                                                                       |
+| String values                          |                                  | String comparison against custom value or other string column   | `"CheckExpression": ":col STARTS_WITH :val",<br>"SubstitutionMap": {":col": "`url`", ":val": "http"}`<br>or<br>`"CheckExpression": ":col1 contains :col2",<br>"SubstitutionMap": {":col1": "`url`", ":col2": "`company_name`"}`                                          |
+| Numeric values                         |                                  | Numeric comparison against custom value or other numeric column | `"CheckExpression": ":col IS_BETWEEN :val1 and :val2",<br>"SubstitutionMap": {":col": "`APY`", ":val1": "0", ":val2": "10"}`<br>or<br>`"CheckExpression": ":col1 <= :col2",<br>"SubstitutionMap": {":col1": "`bank_rate`", ":col2": "`fed_rate`"}`                       |
+| Value string length                    |                                  | Numeric comparison against custom value or other numeric column | `"CheckExpression": "length(:col) IS_BETWEEN :val1 and :val2",<br>"SubstitutionMap": {":col": "`identifier`", ":val1": "8", ":val2": "12"}`<br>or<br>`"CheckExpression": "length(:col1) <= :col2",<br>"SubstitutionMap": {":col1": "`name`", ":col2": "`max_name_len`"}` |
 
-If you choose to run a limited sample size, be aware that for certain rules, results might differ compared to the full dataset. 4. For **Job output settings**, choose an **S3** location for
-the job output. Choose any folder in a named Amazon S3 bucket that you have
-access to. If you enter a folder name for this bucket that doesn't
-exist, this folder is created.
+**Numeric comparisons**
 
-Upon successful completion of the profile job, this folder will contain profiles of the data and data quality rules validation report in JSON format. 5. Under **Data quality rules**, note your ruleset is listed under **Data quality ruleset
-name**. 6. Under **Permissions**, select or create a role to grant DataBrew access to read
-from the input Amazon S3 location and write to the job output location. If
-you don't have a role ready, select **Create new IAM
-role**. 7. Modify any other optional settings as described in [Creating and working with AWS Glue DataBrew profile jobs](jobs.md "jobs.md"), if needed. 8. Choose **Create and run job**.
+DataBrew supports the following operations for numeric comparison: _Is equals (==)_, _Is not equals (!=)_,
+_Less than (<)_, _Less than equals (<=)_, _Greater than (>)_, _Greater than equals (>=)_
+and _Is between (is_between :val1 and :val2)_.
+
+**String comparisons**
+
+The following string comparisons are supported: _Starts with_, _Doesn’t start with_,
+_Ends with_, _Doesn’t end with_, _Contains_, _Doesn’t contain_,
+_Is equals_, _Is not equals_, _Matches_, _Doesn’t match_.
+
+The following table displays available statistics that you can use for Value distribution statistics and Numerical statistics:
+
+| Data quality check            | Statistics name                        | Additional parameters                                                                                  | SDK syntax                                                                    |
+| ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| Value distribution statistics | Min                                    |                                                                                                        | `"CheckExpression": "AGG(MAX) < :val",<br>"SubstitutionMap": {":val", "100"}` |
+| Max                           |                                        | `"CheckExpression": "AGG(MIN) > :val",<br>"SubstitutionMap": {":val", "0"}`                            |
+| Median                        |                                        | `"CheckExpression": "AGG(MEDIAN) >= :val",<br>"SubstitutionMap": {":val", "50"}`                       |
+| Mean                          |                                        | `"CheckExpression": "AGG(MEAN) <= :val",<br>"SubstitutionMap": {":val", "10"}`                         |
+| Mode                          |                                        | `"CheckExpression": "AGG(MODE) > :val",<br>"SubstitutionMap": {":val", "0"}`                           |
+| Standard deviation            |                                        | `"CheckExpression": "AGG(STANDARD_DEVIATION) > :val",<br>"SubstitutionMap": {":val", "0"}`             |
+| Entropy                       |                                        | `"CheckExpression": "AGG(ENTROPY) > :val",<br>"SubstitutionMap": {":val", "0"}`                        |
+| Numerical statistics          | Sum                                    |                                                                                                        | `"CheckExpression": "AGG(SUM) > :val",<br>"SubstitutionMap": {":val", "0"}`   |
+| Kurtosis                      |                                        | `"CheckExpression": "AGG(KURTOSIS) > :val",<br>"SubstitutionMap": {":val", "0"}`                       |
+| Skewness                      |                                        | `"CheckExpression": "AGG(SKEWNESS) > :val",<br>"SubstitutionMap": {":val", "0"}`                       |
+| Variance                      |                                        | `"CheckExpression": "AGG(VARIANCE) > :val",<br>"SubstitutionMap": {":val", "0"}`                       |
+| Absolute deviation            |                                        | `"CheckExpression": "AGG(MEDIAN_ABSOLUTE_DEVIATION) > :val",<br>"SubstitutionMap": {":val", "0"}`      |
+| Quantile                      | Quantile: one of '0.25', '0.5', '0.75' | `"CheckExpression": "AGG(QUANTILE, :pct) > :val",<br>"SubstitutionMap": {":pct": "0.25", ":val", "0"}` |

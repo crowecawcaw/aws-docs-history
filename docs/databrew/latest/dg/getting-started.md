@@ -1,28 +1,63 @@
-# Step 4: Review your DataBrew resources
+# Step 6: Transform the dataset
 
-Now that you worked with a sample project, review the DataBrew resources you created so
-far.
+Until now, you tested your recipe on only a sample of the dataset. Now it's time to
+transform the entire dataset by creating a DataBrew recipe job.
 
-###### To review your DataBrew resources
+When the job runs, DataBrew applies your recipe to all of the data in the dataset, and
+writes the transformed data to an Amazon S3 bucket. The transformed data is separate from the
+original dataset. DataBrew doesn't alter the source data.
 
-1. On the navigation pane, choose **Datasets**.
+Before you proceed, ensure that you have an Amazon S3 bucket in your account that you can
+write to. In that bucket, create a folder to capture the job output from DataBrew. To do
+these steps, use the following procedure.
 
-When you created the sample project, DataBrew created a dataset for you
-(`chess-games`). The source data file is stored in Amazon S3, and is
-in Microsoft Excel format (`chess-games.xlsx`). The file contains
-metadata from over 20,000 games of chess. The `chess-games` dataset
-provides the information that DataBrew needs to read the data in that file. 2. On the navigation pane, choose **Projects**.
+###### To create an S3 bucket and folder to capture job output
 
-You should see the project that you worked with in the previous steps
-(`chess-project`). Every project requires a dataset, in this
-case `chess-games`. Every project also requires a recipe, so that you
-can add data transformation steps as you go along. When you created this sample
-project, DataBrew created a new (empty) recipe for you, and attached it to the
-project. 3. On the navigation pane, choose **Recipes**, and in the
-**Recipe name** column, choose
-**chess-project-recipe**. This shows you the recipe that DataBrew created for your
-project, and that you've refined by adding transformation steps to it. 4. At left, view the recipe versions that have been published. Choose one of
-these to view its **Recipe steps** tab, which shows the recipe
-details and steps for that version. 5. View the **Data lineage** tab, which shows where the data
-came from and how it's being used. For more details, choose any of the icons in
-the diagram.
+1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/databrew/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+
+If you already have an Amazon S3 bucket available, and you have write permissions
+for it, skip the next step. 2. If you don't have an Amazon S3 bucket, choose **Create bucket**.
+For **Bucket name**, enter a unique name for your new bucket.
+Choose **Create bucket**. 3. From the list of buckets, choose the one that you want to use. 4. Choose **Create folder**. 5. For **Folder name**, enter `databrew-output`, and
+choose **Create folder**.
+After you create an Amazon S3 bucket and folder to contain the job, run your job by using the
+following procedure.
+
+###### To create and run a recipe job
+
+1. On the navigation pane, choose **Jobs**.
+2. On the **Recipe jobs** tab, choose **Create
+   job**.
+3. For **Job name**, enter
+   `chess-winner-summary`.
+4. For **Job type**, choose **Create a recipe
+   job**.
+5. On the **Job input** pane, do the following:
+   - For **Run on**, choose
+     **Dataset**.
+   - Choose **Select a dataset** to view a list of
+     available datasets, and choose `chess-games`.
+   - Choose **Select a recipe** to view a list of
+     available recipes, and choose `chess-project-recipe`.
+
+6. On the **Job output settings** pane, do the following:
+   - **File type** – chose **CSV**
+     (comma-separated values).
+   - **S3 location** - choose this field to view a list of
+     available Amazon S3 buckets, and choose the bucket to use. Then choose
+     **Browse**. In the list of folders, choose
+     `databrew-output`, and choose
+     **Select**.
+
+7. On the **Access permissions** pane, choose
+   `AwsGlueDataBrewDataAccessRole`. This service-linked role lets DataBrew
+   access your Amazon S3 buckets on your behalf.
+8. Choose **Create and run job**. DataBrew creates a job with your
+   settings, and then runs it.
+9. On the **Job run history** pane, wait for the job status to
+   change from `Running` to `Succeeded`.
+10. Choose **Output** to access the Amazon S3 console. Choose your S3
+    bucket, and then choose the `databrew-output` folder to access the
+    job output.
+11. (Optional) Choose **Download** to download the file and view
+    its contents.
