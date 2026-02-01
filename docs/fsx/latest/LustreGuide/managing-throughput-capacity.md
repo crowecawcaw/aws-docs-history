@@ -33,7 +33,7 @@ as follows:
   the `PerUnitStorageThroughput` property.
   When you modify your file system's throughput capacity, behind the scenes, Amazon FSx
   switches out the file system's file servers on SSD file systems or adds new file servers on
-  Intelligent-Tiering file systems. Your file system will be unavailable for a few minutes
+  Intelligent-Tiering file systems. Your file system will be unavailable for up to an hour
   during throughput capacity scaling. You are billed for the new amount of throughput capacity once
   it is available to your file system.
 
