@@ -92,6 +92,13 @@ copy objects](batch-ops-examples-copy.md "batch-ops-examples-copy.md").
   [restore](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive") request and wait until the objects are moved to the
   Frequent Access tier.
 - A single Batch Replication job can support a manifest with up to 20 billion objects.
+- If you use S3 Batch Replication to replicate datasets cross region and your
+  objects previously had their server-side encryption type updated from SSE-S3
+  to SSE-KMS, you may need additional permissions. On the source region bucket,
+  you must have `kms:decrypt` permissions. Then, you will need the
+  `kms:decrypt` and `kms:encrypt` permissions for the bucket
+  in the destination region. For more information, see [Replicating encrypted
+  objects](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 
 ## Specifying a manifest for a
 

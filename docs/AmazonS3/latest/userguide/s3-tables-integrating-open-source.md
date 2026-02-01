@@ -123,4 +123,4 @@ Following are considerations and limitations when using the Amazon S3 Tables Ic
 - OAuth-based authentication is not supported.
 - Only the `owner` property is supported for namespaces.
 - View-related APIs defined in the [Apache Iceberg REST Open API specification](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml "https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml") are not supported.
-- Running operations on a table with a `metadata.json` file over 5MB is not supported, and will return a `400 Bad Request` error. To control the size of your `metadata.json` files use table maintenance operations. For more information, see [S3 Tables maintenance](s3-tables-maintenance-overview.md "s3-tables-maintenance-overview.md").
+- Running operations on a table with a `metadata.json` file over 50MB is not supported, and will return a `400 Bad Request` error. To control the size of your `metadata.json` files use table maintenance operations. For more information, see [S3 Tables maintenance](s3-tables-maintenance-overview.md "s3-tables-maintenance-overview.md").

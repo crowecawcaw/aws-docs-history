@@ -218,6 +218,14 @@ must add the following minimum permissions to the replication role's IAM policy:
 }
 ```
 
+###### Important
+
+If you use S3 Batch Replication to replicate datasets cross region and your objects
+previously had their server-side encryption type updated from SSE-S3 to SSE-KMS, you may
+need additional permissions. On the source region bucket, you must have `kms:decrypt`
+permissions. Then, you will need the `kms:decrypt` and `kms:encrypt`
+permissions for the bucket in the destination region.
+
 For more information about how to replicate objects that are encrypted with AWS KMS, see
 [Replicating encrypted
 objects](replication-walkthrough-4.md "replication-walkthrough-4.md").

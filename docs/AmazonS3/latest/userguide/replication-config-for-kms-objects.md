@@ -222,6 +222,15 @@ encrypted by using KMS keys (SSE-KMS or DSSE-KMS).
   for the destination encryption context and the KMS key in the IAM
   policy.
 
+###### Important
+
+If you use S3 Batch Replication to replicate datasets cross region and your
+objects previously had their server-side encryption type updated from SSE-S3
+to SSE-KMS, you may need additional permissions. On the source region bucket,
+you must have `kms:decrypt` permissions. Then, you will need the
+`kms:decrypt` and `kms:encrypt` permissions for the bucket
+in the destination region.
+
 We recommend that you restrict these permissions only to the destination
 buckets and objects by using AWS KMS condition keys. The AWS account that owns the
 IAM role must have permissions for the `kms:Encrypt` and

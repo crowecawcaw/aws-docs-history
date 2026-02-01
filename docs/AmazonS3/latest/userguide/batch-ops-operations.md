@@ -16,6 +16,7 @@ S3 Batch Operations supports the following operations:
 - [Replace all object tags](batch-ops-put-object-tagging.md "batch-ops-put-object-tagging.md")
 - [Replace access control list (ACL)](batch-ops-put-object-acl.md "batch-ops-put-object-acl.md")
 - [Restore objects with Batch Operations](batch-ops-initiate-restore-object.md "batch-ops-initiate-restore-object.md")
+- [Update object encryption](batch-ops-update-encryption.md "batch-ops-update-encryption.md")
 - [Replicating existing objects with
   Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md")
 - [S3 Object Lock retention](batch-ops-retention-date.md "batch-ops-retention-date.md")

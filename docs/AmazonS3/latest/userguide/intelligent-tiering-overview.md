@@ -49,16 +49,16 @@ Infrequent Access tier or the Archive Instant Access tier back to the Frequent A
   moves objects from the Infrequent Access tier or the Archive Instant Access tier back to the
   Frequent Access tier. The following is a sample, not a definitive list, of such actions:
 
-- Invoking [HeadObject](../API/API_HeadObject.md "../API/API_HeadObject.md"), [GetObjectTagging](../API/API_GetObjectTagging.md "../API/API_GetObjectTagging.md"), [PutObjectTagging](../API/API_PutObjectTagging.md "../API/API_PutObjectTagging.md"), [ListObjects](../API/API_ListObjects.md "../API/API_ListObjects.md"), [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md"), or [ListObjectVersions](../API/API_ListObjectVersions.md "../API/API_ListObjectVersions.md").
+- Invoking [HeadObject](../API/API_HeadObject.md "../API/API_HeadObject.md"), [GetObjectTagging](../API/API_GetObjectTagging.md "../API/API_GetObjectTagging.md"), [PutObjectTagging](../API/API_PutObjectTagging.md "../API/API_PutObjectTagging.md"), [ListObjects](../API/API_ListObjects.md "../API/API_ListObjects.md"), [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md"), [ListObjectVersions](../API/API_ListObjectVersions.md "../API/API_ListObjectVersions.md"), and
+  [UpdateObjectEncryption](../API/API_UpdateObjectEncryption.md "../API/API_UpdateObjectEncryption.md").
 - Invoking [SelectObjectContent](../API/API_SelectObjectContent.md "../API/API_SelectObjectContent.md") doesn't constitute access that
   tiers objects up to a Frequent Access tier. In addition, it doesn't prevent tiering
   objects down from the Frequent Access tier to the Infrequent Access tier, and then to the
   Archive Instant Access tier.
-  You can use S3 Intelligent-Tiering as your default storage class for newly created data by
-  specifying `INTELLIGENT-TIERING` in the [`x-amz-storage-class` request header](../API/API_PutObject.md#AmazonS3-PutObject-request-header-StorageClass "../API/API_PutObject.md#AmazonS3-PutObject-request-header-StorageClass") when calling the
-  `PutObject`, `CopyObject`, or `CreateMultipartUpload`
-  operations. S3 Intelligent-Tiering is designed for 99.9% availability and 99.999999999%
-  durability.
+  You can use S3 Intelligent-Tiering as your default storage class for newly created data by specifying
+  `INTELLIGENT-TIERING` in the [x-amz-storage-class request header](../API/API_PutObject.md#AmazonS3-PutObject-request-header-StorageClass "../API/API_PutObject.md#AmazonS3-PutObject-request-header-StorageClass") when calling the `PutObject`,
+  `CopyObject`, or `CreateMultipartUpload` operations. S3 Intelligent-Tiering is
+  designed for 99.9% availability and 99.999999999% durability.
 
 ###### Note
 

@@ -53,7 +53,7 @@ aws s3control list-jobs --account-id `111122223333` --region `us-east-1`
 
 ```
 
-2. Use the following comamand to search across all job statuses. Possible job statuses include `Active`, `Cancelled`, `Cancelling`, `Complete`, `Completing`, `Failed`, `Failing`, `New`, `Paused`, `Pausing`, `Preparing`, `Ready`, and `Suspended`.
+2. Use the following command to search across all job statuses. Possible job statuses include `Active`, `Cancelled`, `Cancelling`, `Complete`, `Completing`, `Failed`, `Failing`, `New`, `Paused`, `Pausing`, `Preparing`, `Ready`, and `Suspended`.
 
 ```
 
@@ -107,7 +107,7 @@ Related error messages:
 4. **Implement proper cross-account setup** – Check your cross-account access configuration for cross-account job configurations. For more information, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md") in the IAM User Guide.
 5. **Monitor permission changes** – Set up CloudTrail alerts for IAM policy modifications that might affect Batch Operations.
 6. **Document role requirements** – Maintain clear documentation of required permissions for each job type.
-7. **Use common permission templates** - Use the permission examples and polcy templates:
+7. **Use common permission templates** - Use the permission examples and policy templates:
    1. [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md")
    2. [Cross account resources in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the IAM User Guide.
    3. [Control access to VPC endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the AWS PrivateLink Guide.
@@ -125,7 +125,10 @@ Follow these steps systematically to identify and resolve permission issues.
 
 ```
 
-3. Use the following command to check IAM permissions for the requesting identity. The account running the job needs the following permissions: `s3:CreateJob`, `s3:DescribeJob`, `s3:ListJobs-s3:UpdateJobPriority`, `s3:UpdateJobStatus-iam:PassRole`.
+3. Use the following command to check IAM permissions for the requesting identity. The account running
+   the job needs the following permissions: `s3:CreateJob`, `s3:DescribeJob`,
+   `s3:ListJobs`, `s3:UpdateJobPriority`, `s3:UpdateJobStatus`,
+   and `iam:PassRole`.
 
 ```
 
@@ -154,16 +157,16 @@ aws iam get-role --role-name `role-name` --query 'Role.AssumeRolePolicyDocument'
 
 ```
 
-6. Use the following command to rest access to the manifest and source buckets.
+6. Use the following command to test access to the manifest and source buckets.
 
 ```
 
-aws s3 ls s3://`bucket-name`
+aws s3 ls s3://`amzn-s3-demo-bucket`
 
 ```
 
 7. Test the operation being performed by the batch operation. For example, if the batch operation performs tagging, tag a sample object in the source bucket.
-8. Review bucket policies for polcies that might deny the operation.
+8. Review bucket policies for policies that might deny the operation.
    1. Check object ACLs if working with legacy access controls.
    2. Verify no Service Control Policies (SCPs) are blocking the operation.
    3. Confirm VPC endpoint policies allow Batch Operations if using VPC endpoints.
@@ -351,8 +354,8 @@ aws s3 cp s3://`amzn-s3-demo-bucket1`/`manifest-key` `./manifest.csv`
    4. Tagging: 1 billion objects maximum.
    5. ACL: 1 billion objects maximum.
 
-4. Create a test manifest with a few objects from your orginial manifest.
-5. Use the following command to cehck if a sample of objects from the manifest exist.
+4. Create a test manifest with a few objects from your original manifest.
+5. Use the following command to check if a sample of objects from the manifest exist.
 
 ```
 

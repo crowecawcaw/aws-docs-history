@@ -46,12 +46,14 @@ tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md") and
 [Copying objects using S3 Batch Operations](batch-ops-examples-copy.md "batch-ops-examples-copy.md").
 
 In your IAM policies, you can also use condition keys to filter access permissions for
-S3 Batch Operations jobs. For more information and a complete list of condition keys that are
-specific to Amazon S3, see [Actions, resources, and
-condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the _Service Authorization Reference_.
+S3 Batch Operations jobs. For more information and a complete list of Amazon S3 specific condition keys,
+see [Actions, resources, and condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the _Service Authorization
+Reference_.
 
-The following video includes how to set up IAM
-permissions for Batch Operations jobs by using the AWS Management Console.
+For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
+
+The following video includes how to set up IAM permissions for
+Batch Operations jobs using the Amazon S3 console.
 
 ### Trust policy
 
@@ -531,7 +533,10 @@ JSON
 
 ```
 
-### **Compute checksum**: Allow `GetObject`, `GetObjectVersion`, `RestoreObject`, and `PutObject`
+### Compute checksum: Allow
+
+`GetObject`, `GetObjectVersion`, `RestoreObject`, and
+`PutObject`
 
 Use this policy if you're trying to use the **Compute checksum**
 operation with S3 Batch Operations. Permissions for `GetObject`, `GetObjectVersion`, and
@@ -577,4 +582,78 @@ rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integri
   ]
 }
 
+```
+
+### Update object encryption
+
+You must attach the following permissions policy to allow Batch Operations to read a manifest, update
+the encryption type of your objects, and write a completion report. To use this permissions policy,
+replace the `user input placeholders` with your own information.
+For more information about using this operation and the permissions that you must attach to the role
+used by your IAM principal, see [Update object encryption](batch-ops-update-encryption.md "batch-ops-update-encryption.md").
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Sid": "S3BatchOperationsUpdateEncryption",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:PutObject",
+                "s3:UpdateObjectEncryption"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket-target`"
+                "arn:aws:s3:::`amzn-s3-demo-bucket-target`/*"
+            ]
+        },
+        {
+            "Sid": "S3BatchOperationsPolicyForManifestFile",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket-manifest`/*"
+            ]
+        },
+        {
+            "Sid": "S3BatchOperationsPolicyForCompletionReport",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket-completion-report`/*"
+            ]
+        },
+        {
+            "Sid": "S3BatchOperationsPolicyManifestGeneration",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutInventoryConfiguration"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket-target`"
+            ]
+        }
+        {
+            "Sid": "AllowKMSOperationsForS3BatchOperations",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:Encrypt",
+                "kms:ReEncrypt*"
+            ],
+            "Resource": [
+                "arn:aws:kms:`us-east-1`:111122223333:key/`01234567-89ab-cdef-0123-456789abcdef`"
+            ]
+        }
+    ]
+}
 ```
