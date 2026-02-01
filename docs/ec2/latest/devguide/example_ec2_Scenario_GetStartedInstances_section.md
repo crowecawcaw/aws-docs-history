@@ -1050,18 +1050,6 @@ public class EC2Wrapper
     }
 
     /// <summary>
-    /// Retrieve a list of available Amazon Linux images.
-    /// </summary>
-    /// <returns>A list of image information.</returns>
-    public async Task<List<Image>> GetEC2AmiList()
-    {
-        var filter = new Filter { Name = "architecture", Values = new List<string> { "x86_64" } };
-        var filters = new List<Filter> { filter };
-        var response = await _amazonEC2.DescribeImagesAsync(new DescribeImagesRequest { Filters = filters });
-        return response.Images;
-    }
-
-    /// <summary>
     /// Reboot a specific EC2 instance.
     /// </summary>
     /// <param name="ec2InstanceId">The instance Id of the instance that will be rebooted.</param>
