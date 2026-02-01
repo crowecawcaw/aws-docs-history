@@ -112,7 +112,7 @@ worker. The worker reuses existing environments and job attachments in the sessi
 complete tasks more efficiently.
 
 On service-managed fleet workers, session directories are deleted after the session ends,
-but other directories are retained between sessions. This allows you to implement caching strategies
+but other directories are retained between sessions. This behavior allows you to implement caching strategies
 for data that can be reused across multiple sessions. To cache data between sessions, store it
 under the home directory of the user running the job. For example, conda packages are cached under
 the job user's home directory at `C:\Users\job-user\.conda-pkgs` on Windows workers and

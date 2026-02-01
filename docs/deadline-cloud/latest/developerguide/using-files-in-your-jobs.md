@@ -13,7 +13,7 @@ Job attachments offer several benefits
 - Primarily used with service-managed fleets, but also compatible with customer-managed
   fleets.
   Use storage profiles to map the layout of shared filesystem locations on your workstation
-  and worker hosts. This helps your jobs locate shared files and directories when their locations
+  and worker hosts. This mapping helps your jobs locate shared files and directories when their locations
   differ between your workstation and worker hosts, such as cross-platform setups with
   Windows-based workstations and Linux-based worker hosts. Storage profile's map of your
   filesystem configuration is also used by job attachments to identify the files it needs to

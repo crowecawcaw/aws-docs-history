@@ -130,6 +130,32 @@ aws deadline update-job \
 --lifecycle-status ARCHIVED
 ```
 
+###### Example – Change the name of a job
+
+Updates the display name of a job. The job name can be up to 128 characters
+long.
+
+```
+aws deadline update-job \
+--farm-id `farmID` \
+--queue-id `queueID` \
+--job-id `jobID` \
+--name "`New Job Name`"
+```
+
+###### Example – Change the description of a job
+
+Updates the description of a job. The description can be up to 2048 characters long.
+To remove the existing description, pass an empty string.
+
+```
+aws deadline update-job \
+--farm-id `farmID` \
+--queue-id `queueID` \
+--job-id `jobID` \
+--description "`New Job Description`"
+```
+
 ###### Example – Requeue a step
 
 All tasks in the step switch to the `READY` state, unless there are step

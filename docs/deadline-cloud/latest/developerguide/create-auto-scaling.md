@@ -462,6 +462,6 @@ Resources:
 ## Perform a fleet health check
 
 After creating your fleet, you should build a custom health check to ensure your fleet remains healthy and free of stalled
-instances to help prevent unnecessary costs. See [Deploying a Deadline Cloud fleet health check](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates") on GitHub. This can lower the
+instances to help prevent unnecessary costs. See [Deploying a Deadline Cloud fleet health check](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cmf_templates") on GitHub. A health check can lower the
 risk of an accidental change in your Amazon Machine Image, launch template, or network configuration
 running undetected.

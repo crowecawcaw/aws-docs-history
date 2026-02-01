@@ -210,7 +210,7 @@ and the `jobRunAsUser` defined on your queues.
 
 The Deadline Cloud worker agent should run as a dedicated agent-specific user on the host. You
 should configure the `jobRunAsUser` property of Deadline Cloud queues so that workers
-will run the queue jobs as a specific operating system user and group. This means you
+will run the queue jobs as a specific operating system user and group. This configuration means you
 can control the shared filesystem permissions that your jobs have. It also provides as
 an important security boundary between your jobs and the worker agent user.
 

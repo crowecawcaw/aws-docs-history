@@ -396,7 +396,7 @@ managed KMS key.
 Deleting a customer managed KMS key in AWS Key Management Service (AWS KMS) is destructive and
 potentially dangerous. It irreversibly deletes the key material and all metadata associated
 with the key. After a customer managed KMS key is deleted, you can no longer decrypt the
-data that was encrypted by that key. This means that the data becomes unrecoverable.
+data that was encrypted by that key. Deleting the key means that the data becomes unrecoverable.
 
 This is why AWS KMS gives customers a waiting period of up to 30 days before deleting the
 KMS key. The default waiting period is 30 days.

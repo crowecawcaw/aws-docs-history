@@ -111,7 +111,7 @@ their specific farm, or to adapt it for other use cases.
 Here are some ways you can make your job bundle portable.
 
 - Fully specify the input data files needed by a workload, using `PATH` job
-  parameters and asset references in the job bundle. This makes the job portable to farms
+  parameters and asset references in the job bundle. This approach makes the job portable to farms
   based on shared file systems and to farms that make copies of the input data, like the
   Deadline Cloud job attachments feature.
 - Make file path references for the input files of the job relocatable and usable on
@@ -126,7 +126,7 @@ Here are some ways you can make your job bundle portable.
   of scripting languages that can be used this way. You should consider providing them both
   on all the worker hosts of your fleets.
   - Use the script interpreter binary, like `python` or `bash`,
-    with the script file name as an argument. This works on all operating systems
+    with the script file name as an argument. This approach works on all operating systems
     including Windows, compared to using a script file with its execute bit set on
     Linux.
   - Write portable bash scripts by applying these practices:

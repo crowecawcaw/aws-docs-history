@@ -7,7 +7,7 @@ an [Open Job Description
 The job template describes how workers process and access the assets, and provides the
 script that the worker runs. Job bundles enable artists, technical directors, and pipeline
 developers to easily submit complex jobs to Deadline Cloud from their local workstations or on-premises
-render farm. This is particularly useful for teams working on large-scale visual effects,
+render farm. Job bundles are particularly useful for teams working on large-scale visual effects,
 animation, or other media rendering projects that require scalable, on-demand computing
 resources.
 

@@ -184,7 +184,7 @@ fields @timestamp, @message, @logStream, @log
 
 #### CloudWatch metric filters for metrics and alarming
 
-You can set up CloudWatch metric filters to generate CloudWatch metrics from logs. This lets you create alarms and dashboards for monitoring host configuration script execution.
+You can set up CloudWatch metric filters to generate CloudWatch metrics from logs. Metric filters let you create alarms and dashboards for monitoring host configuration script execution.
 
 ###### To create a metric filter
 

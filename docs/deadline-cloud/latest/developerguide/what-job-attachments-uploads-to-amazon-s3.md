@@ -86,7 +86,7 @@ uploads it to Amazon S3.
 Deadline Cloud treats the S3 bucket as content-addressable storage. Files are uploaded to S3
 objects. The object name is derived from a hash of the file’s contents. If two files have
 identical contents they have the same hash value regardless of where the files are located
-or what they are named. This enables Deadline Cloud to avoid uploading a file if it is already
+or what they are named. This content-addressable storage enables Deadline Cloud to avoid uploading a file if it is already
 available.
 
 You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to see the objects that

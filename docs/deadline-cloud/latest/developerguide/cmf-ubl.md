@@ -6,8 +6,8 @@ you use. Usage-based licensing provides licenses for your Deadline Cloud workers
 provide licenses for your DCC applications.
 
 The Deadline Cloud usage-based license server can be used with any fleet type as long as the Deadline Cloud
-workers can communicate with the license server. This is automatically set up in service-managed
-fleets. This setup is only needed for customer-managed fleets.
+workers can communicate with the license server. The license server is automatically set up in service-managed
+fleets. The following setup is only needed for customer-managed fleets.
 
 To create the license server, you need a security group for your farm's VPC that allows
 traffic for third-party licenses.

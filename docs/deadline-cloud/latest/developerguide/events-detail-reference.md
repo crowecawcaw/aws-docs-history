@@ -47,7 +47,7 @@ thresholds:
 - 10, 20, 30, 40, 50, 60, 70, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100
 
 The frequency that Deadline Cloud sends Budget Threshold Reached events increases as the budget nears
-its limit. This enables you to closely monitor a budget as it approaches its limit
+its limit. This frequency enables you to closely monitor a budget as it approaches its limit
 and to take action to keep from overspending. You can also set your own budget
 thresholds. Deadline Cloud sends an event when usage passes your custom thresholds.
 

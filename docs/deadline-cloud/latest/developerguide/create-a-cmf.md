@@ -46,7 +46,7 @@ fleet**
 ###### Note
 
 We recommend associating a fleet only with queues that are all in
-the same trust boundary. This ensures a strong security boundary
+the same trust boundary. This recommendation ensures a strong security boundary
 between running jobs on the same worker. 19. Review the queue associations, then choose **Next**. 20. (Optional) For Default Conda queue environment,
 we'll create an environment for your queue that will install Conda packages
 requested by jobs.

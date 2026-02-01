@@ -13,7 +13,7 @@ streamline resource allocation, and simplify queue management.
 The queue environment is a template that you attach to a queue in your AWS account from
 the AWS management console or using the AWS CLI. You can create one environment for a queue, or
 you can create multiple queue environments that applied in order to create the execution
-environment. This enables you to create and test an environment in steps to help ensure that it
+environment. This approach enables you to create and test an environment in steps to help ensure that it
 works correctly for you jobs.
 
 Job and step environments are defined in the job template you use to create a job in your
