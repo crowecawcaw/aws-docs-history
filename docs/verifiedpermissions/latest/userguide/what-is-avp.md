@@ -46,7 +46,7 @@ requests made to your operations with a call to the Cedar authorization engine, 
 operation if the decision is “allow”, or return an error message if the decision is
 “deny”.
 
-Verified Permissions currently uses **Cedar version 2.4**.
+Verified Permissions currently uses **Cedar version 4.7**.
 
 For more information about Cedar, see the following:
 
