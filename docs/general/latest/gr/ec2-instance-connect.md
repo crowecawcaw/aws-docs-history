@@ -19,10 +19,10 @@ The following are the service endpoints and service quotas for this service.
 | US West (Oregon)          | us-west-2      | ec2-instance-connect.us-west-2.amazonaws.com      | HTTPS    |
 | Africa (Cape Town)        | af-south-1     | ec2-instance-connect.af-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Hong Kong)  | ap-east-1      | ec2-instance-connect.ap-east-1.amazonaws.com      | HTTPS    |
-| Asia Pacific (Hyderabad)  | ap-south-2     |                                                   |          |
-| Asia Pacific (Jakarta)    | ap-southeast-3 |                                                   |          |
+| Asia Pacific (Hyderabad)  | ap-south-2     | ec2-instance-connect.ap-south-2.amazonaws.com     | HTTPS    |
+| Asia Pacific (Jakarta)    | ap-southeast-3 | ec2-instance-connect.ap-southeast-3.amazonaws.com | HTTPS    |
 | Asia Pacific (Malaysia)   | ap-southeast-5 | ec2-instance-connect.ap-southeast-5.amazonaws.com | HTTPS    |
-| Asia Pacific (Melbourne)  | ap-southeast-4 |                                                   |          |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | ec2-instance-connect.ap-southeast-4.amazonaws.com | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | ec2-instance-connect.ap-south-1.amazonaws.com     | HTTPS    |
 | Asia Pacific (Osaka)      | ap-northeast-3 | ec2-instance-connect.ap-northeast-3.amazonaws.com | HTTPS    |
 | Asia Pacific (Seoul)      | ap-northeast-2 | ec2-instance-connect.ap-northeast-2.amazonaws.com | HTTPS    |
@@ -37,13 +37,13 @@ The following are the service endpoints and service quotas for this service.
 | Europe (London)           | eu-west-2      | ec2-instance-connect.eu-west-2.amazonaws.com      | HTTPS    |
 | Europe (Milan)            | eu-south-1     | ec2-instance-connect.eu-south-1.amazonaws.com     | HTTPS    |
 | Europe (Paris)            | eu-west-3      | ec2-instance-connect.eu-west-3.amazonaws.com      | HTTPS    |
-| Europe (Spain)            | eu-south-2     |                                                   |          |
+| Europe (Spain)            | eu-south-2     | ec2-instance-connect.eu-south-2.amazonaws.com     | HTTPS    |
 | Europe (Stockholm)        | eu-north-1     | ec2-instance-connect.eu-north-1.amazonaws.com     | HTTPS    |
 | Europe (Zurich)           | eu-central-2   | ec2-instance-connect.eu-central-2.amazonaws.com   | HTTPS    |
 | Israel (Tel Aviv)         | il-central-1   | ec2-instance-connect.il-central-1.amazonaws.com   | HTTPS    |
 | Mexico (Central)          | mx-central-1   | ec2-instance-connect.mx-central-1.amazonaws.com   | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | ec2-instance-connect.me-south-1.amazonaws.com     | HTTPS    |
-| Middle East (UAE)         | me-central-1   |                                                   |          |
+| Middle East (UAE)         | me-central-1   | ec2-instance-connect.me-central-1.amazonaws.com   | HTTPS    |
 | South America (São Paulo) | sa-east-1      | ec2-instance-connect.sa-east-1.amazonaws.com      | HTTPS    |
 | AWS GovCloud (US-East)    | us-gov-east-1  | ec2-instance-connect.us-gov-east-1.amazonaws.com  | HTTPS    |
 | AWS GovCloud (US-West)    | us-gov-west-1  | ec2-instance-connect.us-gov-west-1.amazonaws.com  | HTTPS    |
