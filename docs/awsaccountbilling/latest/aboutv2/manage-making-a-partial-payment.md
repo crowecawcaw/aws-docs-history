@@ -31,6 +31,9 @@ After your bank processes your payment, you're redirected to the
 
 - Chinese yuan (CNY) China Union Pay credit cards are not eligible for partial payments.
 - Subscription invoices and AWS Marketplace invoices are not eligible for partial payments.
+- Each payment is at least 10% of the total invoice amount.
+- If the remaining balance would be less than 10% of the original invoice amount, the full balance must be paid.
+- The payment amount is at least 300 units in the invoice currency (for example, 300 USD, 300 JPY).
 
 ## Troubleshooting partial payments
 
