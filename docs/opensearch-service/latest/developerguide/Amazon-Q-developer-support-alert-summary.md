@@ -114,7 +114,7 @@ Use the following procedure to view alert summaries and insights in OpenSearch S
 
 ###### Viewing alert summaries and insights
 
-1. Verify that you've [set up Amazon Q for OpenSearch Service](Amazon-Q-developer-support-setting-up.md "Amazon-Q-developer-support-setting-up.md").
+1. Verify that you've [set up AI Assistant for OpenSearch Service](AI-Assistant-setting-up.md "AI-Assistant-setting-up.md").
 2. Verify that you've [set up
    alerts for OpenSearch Service](alerting.md "alerting.md").
 3. In the OpenSearch Dashboards main menu, choose **Alerting**,

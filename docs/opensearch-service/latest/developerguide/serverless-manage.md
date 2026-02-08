@@ -8,8 +8,8 @@ the collection, requiring minimal manual input.
 
 - [Configuring permissions for
   collections](serverless-collection-permissions.md "serverless-collection-permissions.md")
-- [About automatic semantic
-  enrichment](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md")
+- [Automatic semantic
+  enrichment for Serverless](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md")
 - [Creating collections](serverless-create.md "serverless-create.md")
 - [Accessing OpenSearch Dashboards](serverless-dashboards.md "serverless-dashboards.md")
 - [Viewing collections](serverless-list.md "serverless-list.md")

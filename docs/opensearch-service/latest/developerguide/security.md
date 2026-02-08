@@ -32,10 +32,10 @@ _in_ the cloud:
 - [Cross-service confused deputy
   prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Fine-grained access control in Amazon OpenSearch Service](fgac.md "fgac.md")
-- [Compliance validation for Amazon OpenSearch Service](compliance.md "compliance.md")
+- [Compliance validation for Amazon OpenSearch Service](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon OpenSearch Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [JWT authentication and authorization for Amazon OpenSearch Service](JSON-Web-tokens.md "JSON-Web-tokens.md")
-- [Infrastructure security in Amazon OpenSearch Service](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure Security in Amazon OpenSearch Service](infrastructure-security.md "infrastructure-security.md")
 - [SAML authentication for OpenSearch Dashboards](saml.md "saml.md")
 - [IAM Identity Center Trusted Identity Propagation Support for OpenSearch](idc-aos.md "idc-aos.md")
 - [Configuring Amazon Cognito authentication for OpenSearch

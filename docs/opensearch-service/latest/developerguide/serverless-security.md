@@ -34,7 +34,7 @@ a matching data access policy that grants permission to its resources.
 - [Access Amazon OpenSearch Serverless using an interface endpoint
   (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md")
 - [SAML authentication for Amazon OpenSearch Serverless](serverless-saml.md "serverless-saml.md")
-- [Compliance validation for Amazon OpenSearch Serverless](serverless-compliance.md "serverless-compliance.md")
+- [Compliance validation for Amazon OpenSearch Serverless](serverless-compliance-validation.md "serverless-compliance-validation.md")
 
 ## Encryption policies
 

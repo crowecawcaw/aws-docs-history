@@ -1,8 +1,8 @@
-# Setting up Amazon Q for
+# Setting up AI Assistant for
 
 OpenSearch Service
 
-Complete the following steps to set up Amazon Q for OpenSearch Service.
+Complete the following steps to set up AI Assistant for OpenSearch Service.
 
 1. Verify that you have configured OpenSearch Service fine-grained access control. For more
    information, see [Fine-grained access control in Amazon OpenSearch Service](fgac.md "fgac.md").

@@ -2,6 +2,8 @@
 
 Amazon OpenSearch Service
 
+## Introduction
+
 Amazon OpenSearch Service uses word-to-word matching (lexical search) to find results, similar to other
 traditional search engines. This approach works well for specific queries like product codes
 or model numbers, but struggles with abstract searches where understanding user intent
@@ -17,123 +19,120 @@ enhance search results.
 
 ###### Note
 
-AAutomatic semantic enrichment is available for OpenSearch Service domains running version 2.19 or later.
+Automatic semantic enrichment is available for OpenSearch Service domains running version 2.19 or later.
 Additionally, domains with OpenSearch version 2.19 also need to be on the latest service software version update.
+Currently, feature is available for public domains, and VPC domains are not supported.
 
-## How it works
+## Model details and performance benchmark
 
-The enrichment process analyzes designated text fields and generates semantic
-embeddings that capture meaning and context. These embeddings help the search engine
-understand relationships between concepts, synonyms, and related terms even when they
-don't appear in your search query. For example, if a user searches for "how to treat a
-headache", a semantic search system might return the following results:
+While this feature handles the technical complexities behind the scenes without exposing the underlying model,
+we provide transparency through a brief model description and benchmark results to help you make informed decisions about
+feature adoption in your critical workloads.
 
-- Migraine remedies
-- Pain management techniques
-- Over-the-counter pain relievers
-- Natural headache relief methods
+Automatic semantic enrichment uses a service-managed, pre-trained sparse model that works effectively without requiring custom fine-tuning.
+The model analyzes the fields you specify, expanding them into sparse vectors based on learned associations from diverse training data.
+The expanded terms and their significance weights are stored in native Lucene index format for efficient retrieval.
+We’ve optimized this process using [document-only mode,](https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#step-1a-choose-the-search-mode "https://docs.opensearch.org/docs/latest/vector-search/ai-search/neural-sparse-with-pipelines/#step-1a-choose-the-search-mode")
+where encoding happens only during data ingestion. Search queries are merely tokenized rather than processed through the sparse model,
+making the solution both cost-effective and performant.
 
-The system understands the underlying intent even when these exact phrases aren't in
-the original query.
+Our performance validation during feature development used the [MS MARCO](https://huggingface.co/datasets/BeIR/msmarco "https://huggingface.co/datasets/BeIR/msmarco")
+passage retrieval dataset, featuring passages averaging 334 characters. For relevance scoring, we measured average Normalized Discounted Cumulative Gain (NDCG) for
+the first 10 search results (ndcg@10) on the [BEIR](https://github.com/beir-cellar/beir "https://github.com/beir-cellar/beir")
+benchmark for English content and average ndcg@10 on MIRACL for multilingual content.
+We assessed latency through client-side, 90th-percentile (p90) measurements and search response p90
+[took values.](https://github.com/beir-cellar/beir "https://github.com/beir-cellar/beir")
+These benchmarks provide baseline performance indicators for both search relevance and response times. Here are the key benchmark numbers -
 
-Automatic semantic enrichment offers the following benefits:
+- English language - Relevance improvement of 20% over lexical search. It also lowered P90 search latency by 7.7% over lexical search (BM25 is 26 ms, and automatic semantic enrichment is 24 ms).
+- Multi-lingual - Relevance improvement of 105% over lexical search, whereas P90 search latency increased by 38.4% over lexical search (BM25 is 26 ms, and automatic semantic enrichment is 36 ms).
 
-######
+Given the unique nature of each workload, we encourage you to evaluate this feature in your development environment using your own benchmarking criteria before making implementation decisions.
 
-**Simplified implementation**
+## Languages Supported
 
-You don't need machine learning expertise or complex integrations to
-implement semantic search capabilities.
+The feature supports English. In addition, the model also supports Arabic, Bengali, Chinese, Finnish, French, Hindi, Indonesian, Japanese, Korean, Persian, Russian, Spanish, Swahili, and Telugu.
 
-**Index-level configuration**
+## Set up an automatic semantic enrichment index for domains
 
-Semantic enrichment is configured at the index level during creation,
-giving you granular control over which data receives semantic
-processing.
+Setting up an index with automatic semantic enrichment enabled for your text fields is easy,
+and you can manage it through the console, APIs, and CloudFormation templates during new index creation.
+To enable it for an existing index, you need to recreate the index with automatic semantic enrichment enabled for text fields.
 
-**Minimal impact on search latency**
+Console experience -
+The AWS console allows you to easily create an index with automatic semantic enrichment fields.
+Once you select a domain, you will find the create index button at the top of the console. Once you click the create index button,
+you will find options to define automatic semantic enrichment fields. In one index, you can have combinations of
+automatic semantic enrichment for English and multilingual, as well as lexical fields.
 
-Automatic Semantic Enrichment stores sparse encodings directly in your
-index during indexing. You don't need separate KNN indices. Your searches
-maintain their original speed while delivering enhanced results.
+![](images/ase-console-exp.png)
 
-**Automated process**
+API experience - To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command:
 
-Semantic enrichment happens automatically during data ingestion without
-requiring manual intervention.
+```
+aws opensearch create-index \
+--domain-name [domain_name] \
+--index-name [index_name] \
+--index-schema [index_body] \
 
-**Improved search relevance**
+```
 
-Semantic enrichment enhances the quality and contextual accuracy of search
-results by understanding user intent.
+In the following example index-schema, the _title_semantic_ field has a field type set to _text_ and has parameter
+_semantic_enrichment_ set to status _ENABLED_.
+Setting the _semantic_enrichment_ parameter enables automatic semantic enrichment on the _title_semantic_ field.
+You can use the _language_options_ field to specify either _english_ or _multi-lingual_.
 
-**Scalability**
+```
 
-Semantic enrichment applies semantic search capabilities to large datasets
-without manual intervention.
+    aws opensearch create-index \
+    --id XXXXXXXXX \
+    --index-name 'product-catalog' \
+    --index-schema '{
+    "mappings": {
+        "properties": {
+            "product_id": {
+                "type": "keyword"
+            },
+            "title_semantic": {
+                "type": "text",
+                "semantic_enrichment": {
+                    "status": "ENABLED",
+                    "language_options": "english"
+                }
+            },
+            "title_non_semantic": {
+                "type": "text"
+            }
+        }
+    }
+}'
 
-### Requirements and
+```
 
-considerations
+To describe the created index, use the following command:
 
-Before implementing automatic semantic enrichment, consider the following
-requirements and limitations:
+```
+aws opensearch get-index \
+--domain-name [domain_name] \
+--index-name [index_name] \
 
-######
+```
 
-**Version requirements**
+## Data ingestion and search
 
-Automatic semantic enrichment is available for Amazon OpenSearch Service version 2.19
-and later. For existing domains running Amazon OpenSearch Service version 2.19 or 3.1,
-you must update to the latest patch version to use this feature.
+Once you've created an index with automatic semantic enrichment enabled,
+the feature works automatically during data ingestion process, no additional configuration required.
 
-**Public domains only**
+Data ingestion: When you add documents to your index, the system automatically:
 
-Automatic Semantic Enrichment is available only for public domains.
-You can't use it with VPC domains.
+- Analyzes the text fields you designated for semantic enrichment
+- Generates semantic encodings using OpenSearch Service managed sparse model
+- Stores these enriched representations alongside your original data
 
-**Processing overhead**
+This process uses OpenSearch's built-in ML connectors and ingest pipelines, which are created and managed automatically behind the scenes.
 
-The enrichment process adds minimal processing time during data
-ingestion as the system generates semantic embeddings for designated
-fields.
-
-**Storage implications**
-
-Enriched data requires additional storage space for the semantic
-embeddings generated alongside your original data.
-
-**Language support**
-
-Automatic semantic enrichment for managed domains offers the following
-language options:
-
-English-only option
-
-- Ideal for applications primarily dealing with English
-  text
-
-Multi-lingual option
-
-- Supports the following languages: Arabic, Bengali, Chinese,
-  English, Finnish, French, Hindi, Indonesian, Japanese, Korean,
-  Persian, Russian, Spanish, Swahili, and Telugu
-- Perfect for diverse, international content or multilingual
-  applications
-
-#### Pricing
-
-With Automatic Semantic Enrichment, you pay only for the resources your
-workload consumes. The compute capacity is measured in OpenSearch Compute Units
-(OCUs). Check the pricing details for your specific Region and pricing
-illustration on the [https://aws.amazon.com/opensearch-service/pricing/](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/")OpenSearch Service pricing page.
-
-## Index set up example
-
-For a practical example, refer to the blog post [https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/](https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/ "https://aws.amazon.com/blogs/big-data/boosting-search-relevance-automatic-semantic-enrichment-in-amazon-opensearch-serverless/")
-on index setup for product catalog search using automatic semantic enrichment. Although the blog focuses on OpenSearch Serverless,
-the approach applies to managed clusters as well. Use this example as a starting point, then test with your own workload to
-validate search relevance improvements.
+Search: The semantic enrichment data is already indexed, so queries run efficiently without invoking the ML model again.
+This means you get improved search relevance with no additional search latency overhead.
 
 ## Configuring permissions for
 
@@ -313,3 +312,34 @@ enrichment:
 
 - `indices:admin/delete` – Delete index
   operations.
+
+## Query Rewrites
+
+Automatic semantic enrichment automatically converts your existing “match”
+queries to semantic search queries without requiring query modifications. If a match query is part of a compound query,
+the system traverses your query structure, finds match queries, and replaces them with neural sparse queries.
+Currently, the feature only supports replacing “match” queries, whether it’s a standalone query or part of a compound query.
+“multi_match” is not supported. In addition, the feature supports all compound queries to replace their nested match queries.
+Compound queries include: bool, boosting, constant_score, dis_max, function_score, and hybrid.
+
+## Limitations of automatic semantic enrichment
+
+Automatic semantic search is most effective when applied to small-to-medium
+sized fields containing natural language content, such as movie titles, product descriptions,
+reviews, and summaries. Although semantic search enhances relevance for most use cases,
+it might not be optimal for certain scenarios. Consider following limitations when deciding whether
+to implement automatic semantic enrichment for your specific use case.
+
+- Very long documents – The current sparse model processes only the first 8,192 tokens of each document for English.
+  For multilingual documents, it’s 512 tokens. For lengthy articles, consider implementing document chunking to
+  ensure complete content processing.
+- Log analysis workloads – Semantic enrichment significantly increases index size,
+  which might be unnecessary for log analysis where exact matching typically suffices.
+  The additional semantic context rarely improves log search effectiveness enough to justify the increased storage requirements.
+
+## Pricing
+
+Amazon OpenSearch Service bills automatic semantic enrichment based on OpenSearch Compute Units (OCUs)
+consumed during sparse vector generation at indexing time. You’re charged only for actual usage during indexing.
+You can monitor this consumption using the Amazon CloudWatch metric SemanticSearchOCU. For specific details
+about model token limits, volume throughput per OCU, and example of sample calculation, visit [OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").

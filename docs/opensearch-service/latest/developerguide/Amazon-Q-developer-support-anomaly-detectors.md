@@ -15,7 +15,7 @@ Amazon Q supports suggested anomaly detectors for any language.
 
 ###### To view Amazon Q recommended anomaly detectors
 
-1. Verify that you've [set up Amazon Q for OpenSearch Service](Amazon-Q-developer-support-setting-up.md "Amazon-Q-developer-support-setting-up.md").
+1. Verify that you've [set up AI Assistant for OpenSearch Service](AI-Assistant-setting-up.md "AI-Assistant-setting-up.md").
 2. In the OpenSearch Dashboards main menu, choose the **Discover**
    page, and then choose a data source.
 3. From the **Amazon Q** menu, choose **Suggest anomaly

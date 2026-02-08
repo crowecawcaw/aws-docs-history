@@ -11,7 +11,7 @@ recover collections after you delete them.
    To delete a collection using the AWS CLI, send a [DeleteCollection](../ServerlessAPIReference/API_DeleteCollection.md "../ServerlessAPIReference/API_DeleteCollection.md") request:
 
 ```
-aws opensearchserverless delete-collection --id `07tjusf2h91cunochc`
+&aws opensearchserverless delete-collection --id `07tjusf2h91cunochc`
 ```
 
 **Sample response**

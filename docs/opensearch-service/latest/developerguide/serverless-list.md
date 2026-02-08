@@ -5,7 +5,7 @@ You can view the existing collections in your AWS account on the **Collections**
 To list collections along with their IDs, send a [ListCollections](../ServerlessAPIReference/API_ListCollections.md "../ServerlessAPIReference/API_ListCollections.md") request.
 
 ```
-aws opensearchserverless list-collections
+&aws opensearchserverless list-collections
 ```
 
 **Sample response**
@@ -27,14 +27,14 @@ To limit the search results, use collection filters. This request filters the re
 to collections in the `ACTIVE` state:
 
 ```
-aws opensearchserverless list-collections --collection-filters '{ "status": "`ACTIVE`" }'
+&aws opensearchserverless list-collections --collection-filters '{ "status": "`ACTIVE`" }'
 ```
 
 To get more detailed information about one or more collections, including the
 OpenSearch endpoint and the OpenSearch Dashboards endpoint, send a [BatchGetCollection](../ServerlessAPIReference/API_BatchGetCollection.md "../ServerlessAPIReference/API_BatchGetCollection.md") request:
 
 ```
-aws opensearchserverless batch-get-collection --ids ["`07tjusf2h91cunochc`", "`1iu5usc4rame`"]
+&aws opensearchserverless batch-get-collection --ids ["`07tjusf2h91cunochc`", "`1iu5usc4rame`"]
 ```
 
 ###### Note

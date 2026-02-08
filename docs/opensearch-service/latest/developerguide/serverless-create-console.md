@@ -138,8 +138,8 @@ When you create or edit a collection, you can configure automatic semantic
 enrichment, which simplifies semantic search implementation and capabilities
 in Amazon OpenSearch Service. Semantic search returns query results that incorporate not just
 keyword matching, but the intent and contextual meaning of the user's
-search. For more information, see [About automatic semantic
-enrichment](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md").
+search. For more information, see [Automatic semantic
+enrichment for Serverless](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md").
 
 ###### To configure automatic semantic enrichment
 

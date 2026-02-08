@@ -8,7 +8,7 @@ AWS.
 Amazon Q integration with Amazon OpenSearch Service offers the following generative capabilities:
 
 - [Generate
-  visualizations using natural language](Amazon-Q-developer-support-generate-visualizations.md "Amazon-Q-developer-support-generate-visualizations.md")
+  visualizations using natural language](AI-Assistant-generate-visualizations.md "AI-Assistant-generate-visualizations.md")
 - [View alert summaries and
   insights](Amazon-Q-developer-support-alert-summary.md "Amazon-Q-developer-support-alert-summary.md")
 - [View Amazon Q-generated query

@@ -20,7 +20,7 @@ understanding your data without having to write complex queries.
 
 ###### To view Amazon Q-generated query result summaries on the Discover page
 
-1. Verify that you've [set up Amazon Q for OpenSearch Service](Amazon-Q-developer-support-setting-up.md "Amazon-Q-developer-support-setting-up.md").
+1. Verify that you've [set up AI Assistant for OpenSearch Service](AI-Assistant-setting-up.md "AI-Assistant-setting-up.md").
 2. In the OpenSearch Dashboards main menu, choose
    **Discover**.
 3. In the query language drop-down list, choose **PPL**.

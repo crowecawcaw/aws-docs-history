@@ -33,7 +33,7 @@ collection, the name must meet the following criteria:
    resource pattern that matches the intended name of the collection.
 
 ```
-aws opensearchserverless create-security-policy \
+&aws opensearchserverless create-security-policy \
   --name `policy name` \
   --type encryption --policy "{\"Rules\":[{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/`collection name`\"]}],\"AWSOwnedKey\":true}"
 ```
@@ -43,7 +43,7 @@ _logs-application_, you might create an
 encryption policy like this:
 
 ```
-aws opensearchserverless create-security-policy \
+&aws opensearchserverless create-security-policy \
   --name logs-policy \
   --type encryption --policy "{\"Rules\":[{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/logs-application\"]}],\"AWSOwnedKey\":true}"
 ```
@@ -56,7 +56,7 @@ policy](serverless-network.md "serverless-network.md"). You can create network p
 collection, but we recommend doing it beforehand.
 
 ```
-aws opensearchserverless create-security-policy \
+&aws opensearchserverless create-security-policy \
   --name `policy name` \
   --type network --policy "[{\"Description\":\"`description`\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection\/`collection name`\"]},{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/`collection name`\"]}],\"AllowFromPublic\":true}]"
 ```
@@ -65,7 +65,7 @@ Using the previous _logs-application_ example, you
 might create the following network policy:
 
 ```
-aws opensearchserverless create-security-policy \
+&aws opensearchserverless create-security-policy \
   --name logs-policy \
   --type network --policy "[{\"Description\":\"Public access for logs collection\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection\/logs-application\"]},{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/logs-application\"]}],\"AllowFromPublic\":true}]"
 ```
@@ -94,7 +94,7 @@ matches a data access policy. For more information, see [Data access control for
    `SEARCH` or `TIMESERIES`.
 
 ```
-aws opensearchserverless create-collection --name "`collection name`" --type `collection type` --description "`description`"
+&aws opensearchserverless create-collection --name "`collection name`" --type `collection type` --description "`description`"
 ```
 
 ## Creating a
@@ -110,7 +110,7 @@ automatic semantic enrichment**
 Run the following command to create the collection and an index.
 
 ```
-aws opensearchserverless create-index \
+&aws opensearchserverless create-index \
 --region `Region ID` \
 --id `collection name` --index-name `index name` \
 --index-schema \
@@ -120,7 +120,7 @@ aws opensearchserverless create-index \
 Here's an example.
 
 ```
-aws opensearchserverless create-index \
+&aws opensearchserverless create-index \
 --region us-east-1 \
 --id conversation_history --index-name conversation_history_index \
 --index-schema \
