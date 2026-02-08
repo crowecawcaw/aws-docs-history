@@ -23,7 +23,19 @@ Partners can now use deal sizing when creating opportunities to receive AI-power
    - Enter a future date for **Target Close Date**. Do not submit opportunities with **Launched** or **Closed Won** status.
    - If you select **Yes: Sourced from marketing activity**, make sure you select **Yes** or **No** for **Marketing development funds**.
 
-5. Configure deal size and choose **Next**.
+5. Enter APN program details and choose **Next**.
+
+Select the **APN program** related to this opportunity. Some APN programs may require additional details and adding contact details.
+
+If you select **Migration Acceleration Program**, you can provide additional details about your migration project.
+
+    * Select **Migration workload** you plan to migrate.
+    * Select **Migration source** as the platform or environment where your workload currently resides.
+    * Select **Migration phase** as your current stage in the migration journey: **Assess, Mobilize, Migrate & Modernize, and Manage**.
+    * Select **Managed services offered to customer** as **Yes**, if you plan to help the customer manage workloads by offering managed services after the project is delivered. Select **No**, if you do not plan to offer managed services to the customer after the project is delivered.
+    * Enter **Migration details** about your migration project, including: current environment specifications, business drivers for migration, expected outcomes, and key challenges or requirements etc.
+
+6. Configure deal size and choose **Next**.
 
 Deal sizing provides AI-powered insights to help you estimate opportunity value and identify relevant AWS products. You can choose between two calculation methods based on your preference and available information.
 
@@ -96,9 +108,9 @@ When you select Pricing Calculator URL, you can import estimates directly from t
 
     	* To modify products or pricing after importing, you must update your Pricing Calculator estimate URL and reimport.
 
-6. Enter optional details as desired and choose **Next**.
-7. Enter optional customer contact details and choose **Next**. For more information, refer to [Opportunity contacts](contact-roles.md "contact-roles.md").
-8. Review the opportunity details and choose **Submit**.
+7. Enter optional details as desired and choose **Next**.
+8. Enter optional customer contact details and choose **Next**. For more information, refer to [Opportunity contacts](contact-roles.md "contact-roles.md").
+9. Review the opportunity details and choose **Submit**.
 
 Partners can add up to two (2) partner contacts on a given opportunity. These designated contacts serve as the primary points of communication with AWS sellers and receive all relevant notifications about the opportunity's progression. This includes automated alerts for status changes, requests for additional information, and validation updates.
 
