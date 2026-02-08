@@ -53,7 +53,8 @@ JSON
  "Effect": "Allow",
  "Action": [
  "xray:PutResourcePolicy",
- "xray:ListResourcePolicies"
+ "xray:ListResourcePolicies",
+ "xray:GetTraceSegmentDestination"
  ],
  "Resource": "*"
  }
