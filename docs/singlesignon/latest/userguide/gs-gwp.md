@@ -4,6 +4,17 @@ If your organization is using Google Workspace you can integrate your users from
 give them access to AWS resources. You can achieve this integration by changing your IAM Identity Center
 identity source from the default IAM Identity Center identity source to Google Workspace.
 
+###### Note
+
+Google Workspace doesn’t currently support SAML multiple assertion consume service (ACS) URLs
+in the AWS IAM Identity Center application. This SAML feature is required to fully take advantage of [multi-Region support](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md") in IAM Identity Center. If
+you plan to replicate IAM Identity Center to additional Regions, be aware that using a single ACS URL
+may affect the user experience in those additional Regions. Your primary Region will
+continue to function normally. We recommend that you work with your IdP vendor to enable
+this feature. For more information about the user experience in additional Regions with
+a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access
+resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
+
 User information from Google Workspace is synchronized into IAM Identity Center using the [System for Cross-domain Identity
 Management (SCIM) 2.0 protocol](scim-profile-saml.md#scim-profile "scim-profile-saml.md#scim-profile"). For more information, see [Using SAML and SCIM identity federation with external identity
 providers](other-idps.md "other-idps.md").

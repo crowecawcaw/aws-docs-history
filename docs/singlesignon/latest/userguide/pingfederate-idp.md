@@ -56,6 +56,12 @@ You'll need the following before you can get started:
   use the IAM Identity Center Connector to configure "Browser SSO" in PingFederate,
   using the “download" and "import" metadata features on both ends to exchange SAML
   metadata between PingFederate and IAM Identity Center.
+- If you replicated IAM Identity Center to additional Regions, you must update your identity
+  provider
+  configuration to enable access to AWS managed applications and AWS accounts from those
+  Regions. For more details, see
+  [Step 3: Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). See the
+  PingFederate documentation for additional details.
 
 ## Considerations
 

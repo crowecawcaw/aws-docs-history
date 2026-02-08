@@ -9,6 +9,13 @@ IAM Identity Center instance](delete-config.md "delete-config.md") and creating 
 AWS managed application with your existing IAM Identity Center instance, disable the application before
 deleting IAM Identity Center. For instructions on disabling AWS managed applications, see [Disabling an AWS managed application](awsapps-remove.md "awsapps-remove.md").
 
+###### Note
+
+If you are considering switching your IAM Identity Center Region to enable the deployment of an AWS managed application in another Region,
+consider replicating your IAM Identity Center instance to that Region instead.
+For more information, see [Using IAM Identity Center across multiple
+AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+
 ###### Configuration considerations in the new Region
 
 You must recreate users, groups, permission sets, applications, and assignments in the new

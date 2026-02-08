@@ -52,6 +52,12 @@ You'll need the following before you can get started:
   and “import" metadata feature on both ends to exchange SAML metadata between
   PingOne and IAM Identity Center. For instructions on how to configure this
   connection, see the PingOne documentation.
+- If you replicated IAM Identity Center to additional Regions, you must update your identity
+  provider
+  configuration to enable access to AWS managed applications and AWS accounts from those
+  Regions. For more details, see
+  [Step 3: Update external IdP setup](replicate-to-additional-region.md#update-external-idp-setup "replicate-to-additional-region.md#update-external-idp-setup"). See the
+  PingOne documentation for additional details.
 
 ## Considerations
 

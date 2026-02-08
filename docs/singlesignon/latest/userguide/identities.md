@@ -1,7 +1,7 @@
 # Set up your workforce in IAM Identity Center
 
 IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed
-applications such as Amazon Q Developer and Amazon Quick Suite, and other AWS resources. You can connect your
+applications such as Kiro and Amazon Quick Suite, and other AWS resources. You can connect your
 existing identity provider and synchronize users and groups from your directory, or create and
 manage your users directly in IAM Identity Center.
 

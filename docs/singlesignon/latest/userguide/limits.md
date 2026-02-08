@@ -65,6 +65,11 @@ that are associated with IAM roles, see [IAM and STS quotas](../../../IAM/latest
 | Identity Store APIs      | [Identity Store APIs](../IdentityStoreAPIReference/welcome.md "../IdentityStoreAPIReference/welcome.md")<br>have a throttle limit of 20 transactions per second (TPS) per API. This limit applies<br>per Identity Store instance. You can open a support case to request a limit increase.                                                                                                                                                                        |
 | SCIM APIs                | [SCIM<br>APIs](../developerguide/what-is-scim.md "../developerguide/what-is-scim.md")<br>have throttle limits of 25 transactions per second (TPS) for write APIs and 40 TPS<br>for read APIs. These limits apply per Identity Store instance. You can open a support<br>case to request a limit increase.                                                                                                                                                         |
 
+If your IAM Identity Center instance is enabled in multiple AWS Regions, the throttle limits apply
+equally to each enabled Region. For example, you would have the 20 TPS throttle limit on
+the Identity Store APIs in each enabled Region. For more information about which API
+operations are available in additional Regions, see the corresponding [table](api-support-in-additional-regions.md "api-support-in-additional-regions.md").
+
 ## OIDC service request quotas
 
 | Resource                                                                                                                                                                                                                                                                                                                | Default value (requests per second) | Can be increased    |
@@ -75,6 +80,12 @@ that are associated with IAM roles, see [IAM and STS quotas](../../../IAM/latest
 | Request rate from an IAM Identity Center application registered with the IAM Identity Center instance<br>Applies to: [CreateTokenWithIAM](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md")                                                                                | 80                                  | Yes                 |
 | Token generation rate from all IAM Identity Center applications registered with the same IAM Identity Center instance with JWT Bearer grant<br>Applies to: [CreateTokenWithIAM](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md")                                          | 10                                  | Contact AWS Support |
 
+If your IAM Identity Center instance is enabled in multiple AWS Regions, the request rates above
+apply equally to each enabled Region. For example, if your allowed request rate to
+register a public OAuth client from a remote address is 20 requests per second, this
+throughput is available in each enabled Region. For more information about which API
+operations are available in additional Regions, see the corresponding [table](api-support-in-additional-regions.md "api-support-in-additional-regions.md").
+
 ## Additional quotas
 
 | Resource                                                                                              | Default quota | Can be increased |
@@ -83,6 +94,7 @@ that are associated with IAM roles, see [IAM and STS quotas](../../../IAM/latest
 | Total number of instances of IAM Identity Center per account                                          | 1             | No               |
 | Total number of trusted token issuers                                                                 | 10            | No               |
 | Total number of groups that can be assigned to a permission set per AWS account, or to an application | 100           | No               |
+| Total number of AWS Regions enabled for a single IAM Identity Center instance                         | 3             | Yes              |
 
 \* For example, you might configure 2750 accounts and 250 applications, resulting in a
 total of 3000 accounts and applications.

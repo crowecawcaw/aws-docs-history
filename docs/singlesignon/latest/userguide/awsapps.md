@@ -1,7 +1,7 @@
 # AWS managed applications
 
 AWS IAM Identity Center streamlines and simplifies the task of connecting your workforce users to
-AWS managed applications such as Amazon Q Developer and Amazon Quick Suite. With IAM Identity Center, you can connect
+AWS managed applications such as Kiro and Amazon Quick Suite. With IAM Identity Center, you can connect
 your existing identity provider once and synchronize users and groups from your
 directory, or create and manage your users directly in IAM Identity Center. By providing one point of
 federation, IAM Identity Center eliminates the need to set up federation or user and group

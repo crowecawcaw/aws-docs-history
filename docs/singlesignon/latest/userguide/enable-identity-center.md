@@ -10,7 +10,8 @@ The following list identifies the type of IAM Identity Center instances you can 
 - Your AWS Organizations management account (recommended) –
   Required to create an [organization
   instance](organization-instances-identity-center.md "organization-instances-identity-center.md") of IAM Identity Center. Use an organization instance for multi-account permissions and
-  application assignments across the organization.
+  application assignments across the organization. You can replicate this instance type to
+  additional Regions for enhanced resiliency of account access and flexibility in the choice of AWS application deployment Regions.
 - Your AWS Organizations member account – Use to create an
   [account instance](account-instances-identity-center.md "account-instances-identity-center.md") of IAM Identity Center to
   enable application assignments within that member account. One or more accounts with a
@@ -54,7 +55,8 @@ Organization (recommended)
      management account credentials.
 
 2. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
-3. (Optional) If you want to use a customer managed KMS key for encryption at rest rather than the default AWS managed key, configure the customer managed key in the **Key for encrypting IAM Identity Center data at rest** section. For more information, refer to [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+3. (Optional) If you want to use a customer managed KMS key for encryption at rest rather than the default AWS managed key, configure the customer managed key in the **Key for encrypting IAM Identity Center data at rest** section. For more information, refer to [Implementing customer managed KMS
+   keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 
 ###### Important
 

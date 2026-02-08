@@ -358,10 +358,25 @@ step.
    choose the folder icon, select the service provider metadata file that you
    downloaded in the previous step, and then choose **Add**.
 4. On the **Basic SAML Configuration** page, verify that both the
-   **Identifier** and **Reply URL** values now
-   point to endpoints in AWS:
-   - IPv4:`https://`[Region]`.signin.aws.amazon.com/platform/saml/`
-   - Dual-stack:`https://sso.`[Region]`.signin.aws/platform/saml/`
+   **Identifier** and **Reply URL (Assertion Consumer Service URL)** values now
+   point to endpoints in AWS.
+   - **Identifier** - This is the **Issuer URL**
+     from IAM Identity Center. The same value applies regardless of whether you use IPv4-only or
+     dual-stack endpoints.
+   - **Reply URL (Assertion Consumer Service URL)** - The values
+     here include both IPv4-only and dual-stack endpoints from all enabled Regions of
+     your IAM Identity Center. You can use the primary Region's ACS URL as the default one so that
+     users are redirected to the primary Region when they launch the Amazon Web Services application from
+     Microsoft Entra ID. For more information on ACS URLs, see [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
+   - (Optional) If you replicated IAM Identity Center to additional Regions, you can also
+     create a bookmark app in Microsoft Entra ID for the AWS access portal in each additional Region.
+     This enables your users to access the AWS access portal in additional Regions from Microsoft Entra ID.
+     Make sure to grant your users permissions to access the bookmark apps in Microsoft Entra ID.
+     See [Microsoft Entra ID
+     documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-linked-sign-on "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-linked-sign-on") for more details. If you plan to replicate IAM Identity Center to
+     additional Regions later, visit [Microsoft Entra ID configuration for access
+     to additional Regions](#gs-microsoft-entra-multi-region "#gs-microsoft-entra-multi-region") for guidance how
+     to enable access to the additional Regions after this initial setup.
 
 5. Under **Sign on URL (Optional)**, paste in the
    **AWS access portal sign-in URL** value you copied in the previous step
@@ -780,6 +795,35 @@ AWS resources
    `RichardRoe`.
    1. For a demo, see [Federate your existing
       IAM Identity Center instance with Microsoft Entra ID](https://youtu.be/iSCuTJNeN6c?si=29HSAK8DgBEhSVad "https://youtu.be/iSCuTJNeN6c?si=29HSAK8DgBEhSVad")
+
+## Microsoft Entra ID configuration for access to
+
+additional Regions of IAM Identity Center - Optional
+
+If you replicated IAM Identity Center to additional Regions, you must update your identity provider
+configuration to enable access to AWS managed applications and AWS accounts through the
+additional Regions. The steps below guide you through the procedure. For more details about
+this topic including the prerequisites, see [Using IAM Identity Center across multiple
+AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+
+1. Retrieve ACS URLs for the additional regions from the IAM Identity Center console as outlined in [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
+2. In the [Microsoft Entra admin
+   center](https://entra.microsoft.com/ "https://entra.microsoft.com/") console, navigate to **Identity > Applications > Enterprise
+   applications** and then choose **AWS IAM Identity Center**.
+3. On the left, choose **2. Set up Single sign-on**.
+4. On the **Basic SAML Configuration** page, under **Reply URL
+   (Assertion Consumer Service URL)** section, choose **Add
+   reply URL** for each additiona Region's ACS URL. You can keep the primary
+   Region's ACS URL as the default ones so that users keep getting redirected to the primary
+   Region when they launch the AWS IAM Identity Center application from Microsoft Entra ID.
+5. When done adding the ACS URLs, save the **AWS IAM Identity Center** application.
+6. You can create a bookmark app in Microsoft Entra ID for the AWS access portal in each additional Region.
+   This enables your users to access the AWS access portal in additional Regions from Microsoft Entra ID. Make
+   sure to grant your users permissions to access the bookmark apps in Microsoft Entra ID. See [Microsoft Entra ID
+   documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-linked-sign-on "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-linked-sign-on") for more details.
+7. Verify that you can sign into the AWS access portal in each additional Region. Navigate to
+   the [AWS access portal URLs](multi-region-workforce-access.md#portal-endpoints "multi-region-workforce-access.md#portal-endpoints") or launch the bookmark apps
+   from Microsoft Entra ID.
 
 ## Troubleshooting
 

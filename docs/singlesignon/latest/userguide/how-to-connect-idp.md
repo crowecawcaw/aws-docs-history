@@ -32,11 +32,17 @@ external identity providers.
    1. Under **Service provider metadata**, choose **Download
       metadata file** to download the metadata file and save it on your system.
       The IAM Identity Center SAML metadata file is required by your external identity provider.
-   2. Under **Identity provider metadata**, choose **Choose
-      file**, and locate the metadata file that you downloaded from your external
-      identity provider. Then upload the file. This metadata file contains the necessary
-      public x509 certificate used to trust messages that are sent from the IdP.
-   3. Choose **Next**.###### Important
+
+   ###### Note
+
+   The SAML metadata file you download contains both IPv4-only and dual-stack assertion consumer service (ACS) URLs.
+   Further, if your IAM Identity Center is replicated to additional Regions, the metadata file contains ACS URLs for each additional Region.
+   If your external IdP has a limit on the number of ACS URLs, you will need to remove the unnecessary ACS URLs.
+   For example, if your organization has fully adopted dual-stack endpoints and no longer uses IP4v-only ones, you can remove the latter.
+   An alternative approach is to not use the metadata file but to copy and paste the ACS URLs into the external IdP. 2. Under **Identity provider metadata**, choose **Choose
+   file**, and locate the metadata file that you downloaded from your external
+   identity provider. Then upload the file. This metadata file contains the necessary
+   public x509 certificate used to trust messages that are sent from the IdP. 3. Choose **Next**.###### Important
 
 Changing your source to or from Active Directory removes all existing user and group
 assignments. You must manually reapply assignments after you have successfully changed

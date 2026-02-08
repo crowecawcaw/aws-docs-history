@@ -7,7 +7,8 @@ permission set, IAM Identity Center creates corresponding IAM Identity Center-co
 attaches the policies speciﬁed in the permission set to those roles. IAM Identity Center manages the role, and
 allows the authorized users you’ve deﬁned to assume the role, by using the AWS access portal or AWS CLI.
 As you modify the permission set, IAM Identity Center ensures that the corresponding IAM policies and roles
-are updated accordingly.
+are updated accordingly. Replicating your IAM Identity Center instance to additional Regions doesn’t affect existing IAM roles,
+and it doesn't create new IAM roles.
 
 ###### Note
 

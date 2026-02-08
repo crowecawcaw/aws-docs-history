@@ -19,6 +19,14 @@ IAM Identity Center implements the following standards-based protocols for ident
     as part of the sign-in URL.
   - An encryption key is not supported.
   - IAM Identity Center does not support signing SAML authentication requests that it sends to external IdPs.
+  - The IdP has to support multiple assertion consumer service (ACS) URLs if you plan
+    to replicate IAM Identity Center to additional Regions, and fully take advantage of the benefits of
+    a multi-Region IAM Identity Center. For more information, see [Using IAM Identity Center across multiple
+    AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md"). Using a single ACS URL may
+    affect the user experience in additional Regions. Your primary Region will continue to
+    function normally. For more information about the user experience in additional
+    Regions with a single ACS URL, see [Using AWS managed applications without multiple ACS URLs](multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls "multi-region-workforce-access.md#aws-app-use-without-multiple-acs-urls") and [AWS account access
+    resiliency without multiple ACS URLs](multi-region-failover.md#account-access-resiliency-without-multiple-acs-url "multi-region-failover.md#account-access-resiliency-without-multiple-acs-url").
 
 - **SCIM**
 

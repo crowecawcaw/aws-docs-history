@@ -2,7 +2,7 @@
 
 An identity-enhanced session for the console enhances a user's AWS console session
 by providing some additional user context to personalize that user's experience.
-This capability is currently supported for Amazon Q Developer Pro users of [Amazon Q on
+This capability is currently supported for Kiro Pro users of [Kiro on
 AWS apps and websites](../../../amazonq/latest/qdeveloper-ug/q-on-aws.md "../../../amazonq/latest/qdeveloper-ug/q-on-aws.md").
 
 You can enable identity-enhanced console sessions without making any changes to
@@ -28,19 +28,19 @@ considerations
 Before you enable identity-enhanced console sessions, review the following
 prerequisites and considerations:
 
-- If your users access Amazon Q on AWS apps and websites through an
-  Amazon Q Developer Pro subscription, you must enable identity-enhanced console
+- If your users access Kiro on AWS apps and websites through an
+  Kiro Pro subscription, you must enable identity-enhanced console
   sessions.
 
 ###### Note
 
-Amazon Q Developer users can access Amazon Q without identity-enhanced
-sessions, but they will not have access to their Amazon Q Developer Pro
+Kiro users can access Kiro without identity-enhanced
+sessions, but they will not have access to their Kiro Pro
 subscriptions.
 
 - Identity-enhanced console sessions require an [organization
   instance](organization-instances-identity-center.md "organization-instances-identity-center.md") of IAM Identity Center.
-- Integration with Amazon Q isn't supported if you enable IAM Identity Center in an
+- Integration with Kiro isn't supported if you enable IAM Identity Center in an
   opt-in AWS Region.
 - To enable identity-enhanced console sessions, you must have the following
   permissions:
@@ -63,10 +63,10 @@ subscriptions.
 
 identity-enhanced-console sessions
 
-You can enable identity-enhanced console sessions in the Amazon Q console or in the
+You can enable identity-enhanced console sessions in the Kiro console or in the
 IAM Identity Center console.
 
-###### Enable identity-enhanced console sessions in the Amazon Q console
+###### Enable identity-enhanced console sessions in the Kiro console
 
 Before you enable identity-enhanced console sessions, you must have an
 organization instance of IAM Identity Center with an identity source connected. If you've
@@ -78,8 +78,8 @@ already configured IAM Identity Center, skip to step 3.
    You can connect your existing identity source to IAM Identity Center or use the
    Identity Center directory if you are not already using another identity
    source. For more information, see [IAM Identity Center identity source tutorials](tutorials.md "tutorials.md").
-3. After you finish setting up IAM Identity Center, open the Amazon Q console and follow
-   the steps in [Subscriptions](../../../amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-management-account.md "../../../amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-management-account.md") in the _Amazon Q Developer User
+3. After you finish setting up IAM Identity Center, open the Kiro console and follow
+   the steps in [Subscriptions](../../../amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-management-account.md "../../../amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-management-account.md") in the _Kiro User
    Guide_. Make sure to enable identity-enhanced console
    sessions.
 

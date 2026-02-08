@@ -15,7 +15,7 @@ IAM Identity Center. If this occurs, all users, including the administrative use
 sign-on access to their AWS accounts and applications. For more information, see [Considerations for changing
 your identity source](manage-your-identity-source-considerations.md "manage-your-identity-source-considerations.md").
 
-To confirm your identity source
+**To confirm your identity source**
 
 1. Open the [IAM Identity Center
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
@@ -26,8 +26,7 @@ To confirm your identity source
 3. There is no action if you want to keep your assigned identity source. If you prefer to
    change it, choose **Actions**, and then choose **Change identity
    source**.
-
-You can choose one of the following as your identity source:
+   You can choose one of the following as your identity source:
 
 **Identity Center directory**
 
@@ -71,3 +70,10 @@ For detailed instructions on setting up your identity source, see [IAM Identity 
 If you plan to use an external identity provider, note that the external IdP, not
 IAM Identity Center, manages multi-factor authentication (MFA) settings. MFA in IAM Identity Center isn't supported for
 use by external identity providers. For more information, see [Prompt users for MFA](mfa-getting-started.md "mfa-getting-started.md").
+
+###### Note
+
+If you plan to replicate IAM Identity Center to additional Regions, you will need to
+configure an external identity provider. For more details including the
+prerequisites, see [Using IAM Identity Center across multiple
+AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").

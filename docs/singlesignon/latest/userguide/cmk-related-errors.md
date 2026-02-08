@@ -15,7 +15,8 @@ The user or IAM principal lacks the required `kms:Decrypt` permission in either 
 3. Review the `errorCode` and `errorMessage` fields
 4. Check `userIdentity` to confirm which principal attempted the operation
 
-To resolve this issue, grant the user or IAM principal `kms:Decrypt` access permissions in their IAM policy and KMS key policy. For more information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+To resolve this issue, grant the user or IAM principal `kms:Decrypt` access permissions in their IAM policy and KMS key policy. For more information, see [Implementing customer managed KMS
+keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 
 ## AWS managed application login failures with a customer managed KMS key enabled in IAM Identity Center
 
@@ -33,7 +34,8 @@ The user or IAM principal lacks the required `kms:Decrypt` permission in either 
 2. Review the `errorCode` and `errorMessage` fields
 3. Check `userIdentity` to confirm which principal attempted the operation
 
-To resolve this issue, grant the user or IAM principal `kms:Decrypt` access permissions in their IAM policy and KMS key policy. For more information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+To resolve this issue, grant the user or IAM principal `kms:Decrypt` access permissions in their IAM policy and KMS key policy. For more information, see [Implementing customer managed KMS
+keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 
 ## KMS Permissions Issue: Configuring Customer Managed Key with AWS IAM Identity Center
 
@@ -45,7 +47,8 @@ The user or IAM principal lacks one or more required KMS permissions (`kms:Decry
 2. Review the `errorCode` and `errorMessage` fields
 3. Check `userIdentity` to confirm which principal attempted the operation
 
-To resolve this issue, grant all required KMS permissions to the user or IAM principal in their identity-based policy or KMS key policy. For more information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
+To resolve this issue, grant all required KMS permissions to the user or IAM principal in their identity-based policy or KMS key policy. For more information, see [Implementing customer managed KMS
+keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md "identity-center-customer-managed-keys.md").
 
 ## AWS access portal login failures with a customer managed KMS key enabled in IAM Identity Center
 

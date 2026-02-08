@@ -33,8 +33,12 @@ for identity sources:
     * **IAM Identity Center** - Alternatively, you can [create and manage users and groups directly in
      IAM Identity Center](quick-start-default-idc.md "quick-start-default-idc.md").
 
-3. **Set up user access to AWS accounts (organization instance
-   only)**
+###### Note
+
+Presently, you must use an external identity provider as the identity source to take advantage of a multi-Region setup with your
+IAM Identity Center. For more information about the benefits of this setup, see [Using IAM Identity Center across multiple
+AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md"). 3. **Set up user access to AWS accounts (organization instance
+only)**
 
 If you’re using an organization instance of IAM Identity Center, you can [assign user or group access to
 AWS accounts](assignusers.md "assignusers.md"), using [permission sets](permissionsetsconcept.md "permissionsetsconcept.md") to

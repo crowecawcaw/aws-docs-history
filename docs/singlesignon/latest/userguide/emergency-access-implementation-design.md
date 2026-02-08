@@ -1,6 +1,8 @@
 # How to
 
-design
+d
+esign
+
 your critical operations roles
 
 With this design, you configure a single AWS account in which you federate through IAM, so that users can assume critical operations roles.

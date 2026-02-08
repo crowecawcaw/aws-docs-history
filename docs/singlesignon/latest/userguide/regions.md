@@ -5,10 +5,11 @@ Learn how IAM Identity Center handles data storage and operations across AWS Reg
 ## Understand how IAM Identity Center stores data
 
 When you enable IAM Identity Center, all the data that you configure in IAM Identity Center is stored in the Region
-where you configured it. This data includes directory configurations, permission sets,
+where you enabled it. This data includes directory configurations, permission sets,
 application instances, and user assignments to AWS account applications. If you are using
 the IAM Identity Center identity store, all users and groups that you create in IAM Identity Center are also stored in the
-same Region.
+same Region. If you replicate your IAM Identity Center instance to additional Regions, IAM Identity Center automatically replicates users,
+groups, permission sets and their assignments, and other metadata and configuration to those Regions.
 
 ## Cross-Region emails with Amazon SES
 

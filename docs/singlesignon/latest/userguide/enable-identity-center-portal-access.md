@@ -21,6 +21,7 @@ The following list provides the IPv4 and dual-stack domains and URL endpoints to
 ###### IPv4 allow list
 
 - ``[Directory ID or alias]`.awsapps.com`
+- ``[Identity Center instance ID]`.`[Region]`.portal.amazonaws.com`
 - `*.aws.dev`
 - `*.awsstatic.com`
 - `*.console.aws.a2z.com`
@@ -37,7 +38,7 @@ The following list provides the IPv4 and dual-stack domains and URL endpoints to
 
 ###### Dual-stack allow list
 
-- `ssoins-`[IdC Instance ID]`.portal.`[Region]`.app.aws`
+- ``[Identity Center instance ID]`.portal.`[Region]`.app.aws`
 - `*.aws.dev`
 - `*.awsstatic.com`
 - `*.console.aws.a2z.com`
@@ -55,7 +56,8 @@ The following list provides the IPv4 and dual-stack domains and URL endpoints to
 ###### Combined allow list (IPv4 + Dual-stack with backward compatibility)
 
 - ``[Directory ID or alias]`.awsapps.com`
-- `ssoins-`[IdC Instance ID]`.portal.`[Region]`.app.aws`
+- ``[Identity Center instance ID]`.`[Region]`.portal.amazonaws.com`
+- ``[Identity Centers instance ID]`.portal.`[Region]`.app.aws`
 - `*.aws.dev`
 - `*.awsstatic.com`
 - `*.console.aws.a2z.com`

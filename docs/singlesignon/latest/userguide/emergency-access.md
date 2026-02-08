@@ -15,7 +15,9 @@ AWS enables you to:
   credentials that they use to access their accounts. This configuration works when IAM Identity Center is
   unavailable, but the IAM data plane and your
   external
-  identity provider (IdP) are available.
+  identity provider (IdP) are available
+  . If you prefer to not depend on the external IdP, consider setting up
+  [AWS break-glass access](../../../wellarchitected/latest/devops-guidance/ag.sad.md "../../../wellarchitected/latest/devops-guidance/ag.sad.md")
 
 ###### Important
 
@@ -28,11 +30,15 @@ understands what to do if IAM Identity Center is disrupted.
 
 - [Summary of emergency access configuration](emergency-access-implementation.md "emergency-access-implementation.md")
 - [How to
-  design
-  your critical operations roles](emergency-access-implementation-design.md "emergency-access-implementation-design.md")
+  d
+  esign
+
+your critical operations roles](emergency-access-implementation-design.md "emergency-access-implementation-design.md")
+
 - [How to plan your access model](emergency-access-planning.md "emergency-access-planning.md")
 - [How to design
-  emergency
+  e
+  mergency
   role, account, and group mapping](emergency-access-mapping-design.md "emergency-access-mapping-design.md")
 - [How to create your emergency access configuration](emergency-access-role-idp-group-creation-mapping-plan.md "emergency-access-role-idp-group-creation-mapping-plan.md")
 - [Emergency preparation tasks](emergency-access-prepare-configuration.md "emergency-access-prepare-configuration.md")

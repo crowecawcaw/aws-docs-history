@@ -11,6 +11,8 @@ that is configured in IAM Identity Center.
 | All user assignments you have configured for AWS accounts and<br>applications | Yes                                                                                               | Yes                                |
 | All users and groups in the directory or store                                | **N/A**                                                                                           | Yes                                |
 
+If you replicated your IAM Identity Center instance to additional Regions, you must remove those Regions before deleting the instance.
+
 Use the following procedure to delete your IAM Identity Center instance.
 
 ###### To delete your IAM Identity Center instance

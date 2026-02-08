@@ -26,7 +26,7 @@ For information about configuring user interactive session duration, see [Config
 ### Application sessions
 
 Application sessions are the authenticated connections between users and AWS
-managed applications (such as Amazon Q Developer or Amazon Quick Suite) that IAM Identity Center establishes through
+managed applications (such as Kiro or Amazon Quick Suite) that IAM Identity Center establishes through
 single sign-on.
 
 By default, application sessions have a one hour lifetime, but they're
@@ -47,16 +47,16 @@ complete.
 For information about configuring user background session duration,
 see [User background sessions](user-background-sessions.md "user-background-sessions.md").
 
-### Amazon Q Developer sessions
+### Kiro sessions
 
-You can extend Amazon Q Developer sessions to allow developers using Amazon Q Developer in
+You can extend Kiro sessions to allow developers using Kiro in
 IDEs to maintain authentication for up to 90 days. This feature reduces login
 interruptions while you work on code.
 
 These sessions are independent of other session types and don't affect user interactive sessions or other
 AWS managed applications. Depending on when you enabled IAM Identity Center, this feature might be enabled by default.
 
-For information about configuring extended Amazon Q Developer sessions, see [Extended sessions for Amazon Q Developer](90-day-extended-session-duration.md "90-day-extended-session-duration.md").
+For information about configuring extended Kiro sessions, see [Extended sessions for Kiro](90-day-extended-session-duration.md "90-day-extended-session-duration.md").
 
 ### IAM Identity Center-created IAM role sessions
 

@@ -11,7 +11,8 @@ To configure emergency access, you must complete the following tasks:
 4. [Delegate access to your workload accounts for the IAM role](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md") that you created
    in the emergency operations account. To authorize access to your
    emergency
-   operations account, create an emergency operations group in your IdP,
+   operations account
+   , create an emergency operations group in your IdP,
    with no members.
 5. Enable the emergency operations group in your IdP to use the emergency operations role by
    creating a rule in your IdP that [enables SAML 2.0 federated access to the AWS Management Console](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md").

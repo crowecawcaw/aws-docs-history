@@ -18,8 +18,8 @@ organization instance is recommended. Organization instances offer the following
 benefits:
 
 - Support for all features of IAM Identity Center – Including
-  managing permissions for multiple AWS accounts in your organization and assigning
-  access to customer managed applications.
+  managing permissions for multiple AWS accounts in your organization, assigning
+  access to customer managed applications, and multi-Region replication.
 - Reduction of the number of management points –
   An organization instance has a single management point, the management account. We
   recommend that you enable an organization instance, rather than an account instance, to

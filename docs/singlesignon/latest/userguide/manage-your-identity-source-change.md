@@ -38,6 +38,13 @@ Changing your identity source to or from Active Directory deletes users and grou
 from the Identity Center directory. This change also removes any assignments that you
 configured in IAM Identity Center.
 
+###### Note
+
+If you replicated IAM Identity Center to additional Regions, you won’t be able to change your identity source type. You can only replace the current external IdP
+with another one. To change the identity source type, you will need to remove all additional Regions first. For more information,
+see [Using IAM Identity Center across multiple
+AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md")
+
 If you are switching to an external identity provider, we recommend that you follow the
 steps in [How to connect to an external identity provider](how-to-connect-idp.md "how-to-connect-idp.md"). 5. After you read the disclaimer and are ready to proceed, type
 **ACCEPT**. 6. Choose **Change identity source**. If you are changing your identity

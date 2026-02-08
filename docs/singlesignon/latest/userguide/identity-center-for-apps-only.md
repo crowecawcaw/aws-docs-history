@@ -2,7 +2,7 @@
 
 only
 
-You can use IAM Identity Center for user access to applications such as Amazon Q Developer, AWS accounts, or
+You can use IAM Identity Center for user access to applications such as Kiro, AWS accounts, or
 both. You can connect your existing identity provider and synchronize users and groups from
 your directory, or [create and manage users directly
 in IAM Identity Center](quick-start-default-idc.md "quick-start-default-idc.md"). For information about how to connect your existing identity provider to

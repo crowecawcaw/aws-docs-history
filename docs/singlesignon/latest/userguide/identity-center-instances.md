@@ -51,6 +51,8 @@ Use the following table to compare the capabilities provided by the instance typ
 | AWS access portal for single-sign on access to your AWS accounts             | Yes                                                                | No                           | No                                   |
 | SAML 2.0 customer managed applications                                       | Yes                                                                | No                           | No                                   |
 | Delegated administrator can manage instance                                  | Yes                                                                | No                           | No                                   |
+| Encryption at rest using a customer-managed KMS key                          | Yes                                                                | No                           | No                                   |
+| Replicating IAM Identity Center to additional Regions                        | Yes                                                                | No                           | No                                   |
 
 For more information about AWS managed applications and IAM Identity Center, see [AWS managed applications
 that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").

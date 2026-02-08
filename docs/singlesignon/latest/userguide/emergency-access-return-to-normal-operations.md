@@ -2,7 +2,8 @@
 
 Check
 the [AWS Health
-Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status")to confirm when the health of the IAM Identity Center service is
+Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status")
+to confirm when the health of the IAM Identity Center service is
 restored. To return to normal operations, perform the following steps.
 
 1. After the status icon for the IAM Identity Center service indicates that the service is healthy, sign in to IAM Identity Center.

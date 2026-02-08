@@ -81,6 +81,13 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
   currently supported. To maintain consistent group memberships between Okta
   and IAM Identity Center, create a separate group and configure it to push groups to
   IAM Identity Center.
+- If you replicated IAM Identity Center to additional Regions, you must update your identity
+  provider configuration to enable access to AWS managed applications and
+  AWS accounts through additional Regions. For more details including the
+  prerequisites, see [Using IAM Identity Center across multiple
+  AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+  Okta-specific steps are described in [Okta configuration for access to
+  additional Regions](#gs-okta-multi-region "#gs-okta-multi-region")
 
 ## Step 1: Okta: Obtain the SAML metadata from your
 
@@ -118,22 +125,23 @@ source for IAM Identity Center
     **Next**.
 5.  Under **Configure external identity provider**, do the
     following:
-    1. Under **Service provider metadata**, choose
-       **Download metadata file** to download the
-       IAM Identity Center metadata file and save it on your system. You will provide the
-       IAM Identity Center SAML metadata file to Okta later in this tutorial.
+    1.  Under **Service provider metadata**, copy the following items to a text file for easy access:
 
-    Copy the following items to a text file for easy access:
+            * **IAM Identity Center Assertion Consumer Service (ACS)
+             URL** – You have a choice between IPv4-only and
+             dual-stack ACS URLs. Also, if your IAM Identity Center instance is enabled in multiple Regions,
+             each additional Region has its own IPv4-only and dual-stack ACS URLs.
+             For more information on ACS URLs, see [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
+            * **IAM Identity Center issuer URL**
 
-        * **IAM Identity Center Assertion Consumer Service (ACS)
-         URL**
-        * **IAM Identity Center issuer URL**
+        You'll need these values later in this tutorial.
 
-    You'll need these values later in this tutorial. 2. Under **Identity provider metadata**, under
-    **IdP SAML metadata**, select **Choose
-    file** and then select the
-    `metadata.xml` file you created in the
-    previous step. 3. Choose **Next**.
+    2.  Under **Identity provider metadata**, under
+        **IdP SAML metadata**, select **Choose
+        file** and then select the
+        `metadata.xml` file you created in the
+        previous step.
+    3.  Choose **Next**.
 
 6.  After you read the disclaimer and are ready to proceed, enter
     **ACCEPT**.
@@ -144,9 +152,20 @@ next step. 8. Return to the Okta admin dashboard and select the **Sign On** tab 
 the AWS IAM Identity Center app, then select **Edit**. 9. Under **Advanced Sign-on Settings** enter the
 following:
 
-    * For **ACS URL**, enter the value you copied for
-     **IAM Identity Center Assertion Consumer Service (ACS)
-     URL**
+    * For **ACS URL**, enter the value(s) you copied for **IAM Identity Center
+     Assertion Consumer Service (ACS)
+     URL**. You can use the primary Region's ACS URL as the
+     default one so that users are redirected to the primary Region when they
+     launch the Amazon Web Services application from Okta.
+    * (Optional) If you replicated IAM Identity Center to additional Regions, you can also
+     create a bookmark app in Okta for the AWS access portal in each additional
+     Region. This enables your users to access the AWS access portal in additional
+     Regions from Okta. Make sure to grant your users permissions to access
+     the bookmark apps in Okta. See [Okta
+     documentation](https://support.okta.com/help/s/article/create-a-bookmark-app "https://support.okta.com/help/s/article/create-a-bookmark-app") for more details. If you plan to replicate IAM Identity Center
+     to additional Regions later, visit [Okta configuration for access to
+     additional Regions](#gs-okta-multi-region "#gs-okta-multi-region") for guidance how
+     to enable access to the additional Regions after this initial setup.
     * For **Issuer URL**, enter the value you copied
      for **IAM Identity Center issuer URL**
     * For **Application username format**, select one
@@ -421,6 +440,36 @@ resources
 6. The user is signed in to the AWS Management Console.
 
 You can also use the AWS access portal. This redirects you to sign in through the Okta portal before taking you to the AWS access portal. This path follows the SP-initiated SAML sign-in flow.
+
+## Okta configuration for access to additional
+
+Regions of
+IAM Identity Center - Optional
+
+If you replicated IAM Identity Center to additional Regions, you must update your identity provider
+configuration to enable access to AWS managed applications and AWS accounts through
+the additional Regions. The steps below guide you through the procedure. For more
+details about this topic including the prerequisites, see [Using IAM Identity Center across multiple
+AWS Regions](multi-region-iam-identity-center.md "multi-region-iam-identity-center.md").
+
+1. Retrieve ACS URLs for the additional regions from the IAM Identity Center console as
+   outlined in [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
+2. In the Okta admin dashboard's navigation pane, choose **Applications**,
+   and then **Applications** again in the expanded list.
+3. Choose the **AWS IAM Identity Center** application.
+4. Choose the **Sign On** tab.
+5. Under **Advanced Sign-on Settings**, and **Other
+   Requestable SSO URLs**, choose **Add another** for
+   each additional Region's ACS URL, and paste the ACS URL into the text field.
+6. When done adding the ACS URLs, save the **AWS IAM Identity Center** application.
+7. You can create a bookmark app in Okta for the AWS access portal in each additional
+   Region. This enables your users to access the AWS access portal in additional Regions
+   from Okta. Make sure to grant your users permissions to access the bookmark
+   apps in Okta. See [Okta
+   documentation](https://support.okta.com/help/s/article/create-a-bookmark-app "https://support.okta.com/help/s/article/create-a-bookmark-app") for more details.
+8. Verify that you can sign into the AWS access portal in each additional Region.
+   Navigate to the [AWS access portal URLs](multi-region-workforce-access.md#portal-endpoints "multi-region-workforce-access.md#portal-endpoints") or
+   launch the bookmark apps from Okta.
 
 ## Next steps
 

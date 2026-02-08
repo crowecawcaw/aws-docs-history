@@ -2,9 +2,9 @@
 
 Following are considerations for configuring the session duration if you are using an external identity provider (IdP), or the AWS Command Line Interface, AWS Software Development Kits (SDKs), or other AWS development tools to access AWS services programmatically.
 
-## External identity providers, user interactive sessions, and extended sessions for Amazon Q Developer
+## External identity providers, user interactive sessions, and extended sessions for Kiro
 
-If you use an external identity provider (IdP) and you are configuring the session duration for user interactive sessions or extended sessions for Amazon Q Developer, keep the following considerations in mind.
+If you use an external identity provider (IdP) and you are configuring the session duration for user interactive sessions or extended sessions for Kiro, keep the following considerations in mind.
 
 ###### Note
 

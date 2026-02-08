@@ -1,6 +1,7 @@
 # How to design
 
-emergency
+e
+mergency
 role, account, and group mapping
 
 The following diagram shows how to map your emergency access groups to roles in your

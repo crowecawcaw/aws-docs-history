@@ -1,7 +1,7 @@
 # What is IAM Identity Center?
 
 AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed
-applications such as Amazon Q Developer and Amazon Quick Suite, and other AWS resources. You can connect your
+applications such as Kiro and Amazon Quick Suite, and other AWS resources. You can connect your
 existing identity provider and synchronize users and groups from your directory, or create and
 manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the
 following:
@@ -21,7 +21,7 @@ or both, through the following key capabilities.
 **Integration with AWS managed
 applications**
 
-[AWS managed applications](awsapps.md "awsapps.md") such as Amazon Q Developer and
+[AWS managed applications](awsapps.md "awsapps.md") such as Kiro and
 Amazon Redshift integrate with IAM Identity Center. IAM Identity Center provides AWS managed applications
 with a common view of users and groups.
 
@@ -64,7 +64,7 @@ IAM Identity Center, see [IAM Identity Center identity source tutorials](tutoria
 existing identity provider, you can [create and
 manage users directly in IAM Identity Center](quick-start-default-idc.md "quick-start-default-idc.md").
 
-**Two modes of deployment**
+**Two instance types**
 
 IAM Identity Center supports two types of instances: _organization
 instances_ and _account instances_. An
@@ -81,6 +81,11 @@ applications. For more information, see [Organization and account instances of I
 
 The AWS access portal is a user-friendly web portal that provides your users with seamless
 access to all their assigned applications, AWS accounts, or both.
+
+**Multi-Region access to AWS accounts and applications**
+
+When you replicate your IAM Identity Center instance to additional Regions, your workforce can access their assigned AWS accounts and applications through all enabled Regions,
+and they can deploy AWS managed applications in each enabled Region.
 
 ## IAM Identity Center rename
 
