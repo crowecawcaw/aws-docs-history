@@ -13,9 +13,7 @@ hours.
 
 ###### Important
 
-Deleted Amazon SNS topic cannot be recovered.
-If you have active subscriptions to the topic, deleting topic will not delete its subscriptions.
-It is advised to delete subscriptions before deleting topic.
+Deleted Amazon SNS topics cannot be recovered. We recommend that you delete subscriptions before deleting a topic.
 
 Once the subscription is deleted, it cannot be recovered.
 Published notifications to the Amazon SNS topic will not be delivered to that deleted subscription.
