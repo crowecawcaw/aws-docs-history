@@ -74,6 +74,8 @@ will be returned without transcoding. Supported transfer syntaxes include:
      HealthImaging as `1.2.840.10008.1.2.4.91`
     * High-Throughput JPEG 2000 Image Compression - `1.2.840.10008.1.2.4.203` - if the instance
      is stored in HealthImaging as `1.2.840.10008.1.2.4.203`
+    * JPEG XL Image Compression - `1.2.840.10008.1.2.4.112` - if the instance is stored in HealthImaging
+     as `1.2.840.10008.1.2.4.112`
     * Instances stored in HealthImaging with one or more image frames encoded in the MPEG family of
      [Transfer Syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") (which includes MPEG2, MPEG-4
      AVC/H.264 and HEVC/H.265) may be retrieved with the corresponding transfer-syntax UID. For example,

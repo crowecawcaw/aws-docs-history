@@ -49,6 +49,7 @@ The `transfer-syntax` UID is optional and defaults to Explicit VR Little Endian
 if not included. Supported transfer syntaxes include:
 
     * Explicit VR Little Endian (ELE) - `1.2.840.10008.1.2.1` (default for lossless image frames)
+    * If `transfer-syntax=*` then the image frame(s) will be returned in the stored transfer syntax.
     * High-Throughput JPEG 2000 with RPCL Options Image Compression (Lossless Only) -
      `1.2.840.10008.1.2.4.202` - if the instance is stored in HealthImaging as
      `1.2.840.10008.1.2.4.202`
@@ -60,6 +61,8 @@ if not included. Supported transfer syntaxes include:
      HealthImaging as `1.2.840.10008.1.2.4.91`
     * High-Throughput JPEG 2000 Image Compression - `1.2.840.10008.1.2.4.203` - if the instance
      is stored in HealthImaging as `1.2.840.10008.1.2.4.203`
+    * JPEG XL Image Compression - `1.2.840.10008.1.2.4.112` - if the instance is stored in HealthImaging
+     as `1.2.840.10008.1.2.4.112`
     * Instances stored in HealthImaging with one or more image frames encoded in the MPEG family of
      [Transfer Syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") (which includes MPEG2, MPEG-4
      AVC/H.264 and HEVC/H.265) may be retrieved with the corresponding transfer-syntax UID. For example,
