@@ -66,6 +66,7 @@ including:
 - [Contact
   by AWS Trust & Safety](https://repost.aws/knowledge-center/aws-abuse-report "https://repost.aws/knowledge-center/aws-abuse-report") or other sources, such as
   customers or internal employees.
+- Use [Threat Technique Catalog by AWS (TTC)](https://aws.amazon.com/blogs/security/aws-cirt-announces-the-launch-of-the-threat-technique-catalog-for-aws/ "https://aws.amazon.com/blogs/security/aws-cirt-announces-the-launch-of-the-threat-technique-catalog-for-aws/") to assist with identification and correlation of threat actor behavior through indicator of compromise (IoC) identification. The TTC is an extension of the MITRE ATT&CK framework, categorizing all known and observed threat actor behaviors and techniques directed at AWS resources.
 
 In their most fundamental form, alerts contain information about
 who (the *principal* or

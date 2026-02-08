@@ -30,6 +30,8 @@ Playbooks should contain technical steps for a security analyst to
 complete in order to adequately investigate and respond to a
 potential security incident.
 
+AWS' Customer Incident Response Team (CIRT) has published a [GitHub repository containing incident response playbooks](https://github.com/aws-samples/aws-customer-playbook-framework/tree/main/docs "https://github.com/aws-samples/aws-customer-playbook-framework/tree/main/docs"), organized by threat scenario, type, and resource. These playbooks can be adapted to align with your existing incident response procedures or serve as a foundation for developing new ones.
+
 ### Implementation steps
 
 Items to include in a playbook include:

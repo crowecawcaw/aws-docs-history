@@ -30,7 +30,7 @@ See the following documentation on configuring logging for incident response:
 
 **Enable security services to support detection and response**
 
-AWS provides native detective, preventative, and responsive capabilities, and other services can be used to architect custom security solutions. For a list of the most relevant services for security incident response, see [Cloud capability definitions](../../../whitepapers/latest/aws-security-incident-response-guide/appendix-a-cloud-capability-definitions.md "../../../whitepapers/latest/aws-security-incident-response-guide/appendix-a-cloud-capability-definitions.md").
+AWS provides detective, preventative, and responsive capabilities, and other services can be used to architect custom security solutions. For a list of the most relevant services for security incident response, see [Cloud capability definitions](../../../whitepapers/latest/aws-security-incident-response-guide/appendix-a-cloud-capability-definitions.md "../../../whitepapers/latest/aws-security-incident-response-guide/appendix-a-cloud-capability-definitions.md") and the [Security Incident Response home page](https://aws.amazon.com/security-incident-response/ "https://aws.amazon.com/security-incident-response/").
 
 **Develop and implement a tagging strategy**
 

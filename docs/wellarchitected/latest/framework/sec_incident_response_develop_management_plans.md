@@ -82,6 +82,9 @@ you create and evolve your incident management plan.
   - When the AWS CIRT supports you, they provide assistance with triage and recovery for an active security event on AWS. They can assist in root cause analysis through the use of AWS service logs and provide you with recommendations for recovery. They can also provide security recommendations and best practices to help you avoid security events in the future.
   - AWS customers can engage the AWS CIRT through an [Support case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
 
+- [**AWS Security Incident Response**](https://aws.amazon.com/security-incident-response/ "https://aws.amazon.com/security-incident-response/")
+  - Announced at re:Invent 2024, AWS Security Incident Response is a managed security incident response service that uses both modern triage technology and a human in the loop. The service ingests all GuardDuty findings and any third-party findings sent to AWS Security Hub CSPM for triage to alert the customer only on findings that require an investigation. The service also provides a portal to submit reactive cases in the event of a security event the customer notices and receive support from AWS' advanced incident response team.
+
 - **DDoS response support**
   - AWS offers [AWS Shield](https://aws.amazon.com/shield/ "https://aws.amazon.com/shield/"), which provides a managed distributed denial of service (DDoS) protection service that safeguards web applications running on AWS. Shield provides always-on detection and automatic inline mitigations that can minimize application downtime and latency, so there is no need to engage Support to benefit from DDoS protection. There are two tiers of Shield: AWS Shield Standard and AWS Shield Advanced. To learn about the differences between these two tiers, see [Shield features documentation](https://aws.amazon.com/shield/features/ "https://aws.amazon.com/shield/features/").
 
