@@ -1,73 +1,103 @@
-# Step 5: Copy data to
+# Step 4: Load data into
 
-DynamoDB
+HDFS
 
-In this step, you will copy data from the Hive table (`hive_features`)
-to a new table in DynamoDB.
+In this step, you will copy a data file into Hadoop Distributed File System
+(HDFS), and then create an external Hive table that maps to the data file.
 
-1.  Open the DynamoDB console at
-    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2.  Choose **Create Table**.
-3.  On the **Create DynamoDB table** page, do the
-    following:
-    1. In **Table**, type
-       `Features`.
-    2. For **Primary key**, in the **Partition
-       key** field, type `Id`. Set the
-       data type to **Number**.
+###### Download the sample data
 
-    Clear **Use Default Settings**. For
-    **Provisioned Capacity**, type the
-    following:
-
-        * **Read Capacity
-         Units**—`10`
-        * **Write Capacity
-         Units**—`10`Choose **Create**.
-
-4.  At the Hive prompt, enter the following HiveQL statement:
+1. Download the sample data archive (`features.zip`):
 
 ```
-CREATE EXTERNAL TABLE ddb_features
-    (feature_id   BIGINT,
-    feature_name  STRING,
-    feature_class STRING,
-    state_alpha   STRING,
-    prim_lat_dec  DOUBLE,
-    prim_long_dec DOUBLE,
-    elev_in_ft    BIGINT)
-STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
-TBLPROPERTIES(
-    "dynamodb.table.name" = "Features",
-    "dynamodb.column.mapping"="feature_id:Id,feature_name:Name,feature_class:Class,state_alpha:State,prim_lat_dec:Latitude,prim_long_dec:Longitude,elev_in_ft:Elevation"
-);
+wget https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/features.zip
 ```
 
-You have now established a mapping between Hive and the Features table in
-DynamoDB. 5. Enter the following HiveQL statement to import data to DynamoDB:
+2. Extract the `features.txt` file from the archive:
 
 ```
-INSERT OVERWRITE TABLE ddb_features
-SELECT
-    feature_id,
-    feature_name,
-    feature_class,
-    state_alpha,
-    prim_lat_dec,
-    prim_long_dec,
-    elev_in_ft
-FROM hive_features;
+unzip features.zip
 ```
 
-Hive will submit a MapReduce job, which will be processed by your Amazon EMR
-cluster. It will take several minutes to complete the job. 6. Verify that the data has been loaded into DynamoDB:
+3. View the first few lines of the `features.txt` file:
 
-    1. In the DynamoDB console navigation pane, choose
-     **Tables**.
-    2. Choose the Features table, and then choose the
-     **Items** tab to view the data.
+```
+head features.txt
+```
+
+The result should look similar to this:
+
+```
+1535908|Big Run|Stream|WV|38.6370428|-80.8595469|794
+875609|Constable Hook|Cape|NJ|40.657881|-74.0990309|7
+1217998|Gooseberry Island|Island|RI|41.4534361|-71.3253284|10
+26603|Boone Moore Spring|Spring|AZ|34.0895692|-111.410065|3681
+1506738|Missouri Flat|Flat|WA|46.7634987|-117.0346113|2605
+1181348|Minnow Run|Stream|PA|40.0820178|-79.3800349|1558
+1288759|Hunting Creek|Stream|TN|36.343969|-83.8029682|1024
+533060|Big Charles Bayou|Bay|LA|29.6046517|-91.9828654|0
+829689|Greenwood Creek|Stream|NE|41.596086|-103.0499296|3671
+541692|Button Willow Island|Island|LA|31.9579389|-93.0648847|98
+```
+
+The `features.txt` file contains a subset of data from the
+United States Board on Geographic Names ([http://geonames.usgs.gov/domestic/download_data.htm](http://geonames.usgs.gov/domestic/download_data.htm "http://geonames.usgs.gov/domestic/download_data.htm")). The
+fields in each line represent the following:
+
+    * Feature ID (unique identifier)
+    * Name
+    * Class (lake; forest; stream; and so on)
+    * State
+    * Latitude (degrees)
+    * Longitude (degrees)
+    * Height (in feet)
+
+4. At the command prompt, enter the following command:
+
+```
+hive
+```
+
+The command prompt changes to this: `hive>` 5. Enter the following HiveQL statement to create a native Hive table:
+
+```
+CREATE TABLE hive_features
+    (feature_id             BIGINT,
+    feature_name            STRING ,
+    feature_class           STRING ,
+    state_alpha             STRING,
+    prim_lat_dec            DOUBLE ,
+    prim_long_dec           DOUBLE ,
+    elev_in_ft              BIGINT)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY '|'
+    LINES TERMINATED BY '\n';
+```
+
+6. Enter the following HiveQL statement to load the table with data:
+
+```
+LOAD DATA
+LOCAL
+INPATH './features.txt'
+OVERWRITE
+INTO TABLE hive_features;
+```
+
+7. You now have a native Hive table populated with data from the
+   `features.txt` file. To verify, enter the following HiveQL
+   statement:
+
+```
+SELECT state_alpha, COUNT(*)
+FROM hive_features
+GROUP BY state_alpha;
+```
+
+The output should show a list of states and the number of geographic
+features in each.
 
 ###### Next step
 
-[Step 6: Query the data
-in the DynamoDB table](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+[Step 5: Copy data to
+DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")

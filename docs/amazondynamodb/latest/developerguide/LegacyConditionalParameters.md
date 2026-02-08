@@ -1,452 +1,148 @@
-# Writing conditions with legacy
-
-parameters
+# AttributeUpdates (legacy)
 
 ###### Note
 
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
 For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
-
-The following section describes how to write conditions for use with legacy
-parameters, such as `Expected`, `QueryFilter`, and
-`ScanFilter`.
-
-###### Note
-
-New applications should use expression parameters instead. For more
-information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
-
-## Simple conditions
-
-With attribute values, you can write conditions for comparisons against table
-attributes. A condition always evaluates to true or false, and consists
-of:
-
-- `ComparisonOperator` — greater than, less than, equal
-  to, and so on.
-- `AttributeValueList` (optional) — attribute value(s)
-  to compare against. Depending on the `ComparisonOperator`
-  being used, the `AttributeValueList` might contain one, two,
-  or more values; or it might not be present at all.
-
-The following sections describe the various comparison operators, along with
-examples of how to use them in conditions.
-
-### Comparison operators with no attribute values
-
-- `NOT_NULL` - true if an attribute exists.
-- `NULL` - true if an attribute does not
-  exist.
-
-Use these operators to check whether an attribute exists, or doesn't
-exist. Because there is no value to compare against, do not specify
-`AttributeValueList`.
-
-**Example**
-
-The following expression evaluates to true if the
-_Dimensions_ attribute exists.
-
-```
-...
-    "Dimensions": {
-         ComparisonOperator: "NOT_NULL"
-    }
-...
-```
-
-### Comparison operators with one attribute value
-
-- `EQ` - true if an attribute is equal to a
-  value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, Binary, String Set, Number Set, or Binary
-Set. If an item contains a value of a different type than the
-one specified in the request, the value does not match. For
-example, the string `"3"` is not equal to the number
-`3`. Also, the number `3` is not equal
-to the number set `[3, 2, 1]`.
-
-- `NE` - true if an attribute is not equal to a
-  value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, Binary, String Set, Number Set, or Binary
-Set. If an item contains a value of a different type than the
-one specified in the request, the value does not match.
-
-- `LE` - true if an attribute is less than or equal
-  to a value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, or Binary (not a set). If an item contains
-an `AttributeValue` of a different type than the one
-specified in the request, the value does not match.
-
-- `LT` - true if an attribute is less than a
-  value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, or Binary (not a set). If an item contains
-a value of a different type than the one specified in the
-request, the value does not match.
-
-- `GE` - true if an attribute is greater than or
-  equal to a value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, or Binary (not a set). If an item contains
-a value of a different type than the one specified in the
-request, the value does not match.
-
-- `GT` - true if an attribute is greater than a
-  value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, or Binary (not a set). If an item contains
-a value of a different type than the one specified in the
-request, the value does not match.
-
-- `CONTAINS` - true if a value is present within a
-  set, or if one value contains another.
-
-`AttributeValueList` can contain only one value of
-type String, Number, or Binary (not a set). If the target
-attribute of the comparison is a String, then the operator
-checks for a substring match. If the target attribute of the
-comparison is Binary, then the operator looks for a subsequence
-of the target that matches the input. If the target attribute of
-the comparison is a set, then the operator evaluates to true if
-it finds an exact match with any member of the set.
-
-- `NOT_CONTAINS` - true if a value is
-  _not_ present within a set, or if one
-  value does not contain another value.
-
-`AttributeValueList` can contain only one value of
-type String, Number, or Binary (not a set). If the target
-attribute of the comparison is a String, then the operator
-checks for the absence of a substring match. If the target
-attribute of the comparison is Binary, then the operator checks
-for the absence of a subsequence of the target that matches the
-input. If the target attribute of the comparison is a set, then
-the operator evaluates to true if it _does
-not_ find an exact match with any member of the
-set.
-
-- `BEGINS_WITH` - true if the first few characters of
-  an attribute match the provided value. Do not use this operator
-  for comparing numbers.
-
-`AttributeValueList` can contain only one value of
-type String or Binary (not a Number or a set). The target
-attribute of the comparison must be a String or Binary (not a
-Number or a set).
-
-Use these operators to compare an attribute with a value. You must specify
-an `AttributeValueList` consisting of a single value. For most of
-the operators, this value must be a scalar; however, the `EQ` and
-`NE` operators also support sets.
-
-**Examples**
-
-The following expressions evaluate to true if:
-
-- A product's price is greater than 100.
-
-```
-...
-    "Price": {
-        ComparisonOperator: "GT",
-        AttributeValueList: [ {"N":"100"} ]
-    }
-...
-```
-
-- A product category begins with "Bo".
-
-```
-...
-    "ProductCategory": {
-        ComparisonOperator: "BEGINS_WITH",
-        AttributeValueList: [ {"S":"Bo"} ]
-    }
-...
-```
-
-- A product is available in either red, green, or
-  black:
-
-```
-...
-    "Color": {
-        ComparisonOperator: "EQ",
-        AttributeValueList: [
-            [ {"S":"Black"}, {"S":"Red"}, {"S":"Green"} ]
-        ]
-    }
-...
-```
-
-###### Note
-
-When comparing set data types, the order of the
-elements does not matter. DynamoDB will return only the
-items with the same set of values, regardless of the
-order in which you specify them in your request.
-
-### Comparison operators with two attribute values
-
-- `BETWEEN` - true if a value is between a lower
-  bound and an upper bound, endpoints inclusive.
-
-`AttributeValueList` must contain two elements of
-the same type, either String, Number, or Binary (not a set). A
-target attribute matches if the target value is greater than, or
-equal to, the first element and less than, or equal to, the
-second element. If an item contains a value of a different type
-than the one specified in the request, the value does not
-match.
-
-Use this operator to determine if an attribute value is within a range.
-The `AttributeValueList` must contain two scalar elements of the
-same type - String, Number, or Binary.
-
-**Example**
-
-The following expression evaluates to true if a product's price is
-between 100 and 200.
-
-```
-...
-    "Price": {
-        ComparisonOperator: "BETWEEN",
-        AttributeValueList: [ {"N":"100"}, {"N":"200"} ]
-    }
-...
-```
-
-### Comparison operators with _n_ attribute values
-
-- `IN` - true if a value is equal to any of the
-  values in an enumerated list. Only scalar values are supported
-  in the list, not sets. The target attribute must be of the same
-  type and exact value in order to match.
-
-`AttributeValueList` can contain one or more
-elements of type String, Number, or Binary (not a set). These
-attributes are compared against an existing non-set type
-attribute of an item. If _any_ elements of
-the input set are present in the item attribute, the expression
-evaluates to true.
-
-`AttributeValueList` can contain one or more values
-of type String, Number, or Binary (not a set). The target
-attribute of the comparison must be of the same type and exact
-value to match. A String never matches a String set.
-
-Use this operator to determine whether the supplied value is within an
-enumerated list. You can specify any number of scalar values in
-`AttributeValueList`, but they all must be of the same data
-type.
-
-**Example**
-
-The following expression evaluates to true if the value for
-_Id_ is 201, 203, or 205.
-
-```
-...
-    "Id": {
-        ComparisonOperator: "IN",
-        AttributeValueList: [ {"N":"201"}, {"N":"203"}, {"N":"205"} ]
-    }
-...
-```
-
-## Using multiple
-
-conditions
-
-DynamoDB lets you combine multiple conditions to form complex expressions. You do
-this by providing at least two expressions, with an optional
-[ConditionalOperator (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md").
-
-By default, when you specify more than one condition, _all_
-of the conditions must evaluate to true in order for the entire expression to
-evaluate to true. In other words, an implicit _AND_ operation
-takes place.
-
-**Example**
-
-The following expression evaluates to true if a product is a book that has
-at least 600 pages. Both of the conditions must evaluate to true, since they are
-implicitly *AND*ed together.
-
-```
-...
-    "ProductCategory": {
-        ComparisonOperator: "EQ",
-        AttributeValueList: [ {"S":"Book"} ]
-    },
-    "PageCount": {
-        ComparisonOperator: "GE",
-        AttributeValueList: [ {"N":600"} ]
-    }
-...
-```
-
-You can use
-[ConditionalOperator (legacy)](LegacyConditionalParameters.md "LegacyConditionalParameters.md") to clarify that an
-_AND_ operation will take place. The following example
-behaves in the same manner as the previous one.
-
-```
-...
-    "ConditionalOperator" : "AND",
-    "ProductCategory": {
-        "ComparisonOperator": "EQ",
-        "AttributeValueList": [ {"N":"Book"} ]
-    },
-    "PageCount": {
-        "ComparisonOperator": "GE",
-        "AttributeValueList": [ {"N":600"} ]
-    }
-...
-```
-
-You can also set `ConditionalOperator` to _OR_,
-which means that _at least one_ of the conditions must
-evaluate to true.
-
-**Example**
-
-The following expression evaluates to true if a product is a mountain
-bike, if it is a particular brand name, or if its price is greater than 100.
-
-```
-...
-    ConditionalOperator : "OR",
-    "BicycleType": {
-        "ComparisonOperator": "EQ",
-        "AttributeValueList": [ {"S":"Mountain" ]
-    },
-    "Brand": {
-        "ComparisonOperator": "EQ",
-        "AttributeValueList": [ {"S":"Brand-Company A" ]
-    },
-    "Price": {
-        "ComparisonOperator": "GT",
-        "AttributeValueList": [ {"N":"100"} ]
-    }
-...
-```
-
-###### Note
-
-In a complex expression, the conditions are processed in order, from the
-first condition to the last.
-
-You cannot use both AND and OR in a single expression.
-
-## Other conditional
-
-operators
-
-In previous releases of DynamoDB, the `Expected` parameter behaved
-differently for conditional writes. Each item in the `Expected` map
-represented an attribute name for DynamoDB to check, along with the
-following:
-
-- `Value` — a value to compare against the
+For specific information on the new parameter replacing this one,
+[use UpdateExpression instead.](#UpdateExpression.instead "#UpdateExpression.instead").
+
+In an `UpdateItem` operation, the legacy conditional parameter `AttributeUpdates`
+contains the names of attributes to be modified, the action to perform on each, and the new
+value for each. If you are updating an attribute that is an index key attribute for any
+indexes on that table, the attribute type must match the index key type defined in the
+`AttributesDefinition` of the table description. You can use
+`UpdateItem` to update any non-key attributes.
+
+Attribute values cannot be null. String and Binary type attributes must have lengths
+greater than zero. Set type attributes must not be empty. Requests with empty values
+will be rejected with a `ValidationException` exception.
+
+Each `AttributeUpdates` element consists of an attribute name to
+modify, along with the following:
+
+- `Value` - The new value, if applicable, for this
   attribute.
-- `Exists` — determine whether the value exists prior
-  to attempting the operation.
+- `Action` - A value that specifies how to perform the update.
+  This action is only valid for an existing attribute whose data type is Number or
+  is a set; do not use `ADD` for other data types.
 
-The `Value` and `Exists` options continue to be
-supported in DynamoDB; however, they only let you test for an equality condition,
-or whether an attribute exists. We recommend that you use
-`ComparisonOperator` and `AttributeValueList` instead,
-because these options let you construct a much wider range of conditions.
+If an item with the specified primary key is found in the table, the following
+values perform the following actions:
 
-###### Example
+    + `PUT` - Adds the specified attribute to the item. If the
+     attribute already exists, it is replaced by the new value.
+    + `DELETE` - Removes the attribute and its value, if no value
+     is specified for `DELETE`. The data type of the specified
+     value must match the existing value's data type.
 
-A `DeleteItem` can check to see whether a book is no longer in
-publication, and only delete it if this condition is true. Here is an AWS CLI
-example using a legacy condition:
+
+    If a set of values is specified, then those values are subtracted from
+     the old set. For example, if the attribute value was the set
+     `[a,b,c]` and the `DELETE` action specifies
+     `[a,c]`, then the final attribute value is
+     `[b]`. Specifying an empty set is an error.
+    + `ADD` - Adds the specified value to the item, if the
+     attribute does not already exist. If the attribute does exist, then the
+     behavior of `ADD` depends on the data type of the
+     attribute:
+
+
+
+
+    	- If the existing attribute is a number, and if
+    	 `Value` is also a number, then
+    	 `Value` is mathematically added to the
+    	 existing attribute. If `Value` is a negative
+    	 number, then it is subtracted from the existing
+    	 attribute.
+
+
+    	###### Note
+
+    	If you use `ADD` to increment or decrement a
+    	 number value for an item that doesn't exist before the
+    	 update, DynamoDB uses 0 as the initial value.
+
+    	Similarly, if you use `ADD` for an existing
+    	 item to increment or decrement an attribute value that
+    	 doesn't exist before the update, DynamoDB uses
+    	 `0` as the initial value. For example,
+    	 suppose that the item you want to update doesn't have an
+    	 attribute named *itemcount*, but you
+    	 decide to `ADD` the number `3` to this
+    	 attribute anyway. DynamoDB will create the
+    	 *itemcount* attribute, set its
+    	 initial value to `0`, and finally add
+    	 `3` to it. The result will be a new
+    	 *itemcount* attribute, with a value
+    	 of `3`.
+    	- If the existing data type is a set, and if
+    	 `Value` is also a set, then
+    	 `Value` is appended to the existing set.
+    	 For example, if the attribute value is the set
+    	 `[1,2]`, and the `ADD` action
+    	 specified `[3]`, then the final attribute value is
+    	 `[1,2,3]`. An error occurs if an `ADD`
+    	 action is specified for a set attribute and the attribute type
+    	 specified does not match the existing set type.
+
+
+    	Both sets must have the same primitive data type. For example,
+    	 if the existing data type is a set of strings,
+    	 `Value` must also be a set of
+    	 strings.
+
+If no item with the specified key is found in the table, the following values
+perform the following actions:
+
+    + `PUT` - Causes DynamoDB to create a new item with the
+     specified primary key, and then adds the attribute.
+    + `DELETE` - Nothing happens, because attributes cannot be
+     deleted from a nonexistent item. The operation succeeds, but DynamoDB
+     does not create a new item.
+    + `ADD` - Causes DynamoDB to create an item with the supplied
+     primary key and number (or set of numbers) for the attribute value. The
+     only data types allowed are Number and Number Set.
+
+If you provide any attributes that are part of an index key, then the data types for
+those attributes must match those of the schema in the table's attribute
+definition.
+
+## Use _UpdateExpression_ instead – Example
+
+Suppose you wanted to modify an item in the _Music_ table. You
+could use an `UpdateItem` request with an `AttributeUpdates`
+parameter, as in this AWS CLI example:
 
 ```
-
-aws dynamodb delete-item \
-    --table-name ProductCatalog \
+aws dynamodb update-item \
+    --table-name Music \
     --key '{
-        "Id": {"N":"600"}
+        "SongTitle": {"S":"Call Me Today"},
+        "Artist": {"S":"No One You Know"}
     }' \
-    --expected '{
-        "InPublication": {
-            "Exists": true,
-            "Value": {"BOOL":false}
+    --attribute-updates '{
+        "Genre": {
+            "Action": "PUT",
+            "Value": {"S":"Rock"}
         }
     }'
 
 ```
 
-The following example does the same thing, but does not use a legacy
-condition:
+You can use a `UpdateExpression` instead:
 
 ```
-
-aws dynamodb delete-item \
-    --table-name ProductCatalog \
+aws dynamodb update-item \
+    --table-name Music \
     --key '{
-        "Id": {"N":"600"}
+        "SongTitle": {"S":"Call Me Today"},
+        "Artist": {"S":"No One You Know"}
     }' \
-    --expected '{
-        "InPublication": {
-            "ComparisonOperator": "EQ",
-            "AttributeValueList": [ {"BOOL":false} ]
-        }
+    --update-expression 'SET Genre = :g' \
+    --expression-attribute-values '{
+        ":g": {"S":"Rock"}
     }'
 
 ```
-
-###### Example
-
-A `PutItem` operation can protect against overwriting an
-existing item with the same primary key attributes. Here is an example using
-a legacy condition:
-
-```
-aws dynamodb put-item \
-    --table-name ProductCatalog \
-    --item '{
-      "Id": {"N":"500"},
-        "Title": {"S":"Book 500 Title"}
-    }' \
-    --expected '{
-        "Id": { "Exists": false }
-    }'
-```
-
-The following example does the same thing, but does not use a legacy
-condition:
-
-```
-aws dynamodb put-item \
-    --table-name ProductCatalog \
-    --item '{
-      "Id": {"N":"500"},
-        "Title": {"S":"Book 500 Title"}
-    }' \
-    --expected '{
-        "Id": { "ComparisonOperator": "NULL" }
-    }'
-```
-
-###### Note
-
-For conditions in the `Expected` map, do not use the legacy
-`Value` and `Exists` options together with
-`ComparisonOperator` and `AttributeValueList`. If
-you do this, your conditional write will fail.

@@ -1,7 +1,7 @@
-# 06-delete-table.js
+# 03-getitem-test.js
 
-The `06-delete-table.js` program deletes `TryDaxTable`.
-Run this program after you have finished testing.
+The `03-getitem-test.js` program performs `GetItem`
+operations on `TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -13,27 +13,59 @@ AWS.config.update({
   region: region,
 });
 
-var dynamodb = new AWS.DynamoDB(); //low-level client
+var ddbClient = new AWS.DynamoDB.DocumentClient();
+var daxClient = null;
 
+if (process.argv.length > 2) {
+  var dax = new AmazonDaxClient({
+    endpoints: [process.argv[2]],
+    region: region,
+  });
+  daxClient = new AWS.DynamoDB.DocumentClient({ service: dax });
+}
+
+var client = daxClient != null ? daxClient : ddbClient;
 var tableName = "TryDaxTable";
 
-var params = {
-  TableName: tableName,
-};
+var pk = 1;
+var sk = 10;
+var iterations = 5;
 
-dynamodb.deleteTable(params, function (err, data) {
-  if (err) {
-    console.error(
-      "Unable to delete table. Error JSON:",
-      JSON.stringify(err, null, 2)
-    );
-  } else {
-    console.log(
-      "Deleted table. Table description JSON:",
-      JSON.stringify(data, null, 2)
-    );
+for (var i = 0; i < iterations; i++) {
+  var startTime = new Date().getTime();
+
+  for (var ipk = 1; ipk <= pk; ipk++) {
+    for (var isk = 1; isk <= sk; isk++) {
+      var params = {
+        TableName: tableName,
+        Key: {
+          pk: ipk,
+          sk: isk,
+        },
+      };
+
+      client.get(params, function (err, data) {
+        if (err) {
+          console.error(
+            "Unable to read item. Error JSON:",
+            JSON.stringify(err, null, 2)
+          );
+        } else {
+          // GetItem succeeded
+        }
+      });
+    }
   }
-});
+
+  var endTime = new Date().getTime();
+  console.log(
+    "\tTotal time: ",
+    endTime - startTime,
+    "ms - Avg time: ",
+    (endTime - startTime) / iterations,
+    "ms"
+  );
+}
 
 
 ```

@@ -1,65 +1,32 @@
-# Processing DynamoDB data with Apache Hive on Amazon EMR
+# Performance tuning
 
-Amazon DynamoDB is integrated with Apache Hive, a data warehousing application that runs on
-Amazon EMR. Hive can read and write data in DynamoDB tables, allowing you to:
+When you create a Hive external table that maps to a DynamoDB table, you do not consume
+any read or write capacity from DynamoDB. However, read and write activity on the Hive
+table (such as `INSERT` or `SELECT`) translates directly into read
+and write operations on the underlying DynamoDB table.
 
-- Query live DynamoDB data using a SQL-like language (HiveQL).
-- Copy data from a DynamoDB table to an Amazon S3 bucket, and vice-versa.
-- Copy data from a DynamoDB table into Hadoop Distributed File System (HDFS), and
-  vice-versa.
-- Perform join operations on DynamoDB tables.
+Apache Hive on Amazon EMR implements its own logic for balancing the I/O load on the DynamoDB
+table and seeks to minimize the possibility of exceeding the table's provisioned
+throughput. At the end of each Hive query, Amazon EMR returns runtime metrics, including the
+number of times your provisioned throughput was exceeded. You can use this information,
+together with CloudWatch metrics on your DynamoDB table, to improve performance in subsequent
+requests.
+
+The Amazon EMR console provides basic monitoring tools for your cluster. For more
+information, see [View and Monitor a Cluster](../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view.md") in the _Amazon EMR Management
+Guide_.
+
+You can also monitor your cluster and Hadoop jobs using web-based tools, such as Hue,
+Ganglia, and the Hadoop web interface. For more information, see [View Web Interfaces Hosted on Amazon EMR Clusters](../../../ElasticMapReduce/latest/ManagementGuide/emr-web-interfaces.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-web-interfaces.md") in the _Amazon EMR
+Management Guide_.
+
+This section describes steps you can take to performance-tune Hive operations on
+external DynamoDB tables.
 
 ###### Topics
 
-- [Overview](#EMRforDynamoDB.Overview "#EMRforDynamoDB.Overview")
-- [Tutorial: Working with Amazon DynamoDB and Apache
-  Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")
-- [Creating an external table in
-  Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")
-- [Processing HiveQL statements](EMRforDynamoDB.md "EMRforDynamoDB.md")
-- [Querying data in DynamoDB](EMRforDynamoDB.md "EMRforDynamoDB.md")
-- [Copying data to and from Amazon DynamoDB](EMRforDynamoDB.md "EMRforDynamoDB.md")
-- [Performance tuning](EMRforDynamoDB.md "EMRforDynamoDB.md")
-
-## Overview
-
-Amazon EMR is a service that makes it easy to quickly and cost-effectively process vast
-amounts of data. To use Amazon EMR, you launch a managed cluster of Amazon EC2 instances running
-the Hadoop open source framework. _Hadoop_ is a distributed
-application that implements the MapReduce algorithm, where a task is mapped to multiple
-nodes in the cluster. Each node processes its designated work, in parallel with the
-other nodes. Finally, the outputs are reduced on a single node, yielding the final
-result.
-
-You can choose to launch your Amazon EMR cluster so that it is persistent or
-transient:
-
-- A _persistent_ cluster runs until you shut it down.
-  Persistent clusters are ideal for data analysis, data warehousing, or any other
-  interactive use.
-- A _transient_ cluster runs long enough to process a job
-  flow, and then shuts down automatically. Transient clusters are ideal for
-  periodic processing tasks, such as running scripts.
-
-For information about Amazon EMR architecture and administration, see the [Amazon EMR Management
-Guide](../../../ElasticMapReduce/latest/ManagementGuide.md "../../../ElasticMapReduce/latest/ManagementGuide.md").
-
-When you launch an Amazon EMR cluster, you specify the initial number and type of Amazon EC2
-instances. You also specify other distributed applications (in addition to Hadoop
-itself) that you want to run on the cluster. These applications include Hue, Mahout,
-Pig, Spark, and more.
-
-For information about applications for Amazon EMR, see the [Amazon EMR Release
-Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md").
-
-Depending on the cluster configuration, you might have one or more of the following
-node types:
-
-- Leader node — Manages the cluster, coordinating the distribution of the
-  MapReduce executable and subsets of the raw data, to the core and task instance
-  groups. It also tracks the status of each task performed and monitors the health
-  of the instance groups. There is only one leader node in a
-  cluster.
-- Core nodes — Runs MapReduce tasks and stores data using the Hadoop Distributed
-  File System (HDFS).
-- Task nodes (optional) — Runs MapReduce tasks.
+- [DynamoDB provisioned
+  throughput](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
+- [Adjusting the
+  mappers](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")
+- [Additional topics](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md")

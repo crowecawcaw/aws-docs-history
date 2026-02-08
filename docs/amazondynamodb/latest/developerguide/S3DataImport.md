@@ -1,56 +1,136 @@
-# DynamoDB data import from Amazon S3: how it works
+# Amazon S3 import formats for DynamoDB
 
-To import data into DynamoDB, your data must be in an Amazon S3 bucket in CSV, DynamoDB JSON, or
-Amazon Ion format. Data can be compressed in ZSTD or GZIP format, or can be directly
-imported in uncompressed form. Source data can either be a single Amazon S3 object or multiple
-Amazon S3 objects that use the same prefix.
-
-Your data will be imported into a new DynamoDB table, which will be created when you initiate
-the import request. You can create this table with secondary indexes, then query and update
-your data across all primary and secondary indexes as soon as the import is complete. You
-can also add a global table replica after the import is complete.
-
-###### Note
-
-During the Amazon S3 import process, DynamoDB creates a new target table that will be imported
-into. Import into existing tables is not currently supported by this feature.
-
-Import from Amazon S3 does not consume write capacity on the new table, so you do not need to
-provision any extra capacity for importing data into DynamoDB. Data import pricing is based on
-the uncompressed size of the source data in Amazon S3, that is processed as a result of the
-import. Items that are processed but fail to load into the table due to formatting or other
-inconsistencies in the source data are also billed as part of the import process. See [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing") for details.
-
-You can import data from an Amazon S3 bucket owned by a different account if you have the
-correct permissions to read from that specific bucket. The new table may also be in a
-different Region from the source Amazon S3 bucket. For more information, see [Amazon Simple Storage Service setup
-and permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md") .
-
-Import times are directly related to your data’s characteristics in Amazon S3. This includes
-data size, data format, compression scheme, uniformity of data distribution, number of Amazon S3
-objects, and other related variables. In particular, data sets with uniformly distributed
-keys will be faster to import than skewed data sets. For example, if your secondary index's
-key is using the month of the year for partitioning, and all your data is from the month of
-December, then importing this data may take significantly longer.
-
-The attributes associated with keys are expected to be unique on the base table. If any
-keys are not unique, the import will overwrite the associated items until only the last
-overwrite remains. For example, if the primary key is the month and multiple items are set
-to the month of September, each new item will overwrite the previously written items and
-only one item with the primary key of "month" set to September will remain. In such cases,
-the number of items processed in the import table description will not match the number of
-items in the target table.
-
-AWS CloudTrail logs all console and API actions for table import. For more information, see
-[Logging DynamoDB operations by using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
-
-The following video is an introduction to importing directly from Amazon S3 into DynamoDB.
+DynamoDB can import data in three formats: CSV, DynamoDB JSON, and Amazon Ion.
 
 ###### Topics
 
-- [Requesting a table import in DynamoDB](S3DataImport.md "S3DataImport.md")
-- [Amazon S3 import formats for DynamoDB](S3DataImport.md "S3DataImport.md")
-- [Import format quotas and validation](S3DataImport.md "S3DataImport.md")
-- [Best practices for importing from Amazon S3 into
-  DynamoDB](S3DataImport.md "S3DataImport.md")
+- [CSV](#S3DataImport.Requesting.Formats.CSV "#S3DataImport.Requesting.Formats.CSV")
+- [DynamoDB Json](#S3DataImport.Requesting.Formats.DDBJson "#S3DataImport.Requesting.Formats.DDBJson")
+- [Amazon Ion](#S3DataImport.Requesting.Formats.Ion "#S3DataImport.Requesting.Formats.Ion")
+
+## CSV
+
+A file in CSV format consists of multiple items delimited by newlines. By default,
+DynamoDB interprets the first line of an import file as the header and expects columns
+to be delimited by commas. You can also define headers that will be applied, as long as
+they match the number of columns in the file. If you define headers explicitly, the
+first line of the file will be imported as values.
+
+###### Note
+
+When importing from CSV files, all columns other than the hash range and keys of your
+base table and secondary indexes are imported as DynamoDB strings.
+
+**Escaping double quotes**
+
+Any double quotes characters that exist in the CSV file must be escaped.
+If they are not escaped, such as in this following example, the import will fail:
+
+```
+id,value
+"123",Women's Full "Length" Dress
+```
+
+This same import will succeed if the quotes are escaped with two sets of double quotes:
+
+```
+id,value
+"""123""","Women's Full ""Length"" Dress"
+```
+
+Once the text has been properly escaped and imported, it will appear as it did in the original CSV file:
+
+```
+id,value
+"123",Women's Full "Length" Dress
+```
+
+## DynamoDB Json
+
+A file in DynamoDB JSON format can consist of multiple Item objects. Each individual object
+is in DynamoDB’s standard marshalled JSON format, and newlines are used as item delimiters. As an added
+feature, exports from point in time are supported as an import source by default.
+
+###### Note
+
+New lines are used as item delimiters for a file in DynamoDB JSON format and
+shouldn't be used within an item object.
+
+```
+{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "333-3333333333"}, "Id": {"N": "103"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 103 Title"}}}
+{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "444-444444444"}, "Id": {"N": "104"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 104 Title"}}}
+{"Item": {"Authors": {"SS": ["Author1", "Author2"]}, "Dimensions": {"S": "8.5 x 11.0 x 1.5"}, "ISBN": {"S": "555-5555555555"}, "Id": {"N": "105"}, "InPublication": {"BOOL": false}, "PageCount": {"N": "600"}, "Price": {"N": "2000"}, "ProductCategory": {"S": "Book"}, "Title": {"S": "Book 105 Title"}}}
+```
+
+## Amazon Ion
+
+[Amazon Ion](https://amzn.github.io/ion-docs/ "https://amzn.github.io/ion-docs/") is a richly-typed,
+self-describing, hierarchical data serialization format built to address
+rapid development, decoupling, and efficiency challenges faced every day
+while engineering large-scale, service-oriented architectures.
+
+When you import data in Ion format, the Ion datatypes are mapped to
+DynamoDB datatypes in the new DynamoDB table.
+
+| S. No. | Ion to DynamoDB datatype conversion                                       | B                         |
+| ------ | ------------------------------------------------------------------------- | ------------------------- |
+| `1`    | `Ion Data Type`                                                           | `DynamoDB Representation` |
+| `2`    | `string`                                                                  | `String (s)`              |
+| `3`    | `bool`                                                                    | `Boolean (BOOL)`          |
+| `4`    | `decimal`                                                                 | `Number (N)`              |
+| `5`    | `blob`                                                                    | `Binary (B)`              |
+| `6`    | `list (with type annotation $dynamodb_SS, $dynamodb_NS, or $dynamodb_BS)` | `Set (SS, NS, BS)`        |
+| `7`    | `list`                                                                    | `List`                    |
+| `8`    | `struct`                                                                  | `Map`                     |
+
+Items in an Ion file are delimited by newlines. Each line begins with an Ion version marker,
+followed by an item in Ion format.
+
+###### Note
+
+In the following example, we've formatted items from an Ion-formatted file on multiple lines to improve readability.
+
+```
+$ion_1_0
+[
+  {
+    Item:{
+      Authors:$dynamodb_SS::["Author1","Author2"],
+      Dimensions:"8.5 x 11.0 x 1.5",
+      ISBN:"333-3333333333",
+      Id:103.,
+      InPublication:false,
+      PageCount:6d2,
+      Price:2d3,
+      ProductCategory:"Book",
+      Title:"Book 103 Title"
+    }
+  },
+  {
+    Item:{
+      Authors:$dynamodb_SS::["Author1","Author2"],
+      Dimensions:"8.5 x 11.0 x 1.5",
+      ISBN:"444-4444444444",
+      Id:104.,
+      InPublication:false,
+      PageCount:6d2,
+      Price:2d3,
+      ProductCategory:"Book",
+      Title:"Book 104 Title"
+    }
+  },
+  {
+    Item:{
+      Authors:$dynamodb_SS::["Author1","Author2"],
+      Dimensions:"8.5 x 11.0 x 1.5",
+      ISBN:"555-5555555555",
+      Id:105.,
+      InPublication:false,
+      PageCount:6d2,
+      Price:2d3,
+      ProductCategory:"Book",
+      Title:"Book 105 Title"
+    }
+  }
+]
+```

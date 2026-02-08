@@ -87,58 +87,43 @@ strong consistency (MRSC)
 You can configure multi-Region strong consistency (MRSC) mode when you create a
 global table. Item changes in an MRSC global table replica are synchronously
 replicated to at least one other Region before the write operation returns a
-successful response. When converting an existing single-Region table to a MRSC
-global table, you must ensure that the table is empty till the conversion is
-complete to ensure proper initialization and replication setup.
-
-Strongly consistent read operations on any MRSC replica always return the latest
+successful response. Strongly consistent read operations on any MRSC replica always return the latest
 version of an item. Conditional writes always evaluate the condition expression
 against the latest version of an item.
 
-A write operation fails with a `ReplicatedWriteConflictException` when
-it attempts to modify an item that is already being modified in another Region.
-Writes that fail with the `ReplicatedWriteConflictException` can be
-retried, and will succeed if the item is no longer being modified in another
-Region.
-
-You can configure a MRSC global table with three replicas, or with two replicas
+A MRSC global table must be deployed in exactly three Regions. You can configure a MRSC global table with three replicas, or with two replicas
 and one witness. A witness is a component of a MRSC global table that contains data
-written to global table replicas, and provides an optional alternative to a full
+written to global table replicas and provides an optional alternative to a full
 replica while supporting MRSC's availability architecture. You cannot perform read
 or write operations on a witness. A witness is located in a different Region than
-the two replicas.
-
-When creating a MRSC global table, you choose the Regions for both your replicas and the witness deployment
+the two replicas. When creating a MRSC global table, you choose the Regions for both your replicas and the witness deployment
 at MRSC table creation time. You
 can determine whether and in which Region a MRSC global table has a witness
 configured from the output of the [`DescribeTable`](../APIReference/API_DescribeTable.md "../APIReference/API_DescribeTable.md") API. The witness is owned and managed by
 DynamoDB, and the witness will not appear in your AWS account in the Region where it
 is configured.
 
-A MRSC global table must be deployed in exactly three Regions. You create a MRSC
+MRSC global tables are available in the following Region sets: US Region set (US East N. Virginia, US East Ohio, US West Oregon), EU Region set (Europe Ireland, Europe London, Europe Paris, Europe Frankfurt), and AP Region set (Asia Pacific Tokyo, Asia Pacific Seoul, and Asia Pacific Osaka). MRSC global tables cannot span Region sets (e.g. a MRSC global table cannot contain replicas from both US and EU Region sets).
+
+You create a MRSC
 global table by adding one replica and a witness or two replicas to an existing
-DynamoDB table that contains no data. You cannot add additional replicas to an existing
+DynamoDB table that contains no data. When converting an existing single-Region table to a MRSC global table, you must
+ensure that the table is empty. Converting a single-Region table to a MRSC
+global table with existing items is not supported. Ensure that no data is
+written into the table during the conversion process. You cannot add additional replicas to an existing
 MRSC global table. You cannot delete a single replica or a witness from a MRSC
 global table. You can delete two replicas or delete one replica and a witness from a
 MRSC global table, converting the remaining replica to a single-Region DynamoDB
 table.
 
+A write operation fails with a `ReplicatedWriteConflictException` when
+it attempts to modify an item that is already being modified in another Region.
+Writes that fail with the `ReplicatedWriteConflictException` can be
+retried and will succeed if the item is no longer being modified in another
+Region.
+
 The following considerations apply to MRSC global tables:
 
-- When converting a single-Region table to a MRSC global table, you must
-  ensure that the table is empty. Converting a single-Region table to a MRSC
-  global table with existing items is not supported. Ensure that no data is
-  written into the table during the conversion process.
-- MRSC global tables are available in the following Region sets:
-  - US Region set: US East (N. Virginia), US East (Ohio), US West
-    (Oregon)
-  - EU Region set: Europe (Ireland), Europe (London), Europe (Paris),
-    Europe (Frankfurt)
-  - AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), and
-    Asia Pacific (Osaka).
-
-- MRSC global tables cannot span Region sets (e.g. a MRSC global table
-  cannot contain replicas from both US and EU Region sets).
 - Time to Live (TTL) is not supported for MRSC global tables.
 - Local secondary indexes (LSIs) are not supported for MRSC global
   tables.
@@ -154,7 +139,7 @@ application prioritizes lower latency writes and strongly consistent reads, or
 prioritizes global strong consistency.
 
 MREC global tables will have lower write and strongly consistent read latencies
-compared to MRSC global tables. MREC global tables can support a Recovery Point
+compared to MRSC global tables. MREC global tables have a Recovery Point
 Objective (RPO) equal to the replication delay between replicas, usually a few seconds
 depending on the replica Regions.
 
@@ -334,6 +319,7 @@ table:
 - Capacity mode (provisioned capacity or on-demand)
 - Table provisioned write capacity
 - Table write auto scaling
+- Attribute definition of key schema
 - Global Secondary Index (GSI) definition
 - GSI provisioned write capacity
 - GSI write auto scaling

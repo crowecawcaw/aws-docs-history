@@ -1,197 +1,76 @@
-# Using DAX with AWS SDK for Java 1.x
+# Step 1: Launch an Amazon EC2
 
-Follow this procedure to run the Java sample for Amazon DynamoDB Accelerator (DAX) on your Amazon EC2
-instance.
+instance
+
+When your Amazon DynamoDB Accelerator (DAX) cluster is available, you can launch an Amazon EC2
+instance in your default Amazon Virtual Private Cloud (Amazon VPC). You can then install and run DAX client
+software on that instance.
+
+###### To launch an EC2 instance
+
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose **Launch Instance**, and do the following:
+
+**Step 1: Choose an Amazon Machine Image
+(AMI)**
+
+    1. In the list of AMIs, find the **Amazon Linux AMI**,
+     and choose **Select**.
+
+**Step 2: Choose an Instance Type**
+
+    1. In the list of instance types, choose
+     **t2.micro**.
+    2. Choose **Next: Configure Instance Details**.
+
+**Step 3: Configure Instance Details**
+
+    1. For **Network**, choose your default VPC.
+    2. Choose **Next: Add Storage**.
+
+**Step 4: Add Storage**
+
+    1. Skip this step by choosing **Next: Add Tags**.
+
+**Step 5: Add Tags**
+
+    1. Skip this step by choosing **Next: Configure Security
+     Group**.
+
+**Step 6: Configure Security Group**
+
+    1. Choose **Select an existing security group**.
+    2. In the list of security groups, choose **default**.
+     This is the default security group for your VPC.
+    3. Choose **Next: Review and Launch**.
+
+**Step 7: Review Instance Launch**
+
+    1. Choose **Launch**.
+
+3. In the **Select an existing key pair or create a new key
+   pair** window, do one of the following:
+   - If you don't have an Amazon EC2 key pair, choose **Create a new key
+     pair** and follow the instructions. You are asked to
+     download a private key file (`.pem` file). You need
+     this file later when you log in to your Amazon EC2 instance.
+   - If you already have an existing Amazon EC2 key pair, go to **Select a key pair** and choose your key pair from the list.
+     You must already have the private key file (`.pem`
+     file) available in order to log in to your Amazon EC2 instance.
+
+4. After configuring your key pair, choose **Launch
+   Instances**.
+5. In the console navigation pane, choose **EC2 Dashboard**, and
+   then choose the instance that you launched. In the lower pane, on the
+   **Description** tab, find the **Public
+   DNS** for your instance, for example:
+   `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`. Make a note of
+   this public DNS name because you need it for [Step 3: Configure an Amazon EC2
+   instance](DAX.client.md "DAX.client.md").
 
 ###### Note
 
-These instructions are for applications using AWS SDK for Java 1.x. For applications using
-AWS SDK for Java 2.x, see [Java and DAX](DAX.client.md "DAX.client.md").
-
-###### To run the Java sample for DAX
-
-1. Install the Java Development Kit (JDK).
-
-```
-sudo yum install -y java-devel
-```
-
-2. Download the AWS SDK for Java (`.zip` file), and then extract
-   it.
-
-```
-wget http://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
-
-unzip aws-java-sdk.zip
-```
-
-3. Download the latest version of the DAX Java client (`.jar`
-   file).
-
-```
-wget http://dax-sdk.s3-website-us-west-2.amazonaws.com/java/DaxJavaClient-latest.jar
-```
-
-###### Note
-
-The client for the DAX SDK for Java is available on Apache Maven. For more
-information, see [Using the client as an Apache Maven dependency](#DAXClient.Maven "#DAXClient.Maven"). 4. Set your `CLASSPATH` variable. In this example, replace
-`sdkVersion` with the actual version
-number of the AWS SDK for Java (for example, `1.11.112`).
-
-```
-export SDKVERSION=`sdkVersion`
-
-export CLASSPATH=$(pwd)/TryDax/java:$(pwd)/DaxJavaClient-latest.jar:$(pwd)/aws-java-sdk-$SDKVERSION/lib/aws-java-sdk-$SDKVERSION.jar:$(pwd)/aws-java-sdk-$SDKVERSION/third-party/lib/*
-```
-
-5. Download the sample program source code (`.zip` file).
-
-```
-wget http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/TryDax.zip
-```
-
-When the download is complete, extract the source files.
-
-```
-unzip TryDax.zip
-```
-
-6. Navigate to the Java code directory and compile the code as follows.
-
-```
-cd TryDax/java/
-javac TryDax*.java
-```
-
-7. Run the program.
-
-```
-java TryDax
-```
-
-You should see output similar to the following.
-
-```
-Creating a DynamoDB client
-
-Attempting to create table; please wait...
-Successfully created table.  Table status: ACTIVE
-Writing data to the table...
-Writing 10 items for partition key: 1
-Writing 10 items for partition key: 2
-Writing 10 items for partition key: 3
-Writing 10 items for partition key: 4
-Writing 10 items for partition key: 5
-Writing 10 items for partition key: 6
-Writing 10 items for partition key: 7
-Writing 10 items for partition key: 8
-Writing 10 items for partition key: 9
-Writing 10 items for partition key: 10
-
-Running GetItem, Scan, and Query tests...
-First iteration of each test will result in cache misses
-Next iterations are cache hits
-
-GetItem test - partition key 1 and sort keys 1-10
-	Total time: 136.681 ms - Avg time: 13.668 ms
-	Total time: 122.632 ms - Avg time: 12.263 ms
-	Total time: 167.762 ms - Avg time: 16.776 ms
-	Total time: 108.130 ms - Avg time: 10.813 ms
-	Total time: 137.890 ms - Avg time: 13.789 ms
-Query test - partition key 5 and sort keys between 2 and 9
-	Total time: 13.560 ms - Avg time: 2.712 ms
-	Total time: 11.339 ms - Avg time: 2.268 ms
-	Total time: 7.809 ms - Avg time: 1.562 ms
-	Total time: 10.736 ms - Avg time: 2.147 ms
-	Total time: 12.122 ms - Avg time: 2.424 ms
-Scan test - all items in the table
-	Total time: 58.952 ms - Avg time: 11.790 ms
-	Total time: 25.507 ms - Avg time: 5.101 ms
-	Total time: 37.660 ms - Avg time: 7.532 ms
-	Total time: 26.781 ms - Avg time: 5.356 ms
-	Total time: 46.076 ms - Avg time: 9.215 ms
-
-Attempting to delete table; please wait...
-Successfully deleted table.
-```
-
-Take note of the timing information—the number of milliseconds required for
-the `GetItem`, `Query`, and `Scan` tests. 8. In the previous step, you ran the program against the DynamoDB endpoint. Now run the
-program again, but this time, the `GetItem`, `Query`, and
-`Scan` operations are processed by your DAX cluster.
-
-To determine the endpoint for your DAX cluster, choose one of the
-following:
-
-    * **Using the DynamoDB console** — Choose your DAX
-     cluster. The cluster endpoint is shown on the console, as in the following
-     example.
-
-
-
-    ```
-    dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-    ```
-    * **Using the AWS CLI** — Enter the following
-     command.
-
-
-
-    ```
-    aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
-    ```
-
-    The cluster endpoint is shown in the output, as in the following
-     example.
-
-
-
-    ```
-    {
-        "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
-        "Port": 8111,
-        "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-    }
-    ```
-
-Now run the program again, but this time, specify the cluster endpoint as a
-command line parameter.
-
-```
-java TryDax dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-```
-
-Look at the rest of the output, and take note of the timing information. The
-elapsed times for `GetItem`, `Query`, and `Scan`
-should be significantly lower with DAX than with DynamoDB.
-For more information about this program, see the following sections:
-
-- [TryDax.java](DAX.client.run-application-java.md "DAX.client.run-application-java.md")
-- [TryDaxHelper.java](DAX.client.run-application-java.md "DAX.client.run-application-java.md")
-- [TryDaxTests.java](DAX.client.run-application-java.md "DAX.client.run-application-java.md")
-
-## Using the client as an Apache Maven dependency
-
-Follow these steps to use the client for the DAX SDK for Java in your application as a
-dependency.
-
-###### To use the client as a Maven dependency
-
-1. Download and install Apache Maven. For more information, see [Downloading Apache Maven](https://maven.apache.org/download.cgi "https://maven.apache.org/download.cgi")
-   and [Installing Apache
-   Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html").
-2. Add the client Maven dependency to your application's Project Object Model
-   (POM) file. In this example, replace `x.x.x.x` with the actual
-   version number of the client (for example, `1.0.200704.0`).
-
-```
-<!--Dependency:-->
-<dependencies>
-    <dependency>
-     <groupId>com.amazonaws</groupId>
-     <artifactId>amazon-dax-client</artifactId>
-     <version>x.x.x.x</version>
-    </dependency>
-</dependencies>
-```
+It takes a few minutes for your Amazon EC2 instance to become available. In the
+meantime, proceed to [Step 2: Create a user and policy](DAX.client.md "DAX.client.md") and follow the instructions
+there.

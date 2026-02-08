@@ -5,7 +5,7 @@ Amazon DynamoDB is a serverless, fully managed, distributed NoSQL database with 
 DynamoDB addresses your needs to overcome scaling and operational complexities of relational
 databases. DynamoDB is purpose-built and optimized for operational workloads that require
 consistent performance at any scale. For example, DynamoDB delivers consistent single-digit
-millisecond performance for a shopping cart use case, whether you've 10 or 100 million
+millisecond performance for a shopping cart use case, whether you have 10 or 100 million
 users. [Launched in 2012](https://press.aboutamazon.com/2012/1/amazon-web-services-launches-amazon-dynamodb-a-new-nosql-database-service-designed-for-the-scale-of-the-internet "https://press.aboutamazon.com/2012/1/amazon-web-services-launches-amazon-dynamodb-a-new-nosql-database-service-designed-for-the-scale-of-the-internet"), DynamoDB continues to help you move away from relational
 databases while reducing cost and improving performance at scale.
 
@@ -78,7 +78,7 @@ To achieve this scale and performance, DynamoDB is optimized for high-performanc
 workloads and provides APIs that encourage efficient database usage. It omits
 features that are inefficient and non-performing at scale, for example, JOIN
 operations. DynamoDB delivers consistent single-digit millisecond performance for your
-application, whether you've 100 or 100 million users.
+application, whether you have 100 or 100 million users.
 
 ## DynamoDB use cases
 
@@ -247,7 +247,7 @@ keys stored in [AWS Key Management Service](../../../kms/latest/developerguide/o
 applications that meet strict encryption compliance and regulatory requirements. When
 you access an encrypted table, DynamoDB decrypts the table data transparently. You don't
 have to change any code or applications to use or manage encrypted tables. DynamoDB
-continues to deliver the same single-digit millisecond latency that you've come to
+continues to deliver the same single-digit millisecond latency that you have come to
 expect, and all [DynamoDB queries](Query.md "Query.md") work seamlessly on your
 encrypted data.
 

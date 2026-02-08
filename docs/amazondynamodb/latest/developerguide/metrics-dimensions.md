@@ -494,25 +494,8 @@ Valid Statistics:
 
 ### OnlineIndexConsumedWriteCapacity
 
-The number of write capacity units consumed when adding a new global secondary
-index to a table. If the write capacity of the index is too low, incoming write
-activity during the backfill phase might be throttled. This can increase the
-time it takes to create the index. You should monitor this statistic while the
-index is being built to determine whether the write capacity of the index is
-underprovisioned.
-
-You can adjust the write capacity of the index using the
-`UpdateTable` operation, even while the index is still being
-built.
-
-The `ConsumedWriteCapacityUnits` metric for the index doesn't
-include the write throughput consumed during index creation.
-
-###### Note
-
-This metric may not be emitted if the new global secondary index’s
-backfill phase completes quickly (less than a few minutes), which may occur
-if the base table has few or no items to backfill in the index.
+This metric is expected to show 0 during index builds. This metric previously showed
+the number of write capacity units consumed when adding a new global secondary index to a table.
 
 Units: `Count`
 
@@ -548,17 +531,8 @@ Valid Statistics:
 
 ### OnlineIndexThrottleEvents
 
-The number of write throttle events that occur when adding a new global
-secondary index to a table. These events indicate that the index creation will
-take longer to complete, because incoming write activity is exceeding the
-provisioned write throughput of the index.
-
-You can adjust the write capacity of the index using the
-`UpdateTable` operation, even while the index is still being
-built.
-
-The `WriteThrottleEvents` metric for the index doesn't include any
-throttle events that occur during index creation.
+This metric is expected to show 0 during index builds. This metric previously showed
+the number of write throttle events that occur when adding a new global secondary index to a table.
 
 Units: `Count`
 

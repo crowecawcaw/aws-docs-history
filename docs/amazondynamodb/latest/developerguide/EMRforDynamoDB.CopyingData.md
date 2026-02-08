@@ -1,71 +1,51 @@
 # Copying data between DynamoDB and
 
-Amazon S3
+HDFS
 
-If you have data in a DynamoDB table, you can use Hive to copy the data to an Amazon S3
-bucket.
+If you have data in a DynamoDB table, you can use Hive to copy the data to the Hadoop
+Distributed File System (HDFS).
 
-You might do this if you want to create an archive of data in your DynamoDB table.
-For example, suppose you have a test environment where you need to work with a
-baseline set of test data in DynamoDB. You can copy the baseline data to an Amazon S3
-bucket, and then run your tests. Afterward, you can reset the test environment by
-restoring the baseline data from the Amazon S3 bucket to DynamoDB.
+You might do this if you are running a MapReduce job that requires data from
+DynamoDB. If you copy the data from DynamoDB into HDFS, Hadoop can process it, using all
+of the available nodes in the Amazon EMR cluster in parallel. When the MapReduce job is
+complete, you can then write the results from HDFS to DDB.
 
-If you worked through [Tutorial: Working with Amazon DynamoDB and Apache
-Hive](EMRforDynamoDB.md "EMRforDynamoDB.md"), then you already have an Amazon S3 bucket
-that contains your Amazon EMR logs. You can use this bucket for the examples in this
-section, if you know the root path for the bucket:
-
-1. Open the Amazon EMR console at
-   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
-2. For **Name**, choose your cluster.
-3. The URI is listed in **Log URI** under
-   **Configuration Details**.
-4. Make a note of the root path of the bucket. The naming convention
-   is:
-
-`s3://aws-logs-`accountID`-`region``
-
-where `accountID` is your AWS account ID and
-region is the AWS region for the bucket.
+In the following examples, Hive will read from and write to the following HDFS
+directory: `/user/hadoop/hive-test`
 
 ###### Note
 
-For these examples, we will use a subpath within the bucket, as in this
-example:
-
-`s3://aws-logs-123456789012-us-west-2`/hive-test``
-
-The following procedures are written with the assumption you followed the steps in
-the tutorial and have an external table in DynamoDB named
-_ddb_features_.
+The examples in this section are written with the assumption you followed the
+steps in [Tutorial: Working with Amazon DynamoDB and Apache
+Hive](EMRforDynamoDB.md "EMRforDynamoDB.md") and you have an external table in
+DynamoDB named _ddb_features_.
 
 ###### Topics
 
-- [Copying data using
-  the Hive default format](#EMRforDynamoDB.CopyingData.S3.DefaultFormat "#EMRforDynamoDB.CopyingData.S3.DefaultFormat")
 - [Copying data
-  with a user-specified format](#EMRforDynamoDB.CopyingData.S3.UserSpecifiedFormat "#EMRforDynamoDB.CopyingData.S3.UserSpecifiedFormat")
+  using the Hive default format](#EMRforDynamoDB.CopyingData.HDFS.DefaultFormat "#EMRforDynamoDB.CopyingData.HDFS.DefaultFormat")
+- [Copying
+  data with a user-specified format](#EMRforDynamoDB.CopyingData.HDFS.UserSpecifiedFormat "#EMRforDynamoDB.CopyingData.HDFS.UserSpecifiedFormat")
 - [Copying data
-  without a column mapping](#EMRforDynamoDB.CopyingData.S3.NoColumnMapping "#EMRforDynamoDB.CopyingData.S3.NoColumnMapping")
-- [Viewing the data in
-  Amazon S3](#EMRforDynamoDB.CopyingData.S3.ViewingData "#EMRforDynamoDB.CopyingData.S3.ViewingData")
+  without a column mapping](#EMRforDynamoDB.CopyingData.HDFS.NoColumnMapping "#EMRforDynamoDB.CopyingData.HDFS.NoColumnMapping")
+- [Accessing the data
+  in HDFS](#EMRforDynamoDB.CopyingData.HDFS.ViewingData "#EMRforDynamoDB.CopyingData.HDFS.ViewingData")
 
-## Copying data using
+## Copying data
 
-the Hive default format
+using the Hive default format
 
-###### Example From DynamoDB to Amazon S3
+###### Example From DynamoDB to HDFS
 
 Use an `INSERT OVERWRITE` statement to write directly to
-Amazon S3.
+HDFS.
 
 ```
-INSERT OVERWRITE DIRECTORY 's3://aws-logs-123456789012-us-west-2/hive-test'
+INSERT OVERWRITE DIRECTORY 'hdfs:///user/hadoop/hive-test'
 SELECT * FROM ddb_features;
 ```
 
-The data file in Amazon S3 looks like this:
+The data file in HDFS looks like this:
 
 ```
 920709`^A`Soldiers Farewell Hill`^A`Summit`^A`NM`^A`32.3564729`^A`-108.33004616135
@@ -78,13 +58,13 @@ The data file in Amazon S3 looks like this:
 Each field is separated by an SOH character (start of heading, 0x01). In
 the file, SOH appears as `^A`.
 
-###### Example From Amazon S3 to DynamoDB
+###### Example From HDFS to DynamoDB
 
-1. Create an external table pointing to the unformatted data in
-   Amazon S3.
+1. Create an external table that maps to the unformatted data in
+   HDFS.
 
 ```
-CREATE EXTERNAL TABLE s3_features_unformatted
+CREATE EXTERNAL TABLE hdfs_features_unformatted
     (feature_id       BIGINT,
     feature_name      STRING ,
     feature_class     STRING ,
@@ -92,52 +72,52 @@ CREATE EXTERNAL TABLE s3_features_unformatted
     prim_lat_dec      DOUBLE ,
     prim_long_dec     DOUBLE ,
     elev_in_ft        BIGINT)
-LOCATION 's3://aws-logs-123456789012-us-west-2/hive-test';
+LOCATION 'hdfs:///user/hadoop/hive-test';
 ```
 
 2. Copy the data to DynamoDB.
 
 ```
 INSERT OVERWRITE TABLE ddb_features
-SELECT * FROM s3_features_unformatted;
+SELECT * FROM hdfs_features_unformatted;
 ```
 
-## Copying data
+## Copying
 
-with a user-specified format
+data with a user-specified format
 
-If you want to specify your own field separator character, you can create an
-external table that maps to the Amazon S3 bucket. You might use this technique for
+If you want to use a different field separator character, you can create an
+external table that maps to the HDFS directory. You might use this technique for
 creating data files with comma-separated values (CSV).
 
-###### Example From DynamoDB to Amazon S3
+###### Example From DynamoDB to HDFS
 
-1. Create a Hive external table that maps to Amazon S3. When you do this,
+1. Create a Hive external table that maps to HDFS. When you do this,
    ensure that the data types are consistent with those of the DynamoDB
    external table.
 
 ```
-CREATE EXTERNAL TABLE s3_features_csv
+CREATE EXTERNAL TABLE hdfs_features_csv
     (feature_id       BIGINT,
-    feature_name      STRING,
-    feature_class     STRING,
+    feature_name      STRING ,
+    feature_class     STRING ,
     state_alpha       STRING,
-    prim_lat_dec      DOUBLE,
-    prim_long_dec     DOUBLE,
+    prim_lat_dec      DOUBLE ,
+    prim_long_dec     DOUBLE ,
     elev_in_ft        BIGINT)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
-LOCATION 's3://aws-logs-123456789012-us-west-2/hive-test';
+LOCATION 'hdfs:///user/hadoop/hive-test';
 ```
 
 2. Copy the data from DynamoDB.
 
 ```
-INSERT OVERWRITE TABLE s3_features_csv
+INSERT OVERWRITE TABLE hdfs_features_csv
 SELECT * FROM ddb_features;
 ```
 
-The data file in Amazon S3 looks like this:
+The data file in HDFS looks like this:
 
 ```
 920709,Soldiers Farewell Hill,Summit,NM,32.3564729,-108.3300461,6135
@@ -147,25 +127,31 @@ The data file in Amazon S3 looks like this:
 115905,Chacaloochee Bay,Bay,AL,30.6979676,-87.9738853,0
 ```
 
-###### Example From Amazon S3 to DynamoDB
+###### Example From HDFS to DynamoDB
 
 With a single HiveQL statement, you can populate the DynamoDB table using the
-data from Amazon S3:
+data from HDFS:
 
 ```
 INSERT OVERWRITE TABLE ddb_features
-SELECT * FROM s3_features_csv;
+SELECT * FROM hdfs_features_csv;
 ```
 
 ## Copying data
 
 without a column mapping
 
-You can copy data from DynamoDB in a raw format and write it to Amazon S3 without
+You can copy data from DynamoDB in a raw format and write it to HDFS without
 specifying any data types or column mapping. You can use this method to create
-an archive of DynamoDB data and store it in Amazon S3.
+an archive of DynamoDB data and store it in HDFS.
 
-###### Example From DynamoDB to Amazon S3
+###### Note
+
+If your DynamoDB table contains attributes of type Map, List, Boolean or
+Null, then this is the only way you can use Hive to copy data from DynamoDB to
+HDFS.
+
+###### Example From DynamoDB to HDFS
 
 1. Create an external table associated with your DynamoDB table. (There
    is no `dynamodb.column.mapping` in this HiveQL
@@ -178,26 +164,26 @@ STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
 TBLPROPERTIES ("dynamodb.table.name" = "Features");
 ```
 
-2. Create another external table associated with your Amazon S3
-   bucket.
+2. Create another external table associated with your HDFS
+   directory.
 
 ```
-CREATE EXTERNAL TABLE s3_features_no_mapping
+CREATE EXTERNAL TABLE hdfs_features_no_mapping
     (item MAP<STRING, STRING>)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n'
-LOCATION 's3://aws-logs-123456789012-us-west-2/hive-test';
+LOCATION 'hdfs:///user/hadoop/hive-test';
 ```
 
-3. Copy the data from DynamoDB to Amazon S3.
+3. Copy the data from DynamoDB to HDFS.
 
 ```
-INSERT OVERWRITE TABLE s3_features_no_mapping
+INSERT OVERWRITE TABLE hdfs_features_no_mapping
 SELECT * FROM ddb_features_no_mapping;
 ```
 
-The data file in Amazon S3 looks like this:
+The data file in HDFS looks like this:
 
 ```
 Name`^C`{"s":"Soldiers Farewell Hill"}`^B`State`^C`{"s":"NM"}`^B`Class`^C`{"s":"Summit"}`^B`Elevation`^C`{"n":"6135"}`^B`Latitude`^C`{"n":"32.3564729"}`^B`Id`^C`{"n":"920709"}`^B`Longitude`^C`{"n":"-108.3300461"}
@@ -212,25 +198,32 @@ with an ETX character (end of text, 0x03). In the file, STX appears as
 `^B` and ETX appears as
 `^C`.
 
-###### Example From Amazon S3 to DynamoDB
+###### Example From HDFS to DynamoDB
 
 With a single HiveQL statement, you can populate the DynamoDB table using the
-data from Amazon S3:
+data from HDFS:
 
 ```
 INSERT OVERWRITE TABLE ddb_features_no_mapping
-SELECT * FROM s3_features_no_mapping;
+SELECT * FROM hdfs_features_no_mapping;
 ```
 
-## Viewing the data in
+## Accessing the data
 
-Amazon S3
+in HDFS
 
-If you use SSH to connect to the leader node, you can use the AWS Command Line Interface
-(AWS CLI) to access the data that Hive wrote to Amazon S3.
+HDFS is a distributed file system, accessible to all of the nodes in the Amazon EMR
+cluster. If you use SSH to connect to the leader node, you can use
+command line tools to access the data that Hive wrote to HDFS.
+
+HDFS is not the same thing as the local file system on the leader node.
+You cannot work with files and directories in HDFS using standard Linux commands
+(such as `cat`, `cp`, `mv`, or
+`rm`). Instead, you perform these tasks using the `hadoop
+ fs` command.
 
 The following steps are written with the assumption you have copied data from
-DynamoDB to Amazon S3 using one of the procedures in this section.
+DynamoDB to HDFS using one of the procedures in this section.
 
 1. If you are currently at the Hive command prompt, exit to the Linux
    command prompt.
@@ -239,32 +232,41 @@ DynamoDB to Amazon S3 using one of the procedures in this section.
 hive> exit;
 ```
 
-2. List the contents of the hive-test directory in your Amazon S3 bucket.
+2. List the contents of the /user/hadoop/hive-test directory in HDFS.
    (This is where Hive copied the data from DynamoDB.)
 
 ```
-aws s3 ls s3://aws-logs-123456789012-us-west-2/hive-test/
+hadoop fs -ls /user/hadoop/hive-test
 ```
 
 The response should look similar to this:
 
-`2016-11-01 23:19:54 81983 000000_0`
+```
+Found 1 items
+-rw-r--r-- 1 hadoop hadoop 29504 2016-06-08 23:40 /user/hadoop/hive-test/000000_0
+```
 
 The file name (_000000_0_) is
-system-generated. 3. (Optional) You can copy the data file from Amazon S3 to the local file
+system-generated. 3. View the contents of the file:
+
+```
+hadoop fs -cat /user/hadoop/hive-test/000000_0
+```
+
+###### Note
+
+In this example, the file is relatively small (approximately 29
+KB). Be careful when you use this command with files that are very
+large or contain non-printable characters. 4. (Optional) You can copy the data file from HDFS to the local file
 system on the leader node. After you do this, you can use
 standard Linux command line utilities to work with the data in the
 file.
 
 ```
-aws s3 cp s3://aws-logs-123456789012-us-west-2/hive-test/000000_0 .
+hadoop fs -get /user/hadoop/hive-test/000000_0
 ```
 
-The response should look similar to this:
-
-`download:
- s3://aws-logs-123456789012-us-west-2/hive-test/000000_0 to
- ./000000_0`
+This command will not overwrite the file.
 
 ###### Note
 

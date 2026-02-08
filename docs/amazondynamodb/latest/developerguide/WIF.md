@@ -1,105 +1,146 @@
-# Writing your app to use web identity
+# Using web identity federation
+
+If you are writing an application targeted at large numbers of users, you can
+optionally use _web identity federation_ for authentication and
+authorization. Web identity federation removes the need for creating individual users.
+Instead, users can sign in to an identity provider and then obtain temporary
+security credentials from AWS Security Token Service (AWS STS). The app can then use these credentials
+to access AWS services.
+
+Web identity federation supports the following identity providers:
+
+- Login with Amazon
+- Facebook
+- Google
+
+## Additional resources for web identity
 
 federation
 
-To use web identity federation, your app must assume the IAM role that you
-created. From that point on, the app honors the access policy that you attached to
-the role.
+The following resources can help you learn more about web identity
+federation:
 
-At runtime, if your app uses web identity federation, it must follow these
-steps:
+- The post [Web Identity Federation using the AWS SDK for .NET](https://aws.amazon.com/blogs/developer/web-identity-federation-using-the-aws-sdk-for-net "https://aws.amazon.com/blogs/developer/web-identity-federation-using-the-aws-sdk-for-net") on the AWS
+  Developer blog walks through how to use web identity federation with
+  Facebook. It includes code snippets in C# that show how to assume an IAM
+  role with web identity and how to use temporary security credentials to
+  access an AWS resource.
+- The [AWS Mobile SDK for iOS](https://aws.amazon.com/sdkforios/ "https://aws.amazon.com/sdkforios/") and the
+  [AWS Mobile SDK for Android](https://aws.amazon.com/sdkforandroid/ "https://aws.amazon.com/sdkforandroid/")
+  contain sample apps. They include code that shows how to invoke the identity
+  providers, and then how to use the information from these providers to get
+  and use temporary security credentials.
+- The article [Web
+  Identity Federation with Mobile Applications](https://aws.amazon.com/articles/4617974389850313 "https://aws.amazon.com/articles/4617974389850313") discusses web
+  identity federation and shows an example of how to use web identity
+  federation to access an AWS resource.
 
-1. Authenticate with a third-party identity
-   provider. Your app must call the identity provider using an
-   interface that they provide. The exact way in which you authenticate the
-   user depends on the provider and on what platform your app is running.
-   Typically, if the user is not already signed in, the identity provider takes
-   care of displaying a sign-in page for that provider.
+## Example policy for web identity federation
 
-After the identity provider authenticates the user, the provider returns a
-web identity token to your app. The format of this token depends on the
-provider, but is typically a very long string of characters. 2. Obtain temporary AWS security
-credentials. To do this, your app sends a
-`AssumeRoleWithWebIdentity` request to AWS Security Token Service
-(AWS STS). This request contains the following:
+To show how you can use web identity federation with DynamoDB, revisit the
+_GameScores_ table that was introduced in [Using IAM policy conditions for fine-grained
+access control](specifying-conditions.md "specifying-conditions.md"). Here is
+the primary key for _GameScores_.
 
-    * The web identity token from the previous step
-    * The app ID from the identity provider
-    * The Amazon Resource Name (ARN) of the IAM role that you created
-     for this identity provider for this app
+| Table Name                             | Primary Key Type | Partition Key Name and Type         | Sort Key Name and Type                 |
+| -------------------------------------- | ---------------- | ----------------------------------- | -------------------------------------- |
+| GameScores (UserId,<br>GameTitle, ...) | Composite        | Attribute Name: UserId Type: String | Attribute Name: GameTitle Type: String |
 
-AWS STS returns a set of AWS security credentials that expire after a
-certain amount of time (3,600 seconds, by default).
+Now suppose that a mobile gaming app uses this table, and that
+app needs to support thousands, or even millions, of users. At this scale, it
+becomes very difficult to manage individual app users, and to guarantee that each
+user can only access their own data in the _GameScores_ table.
+Fortunately, many users already have accounts with a third-party identity provider,
+such as Facebook, Google, or Login with Amazon. So it makes sense to use one of
+these providers for authentication tasks.
 
-The following is a sample request and response from a
-`AssumeRoleWithWebIdentity` action in AWS STS. The web
-identity token was obtained from the Login with Amazon identity
-provider.
+To do this using web identity federation, the app developer must register the app
+with an identity provider (such as Login with Amazon) and obtain a unique app ID.
+Next, the developer needs to create an IAM role. (For this example, this role is
+named _GameRole_.) The role must have an IAM policy document
+attached to it, specifying the conditions under which the app can access
+_GameScores_ table.
+
+When a user wants to play a game, they sign in to their Login with Amazon account
+from within the gaming app. The app then calls AWS Security Token Service (AWS STS), providing the
+Login with Amazon app ID and requesting membership in _GameRole_.
+AWS STS returns temporary AWS credentials to the app and allows it to access
+the _GameScores_ table, subject to the
+_GameRole_ policy document.
+
+The following diagram shows how these pieces fit together.
+
+![A gaming app’s workflow. The app uses Amazon ID and AWS STS to obtain temporary credentials for accessing a DynamoDB table.](images/wif-overview.png)
+
+**Web identity federation overview**
+
+1. The app calls a third-party identity provider to authenticate the user and
+   the app. The identity provider returns a web identity token to the
+   app.
+2. The app calls AWS STS and passes the web identity token as input.
+   AWS STS authorizes the app and gives it temporary AWS access
+   credentials. The app is allowed to assume an IAM role
+   (_GameRole_) and access AWS resources in accordance
+   with the role's security policy.
+3. The app calls DynamoDB to access the _GameScores_ table.
+   Because it has assumed the _GameRole_, the app is subject
+   to the security policy associated with that role. The policy document
+   prevents the app from accessing data that does not belong to the
+   user.
+
+Once again, here is the security policy for _GameRole_ that was
+shown in [Using IAM policy conditions for fine-grained
+access control](specifying-conditions.md "specifying-conditions.md"):
+
+JSON
 
 ```
-GET / HTTP/1.1
-Host: sts.amazonaws.com
-Content-Type: application/json; charset=utf-8
-URL: https://sts.amazonaws.com/?ProviderId=www.amazon.com
-&DurationSeconds=900&Action=AssumeRoleWithWebIdentity
-&Version=2011-06-15&RoleSessionName=web-identity-federation
-&RoleArn=arn:aws:iam::123456789012:role/GameRole
-&WebIdentityToken=Atza|IQEBLjAsAhQluyKqyBiYZ8-kclvGTYM81e...(remaining characters omitted)
-```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Sid":"AllowAccessToOnlyItemsMatchingUserID",
+ "Effect":"Allow",
+ "Action":[
+ "dynamodb:GetItem",
+ "dynamodb:BatchGetItem",
+ "dynamodb:Query",
+ "dynamodb:PutItem",
+ "dynamodb:UpdateItem",
+ "dynamodb:DeleteItem",
+ "dynamodb:BatchWriteItem"
+ ],
+ "Resource":[
+ "arn:aws:dynamodb:us-west-2:123456789012:table/GameScores"
+ ],
+ "Condition":{
+ "ForAllValues:StringEquals":{
+ "dynamodb:LeadingKeys":[
+ "${www.amazon.com:user_id}"
+ ],
+ "dynamodb:Attributes":[
+ "UserId",
+ "GameTitle",
+ "Wins",
+ "Losses",
+ "TopScore",
+ "TopScoreDateTime"
+ ]
+ },
+ "StringEqualsIfExists":{
+ "dynamodb:Select":"SPECIFIC_ATTRIBUTES"
+ }
+ }
+ }
+ ]
+}`
 
 ```
-<AssumeRoleWithWebIdentityResponse
-  xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-  <AssumeRoleWithWebIdentityResult>
-    <SubjectFromWebIdentityToken>amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE</SubjectFromWebIdentityToken>
-    <Credentials>
-      <SessionToken>AQoDYXdzEMf//////////wEa8AP6nNDwcSLnf+cHupC...(remaining characters omitted)</SessionToken>
-      <SecretAccessKey>8Jhi60+EWUUbbUShTEsjTxqQtM8UKvsM6XAjdA==</SecretAccessKey>
-      <Expiration>2013-10-01T22:14:35Z</Expiration>
-      <AccessKeyId>06198791C436IEXAMPLE</AccessKeyId>
-    </Credentials>
-    <AssumedRoleUser>
-      <Arn>arn:aws:sts::123456789012:assumed-role/GameRole/web-identity-federation</Arn>
-      <AssumedRoleId>AROAJU4SA2VW5SZRF2YMG:web-identity-federation</AssumedRoleId>
-    </AssumedRoleUser>
-  </AssumeRoleWithWebIdentityResult>
-  <ResponseMetadata>
-    <RequestId>c265ac8e-2ae4-11e3-8775-6969323a932d</RequestId>
-  </ResponseMetadata>
-</AssumeRoleWithWebIdentityResponse>
-```
 
-3.  Access AWS resources. The response from
-    AWS STS contains information that your app requires in order to access
-    DynamoDB resources:
-
-        * The `AccessKeyID`, `SecretAccessKey`, and
-         `SessionToken` fields contain security credentials
-         that are valid for this user and this app only.
-        * The `Expiration` field signifies the time limit for
-         these credentials, after which they are no longer valid.
-        * The `AssumedRoleId` field contains the name of a
-         session-specific IAM role that has been assumed by the app. The
-         app honors the access controls in the IAM policy document for the
-         duration of this session.
-        * The `SubjectFromWebIdentityToken` field contains the
-         unique ID that appears in an IAM policy variable for this
-         particular identity provider. The following are the IAM policy
-         variables for supported providers, and some example values for
-         them:
-
-
-
-
-        | Policy Variable | Example Value |
-        | --- | --- |
-        | `${www.amazon.com:user_id}` | `amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE` |
-        | `${graph.facebook.com:id}` | `123456789` |
-        | `${accounts.google.com:sub}` | `123456789012345678901` |
-
-    For example IAM policies where these policy variables are used, see [Example policies: Using conditions for
-    fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples "specifying-conditions.md#FGAC_DDB.Examples").
-
-For more information about how AWS STS generates temporary access credentials, see
-[Requesting Temporary
-Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md") in _IAM User Guide_.
+The `Condition` clause determines which items in
+_GameScores_ are visible to the app. It does this by
+comparing the Login with Amazon ID to the `UserId` partition key values
+in `GameScores`. Only the items belonging to the current user can be
+processed using one of DynamoDB actions that are listed in this policy. Other items in
+the table cannot be accessed. Furthermore, only the specific attributes listed in
+the policy can be accessed.

@@ -11,21 +11,3 @@ analytics, clickstream analytics, Internet of Things (IoT), ad tech, gaming, and
 four most common use cases are streaming extract-transform-load (ETL), event driven
 applications, responsive real-time analytics, and interactive querying of data streams. For
 more information on writing to Apache Flink from Amazon DynamoDB Streams, see [Amazon DynamoDB Streams Connector](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/dynamodb/ "https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/datastream/dynamodb/").
-
-## Using the ShardFilter parameter with DynamoDB Streams
-
-connector for Apache Flink
-
-Amazon DynamoDB Streams supports the `ShardFilter` parameter in the
-`DescribeStream` API to find a subset of shards. By specifying a parent
-shard in the request, DynamoDB Streams will return its immediate child shards. You can use the
-`ShardFilter` parameter to quickly discover child shards after a parent
-shard has been closed, making your stream processing applications more responsive and
-cost-effective.
-
-Amazon Managed Service for Apache Flink supports the `ShardFilter` parameter when reading from DynamoDB Streams. To
-use this feature, you must request access to a special version of the Flink connector
-that includes `ShardFilter` support. To get started, open a support case in
-the AWS Support Center and request access to these binaries. For more information about
-using DynamoDB Streams with Apache Flink, see [Reading and processing a stream](Streams.md#Streams.Processing "Streams.md#Streams.Processing") in the DynamoDB
-Developer Guide.

@@ -2,7 +2,8 @@
 
 and conditions reference
 
-When you are setting up [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md") and writing a permissions policy that you can attach to an IAM identity
+When you are setting up
+[Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md") and writing a permissions policy that you can attach to an IAM identity
 (identity-based policies), you can use the list of [Actions,
 resources, and condition keys for Amazon DynamoDB](../../../service-authorization/latest/reference/list_amazondynamodb.md "../../../service-authorization/latest/reference/list_amazondynamodb.md") in the
 _IAM User Guide_ as a reference. The page lists each
