@@ -1,21 +1,16 @@
-# Step 4: Test the Connectivity to the Amazon Redshift Database
+# Step 11: Delete Walkthrough Resources
 
-Next, test your connection to your Amazon Redshift database.
+After you have completed this walkthrough, perform the following steps to avoid being charged further for AWS resources used in the walkthrough. It’s necessary that you do the steps in order, because some resources cannot be deleted if they have a dependency upon another resource.
 
-1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **Create a new connection profile** icon. Connect to the Amazon Redshift database in SQL Workbench/J by using the information shown following.
+To delete AWS DMS resources, do the following:
 
-| Parameter                 | Action                                                                                                                                         |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*_New profile_<br>• name | Enter `RedshiftConnection`.                                                                                                                    |
-| **Driver**                | Choose `Redshift (com.amazon.redshift.jdbc42.Driver)`.                                                                                         |
-| **URL**                   | Use the \*_RedshiftJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
-| **Username**              | Enter `redshiftadmin`.                                                                                                                         |
-| **Password**              | Enter `Redshift#123`.                                                                                                                          |
+1. On the navigation pane, choose **Tasks**, choose your migration task (`migratehrschema`), and then choose **Delete**.
+2. On the navigation pane, choose **Endpoints**, choose the Oracle source endpoint (`orasource`), and then choose **Delete**.
+3. Choose the Amazon Redshift target endpoint (`redshifttarget`), and then choose **Delete**.
+4. On the navigation pane, choose **Replication instances**, choose the replication instance (`DMSdemo-repserver`), and then choose **Delete**.
+   Next, you must delete your AWS CloudFormation stack, `DMSdemo`. Do the following:
 
-2. Test the connection by choosing **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
+5. Sign in to the AWS Management Console and open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
-![Connecting to the Amazon Redshift DB instance](images/sbs-rdsor2redshift10.png)
-
-###### Note
-
-If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This issue is the most common one when trying to connect to an instance. 3. Verify your connectivity to the Amazon Redshift DB instance by running a sample SQL command, such as `select current_date;`.
+If you are signed in as an IAM user, you must have the appropriate permissions to access AWS CloudFormation. 2. Choose your AWS CloudFormation stack, `OracletoRedshiftDWusingDMS`. 3. For **Actions**, choose **Delete stack**.
+The status of the stack changes to DELETE_IN_PROGRESS while AWS CloudFormation cleans up the resources associated with the `OracletoRedshiftDWusingDMS` stack. When AWS CloudFormation is finished cleaning up resources, it removes the stack from the list.

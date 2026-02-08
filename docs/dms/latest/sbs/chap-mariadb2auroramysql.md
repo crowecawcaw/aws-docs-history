@@ -1,17 +1,30 @@
-# Test the endpoints for MariaDB database migration
+# Migrating a MariaDB Database to Amazon RDS for MySQL or Amazon Aurora MySQL
 
-1. On the navigation pane, choose **Endpoints**.
-2. Choose the source endpoint name (`maria-on-prem`) and do the following:
-   1. Choose **Test connections**.
-   2. Choose the replication instance to test (`mariadb-mysql`).
-   3. Choose **Run Test** and wait for the status to be **successful**.
+You can migrate data from existing on-premises MariaDB or [Amazon RDS for MariaDB](https://aws.amazon.com/rds/mariadb/?nc=sn&loc=3&dn=4 "https://aws.amazon.com/rds/mariadb/?nc=sn&loc=3&dn=4") to [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/") MySQL using [Database Migration Service](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/"). Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud. Amazon Aurora features a distributed, fault-tolerant, self-healing storage system that auto-scales up to 64 TB per database instance. It delivers high performance and availability with up to 15 low-latency read replicas, point-in-time recovery, and continuous backup to Amazon S3, and replication across three Availability Zones (AZs).
 
-3. On the navigation pane, choose **Endpoints**.
-4. Choose the target endpoint name (`mysqltrg-rds`) and do the following:
-   1. Choose **Test Connections**.
-   2. Choose the replication instance to test (`mariadb-mysql`).
-   3. Choose **Run Test** and wait for the status to be **successful**.
+Some key features offered by Aurora MySQL are the following:
 
-###### Note
+- High throughput with low latency
+- Push-button compute scaling
+- Storage autoscaling
+- Custom database endpoints
+- Parallel queries for faster analytics
+  In the following sections, we demonstrate migration from MariaDB as a source database to an Aurora MySQL database as a target using AWS DMS. At a high level, the steps involved in this migration are:
 
-If **Run Test** returns a status other than **successful**, the reason for the failure is displayed. Make sure that you resolve the issue before proceeding further.
+- Provision MariaDB as a source DB instance and load the data
+- Provision Aurora Mysql as target DB instance
+- Provision DMS replication instance and create DMS endpoints
+- Create DMS task, migrate data and perform validation
+  For the purpose of this section, we are using the AWS CloudFormation templates for creating Amazon RDS for MariaDB, Aurora MySQL database and AWS DMS replication instance with their source and endpoints. We will be loading sample tables and data in MariaDB located on [GitHub](https://github.com/aws-samples/aws-database-migration-samples "https://github.com/aws-samples/aws-database-migration-samples").
+
+To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/").
+
+###### Topics
+
+- [Set up MariaDB as a source database](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")
+- [Set up Aurora MySQL as a target database](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")
+- [Set up an AWS DMS replication instance](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")
+- [Test the endpoints for MariaDB database migration](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")
+- [Create a migration task for a MariaDB database](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")
+- [Validate the MariaDB database migration](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")
+- [Cut over for the migration from a MariaDB database](chap-mariadb2auroramysql.md "chap-mariadb2auroramysql.md")

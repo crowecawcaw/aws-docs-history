@@ -1,41 +1,8 @@
-# Migrating an Amazon RDS for Oracle Database to Amazon Aurora MySQL
+# AWS DMS migration from Amazon RDS for Oracle next steps
 
-This walkthrough gets you started with heterogeneous database migration from Amazon RDS for Oracle to Amazon Aurora MySQL-Compatible Edition using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT). This is an introductory exercise so does not cover all scenarios but will provide you with a good understanding of the steps involved in executing such a migration.
+You can explore several other features of AWS DMS that were not included in this walkthrough, including the following:
 
-It is important to understand that AWS DMS and AWS SCT are two different tools and serve different needs. They don’t interact with each other in the migration process. At a high level, the steps involved in this migration are:
+- The AWS DMS change data capture (CDC) feature, for ongoing replication of data.
+- Transformation actions that let you specify and apply transformations to the selected schema or table as part of the migration process.
 
-1. Using AWS SCT to:
-   - Run the conversion report for Oracle to Amazon Aurora MySQL to identify the issues, limitations, and actions required for the schema conversion.
-   - Generate the schema scripts and apply them on the target before performing the data load via AWS DMS. AWS SCT will perform the necessary code conversion for objects like procedures and views.
-
-2. Identify and implement solutions to the issues reported by AWS SCT. For example, an object type like Oracle Sequence that is not supported in the Amazon Aurora MySQL can be handled using the `auto_increment` option to populate surrogate keys or develop logic for sequences at the application layer.
-3. Disable foreign keys or any other constraints which may impact the AWS DMS data load.
-4. AWS DMS loads the data from source to target using the Full Load approach. Although AWS DMS is capable of creating objects in the target as part of the load, it follows a minimalistic approach to efficiently migrate the data so it doesn’t copy the entire schema structure from source to target.
-5. Perform post-migration activities such as creating additional indexes, enabling foreign keys, and making the necessary changes in the application to point to the new database.
-   This walkthrough uses a custom AWS CloudFormation template to create an Amazon RDS DB instances for Oracle and Amazon Aurora MySQL. It then uses a SQL command script to install a sample schema and data onto the Amazon RDS Oracle DB instance that you then migrate to Amazon Aurora MySQL.
-
-This walkthrough takes approximately two hours to complete. The estimated cost to complete it, using AWS resources, is about $5.00. Be sure to follow the instructions to delete resources at the end of this walkthrough to avoid additional charges.
-
-###### Topics
-
-- [Costs](#costs "#costs")
-- [Prerequisites for migrating from Amazon RDS for Oracle to Amazon Aurora MySQL](chap-rdsoracle2aurora.md "chap-rdsoracle2aurora.md")
-- [Migration architecture for migrating from Amazon RDS for Oracle database to Amazon Aurora MySQL-Compatible Edition](chap-rdsoracle2aurora.md "chap-rdsoracle2aurora.md")
-- [Step-by-step Amazon Relational Database Service to Amazon Aurora MySQL-Compatible Edition migration walkthrough](chap-rdsoracle2aurora.md "chap-rdsoracle2aurora.md")
-- [AWS DMS migration from Amazon RDS for Oracle next steps](chap-rdsoracle2aurora.md "chap-rdsoracle2aurora.md")
-
-## Costs
-
-For this walkthrough, you provision Amazon Relational Database Service (Amazon RDS) resources by using AWS CloudFormation and also AWS Database Migration Service (AWS DMS) resources. Provisioning these resources will incur charges to your user by the hour. The AWS Schema Conversion Tool incurs no cost; it is provided as a part of AWS DMS.
-
-Although you’ll need only a minimum of resources for this walkthrough, some of these resources are not eligible for AWS Free Tier. At the end of this walkthrough, you’ll find a section in which you delete the resources to avoid additional charges. Delete the resources as soon as you complete the walkthrough. For more information, see [chap-rdsoracle2aurora.steps.deleteresources](chap-rdsoracle2aurora.steps.md "chap-rdsoracle2aurora.steps.md").
-
-To estimate what it will cost to run this walkthrough on AWS, you can use the AWS Pricing Calculator. For more information, see [https://calculator.aws/](https://calculator.aws/ "https://calculator.aws/") and [Database Migration Service pricing](https://aws.amazon.com/dms/pricing/ "https://aws.amazon.com/dms/pricing/").
-
-The following table shows AWS DMS and Amazon RDS resources that you use for this walkthrough. You can specify these values in the AWS Pricing Calculator.
-
-| AWS service                                                                           | Instance Type | Storage and I/O                                        |
-| ------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------ |
-| Amazon RDS for Oracle DB instance, License Included (Standard Edition Two), Single AZ | db.m3.medium  | Single AZ, 10 GB storage, GP2                          |
-| Amazon Aurora MySQL DB instance                                                       | db.r3.large   | Single AZ, 10 GB storage, 1 million I/O                |
-| AWS DMS replication instance                                                          | t2.small      | 50 GB of storage for keeping replication logs included |
+For more information, see [Getting started with Database Migration Service](../userguide/CHAP_GettingStarted.md "../userguide/CHAP_GettingStarted.md").

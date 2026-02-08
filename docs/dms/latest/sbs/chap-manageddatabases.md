@@ -1,100 +1,62 @@
-# PostgreSQL pg_dump and pg_restore utility
+# Generate and Publish Scripts wizard and Bulk Copy Program Utility
 
-pg_dump and pg_restore is a native PostgreSQL client utility. You can find this utility as part of the database installation. It produces a set of SQL statements that you can run to reproduce the original database object definitions and table data.
+You can use the SQL Server Generate and Publish Scripts wizard to create Transact-SQL scripts for objects in your database. Then you can run the Bulk Copy Program Utility (bcp) to copy data from your Microsoft SQL Server instance into data files. Also, you can use bcp to import data into a table from data files. For more information, see [How to: Generate a Script (SQL Server Management Studio)](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms178078(v=sql.105)?redirectedfrom=MSDN> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms178078(v=sql.105)?redirectedfrom=MSDN") and [bcp Utility](https://docs.microsoft.com/en-us/sql/tools/bcp-utility?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/tools/bcp-utility?view=sql-server-ver15").
 
-The pg_dump and pg_restore utility is suitable for the following use cases if:
+This approach is suitable for the following use cases:
 
-- Your database size is less than 100 GB.
-- You plan to migrate database metadata as well as table data.
-- You have a relatively large number of tables to migrate.
-  The pg_dump and pg_restore utility may not be suitable for the following use cases if:
+- You don’t transform data during the migration.
+- You don’t rename tables or schemas during the migration.
+- You use referential integrity on target tables. In this case, bcp automatically suspends RI constraints on target tables during data import.
+- You can script and migrate all database objects using the SQL Server Generate and Publish Scripts wizard.
+  This approach has the following limitations:
 
-- Your database size is greater than 100 GB.
-- You want to avoid downtime.
+- You need to create schemas on your target database before you can use migration scripts.
+- This approach is slower than the Import and Export Wizard.
+- Data transformations aren’t supported.
+- In bcp, the error messages are limited to 512 bytes. This can make troubleshooting complicated.
+- You run the bcp command for each table. This increases the complexity for large migrations.
 
-## Example
+## Migration Steps
 
-At a high level, you can use the following steps to migrate the [`dms_sample`](https://github.com/aws-samples/aws-database-migration-samples/tree/master/PostgreSQL/sampledb/v1 "https://github.com/aws-samples/aws-database-migration-samples/tree/master/PostgreSQL/sampledb/v1") database.
+At a high level, the steps involved in this approach are the following:
 
-1. Export data to one or more dump files.
-2. Create a target database.
-3. Import the dump file or files.
-4. (Optional) Migrate database roles and users.
+- Use Microsoft Generate and Publish Scripts wizard to create Transact-SQL scripts from source database.
+- Use the created Transact-SQL scripts to create database objects in Target database.
+- Use SQL Server Bulk Copy Program Utility (bcp) to export data from the source database to data files. Then, use bcp to import data from the data files into the target database table.
 
-## Export Data
+The following example shows how to migrate the `dms_sample` database using Generate and Publish Scripts wizard and Bulk Copy Program Utility.
 
-You can use the following command to create dump files for your source database.
+Generate a Transact-SQL script for the source database tables. You can save the script as single file or save in a new query window.
 
-```
-pg_dump -h <hostname> -p 5432 -U <username> -Fc -b -v -f <dumpfilelocation.sql> -d  <database_name>
+![Microsoft Generate and Publish Scripts wizard](images/sql-server-rds-sql-server-full-load-bcp.png)
 
--h is the name of source server where you would like to migrate your database.
--U is the name of the user present on the source server
--Fc: Sets the output as a custom-format archive suitable for input into pg_restore.
--b: Include large objects in the dump.
--v: Specifies verbose mode
--f: Dump file path
-```
+Next, create database objects on the target database using the script that you generated in the previous step.
 
-## Create a Database on Your Target Instance
-
-First, login to your target database server.
+Run the following command on the source database to capture the current log sequence number (LSN). Then use this LSN to set up the change data capture (CDC) task in AWS DMS.
 
 ```
-psql -h <hostname> -p 5432 -U <username> -d <database_name>
-
--h is the name of target server where you would like to migrate your database.
--U is the name of the user present on the target server.
--d is the name of database name present on target already.
+SELECT max([Current LSN]) FROM fn_dblog(NULL, NULL)
 ```
 
-Then, use the following command to create a database.
+Use the Windows command prompt to export the source tables to data files with the bcp utility.
 
 ```
-create database migrated_database;
+bcp [database_name.] schema.table_name out "data_file" -c -t -S [server_name] -d [database_name] -U [login] -P [password]
 ```
 
-## Import Dump Files
-
-You can use the following command to import the dump file into your Amazon RDS instance.
+Import the data files created in the previous step into the target database with the bcp utility.
 
 ```
-pg_restore -v -h <hostname> -U <username> -d <database_name> -j 2 <dumpfilelocation.sql>
-
--h is the name of target server where you would like to migrate your database.
--U is the name of the user present on the target server.
--d is the name of database name that was created in step 2.
-<dumpfilelocation.sql> is the dump file that was created to generate the script of the database using pg_dump
+bcp [database_name.] schema.table_name in "data_file" -S [server_name] -d [database_name] -c -t
 ```
 
-## Migrate Database Roles and Users
-
-To export such database objects as roles and users, you can use the `pg_dumpall` utility.
-
-To generate a script for users and roles, run the following command on the source database.
+You can create a .bat file with all the bcp scripts to avoid running script one by one. The following code example shows the contents of this .bat file.
 
 ```
-pg_dumpall -U <username> -h <hostname>  -f <dumpfilelocation.sql> --no-role-passwords -g
-
-
--h is the name of source server where you would like to migrate your database.
--U is the name of the user present on the source server.
--f: Dump file path.
--g: Dump only global objects (roles and tablespaces), no databases.
+bcp dbo.export1 out C:\BCP\export1.dat -c -t -S source-server-name -d dms_sample -U dms_user -P password
+bcp dbo.export2 out C:\BCP\export2.dat -c -t -S source-server-name -d dms_sample -U dms_user -P password
+bcp dbo.export3 out C:\BCP\export3.dat -c -t -S source-server-name -d dms_sample -U dms_user -P password
+bcp dbo.export1 in C:\BCP\export1.dat -c -t -S target-server-name -d dms_sample -U dms_user -P password
+bcp dbo.export2 in C:\BCP\export2.dat -c -t -S target-server-name -d dms_sample -U dms_user -P password
+bcp dbo.export3 in C:\BCP\export3.dat -c -t -S target-server-name -d dms_sample -U dms_user -P password
 ```
-
-To restore users and roles, run the following command on your target database.
-
-```
-psql -h <hostname> -U <username> -f <dumpfilelocation.sql>
-
--h is the name of target server where you would like to migrate your database.
--U is the name of the user present on the target server.
--f: Dump file path.
-```
-
-To complete the export and import operations, the pg_dump and pg_restore requires some time. This time depends on the following parameters.
-
-- The size of your source database.
-- The number of jobs.
-- The resources that you provision for your instance used to invoke pg_dump and pg_restore.

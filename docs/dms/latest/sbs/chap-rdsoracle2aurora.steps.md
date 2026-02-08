@@ -1,110 +1,35 @@
-# Step 3: Test Connectivity to the Oracle DB Instance and Create the Sample Schema
+# Step 9: Create and Run Your AWS DMS Migration Task
 
-After the AWS CloudFormation stack has been created, test the connection to the Oracle DB instance by using SQL Workbench/J and then create the **HR** sample schema.
+Using a AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data only.
 
-To test the connection to your Oracle DB instance and create the sample schema, do the following:
+1. On the **Create Task** page, specify the task options. The following table describes the settings.
 
-1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information as shown following
+| For This Parameter       | Do This                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| **Task name**            | Enter `migratehrschema`.                                                                 |
+| **Task description**     | Enter a description for the task.                                                        |
+| **Source endpoint**      | Shows `orasource` (the Amazon RDS for Oracle endpoint).                                  |
+| **Target endpoint**      | Shows `aurtarget` (the Amazon Aurora MySQL endpoint).                                    |
+| **Replication instance** | Shows `DMSdemo-repserver` (the AWS DMS replication instance created in an earlier step). |
+| **Migration type**       | Choose **Migrate existing data**.                                                        |
+| **Start task on create** | Select this option.                                                                      |
 
-| For This Parameter        | Do This                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*_New profile_<br>• name | Enter `RDSOracleConnection`.                                                                                                                 |
-| **Driver**                | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                  |
-| **URL**                   | Use the \*_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
-| **Username**              | Enter `oraadmin`.                                                                                                                            |
-| **Password**              | Provide the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.        |
+The page should look like the following:
 
-2. To test the connection, choose **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
+![Create task page](images/sbs-rdsor2aurora23.png) 2. Under **Task Settings**, choose **Do nothing** for **Target table preparation mode**, because you have already created the tables through Schema Migration Tool. Because this migration doesn’t contain any LOBs, you can leave the LOB settings at their defaults.
 
-![Connecting to the Oracle DB instance](images/sbs-rdsor2aurora9.png)
+Optionally, you can select **Enable logging**. If you enable logging, you will incur additional Amazon CloudWatch charges for the creation of CloudWatch logs. For this walkthrough, logs are not necessary.
 
-###### Note
+![Task Settings section](images/sbs-rdsor2aurora24.png) 3. Leave the Advanced settings at their default values. 4. Choose **Table mappings**, choose **Default** for **Mapping method**, and then choose `HR` for **Schema to migrate**.
 
-If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This is the most common issue when trying to connect to an instance. 3. Create the HR schema you will use for migration using a custom SQL script (Oracle-HR-Schema-Build.sql). To obtain this script, do the following:
+The completed section should look like the following.
 
-    1. Download the following archive to your computer: [`dms-sbs-RDSOracle2Aurora.zip`](samples/dms-sbs-RDSOracle2Aurora.md "samples/dms-sbs-RDSOracle2Aurora.md").
-    2. Extract the SQL script(`Oracle-HR-Schema-Build.sql`) from the archive.
-    3. Copy and paste the `Oracle-HR-Schema-Build.sql` file into your current directory.
+![Completed Table mappings section](images/sbs-rdsor2aurora25.png) 5. Choose **Create task**. The task will begin immediately.
+The Tasks section shows you the status of the migration task.
 
-4. Open the provided SQL script in a text editor. Copy the entire script.
-5. In SQL Workbench/J, paste the SQL script in the Default.wksp window showing **Statement 1**.
-6. Choose **SQL**, then choose **Execute All**.
+![Table statistics tab](images/sbs-rdsor2aurora25.5.png)
+You can monitor your task if you choose **Enable logging** when you set up your task. You can then view the CloudWatch metrics by doing the following:
 
-When you run the script, you will get an error message indicating that user **HR** does not exist. You can ignore this error and run the script. The script drops the user before creating it, which generates the error. 7. Verify the object types and count in **HR** Schema were created successfully by running the following SQL query.
-
-```
-Select OBJECT_TYPE, COUNT(*) from dba_OBJECTS where owner='HR'
-GROUP BY OBJECT_TYPE;
-```
-
-The results of this query should be similar to the following:
-
-```
-OBJECT_TYPE    COUNT(*)
-INDEX          8
-PROCEDURE      2
-SEQUENCE       3
-TABLE          7
-VIEW           1
-```
-
-8. Verify the number of constraints in the **HR** schema by running the following SQL query:
-
-```
-Select CONSTRAINT_TYPE,COUNT(*) from dba_constraints  where owner='HR'
-	AND (CONSTRAINT_TYPE IN ('P','R')OR SEARCH_CONDITION_VC NOT LIKE '%NOT NULL%')
-	GROUP BY CONSTRAINT_TYPE;
-```
-
-The results of this query should be similar to the following:
-
-```
-CONSTRAINT_TYPE	COUNT(*)
-	R	         10
-	P	          7
-	C	          1
-```
-
-9. Analyze the **HR** schema by running the following:
-
-```
-BEGIN
-    dbms_stats.gather_schema_stats('HR');
-END;
-/
-```
-
-10. Verify the total number of tables and number of rows for each table by running the following SQL query:
-
-```
-SELECT table_name, num_rows from dba_tables where owner='HR'  order by 1;
-```
-
-The results of this query should be similar to the following:
-
-```
-TABLE_NAME      NUM_ROWS
-COUNTRIES        25
-DEPARTMENTS      27
-EMPLOYEES       107
-JOBS             19
-JOB_HISTORY      10
-LOCATIONS        23
-REGIONS           4
-```
-
-11. Verify the relationships of the tables. Check the departments with employees greater than 10 by running the following SQL query:
-
-```
-Select b.department_name,count(*) from HR.Employees a,HR.departments b where a.department_id=b.department_id
-group by b.department_name having count(*) > 10
-order by 1;
-```
-
-The results of this query should be similar to the following:
-
-```
-DEPARTMENT_NAME      COUNT(*)
-Sales                34
-Shipping             45
-```
+1. On the navigation pane, choose **Tasks**.
+2. Choose your migration task (`migratehrschema`).
+3. Choose the **Task monitoring** tab, and monitor the task in progress on that tab.

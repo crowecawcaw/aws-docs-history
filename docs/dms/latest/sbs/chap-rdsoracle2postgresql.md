@@ -1,14 +1,14 @@
-# Migrating an Oracle Database to PostgreSQL
+# Step-by-step Oracle database to PostgreSQL migration walkthrough
 
-Using this walkthrough, you can learn how to migrate an Oracle database to a PostgreSQL database using AWS Database Migration Service (AWS DMS) and the AWS Schema Conversion Tool (AWS SCT).
-
-AWS DMS migrates your data from your Oracle source into your PostgreSQL target. AWS DMS also captures data manipulation language (DML) and [supported data definition language (DDL)](../userguide/CHAP_Introduction.md "../userguide/CHAP_Introduction.md") changes that happen on your source database and applies these changes to your target database. This way, AWS DMS keeps your source and target databases in sync with each other. To facilitate the data migration, AWS SCT creates the migrated schemas on the target database, including the tables and primary key indexes on the target if necessary.
-
-AWS DMS doesn’t migrate your secondary indexes, sequences, default values, stored procedures, triggers, synonyms, views, and other schema objects not specifically related to data migration. To migrate these objects to your PostgreSQL target, use AWS SCT.
+The following steps provide instructions for migrating an Oracle database to a PostgreSQL database. These steps assume that you have already prepared your source database as described in [Prerequisites](chap-rdsoracle2postgresql.md "chap-rdsoracle2postgresql.md").
 
 ###### Topics
 
-- [Prerequisites for migrating from an Oracle database to PostgreSQL](chap-rdsoracle2postgresql.md "chap-rdsoracle2postgresql.md")
-- [Step-by-step Oracle database to PostgreSQL migration walkthrough](chap-rdsoracle2postgresql.md "chap-rdsoracle2postgresql.md")
-- [Rolling Back the Migration](chap-oracle2postgresql.md "chap-oracle2postgresql.md")
-- [Oracle database migration to PostgreSQL troubleshooting](chap-oracle2postgresql.md "chap-oracle2postgresql.md")
+- [Step 1: Install the SQL Drivers and AWS Schema Conversion Tool on Your Local Computer](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md")
+- [Step 2: Configure Your Oracle Source Database](chap-oracle2postgresql.steps.md "chap-oracle2postgresql.steps.md")
+- [Step 3: Configure Your PostgreSQL Target Database](chap-oracle2postgresql.steps.md "chap-oracle2postgresql.steps.md")
+- [Step 4: Use AWS SCT to Convert the Oracle Schema to PostgreSQL](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md")
+- [Step 5: Create an AWS DMS Replication Instance](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md")
+- [Step 6: Create AWS DMS Source and Target Endpoints](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md")
+- [Step 7: Create and Run Your AWS DMS Migration Task](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md")
+- [Step 8: Cut Over to PostgreSQL](chap-rdsoracle2postgresql.steps.md "chap-rdsoracle2postgresql.steps.md")
