@@ -200,7 +200,7 @@ If you encrypt the data with AWS KMS keys, you can use either the default AWS ma
 ## Configure destination settings for Apache Iceberg Tables
 
 Firehose supports Apache Iceberg Tables as a destination in all [AWS Regions](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region") except China Regions, AWS GovCloud (US) Regions, Asia Pacific (Taipei),
-Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Thailand), and Mexico (Central).
+Asia Pacific (Malaysia), Asia Pacific (New Zealand), and Mexico (Central).
 
 For more information on Apache Iceberg Tables as your destination, see [Deliver data to Apache Iceberg Tables with
 Amazon Data Firehose](apache-iceberg-destination.md "apache-iceberg-destination.md").
