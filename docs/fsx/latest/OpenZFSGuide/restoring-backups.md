@@ -75,7 +75,7 @@ Restoring from a backup with a given storage class to a file system with a diffe
 
 ###### Note
 
-When restoring a file system with a storage capacity greater than 144 TiB, you must use the same KMS key
+When restoring a file system with a storage capacity greater than 128 TiB, you must use the same KMS key
 that you used when creating the backup. If you want to restore the file system with a new KMS key, you must first
 copy the backup using the new KMS key, and then restore the file system with this backup. 10. In **Root volume configuration**, you can set the
 following options for the file system's root volume:
