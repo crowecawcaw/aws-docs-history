@@ -1,22 +1,28 @@
-# [DL.CI.5] Sequence build actions strategically for prompt feedback
+# [DL.CI.6] Refine integration pipelines with build metrics
 
-**Category:** RECOMMENDED 
+**Category:** RECOMMENDED
 
-By optimizing the sequence of actions or tasks in your
-continuous integration pipeline, feedback can be timely,
-allowing developers to quickly react and make necessary
-changes. This practice reduces the risk of delayed releases
-due to late detection of issues.
+Use key metrics—whether sourced from this guidance, established frameworks
+like [DORA](https://dora.dev/ "https://dora.dev/") or [SPACE](https://queue.acm.org/detail.cfm?id=3454124 "https://queue.acm.org/detail.cfm?id=3454124"), or custom to your
+organization—to optimize your continuous integration process. Metrics such as deployment
+frequency, change lead time, failure rate, and time to recover serve as outcome-based
+lagging indicators. These indicators span many DevOps capabilities to provide insights
+into the efficiency and reliability of the full delivery process. While individual metrics
+offer granular insights to optimize specific continuous integration capabilities, these
+aggregated metrics present a holistic overview of the end-to-end development lifecycle.
+Both granular and holistic metrics are important for continuous improvement.
 
-Initiate long-duration actions earlier and run them in
-parallel with other actions, preventing bottlenecks. Tasks
-less prone to failure or of lower importance should be
-scheduled later to prioritize higher impact tasks. Regularly
-reviewing and adjusting action sequences ensures they
-effectively identify issues early and provide actionable
-feedback.
+Embed observability practices into your integration pipelines,
+incorporating monitoring and logging observability
+capabilities. By transforming logs into metrics, you gain
+actionable insights into areas needing refinement. Prioritize
+making these metrics accessible to all team members to create
+an environment where teams can proactively monitor, analyze,
+and improve based on these metrics.
 
-Strategically sequencing build actions is categorized as
-recommended as the foundational focus should first be on
-establishing a solid continuous integration pipeline and then
-later enhancing it by optimizing the build.
+Putting an emphasis on continually optimizing pipelines using
+metrics is recommended. When getting started with DevOps
+adoption, initial efforts should prioritize the establishment
+of a stable and effective integration pipeline, with
+subsequent enhancements to the pipeline being driven by
+metrics.

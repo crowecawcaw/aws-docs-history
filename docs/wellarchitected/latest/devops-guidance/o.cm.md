@@ -1,28 +1,44 @@
-# [O.CM.3] Conduct post-incident analysis for continuous improvement
+# [O.CM.4] Report on business metrics to drive data-driven decision making
 
 **Category:** FOUNDATIONAL
 
-Drive the continuous improvement of analysis and response mechanisms by holding
-post-incident retrospectives. The post-incident retrospectives allow teams to identify gaps
-and areas for improvement by analyzing the actions that were taken during an incident. These
-retrospectives should not be used to place blame or point fingers at individuals. Instead,
-they provide the time for teams to optimize their response process for future incidents and
-helps ensure that they are continuously learning and improving their incident response
-capabilities. This approach leads to more efficient and effective resolution of incidents
-over time.
+Business metrics for all systems should be accessible and
+comprehensible to leaders and key stakeholders. These metrics
+should inform key performance indicators (KPIs), service level
+objectives (SLOs), service level agreement (SLA) adherence,
+user engagement, conversion rates, and other metrics relevant
+to the business sides of your operations.
 
-All relevant stakeholders involved with the incident and the system should attend the
-retrospective. At a minimum, this should include the leaders and individual contributors who
-support the system, the customer advocates, those who were impacted by the issue internally,
-as well as those involved with the resolution of the issue. The post-incident retrospective
-findings should be anonymized, as to not place blame onto any individuals, and should be
-well documented and shared with the broader organization so that others may learn as well.
+Just like with technology metrics, continuous monitoring tools
+should be used to detect when business metrics cross
+predefined thresholds, triggering alerts that highlight
+significant deviations or potential issues. These alerts
+should inform timely and data-driven decision-making, helping
+identify areas for improvement, optimizing system performance,
+and aligning actions with overarching business goals.
+
+Create dashboards or reports that present these metrics, as well as how they are
+tracking against KPIs and SLAs, in a user-friendly, non-technical format. Ensure the data is
+up-to-date, accurate, and accessible to less technical leaders so that it can be used to
+make informed business decisions. Observability isn't merely about data collection—it is
+about turning that data into actionable insights that drive better outcomes for both the
+technology and business sides of the organization.
+
+Fast feedback leads to success. Continuously monitoring and
+alerting on business metrics is becoming foundational for
+organizations committed to maximizing the value they get from
+their technology investments and for maintaining the quality
+of their digital services.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF07-BP02 Analyze
-  metrics when events or incidents occur](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics.md")
-- [AWS Well-Architected Reliability Pillar: REL12-BP02 Perform
-  post-incident analysis](../reliability-pillar/rel_testing_resiliency_rca_resiliency.md "../reliability-pillar/rel_testing_resiliency_rca_resiliency.md")
-- [AWS Well-Architected Operational Excellence Pillar: OPS11-BP02
-  Perform post-incident analysis](../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md "../operational-excellence-pillar/ops_evolve_ops_perform_rca_process.md")
+- [AWS Well-Architected Performance Pillar: PERF07-BP05 Review
+  metrics at regular intervals](../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics_collected.md "../performance-efficiency-pillar/perf_monitor_instances_post_launch_review_metrics_collected.md")
+- [Operational
+  observability](../../../whitepapers/latest/tagging-best-practices/operational-observability.md "../../../whitepapers/latest/tagging-best-practices/operational-observability.md")
+- [The
+  Amazon Software Development Process: Measure
+  Everything](https://youtu.be/52SC80SFPOw?t=1922 "https://youtu.be/52SC80SFPOw?t=1922")
+- [Using
+  Cloud Fitness Functions to Drive Evolutionary
+  Architecture](https://aws.amazon.com/blogs/architecture/using-cloud-fitness-functions-to-drive-evolutionary-architecture/ "https://aws.amazon.com/blogs/architecture/using-cloud-fitness-functions-to-drive-evolutionary-architecture/")

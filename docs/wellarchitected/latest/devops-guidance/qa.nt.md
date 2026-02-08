@@ -1,33 +1,55 @@
-# [QA.NT.1] Evaluate code quality through static testing
+# [QA.NT.3] Prioritize user experience with UX testing
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Static testing is a proactive method of assessing the quality of code without needing
-to run it. It can be used to test application source code, as well as other design
-artifacts, documentation, and infrastructure as code (IaC) files. Static testing allows
-teams to spot misconfigurations, security vulnerabilities, or non-compliance with
-organizational standards in these components before they get applied in a real environment.
+User experience (UX) testing provides insight into the
+system's user interface and overall user experience, ensuring
+that they align with the diverse requirements of its user
+base. Adopting UX testing ensures that as the system evolves,
+its design remains intuitive, functional, and inclusive for
+end users.
 
-Static testing should be available to developers on-demand in local environments, as
-well as automatically run in automated pipelines. Use static testing to run automated code
-reviews and detect defects early on to provide fast feedback to developers. This feedback
-enables developers to fix and remove bugs before deployment, which is much easier and cost
-effective than fixing them after deployment.
+Recognize that UX is subjective and can vary based on
+demographics, tech proficiency, and individual preferences.
+Segment your tests to understand the diverse needs and
+preferences of your user base. This means creating different
+user profiles and scenarios, ensuring that the software is
+tested from multiple perspectives. There are various forms of
+non-functional UX tests which should be utilized to target
+specific improvements:
 
-Use specialized static analysis tools tailored to the type of
-code you are using. For example, tools
-like [AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md") and
-[cfn-lint](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint")
-are designed to catch issues in
-[AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") templates. These tools can be configured
-to detect issues like insecure permissions, enforcing tagging
-standards, or misconfigurations that could make infrastructure
-vulnerable. Keep your static analysis tools updated and
-regularly review their findings to adapt to changing
-infrastructure security and compliance best practices.
+- **Usability testing:** UX tests determines the ease with
+  which users can perform tasks using the application and evaluates if the interface is
+  intuitive and user-friendly. Usability testing helps identify issues related to the
+  application's design, navigation, and overall ease of use, ultimately leading to
+  building a better product. Conduct usability testing by recruiting a diverse group of
+  testing participants that represent the broader user base. Provide these users with
+  typical tasks they would perform when using the application. Observe the testing
+  participants and their interactions, note areas where they encounter challenges,
+  confusion, or get frustrated. During observation, encourage the participants to
+  verbalize their thought process as they perform the tasks. After the tasks are
+  completed, conduct a brief feedback session to gather additional perspective on their
+  use of the application. Use this data to drive user experience improvements and to fix
+  any bugs that were discovered. To continuously gather feedback over time, ensure that
+  there are mechanisms for users to provide feedback as they interact with the system.
+- **Accessibility testing:** UX tests that evaluate the
+  application to ensure that it can be accessed and used by everyone. Regularly review
+  web content accessibility guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/ "https://www.w3.org/WAI/standards-guidelines/wcag/")) to ensure
+  compliance with the latest standards. To get started quickly, consider adopting an
+  existing design system which incorporates accessibility best practices and a framework
+  to create accessible applications, such as the [Cloudscape Design System](https://cloudscape.design/ "https://cloudscape.design/"). Automate accessibility tests as a part of the
+  development lifecycle using tools like [Axe](https://www.deque.com/axe/ "https://www.deque.com/axe/") or [WAVE](https://wave.webaim.org/ "https://wave.webaim.org/"). Adopt tools that
+  evaluate specific accessibility standards, such as color contrast analyzing tools like
+  [WebAim](https://webaim.org/resources/contrastchecker/ "https://webaim.org/resources/contrastchecker/"). Consider
+  regularly conducting manual exploratory tests using assistive technologies to capture
+  issues that automated tools might miss.
+  **Related information:**
 
-**Related information:**
-
-- [What
-  is Amazon CodeGuru Reviewer?](../../../codeguru/latest/reviewer-ug/welcome.md "../../../codeguru/latest/reviewer-ug/welcome.md")
-- [Checkov](https://www.checkov.io/ "https://www.checkov.io/")
+- [Usability
+  Evaluation Methods](https://www.usability.gov/how-to-and-tools/methods/usability-evaluation/index.html "https://www.usability.gov/how-to-and-tools/methods/usability-evaluation/index.html")
+- [W3C
+  standards](https://www.w3.org/WAI/fundamentals/accessibility-principles/ "https://www.w3.org/WAI/fundamentals/accessibility-principles/")
+- [WCAG
+  2.1 AA](https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels "https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels")
+- [Web
+  Accessibility Initiative (WAI)](https://www.w3.org/WAI/design-develop/ "https://www.w3.org/WAI/design-develop/")

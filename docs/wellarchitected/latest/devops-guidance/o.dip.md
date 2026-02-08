@@ -1,23 +1,30 @@
-# [O.DIP.5] Optimize telemetry data storage and costs
+# [O.DIP.1] Aggregate logs and events across workloads
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Optimize costs associated with storing and processing large
-amounts of telemetry data by using techniques like data
-filtering and compression. When dealing with non-security
-related telemetry data, data sampling can also be an effective
-method to reduce costs.
+Logs and events should be aggregated across multiple workloads
+to provide a comprehensive view of the entire system. This
+enables teams to troubleshoot, identify patterns, and resolve
+operational issues.
 
-Select cost-effective solutions and consumption-based resources for data storage. Be
-strategic about data retention—remove unused or unnecessary data from storage regularly.
-Also, be selective about which data sources are ingested and ensure they are required for
-effective analysis to avoid unnecessary spend. Always remember that while managing costs
-is important, it should not compromise the integrity and completeness of your data,
-especially when it comes to security.
+Implement a log aggregation solution that supports collecting logs from various
+sources and provides functions for filtering, searching, visualizing, and alerting. Make
+sure the solution provides real-time data collection, supports necessary data sources, and
+offers visualization options. The tool should be accessible to application teams, allowing
+them to monitor and troubleshoot their system as needed.
 
 **Related information:**
 
-- [AWS Well-Architected Performance Pillar: PERF03-BP01
-  Understand storage characteristics and requirements](../performance-efficiency-pillar/perf_right_storage_solution_understand_char.md "../performance-efficiency-pillar/perf_right_storage_solution_understand_char.md")
-- [AWS Well-Architected Sustainability Pillar: SUS04-BP05 Remove
-  unneeded or redundant data](../sustainability-pillar/sus_sus_data_a6.md "../sustainability-pillar/sus_sus_data_a6.md")
+- [AWS Well-Architected Reliability Pillar: REL11-BP01 Monitor
+  all components of the workload to detect failures](../reliability-pillar/rel_withstand_component_failures_monitoring_health.md "../reliability-pillar/rel_withstand_component_failures_monitoring_health.md")
+- [Cross-account
+  cross-Region CloudWatch console](../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md "../../../AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.md")
+- [Collect,
+  analyze, and display Amazon CloudWatch Logs in a single
+  dashboard with the Centralized Logging on AWS solution](../../../solutions/latest/centralized-logging-on-aws/welcome.md "../../../solutions/latest/centralized-logging-on-aws/welcome.md")
+- [Centralized
+  Logging with OpenSearch](https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/ "https://aws.amazon.com/solutions/implementations/centralized-logging-with-opensearch/")
+- [Sending
+  Logs Directly to Amazon S3](../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md "../../../AmazonCloudWatch/latest/logs/Sending-Logs-Directly-To-S3.md")
+- [One
+  Observability Workshop](https://observability.workshop.aws/ "https://observability.workshop.aws/")

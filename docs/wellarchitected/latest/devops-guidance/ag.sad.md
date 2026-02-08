@@ -1,42 +1,34 @@
-# [AG.SAD.7] Implement rotation policies for secrets, keys, and certificates
+# [AG.SAD.1] Centralize and federate access with temporary credential vending
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Regular rotation of secrets, keys, and certificates is a best
-practice in securing access, limiting the potential damage
-that can occur should these security resources become
-compromised. In a DevOps environment, pipelines often require
-access to sensitive environments and workloads, making them
-potential targets for attacks. The routine rotation of these
-resources that are used by pipelines can help to significantly
-mitigate this risk.
+Implement a centralized subsystem for federated access and temporary credential
+vending to maintain secure and controlled access to your environments, workloads, and
+resources. By implementing a federated access solution, you can leverage your existing
+identity systems, provide single sign-on (SSO) capabilities, and avoid the need to maintain
+separate user identities across multiple systems which makes scaling in a DevOps model more
+tenable. Centralizing identity onboarding and permission management eliminate the
+inefficiencies of manual processes, reduce human error, and enable scalability as your
+organization grows.
 
-Establish a policy that clearly defines the lifecycle of these
-resources, including their creation, usage, rotation, and
-retirement intervals. Enforce these policies by automatically
-rotating secrets and keys to reduce the risk of oversights,
-delays, and human error.
-
-Certificates play an important role in service-to-service
-authentication and providing encryption for both internal and
-external facing workloads and environments. When managing
-certificates, consider not only those issued within your
-organization but also those imported from external sources
-which may not be automatically renewable.
-
-Monitoring systems that track the lifespan of these assets and
-alert administrators as they near expiration can contribute to
-this process. This approach can help prevent service
-disruptions caused by expired certificates and, in some cases,
-can trigger automated renewal procedures.
+Grant users and services fine-grained access to help ensure secure, granular control
+as they interact with resources and systems. By applying the least privilege principle, you
+can minimize the risk of unauthorized access and reduce the potential damage from
+compromised keys while retaining full control over access to resources and environments. To
+reduce the likelihood of keys being compromised, always vend short-lived, temporary
+credentials that are scoped for specific tasks to help ensure that privileges are granted
+only for the duration needed.
 
 **Related information:**
 
-- [Blog: How
-  to monitor expirations of imported certificates in AWS Certificate Manager (ACM)](https://aws.amazon.com/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/ "https://aws.amazon.com/blogs/security/how-to-monitor-expirations-of-imported-certificates-in-aws-certificate-manager-acm/")
-- [Rotate
-  AWS Secrets Manager secrets - AWS Secrets Manager](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md")
-- [Managing
-  access keys for IAM users - AWS IAM](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md")
-- [Rotating
-  AWS KMS keys - AWS Key Management Service](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md")
+- [AWS Well-Architected Cost Optimization Pillar: COST02-BP04
+  Implement groups and roles](../cost-optimization-pillar/cost_govern_usage_groups_roles.md "../cost-optimization-pillar/cost_govern_usage_groups_roles.md")
+- [Security
+  best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")
+- [AWS Well-Architected Security Pillar: SEC02-BP04 Rely on a
+  centralized identity provider](../security-pillar/sec_identities_identity_provider.md "../security-pillar/sec_identities_identity_provider.md")
+- [IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md")
+- [What
+  is SSO (Single-Sign-On)?](https://aws.amazon.com/what-is/sso/ "https://aws.amazon.com/what-is/sso/")
+- [Identity
+  providers and federation](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md")

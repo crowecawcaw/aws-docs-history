@@ -1,21 +1,18 @@
-# [OA.AWE.3] Balance work schedules for diverse global teams
+# [OA.AWE.1] Equip teams with feature-rich tools for virtual collaboration
 
-**Category:** RECOMMENDED
+**Category:** FOUNDATIONAL
 
-Flexible work policies for appropriate roles are recommended
-because they help organizations attract and retain skilled employees,
-while also promoting a healthy work-life balance, improving
-employee satisfaction, and facilitating global collaboration.
-Establish policies and guidelines that facilitate remote work and
-flexible schedules, while fostering communication and
-collaboration among team members across different time zones
-and locations.
+In a DevOps environment, collaboration tools are required to
+facilitate effective communication and collaboration among
+distributed teams. These tools allow teams to rapidly make
+decisions and solve problems together. Provide well-integrated
+collaboration tools that support virtual collaboration through
+chats, voice, video, break-outs, and interactive boards for
+virtual meetings.
 
-Use techniques such as _follow-the-sun_ support models and
-handovers to promote seamless collaboration across different time zones. Schedule meetings
-that are convenient for all team members or record and share information if such
-scheduling is not feasible. Provide employees with the necessary technology and tools to
-effectively work remotely, while protecting company information through
-appropriate security measures. Seek feedback from employees to refine and
-improve the organization's remote work and flexible schedule policies to better meet the
-needs and preferences of its workforce.
+These tools should be available on different devices,
+including desktops, tablets, and mobile. Invest in training
+for teams on how to use these tools effectively and securely.
+Gather feedback from teams on the suitability of
+the collaboration tools and any new features that could
+enhance their virtual collaboration experience.
