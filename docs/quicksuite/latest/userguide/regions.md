@@ -52,7 +52,8 @@ AWS Region.
 | Europe (Stockholm)\*        | eu-north-1     | `https://eu-north-1.quicksight.aws.amazon.com`     | `quicksight.eu-north-1.amazonaws.com`     | 13.53.191.64/27                               |
 | Europe (Zurich)\*           | eu-central-2   | `https://eu-central-2.quicksight.aws.amazon.com`   | `quicksight.eu-central-2.amazonaws.com`   | 16.63.53.32/27                                |
 | South America (São Paulo)\* | sa-east-1      | `https://sa-east-1.quicksight.aws.amazon.com`      | `quicksight.sa-east-1.amazonaws.com`      | 18.230.46.192/27                              |
-| AWS GovCloud (US-West)\*    | gov-west-1     | `quicksight.us-gov-west-1.amazonaws.com`           | `quicksight.us-gov-west-1.amazonaws.com`  | 160.1.180.32/27                               |
+| AWS GovCloud (US-East)\*    | gov-east-1     | `https://quicksight.us-gov-east-1.amazonaws.com`   | `quicksight.us-gov-east-1.amazonaws.com`  | 18.252.165.64/27                              |
+| AWS GovCloud (US-West)\*    | gov-west-1     | `https://quicksight.us-gov-west-1.amazonaws.com`   | `quicksight.us-gov-west-1.amazonaws.com`  | 160.1.180.32/27                               |
 | Israel (Tel Aviv)\*         | il-central-1   | `https://il-central-1.quicksight.aws.amazon.com`   | `quicksight.il-central-1.amazonaws.com`   | 51.17.195.32/27                               |
 | Middle East (UAE)\*         | me-central-1   | `https://me-central-1.quicksight.aws.amazon.com`   | `quicksight.me-central-1.amazonaws.com`   | 51.112.11.224/27                              |
 

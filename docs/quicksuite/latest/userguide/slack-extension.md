@@ -138,7 +138,7 @@ login.microsoftonline.com/`Tenant ID`/v2.0
 
 The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
 
-After completing these Entra ID-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-all-providers "#complete-aws-config-all-providers") section below.
+After completing these Entra ID-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-slack "#complete-aws-config-slack") section below.
 
 #### Configure IAM Identity Center with Okta
 
@@ -187,7 +187,7 @@ https://{`yourOktaDomain`}/oauth2/default
 
 The issuer URL should be the OIDC discovery endpoint of your identity without the well-known document URI path. If you include the well-known document URI path, this will not work. See Trusted token issuer configuration settings. 5. Choose **Email** as the Identity Provider attribute and IAM Identity Center attribute.
 
-After completing these Okta-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-all-providers "#complete-aws-config-all-providers") section below.
+After completing these Okta-specific steps, proceed to the [Complete AWS Configuration (all providers)](#complete-aws-config-slack "#complete-aws-config-slack") section below.
 
 #### Complete AWS Configuration (all providers)
 
