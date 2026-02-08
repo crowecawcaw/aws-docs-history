@@ -120,9 +120,30 @@ user permissions to pass a role to an AWS service](../../../IAM/latest/UserGuide
 _IAM User Guide_. 4. Create a file containing the policy for the IAM role that you created in
 the previous step. At minimum, the policy must grant permissions to the role
 to create log streams and put log events into the log group that you created
-in step 1. 5. Use the following AWS CLI command to attach the policy file to the IAM
-role. For more information, see [put-role-policy](../../../cli/latest/reference/iam/put-role-policy.md "../../../cli/latest/reference/iam/put-role-policy.md") in the
-_AWS CLI Command Reference_.
+in step 1.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:PutLogEvents"
+ ],
+ "Resource": "`arn:aws:`logs:`us-east-1`:`111122223333`:log-group:`example-log-group`*"
+ }
+ ]
+}`
+
+```
+
+5. Use the following AWS CLI command to attach the policy file to the IAM
+   role. For more information, see [put-role-policy](../../../cli/latest/reference/iam/put-role-policy.md "../../../cli/latest/reference/iam/put-role-policy.md") in the
+   _AWS CLI Command Reference_.
 
 ```
 aws iam put-role-policy --role-name `workmail-monitoring-role` --policy-name `workmail-permissions` --policy-document file://`rolepolicy.json`

@@ -48,6 +48,24 @@ The following example policy grants an IAM entity full read access to
 all inbound and outbound messages for every Amazon WorkMail organization in your
 AWS account.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "workmailmessageflow:GetRawMessageContent"
+ ],
+ "Resource": "`arn:aws:`workmailmessageflow:`us-east-1`:`111122223333`:message/*",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```
+
 If you have multiple organizations in your AWS account, you can also
 limit access to one or more organizations. This is useful if certain Lambda
 functions should only be used for certain organizations.
@@ -99,3 +117,22 @@ JSON
 The following example policy grants an IAM entity full read and update
 access to all inbound and outbound messages for every Amazon WorkMail organization in
 your AWS accounts.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "workmailmessageflow:GetRawMessageContent",
+ "workmailmessageflow:PutRawMessageContent"
+ ],
+ "Resource": "`arn:aws:`workmailmessageflow:`us-east-1`:`111122223333`:message/*",
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```

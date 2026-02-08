@@ -516,6 +516,31 @@ up these logs to be sent to Firehose. AWS creates a service-linked role named
 **AWSServiceRoleForLogDelivery**. This
 service-linked role includes the following permissions.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "firehose:PutRecord",
+ "firehose:PutRecordBatch",
+ "firehose:ListTagsForDeliveryStream"
+ ],
+ "Resource": "`arn:aws:`firehose:`us-east-1`:`111122223333`:deliverystream/workmail-*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/LogDeliveryEnabled": "true"
+ }
+ },
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```
+
 This service-linked role grants permission for all Firehose delivery streams that
 have the `LogDeliveryEnabled` tag set to `true`. AWS gives
 this tag to the destination delivery stream when you set up the logging.
