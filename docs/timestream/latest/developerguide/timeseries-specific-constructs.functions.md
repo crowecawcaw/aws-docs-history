@@ -1,57 +1,34 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Correlation
+# Integral
 
 functions
 
-Given two similar length time series, correlation functions provide a correlation
-coefficient, which explains how the two time series trend over time. The correlation
-coefficient ranges from `-1.0` to `1.0`. `-1.0`
-indicates that the two time series trend in opposite directions at the same rate.
-whereas `1.0` indicates that the two timeseries trend in the same
-direction at the same rate. A value of `0` indicates no correlation
-between the two time series. For example, if the price of oil increases, and the
-stock price of an oil company increases, the trend of the price increase of oil and
-the price increase of the oil company will have a positive correlation coefficient.
-A high positive correlation coefficient would indicate that the two prices trend at
-a similar rate. Similarly, the correlation coefficient between bond prices and bond
-yields is negative, indicating that these two values trends in the opposite
-direction over time.
+You can use integrals to find the area under the curve per unit of time for your
+time series events. As an example, suppose you're tracking the volume of requests
+received by your application per unit of time. In this scenario, you can use the
+integral function to determine the total volume of requests served per specified interval over a specific
+time period.
 
-Amazon Timestream supports two variants of correlation functions. This section
-provides usage information for the Timestream for LiveAnalytics correlation functions, as well as sample
-queries.
+Amazon Timestream supports one variant of integral functions. This section
+provides usage information for the Timestream for LiveAnalytics integral function, as well as sample queries.
 
 ## Usage information
 
-| Function                                        | Output data type | Description                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `correlate_pearson(timeseries,<br>timeseries)`  | double           | Calculates [Pearson's correlation coefficient](https://wikipedia.org/wiki/Pearson_correlation_coefficient "https://wikipedia.org/wiki/Pearson_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps.                            |
-| `correlate_spearman(timeseries,<br>timeseries)` | double           | Calculates [Spearman's correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient "https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient") for the two<br>`timeseries`. The timeseries must have the<br>same timestamps. |
+| Function                                                                                                                                                                                                                                                                                                                                                            | Output data type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `integral_trapezoidal(timeseries(double))`<br>`integral_trapezoidal(timeseries(double), interval<br>day to second)`<br>`integral_trapezoidal(timeseries(bigint))`<br>`integral_trapezoidal(timeseries(bigint), interval<br>day to second)`<br>`integral_trapezoidal(timeseries(integer), interval<br>day to second)`<br>`integral_trapezoidal(timeseries(integer))` | double           | Approximates the [integral](https://wikipedia.org/wiki/Integral "https://wikipedia.org/wiki/Integral") per the specified `interval day<br>to second` for the `timeseries`<br>provided, using the [trapezoidal rule](https://wikipedia.org/wiki/Trapezoidal_rule "https://wikipedia.org/wiki/Trapezoidal_rule"). The interval day to second<br>parameter is optional and the default is `1s`.<br>For more information about intervals, see [Interval and duration](date-time-functions.md#date-time-functions-interval-duration "date-time-functions.md#date-time-functions-interval-duration"). |
 
 ## Query examples
 
-```
-WITH cte_1 AS (
-    SELECT INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(time, measure_value::double),
-        SEQUENCE(min(time), max(time), 10m)) AS result
-    FROM sample.DevOps
-    WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv' AND time > ago(1h)
-    GROUP BY hostname, measure_name
-),
-cte_2 AS (
-    SELECT INTERPOLATE_LINEAR(
-        CREATE_TIME_SERIES(time, measure_value::double),
-        SEQUENCE(min(time), max(time), 10m)) AS result
-    FROM sample.DevOps
-    WHERE measure_name = 'cpu_utilization'
-    AND hostname = 'host-Hovjv' AND time > ago(1h)
-    GROUP BY hostname, measure_name
-)
-SELECT correlate_pearson(cte_1.result, cte_2.result) AS result
-FROM cte_1, cte_2
+Calculate the total volume of requests served per five minutes over the past hour by a
+specific host:
 
+```
+SELECT INTEGRAL_TRAPEZOIDAL(CREATE_TIME_SERIES(time, measure_value::double), 5m) AS result FROM sample.DevOps
+WHERE measure_name = 'request'
+AND hostname = 'host-Hovjv'
+AND time > ago (1h)
+GROUP BY hostname, measure_name
 ```

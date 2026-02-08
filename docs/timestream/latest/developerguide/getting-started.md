@@ -1,78 +1,73 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Tutorial
+# Java
 
-This tutorial shows you how to create a database populated with sample data sets and
-run sample queries. The sample data sets used in this tutorial are frequently seen in
-IoT and DevOps scenarios. The IoT data set contains time series data such as the speed,
-location, and load of a truck, to streamline fleet management and identify optimization
-opportunities. The DevOps data set contains EC2 instance metrics such as CPU, network,
-and memory utilization to improve application performance and availability. Here's a
-[video tutorial](https://www.youtube.com/watch?v=YBWCGDd4ChQ "https://www.youtube.com/watch?v=YBWCGDd4ChQ") for
-the instructions described in this section.
+To get started with the [Java 1.0 SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/") and Amazon Timestream,
+complete the prerequisites, described below.
 
-Follow these steps to create a database populated with the sample data sets and run
-sample queries using the AWS Console:
+Once you've completed the necessary prerequisites for the Java SDK, you can get started with the [Code samples](code-samples.md "code-samples.md").
 
-## Using the console
+## Prerequisites
 
-Follow these steps to create a database populated with the sample data sets and
-run sample queries using the AWS Console:
+Before you get started with Java, you must do the
+following:
 
-1. Open the [AWS
-   Console](https://console.aws.amazon.com/timestream "https://console.aws.amazon.com/timestream").
-2. In the navigation pane, choose **Databases**.
-3. Click on **Create database**.
-4. On the create database page, enter the following:
-   - **Choose configuration**—Select
-     **Sample database**.
-   - **Name**—Enter a database name of your
-     choice.
+1. Follow the AWS setup instructions in [Accessing Timestream for LiveAnalytics](accessing.md "accessing.md").
+2. Set up a Java development environment by downloading and installing the
+   following:
+   - Java SE Development Kit 8 (such as [Amazon Corretto 8](../../../corretto/latest/corretto-8-ug/downloads-list.md "../../../corretto/latest/corretto-8-ug/downloads-list.md")).
+   - Java IDE (such as [Eclipse](http://www.eclipse.org "http://www.eclipse.org") or [IntelliJ](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")).
 
-   ###### Note
+   For more information, see [Getting Started with the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md")
 
-   After creating a database with sample data sets, to use the
-   sample queries which are available in the console, you can
-   adjust the database name referenced in the query to match the
-   database name you enter here. There are sample queries for each
-   combination of sample data set and type of time series records.
-   - **Choose sample data sets**—Select
-     **IoT** and **DevOps**.
-   - **Choose the type of time series
-     records**—Select **Multi-measure
-     records**.
-   - Click on **Create database** to create a
-     database containing two tables populated with sample data. The table
-     names for sample data sets with multi-measure records are
-     `DevOpsMulti` and `IoTMulti`. The table
-     names for sample datasets with single-measure records are
-     `DevOps` and `IoT`.
+3. Configure your AWS credentials and Region for development:
+   - Set up your AWS
+     security credentials for use with the AWS SDK for Java.
+   - Set your AWS
+     Region to determine your default Timestream for LiveAnalytics endpoint.
 
-5. In the navigation pane, choose **Query editor**.
-6. Select **Sample queries** from the top menu.
-7. Click on one of the sample queries for a data set you chose when creating
-   the sample database. This will take you back to the query editor with the
-   editor populated with the sample query.
-8. Adjust the database name for the sample query.
-9. Click **Run** to run the query and see query
-   results.
+## Using Apache Maven
 
-## Using the SDKs
+You can use [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/")
+to configure and build AWS SDK for Java projects.
 
-Timestream Live Analytics provides a fully functional sample application that shows you how
-to create a database and table, populate the table with ~126K rows of sample data,
-and run sample queries. The sample application is available in [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps") for Java, Python, Node.js, Go, and .NET.
+###### Note
 
-1. Clone the GitHub repository Timestream Live Analytics sample applications following
-   the instructions from GitHub.
-2. Configure the AWS SDK to connect to Amazon Timestream Live Analytics following the
-   instructions described in [Using the AWS SDKs](getting-started-sdks.md "getting-started-sdks.md").
-3. Compile and run the sample application using the instructions
-   below:
-   - Instructions for the [Java sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/java/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/java/README.md").
-   - Instructions for the [Java v2 sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/javaV2/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/javaV2/README.md").
-   - Instructions for the [Go sample application](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps/goV2/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps/goV2/README.md").
-   - Instructions for the [Python sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/python/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/python/README.md").
-   - Instructions for the [Node.js sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/js/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/js/README.md").
-   - Instructions for the [.NET sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/dotnet/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/dotnet/README.md").
+To use Apache Maven, ensure your Java SDK and runtime are 1.8 or higher.
+
+You can configure the AWS SDK as a Maven dependency as described
+in
+[Using the SDK with Apache Maven](../../../sdk-for-java/v1/developer-guide/setup-project-maven.md "../../../sdk-for-java/v1/developer-guide/setup-project-maven.md").
+
+You can run compile and run your source code with the following command:
+
+```
+mvn clean compile
+mvn exec:java -Dexec.mainClass=<your source code Main class>
+
+```
+
+###### Note
+
+`<your source code Main class>`
+is the path to your Java source code's main class.
+
+## Setting your AWS
+
+credentials
+
+The [AWS SDK for Java](https://aws.amazon.com/sdk-for-java "https://aws.amazon.com/sdk-for-java") requires that you provide AWS credentials to your application
+at runtime. The code examples in this guide assume that you are using an AWS
+credentials file, as described in [Set up AWS Credentials and Region for Development](../../../sdk-for-java/latest/developer-guide/setup-credentials.md "../../../sdk-for-java/latest/developer-guide/setup-credentials.md") in the
+_AWS SDK for Java Developer Guide_.
+
+The following is an example of an AWS credentials file named
+`~/.aws/credentials`, where the tilde character (`~`)
+represents your home directory.
+
+```
+[default]
+aws_access_key_id = `AWS access key ID goes here`
+aws_secret_access_key = `Secret key goes here`
+```
