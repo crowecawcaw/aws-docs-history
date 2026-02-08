@@ -22,11 +22,13 @@ When you create an AWS resource that needs a public IP address in an account wit
 You can create IPAM policies to define how public IPv4 addresses from IPAM pools are allocated to the following AWS services and resources:
 
 - Elastic IP addresses (EIPs)
+- Application Load Balancers (ALBs)
+- Amazon Relational Database Service (RDS)
 - Regional NAT gateways
 
 ###### Important
 
-For EIPs, if you choose a specific IPAM pool when allocating a public IPv4 address to them, that will override the IPAM policy.
+If you choose a specific IPAM pool or EIP allocation ID when creating an AWS resource, that will override the IPAM policy.
 
 **Prerequisites**
 
@@ -80,7 +82,7 @@ Follow these steps to add allocation rules using the AWS Console:
 4. Choose **Create allocation rules**.
 5. Configure the **Service configuration**:
    - **Locale**: Choose the AWS Region (us-east-1) or Local Zone where you want this policy to apply.
-   - **Resource type**: Select the AWS service or resource type for this policy (Elastic IP addresses).
+   - **Resource type**: Select the AWS service or resource type for this policy (Elastic IP addresses, RDS database instances, Application Load Balancers, or NAT gateways in regional availability mode).
 
 6. Configure **Rules configuration**:
    - **IPAM pool**: Select the IPAM pool that will provide IP addresses.
@@ -123,7 +125,7 @@ aws ec2 enable-ipam-policy \
 
 ```
 
-For IPAM integrated with AWS Organizations (when you're the delegated admin):
+For IPAM integrated with AWS Organizations (when you're the delegated admin), set a policy to target an account in the AWS Organization:
 
 ```
 aws ec2 enable-ipam-policy \
@@ -132,39 +134,27 @@ aws ec2 enable-ipam-policy \
 
 ```
 
+For IPAM integrated with AWS Organizations (when you're the delegated admin), set a policy to target an organizational unit:
+
+```
+aws ec2 enable-ipam-policy \
+    --ipam-policy-id ipam-policy-12345678 \
+    --organization-target-id ou-123
+
+```
+
 ###### Important
 
 Enabling this policy will replace any active IPAM policies on the selected accounts or organizational units.
 
-**Step 4: (Optional) Organization-wide enforcement**
+**Step 4: Test your policy**
 
-If you've enabled this IPAM policy on an AWS Organizations entity, use declarative policies to add centralized management and governance on top of your IPAM policies.
-
-###### What this adds:
-
-Organization-wide enforcement provides the following benefits:
-
-- Centralized policy management across all organization accounts
-- Automatic enforcement without per-account configuration
-- Governance controls to prevent policy changes at the account level
-
-###### Prerequisites:
-
-Before setting up organization-wide enforcement, ensure you have:
-
-- AWS Organizations with all features enabled
-- IPAM in the organization management account or delegated administrator account
-- Appropriate permissions for Organizations and IPAM
-  For detailed instructions on setting up organization-wide enforcement with declarative policies, see [Getting started with declarative policies](../../../organizations/latest/userguide/orgs_manage_policies-declarative_getting-started.md "../../../organizations/latest/userguide/orgs_manage_policies-declarative_getting-started.md") in the _AWS Organizations User Guide_.
-
-**Step 5: Test your policy**
-
-Enable a new resource of the type you configured (like an EIP) in one of the target accounts. The resource will automatically use an IP address from your IPAM pool.
+Create a new resource of the type you configured (like an EIP) in one of the target accounts. The resource will automatically use an IP address from your IPAM pool.
 
 ###### Important
 
-For EIPs, if you choose a specific IPAM pool when allocating a public IPv4 address to them, that will override the IPAM policy.
+If you choose a specific IPAM pool or EIP allocation ID when creating an AWS resource, that will override the IPAM policy.
 
-**Step 6: Monitor usage**
+**Step 5: Monitor usage**
 
 Check your [IPAM pool](monitor-cidr-usage-ipam.md "monitor-cidr-usage-ipam.md") in the console to see IP addresses being allocated to your resources.
