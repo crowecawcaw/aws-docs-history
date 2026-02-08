@@ -61,6 +61,8 @@ Amazon Transcribe is supported in the following AWS Regions:
 | ap-south-1 (Mumbai)               | batch, streaming       |
 | ap-southeast-1 (Singapore)        | batch, streaming       |
 | ap-southeast-2 (Sydney)           | batch, streaming       |
+| ap-southeast-5 (Malaysia)         | streaming              |
+| ap-southeast-7 (Thailand)         | streaming              |
 | ca-central-1 (Canada, Central)    | batch, streaming       |
 | eu-central-1 (Frankfurt)          | batch, streaming       |
 | eu-north-1 (Stockholm)            | batch                  |
