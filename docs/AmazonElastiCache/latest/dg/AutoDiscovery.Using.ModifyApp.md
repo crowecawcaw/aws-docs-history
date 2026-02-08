@@ -1,60 +1,34 @@
-# Using the ElastiCache Cluster Client for .NET
+# Using the ElastiCache Cluster Client for Java
 
-###### Note
-
-The ElastiCache .NET cluster client has been deprecated as of May, 2022.
-
-.NET client for ElastiCache is open source at
-[https://github.com/awslabs/elasticache-cluster-config-net](https://github.com/awslabs/elasticache-cluster-config-net "https://github.com/awslabs/elasticache-cluster-config-net").
-
-.NET applications typically get their configurations from their config file.
-The following is a sample application config file.
-
-```
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-    <configSections>
-        <section
-            name="clusterclient"
-            type="Amazon.ElastiCacheCluster.ClusterConfigSettings, Amazon.ElastiCacheCluster" />
-    </configSections>
-
-    <clusterclient>
-        <!-- the hostname and port values are from step 1 above -->
-        <endpoint hostname="mycluster.fnjyzo.cfg.use1.cache.amazonaws.com" port="11211" />
-    </clusterclient>
-</configuration>
-```
-
-The C# program below demonstrates how to use the ElastiCache Cluster Client to connect to a cluster
+The program below demonstrates how to use the ElastiCache Cluster Client to connect to a cluster
 configuration endpoint and add a data item to the cache. Using Auto Discovery, the
-program will connect to all of the nodes in the cluster without any further
+program connects to all of the nodes in the cluster without any further
 intervention.
 
 ```
-// *****************
-// Sample C# code to show how to integrate with the Amazon ElastiCcache Auto Discovery feature.
+package com.amazon.elasticache;
 
-using System;
+import java.io.IOException;
+import java.net.InetSocketAddress;
 
-using Amazon.ElastiCacheCluster;
+// Import the &AWS;-provided library with Auto Discovery support
+import net.spy.memcached.MemcachedClient;
 
-using Enyim.Caching;
-using Enyim.Caching.Memcached;
+public class AutoDiscoveryDemo {
 
-public class DotNetAutoDiscoveryDemo  {
+    public static void main(String[] args) throws IOException {
 
-    public static void Main(String[] args)  {
+        String configEndpoint = "mycluster.fnjyzo.cfg.use1.cache.amazonaws.com";
+        Integer clusterPort = 11211;
 
-        // instantiate a new client.
-        ElastiCacheClusterConfig config = new ElastiCacheClusterConfig();
-        MemcachedClient memClient = new MemcachedClient(config);
+        MemcachedClient client = new MemcachedClient(
+                                 new InetSocketAddress(configEndpoint,
+                                                       clusterPort));
+        // The client will connect to the other cache nodes automatically.
 
-        // Store the data for 3600 seconds (1hour) in the cluster.
+        // Store a data item for an hour.
         // The client will decide which cache host will store this item.
-        memClient.Store(StoreMode.Set, 3600, "This is the data value.");
-
-    }  // end Main
-
-}  // end class DotNetAutoDiscoverDemo
+        client.set("theKey", 3600, "This is the data value");
+    }
+}
 ```

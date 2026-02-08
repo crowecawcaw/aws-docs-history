@@ -8,11 +8,11 @@ You can also upgrade from some existing ElastiCache for Redis OSS engines to a V
 
 Here are some of the new features introduced in Valkey 8.2 (compared to ElastiCache Valkey 8.1):
 
-- Native support for [Vector Search](vector-search.md "vector-search.md"), enabling you to store, index, search, and update billions of high-dimensional vector embeddings in-memory with latencies as low as microseconds.
+- ElastiCache for Valkey v8.2 provides native support for [vector search](vector-search.md "vector-search.md"), delivering latency as low as microseconds-the lowest latency vector search with the highest throughput and best price-performance at 95%+ recall rate among popular vector databases on AWS.
 
 For more information on Valkey, see [Valkey.](https://valkey.io/ "https://valkey.io/")
 
-For more information on the Valkey 8.2 release, introducing vector search, see [Valkey Search](https://github.com/valkey-io/valkey-search "https://github.com/valkey-io/valkey-search").
+ElastiCache version 8.2 for Valkey enhances Valkey 8.1 with vector search capabilities based on [valkey-search module](https://github.com/valkey-io/valkey-search "https://github.com/valkey-io/valkey-search"). For more information on the Valkey 8.2 release, see [release notes](https://github.com/valkey-io/valkey-search/blob/main/00-RELEASENOTES "https://github.com/valkey-io/valkey-search/blob/main/00-RELEASENOTES") for valkey-search. Please note that ElastiCache v8.2 is compatible with Valkey v8.1.
 
 ## ElastiCache version 8.1 for Valkey
 
@@ -171,7 +171,7 @@ updates in Amazon ElastiCache](Self-Service-Updates.md "Self-Service-Updates.md"
 When calling the DescribeCacheEngineVersions API, the `EngineVersion`
 parameter value will be set to 6.2 and the actual engine version with the patch
 version will be returned in the `CacheEngineVersionDescription`
-field. 
+field.
 
 For more information on the Redis OSS 6.2 release, see [Redis OSS 6.2 Release Notes](https://github.com/redis/redis/blob/6.2/00-RELEASENOTES "https://github.com/redis/redis/blob/6.2/00-RELEASENOTES") at Redis OSS on GitHub.
 
@@ -202,7 +202,7 @@ rejected, an exception will be thrown and the process will fail.
 When calling the DescribeCacheEngineVersions API, the `EngineVersion`
 parameter value will be set to 6.0 and the actual engine version with the patch
 version will be returned in the `CacheEngineVersionDescription`
-field. 
+field.
 
 For more information on the Redis OSS 6.0 release, see [Redis OSS 6.0 Release Notes](https://github.com/redis/redis/blob/6.0/00-RELEASENOTES "https://github.com/redis/redis/blob/6.0/00-RELEASENOTES") at Redis OSS on GitHub.
 

@@ -1,6 +1,6 @@
 # Vector Search Overview
 
-ElastiCache for Valkey provides capabilities to index, search, and update billions of high-dimensional vector embeddings. Vector search allows you to create, maintain and use secondary indexes for efficient and scalable search. Each vector search operation applies to a single index. Index operations apply only to the specified index. Any number of operations may be issued against any index at any time with the exception of index creation and deletion operations. At the cluster level, multiple operations against multiple indexes may be in progress simultaneously.
+Amazon ElastiCache for Valkey supports vector search, enabling you to store, search, and update billions of high-dimensional vector embeddings in-memory with latencies as low as microseconds with recall up to 99%. Vector search allows you to create, maintain and use secondary indexes for efficient and scalable search. Each vector search operation applies to a single index. Index operations apply only to the specified index. Any number of operations may be issued against any index at any time with the exception of index creation and deletion operations. At the cluster level, multiple operations against multiple indexes may be in progress simultaneously.
 
 Within this document the terms key, row, and record are identical and used interchangeably. Similarly, the terms column, field, path and member are also used interchangeably.
 
