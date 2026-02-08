@@ -3,9 +3,10 @@
 The following sections guide you through the steps to launch the available Deadline Cloud
 submitter plugins.
 
-You can install other submitters not listed here. We use Deadline Cloud libraries to build
-submitters. Some of the other submitters include Unreal Engine and 3ds Max.
-You can find the source code for these libraries and submitters in the [aws-deadline GitHub](https://github.com/aws-deadline "https://github.com/aws-deadline") organization.
+###### Note
+
+**Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
+For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://aws-deadline.github.io/unreal-engine/setup-submitter/ "https://aws-deadline.github.io/unreal-engine/setup-submitter/").
 
 |                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,8 +130,8 @@ DeadlineCloudForVRED()
 ###### Note
 
 Support for Blender is provided using the
-Conda environment for service-managed fleets. For more
-information, see [Default Conda queue
+conda environment for service-managed fleets. For more
+information, see [Default conda queue
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Blender**.
@@ -157,8 +158,8 @@ environment](create-queue-environment.md#conda-queue-environment "create-queue-e
 ###### Note
 
 Support for Cinema 4D is provided using the
-Conda environment for service-managed fleets. For more
-information, see [Default Conda queue
+conda environment for service-managed fleets. For more
+information, see [Default conda queue
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Cinema 4D**.
@@ -179,8 +180,8 @@ environment](create-queue-environment.md#conda-queue-environment "create-queue-e
 ###### Note
 
 Support for Houdini is provided using the
-Conda environment for service-managed fleets. For more
-information, see [Default Conda queue
+conda environment for service-managed fleets. For more
+information, see [Default conda queue
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Houdini**.
@@ -254,8 +255,8 @@ mode to open the submitter.
 
 ###### Note
 
-Support for Nuke is provided using the Conda
-environment for service-managed fleets. For more information, see [Default Conda queue
+Support for Nuke is provided using the conda
+environment for service-managed fleets. For more information, see [Default conda queue
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Nuke**.

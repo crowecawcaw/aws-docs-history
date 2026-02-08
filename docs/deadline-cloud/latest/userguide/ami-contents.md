@@ -84,13 +84,13 @@ safely take dependencies on these packages.
 
 **Linux:**
 
-- Conda/Mamba package manager (installed in `/opt/conda`)
+- conda/Mamba package manager (installed in `/opt/conda`)
 - DNF package manager (system packages)
 - pip (Python package installer)
 
 **Windows:**
 
-- Conda/Mamba package manager (installed in `C:\ProgramData\conda`)
+- conda/Mamba package manager (installed in `C:\ProgramData\conda`)
 - pip (Python package installer)
 
 ### Additional system software

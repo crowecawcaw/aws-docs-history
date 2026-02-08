@@ -20,7 +20,7 @@ a cron job, you can use the credentials from logging in to the Deadline Cloud mo
 
 Your on-premises workers use credentials to access Deadline Cloud job attachments output. For
 the most secure access, we recommend using IAM Roles Anywhere to authenticate your workers.
-For more information, see [IAM Roles Anywhere](https://https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html "https://https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html").
+For more information, see [IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md").
 
 For testing, you can use IAM user access keys for AWS credentials. We
 recommend that you set an expiration for the IAM user by including a

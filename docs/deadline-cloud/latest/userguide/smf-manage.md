@@ -63,9 +63,9 @@ and can be interrupted by on-demand and spot requests.
 19. Choose **Next**.
 20. (Optional) To associate your fleet with a queue, select a
     **queue** from the dropdown. If the queue is set up with
-    the default Conda queue environment, your fleet is automatically
+    the default conda queue environment, your fleet is automatically
     provided with packages that support partner DCC applications and renderers. For
-    a list of provided packages, see [Default Conda queue
+    a list of provided packages, see [Default conda queue
     environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 21. Choose **Next**.
 22. (Optional) To add a tag to your fleet, choose **Add new

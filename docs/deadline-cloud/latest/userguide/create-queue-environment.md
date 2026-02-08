@@ -5,9 +5,9 @@ workers. You can use queue environments to provide software applications, enviro
 variables, and other resources to jobs in the queue.
 
 When you create a queue, you have the option of creating a default
-Conda queue environment. This environment provides service-managed
+conda queue environment. This environment provides service-managed
 fleets access to packages for partner DCC applications and renderers. The default
-environment For more information, see [Default Conda queue
+environment For more information, see [Default conda queue
 environment](#conda-queue-environment "#conda-queue-environment").
 
 You can add queue environments using the console, or by editing the json or YAML
@@ -26,7 +26,7 @@ console.
    queue environments will run first.
 6. Choose **Create queue environment**.
 
-## Default Conda queue
+## Default conda queue
 
 environment
 
@@ -149,7 +149,7 @@ For **Cinema 4D OpenJD,** to prevent any timeout issues,
 we recommend you set task run timeouts to double their expected render time,
 instead of using the default 2 day timeout.
 
-When you submit a job to a queue with the default Conda
+When you submit a job to a queue with the default conda
 environment, the environment adds two parameters to the job. These parameters
 specify the conda packages and channels to use to configure the job's
 environment before tasks are processed. The parameters are:

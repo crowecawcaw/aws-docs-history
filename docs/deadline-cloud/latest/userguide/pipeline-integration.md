@@ -49,7 +49,7 @@ The farm contains two Linux service-managed fleets with vCPUs and RAM requiremen
 studio needs for their jobs. One of the fleets is configured to provide a small number of spot instances to provide consistent render capacity during
 work hours, and the other fleet is configured as wait and save to render more jobs during off-peak hours at a lower cost. All of Maya, the Maya for
 Arnold plugin, and Nuke are provided for Linux service-managed fleets from the deadline-cloud conda channel, alongside usage-based licensing.
-In order to save overhead from application installation, they replace the default Conda environment configured for the queue in the Deadline Cloud console
+In order to save overhead from application installation, they replace the default conda environment configured for the queue in the Deadline Cloud console
 with the [github sample conda queue environment with improved caching](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments#conda-queue-environment-with-improved-caching "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments#conda-queue-environment-with-improved-caching").
 
 To support job submission, they [set up Deadline Cloud submitters](submitter.md "submitter.md")

@@ -33,6 +33,12 @@ securing your workstation, see
 The following sections guide you through the steps to install the Deadline Cloud
 submitter.
 
+###### Note
+
+**Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
+For installation instructions, see the
+[Unreal Engine Submitter Setup Guide](https://aws-deadline.github.io/unreal-engine/setup-submitter/ "https://aws-deadline.github.io/unreal-engine/setup-submitter/").
+
 ### Download the submitter installer
 
 Before you can install the Deadline Cloud submitter, you must download the submitter
@@ -68,10 +74,10 @@ With the installer, you can install the following submitters:
 | Maxon Redshift for Maya       | 2025-2026          | Included                                                                                                            | Included                                                                                                        | Included                                                                                                            |
 | SideFX Houdini                | 19.5<br>• 21.0     | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini")     | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini") | [Included](supported-submitters.md#submitter-launch-houdini "supported-submitters.md#submitter-launch-houdini")     |
 
-You can install other submitters not listed here. We use Deadline Cloud libraries to build
-submitters. Some of the other submitters include Unreal Engine and 3ds Max. You can
-find the source code for these libraries and submitters in the [aws-deadline GitHub](https://github.com/aws-deadline "https://github.com/aws-deadline")
-organization.
+###### Note
+
+**Unreal Engine:** The Unreal Engine submitter is not included in the standard installer and requires a separate setup process.
+For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://aws-deadline.github.io/unreal-engine/setup-submitter/ "https://aws-deadline.github.io/unreal-engine/setup-submitter/").
 
 Windows
 
@@ -221,7 +227,7 @@ Ubuntu, skip this step.
 To install libssl1.1, enter:
 
 ```
-wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+wget https://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 sudo apt install ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 ```
 
@@ -359,8 +365,8 @@ can install other submitters using the instructions in [Supported submitters](su
 
 ###### Note
 
-Support for Blender is provided using the Conda
-environment for service-managed fleets. For more information, see [Default Conda queue
+Support for Blender is provided using the conda
+environment for service-managed fleets. For more information, see [Default conda queue
 environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
 
 1. Open **Blender**.

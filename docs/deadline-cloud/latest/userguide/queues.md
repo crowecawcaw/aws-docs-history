@@ -87,7 +87,7 @@ information about the potential security risks, see [Run jobs as users and group
     value for each variable you add.
 11. (Optional) Choose **Add new tag** to add one or more tags to
     your queue.
-12. To create a default Conda queue environment, keep the checkbox
+12. To create a default conda queue environment, keep the checkbox
     selected. To learn more about queue environments, see [Create a queue environment](create-queue-environment.md "create-queue-environment.md"). If
     you are creating a queue for a customer-managed fleet, clear the
     checkbox.

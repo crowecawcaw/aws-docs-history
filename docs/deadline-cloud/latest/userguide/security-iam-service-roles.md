@@ -345,7 +345,7 @@ Attach all of the following AWS managed policies to your monitor role for basic 
 
 ### How the monitor role works
 
-When using the Deadline Cloud monitor, a service user signs in using (), and the monitor role is assumed. The assumed role credentials are used by the monitor application to display the monitor UI, including the list of farms, fleets, queues, and other information.
+When using the Deadline Cloud monitor, a service user signs in using AWS IAM Identity Center (IAM Identity Center), and the monitor role is assumed. The assumed role credentials are used by the monitor application to display the monitor UI, including the list of farms, fleets, queues, and other information.
 
 When using the Deadline Cloud monitor desktop application, these credentials are additionally made available on the workstation using a named AWS credential profile corresponding to the profile name provided by the end user. Learn more about named profiles in the [AWS SDK and Tools reference guide](../../../sdkref/latest/guide/file-format.md "../../../sdkref/latest/guide/file-format.md").
 
