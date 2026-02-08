@@ -172,7 +172,7 @@ cases:
 
 The flowchart for this process is:
 
-![Flowchart showing process for transforming requests with mutation attempts and value checks.](/images/appsync/latest/devguide/images/DynamoDB-condition-check-failure-handling.png)
+![Flowchart showing process for transforming requests with mutation attempts and value checks.](images/DynamoDB-condition-check-failure-handling.png)
 
 ### Checking for the desired
 
