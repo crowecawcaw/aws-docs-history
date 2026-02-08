@@ -171,7 +171,7 @@ The following table indicates AWS Outposts support for AWS services in Middle Ea
 
 | AWS Region            | Amazon EC2 | Amazon EBS | Amazon EBS Snapshots | Amazon S3 | Amazon RDS SQL, MySQL and PostgreSQL | Amazon ECS | Amazon EKS | Amazon EKS-LC | Amazon EMR | Amazon ElastiCache | CloudEndure Migrations | Elastic Disaster Recovery | Application Load Balancer | Direct Connect | Amazon VPC | Local Gateway |
 | --------------------- | ---------- | ---------- | -------------------- | --------- | ------------------------------------ | ---------- | ---------- | ------------- | ---------- | ------------------ | ---------------------- | ------------------------- | ------------------------- | -------------- | ---------- | ------------- |
-| Israel (Tel Aviv)     | Yes        | Yes        | Yes                  | Yes       | No                                   | Yes        | Yes        | No            | Yes        | Yes                | No                     | Yes                       | No                        | Yes            | Yes        | Yes           |
+| Israel (Tel Aviv)     | Yes        | Yes        | Yes                  | Yes       | Yes                                  | Yes        | Yes        | No            | Yes        | Yes                | No                     | Yes                       | No                        | Yes            | Yes        | Yes           |
 | Middle East (Bahrain) | Yes        | Yes        | Yes                  | Yes       | Yes                                  | Yes        | Yes        | Yes           | Yes        | Yes                | Yes                    | Yes                       | Yes                       | Yes            | Yes        | Yes           |
 | Middle East (UAE)     | Yes        | Yes        | No                   | No        | No                                   | Yes        | Yes        | No            | Yes        | Yes                | No                     | Yes                       | No                        | Yes            | Yes        | Yes           |
 
@@ -182,6 +182,36 @@ The following table indicates AWS Outposts support for AWS services in South Ame
 | AWS Region                | Amazon EC2 | Amazon EBS | Amazon EBS Snapshots | Amazon S3 | Amazon RDS SQL, MySQL and PostgreSQL | Amazon ECS | Amazon EKS | Amazon EKS-LC | Amazon EMR | Amazon ElastiCache | CloudEndure Migrations | Elastic Disaster Recovery | Application Load Balancer | Direct Connect | Amazon VPC | Local Gateway |
 | ------------------------- | ---------- | ---------- | -------------------- | --------- | ------------------------------------ | ---------- | ---------- | ------------- | ---------- | ------------------ | ---------------------- | ------------------------- | ------------------------- | -------------- | ---------- | ------------- |
 | South America (São Paulo) | Yes        | Yes        | Yes                  | Yes       | Yes                                  | Yes        | Yes        | Yes           | Yes        | Yes                | Yes                    | Yes                       | Yes                       | Yes            | Yes        | Yes           |
+
+## Amazon RDS on AWS Outposts supported Regions
+
+Amazon RDS on AWS Outposts is available in the following AWS Regions:
+
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Seoul)
+- Asia Pacific (Osaka)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Canada (Central)
+- China (Beijing)
+- China (Ningxia)
+- Europe (Frankfurt)
+- Europe (Stockholm)
+- Europe (Milan)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Israel (Tel Aviv)
+- Middle East (UAE)
+- Middle East (Bahrain)
+- South America (São Paulo)
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
 
 ## Pricing
 
