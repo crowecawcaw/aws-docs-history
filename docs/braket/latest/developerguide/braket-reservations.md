@@ -3,25 +3,19 @@
 Reservations give you exclusive access to the quantum device of your choice. You can
 schedule a reservation at your convenience, so you know exactly when your workload starts and
 ends execution. Reservations are available in 1-hour increments for all Braket devices and
-can be cancelled up to 48 hours in advance, at no additional charge. You can choose to queue quantum tasks and
-hybrid jobs for an upcoming reservation in advance, or submit workloads during your
-reservation.
+can be cancelled up to 48 hours in advance, at no additional charge. We recommend queuing quantum tasks and hybrid jobs for an upcoming reservation in advance, using your Braket Direct Reservation ARN, or submitting workloads during your reservation.
 
 The cost of dedicated device access is based on the duration of your reservation,
 regardless of how many quantum tasks and hybrid jobs you run on the quantum processing unit
-(QPU).
+(QPU). An updated list of quantum computers available for reservations can be found on our [pricing page](https://aws.amazon.com/braket/pricing/ "https://aws.amazon.com/braket/pricing/") or via the [Amazon Braket management console](https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/devices "https://us-east-1.console.aws.amazon.com/braket/home?region=us-east-1#/devices").
 
 ###### Note
 
-When using a direct reservation with an IonQ device, there is no
-[gateshot](braket-terms.md#gateshot-limit-term "braket-terms.md#gateshot-limit-term")
-limit, and a minimum of 500 shots for
-[Error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") tasks.
+In a reservation, there are no [gateshot](braket-terms.md#gateshot-limit-term "braket-terms.md#gateshot-limit-term") limits. Additionally, for IonQ devices, the minimum shot count for [Error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") tasks is reduced to 500 (vs. 2500 for on-demand).
 
 **When to use a reservation**
 
-Leveraging dedicated device access with reservations provides you with the convenience
-and predictability of knowing exactly when your quantum workload starts and ends execution.
+Leveraging reservation access provides you the convenience and predictability of knowing exactly when your quantum workload starts and ends execution.
 Compared to submitting tasks and hybrid jobs on-demand, you do not have wait in a queue with
 other customer tasks. Because you have exclusive access to the device during your reservation,
 only your workloads run on the device for the entirety of the reservation.
