@@ -74,6 +74,12 @@ type, the following must be configured.
    **2025-03-26**.
 3. For the provided URL/endpoint of the server, the URL should be encoded. The Gateway
    will use the same URL to invoke the server.
+4. JSON Schema reference keywords such as `$ref`, `$defs`,
+   `$anchor`, `$dynamicRef`, and `$dynamicAnchor` are not
+   supported in the tool definitions returned by the MCP server's `tools/list`
+   response. If your MCP server returns tool schemas containing these keywords, the target
+   creation or synchronization will fail. Ensure your MCP server returns fully resolved,
+   self-contained JSON schemas without reference keywords.
 
 ## Configuring permissions
 

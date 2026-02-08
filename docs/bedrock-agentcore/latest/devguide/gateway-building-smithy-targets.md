@@ -74,54 +74,114 @@ Expand a section to see examples of supported and unsupported Smithy model speci
 The following example shows a valid Smithy model specification for a weather service:
 
 ```
-namespace example.weather
-
-use aws.protocols#restJson1
-use smithy.framework#ValidationException
-
-/// Weather service for retrieving weather information
-@restJson1
-service WeatherService {
-    version: "1.0.0",
-    operations: [GetCurrentWeather]
-}
-
-/// Get current weather for a location
-@http(method: "GET", uri: "/weather")
-operation GetCurrentWeather {
-    input: GetCurrentWeatherInput,
-    output: GetCurrentWeatherOutput,
-    errors: [ValidationException]
-}
-
-structure GetCurrentWeatherInput {
-    /// City name or coordinates
-    @required
-    @httpQuery("location")
-    location: String,
-
-    /// Units of measurement (metric or imperial)
-    @httpQuery("units")
-    units: Units = metric
-}
-
-structure GetCurrentWeatherOutput {
-    /// Location name
-    location: String,
-
-    /// Current temperature
-    temperature: Float,
-
-    /// Weather conditions description
-    conditions: String,
-
-    /// Humidity percentage
-    humidity: Float
-}
-
-enum Units {
-    metric
-    imperial
+{
+  "smithy": "2.0",
+  "metadata": {
+    "suppressions": []
+  },
+  "shapes": {
+    "example.weather#WeatherService": {
+      "type": "service",
+      "version": "1.0.0",
+      "operations": [
+        {
+          "target": "example.weather#GetCurrentWeather"
+        }
+      ],
+      "traits": {
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "Weather service for retrieving weather information"
+      }
+    },
+    "example.weather#GetCurrentWeather": {
+      "type": "operation",
+      "input": {
+        "target": "example.weather#GetCurrentWeatherInput"
+      },
+      "output": {
+        "target": "example.weather#GetCurrentWeatherOutput"
+      },
+      "errors": [
+        {
+          "target": "smithy.framework#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/weather"
+        },
+        "smithy.api#documentation": "Get current weather for a location"
+      }
+    },
+    "example.weather#GetCurrentWeatherInput": {
+      "type": "structure",
+      "members": {
+        "location": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {},
+            "smithy.api#httpQuery": "location",
+            "smithy.api#documentation": "City name or coordinates"
+          }
+        },
+        "units": {
+          "target": "example.weather#Units",
+          "traits": {
+            "smithy.api#httpQuery": "units",
+            "smithy.api#default": "metric",
+            "smithy.api#documentation": "Units of measurement (metric or imperial)"
+          }
+        }
+      }
+    },
+    "example.weather#GetCurrentWeatherOutput": {
+      "type": "structure",
+      "members": {
+        "location": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Location name"
+          }
+        },
+        "temperature": {
+          "target": "smithy.api#Float",
+          "traits": {
+            "smithy.api#documentation": "Current temperature"
+          }
+        },
+        "conditions": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Weather conditions description"
+          }
+        },
+        "humidity": {
+          "target": "smithy.api#Float",
+          "traits": {
+            "smithy.api#documentation": "Humidity percentage"
+          }
+        }
+      }
+    },
+    "example.weather#Units": {
+      "type": "enum",
+      "members": {
+        "metric": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "metric"
+          }
+        },
+        "imperial": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "imperial"
+          }
+        }
+      }
+    }
+  }
 }
 ```
 

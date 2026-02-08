@@ -236,6 +236,15 @@ The following table describes the limits for browser extensions:
 | Maximum file size per extension | 10 MB | Yes   | Each extension ZIP file limit |
 | Maximum extensions per session  | 10    | Yes   | Total extensions per session  |
 
+### Browser Profile Limitations
+
+The following table describes the limits for browser profiles:
+
+| Browser profile limits                 | Limit | Value | Adjustable                                                  | Notes |
+| -------------------------------------- | ----- | ----- | ----------------------------------------------------------- | ----- |
+| Maximum size per profile               | 50 MB | Yes   | The size limit applies to cookies and localStorage in total |
+| Maximum number of profiles per account | 100   | Yes   | Can be increased via support ticket                         |
+
 ## AgentCore Code Interpreter Service
 
 Quotas

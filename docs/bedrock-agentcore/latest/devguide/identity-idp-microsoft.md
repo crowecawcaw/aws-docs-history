@@ -32,14 +32,6 @@ have any custom claims. You can determine which token versions your entra
 application is issuing by parsing the JWT and looking at the `ver`
 claim.
 
-###### Note
-
-**Multi-tenant application requirement:**
-AgentCore currently supports only multi-tenant Microsoft Entra applications.
-Single-tenant applications are not supported at this time. When configuring your
-Microsoft Entra application, ensure that it is set up as a multi-tenant
-application to work with AgentCore identity services.
-
 For all token types, in your custom authorizer:
 
 - **Discovery URL**: Discovery URL should be

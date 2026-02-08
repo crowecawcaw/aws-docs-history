@@ -155,7 +155,7 @@ Use the CLI commands to create your gateway directly:
 
 ```
 # Create a gateway with semantic search enabled
-bedrock-agentcore-starter-toolkit gateway create-mcp-gateway \
+bedrock-agentcore gateway create-mcp-gateway \
   --name TestGateway \
   --region us-east-1 \
   --enable_semantic_search
@@ -165,7 +165,7 @@ Replace the placeholders with the actual values returned from the first command.
 
 ```
 # Create a Lambda target for the gateway
-bedrock-agentcore-starter-toolkit gateway create-mcp-gateway-target \
+bedrock-agentcore gateway create-mcp-gateway-target \
   --gateway-arn <GATEWAY_ARN_FROM_PREVIOUS_COMMAND> \
   --gateway-url <GATEWAY_URL_FROM_PREVIOUS_COMMAND> \
   --role-arn <ROLE_ARN_FROM_PREVIOUS_COMMAND> \
@@ -502,7 +502,7 @@ Use the CLI to delete the gateway and its targets:
 
 ```
 # Delete the gateway (this will also delete all targets)
-bedrock-agentcore-starter-toolkit gateway delete-mcp-gateway \
+bedrock-agentcore gateway delete-mcp-gateway \
   --name TestGateway \
   --region us-east-1 \
   --force

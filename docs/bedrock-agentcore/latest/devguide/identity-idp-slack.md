@@ -35,10 +35,10 @@ To configure the outbound Slack resource provider, use the following:
         "name": "NAME",
         "credentialProviderVendor": "SlackOauth2",
         "oauth2ProviderConfigInput": {
-            "SlackOauth2ProviderConfigInput": {
+            "slackOauth2ProviderConfig": {
                 "clientId": "`your-client-id`",
-                "clientSecret": "`your-client-secret`",
+                "clientSecret": "`your-client-secret`"
             }
-        },
+        }
     }
 ```

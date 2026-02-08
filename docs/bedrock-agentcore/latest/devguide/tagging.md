@@ -20,6 +20,7 @@ The following AgentCore resources support tagging:
 - Agent runtime endpoint
 - Code interpreter
 - Browser
+- Browser Profile
 - Gateway
 - Workload identity
 - OAuth2 credential provider
@@ -27,6 +28,8 @@ The following AgentCore resources support tagging:
 - Workload identity directory
 - Token vault
 - AgentCore Memory
+- Custom Evaluator
+- Online Evaluation Config
 
 ## Tag restrictions
 
@@ -53,10 +56,13 @@ You can add tags when you create the following AgentCore resources:
 - Agent runtime endpoint
 - Code interpreter
 - Browser
+- Browser Profile
 - Gateway
 - Workload identity
 - OAuth2 credential provider
 - API key credential provider
+- Custom Evaluator
+- Online Evaluation Config
 
 ###### To add tags when creating a resource
 
@@ -86,10 +92,13 @@ You can add tags when you create resources using the following API operations:
 - [CreateAgentRuntimeEndpoint](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntimeEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntimeEndpoint.md") – Include tags in the `tags` parameter.
 - [CreateCodeInterpreter](../../../bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.md") – Include tags in the `tags` parameter.
 - [CreateBrowser](../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowser.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowser.md") – Include tags in the `tags` parameter.
+- [CreateBrowserProfile](../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowserProfile.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateBrowserProfile.md") – Include tags in the `tags` parameter.
 - [CreateGateway](../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateGateway.md") – Include tags in the `tags` parameter.
 - [CreateWorkloadIdentity](../../../bedrock-agentcore-control/latest/APIReference/API_CreateWorkloadIdentity.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateWorkloadIdentity.md") – Include tags in the `tags` parameter.
 - [CreateOAuth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOAuth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOAuth2CredentialProvider.md") – Include tags in the `tags` parameter.
 - [CreateAPIKeyCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateAPIKeyCredentialProvider.md") – Include tags in the `tags` parameter.
+- [CreateEvaluator](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvaluator.md") – Include tags in the `tags` parameter.
+- [CreateOnlineEvaluationConfig](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOnlineEvaluationConfig.md") – Include tags in the `tags` parameter.
 
 ###### Adding tags to existing resources
 

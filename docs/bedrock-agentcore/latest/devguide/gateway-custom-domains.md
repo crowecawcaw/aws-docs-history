@@ -228,6 +228,32 @@ Enable CloudFront access logs and configure CloudWatch alarms to monitor the hea
 
 ACM certificates issued through DNS validation are automatically renewed as long as the DNS records remain in place. Ensure that you don't delete the validation records.
 
+**OAuth protected resource endpoint with custom domains**
+
+By default, the `/.well-known/oauth-protected-resource` endpoint returns a resource URL that contains the gateway domain instead of your custom domain. This can cause OAuth clients to fail authentication when using custom domains.
+
+To resolve this issue, you can implement a Lambda@Edge function that intercepts the OAuth discovery response and generates a new response with the correct custom domain URL. Here's the approach:
+
+- **Use Lambda@Edge with ORIGIN_RESPONSE event type**: Create a function that triggers on origin responses to intercept the OAuth protected resource endpoint response.
+- **Generate a new response**: Lambda@Edge cannot read origin response bodies, so instead of modifying the existing response, generate a completely new JSON response with the custom domain.
+- **Associate with CloudFront behavior**: Configure the Lambda@Edge function to trigger specifically for the `/.well-known/oauth-protected-resource` path pattern.
+
+After implementing this solution, the OAuth protected resource endpoint will return the correct custom domain:
+
+```
+
+curl https://my-custom-domain.com/.well-known/oauth-protected-resource
+{
+  "authorization_servers": ["https://my-org.okta.com/oauth2/default"],
+  "resource": "https://my-custom-domain.com/mcp"
+}
+
+```
+
+###### Note
+
+While Lambda@Edge provides a solution for this issue, implementing custom domains for AgentCore Gateway without built-in support requires additional complexity that may not be optimal for all customers. Consider this approach as a workaround until native support for OAuth discovery with custom domains becomes available.
+
 ## Troubleshooting
 
 **DNS resolution issues**

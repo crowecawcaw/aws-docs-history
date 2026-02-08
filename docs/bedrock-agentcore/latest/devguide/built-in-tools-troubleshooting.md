@@ -154,6 +154,44 @@ page = context.pages[0]
 - Check that the extension follows Chrome extension guidelines
 - Ensure the ZIP was created from the extension directory contents, not the parent folder
 
+### Browser profile issues
+
+#### Failed to save browser session profile due to concurrent operation on the profile
+
+**Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
+
+**Solution:**
+
+- Retry `SaveBrowserSessionProfile` at a later time
+- Use exponential backoff with jitter if retrying from agent or code
+
+#### Failed to save browser session profile due to concurrent operation on the session
+
+**Symptom:** `SaveBrowserSessionProfile` throws `ConflictException`.
+
+**Solution:**
+
+- Retry `SaveBrowserSessionProfile` at a later time
+- Use exponential backoff with jitter if retrying from agent or code
+
+#### Authentication fails when loading a saved browser profile
+
+**Symptom:** A browser session loaded from a saved profile requires re-authentication even though the profile was saved with valid authentication cookies.
+
+**Cause:** Cookies stored in the browser profile have expired. Websites set expiration times on cookies (such as authentication tokens), and the browser automatically removes expired cookies according to these expiration dates. When you load a profile, any cookies that have expired since the profile was saved will not be available.
+
+**Solution:**
+
+- Re-authenticate in the browser session to obtain fresh cookies
+- Save the profile again after re-authentication to update it with new cookies
+- For workflows requiring long-term authentication, consider the typical cookie lifetime of your target websites when planning profile usage
+- Implement periodic re-authentication in your automation workflow if cookie expiration is expected
+- Save profiles more frequently for critical authentication states to minimize the time between saves and subsequent use
+
+###### Note
+
+Cookie expiration times are set by websites and cannot be modified by browser profiles. Session cookies typically expire when the browser session ends, while persistent cookies expire based on their Max-Age or Expires attributes.
+
 ## Code Interpreter issues
 
 For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using
