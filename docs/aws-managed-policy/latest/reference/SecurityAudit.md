@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** January 08, 2026, 16:49 UTC
+- **Edited time:** January 30, 2026, 20:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v57 (default)
+**Policy version:** v58 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -315,6 +315,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "dynamodb:DescribeKinesisStreamingDestination",
         "dynamodb:DescribeTable",
         "dynamodb:DescribeTimeToLive",
+        "dynamodb:GetResourcePolicy",
         "dynamodb:ListBackups",
         "dynamodb:ListExports",
         "dynamodb:ListGlobalTables",

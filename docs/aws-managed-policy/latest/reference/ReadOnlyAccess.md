@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** January 15, 2026, 18:49 UTC
+- **Edited time:** February 04, 2026, 14:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v139 (default)
+**Policy version:** v140 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -98,6 +98,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "amplify:ListTagsForResource",
         "amplify:ListWebhooks",
         "aoss:BatchGetCollection",
+        "aoss:BatchGetCollectionGroup",
         "aoss:BatchGetLifecyclePolicy",
         "aoss:BatchGetVpcEndpoint",
         "aoss:GetAccessPolicy",
@@ -107,6 +108,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aoss:GetSecurityPolicy",
         "aoss:ListAccessPolicies",
         "aoss:ListCollections",
+        "aoss:ListCollectionGroups",
         "aoss:ListLifecyclePolicies",
         "aoss:ListSecurityConfigs",
         "aoss:ListSecurityPolicies",
@@ -475,6 +477,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cleanrooms-ml:ListConfiguredAudienceModels",
         "cleanrooms-ml:ListTagsForResource",
         "cleanrooms-ml:ListTrainingDatasets",
+        "cloudformation:BatchDescribeTypeConfigurations",
         "cleanrooms:BatchGetCollaborationAnalysisTemplate",
         "cleanrooms:BatchGetSchema",
         "cleanrooms:BatchGetSchemaAnalysisRule",
@@ -1767,6 +1770,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "mediaconnect:ListRouterOutputs",
         "mediaconnect:ListTagsForResource",
         "mediaconvert:DescribeEndpoints",
+        "mediaconvert:Probe",
+        "mediaconvert:SearchJobs",
         "mediaconvert:Get*",
         "mediaconvert:List*",
         "medialive:DescribeAccountConfiguration",
@@ -1933,8 +1938,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "networkmanager:GetTransitGatewayRouteTableAttachment",
         "networkmanager:GetVpcAttachment",
         "networkmanager:ListAttachments",
+        "networkmanager:ListAttachmentRoutingPolicyAssociations",
         "networkmanager:ListConnectPeers",
         "networkmanager:ListCoreNetworkPolicyVersions",
+        "networkmanager:ListCoreNetworkPrefixListAssociations",
+        "networkmanager:ListCoreNetworkRoutingInformation",
         "networkmanager:ListCoreNetworks",
         "networkmanager:ListPeerings",
         "networkmanager:ListTagsForResource",
@@ -2409,7 +2417,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "servicediscovery:Get*",
         "servicediscovery:List*",
         "servicequotas:GetAssociationForServiceQuotaTemplate",
+        "servicequotas:GetAutoManagementConfiguration",
         "servicequotas:GetAWSDefaultServiceQuota",
+        "servicequotas:GetQuotaUtilizationReport",
         "servicequotas:GetRequestedServiceQuotaChange",
         "servicequotas:GetServiceQuota",
         "servicequotas:GetServiceQuotaIncreaseRequestFromTemplate",
@@ -2419,6 +2429,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "servicequotas:ListServiceQuotaIncreaseRequestsInTemplate",
         "servicequotas:ListServiceQuotas",
         "servicequotas:ListServices",
+        "servicequotas:StartQuotaUtilizationReport",
         "ses:BatchGetMetricData",
         "ses:Describe*",
         "ses:Get*",
@@ -2702,7 +2713,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "workspaces-web:ListUserSettings",
         "workspaces:Describe*",
         "xray:BatchGet*",
-        "xray:Get*"
+        "xray:CancelTraceRetrieval",
+        "xray:Get*",
+        "xray:ListResourcePolicies",
+        "xray:ListRetrievedTraces",
+        "xray:ListTagsForResource",
+        "xray:StartTraceRetrieval"
       ],
       "Resource" : "*"
     }

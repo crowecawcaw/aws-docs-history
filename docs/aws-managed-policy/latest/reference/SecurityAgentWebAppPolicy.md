@@ -1,26 +1,26 @@
-# SecurityAgentWebAppAPIPolicy
+# SecurityAgentWebAppPolicy
 
 **Description**: Provides permissions for authenticated users to access the Security Agent Web Application for configuring and executing automated security penetration tests. This policy enables users to manage pentests, view findings, monitor test execution, and interact with AWS resources required for security testing operations.
 
-`SecurityAgentWebAppAPIPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`SecurityAgentWebAppPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `SecurityAgentWebAppAPIPolicy` to your users, groups, and roles.
+You can attach `SecurityAgentWebAppPolicy` to your users, groups, and roles.
 
 ## Policy
 
 details
 
-- **Type**: Service role policy
-- **Creation time**: December 02, 2025, 15:04 UTC
-- **Edited time:** February 02, 2026, 23:19 UTC
+- **Type**: AWS managed policy
+- **Creation time**: February 05, 2026, 20:19 UTC
+- **Edited time:** February 05, 2026, 20:19 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/service-role/SecurityAgentWebAppAPIPolicy`
+  `arn:aws:iam::aws:policy/SecurityAgentWebAppPolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,8 +35,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "ApplicationAccess",
       "Effect" : "Allow",
       "Action" : [
-        "securityagent:ListAgentInstances",
-        "securityagent:ListControls"
+        "securityagent:ListAgentSpaces",
+        "securityagent:ListSecurityRequirements"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -46,44 +46,42 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AgentInstanceAccess",
+      "Sid" : "AgentSpaceAccess",
       "Effect" : "Allow",
       "Action" : [
         "securityagent:AddArtifact",
         "securityagent:BatchDeletePentests",
-        "securityagent:BatchGetAgentInstances",
+        "securityagent:BatchGetAgentSpaces",
         "securityagent:BatchGetArtifactMetadata",
         "securityagent:BatchGetFindings",
         "securityagent:BatchGetPentestJobs",
         "securityagent:BatchGetPentests",
-        "securityagent:BatchGetSecurityTestContentMetadata",
-        "securityagent:BatchGetTasks",
-        "securityagent:CreateDocumentReview",
+        "securityagent:BatchGetPentestJobContentMetadata",
+        "securityagent:BatchGetPentestJobTasks",
+        "securityagent:CreateDesignReview",
         "securityagent:CreatePentest",
         "securityagent:DeleteArtifact",
-        "securityagent:DeleteDocumentReview",
         "securityagent:GetArtifact",
-        "securityagent:GetCodeReviewTask",
-        "securityagent:GetDocReviewTask",
-        "securityagent:GetDocumentReview",
-        "securityagent:GetDocumentReviewArtifact",
+        "securityagent:DeleteDesignReview",
+        "securityagent:GetDesignReview",
+        "securityagent:GetDesignReviewArtifact",
         "securityagent:ListArtifacts",
-        "securityagent:ListControls",
+        "securityagent:ListSecurityRequirements",
         "securityagent:ListDiscoveredEndpoints",
-        "securityagent:ListDocumentReviewComments",
-        "securityagent:ListDocumentReviews",
+        "securityagent:ListDesignReviewComments",
+        "securityagent:ListDesignReviews",
         "securityagent:ListFindings",
         "securityagent:ListIntegratedResources",
         "securityagent:ListPentestJobsForPentest",
         "securityagent:ListPentests",
-        "securityagent:ListTasks",
+        "securityagent:ListPentestJobTasks",
         "securityagent:StartCodeRemediation",
-        "securityagent:StartPentestExecution",
-        "securityagent:StopPentestExecution",
+        "securityagent:StartPentestJob",
+        "securityagent:StopPentestJob",
         "securityagent:UpdateFinding",
         "securityagent:UpdatePentest"
       ],
-      "Resource" : "arn:aws:securityagent:*:*:agent-instance*",
+      "Resource" : "arn:aws:securityagent:*:*:agent-space*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

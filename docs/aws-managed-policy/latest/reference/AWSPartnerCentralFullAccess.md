@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2024, 23:33 UTC
-- **Edited time:** December 01, 2025, 00:34 UTC
+- **Edited time:** February 05, 2026, 16:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralFullAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -161,6 +161,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:aws-marketplace:*:*:AWSMarketplace*/OfferSet/*",
         "arn:aws:aws-marketplace:*:*:AWSMarketplace*/Offer/*"
       ]
+    },
+    {
+      "Sid" : "AWSMarketplaceAgreementsReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:SearchAgreements",
+        "aws-marketplace:DescribeAgreement"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws-marketplace:AgreementType" : [
+            "PurchaseAgreement"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AmazonQPartnerAssistantAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "q:StartConversation",
+        "q:SendMessage",
+        "q:GetConversation",
+        "q:ListConversations",
+        "q:PassRequest"
+      ],
+      "Resource" : "*"
     }
   ]
 }

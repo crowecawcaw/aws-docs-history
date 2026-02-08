@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 02, 2024, 16:21 UTC
-- **Edited time:** December 17, 2025, 16:49 UTC
+- **Edited time:** February 06, 2026, 18:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIOpsAssistantPolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -79,6 +79,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "appsync:GetDomainName",
         "appsync:GetFunction",
         "appsync:GetGraphqlApi",
+        "appsync:GetGraphqlApiEnvironmentVariables",
         "appsync:GetIntrospectionSchema",
         "appsync:GetResolver",
         "appsync:GetSourceApiAssociation",
@@ -159,6 +160,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudfront:List*",
         "cloudtrail:Describe*",
         "cloudtrail:GetChannel",
+        "cloudtrail:GetEventConfiguration",
         "cloudtrail:GetEventDataStore",
         "cloudtrail:GetEventSelectors",
         "cloudtrail:GetInsightSelectors",
@@ -474,6 +476,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "kms:DescribeKey",
         "kms:ListResourceTags",
         "kms:ListKeys",
+        "kms:GetKeyPolicy",
         "kms:GetKeyRotationStatus",
         "kms:ListAliases",
         "kms:ListKeyRotations",
@@ -712,6 +715,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:GetAccessPointPolicyForObjectLambda",
         "s3:GetAccessPointPolicyStatusForObjectLambda",
         "s3:GetAnalyticsConfiguration",
+        "s3:GetBucketAbac",
         "s3:GetBucketAcl",
         "s3:GetBucketCORS",
         "s3:GetBucketLocation",

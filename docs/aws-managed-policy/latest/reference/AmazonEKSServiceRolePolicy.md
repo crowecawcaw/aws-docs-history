@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: February 21, 2020, 20:10 UTC
-- **Edited time:** October 22, 2025, 23:49 UTC
+- **Edited time:** February 02, 2026, 22:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -271,12 +271,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
     {
       "Effect" : "Allow",
       "Action" : [
-        "iam:GetInstanceProfile",
         "iam:CreateInstanceProfile",
         "iam:DeleteInstanceProfile",
         "iam:RemoveRoleFromInstanceProfile"
       ],
       "Resource" : "arn:aws:iam::*:instance-profile/eks*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:GetInstanceProfile",
+      "Resource" : "arn:aws:iam::*:instance-profile/*"
     },
     {
       "Effect" : "Allow",
