@@ -15,7 +15,7 @@ This topic describes internal requirements implemented by the service to secure 
 ### HSM specifications and lifecycle
 
 AWS Payment Cryptography uses a fleet of commercially available HSMs. The HSMs are FIPS 140-2 Level 3 validated and also use firmware versions and the security policy listed on the
-PCI Security Standards Council [approved PCI PTS Devices list](https://listings.pcisecuritystandards.org/assessors_and_solutions/pin_transaction_devices "https://listings.pcisecuritystandards.org/assessors_and_solutions/pin_transaction_devices") as PCI HSM v3 complaint.
+PCI Security Standards Council [approved PCI PTS Devices list](https://listings.pcisecuritystandards.org/assessors_and_solutions/pin_transaction_devices "https://listings.pcisecuritystandards.org/assessors_and_solutions/pin_transaction_devices") as PCI HSM v3 compliant.
 The PCI PTS HSM standard includes additional requirements for the manufacturing, shipment, deployment, management, and destruction of HSM hardware which are important for payment security and compliance
 but not addressed by FIPS 140.
 

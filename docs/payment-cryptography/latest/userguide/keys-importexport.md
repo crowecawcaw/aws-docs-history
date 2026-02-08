@@ -17,14 +17,14 @@ prevent keys from being protected by weaker keys, as shown in the following tabl
 The following table shows the supported combinations of wrapping keys, keys to
 protect, and protection methods.
 
-|                    | **Wrapping<br>Key** |               |
-| ------------------ | ------------------- | ------------- | ------------- | ------------- | ------- | ------------- | ------------- | ------------- | ------------- | ------------- | -------- | ----- |
-| **Key To Protect** | TDES_2KEY           | TDES_3KEY     | AES_128       | AES_192       | AES_256 | RSA_2048      | RSA_3072      | RSA_4096      | ECC_p256      | ECC_p384      | ECC_p521 | Notes |
-| **TDES_2KEY**      | TR-31               | TR-31         | TR-31         | TR-31         | TR-31   | TR-34, RSA    | TR-34, RSA    | TR-34, RSA    | ECDH          | ECDH          | ECDH     |       |
-| **TDES_3KEY**      | Not supported       | TR-31         | TR-31         | TR-31         | TR-31   | TR-34, RSA    | TR-34, RSA    | TR-34, RSA    | ECDH          | ECDH          | ECDH     |       |
-| **AES_128**        | Not supported       | Not supported | TR-31         | TR-31         | TR-31   | Not supported | TR-34, RSA    | TR-34, RSA    | ECDH          | ECDH          | ECDH     |       |
-| **AES_192**        | Not supported       | Not supported | Not supported | TR-31         | TR-31   | Not supported | Not supported | Not supported | Not supported | ECDH          | ECDH     |       |
-| **AES_256**        | Not supported       | Not supported | Not supported | Not supported | TR-31   | Not supported | Not supported | Not supported | Not supported | Not supported | ECDH     |       |
+|                    | **Wrapping<br>Key** |                 |
+| ------------------ | ------------------- | --------------- | --------------- | --------------- | ------- | --------------- | --------------- | --------------- | --------------- | --------------- | -------- | ----- |
+| **Key To Protect** | TDES_2KEY           | TDES_3KEY       | AES_128         | AES_192         | AES_256 | RSA_2048        | RSA_3072        | RSA_4096        | ECC_p256        | ECC_p384        | ECC_p521 | Notes |
+| **TDES_2KEY**      | TR-31               | TR-31           | TR-31           | TR-31           | TR-31   | TR-34, RSA      | TR-34, RSA      | TR-34, RSA      | ECDH            | ECDH            | ECDH     |       |
+| **TDES_3KEY**      | ✗ Not supported     | TR-31           | TR-31           | TR-31           | TR-31   | TR-34, RSA      | TR-34, RSA      | TR-34, RSA      | ECDH            | ECDH            | ECDH     |       |
+| **AES_128**        | ✗ Not supported     | ✗ Not supported | TR-31           | TR-31           | TR-31   | ✗ Not supported | TR-34, RSA      | TR-34, RSA      | ECDH            | ECDH            | ECDH     |       |
+| **AES_192**        | ✗ Not supported     | ✗ Not supported | ✗ Not supported | TR-31           | TR-31   | ✗ Not supported | ✗ Not supported | ✗ Not supported | ✗ Not supported | ECDH            | ECDH     |       |
+| **AES_256**        | ✗ Not supported     | ✗ Not supported | ✗ Not supported | ✗ Not supported | TR-31   | ✗ Not supported | ✗ Not supported | ✗ Not supported | ✗ Not supported | ✗ Not supported | ECDH     |       |
 
 For more information, see [Appendix D - Minimum and Equivalent Key Sizes and Strengths for Approved
 Algorithms](https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requirements/PCI_HSM_DTRs_v4.pdf "https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requirements/PCI_HSM_DTRs_v4.pdf") in the PCI HSM standards.
@@ -56,3 +56,4 @@ Working keys include acquirer working keys, issuer working keys, BDK, and IPEK.
 
 - [Import keys](keys-import.md "keys-import.md")
 - [Export keys](keys-export.md "keys-export.md")
+- [Advanced Topics](keyexchange-advanced.md "keyexchange-advanced.md")

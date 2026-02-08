@@ -10,20 +10,21 @@ The primary outputs are a newly encrypted dataset as well as the parameters used
 
 ###### Note
 
-AES key types only support ISO Format 4 [pin blocks](terminology.md#terms.pinblock "terminology.md#terms.pinblock").
+For PCI compliance, the incoming and outgoing PrimaryAccountNumber values must match. Translating a PIN from one PAN to another is not permitted.
 
 ###### Topics
 
 - [PIN from PEK to DUKPT](#crypto-ops-pindata.pektodukpt "#crypto-ops-pindata.pektodukpt")
-- [PIN from DUKPT to AWK](#w2aac15c22c11c11 "#w2aac15c22c11c11")
+- [PIN from PEK to PEK](#crypto-ops-pindata.pektopek "#crypto-ops-pindata.pektopek")
 
 ## PIN from PEK to DUKPT
 
-In this example, we will translate a PIN from PEK TDES encryption using ISO 0 PIN block to an AES ISO 4 PIN Block using the [DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt") algorithm.
-Typically this might be done in reverse, where a payment terminal encrypts a pin in ISO 4 and then it may be translated back to TDES for downstream processing.
+In this example, we will translate a PIN from an AES ISO 4 PIN Block using the [DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt") to PEK TDES encryption using ISO 0 PIN block.
+This is common where a payment terminal encrypts a pin in ISO 4 and then it may be translated back to TDES for downstream processing if the next connection
+doesn't yet support AES.
 
 ```
-`$` `aws payment-cryptography-data translate-pin-data --encrypted-pin-block "AC17DC148BDA645E" --incoming-translation-attributes=IsoFormat0='{PrimaryAccountNumber=171234567890123}' --incoming-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt --outgoing-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/4pmyquwjs3yj4vwe --outgoing-translation-attributes IsoFormat4="{PrimaryAccountNumber=171234567890123}" --outgoing-dukpt-attributes KeySerialNumber="FFFF9876543210E00008"`
+`$` `aws payment-cryptography-data translate-pin-data --encrypted-pin-block "AC17DC148BDA645E" --outgoing-translation-attributes=IsoFormat0='{PrimaryAccountNumber=171234567890123}' --outgoing-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt --incoming-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/4pmyquwjs3yj4vwe --incoming-translation-attributes IsoFormat4="{PrimaryAccountNumber=171234567890123}" --incoming-dukpt-attributes KeySerialNumber="FFFF9876543210E00008"`
 
 ```
 
@@ -37,21 +38,28 @@ Typically this might be done in reverse, where a payment terminal encrypts a pin
 
 ```
 
-## PIN from DUKPT to AWK
+## PIN from PEK to PEK
 
-In this example, we will translate a PIN from an AES [DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt") encrypted PIN to a pin encrypted
-under a [AWK](terminology.md#terms.awk "terminology.md#terms.awk"). It is functionally the inverse of the previous example.
-
-```
-`$` `aws payment-cryptography-data translate-pin-data --encrypted-pin-block "1F4209C670E49F83E75CC72E81B787D9" --outgoing-translation-attributes=IsoFormat0='{PrimaryAccountNumber=171234567890123}' --outgoing-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt --incoming-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/4pmyquwjs3yj4vwe --incoming-translation-attributes IsoFormat4="{PrimaryAccountNumber=171234567890123}" --incoming-dukpt-attributes KeySerialNumber="FFFF9876543210E00008"`
-```
-
-```
-
-    `{
- "PinBlock": "AC17DC148BDA645E",
- "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt",
- "KeyCheckValue": "FE23D3"
- }`
+In this example, we translate a PIN encrypted under one PEK (PIN Encryption Key) to another PEK.
+This is commonly used when routing transactions between different systems or partners that
+use different encryption keys, while maintaining PCI PIN compliance by keeping the
+PIN encrypted throughout the process. Both keys use TDES 3KEY encryption in this example,
+but a variety of options are available including AES ISO-4 to TDES ISO-0, DUKPT to PEK, or AS2805 to PEK.
 
 ```
+`$` `aws payment-cryptography-data translate-pin-data --encrypted-pin-block "AC17DC148BDA645E" \
+ --incoming-translation-attributes IsoFormat0='{PrimaryAccountNumber=171234567890123}' \
+ --incoming-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/ivi5ksfsuplneuyt \
+ --outgoing-translation-attributes IsoFormat0='{PrimaryAccountNumber=171234567890123}' \
+ --outgoing-key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/alsuwfxug3pgy6xh`
+```
+
+```
+`{
+ "PinBlock": "E8F2A6C4D1B93E7F",
+ "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/alsuwfxug3pgy6xh",
+ "KeyCheckValue": "9A325B"
+}`
+```
+
+The output PIN block is now encrypted under the second PEK and can be safely transmitted to the downstream system that holds the corresponding key.

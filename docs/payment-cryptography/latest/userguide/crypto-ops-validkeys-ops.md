@@ -21,9 +21,10 @@ CVV codes `(generate)` but then unable to verify them `(verify)`.
 - [Encrypt Data](#w2aac15c31c33 "#w2aac15c31c33")
 - [Translate Pin Data](#w2aac15c31c39 "#w2aac15c31c39")
 - [Generate/Verify MAC](#crypto-ops-validkeys.generatemac "#crypto-ops-validkeys.generatemac")
-- [VerifyAuthRequestCryptogram](#w2aac15c31c47 "#w2aac15c31c47")
+- [GenerateMacEmvPinChange](#crypto-ops-validkeys.generatemacemvpinchange "#crypto-ops-validkeys.generatemacemvpinchange")
+- [VerifyAuthRequestCryptogram](#w2aac15c31c51 "#w2aac15c31c51")
 - [Import/Export Key](#crypto-ops-validkeys.importexport "#crypto-ops-validkeys.importexport")
-- [Unused key types](#w2aac15c31c53 "#w2aac15c31c53")
+- [Unused key types](#w2aac15c31c57 "#w2aac15c31c57")
 
 ## GenerateCardData
 
@@ -121,6 +122,19 @@ to perform the other half of the operation pair.
 | MAC Key (CMAC)       | TR31_M6_ISO_9797_5_CMAC_KEY | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }<br>• { Generate = true } |
 | MAC Key (HMAC)       | TR31_M7_HMAC_KEY            | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }                          |
 | MAC Key (AS2805)     | TR31_M0_ISO_16609_MAC_KEY   | • TDES_2KEY<br>• TDES_3KEY                                        | • { Generate = true }<br>• { Generate = true, Verify = true }<br>• { Verify = true }                          |
+
+## GenerateMacEmvPinChange
+
+GenerateMacEmvPinChange combines MAC generation and PIN encryption for EMV offline PIN change operations.
+This operation requires two different key types: an integrity key for MAC generation and a confidentiality key for PIN encryption.
+
+| Key Type                                                           | Allowed Key Usage                | Allowed Key Algorithm                                             | Allowed combination of key modes of use                                                                                                |
+| ------------------------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Secure Messaging Integrity Key                                     | TR31_E2_EMV_MKEY_INTEGRITY       | • TDES_2KEY                                                       | • { NoRestrictions = true }                                                                                                            |
+| Secure Messaging Confidentiality Key                               | TR31_E1_EMV_MKEY_CONFIDENTIALITY | • TDES_2KEY                                                       | • { DeriveKey = true }                                                                                                                 |
+| Current PIN PEK (PIN Encryption Key)                               | TR31_P0_PIN_ENCRYPTION_KEY       | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Decrypt = true, Unwrap = true }<br>• { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true }<br>• { NoRestrictions = true } |
+| New PIN PEK (PIN Encryption Key)                                   | TR31_P0_PIN_ENCRYPTION_KEY       | • TDES_2KEY<br>• TDES_3KEY<br>• AES_128<br>• AES_192<br>• AES_256 | • { Decrypt = true, Unwrap = true }<br>• { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true }<br>• { NoRestrictions = true } |
+| ARQC Key<br>NoteOnly applies for Visa and Amex derivation schemes. | TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS | • TDES_2KEY                                                       | • { DeriveKey = true }                                                                                                                 |
 
 ## VerifyAuthRequestCryptogram
 

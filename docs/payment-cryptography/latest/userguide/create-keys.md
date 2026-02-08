@@ -19,6 +19,7 @@ command. For more information, see [How Multi-Region key replication works](keys
   key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
 - [Creating a 2KEY TDES key for CVV/CVV2](#cvvkey-example "#cvvkey-example")
 - [Creating an HMAC key](#hmac-example "#hmac-example")
+- [Creating an AES-256 key](#aes-example "#aes-example")
 - [Creating a PIN Encryption Key (PEK)](#pekkey-example "#pekkey-example")
 - [Creating an asymmetric (RSA) key](#asymmetrickey-example "#asymmetrickey-example")
 - [Creating a PIN Verification Value (PVV) Key](#pvv-example "#pvv-example")
@@ -163,9 +164,54 @@ Example output:
 }
 ```
 
+## Creating an AES-256 key
+
+This command creates an AES-256 symmetric key for data encryption and decryption.
+AES keys provide strong encryption for sensitive data and are commonly used in payment processing
+for encrypting cardholder data and other sensitive information, however TDES is more commonly used for issuer use cases like EMV.
+
+```
+`$` `aws payment-cryptography create-key --exportable --key-attributes KeyAlgorithm=AES_256,KeyUsage=TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY,KeyClass=SYMMETRIC_KEY,KeyModesOfUse='{Encrypt=true,Decrypt=true,Wrap=true,Unwrap=true}'`
+```
+
+Example output:
+
+```
+{
+    "Key": {
+        "CreateTimestamp": "2025-02-02T10:15:30.142000-08:00",
+        "Enabled": true,
+        "Exportable": true,
+        "KeyArn": "arn:aws:payment-cryptography:us-east-1:111122223333:key/kwapwa6qaifllw2h",
+        "KeyAttributes": {
+            "KeyAlgorithm": "AES_256",
+            "KeyClass": "SYMMETRIC_KEY",
+            "KeyModesOfUse": {
+                "Decrypt": true,
+                "DeriveKey": false,
+                "Encrypt": true,
+                "Generate": false,
+                "NoRestrictions": false,
+                "Sign": false,
+                "Unwrap": true,
+                "Verify": false,
+                "Wrap": true
+            },
+            "KeyUsage": "TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY"
+        },
+        "KeyCheckValue": "2976F5",
+        "KeyCheckValueAlgorithm": "CMAC",
+        "KeyOrigin": "AWS_PAYMENT_CRYPTOGRAPHY",
+        "KeyState": "CREATE_COMPLETE",
+        "UsageStartTimestamp": "2025-02-02T10:15:30.128000-08:00"
+    }
+}
+```
+
 ## Creating a PIN Encryption Key (PEK)
 
-This command creates a 3KEY TDES key for encrypting PIN values. You can use
+This command creates a 3KEY TDES key for encrypting PIN values although pin keys can also be AES depending
+on your need for interoperability. You can use
 this key to securely store PINs or decrypt PINs during verification, such as in
 a transaction. The response includes the request parameters, an ARN for
 subsequent calls, and a KCV.
