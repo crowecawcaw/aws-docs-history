@@ -10,7 +10,7 @@ For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/a
 
 ## AWS managed policy: SecurityAgentWebAppAPIPolicy
 
-Grants permissions to interact with the Security Agent Web Application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources.
+Grants permissions to interact with the Security Agent Web Application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources. This policy references the legacy Agent Instance resource type and specific legacy IAM actions.
 
 **Permissions details**
 
@@ -19,11 +19,28 @@ This policy grants permissions to interact with the Security Testing Control ser
 - Pentest Management: Create, update, delete, and list penetration tests and their execution jobs
 - Security Findings: View, describe, and update security findings from completed tests, including related content and metadata.
 - Task Management: List and retrieve code review and documentation review tasks
-- Resource Discovery: List and view agent spaces, artifacts, integrations, and discovered endpoints
+- Resource Discovery: List and view agent instances, artifacts, integrations, and discovered endpoints
 - Test Execution: Start and stop pentest executions with real-time monitoring capabilities
 - Code Remediation: Start automated code remediation for security findings
 
 To view the latest version of the JSON policy document, see [SecurityAgentWebAppAPIPolicy](../../../aws-managed-policy/latest/reference/SecurityAgentWebAppAPIPolicy.md "../../../aws-managed-policy/latest/reference/SecurityAgentWebAppAPIPolicy.md") in the AWS Managed Policy Reference Guide.
+
+## AWS managed policy: AWSSecurityAgentWebAppPolicy
+
+Grants permissions to interact with the Security Agent Web Application API. This policy enables users to configure and execute automated security penetration tests, manage test executions, view security findings, and access Security Agent resources.
+
+**Permissions details**
+
+This policy grants permissions to interact with the Security Testing Control service (securityagent:\*) for:
+
+- Pentest Management: Create, update, delete, and list penetration tests and their jobs
+- Security Findings: View, describe, and update security findings from completed tests, including related content and metadata.
+- Task Management: List and retrieve code review and design review tasks
+- Resource Discovery: List and view agent spaces, artifacts, integrations, and discovered endpoints
+- Test Execution: Start and stop pentest jobs with real-time monitoring capabilities
+- Code Remediation: Start automated code remediation for security findings
+
+To view the latest version of the JSON policy document, see [AWSSecurityAgentWebAppPolicy](../../../aws-managed-policy/latest/reference/AWSSecurityAgentWebAppPolicy.md "../../../aws-managed-policy/latest/reference/AWSSecurityAgentWebAppPolicy.md") in the AWS Managed Policy Reference Guide.
 
 ## AWS Security Agents updates to AWS managed policies
 
@@ -31,8 +48,9 @@ View details about updates to AWS managed policies for AWS Security Agents since
 
 To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
 
-| Change                                                                                                                                                            | Description                                                                                                          | Date             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Added permissions to [SecurityAgentWebAppAPIPolicy](#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy "#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy"). | Added `securityagent:StartCodeRemediation` to allow users to start automated code remediation for security findings. | January 20, 2026 |
-| Added permissions to [SecurityAgentWebAppAPIPolicy](#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy "#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy"). | Added `securityagent:BatchGetSecurityTestContentMetadata` to allow users to view images in the console.              | December 5, 2025 |
-| AWS Security Agents started tracking changes.                                                                                                                     | AWS Security Agents started tracking changes for its AWS managed policies.                                           | December 2, 2025 |
+| Change                                                                                                                                                                  | Description                                                                                                           | Date             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Added a new managed policy [AWSSecurityAgentWebAppPolicy](#security-iam-awsmanpol-AWSSecurityAgentWebAppPolicy "#security-iam-awsmanpol-AWSSecurityAgentWebAppPolicy"). | Added managed policy `AWSSecurityAgentWebAppPolicy` for the new AgentSpace resource type and IAM action name changes. | February 9, 2026 |
+| Added permissions to [SecurityAgentWebAppAPIPolicy](#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy "#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy").       | Added `securityagent:StartCodeRemediation` to allow users to start automated code remediation for security findings.  | January 20, 2026 |
+| Added permissions to [SecurityAgentWebAppAPIPolicy](#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy "#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy").       | Added `securityagent:BatchGetSecurityTestContentMetadata` to allow users to view images in the console.               | December 5, 2025 |
+| AWS Security Agents started tracking changes.                                                                                                                           | AWS Security Agents started tracking changes for its AWS managed policies.                                            | December 2, 2025 |

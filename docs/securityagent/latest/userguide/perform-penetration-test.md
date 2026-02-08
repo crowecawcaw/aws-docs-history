@@ -13,7 +13,6 @@ Before you begin, ensure you have:
 - Access to the AWS Security Agent web application
 - At least one verified domain for testing
 - IAM role with appropriate permissions for AWS Security Agent
-- CloudWatch log group configured for storing test logs
 - Understanding of your application’s architecture and critical paths
 
 ## Start creating a penetration test
@@ -22,7 +21,7 @@ Navigate to the penetration test creation page in the Agent Web App.
 
 1. Log in to the AWS Security Agent web application.
 2. Navigate to the **Penetration tests** section.
-3. Click **Create penetration test**.
+3. Click **Create a penetration test**.
 
 ###### Tip
 
@@ -34,8 +33,6 @@ Provide a descriptive name that helps identify the purpose and scope of this pen
 
 1. In the **Penetration test name** field, enter a descriptive name for your penetration test.
 
-###### Note
-
 The name should clearly identify the application, environment, or component being tested. Maximum 100 characters.
 
 ## Configure penetration test scope
@@ -46,9 +43,9 @@ Define which domains and URL paths will be tested, and configure optional exclus
 
 Specify the verified domains that will be actively tested for security vulnerabilities.
 
-1. In the **Penetration test scope** section, locate **Target domains**.
+1. In the **Penetration test scope** section, locate **Target URLs**.
 2. Expand the **Verified domains** section to view available domains.
-3. Click in the **Input URL** field and enter a target domain URL.
+3. Click in the **Target URL** field and enter a target domain URL.
 
 ###### Important
 
@@ -79,10 +76,10 @@ Excluding risk types limits the scope of testing. Only exclude risk types that a
 
 Specify URL paths that should not be tested during the penetration test.
 
-1. Locate the **Out-of-scope URL path** section.
+1. Locate the **Out-of-scope URLs** section.
 2. Click in the input field and enter a URL path to exclude (for example, `/admin/delete` or `/api/reset`).
 3. To add multiple out-of-scope paths:
-   1. Click **Add another**.
+   1. Click **Add URL**.
    2. Enter each additional path.
 
 4. To remove a path, click **Remove** next to the path.
@@ -91,36 +88,38 @@ Specify URL paths that should not be tested during the penetration test.
 
 Out-of-scope paths will not be tested for vulnerabilities. Ensure you only exclude paths that should not be accessed during testing, such as destructive operations or sensitive administrative functions.
 
-### Add additional allowed domains (optional)
+### Add accessible domains (optional)
 
 Specify domains that are required for the test but are not targets for vulnerability testing.
 
-1. Locate the **Additional allowed domains** section.
+1. Locate the **Accessible URLs** section.
 2. Click in the input field and enter a domain that should be accessible during testing.
 
 ###### Note
 
-Additional allowed domains might include authentication providers, external APIs, or third-party services required for your application to function. These domains will be accessible during testing but will not be actively tested for vulnerabilities. 3. To add multiple allowed domains:
+Add domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. 3. To add multiple accessible domains:
 
-    1. Click **Add another**.
+    1. Click **Add URL**.
     2. Enter each additional domain.
 
 4. To remove a domain, click **Remove** next to the domain.
 
 ## Configure IAM Role
 
-Set up AWS resource access for the penetration test by selecting the IAM role and CloudWatch log group.
+Select the pre-configured service role for this penetration test. AWS Security Agent uses an Agent Space-based permission model where administrators configure IAM roles when setting up your Agent Space. You’ll select from roles that are already configured and ready to use.
 
 1. In the **Permissions** section, locate the **Service roles** dropdown.
 2. Select the IAM role that grants AWS Security Agent access to required AWS resources.
 
 ###### Important
 
-The selected IAM role must have permissions to access VPC resources, CloudWatch Logs, and any other AWS services needed for the penetration test. Verify that the role has the correct trust relationship with AWS Security Agent. 3. Locate the **CloudWatch log group** dropdown. 4. Select the log group where penetration test logs will be stored.
+The selected IAM role must have permissions to access VPC resources, CloudWatch Logs, and any other AWS services needed for the penetration test. Verify that the role has the correct trust relationship with AWS Security Agent. 3. Locate the **CloudWatch log group** dropdown. 4. Select the log group where penetration test logs will be stored. (optional)
 
 ###### Note
 
 The selected CloudWatch log group will store detailed logs of the penetration test execution, including requests made, responses received, and vulnerabilities discovered.
+
+If you don’t select a log group, a new CloudWatch log group will be automatically created with the `/aws/securityagent` prefix to store the penetration test logs.
 
 ## Automatic code remediation
 
@@ -153,7 +152,7 @@ Choose subnets that have network access to your target applications. The penetra
 
 ###### Important
 
-The selected security group must allow outbound traffic to your target domains and any additional allowed domains. Ensure the security group rules permit the necessary network access for comprehensive testing.
+The selected security group must allow outbound traffic to your target domains and any accessible domains. Ensure the security group rules permit the necessary network access for comprehensive testing.
 
 ## Configure authentication credentials (optional)
 

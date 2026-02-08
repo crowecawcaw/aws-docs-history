@@ -57,11 +57,11 @@ AWS Security Agent can provide security guidance on code changes through pull re
 
 AWS Security Agent does not provide code security guidance for public repositories. It will not comment on public repositories or open-source projects where security findings would be publicly visible.
 
-## Allowed URLs
+## Accessible URLs
 
-Allowed URLs specify additional endpoints that the penetration testing environment can access during testing. These are necessary when your application depends on external services such as third-party authentication providers or CDNs. All network dependencies required for testing must be specified as either target URLs or allowed URLs. The network blocks access to any unspecified endpoints.
+Accessible URLs specify additional endpoints that the penetration testing environment can access during testing. These are necessary when your application depends on external services such as third-party authentication providers or CDNs. All network dependencies required for testing must be specified as either target URLs or accessible URLs. The network blocks access to any unspecified endpoints.
 
-**Security implications:** AWS Security Agent is not instructed to perform security testing on allowed URLs. By specifying allowed URLs, you indicate trust in these dependencies. Penetration test data, including credentials, may be transmitted to these allowed URL endpoints during testing.
+**Security implications:** AWS Security Agent is not instructed to perform security testing on accessible URLs. By specifying accessible URLs, you indicate trust in these dependencies. Penetration test data, including credentials, may be transmitted to these accessible URL endpoints during testing.
 
 ## Cross Region Inference
 

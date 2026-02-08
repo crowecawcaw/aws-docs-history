@@ -28,15 +28,10 @@ AWS Security Agent requires verified ownership of all target domains before enab
 
 3. Click **Add new domain** to add additional domains.
 4. Complete the verification process for each domain according to the method you selected. NOTE: Sub-domains that belong to your verified target domain do not require individual verification. You may perform penetration testing on all sub-domains that are part of your verified target domain.
-5. (Optional) Add allowed domains that your application interacts with but should not be tested (e.g., `okta.com`, `auth0.com`, third-party payment processors, or external APIs).
 
 ###### Note
 
 All target domains must be verified before AWS Security Agent can perform penetration testing on them. Once a domain is verified, you can also add subdomains of that domain to your penetration test scope without requiring further verification. For private domains inside a VPC, you would also be able to create or update pentests if the domain verification status is UNREACHABLE. AWS Security Agent will try to perform domain verification for the private endpoint at the start of a pentest run again.
-
-###### Tip
-
-Add allowed domains for third-party services your application integrates with (such as Okta, Auth0, Stripe, or other external authentication/payment providers) to ensure AWS Security Agent can interact with them during testing without attempting to penetration test those services.
 
 ## Step 2: (Optional) Configure VPC settings
 

@@ -67,8 +67,8 @@ You can create and run a penetration test only in the AWS Security Agent web app
 2. In the left sidebar, click **Penetration Test**, then select **Create your first penetration test**.
 3. Define the penetration test details:
    1. Select the domain you want to test or specify one or more paths. You can only test verified domains.
-   2. If your application needs to access URLs that are outside of your target domain, including for login purposes, then please add all the URLs to the **Additional allowed URLs** field.
-      NOTE: **Additional allowed URLs** is outside the scope of pentesting, and is accessed for tasks such as login.
+   2. If your application needs to access URLs that are outside of your target domain, add them to the **Accessible URLs** field. This includes third-party services such as Okta, Auth0, or Stripe that are required for login and navigation during testing.
+      NOTE: AWS Security Agent does NOT penetration test accessible URLs—they are used solely for access purposes. Add all third-party domains that your application depends on to ensure proper testing coverage of your target domain.
    3. Select the IAM role and log group AWS Security Agent should use to store logs. If you do not select a log group, AWS Security agent will create a log group at the start of the pentest run.
    4. Select **Enable automatic code remediation** to allow AWS Security Agent to automatically create a pull request with ready-to-implement code fix for all the pentest findings.
    5. Click **Next**.
