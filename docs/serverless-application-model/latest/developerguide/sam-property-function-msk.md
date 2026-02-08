@@ -26,6 +26,8 @@ To declare this entity in your AWS SAM template, use the following syntax.
   MaximumBatchingWindowInSeconds: `Integer`
   MaximumRecordAgeInSeconds: `Integer`
   MaximumRetryAttempts: `Integer`
+  LoggingConfig: `LoggingConfig`
+  MetricsConfig: `MetricsConfig`
   ProvisionedPollerConfig: `ProvisionedPollerConfig`
   SchemaRegistryConfig: `SchemaRegistryConfig`
   SourceAccessConfigurations: `SourceAccessConfigurations`
@@ -171,6 +173,30 @@ _Type_: Integer
 _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+`LoggingConfig`
+
+A configuration object that specifies the logging configuration for the event source mapping.
+
+_Type_: [LoggingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`LoggingConfig` property of an
+`AWS::Lambda::EventSourceMapping` resource.
+
+`MetricsConfig`
+
+A configuration object that specifies the metrics configuration for the event source mapping.
+
+_Type_: [MetricsConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`MetricsConfig` property of an
+`AWS::Lambda::EventSourceMapping` resource.
 
 `ProvisionedPollerConfig`
 
