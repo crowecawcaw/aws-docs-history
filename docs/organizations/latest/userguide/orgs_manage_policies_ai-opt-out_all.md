@@ -49,7 +49,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 - [Amazon Connect Optimization](../../../connect.md "../../../connect.md")
 - [Amazon Connect Contact Lens](../../../connect/latest/adminguide/contact-lens.md "../../../connect/latest/adminguide/contact-lens.md")
 - [AWS Database Migration Service](../../../dms.md "../../../dms.md")
-- [Amazon DataZone](../../../datazone.md "../../../datazone.md")
+- [Amazon DataZone](../../../datazone.md "../../../datazone.md") (and [Amazon SageMaker Data Agent](../../../sagemaker-unified-studio/latest/userguide/sagemaker-data-agent.md "../../../sagemaker-unified-studio/latest/userguide/sagemaker-data-agent.md"))
 - [AWS Entity Resolution](../../../entityresolution.md "../../../entityresolution.md")
 - [Amazon Fraud Detector](../../../frauddetector.md "../../../frauddetector.md")
 - [AWS Glue](../../../glue.md "../../../glue.md")
