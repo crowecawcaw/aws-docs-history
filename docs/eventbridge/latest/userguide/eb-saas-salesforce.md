@@ -120,7 +120,7 @@ source.
 11. (Optional) Specify a unique suffix for the partner event source.
 12. Choose **Generate partner event source**.
 13. Choose an Amazon S3 bucket to store event payload files that are larger than
-    256 KB.
+    1 MB.
 14. In the **Flow trigger** section, ensure that **Run
     flow on event** is selected. This setting ensures that the flow is
     executed when a new Salesforce event occurs.
@@ -175,7 +175,7 @@ with event patterns](eb-create-pattern.md#eb-event-patterns-content-based-filter
 
 ###### Note
 
-For events larger than 256KB, Amazon AppFlow doesn't send the full event to EventBridge. Instead,
+For events larger than 1 MB, Amazon AppFlow doesn't send the full event to EventBridge. Instead,
 Amazon AppFlow puts the event into an S3 bucket in your account, and then sends an event to
 EventBridge with a pointer to the Amazon S3 bucket. You can use the pointer to get the full
 event from the bucket.

@@ -142,7 +142,7 @@ Next, we'll generate events in the pipe source to test that the pipe filtering a
 1. On the pipe detail page, under **Pipe Components**, choose the **Source** tab.
 2. Under **Source**, choose the DynamoDB stream name.
 
-This opens the DynamoDB console in a separate window, with the source table details displayed. 3. Choose **Explore table items**. 4. Generate an `INSERT` event by creating an item in the table:
+This opens the DynamoDB console in a separate window, with the source table details displayed. 3. Choose **Explore items**. 4. Generate an `INSERT` event by creating an item in the table:
 
     1. Choose **Create item**.
     2. Add values for the **Album** and **Artist** attributes.
@@ -445,7 +445,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17		 	 	 '
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Principal:
@@ -469,7 +469,7 @@ Resources:
       Policies:
         - PolicyName: SourcePermissions
           PolicyDocument:
-            Version: '2012-10-17		 	 	 '
+            Version: '2012-10-17'
             Statement:
               - Effect: Allow
                 Action:
@@ -481,7 +481,7 @@ Resources:
                   - !GetAtt PipeSourceDynamoDBTable.StreamArn
         - PolicyName: TargetPermissions
           PolicyDocument:
-            Version: '2012-10-17		 	 	 '
+            Version: '2012-10-17'
             Statement:
               - Effect: Allow
                 Action:

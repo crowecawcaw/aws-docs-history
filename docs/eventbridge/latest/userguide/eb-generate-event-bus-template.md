@@ -11,8 +11,7 @@ For more information on CloudFormation see [_The CloudFormation User Guide_.](..
 
 ###### Note
 
-EventBridge does not include [managed rules](eb-rules.md "eb-rules.md")
-[managed rules](eb-rules.md#eb-rules-managed "eb-rules.md#eb-rules-managed") in the
+EventBridge does not include [managed rules](eb-rules.md#eb-rules-managed "eb-rules.md#eb-rules-managed") in the
 generated template.
 
 You can also [generate a template from one or more rules contained in a selected event bus](rule-create-template.md "rule-create-template.md").

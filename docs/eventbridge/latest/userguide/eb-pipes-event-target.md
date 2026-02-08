@@ -122,7 +122,7 @@ workflows](../../../step-functions/latest/dg/concepts-standard-vs-express.md "..
 EventBridge Pipes supports payloads up to 6 MB. However, the effective payload size limit is determined by whichever is smaller: the Pipes limit of 6 MB or the target service's maximum payload size. For example:
 
 - Lambda functions support payloads up to 6 MB, so the effective limit for a pipe targeting Lambda is 6 MB.
-- EventBridge event buses support payloads up to 256 KB, so the effective limit for a pipe targeting an event bus is 256 KB.
+- EventBridge event buses support payloads up to 1 MB, so the effective limit for a pipe targeting an event bus is 1 MB.
 - Step Functions state machines support payloads up to 256 KB, so the effective limit for a pipe targeting Step Functions is 256 KB.
 
 When configuring your pipe, ensure your payload size, including any transformations applied by enrichment or input transformation, does not exceed the target's maximum payload size.

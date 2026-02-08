@@ -84,8 +84,8 @@ by CloudTrail. For example, an Amazon EC2 API call that starts an instance gener
 
 ###### Note
 
-If you use a `Put*Events` API call event as the basis for creating an event pattern, make sure the final event pattern does not exceed 256 KB. The maximum size of any
-`Put*Events` requests is 256 KB. For more information, see .
+If you use a `Put*Events` API call event as the basis for creating an event pattern, make sure the final event pattern does not exceed 1 MB. The maximum size of any
+`Put*Events` requests is 1 MB. For more information, see .
 
 For more information about the services that CloudTrail supports, see [CloudTrail supported
 services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md") in the _CloudTrail User Guide_.
