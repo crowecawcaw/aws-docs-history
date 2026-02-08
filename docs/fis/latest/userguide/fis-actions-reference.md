@@ -278,8 +278,6 @@ modifications to the existing policy statements. The fault statement is then rem
 
 Target Amazon DynamoDB MRSC global tables are subject to an additional quota. This quota enforces that no single table may be subject to more than 5,040 minutes of impairment in a 7-day rolling window.
 
-Only Amazon DynamoDB MRSC global tables in on-demand capacity mode are supported. Tables in provisioned capacity mode are not supported.
-
 ###### Multi-Region eventually consistent (MREC) global tables
 
 The following statement will be dynamically appended to the policy for the target DynamoDB MREC global table:
