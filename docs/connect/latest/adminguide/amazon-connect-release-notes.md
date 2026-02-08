@@ -5,7 +5,54 @@ Inbox. Click the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## February 2026 Updates
+
+### Amazon Connect now enables per-channel auto-accept and
+
+After Contact Work (ACW) timeouts
+
+You can now configure agents with auto-accept and after contact work timeout settings for chat, tasks,
+emails, and callbacks to optimize how agents spend their time. Previously, these settings were available
+only for inbound voice contacts. To learn more, see [Configure agent settings](configure-agents.md "configure-agents.md").
+
+Please note that if you currently integrate with the UpdateUserPhoneConfig API, we recommend you migrate
+to the newly released UpdateUserConfig API instead. Per-channel auto-accept and ACW timeouts can only be
+updated via UpdateUserConfig API.
+
+### Audio Enhancement for agents
+
+Amazon Connect now offers Audio Enhancement to improve audio quality on the agent's side by reducing
+background noise and isolating the agent's voice during calls. Administrators can enable
+noise suppression or voice isolation modes for agents through user management settings.
+Agents with the appropriate security profile permissions can also adjust their own Audio
+Enhancement settings during work sessions.
+
+For more information, see [Enable Audio Enhancement](audio-enhancement.md "audio-enhancement.md").
+
+### Amazon Connect Cases now supports CSV upload for dependent field options
+
+Amazon Connect Cases now enables you to bulk configure cascading dropdown menus for case fields by uploading CSV files containing field option mappings. This capability
+significantly reduces manual configuration time for complex hierarchical data structures such as geographic hierarchies (Country → State → City) or product categorizations (Category → Subcategory).
+You can include multiple field pairs in a single CSV file.
+
+For more information, see [CSV upload for dependent field options](case-field-dependent-csv-upload.md "case-field-dependent-csv-upload.md").
+
 ## January 2026 Updates
+
+### Amazon Connect Launches Wait Time Estimates to Improve Customer Experience
+
+Amazon Connect now delivers improved estimated wait time metrics for queues and enqueued contacts, empowering
+organizations to enhance customer satisfaction. This allows contact centers to set accurate customer expectations,
+provide convenient options such as callbacks when hold times are extended, and balance workloads effectively
+across multiple queues. By leveraging the estimated wait time metric, contact centers can make strategic routing
+choices across queues while gaining enhanced visibility for better resource planning. For example, a customer
+calling about billing during peak hours with a 15-minute wait is seamlessly transferred to a cross-trained
+team with 2-minute availability, getting help faster without repeating their issue. The metric works seamlessly
+with routing criteria and agent proficiency configurations.
+
+This feature is available in all [AWS regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") where Amazon Connect is offered.
+To learn more about estimated wait time see the [Amazon Connect Administrator Guide](get-queue-metrics.md "get-queue-metrics.md").
+To learn more about Amazon Connect, the AWS cloud-based contact center, please visit the [Amazon Connect website](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/").
 
 ### Amazon Connect now supports file attachments for tasks via StartTaskContact API
 
@@ -689,7 +736,7 @@ For more information, see [Outbound Campaigns](outbound-campaigns.md "outbound-c
 position in queue
 
 You can use the [GetContactMetrics](../APIReference/API_GetContactMetrics.md "../APIReference/API_GetContactMetrics.md") API and
-the [Position in queue](metrics-definitions.md#position-in-queue "metrics-definitions.md#position-in-queue") metric to retrieve
+the [Position in Queue](metrics-definitions.md#position-in-queue "metrics-definitions.md#position-in-queue") metric to retrieve
 real-time position in queue data. (This functionality is not available in flows, only by using
 the API.) This enhancement provides contact centers with a way to manage customer wait times
 more effectively by:
@@ -701,7 +748,7 @@ more effectively by:
 - Optimizing agent resource allocation through improved queue visibility
 
 For more information, see the [GetContactMetrics](../APIReference/API_GetContactMetrics.md "../APIReference/API_GetContactMetrics.md") API
-documentation and the [Position in queue](metrics-definitions.md#position-in-queue "metrics-definitions.md#position-in-queue")
+documentation and the [Position in Queue](metrics-definitions.md#position-in-queue "metrics-definitions.md#position-in-queue")
 metric definition.
 
 ## July 2025 Updates
@@ -5458,7 +5505,7 @@ Occupancy no longer appears on the **Dashboard** page.
 - The **Set Voice** block supports Amazon Polly Neural Text-to-Speech (NTTS)
   voices. For more information, see [Flow block in Amazon Connect: Set voice](set-voice.md "set-voice.md").
 - The **Get queue metrics** block can return metrics by channel, for
-  example, by voice or chat. For more information, see [Flow block in Amazon Connect: Get queue metrics](get-queue-metrics.md "get-queue-metrics.md").
+  example, by voice or chat. For more information, see [Flow block in Amazon Connect: Get metrics](get-queue-metrics.md "get-queue-metrics.md").
 
 ### May 2020 Update
 

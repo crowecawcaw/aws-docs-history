@@ -306,7 +306,7 @@ block, as shown in the following image.
 
     		- In the customer queue flow, you can evaluate the
     		 contact's wait time in queue by using a combination of
-    		 the [Get queue metrics](get-queue-metrics.md "get-queue-metrics.md") block and
+    		 the [Get metrics](get-queue-metrics.md "get-queue-metrics.md") block and
     		 [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") to send an advance SMS
     		 to customers, notifying them to expect a callback in the
     		 near future from the specific contact center

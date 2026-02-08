@@ -33,3 +33,5 @@ chat](interactive-messages.md "interactive-messages.md").
 - [Amazon Connect
   Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams"). Use to integrate your existing apps with Amazon Connect. You can embed
   the Contact Control Panel (CCP) components into your app.
+- [Enable message streaming for AI-powered
+  chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md")

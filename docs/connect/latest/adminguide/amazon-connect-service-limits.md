@@ -155,7 +155,7 @@ All Amazon Q quotas are at the Account level.
 | Maximum number of characters in an email message template                | 5,000,000                                                                                                                                                        | No         |
 | Maximum number of characters in an SMS message template                  | 800                                                                                                                                                              | No         |
 | Number of assigned routing profiles per quick response or email template | 40                                                                                                                                                               | No         |
-| RateLimit for all APIs                                                   | 10TPS<br>The rate limit for DeleteQuickResponse and SearchQuickResponses is<br>20TPS                                                                             | No         |
+| RateLimit for all APIs                                                   | 10 TPS except,<br>• DeleteQuickResponse 20 TPS<br>• SearchQuickResponses 20 TPS<br>• SendMessage 1-2 TPS, depending on region                                    | No         |
 
 ## Amazon Connect Cases service quotas
 
@@ -396,14 +396,15 @@ specified here, or opening a ticket.
 
 ### Amazon Connect Cases API throttling quotas
 
-| API                                                                                                                                                  | Default TPS throttling limits |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| CreateCase, SearchCases, UpdateCase, AssociateContact,<br>ListTemplates, CreateRelatedItem, SearchRelatedItems                                       | 10                            |
-| CreateField, ListFields, CreateDomain,<br>GetDomain,CreateTemplate, BatchPutFieldOptions, CreateLayout,<br>UpdateLayout, UpdateTemplate, UpdateField | 5                             |
-| BatchGetField                                                                                                                                        | 25                            |
-| GetCase                                                                                                                                              | 15                            |
-| GetTemplate, GetLayout                                                                                                                               | 20                            |
-| ListFieldOptions                                                                                                                                     | 15                            |
+| API                                                                                                                                                                                                                                         | Default Rate Limit | Default Burst Limit | Adjustable |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------- | ---------- |
+| CreateCase, SearchCases, ListTemplates, ListLayouts, CreateRelatedItems,<br>SearchRelatedItems, ListCaseRules, ListTagsForResource, TagResource, UntagResource,<br>GetCaseAuditEvents, GetCaseEventConfiguration, PutCaseEventConfiguration | 2                  | 10                  | yes        |
+| GetCase                                                                                                                                                                                                                                     | 4                  | 10                  | yes        |
+| UpdateCase, ListCasesForContact                                                                                                                                                                                                             | 2                  | 2                   | yes        |
+| CreateField, ListFields, UpdateField, BatchPutFieldOptions, CreateDomain, GetDomain,<br>ListDomains, CreateTemplate, UpdateTemplate, CreateLayout, UpdateLayout, CreateCaseRule,<br>UpdateCaseRule, DeleteCaseRules                         | 2                  | 5                   | yes        |
+| BatchGetField, BatchGetCaseRule                                                                                                                                                                                                             | 8                  | 25                  | yes        |
+| ListFieldOptions                                                                                                                                                                                                                            | 6                  | 16                  | yes        |
+| GetTemplate, GetLayout                                                                                                                                                                                                                      | 6                  | 20                  | yes        |
 
 ### Amazon Connect Contact Lens Service API
 

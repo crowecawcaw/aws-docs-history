@@ -8,12 +8,12 @@ from a desktop/laptop speaker instead of a headset, for example.
 
 ###### Important
 
-Audio device settings are saved in your browser storage, not in Amazon Connect.
+Your speaker, ringer, and microphone settings are saved in your browser storage, not in Amazon Connect.
 
-- If your browser cache is cleared when you log off, your audio device
-  settings are also cleared.
+- If your browser cache is cleared when you log off, these settings
+  are also cleared.
 - If you move to a different computer or browser, you will need to change
-  your audio device settings there, too.
+  these settings there, too.
 
 ## Change audio device settings in the
 
@@ -24,8 +24,11 @@ CCP
    following image.
 
 ![The CCP, the settings icon in upper right corner, the settings page.](images/ccp-audio-settings.png) 2. Under **Audio devices**, use the dropdown to select your
-**Speaker**, **Microphone**, and
-**Ringer**.
+**Speaker**, **Microphone**,
+**Ringer**, and **Audio
+Enhancement**. For more information about Audio Enhancement,
+see [Enable Audio
+Enhancement for agents in Amazon Connect](audio-enhancement.md "audio-enhancement.md").
 
 ## Prerequisite: Allow your browser to access
 

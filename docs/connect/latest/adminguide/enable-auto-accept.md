@@ -1,38 +1,32 @@
-# Enable auto-accept call for agents
+# Enable auto-accept for agents
 
-When Auto-Accept Call is enabled for an available agent, the agent connects to
-contacts automatically.
+When auto-accept is enabled for an available agent, the agent will be automatically connected to contacts
+from that channel, and won’t need to manually click accept or reject.
 
-This functionality doesn't apply to chats, tasks, or emails.
+Auto-accept can be enabled for calls, callbacks, chats, tasks, and emails. Auto-accept for customer-first
+callbacks, inbound calls, and Outbound Campaigns calls are covered under the Voice auto-accept settings.
+Auto-accept for agent-first callbacks are covered under the Agent-first callback setting.
 
-## How long until the call is connected to the
+## How long until the contact is connected to the
 
 agent?
 
-###### Note
+Less than one second. When a contact arrives to an available agent who has auto-accept enabled for
+that channel, the Contact Control Panel (CCP) may briefly show the options **Accept**
+or **Reject**. This is expected behavior. After less than a second, the contact is
+automatically accepted and these options disappear. Additionally, if the contact is a chat, task,
+or email, an audio notification will be played to notify the agent that the contact has been auto-accepted.
+For voice calls, the auto-accept audio notification does not play, only the [agent whisper](set-whisper-flow.md "set-whisper-flow.md").
 
-While the call will be connected in less than one second, there will be no
-ringer, only the agent whisper.
-
-Less than one second. When a call arrives to an available agent who has
-Auto-Accept Call enabled, the Contact Control Panel (CCP) briefly shows the options
-**Accept** or **Reject**. This is expected
-behavior. After less than a second, the call is automatically accepted and these
-options disappear.
-
-There isn't an option for increasing
-the amount of time before a call is automatically accepted.
-
-Auto-Accept Call doesn't work for callbacks.
-
-## Enable auto-accept call for existing
+## Enable auto-accept for existing
 
 agents
 
-You can't enable Auto-Accept Call while editing multiple existing users in your
-Amazon Connect instance. You must edit existing users individually to enable it. However, you
-can configure the setting for multiple new users when you bulk upload new users with
-the CSV template.
+You can enable auto-accept using the Edit or Bulk Edit features in Amazon Connect. Please note that
+you cannot configure per-channel auto-accept on user creation when creating users via importing a .csv
+template; instead, first create the users then use Bulk Edit to modify their per-channel auto-accept settings.
+
+To Edit or Bulk Edit:
 
 1. Log in to the Amazon Connect admin website at https://`instance
 name`.my.connect.aws/. Use an Admin account, or an account with
@@ -45,11 +39,9 @@ name`.my.connect.aws/. Use an Admin account, or an account with
    **User management**.
 3. In the list of users, select an agent, and then choose
    **Edit**.
-4. On the **Edit users** page, under
-   **Phone**, choose **Soft phone**, and
-   then select the **Auto-Accept Call** check box.
+4. On the **Edit users** page, find the **Contact handling**
+   section under **Settings**, and enable auto-accept for the desired channel.
 5. Choose **Save**.
-6. Repeat these steps for each user that you want to edit.
 
 ###### Note
 
@@ -59,55 +51,12 @@ Workspace browser tab in focus when you accept and connect to a voice contact.
 The CCP conforms to Firefox microphone usage guidance, and only has access to
 connect to the user's microphone when CCP tab is in focus.
 
-## Bulk upload new users with
+![Enable auto-accept for existing agents.](images/agent-contact-handling-config.png)
 
-auto-accept call enabled
+## Bulk upload new users
 
-You can't use the CSV template to edit information for existing users. If you
-include duplicate users with different information in the CSV template, you will
-receive an error.
+You cannot configure per-channel auto-accept on user creation when creating users via importing a
+.csv template; instead, first create the users then use Bulk Edit to modify their per-channel auto-accept
+settings.
 
-1. Log in to the Amazon Connect admin website at https://`instance
-name`.my.connect.aws/. Use an Admin account, or an account with
-   **Users and Permissions** - **Users**
-
-- **Create** permission in it's security profile.
-
-2. On the left navigation menu, choose **Users**,
-   **User management**.
-3. Choose **Add new users**.
-4. Choose **Import users using a .csv template**.
-5. Choose to download the template for a pre-formatted CSV file.
-6. In the CSV file, configure the details for the new users who you want to
-   add. For **soft phone auto accept (yes/no)**, be sure to
-   enter **yes**.
-7. After configuring the CSV file, in your Amazon Connect instance, choose
-   **Upload file**, and then choose the configured CSV
-   file from its location on your computer.
-8. Under **Upload file and verify**.
-9. Under **Verify user details**, verify that the
-   information is correct for the new users, and then choose
-   **Save**.
-
-## (Optional) Verify the change
-
-in CCP logs
-
-To confirm that **Auto-Accept Call** is enabled for an agent,
-download the CCP logs generated for that agent: in the CCP for the agent, choose
-**Settings**, **Download logs**. The logs are
-saved to your browser's default download directory.
-
-In the logs, the **autoAccept** attribute is set to
-**"true"** if this setting is enabled. The logs show something
-like this:
-
-```
-
-                  "type": "agent",
-                  "initial": false,
-                  "softphoneMediaInfo": {
-                       "callType": "audio_only",
-                       "autoAccept": true
-
-```
+You can't use the CSV template to edit information for existing users.

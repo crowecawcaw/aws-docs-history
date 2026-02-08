@@ -15,6 +15,8 @@ operations team members.
 - [Amazon Connect workload layers](workload-layers.md "workload-layers.md")
 - [Scenario and deployment
   approaches](scenario-deployment-approaches.md "scenario-deployment-approaches.md")
+- [Single Instance or
+  Multiple Instances?](single-instance-multiple-instances.md "single-instance-multiple-instances.md")
 - [Operational Excellence](operational-excellence.md "operational-excellence.md")
 - [Security for contact centers](security-bp.md "security-bp.md")
 - [Load and penetration /

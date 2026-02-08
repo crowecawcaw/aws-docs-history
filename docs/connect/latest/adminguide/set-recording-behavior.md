@@ -2,6 +2,10 @@
 
 analytics behavior
 
+###### Note
+
+This block remains supported in existing flows for backwards compatibility, but it is replaced by [Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md") for new flows or modifications.
+
 This topic defines the flow block for setting options to record or monitor voice for
 agent and customer, enable automated interaction, enable screen recording, and to set
 analytics behavior for contacts.

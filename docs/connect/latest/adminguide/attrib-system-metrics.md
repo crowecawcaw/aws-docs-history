@@ -69,7 +69,7 @@ shows the following three flow blocks connected by Success branches: **Set conta
 attributes**, **Get queue metrics**, and **Check contact
 attributes**.
 
-![The flow designer with three flow blocks on it.](images/get-queue-metrics-specify-set-contact-attributes.png)
+![The flow designer with three flow blocks on it.](images/get-metrics-specify-set-contact-attributes.png)
 
 1. Add a [Set contact
    attributes](set-contact-attributes.md "set-contact-attributes.md") block to your flow.
@@ -79,7 +79,7 @@ attributes**.
    or **Chat**, as shown in the following image. This value is not
    case-sensitive.
 
-![The properties page of the Set contact attributes block. Namespace is set to User defined, Value set to chat.](images/get-queue-metrics-properties2.png) 3. Add a [Get queue metrics](get-queue-metrics.md "get-queue-metrics.md")
+![The properties page of the Set contact attributes block. Namespace is set to User defined, Value set to chat.](images/get-metrics-properties2.png) 3. Add a [Get metrics](get-queue-metrics.md "get-queue-metrics.md")
 block to your flow.
 
 In the Get queue metrics block, dynamic attributes can only return metrics for one
@@ -101,8 +101,8 @@ to branch based on the returned metrics. Use the following steps:
    following queue metrics are returned by the **Get queue metrics**
    block. Choose the metric that you want to use for the routing decision.
 
-![The properties page of the Check contact attributes block, Namespace is set to Queue metrics.](images/get-queue-metrics-block-returned-metrics.png) 4. Choose **Add a condition** to enter the comparison for your routing
+![The properties page of the Check contact attributes block, Namespace is set to Queue metrics.](images/get-metrics-block-returned-metrics.png) 4. Choose **Add a condition** to enter the comparison for your routing
 decision. The following image shows the block configured to check whether contacts in
 queue is greater than 5.
 
-![The Attribute to check section, the Conditions to check section.](images/get-queue-metrics-check-attributes-block.png)
+![The Attribute to check section, the Conditions to check section.](images/get-metrics-check-attributes-block.png)

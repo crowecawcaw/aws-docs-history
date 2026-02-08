@@ -14,6 +14,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Capabilities attributes](#attribs-capabilities "#attribs-capabilities")
 - [Agent attributes](#attribs-agent "#attribs-agent")
 - [Queue attributes](#attribs-system-metrics-table "#attribs-system-metrics-table")
+- [Contact Metric attributes](#attribs-contact-metrics-table "#attribs-contact-metrics-table")
 - [Telephony call metadata attributes
   (call attributes)](#telephony-call-metadata-attributes "#telephony-call-metadata-attributes")
 - [Chat initial message attributes](#chat-initial-message-attributes "#chat-initial-message-attributes")
@@ -24,7 +25,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 - [Lambda contact attributes](#attribs-lambda-table "#attribs-lambda-table")
 - [User-defined attributes](#user-defined-attributes "#user-defined-attributes")
 - [Flow attributes](#flow-attributes "#flow-attributes")
-- [Loop Attributes](#w2aac18c52b9c39 "#w2aac18c52b9c39")
+- [Loop Attributes](#w2aac18c52b9c41 "#w2aac18c52b9c41")
 - [Flow modules attributes](#flow-modules-attributes "#flow-modules-attributes")
 - [Data Table attributes](#data-table-attributes "#data-table-attributes")
 - [Apple Messages for Business attributes](#apple-messages-for-business-attributes "#apple-messages-for-business-attributes")
@@ -159,7 +160,7 @@ Agent attributes are not available in the following flow types:
 
 ## Queue attributes
 
-These system attributes are returned when you use a [Get queue metrics](get-queue-metrics.md "get-queue-metrics.md") block in your flow.
+These system attributes are returned when you use a [Get metrics](get-queue-metrics.md "get-queue-metrics.md") block in your flow.
 
 If there is no current activity in your contact center, null values are returned for
 these attributes.
@@ -170,6 +171,7 @@ these attributes.
 | Queue ARN                      | The ARN of the queue for which metrics were retrieved.                                                                            | System | $.Metrics.Queue.ARN                     |
 | Contacts in queue              | The number of contacts currently in the queue.                                                                                    | System | $.Metrics.Queue.Size                    |
 | Oldest contact in queue        | For the contact that has been in the queue the longest, the length of<br>time that the contact has been in the queue, in seconds. | System | $.Metrics.Queue.OldestContactAge        |
+| Queue Estimated Wait Time      | An estimate, in seconds, of how long a contact will wait in queue before being connected to an agent.                             | System | $.Metrics.Queue.EstimatedWaitTime       |
 | Agents online                  | The number of agents currently online, which means logged in and in any<br>state other than offline.                              | System | $.Metrics.Agents.Online.Count           |
 | Agents available               | The number of agents whose state is set to Available.                                                                             | System | $.Metrics.Agents.Available.Count        |
 | Agents staffed                 | The number of agents currently staffed, which is agents logged in and in<br>Available, ACW, or Busy states.                       | System | $.Metrics.Agents.Staffed.Count          |
@@ -177,6 +179,18 @@ these attributes.
 | Agents busy                    | The number of agents currently active on a contact.                                                                               | System | $.Metrics.Agents.Busy.Count             |
 | Agents missed count            | The number of agents in the Missed state, which is the state an agent<br>enters after a missed contact.                           | System | $.Metrics.Agents.Missed.Count           |
 | Agents in non-productive state | The number of agents in a non-productive (NPT) state.                                                                             | System | $.Metrics.Agents.NonProductive.Count    |
+
+## Contact Metric attributes
+
+These system attributes are returned when you use a [Get metrics](get-queue-metrics.md "get-queue-metrics.md") block in your flow.
+
+If there is no current activity in your contact center, null values are returned for
+these attributes.
+
+| Attribute           | Description                                                                                                                                  | Type   | JSONPath Reference                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------------------------- |
+| Estimated Wait Time | An estimate, in seconds, of how long the current contact will wait in queue before being connected to an agent.                              | System | $.Metrics.Contact.EstimatedWaitTime |
+| Position in Queue   | The position of the contact in a queue while accounting for the<br>channel (voice, chat, task, or email) and whether a routing step is used. | System | $.Metrics.Contact.PositionInQueue   |
 
 ## Telephony call metadata attributes
 

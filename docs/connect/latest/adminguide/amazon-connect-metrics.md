@@ -35,6 +35,8 @@ For detailed information about the activity of agents in your contact center, us
 - [Contact records data model](ctr-data-model.md "ctr-data-model.md")
 - [Use contact segment
   attributes](use-contact-segment-attributes.md "use-contact-segment-attributes.md")
+- [Use predefined attributes
+  in dashboards](use-predefined-attributes-dashboards.md "use-predefined-attributes-dashboards.md")
 - [Apply hierarchy-based access
   control](dashboard-access-control.md "dashboard-access-control.md")
 - [Apply tag-based access

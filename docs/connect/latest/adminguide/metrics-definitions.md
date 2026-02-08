@@ -5542,6 +5542,37 @@ status. This metric can't be grouped or filtered by queue.
 - Data for this metric is available starting from December 29, 2023 0:00:00
   GMT.
 
+## Estimated Wait Time
+
+An estimate, in seconds, of how long a contact will wait in queue before being connected to an agent.
+EWT is calculated based on the contact's position in queue, the rate at which contacts are being connected
+to agents or disconnecting, and a correction factor that improves accuracy over time. It is available at the
+queue level (for new contacts), routing step level (when using agent proficiency-based routing),
+and contact level (for contacts already in queue).
+
+**Metric type**: Double
+
+**Metric category**: Estimated metric
+
+**How to access using the Amazon Connect API**:
+
+- [GetContactMetrics](../APIReference/API_GetContactMetrics.md "../APIReference/API_GetContactMetrics.md") API identifier:
+  `ESTIMATED_WAIT_TIME`
+- [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API identifier:
+  `ESTIMATED_WAIT_TIME`
+
+**Requirements**:
+
+- To use Estimated Wait Time you must enable [Next
+  Generation Amazon Connect](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") for your instance.
+
+**Notes**:
+
+- Estimated Wait Time (EWT) is an approximation of how long a contact will wait in queue before being connected to an agent.
+- The EWT is vended in seconds.
+- EWT may not be available when the system is unable to establish sufficient confidence in the prediction.
+- When EWT is not available i.e. it cannot be predicted with a high degree of confidence, the result will be empty
+
 ## Evaluations performed
 
 This metric provides the number
@@ -5935,6 +5966,8 @@ the queue the longest.
 **How to access using the Amazon Connect admin website**:
 
 - Real-time metrics reports: Oldest
+- Dashboard: [Queue and agent performance
+  dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Oldest contact age
 
 **How to access using the Amazon Connect API**:
 
@@ -6136,7 +6169,7 @@ module) started between the specified start and end time.
 
 For a list of all bot metrics, see [Amazon Connect bot metrics and analytics](bot-metrics.md "bot-metrics.md").
 
-## Position in queue
+## Position in Queue
 
 This metric calculates the position of the contact in a queue while accounting for the
 channel (voice, chat, task, or email) and whether a routing step is used.
@@ -6290,6 +6323,8 @@ queue metrics in Amazon Connect](scheduled-vs-inqueue.md "scheduled-vs-inqueue.m
 **How to access using the Amazon Connect admin website**:
 
 - Real-time metrics reports: Scheduled
+- Dashboard: [Queue and agent performance
+  dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md"), Contacts scheduled
 
 ## Service level _X_
 

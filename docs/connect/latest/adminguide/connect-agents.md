@@ -9,11 +9,12 @@ queue, skill set, and routing profiles.
 - [Set up agent hierarchies](agent-hierarchy.md "agent-hierarchy.md")
 - [Add custom agent statuses](agent-custom.md "agent-custom.md")
 - [Configure agent settings](configure-agents.md "configure-agents.md")
+- [Enable Audio Enhancement](audio-enhancement.md "audio-enhancement.md")
 - [Create predefined attributes for routing
   contacts to agents](predefined-attributes.md "predefined-attributes.md")
 - [Assign proficiencies to
   agents](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
-- [Enable auto-accept call](enable-auto-accept.md "enable-auto-accept.md")
+- [Enable auto-accept](enable-auto-accept.md "enable-auto-accept.md")
 - [Enable persistent
   connection](enable-persistent-connection.md "enable-persistent-connection.md")
 - [Set up agents to

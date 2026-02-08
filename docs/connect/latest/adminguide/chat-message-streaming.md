@@ -11,6 +11,13 @@ to a real-time stream of chat messages. Using these APIs, you can:
   integrations with SMS solutions and third-party messaging applications, enabling mobile push notifications, and creating
   analytics dashboards to monitor and track chat message activity.
 
+###### Note
+
+This page describes how to subscribe to an SNS endpoint for real-time streaming
+of chat messages in Amazon Connect. If you're trying to enable message streaming for
+conversational AI interactions in Amazon Connect, see [Enable message streaming for AI-powered
+chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
+
 ## How the message streaming APIs
 
 work

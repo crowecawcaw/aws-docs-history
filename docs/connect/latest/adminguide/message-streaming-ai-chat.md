@@ -131,3 +131,12 @@ This feature currently does not support branching back to the same [Flow block i
 alias in another **Get customer input** block. Instead, create a
 new **Get customer input** block using a different Amazon Lex bot
 alias.
+
+## Timeout limits
+
+The following timeout limits apply to chat experiences:
+
+- **Standard chat experience** –
+  10-second timeout
+- **Chat streaming** – 60-second
+  timeout

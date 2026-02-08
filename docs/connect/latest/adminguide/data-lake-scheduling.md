@@ -39,6 +39,8 @@ shared:
 - [Staff shift activity allocation](#data-lake-staff-shift-activity-allocation "#data-lake-staff-shift-activity-allocation")
 - [Schedule metrics](#data-lake-schedule-metrics "#data-lake-schedule-metrics")
 - [Schedule goals](#data-lake-schedule-goals "#data-lake-schedule-goals")
+- [Shift rotation patterns](#data-lake-shift-rotation-patterns "#data-lake-shift-rotation-patterns")
+- [Shift rotation steps](#data-lake-shift-rotation-steps "#data-lake-shift-rotation-steps")
 - [Data schema](#data-lake-data-schema "#data-lake-data-schema")
 - [Sample queries](#data-lake-sample-queries "#data-lake-sample-queries")
 
@@ -60,7 +62,9 @@ Composite Primary Key: `{instance_id, agent_arn,
 | staffing_group_arn                 | string    | The ARN of the Staffing Group to which the Agent is<br>assigned.                                                                                                                                  |
 | start_timestamp                    | Timestamp | StartTimestamp for the Agent configured in Staff Rules<br>(schedules are generated only after this Timestamp).                                                                                    |
 | end_timestamp                      | Timestamp | EndTimestamp for the Agent configured in Staff Rules<br>(schedules are not generated beyond this Timestamp).                                                                                      |
-| shift_profile_arn                  | string    | ARN of the Shift Profile to which the Agent is Assigned<br>configured in Staff Rules.                                                                                                             |
+| shift_profile_arn                  | string    | The ARN of the Shift Profile assigned to the Agent in Staff Rules. Mutually exclusive with Shift Rotation Pattern.                                                                                |
+| shift_rotation_pattern_arn         | string    | The ARN of the Shift Rotation Pattern assigned to the Agent in Staff Rules. Mutually exclusive with Shift Profile.                                                                                |
+| shift_rotation_start_step_id       | bigint    | The step ID where the Agent begins in the assigned Shift Rotation Pattern.                                                                                                                        |
 | timezone                           | string    | Timezone configured for the Agent.                                                                                                                                                                |
 | is_deleted                         | Boolean   | Set to True if the Agent is deleted. Else set to False.                                                                                                                                           |
 | last_updated_timestamp             | Timestamp | Timestamp when the Staff Scheduling Profile was<br>created/updated/deleted.                                                                                                                       |
@@ -399,6 +403,51 @@ Composite Primary Key: `{instance_id, goal_id}`
 | is_deleted                         | boolean   | Denotes whether the goal is deleted                                                                                                                                                    |
 | last_updated_timestamp             | timestamp | The Timestamp when the goals record was created.                                                                                                                                       |
 | data_lake_last_processed_timestamp | timestamp | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+
+## Shift rotation patterns
+
+Table Name: `shift_rotation_patterns`
+
+Composite Primary Key: `{instance_id, shift_rotation_pattern_arn,
+ shift_rotation_pattern_version}`
+
+| Column                             | Type      | Description                                                                                                                                                                                     |
+| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The ID of the Amazon Connect instance.                                                                                                                                                          |
+| shift_rotation_pattern_arn         | string    | The ARN of the Shift Rotation Pattern.                                                                                                                                                          |
+| shift_rotation_pattern_version     | bigint    | The Shift Rotation Pattern Version.                                                                                                                                                             |
+| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                         |
+| shift_rotation_pattern_name        | string    | The name of the Shift Rotation Pattern.                                                                                                                                                         |
+| start_date                         | string    | The start date of the Shift Rotation Pattern in `yyyy-mm-dd` format.                                                                                                                            |
+| is_deleted                         | Boolean   | Set to True if the Shift Rotation Pattern is deleted. Else set to False.                                                                                                                        |
+| last_updated_by                    | string    | The ARN of the user who created/updated/deleted the Shift Rotation Pattern.                                                                                                                     |
+| last_updated_timestamp             | Timestamp | The Timestamp when the Shift Rotation Pattern was created/updated/deleted.                                                                                                                      |
+| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
+
+## Shift rotation steps
+
+Table Name: `shift_rotation_steps`
+
+Composite Primary Key: `{instance_id, shift_rotation_pattern_arn,
+ shift_rotation_pattern_version, step_id}`
+
+This table should be queried by joining with `shift_rotation_patterns`
+table on `shift_rotation_pattern_arn` and
+`shift_rotation_pattern_version`.
+
+| Column                             | Type      | Description                                                                                                                                                                                     |
+| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| instance_id                        | string    | The ID of the Amazon Connect instance.                                                                                                                                                          |
+| shift_rotation_pattern_arn         | string    | The ARN of the Shift Rotation Pattern.                                                                                                                                                          |
+| shift_rotation_pattern_version     | bigint    | The Shift Rotation Pattern Version.                                                                                                                                                             |
+| step_id                            | bigint    | The ID of the step within the Shift Rotation Pattern. Steps are numbered sequentially (1, 2, 3, ... up to 52).                                                                                  |
+| instance_arn                       | string    | The ARN of the Amazon Connect instance.                                                                                                                                                         |
+| shift_profile_arn                  | string    | The ARN of the Shift Profile associated with the rotation step.                                                                                                                                 |
+| duration                           | bigint    | The duration of the rotation step in weeks.                                                                                                                                                     |
+| is_deleted                         | Boolean   | Set to False when the Shift Rotation Step is valid.                                                                                                                                             |
+| last_updated_by                    | string    | The ARN of the user who created/updated the Shift Rotation Pattern.                                                                                                                             |
+| last_updated_timestamp             | Timestamp | The Timestamp when the Shift Rotation Pattern was created/updated.                                                                                                                              |
+| data_lake_last_processed_timestamp | Timestamp | The Timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot be used to determine reliably data freshness. |
 
 ## Data schema
 

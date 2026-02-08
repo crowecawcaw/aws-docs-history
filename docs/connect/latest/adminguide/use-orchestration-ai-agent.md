@@ -15,7 +15,7 @@ resolution capabilities.
 ###### Note
 
 Orchestration AI agents require chat streaming to be enabled for chat contacts.
-Without chat streaming enabled, some messages will fail to render.
+Without chat streaming enabled, some messages will fail to render. See - [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md").
 
 ## Message parsing
 

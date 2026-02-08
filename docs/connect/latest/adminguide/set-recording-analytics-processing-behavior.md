@@ -67,6 +67,10 @@ conversational analytics](analyze-conversations.md "analyze-conversations.md"). 
 
 ![The channel dropdown showing Chat, Screen recording, and Voice options.](images/set-recording-analytics-processing-behavior-channel-dropdown.png)
 
+###### Note
+
+To configure both screen recording and channel recording or analytics, use two separate Set recording, analytics, and processing behavior blocks in sequence: one for screen recording and one for audio recording. Each block should be configured for only one recording type to avoid unexpected behavior.
+
 Let's walk through what each channel's configuration looks like:
 
 #### Chat

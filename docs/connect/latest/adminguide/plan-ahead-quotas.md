@@ -62,7 +62,7 @@ If you need urgent support during an emergency:
 
 During high-volume events, implement these queue management practices:
 
-- Use the [Get queue metrics](get-queue-metrics.md "get-queue-metrics.md") flow block to communicate wait
+- Use the [Get metrics](get-queue-metrics.md "get-queue-metrics.md") flow block to communicate wait
   times to your customers.
 - Enable [queued callbacks](setup-queued-cb.md "setup-queued-cb.md").
 - Balance operational best practices with service quota constraints.

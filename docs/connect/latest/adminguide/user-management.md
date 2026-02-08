@@ -36,8 +36,7 @@ see [Add tags to resources in Amazon Connect](tagging.md "tagging.md"). 8. Choos
 means you're logged in with an Amazon Connect account that doesn't have
 the required security profile permissions.
 
-To fix this issue, log in with an account that is assigned to the Amazon Connect Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure the agent's profiles and task settings in
-Amazon Connect](configure-agents.md "configure-agents.md").
+To fix this issue, log in with an account that is assigned to the Amazon Connect Admin security profile. Or, ask another Admin to help. 9. For information about adding agents, see [Configure agent settings in Amazon Connect](configure-agents.md "configure-agents.md") .
 
 ## Add users in bulk from a .csv file
 
@@ -68,10 +67,6 @@ The .csv template has the following columns in the first row:
 
     * first name
     * last name
-    * email address
-    * secondary email address
-    * mobile: This is not currently used by Amazon Connect.
-    * password
     * user login
     * agent hierarchy
     * routing profile name
@@ -79,15 +74,15 @@ The .csv template has the following columns in the first row:
     * user\_hierarchy\_1|user\_hierarchy\_2
     * phone type (soft/desk)
     * phone number
-    * soft phone auto accept (yes/no)
-    * ACW timeout (seconds)
     * tags
+    * persistent connection
+    * audio enhancement(none/isolate voice/suppress noise)
 
 The following image shows a sample of what the .csv template looks like in
 an Excel spreadsheet. The first row in the spreadsheet contains the column
 headings, and the second row contains sample user data.
 
-![The csv template in an Excel spreadsheet.](images/add-bulk-users.png) 5. Add your users to the template and upload it to Amazon Connect. Choose
+![The csv template in an Excel spreadsheet.](images/add-bulk-users-2.png) 5. Add your users to the template and upload it to Amazon Connect. Choose
 **Upload file and verify**. 6. Amazon Connect validates the data in the file. Choose **Save** to
 create the new user records.
 

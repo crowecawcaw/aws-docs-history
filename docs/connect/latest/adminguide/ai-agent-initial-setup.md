@@ -650,9 +650,6 @@ domain.
   browser, reload the web page, and observe whether content is
   rendered properly and contains links to your web pages of
   interest.
-- [Enable CloudWatch Logs delivery](../../../bedrock/latest/userguide/knowledge-bases-logging.md "../../../bedrock/latest/userguide/knowledge-bases-logging.md") to view the status
-  of your data ingestion job for ingesting web content, and if
-  certain URLs cannot be retrieved.
 
 ###### Note
 

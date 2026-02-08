@@ -43,13 +43,17 @@ name`.my.connect.aws/. Use an **Admin** account,
 ![The Attribute management page, the Add attribute option.](images/attribute-management-1.png) 4. On the **Add predefined attributes** page, add the name in
 the **Predefined attribute** box and the value in the
 **Value** box. The following example image shows a
-predefined attribute named **test**, and three values: Sales,
+predefined attribute named **Business Unit**, and three values: Sales,
 Marketing, and Accounts.
 
-![The Add predefined attribute page, a predefined attribute named "test," and three sample values.](images/attribute-management-2.png) 5. Choose **Add value** to add more values to the predefined
+![The Add predefined attribute page, a predefined attribute named "Business Unit," and three sample values.](images/attribute-management-2.png) 5. Choose **Add value** to add more values to the predefined
 attribute. 6. To use this attribute and its values to filter contact search results, select
 **Use as Contact search filter**. 7. To enforce value validations when attaching the attribute and value to a
-contact segment, select **Enforce valid values**.
+contact segment, select **Enforce valid values**. 8. To use this attribute and its values for filtering contact related metrics,
+select **Use in analytics for granular insights**.
+
+    1. This feature is only available for instances that have unlimited AI
+     capabilities enabled.
 
 ## Step 2: Attach a predefined attribute to
 
@@ -70,3 +74,6 @@ attribute.
 
 For information about filtering contacts by contact segment attributes, see [Search by custom contact
 attributes or contact segment attributes](search-custom-attributes.md "search-custom-attributes.md").
+
+For information on how to use predefined attributes for analytics reporting, see [Use predefined attributes
+in dashboards](use-predefined-attributes-dashboards.md "use-predefined-attributes-dashboards.md").
