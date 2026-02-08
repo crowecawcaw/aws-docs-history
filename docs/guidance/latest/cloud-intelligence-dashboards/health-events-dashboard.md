@@ -230,7 +230,7 @@ released, you can update your dashboard by running the following command in your
 ## Authors
 
 - Eric Christensen, Senior Technical Account Manager
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 
 ## Contributors
 

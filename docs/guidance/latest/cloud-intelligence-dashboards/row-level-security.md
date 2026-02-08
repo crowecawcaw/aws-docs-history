@@ -305,7 +305,7 @@ This guide focuses on AWS Account ID-based access, but you can adapt it for [Org
 
 - Stephanie Gooch, Sr. Commercial Architect, AWS OPTICS
 - Veaceslav Mindru, Sr. Technical Account Manager, AWS
-- Iakov Gan, Cloud Optimization SA, AWS
+- Iakov Gan, Ex-Amazonian
 
 ## Feedback
 

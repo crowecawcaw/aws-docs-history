@@ -174,7 +174,7 @@ cid-cmd update --dashboard-id extended-support-cost-projection
 ## Authors
 
 - Julio Chaves, Technical Account Manager
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

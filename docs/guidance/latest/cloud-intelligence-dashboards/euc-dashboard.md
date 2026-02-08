@@ -225,7 +225,7 @@ cid-cmd update --dashboard-id euc-dashboard
 - Daniel Matlock, Technical Account Manager
 - James Gaskell, Ex-Amazonian
 - Yuriy Prykhodko, AWS Principal Technical Account Manager
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Brian Sheppard, AWS Principal Technical Account Manager
 - Natassa Eleftheriou, Senior Technical Account Manager
 

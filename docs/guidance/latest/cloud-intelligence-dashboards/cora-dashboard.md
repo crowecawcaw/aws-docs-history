@@ -157,7 +157,8 @@ Optimization and readjust the forecast of Rate Optimization accordingly.
 
 ## Authors
 
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
+- Yuriy Prykhodko, Principal Technical Account Manager, AWS
 
 ## Feedback & Support
 

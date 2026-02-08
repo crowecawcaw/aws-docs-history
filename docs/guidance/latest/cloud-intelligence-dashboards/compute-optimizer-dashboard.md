@@ -168,7 +168,7 @@ FROM account_map
 
 ## Authors
 
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 - Voicu Chirtes, Senior Technical Account Manager
 - Timur Tulyaganov, Ex-Amazonian

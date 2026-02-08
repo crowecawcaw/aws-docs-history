@@ -18,7 +18,7 @@ the respective account.
 ## Authors
 
 - Samuel Chniber, Senior Solution Architect
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

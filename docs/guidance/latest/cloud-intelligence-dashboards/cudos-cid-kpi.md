@@ -57,7 +57,7 @@ CID for a subset of Linked Accounts.
 ### Contributors
 
 - Alee Whitman, Principal Solutions Architect
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Judith Lehner, Senior Technical Account Manager
 - Udi Dahan, Senior Technical Account Manager
 - Mylen Rath, Senior Technical Account Manager

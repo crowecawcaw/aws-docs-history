@@ -86,7 +86,7 @@ cid-cmd update --dashboard-id resiliencevue
 
 ## Contributors
 
-- Iakov Gan, Cloud Optimization Success SA
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

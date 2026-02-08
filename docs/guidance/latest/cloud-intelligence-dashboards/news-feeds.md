@@ -84,7 +84,7 @@ cid-cmd update --dashboard-id aws-feeds
 
 ## Contributors
 
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

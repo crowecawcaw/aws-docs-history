@@ -76,7 +76,7 @@ released, you can update your dashboard by running the following command in your
 
 ## Contributors
 
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

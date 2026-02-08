@@ -10,6 +10,8 @@ Key benefits include:
 
 - **Intelligent Cross-Dashboard Analysis**: Correlate insights across CUDOS, Cost Intelligence, KPI, CORA, TAO, AWS Health Events, Graviton Savings and more
 - **Natural Language Queries**: Ask complex questions in plain English and receive detailed, data-backed responses
+- **Automated Workflows**: Create intelligent flows that monitor dashboards and automate response actions
+- **Enhanced Research**: Combine internal dashboard data with external market intelligence and best practices
 - **Proactive Recommendations**: Identify optimization opportunities, security risks, and operational improvements before they impact your business
 - **Team Productivity Enhancement**: Accelerate cloud operations with AI-powered analysis and recommendations
 
@@ -230,29 +232,387 @@ Test your agent with sample prompts organized by use case.
 
 ![Quick Suite CID Prompts](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_CID_examples.gif)
 
-## Tips for Effective Prompts
+## Flows: Automated Cloud Operations
 
-### Be Specific
+Create intelligent workflows that monitor your CID dashboards and automatically take actions based on dashboard insights. Amazon Quick Suite offers multiple approaches for creating flows, allowing you to choose the method that best fits your workflow preferences and technical requirements.
+
+### Flow Creation Methods
+
+You can create CID flows using different approaches. This guide demonstrates two methods:
+
+**Method 1: Natural Language Prompt (NLP)** - Describe your desired flow in plain language and let Quick Suite generate it automatically using AI-powered flow creation.
+
+**Method 2: Build from Scratch** - Create a blank flow and configure each step manually for complete control over workflow design and logic.
+
+### Flow Example 1: Automated Cost Anomaly Investigation & Action
+
+This flow automatically detects cost spikes in your CUDOS dashboard and instantly investigates root causes using AI-powered analysis. When anomalies exceed your threshold, it generates immediate action plans and alerts teams with specific remediation steps.
+
+#### Method 1: Create Using Natural Language Prompt
+
+![Quick Suite Create Flow 12](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_2.gif)
+
+**Navigate to Quick Suite Flows**
+
+- In Quick Suite console, select "Flows"
+- Click "Create Flow"
+- Click "Generate"
+
+**Enter Flow Description**
+
+```
+Create a flow named "Cost Anomaly Investigation & Action" that automatically detects AWS cost spikes and investigates root causes.
+
+Setup:
+* Add text input "Alert Threshold" (default: "20% increase")
+* Add text input "Analysis Time Period" (default: "Last 30 days")
+* Add dashboard step "Extract CUDOS Cost Data" using your CUDOS dashboard to analyze cost trends above @Alert Threshold for @Analysis Time Period
+* Add reasoning group "Anomaly Detection" (runs once) that triggers investigation only if anomaly detected
+
+Inside reasoning group, add these steps in order:
+1. Web search step titled "Research Causes" to research AWS cost spike causes for the identified services
+2. Analysis step titled "Root Cause Analysis" using Versatility and Performance model to identify likely causes based on the extracted cost data and research findings
+3. Analysis step titled "Generate Action Plan" using Fast Response model to create immediate action plan with containment, investigation, resolution, and prevention measures
+4. Analysis step titled "Alert" using Fast Response model to create concise alert message with issue summary, root cause, top 3 actions, and call-to-action
+```
+
+**Complete Setup**
+
+- Click "Generate Flow"
+- Review and adjust the generated flow as needed
+- Click "Share and publish"
+- Click "Run mode" and "Start"
+
+#### Method 2: Build from Scratch
+
+![Quick Suite Create Flow 11](images/QuickSuite_create_flow_1_1.gif)
+
+**Navigate to Quick Suite Flows**
+
+- In Quick Suite console, select "Flows"
+- Click "Create Flow"
+- Click "Create a blank flow"
+
+**Configure Flow Settings**
+
+- **Flow name**: "Cost Anomaly Investigation & Action"
+- **Description**: "Automatically detects cost spikes and investigates root causes with action plans"
+
+**Step 1: Text Input**
+
+- Title: _Alert Threshold_
+- Placeholder: _Enter cost spike threshold (e.g., 20% increase or $1000)_
+- Default value: 20% increase
+
+**Step 2: Text Input**
+
+- Title: _Analysis Time Period_
+- Placeholder: _Specify analysis period (e.g., "last 30 days", "last 30 days vs previous 30 days", "current quarter vs last quarter")_
+- Default value: Last 30 days
+
+**Step 3: Dashboard and Topics**
+
+- Title: _Extract CUDOS Cost Data_
+- Sources: CUDOS Dashboard v5
+- Prompt:
+
+```
+Analyze recent cost trends and identify any anomalies above @Alert Threshold. Show cost variance by service, time period, and resource type. Do this for the following period: @Analysis Time Period.
+```
+
+**Step 4: Reasoning Group**
+
+- Title: _Anomaly Detection_
+- Run these steps: Once
+- Reasoning instructions: If cost anomaly detected in @Extract CUDOS Cost Data above @Alert Threshold, then run investigation and remediation steps. If no significant anomaly, skip detailed analysis.
+
+**Step 4.1: Web Search Output**
+
+- Title: _Research Causes_
+- Prompt:
+
+```
+Research AWS cost spike causes for services identified in @Extract CUDOS Cost Data. Find common root causes, resolution best practices, and prevention strategies.
+```
+
+**Step 4.2: General Knowledge - Versatility and Performance**
+
+- Title: _Root Cause Analysis_
+- Prompt:
+
+```
+Based on @Extract CUDOS Cost Data and @Research Causes, provide detailed root cause analysis for the cost anomaly. Identify most likely causes and prioritize investigation steps.
+```
+
+**Step 4.3: General Knowledge - Fast Response**
+
+- Title: _Generate Action Plan_
+- Prompt:
+
+```
+Create immediate action plan based on @Root Cause Analysis. Include: 1) Immediate containment steps, 2) Investigation procedures, 3) Resolution actions, 4) Prevention measures.
+```
+
+**Step 4.4: General Knowledge - Fast Response**
+
+- Title: _Alert_
+- Prompt:
+
+```
+Create a concise cost alert message using this template. Keep total message under 200 words, prioritize by biggest cost impact, use clear business language:
+
+"🚨 Cost Spike Alert
+
+ISSUE: [Extract top cost anomaly from @Extract CUDOS Cost Data with $ amount and % increase]
+
+ROOT CAUSE: [Summarize main driver from @Root Cause Analysis in 1-2 sentences]
+
+IMMEDIATE ACTION: [List top 3 actions from @Generate Action Plan, ranked by impact]
+
+THRESHOLD: @Alert Threshold exceeded
+
+PERIOD: @Analysis Time Period
+
+[End with clear next step for reader]"
+
+Make it scannable with bullet points, focus on dollar impact, and end with a specific call-to-action like "Review detailed analysis in CUDOS dashboard".
+```
+
+**Deploy and Run**
+
+- Verify all configuration is correct
+- Click "Share and publish"
+- Click "Run mode" and "Start"
+
+### Flow Example 2: Top 5 Cost Optimization Quick Wins
+
+This flow instantly analyzes your CUDOS dashboard to identify and prioritize the top 5 cost optimization opportunities that deliver maximum savings with minimal effort.
+
+#### Method 1: Create Using Natural Language Prompt
+
+![Quick Suite Create Flow 22](images/QuickSuite_create_flow_2_2.gif)
+
+**Navigate to Quick Suite Flows**
+
+- In Quick Suite console, select "Flows"
+- Click "Create Flow"
+- Click "Generate"
+
+**Enter Flow Description**
+
+```
+Create a flow named "Top 5 Cost Optimization Quick Wins" that identifies and prioritizes top 5 cost optimization opportunities with maximum savings and minimal effort.
+
+Setup:
+* Add dashboard step "Extract CUDOS Data" using your CUDOS dashboard to extract cost optimization recommendations
+* Add analysis step "Rank Opportunities" using Versatility and Performance model to rank opportunities by savings potential, implementation ease, and business risk
+* Add reasoning group "Top 5 Selection" (runs once) to select top 5 highest-impact quick wins
+
+Inside reasoning group:
+* Analysis step "Quick Action Plans" using Fast Response model for concise action plans with savings, timeline, and 3-step implementation
+
+After reasoning group:
+* Web search step "Implementation Guidance" for AWS best practices
+* Analysis step "Final Report" using Fast Response model for executive summary with top 5 opportunities (max 100 words each)
+* Analysis step "Quick Wins Report" using Fast Response model for email-ready report (max 1000 characters) with template: "🚀 Your Top 5 Cost Optimization Quick Wins Ready for Implementation: @Final Report. For detailed analysis, review your CUDOS dashboard."
+```
+
+**Complete Setup**
+
+- Click "Generate Flow"
+- Review and adjust the generated flow as needed
+- Click "Share and publish"
+- Click "Run mode" and "Start"
+
+#### Method 2: Build from Scratch
+
+![Quick Suite Create Flow 21](images/QuickSuite_create_flow_2_1.gif)
+
+**Navigate to Quick Suite Flows**
+
+- In Quick Suite console, select "Flows"
+- Click "Create Flow"
+- Click "Create a blank flow"
+
+**Configure Flow Settings**
+
+- **Flow name**: "Top 5 Cost Optimization Quick Wins"
+- **Description**: "Identifies and prioritizes top 5 cost optimization opportunities with maximum savings and minimal effort"
+
+**Step 1: Dashboard and Topics**
+
+- Title: _Extract CUDOS Data_
+- Sources: CUDOS Dashboard v5
+- Prompt:
+
+```
+Extract all cost optimization recommendations from CUDOS dashboard including estimated savings, affected services, implementation complexity, current monthly costs, and resource utilization data. Include unused resources, right-sizing opportunities, reserved instance recommendations, and storage optimizations.
+```
+
+**Step 2: General Knowledge - Versatility and Performance**
+
+- Title: _Rank Opportunities_
+- Prompt:
+
+```
+Analyze @Extract CUDOS Data and rank ALL optimization opportunities by impact score based on: 1) Monthly savings potential (dollars), 2) Implementation ease (simple/moderate/complex), 3) Business risk (low/medium/high). Prioritize low-risk, high-savings, easy-to-implement opportunities.
+```
+
+**Step 3: Reasoning Group**
+
+- Title: _Top 5 Selection_
+- Run these steps: Once
+- Reasoning instructions: Select the top 5 highest-impact opportunities from @Rank Opportunities. Ensure variety in optimization types (unused resources, right-sizing, purchasing options, storage) and focus on quick wins that can be implemented within 1-2 weeks.
+
+**Step 3.1: General Knowledge - Fast Response**
+
+- Title: _Action Plans_
+- Prompt:
+
+```
+For the top 5 opportunities from @Rank Opportunities, create concise action plans with: 1) Specific monthly savings, 2) Implementation time (hours/days), 3) 3-step action summary, 4) Risk level. Format as actionable checklist items that teams can execute immediately.
+```
+
+**Step 4: Web Search Output**
+
+- Title: _Implementation Guidance_
+- Prompt:
+
+```
+Research current AWS best practices for the specific optimization types identified in @Quick Action Plans. Find latest AWS documentation, common implementation steps, and potential gotchas to avoid.
+```
+
+**Step 5: General Knowledge - Fast Response**
+
+- Title: _Final Report_
+- Prompt:
+
+```
+Create executive-ready optimization report combining @Quick Action Plans and @Implementation Guidance. Format as: 1) Executive summary with total savings potential, 2) Top 5 opportunities with savings/effort/steps, 3) "Take Action Now" vs "Review in CUDOS" guidance for each item. Keep concise and action-oriented. Have maximum 100 words per quick win.
+```
+
+**Step 6: General Knowledge - Fast Response**
+
+- Title: _Quick Wins Report_
+- Prompt:
+
+```
+Prepare an actionable cost optimization report, short, concise, readable that I can send as an email. Have maximum 1000 characters. Here it the template: "🚀 Your Top 5 Cost Optimization Quick Wins Ready for Implementation: @Final Report. For detailed analysis, review your CUDOS dashboard. Total potential monthly savings and immediate action steps included."
+```
+
+**Deploy and Run**
+
+- Verify all configuration is correct
+- Click "Share and publish"
+- Click "Run mode" and "Start"
+
+## Research: Enhanced Intelligence
+
+Combine your CID dashboard data with external market intelligence, industry benchmarks, and best practices to gain deeper insights and strategic context.
+
+### Research Management
+
+**Create Research**
+
+- In Quick Suite console, select "Research"
+- Click "New Research"
+
+**Configure Basic Settings**
+
+- Define your research objective and materials
+- Configure web search parameters and preferred sources
+- Select relevant CID dashboards as knowledge sources
+
+**Launch Your Research**
+
+- Review and refine your research configuration
+- Launch the research, click "Start researching"
+
+### Research Example 1: Industry Cloud Cost Benchmark Analysis
+
+![Quick Suite Create Research](images/QuickSuite_create_research.gif)
+
+#### Research Configuration
+
+**Research Objective:**
+
+```
+Analyze cloud spending benchmarks and optimization strategies for our industry vertical to contextualize our CUDOS dashboard findings against market standards. Research competitive cloud infrastructure patterns, industry-specific cost optimization opportunities, and regulatory compliance impacts on cloud spending. Focus on identifying where our cloud costs and optimization strategies align with or deviate from industry leaders, with emphasis on actionable insights for improving our cost efficiency and competitive positioning.
+```
+
+**Research Materials:**
+
+- Web search: Yes
+- Preferred websites: gartner.com, forrester.com, aws.amazon.com, cloudzero.com, flexera.com
+- Websites to avoid: competitor-specific blogs, promotional content
+- Quick Suite assets: Browse and select CID dashboards (CUDOS, CORA, Cost Intelligence)
+
+**Customer Value:** Provides external context for internal CUDOS findings, identifies industry-specific optimization opportunities, and benchmarks cost efficiency against competitors to guide strategic decisions.
+
+### Research Example 2: AWS Service Roadmap Impact Assessment
+
+#### Research Configuration
+
+**Research Objective:**
+
+```
+Research AWS service announcements, roadmaps, and upcoming changes that could impact our current infrastructure and cost optimization strategies shown in CID dashboards. Analyze new service capabilities, pricing changes, regional expansions, and service deprecations to predict future optimization opportunities. Focus on identifying services we currently use heavily that have upcoming changes, new cost-saving features we should adopt, and migration planning needs for services approaching end-of-life.
+```
+
+**Research Materials:**
+
+- Web search: Yes
+- Preferred websites: aws.amazon.com, docs.aws.amazon.com, aws.amazon.com/blogs, aws.amazon.com/new
+- Websites to avoid: third-party speculation, unofficial sources
+- Quick Suite assets: Browse and select CID dashboards (CUDOS, Health Events, Extended Support)
+
+**Customer Value:** Enables proactive infrastructure planning, identifies future cost optimization opportunities, and helps avoid costly migrations by planning ahead for AWS service changes.
+
+### Research Example 3: Security Compliance Best Practices Analysis
+
+#### Research Configuration
+
+**Research Objective:**
+
+```
+Research industry-specific security compliance requirements and best practices to enhance our Trusted Advisor and Cases dashboard findings with regulatory context. Analyze how compliance frameworks (SOC 2, HIPAA, PCI DSS, etc.) impact cloud architecture decisions, security configurations, and operational costs. Focus on identifying gaps between current security posture shown in CID dashboards and regulatory requirements, plus cost-effective approaches to achieve compliance while maintaining operational efficiency.
+```
+
+**Research Materials:**
+
+- Web search: Yes
+- Preferred websites: aws.amazon.com/compliance, nist.gov, cisecurity.org, sans.org, owasp.org
+- Websites to avoid: unverified compliance blogs, outdated regulatory information
+- Quick Suite assets: Browse and select CID dashboards (TAC Dashboard, Health Events, CUDOS Security findings)
+
+**Customer Value:** Provides regulatory context for security findings, identifies compliance gaps, and recommends cost-effective paths to meet industry requirements while optimizing cloud spending.
+
+## Tips for Effective Implementation
+
+### Chat Agent Best Practices
 
 - Include time ranges (e.g., "last 30 days", "this quarter")
 - Specify accounts, regions, or services when relevant
 - Ask for quantifiable metrics and savings estimates
+- Request actionable outputs with prioritization
 
-### Ask Follow-up Questions
+### Flow Automation Tips
 
-- "Can you provide more details on that recommendation?"
-- "What’s the implementation complexity for this optimization?"
-- "Show me specific resources which I should optimize"
+- Start with simple, well-defined processes
+- Test flows with sample data before production deployment
+- Set appropriate thresholds to avoid alert fatigue
+- Design flows with clear success and failure paths
 
-### Request Actionable Outputs
+### Research Strategy
 
-- "Prioritize recommendations by potential savings"
-- "Sort findings by severity and business impact"
-- "Create a list of action items with owners"
+- Define specific, actionable research objectives
+- Combine multiple research topics for comprehensive analysis
+- Use research findings to validate dashboard insights
+- Share research results across teams for broader impact
 
 ## Summary
 
-Integrating Cloud Intelligence Dashboards with Amazon Quick Suite transforms cloud operations through AI-powered insights. This solution enables teams to accelerate analysis, identify optimization opportunities, and proactively address operational challenges using natural language queries.
+Integrating Cloud Intelligence Dashboards with Amazon Quick Suite transforms cloud operations through comprehensive AI capabilities. This solution enables teams to analyze intelligently through chat agents, automate operations through intelligent flows, and enhance decision-making through AI-powered research. The combination delivers accelerated analysis, automated responses, and strategic intelligence that drives superior cloud operations outcomes.
 
 For questions, feedback, or support regarding generative AI capabilities with CID and Amazon Quick Suite, please refer to the [Feedback & Support](feedback-support.md "feedback-support.md") page.
 
@@ -260,6 +620,7 @@ For questions, feedback, or support regarding generative AI capabilities with CI
 
 - Symour Omandac, Senior Technical Account Manager
 - Yuriy Prykhodko, Principal Technical Account Manager
+- Matej Macek, Senior Solutions Architect
 
 ## Contributors
 

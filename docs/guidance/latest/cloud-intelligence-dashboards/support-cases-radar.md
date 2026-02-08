@@ -95,7 +95,7 @@ cid-cmd update --dashboard-id support-cases-radar
 
 - Raffy Armistead, Senior Technical Account Manager
 - Samuel Chniber, Senior Solution Architect
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

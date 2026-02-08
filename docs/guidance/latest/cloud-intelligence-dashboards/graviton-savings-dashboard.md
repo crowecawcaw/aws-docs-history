@@ -253,7 +253,7 @@ OpenSearch Service Documentation](../../../opensearch-service/latest/developergu
 
 ### Contributors
 
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Eric Christensen, Technical Account Manager
 - Yuriy Prykhodko, Principal Technical Account Manager
 - Travis James, Optimization Solutions Architect

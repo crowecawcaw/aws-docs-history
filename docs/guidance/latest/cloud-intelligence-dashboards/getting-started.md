@@ -99,7 +99,6 @@ This guide requires 100-200 level knowledge of AWS and assumes that you have exp
 The Cloud Intelligence Dashboards are managed by:
 
 - Yuriy Prykhodko, Principal Technical Account Manager, AWS (Founder)
-- Iakov Gan, Senior Solutions Architect, AWS
 
 ## Content Contributors
 

@@ -150,7 +150,7 @@ the Data Collection stack to the version required on Prerequisites.
 
 ## Contributors
 
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

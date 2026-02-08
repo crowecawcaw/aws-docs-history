@@ -106,7 +106,7 @@ cid-cmd update --dashboard-id aws-cost-anomalies
 ## Authors
 
 - Yash Bindlish, Enterprise Support Manager
-- Iakov Gan, Senior Solution Architect
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support

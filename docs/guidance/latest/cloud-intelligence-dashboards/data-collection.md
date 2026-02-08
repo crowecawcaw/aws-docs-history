@@ -78,7 +78,7 @@ several accounts:
 - Eric Christensen, Senior Technical Account Manager, AWS
 - Julio Cesar Chaves Fernandez, Technical Account Manager, AWS
 - Stephanie Gooch, Senior Commercial Architect, AWS
-- Iakov Gan, Senior Solution Architect, AWS
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager, AWS
 
 ## Contributors

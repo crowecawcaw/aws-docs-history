@@ -63,7 +63,7 @@ view the changes immediately.
 
 ![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
+![Left navigation in Quick Sight with datasets option highlighted](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
 dataset. 4. Click on the **Refresh** tab in the top left of the page. 5. Click on **Refresh Now** button in the top right of the page. 6. Repeat the steps to refresh **resource_view** dataset as well.
 
 ## Test

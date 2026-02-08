@@ -7,7 +7,7 @@ February 2025
 ## Authors
 
 - Sumit Agarwal, Senior Technical Account Manager, AWS
-- Iakov Gan, Senior Solution Architect, AWS
+- Iakov Gan, Ex-Amazonian
 - Yuriy Prykhodko, Principal Technical Account Manager, AWS
 
 ## Introduction

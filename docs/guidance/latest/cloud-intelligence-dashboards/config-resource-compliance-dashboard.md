@@ -6,7 +6,7 @@
 
 ## Contributors
 
-- Iakov Gan, Senior Solution Architect, AWS
+- Iakov Gan, Ex-Amazonian
 
 ## Feedback & Support
 
