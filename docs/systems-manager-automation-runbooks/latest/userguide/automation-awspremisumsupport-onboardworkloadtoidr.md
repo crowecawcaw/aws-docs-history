@@ -16,7 +16,9 @@ This runbook performs the following actions in your account depending on the inp
 
 ###### Important
 
-To use this runbook and onboard to AWS Incident Detection and Response, you require an AWS Enterprise Support Subscription.
+To use this runbook and onboard to AWS Incident Detection and Response, you require an AWS Enterprise Support (with additional fee) or Unified Operations Subscription. For more
+information, see [Compare
+Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 
 **How does it work?**
 

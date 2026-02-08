@@ -8,9 +8,10 @@ provides recommended remediation steps.
 
 ###### Important
 
-Access to `AWSPremiumSupport-*` runbooks requires either an
-Enterprise or Business Support Subscription. For more information, see [Compare AWS Support
-Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/") .
+Access to `AWSPremiumSupport-*` runbooks
+requires a Business + Support, Enterprise Support or Unified Operations Subscription. For more information,
+see [Compare AWS Support
+Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 
 If you specify a value for the `S3BucketName` parameter, the
 automation evaluates the policy status of the Amazon Simple Storage Service (Amazon S3) bucket you specify. To

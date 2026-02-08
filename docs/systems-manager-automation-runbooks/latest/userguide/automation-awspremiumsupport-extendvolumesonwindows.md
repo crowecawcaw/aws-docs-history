@@ -20,6 +20,13 @@ This runbook performs the following operations:
 - Extends the Amazon EBS volumes that were specified for expansion
 - Extends the filesystems on the target instance using PowerShell commands
 
+###### Important
+
+Access to `AWSPremiumSupport-*` runbooks
+requires a Business + Support, Enterprise Support or Unified Operations Subscription. For more information,
+see [Compare AWS Support
+Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
+
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-ExtendVolumesOnWindows "https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-ExtendVolumesOnWindows")
 
 **Required IAM permissions**

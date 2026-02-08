@@ -25,7 +25,10 @@ The runbook provides two different ways to specify the instance type you want to
 
 ###### Important
 
-Access to `AWSPremiumSupport-*` runbooks requires either an Enterprise or Business Support Subscription. For more information, see [Compare Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
+Access to `AWSPremiumSupport-*` runbooks
+requires a Business + Support, Enterprise Support or Unified Operations Subscription. For more information,
+see [Compare AWS Support
+Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 
 **Considerations**
 

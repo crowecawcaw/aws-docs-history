@@ -14,6 +14,13 @@ This runbook performs the following operations:
 - Runs prechecks on Linux to analyze disk usage and determine expansion candidates
 - Outputs volumes that are candidates for expansion with relevant details
 
+###### Important
+
+Access to `AWSPremiumSupport-*` runbooks
+requires a Business + Support, Enterprise Support or Unified Operations Subscription. For more information,
+see [Compare AWS Support
+Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
+
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-DiagnoseDiskUsageOnLinux "https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-DiagnoseDiskUsageOnLinux")
 
 **Required IAM permissions**

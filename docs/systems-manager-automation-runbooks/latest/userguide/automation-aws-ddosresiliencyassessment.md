@@ -37,9 +37,9 @@ following:
 ###### Important
 
 - Access to `AWSPremiumSupport-*` runbooks requires
-  an Enterprise or Business Support subscription. For more
+  a Business + Support, Enterprise Support or Unified Operations Subscription. For more
   information, see [Compare
-  Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
+  AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 - This runbook requires an `ACTIVE`
   [AWS Shield Advanced
   subscription.](../../../waf/latest/developerguide/enable-ddos-prem.md "../../../waf/latest/developerguide/enable-ddos-prem.md")

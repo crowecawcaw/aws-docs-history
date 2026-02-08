@@ -22,7 +22,7 @@ volumes.
 ###### Important
 
 Access to `AWSPremiumSupport-*` runbooks
-requires an Enterprise or Business Support Subscription. For more information,
+requires a Business + Support, Enterprise Support or Unified Operations Subscription. For more information,
 see [Compare AWS Support
 Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 
