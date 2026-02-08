@@ -157,10 +157,8 @@ available in Tokyo for individual WorkSpaces.
 
 ## Display support
 
-WorkSpaces Value, Standard, Performance, Power, PowerPro, and GraphicsPro bundles support a
-maximum of four displays and a maximum resolution of 3840x2160 (ultra-high definition,
-or UHD). The maximum supported resolution depends on the number of displays, as shown in
-the following table.
+WorkSpaces WorkSpaces Value, Standard, Performance, Power, PowerPro, and GPU-enabled bundles support a maximum of four displays and a maximum resolution of 3840x2160 (ultra-high definition, or UHD).
+The maximum supported resolution depends on the number of displays, as shown in the following table.
 
 | Displays | Resolution |
 | -------- | ---------- |
@@ -171,8 +169,6 @@ the following table.
 
 - You can only extend the display. You cannot duplicate the display.
   Duplicating the display will cause your session to be disconnected.
-- Graphics bundles support only a single monitor configuration with a
-  maximum resolution of 2560x1600.
 
 The WorkSpaces client application extracts the Extended Display Information Data (EDID) of
 all attached displays and determines the best compatibility match before starting the
