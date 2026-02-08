@@ -1,10 +1,7 @@
-# Create the SRT caller output
-
-group
+# Create the SRT output in caller mode
 
 After you have designed the contents of the output and you have coordinated delivery
-of the output with the downstream system, you can create the SRT caller output
-group.
+of the output with the downstream system, you can create the SRT output in caller mode.
 
 1. On the **Create channel** page, under **Output
    groups**, choose **Add**.
@@ -44,19 +41,14 @@ In the **SRT settings** sections, complete the fields:
 ## SRT outputs
 
 The **SRT outputs** section shows the single output that is added
-by default.
-Choose
-**Add
-output**
-if you want to send the content to more
-destinations.
+by default. Choose **Add output** if you want to send the content to more destinations.
 
 In each output, choose the **Settings** link to show
 three subsections:
 
 - Destinations. See [Output > Destinations](#srt-caller-destinations "#srt-caller-destinations").
 - Output settings. See [Output > Output settings](#srt-caller-output-settings "#srt-caller-output-settings")
-- Stream settings: See [Output > Stream settings](#srt-caller-streams "#srt-caller-streams") .
+- Stream settings: See [Output > Stream settings](srt-streams.md "srt-streams.md").
 
 ## Output > Destinations
 
@@ -64,22 +56,18 @@ In each output, you must specify one destination (for a single-pipeline channel)
 or two destinations (for a standard channel). You must also configure encryption for
 each destination.
 
+- **Connection mode**: Select **Caller**.
 - Enter the destination URL or URLs, including the port number. You obtained
   this information when you [discussed
-  your requirements](downstream-system-srt.md "downstream-system-srt.md") with the downstream system. For example:
+  your requirements](downstream-system-srt-caller.md "downstream-system-srt-caller.md") with the downstream system. For example:
 
 `srt://203.0.113.22:5000`
 
 `srt://203.0.113.88:5001`
 
-- Stream ID:
-  Optional.
-- In each destination, select the
-  secret
-  that [you obtained from the
-  operator of Secrets Manager](srt-output-encryption-asm.md "srt-output-encryption-asm.md").
-  You can
-  select the secret by its ARN or its name.
+- Stream ID: Optional.
+- In each destination, select the secret that [you obtained from the
+  operator of Secrets Manager](srt-output-encryption-asm.md "srt-output-encryption-asm.md"). You can select the secret by its ARN or its name.
 
 ## Output > Output settings
 
@@ -104,14 +92,3 @@ values.
 
 Change any values as appropriate. For details about a field, choose the
 **Info** link next to the field in the MediaLive console.
-
-## Output > Stream settings
-
-The fields in this section relate to the encoding of the video, audio, and
-captions streams (encodes) in the output.
-
-For information about creating encodes, see the following sections:
-
-- [Set up the video encode](creating-a-channel-step6.md "creating-a-channel-step6.md")
-- [Set up the audio encodes](creating-a-channel-step7.md "creating-a-channel-step7.md")
-- [Set up the captions encodes](creating-a-channel-step8.md "creating-a-channel-step8.md")

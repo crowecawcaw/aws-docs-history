@@ -25,7 +25,7 @@ Each output can contain the following:
   the video. Each video encode is in a separate output. The captions are in each video
   output. Each audio encode is in a separate output.
 
-![Output group diagram showing video outputs with embedded captions and separate audio outputs.](images/output13-ABR-2Ve-2Asep.png)
+![Output group diagram showing video outputs with embedded captions and separate audio outputs.](/images/medialive/latest/ug/images/output13-ABR-2Ve-2Asep.png)
 This diagram illustrates a MediaPackage output group when the captions are sidecar
 captions. Each encode is in its own output.
 

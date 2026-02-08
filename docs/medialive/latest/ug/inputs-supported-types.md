@@ -15,5 +15,6 @@ the sections that follow.
 - RTMP Push
 - RTP
 - SMPTE 2110
-- SRT caller
+- SRT Caller
+- SRT Listener
 - TS

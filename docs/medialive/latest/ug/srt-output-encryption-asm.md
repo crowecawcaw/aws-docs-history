@@ -12,5 +12,10 @@ steps:
 
 Secrets Manager generates an ARN that looks like this:
 
-`arn:aws:secretsmanager:`region`:123456789012:secret:`Sample-abcdef``3. Make sure that you obtain the name of the secret. For example,
-`Sample-abcdef`. You don't need the ARN.
+`arn:aws:secretsmanager:`region`:123456789012:secret:`Sample-abcdef``
+
+###### Important
+
+Store SRT passphrases in Secrets Manager as plaintext (for example, `secretpassword123`). Do not use the key/value option or JSON format when creating the Secret, as this may cause interoperability issues with other services. Store the passphrase as plaintext only.
+
+Ensure your passphrase is between 10 and 79 characters. 3. Make sure that you obtain the full ARN of the secret to use for your SRT output's encryption passphrase Secret ARN.

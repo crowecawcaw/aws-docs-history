@@ -1,6 +1,4 @@
-# Setting up an
-
-SRT input
+# Setting up an SRT Caller input
 
 This section describes how to set up to ingest transport stream (TS) content that is
 sent from an upstream system that is set up as an SRT listener. This section describes

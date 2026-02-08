@@ -14,5 +14,5 @@ container (output group) supports.
 | Microsoft Smooth              | H.264 (AVC)<br>H.265 (HEVC)           | AAC<br>Dolby Digital (AC3)<br>Dolby Digital Plus (EAC3)                                                           |
 | Multiplex                     | H.264 (AVC)<br>H.265 (HEVC)<br>MPEG-2 | AAC<br>Dolby Digital (AC3)<br>Dolby Digital Plus (EAC3)<br>Dolby Digital Plus with Atmos                          |
 | RTMP or RTMPS                 | H.264 (AVC)                           | AAC                                                                                                               |
-| SRT caller                    | H.264 (AVC)<br>H.265 (HEVC)           | AAC<br>Dolby Digital (AC3)<br>Dolby Digital Plus (EAC3)<br>Dolby Digital Plus with Atmos<br>MPEG-1 Layer II (MP2) |
+| SRT                           | H.264 (AVC)<br>H.265 (HEVC)           | AAC<br>Dolby Digital (AC3)<br>Dolby Digital Plus (EAC3)<br>Dolby Digital Plus with Atmos<br>MPEG-1 Layer II (MP2) |
 | UDP                           | H.264 (AVC)<br>H.265 (HEVC)           | AAC<br>Dolby Digital (AC3)<br>Dolby Digital Plus (EAC3)<br>Dolby Digital Plus with Atmos<br>MPEG-1 Layer II (MP2) |

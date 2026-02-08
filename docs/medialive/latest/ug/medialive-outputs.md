@@ -23,5 +23,5 @@ to.
 - [Creating a MediaPackage output group](opg-mediapackage.md "opg-mediapackage.md")
 - [Creating a Microsoft Smooth output group](opg-mss.md "opg-mss.md")
 - [Creating an RTMP output group](opg-rtmp.md "opg-rtmp.md")
-- [Creating an SRT caller output group](opg-srt-caller.md "opg-srt-caller.md")
+- [Creating an SRT output group](opg-srt.md "opg-srt.md")
 - [Creating a UDP output group](opg-udp.md "opg-udp.md")

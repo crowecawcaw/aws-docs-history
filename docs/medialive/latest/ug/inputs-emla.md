@@ -23,5 +23,6 @@ to:
 | RTMP Push                  | Both                                |
 | RTP                        | Both                                |
 | SMPTE 2110                 | MediaLive Anywhere deployments only |
-| SRT caller                 | Both                                |
+| SRT Caller                 | Both                                |
+| SRT Listener               | Both                                |
 | Transport Stream (TS) file | Both                                |

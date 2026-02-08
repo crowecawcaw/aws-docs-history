@@ -14,5 +14,4 @@ of output group.
 - RTMP
 - RTMPS
 - SRT
-  caller
 - UDP

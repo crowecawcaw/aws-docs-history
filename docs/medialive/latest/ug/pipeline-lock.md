@@ -20,29 +20,6 @@ You might be familiar with the term _output locking_.
 In MediaLive, the term used is _pipeline locking_. Whatever
 term is used, the effect is identical: frame accurate outputs.
 
-**Applicable outputs**
-
-Pipeline locking applies only to the following types of outputs:
-
-- HLS
-- MediaPackage
-- CMAF Ingest
-- Microsoft Smooth
-- SRT caller outputs that are segmented. You might have configured an SRT output
-  group for segmented outputs. To verify, in an SRT caller output group, choose
-  **Output** then **Network Settings**, then
-  **Container Settings**. Look for the three fields that start
-  with the term _Segmentation_.
-- UDP outputs
-  that are segmented. You might have configured a UDP output group for segmented
-  outputs. To verify, in a UDP output group, choose **Output** then
-  **Network Settings**, then **Container
-  Settings**. Look for the three fields that start with the term
-  _Segmentation_.
-  The channel can contain other types of outputs, but MediaLive won't attempt to lock their
-  outputs. This means that in those other output groups, there is no guarantee that the
-  content of the two pipelines will be frame-accurate with each other.
-
 **Pipeline locking modes**
 
 There are two output locking modes:
@@ -62,6 +39,27 @@ synchronize the pipelines:
   is useful when your input sources lack timecodes or have unreliable timecodes.
   For more information, see [Requirements for
   video aligned pipeline locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").
+  **Applicable outputs**
+
+**Source timecode** pipeline locking applies only to the following types of outputs:
+
+- HLS (Live mode)
+- MediaPackage
+- CMAF Ingest
+- Microsoft Smooth
+- UDP outputs
+  that are segmented. You might have configured a UDP output group for segmented
+  outputs. To verify, in a UDP output group, choose **Output** then
+  **Network Settings**, then **Container
+  Settings**. Look for the three fields that start with the term
+  _Segmentation_.
+  **Video aligned** pipeline locking applies only to the following types of outputs:
+
+- HLS (Live mode)
+- CMAF Ingest
+  The channel can contain other types of outputs, but MediaLive won't attempt to lock their
+  outputs. This means that in those other output groups, there is no guarantee that the
+  content of the two pipelines will be frame-accurate with each other.
 
 ###### Topics
 

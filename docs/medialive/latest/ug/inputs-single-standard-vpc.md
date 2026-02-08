@@ -21,5 +21,6 @@ class](class-channel-input.md "class-channel-input.md").
 | RTMP Push                  | Both                |
 | RTP                        | Standard-class only |
 | SMPTE 2110                 | Single-class only   |
-| SRT caller                 | Both                |
+| SRT Caller                 | Both                |
+| SRT Listener               | Both                |
 | Transport Stream (TS) file | Both                |

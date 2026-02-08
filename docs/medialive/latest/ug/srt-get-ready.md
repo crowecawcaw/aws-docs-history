@@ -1,7 +1,7 @@
 # Plan for delivery using Amazon VPC
 
 You might set up the MediaLive channel for the SRT output to have [output endpoints in Amazon Virtual Private Cloud](delivery-out-vpc.md "delivery-out-vpc.md") (Amazon VPC). Following
-are some guidelines for setting up the secret in Secrets Manager and for delivery the output to
+are some guidelines for setting up the secret in Secrets Manager and for delivery of the output to
 MediaConnect (if MediaConnect is the destination).
 
 ## Considerations for Secrets Manager
@@ -15,9 +15,7 @@ channel:
   security group, which means that the same security group must be associated
   with the subnet and with the endpoint.
 
-## Considerations
-
-for MediaConnect
+## Considerations for MediaConnect
 
 You might be delivering to a MediaConnect that also uses a VPC. This means that the SRT
 output egress from the MediaLive channel is on your VPC and that the MediaConnect flow has a

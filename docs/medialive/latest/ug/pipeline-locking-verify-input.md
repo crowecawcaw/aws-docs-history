@@ -40,10 +40,6 @@ When you use video aligned pipeline locking (**Pipeline locking
 method** set to **VIDEO_ALIGNMENT**), embedded timecodes
 are not required.
 
-**Output requirements**
-
-Video aligned pipeline locking currently works only with CMAF Ingest outputs.
-
 **Input requirements**
 
 Certain input types are not compatible with video

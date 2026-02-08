@@ -26,6 +26,7 @@
       input—SRT
       caller
       input](input-srt-pull.md "input-srt-pull.md")
+    - [Channel input—SRT listener input](input-srt-push.md "input-srt-push.md")
 
 3.  Complete the **Logical interface names** fields. These
     fields appear only if you set up the channel to [run in a MediaLive Anywhere cluster](creating-a-channel-step1.md "creating-a-channel-step1.md") and

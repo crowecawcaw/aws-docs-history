@@ -19,7 +19,8 @@ delivery:
 | RTMP Pull                  |                          | Pull |
 | RTMP Push                  | Push. See the note below |      |
 | RTP                        | Push                     |      |
-| SRT caller                 |                          | Pull |
+| SRT Caller                 |                          | Pull |
+| SRT Listener               | Push                     |      |
 | Transport Stream (TS) file |                          | Pull |
 
 **Note about RTMP push inputs**

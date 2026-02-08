@@ -17,6 +17,7 @@ schedule](working-with-schedule.md "working-with-schedule.md").
 - [Implementing automatic input failover](automatic-input-failover.md "automatic-input-failover.md")
 - [Including captions in a channel](captions.md "captions.md")
 - [Creating CDI inputs as partner inputs](feature-cdi-partner.md "feature-cdi-partner.md")
+- [Using channel security groups](feature-channel-security-groups.md "feature-channel-security-groups.md")
 - [Choosing the channel class and input
   class](class-channel-input.md "class-channel-input.md")
 - [Setting up dynamic inputs](dynamic-inputs.md "dynamic-inputs.md")

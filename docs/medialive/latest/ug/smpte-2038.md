@@ -9,6 +9,7 @@ You can configure MediaLive to extract specific ancillary data from a SMPTE
 - RTP inputs
 - SRT Caller
   inputs
+- SRT Listener inputs
 
 ###### Note
 

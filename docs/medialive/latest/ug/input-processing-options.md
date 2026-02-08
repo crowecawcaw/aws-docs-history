@@ -24,5 +24,6 @@ SCTE 35 messages can appear only in the following types of MediaLive inputs:
 | RTP                        | Yes                                                                | Not applicable                                       |
 | SMPTE 2110                 | Yes (interpret SCTE 104 messages in the ancillary data<br>packets) | Not applicable                                       |
 | SRT Caller                 | Yes                                                                | No applicable                                        |
+| SRT Listener               | Yes                                                                | Not applicable                                       |
 | Transport Stream (TS) file | Yes                                                                | Not applicable                                       |
 | AWS CDI                    | Yes                                                                | Not applicable                                       |

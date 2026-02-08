@@ -4,7 +4,7 @@ With an SRT output group, you can create more than one output, in order to deliv
 same content to more than one downstream system.
 
 You and the operator of each downstream system must discuss details about the output
-delivery. With this type of output group, MediaLive is the caller and the sender. The
+delivery. With caller mode, MediaLive is the caller and the sender. The
 downstream system is the listener and the receiver.
 
 1. Decide if you need two destinations for the output:
@@ -22,9 +22,7 @@ addresses only after the MediaConnect operator creates the flows. See the last s
 this procedure. 3. MediaLive always encrypts the content, therefore you must agree about the
 following encryption details:
 
-    * The
-     encryption algorithm: AES 128, AES 192, or AES
-     256.
+    * The encryption algorithm: AES 128, AES 192, or AES 256.
     * The passphrase that MediaLive and the downstream system will use to create
      the encryption and decryption keys. The passphrase can be 10 to 79
      Unicode characters, which means that spaces are allowed.
@@ -32,7 +30,7 @@ following encryption details:
 4. Discuss the following with the operator of the downstream system:
    - Tell the downstream system about the latency (in milliseconds) that
      you plan to configure into MediaLive for packet loss and recovery. Packet
-     recovery is a key feature of SRT caller. The downstream destination
+     recovery is a key feature of SRT. The downstream destination
      should choose a latency value that is close to the value that you plan
      to use.
 

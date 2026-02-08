@@ -35,6 +35,7 @@ system](evaluate-upstream-system.md "evaluate-upstream-system.md") .
 - [RTP push input](input-create-rtp-push.md "input-create-rtp-push.md")
 - [RTP VPC input](rtp-push-vpc-input.md "rtp-push-vpc-input.md")
 - [SMPTE 2110 input](input-create-s2110.md "input-create-s2110.md")
-- [SRT input](input-caller-srt.md "input-caller-srt.md")
+- [SRT Caller input](input-caller-srt.md "input-caller-srt.md")
+- [SRT Listener input](input-listener-srt.md "input-listener-srt.md")
 - [TS file input](ts-file-input.md "ts-file-input.md")
 - [Next steps](input-create-nextsteps.md "input-create-nextsteps.md")
