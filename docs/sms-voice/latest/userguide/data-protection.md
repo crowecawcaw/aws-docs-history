@@ -38,7 +38,7 @@ AWS End User Messaging SMS to send an SMS message to an external mobile device, 
 the AWS boundary through the SMS protocol and subject to the technical limitations of
 SMS.
 
-### Encryption at rest
+## Encryption at rest
 
 AWS End User Messaging SMS encrypts all the data that it stores for you within the AWS boundary. This
 includes configuration data, registration data, and any data that you add into AWS End User Messaging SMS. To
@@ -57,6 +57,16 @@ When you use AWS End User Messaging SMS to send an SMS message to an external mo
 transferred outside the AWS boundary through the SMS protocol. The SMS protocol has several
 inherent limitations such as a lack of end-to-end encryption that may be relevant for your use
 case. For more information about the limitations of SMS and security best practices, see [SMS protocol security considerations](security-protocol-considerations.md "security-protocol-considerations.md") and [SMS protocol security best practices](security-protocol-best-practices.md "security-protocol-best-practices.md").
+
+## End User Messaging's SMS Message Handling
+
+AWS End User Messaging SMS processes and stores SMS messages within the AWS region
+selected by the customer. However, the final stages of SMS message delivery operate on
+international mobile networks beyond AWS control. As is typical in SMS message delivery,
+the SMS service providers that AWS uses may themselves utilize downstream service providers
+to route the SMS messages globally. These downstream service providers may route the SMS
+messages through endpoints or networks in different regions from the customer's selected
+AWS region, even if the end user recipient of an SMS message is in the same region.
 
 ## Key management
 
