@@ -195,7 +195,7 @@ Linux EC2 instance.
 5. Under **Use case**, choose **EC2**, and
    then choose **Next**.
 
-![In the IAM console on the select trusted entity page. AWS service and EC2 are selected.](images/iam-console-trusted-entity.png) 6. For **Filter policies**, do the following:
+![In the IAM console on the select trusted entity page. AWS service and EC2 are selected.](/images/directoryservice/latest/admin-guide/images/iam-console-trusted-entity.png) 6. For **Filter policies**, do the following:
 
     1. Enter `AmazonSSMManagedInstanceCore`. Then select the
      check box for that item in the list.

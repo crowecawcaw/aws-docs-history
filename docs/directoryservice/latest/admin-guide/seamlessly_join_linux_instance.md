@@ -171,7 +171,7 @@ There are fees associated with Secrets Manager. For more information see, [Prici
       as it is. Make sure there are not any leading or ending spaces. Otherwise
       the domain join will fail.
 
-      ![In the AWS Secrets Manager console on the choose a secret type page. Other type of secret is selected under secret type and awsSeamlessDomainUsername is entered as the key value.](images/secrets_manager_1.png) 2. Choose **Add row**. 3. On the new row, in the first box, enter
+      ![In the AWS Secrets Manager console on the choose a secret type page. Other type of secret is selected under secret type and awsSeamlessDomainUsername is entered as the key value.](/images/directoryservice/latest/admin-guide/images/secrets_manager_1.png) 2. Choose **Add row**. 3. On the new row, in the first box, enter
       `awsSeamlessDomainPassword`. On the same row, in the
       next box, enter the password for your service account.
 
@@ -300,7 +300,7 @@ Linux EC2 instance.
 5. Under **Use case**, choose **EC2**, and
    then choose **Next**.
 
-![In the IAM console on the select trusted entity page. AWS service and EC2 are selected.](/images/directoryservice/latest/admin-guide/images/iam-console-trusted-entity.png) 6. For **Filter policies**, do the following:
+![In the IAM console on the select trusted entity page. AWS service and EC2 are selected.](images/iam-console-trusted-entity.png) 6. For **Filter policies**, do the following:
 
     1. Enter `AmazonSSMManagedInstanceCore`. Then select the
      check box for that item in the list.
