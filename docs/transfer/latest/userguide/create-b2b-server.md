@@ -113,21 +113,10 @@ _AWS General Reference_.
 
 | AS2 quotas                                                                                               | Name             | Default | Adjustable |
 | -------------------------------------------------------------------------------------------------------- | ---------------- | ------- | ---------- |
-| Maximum number of inbound files received per second                                                      | 100              | No      |
-| Maximum number of outbound files sent per second                                                         | 100              | No      |
-| Maximum number of concurrent inbound files                                                               | 400              | No      |
-| Maximum number of concurrent outbound files                                                              | 400              | No      |
-| Maximum size of inbound file (uncompressed)                                                              | 1 GB             | No      |
-| Maximum size of outbound file (uncompressed)                                                             | 1 GB             | No      |
 | Maximum number of files per outbound request                                                             | 10               | No      |
 | Maximum number of outbound requests per second                                                           | 100              | No      |
 | Maximum number of inbound requests per second                                                            | 100              | No      |
 | Maximum outbound bandwidth per account (outbound SFTP and AS2<br>requests both contribute to this value) | 50 MB per second | No      |
-| Maximum number of agreements per account                                                                 | 100              | Yes     |
-| Maximum number of connectors per account (SFTP and AS2 connectors<br>both contribute to this limit)      | 100              | Yes     |
-| Maximum number of certificates per partner profile                                                       | 10               | No      |
-| Maximum number of certificates per account                                                               | 1000             | Yes     |
-| Maximum number of partner profiles per account                                                           | 1000             | Yes     |
 
 ### Quotas for handling secrets
 
