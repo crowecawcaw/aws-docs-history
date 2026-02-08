@@ -14,3 +14,4 @@ options to distribute the portal:
   to the web portal.
 - Email the portal URL to your users, or push down to a device you manage as a browser home
   page or bookmark.
+- Use a custom domain if you have set up one for your portal instead of the portal URL for a more integrated branding experience to your users. For more information, see [Configuring custom domain for your portal](custom-domains.md "custom-domains.md").

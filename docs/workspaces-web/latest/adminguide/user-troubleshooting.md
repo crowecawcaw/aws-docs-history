@@ -59,3 +59,8 @@ change it?_
 Click the down arrow icon next to the microphone or camera. The menu displays available
 devices, with a checkmark indicating your current device. Select a different device to change
 the device you want to use for your session.
+
+_My web portal won’t launch when accessed directly from company's custom domain_
+
+If you are trying to launch a session using a non workspaces-web.com domain name like `acme.secureportal.mycompany.com`,
+make sure your browser has third party cookies enabled for the company domain you are accessing.
