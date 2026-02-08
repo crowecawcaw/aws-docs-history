@@ -26,7 +26,7 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 | consumer_transaction_uid | varchar(50)  | The unique transaction ID of the statement on the<br>consumer cluster.                                                            |
 | record_time              | timestamp    | The time when the action is recorded.                                                                                             |
 | status                   | integer      | The status of the datashare.                                                                                                      |
-| error_message            | varchar(512) | The message for an error.                                                                                                         |
+| error                    | varchar(512) | The message for an error.                                                                                                         |
 | consumer_region          | char(64)     | The Region that the consumer cluster is<br>in.                                                                                    |
 
 ## Sample queries

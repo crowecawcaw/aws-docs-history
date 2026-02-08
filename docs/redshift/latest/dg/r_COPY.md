@@ -30,6 +30,7 @@ The maximum size of a single input row from any source is 4 MB.
 - [Usage notes and additional resources for the COPY command](#r_COPY-using-the-copy-command "#r_COPY-using-the-copy-command")
 - [COPY command examples](#r_COPY-using-the-copy-command-examples "#r_COPY-using-the-copy-command-examples")
 - [COPY JOB](r_COPY-JOB.md "r_COPY-JOB.md")
+- [COPY with TEMPLATE](r_COPY-WITH-TEMPLATE.md "r_COPY-WITH-TEMPLATE.md")
 - [COPY parameter reference](r_COPY-parameters.md "r_COPY-parameters.md")
 - [Usage notes](r_COPY_usage_notes.md "r_COPY_usage_notes.md")
 - [COPY examples](r_COPY_command_examples.md "r_COPY_command_examples.md")

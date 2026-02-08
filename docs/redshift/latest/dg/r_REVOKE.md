@@ -63,6 +63,11 @@ REVOKE [GRANT OPTION FOR]
     ON COPY JOB *job\_name* [,...]
     FROM { *username* | ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
 
+REVOKE [GRANT OPTION FOR]
+{ { ALTER | DROP | USAGE } [,...] | ALL [ PRIVILEGES ] }
+    ON TEMPLATE *template\_name* [,...]
+    FROM { *username* | ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
+
 ```
 
 The following is the syntax for column-level permissions on Amazon Redshift tables and
@@ -193,6 +198,13 @@ REVOKE [GRANT_OPTION]
 FOR COPY JOBS
 IN DATABASE *db\_name*
 FROM { *username* [ WITH GRANT OPTION ] | ROLE *role\_name* } [, ...]
+
+REVOKE [ GRANT OPTION ]
+{ {ALTER | DROP  | USAGE } [,...] | ALL [ PRIVILEGES ] }
+FOR TEMPLATES IN
+{ SCHEMA schema_name [DATABASE db_name ] | DATABASE db_name }
+FROM { username | ROLE role_name } [, ...]
+
 
 ```
 

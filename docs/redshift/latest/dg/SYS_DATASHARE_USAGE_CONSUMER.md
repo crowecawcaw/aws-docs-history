@@ -22,7 +22,7 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 | transaction_uid | varchar(50)  | The unique ID of the transaction.                        |
 | record_time     | timestamp    | The time when the action is recorded.                    |
 | status          | integer      | The status of the requested API call.                    |
-| error_message   | varchar(512) | The message for an error.                                |
+| error           | varchar(512) | The message for an error.                                |
 
 ## Sample queries
 

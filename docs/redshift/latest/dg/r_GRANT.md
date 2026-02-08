@@ -96,6 +96,10 @@ GRANT { { ALTER | DROP} [,...] | ALL [ PRIVILEGES ] }
     ON COPY JOB *job\_name* [,...]
     TO { *username* [ WITH GRANT OPTION ] | ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
 
+GRANT { { ALTER | DROP | USAGE } [,...] | ALL [ PRIVILEGES ] }
+    ON TEMPLATE [*database\_name*.][*schema\_name*.]*template\_name* [,...]
+    TO { *username* [ WITH GRANT OPTION ] | ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
+
 ```
 
 The following is the syntax for column-level permissions on Amazon Redshift tables and
@@ -247,6 +251,12 @@ GRANT { { CREATE | ALTER | DROP} [,...] | ALL [ PRIVILEGES ] }
 FOR COPY JOBS
 IN DATABASE *db\_name*
 TO { *username* [ WITH GRANT OPTION ] | ROLE *role\_name* } [, ...]
+
+GRANT { { ALTER | DROP | USAGE } [,...] | ALL [ PRIVILEGES ] }
+FOR TEMPLATES IN
+{SCHEMA schema_name [DATABASE db_name ] | DATABASE db_name }
+TO { *username* [ WITH GRANT OPTION ] | ROLE *role\_name* } [, ...]
+
 
 ```
 
