@@ -9,8 +9,7 @@ change
 For capabilities similar to the AWS IoT SiteWise Monitor feature, explore the SiteWise plugin for Amazon Managed Grafana
 (AMG).
 
-This guide describes migration options for the end of support for AWS IoT SiteWise Monitor
-customers.
+This guide describes migration options for AWS IoT SiteWise Monitor customers.
 
 SiteWise Monitor is a feature of AWS IoT SiteWise that enables you to create web portals for visualizing and
 sharing your AWS IoT SiteWise data with members of your organization. AWS IoT SiteWise continues to be available,

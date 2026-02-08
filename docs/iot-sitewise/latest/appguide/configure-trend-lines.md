@@ -37,7 +37,7 @@ visualization.
 1. Choose the **Configuration** icon for the visualization to
    change.
 
-![A visualization with the "Configuration" icon highlighted.](images/dashboard-configure-visualization-settings-console.png) 2. Choose **Add a trend line**.
+![A visualization with the "Configuration" icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-configure-visualization-settings-console.png) 2. Choose **Add a trend line**.
 
 ![The visualization configuration panel with "Add a trend line" highlighted.](images/dashboard-add-trend-console.png) 3. Choose the type of trend line to display from the following option:
 

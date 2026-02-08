@@ -12,10 +12,10 @@ specific project.
 
 1. In the navigation bar, choose the **Dashboards** icon.
 
-![The "Dashboards" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png) 2. In the **Projects** drop-down list, choose the project whose
+![The "Dashboards" icon in the navigation bar.](images/portal-navigation-dashboards-console.png) 2. In the **Projects** drop-down list, choose the project whose
 dashboards you want to delete.
 
-![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](images/dashboards-list-view-console.png)
+![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](/images/iot-sitewise/latest/appguide/images/dashboards-list-view-console.png)
 
 You can sort the list of dashboards by using the column headings.
 

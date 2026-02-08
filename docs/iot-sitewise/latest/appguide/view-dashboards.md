@@ -13,7 +13,7 @@ that are defined for their projects. You can view all of your dashboards in one 
 
 1. In the navigation bar, choose the **Dashboards** icon.
 
-![The "Dashboards" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png) 2. In the **Filter by project** drop-down list, choose the project whose
+![The "Dashboards" icon in the navigation bar.](images/portal-navigation-dashboards-console.png) 2. In the **Filter by project** drop-down list, choose the project whose
 dashboards you want to view.
 
 ![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](images/dashboards-list-view-console.png)

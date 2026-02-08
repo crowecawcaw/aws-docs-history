@@ -94,7 +94,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 The **Assets** page
 appears.
 
-![The "Asset library" page with "Assets" panel labeled A, time range dropdown labeled B, and "Demo Wind Farm Asset" section labeled C.](images/asset-library-project-owner-console.png)
+![The "Asset library" page with "Assets" panel labeled A, time range dropdown labeled B, and "Demo Wind Farm Asset" section labeled C.](/images/iot-sitewise/latest/appguide/images/asset-library-project-owner-console.png)
 
 See the following areas of the page.
 

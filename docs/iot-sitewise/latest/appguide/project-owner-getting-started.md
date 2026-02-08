@@ -41,7 +41,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -91,7 +91,7 @@ alarm, and customize the details of the visualization.
 1. In the dashboard editor, change the dashboard name from the default, `New
 dashboard`, to something that describes the content.
 
-![The dashboard editor with "New Dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-name-dashboard-console.png) 2. Browse the list of project assets on the right side of the dashboard. When you find a
+![The dashboard editor with "New Dashboard" highlighted.](images/dashboard-name-dashboard-console.png) 2. Browse the list of project assets on the right side of the dashboard. When you find a
 property or alarm to visualize, drag it to the dashboard.
 
     * The default visualization type for properties is the [line chart](choose-visualization-types.md#line-charts "choose-visualization-types.md#line-charts").
