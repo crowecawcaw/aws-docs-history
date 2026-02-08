@@ -1,4 +1,4 @@
-# Identity and ccess management for Amazon Nova Act
+# Identity and Access management for Amazon Nova Act
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be authenticated (signed in) and authorized (have permissions) to use Nova Act resources. IAM is an AWS service that you can use with no additional charge.
 
