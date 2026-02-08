@@ -27,8 +27,11 @@ with the `EnableBaseline` API.
 
 - **Name**: `AWSControlTowerBaseline`
 
-**Description**: Sets up resources and mandatory controls for
-member accounts within the target OU, required for AWS Control Tower governance.
+**Description**: This baseline sets up resources and controls for member accounts
+within the target OU, required for compliance monitoring, auditing, security monitoring and, optionally,
+access management. This baseline is enabled when you register an OU in AWS Control Tower.
+
+**Prerequisite**: AWS Config integration must be enabled in AWS Control Tower landing zone.
 
 **Consideration**: This baseline retains the settings of the
 landing zone **Region deny** control. In other words, if a
@@ -54,6 +57,8 @@ resources in certain Regions.
 for member accounts within the target OU required for Detective Controls enablement.
 The resources set up are a subset of resources of AWSControlTowerBaseline.
 
+**Prerequisite**: AWS Config integration must be enabled in AWS Control Tower landing zone.
+
 **Consideration**: This baseline does not retain the settings of
 the landing zone Region deny control. Region deny control will not be enabled
 as part of enabling ConfigBaseline.
@@ -67,6 +72,12 @@ be enabled on the same OU. Only one of them is allowed on an OU.
 for member accounts within the target OU. These are required so that integration
 with AWS Backup can automate your data backup across AWS services, and centralize
 your backup policy management.
+
+**Prerequisites**:
+
+    + AWS Backup integration must be enabled in AWS Control Tower landing zone.
+    + AWS Config integration must be enabled in AWS Control Tower landing zone.
+    + `AWSControlTowerBaseline` must be enabled on the target OU.
 
 **Consideration**: Before you enable the
 `BackupBaseline` on a target OU, make sure that the

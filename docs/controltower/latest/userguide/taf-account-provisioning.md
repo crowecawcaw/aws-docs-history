@@ -18,7 +18,7 @@ through AFT or Account Factory, the same backend workflow occurs.
 ###### Note
 
 AFT account provision must target an organizational unit (OU) with AWSControlTowerBaseline enabled
-in AWS Control Tower.
+in AWS Control Tower. For details of AWSControlTowerBaseline, see: [Baseline types that apply at the OU level](types-of-baselines.md#ou-baseline-types "types-of-baselines.md#ou-baseline-types").
 
 When you're getting started with AFT, you will create the following:
 

@@ -34,7 +34,7 @@ resources that you specify.
 ###### Note
 
 The target organizational unit (OU) configured in CfCT must have AWSControlTowerBaseline enabled
-in AWS Control Tower.
+in AWS Control Tower. For details of AWSControlTowerBaseline, see: [Baseline types that apply at the OU level](types-of-baselines.md#ou-baseline-types "types-of-baselines.md#ou-baseline-types").
 
 ###### Benefits
 

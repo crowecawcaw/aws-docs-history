@@ -13,7 +13,7 @@ organizational units (OUs) within your organization.
 ###### Note
 
 The target organizational unit (OU) configured in CfCT must have AWSControlTowerBaseline enabled
-in AWS Control Tower.
+in AWS Control Tower. For details of AWSControlTowerBaseline, see: [Baseline types that apply at the OU level](types-of-baselines.md#ou-baseline-types "types-of-baselines.md#ou-baseline-types").
 
 The following video describes best practices for deploying a scalable CfCT pipeline and
 common CfCT customizations.
