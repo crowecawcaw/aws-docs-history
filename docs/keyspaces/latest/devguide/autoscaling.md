@@ -1,16 +1,24 @@
-# Configure and update Amazon Keyspaces automatic scaling policies
+# Configure permissions for Amazon Keyspaces automatic scaling
 
-You can use the console, CQL, or the AWS Command Line Interface (AWS CLI) to configure Amazon Keyspaces automatic scaling for new and existing tables.
-You can also modify automatic scaling settings or disable automatic scaling.
+To get started, confirm that the principal has the appropriate permissions to create and manage automatic scaling settings. In AWS Identity and Access Management (IAM),
+the AWS managed policy `AmazonKeyspacesFullAccess` is required to manage Amazon Keyspaces scaling policies.
 
-For more advanced features like setting scale-in and scale-out cooldown times, we recommend that you
-use CQL or the AWS CLI to manage Amazon Keyspaces scaling policies.
+###### Important
 
-###### Topics
+`application-autoscaling:*` permissions are required to disable automatic
+scaling on a table. You must turn off auto scaling for a table before you can delete it.
 
-- [Configure permissions for Amazon Keyspaces automatic scaling](autoscaling.md "autoscaling.md")
-- [Create a new table with automatic scaling](autoscaling.md "autoscaling.md")
-- [Configure automatic scaling on an existing table](autoscaling.md "autoscaling.md")
-- [View your table's Amazon Keyspaces auto scaling configuration](autoscaling.md "autoscaling.md")
-- [Turn off Amazon Keyspaces auto scaling for a table](autoscaling.md "autoscaling.md")
-- [View auto scaling activity for a Amazon Keyspaces table in Amazon CloudWatch](autoscaling.md "autoscaling.md")
+To set up an IAM user or role for Amazon Keyspaces console access and Amazon Keyspaces automatic scaling, add the
+following policy.
+
+###### To attach the `AmazonKeyspacesFullAccess` policy
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. On the IAM console dashboard, choose **Users**, and then
+   choose your IAM user or role from the list.
+3. On the **Summary** page, choose **Add
+   permissions**.
+4. Choose **Attach existing policies directly**.
+5. From the list of policies, choose **AmazonKeyspacesFullAccess**,
+   and then choose **Next: Review**.
+6. Choose **Add permissions**.

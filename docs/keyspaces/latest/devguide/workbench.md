@@ -1,73 +1,65 @@
-# How to commit data models to Amazon Keyspaces and Apache
+# Sample data models in NoSQL Workbench
 
-Cassandra
-
-This section shows you how to commit completed data models to Amazon Keyspaces and Apache Cassandra
-clusters. This process automatically creates the server-side resources for keyspaces and
-tables based on the settings that you defined in the data model.
-
-![Console screenshot that shows the commit options.](images/workbench/key_nosql_commit.png)
+The home page for the modeler and visualizer displays a number of sample models that ship
+with NoSQL Workbench. This section describes these models and their potential uses.
 
 ###### Topics
 
-- [Before you begin](#workbench.commit.preqequ "#workbench.commit.preqequ")
-- [Connect to Amazon Keyspaces with service-specific
-  credentials](workbench.commit.md "workbench.commit.md")
-- [Connect to Amazon Keyspaces with AWS Identity and Access Management (IAM) credentials](workbench.commit.md "workbench.commit.md")
-- [Use a saved connection](workbench.commit.md "workbench.commit.md")
-- [Commit to Apache Cassandra](workbench.commit.md "workbench.commit.md")
+- [Employee data model](#workbench.SampleModels.EmployeeDataModel "#workbench.SampleModels.EmployeeDataModel")
+- [Credit card
+  transactions data model](#workbench.SampleModels.CreditCardTransactionsDataModel "#workbench.SampleModels.CreditCardTransactionsDataModel")
+- [Airline operations data
+  model](#workbench.SampleModels.AirlineOperations "#workbench.SampleModels.AirlineOperations")
 
-## Before you begin
+## Employee data model
 
-Amazon Keyspaces requires the use of Transport Layer Security (TLS) to help secure connections
-with clients. To connect to Amazon Keyspaces using TLS, you need to complete the following task
-before you can start.
+This data model represents an Amazon Keyspaces schema for an employee database
+application.
 
-- Download the following digital certificates and save
-  the files locally or in your home directory.
+Applications that access employee information for a given company can use this data
+model.
 
-      1. AmazonRootCA1
-      2. AmazonRootCA2
-      3. AmazonRootCA3
-      4. AmazonRootCA4
-      5. Starfield Class 2 Root (optional – for backward compatibility)
+The access patterns supported by this data model are:
 
-  To download the certificates, you can use the following commands.
+- Retrieval of an employee record with a given ID.
+- Retrieval of an employee record with a given ID and division.
+- Retrieval of an employee record with a given ID and name.
 
-```
-curl -O https://www.amazontrust.com/repository/AmazonRootCA1.pem
-curl -O https://www.amazontrust.com/repository/AmazonRootCA2.pem
-curl -O https://www.amazontrust.com/repository/AmazonRootCA3.pem
-curl -O https://www.amazontrust.com/repository/AmazonRootCA4.pem
-curl -O https://certs.secureserver.net/repository/sf-class2-root.crt
-```
+## Credit card
 
-###### Note
+transactions data model
 
-Amazon Keyspaces previously used TLS certificates anchored to the Starfield Class 2 CA.
-AWS is migrating all AWS Regions to certificates issued under Amazon Trust Services (Amazon Root CAs 1–4).
-During this transition, configure clients to trust both Amazon Root CAs 1–4 and the Starfield root to ensure compatibility across all Regions.
+This data model represents an Amazon Keyspaces schema for credit card transactions at retail
+stores.
 
-Combine all downloaded certificates into a single `pem` file with the name
-`keyspaces-bundle.pem` in our examples. You can do this by running the following command. Take note of the path to the
-file, you need this later.
+The storage of credit card transactions not only helps stores with bookkeeping, but
+also helps store managers analyze purchase trends, which can help them with forecasting
+and planning.
 
-```
-cat AmazonRootCA1.pem \
- AmazonRootCA2.pem \
- AmazonRootCA3.pem \
- AmazonRootCA4.pem \
- sf-class2-root.crt \
- > `keyspaces-bundle.pem`
-```
+The access patterns supported by this data model are:
 
-After you have saved the certificate file, you can connect to Amazon Keyspaces. One option is to connect by using service-specific credentials.
-Service-specific credentials are a user name and password that are associated with a specific IAM user and can only be used with the specified service.
-The second option is to connect with IAM
-credentials that are using the [AWS Signature Version 4 process
-(SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). To learn more about these two options, see [Create credentials for programmatic access to Amazon Keyspaces](programmatic.md "programmatic.md") .
+- Retrieval of transactions by credit card number, month and year, and
+  date.
+- Retrieval of transactions by credit card number, category, and date.
+- Retrieval of transactions by category, location, and credit card
+  number.
+- Retrieval of transactions by credit card number and dispute status.
 
-To connect with service-specific credentials, see [Connect to Amazon Keyspaces with service-specific
-credentials](workbench.commit.md "workbench.commit.md").
+## Airline operations data
 
-To connect with IAM credentials, see [Connect to Amazon Keyspaces with AWS Identity and Access Management (IAM) credentials](workbench.commit.md "workbench.commit.md").
+model
+
+This data model shows data about plane flights, including airports, airlines, and
+flight routes.
+
+Key components of Amazon Keyspaces modeling that are demonstrated are key-value pairs,
+wide-column data stores, composite keys, and complex data types such as maps to
+demonstrate common NoSQL data-access patterns.
+
+The access patterns supported by this data model are:
+
+- Retrieval of routes originating from a given airline at a given
+  airport.
+- Retrieval of routes with a given destination airport.
+- Retrieval of airports with direct flights.
+- Retrieval of airport details and airline details.

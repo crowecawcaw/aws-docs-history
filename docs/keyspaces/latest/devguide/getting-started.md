@@ -1,30 +1,24 @@
-# Create, read, update, and delete
+# Tutorial prerequisites and considerations
 
-data (CRUD) using CQL in Amazon Keyspaces
+Before you can get started with Amazon Keyspaces, follow the AWS setup instructions in [Accessing Amazon Keyspaces (for Apache Cassandra)](accessing.md "accessing.md"). These steps include signing up for AWS
+and creating an AWS Identity and Access Management (IAM) user with access to Amazon Keyspaces.
 
-In this step of the tutorial, you'll learn how to insert, read, update, and delete data
-in an Amazon Keyspaces table using CQL data manipulation language (DML) statements. In Amazon Keyspaces, you can only create DML statements in CQL language.
-In this tutorial, you'll practice running DML statements using the `cqlsh-expansion`
-with [AWS CloudShell](using-aws-with-cloudshell.md "using-aws-with-cloudshell.md") in the AWS Management Console.
+To complete all the steps of the tutorial, you need to install `cqlsh`. You
+can follow the setup instructions at [Using cqlsh to connect to
+Amazon Keyspaces](programmatic.md "programmatic.md").
 
-- **Inserting data** – This section covers inserting single and multiple records into a table
-  using the `INSERT` statement. You'll learn how to upload data from a CSV file and verify successful inserts using `SELECT` queries.
-- **Reading data** – Here, you'll explore different variations of the `SELECT` statement
-  to retrieve data from a table. Topics include selecting all data, selecting specific columns, filtering rows based on conditions using the
-  `WHERE` clause, and understanding simple and compound conditions.
-- **Updating data** – In this section, you'll learn how to modify existing data in a table
-  using the `UPDATE` statement. You'll practice updating single and multiple columns while understanding restrictions around
-  updating primary key columns.
-- **Deleting data** – The final section covers deleting data from a table using the
-  `DELETE`statement. You'll learn how to delete specific cells, entire rows, and the implications of deleting data versus
-  deleting the entire table or keyspace.
-  Throughout the tutorial, you'll find examples, tips, and opportunities to practice writing your own CQL queries for various scenarios.
+To access Amazon Keyspaces using `cqlsh` or the AWS CLI, we recommend using AWS CloudShell. CloudShell
+is a browser-based, pre-authenticated shell that you can launch directly from the
+AWS Management Console. You can run AWS Command Line Interface (AWS CLI) commands against Amazon Keyspaces using your preferred shell (Bash,
+PowerShell or Z shell). To use `cqlsh`, you must install the
+`cqlsh-expansion`. For `cqlsh-expansion` installation
+instructions, see [Using the cqlsh-expansion to connect
+to Amazon Keyspaces](programmatic.md#using_cqlsh "programmatic.md#using_cqlsh"). For more information about CloudShell see
+[Using AWS CloudShell to access Amazon Keyspaces](using-aws-with-cloudshell.md "using-aws-with-cloudshell.md").
 
-###### Topics
+To use the AWS CLI to create, view, and delete resources in Amazon Keyspaces, follow the setup instructions
+at [Downloading and Configuring the
+AWS CLI](access.md#access.cli.installcli "access.md#access.cli.installcli").
 
-- [Inserting and loading data into
-  an Amazon Keyspaces table](getting-started.dml.md "getting-started.dml.md")
-- [Read data from a table using the CQL SELECT statement in Amazon Keyspaces](getting-started.dml.md "getting-started.dml.md")
-- [Update data in an Amazon Keyspaces
-  table using CQL](getting-started.dml.md "getting-started.dml.md")
-- [Delete data from a table using the CQL DELETE statement](getting-started.dml.md "getting-started.dml.md")
+After completing the
+prerequisite steps, proceed to [Create a keyspace in Amazon Keyspaces](getting-started.md "getting-started.md").

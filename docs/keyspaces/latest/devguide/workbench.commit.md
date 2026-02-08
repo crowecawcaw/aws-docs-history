@@ -1,26 +1,27 @@
-# Commit to Apache Cassandra
+# Connect to Amazon Keyspaces with service-specific
 
-This section walks you through making the connections to an Apache Cassandra cluster
-to commit the data model created or edited with NoSQL Workbench.
+credentials
 
-###### Note
+This section shows how to use service-specific credentials to commit the data model
+you created or edited with NoSQL Workbench.
 
-Only data models that have been created with `SimpleStrategy` or
-`NetworkTopologyStrategy` can be committed to Apache Cassandra
-clusters. To change the replication strategy, edit the keyspace in the data
-modeler.
+1.  To create a new connection using service-specific credentials, choose the
+    **Connect by using user name and password** tab.
 
-1. - **User name** – Enter the user name if
-     authentication is enabled on the cluster.
-   - **Password** – Enter the password if
-     authentication is enabled on the cluster.
-   - **Contact points** – Enter the contact
-     points.
-   - **Local data center** – Enter the name of the
-     local data center.
-   - **Port** – The connection uses port
-   9042.
-2. Choose **Commit** to update the Apache Cassandra cluster with
-   the data model.
+        1. Before you begin, you must create service-specific credentials using
+         the process documented at [Create service-specific
+         credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").After you have obtained the service-specific credentials, you can continue to
 
-![Console screenshot that shows a connection to Apache Cassandra.](images/workbench/key_nosql_cassandra.png)
+    set up the connection. Continue with one of the following:
+
+        * **User name** – Enter the user name.
+        * **Password** – Enter the password.
+        * **AWS Region** – For available Regions, see
+         [Service endpoints for Amazon Keyspaces](programmatic.md "programmatic.md").
+        * **Port** – Amazon Keyspaces uses port 9142.
+
+    Alternatively, you can import saved credentials from a file.
+
+2.  Choose **Commit** to update Amazon Keyspaces with the data model.
+
+![Console screenshot that shows a connection to Amazon Keyspaces using service-specific credentials.](images/workbench/key_nosql_SSC.png)
