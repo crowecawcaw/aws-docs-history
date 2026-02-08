@@ -37,10 +37,13 @@ considerations
   days in a row, it will be disabled.
 - If any resources used by the VPC destination change, the
   destination will be disabled and unable to be used.
-- Some changes that can disable a VPC destination include: deleting
-  the VPC, subnets, security groups, or the role used; modifying the
-  role to no longer have the necessary permissions; and disabling the
-  destination.
+- Some changes that can disable a VPC destination include:
+  - Deleting the VPC, subnets, security groups, or the role used.
+  - Modifying the
+    role to no longer have the necessary permissions.
+  - Reaching near subnet capacity which makes us unable to apply [FedRAMP](https://aws.amazon.com/compliance/fedramp/ "https://aws.amazon.com/compliance/fedramp/") patching.
+  - Disabling the
+    destination.
 
 ## Pricing
 
