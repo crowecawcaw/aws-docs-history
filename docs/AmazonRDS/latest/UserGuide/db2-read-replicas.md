@@ -1,67 +1,141 @@
-# Creating an RDS for Db2 replica in
+# Working with RDS for Db2 replica backups
 
-standby mode
+You can create and restore backups of an RDS for Db2 replica just like a primary database. However, there are important differences in how replica backups work, particularly regarding restore timing and backup retention settings.
 
-By default, Db2 replicas are created in read-only mode. You can create a replica in
-standby mode for disaster recovery purposes. Standby replicas don't accept user connections
-but provide faster failover capabilities for cross-Region scenarios.
+RDS for Db2 supports both automatic backups and manual snapshots for replicas. RDS for Db2
+doesn't support point-in-time restore. For information about RDS backups, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
 
-Before creating a standby replica, make sure that you have completed the preparation
-tasks. For more information, see [Preparing to create an RDS for Db2
-replica](db2-read-replicas.md "db2-read-replicas.md"). After creating a standby replica, you
-can change the replica mode. For more information, see [Modifying the RDS for Db2 replica
-mode](db2-replicas-changing-replica-mode.md "db2-replicas-changing-replica-mode.md").
+## Key differences for replica backups
 
-You can create a standby replica using the AWS Management Console, the AWS CLI, or the RDS API. For
-information about creating a read-only replica, see [Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md").
+Replica backups differ from primary database backups in several important ways:
 
-###### To create a standby replica from a source RDS for Db2 DB instance
+- Automatic backups aren't enabled by default for replicas.
+- Restore operations use database time rather than backup creation time.
+- Replica lag can affect the actual data restored. For information about
+  monitoring replica lag, see [Monitoring Db2 replication
+  lag](db2-troubleshooting-replicas.md#db2-troubleshooting-replicas-lag "db2-troubleshooting-replicas.md#db2-troubleshooting-replicas-lag").
+
+## Enabling automatic backups for RDS for Db2 replicas
+
+Unlike primary databases, RDS for Db2 replicas don't have automated backups enabled by
+default. You must manually configure the backup retention period to enable automatic
+backups. Enable automated backups by setting the backup retention period to a positive
+nonzero value.
+
+###### To enable automatic backups immediately
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**.
-3. Choose the RDS for Db2 DB instance that you want to use as the source for a
-   standby replica.
-4. For **Actions**, choose **Create
-   replica**.
-5. For **Replica mode**, choose
-   **Standby**.
-6. Choose the settings that you want to use. For **DB instance
-   identifier**, enter a name for the standby replica. Adjust
-   other settings as needed.
-7. For **Regions**, choose the AWS Region where the
-   standby replica will be launched.
-8. Choose your instance size and storage type. We recommend that you use the
-   same DB instance class and storage type as the source DB instance for the
-   standby replica.
-9. For **Multi-AZ deployment**, choose **Create a standby
-   instance** to create a standby of your replica in another
-   Availability Zone for failover support for the standby replica.
-10. Choose the other settings that you want to use.
-11. Choose **Create replica**.
-    In the **Databases** page, the standby replica has the role
-    **Replica**.
+2. In the navigation pane, choose **Databases**, and
+   then choose the DB instance that you want to modify.
+3. Choose **Modify**.
+4. For **Backup retention period**, choose a positive
+   nonzero value, for example three days.
+5. Choose **Continue**.
+6. Choose **Apply immediately**.
+7. Choose **Modify DB instance** to save your changes
+   and enable automated backups.
+   To enable automated backups, use the AWS CLI [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command.
 
-To create a Db2 replica in standby mode, use the AWS CLI command [create-db-instance-read-replica](../../../cli/latest/reference/rds/create-db-instance-read-replica.md "../../../cli/latest/reference/rds/create-db-instance-read-replica.md") with `--replica-mode` set to
-`mounted`.
+Include the following parameters:
+
+- `--db-instance-identifier`
+- `--backup-retention-period`
+- `--apply-immediately` or
+  `--no-apply-immediately`
+  The following example enables automated backups by setting the backup
+  retention period to three days. The changes are applied immediately.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds create-db-instance-read-replica \
-    --db-instance-identifier `my_standby_replica` \
-    --source-db-instance-identifier `my_db_instance` \
-    --replica-mode mounted
+aws rds modify-db-instance \
+    --db-instance-identifier `my_db_instance`  \
+    --backup-retention-period 3 \
+    --apply-immediately
 ```
 
 For Windows:
 
 ```
-aws rds create-db-instance-read-replica ^
-    --db-instance-identifier `my_standby_replica` ^
-    --source-db-instance-identifier `my_db_instance` ^
-    --replica-mode mounted
+aws rds modify-db-instance ^
+    --db-instance-identifier `my_db_instance`  ^
+    --backup-retention-period 3 ^
+    --apply-immediately
 ```
 
-To create a Db2 replica in standby mode, specify `ReplicaMode=mounted`
-in the RDS API operation [CreateDBInstanceReadReplica](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md").
+To enable automated backups, use the RDS API [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md")
+operation with the following required parameters:
+
+- `DBInstanceIdentifier`
+- `BackupRetentionPeriod`
+
+## Restoring an RDS for Db2 replica
+
+backup
+
+You can restore an RDS for Db2 replica backup the same way that you can restore a backup
+of the primary database. For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
+
+The most important consideration when restoring replica backups is understanding the
+difference between database time and backup creation time, especially when replica lag
+is present.
+
+You can monitor replication lag and ensure that your backups contain the expected
+data. For information about the ReplicaLag metric, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
+
+### Understanding timing
+
+differences
+
+When you restore a replica backup, you must determine the point in time to which
+you are restoring. The _database time_ refers to the latest
+applied transaction time of the data in the backup. When you restore a replica
+backup, you restore to the database time, not the time when the backup completed.
+The difference is significant because a replica can lag behind the primary database
+by minutes or hours. Thus, the database time of a replica backup might be much
+earlier than the snapshot creation time.
+
+To find the difference between database time and creation time, run the AWS CLI
+[describe-db-snapshots](../../../cli/latest/reference/rds/describe-db-snapshots.md "../../../cli/latest/reference/rds/describe-db-snapshots.md") command or call the RDS API [DescribeDBSnapshots](../APIReference/API_DescribeDBSnapshots.md "../APIReference/API_DescribeDBSnapshots.md") operation. Compare the
+`SnapshotDatabaseTime` value and the
+`OriginalSnapshotCreateTime` value. The
+`SnapshotDatabaseTime` value is the earliest database time among all
+the databases of the replica backup. The `OriginalSnapshotCreateTime`
+value is the latest applied transaction on the primary database. Note that
+replication lags could be different for multiple databases, and the database time
+could be in between these two times.
+
+The following AWS CLI example shows the difference between the two times:
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-db-snapshots \
+    --db-instance-identifier `my_db2_replica` \
+    --db-snapshot-identifier `my_replica_snapshot`
+```
+
+For Windows:
+
+```
+aws rds describe-db-snapshots ^
+    --db-instance-identifier `my_db2_replica` ^
+    --db-snapshot-identifier `my_replica_snapshot`
+```
+
+This command produces output similar to the following example.
+
+```
+{
+    "DBSnapshots": [
+        {
+            "DBSnapshotIdentifier": "my_replica_snapshot",
+            "DBInstanceIdentifier": "my_db2_replica",
+            "SnapshotDatabaseTime": "2022-07-26T**17:49:44Z**",
+            ...
+            "OriginalSnapshotCreateTime": "2021-07-26T**19:49:44Z**"
+        }
+    ]
+}
+```

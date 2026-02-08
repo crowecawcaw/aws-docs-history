@@ -276,7 +276,7 @@ The following scenario shows an RDS DB instance in one Region that replicates as
 standby DB instance in a different Region. If one Region becomes unavailable, the instance in the
 other Region is still available.
 
-![Cross-Region read replica configuration](images/read-replica-cross-region.png)
+![Cross-Region read replica configuration](/images/AmazonRDS/latest/UserGuide/images/read-replica-cross-region.png)
 
 ### Availability Zones
 

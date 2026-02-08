@@ -1,13 +1,17 @@
-# Options for MySQL DB instances
+# RDS for MySQL stored procedure reference
 
-Following, you can find a description of options, or additional features, that are available for Amazon RDS
-instances running the MySQL DB engine. To enable these options, you can add them to a custom
-option group, and then associate the option group with your DB instance. For more
-information about working with option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
+These topics describe system stored procedures that are available for Amazon RDS instances running the
+MySQL DB engine. The master user must run these procedures.
 
-Amazon RDS supports the following options for MySQL:
+###### Topics
 
-| Option                                                                                             | Option ID              | Engine versions                                                                     |
-| -------------------------------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------- |
-| [MariaDB Audit Plugin support for<br>MySQL](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md") | `MARIADB_AUDIT_PLUGIN` | All MySQL 8.4 versionsMySQL 8.0.28 and higher 8.0<br>versionsAll MySQL 5.7 versions |
-| [MySQL memcached support](Appendix.MySQL.Options.md "Appendix.MySQL.Options.md")                   | `MEMCACHED`            | All MySQL 5.7 and 8.0 versions                                                      |
+- [Collecting and maintaining the Global Status History](mysql-stored-proc-gsh.md "mysql-stored-proc-gsh.md")
+- [Configuring, starting, and stopping binary
+  log (binlog) replication](mysql-stored-proc-replicating.md "mysql-stored-proc-replicating.md")
+- [Ending a session or query](mysql-stored-proc-ending.md "mysql-stored-proc-ending.md")
+- [Managing active-active clusters](mysql-stored-proc-active-active-clusters.md "mysql-stored-proc-active-active-clusters.md")
+- [Managing multi-source replication](mysql-stored-proc-multi-source-replication.md "mysql-stored-proc-multi-source-replication.md")
+- [Replicating transactions using GTIDs](mysql-stored-proc-gtid.md "mysql-stored-proc-gtid.md")
+- [Rotating the query logs](mysql-stored-proc-logging.md "mysql-stored-proc-logging.md")
+- [Setting and showing binary log configuration](mysql-stored-proc-configuring.md "mysql-stored-proc-configuring.md")
+- [Warming the InnoDB cache](mysql-stored-proc-warming.md "mysql-stored-proc-warming.md")

@@ -1,30 +1,25 @@
-# Exporting Performance Insights metrics as a new
+# Exporting Performance Insights metrics to CloudWatch
 
-dashboard to CloudWatch
+Performance Insights lets you export the preconfigured or custom metrics dashboard for your DB instance to
+Amazon CloudWatch. You can export the metrics dashboard as a new dashboard or add it to an existing CloudWatch
+dashboard. When you choose to add the dashboard to an existing CloudWatch dashboard, you can
+create a header label so that the metrics appear in a separate section in the CloudWatch
+dashboard.
 
-Choose a preconfigured or custom metrics dashboard from the Performance Insights dashboard and export
-it as a new dashboard to CloudWatch. You can view the exported dashboard in the CloudWatch
-console.
+You can view the exported metrics dashboard in the CloudWatch console. If you add new metrics to
+a Performance Insights metrics dashboard after you export it, you must export this dashboard again to view
+the new metrics in the CloudWatch console.
 
-###### To export a Performance Insights metric dashboard as a new dashboard to CloudWatch
+You can also select a metric widget in the Performance Insights dashboard and view the metrics data in the CloudWatch console.
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance.
+For more information about viewing the metrics in the CloudWatch console, see [Viewing DB instance
+metrics in the CloudWatch console and AWS CLI](metrics_dimensions.md "metrics_dimensions.md").
 
-The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Metrics**.
+In the following sections, export Performance Insights metrics to CloudWatch as a new or existing dashboard and view Performance Insights metrics in CloudWatch.
 
-By default, the preconfigured dashboard with Performance Insights metrics appears. 5. Choose a preconfigured or custom dashboard and then choose **Export to
-CloudWatch**.
+###### Topics
 
-The **Export to CloudWatch** window appears.
-
-![Performance Insights dashboard with export to CloudWatch button](images/PI-ExprtToCW.png) 6. Choose **Export as new dashboard**.
-
-![Export to CloudWatch window with export as new dashboard option selected](images/PI-ExprtToCW-NewDashboard.png) 7. Enter a name for the new dashboard in the **Dashboard name** field and choose **Confirm**.
-
-A banner displays a message after the dashboard export is successful.
-
-![Banner with successful message](images/PI-ExprtToCW-SuccessBanner.png) 8. Choose the link or **View in CloudWatch** in the banner
-to view the metrics dashboard in the CloudWatch console.
+- [Exporting Performance Insights metrics as a new
+  dashboard to CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
+- [Adding Performance Insights metrics to an existing CloudWatch dashboard](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
+- [Viewing a Performance Insights metric widget in CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md")

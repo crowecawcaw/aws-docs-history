@@ -1,37 +1,39 @@
-# Deleting an RDS Custom for Oracle snapshot
+# Deleting RDS Custom for Oracle automated backups
 
-You can delete DB snapshots managed by RDS Custom for Oracle when you no longer need them. The deletion procedure is the same for both Amazon RDS and
-RDS Custom DB instances.
+You can delete retained automated backups for RDS Custom for Oracle when they are no longer needed. The procedure is the
+same as the procedure for deleting Amazon RDS backups.
 
-The Amazon EBS snapshots for the binary and root volumes remain in your account for a longer time because they might be linked
-to some instances running in your account or to other RDS Custom for Oracle snapshots. These EBS snapshots are automatically deleted after
-they're no longer related to any existing RDS Custom for Oracle resources (DB instances or backups).
-
-###### To delete a snapshot of an RDS Custom DB instance
+###### To delete a retained automated backup
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Snapshots**.
-3. Choose the DB snapshot that you want to delete.
-4. For **Actions**, choose **Delete snapshot**.
-5. Choose **Delete** on the confirmation page.
-   To delete an RDS Custom snapshot, use the AWS CLI command [delete-db-snapshot](../../../cli/latest/reference/rds/delete-db-snapshot.md "../../../cli/latest/reference/rds/delete-db-snapshot.md").
+2. In the navigation pane, choose **Automated backups**.
+3. Choose **Retained**.
+4. Choose the retained automated backup that you want to delete.
+5. For **Actions**, choose **Delete**.
+6. On the confirmation page, enter `delete me` and choose
+   **Delete**.
+   You can delete a retained automated backup by using the AWS CLI command [delete-db-instance-automated-backup](../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md "../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md").
 
-The following option is required:
+The following option is used to delete a retained automated backup:
 
-- `--db-snapshot-identifier` – The snapshot to be deleted
-  The following example deletes the `my-custom-snapshot` DB snapshot.
+- `--dbi-resource-id` – The resource identifier for the source RDS Custom DB instance.
+
+You can find the resource identifier for the source DB instance of a retained automated backup by using the
+AWS CLI command [describe-db-instance-automated-backups](../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md "../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md").
+The following example deletes the retained automated backup with source DB instance resource identifier
+`custom-db-123ABCEXAMPLE`.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds delete-db-snapshot \
-  --db-snapshot-identifier `my-custom-snapshot`
+aws rds delete-db-instance-automated-backup \
+    --dbi-resource-id `custom-db-123ABCEXAMPLE`
 ```
 
 For Windows:
 
 ```
-aws rds delete-db-snapshot ^
-  --db-snapshot-identifier `my-custom-snapshot`
+aws rds delete-db-instance-automated-backup ^
+    --dbi-resource-id `custom-db-123ABCEXAMPLE`
 ```

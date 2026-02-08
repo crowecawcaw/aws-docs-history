@@ -1,157 +1,149 @@
-# Managing custom casts in RDS for PostgreSQL
+# Tuning RDS for PostgreSQL with Amazon DevOps Guru proactive insights
 
-**Type casting** in PostgreSQL is the process of converting a value from one data type to another. PostgreSQL provides built-in casts for many common conversions, but you can also create custom casts to define how specific type conversions should behave.
+DevOps Guru proactive insights detects conditions on your RDS for PostgreSQL DB instances that can cause problems, and lets you know
+about them before they occur. Proactive insights can alert you to a long running
+idle in transaction connection. For more information about troubleshooting long running
+idle in transaction connections, see [Database has long running idle in transaction connection](#proactive-insights.idle-txn "#proactive-insights.idle-txn")
 
-A cast specifies how to perform a conversion from one data type to another. For example, converting text `'123'` to integer `123`, or numeric `45.67` to text `'45.67'`.
+DevOps Guru can do the following:
 
-For comprehensive information about PostgreSQL casting concepts and syntax, refer to the [PostgreSQL CREATE CAST Documentation](https://www.postgresql.org/docs/current/sql-createcast.html "https://www.postgresql.org/docs/current/sql-createcast.html").
+- Prevent many common database issues by cross-checking your database configuration
+  against common recommended settings.
+- Alert you to critical issues in your fleet that, if left unchecked, can lead to
+  larger problems later.
+- Alert you to newly discovered problems.
+  Every proactive insight contains an analysis of the cause of the problem and
+  recommendations for corrective actions.
 
-Starting with RDS for PostgreSQL versions 13.23, 14.20, 15.15, 16.11, 17.7, and 18.1, you can use the rds_casts extension to install additional casts for built-in types, while still being able to create your own casts for custom types.
+For more information about Amazon DevOps Guru for Amazon RDS, see
+[Analyzing performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md").
+
+## Database has long running idle in transaction connection
+
+A connection to the database has been in the `idle in transaction` state for more than 1800 seconds.
 
 ###### Topics
 
-- [Installing and using the rds_casts extension](#PostgreSQL.CustomCasts.Installing "#PostgreSQL.CustomCasts.Installing")
-- [Supported casts](#PostgreSQL.CustomCasts.Supported "#PostgreSQL.CustomCasts.Supported")
-- [Creating or dropping casts](#PostgreSQL.CustomCasts.Creating "#PostgreSQL.CustomCasts.Creating")
-- [Creating custom casts with proper context strategy](#PostgreSQL.CustomCasts.BestPractices "#PostgreSQL.CustomCasts.BestPractices")
+- [Supported engine versions](#proactive-insights.idle-txn.context.supported "#proactive-insights.idle-txn.context.supported")
+- [Context](#proactive-insights.idle-txn.context "#proactive-insights.idle-txn.context")
+- [Likely causes for this
+  issue](#proactive-insights.idle-txn.causes "#proactive-insights.idle-txn.causes")
+- [Actions](#proactive-insights.idle-txn.actions "#proactive-insights.idle-txn.actions")
+- [Relevant metrics](#proactive-insights.idle-txn.metrics "#proactive-insights.idle-txn.metrics")
 
-## Installing and using the rds_casts extension
+### Supported engine versions
 
-To create the `rds_casts` extension, connect to your RDS for PostgreSQL DB instance as an `rds_superuser` and run the following command:
+This insight information is supported for all versions of RDS for PostgreSQL.
 
-```
-CREATE EXTENSION IF NOT EXISTS rds_casts;
-```
+### Context
 
-## Supported casts
+A transaction in the `idle in transaction` state can hold locks that block
+other queries. It can also prevent `VACUUM` (including autovacuum) from
+cleaning up dead rows, leading to index or table bloat or transaction ID wraparound.
 
-Create the extension in each database where you want to use custom casts. After creating the extension, use the following command to view all available casts:
+### Likely causes for this
 
-```
-SELECT * FROM rds_casts.list_supported_casts();
-```
+issue
 
-This function lists the available cast combinations (source type, target type, coercion context, and cast function). For example, if you want to create `text` to `numeric` as an `implicit` cast. You can use the following query to find if the cast is available to create:
+A transaction initiated in an interactive session with BEGIN or START TRANSACTION
+hasn't ended by using a COMMIT, ROLLBACK, or END command. This causes the transaction to move to `idle in
+ transaction` state.
 
-```
-SELECT * FROM rds_casts.list_supported_casts()
-WHERE source_type = 'text' AND target_type = 'numeric';
- id | source_type | target_type |          qualified_function          | coercion_context
-----+-------------+-------------+--------------------------------------+------------------
- 10 | text        | numeric     | rds_casts.rds_text_to_numeric_custom | implicit
- 11 | text        | numeric     | rds_casts.rds_text_to_numeric_custom | assignment
- 13 | text        | numeric     | rds_casts.rds_text_to_numeric_custom | explicit
- 20 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | implicit
- 21 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | assignment
- 23 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | explicit
-```
+### Actions
 
-The rds_casts extension provides two types of conversion functions for each cast:
+You can find idle transactions by querying `pg_stat_activity`.
 
-- _\_inout functions_ - Use PostgreSQL's standard I/O conversion mechanism, behaving identically to casts created with the INOUT method
-- _\_custom functions_ - Provide enhanced conversion logic that handles edge cases, such as converting empty strings to NULL values to avoid conversion errors
-
-The `inout` functions replicate PostgreSQL's native casting behavior, while `custom` functions extend this functionality by handling scenarios that standard INOUT casts cannot accommodate, such as converting empty strings to integers.
-
-## Creating or dropping casts
-
-You can create and drop supported casts using two methods:
-
-### Cast creation
-
-**Method 1: Using native CREATE CAST command**
+In your SQL client, run the following query to list all connections in
+`idle in transaction` state and to order them by duration:
 
 ```
-CREATE CAST (text AS numeric)
-WITH FUNCTION rds_casts.rds_text_to_numeric_custom
-AS IMPLICIT;
+SELECT now() - state_change as idle_in_transaction_duration, now() - xact_start as xact_duration,*
+FROM  pg_stat_activity
+WHERE state  = 'idle in transaction'
+AND   xact_start is not null
+ORDER BY 1 DESC;
 ```
 
-**Method 2: Using the rds_casts.create_cast function**
+We recommend different actions depending on the causes of your insight.
+
+###### Topics
+
+- [End transaction](#proactive-insights.idle-txn.actions.end-txn "#proactive-insights.idle-txn.actions.end-txn")
+- [Terminate the connection](#proactive-insights.idle-txn.actions.end-connection "#proactive-insights.idle-txn.actions.end-connection")
+- [Configure the idle_in_transaction_session_timeout parameter](#proactive-insights.idle-txn.actions.parameter "#proactive-insights.idle-txn.actions.parameter")
+- [Check the AUTOCOMMIT status](#proactive-insights.idle-txn.actions.autocommit "#proactive-insights.idle-txn.actions.autocommit")
+- [Check the
+  transaction logic in your application code](#proactive-insights.idle-txn.actions.app-logic "#proactive-insights.idle-txn.actions.app-logic")
+
+#### End transaction
+
+When you initiate a transaction in an interactive session with BEGIN or START
+TRANSACTION, it moves to `idle in transaction` state. It remains in
+this state until you end the transaction by issuing a COMMIT, ROLLBACK, END
+command or disconnect the connection completely to roll back the
+transaction.
+
+#### Terminate the connection
+
+Terminate the connection with an idle transaction using the following query:
 
 ```
-SELECT rds_casts.create_cast(10);
-```
-
-The `create_cast` function takes the ID from the `list_supported_casts()` output. This method is simpler and ensures you're using the correct function and context combination. This id is guaranteed to remain the same across different postgres versions.
-
-To verify the cast was created successfully, query the pg_cast system catalog:
+SELECT pg_terminate_backend`(pid)`;
 
 ```
-SELECT oid, castsource::regtype, casttarget::regtype, castfunc::regproc, castcontext, castmethod
-FROM pg_cast
-WHERE castsource = 'text'::regtype AND casttarget = 'numeric'::regtype;
-  oid   | castsource | casttarget |               castfunc               | castcontext | castmethod
---------+------------+------------+--------------------------------------+-------------+------------
- 356372 | text       | numeric    | rds_casts.rds_text_to_numeric_custom | i           | f
-```
 
-The `castcontext` column shows: `e` for EXPLICIT, `a` for ASSIGNMENT, or `i` for IMPLICIT.
+pid is the process ID of the connection.
 
-### Dropping casts
+#### Configure the idle_in_transaction_session_timeout parameter
 
-**Method 1: Using DROP CAST command**
+Configure the `idle_in_transaction_session_timeout` parameter in the parameter group. The advantage of configuring this
+parameter is that it does not require a manual intervention to terminate the long idle in transaction. For more information on this parameter, see
+[the PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html "https://www.postgresql.org/docs/current/runtime-config-client.html").
+
+The following message will be reported in the PostgreSQL log file after the connection is terminated, when a transaction is
+in the idle_in_transaction state for longer than the specified time.
 
 ```
-DROP CAST IF EXISTS (text AS numeric);
+FATAL: terminating connection due to idle in transaction timeout
 ```
 
-**Method 2: Using the rds_casts.drop_cast function**
+#### Check the AUTOCOMMIT status
+
+AUTOCOMMIT is turned on by default. But if it is accidentally turned off in the client ensure that you turn it back on.
+
+- In your psql client, run the following command:
 
 ```
-SELECT rds_casts.drop_cast(10);
+`postgres=>` `\set AUTOCOMMIT on`
 ```
 
-The `drop_cast` function takes the same ID used when creating the cast. This method ensures you're dropping the exact cast that was created with the corresponding ID.
+- In pgadmin, turn it on by choosing the AUTOCOMMIT option from the down arrow.
 
-## Creating custom casts with proper context strategy
+![In pgadmin, choose AUTOCOMMIT to turn it on.](images/apg-insight-pgadmin-autocommit.png)
 
-When creating multiple casts for integer types, operator ambiguity errors can occur if all casts are created as IMPLICIT. The following example demonstrates this issue by creating two implicit casts from text to different integer widths:
+#### Check the
 
-```
--- Creating multiple IMPLICIT casts causes ambiguity
-postgres=> CREATE CAST (text AS int4) WITH FUNCTION rds_casts.rds_text_to_int4_custom(text) AS IMPLICIT;
-CREATE CAST
-postgres=> CREATE CAST (text AS int8) WITH FUNCTION rds_casts.rds_text_to_int8_custom(text) AS IMPLICIT;
-CREATE CAST
+transaction logic in your application code
 
-postgres=> CREATE TABLE test_cast(col int);
-CREATE TABLE
-postgres=> INSERT INTO test_cast VALUES ('123'::text);
-INSERT 0 1
-postgres=> SELECT * FROM test_cast WHERE col='123'::text;
-ERROR:  operator is not unique: integer = text
-LINE 1: SELECT * FROM test_cast WHERE col='123'::text;
-                                         ^
-HINT:  Could not choose a best candidate operator. You might need to add explicit type casts.
-```
+Investigate your application logic for possible problems. Consider the following
+actions:
 
-The error occurs because PostgreSQL cannot determine which implicit cast to use when comparing an integer column with a text value. Both the int4 and int8 implicit casts are valid candidates, creating ambiguity.
+- Check if the JDBC auto commit is set true in your application. Also,
+  consider using explicit `COMMIT` commands in your
+  code.
+- Check your error handling logic to see whether it closes a transaction
+  after errors.
+- Check whether your application is taking long to process the rows returned
+  by a query while the transaction is open. If so, consider coding the
+  application to close the transaction before processing the rows.
+- Check whether a transaction contains many long-running operations. If so,
+  divide a single transaction into multiple transactions.
 
-To avoid this operator ambiguity, use ASSIGNMENT context for smaller integer widths and IMPLICIT context for larger integer widths:
+### Relevant metrics
 
-```
--- Use ASSIGNMENT for smaller integer widths
-CREATE CAST (text AS int2)
-WITH FUNCTION rds_casts.rds_text_to_int2_custom(text)
-AS ASSIGNMENT;
+The following PI metrics are related to this insight:
 
-CREATE CAST (text AS int4)
-WITH FUNCTION rds_casts.rds_text_to_int4_custom(text)
-AS ASSIGNMENT;
-
--- Use IMPLICIT for larger integer widths
-CREATE CAST (text AS int8)
-WITH FUNCTION rds_casts.rds_text_to_int8_custom(text)
-AS IMPLICIT;
-
-postgres=> INSERT INTO test_cast VALUES ('123'::text);
-INSERT 0 1
-postgres=> SELECT * FROM test_cast WHERE col='123'::text;
- col
------
- 123
-(1 row)
-```
-
-With this strategy, only the int8 cast is implicit, so PostgreSQL can unambiguously determine which cast to use.
+- idle_in_transaction_count - Number of sessions in `idle in
+transaction` state.
+- idle_in_transaction_max_time - The duration of the longest running transaction in
+  the `idle in transaction` state.

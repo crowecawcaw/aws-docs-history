@@ -1,88 +1,36 @@
-# Troubleshooting
+# Using pgAdmin to connect to a
 
-connections to your RDS for PostgreSQL instance
+RDS for PostgreSQL DB instance
 
-###### Topics
+You can use the open-source tool pgAdmin to connect to your RDS for PostgreSQL DB instance.
+You can download and install pgAdmin from [http://www.pgadmin.org/](http://www.pgadmin.org/ "http://www.pgadmin.org/") without having a local instance of PostgreSQL on
+your client computer.
 
-- [Error
-  – FATAL: database name does not exist](#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname "#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname")
-- [Error
-  – Could not connect to server: Connection timed out](#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout "#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout")
-- [Errors with security group access rules](#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules "#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules")
+###### To connect to your RDS for PostgreSQL DB instance using pgAdmin
 
-## Error
+1. Launch the pgAdmin application on your client computer.
+2. On the **Dashboard** tab, choose **Add New
+   Server**.
+3. In the **Create - Server** dialog box, type a name on the
+   **General** tab to identify the server in pgAdmin.
+4. On the **Connection** tab, type the following information
+   from your DB instance:
+   - For **Host**, type the endpoint, for example
+     `mypostgresql.c6c8dntfzzhgv0.us-east-2.rds.amazonaws.com`.
+   - For **Port**, type the assigned port.
+   - For **Username**, type the user name that you entered
+     when you created the DB instance (if you changed the 'master
+     username' from the default, `postgres`).
+   - For **Password**, type the password that you entered
+     when you created the DB instance.
 
-– FATAL: database `name` does not exist
+![Type the password that you entered when creating the DB instance](images/Postgres-Connect01.png) 5. Choose **Save**.
 
-If when trying to connect you receive an error like `FATAL: database
- `name` does not exist`, try using the default
-database name **postgres** for the
-`--dbname` option.
+If you have any problems connecting, see [Troubleshooting
+connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md"). 6. To access a database in the pgAdmin browser, expand
+**Servers**, the DB instance, and
+**Databases**. Choose the DB instance's database
+name.
 
-## Error
-
-– Could not connect to server: Connection timed out
-
-If you can't connect to the DB instance, the most common error is `Could
- not connect to server: Connection timed out.` If you receive this error,
-check the following:
-
-- Check that the host name used is the DB instance endpoint and that the
-  port number used is correct.
-- Make sure that the DB instance's public accessibility is set to
-  **Yes** to allow external connections. To modify the
-  **Public access** setting, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-- Make sure that the user connecting to the database has CONNECT access to
-  it. You can use the following query to provide connect access to the
-  database.
-
-```
-GRANT CONNECT ON DATABASE `database name` TO `username`;
-```
-
-- Check that the security group assigned to the DB instance has rules to
-  allow access through any firewall your connection might go through. For
-  example, if the DB instance was created using the default port of 5432, your
-  company might have firewall rules blocking connections to that port from
-  external company devices.
-
-To fix this, modify the DB instance to use a different port. Also, make
-sure that the security group applied to the DB instance allows connections
-to the new port. To modify the **Database port** setting,
-see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-
-- Check whether the port you're attempting to use is already occupied by a
-  local instance of PostgreSQL or another service running on your computer.
-  For example, if you have a local PostgreSQL database running on the same
-  port (default is 5432), it might prevent a successful connection to the
-  RDS for PostgreSQL DB instance. Make sure that the port is free, or try
-  connecting with a different port number if possible.
-- See also [Errors with security group access rules](#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules "#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules").
-
-##
-
-Errors with security group access rules
-
-By far the most common connection problem is with the security group's access
-rules assigned to the DB instance. If you used the default security group when you
-created the DB instance, the security group likely didn't have access rules
-that allow you to access the instance.
-
-For the connection to work, the security group you assigned to the DB instance at
-its creation must allow access to the DB instance. For example, if the DB instance
-was created in a VPC, it must have a VPC security group that authorizes connections.
-Check if the DB instance was created using a security group that doesn't
-authorize connections from the device or Amazon EC2 instance where the application is
-running.
-
-You can add or edit an inbound rule in the security group. For
-**Source**, choosing **My IP** allows access
-to the DB instance from the IP address detected in your browser. For more
-information, see [Provide access to your DB instance in your VPC by
-creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
-
-Alternatively, if the DB instance was created outside of a VPC, it must have a
-database security group that authorizes those connections.
-
-For more information about Amazon RDS security groups, see [Controlling access with security
-groups](Overview.md "Overview.md").
+![Choose the DB instance's database name in the pgAdmin browser](images/Postgres-Connect02.png) 7. To open a panel where you can enter SQL commands, choose
+**Tools**, **Query Tool**.

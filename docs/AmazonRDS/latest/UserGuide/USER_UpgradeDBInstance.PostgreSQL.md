@@ -1,40 +1,113 @@
-# Upgrading PostgreSQL extensions in RDS for PostgreSQL databases
+# Automatic minor
 
-A PostgreSQL engine upgrade doesn't upgrade most PostgreSQL extensions.
-To update an extension after a version upgrade, use the `ALTER
- EXTENSION UPDATE` command.
+version upgrades for RDS for PostgreSQL
+
+If you enable the **Auto minor version upgrade** option when
+creating or modifying a DB instance or Multi-AZ DB cluster, you can have your database
+automatically upgraded.
+
+Amazon RDS also supports upgrade rollout policy to manage automatic minor
+version upgrades across multiple database resources and AWS accounts.
+For more information,
+see [Using AWS Organizations upgrade rollout policy
+for automatic minor version upgrades](RDS.Maintenance.AMVU.md "RDS.Maintenance.AMVU.md").
+
+For each RDS for PostgreSQL major version, one minor version is designated by
+RDS as the automatic upgrade version. After a minor version has been tested
+and approved by Amazon RDS, the minor version upgrade occurs automatically during
+your maintenance window. RDS doesn't automatically set newer released
+minor versions as the automatic upgrade version. Before RDS designates a
+newer automatic upgrade version, several criteria are considered, such as
+the following:
+
+- Known security issues
+- Bugs in the PostgreSQL community version
+- Overall fleet stability since the minor version was
+  released
+  You can use the following AWS CLI command to determine the current automatic
+  minor upgrade target version for a specified PostgreSQL minor version in a
+  specific AWS Region.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-db-engine-versions \
+--engine postgres \
+--engine-version `minor-version` \
+--region `region` \
+--query "DBEngineVersions[*].ValidUpgradeTarget[*].{AutoUpgrade:AutoUpgrade,EngineVersion:EngineVersion}" \
+--output text
+```
+
+For Windows:
+
+```
+aws rds describe-db-engine-versions ^
+--engine postgres ^
+--engine-version `minor-version` ^
+--region `region` ^
+--query "DBEngineVersions[*].ValidUpgradeTarget[*].{AutoUpgrade:AutoUpgrade,EngineVersion:EngineVersion}" ^
+--output text
+```
+
+For example, the following AWS CLI command determines the automatic minor
+upgrade target for PostgreSQL minor version 16.1 in the US East (Ohio)
+AWS Region (us-east-2).
+
+For Linux, macOS, or Unix:
+
+```
+aws rds describe-db-engine-versions \
+--engine postgres \
+--engine-version 16.1 \
+--region us-east-2 \
+--query "DBEngineVersions[*].ValidUpgradeTarget[*].{AutoUpgrade:AutoUpgrade,EngineVersion:EngineVersion}" \
+--output table
+```
+
+For Windows:
+
+```
+aws rds describe-db-engine-versions ^
+--engine postgres ^
+--engine-version 16.1 ^
+--region us-east-2 ^
+--query "DBEngineVersions[*].ValidUpgradeTarget[*].{AutoUpgrade:AutoUpgrade,EngineVersion:EngineVersion}" ^
+--output table
+```
+
+Your output is similar to the following.
+
+```
+----------------------------------
+|    DescribeDBEngineVersions    |
++--------------+-----------------+
+|  AutoUpgrade |  EngineVersion  |
++--------------+-----------------+
+|  False       |  16.2           |
+**| True | 16.3 |**
+|  False       |  16.4           |
+|  False       |  16.5           |
+|  False       |  16.6           |
+|  False       |  17.1           |
+|  False       |  17.2           |
++--------------+-----------------+
+```
+
+In this example, the `AutoUpgrade` value is `True` for
+PostgreSQL version 16.3. So, the automatic minor upgrade target is
+PostgreSQL version 16.3, which is highlighted in the output.
+
+A PostgreSQL database is automatically upgraded during your maintenance window
+if the following criteria are met:
+
+- The database has the **Auto minor version
+  upgrade** option enabled.
+- The database is running a minor DB engine version that is less
+  than the current automatic upgrade minor version.
+  For more information, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades").
 
 ###### Note
 
-For information about updating the PostGIS extension, see [Managing spatial data with the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-([Step 6: Upgrade the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update")).
-
-To update the `pg_repack` extension, drop the extension and
-then create the new version in the upgraded database. For more
-information, see [pg_repack installation](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/") in the
-`pg_repack` documentation.
-
-To upgrade an extension, use the following command.
-
-```
-ALTER EXTENSION `extension_name` UPDATE TO '`new_version`';
-```
-
-For the list of supported versions of PostgreSQL extensions, see [Supported
-PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md").
-
-To list your currently installed extensions, use the PostgreSQL [pg_extension](https://www.postgresql.org/docs/current/catalog-pg-extension.html "https://www.postgresql.org/docs/current/catalog-pg-extension.html") catalog in the following command.
-
-```
-SELECT * FROM pg_extension;
-```
-
-To view a list of the specific extension versions that are available for your
-installation, use the PostgreSQL [pg_available_extension_versions](https://www.postgresql.org/docs/current/view-pg-available-extension-versions.html "https://www.postgresql.org/docs/current/view-pg-available-extension-versions.html") view in the following
-command.
-
-```
-SELECT * FROM pg_available_extension_versions;
-```
+A PostgreSQL upgrade doesn't upgrade PostgreSQL extensions. To
+upgrade extensions, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").

@@ -1985,6 +1985,27 @@ The stored procedure uses the IBM
 about the utility, see [db2support - Problem analysis and environment collection tool command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2support-problem-analysis-environment-collection-tool "https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2support-problem-analysis-environment-collection-tool")
 in the IBM Db2 documentation.
 
+Before calling the stored procedure, review the following considerations:
+
+- To upload the diagnostic files to Amazon S3, you must have already configured the
+  integration. For more information, see [Integrating an Amazon RDS for Db2 DB instance with
+  Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+- For an RDS for Db2 DB instance to be able to interact with Amazon S3, you must
+  have a VPC and an Amazon S3 gateway endpoint for private subnets to use. For more
+  information, see [Step 1: Create a VPC gateway endpoint for
+  Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint") and [Step 2: Confirm that your VPC gateway
+  endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint").
+
+Before calling `rdsadmin.db2support_command`, you must connect to the
+`rdsadmin` database. In the following example, replace
+`master_username` and
+`master_password` with your RDS for Db2 DB instance
+information:
+
+```
+db2 connect to rdsadmin user `master_username` using `master_password`
+```
+
 For information about checking the status of collecting diagnostic information,
 see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 

@@ -1,74 +1,74 @@
-# Copying a DB parameter group in Amazon RDS
+# Associating a DB parameter group with a
 
-You can copy custom DB parameter groups that you create. Copying a parameter group can be
-convenient solution. An example is when you have created a DB parameter group and want to include
-most of its custom parameters and values in a new DB parameter group. You can copy a
-DB parameter group by using the AWS Management Console. You can also use the AWS CLI [copy-db-parameter-group](../../../cli/latest/reference/rds/copy-db-parameter-group.md "../../../cli/latest/reference/rds/copy-db-parameter-group.md")
-command or the RDS API [CopyDBParameterGroup](../APIReference/API_CopyDBParameterGroup.md "../APIReference/API_CopyDBParameterGroup.md") operation.
+DB instance in Amazon RDS
 
-After you copy a DB parameter group, wait at least 5 minutes before creating your first DB instance that
-uses that DB parameter group as the default parameter group. Doing this allows Amazon RDS to fully
-complete the copy action before the parameter group is used. This is especially
-important for parameters that are critical when creating the default database for a
-DB instance. An example is the character set for the default database defined by the
-`character_set_database` parameter. Use the **Parameter
-Groups** option of the [Amazon RDS
-console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") or the [describe-db-parameters](../../../cli/latest/reference/rds/describe-db-parameters.md "../../../cli/latest/reference/rds/describe-db-parameters.md") command to verify that your DB parameter group is created.
+You can create your own DB parameter groups with customized settings. You can associate a DB parameter group
+with a DB instance using the AWS Management Console, the AWS CLI, or the RDS API. You can do so when you
+create or modify a DB instance.
+
+For information about creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For information about creating a DB instance, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+For information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
 ###### Note
 
-You can't copy a default parameter group. However, you can create a new parameter
-group that is based on a default parameter group.
+When you associate a new DB parameter group with a DB instance, the modified static and dynamic
+parameters are applied only after the DB instance is rebooted. However, if you modify
+dynamic parameters in the DB parameter group after you associate it with the DB instance, these changes
+are applied immediately without a reboot.
 
-You can't copy a DB parameter group to a different AWS account or AWS Region.
-
-###### To copy a DB parameter group
+###### To associate a DB parameter group with a DB instance
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter
-   groups**.
-3. In the list, choose the custom parameter group that you want to
-   copy.
-4. For **Parameter group actions**, choose
-   **Copy**.
-5. In **New DB parameter group identifier**, enter a name for the new
-   parameter group.
-6. In **Description**, enter a description for the new
-   parameter group.
-7. Choose **Copy**.
-   To copy a DB parameter group, use the AWS CLI [`copy-db-parameter-group`](../../../cli/latest/reference/rds/copy-db-parameter-group.md "../../../cli/latest/reference/rds/copy-db-parameter-group.md") command with the following
-   required options:
+2. In the navigation pane, choose **Databases**, and
+   then choose the DB instance that you want to modify.
+3. Choose **Modify**. The **Modify
+   DB instance** page appears.
+4. Change the **DB parameter group** setting.
+5. Choose **Continue** and check the summary of
+   modifications.
+6. (Optional) Choose **Apply immediately** to apply the
+   changes immediately. Choosing this option can cause an outage in some
+   cases. For more information, see [Using the schedule modifications
+   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+7. On the confirmation page, review your changes. If they are correct,
+   choose **Modify DB instance** to save your changes.
 
-- `--source-db-parameter-group-identifier`
-- `--target-db-parameter-group-identifier`
-- `--target-db-parameter-group-description`
-  The following example creates a new DB parameter group named `mygroup2` that is
-  a copy of the DB parameter group `mygroup1`.
+Or choose **Back** to edit your changes or
+**Cancel** to cancel your changes.
+To associate a DB parameter group with a DB instance, use the AWS CLI [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command with the following
+options:
+
+- `--db-instance-identifier`
+- `--db-parameter-group-name`
+  The following example associates the `mydbpg` DB parameter group with the
+  `database-1` DB instance. The changes are applied immediately by using
+  `--apply-immediately`. Use `--no-apply-immediately` to
+  apply the changes during the next maintenance window. For more information, see [Using the schedule modifications
+  setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 
 ###### Example
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds copy-db-parameter-group \
-    --source-db-parameter-group-identifier `mygroup1` \
-    --target-db-parameter-group-identifier `mygroup2` \
-    --target-db-parameter-group-description `"DB parameter group 2"`
+aws rds modify-db-instance \
+    --db-instance-identifier `database-1` \
+    --db-parameter-group-name `mydbpg` \
+    `--apply-immediately`
 ```
 
 For Windows:
 
 ```
-aws rds copy-db-parameter-group ^
-    --source-db-parameter-group-identifier `mygroup1` ^
-    --target-db-parameter-group-identifier `mygroup2` ^
-    --target-db-parameter-group-description `"DB parameter group 2"`
+aws rds modify-db-instance ^
+    --db-instance-identifier `database-1` ^
+    --db-parameter-group-name `mydbpg` ^
+    `--apply-immediately`
 ```
 
-To copy a DB parameter group, use the RDS API [`CopyDBParameterGroup`](../APIReference/API_CopyDBParameterGroup.md "../APIReference/API_CopyDBParameterGroup.md") operation with the following
-required parameters:
+To associate a DB parameter group with a DB instance, use the RDS API [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") operation with the following
+parameters:
 
-- `SourceDBParameterGroupIdentifier`
-- `TargetDBParameterGroupIdentifier`
-- `TargetDBParameterGroupDescription`
+- `DBInstanceName`
+- `DBParameterGroupName`

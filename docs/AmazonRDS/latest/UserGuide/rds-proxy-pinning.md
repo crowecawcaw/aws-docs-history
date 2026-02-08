@@ -182,6 +182,8 @@ TABLES`, or `FLUSH TABLES WITH READ LOCK` cause the proxy to pin
   rely on that session state to persist across transactions. For example, RDS Proxy isn't
   currently compatible with a stored procedure that creates a temporary table that
   persists across all transactions.
+- Queries with executable comments for MySQL (syntax /\*! ... \*/) or MariaDB (syntax /\*M! ... \*/)
+  cause pinning. RDS Proxy cannot parse SQL embedded in these comments to track session state changes.
 
 If you have expert knowledge about your application behavior, you can skip the pinning behavior for certain
 application statements. To do so, choose the **Session pinning filters** option when

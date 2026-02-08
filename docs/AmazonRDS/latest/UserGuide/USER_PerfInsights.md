@@ -1,4 +1,4 @@
-# Overview of Performance Insights on Amazon RDS
+# Monitoring DB load with Performance Insights on Amazon RDS
 
 ###### Important
 
@@ -19,21 +19,18 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-By default, RDS enables Performance Insights in the console create wizard for all Amazon RDS engines. If you have
-more than one database on a DB instance, Performance Insights aggregates performance data.
-
-You can find an overview of Performance Insights for Amazon RDS
-in the following video.
-
-###### Important
-
-The following topics describe using Amazon RDS Performance Insights with non-Aurora DB engines.
-For information about using Amazon RDS Performance Insights with Amazon Aurora, see [Using Amazon RDS Performance Insights](../AuroraUserGuide/USER_PerfInsights.md "../AuroraUserGuide/USER_PerfInsights.md") in the _Amazon Aurora User Guide_.
+Performance Insights expands on existing Amazon RDS monitoring
+features to illustrate and help you analyze your database performance. With the Performance Insights dashboard, you can visualize the database load on your Amazon RDS DB instance load and filter the load by waits, SQL statements,
+hosts, or users. For information about using Performance Insights with Amazon DocumentDB, see _[Amazon DocumentDB Developer Guide](../../../documentdb/latest/developerguide/performance-insights.md "../../../documentdb/latest/developerguide/performance-insights.md")_.
 
 ###### Topics
 
-- [Database load](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
-- [Maximum CPU](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
-- [Amazon RDS DB engine, Region, and instance class support
-  for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
-- [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.md "USER_PerfInsights.Overview.md")
+- [Overview of Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Overview of the Performance Schema for Performance Insights on Amazon RDS for MariaDB or MySQL](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Configuring access policies for Performance Insights](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Viewing Performance Insights proactive recommendations](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Retrieving metrics with the Performance Insights API for Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Logging Performance Insights calls using AWS CloudTrail](USER_PerfInsights.md "USER_PerfInsights.md")
+- [Performance Insights API and interface VPC endpoints (AWS PrivateLink)](pi-vpc-interface-endpoints.md "pi-vpc-interface-endpoints.md")

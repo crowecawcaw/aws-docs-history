@@ -1,56 +1,44 @@
-# Stopping automated backup replication for Amazon RDS
+# Deleting replicated backups for Amazon RDS
 
-You can stop backup replication for DB instances using the Amazon RDS console. You can also use the
-`stop-db-instance-automated-backups-replication` AWS CLI command or the
-`StopDBInstanceAutomatedBackupsReplication` RDS API operation.
+You can delete replicated backups for DB instances using the Amazon RDS console. You can also use the `delete-db-instance-automated-backups` AWS CLI
+command or the `DeleteDBInstanceAutomatedBackup` RDS API operation.
 
-Replicated backups are retained, subject to the backup retention period set when they were created.
+Delete replicated backups in the destination Region from the
+**Automated backups** page.
 
-Stop backup replication from the **Automated backups** page
-in the source Region.
-
-###### To stop backup replication to an AWS Region
+###### To delete replicated backups
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose the source Region from the **Region selector**.
+2. Choose the destination Region from the **Region selector**.
 3. In the navigation pane, choose **Automated backups**.
-4. On the **Current Region** tab, choose the DB instance for which you want to stop backup
-   replication.
-5. For **Actions**, choose **Manage cross-Region replication**.
-6. Under **Backup replication**, clear the **Enable replication to another AWS Region** check box.
-7. Choose **Save**.
-   Replicated backups are listed on the **Retained** tab of the **Automated backups**
-   page in the destination Region.
+4. On the **Replicated backups** tab, choose the DB instance for which you want to delete the
+   replicated backups.
+5. For **Actions**, choose **Delete**.
+6. On the confirmation page, enter `delete me` and choose
+   **Delete**.
+   Delete replicated backups by using the [`delete-db-instance-automated-backup`](../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md "../../../cli/latest/reference/rds/delete-db-instance-automated-backup.md") AWS CLI command.
 
-Stop backup replication by using the [`stop-db-instance-automated-backups-replication`](../../../cli/latest/reference/rds/stop-db-instance-automated-backups-replication.md "../../../cli/latest/reference/rds/stop-db-instance-automated-backups-replication.md")
-AWS CLI command.
+You can use the [`describe-db-instances`](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
+CLI command to find the Amazon Resource Names (ARNs) of the replicated backups. For more information, see [Finding information about replicated backups for Amazon RDS](AutomatedBackups.Replicating.md "AutomatedBackups.Replicating.md").
 
-The following CLI example stops automated backups of a DB instance from replicating in the US West (Oregon)
-Region.
-
-###### To stop backup replication
+###### To delete replicated backups
 
 - Run one of the following commands.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds stop-db-instance-automated-backups-replication \
---region us-east-1 \
---source-db-instance-arn "arn:aws:rds:us-west-2:`123456789012`:db:`mydatabase`"
+aws rds delete-db-instance-automated-backup \
+--db-instance-automated-backups-arn "arn:aws:rds:us-east-1:`123456789012`:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE"
 ```
 
 For Windows:
 
 ```
-aws rds stop-db-instance-automated-backups-replication ^
---region us-east-1 ^
---source-db-instance-arn "arn:aws:rds:us-west-2:`123456789012`:db:`mydatabase`"
+aws rds delete-db-instance-automated-backup ^
+--db-instance-automated-backups-arn "arn:aws:rds:us-east-1:`123456789012`:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE"
 ```
 
-Stop backup replication by using the [`StopDBInstanceAutomatedBackupsReplication`](../APIReference/API_StopDBInstanceAutomatedBackupsReplication.md "../APIReference/API_StopDBInstanceAutomatedBackupsReplication.md") RDS API
-operation with the following parameters:
-
-- `Region`
-- `SourceDBInstanceArn`
+Delete replicated backups by using the [`DeleteDBInstanceAutomatedBackup`](../APIReference/API_DeleteDBInstanceAutomatedBackup.md "../APIReference/API_DeleteDBInstanceAutomatedBackup.md") RDS API operation with the
+`DBInstanceAutomatedBackupsArn` parameter.

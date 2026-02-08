@@ -1,85 +1,120 @@
-# Creating a database account using
+# Enabling and disabling IAM database
 
-IAM authentication
+authentication
 
-With IAM database authentication, you don't need to assign database passwords to the
-user accounts you create. If you remove a user that is mapped to a database
-account, you should also remove the database account with the `DROP USER`
-statement.
+By default, IAM database authentication is disabled on DB
+instances.
+You can enable or disable IAM database authentication using the AWS Management Console, AWS CLI, or the API.
 
-###### Note
+You can enable IAM database authentication when you perform one of the following actions:
 
-The user name used for IAM authentication must match the case of the user name in the database.
+- To create a new DB instance with IAM database authentication enabled,
+  see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
+- To modify a DB instance to enable IAM database authentication,
+  see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+- To restore a DB instance from a snapshot with IAM database authentication enabled, see
+  [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
+- To restore a DB instance to a point in time with IAM database authentication enabled, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
+  Each creation or modification workflow has a **Database authentication**
+  section, where you can enable or disable IAM database authentication. In that section, choose
+  **Password and IAM database authentication** to enable IAM database authentication.
 
-###### Topics
+###### To enable or disable IAM database authentication for an existing DB
 
-- [Using IAM authentication
-  with MariaDB and MySQL](#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL "#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL")
-- [Using IAM
-  authentication with PostgreSQL](#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL "#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL")
+instance
 
-## Using IAM authentication
-
-with MariaDB and MySQL
-
-With MariaDB and MySQL, authentication is handled by
-`AWSAuthenticationPlugin`—an AWS-provided plugin that works
-seamlessly with IAM to authenticate your users. Connect to the DB instance as the master user or a different user who can create users
-and grant privileges. After connecting, issue the `CREATE USER`
-statement, as shown in the following example.
-
-```
-CREATE USER 'jane_doe' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
-
-```
-
-The `IDENTIFIED WITH` clause allows MariaDB and
-MySQL to use the `AWSAuthenticationPlugin` to authenticate the database account
-(`jane_doe`). The `AS 'RDS'` clause refers to the authentication method.
-Make sure the specified database user name is the same as a resource in the IAM policy for IAM
-database access. For more information, see [Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**.
+3. Choose the DB instance
+   that you want to modify.
 
 ###### Note
 
-If you see the following message, it means that the AWS-provided plugin is not
-available for the current DB instance.
-
-`ERROR 1524 (HY000): Plugin 'AWSAuthenticationPlugin' is not
- loaded`
-
-To troubleshoot this error, verify that you are using a supported configuration
-and that you have enabled IAM database authentication on your DB instance. For more information, see [Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability") and [Enabling and disabling IAM database
-authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
-
-After you create an account using `AWSAuthenticationPlugin`, you manage it
-in the same way as other database accounts. For example, you can modify account
-privileges with `GRANT` and `REVOKE` statements, or modify
-various account attributes with the `ALTER USER` statement.
-
-Database network traffic is encrypted using SSL/TLS when using IAM. To allow SSL
-connections, modify the user account with the following command.
+Make sure that the DB instance is compatible with IAM authentication. Check the compatibility
+requirements in
+[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability"). 4. Choose **Modify**. 5. In the **Database authentication** section, choose
+**Password and IAM database authentication**
+to
+enable IAM database authentication. Choose **Password
+authentication** or **Password and Kerberos
+authentication** to disable IAM authentication. 6. You can also choose to enable publishing IAM DB authentication logs to CloudWatch Logs.
+Under **Log exports**, choose the
+**iam-db-auth-error log** option. Publishing your logs to CloudWatch Logs consumes storage
+and you incur charges for that storage. Be sure to delete any CloudWatch Logs that you no longer need. 7. Choose **Continue**. 8. To apply the changes immediately, choose **Immediately** in the
+**Scheduling of modifications** section. 9. Choose **Modify DB instance**
+.
+To create a new DB instance with IAM authentication by using the AWS CLI, use the [`create-db-instance`](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command. Specify the `--enable-iam-database-authentication` option, as shown in
+the following example.
 
 ```
-ALTER USER 'jane_doe'@'%' REQUIRE SSL;
+aws rds create-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --db-instance-class `db.m3.medium` \
+    --engine `MySQL` \
+    --allocated-storage `20` \
+    --master-username `masterawsuser` \
+    --manage-master-user-password \
+    **--enable-iam-database-authentication**
 ```
 
-## Using IAM
+To update an existing DB instance to have or not have IAM
+authentication, use the AWS CLI
+command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Specify either the `--enable-iam-database-authentication` or
+`--no-enable-iam-database-authentication` option, as appropriate.
 
-authentication with PostgreSQL
+###### Note
 
-To use IAM authentication with PostgreSQL, connect to the DB
-instance as the master user or a different user who can create users
-and grant privileges. After connecting, create database users and then grant them the
-`rds_iam` role as shown in the following example.
+Make sure that the DB instance is compatible with IAM authentication. Check the compatibility
+requirements in
+[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability").
+
+By default,
+Amazon RDS
+performs the modification during the next maintenance window.
+If you want to override this and enable IAM DB authentication as soon as possible,
+use the `--apply-immediately` parameter.
+
+The following example shows how to immediately enable IAM authentication for an
+existing DB instance.
 
 ```
-CREATE USER db_userx;
-GRANT rds_iam TO db_userx;
+aws rds modify-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    **--apply-immediately** \
+    **--enable-iam-database-authentication**
 ```
 
-Make sure the specified database user name is the same as a resource in the IAM
-policy for IAM database access. For more information, see [Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). You must grant the
-`rds_iam` role to use IAM authentication. You can use nested
-memberships or indirect grants of the role as well.
+If you are restoring a DB instance,
+use one of the following AWS CLI commands:
+
+- `restore-db-instance-to-point-in-time`
+- `restore-db-instance-from-db-snapshot`
+  The IAM database authentication setting defaults to that of the source snapshot.
+  To change this setting, set the `--enable-iam-database-authentication` or
+  `--no-enable-iam-database-authentication` option, as appropriate.
+
+To create a new DB instance with IAM authentication by using the API, use the
+API operation [`CreateDBInstance`](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md"). Set the `EnableIAMDatabaseAuthentication` parameter to
+`true`.
+
+To update an existing DB instance to have IAM
+authentication, use the API operation [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md"). Set the
+`EnableIAMDatabaseAuthentication` parameter to `true`
+to enable IAM authentication, or `false` to disable it.
+
+###### Note
+
+Make sure that the DB instance is compatible with IAM authentication. Check the compatibility
+requirements in
+[Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability").
+
+If you are restoring a DB instance,
+use one of the following API operations:
+
+- [`RestoreDBInstanceFromDBSnapshot`](../APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../APIReference/API_RestoreDBInstanceFromDBSnapshot.md")
+- [`RestoreDBInstanceToPointInTime`](../APIReference/API_RestoreDBInstanceToPointInTime.md "../APIReference/API_RestoreDBInstanceToPointInTime.md")
+  The IAM database authentication setting defaults to that of the source
+  snapshot. To change this setting, set the
+  `EnableIAMDatabaseAuthentication` parameter to `true`
+  to enable IAM authentication, or `false` to disable it.

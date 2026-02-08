@@ -1,146 +1,84 @@
-# Client:ClientRead
+# LWLock:buffer_content (BufferContent)
 
-The `Client:ClientRead` event occurs when RDS for PostgreSQL is waiting to
-receive data from the client.
+The `LWLock:buffer_content` event occurs when a session is waiting to read or write a data
+page in memory while another session has that page locked for writing. In RDS for PostgreSQL 13 and higher,
+this wait event is called `BufferContent`.
 
 ###### Topics
 
-- [Supported engine versions](#wait-event.clientread.context.supported "#wait-event.clientread.context.supported")
-- [Context](#wait-event.clientread.context "#wait-event.clientread.context")
-- [Likely causes of increased waits](#wait-event.clientread.causes "#wait-event.clientread.causes")
-- [Actions](#wait-event.clientread.actions "#wait-event.clientread.actions")
+- [Supported engine versions](#wait-event.lwlockbuffercontent.context.supported "#wait-event.lwlockbuffercontent.context.supported")
+- [Context](#wait-event.lwlockbuffercontent.context "#wait-event.lwlockbuffercontent.context")
+- [Likely causes of increased waits](#wait-event.lwlockbuffercontent.causes "#wait-event.lwlockbuffercontent.causes")
+- [Actions](#wait-event.lwlockbuffercontent.actions "#wait-event.lwlockbuffercontent.actions")
 
 ## Supported engine versions
 
-This wait event information is supported for RDS for PostgreSQL version 10 and higher.
+This wait event information is supported for all versions of RDS for PostgreSQL.
 
 ## Context
 
-An RDS for PostgreSQL DB instance is waiting to receive data from the client. The
-RDS for PostgreSQL DB instance must receive the data from the client before it can send more
-data to the client. The time that the instance waits before receiving data from the
-client is a `Client:ClientRead` event.
+To read or manipulate data, PostgreSQL accesses it through shared memory
+buffers. To read from the buffer, a process gets a lightweight lock (LWLock) on the
+buffer content in shared mode. To write to the buffer, it gets that lock in exclusive
+mode. Shared locks allow other processes to concurrently acquire shared locks on that
+content. Exclusive locks prevent other processes from getting any type of lock on
+it.
+
+The `LWLock:buffer_content` (`BufferContent`) event
+indicates that multiple processes are attempting to get a lock on contents of a specific
+buffer.
 
 ## Likely causes of increased waits
 
-Common causes for the `Client:ClientRead` event to appear in top waits include the
-following:
+When the `LWLock:buffer_content` (`BufferContent`) event appears more than normal,
+possibly indicating a performance problem, typical causes include the following:
 
-**Increased network latency**
+**Increased concurrent updates to the same data**
 
-There might be increased network latency between the RDS for PostgreSQL DB instance and client.
-Higher network latency increases the time required for DB instance to receive data from the client.
+There might be an increase in the number of concurrent sessions with queries that update the same buffer content. This contention can be more pronounced on tables with a lot of indexes.
 
-**Increased load on the client**
+**Workload data is not in memory**
 
-There might be CPU pressure or network saturation on the client. An increase in load on
-the client can delay transmission of data from the client to the RDS for PostgreSQL DB instance.
+When data that the active workload is processing is not in memory,
+these wait events can increase. This effect is because processes holding
+locks can keep them longer while they perform disk I/O operations.
 
-**Excessive network round trips**
+**Excessive use of foreign key constraints**
 
-A large number of network round trips between the RDS for PostgreSQL DB instance and the client
-can delay transmission of data from the client to the RDS for PostgreSQL DB instance.
-
-**Large copy operation**
-
-During a copy operation, the data is transferred from the client's file system to
-the RDS for PostgreSQL DB instance. Sending a large amount of data to the DB instance can delay
-transmission of data from the client to the DB instance.
-
-**Idle client connection**
-
-When a client connects to the RDS for PostgreSQL DB instance in an `idle in
- transaction` state, the DB instance might wait for the client to send more data or issue a
-command. A connection in this state can lead to an increase in `Client:ClientRead`
-events.
-
-**PgBouncer used for connection pooling**
-
-PgBouncer has a low-level network configuration setting called `pkt_buf`, which
-is set to 4,096 by default. If the workload is sending query packets larger than 4,096 bytes through
-PgBouncer, we recommend increasing the `pkt_buf` setting to 8,192. If the new setting
-doesn't decrease the number of `Client:ClientRead` events, we recommend increasing
-the `pkt_buf` setting to larger values, such as 16,384 or 32,768. If the query text is
-large, the larger setting can be particularly helpful.
+Foreign key constraints can increase the amount of time a process
+holds onto a buffer content lock. This effect is because read operations
+require a shared buffer content lock on the referenced key while that key is
+being updated.
 
 ## Actions
 
-We recommend different actions depending on the causes of your wait event.
+We recommend different actions depending on the causes of your wait event. You might identify
+`LWLock:buffer_content` (`BufferContent`) events by using Amazon RDS Performance
+Insights or by querying the view `pg_stat_activity`.
 
 ###### Topics
 
-- [Place the clients in the same Availability Zone and VPC subnet as the instance](#wait-event.clientread.actions.az-vpc-subnet "#wait-event.clientread.actions.az-vpc-subnet")
-- [Scale your client](#wait-event.clientread.actions.scale-client "#wait-event.clientread.actions.scale-client")
-- [Use current generation
-  instances](#wait-event.clientread.actions.db-instance-class "#wait-event.clientread.actions.db-instance-class")
-- [Increase network bandwidth](#wait-event.clientread.actions.increase-network-bandwidth "#wait-event.clientread.actions.increase-network-bandwidth")
-- [Monitor maximums for network performance](#wait-event.clientread.actions.monitor-network-performance "#wait-event.clientread.actions.monitor-network-performance")
-- [Monitor for transactions in
-  the "idle in transaction" state](#wait-event.clientread.actions.check-idle-in-transaction "#wait-event.clientread.actions.check-idle-in-transaction")
+- [Improve in-memory efficiency](#wait-event.lwlockbuffercontent.actions.in-memory "#wait-event.lwlockbuffercontent.actions.in-memory")
+- [Reduce usage of foreign key constraints](#wait-event.lwlockbuffercontent.actions.foreignkey "#wait-event.lwlockbuffercontent.actions.foreignkey")
+- [Remove unused indexes](#wait-event.lwlockbuffercontent.actions.indexes "#wait-event.lwlockbuffercontent.actions.indexes")
+- [Increase the cache size when using sequences](#wait-event.lwlockbuffercontent.actions.sequences "#wait-event.lwlockbuffercontent.actions.sequences")
 
-### Place the clients in the same Availability Zone and VPC subnet as the instance
+### Improve in-memory efficiency
 
-To reduce network latency and increase network throughput, place clients
-in the same Availability Zone and virtual private cloud (VPC) subnet as the
-RDS for PostgreSQL DB instance. Make sure that the clients are as geographically close to
-the DB instance as possible.
+To increase the chance that active workload data is in memory, partition tables or scale up your instance class. For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
 
-### Scale your client
+### Reduce usage of foreign key constraints
 
-Using Amazon CloudWatch or other host metrics, determine if your client is
-currently constrained by CPU or network bandwidth, or both. If the client is
-constrained, scale your client accordingly.
+Investigate workloads experiencing high numbers of `LWLock:buffer_content` (`BufferContent`)
+wait events for usage of foreign key constraints. Remove unnecessary foreign key constraints.
 
-### Use current generation
+### Remove unused indexes
 
-instances
+For workloads experiencing high numbers of `LWLock:buffer_content`
+(`BufferContent`) wait events, identify unused indexes and remove them.
 
-In some cases, you might not be using a DB instance class that supports jumbo frames. If you're
-running your application on Amazon EC2, consider using a current generation instance for the client. Also,
-configure the maximum transmission unit (MTU) on the client operating system. This technique might reduce the
-number of network round trips and increase network throughput. For more information, see [Jumbo frames
-(9001 MTU)](../../../AWSEC2/latest/UserGuide/network_mtu.md#jumbo_frame_instances "../../../AWSEC2/latest/UserGuide/network_mtu.md#jumbo_frame_instances") in the _Amazon EC2 User Guide_.
+### Increase the cache size when using sequences
 
-For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md"). To determine the DB instance class that is equivalent to an Amazon EC2
-instance type, place `db.` before the Amazon EC2 instance type name. For example, the
-`r5.8xlarge` Amazon EC2 instance is equivalent to the `db.r5.8xlarge` DB instance
-class.
-
-### Increase network bandwidth
-
-Use `NetworkReceiveThroughput` and `NetworkTransmitThroughput` Amazon CloudWatch
-metrics to monitor incoming and outgoing network traffic on the DB instance. These metrics can help you to
-determine if network bandwidth is sufficient for your workload.
-
-If your network bandwidth isn't enough, increase it. If the AWS client or your DB instance is reaching the
-network bandwidth limits, the only way to increase the bandwidth is to increase your DB instance size. For more
-information, see [DB instance class types](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
-
-For more information about CloudWatch metrics, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
-
-### Monitor maximums for network performance
-
-If you are using Amazon EC2 clients, Amazon EC2 provides maximums for network
-performance metrics, including aggregate inbound and outbound network bandwidth. It
-also provides connection tracking to ensure that packets are returned as expected
-and link-local services access for services such as the Domain Name System (DNS). To
-monitor these maximums, use a current enhanced networking driver and monitor network
-performance for your client.
-
-For more information, see [Monitor network performance for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md") in the _Amazon EC2 User Guide_ and [Monitor network performance for your Amazon EC2 instance](../../../AWSEC2/latest/WindowsGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/WindowsGuide/monitoring-network-performance-ena.md")
-in the _Amazon EC2 User Guide_.
-
-### Monitor for transactions in
-
-the "idle in transaction" state
-
-Check whether you have an increasing number of `idle in transaction` connections. To do
-this, monitor the `state` column in the `pg_stat_activity` table. You might be able to
-identify the connection source by running a query similar to the following.
-
-```
-select client_addr, state, count(1) from pg_stat_activity
-where state like 'idle in transaction%'
-group by 1,2
-order by 3 desc
-```
+If your tables uses sequences, increase the cache size to remove contention on sequence pages and index pages. Each sequence is a single page in shared memory.
+The pre-defined cache is per connection. This might not be enough to handle
+the workload when many concurrent sessions are getting a sequence value.
