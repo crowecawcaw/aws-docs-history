@@ -25,6 +25,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 198](#cluster-version-198 "#cluster-version-198")
 - [Amazon Redshift patch 197](#cluster-version-197 "#cluster-version-197")
 - [Amazon Redshift patch 196](#cluster-version-196 "#cluster-version-196")
 - [Amazon Redshift patch 195](#cluster-version-195 "#cluster-version-195")
@@ -55,6 +56,31 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 170](#cluster-version-170 "#cluster-version-170")
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
+
+## Amazon Redshift patch 198
+
+Cluster versions in this patch:
+
+- 1.0.204436 – Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup
+  version – Released on February 03, 2026
+
+### New features and improvements in this patch
+
+- Improves INTERSECT and EXCEPT queries by applying proper collation rules when comparing columns against constant values.
+- Enables auto refresh of manually created materialized views to run on concurrency scaling clusters.
+- Improves connection performance by enabling direct connections between main clusters and concurrency scaling clusters, reducing latency and eliminating connection throughput limitations.
+- Improves error classification for zero-ETL integrations, making it easier to identify root causes and debug issues.
+- Removes error messages from SYS_QUERY_HISTORY for successfully executed queries, providing cleaner query history records.
+- Improves compile time logging accuracy for bursted queries in SYS_QUERY_HISTORY, providing better performance insights.
+- Adds support for array functions: ARRAY_CONTAINS, ARRAY_POSITION, ARRAYS_OVERLAP, ARRAY_INTERSECTION, ARRAY_SORT, ARRAY_UNION, ARRAY_DISTINCT, ARRAY_EXCEPT, and ARRAY_POSITIONS.
+- Adds support for the GET_NUMBER_ATTRIBUTES function that returns the number of attributes within a SUPER object.
+- Enables idle transaction timeout for failed transactions to improve resource management.
+- Adds support for the TEMPLATE object type that enables you to define reusable formatting parameters, eliminating the need to manually specify them for each operation.
+- Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) on Common Table Expressions (CTEs).
+- Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) in the THEN clause of CASE expressions.
+- Creation of new Python User-Defined Functions is deprecated. Existing Python UDFs will be supported until June 30, 2026. Migrate to Lambda User-Defined Functions (LUDFs) for continued support.
+- Improves observability for Lambda User-Defined Functions (LUDFs) with a new system table, SYS_LUDF_DETAIL. This table records information and metrics for LUDFs used in queries.
+- Auto REFRESH queries for Amazon Redshift materialized views are now treated as user queries instead of background autonomics processes. Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
 
 ## Amazon Redshift patch 197
 
