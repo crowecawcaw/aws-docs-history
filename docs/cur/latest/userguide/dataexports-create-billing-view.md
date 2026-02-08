@@ -5,7 +5,6 @@ When you sign in as a bill transfer account using billing transfer, or as a mana
 ###### Important
 
 - Custom billing views aren't supported.
-- AWS Cost and Usage Report 2.0 isn't supported for billing transfer.
 - You can create billing view-based reports only from the Data Exports page. The legacy Cost and Usage Reports page doesn't support creating reports based on billing views.
   You can create reports based on billing views whether billing view mode is enabled or disabled, because reports are resources of your account.
 
