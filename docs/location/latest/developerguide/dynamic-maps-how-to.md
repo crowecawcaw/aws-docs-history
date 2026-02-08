@@ -34,3 +34,4 @@ mapping functions to complex geopolitical and localization needs.
 - [How to show real-time traffic on a map](how-to-set-real-time-traffic-map.md "how-to-set-real-time-traffic-map.md")
 - [How to create a logistics map](how-to-create-logistic-map.md "how-to-create-logistic-map.md")
 - [How to show transit details on a map](how-to-show-transit-details-map.md "how-to-show-transit-details-map.md")
+- [How to show 3D features on a map](how-to-show-3d-features-map.md "how-to-show-3d-features-map.md")

@@ -143,6 +143,24 @@ Truck
 
 ![](images/truck-dark.png)
 
+## 3D
+
+The Standard map style provides immersive three-dimensional visualization that renders terrain elevation and building structures with spatial depth and perspective. Adjustable viewing angles, pitch controls, and three-
+dimensional rendering create a realistic representation of both natural landscapes and urban environments, enabling users to easily interpret elevation changes, terrain complexity, and spatial relationships.
+This three-dimensional rendering is ideal for route planning, urban navigation, and applications where understanding vertical dimensions and depth perception enhances decision-making and spatial awareness..
+
+3D Terrain
+
+![](images/3d-terrain-light.png)
+
+![](images/3d-terrain-dark.png)
+
+3D Buildings
+
+![](images/3d-buildings-light.png)
+
+![](images/3d-buildings-dark.png)
+
 ## Land use
 
 The Standard map style uses vibrant colors to indicate designated land uses.

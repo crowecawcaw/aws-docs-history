@@ -2,7 +2,7 @@
 
 Amazon Location Service lets you add transit features to maps. The `Transit` `TravelMode` displays routing information for public transit, such as color-coded train lines. Also check how to set [logistics TravelMode](how-to-create-logistic-map.md "how-to-create-logistic-map.md") for additional options.
 
-## How to create a map with transit details
+## Create a map with transit details
 
 This example shows how to create a map with transit details with Transit TravelMode for public transportation.
 

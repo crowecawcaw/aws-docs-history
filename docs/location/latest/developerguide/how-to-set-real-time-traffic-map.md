@@ -2,7 +2,7 @@
 
 Using Amazon Location Service you can add traffic features to your map. This provides real-time traffic data to show current traffic conditions such as current road congestion, construction, and incidents, helping you make routing choices.
 
-## How to make a map with real-time traffic
+## Make a map with real-time traffic
 
 This example shows how to create a map with real-time traffic data.
 
