@@ -11,4 +11,4 @@ telemetry conﬁgurations](../../../AmazonCloudWatch/latest/monitoring/telemetry
 For information on the permissions you need to use this API, see [Identity and access
 management for Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") in the CloudWatch User Guide.
 
-This document was last published on January 31, 2026.
+This document was last published on February 6, 2026.
