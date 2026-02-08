@@ -30,7 +30,11 @@ call to stop all workflow runs.
 
 ## Manage your Amazon MWAA Serverless workflows
 
-An Amazon MWAA Serverless workflow can be created using CLI or APIs. After uploading the workflow definition YAML in an Amazon S3 bucket, create the workflow. If you already have a
+You can use
+[Amazon SageMaker Unified Studio](../../../sagemaker-unified-studio/latest/userguide/iam-visual-workflows.md "../../../sagemaker-unified-studio/latest/userguide/iam-visual-workflows.md") to create and manage Amazon MWAA Serverless workflows.
+Amazon SageMaker Unified Studio provides visual tools that simplify workflow creation and management. Workflows are synchronized between Apache Airflow SageMaker Unified Studio and Amazon MWAA Serverless, allowing you to create workflows in either platform and access them from both.
+
+An Amazon MWAA Serverless workflow can also be managed using CLI or APIs. After uploading the workflow definition YAML in an Amazon S3 bucket, create the workflow. If you already have a
 Python workflow (DAG file), you can migrate it to Amazon MWAA Serverless by converting it into a YAML file. For more information, refer to
 [Convert Python DAG to YAML definition](workflows-migrate.md "workflows-migrate.md").
 
