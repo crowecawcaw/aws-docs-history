@@ -33,6 +33,7 @@ Amazon Managed Grafana.
   with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
 - [Configure network access to your Amazon Managed Grafana
   workspace](AMG-configure-nac.md "AMG-configure-nac.md")
+- [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md")
 - [Connect to data sources or notification channels in
   Amazon VPC from Amazon Managed Grafana](AMG-configure-vpc.md "AMG-configure-vpc.md")
 - [Configure a Amazon Managed Grafana workspace](AMG-configure-workspace.md "AMG-configure-workspace.md")

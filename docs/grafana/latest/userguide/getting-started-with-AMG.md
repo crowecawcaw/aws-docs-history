@@ -139,7 +139,7 @@ This enables Amazon Managed Grafana to create an IAM policy to publish to the Am
 in your account with `TopicName` values that start with
 `grafana`. This does not completely set up Amazon SNS as a
 notification channel for the workspace. You can do that within the Grafana
-console in the workspace. 11. Choose **Next**. 12. Confirm the workspace details, and choose **Create
+console in the workspace. 11. (Optional) By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS-owned encryption keys. But you have the option to use a customer managed key that you create, own, and manage as an alternative. For more information, see [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md"). 12. Choose **Next**. 13. Confirm the workspace details, and choose **Create
 workspace**.
 
 The workspace details page appears.
@@ -156,7 +156,7 @@ of the following:
     * Assigning your IAM Identity Center users access to the workspace, if you are
      using IAM Identity Center.You might need to refresh your browser to see the current status.
 
-13. If you are using IAM Identity Center, do the following:
+14. If you are using IAM Identity Center, do the following:
     1.  In the **Authentication** tab, choose
         **Assign new user or group**.
     2.  Select the check box next to the user that you want to grant workspace
@@ -170,7 +170,7 @@ of the following:
     in order to sign in to the Grafana workspace console to manage the
     workspace.
 
-14. If you are using SAML, do the following:
+15. If you are using SAML, do the following:
     1.  In the **Authentication** tab, under
         **Security Assertion Markup Language (SAML)**,
         choose **Complete setup**.
@@ -235,9 +235,9 @@ of the following:
     Any users that are not specifically assigned an Admin or Editor
     role are assigned as Viewers. 6. Choose **Save SAML configuration**.
 
-15. In the workspace details page, choose the URL displayed under
+16. In the workspace details page, choose the URL displayed under
     **Grafana workspace URL**.
-16. Choosing the workspace URL takes you to the landing page for the Grafana
+17. Choosing the workspace URL takes you to the landing page for the Grafana
     workspace console. Do one of the following:
     - Choose **Sign in with SAML**, and enter the name and
       password.

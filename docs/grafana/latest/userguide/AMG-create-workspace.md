@@ -112,7 +112,7 @@ choose **Restricted access**. You can also enable network
 access control after you have created your workspace.
 
 For more information about network access control, see [Configure network access to your Amazon Managed Grafana
-workspace](AMG-configure-nac.md "AMG-configure-nac.md"). 11. Choose **Next**. 12. If you chose **Service managed**, choose
+workspace](AMG-configure-nac.md "AMG-configure-nac.md"). 11. (Optional) By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS-owned encryption keys. But you have the option to use a customer managed key that you create, own, and manage as an alternative. For more information, see [Encryption at rest](AMG-encryption-at-rest.md "AMG-encryption-at-rest.md"). 12. Choose **Next**. 13. If you chose **Service managed**, choose
 **Current account** to have Amazon Managed Grafana automatically
 create policies and permissions that allow it to read AWS data only in the
 current account.
@@ -139,19 +139,19 @@ practices.
      **Data sources and notification channels -
      optional**.
 
-13. Select the AWS data sources that you want to query in this workspace.
+14. Select the AWS data sources that you want to query in this workspace.
     Selecting data sources enables Amazon Managed Grafana to create IAM roles and
     permissions that allow Amazon Managed Grafana to read data from these sources. You must
     still add the data sources in the Grafana workspace console.
-14. (Optional) If you want Grafana alerts from this workspace to be sent to an
+15. (Optional) If you want Grafana alerts from this workspace to be sent to an
     Amazon Simple Notification Service (Amazon SNS) notification channel, select **Amazon
     SNS**. This enables Amazon Managed Grafana to create an IAM policy to
     publish to the Amazon SNS topics in your account with `TopicName`
     values that start with `grafana`. This does not completely set up
     Amazon SNS as a notification channel for the workspace. You can do that within
     the Grafana console in the workspace.
-15. Choose **Next**.
-16. Confirm the workspace details, and choose **Create
+16. Choose **Next**.
+17. Confirm the workspace details, and choose **Create
     workspace**.
 
 The workspace details page appears.
@@ -168,7 +168,7 @@ either of the following:
     * Assigning your IAM Identity Center users access to the workspace, if you are
      using IAM Identity Center.You might need to refresh your browser to see the current
 
-status. 17. If you are using IAM Identity Center, do the following:
+status. 18. If you are using IAM Identity Center, do the following:
 
     1. In the **Authentication** tab, choose
      **Assign new user or group**.
@@ -185,7 +185,7 @@ status. 17. If you are using IAM Identity Center, do the following:
      workspace, in order to sign in to the Grafana workspace console
      to manage the workspace.
 
-18. If you are using SAML, do the following:
+19. If you are using SAML, do the following:
     1.  In the **Authentication** tab, under
         **Security Assertion Markup Language (SAML)**,
         choose **Complete setup**.
@@ -249,9 +249,9 @@ status. 17. If you are using IAM Identity Center, do the following:
 
     6.  Choose **Save SAML configuration**.
 
-19. In the workspace details page, choose the URL displayed under
+20. In the workspace details page, choose the URL displayed under
     **Grafana workspace URL**.
-20. Choosing the workspace URL takes you to the landing page for the Grafana
+21. Choosing the workspace URL takes you to the landing page for the Grafana
     workspace console. Do one of the following:
     - Choose **Sign in with SAML**, and enter the name
       and password.
