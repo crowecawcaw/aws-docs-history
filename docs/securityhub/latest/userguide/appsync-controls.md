@@ -26,6 +26,10 @@ encrypted at rest.
 
 Data at rest refers to data that's stored in persistent, non-volatile storage for any duration. Encrypting data at rest helps you protect its confidentiality, which reduces the risk that an unauthorized user can access it.
 
+###### Note
+
+Due to AWS AppSync implementing a service-level change that makes encryption at rest mandatory for all API caches, this control will be retired and removed from all applicable standards on March 9, 2026.
+
 ### Remediation
 
 You can't change the encryption settings after enabling caching for your AWS AppSync API. Instead, you must delete the cache and
@@ -161,6 +165,10 @@ This control checks whether an AWS AppSync API cache is encrypted in transit. Th
 encrypted in transit.
 
 Data in transit refers to data that moves from one location to another, such as between nodes in your cluster or between your cluster and your application. Data may move across the internet or within a private network. Encrypting data in transit reduces the risk that an unauthorized user can eavesdrop on network traffic.
+
+###### Note
+
+Due to AWS AppSync implementing a service-level change that makes encryption in transit mandatory for all API caches, this control will be retired and removed from all applicable standards on March 9, 2026.
 
 ### Remediation
 
