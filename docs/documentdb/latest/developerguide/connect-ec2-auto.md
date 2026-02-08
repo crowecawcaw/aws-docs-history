@@ -39,7 +39,7 @@ In this step, you will create an Amazon EC2 instance in the same Region and Amaz
 
 ![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](images/ec2/linux2-ami.png) 4. Locate and choose **t3.micro** in the **Instance type** drop-down list. 5. In the **Key pair (login)** section, enter the identifier of an existing key-pair, or choose **Create new key pair**.
 
-![The Key pair interface showing the key pair name field and the Create new key pair option.](/images/documentdb/latest/developerguide/images/ec2/key-pair.png)
+![The Key pair interface showing the key pair name field and the Create new key pair option.](images/ec2/key-pair.png)
 
 You must provide an Amazon EC2 key pair.
 
@@ -60,7 +60,7 @@ You must provide an Amazon EC2 key pair.
     	3. Choose the **Key pair type** and **Private key file format**.
     	4. Choose **Create key pair**.
 
-![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](images/ec2/create-key-pair.png)
+![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](/images/documentdb/latest/developerguide/images/ec2/create-key-pair.png)
 
 ###### Note
 
@@ -122,7 +122,7 @@ To install the mongo shell, you must first connect to your Amazon EC2 instance. 
 ![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
-![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](/images/documentdb/latest/developerguide/images/ec2/connect-options.png)
 
 ###### Note
 
