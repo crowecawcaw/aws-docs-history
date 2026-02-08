@@ -1,17 +1,31 @@
-# Migrating management features to Aurora PostgreSQL
+# Migrating T-SQL features
 
-This topic provides conceptual content comparing various aspects of Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL in the context of database migration. It covers key differences in features and functionalities such as task scheduling, alerting, email capabilities, ETL processes, data export/import, logging, maintenance tasks, monitoring, resource management, linked servers, and scripting. By understanding these differences, you can better plan and execute your migration strategy from SQL Server to Aurora PostgreSQL. The content highlights alternative solutions and workarounds available in the AWS ecosystem to replicate or replace SQL Server-specific features, helping you anticipate challenges and adapt your database management practices. This comprehensive comparison enables database administrators and developers to make informed decisions and smooth their transition when migrating from SQL Server to Aurora PostgreSQL.
+This topic provides conceptual content comparing various features and functionalities between Microsoft SQL Server 2019 and Amazon Aurora PostgreSQL. You can gain valuable insights into the differences and similarities between these two database systems, which is crucial for planning and executing a successful migration. The content covers a wide range of topics, including data types, cursors, stored procedures, error handling, full-text search, and more. By understanding these concepts, database administrators and developers can anticipate challenges, identify potential workarounds, and make informed decisions when transitioning their databases and applications from SQL Server to Aurora PostgreSQL. This knowledge enables smoother migrations and helps maintain data integrity and functionality in the new PostgreSQL environment.
 
 ###### Topics
 
-- [SQL Server Agent and PostgreSQL](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Alerting features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Database mail features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [ETL features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Export and import features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Viewing server logs](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Maintenance plans](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Monitoring features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Resource governor features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Linked servers](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
-- [Scripting features](chap-sql-server-aurora-pg.management.md "chap-sql-server-aurora-pg.management.md")
+- [Service Broker functionality for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [SQL Server cast and convert for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Common Language Runtime for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Collations for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Cursors for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Date and time functions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [String functions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Databases and schemas for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Dynamic SQL for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Transactions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Synonyms for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Delete and update from for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Stored procedures for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Error handling for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Flow control for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Full-text search for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [SQL server graph features for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [JSON and XML for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Merge for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Pivot and unpivot for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Triggers for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Top fetch for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [User-defined functions for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [User-defined types for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")
+- [Identity and sequences for T-SQL](chap-sql-server-aurora-pg.tsql.md "chap-sql-server-aurora-pg.tsql.md")

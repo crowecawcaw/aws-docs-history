@@ -1,58 +1,24 @@
-# AWS Database Migration Service overview
+# Amazon RDS Proxy overview
 
-This topic provides conceptual information about AWS Database Migration Service (AWS DMS). It introduces you to the capabilities and benefits of AWS DMS for migrating databases to AWS quickly and securely
+This topic provides conceptual topic about Amazon RDS Proxy, a fully managed database proxy service for Amazon RDS. It introduces the key benefits and functionality of RDS Proxy, explaining how it improves application scalability, resilience, and security.understand the purpose and advantages of using Amazon RDS Proxy in their database architecture.
 
-The AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database. The AWS Database Migration Service can migrate your data to and from most widely-used commercial and open-source databases.
+Amazon RDS Proxy is a fully managed, highly available database proxy for Amazon Relational Database Service (RDS) that makes applications more scalable, more resilient to database failures, and more secure.
 
-The service supports homogenous migrations such as Oracle to Oracle as well as heterogeneous migrations between different database platforms such as Oracle to Amazon Aurora or Microsoft SQL Server to MySQL. You can also use AWS DMS to stream data to Amazon Redshift, Amazon DynamoDB, and Amazon S3 from any of the supported sources, which are Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, SAP ASE, SQL Server, IBM DB2 LUW, and MongoDB, enabling consolidation and easy analysis of data in a petabyte-scale data warehouse. The AWS Database Migration Service can also be used for continuous data replication with high availability.
+Many applications, including those built on modern server-less architectures, can have many open connections to the database server, and may open and close database connections at a high rate, exhausting database memory and compute resources. Amazon RDS Proxy allows applications to pool and share connections established with the database, improving database efficiency and application scalability. With Amazon RDS Proxy, fail-over times for Aurora and Amazon RDS databases are reduced by up to 66%. You can manage database credentials, authentication, and access through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).
 
-For AWS DMS pricing, see [Database Migration Service pricing](https://aws.amazon.com/dms/pricing "https://aws.amazon.com/dms/pricing").
+You can turn on Amazon RDS Proxy for most applications with no code changes. You don’t need to provision or manage any additional infrastructure. Pricing is simple and predictable: you pay for each vCPU of the database instance for which the proxy is enabled. Amazon RDS Proxy is now generally available for Aurora MySQL, Aurora PostgreSQL, Amazon RDS for MySQL, and Amazon RDS for PostgreSQL.
 
-For all supported sources for AWS DMS, see [Sources for data migration](../userguide/CHAP_Source.md "../userguide/CHAP_Source.md").
+## Amazon RDS Proxy Benefits
 
-For all supported targets for AWS DMS, see [Targets for data migration](../userguide/CHAP_Target.md "../userguide/CHAP_Target.md").
+- **Improved application performance**. Amazon RDS proxy manages a connection pooling which helps with reducing the stress on database compute and memory resources that typically occurs when new connections are established and it is useful to efficiently support a large number and frequency of application connections.
+- **Increase application availability**. By automatically connecting to a new database instance while preserving application connections Amazon RDS Proxy can reduce fail-over time by 66%.
+- **Manage application security**. Amazon RDS Proxy also enables you to centrally manage database credentials using AWS Secrets Manager.
+- **Fully managed**. Amazon RDS Proxy gives you the benefits of a database proxy without requiring additional burden of patching and managing your own proxy server.
+- **Fully compatible with your database**. Amazon RDS Proxy is fully compatible with the protocols of supported database engines, so you can deploy Amazon RDS Proxy for your application without making changes to your application code.
+- **Available and durable**. Amazon RDS Proxy is highly available and deployed over multiple Availability Zones (AZs) to protect you from infrastructure failure.
 
-## Migration Tasks Performed by AWS DMS
+## How Amazon RDS Proxy Works
 
-In a traditional solution, you need to perform capacity analysis, procure hardware and software, install and administer systems, and test and debug the installation. AWS DMS automatically manages the deployment, management, and monitoring of all hardware and software needed for your migration. You can start your migration within minutes of starting the AWS DMS configuration process.
+![How Amazon RDS Proxy Works](images/pb-how-rds-proxy-works.png)
 
-With AWS DMS, you can scale up (or scale down) your migration resources as needed to match your actual workload. For example, if you determine that you need additional storage, you can easily increase your allocated storage and restart your migration, usually within minutes. On the other hand, if you discover that you aren’t using all of the resource capacity you configured, you can easily downsize to meet your actual workload.
-
-AWS DMS uses a pay-as-you-go model. You only pay for AWS DMS resources while you use them as opposed to traditional licensing models with up-front purchase costs and ongoing maintenance charges.
-
-AWS DMS automatically manages all of the infrastructure that supports your migration server including hardware and software, software patching, and error reporting.
-
-AWS DMS provides automatic failover. If your primary replication server fails for any reason, a backup replication server can take over with little or no interruption of service.
-
-AWS DMS can help you switch to a modern, perhaps more cost-effective database engine than the one you are running now. For example, AWS DMS can help you take advantage of the managed database services provided by Amazon RDS or Amazon Aurora. Or, it can help you move to the managed data warehouse service provided by Amazon Redshift, NoSQL platforms like Amazon DynamoDB, or low-cost storage platforms like Amazon S3. Conversely, if you want to migrate away from old infrastructure but continue to use the same database engine, AWS DMS also supports that process.
-
-AWS DMS supports nearly all of today’s most popular DBMS engines as data sources, including Oracle, Microsoft SQL Server, MySQL, MariaDB, PostgreSQL, Db2 LUW, SAP, MongoDB, and Amazon Aurora.
-
-AWS DMS provides a broad coverage of available target engines including Oracle, Microsoft SQL Server, PostgreSQL, MySQL, Amazon Redshift, SAP ASE, Amazon S3, and Amazon DynamoDB.
-
-You can migrate from any of the supported data sources to any of the supported data targets. AWS DMS supports fully heterogeneous data migrations between the supported engines.
-
-AWS DMS ensures that your data migration is secure. Data at rest is encrypted with AWS Key Management Service (AWS KMS) encryption. During migration, you can use Secure Socket Layers (SSL) to encrypt your in-flight data as it travels from source to target.
-
-## How AWS DMS Works
-
-At its most basic level, AWS DMS is a server in the AWS Cloud that runs replication software. You create a source and target connection to tell AWS DMS where to extract from and load to. Then, you schedule a task that runs on this server to move your data. AWS DMS creates the tables and associated primary keys if they don’t exist on the target. You can pre-create the target tables manually if you prefer. Or you can use AWS SCT to create some or all of the target tables, indexes, views, triggers, and so on.
-
-The following diagram illustrates the AWS DMS process.
-
-![How Database Migration Service works](images/pb-how-aws-dms-works.png)
-
-## Latest Updates
-
-AWS DMS is continuously evolving and supporting more and more options, find some of the latest updates following:
-
-- Support for full-load with change data capture (CDC) and CDC-only tasks running against Oracle source tables created using the `CREATE TABLE AS` statement.
-- New MySQL version AWS DMS now supports MySQL version 8.0 as a source except when the transaction payload is compressed.
-- Support for AWS Secrets Manager integration. You can store the database connection details (user credentials) for supported endpoints securely in AWS Secrets Manager. You can then submit the corresponding secret instead of plain-text credentials to AWS DMS when you create or modify an endpoint. AWS DMS then connects to the endpoint databases using the secret. For more information, see [Using secrets to access Database Migration Service endpoints](../userguide/CHAP_Security.md#security_iam_secretsmanager "../userguide/CHAP_Security.md#security_iam_secretsmanager").
-- Support for Oracle extended data types for source and target.
-- Support for TLS 1.2 for MySQL endpoints.
-- Support for TLS 1.2 for SQL Server endpoints.
-
-For a complete guide with a step-by-step walkthrough including all the latest notes for migrating SQL Server to Aurora MySQL with AWS DMS, see [Migrating a SQL Server Database to Amazon Aurora MySQL](../sbs/chap-sqlserver2aurora.md "../sbs/chap-sqlserver2aurora.md").
-
-For more information about AWS DMS, see [What is Database Migration Service?](../userguide/Welcome.md "../userguide/Welcome.md") and [Best practices for Database Migration Service](../userguide/CHAP_BestPractices.md "../userguide/CHAP_BestPractices.md").
+For more information, see [Amazon RDS Proxy for Scalable Serverless Applications](https://aws.amazon.com/blogs/aws/amazon-rds-proxy-now-generally-available "https://aws.amazon.com/blogs/aws/amazon-rds-proxy-now-generally-available") and [Amazon RDS Proxy](https://aws.amazon.com/rds/proxy "https://aws.amazon.com/rds/proxy").
