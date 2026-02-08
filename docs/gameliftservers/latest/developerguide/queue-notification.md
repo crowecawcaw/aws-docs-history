@@ -167,3 +167,12 @@ Matches events from a specific queue
     ]
 }
 ```
+
+## Reference implementation with AWS CDK
+
+For a complete reference implementation of event-based game session placement using
+Amazon SNS, AWS Lambda, and Amazon DynamoDB, see the [Event-based game session placement guidance](https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement "https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement") in the Amazon GameLift Toolkit.
+This guidance includes an AWS CDK template for deploying a complete event-driven game
+session placement system with an AWS Lambda function for processing game session placement
+events, an Amazon DynamoDB table for tracking game session placement state, and best practices
+for Amazon GameLift Servers queue configuration.
