@@ -14,6 +14,7 @@ The following sections describe each data feed.
 - [Agreement Charge data feed](data-feed-agreement-charge.md "data-feed-agreement-charge.md")
 - [Agreement Term data feed](data-feed-agreement-term.md "data-feed-agreement-term.md")
 - [Billing event data feed](data-feed-billing-event.md "data-feed-billing-event.md")
+- [Daily Usage data feed](data-feed-daily-usage.md "data-feed-daily-usage.md")
 - [Legacy mapping data feed](data-feed-legacy-mapping.md "data-feed-legacy-mapping.md")
 - [Offer data feed](data-feed-offer.md "data-feed-offer.md")
 - [Offer product data feed](data-feed-offer-product.md "data-feed-offer-product.md")

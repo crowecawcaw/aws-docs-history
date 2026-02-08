@@ -23,6 +23,7 @@ The following table provides the names and descriptions of the data feed's colum
 | `opportunity_description` | Any descriptive information linked to this offer. If the offer is bound to an AWS<br>opportunity, this field is populated.                                                                                                |
 | `seller_account_id`       | The globally unique identifier (GUID) of the seller’s account. Can be used to join<br>with the `account_id` field in the account data feed.                                                                               |
 | `opportunity_id`          | An identifier for the opportunity is only populated if a reseller is selling your<br>product. All offers created by different channel partners (or sellers) have the same<br>`opportunity_id` if the product is the same. |
+| recipient_account_id      | The account of the seller that is receiving the data in the feeds. Can be used to join to the `Account` data feed on the `account_id` field.                                                                              |
 
 ## Example of offer data feed
 
