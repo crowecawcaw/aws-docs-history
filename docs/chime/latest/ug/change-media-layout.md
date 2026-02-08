@@ -32,4 +32,4 @@ tile until you turn your camera off.
 
 
 
-    ![The Amazon Chime meetings window, repeated to infinity.](/images/chime/latest/ug/images/infinity-mirror.png)
+    ![The Amazon Chime meetings window, repeated to infinity.](images/infinity-mirror.png)
