@@ -1,13 +1,12 @@
-# `pcluster list-official-images`
+# `pcluster describe-image`
 
-Describe official AWS ParallelCluster AMIs.
+Get detailed information about an image.
 
 ```
-pcluster list-official-images [-h]
-                [--architecture `ARCHITECTURE`]
+pcluster describe-image [-h]
+                 --image-id `IMAGE_ID`
                 [--debug]
-                [--os `OS`]
-                [--query `QUERY`]
+                [--query QUERY]
                 [--region `REGION`]
 ```
 
@@ -15,21 +14,15 @@ pcluster list-official-images [-h]
 
 `-h, --help`
 
-Shows the help text for `pcluster list-official-images`.
+Shows the help text for `pcluster describe-image`.
 
-`--architecture `ARCHITECTURE``
+`--image-id, -i `IMAGE_ID``
 
-Specifies the architecture to use to filter the results. If this parameter is not specified, all
-architectures are returned.
+Specifies the ID of the image.
 
 `--debug`
 
 Enables debug logging.
-
-`--os `OS``
-
-Specifies the operating system to use to filter the results. If this parameter is not specified, all
-operating systems are returned.
 
 `--query `QUERY``
 
@@ -37,58 +30,114 @@ Specifies the JMESPath query to perform on the output.
 
 `--region, -r `REGION``
 
-Specifies the AWS Region to use. The AWS Region must be specified, using the [Region](image-builder-configuration-file-v3.md#yaml-build-image-Region "image-builder-configuration-file-v3.md#yaml-build-image-Region") setting in the image configuration file, the
-`AWS_DEFAULT_REGION` environment variable, the `region` setting in the
-`[default]` section of the `~/.aws/config` file, or the `--region`
-parameter.
+Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION`
+environment variable, the `region` setting in the `[default]` section of the
+`~/.aws/config` file, or the `--region` parameter.
 
 **Example using AWS ParallelCluster version 3.1.2:**
 
-```
-`$` `pcluster list-official-images``{
- "images": [
+````
+`$` `pcluster describe-image --image-id `custom-alinux2-image```{
+ "imageConfiguration: {
+ "url": "https://parallelcluster-1234abcd5678-v1-do-not-delete.../configs/image-config.yaml"
+ },
+ "imageId": "custom-alinux2-image",
+ "creationTime": "2022-04-05T20:23:07.000Z"
+ "imageBuildStatus": "BUILD_COMPLETE",
+ "region": "us-east-1",
+ "ec2AmiInfo": {
+ "amiName": "custom-alinux2-image 2022-04-05T19-55-22.518Z",
+ "amiId": "ami-1234abcd5678efgh",
+ "description": "AWS ParallelCluster AMI for alinux2, kernel-4.14.268-205.500.amzn2.x86_64, lustre-2.10.8-5.amzn2.x86_64, efa-1.14.2-1.amzn2.x86_64, dcv-2021.3.11591-1.el7.x86_64, slurm-21-08-6-1",
+ "state": "AVAILABLE",
+ "tags": [
  {
- "amiId": "ami-015cfeb4e0d6306b2",
- "os": "ubuntu2204",
- "name": "aws-parallelcluster-3.1.2-ubuntu-2204-lts-hvm-x86_64-202202261505 2022-02-26T15-08-34.759Z",
- "version": "3.1.2",
- "architecture": "x86_64"
+ "value": "arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-custom-alinux2-image/3.1.2/1",
+ "key": "Ec2ImageBuilderArn"
  },
  {
- "amiId": "ami-036f23237ce49d25b",
- "os": "ubuntu2204",
- "name": "aws-parallelcluster-3.1.2-ubuntu-1804-lts-hvm-x86_64-202202261505 2022-02-26T15-08-17.558Z",
- "version": "3.1.2",
- "architecture": "x86_64"
+ "value": "parallelcluster-1234abcd5678efgh-v1-do-not-delete",
+ "key": "parallelcluster:amzn-s3-demo-bucket"
  },
  {
- "amiId": "ami-09e5327e694d89ef4",
- "os": "ubuntu2204",
- "name": "aws-parallelcluster-3.1.2-ubuntu-2204-lts-hvm-arm64-202202261505 2022-02-26T15-08-45.736Z",
- "version": "3.1.2",
- "architecture": "arm64"
+ "value": "custom-alinux2-image",
+ "key": "parallelcluster:image_name"
  },
  {
- "amiId": "ami-0b9b0874c35f626ae",
- "os": "alinux2",
- "name": "aws-parallelcluster-3.1.2-amzn2-hvm-x86_64-202202261505 2022-02-26T15-08-31.311Z",
- "version": "3.1.2",
- "architecture": "x86_64"
+ "value": "available",
+ "key": "parallelcluster:build_status"
  },
  {
- "amiId": "ami-0d0de4f95f56374bc",
- "os": "alinux2",
- "name": "aws-parallelcluster-3.1.2-amzn2-hvm-arm64-202202261505 2022-02-26T15-08-46.088Z",
- "version": "3.1.2",
- "architecture": "arm64"
+ "value": "s3://`amzn-s3-demo-bucket`/parallelcluster/3.1.2/images/custom-alinux2-image-1234abcd5678efgh/configs/image-config.yaml",
+ "key": "parallelcluster:build_config"
  },
  {
- "amiId": "ami-0ebf7bc54b8740dc6",
- "os": "ubuntu2204",
- "name": "aws-parallelcluster-3.1.2-ubuntu-1804-lts-hvm-arm64-202202261505 2022-02-26T15-08-45.293Z",
- "version": "3.1.2",
- "architecture": "arm64"
+ "value": "Amazon EC2 Image Builder",
+ "key": "CreatedBy"
+ },
+ {
+ "value": "arn:aws:logs:us-east-1:123456789012:log-group:/aws/imagebuilder/ParallelClusterImage-custom-alinux2-image",
+ "key": "parallelcluster:build_log"
+ },
+ {
+ "value": "4.14.268-205.500.amzn2.x86_64",
+ "key": "parallelcluster:kernel_version"
+ },
+ {
+ "value": "arn:aws:imagebuilder:us-east-1:444455556666:image/amazon-linux-2-x86/2022.3.16/1",
+ "key": "parallelcluster:parent_image"
+ },
+ {
+ "value": "3.1.2",
+ "key": "parallelcluster:version"
+ },
+ {
+ "value": "0.5.14",
+ "key": "parallelcluster:munge_version"
+ },
+ {
+ "value": "21-08-6-1",
+ "key": "parallelcluster:slurm_version"
+ },
+ {
+ "value": "2021.3.11591-1.el7.x86_64",
+ "key": "parallelcluster:dcv_version"
+ },
+ {
+ "value": "alinux2-image",
+ "key": "parallelcluster:image_id"
+ },
+ {
+ "value": "3.2.3",
+ "key": "parallelcluster:pmix_version"
+ },
+ {
+ "value": "parallelcluster/3.14.1/images/alinux2-image-abcd1234efgh56781234",
+ "key": "parallelcluster:s3_image_dir"
+ },
+ {
+ "value": "1.14.2-1.amzn2.x86_64",
+ "key": "parallelcluster:efa_version"
+ },
+ {
+ "value": "alinux2",
+ "key": "parallelcluster:os"
+ },
+ {
+ "value": "aws-parallelcluster-cookbook-3.1.2",
+ "key": "parallelcluster:bootstrap_file"
+ },
+ {
+ "value": "1.8.23-10.amzn2.1.x86_64",
+ "key": "parallelcluster:sudo_version"
+ },
+ {
+ "value": "2.10.8-5.amzn2.x86_64",
+ "key": "parallelcluster:lustre_version"
  }
- ]
+ ],
+ "architecture": "x86_64"
+ },
+ "version": "3.1.2"
 }`
-```
+````
