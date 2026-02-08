@@ -49,6 +49,7 @@ AWS Glue supports the following connection types:
 - Pipedrive
 - Productboard
 - QuickBooks
+- REST API (requires connection type setup, see [REST API Connections](rest-api-connections.md "rest-api-connections.md"))
 - Salesforce
 - Salesforce Commerce Cloud
 - Salesforce Marketing Cloud

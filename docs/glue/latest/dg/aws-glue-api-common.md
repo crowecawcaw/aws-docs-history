@@ -399,7 +399,7 @@ is valid content for various string parameters and members:
 - Custom string pattern #35 –
   "`[a-zA-Z0-9_.-]+`"
 - Custom string pattern #36 –
-  "`^arn:aws(-(cn|us-gov|iso(-[bef])?))?:secretsmanager:.*$`"
+  "`^arn:aws(-(cn|us-gov|eusc|iso(-[bef])?))?:secretsmanager:.*$`"
 - Custom string pattern #37 –
   "`\S+`"
 - Custom string pattern #38 –
@@ -427,13 +427,13 @@ is valid content for various string parameters and members:
 - Custom string pattern #49 –
   "`^([2-3]|3[.]9)$`"
 - Custom string pattern #50 –
-  "`arn:aws(-(cn|us-gov|iso(-[bef])?))?:glue:.*`"
+  "`arn:aws(-(cn|us-gov|eusc|iso(-[bef])?))?:glue:.*`"
 - Custom string pattern #51 –
   "`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`"
 - Custom string pattern #52 –
-  "`(^arn:aws(-(cn|us-gov|iso(-[bef])?))?:iam::\w{12}:root)`"
+  "`(^arn:aws(-(cn|us-gov|eusc|iso(-[bef])?))?:iam::\w{12}:root)`"
 - Custom string pattern #53 –
-  "`^arn:aws(-(cn|us-gov|iso(-[bef])?))?:iam::[0-9]{12}:role/.+`"
+  "`^arn:aws(-(cn|us-gov|eusc|iso(-[bef])?))?:iam::[0-9]{12}:role/.+`"
 - Custom string pattern #54 –
   "`[\s\S]*`"
 - Custom string pattern #55 –

@@ -50,6 +50,7 @@ about AWS Glue connections, see [Connecting to data](glue-connections.md "glue-c
 - [Connecting to Pipedrive](connecting-to-pipedrive.md "connecting-to-pipedrive.md")
 - [Connecting to Productboard](connecting-to-productboard.md "connecting-to-productboard.md")
 - [Connecting to QuickBooks](connecting-to-data-quickbooks.md "connecting-to-data-quickbooks.md")
+- [Connecting to a REST API](connecting-to-data-rest-api.md "connecting-to-data-rest-api.md")
 - [Connecting to Salesforce](connecting-to-data-salesforce.md "connecting-to-data-salesforce.md")
 - [Connecting to Salesforce Marketing Cloud](connecting-to-data-salesforce-marketing-cloud.md "connecting-to-data-salesforce-marketing-cloud.md")
 - [Connecting to Salesforce Commerce Cloud](connecting-to-salesforce-commerce-cloud.md "connecting-to-salesforce-commerce-cloud.md")

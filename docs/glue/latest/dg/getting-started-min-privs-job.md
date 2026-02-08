@@ -69,6 +69,7 @@ Region: Bucket name
 - cn-north-1: aws-glue-studio-transforms-071033555442-prod-cn-north-1
 - cn-northwest-1: aws-glue-studio-transforms-070947029561-prod-cn-northwest-1
 - us-gov-west-1: aws-glue-studio-transforms-227493901923-prod-us-gov-west-1-2604
+- eusc-de-east-1: aws-glue-studio-transforms-780995497573-prod-eusc-de-east-1-555
 
 If you choose Amazon Redshift as your data source, you can provide a role
 for cluster permissions. Jobs that run against a Amazon Redshift cluster

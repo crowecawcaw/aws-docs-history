@@ -84,7 +84,7 @@ deleted.
 
 In some cases, you might have enabled AWS Glue job bookmarks but your ETL job is reprocessing
 data that was already processed in an earlier run. For information about resolving common
-causes of this error, see [Troubleshooting errors Spark errors](glue-troubleshooting-errors.md "glue-troubleshooting-errors.md").
+causes of this error, see [Troubleshooting Glue common setup errors](glue-troubleshooting-errors.md "glue-troubleshooting-errors.md").
 
 ## Operational details of the job bookmarks feature
 

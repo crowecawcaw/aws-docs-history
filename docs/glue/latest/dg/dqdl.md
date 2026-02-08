@@ -463,6 +463,8 @@ Rules = [
     Rule 1 with threshold > 0.8 labels=["foo"="bar"],
     // Override default label. Labels for this rule would be ["frequency"="daily", "foo"="bar"]
     Rule 2 with threshold > 0.8 labels=["foo"="bar", "frequency"="daily"]
+    // Labels must be applied to the entire composite rule (parentheses required)
+    (Rule 1 AND Rule 2) labels=["foo"="bar]
 ]
 ```
 
