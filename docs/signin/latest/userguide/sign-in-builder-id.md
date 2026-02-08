@@ -47,7 +47,8 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
    Amazon CodeCatalyst, go to [https://codecatalyst.aws](https://codecatalyst.aws "https://codecatalyst.aws").
 2. Choose how to sign-in to your AWS Builder ID
    - [I have an existing account](#sign-in-builder-id-email "#sign-in-builder-id-email")
-   - [I have a Google account](#sign-in-builder-id-social-login "#sign-in-builder-id-social-login")
+   - [I have a Google Account](#sign-in-builder-id-google "#sign-in-builder-id-google")
+   - [I have an Apple Account](#sign-in-builder-id-apple "#sign-in-builder-id-apple")
 
 ### I have an existing account
 
@@ -69,15 +70,26 @@ For your security, we analyze your sign-in browser, location, and device. If you
 to trust this device, you won't have to provide a multi-factor authentication (MFA) code every
 time you sign in. For more information, see [Trusted devices](create-builder-id.md#trusted-devices-aws_builder_id "create-builder-id.md#trusted-devices-aws_builder_id").
 
-### I have a Google account
+### I have a Google Account
 
-If your Google account is already associated with an AWS Builder ID, you must use a different
+If your Google Account is already associated with an AWS Builder ID, you must use a different
 email address to sign in to an application. For more information, see [I can’t sign in with Google](troubleshooting-builder-id-issues.md#sign-in-google-builder_id "troubleshooting-builder-id-issues.md#sign-in-google-builder_id").
 
-1. To use your Google account to sign in to Builder ID, choose **Continue with
+1. To use your Google Account to sign in to AWS Builder ID, choose **Continue with
    Google**.
 2. On the **Sign in with Google** page, enter the information for your
-   Google account to sign in.
+   Google Account to sign in.
+3. Choose **Continue** to load the AWS application homepage.
+
+### I have an Apple Account
+
+If your Apple Account is already associated with an AWS Builder ID, you must use a different
+email address to sign in to an application. For more information, see [I can’t sign in with Apple](troubleshooting-builder-id-issues.md#sign-in-apple-builder_id "troubleshooting-builder-id-issues.md#sign-in-apple-builder_id").
+
+1. To use your Apple Account to sign in to AWS Builder ID, choose **Continue with
+   Apple**.
+2. On the **Sign in with Apple** page, enter the information for your
+   Apple account to sign in.
 3. Choose **Continue** to load the AWS application homepage.
 
 ## Region availability for AWS Builder ID

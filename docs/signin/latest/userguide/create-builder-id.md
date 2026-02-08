@@ -30,9 +30,21 @@ Tools and services that use AWS Builder ID direct you to create and use your AWS
    profile](https://profile.aws.amazon.com/ "https://profile.aws.amazon.com/") or the sign-up page of the AWS tool or service that you want
    to access. For example, to access Amazon CodeCatalyst, go to [https://codecatalyst.aws](https://codecatalyst.aws "https://codecatalyst.aws").
 2. Choose how to create your AWS Builder ID
-   - To use your Google account, choose **Continue with
-     Google** and follow the prompts to complete the sign-up
-     process. This skips steps 3-8 below. Go to step 9.
+   - To use your Google Account, choose **Continue with Google**
+     and follow the prompts to complete the sign-up process. This skips steps 3-8 below.
+     Go to step 9.
+   - To use your Apple Account, choose **Continue with Apple**
+     and follow the prompts to complete the sign-up process. This skips steps 3-8 below.
+     Go to step 9.
+
+   ###### Note
+
+   If you choose to enable the iCloud+ "Hide My Email" feature for Sign in with Apple,
+   your AWS Builder ID will be created with the designated Hide My Email address in your Apple Account
+   instead of your real email address. You will not be able to change this email address, but
+   your first and last name will still be editable. If you need to sign in to AWS Builder ID, you should
+   use your Hide My Email address. AWS Builder ID will use your Hide My Email address to send email
+   communications to you. For more details, see [How to use Hide My Email with Sign in with Apple](https://support.apple.com/en-us/105078 "https://support.apple.com/en-us/105078").
    - To create an account with email and password, continue with the following
      steps.
 

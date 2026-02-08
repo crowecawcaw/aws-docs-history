@@ -23,6 +23,9 @@ your profile if you lose or break your MFA device.
 - If you created your account using **Continue with
   Google**, you can enable multi-factor authentication through your Google
   account. For details, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop "https://support.google.com/accounts/answer/185839?hl=en&co=GENIE.Platform%3DDesktop").
+- If you created your account using **Continue with
+  Apple**, multi-factor authentication is likely already enabled in your Apple
+  Account. If not, for details on how to enable it, see [Two-factor authentication for Apple Account](https://support.apple.com/en-us/102660 "https://support.apple.com/en-us/102660").
 
 ## Available MFA types for AWS Builder ID
 

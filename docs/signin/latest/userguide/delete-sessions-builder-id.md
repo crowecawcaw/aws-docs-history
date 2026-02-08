@@ -29,5 +29,5 @@ expire.
 
 ###### Note
 
-When using **Sign in with Google**, deleting active Builder ID
-sessions will not log you out of your Google account.
+When using a social login account like Google or Apple, deleting active AWS Builder ID
+sessions will not log you out of your social login account.

@@ -2,8 +2,8 @@
 
 You can change your profile information at any time. You can edit the **Email
 address** and **Name** that you used to create an AWS Builder ID,
-as well as your **Nickname**. When using **Continue with
-Google**, only **Name** and **Nickname** are
+as well as your **Nickname**. When using social logins like Google or Apple,
+only **Name** and **Nickname** are
 editable.
 
 Your **Name** is how you’re referred to in tools and services while
