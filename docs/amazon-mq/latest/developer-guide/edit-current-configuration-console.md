@@ -31,7 +31,7 @@ revision number, description, and broker configuration in XML format are display
 
 Editing the current configuration creates a new configuration revision.
 
-![XML configuration snippet for ActiveMQ broker with explanatory comment.](images/amazon-mq-tutorials-edit-configuration.png) 6. Choose **Edit configuration** and make changes to the XML configuration. 7. Choose **Save**.
+![XML configuration snippet for ActiveMQ broker with explanatory comment.](/images/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-edit-configuration.png) 6. Choose **Edit configuration** and make changes to the XML configuration. 7. Choose **Save**.
 
 The **Save revision** dialog box is displayed. 8. (Optional) Type `A description of the changes in this revision`. 9. Choose **Save**.
 
