@@ -6,6 +6,10 @@ The Apache Spark Upgrade Agent for Amazon EMR is a conversational AI capability 
 
 You can use the agent to upgrade PySpark and Scala applications running on Amazon EMR on EC2 and Amazon EMR Serverless. The agent analyzes your code, identifies required changes, and performs automated transformations while maintaining your approval control over all modifications.
 
+###### Note
+
+The Apache Spark Upgrade Agent is available at no additional cost as part of Amazon EMR. You only pay for the underlying Amazon EMR resources used during validation job execution.
+
 ## Architecture Overview
 
 The upgrade agent has three main components: any MCP-compatible AI Assistant in your development environment for interaction, the
