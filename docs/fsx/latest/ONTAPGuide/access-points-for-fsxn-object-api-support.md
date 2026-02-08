@@ -48,7 +48,7 @@ Limitations to using Amazon S3 operations are the following:
 - Maximum object size is 5 GB for uploads, but you can download objects larger than that
 - `FSX_ONTAP` is the only supported storage class
 - SSE-FSX is the only supported server-side encryption mode
-- The following Amazon S3 features are not supported: access control lists (ACLs), Requester Pays, Object Versioning, Object Lock, Object Lifecycle, Static Website Hosting (e.g., website redirection), multi-factor authentication (MFA), and conditional writes
+- The following Amazon S3 features are not supported: access control lists (ACLs) other than `bucket-owner-full-control`, Requester Pays, Object Versioning, Object Lock, Object Lifecycle, Static Website Hosting (e.g., website redirection), multi-factor authentication (MFA), and conditional writes
   For examples of using access points to perform data access operations on file data, see
   [Using access points](access-points-for-fsxn-usage-examples.md "access-points-for-fsxn-usage-examples.md").
 
@@ -73,3 +73,7 @@ Multipart upload allows you to upload a single object as a set of parts. Each pa
 - The parts associated with in-progress multipart uploads (i.e. incomplete uploads) are not included in FSx for ONTAP volume backups.
 - The used storage associated with in-progress multipart upload (i.e. incomplete upload) parts is not reflected in the destination volume’s `StorageUsed` storage capacity CloudWatch metric but is reflected in the parent file system’s `StorageUsed` storage capacity CloudWatch metric.
 - Once a multipart upload operation is complete, the associated part metadata is no longer stored with the object. This means you cannot retrieve object part metdata using `GetObjectAttributes` or download a single part of an object by the part number of the object being read.
+
+###### Access Control List (ACL)
+
+Amazon S3 access control lists (ACLs) enable you to manage access to buckets and objects. S3 access points for FSx only support the `bucket-owner-full-control` ACL value. Using any other ACL value will result in a `InvalidArgument` exception.

@@ -1,8 +1,12 @@
 # Creating access points
 
+###### Important
+
+To attach an S3 access point to an FSx for ONTAP volume, the volume must be mounted (have a junction path). See [ONTAP documentation](https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html "https://docs.netapp.com/us-en/ontap/nfs-admin/mount-unmount-existing-volumes-nas-namespace-task.html") for more details.
+
 The FSx for ONTAP volume must already exist in your account when creating an S3 access point for your volume.
 
-To create the S3 access point attached to an FSx for OpenZFS volume, you specify the following properties:
+To create the S3 access point attached to an FSx for ONTAP volume, you specify the following properties:
 
 - The access point name. For information about access point naming rules, see
   [Access points naming rules](access-point-for-fsxn-restrictions-limitations-naming-rules.md#access-points-for-fsxn-naming-rules "access-point-for-fsxn-restrictions-limitations-naming-rules.md#access-points-for-fsxn-naming-rules").
