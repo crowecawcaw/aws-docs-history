@@ -13,7 +13,7 @@ You can configure the visible fields in the top navigation bar by selecting the 
 icon. To view more details in a split panel view, use the picker to select a template,
 and then select the caret (^) icon at the bottom-right corner of the page.
 
-![Session templates interface showing three templates with Linux and Windows options.](/images/dcv/latest/access-console/images/session-template.png)
+![Session templates interface showing three templates with Linux and Windows options.](images/session-template.png)
 
 ## Session template
 

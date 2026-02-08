@@ -13,6 +13,7 @@ This section provides release notes for the Amazon DCV Access Console by release
 
 ###### Topics
 
+- [2025.0-175 — February 2, 2026](#2025.0-175 "#2025.0-175")
 - [2025.0-168 — December 23, 2025](#2025.0-168 "#2025.0-168")
 - [2025.0-159 — November 12, 2025](#2025.0-159 "#2025.0-159")
 - [2025.0-155 — October 23, 2025](#2025.0-155 "#2025.0-155")
@@ -22,6 +23,12 @@ This section provides release notes for the Amazon DCV Access Console by release
 - [2023.1-57 — August 1, 2024](#2023.1-57 "#2023.1-57")
 - [2023.1-20 — June 26, 2024](#2023.1-20 "#2023.1-20")
 - [2023.1 — June 13, 2024](#2023.1 "#2023.1")
+
+### 2025.0-175 — February 2, 2026
+
+| Build numbers                                                                                                     | Release notes                                                                                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Version: 2025.0-175<br>• Web Client: 175<br>• Handler: 175<br>• Authentication Server: 175<br>• Setup Wizard: 175 | • Added `jwt-default-groups-claim-key` and `jwt-role-claim-key` parameters in the Handler configuration to support role and group assignment from external OAuth claims.<br>• Added `loginUsername` support to CSV user import.<br>• Replaced `userId` values with `loginUsername` values for display throughout the user interface and added support for filtering and sorting on these values. |
 
 ### 2025.0-168 — December 23, 2025
 
@@ -83,6 +90,7 @@ The following table describes the documentation for this release of Amazon DCV A
 
 | Change                        | Description                                                                                                                                                    | Date              |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Amazon DCV Version 2025.0-175 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-175. For more information, see<br>[2025.0-175--February 2, 2026](#2025.0-175 "#2025.0-175").  | February 2, 2026  |
 | Amazon DCV Version 2025.0-168 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-168. For more information, see<br>[2025.0-168--December 23, 2025](#2025.0-168 "#2025.0-168"). | December 23, 2025 |
 | Amazon DCV Version 2025.0-159 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-159. For more information, see<br>[2025.0-159--November 12, 2025](#2025.0-159 "#2025.0-159"). | November 12, 2025 |
 | Amazon DCV Version 2025.0-155 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-155. For more information, see<br>[2025.0-155--October 23, 2025](#2025.0-155 "#2025.0-155").  | October 23, 2025  |
